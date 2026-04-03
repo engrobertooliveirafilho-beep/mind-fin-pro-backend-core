@@ -19,3 +19,12 @@ def health():
 
 app.include_router(build_router)
 app.include_router(mind_talk_router)
+
+@app.get("/build-id")
+def build_id():
+    return {"build_id": "mind-fin-pro-backend-core-main"}
+
+@app.get("/health/env")
+def health_env():
+    return {"status": "ok", "service": "mind-fin-pro-backend", "env": "render"}
+
