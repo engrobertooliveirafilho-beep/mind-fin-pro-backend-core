@@ -23,9 +23,12 @@ def ensure_table():
                 CREATE TABLE IF NOT EXISTS neura_memory (
                     id BIGSERIAL PRIMARY KEY,
                     sender_id TEXT NOT NULL,
-                    message TEXT NOT NULL,
+                    message TEXT,
                     created_at TIMESTAMPTZ DEFAULT NOW()
                 );
+                ALTER TABLE neura_memory ADD COLUMN IF NOT EXISTS message TEXT;
+                ALTER TABLE neura_memory ADD COLUMN IF NOT EXISTS sender_id TEXT;
+                ALTER TABLE neura_memory ADD COLUMN IF NOT EXISTS created_at TIMESTAMPTZ DEFAULT NOW();
                 """)
         LAST_DB_ERROR = None
         print("NEURA_MEMORY_TABLE_READY")
@@ -121,4 +124,5 @@ def version():
         "commit": "09d6455",
         "runtime": "postgres_memory_runtime"
     }
+
 
