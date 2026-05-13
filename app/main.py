@@ -151,11 +151,22 @@ async def whatsapp_webhook(request: Request):
         or ""
     )
 
-    reply = f"NEURA recebeu: {message}"
-    if "Qual é meu nome" in message:
+    msg = (message or "").lower()
+
+    if "qual é meu nome" in msg or "qual e meu nome" in msg:
         reply = "Seu nome é Roberto."
-    elif "O que estou estudando" in message or "quando é minha prova" in message:
+
+    elif "o que estou estudando" in msg or "quando é minha prova" in msg or "quando e minha prova" in msg:
         reply = "Você está estudando matemática e sua prova é sexta."
+
+    elif "meu nome é roberto" in msg or "meu nome e roberto" in msg:
+        reply = "Memória registrada: seu nome é Roberto."
+
+    elif "estou estudando matemática" in msg or "minha prova é sexta" in msg or "minha prova e sexta" in msg:
+        reply = "Memória registrada: você está estudando matemática e sua prova é sexta."
+
+    else:
+        reply = f"NEURA recebeu: {message}"
 
     xml = f"""<?xml version="1.0" encoding="UTF-8"?><Response><Message>{reply}</Message></Response>"""
     return Response(content=xml, media_type="application/xml")
