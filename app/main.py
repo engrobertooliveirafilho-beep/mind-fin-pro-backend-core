@@ -37,12 +37,12 @@ def ensure_table():
 
 ensure_table()
 
-def memory_insert(sender_id, message):
+def memory_insert(sender_id, message, message):
     global LAST_INSERT_ERROR
     try:
         with db_conn() as conn:
             with conn.cursor() as cur:
-                cur.execute("INSERT INTO neura_memory(sender_id,message) VALUES (%s,%s)", (sender_id, message))
+                cur.execute("INSERT INTO neura_memory(sender_id,message,content) VALUES (%s,%s,%s)", (sender_id, message, message))
         LAST_INSERT_ERROR = None
         return True
     except Exception as e:
@@ -106,7 +106,7 @@ async def mind_talk(payload: dict):
 async def whatsapp_webhook(payload: dict):
     sender_id = payload.get("sender_id","unknown")
     message = payload.get("message","")
-    inserted = memory_insert(sender_id, message)
+    inserted = memory_insert(sender_id, message, message)
     history = memory_fetch(sender_id)
     return {
         "status":"ok",
@@ -118,3 +118,4 @@ async def whatsapp_webhook(payload: dict):
         "fetch_error":LAST_FETCH_ERROR,
         "echo":payload
     }
+
