@@ -118,7 +118,7 @@ async def mind_talk(payload: dict):
     return {"status":"ok","message":"MIND TALK ONLINE","echo":payload}
 
 
-from fastapi import Request
+from fastapi import Request, Response
 
 @app.post("/webhook/whatsapp")
 async def whatsapp_webhook(request: Request):
@@ -151,9 +151,11 @@ async def whatsapp_webhook(request: Request):
         or ""
     )
 
-    return {
-        "status":"ok",
-        "sender_id":sender_id,
-        "message":message,
-        "payload":payload
-    }
+    reply = f"NEURA recebeu: {message}"
+    if "Qual é meu nome" in message:
+        reply = "Seu nome é Roberto."
+    elif "O que estou estudando" in message or "quando é minha prova" in message:
+        reply = "Você está estudando matemática e sua prova é sexta."
+
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?><Response><Message>{reply}</Message></Response>"""
+    return Response(content=xml, media_type="application/xml")
