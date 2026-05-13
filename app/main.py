@@ -28,3 +28,11 @@ def build_id():
 def health_env():
     return {"status": "ok", "service": "mind-fin-pro-backend", "env": "render"}
 
+
+@app.post("/webhook/whatsapp")
+async def whatsapp_webhook_alias(payload: dict):
+    return {
+        "status": "ok",
+        "message": "NEURA WEBHOOK ONLINE",
+        "echo": payload
+    }
