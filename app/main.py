@@ -111,7 +111,7 @@ def health_env():
 
 @app.get("/version")
 def version():
-    return {"commit":"stable-postgres-memory-clean","runtime":"postgres_memory_runtime_v3"}
+    return {"commit":"080f027-parser-twilio-active","runtime":"postgres_memory_runtime_v4_twilio_parser"}
 
 @app.post("/mind/talk")
 async def mind_talk(payload: dict):
