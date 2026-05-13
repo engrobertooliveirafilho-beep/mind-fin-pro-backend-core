@@ -117,32 +117,43 @@ def version():
 async def mind_talk(payload: dict):
     return {"status":"ok","message":"MIND TALK ONLINE","echo":payload}
 
+
+from fastapi import Request
+
 @app.post("/webhook/whatsapp")
-async def whatsapp_webhook(payload: dict):
+async def whatsapp_webhook(request: Request):
+
+    payload = {}
+
     try:
-        sender_id = payload.get("sender_id","unknown")
-        message = payload.get("message","")
-        inserted = memory_insert(sender_id, message)
-        history = memory_fetch(sender_id)
-        response = answer(message, history)
-        safe_history = []
-        for h in history[-5:]:
-            safe_history.append({
-                "id": str(h.get("id")),
-                "sender_id": str(h.get("sender_id")),
-                "message": text_of(h),
-                "created_at": str(h.get("created_at"))
-            })
-        return {
-            "status":"ok",
-            "response":response,
-            "inserted":inserted,
-            "history_count":len(history),
-            "table_error":LAST_TABLE_ERROR,
-            "insert_error":LAST_INSERT_ERROR,
-            "fetch_error":LAST_FETCH_ERROR,
-            "history":safe_history,
-            "echo":payload
-        }
+        ctype = request.headers.get("content-type","")
+
+        if "application/json" in ctype:
+            payload = await request.json()
+        else:
+            form = await request.form()
+            payload = dict(form)
+
     except Exception as e:
-        return {"status":"error","runtime_error":str(e),"echo":payload}
+        payload = {"parser_error": str(e)}
+
+    sender_id = (
+        payload.get("From")
+        or payload.get("from")
+        or payload.get("sender_id")
+        or "unknown"
+    )
+
+    message = (
+        payload.get("Body")
+        or payload.get("body")
+        or payload.get("message")
+        or ""
+    )
+
+    return {
+        "status":"ok",
+        "sender_id":sender_id,
+        "message":message,
+        "payload":payload
+    }
