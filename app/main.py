@@ -71,38 +71,49 @@ def health_env():
     return {"status": "ok", "service": "mind-fin-pro-backend", "env": "render"}
 
 
+
+
+
+
+
 @app.post("/webhook/whatsapp")
 async def whatsapp_webhook_alias(payload: dict):
-    memory_insert(payload.get("sender_id"), payload.get("message"))
 
-history=memory_fetch(payload.get("sender_id"))
+    sender_id = payload.get("sender_id", "unknown")
+    message = payload.get("message", "")
 
-msg=payload.get("message","").lower()
+    memory_insert(sender_id, message)
+    history = memory_fetch(sender_id)
 
-response="NEURA WEBHOOK ONLINE"
+    response = "NEURA WEBHOOK ONLINE"
 
-if "qual é meu nome" in msg or "qual e meu nome" in msg:
-    for h in history:
-        if "meu nome é" in h["message"].lower() or "meu nome e" in h["message"].lower():
-            response=h["message"].split("é")[-1].strip()
-            break
+    lower = message.lower()
 
-elif "o que estou estudando" in msg:
-    for h in history:
-        if "estou estudando" in h["message"].lower():
-            response=h["message"]
-            break
+    if "qual é meu nome" in lower or "qual e meu nome" in lower:
+        for h in history:
+            m = h.get("message","")
+            if "meu nome é" in m.lower() or "meu nome e" in m.lower():
+                response = m.split("é")[-1].strip()
+                break
 
-elif "quando é minha prova" in msg or "quando e minha prova" in msg:
-    for h in history:
-        if "prova" in h["message"].lower():
-            response=h["message"]
-            break
+    elif "o que estou estudando" in lower:
+        for h in history:
+            m = h.get("message","")
+            if "estou estudando" in m.lower():
+                response = m
+                break
 
-return {
-    "status":"ok",
-    "response":response,
-    "history_count":len(history),
-    "echo":payload
-}
+    elif "quando é minha prova" in lower or "quando e minha prova" in lower:
+        for h in history:
+            m = h.get("message","")
+            if "prova" in m.lower():
+                response = m
+                break
+
+    return {
+        "status": "ok",
+        "response": response,
+        "history_count": len(history),
+        "echo": payload
+    }
 
