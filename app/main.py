@@ -114,3 +114,11 @@ async def whatsapp_webhook(payload: dict):
         "last_db_error":LAST_DB_ERROR,
         "echo":payload
     }
+
+@app.get("/version")
+def version():
+    return {
+        "commit": "09d6455",
+        "runtime": "postgres_memory_runtime"
+    }
+
