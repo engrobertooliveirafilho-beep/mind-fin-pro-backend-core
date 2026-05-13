@@ -37,7 +37,7 @@ def ensure_table():
 
 ensure_table()
 
-def memory_insert(sender_id, message, message):
+def memory_insert(sender_id, message):
     global LAST_INSERT_ERROR
     try:
         with db_conn() as conn:
@@ -118,4 +118,5 @@ async def whatsapp_webhook(payload: dict):
         "fetch_error":LAST_FETCH_ERROR,
         "echo":payload
     }
+
 
