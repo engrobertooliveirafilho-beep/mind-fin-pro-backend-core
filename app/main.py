@@ -102,21 +102,41 @@ def version():
 async def mind_talk(payload: dict):
     return {"status":"ok","message":"MIND TALK ONLINE","echo":payload}
 
+'
 @app.post("/webhook/whatsapp")
 async def whatsapp_webhook(payload: dict):
-    sender_id = payload.get("sender_id","unknown")
-    message = payload.get("message","")
-    inserted = memory_insert(sender_id, message, message)
-    history = memory_fetch(sender_id)
-    return {
-        "status":"ok",
-        "response":answer(message, history),
-        "inserted":inserted,
-        "history_count":len(history),
-        "table_error":LAST_TABLE_ERROR,
-        "insert_error":LAST_INSERT_ERROR,
-        "fetch_error":LAST_FETCH_ERROR,
-        "echo":payload
-    }
+    try:
+        sender_id = payload.get("sender_id","unknown")
+        message = payload.get("message","")
 
+        inserted = memory_insert(sender_id, message)
+        history = memory_fetch(sender_id)
+        response = answer(message, history)
 
+        safe_history = []
+        for h in history:
+            safe_history.append({
+                "id": str(h.get("id")),
+                "sender_id": str(h.get("sender_id")),
+                "message": str(h.get("message")),
+                "created_at": str(h.get("created_at"))
+            })
+
+        return {
+            "status":"ok",
+            "response":response,
+            "inserted":inserted,
+            "history_count":len(history),
+            "table_error":LAST_TABLE_ERROR,
+            "insert_error":LAST_INSERT_ERROR,
+            "fetch_error":LAST_FETCH_ERROR,
+            "history":safe_history[-5:],
+            "echo":payload
+        }
+    except Exception as e:
+        return {
+            "status":"error",
+            "runtime_error":str(e),
+            "payload":payload
+        }
+'
