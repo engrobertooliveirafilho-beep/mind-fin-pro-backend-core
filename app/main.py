@@ -24,12 +24,18 @@ def ensure_table():
                 CREATE TABLE IF NOT EXISTS neura_memory (
                     id BIGSERIAL PRIMARY KEY,
                     sender_id TEXT,
-                    message TEXT,
-                    created_at TIMESTAMPTZ DEFAULT NOW()
+                    role TEXT DEFAULT 'conversation',
+                    content TEXT,
+                    confidence DOUBLE PRECISION DEFAULT 0.8,
+                    created_at TIMESTAMPTZ DEFAULT NOW(),
+                    message TEXT
                 );
                 ALTER TABLE neura_memory ADD COLUMN IF NOT EXISTS sender_id TEXT;
-                ALTER TABLE neura_memory ADD COLUMN IF NOT EXISTS message TEXT;
+                ALTER TABLE neura_memory ADD COLUMN IF NOT EXISTS role TEXT DEFAULT 'conversation';
+                ALTER TABLE neura_memory ADD COLUMN IF NOT EXISTS content TEXT;
+                ALTER TABLE neura_memory ADD COLUMN IF NOT EXISTS confidence DOUBLE PRECISION DEFAULT 0.8;
                 ALTER TABLE neura_memory ADD COLUMN IF NOT EXISTS created_at TIMESTAMPTZ DEFAULT NOW();
+                ALTER TABLE neura_memory ADD COLUMN IF NOT EXISTS message TEXT;
                 """)
         LAST_TABLE_ERROR = None
     except Exception as e:
@@ -42,7 +48,10 @@ def memory_insert(sender_id, message):
     try:
         with db_conn() as conn:
             with conn.cursor() as cur:
-                cur.execute("INSERT INTO neura_memory(sender_id,message,content) VALUES (%s,%s,%s)", (sender_id, message, message))
+                cur.execute(
+                    "INSERT INTO neura_memory(sender_id,role,content,confidence,message) VALUES (%s,%s,%s,%s,%s)",
+                    (sender_id, "conversation", message, 0.8, message)
+                )
         LAST_INSERT_ERROR = None
         return True
     except Exception as e:
@@ -54,7 +63,10 @@ def memory_fetch(sender_id):
     try:
         with db_conn() as conn:
             with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
-                cur.execute("SELECT id,sender_id,message,created_at FROM neura_memory WHERE sender_id=%s ORDER BY id ASC LIMIT 50", (sender_id,))
+                cur.execute(
+                    "SELECT id,sender_id,content,message,created_at FROM neura_memory WHERE sender_id=%s ORDER BY created_at ASC LIMIT 50",
+                    (sender_id,)
+                )
                 rows = cur.fetchall()
         LAST_FETCH_ERROR = None
         return [dict(r) for r in rows]
@@ -62,21 +74,24 @@ def memory_fetch(sender_id):
         LAST_FETCH_ERROR = str(e)
         return []
 
+def text_of(row):
+    return (row.get("message") or row.get("content") or "")
+
 def answer(message, history):
     lower = message.lower()
     if "qual é meu nome" in lower or "qual e meu nome" in lower:
         for h in history:
-            m = h.get("message") or ""
+            m = text_of(h)
             if "meu nome é" in m.lower():
                 return m.split("é",1)[-1].strip()
     if "o que estou estudando" in lower:
         for h in history:
-            m = h.get("message") or ""
+            m = text_of(h)
             if "estou estudando" in m.lower():
                 return m
     if "quando é minha prova" in lower or "quando e minha prova" in lower:
         for h in history:
-            m = h.get("message") or ""
+            m = text_of(h)
             if "prova" in m.lower():
                 return m
     return "NEURA WEBHOOK ONLINE"
@@ -96,32 +111,28 @@ def health_env():
 
 @app.get("/version")
 def version():
-    return {"commit":"debug-db-errors","runtime":"postgres_memory_runtime_v2"}
+    return {"commit":"stable-postgres-memory-clean","runtime":"postgres_memory_runtime_v3"}
 
 @app.post("/mind/talk")
 async def mind_talk(payload: dict):
     return {"status":"ok","message":"MIND TALK ONLINE","echo":payload}
 
-'
 @app.post("/webhook/whatsapp")
 async def whatsapp_webhook(payload: dict):
     try:
         sender_id = payload.get("sender_id","unknown")
         message = payload.get("message","")
-
         inserted = memory_insert(sender_id, message)
         history = memory_fetch(sender_id)
         response = answer(message, history)
-
         safe_history = []
-        for h in history:
+        for h in history[-5:]:
             safe_history.append({
                 "id": str(h.get("id")),
                 "sender_id": str(h.get("sender_id")),
-                "message": str(h.get("message")),
+                "message": text_of(h),
                 "created_at": str(h.get("created_at"))
             })
-
         return {
             "status":"ok",
             "response":response,
@@ -130,13 +141,8 @@ async def whatsapp_webhook(payload: dict):
             "table_error":LAST_TABLE_ERROR,
             "insert_error":LAST_INSERT_ERROR,
             "fetch_error":LAST_FETCH_ERROR,
-            "history":safe_history[-5:],
+            "history":safe_history,
             "echo":payload
         }
     except Exception as e:
-        return {
-            "status":"error",
-            "runtime_error":str(e),
-            "payload":payload
-        }
-'
+        return {"status":"error","runtime_error":str(e),"echo":payload}
