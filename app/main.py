@@ -127,12 +127,12 @@ from fastapi import Request, Response
 
 @app.post("/webhook/whatsapp")
 async def whatsapp_webhook(request: Request):
-    payload={}
-    try:
-        ctype=request.headers.get("content-type","")
-        payload=await request.json() if "application/json" in ctype else dict(await request.form())
-    except Exception as e:
-        payload={"parser_error":str(e)}
+    ctype=request.headers.get("content-type","")
+    if "application/json" in ctype:
+        payload=await request.json()
+    else:
+        form=await request.form()
+        payload=dict(form)
 
     sender_id=payload.get("From") or payload.get("from") or payload.get("sender_id") or "unknown"
     message=payload.get("Body") or payload.get("body") or payload.get("message") or ""
@@ -147,18 +147,7 @@ async def whatsapp_webhook(request: Request):
 
     history=memory.history(sender_id)
     context=retrieval.retrieve(message,history)
-    facts = context.get("facts", {}) if isinstance(context, dict) else {}
-
-    msg_low = (message or "").lower()
-
-    if "nome" in msg_low and facts.get("nome"):
-        reply = f"Seu nome é {facts.get('nome')}."
-    elif ("estudando" in msg_low or "estudo" in msg_low) and facts.get("estudo"):
-        reply = f"Você está estudando {facts.get('estudo')}."
-    elif "prova" in msg_low and facts.get("prova"):
-        reply = f"Sua prova é {facts.get('prova')}."
-    else:
-        reply=orchestrator.answer(message,context)
+    reply=orchestrator.answer(message,context)
 
     return Response(content=builder.twiml(reply), media_type="application/xml")
 
