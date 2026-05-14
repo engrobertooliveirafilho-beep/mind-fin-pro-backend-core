@@ -1,3 +1,4 @@
+from app.medical_curriculum.routes import router as medical_curriculum_router
 from app.auto_ingestion.routes import router as auto_ingestion_router
 from app.medical_research.routes import router as medical_research_router
 from app.medical_swarm.validation_routes import router as medical_validation_router
@@ -204,4 +205,7 @@ app.include_router(medical_research_router)
 
 
 app.include_router(auto_ingestion_router)
+
+
+app.include_router(medical_curriculum_router)
 
