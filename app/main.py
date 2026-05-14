@@ -127,18 +127,24 @@ from fastapi import Request, Response
 
 @app.post("/webhook/whatsapp")
 async def whatsapp_webhook(request: Request):
-    ctype=request.headers.get("content-type","")
-    if "application/json" in ctype:
-        payload=await request.json()
-    else:
-        form=await request.form()
-        payload=dict(form)
-
-    sender_id=payload.get("From") or payload.get("from") or payload.get("sender_id") or "unknown"
-    message=payload.get("Body") or payload.get("body") or payload.get("message") or ""
-
+    from app.runtime.response_builder import ResponseBuilder
     builder=ResponseBuilder()
+
     try:
+        ctype=request.headers.get("content-type","")
+        if "application/json" in ctype:
+            payload=await request.json()
+        else:
+            form=await request.form()
+            payload=dict(form)
+
+        sender_id=payload.get("From") or payload.get("from") or payload.get("sender_id") or "unknown"
+        message=payload.get("Body") or payload.get("body") or payload.get("message") or ""
+
+        from app.memory.provider import MemoryProvider
+        from app.retrieval.provider import RetrievalProvider
+        from app.orchestrator.prompt_orchestrator import PromptOrchestrator
+
         memory=MemoryProvider()
         retrieval=RetrievalProvider()
         orchestrator=PromptOrchestrator()
@@ -151,7 +157,7 @@ async def whatsapp_webhook(request: Request):
         reply=orchestrator.answer(message,context)
 
     except Exception as e:
-        reply=f"WEBHOOK_ERROR: {type(e).__name__}: {str(e)[:160]}"
+        reply=f"WEBHOOK_ERROR_TOTAL: {type(e).__name__}: {str(e)[:180]}"
 
     return Response(content=builder.twiml(reply), media_type="application/xml")
 
