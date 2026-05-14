@@ -1,4 +1,9 @@
+from pathlib import Path
 
+p=Path("app/orchestrator/prompt_orchestrator.py")
+txt=p.read_text(encoding="utf-8")
+
+txt=r'''
 class PromptOrchestrator:
     def answer(self, message, context):
         msg=(message or "").lower()
@@ -50,3 +55,7 @@ class PromptOrchestrator:
             return "Memória registrada."
 
         return "\n".join(dict.fromkeys(responses))
+'''
+
+p.write_text(txt,encoding="utf-8")
+print("ORCHESTRATOR_MULTILINE_PATCH_OK")
