@@ -147,7 +147,19 @@ async def whatsapp_webhook(request: Request):
 
     history=memory.history(sender_id)
     context=retrieval.retrieve(message,history)
-    reply=orchestrator.answer(message,context)
+    facts = context.get("facts", {}) if isinstance(context, dict) else {}
+
+    msg_low = (message or "").lower()
+
+    if "nome" in msg_low and facts.get("nome"):
+        reply = f"Seu nome é {facts.get('nome')}."
+    elif ("estudando" in msg_low or "estudo" in msg_low) and facts.get("estudo"):
+        reply = f"Você está estudando {facts.get('estudo')}."
+    elif "prova" in msg_low and facts.get("prova"):
+        reply = f"Sua prova é {facts.get('prova')}."
+    else:
+        reply=orchestrator.answer(message,context)
+
     return Response(content=builder.twiml(reply), media_type="application/xml")
 
 from app.admin.semantic_activation import router as semantic_activation_router
