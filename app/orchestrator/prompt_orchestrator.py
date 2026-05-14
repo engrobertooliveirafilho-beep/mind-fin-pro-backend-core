@@ -7,6 +7,9 @@ except Exception:
 
 
 class PromptOrchestrator:
+    def answer(self, message: str, memory_context: str = "", retrieved_context: str = "", **kwargs) -> str:
+        return self.run(message=message, memory_context=memory_context, retrieved_context=retrieved_context)
+
     def __init__(self):
         self.classifier = IntentClassifierV2() if IntentClassifierV2 else None
         self.engine = ResponseGenerationEngine() if ResponseGenerationEngine else None
@@ -39,3 +42,4 @@ class PromptOrchestrator:
             )
 
         return "Entendi. Me diga a matéria ou dúvida que eu organizo e explico."
+
