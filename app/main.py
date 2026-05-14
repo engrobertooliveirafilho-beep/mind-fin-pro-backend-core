@@ -1,3 +1,4 @@
+from app.medical_swarm.validation_routes import router as medical_validation_router
 from app.medical_swarm.routes import router as medical_swarm_router
 from app.admin.env_audit import router as env_audit_router
 from app.multi_llm.provider_routes import router as provider_routes_router
@@ -192,4 +193,7 @@ app.include_router(env_audit_router)
 
 
 app.include_router(medical_swarm_router)
+
+
+app.include_router(medical_validation_router)
 
