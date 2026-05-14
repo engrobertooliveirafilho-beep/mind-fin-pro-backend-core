@@ -14,7 +14,7 @@ class PromptOrchestrator:
         if "meu nome é" in msg:
             return "Informação registrada e contexto atualizado."
 
-        if "estou estudando" in msg:
+        if "estou estudando" in msg and "o que" not in msg and "?" not in msg:
             return "Contexto de estudo registrado."
 
         if not nome and "roberto" in history:
