@@ -1,10 +1,54 @@
 from app.multi_llm.providers.base_provider import GenericHTTPProvider
 
 def anthropic():
-    return GenericHTTPProvider("anthropic","ANTHROPIC","https://api.anthropic.com/v1/messages",
-        lambda k: {"x-api-key":k,"anthropic-version":"2023-06-01","content-type":"application/json"},
-        lambda m: {"model":"claude-3-5-haiku-latest","max_tokens":700,"messages":[{"role":"user","content":m}]},
-        lambda d: d["content"][0]["text"])
+
+    def extract(data):
+
+        try:
+
+            if "content" in data and len(data["content"]) > 0:
+
+                block=data["content"][0]
+
+                if isinstance(block,dict):
+
+                    if "text" in block:
+                        return block["text"]
+
+                    if "content" in block:
+                        return str(block["content"])
+
+                return str(block)
+
+            if "error" in data:
+                return f"ANTHROPIC_API_ERROR: {data['error']}"
+
+            return str(data)
+
+        except Exception as e:
+            return f"ANTHROPIC_PARSE_ERROR: {str(e)}"
+
+    return GenericHTTPProvider(
+        "anthropic",
+        "ANTHROPIC",
+        "https://api.anthropic.com/v1/messages",
+        lambda k: {
+            "x-api-key":k,
+            "anthropic-version":"2023-06-01",
+            "content-type":"application/json"
+        },
+        lambda m: {
+            "model":"claude-3-5-haiku-latest",
+            "max_tokens":700,
+            "messages":[
+                {
+                    "role":"user",
+                    "content":m
+                }
+            ]
+        },
+        extract
+    )
 
 def deepseek():
     return GenericHTTPProvider("deepseek","DEEPSEEK","https://api.deepseek.com/chat/completions",
@@ -50,3 +94,4 @@ def speechmatics():
 
 def cohere():
     return GenericHTTPProvider("cohere","COHERE")
+
