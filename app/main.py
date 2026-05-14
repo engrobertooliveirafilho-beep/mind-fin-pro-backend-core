@@ -115,7 +115,7 @@ def health_env():
 
 @app.get("/version")
 def version():
-    return {"commit":"080f027-parser-twilio-active","runtime":"postgres_memory_runtime_v4_twilio_parser"}
+    return {"commit":"1997cf6","runtime":"semantic_runtime_build"}
 
 @app.post("/mind/talk")
 async def mind_talk(payload: dict):
@@ -152,4 +152,5 @@ async def whatsapp_webhook(request: Request):
 
 from app.admin.semantic_activation import router as semantic_activation_router
 app.include_router(semantic_activation_router)
+
 
