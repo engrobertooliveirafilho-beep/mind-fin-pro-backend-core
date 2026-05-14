@@ -171,3 +171,24 @@ def debug_context(payload: dict, x_admin_token: str = Header(default="")):
         "context": context
     }
 
+
+@router.post("/admin/debug/orchestrator")
+def debug_orchestrator(payload: dict, x_admin_token: str = Header(default="")):
+    _check(x_admin_token)
+
+    from app.orchestrator.prompt_orchestrator import PromptOrchestrator
+    from app.memory.provider import MemoryProvider
+    from app.retrieval.provider import RetrievalProvider
+
+    sender_id = payload.get("sender_id","whatsapp:+5519996166906")
+    message = payload.get("message","Qual é meu nome?")
+
+    history = MemoryProvider().history(sender_id)
+    context = RetrievalProvider().retrieve(message, history)
+    reply = PromptOrchestrator().answer(message, context)
+
+    return {
+        "message": message,
+        "context": context,
+        "reply": reply
+    }
