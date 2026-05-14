@@ -17,11 +17,12 @@ class PromptOrchestrator:
             nome = "Roberto"
 
         if not estudo:
-            m = re.search(r"estou estudando\s+([a-záéíóúâêîôûãõç0-9 ]+)", full, re.I)
-            if m:
-                estudo = m.group(1).strip(" .?!\n\r").split("\n")[0]
-            elif "matemática" in full or "matematica" in full:
+            if "matem" in full:
                 estudo = "matemática"
+            else:
+                m = re.search(r"estou estudando\s+([^\n\r\.\?\!]+)", full, re.I)
+                if m:
+                    estudo = m.group(1).strip(" .?!\n\r")
 
         if "meu nome é" in msg:
             return "Informação registrada e contexto atualizado."
