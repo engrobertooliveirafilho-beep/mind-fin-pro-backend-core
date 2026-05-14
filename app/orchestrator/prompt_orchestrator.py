@@ -1,3 +1,5 @@
+import json
+
 try:
     from app.intent.intent_classifier_v2 import IntentClassifierV2
     from app.runtime.response_generation_engine import ResponseGenerationEngine
@@ -6,23 +8,36 @@ except Exception:
     ResponseGenerationEngine = None
 
 
-class PromptOrchestrator:
-    def answer(self, message: str, memory_context: str = "", retrieved_context: str = "", **kwargs) -> str:
-        return self.run(message=message, memory_context=memory_context, retrieved_context=retrieved_context)
+def _safe_text(value) -> str:
+    if value is None:
+        return ""
+    if isinstance(value, str):
+        return value
+    try:
+        return json.dumps(value, ensure_ascii=False, default=str)
+    except Exception:
+        return str(value)
 
+
+class PromptOrchestrator:
     def __init__(self):
         self.classifier = IntentClassifierV2() if IntentClassifierV2 else None
         self.engine = ResponseGenerationEngine() if ResponseGenerationEngine else None
 
-    def build_response(self, message: str, memory_context: str = "", retrieved_context: str = "") -> str:
-        return self.run(message=message, memory_context=memory_context, retrieved_context=retrieved_context)
+    def answer(self, message: str, memory_context="", retrieved_context="", **kwargs) -> str:
+        return self.run(message=message, memory_context=memory_context, retrieved_context=retrieved_context, **kwargs)
 
-    def orchestrate(self, message: str, memory_context: str = "", retrieved_context: str = "") -> str:
-        return self.run(message=message, memory_context=memory_context, retrieved_context=retrieved_context)
+    def build_response(self, message: str, memory_context="", retrieved_context="", **kwargs) -> str:
+        return self.run(message=message, memory_context=memory_context, retrieved_context=retrieved_context, **kwargs)
 
-    def run(self, message: str, memory_context: str = "", retrieved_context: str = "") -> str:
-        msg = message or ""
-        ctx = "\n".join([x for x in [memory_context, retrieved_context] if x])
+    def orchestrate(self, message: str, memory_context="", retrieved_context="", **kwargs) -> str:
+        return self.run(message=message, memory_context=memory_context, retrieved_context=retrieved_context, **kwargs)
+
+    def run(self, message: str, memory_context="", retrieved_context="", **kwargs) -> str:
+        msg = _safe_text(message)
+        ctx_parts = [_safe_text(memory_context), _safe_text(retrieved_context)]
+        extra_parts = [_safe_text(v) for v in kwargs.values() if v is not None]
+        ctx = "\n".join([x for x in (ctx_parts + extra_parts) if x.strip()])
 
         if self.classifier and self.engine:
             intent = self.classifier.classify(msg)
@@ -42,4 +57,3 @@ class PromptOrchestrator:
             )
 
         return "Entendi. Me diga a matéria ou dúvida que eu organizo e explico."
-
