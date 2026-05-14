@@ -1,4 +1,8 @@
-from fastapi import FastAPI
+from app.memory.provider import MemoryProvider
+from app.retrieval.provider import RetrievalProvider
+from app.orchestrator.prompt_orchestrator import PromptOrchestrator
+from app.runtime.response_builder import ResponseBuilder
+from fastapi import FastAPI, Request, Response
 import os
 import psycopg2
 import psycopg2.extras
@@ -120,53 +124,28 @@ async def mind_talk(payload: dict):
 
 from fastapi import Request, Response
 
+
 @app.post("/webhook/whatsapp")
 async def whatsapp_webhook(request: Request):
-
-    payload = {}
-
+    payload={}
     try:
-        ctype = request.headers.get("content-type","")
-
-        if "application/json" in ctype:
-            payload = await request.json()
-        else:
-            form = await request.form()
-            payload = dict(form)
-
+        ctype=request.headers.get("content-type","")
+        payload=await request.json() if "application/json" in ctype else dict(await request.form())
     except Exception as e:
-        payload = {"parser_error": str(e)}
+        payload={"parser_error":str(e)}
 
-    sender_id = (
-        payload.get("From")
-        or payload.get("from")
-        or payload.get("sender_id")
-        or "unknown"
-    )
+    sender_id=payload.get("From") or payload.get("from") or payload.get("sender_id") or "unknown"
+    message=payload.get("Body") or payload.get("body") or payload.get("message") or ""
 
-    message = (
-        payload.get("Body")
-        or payload.get("body")
-        or payload.get("message")
-        or ""
-    )
+    memory=MemoryProvider()
+    retrieval=RetrievalProvider()
+    orchestrator=PromptOrchestrator()
+    builder=ResponseBuilder()
 
-    msg = (message or "").lower()
+    if message:
+        memory.save(sender_id,message)
 
-    if "qual é meu nome" in msg or "qual e meu nome" in msg:
-        reply = "Seu nome é Roberto."
-
-    elif "o que estou estudando" in msg or "quando é minha prova" in msg or "quando e minha prova" in msg:
-        reply = "Você está estudando matemática e sua prova é sexta."
-
-    elif "meu nome é roberto" in msg or "meu nome e roberto" in msg:
-        reply = "Memória registrada: seu nome é Roberto."
-
-    elif "estou estudando matemática" in msg or "minha prova é sexta" in msg or "minha prova e sexta" in msg:
-        reply = "Memória registrada: você está estudando matemática e sua prova é sexta."
-
-    else:
-        reply = f"NEURA recebeu: {message}"
-
-    xml = f"""<?xml version="1.0" encoding="UTF-8"?><Response><Message>{reply}</Message></Response>"""
-    return Response(content=xml, media_type="application/xml")
+    history=memory.history(sender_id)
+    context=retrieval.retrieve(message,history)
+    reply=orchestrator.answer(message,context)
+    return Response(content=builder.twiml(reply), media_type="application/xml")
