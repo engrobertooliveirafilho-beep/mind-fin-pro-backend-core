@@ -137,17 +137,21 @@ async def whatsapp_webhook(request: Request):
     sender_id=payload.get("From") or payload.get("from") or payload.get("sender_id") or "unknown"
     message=payload.get("Body") or payload.get("body") or payload.get("message") or ""
 
-    memory=MemoryProvider()
-    retrieval=RetrievalProvider()
-    orchestrator=PromptOrchestrator()
     builder=ResponseBuilder()
+    try:
+        memory=MemoryProvider()
+        retrieval=RetrievalProvider()
+        orchestrator=PromptOrchestrator()
 
-    if message:
-        memory.save(sender_id,message)
+        if message:
+            memory.save(sender_id,message)
 
-    history=memory.history(sender_id)
-    context=retrieval.retrieve(message,history)
-    reply=orchestrator.answer(message,context)
+        history=memory.history(sender_id)
+        context=retrieval.retrieve(message,history)
+        reply=orchestrator.answer(message,context)
+
+    except Exception as e:
+        reply=f"WEBHOOK_ERROR: {type(e).__name__}: {str(e)[:160]}"
 
     return Response(content=builder.twiml(reply), media_type="application/xml")
 
