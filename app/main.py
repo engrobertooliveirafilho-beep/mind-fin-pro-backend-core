@@ -1,3 +1,4 @@
+from app.multi_llm.routes import router as multi_llm_router
 from app.memory.provider import MemoryProvider
 from app.retrieval.provider import RetrievalProvider
 from app.orchestrator.prompt_orchestrator import PromptOrchestrator
@@ -172,4 +173,7 @@ app.include_router(beta_platform_router)
 
 from app.admin.public_runtime import router as public_runtime_router
 app.include_router(public_runtime_router)
+
+
+app.include_router(multi_llm_router)
 
