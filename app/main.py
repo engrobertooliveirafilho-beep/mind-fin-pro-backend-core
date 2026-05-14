@@ -1,3 +1,4 @@
+from app.multi_llm.live_routes import router as multi_llm_live_router
 from app.multi_llm.routes import router as multi_llm_router
 from app.memory.provider import MemoryProvider
 from app.retrieval.provider import RetrievalProvider
@@ -176,4 +177,7 @@ app.include_router(public_runtime_router)
 
 
 app.include_router(multi_llm_router)
+
+
+app.include_router(multi_llm_live_router)
 
