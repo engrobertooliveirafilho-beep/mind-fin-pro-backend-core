@@ -96,3 +96,36 @@ def activate_semantic_runtime(x_admin_token: str = Header(default="")):
       "crash_rate":0,
       "criteria_passed": embeddings_count>0 and semantic_hit_rate>=0.70 and latency_ms<4000
     }
+import os, traceback, psycopg2, psycopg2.extras
+from fastapi import Header, HTTPException
+
+@router.post("/admin/semantic/diagnose")
+def diagnose_semantic_runtime(x_admin_token: str = Header(default="")):
+    _check(x_admin_token)
+    out={"status":"DIAGNOSE_STARTED","checks":{}}
+    try:
+        out["checks"]["env"]={
+          "DATABASE_URL": bool(os.getenv("DATABASE_URL")),
+          "OPENAI_API_KEY": bool(os.getenv("OPENAI_API_KEY")),
+          "ADMIN_ACTIVATION_TOKEN": bool(os.getenv("ADMIN_ACTIVATION_TOKEN"))
+        }
+        with psycopg2.connect(os.getenv("DATABASE_URL")) as conn:
+            with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+                cur.execute("select version()")
+                out["checks"]["db_version"]=dict(cur.fetchone())
+                cur.execute("select extname from pg_extension where extname='vector'")
+                out["checks"]["pgvector"]=bool(cur.fetchone())
+                cur.execute("select column_name from information_schema.columns where table_name='neura_memory'")
+                out["checks"]["neura_memory_columns"]=[x["column_name"] for x in cur.fetchall()]
+                cur.execute("select count(*) c from neura_memory")
+                out["checks"]["neura_memory_count"]=dict(cur.fetchone())
+        try:
+            from app.embedding.provider import EmbeddingProvider
+            emb=EmbeddingProvider().embed("teste")
+            out["checks"]["embedding_dimension"]=len(emb) if emb else 0
+        except Exception as e:
+            out["checks"]["embedding_error"]=str(e)
+        out["status"]="DIAGNOSE_OK"
+        return out
+    except Exception as e:
+        return {"status":"DIAGNOSE_FAILED","error":str(e),"traceback":traceback.format_exc()[-3000:]}
