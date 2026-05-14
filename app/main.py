@@ -1,3 +1,4 @@
+from app.multi_llm.provider_routes import router as provider_routes_router
 from app.multi_llm.live_routes import router as multi_llm_live_router
 from app.multi_llm.routes import router as multi_llm_router
 from app.memory.provider import MemoryProvider
@@ -180,4 +181,7 @@ app.include_router(multi_llm_router)
 
 
 app.include_router(multi_llm_live_router)
+
+
+app.include_router(provider_routes_router)
 

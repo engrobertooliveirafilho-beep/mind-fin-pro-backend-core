@@ -6,7 +6,7 @@ AGENTS = {
 "AudioAgent":"elevenlabs",
 "SummarizerAgent":"deepseek",
 "RetrievalAgent":"cohere",
-"CodeAgent":"openai",
+"CodeAgent":"deepseek",
 "MotivationAgent":"anthropic",
 "WorkflowAgent":"mistral",
 "SemanticSearchAgent":"cohere",
