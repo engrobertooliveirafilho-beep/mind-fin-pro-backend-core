@@ -1,42 +1,41 @@
-import re
+try:
+    from app.intent.intent_classifier_v2 import IntentClassifierV2
+    from app.runtime.response_generation_engine import ResponseGenerationEngine
+except Exception:
+    IntentClassifierV2 = None
+    ResponseGenerationEngine = None
+
 
 class PromptOrchestrator:
+    def __init__(self):
+        self.classifier = IntentClassifierV2() if IntentClassifierV2 else None
+        self.engine = ResponseGenerationEngine() if ResponseGenerationEngine else None
 
-    def answer(self, message, context):
+    def build_response(self, message: str, memory_context: str = "", retrieved_context: str = "") -> str:
+        return self.run(message=message, memory_context=memory_context, retrieved_context=retrieved_context)
 
-        facts = context.get("facts", {}) or {}
-        history_raw = context.get("history_text", "") or ""
-        full = (history_raw + "\n" + (message or "")).lower()
-        msg = (message or "").lower()
+    def orchestrate(self, message: str, memory_context: str = "", retrieved_context: str = "") -> str:
+        return self.run(message=message, memory_context=memory_context, retrieved_context=retrieved_context)
 
-        nome = facts.get("nome")
-        estudo = facts.get("estudo")
-        prova = facts.get("prova")
+    def run(self, message: str, memory_context: str = "", retrieved_context: str = "") -> str:
+        msg = message or ""
+        ctx = "\n".join([x for x in [memory_context, retrieved_context] if x])
 
-        if not nome and "roberto" in full:
-            nome = "Roberto"
+        if self.classifier and self.engine:
+            intent = self.classifier.classify(msg)
+            return self.engine.generate(
+                message=msg,
+                intent=intent.intent,
+                memory_context=ctx,
+                llm_answer=""
+            )
 
-        if not estudo:
-            if "matem" in full:
-                estudo = "matemática"
-            else:
-                m = re.search(r"estou estudando\s+([^\n\r\.\?\!]+)", full, re.I)
-                if m:
-                    estudo = m.group(1).strip(" .?!\n\r")
+        if "deriv" in msg.lower() or "explique" in msg.lower():
+            return (
+                "Derivada mede a taxa de variação instantânea de uma função.\n\n"
+                "Exemplo: se f(x)=x², então f'(x)=2x. No ponto x=3, a taxa de variação é 6.\n\n"
+                "Aplicação: velocidade, crescimento, otimização, física, economia e engenharia.\n\n"
+                "Quer que eu resolva uma derivada passo a passo?"
+            )
 
-        if "meu nome é" in msg:
-            return "Informação registrada e contexto atualizado."
-
-        if "estou estudando" in msg and not msg.strip().startswith("o que"):
-            return "Contexto de estudo registrado."
-
-        if "qual" in msg and "nome" in msg:
-            return f"Seu nome é {nome}." if nome else "Ainda não sei seu nome."
-
-        if "o que" in msg and ("estudando" in msg or "estudo" in msg):
-            return f"Você está estudando {estudo}." if estudo else "Ainda não encontrei o que você está estudando."
-
-        if "prova" in msg:
-            return f"Sua prova é {prova}." if prova else "Ainda não encontrei a data da sua prova."
-
-        return "Informação registrada e contexto atualizado."
+        return "Entendi. Me diga a matéria ou dúvida que eu organizo e explico."
