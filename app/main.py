@@ -158,3 +158,7 @@ app.include_router(semantic_activation_router)
 from app.admin.beta_platform import router as beta_platform_router
 app.include_router(beta_platform_router)
 
+
+from app.admin.public_runtime import router as public_runtime_router
+app.include_router(public_runtime_router)
+
