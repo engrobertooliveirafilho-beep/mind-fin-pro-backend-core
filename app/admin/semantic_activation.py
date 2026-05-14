@@ -147,3 +147,27 @@ def semantic_query_fast(payload: dict, x_admin_token: str = Header(default="")):
       "latency_pass":latency_ms<4000,
       "top_score":rows[0].get("score") if rows else 0
     }
+
+@router.post("/admin/debug/context")
+def debug_context(payload: dict, x_admin_token: str = Header(default="")):
+
+    _check(x_admin_token)
+
+    from app.memory.provider import MemoryProvider
+    from app.retrieval.provider import RetrievalProvider
+
+    sender_id = payload.get("sender_id")
+
+    memory = MemoryProvider()
+    retrieval = RetrievalProvider()
+
+    history = memory.history(sender_id)
+
+    context = retrieval.retrieve("", history)
+
+    return {
+        "history_count": len(history),
+        "history": history[-10:],
+        "context": context
+    }
+
