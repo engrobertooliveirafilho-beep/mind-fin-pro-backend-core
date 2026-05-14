@@ -4,7 +4,7 @@ from psycopg2.extras import RealDictCursor
 
 class MemoryProvider:
     def __init__(self):
-        self.database_url=os.getenv("DATABASE_URL")
+        self.database_url=os.getenv("DATABASE_URL"); assert self.database_url, "DATABASE_URL missing"
     def _conn(self):
         return psycopg2.connect(self.database_url)
     def save(self, sender_id, message):
