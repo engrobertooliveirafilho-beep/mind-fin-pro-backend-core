@@ -1,5 +1,8 @@
 class RetrievalProvider:
 
+    def retrieve(self, message=None, history=None):
+        return self.build_context(history)
+
     def build_context(self, history):
 
         facts = {}
@@ -12,10 +15,7 @@ class RetrievalProvider:
             if text:
                 lines.append(text)
 
-            if "meu nome" in low and "roberto" in low:
-                facts["nome"] = "Roberto"
-
-            if "roberto" == low.strip() or low.strip().endswith("roberto"):
+            if "roberto" in low:
                 facts["nome"] = "Roberto"
 
             if "matemática" in low or "matematica" in low:
