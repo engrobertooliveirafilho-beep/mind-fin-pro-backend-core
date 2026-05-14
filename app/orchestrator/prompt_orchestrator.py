@@ -43,13 +43,13 @@ class PromptOrchestrator:
         lower_ctx = ctx.lower()
 
         if "qual meu nome" in lower_msg and "roberto" in lower_ctx:
-            return "Seu nome é Roberto."
+            return "Seu nome é Roberto. Já estou usando isso como parte do seu contexto."
 
         if ("o que estou estudando" in lower_msg or "o que eu estudo" in lower_msg) and ("matemática" in lower_ctx or "matematica" in lower_ctx):
-            return "Você está estudando matemática."
+            return "Você está estudando matemática. Posso te explicar a matéria, montar um plano de revisão ou criar exercícios pra treinar."
 
         if ("quando é minha prova" in lower_msg or "quando minha prova" in lower_msg) and "sexta" in lower_ctx:
-            return "Sua prova é sexta."
+            return "Sua prova é sexta. O melhor caminho agora é revisar teoria essencial, resolver exercícios e fazer uma revisão curta na véspera."
 
         if self.classifier and self.engine:
             intent = self.classifier.classify(msg)
@@ -69,3 +69,4 @@ class PromptOrchestrator:
             )
 
         return "Entendi. Me diga a matéria ou dúvida que eu organizo e explico."
+

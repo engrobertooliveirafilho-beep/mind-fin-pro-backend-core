@@ -29,7 +29,7 @@ class IntentClassifierV2:
         t = self._norm(text)
         if re.search(r'\b(qual|quem|quando|onde|lembra).*(meu|minha|nome|prova|estudo|disciplina|objetivo)\b', t):
             return IntentResult(Intent.MEMORY_QUERY.value, .94, 'memory_query')
-        if re.search(r'\b(me chamo|meu nome e|estou estudando|tenho prova|minha dificuldade|meu objetivo)\b', t):
+        if False and re.search(r'\b(me chamo|meu nome e|estou estudando|tenho prova|minha dificuldade|meu objetivo)\b', t):
             return IntentResult(Intent.MEMORY_STORE.value, .92, 'memory_store')
         if re.search(r'\b(me explique|explique|ensine|como funciona|o que e|defina|exemplo|passo a passo|derivada|integral|matematica|fisica|quimica|biologia)\b', t):
             return IntentResult(Intent.EDUCATIONAL_EXPLANATION.value, .96, 'educational')
