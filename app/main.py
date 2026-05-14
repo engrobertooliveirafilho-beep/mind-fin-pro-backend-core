@@ -163,7 +163,11 @@ async def whatsapp_webhook(request: Request):
 
         history=memory.history(sender_id)
         context=retrieval.retrieve(message,history)
-        reply=orchestrator.answer(message,context)
+        reply=orchestrator.answer(
+    message,
+    memory_context=context.get("history_text",""),
+    retrieved_context=context
+)
 
     except Exception as e:
         reply=f"WEBHOOK_ERROR_TOTAL: {type(e).__name__}: {str(e)[:180]}"
@@ -208,4 +212,5 @@ app.include_router(auto_ingestion_router)
 
 
 app.include_router(medical_curriculum_router)
+
 
