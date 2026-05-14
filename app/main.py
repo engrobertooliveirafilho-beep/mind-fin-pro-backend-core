@@ -149,3 +149,7 @@ async def whatsapp_webhook(request: Request):
     context=retrieval.retrieve(message,history)
     reply=orchestrator.answer(message,context)
     return Response(content=builder.twiml(reply), media_type="application/xml")
+
+from app.admin.semantic_activation import router as semantic_activation_router
+app.include_router(semantic_activation_router)
+
