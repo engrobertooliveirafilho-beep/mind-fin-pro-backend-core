@@ -129,3 +129,21 @@ def diagnose_semantic_runtime(x_admin_token: str = Header(default="")):
         return out
     except Exception as e:
         return {"status":"DIAGNOSE_FAILED","error":str(e),"traceback":traceback.format_exc()[-3000:]}
+
+@router.post("/admin/semantic/query-fast")
+def semantic_query_fast(payload: dict, x_admin_token: str = Header(default="")):
+    _check(x_admin_token)
+    import time
+    t0=time.time()
+    sender_id=payload.get("sender_id","whatsapp:+5519996166906")
+    query=payload.get("query","o que estou estudando?")
+    sr=SemanticRetrievalProvider()
+    rows=sr.search(sender_id,query,5)
+    latency_ms=int((time.time()-t0)*1000)
+    return {
+      "status":"SEMANTIC_FAST_QUERY_OK" if len(rows)>0 else "SEMANTIC_FAST_QUERY_EMPTY",
+      "returned":len(rows),
+      "latency_ms":latency_ms,
+      "latency_pass":latency_ms<4000,
+      "top_score":rows[0].get("score") if rows else 0
+    }
