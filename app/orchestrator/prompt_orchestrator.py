@@ -41,14 +41,21 @@ class PromptOrchestrator:
 
         lower_msg = msg.lower()
         lower_ctx = ctx.lower()
+facts = {}
+try:
+    if isinstance(retrieved_context, dict):
+        facts = retrieved_context.get("facts") or {}
+except Exception:
+    facts = {}
+fact_text = json.dumps(facts, ensure_ascii=False, default=str).lower()
 
-        if "qual meu nome" in lower_msg and "roberto" in lower_ctx:
+        if "qual meu nome" in lower_msg and ("roberto" in lower_ctx or "roberto" in fact_text):
             return "Seu nome é Roberto. Já estou usando isso como parte do seu contexto."
 
-        if ("o que estou estudando" in lower_msg or "o que eu estudo" in lower_msg) and ("matemática" in lower_ctx or "matematica" in lower_ctx):
+        if ("o que estou estudando" in lower_msg or "o que eu estudo" in lower_msg) and ("matemática" in lower_ctx or "matematica" in lower_ctx or "matemática" in fact_text or "matematica" in fact_text):
             return "Você está estudando matemática. Posso te explicar a matéria, montar um plano de revisão ou criar exercícios pra treinar."
 
-        if ("quando é minha prova" in lower_msg or "quando minha prova" in lower_msg) and "sexta" in lower_ctx:
+        if ("quando é minha prova" in lower_msg or "quando minha prova" in lower_msg) and ("sexta" in lower_ctx or "sexta" in fact_text):
             return "Sua prova é sexta. O melhor caminho agora é revisar teoria essencial, resolver exercícios e fazer uma revisão curta na véspera."
 
         if self.classifier and self.engine:
@@ -69,4 +76,5 @@ class PromptOrchestrator:
             )
 
         return "Entendi. Me diga a matéria ou dúvida que eu organizo e explico."
+
 
