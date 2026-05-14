@@ -1,52 +1,50 @@
 
 class PromptOrchestrator:
+
     def answer(self, message, context):
-        msg=(message or "").lower()
-        facts=context.get("facts",{})
 
-        lines=[
-            x.strip()
-            for x in msg.splitlines()
-            if x.strip()
-        ]
+        facts = context.get("facts", {})
+        history = context.get("history_text", "")
 
-        responses=[]
+        msg = (message or "").lower()
 
-        for line in lines:
+        # =========================
+        # NOME
+        # =========================
+        if "qual é meu nome" in msg or "meu nome" in msg:
+            nome = facts.get("nome")
+            if nome:
+                return f"Seu nome é {nome}."
+            return "Ainda não sei seu nome."
 
-            if "qual é meu nome" in line or "qual e meu nome" in line:
-                responses.append(
-                    f"Seu nome é {facts.get('nome','Roberto')}."
-                )
-                continue
+        # =========================
+        # ESTUDO
+        # =========================
+        if "o que estou estudando" in msg:
+            estudo = facts.get("estudo")
+            if estudo:
+                return f"Você está estudando {estudo}."
+            return "Ainda não encontrei o que você está estudando."
 
-            if "o que estou estudando" in line and ("prova" in line or "quando" in line):
-                responses.append(
-                    f"Você está estudando {facts.get('estudo','matemática')} e sua prova é {facts.get('prova','sexta')}."
-                )
-                continue
+        # =========================
+        # PROVA
+        # =========================
+        if "quando é minha prova" in msg:
+            prova = facts.get("prova")
+            if prova:
+                return f"Sua prova é {prova}."
+            return "Ainda não encontrei a data da sua prova."
 
-            if "o que estou estudando" in line:
-                responses.append(
-                    f"Você está estudando {facts.get('estudo','matemática')}."
-                )
-                continue
+        # =========================
+        # CONTEXTO GERAL
+        # =========================
+        if "resuma meu contexto" in msg:
+            if history:
+                return f"Resumo do seu contexto: {history[:500]}"
+            return "Ainda não tenho contexto suficiente."
 
-            if "quando é minha prova" in line or "quando e minha prova" in line:
-                responses.append(
-                    f"Sua prova é {facts.get('prova','sexta')}."
-                )
-                continue
+        # =========================
+        # MEMÓRIA PADRÃO
+        # =========================
+        return "Informação registrada e contexto atualizado."
 
-            if "meu nome é" in line or "meu nome e" in line:
-                responses.append("Memória registrada.")
-                continue
-
-            if "estou estudando" in line:
-                responses.append("Contexto de estudo registrado.")
-                continue
-
-        if not responses:
-            return "Memória registrada."
-
-        return "\n".join(dict.fromkeys(responses))
