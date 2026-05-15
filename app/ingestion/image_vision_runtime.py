@@ -1,13 +1,15 @@
 import os
 import base64
 from openai import OpenAI
+from app.vision.domain_router import VisionDomainRouter
 
 class ImageVisionRuntime:
 
     def __init__(self):
         self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+        self.router = VisionDomainRouter()
 
-    def analyze(self, image_url=None, local_path=None):
+    def analyze(self, image_url=None, local_path=None, user_message=""):
 
         if local_path:
             with open(local_path, "rb") as f:
@@ -16,18 +18,8 @@ class ImageVisionRuntime:
         else:
             image_payload = image_url
 
-        prompt = """
-Faça uma análise visual avançada e honesta da imagem.
-
-Obrigatório:
-1. Descreva o que aparece.
-2. Se houver carro, estime marca/modelo provável, geração ou faixa de ano, mas diga o grau de incerteza.
-3. Analise estado externo visível: pintura, rodas, pneus, faróis, posição, conservação.
-4. Se houver plantas/flores, estime o tipo provável e explique o limite da certeza.
-5. Destaque elementos do ambiente.
-6. Diga claramente o que NÃO dá para confirmar pela imagem.
-7. Não invente certeza. Use "parece", "provavelmente", "não é possível confirmar".
-"""
+        domain = self.router.detect(user_message=user_message)
+        prompt = self.router.prompt_for(domain)
 
         response = self.client.chat.completions.create(
             model="gpt-4o-mini",
@@ -40,7 +32,7 @@ Obrigatório:
                     ]
                 }
             ],
-            max_tokens=1200
+            max_tokens=1300
         )
 
         return response.choices[0].message.content

@@ -13,10 +13,7 @@ class MultiModalRouter:
         local_path_lower = str(local_path or "").lower()
 
         if "image" in media_type:
-            return self.vision.analyze(
-                image_url=media_url,
-                local_path=local_path
-            )
+            return self.vision.analyze(image_url=media_url, local_path=local_path, user_message='')
 
         if local_path:
 
@@ -36,3 +33,4 @@ class MultiModalRouter:
                 return self.parser.parse_txt(local_path)
 
         return "Não consegui interpretar o arquivo enviado."
+
