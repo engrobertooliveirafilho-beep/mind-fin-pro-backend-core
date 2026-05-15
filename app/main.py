@@ -134,6 +134,17 @@ async def mind_talk(payload: dict):
 from fastapi import Request, Response
 
 
+def safe_reply(value):
+    text = str(value or '').strip()
+    text = text.replace('&', 'e')
+    text = text.replace('<', '')
+    text = text.replace('>', '')
+    if len(text) > 1400:
+        text = text[:1400] + '...'
+    if not text:
+        text = 'Recebi sua mensagem, mas não consegui gerar uma resposta agora.'
+    return text
+
 @app.post("/webhook/whatsapp")
 async def whatsapp_webhook(request: Request):
     from app.runtime.response_builder import ResponseBuilder
@@ -182,7 +193,7 @@ async def whatsapp_webhook(request: Request):
     except Exception as e:
         reply=f"WEBHOOK_ERROR_TOTAL: {type(e).__name__}: {str(e)[:180]}"
 
-    return Response(content=builder.twiml(reply), media_type="application/xml")
+    return Response(content=builder.twiml(safe_reply(reply)), media_type="application/xml")
 
 from app.admin.semantic_activation import router as semantic_activation_router
 app.include_router(semantic_activation_router)
@@ -222,6 +233,7 @@ app.include_router(auto_ingestion_router)
 
 
 app.include_router(medical_curriculum_router)
+
 
 
 
