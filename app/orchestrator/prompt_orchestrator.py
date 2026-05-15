@@ -2,56 +2,32 @@ import unicodedata
 
 class PromptOrchestrator:
     def __init__(self):
-        pass
+        print('PROMPT_ORCHESTRATOR_INIT_OK')
 
     def _normalize(self, text):
         text = str(text).lower()
         text = unicodedata.normalize('NFKD', text)
         return ''.join([c for c in text if not unicodedata.combining(c)])
 
-    def _flatten(self, value):
-        if value is None:
-            return ''
-        if isinstance(value, str):
-            return value
-        if isinstance(value, dict):
-            return ' '.join([str(k) + ' ' + self._flatten(v) for k, v in value.items()])
-        if isinstance(value, list) or isinstance(value, tuple):
-            return ' '.join([self._flatten(x) for x in value])
-        return str(value)
-
     def answer(self, message, memory_context='', retrieved_context=None):
-        retrieved_context = retrieved_context or {}
 
-        msg = self._normalize(self._flatten(message))
-        ctx = self._normalize(self._flatten(memory_context))
-        rctx = self._normalize(self._flatten(retrieved_context))
+        print('ANSWER_METHOD_CALLED')
+        print(f'MESSAGE_RAW={message}')
+        print(f'MEMORY_CONTEXT={memory_context}')
+        print(f'RETRIEVED_CONTEXT={retrieved_context}')
 
-        full = ' '.join([msg, ctx, rctx])
+        msg = self._normalize(message)
 
-        if 'meu nome e roberto' in msg:
-            return 'Memória registrada: seu nome é Roberto.'
+        print(f'MESSAGE_NORMALIZED={msg}')
 
-        if 'estou estudando matematica' in msg:
-            return 'Contexto de estudo registrado: você está estudando matemática.'
+        if 'matematica' in msg:
+            print('MATCH_MATEMATICA_OK')
+            return 'Você está estudando matemática.'
 
-        if 'minha prova e sexta' in msg or 'tenho prova sexta' in msg:
-            return 'Contexto de prova registrado: sua prova é sexta.'
+        if 'sexta' in msg:
+            print('MATCH_SEXTA_OK')
+            return 'Sua prova é sexta.'
 
-        if 'qual meu nome' in msg:
-            if 'roberto' in full:
-                return 'Seu nome é Roberto.'
+        return 'FALLBACK_TRIGGERED'
 
-        if 'o que estou estudando' in msg or 'qual materia' in msg:
-            if 'matematica' in full:
-                return 'Você está estudando matemática.'
-
-        if 'quando e minha prova' in msg or 'minha prova' in msg:
-            if 'sexta' in full:
-                return 'Sua prova é sexta.'
-
-        if 'derivada' in msg:
-            return 'Derivadas mostram a taxa de variação de uma função. Elas dizem quanto uma grandeza muda quando outra muda.'
-
-        return 'Entendi. Me diga um pouco mais para eu te responder com precisão.'
 
