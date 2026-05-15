@@ -1,9 +1,10 @@
 import unicodedata
+from app.human.human_like_response_layer import HumanLikeResponseLayer
 
 class PromptOrchestrator:
 
     def __init__(self):
-        pass
+        self.human_like = HumanLikeResponseLayer()
 
     def _flatten(self, value):
         if value is None:
@@ -55,5 +56,10 @@ class PromptOrchestrator:
         if 'derivada' in msg:
             return 'Derivadas mostram a taxa de variação de uma função. Elas dizem quanto uma grandeza muda quando outra muda.'
 
+        human_answer = self.human_like.answer(message, full)
+        if human_answer:
+            return human_answer
+
         return 'Entendi. Me diga um pouco mais para eu te responder com precisão.'
+
 
