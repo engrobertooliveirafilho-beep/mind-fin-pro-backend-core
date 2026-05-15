@@ -166,6 +166,8 @@ async def whatsapp_webhook(request: Request):
         history=memory.history(sender_id)
         context=retrieval.retrieve(message,history)
         media_url=payload.get("MediaUrl0") or payload.get("media_url")
+        print(f'MEDIA_DEBUG_URL={media_url}')
+        print(f'MEDIA_DEBUG_TYPE={payload.get("MediaContentType0")}')
         media_type=payload.get("MediaContentType0") or payload.get("media_type") or ""
 
         if media_url:
@@ -220,6 +222,7 @@ app.include_router(auto_ingestion_router)
 
 
 app.include_router(medical_curriculum_router)
+
 
 
 
