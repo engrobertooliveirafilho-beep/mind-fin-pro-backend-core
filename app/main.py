@@ -214,3 +214,4 @@ app.include_router(auto_ingestion_router)
 app.include_router(medical_curriculum_router)
 
 
+
