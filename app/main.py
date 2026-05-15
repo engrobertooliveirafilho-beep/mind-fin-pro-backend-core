@@ -1,3 +1,4 @@
+from app.api.neura_viral import router as neura_viral_router
 from app.medical_curriculum.routes import router as medical_curriculum_router
 from app.auto_ingestion.routes import router as auto_ingestion_router
 from app.medical_research.routes import router as medical_research_router
@@ -139,8 +140,9 @@ def safe_reply(value):
     text = text.replace('&', 'e')
     text = text.replace('<', '')
     text = text.replace('>', '')
-    if len(text) > 1400:
-        text = text[:1400] + '...'
+    print(f'TWIML_REPLY_LEN={len(text)}')
+    if len(text) > 900:
+        text = text[:900] + '... Digite APROFUNDAR para continuar.'
     if not text:
         text = 'Recebi sua mensagem, mas não consegui gerar uma resposta agora.'
     return text
@@ -238,5 +240,21 @@ app.include_router(medical_curriculum_router)
 
 
 
+
+
+
+
+try:
+    app.include_router(neura_viral_router)
+except NameError:
+    pass
+
+
+from app.api.neura_whatsapp_webhook import router as neura_whatsapp_router
+
+try:
+    app.include_router(neura_whatsapp_router)
+except Exception as e:
+    print(f"[NEURA_WEBHOOK_ROUTER_ERROR] {e}")
 
 
