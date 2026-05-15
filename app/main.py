@@ -171,7 +171,7 @@ async def whatsapp_webhook(request: Request):
         media_type=payload.get("MediaContentType0") or payload.get("media_type") or ""
 
         if media_url:
-            reply=media_handler.process(media_url,media_type)
+            reply=media_handler.process(media_url,media_type,message)
         else:
             reply=orchestrator.answer(
         message,
@@ -222,6 +222,8 @@ app.include_router(auto_ingestion_router)
 
 
 app.include_router(medical_curriculum_router)
+
+
 
 
 
