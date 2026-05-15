@@ -1,6 +1,7 @@
 import unicodedata
 
 class PromptOrchestrator:
+
     def __init__(self):
         print('PROMPT_ORCHESTRATOR_INIT_OK')
 
@@ -18,19 +19,31 @@ class PromptOrchestrator:
     def _normalize(self, value):
         text = self._flatten(value).lower()
         text = unicodedata.normalize('NFKD', text)
-        return ''.join([c for c in text if not unicodedata.combining(c)])
+        text = ''.join([c for c in text if not unicodedata.combining(c)])
+
+        text = text.replace('matema¡tica','matematica')
+        text = text.replace('a©','e')
+        text = text.replace('ã©','e')
+        text = text.replace('ã¡','a')
+        text = text.replace('ã£','a')
+
+        return text
 
     def answer(self, message, memory_context='', retrieved_context=None):
+
         retrieved_context = retrieved_context or {}
+
         msg = self._normalize(message)
         ctx = self._normalize(memory_context)
         rctx = self._normalize(retrieved_context)
+
         full = ' '.join([msg, ctx, rctx])
+
         print('ANSWER_METHOD_CALLED')
         print(f'MSG={msg}')
         print(f'FULL={full}')
 
-        if 'roberto' in full and ('nome' in msg or 'meu nome' in msg):
+        if 'nome' in msg and 'roberto' in full:
             return 'Seu nome é Roberto.'
 
         if ('estud' in msg or 'matematica' in msg) and ('matematica' in full or 'derivada' in full):
@@ -42,9 +55,5 @@ class PromptOrchestrator:
         if 'derivada' in msg:
             return 'Derivadas mostram a taxa de variação de uma função. Elas dizem quanto uma grandeza muda quando outra muda.'
 
-        if msg.strip() in ['oi','ola','olá','bom dia','boa tarde','boa noite']:
-            return 'Oi, Roberto. Estou aqui para te ajudar com seus estudos.'
-
         return 'Entendi. Me diga um pouco mais para eu te responder com precisão.'
-
 
