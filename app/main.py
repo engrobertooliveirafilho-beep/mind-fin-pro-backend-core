@@ -1,4 +1,4 @@
-from app.api.neura_viral import router as neura_viral_router
+# disabled missing module neura_viral_router
 from app.medical_curriculum.routes import router as medical_curriculum_router
 from app.auto_ingestion.routes import router as auto_ingestion_router
 from app.medical_research.routes import router as medical_research_router
@@ -245,7 +245,8 @@ app.include_router(medical_curriculum_router)
 
 
 try:
-    app.include_router(neura_viral_router)
+    pass
+    # disabled include_router neura_viral_router
 except NameError:
     pass
 
@@ -256,5 +257,7 @@ try:
     app.include_router(neura_whatsapp_router)
 except Exception as e:
     print(f"[NEURA_WEBHOOK_ROUTER_ERROR] {e}")
+
+
 
 
