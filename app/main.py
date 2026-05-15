@@ -153,21 +153,29 @@ async def whatsapp_webhook(request: Request):
         from app.memory.provider import MemoryProvider
         from app.retrieval.provider import RetrievalProvider
         from app.orchestrator.prompt_orchestrator import PromptOrchestrator
+        from app.webhook.media_handler import MediaHandler
 
         memory=MemoryProvider()
         retrieval=RetrievalProvider()
         orchestrator=PromptOrchestrator()
+        media_handler=MediaHandler()
 
         if message:
             memory.save(sender_id,message)
 
         history=memory.history(sender_id)
         context=retrieval.retrieve(message,history)
-        reply=orchestrator.answer(
-    message,
-    memory_context=context.get("history_text",""),
-    retrieved_context=context
-)
+        media_url=payload.get("MediaUrl0") or payload.get("media_url")
+        media_type=payload.get("MediaContentType0") or payload.get("media_type") or ""
+
+        if media_url:
+            reply=media_handler.process(media_url,media_type)
+        else:
+            reply=orchestrator.answer(
+        message,
+        memory_context=context.get("history_text",""),
+        retrieved_context=context
+    )
 
     except Exception as e:
         reply=f"WEBHOOK_ERROR_TOTAL: {type(e).__name__}: {str(e)[:180]}"
