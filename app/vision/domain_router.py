@@ -30,9 +30,9 @@ Obrigatório:
 5. Avalie narrativa emocional.
 6. Avalie arquitetura visual da peça.
 7. Aponte riscos de comunicação.
-8. Sugira melhorias práticas para conversão.
+8. Sugira melhorias práticas. Responda em no máximo 1200 caracteres. Use formato: Diagnóstico espacial; Pontos fortes; Riscos; Melhorias prioritárias.para conversão.
 9. Dê uma nota de 0 a 10 para potencial comercial.
-10. Seja específico, direto e estratégico.
+10. Seja específico, direto e estratégico. Responda em no máximo 1200 caracteres. Use formato: Diagnóstico; Potencial comercial; Pontos fortes; Riscos; Melhorias prioritárias; Nota final X/10.
 """
 
         if domain == "automotive":
@@ -46,7 +46,7 @@ Obrigatório:
 4. Avalie estado externo visível.
 5. Avalie pneus, rodas, faróis, pintura e alinhamento visual.
 6. Diga o que não é possível confirmar pela imagem.
-7. Use linguagem de probabilidade, não certeza absoluta.
+7. Use linguagem de probabilidade, não certeza absoluta. Responda em no máximo 1200 caracteres. Use formato: Identificação provável; Faixa de ano; Estado visual; Incertezas; Próximos passos.
 """
 
         if domain == "architecture":
@@ -60,7 +60,7 @@ Obrigatório:
 4. Avalie materiais e atmosfera.
 5. Avalie integração com natureza.
 6. Avalie funcionalidade comercial.
-7. Sugira melhorias práticas.
+7. Sugira melhorias práticas. Responda em no máximo 1200 caracteres. Use formato: Diagnóstico espacial; Pontos fortes; Riscos; Melhorias prioritárias.
 """
 
         if domain == "document_analysis":
@@ -72,10 +72,11 @@ Obrigatório:
 2. Organize em tópicos.
 3. Aponte dados relevantes.
 4. Identifique inconsistências.
-5. Sugira próximos passos.
+5. Sugira próximos passos. Responda em no máximo 1200 caracteres. Use formato: Resumo; Dados principais; Riscos; Próximos passos.
 """
 
         return """
 Faça uma análise visual avançada e honesta.
 Descreva o que aparece, detalhe elementos relevantes, aponte incertezas e diga o que não dá para confirmar.
 """
+
