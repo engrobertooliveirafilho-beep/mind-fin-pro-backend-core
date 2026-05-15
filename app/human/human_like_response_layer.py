@@ -6,13 +6,39 @@ class HumanLikeResponseLayer:
         text = str(value).lower()
         text = unicodedata.normalize("NFKD", text)
         text = "".join([c for c in text if not unicodedata.combining(c)])
-        text = text.replace("voce", "voce")
+        text = text.replace("matema¡tica", "matematica")
         text = text.replace("vocaª", "voce")
         text = text.replace("vocãª", "voce")
         return text
 
-    def answer(self, message, context=""):
+    def build_prompt(self, message, context=""):
+        return f"""
+Você é a NEURA, uma tutora cognitiva para estudantes via WhatsApp.
+Responda de forma humana, direta, útil e contextual.
+
+Mensagem do aluno:
+{message}
+
+Contexto disponível:
+{context}
+
+Regras:
+- Não diga que é apenas um sistema.
+- Use memória quando existir.
+- Explique com clareza.
+- Seja natural, mas objetivo.
+"""
+
+    def answer(self, message, context="", llm=None):
         msg = self._normalize(message)
+
+        if llm:
+            try:
+                response = llm.generate(self.build_prompt(message, context))
+                if response and len(str(response).strip()) > 5:
+                    return str(response).strip()
+            except Exception:
+                pass
 
         if msg.strip() in ["oi", "ola", "bom dia", "boa tarde", "boa noite"]:
             return "Oi, Roberto. Estou aqui para te ajudar com seus estudos de forma direta e organizada."
