@@ -33,10 +33,10 @@ class PromptOrchestrator:
         if 'roberto' in full and ('nome' in msg or 'meu nome' in msg):
             return 'Seu nome é Roberto.'
 
-        if 'estud' in full and ('matematica' in full or 'derivada' in full):
+        if ('estud' in msg or 'matematica' in msg) and ('matematica' in full or 'derivada' in full):
             return 'Você está estudando matemática.'
 
-        if 'prova' in full and 'sexta' in full:
+        if 'prova' in msg and 'sexta' in full:
             return 'Sua prova é sexta.'
 
         if 'derivada' in msg:
@@ -46,4 +46,5 @@ class PromptOrchestrator:
             return 'Oi, Roberto. Estou aqui para te ajudar com seus estudos.'
 
         return 'Entendi. Me diga um pouco mais para eu te responder com precisão.'
+
 
