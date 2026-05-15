@@ -10,13 +10,20 @@ class MediaHandler:
     def process(self, media_url, media_type, user_message="Analise esta mídia."):
 
         try:
+            print("MEDIA_HANDLER_START")
             local_path = self.downloader.download(media_url, media_type)
+            print(f"MEDIA_DOWNLOADED={local_path}")
 
-            return self.router.handle(
+            result = self.router.handle(
                 media_type=media_type,
                 media_url=media_url,
-                local_path=local_path
+                local_path=local_path,
+                user_message=user_message
             )
 
+            print("MEDIA_HANDLER_DONE")
+            return result
+
         except Exception as e:
-            return f"Recebi a mídia, mas não consegui processar agora: {type(e).__name__}: {str(e)[:120]}"
+            print(f"MEDIA_HANDLER_ERROR={type(e).__name__}: {str(e)[:200]}")
+            return f"Recebi a mídia, mas falhei ao analisar: {type(e).__name__}: {str(e)[:120]}"
