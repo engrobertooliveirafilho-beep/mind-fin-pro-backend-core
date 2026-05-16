@@ -192,7 +192,6 @@ async def whatsapp_webhook(request: Request):
         if 'ULTIMA_ANALISE_VISUAL:' in context:
             context = 'CONTEXTO VISUAL ATIVO: responda considerando a analise visual anterior da imagem enviada pelo usuario.\n' + context
         visual_ctx = vision_memory.get(sender_id)
-        visual_ctx = vision_memory.get(sender_id)
         if visual_ctx and visual_ctx.get('last_analysis') and any(x in str(message).lower() for x in ['rosto','imagem','foto','ela','visual']):
             context += '\nULTIMA_ANALISE_VISUAL:\n' + str(visual_ctx.get("last_analysis"))[:4000]
         last_visual_analysis = None
