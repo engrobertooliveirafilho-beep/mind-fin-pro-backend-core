@@ -193,62 +193,40 @@ async def whatsapp_webhook(request: Request):
         print(f'MEDIA_DEBUG_TYPE={payload.get("MediaContentType0")}')
         media_type=payload.get("MediaContentType0") or payload.get("media_type") or ""
         last_visual_media=vision_memory.get(sender_id)
-        if str(message).strip().upper().replace('.', '') in ['ANALISAR IMAGEM','ANALISAR ARQUIVO'] and last_visual_media:
-            reply=media_handler.process(last_visual_media.get('media_url'), last_visual_media.get('media_type'), message)
-            return Response(content=builder.twiml(safe_reply(reply)), media_type='application/xml')
-
-        # LAST_MEDIA_ANALYZE_FLOW
-        if str(message).strip().upper().replace('.', '') in ['ANALISAR IMAGEM','ANALISAR ARQUIVO']:
-            last_media = None
-            hist_for_media = memory.history(sender_id)
-            media_url_saved = None
-            media_type_saved = None
-            for row in reversed(hist_for_media):
-                txt = str(row.get('message') or row.get('content') or '')
-                if txt.startswith('LAST_MEDIA_URL::') and not media_url_saved:
-                    media_url_saved = txt.replace('LAST_MEDIA_URL::','',1)
-                if txt.startswith('LAST_MEDIA_TYPE::') and not media_type_saved:
-                    media_type_saved = txt.replace('LAST_MEDIA_TYPE::','',1)
-            if media_url_saved:
-                last_media = {'media_url': media_url_saved, 'media_type': media_type_saved or 'image/jpeg'}
-            if last_media:
-                reply=media_handler.process(last_media.get('media_url'), last_media.get('media_type'), message)
-            else:
-                reply='Ainda não encontrei uma imagem anterior para analisar. Envie a imagem novamente.'
-            return Response(content=builder.twiml(safe_reply(reply)), media_type='application/xml')
+        visual_cmd = str(message).strip().upper().replace('.', '') in ['ANALISAR IMAGEM','ANALISAR ARQUIVO']
+        if visual_cmd:
+            recovered_url = None
+            recovered_type = 'image/jpeg'
+            try:
+                if last_visual_media and last_visual_media.get('media_url'):
+                    recovered_url = last_visual_media.get('media_url')
+                    recovered_type = last_visual_media.get('media_type') or recovered_type
+                if not recovered_url:
+                    lm = last_media_store_global.get(sender_id)
+                    print(f'GLOBAL_LAST_MEDIA_RECOVERED={lm}')
+                    if lm and lm.get('media_url'):
+                        recovered_url = lm.get('media_url')
+                        recovered_type = lm.get('media_type') or recovered_type
+                if not recovered_url:
+                    hist_for_media = memory.history(sender_id)
+                    for row in reversed(hist_for_media):
+                        txt = str(row.get('message') or row.get('content') or '')
+                        if txt.startswith('LAST_MEDIA_URL::') and not recovered_url:
+                            recovered_url = txt.replace('LAST_MEDIA_URL::','',1)
+                        if txt.startswith('LAST_MEDIA_TYPE::'):
+                            recovered_type = txt.replace('LAST_MEDIA_TYPE::','',1) or recovered_type
+                    print(f'DB_LAST_MEDIA_RECOVERED={recovered_url}')
+                if recovered_url:
+                    reply = media_handler.process(recovered_url, recovered_type, message)
+                else:
+                    reply = 'Ainda não encontrei uma imagem anterior para analisar. Envie a imagem novamente.'
+                return Response(content=builder.twiml(safe_reply(reply)), media_type='application/xml')
+            except Exception as e:
+                print(f'VISUAL_RECOVERY_ERROR={e}')
+                return Response(content=builder.twiml(safe_reply(f'Falhei ao analisar a mídia: {e}')), media_type='application/xml')
         if media_url and str(message).strip():
-        reply=media_handler.process(media_url, media_type, message)
-        return twiml_reply(reply)
-    if (str(message).strip().upper().replace('.', '') in ['ANALISAR IMAGEM','ANALISAR ARQUIVO']) and not media_url:
-        try:
-            lm=last_media_store_global.get(sender_id)
-            print(f'GLOBAL_LAST_MEDIA_RECOVERED={lm}')
-            if lm and lm.get('media_url'):
-                reply=media_handler.process(lm.get('media_url'), lm.get('media_type'), message)
-                return twiml_reply(reply)
-        except Exception as e:
-            print(f'GLOBAL_LAST_MEDIA_RECOVER_ERROR={e}')
-            hist_for_media = memory.history(sender_id)
-            saved_url = None
-            saved_type = None
-            for row in reversed(hist_for_media):
-                txt = str(row.get('message') or row.get('content') or '')
-                if txt.startswith('LAST_MEDIA_URL::') and not saved_url:
-                    saved_url = txt.replace('LAST_MEDIA_URL::','',1)
-                if txt.startswith('LAST_MEDIA_TYPE::') and not saved_type:
-                    saved_type = txt.replace('LAST_MEDIA_TYPE::','',1)
-            print(f'DB_LAST_MEDIA_RECOVERED={saved_url}')
-            if saved_url:
-                media_url = saved_url
-                media_type = saved_type or 'image/jpeg'
-
-        if media_url:
-        print(f'DB_LAST_MEDIA_SAVE_URL={media_url}')
-        try:
-            last_media_store_global.save(sender_id, media_url, media_type)
-            print(f'GLOBAL_LAST_MEDIA_SAVE_URL={media_url}')
-        except Exception as e:
-            print(f'GLOBAL_LAST_MEDIA_SAVE_ERROR={e}')
+            reply = media_handler.process(media_url, media_type, message)
+            return twiml_reply(reply)
             memory.save(sender_id, f'LAST_MEDIA_URL::{media_url}')
             memory.save(sender_id, f'LAST_MEDIA_TYPE::{media_type}')
             memory.save(sender_id, f'LAST_MEDIA_URL::{media_url}')
