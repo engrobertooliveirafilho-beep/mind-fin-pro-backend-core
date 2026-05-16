@@ -128,10 +128,10 @@ def health_env():
         "insert_error": LAST_INSERT_ERROR,
         "fetch_error": LAST_FETCH_ERROR
     }
-
-@app.get("/version")
+@app.get("/version")
 def version():
-    return {"commit":"1997cf6","runtime":"semantic_runtime_build"}
+    from app.runtime.version_runtime import runtime_version
+    return runtime_version()
 
 @app.post("/mind/talk")
 async def mind_talk(payload: dict):
@@ -350,6 +350,7 @@ except Exception as e:
 
 from app.friendship.friendship_routes import router as friendship_router
 app.include_router(friendship_router)
+
 
 
 
