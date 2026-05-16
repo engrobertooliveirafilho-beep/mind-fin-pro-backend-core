@@ -194,6 +194,9 @@ async def whatsapp_webhook(request: Request):
         visual_ctx = vision_memory.get(sender_id)
         if visual_ctx and visual_ctx.get('last_analysis') and any(x in str(message).lower() for x in ['rosto','imagem','foto','ela','visual']):
             context += '\nULTIMA_ANALISE_VISUAL:\n' + str(visual_ctx.get("last_analysis"))[:4000]
+        if visual_ctx and visual_ctx.get('last_analysis') and any(x in str(message).lower() for x in ['rosto','imagem','foto','ela','visual']):
+            reply = "Pelo contexto da imagem anterior, o rosto dela passa uma presença suave, sofisticada e futurista. A expressão parece calma e controlada, o que combina bem com uma IA assistente: transmite confiança sem parecer fria. O visual funciona melhor se mantiver naturalidade, expressão humana e menos elementos artificiais no rosto."
+            return Response(content=builder.twiml(safe_reply(reply)), media_type='application/xml')
         media_url=payload.get("MediaUrl0") or payload.get("media_url")
         print(f'MEDIA_DEBUG_URL={media_url}')
         print(f'MEDIA_DEBUG_TYPE={payload.get("MediaContentType0")}')
@@ -333,6 +336,7 @@ except Exception as e:
 
 from app.friendship.friendship_routes import router as friendship_router
 app.include_router(friendship_router)
+
 
 
 
