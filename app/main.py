@@ -325,3 +325,7 @@ except Exception as e:
 
 
 
+
+from app.friendship.friendship_routes import router as friendship_router
+app.include_router(friendship_router)
+
