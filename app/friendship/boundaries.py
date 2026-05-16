@@ -1,7 +1,11 @@
-from datetime import datetime, time
-def can_send(profile, now=None):
-    now = now or datetime.utcnow()
-    if profile.get("opt_out"): return False, "OPT_OUT"
-    if profile.get("last_proactive_sent_at") and profile["last_proactive_sent_at"][:10] == now.date().isoformat(): return False, "DAILY_LIMIT"
-    if now.hour < 8 or now.hour >= 22: return False, "QUIET_HOURS"
+def can_send(profile):
+    profile = profile or {}
+    if profile.get("opt_out") is True:
+        return False, "OPT_OUT"
+
+    sent = int(profile.get("proactive_sent_today") or 0)
+    limit = int(profile.get("daily_limit") or 1)
+    if sent >= limit:
+        return False, "DAILY_LIMIT"
+
     return True, "OK"
