@@ -16,8 +16,12 @@ from fastapi import FastAPI, Request, Response
 import os
 import psycopg2
 import psycopg2.extras
+from app.vision.vision_memory_store import VisionMemoryStore
+from app.vision.visual_followup_resolver import VisualFollowupResolver
 
 app = FastAPI(title="NEURA Cloud Runtime")
+vision_memory_global=VisionMemoryStore()
+visual_followup_global=VisualFollowupResolver()
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 LAST_TABLE_ERROR = None
@@ -172,8 +176,8 @@ async def whatsapp_webhook(request: Request):
         retrieval=RetrievalProvider()
         orchestrator=PromptOrchestrator()
         media_handler=MediaHandler()
-        vision_memory=VisionMemoryStore()
-        visual_followup=VisualFollowupResolver()
+        vision_memory=vision_memory_global
+        visual_followup=visual_followup_global
 
         if message:
             memory.save(sender_id,message)
@@ -184,10 +188,14 @@ async def whatsapp_webhook(request: Request):
         print(f'MEDIA_DEBUG_URL={media_url}')
         print(f'MEDIA_DEBUG_TYPE={payload.get("MediaContentType0")}')
         media_type=payload.get("MediaContentType0") or payload.get("media_type") or ""
+        last_visual_media=vision_memory.get(sender_id)
+        if str(message).strip().upper().replace('.', '') in ['ANALISAR IMAGEM','ANALISAR ARQUIVO'] and last_visual_media:
+            reply=media_handler.process(last_visual_media.get('media_url'), last_visual_media.get('media_type'), message)
+            return Response(content=builder.twiml(safe_reply(reply)), media_type='application/xml')
 
         if media_url:
             reply=media_handler.process(media_url,media_type,message)
-            vision_memory.save(sender_id, reply, media_type)
+            vision_memory.save(sender_id, {'media_url': media_url, 'media_type': media_type, 'analysis': reply}, media_type)
         else:
             visual_context=vision_memory.get(sender_id)
             visual_reply=visual_followup.answer(message, visual_context)
@@ -215,8 +223,6 @@ app.include_router(beta_platform_router)
 
 
 from app.admin.public_runtime import router as public_runtime_router
-from app.vision.vision_memory_store import VisionMemoryStore
-from app.vision.visual_followup_resolver import VisualFollowupResolver
 app.include_router(public_runtime_router)
 
 
