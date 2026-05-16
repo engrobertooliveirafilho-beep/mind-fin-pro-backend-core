@@ -178,6 +178,7 @@ async def whatsapp_webhook(request: Request):
         retrieval=RetrievalProvider()
         orchestrator=PromptOrchestrator()
         media_handler=MediaHandler()
+        last_media_store = LastMediaStore()
         last_media_store=last_media_store_global
         vision_memory=vision_memory_global
         visual_followup=visual_followup_global
@@ -286,6 +287,7 @@ try:
     # disabled include_router neura_whatsapp_router
 except Exception as e:
     print(f"[NEURA_WEBHOOK_ROUTER_ERROR] {e}")
+
 
 
 
