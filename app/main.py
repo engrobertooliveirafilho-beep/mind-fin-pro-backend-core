@@ -251,12 +251,14 @@ except NameError:
     pass
 
 
-from app.api.neura_whatsapp_webhook import router as neura_whatsapp_router
+# disabled neura whatsapp webhook router
 
 try:
-    app.include_router(neura_whatsapp_router)
+    pass
+    # disabled include_router neura_whatsapp_router
 except Exception as e:
     print(f"[NEURA_WEBHOOK_ROUTER_ERROR] {e}")
+
 
 
 
