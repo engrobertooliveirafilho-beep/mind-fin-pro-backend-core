@@ -18,8 +18,10 @@ import psycopg2
 import psycopg2.extras
 from app.vision.vision_memory_store import VisionMemoryStore
 from app.vision.visual_followup_resolver import VisualFollowupResolver
+from app.webhook.last_media_store import LastMediaStore
 
 app = FastAPI(title="NEURA Cloud Runtime")
+last_media_store_global=LastMediaStore()
 vision_memory_global=VisionMemoryStore()
 visual_followup_global=VisualFollowupResolver()
 
@@ -176,6 +178,7 @@ async def whatsapp_webhook(request: Request):
         retrieval=RetrievalProvider()
         orchestrator=PromptOrchestrator()
         media_handler=MediaHandler()
+        last_media_store=last_media_store_global
         vision_memory=vision_memory_global
         visual_followup=visual_followup_global
 
@@ -193,8 +196,17 @@ async def whatsapp_webhook(request: Request):
             reply=media_handler.process(last_visual_media.get('media_url'), last_visual_media.get('media_type'), message)
             return Response(content=builder.twiml(safe_reply(reply)), media_type='application/xml')
 
+        # LAST_MEDIA_ANALYZE_FLOW
+        if str(message).strip().upper().replace('.', '') in ['ANALISAR IMAGEM','ANALISAR ARQUIVO']:
+            last_media=last_media_store.get(sender_id)
+            if last_media:
+                reply=media_handler.process(last_media.get('media_url'), last_media.get('media_type'), message)
+            else:
+                reply='Ainda não encontrei uma imagem anterior para analisar. Envie a imagem novamente.'
+            return Response(content=builder.twiml(safe_reply(reply)), media_type='application/xml')
         if media_url:
-            reply=media_handler.process(media_url,media_type,message)
+            last_media_store.save(sender_id, media_url, media_type)
+            reply=media_handler.acknowledge(media_type)
             vision_memory.save(sender_id, {'media_url': media_url, 'media_type': media_type, 'analysis': reply}, media_type)
         else:
             visual_context=vision_memory.get(sender_id)
