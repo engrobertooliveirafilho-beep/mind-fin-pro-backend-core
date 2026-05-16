@@ -369,3 +369,7 @@ app.include_router(friendship_router)
 
 
 
+
+from app.admin.friendship_schema_validation import router as friendship_schema_validation_router
+app.include_router(friendship_schema_validation_router)
+
