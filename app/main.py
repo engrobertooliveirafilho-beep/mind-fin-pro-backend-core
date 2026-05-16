@@ -172,6 +172,8 @@ async def whatsapp_webhook(request: Request):
         retrieval=RetrievalProvider()
         orchestrator=PromptOrchestrator()
         media_handler=MediaHandler()
+        vision_memory=VisionMemoryStore()
+        visual_followup=VisualFollowupResolver()
 
         if message:
             memory.save(sender_id,message)
@@ -185,8 +187,14 @@ async def whatsapp_webhook(request: Request):
 
         if media_url:
             reply=media_handler.process(media_url,media_type,message)
+            vision_memory.save(sender_id, reply, media_type)
         else:
-            reply=orchestrator.answer(
+            visual_context=vision_memory.get(sender_id)
+            visual_reply=visual_followup.answer(message, visual_context)
+            if visual_reply:
+                reply=visual_reply
+            else:
+                reply=orchestrator.answer(
         message,
         memory_context=context.get("history_text",""),
         retrieved_context=context
@@ -207,6 +215,8 @@ app.include_router(beta_platform_router)
 
 
 from app.admin.public_runtime import router as public_runtime_router
+from app.vision.vision_memory_store import VisionMemoryStore
+from app.vision.visual_followup_resolver import VisualFollowupResolver
 app.include_router(public_runtime_router)
 
 
@@ -258,6 +268,7 @@ try:
     # disabled include_router neura_whatsapp_router
 except Exception as e:
     print(f"[NEURA_WEBHOOK_ROUTER_ERROR] {e}")
+
 
 
 
