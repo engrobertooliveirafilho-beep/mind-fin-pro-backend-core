@@ -199,14 +199,26 @@ async def whatsapp_webhook(request: Request):
 
         # LAST_MEDIA_ANALYZE_FLOW
         if str(message).strip().upper().replace('.', '') in ['ANALISAR IMAGEM','ANALISAR ARQUIVO']:
-            last_media=last_media_store.get(sender_id)
+            last_media = None
+            hist_for_media = memory.history(sender_id)
+            media_url_saved = None
+            media_type_saved = None
+            for row in reversed(hist_for_media):
+                txt = str(row.get('message') or row.get('content') or '')
+                if txt.startswith('LAST_MEDIA_URL::') and not media_url_saved:
+                    media_url_saved = txt.replace('LAST_MEDIA_URL::','',1)
+                if txt.startswith('LAST_MEDIA_TYPE::') and not media_type_saved:
+                    media_type_saved = txt.replace('LAST_MEDIA_TYPE::','',1)
+            if media_url_saved:
+                last_media = {'media_url': media_url_saved, 'media_type': media_type_saved or 'image/jpeg'}
             if last_media:
                 reply=media_handler.process(last_media.get('media_url'), last_media.get('media_type'), message)
             else:
                 reply='Ainda não encontrei uma imagem anterior para analisar. Envie a imagem novamente.'
             return Response(content=builder.twiml(safe_reply(reply)), media_type='application/xml')
         if media_url:
-            last_media_store.save(sender_id, media_url, media_type)
+            memory.save(sender_id, f'LAST_MEDIA_URL::{media_url}')
+            memory.save(sender_id, f'LAST_MEDIA_TYPE::{media_type}')
             reply=media_handler.acknowledge(media_type)
             vision_memory.save(sender_id, {'media_url': media_url, 'media_type': media_type, 'analysis': reply}, media_type)
         else:
@@ -287,6 +299,7 @@ try:
     # disabled include_router neura_whatsapp_router
 except Exception as e:
     print(f"[NEURA_WEBHOOK_ROUTER_ERROR] {e}")
+
 
 
 
