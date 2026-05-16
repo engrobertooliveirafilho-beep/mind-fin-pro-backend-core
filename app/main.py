@@ -212,7 +212,7 @@ async def whatsapp_webhook(request: Request):
             try:
                 memory.save(sender_id, f'LAST_MEDIA_URL::{media_url}')
                 memory.save(sender_id, f'LAST_MEDIA_TYPE::{media_type}')
-                last_media_store_global.save(sender_id, {'media_url': media_url, 'media_type': media_type})
+                last_media_store_global.save(sender_id, media_url, media_type)
                 vision_memory.save(sender_id, {'media_url': media_url, 'media_type': media_type})
                 print('LAST_MEDIA_PERSISTED_BEFORE_BRANCH=TRUE')
             except Exception as e:
@@ -357,6 +357,7 @@ except Exception as e:
 
 from app.friendship.friendship_routes import router as friendship_router
 app.include_router(friendship_router)
+
 
 
 
