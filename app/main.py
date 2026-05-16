@@ -197,6 +197,15 @@ async def whatsapp_webhook(request: Request):
         if visual_ctx and visual_ctx.get('last_analysis') and any(x in str(message).lower() for x in ['rosto','imagem','foto','ela','visual']):
             reply = "Pelo contexto da imagem anterior, o rosto dela passa uma presença suave, sofisticada e futurista. A expressão parece calma e controlada, o que combina bem com uma IA assistente: transmite confiança sem parecer fria. O visual funciona melhor se mantiver naturalidade, expressão humana e menos elementos artificiais no rosto."
             return Response(content=builder.twiml(safe_reply(reply)), media_type='application/xml')
+        last_visual_analysis = None
+        for row in reversed(history):
+            txtv = str(row.get('message') or row.get('content') or '')
+            if txtv.startswith('LAST_VISUAL_ANALYSIS::'):
+                last_visual_analysis = txtv.replace('LAST_VISUAL_ANALYSIS::','',1)
+                break
+        if last_visual_analysis and any(x in str(message).lower() for x in ['rosto','imagem','foto','ela','visual']):
+            reply = 'Com base na imagem anterior: ' + last_visual_analysis[:1500]
+            return Response(content=builder.twiml(safe_reply(reply)), media_type='application/xml')
         media_url=payload.get("MediaUrl0") or payload.get("media_url")
         print(f'MEDIA_DEBUG_URL={media_url}')
         print(f'MEDIA_DEBUG_TYPE={payload.get("MediaContentType0")}')
@@ -227,6 +236,11 @@ async def whatsapp_webhook(request: Request):
                     print(f'DB_LAST_MEDIA_RECOVERED={recovered_url}')
                 if recovered_url:
                     reply = media_handler.process(recovered_url, recovered_type, message)
+                    try:
+                        memory.save(sender_id, 'LAST_VISUAL_ANALYSIS::' + str(reply)[:12000])
+                        print('LAST_VISUAL_ANALYSIS_SAVED=TRUE')
+                    except Exception as e:
+                        print(f'LAST_VISUAL_ANALYSIS_SAVE_ERROR={e}')
                     try:
                         vision_memory.save(sender_id, {'last_analysis': reply, 'media_url': recovered_url, 'media_type': recovered_type})
                         print(f'VISUAL_CONTEXT_SAVED={sender_id}')
@@ -336,6 +350,7 @@ except Exception as e:
 
 from app.friendship.friendship_routes import router as friendship_router
 app.include_router(friendship_router)
+
 
 
 
