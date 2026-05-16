@@ -13,6 +13,8 @@ class MediaHandler:
         return "Arquivo recebido. Envie ANALISAR ARQUIVO para eu interpretar o documento."
 
     def process(self, media_url, media_type, user_message="Analise esta mídia."):
+        if not media_url or str(media_url).lower() == 'none':
+            return 'Não encontrei a imagem anterior para analisar. Envie a imagem novamente e depois mande ANALISAR IMAGEM.'
         try:
             local_path = self.downloader.download(media_url, media_type)
             return self.router.handle(
@@ -23,3 +25,4 @@ class MediaHandler:
             )
         except Exception as e:
             return f"Falhei ao analisar a mídia: {type(e).__name__}: {str(e)[:120]}"
+
