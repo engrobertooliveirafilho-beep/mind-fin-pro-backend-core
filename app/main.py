@@ -216,7 +216,18 @@ async def whatsapp_webhook(request: Request):
             else:
                 reply='Ainda não encontrei uma imagem anterior para analisar. Envie a imagem novamente.'
             return Response(content=builder.twiml(safe_reply(reply)), media_type='application/xml')
-        if (str(message).strip().upper().replace('.', '') in ['ANALISAR IMAGEM','ANALISAR ARQUIVO']) and not media_url:
+        if media_url and str(message).strip():
+        reply=media_handler.process(media_url, media_type, message)
+        return twiml_reply(reply)
+    if (str(message).strip().upper().replace('.', '') in ['ANALISAR IMAGEM','ANALISAR ARQUIVO']) and not media_url:
+        try:
+            lm=last_media_store_global.get(sender_id)
+            print(f'GLOBAL_LAST_MEDIA_RECOVERED={lm}')
+            if lm and lm.get('media_url'):
+                reply=media_handler.process(lm.get('media_url'), lm.get('media_type'), message)
+                return twiml_reply(reply)
+        except Exception as e:
+            print(f'GLOBAL_LAST_MEDIA_RECOVER_ERROR={e}')
             hist_for_media = memory.history(sender_id)
             saved_url = None
             saved_type = None
@@ -232,7 +243,12 @@ async def whatsapp_webhook(request: Request):
                 media_type = saved_type or 'image/jpeg'
 
         if media_url:
-            print(f'DB_LAST_MEDIA_SAVE_URL={media_url}')
+        print(f'DB_LAST_MEDIA_SAVE_URL={media_url}')
+        try:
+            last_media_store_global.save(sender_id, media_url, media_type)
+            print(f'GLOBAL_LAST_MEDIA_SAVE_URL={media_url}')
+        except Exception as e:
+            print(f'GLOBAL_LAST_MEDIA_SAVE_ERROR={e}')
             memory.save(sender_id, f'LAST_MEDIA_URL::{media_url}')
             memory.save(sender_id, f'LAST_MEDIA_TYPE::{media_type}')
             memory.save(sender_id, f'LAST_MEDIA_URL::{media_url}')
@@ -328,5 +344,6 @@ except Exception as e:
 
 from app.friendship.friendship_routes import router as friendship_router
 app.include_router(friendship_router)
+
 
 
