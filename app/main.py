@@ -13,6 +13,11 @@ from app.retrieval.provider import RetrievalProvider
 from app.orchestrator.prompt_orchestrator import PromptOrchestrator
 from app.runtime.response_builder import ResponseBuilder
 from fastapi import FastAPI, Request, Response
+
+from app.runtime.visual_context_override import (
+    is_visual_followup,
+    build_visual_reply
+)
 import os
 import psycopg2
 import psycopg2.extras
@@ -139,6 +144,11 @@ async def mind_talk(payload: dict):
 
 
 from fastapi import Request, Response
+
+from app.runtime.visual_context_override import (
+    is_visual_followup,
+    build_visual_reply
+)
 
 
 def safe_reply(value):
@@ -267,7 +277,32 @@ async def whatsapp_webhook(request: Request):
             if visual_reply:
                 reply=visual_reply
             else:
-                reply=orchestrator.answer(
+                
+        try:
+            if is_visual_followup(message):
+                visual_history = memory.history(sender_id)
+
+                visual_items = [
+                    x for x in visual_history
+                    if "LAST_VISUAL_ANALYSIS::" in str(x)
+                ]
+
+                if visual_items:
+                    last_visual = str(visual_items[-1])
+                    last_visual = last_visual.split(
+                        "LAST_VISUAL_ANALYSIS::",1
+                    )[-1]
+
+                    reply = build_visual_reply(
+                        message,
+                        last_visual
+                    )
+
+                    return Response(content=str(MessagingResponse().message(reply)), media_type="application/xml")
+        except Exception as e:
+            print("VISUAL_OVERRIDE_FAIL", e)
+
+reply = orchestrator.answer(
         message,
         memory_context=context.get("history_text",""),
         retrieved_context=context
@@ -350,6 +385,7 @@ except Exception as e:
 
 from app.friendship.friendship_routes import router as friendship_router
 app.include_router(friendship_router)
+
 
 
 
