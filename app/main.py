@@ -188,6 +188,8 @@ async def whatsapp_webhook(request: Request):
 
         history=memory.history(sender_id)
         context=retrieval.retrieve(message,history)
+        if 'ULTIMA_ANALISE_VISUAL:' in context:
+            context = 'CONTEXTO VISUAL ATIVO: responda considerando a analise visual anterior da imagem enviada pelo usuario.\n' + context
         visual_ctx = vision_memory.get(sender_id)
         visual_ctx = vision_memory.get(sender_id)
         if visual_ctx and visual_ctx.get('last_analysis') and any(x in str(message).lower() for x in ['rosto','imagem','foto','ela','visual']):
@@ -331,6 +333,7 @@ except Exception as e:
 
 from app.friendship.friendship_routes import router as friendship_router
 app.include_router(friendship_router)
+
 
 
 
