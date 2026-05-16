@@ -208,6 +208,15 @@ async def whatsapp_webhook(request: Request):
         print(f'MEDIA_DEBUG_URL={media_url}')
         print(f'MEDIA_DEBUG_TYPE={payload.get("MediaContentType0")}')
         media_type=payload.get("MediaContentType0") or payload.get("media_type") or ""
+        if media_url:
+            try:
+                memory.save(sender_id, f'LAST_MEDIA_URL::{media_url}')
+                memory.save(sender_id, f'LAST_MEDIA_TYPE::{media_type}')
+                last_media_store_global.save(sender_id, {'media_url': media_url, 'media_type': media_type})
+                vision_memory.save(sender_id, {'media_url': media_url, 'media_type': media_type})
+                print('LAST_MEDIA_PERSISTED_BEFORE_BRANCH=TRUE')
+            except Exception as e:
+                print(f'LAST_MEDIA_PERSIST_ERROR={e}')
         last_visual_media=vision_memory.get(sender_id)
         visual_cmd = str(message).strip().upper().replace('.', '') in ['ANALISAR IMAGEM','ANALISAR ARQUIVO']
         if visual_cmd:
