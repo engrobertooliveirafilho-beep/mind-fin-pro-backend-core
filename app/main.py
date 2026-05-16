@@ -188,6 +188,10 @@ async def whatsapp_webhook(request: Request):
 
         history=memory.history(sender_id)
         context=retrieval.retrieve(message,history)
+        visual_ctx = vision_memory.get(sender_id)
+        visual_ctx = vision_memory.get(sender_id)
+        if visual_ctx and visual_ctx.get('last_analysis') and any(x in str(message).lower() for x in ['rosto','imagem','foto','ela','visual']):
+            context += '\nULTIMA_ANALISE_VISUAL:\n' + str(visual_ctx.get("last_analysis"))[:4000]
         media_url=payload.get("MediaUrl0") or payload.get("media_url")
         print(f'MEDIA_DEBUG_URL={media_url}')
         print(f'MEDIA_DEBUG_TYPE={payload.get("MediaContentType0")}')
@@ -218,6 +222,11 @@ async def whatsapp_webhook(request: Request):
                     print(f'DB_LAST_MEDIA_RECOVERED={recovered_url}')
                 if recovered_url:
                     reply = media_handler.process(recovered_url, recovered_type, message)
+                    try:
+                        vision_memory.save(sender_id, {'last_analysis': reply, 'media_url': recovered_url, 'media_type': recovered_type})
+                        print(f'VISUAL_CONTEXT_SAVED={sender_id}')
+                    except Exception as e:
+                        print(f'VISUAL_CONTEXT_SAVE_ERROR={e}')
                 else:
                     reply = 'Ainda não encontrei uma imagem anterior para analisar. Envie a imagem novamente.'
                 return Response(content=builder.twiml(safe_reply(reply)), media_type='application/xml')
@@ -322,6 +331,8 @@ except Exception as e:
 
 from app.friendship.friendship_routes import router as friendship_router
 app.include_router(friendship_router)
+
+
 
 
 
