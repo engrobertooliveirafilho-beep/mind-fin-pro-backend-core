@@ -211,6 +211,7 @@ async def whatsapp_webhook(request: Request):
         if media_url:
             try:
                 memory.save(sender_id, f'LAST_MEDIA_URL::{media_url}')
+                memory.save(sender_id, f'LAST_MEDIA_URL::{media_url}')
                 memory.save(sender_id, f'LAST_MEDIA_TYPE::{media_type}')
                 last_media_store_global.save(sender_id, media_url, media_type)
                 vision_memory.save(sender_id, {'media_url': media_url, 'media_type': media_type})
@@ -238,6 +239,9 @@ async def whatsapp_webhook(request: Request):
                         txt = str(row.get('message') or row.get('content') or '')
                         if txt.startswith('LAST_MEDIA_URL::') and not recovered_url:
                             recovered_url = txt.replace('LAST_MEDIA_URL::','',1)
+                        if txt.startswith('LAST_MEDIA_URL::'):
+                            recovered_url = txt.replace('LAST_MEDIA_URL::','',1) or recovered_url
+                            print(f'DB_LAST_MEDIA_RECOVERED={recovered_url}')
                         if txt.startswith('LAST_MEDIA_TYPE::'):
                             recovered_type = txt.replace('LAST_MEDIA_TYPE::','',1) or recovered_type
                     print(f'DB_LAST_MEDIA_RECOVERED={recovered_url}')
@@ -263,9 +267,11 @@ async def whatsapp_webhook(request: Request):
             reply = media_handler.process(media_url, media_type, message)
             return twiml_reply(reply)
             memory.save(sender_id, f'LAST_MEDIA_URL::{media_url}')
-            memory.save(sender_id, f'LAST_MEDIA_TYPE::{media_type}')
             memory.save(sender_id, f'LAST_MEDIA_URL::{media_url}')
-            memory.save(sender_id, f'LAST_MEDIA_TYPE::{media_type}')
+                memory.save(sender_id, f'LAST_MEDIA_TYPE::{media_type}')
+            memory.save(sender_id, f'LAST_MEDIA_URL::{media_url}')
+            memory.save(sender_id, f'LAST_MEDIA_URL::{media_url}')
+                memory.save(sender_id, f'LAST_MEDIA_TYPE::{media_type}')
             reply=media_handler.acknowledge(media_type)
             vision_memory.save(sender_id, {'media_url': media_url, 'media_type': media_type, 'analysis': reply}, media_type)
         else:
@@ -357,6 +363,7 @@ except Exception as e:
 
 from app.friendship.friendship_routes import router as friendship_router
 app.include_router(friendship_router)
+
 
 
 
