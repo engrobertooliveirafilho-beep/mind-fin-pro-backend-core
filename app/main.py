@@ -213,7 +213,7 @@ async def whatsapp_webhook(request: Request):
                 memory.save(sender_id, f'LAST_MEDIA_URL::{media_url}')
                 memory.save(sender_id, f'LAST_MEDIA_TYPE::{media_type}')
                 last_media_store_global.save(sender_id, media_url, media_type)
-                vision_memory.save(sender_id, {'media_url': media_url, 'media_type': media_type})
+                # visual media metadata is persisted in last_media_store/memory only; vision_memory stores analysis only
                 print('LAST_MEDIA_PERSISTED_BEFORE_BRANCH=TRUE')
             except Exception as e:
                 print(f'LAST_MEDIA_PERSIST_ERROR={e}')
@@ -267,7 +267,7 @@ async def whatsapp_webhook(request: Request):
             memory.save(sender_id, f'LAST_MEDIA_URL::{media_url}')
             memory.save(sender_id, f'LAST_MEDIA_TYPE::{media_type}')
             reply=media_handler.acknowledge(media_type)
-            vision_memory.save(sender_id, {'media_url': media_url, 'media_type': media_type, 'analysis': reply}, media_type)
+            # ACK is not visual analysis; do not save ACK into vision_memory
         else:
             visual_context=vision_memory.get(sender_id)
             visual_reply=visual_followup.answer(message, visual_context)
@@ -357,6 +357,7 @@ except Exception as e:
 
 from app.friendship.friendship_routes import router as friendship_router
 app.include_router(friendship_router)
+
 
 
 
