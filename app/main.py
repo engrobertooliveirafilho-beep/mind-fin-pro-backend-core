@@ -216,7 +216,25 @@ async def whatsapp_webhook(request: Request):
             else:
                 reply='Ainda não encontrei uma imagem anterior para analisar. Envie a imagem novamente.'
             return Response(content=builder.twiml(safe_reply(reply)), media_type='application/xml')
+        if (str(message).strip().upper().replace('.', '') in ['ANALISAR IMAGEM','ANALISAR ARQUIVO']) and not media_url:
+            hist_for_media = memory.history(sender_id)
+            saved_url = None
+            saved_type = None
+            for row in reversed(hist_for_media):
+                txt = str(row.get('message') or row.get('content') or '')
+                if txt.startswith('LAST_MEDIA_URL::') and not saved_url:
+                    saved_url = txt.replace('LAST_MEDIA_URL::','',1)
+                if txt.startswith('LAST_MEDIA_TYPE::') and not saved_type:
+                    saved_type = txt.replace('LAST_MEDIA_TYPE::','',1)
+            print(f'DB_LAST_MEDIA_RECOVERED={saved_url}')
+            if saved_url:
+                media_url = saved_url
+                media_type = saved_type or 'image/jpeg'
+
         if media_url:
+            print(f'DB_LAST_MEDIA_SAVE_URL={media_url}')
+            memory.save(sender_id, f'LAST_MEDIA_URL::{media_url}')
+            memory.save(sender_id, f'LAST_MEDIA_TYPE::{media_type}')
             memory.save(sender_id, f'LAST_MEDIA_URL::{media_url}')
             memory.save(sender_id, f'LAST_MEDIA_TYPE::{media_type}')
             reply=media_handler.acknowledge(media_type)
