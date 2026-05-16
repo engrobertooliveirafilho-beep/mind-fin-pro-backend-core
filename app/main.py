@@ -203,7 +203,7 @@ async def whatsapp_webhook(request: Request):
                 break
         if last_visual_analysis and any(x in str(message).lower() for x in ['rosto','imagem','foto','ela','visual','humana','futurista','aparência','aparencia']):
             reply = 'Com base na imagem anterior: ' + last_visual_analysis[:1500]
-            return str(resp.message(reply))
+            return Response(content=builder.twiml(safe_reply(reply)), media_type='application/xml')
         media_url=payload.get("MediaUrl0") or payload.get("media_url")
         print(f'MEDIA_DEBUG_URL={media_url}')
         print(f'MEDIA_DEBUG_TYPE={payload.get("MediaContentType0")}')
@@ -357,6 +357,7 @@ except Exception as e:
 
 from app.friendship.friendship_routes import router as friendship_router
 app.include_router(friendship_router)
+
 
 
 
