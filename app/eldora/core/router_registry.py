@@ -9,6 +9,7 @@ from app.api.eldora_runtime_supervisor import router as eldora_runtime_superviso
 from app.api.eldora_cognition import router as eldora_cognition_router
 from app.api.eldora_persistent_cognition import router as eldora_persistent_cognition_router
 from app.api.eldora_multimodal import router as eldora_multimodal_router
+from app.api.eldora_evolution import router as eldora_evolution_router
 
 REGISTERED_ROUTERS = [
     eldora_router,
@@ -21,8 +22,10 @@ REGISTERED_ROUTERS = [
     eldora_runtime_supervisor_router,
     eldora_cognition_router,
     eldora_persistent_cognition_router,
-    eldora_multimodal_router
+    eldora_multimodal_router,
+    eldora_evolution_router
 ]
+
 
 
 
