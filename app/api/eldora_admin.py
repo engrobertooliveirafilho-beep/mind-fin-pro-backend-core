@@ -1,6 +1,8 @@
 import os
 import psycopg2
-from fastapi import APIRouter, Header, HTTPException
+from fastapi import APIRouter, Depends
+
+from app.eldora.core.admin_guard import require_admin
 
 router = APIRouter(prefix="/eldora/admin", tags=["eldora-admin"])
 
@@ -22,14 +24,10 @@ create table if not exists eldora_event_store (
 """
 
 @router.post("/apply-schema")
-async def apply_schema(x_admin_token: str = Header(default="")):
-    expected = os.getenv("ELDORA_ADMIN_TOKEN", "")
-    if not expected or x_admin_token != expected:
-        raise HTTPException(status_code=403, detail="forbidden")
-
+async def apply_schema(_: bool = Depends(require_admin)):
     database_url = os.getenv("DATABASE_URL")
     if not database_url:
-        raise HTTPException(status_code=500, detail="DATABASE_URL missing")
+        return {"status": "error", "detail": "DATABASE_URL missing"}
 
     conn = psycopg2.connect(database_url)
     with conn:
