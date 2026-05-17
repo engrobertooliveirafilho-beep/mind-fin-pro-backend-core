@@ -1,3 +1,18 @@
+def neura_persona_short_followup_reply(message: str) -> str | None:
+    m = (message or "").lower().strip()
+    triggers = ["quais ajustes", "que ajustes", "quais exatamente", "ajustes?", "quais mudanças", "que mudanças"]
+    if not any(t in m for t in triggers):
+        return None
+    return (
+        "Eu faria ajustes sutis, não mudaria a identidade do rosto. "
+        "1) suavizar um pouco a expressão para parecer mais acolhedora; "
+        "2) deixar o olhar menos perfeito e mais humano; "
+        "3) reduzir excesso de simetria, porque perfeição demais parece artificial; "
+        "4) manter estética premium, mas com calor humano; "
+        "5) usar cores e iluminação mais calmas. "
+        "A direção ideal para a NEURA é 70% humana, 30% futurista: confiável, memorável e sem assustar."
+    )
+
 # disabled missing module neura_viral_router
 from app.medical_curriculum.routes import router as medical_curriculum_router
 from app.auto_ingestion.routes import router as auto_ingestion_router
@@ -169,6 +184,10 @@ async def whatsapp_webhook(request: Request):
 
         sender_id=payload.get("From") or payload.get("from") or payload.get("sender_id") or "unknown"
         message=payload.get("Body") or payload.get("body") or payload.get("message") or ""
+
+    persona_direct = neura_persona_short_followup_reply(message)
+    if persona_direct:
+        return Response(content=f"<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>{persona_direct}</Message></Response>", media_type="application/xml")
 
         from app.memory.provider import MemoryProvider
         from app.retrieval.provider import RetrievalProvider
@@ -386,4 +405,5 @@ app.include_router(friendship_schema_validation_router)
 
 from app.admin.friendship_outbound_test import router as friendship_outbound_test_router
 app.include_router(friendship_outbound_test_router)
+
 
