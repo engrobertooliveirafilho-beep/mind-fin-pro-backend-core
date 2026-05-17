@@ -14,6 +14,7 @@ from app.api.eldora_swarm import router as eldora_swarm_router
 from app.api.eldora_world import router as eldora_world_router
 from app.api.eldora_meta import router as eldora_meta_router
 from app.api.eldora_social import router as eldora_social_router
+from app.api.eldora_autonomy import router as eldora_autonomy_router
 
 REGISTERED_ROUTERS = [
     eldora_router,
@@ -31,8 +32,10 @@ REGISTERED_ROUTERS = [
     eldora_swarm_router,
     eldora_world_router,
     eldora_meta_router,
-    eldora_social_router
+    eldora_social_router,
+    eldora_autonomy_router
 ]
+
 
 
 
