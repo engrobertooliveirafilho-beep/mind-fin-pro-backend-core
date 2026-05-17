@@ -1,3 +1,4 @@
+from fastapi import FastAPI, Request
 # disabled missing module neura_viral_router
 from app.medical_curriculum.routes import router as medical_curriculum_router
 from app.auto_ingestion.routes import router as auto_ingestion_router
@@ -12,7 +13,8 @@ from app.memory.provider import MemoryProvider
 from app.retrieval.provider import RetrievalProvider
 from app.orchestrator.prompt_orchestrator import PromptOrchestrator
 from app.runtime.response_builder import ResponseBuilder
-from fastapi import FastAPI, Request, Response
+from fastapi import FastAPI
+from app.api.eldora import router as eldora_router
 import os
 import psycopg2
 import psycopg2.extras
@@ -21,6 +23,7 @@ from app.vision.visual_followup_resolver import VisualFollowupResolver
 from app.webhook.last_media_store import LastMediaStore
 
 app = FastAPI(title="NEURA Cloud Runtime")
+app.include_router(eldora_router)
 
 # NEURA_PERSONA_IDENTITY_MIDDLEWARE_V2
 @app.middleware("http")
@@ -525,3 +528,7 @@ async def neura_persona_webhook_stable(Body: str = Form(default=""), From: str =
 @app.get("/routes")
 async def neura_route_audit():
     return sorted([getattr(r, "path", "") for r in app.routes])
+
+
+
+
