@@ -1,9 +1,7 @@
-EVENTS = []
+from app.eldora.core.persistent_event_store import save_event, audit_store_report
 
 def publish(topic: str, payload: dict):
-    event = {"topic": topic, "payload": payload}
-    EVENTS.append(event)
-    return event
+    return save_event(topic, payload)
 
 def event_bus_report():
-    return {"status": "ok", "events_count": len(EVENTS), "events": EVENTS[-20:]}
+    return audit_store_report()
