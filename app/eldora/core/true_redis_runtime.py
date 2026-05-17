@@ -1,6 +1,7 @@
 import os
 import json
 import uuid
+
 from datetime import datetime, timezone
 
 try:
@@ -12,12 +13,18 @@ else:
     IMPORT_ERROR = None
 
 MEMORY_FALLBACK = []
+
 LAST_REDIS_ERROR = None
 
+def redis_last_error():
+    return LAST_REDIS_ERROR
+
 def redis_client():
+
     global LAST_REDIS_ERROR
 
     try:
+
         url = os.getenv("REDIS_URL")
 
         if not url:
@@ -28,26 +35,38 @@ def redis_client():
             LAST_REDIS_ERROR = f"redis import failed: {IMPORT_ERROR}"
             return None
 
+        kwargs = {
+            "decode_responses": True,
+            "socket_connect_timeout": 5,
+            "socket_timeout": 5
+        }
+
+        if url.startswith("rediss://"):
+            kwargs["ssl_cert_reqs"] = None
+
         client = redis.from_url(
             url,
-            decode_responses=True,
-            socket_connect_timeout=5,
-            socket_timeout=5,
-            ssl_cert_reqs=None if url.startswith("rediss://") else "required"
+            **kwargs
         )
 
         client.ping()
+
         LAST_REDIS_ERROR = None
+
         return client
 
     except Exception as e:
+
         LAST_REDIS_ERROR = str(e)
+
         return None
 
-def redis_last_error():
-    return LAST_REDIS_ERROR
+def publish_true_stream(
+    stream:str,
+    event:str,
+    payload:dict|None=None
+):
 
-def publish_true_stream(stream:str, event:str, payload:dict|None=None):
     payload = payload or {}
 
     item = {
@@ -59,10 +78,13 @@ def publish_true_stream(stream:str, event:str, payload:dict|None=None):
     }
 
     try:
+
         client = redis_client()
 
         if client is None:
+
             MEMORY_FALLBACK.append(item)
+
             return {
                 "status":"ok",
                 "backend":"memory_fallback",
@@ -89,7 +111,9 @@ def publish_true_stream(stream:str, event:str, payload:dict|None=None):
         }
 
     except Exception as e:
+
         MEMORY_FALLBACK.append(item)
+
         return {
             "status":"ok",
             "backend":"memory_fallback",
@@ -97,11 +121,17 @@ def publish_true_stream(stream:str, event:str, payload:dict|None=None):
             "event": item
         }
 
-def true_stream_report(stream:str="eldora.true.events", count:int=20):
+def true_stream_report(
+    stream:str="eldora.true.events",
+    count:int=20
+):
+
     try:
+
         client = redis_client()
 
         if client is None:
+
             return {
                 "status":"ok",
                 "backend":"memory_fallback",
@@ -110,7 +140,10 @@ def true_stream_report(stream:str="eldora.true.events", count:int=20):
                 "events":MEMORY_FALLBACK[-count:]
             }
 
-        items = client.xrevrange(stream, count=count)
+        items = client.xrevrange(
+            stream,
+            count=count
+        )
 
         return {
             "status":"ok",
@@ -120,6 +153,7 @@ def true_stream_report(stream:str="eldora.true.events", count:int=20):
         }
 
     except Exception as e:
+
         return {
             "status":"ok",
             "backend":"memory_fallback",
