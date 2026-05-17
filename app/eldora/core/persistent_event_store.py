@@ -27,14 +27,23 @@ def save_audit_event(event_type: str, actor: str = "system", payload: dict | Non
     if not conn:
         MEMORY_AUDIT_EVENTS.append(event)
         return {"saved": True, "backend": "memory", "event": event}
-    with conn:
-        with conn.cursor() as cur:
-            cur.execute(
-                "insert into eldora_audit_events(event_type, actor, payload) values (%s,%s,%s::jsonb)",
-                (event_type, actor, json.dumps(payload))
-            )
-    conn.close()
-    return {"saved": True, "backend": "postgres", "event": event}
+    try:
+        with conn:
+            with conn.cursor() as cur:
+                cur.execute(
+                    "insert into eldora_audit_events(event_type, actor, payload) values (%s,%s,%s::jsonb)",
+                    (event_type, actor, json.dumps(payload))
+                )
+        conn.close()
+        return {"saved": True, "backend": "postgres", "event": event}
+    except Exception as e:
+        try:
+            conn.close()
+        except Exception:
+            pass
+        event["postgres_error"] = str(e)
+        MEMORY_AUDIT_EVENTS.append(event)
+        return {"saved": True, "backend": "memory_fallback", "event": event}
 
 def save_event(topic: str, payload: dict | None = None):
     payload = payload or {}
@@ -62,3 +71,4 @@ def audit_store_report():
         "events": (MEMORY_AUDIT_EVENTS + MEMORY_EVENT_STORE)[-20:],
         "postgres_available": bool(os.getenv("DATABASE_URL") and psycopg2)
     }
+
