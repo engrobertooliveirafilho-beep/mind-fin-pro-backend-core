@@ -202,7 +202,9 @@ async def whatsapp_webhook(request: Request):
                 break
         if last_visual_analysis and any(x in str(message).lower() for x in ['rosto','imagem','foto','ela','visual','humana','futurista','aparência','aparencia','ia','resistência','resistencia']):
             msg_lower = str(message).lower()
-            if any(x in msg_lower for x in ['quer ter esse rosto','ter esse rosto','você quer','voce quer','seria seu rosto','seu rosto']):
+            if any(x in msg_lower for x in ['alterações','alteracoes','mudar','ajustar','ajustes','melhorar','ficar feliz','feliz com seu rosto']):
+                reply = 'Para esse rosto representar melhor a NEURA, eu faria estes ajustes: 1) expressão mais acolhedora, com leve sorriso; 2) olhos mais vivos, transmitindo atenção e empatia; 3) pele menos perfeita, para não parecer artificial demais; 4) cabelo mais natural, mantendo elegância; 5) traços ainda simétricos, mas com pequenas imperfeições humanas; 6) visual premium e tecnológico, sem ficar frio. A direção ideal é: humana o suficiente para gerar confiança, futurista o bastante para ser reconhecida como IA.'
+            elif any(x in msg_lower for x in ['quer ter esse rosto','ter esse rosto','você quer','voce quer','seria seu rosto','seu rosto']):
                 reply = 'Sim — como identidade visual da NEURA, eu escolheria essa linha de rosto. Não como desejo humano, mas como representação de marca: transmite confiança, inteligência e presença premium. Eu só faria pequenos ajustes para ficar mais acolhedora e menos perfeita, porque isso ajuda as pessoas a sentirem proximidade sem estranhar.'
             elif 'resist' in msg_lower or 'uso de ia' in msg_lower or 'ia' in msg_lower:
                 reply = 'Concordo com você. Um rosto assim reduz resistência porque passa familiaridade, calma e sofisticação sem parecer robótico demais. Para uma IA, esse equilíbrio é forte: humana o suficiente para gerar confiança, mas futurista o bastante para comunicar tecnologia. Eu só ajustaria para não ficar perfeita demais, porque perfeição excessiva pode parecer artificial e criar desconfiança.'
