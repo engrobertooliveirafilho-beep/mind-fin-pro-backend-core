@@ -11,6 +11,7 @@ from app.api.eldora_persistent_cognition import router as eldora_persistent_cogn
 from app.api.eldora_multimodal import router as eldora_multimodal_router
 from app.api.eldora_evolution import router as eldora_evolution_router
 from app.api.eldora_swarm import router as eldora_swarm_router
+from app.api.eldora_world import router as eldora_world_router
 
 REGISTERED_ROUTERS = [
     eldora_router,
@@ -25,8 +26,10 @@ REGISTERED_ROUTERS = [
     eldora_persistent_cognition_router,
     eldora_multimodal_router,
     eldora_evolution_router,
-    eldora_swarm_router
+    eldora_swarm_router,
+    eldora_world_router
 ]
+
 
 
 
