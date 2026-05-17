@@ -519,3 +519,9 @@ async def neura_persona_webhook_stable(Body: str = Form(default=""), From: str =
         content=f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>{reply}</Message></Response>',
         media_type="application/xml"
     )
+
+
+# NEURA_ROUTE_AUDIT_ENDPOINT
+@app.get("/routes")
+async def neura_route_audit():
+    return sorted([getattr(r, "path", "") for r in app.routes])
