@@ -1,9 +1,8 @@
 import os
 
-from app.eldora.core.true_redis_runtime import redis_client
+from app.eldora.core.true_redis_runtime import redis_client, redis_last_error
 
 def redis_diagnostics():
-
     url = os.getenv("REDIS_URL")
 
     info = {
@@ -15,18 +14,15 @@ def redis_diagnostics():
         "error": None
     }
 
+    client = redis_client()
+
+    info["redis_client_created"] = client is not None
+    info["error"] = redis_last_error()
+
     try:
-
-        client = redis_client()
-
-        info["redis_client_created"] = client is not None
-
         if client:
-
             info["ping"] = bool(client.ping())
-
     except Exception as e:
-
         info["error"] = str(e)
 
     return info
