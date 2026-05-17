@@ -21,6 +21,7 @@ from app.api.eldora_liveos import router as eldora_liveos_router
 from app.api.eldora_mesh import router as eldora_mesh_router
 from app.api.eldora_embodied import router as eldora_embodied_router
 from app.api.eldora_distributed import router as eldora_distributed_router
+from app.api.eldora_true_distributed import router as eldora_true_distributed_router
 
 REGISTERED_ROUTERS = [
     eldora_router,
@@ -45,8 +46,10 @@ REGISTERED_ROUTERS = [
     eldora_liveos_router,
     eldora_mesh_router,
     eldora_embodied_router,
-    eldora_distributed_router
+    eldora_distributed_router,
+    eldora_true_distributed_router
 ]
+
 
 
 
