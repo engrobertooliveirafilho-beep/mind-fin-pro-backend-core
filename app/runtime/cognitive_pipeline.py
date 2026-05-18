@@ -13,6 +13,17 @@ def run_cognitive_pipeline(user_id: str, message: str) -> dict:
 
     msg_l = (message or "").lower().strip()
 
+    if any(x in msg_l for x in ["tudo bem", "como ta", "como tá", "ta bem", "tá bem"]):
+        answer = "Estou funcionando bem agora e melhorando a conversa da Eldora para responder de forma mais natural e contextual."
+        save_message(user_id, "assistant", answer)
+        return {
+            "answer": answer,
+            "intent": {"intent": "smalltalk"},
+            "scores": {},
+            "state": {},
+            "autonomous": {}
+        }
+
     # =====================================================
     # HARD OVERRIDE — GREETINGS
     # =====================================================
@@ -92,6 +103,7 @@ def run_cognitive_pipeline(user_id: str, message: str) -> dict:
         "state": state,
         "autonomous": autonomous
     }
+
 
 
 
