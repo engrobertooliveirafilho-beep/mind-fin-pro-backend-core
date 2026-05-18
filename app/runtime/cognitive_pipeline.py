@@ -12,6 +12,43 @@ def run_cognitive_pipeline(user_id: str, message: str) -> dict:
     save_message(user_id, "user", message)
 
     msg_l = (message or "").lower().strip()
+
+    # =====================================================
+    # HARD OVERRIDE — GREETINGS
+    # =====================================================
+
+    if "boa tarde" in msg_l:
+        answer = "Boa tarde, Roberto. Estou aqui e acompanhando o contexto da conversa."
+        save_message(user_id, "assistant", answer)
+        return {
+            "answer": answer,
+            "intent": {"intent": "greeting"},
+            "scores": {},
+            "state": {},
+            "autonomous": {}
+        }
+
+    if "bom dia" in msg_l:
+        answer = "Bom dia, Roberto. Estou acompanhando o contexto e pronta para continuar."
+        save_message(user_id, "assistant", answer)
+        return {
+            "answer": answer,
+            "intent": {"intent": "greeting"},
+            "scores": {},
+            "state": {},
+            "autonomous": {}
+        }
+
+    if "boa noite" in msg_l:
+        answer = "Boa noite, Roberto. O contexto do MIND continua ativo."
+        save_message(user_id, "assistant", answer)
+        return {
+            "answer": answer,
+            "intent": {"intent": "greeting"},
+            "scores": {},
+            "state": {},
+            "autonomous": {}
+        }
     if any(x in msg_l for x in [
         "cade a resposta",
         "cadê a resposta",
@@ -55,5 +92,6 @@ def run_cognitive_pipeline(user_id: str, message: str) -> dict:
         "state": state,
         "autonomous": autonomous
     }
+
 
 
