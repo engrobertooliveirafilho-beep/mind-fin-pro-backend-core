@@ -1,4 +1,4 @@
-import os, psycopg
+import os
 from fastapi import APIRouter, HTTPException, Header
 
 router = APIRouter(prefix="/eldora/supabase-live", tags=["eldora-supabase-live"])
@@ -19,7 +19,7 @@ def _db():
     url = os.getenv("DATABASE_URL")
     if not url:
         raise HTTPException(500, "DATABASE_URL missing")
-    return psycopg.connect(url)
+    import psycopg; return psycopg.connect(url)
 
 def _guard(token):
     expected = os.getenv("ADMIN_ACTIVATION_TOKEN")
@@ -48,8 +48,9 @@ def insert_read(payload: dict, x_admin_token: str | None = Header(default=None))
                    values(%s,%s,%s,%s,%s)
                    on conflict(idempotency_key) do update set payload=excluded.payload
                    returning id,event_type,idempotency_key""",
-                (payload.get("tenant_id"), payload.get("user_id"), payload.get("event_type"), psycopg.types.json.Jsonb(payload.get("payload", {})), key)
+                (payload.get("tenant_id"), payload.get("user_id"), payload.get("event_type"), __import__("psycopg").types.json.Jsonb(payload.get("payload", {})), key)
             )
             row = cur.fetchone()
         conn.commit()
     return {"insert_read_ok": True, "id": row[0], "event_type": row[1], "idempotency_key": row[2]}
+
