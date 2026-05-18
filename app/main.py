@@ -544,3 +544,6 @@ app.include_router(eldora_economic_market_router)
 
 from app.api.eldora_canonical import router as eldora_canonical_router
 app.include_router(eldora_canonical_router)
+
+from app.api.eldora_core_runtime import router as eldora_core_runtime_router
+app.include_router(eldora_core_runtime_router)

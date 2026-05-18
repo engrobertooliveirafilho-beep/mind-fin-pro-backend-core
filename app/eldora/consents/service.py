@@ -1,11 +1,4 @@
-class EldoraconsentsService:
-    feature_flag = "ELDORA_CANONICAL_CONSENTS"
-
-    def health(self):
-        return {
-            "family": "consents",
-            "status": "ready",
-            "feature_flag": self.feature_flag,
-            "real_revenue_declared": False,
-            "lotofacil_promise_of_gain": False
-        }
+def require_consent(payload: dict) -> dict:
+    consent = bool(payload.get("consent"))
+    source = payload.get("source", "unknown")
+    return {"consent_required": True, "consent_ok": consent, "source": source, "blocked": not consent}

@@ -1,11 +1,5 @@
-class EldorabillingService:
-    feature_flag = "ELDORA_CANONICAL_BILLING"
+def create_subscription(user_id: str, plan: str, provider: str = "mock") -> dict:
+    return {"user_id": user_id, "plan": plan, "provider": provider, "subscription_status": "mock_created", "real_revenue": False}
 
-    def health(self):
-        return {
-            "family": "billing",
-            "status": "ready",
-            "feature_flag": self.feature_flag,
-            "real_revenue_declared": False,
-            "lotofacil_promise_of_gain": False
-        }
+def activate_premium(user_id: str, plan: str) -> dict:
+    return {"user_id": user_id, "plan": plan, "premium_active": plan in ("starter", "premium", "enterprise"), "real_revenue": False}
