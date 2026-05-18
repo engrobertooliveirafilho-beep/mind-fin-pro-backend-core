@@ -574,3 +574,6 @@ app.include_router(eldora_cognitive_runtime_router)
 
 from app.api.whatsapp import router as whatsapp_router
 app.include_router(whatsapp_router)
+
+from app.api.eldora_autonomous_cognition import router as eldora_autonomous_cognition_router
+app.include_router(eldora_autonomous_cognition_router)
