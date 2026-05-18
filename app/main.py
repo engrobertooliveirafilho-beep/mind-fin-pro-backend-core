@@ -541,3 +541,6 @@ async def neura_route_audit():
 
 from app.api.eldora_economic_market import router as eldora_economic_market_router
 app.include_router(eldora_economic_market_router)
+
+from app.api.eldora_canonical import router as eldora_canonical_router
+app.include_router(eldora_canonical_router)
