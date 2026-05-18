@@ -25,6 +25,7 @@ from app.api.eldora_distributed import router as eldora_distributed_router
 from app.api.eldora_true_distributed import router as eldora_true_distributed_router
 from app.api.eldora_browser_fleet import router as eldora_browser_fleet_router
 from app.api.eldora_live_voice import router as eldora_live_voice_router
+from app.api.eldora_business import router as eldora_business_router
 
 REGISTERED_ROUTERS = [
     eldora_router,
@@ -54,4 +55,5 @@ REGISTERED_ROUTERS = [
     eldora_true_distributed_router,
     eldora_browser_fleet_router,
     eldora_live_voice_router,
+    eldora_business_router,
 ]
