@@ -550,3 +550,6 @@ app.include_router(eldora_core_runtime_router)
 
 from app.api.eldora_persistence_workers import router as eldora_persistence_workers_router
 app.include_router(eldora_persistence_workers_router)
+
+from app.api.eldora_supabase_live import router as eldora_supabase_live_router
+app.include_router(eldora_supabase_live_router)
