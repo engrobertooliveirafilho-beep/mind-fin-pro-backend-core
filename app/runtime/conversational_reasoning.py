@@ -26,7 +26,7 @@ def classify_followup(message: str) -> str:
     t=(message or "").strip().lower()
     if t in ["porque?", "por que?", "pq?", "porque", "por que"]: return "causal"
     if t in ["certeza?", "tem certeza?", "certeza", "confirma?"]: return "confirmation"
-    if "qual o melhor" in t or t in ["qual?", "qual"]: return "comparison"
+    if "qual o melhor" in t or "qual a melhor" in t or t in ["qual?", "qual"]: return "comparison"
     if t.startswith("como"): return "how_to"
     return "none"
 
@@ -35,7 +35,7 @@ def resolve_followup(user_id: str, message: str) -> dict:
     kind = classify_followup(message)
 
     if kind == "comparison":
-        answer = "O melhor agora é melhorar a conversa natural, não criar mais infraestrutura. A base já está viva; o que limita a Eldora é responder com coerência curta, sem repetir e sem soar como relatório."
+        answer = "O melhor agora é melhorar a conversa natural e a qualidade conversacional, não criar mais infraestrutura. A base já está viva; o que limita a Eldora é responder com coerência curta, sem repetir e sem soar como relatório."
     elif kind == "causal":
         answer = f"Porque {state['last_reasoning']} Se eu continuar criando camada antes disso, só aumento complexidade em cima de uma conversa ainda rígida."
     elif kind == "confirmation":
@@ -48,3 +48,4 @@ def resolve_followup(user_id: str, message: str) -> dict:
 
     update_dialogue_state(user_id, message, answer)
     return {"resolved": True, "kind": kind, "answer": answer}
+

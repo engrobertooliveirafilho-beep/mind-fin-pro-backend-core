@@ -18,3 +18,4 @@ def visible_reformulate(answer: str, message: str, focus: str = "MIND") -> str:
 
     return answer
 
+
