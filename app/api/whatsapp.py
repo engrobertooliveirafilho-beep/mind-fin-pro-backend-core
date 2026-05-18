@@ -105,6 +105,23 @@ def live_whatsapp_override(inbound_text: str) -> str | None:
 
 def eldora_primary_runtime_reply(sender_id: str, inbound_text: str) -> str:
     override = live_whatsapp_override(inbound_text)
+
+    msg = (inbound_text or "").lower().strip()
+
+    if any(x in msg for x in [
+        "nao entendi",
+        "não entendi",
+        "detalhe melhor",
+        "aprofunde",
+        "explique melhor"
+    ]):
+        return (
+            "O que estamos fazendo é separar em três camadas. "
+            "Primeiro estabilizamos respostas rápidas do WhatsApp para impedir frases genéricas. "
+            "Depois conectamos memória contextual curta para manter continuidade. "
+            "Por último religamos a cognição profunda do MIND sem quebrar a experiência do usuário."
+        )
+
     if override:
         return override
 
@@ -125,6 +142,7 @@ async def whatsapp_webhook(request: Request):
     except Exception as exc:
         reply = f"Eldora ativa em fallback TwiML. Erro: {str(exc)[:120]}"
     return Response(content=twiml(reply), media_type="application/xml", status_code=200)
+
 
 
 
