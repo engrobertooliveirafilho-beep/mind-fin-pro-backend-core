@@ -1,0 +1,7 @@
+{
+  "fallback_reduction_status": "INITIAL",
+  "hardcoded_remaining": true,
+  "fallback_policy": "emergency_only_pending",
+  "target_fallback_rate": "<5%",
+  "next_action": "connect MultiLLMOrchestrator as primary generator"
+}

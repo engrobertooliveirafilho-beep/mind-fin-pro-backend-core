@@ -1,0 +1,7 @@
+{
+  "sql": "sql/eldora_audit_event_store.sql",
+  "status": "ELDORA_SUPABASE_PERSISTENT_AUDIT_EVENT_STORE_READY",
+  "fallback": "memory",
+  "timestamp": "2026-05-17T02:23:23",
+  "provider": "app/eldora/core/persistent_event_store.py"
+}

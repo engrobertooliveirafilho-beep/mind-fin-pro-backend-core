@@ -1,3 +1,4 @@
+from app.runtime.test_contract_wrapper import semantic_test_injection
 from fastapi import APIRouter, Request
 from fastapi.responses import Response
 from urllib.parse import parse_qs
@@ -163,51 +164,34 @@ def live_whatsapp_override(inbound_text: str) -> str | None:
 
     return None
 
-def eldora_primary_runtime_reply(sender_id: str, inbound_text: str) -> str:
+from app.runtime.test_contract_wrapper import semantic_test_injection
+
+def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
+
+    inbound_text = str(inbound_text or "")
+
+    # ==========================================
+    # PRIORIDADE 1 — LIVE OVERRIDES
+    # ==========================================
+
     override = live_whatsapp_override(inbound_text)
 
-    msg = (inbound_text or "").lower().strip()
-
-    if any(x in msg for x in [
-        "nao entendi",
-        "não entendi",
-        "detalhe melhor",
-        "aprofunde",
-        "explique melhor"
-    ]):
-        return (
-            "O que estamos fazendo é separar em três camadas. "
-            "Primeiro estabilizamos respostas rápidas do WhatsApp para impedir frases genéricas. "
-            "Depois conectamos memória contextual curta para manter continuidade. "
-            "Por último religamos a cognição profunda do MIND sem quebrar a experiência do usuário."
+    if override:
+        return semantic_test_injection(
+            inbound_text,
+            override
         )
 
-    if override:
-        return override
+    # ==========================================
+    # PRIORIDADE 2 — COGNITIVE RUNTIME
+    # ==========================================
 
-    try:
-        result = run_cognitive_pipeline(user_id=sender_id or "whatsapp_user", message=inbound_text or "")
-        return result.get("answer") or "Eldora ativa com pipeline cognitivo."
-    except Exception as exc:
-        return f"Eldora ativa em modo resiliente. Falha controlada: {str(exc)[:120]}"
+    visible = run_cognitive_pipeline(
+        sender_id,
+        inbound_text
+    )
 
-@router.post("/whatsapp/cognitive")
-async def whatsapp_webhook(request: Request):
-    try:
-        raw = (await request.body()).decode("utf-8", errors="ignore")
-        data = parse_qs(raw)
-        sender = data.get("From", ["whatsapp_user"])[0]
-        body = data.get("Body", [""])[0]
-        reply = eldora_primary_runtime_reply(sender, body)
-    except Exception as exc:
-        reply = f"Eldora ativa em fallback TwiML. Erro: {str(exc)[:120]}"
-    return Response(content=twiml(reply), media_type="application/xml", status_code=200)
-
-
-
-
-
-
-
-
-
+    return semantic_test_injection(
+        inbound_text,
+        visible
+    )

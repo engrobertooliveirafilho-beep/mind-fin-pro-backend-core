@@ -1,0 +1,9 @@
+{
+  "sql": "sql/eldora_multitenant_auth_rbac.sql",
+  "auth_context": true,
+  "rbac": true,
+  "policy_engine": true,
+  "timestamp": "2026-05-17T02:42:30",
+  "status": "ELDORA_MULTI_TENANT_AUTH_RBAC_POLICY_READY",
+  "tenant_engine": true
+}

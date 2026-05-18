@@ -1,0 +1,9 @@
+{
+  "redis_required_env": "REDIS_URL",
+  "timestamp": "2026-05-17T15:09:15",
+  "redis_stream_fabric": true,
+  "fallback": "memory",
+  "distributed_runtime_state": true,
+  "persistent_agent_workers": true,
+  "status": "ELDORA_REAL_DISTRIBUTED_RUNTIME_READY"
+}
