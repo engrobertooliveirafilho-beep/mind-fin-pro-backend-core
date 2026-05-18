@@ -556,3 +556,6 @@ app.include_router(eldora_supabase_live_router)
 
 from app.api.eldora_redis_live import router as eldora_redis_live_router
 app.include_router(eldora_redis_live_router)
+
+from app.api.eldora_intelligence import router as eldora_intelligence_router
+app.include_router(eldora_intelligence_router)
