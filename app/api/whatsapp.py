@@ -39,6 +39,23 @@ def live_whatsapp_override(inbound_text: str) -> str | None:
             "Ainda existem falhas de continuidade no canal real, "
             "mas o runtime novo já está ativo e evoluindo."
         )
+    # =====================================================
+    # SEMANTIC PLAN / NEXT STEP
+    # =====================================================
+
+    if any(x in msg for x in [
+        "qual o plano",
+        "como fazer",
+        "e como fazer",
+        "proximo passo",
+        "próximo passo",
+        "e agora",
+        "qual caminho"
+    ]):
+        return (
+            "O plano agora é estabilizar primeiro a conversa curta no WhatsApp, "
+            "depois religar memória contextual e só então expandir a cognição completa."
+        )
     if msg in ["i", "oi", "olá", "ola"]:
         return "Oi, Roberto. Estou aqui. Vamos resolver isso direto."
 
@@ -103,6 +120,7 @@ async def whatsapp_webhook(request: Request):
     except Exception as exc:
         reply = f"Eldora ativa em fallback TwiML. Erro: {str(exc)[:120]}"
     return Response(content=twiml(reply), media_type="application/xml", status_code=200)
+
 
 
 
