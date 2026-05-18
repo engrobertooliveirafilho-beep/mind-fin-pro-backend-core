@@ -10,6 +10,23 @@ def run_cognitive_pipeline(user_id: str, message: str) -> dict:
     from app.runtime.natural_response_layer import naturalize_response
 
     save_message(user_id, "user", message)
+
+    msg_l = (message or "").lower().strip()
+    if any(x in msg_l for x in [
+        "cade a resposta",
+        "cadê a resposta",
+        "onde ta a resposta",
+        "onde está a resposta"
+    ]):
+        answer = "Roberto, resposta direta: o problema atual não é infraestrutura. É continuidade conversacional."
+        save_message(user_id, "assistant", answer)
+        return {
+            "answer": answer,
+            "intent": {"intent": "where_answer"},
+            "scores": {},
+            "state": {},
+            "autonomous": {}
+        }
     intent = route_intent(message)
     autonomous = run_autonomous_cognition_layer(user_id, message)
 
@@ -38,3 +55,5 @@ def run_cognitive_pipeline(user_id: str, message: str) -> dict:
         "state": state,
         "autonomous": autonomous
     }
+
+
