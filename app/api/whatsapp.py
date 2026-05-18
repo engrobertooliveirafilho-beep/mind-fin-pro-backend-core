@@ -12,6 +12,33 @@ def twiml(message: str) -> str:
 def live_whatsapp_override(inbound_text: str) -> str | None:
     msg = (inbound_text or "").lower().strip()
 
+    # normalização semântica leve
+    msg = (
+        msg.replace("á","a")
+           .replace("à","a")
+           .replace("ã","a")
+           .replace("é","e")
+           .replace("ê","e")
+           .replace("í","i")
+           .replace("ó","o")
+           .replace("ô","o")
+           .replace("õ","o")
+           .replace("ú","u")
+           .replace("?","")
+           .replace("!","")
+    )
+
+    if any(x in msg for x in ["como esta", "como esta indo", "como vai", "esta indo", "ta indo"]):
+        return (
+            "Está melhorando. O runtime novo já responde no WhatsApp, "
+            "mas ainda estamos refinando continuidade e naturalidade."
+        )
+
+    if any(x in msg for x in ["deu ruim", "bugou", "nao funcionou", "nao respondeu"]):
+        return (
+            "Ainda existem falhas de continuidade no canal real, "
+            "mas o runtime novo já está ativo e evoluindo."
+        )
     if msg in ["i", "oi", "olá", "ola"]:
         return "Oi, Roberto. Estou aqui. Vamos resolver isso direto."
 
@@ -76,4 +103,6 @@ async def whatsapp_webhook(request: Request):
     except Exception as exc:
         reply = f"Eldora ativa em fallback TwiML. Erro: {str(exc)[:120]}"
     return Response(content=twiml(reply), media_type="application/xml", status_code=200)
+
+
 
