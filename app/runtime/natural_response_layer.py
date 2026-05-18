@@ -1,20 +1,33 @@
+from app.runtime.dialogue_state import is_repeated, remember_response, short_message_type
+
 def naturalize_response(answer: str, intent: dict, state: dict, autonomous: dict) -> str:
+    user_id = state.get("user_id", "Roberto")
     name = "Roberto"
     focus = state.get("dominant_project", "MIND")
-    raw_intent = intent.get("intent", "casual_context")
-    text_hint = (state.get("last_unresolved_topic") or "").lower()
+    msg = (state.get("last_unresolved_topic") or "").strip()
+    msg_l = msg.lower()
+    kind = short_message_type(msg)
     plan = autonomous.get("plan", {}).get("next_action", "avançar a próxima camada crítica")
 
-    if text_hint.strip() in ["ok", "certo", "beleza", "show"]:
-        return f"Fechado. Vou manter o foco no {focus} e avançar sem reiniciar o contexto."
+    if kind == "greeting":
+        out = f"Oi, {name}. Estou com o contexto do {focus} aberto. Podemos seguir da evolução da Eldora ou atacar o próximo gargalo."
+    elif kind == "ack":
+        out = f"Fechado. Mantive o contexto ativo: {focus}, Eldora e próximo passo P1."
+    elif kind == "repetition_complaint":
+        out = "Você tem razão. Eu estava repetindo porque a camada de naturalização estava usando um template fixo. O ajuste agora é variar a resposta pela intenção real e bloquear repetição."
+    elif kind == "how_to":
+        out = f"Você faz isso em três cortes: primeiro bloqueia repetição, depois cria respostas curtas para conversa simples, e por último deixa o plano autônomo entrar só quando a pergunta pedir execução."
+    elif kind == "continue":
+        out = f"Vamos seguir. O próximo passo é {plan}, mas sem repetir o mesmo texto: agora a prioridade é melhorar variação e conversa natural."
+    elif "achou" in msg_l or "opinião" in msg_l:
+        out = f"Eu achei um avanço real, {name}. A base técnica está funcionando; o problema agora é refinamento de comportamento, não infraestrutura."
+    elif intent.get("intent") in ["project_execution", "continuity_request"]:
+        out = f"{name}, sigo no {focus}. Próximo passo: {plan}. Vou manter execução, mas com menos rigidez na conversa."
+    else:
+        out = answer if "Diagnóstico:" not in answer else f"{name}, entendi. Vou manter o contexto do {focus} e responder sem voltar para template."
 
-    if "achou" in text_hint or "opinião" in text_hint:
-        return f"Eu achei um avanço real, {name}. A Eldora saiu do modo resposta mecânica e entrou num fluxo com continuidade. Ainda falta naturalidade: ela entende o arco, mas às vezes fala como relatório. O próximo ajuste é deixar a resposta mais humana sem perder estratégia."
+    if is_repeated(user_id, out):
+        out = f"Vou reformular: o ponto central é manter o {focus} avançando sem cair em resposta repetida. A próxima ação continua sendo {plan}, mas agora com diálogo mais natural."
 
-    if raw_intent in ["project_execution", "continuity_request", "casual_context"]:
-        return f"{name}, sigo no fio do {focus}. O próximo movimento é {plan}. A parte boa: já temos continuidade, memória e execução. A parte que ainda precisa lapidar é a conversa soar menos engessada."
-
-    if raw_intent == "emotional_presence":
-        return f"Entendi, {name}. Vou manter presença e direção: sem dramatizar, sem desviar. Primeiro estabilizo o contexto; depois avanço a ação mais útil."
-
-    return answer if "Diagnóstico:" not in answer else f"{name}, entendi o ponto. Vou responder direto e manter o contexto do {focus}: {plan}."
+    remember_response(user_id, out)
+    return out
