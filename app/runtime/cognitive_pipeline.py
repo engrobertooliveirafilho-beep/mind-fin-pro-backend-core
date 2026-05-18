@@ -7,7 +7,7 @@ def run_cognitive_pipeline(user_id: str, message: str) -> dict:
     from app.runtime.response_builder import build_response
     from app.runtime.quality_gate import rewrite_if_needed
 
-    save_message(user_id, "user", message)
+    save_message(user_id, "user", message)`n    from app.runtime.autonomous_cognition_layer import run_autonomous_cognition_layer`n    autonomous = run_autonomous_cognition_layer(user_id, message)
     intent = route_intent(message)
     memory = {
         "relevant": retrieve_relevant_memory(user_id, message),
@@ -21,4 +21,5 @@ def run_cognitive_pipeline(user_id: str, message: str) -> dict:
     final = rewrite_if_needed(raw, intent, persona, memory)
     save_message(user_id, "assistant", final["answer"])
     persist_state(user_id, state)
-    return {"answer": final["answer"], "intent": intent, "scores": final["scores"], "state": state}
+    return {"answer": final["answer"], "intent": intent, "scores": final["scores"], "state": state, "autonomous": autonomous}
+
