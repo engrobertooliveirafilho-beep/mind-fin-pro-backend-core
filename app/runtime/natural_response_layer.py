@@ -2,11 +2,11 @@ from app.runtime.dialogue_state import is_repeated, remember_response, short_mes
 
 def naturalize_response(answer: str, intent: dict, state: dict, autonomous: dict) -> str:
     user_id = state.get("user_id", "Roberto")
-    name = "Roberto"
+    from app.runtime.conversational_reasoning import resolve_followup, update_dialogue_state`n    name = "Roberto"
     focus = state.get("dominant_project", "MIND")
     msg = (state.get("last_unresolved_topic") or "").strip()
     msg_l = msg.lower()
-    kind = short_message_type(msg)
+    kind = short_message_type(msg)`n    follow = resolve_followup(user_id, msg)`n    if follow.get("resolved"):`n        remember_response(user_id, follow["answer"])`n        return follow["answer"]
     plan = autonomous.get("plan", {}).get("next_action", "avançar a próxima camada crítica")
 
     if kind == "greeting":
@@ -29,6 +29,6 @@ def naturalize_response(answer: str, intent: dict, state: dict, autonomous: dict
     if is_repeated(user_id, out):
         out = f"Vou reformular: o ponto central é manter o {focus} avançando sem cair em resposta repetida. A próxima ação continua sendo {plan}, mas agora com diálogo mais natural."
 
-    remember_response(user_id, out)
-    return out
+    update_dialogue_state(user_id, msg, out, claim="melhorar conversa natural antes de novas camadas", reasoning="o backend, WhatsApp, memória, RAG e LLM já estão operacionais; o gargalo agora é qualidade de diálogo.", confidence=0.86)`n    remember_response(user_id, out)`n    return out
+
 
