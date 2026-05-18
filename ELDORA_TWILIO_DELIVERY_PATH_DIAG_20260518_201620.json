@@ -1,0 +1,15 @@
+{
+  "required_checks": [
+    "Twilio Sandbox: celular entrou com join code",
+    "Twilio Sandbox webhook aponta para https://mind-fin-pro-backend-core-1.onrender.com/webhook/whatsapp",
+    "Webhook method POST",
+    "Mensagem enviada para o número sandbox correto",
+    "Render logs mostram inbound real quando você manda pelo WhatsApp"
+  ],
+  "http_status": 200,
+  "status": "WAITING_TWILIO_REAL_DELIVERY_VALIDATION",
+  "backend_webhook": "OK",
+  "timestamp": "20260518_201620",
+  "twiml_valid": true,
+  "diagnosis": "BACKEND_OK_PROBLEM_IS_TWILIO_DELIVERY_PATH"
+}
