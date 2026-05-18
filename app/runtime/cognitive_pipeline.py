@@ -1,33 +1,35 @@
-from app.runtime.intent_router import detect_intent
-from app.runtime.internal_state import load_state
-from app.runtime.response_strategy import build_strategy
-from app.runtime.response_builder import build_response
-from app.runtime.quality_gate import validate_response
-from app.memory.memory_graph import save_message
-from app.runtime.autonomous_cognition_layer import run_autonomous_cognition_layer
-
 def run_cognitive_pipeline(user_id: str, message: str) -> dict:
+    from app.persona.eldora_core import build_persona_context
+    from app.runtime.intent_router import route_intent
+    from app.memory.memory_graph import save_message, retrieve_relevant_memory, retrieve_user_profile, retrieve_project_context
+    from app.runtime.internal_state import update_state, persist_state
+    from app.runtime.response_strategy import build_response_strategy
+    from app.runtime.response_builder import build_response
+    from app.runtime.quality_gate import rewrite_if_needed
+    from app.runtime.autonomous_cognition_layer import run_autonomous_cognition_layer
+
     save_message(user_id, "user", message)
 
-    intent = detect_intent(message)
-    state = load_state(user_id)
+    intent = route_intent(message)
 
     autonomous = run_autonomous_cognition_layer(user_id, message)
 
-    strategy = build_strategy(
-        intent=intent,
-        state=state,
-        memory=autonomous
-    )
+    memory = {
+        "relevant": retrieve_relevant_memory(user_id, message),
+        "profile": retrieve_user_profile(user_id),
+        "project": retrieve_project_context(user_id),
+        "autonomous": autonomous
+    }
 
-    response = build_response(
-        message=message,
-        intent=intent,
-        state=state,
-        strategy=strategy
-    )
+    state = update_state(message, intent, memory)
+    persona = build_persona_context(user_id, state, memory)
+    strategy = build_response_strategy(intent, state, memory)
 
-    final = validate_response(response)
+    raw = build_response(message, intent, memory, state, persona, strategy)
+    final = rewrite_if_needed(raw, intent, persona, memory)
+
+    save_message(user_id, "assistant", final["answer"])
+    persist_state(user_id, state)
 
     return {
         "answer": final["answer"],
