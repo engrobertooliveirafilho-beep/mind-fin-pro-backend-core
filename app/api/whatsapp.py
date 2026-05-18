@@ -3,6 +3,7 @@ from fastapi import APIRouter, Request
 from fastapi.responses import Response
 from urllib.parse import parse_qs
 from app.runtime.cognitive_pipeline import run_cognitive_pipeline
+from app.runtime.whatsapp_intelligence_activation import enrich_whatsapp_context, whatsapp_intelligence_active
 from app.runtime.short_memory import remember, recall
 
 router = APIRouter()
@@ -190,6 +191,9 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
         sender_id,
         inbound_text
     )
+
+    if whatsapp_intelligence_active() and isinstance(visible, dict):
+        visible["activation_context"] = enrich_whatsapp_context(sender_id, inbound_text, {})
 
     return semantic_test_injection(
         inbound_text,
