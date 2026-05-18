@@ -7,11 +7,10 @@ def run_cognitive_pipeline(user_id: str, message: str) -> dict:
     from app.runtime.response_builder import build_response
     from app.runtime.quality_gate import rewrite_if_needed
     from app.runtime.autonomous_cognition_layer import run_autonomous_cognition_layer
+    from app.runtime.natural_response_layer import naturalize_response
 
     save_message(user_id, "user", message)
-
     intent = route_intent(message)
-
     autonomous = run_autonomous_cognition_layer(user_id, message)
 
     memory = {
@@ -26,7 +25,8 @@ def run_cognitive_pipeline(user_id: str, message: str) -> dict:
     strategy = build_response_strategy(intent, state, memory)
 
     raw = build_response(message, intent, memory, state, persona, strategy)
-    final = rewrite_if_needed(raw, intent, persona, memory)`n    from app.runtime.natural_response_layer import naturalize_response`n    final["answer"] = naturalize_response(final["answer"], intent, state, autonomous)
+    final = rewrite_if_needed(raw, intent, persona, memory)
+    final["answer"] = naturalize_response(final["answer"], intent, state, autonomous)
 
     save_message(user_id, "assistant", final["answer"])
     persist_state(user_id, state)
@@ -38,4 +38,3 @@ def run_cognitive_pipeline(user_id: str, message: str) -> dict:
         "state": state,
         "autonomous": autonomous
     }
-
