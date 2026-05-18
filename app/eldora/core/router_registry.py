@@ -27,6 +27,7 @@ from app.api.eldora_browser_fleet import router as eldora_browser_fleet_router
 from app.api.eldora_live_voice import router as eldora_live_voice_router
 from app.api.eldora_business import router as eldora_business_router
 from app.api.eldora_growth import router as eldora_growth_router
+from app.api.eldora_neura_scale import router as eldora_neura_scale_router
 
 REGISTERED_ROUTERS = [
     eldora_router,
@@ -58,4 +59,5 @@ REGISTERED_ROUTERS = [
     eldora_live_voice_router,
     eldora_business_router,
     eldora_growth_router,
+    eldora_neura_scale_router,
 ]
