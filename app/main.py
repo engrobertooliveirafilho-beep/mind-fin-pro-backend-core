@@ -568,3 +568,6 @@ app.include_router(eldora_llm_live_router)
 
 from app.api.eldora_runtime_canonical import router as eldora_runtime_canonical_router
 app.include_router(eldora_runtime_canonical_router)
+
+from app.api.eldora_cognitive_runtime import router as eldora_cognitive_runtime_router
+app.include_router(eldora_cognitive_runtime_router)
