@@ -547,3 +547,6 @@ app.include_router(eldora_canonical_router)
 
 from app.api.eldora_core_runtime import router as eldora_core_runtime_router
 app.include_router(eldora_core_runtime_router)
+
+from app.api.eldora_persistence_workers import router as eldora_persistence_workers_router
+app.include_router(eldora_persistence_workers_router)
