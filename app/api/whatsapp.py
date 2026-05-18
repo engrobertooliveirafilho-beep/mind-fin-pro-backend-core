@@ -16,7 +16,7 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str) -> str:
     except Exception as exc:
         return f"Eldora ativa em modo resiliente. Falha controlada: {str(exc)[:120]}"
 
-@router.post("/whatsapp")
+@router.post("/whatsapp/cognitive")
 async def whatsapp_webhook(request: Request):
     try:
         raw = (await request.body()).decode("utf-8", errors="ignore")
@@ -27,3 +27,4 @@ async def whatsapp_webhook(request: Request):
     except Exception as exc:
         reply = f"Eldora ativa em fallback TwiML. Erro: {str(exc)[:120]}"
     return Response(content=twiml(reply), media_type="application/xml", status_code=200)
+
