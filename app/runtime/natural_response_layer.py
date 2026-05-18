@@ -32,6 +32,10 @@ def naturalize_response(answer: str, intent: dict, state: dict, autonomous: dict
         out = f"Fechado. Seguimos com o {focus} sem reiniciar contexto."
     elif kind == "repetition_complaint":
         out = "Você tem razão. Eu estava repetindo em vez de responder. Vou corrigir isso: a partir daqui, respondo a pergunta direta primeiro."
+    elif any(x in msg_l for x in ["mas nao ta funcionando","não ta funcionando","nao está funcionando","não está funcionando","ainda nao arrumou","ainda não arrumou"]):
+        out = "Você tem razão. O problema é que ela voltou para frase genérica em vez de continuar o contexto. O conserto é continuidade conversacional e bloqueio de repetição."
+    elif "qual seria" in msg_l:
+        out = "O gargalo é a memória curta da conversa. Ela precisa lembrar o contexto anterior e responder o follow-up sem voltar para frase genérica."
     elif kind == "how_to":
         out = "Faça em três passos: preserve a última pergunta, gere uma resposta visível direta e só use detalhes técnicos quando o usuário pedir."
     elif kind == "continue":
@@ -56,3 +60,5 @@ def naturalize_response(answer: str, intent: dict, state: dict, autonomous: dict
     )
     remember_response(user_id, out)
     return out
+
+
