@@ -2,6 +2,7 @@ from fastapi import APIRouter, Request
 from fastapi.responses import Response
 from urllib.parse import parse_qs
 from app.runtime.cognitive_pipeline import run_cognitive_pipeline
+from app.runtime.short_memory import remember, recall
 
 router = APIRouter()
 
@@ -61,6 +62,29 @@ def live_whatsapp_override(inbound_text: str) -> str | None:
             "Fazendo em camadas: primeiro blindamos as respostas curtas do WhatsApp, "
             "depois conectamos memória contextual e por último liberamos a cognição profunda."
         )
+
+    recent = recall("whatsapp_runtime")
+
+    if any(x in msg for x in [
+        "conseguiu",
+        "parece que nao",
+        "parece que não",
+        "e depois",
+        "mas porque",
+        "mas por que"
+    ]):
+
+        if recent == "conversation_runtime":
+            return (
+                "Ainda não ficou totalmente natural. "
+                "Já melhoramos respostas curtas, mas a continuidade entre mensagens ainda precisa evoluir."
+            )
+
+        if recent == "planning":
+            return (
+                "O plano já está funcionando parcialmente. "
+                "Agora precisamos manter contexto entre perguntas curtas sem cair em resposta genérica."
+            )
     if msg in ["i", "oi", "olá", "ola"]:
         return "Oi, Roberto. Estou aqui. Vamos resolver isso direto."
 
@@ -74,6 +98,7 @@ def live_whatsapp_override(inbound_text: str) -> str | None:
         return "Eu sou a Eldora, a camada conversacional do MIND. Minha função é te ajudar sem você precisar reexplicar tudo."
 
     if any(x in msg for x in ["ainda nao conseguimos resolver", "ainda não conseguimos resolver", "nao esta funcionando", "não está funcionando", "não funciona"]):
+        remember("whatsapp_runtime","conversation_runtime")
         return "Ainda não ficou bom no WhatsApp real. O problema agora é o handler do canal, não a cognição."
 
     if any(x in msg for x in [
@@ -99,6 +124,7 @@ def live_whatsapp_override(inbound_text: str) -> str | None:
             "Sandbox conectado com sucesso. O canal do WhatsApp está ativo."
         )
     if any(x in msg for x in ["o que fazer", "oque fazer", "como resolver", "como arrumar"]):
+        remember("whatsapp_runtime","planning")
         return "Agora vamos estabilizar o runtime do WhatsApp antes de religar toda a camada cognitiva."
 
     return None
@@ -142,6 +168,7 @@ async def whatsapp_webhook(request: Request):
     except Exception as exc:
         reply = f"Eldora ativa em fallback TwiML. Erro: {str(exc)[:120]}"
     return Response(content=twiml(reply), media_type="application/xml", status_code=200)
+
 
 
 
