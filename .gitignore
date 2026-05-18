@@ -1,24 +1,18 @@
-__pycache__/
-*.py[cod]
-.pytest_cache/
-FRIENDSHIP_*.json
-NEURA_FRIENDSHIP_*.json
-PROACTIVE_CHECKIN_RULES.json
-VISUAL_*.json
-VISUAL_GATE_TRACE.txt
 
 .backup_*/
+backup/
+snapshots/
+tmp/
+temp/
+cache/
+
 __pycache__/
 *.pyc
 .pytest_cache/
-.coverage
+
+.env
 *.log
 *.tmp
 *.bak
 *.old
-*.cache
-.env
-venv/
-dist/
-build/
 
