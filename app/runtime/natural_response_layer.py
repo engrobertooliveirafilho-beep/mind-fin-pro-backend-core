@@ -18,7 +18,7 @@ def naturalize_response(answer: str, intent: dict, state: dict, autonomous: dict
     elif kind == "how_to":
         out = f"Você faz isso em três cortes: primeiro bloqueia repetição, depois cria respostas curtas para conversa simples, e por último deixa o plano autônomo entrar só quando a pergunta pedir execução."
     elif kind == "continue":
-        out = f"Vamos seguir. O próximo passo é {plan}, mas sem repetir o mesmo texto: agora a prioridade é melhorar variação e conversa natural."
+        out = f"Vamos seguir no MIND. O próximo passo é {plan}, mas sem repetir o mesmo texto: agora a prioridade é melhorar variação e conversa natural."
     elif "achou" in msg_l or "opinião" in msg_l:
         out = f"Eu achei um avanço real, {name}. A base técnica está funcionando; o problema agora é refinamento de comportamento, não infraestrutura."
     elif intent.get("intent") in ["project_execution", "continuity_request"]:
@@ -31,3 +31,4 @@ def naturalize_response(answer: str, intent: dict, state: dict, autonomous: dict
 
     remember_response(user_id, out)
     return out
+
