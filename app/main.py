@@ -565,3 +565,6 @@ app.include_router(eldora_rag_live_router)
 
 from app.api.eldora_llm_live import router as eldora_llm_live_router
 app.include_router(eldora_llm_live_router)
+
+from app.api.eldora_runtime_canonical import router as eldora_runtime_canonical_router
+app.include_router(eldora_runtime_canonical_router)
