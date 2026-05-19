@@ -35,7 +35,7 @@ class RetrievalProvider:
         return {
             "facts": facts,
             "history_text": "\n".join(lines[-20:]),
-            "history_count": len(history or [])
+            "history_count": 0
         }
 
     def search(self, query: str = "", context: dict | None = None) -> dict:
@@ -60,6 +60,7 @@ class RetrievalProvider:
             "query": query,
             "facts": facts,
             "context": context or {},
-            "source": "retrieval_provider_safe_v3"
+            "source": ""
         }
+
 
