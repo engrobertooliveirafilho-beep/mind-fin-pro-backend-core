@@ -597,3 +597,6 @@ app.include_router(debug_whatsapp_state_router)
 
 from app.api.debug_whatsapp_source import router as debug_whatsapp_source_router
 app.include_router(debug_whatsapp_source_router)
+
+from app.api.debug_whatsapp_runtime_trace import router as debug_whatsapp_runtime_trace_router
+app.include_router(debug_whatsapp_runtime_trace_router)
