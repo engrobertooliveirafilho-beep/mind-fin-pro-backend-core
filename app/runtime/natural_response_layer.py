@@ -1,3 +1,4 @@
+from app.runtime.identity_guard_runtime import guard_identity_fallback
 from app.runtime.dialogue_state import (
     is_repeated,
     remember_response,
@@ -64,6 +65,7 @@ def naturalize_response(answer: str, intent: dict, state: dict, autonomous: dict
     )
     remember_response(user_id, out)
     return out
+
 
 
 

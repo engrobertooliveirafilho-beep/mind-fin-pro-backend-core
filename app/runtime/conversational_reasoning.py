@@ -1,3 +1,4 @@
+from app.runtime.identity_guard_runtime import guard_identity_fallback
 _DIALOGUE = {}
 
 def get_dialogue_state(user_id: str) -> dict:
@@ -48,6 +49,7 @@ def resolve_followup(user_id: str, message: str) -> dict:
 
     update_dialogue_state(user_id, message, answer)
     return {"resolved": True, "kind": kind, "answer": answer}
+
 
 
 

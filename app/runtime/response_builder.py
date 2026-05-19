@@ -1,3 +1,4 @@
+from app.runtime.identity_guard_runtime import guard_identity_fallback
 from app.runtime.continuity import inject_continuity_anchor
 
 class ResponseBuilder:
@@ -25,3 +26,4 @@ def build_response(user_message, intent, memory, internal_state, persona_context
         f"Auditoria: manter persona, foco e utilidade prática."
     )
     return inject_continuity_anchor(base, internal_state)
+

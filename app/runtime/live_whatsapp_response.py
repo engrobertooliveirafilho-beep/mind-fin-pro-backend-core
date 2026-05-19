@@ -1,3 +1,4 @@
+from app.runtime.identity_guard_runtime import guard_identity_fallback
 def live_whatsapp_response(message: str) -> str | None:
     msg = (message or "").lower().strip()
 
@@ -17,3 +18,4 @@ def live_whatsapp_response(message: str) -> str | None:
         return "Eu sou a Eldora, a camada conversacional do MIND. Minha função é te ajudar sem você precisar reexplicar tudo."
 
     return None
+

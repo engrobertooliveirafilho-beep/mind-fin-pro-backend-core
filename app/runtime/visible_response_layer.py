@@ -1,3 +1,4 @@
+from app.runtime.identity_guard_runtime import guard_identity_fallback
 def build_visible_response(user_text: str, focus: str = "MIND") -> str:
     msg = (user_text or "").lower().strip()
 
@@ -175,5 +176,6 @@ def visible_reformulate(
     if answer and len(str(answer).strip()) > 40:
         return str(answer)
     return build_visible_response(user_text, focus)
+
 
 
