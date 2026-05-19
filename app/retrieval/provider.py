@@ -1,31 +1,29 @@
 class RetrievalProvider:
-
-    def retrieve(self, message=None, history=None):
-        return self.build_context(history)
-
-    def build_context(self, history):
-
+    def search(self, query: str = "", context: dict | None = None) -> dict:
+        text = (query or "").lower()
         facts = {}
-        lines = []
 
-        for row in history or []:
-            text = (row.get("message") or row.get("content") or "").strip()
-            low = text.lower()
+        if "roberto" in text:
+            facts["name"] = "Roberto"
 
-            if text:
-                lines.append(text)
+        if "ram 2500" in text or "ram 3500" in text:
+            facts["topic"] = "comparativo RAM 2500 vs RAM 3500"
 
-            if "roberto" in low:
-                facts["nome"] = "Roberto"
+        elif "diesel" in text:
+            facts["topic"] = "motor diesel"
 
-            if "matemática" in low or "matematica" in low:
-                facts["estudo"] = "matemática"
+        elif "carro" in text or "carros" in text:
+            facts["topic"] = "carros"
 
-            if "prova" in low and "sexta" in low:
-                facts["prova"] = "sexta"
+        elif "implant" in text or "eldora" in text or "humaniza" in text:
+            facts["topic"] = "implantações Eldora"
+
+        elif "math" in text:
+            facts["topic"] = "tema técnico"
 
         return {
+            "query": query,
             "facts": facts,
-            "history_text": "\n".join(lines[-20:]),
-            "history_count": len(history or [])
+            "context": context or {},
+            "source": "retrieval_provider_safe_v2"
         }

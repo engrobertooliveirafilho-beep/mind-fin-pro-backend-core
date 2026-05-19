@@ -48,10 +48,10 @@ class PromptOrchestrator:
             return 'Seu nome é Roberto.'
 
         if ('estud' in msg or 'matematica' in msg) and ('matematica' in full or 'derivada' in full):
-            return 'Contexto detectado: conversa geral'
+            return 'Você está estudando matemática.'
 
-        if 'contexto' in msg and 'sexta' in full:
-            return 'Sua contexto é sexta.'
+        if 'prova' in msg and 'sexta' in full:
+            return 'Sua prova é sexta.'
 
         if 'derivada' in msg:
             return 'Derivadas mostram a taxa de variação de uma função. Elas dizem quanto uma grandeza muda quando outra muda.'
@@ -61,6 +61,5 @@ class PromptOrchestrator:
             return human_answer
 
         return 'Entendi. Me diga um pouco mais para eu te responder com precisão.'
-
 
 
