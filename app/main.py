@@ -1,4 +1,7 @@
 
+from app.humanization.universal_recovery_runtime import enforce_no_identity_in_normal_chat
+from app.runtime.single_runtime_dispatcher import dispatch_single_runtime
+
 def twiml(message: str) -> str:
     safe = str(message).replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")
     return f"""<?xml version="1.0" encoding="UTF-8"?>
@@ -264,7 +267,7 @@ async def whatsapp_webhook(request: Request):
         message=payload.get("Body") or payload.get("body") or payload.get("message") or ""
 
         try:
-            primary_reply = eldora_primary_runtime_reply(sender_id, message)
+            primary_reply = dispatch_single_runtime(sender_id,message,eldora_primary_runtime_reply(sender_id,message),module="main",function="eldora_primary_runtime_reply")
             if primary_reply and any(x in str(message).lower() for x in ["estado atual","resuma o estado","snapshot","baseline"]):
                 return Response(content=primary_twiml(primary_reply), media_type="application/xml")
         except Exception:
@@ -386,7 +389,7 @@ async def whatsapp_webhook(request: Request):
                 primary_reply = None
 
                 try:
-                    primary_reply = eldora_primary_runtime_reply(sender_id, message)
+                    primary_reply = dispatch_single_runtime(sender_id,message,eldora_primary_runtime_reply(sender_id,message),module="main",function="eldora_primary_runtime_reply")
                 except Exception:
                     pass
 
@@ -655,3 +658,8 @@ app.include_router(debug_whatsapp_source_router)
 
 from app.api.debug_whatsapp_runtime_trace import router as debug_whatsapp_runtime_trace_router
 app.include_router(debug_whatsapp_runtime_trace_router)
+
+
+# FINAL_IDENTITY_BLOCK
+def __identity_guard_last_hop(answer,user_message=""):
+    return enforce_no_identity_in_normal_chat(user_message,answer)

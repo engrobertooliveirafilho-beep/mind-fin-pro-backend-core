@@ -1,3 +1,5 @@
+
+from app.humanization.universal_recovery_runtime import enforce_no_identity_in_normal_chat
 from fastapi import APIRouter
 import os, psycopg2
 from twilio.rest import Client
@@ -43,3 +45,8 @@ async def friendship_outbound_test(payload: dict):
             cur.execute("UPDATE neura_proactive_messages SET status=%s WHERE id=%s", ("sent", msg_id))
 
     return {"sent":True,"reason":"OK","twilio_sid":twilio_msg.sid,"message_id":msg_id,"to":to}
+
+
+# FINAL_IDENTITY_BLOCK
+def __identity_guard_last_hop(answer,user_message=""):
+    return enforce_no_identity_in_normal_chat(user_message,answer)

@@ -1,3 +1,5 @@
+
+from app.humanization.universal_recovery_runtime import enforce_no_identity_in_normal_chat
 SCHEMA_SQL = """
 create table if not exists eldora_messages(id bigserial primary key,user_id text,role text,content text,created_at timestamptz default now());
 create table if not exists eldora_memory_facts(id bigserial primary key,user_id text,fact_key text,fact_value text,confidence float default 0.8,created_at timestamptz default now());
@@ -21,3 +23,8 @@ def create_memory_edge(user_id, source_fact, target_fact, relation): return {"ed
 def retrieve_relevant_memory(user_id, query): return {"facts":extract_memory_facts(query),"query":query}
 def retrieve_user_profile(user_id): return {"user_id":user_id,"known_name":"Roberto","dominant_project":"MIND"}
 def retrieve_project_context(user_id): return {"project":"MIND","agent":"Eldora","status":"cognitive_runtime_upgrade"}
+
+
+# FINAL_IDENTITY_BLOCK
+def __identity_guard_last_hop(answer,user_message=""):
+    return enforce_no_identity_in_normal_chat(user_message,answer)

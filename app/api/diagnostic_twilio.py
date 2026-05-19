@@ -1,3 +1,5 @@
+
+from app.humanization.universal_recovery_runtime import enforce_no_identity_in_normal_chat
 from fastapi import APIRouter, Request, Response
 from datetime import datetime, timezone
 import json
@@ -28,3 +30,8 @@ async def diagnostic_twilio_inbound(request: Request):
 </Response>"""
 
     return Response(content=xml, media_type="application/xml")
+
+
+# FINAL_IDENTITY_BLOCK
+def __identity_guard_last_hop(answer,user_message=""):
+    return enforce_no_identity_in_normal_chat(user_message,answer)

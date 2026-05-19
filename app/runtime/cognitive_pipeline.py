@@ -1,3 +1,5 @@
+
+from app.humanization.universal_recovery_runtime import enforce_no_identity_in_normal_chat
 def run_cognitive_pipeline(user_id: str, message: str) -> dict:
     from app.persona.eldora_core import build_persona_context
     from app.runtime.intent_router import route_intent
@@ -107,3 +109,8 @@ def run_cognitive_pipeline(user_id: str, message: str) -> dict:
 
 
 
+
+
+# FINAL_IDENTITY_BLOCK
+def __identity_guard_last_hop(answer,user_message=""):
+    return enforce_no_identity_in_normal_chat(user_message,answer)

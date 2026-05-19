@@ -1,3 +1,4 @@
+from app.humanization.universal_recovery_runtime import semantic_recovery
 from app.runtime.identity_guard_runtime import guard_identity_fallback
 def live_whatsapp_response(message: str) -> str | None:
     msg = (message or "").lower().strip()
@@ -15,7 +16,7 @@ def live_whatsapp_response(message: str) -> str | None:
         return "Estou funcionando, mas o WhatsApp ainda precisa desse ajuste de resposta viva para não cair em frase genérica."
 
     if any(x in msg for x in ["quem eh vc", "quem é vc", "quem é você"]):
-        return "Eu sou a Eldora, a camada conversacional do MIND. Minha função é te ajudar sem você precisar reexplicar tudo."
+        return semantic_recovery(msg if "msg" in locals() else user_text if "user_text" in locals() else inbound_text if "inbound_text" in locals() else "")
 
     return None
 

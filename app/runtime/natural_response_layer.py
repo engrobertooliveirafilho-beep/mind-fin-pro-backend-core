@@ -1,3 +1,4 @@
+from app.humanization.universal_recovery_runtime import semantic_recovery
 from app.runtime.identity_guard_runtime import guard_identity_fallback
 from app.runtime.dialogue_state import (
     is_repeated,
@@ -38,7 +39,7 @@ def naturalize_response(answer: str, intent: dict, state: dict, autonomous: dict
     elif "qual seria" in msg_l:
         out = "O gargalo é a memória curta da conversa. Ela precisa lembrar o contexto anterior e responder o follow-up sem voltar para frase genérica."
     elif any(x in msg_l for x in ["quem eh vc","quem é vc","quem é você","quem e voce","quem é voce"]):
-        out = "Eu sou a Eldora, a camada conversacional do MIND. Minha função é entender seu contexto, lembrar o que importa e te ajudar a organizar decisões, estudos, projetos e execução sem você precisar reexplicar tudo."
+        out = "Sou a Eldora do MIND. Converso com contexto e continuidade, sem resetar a conversa."
     elif any(x in msg_l for x in ["como vai me ajudar","como vc vai me ajudar","como você vai me ajudar","me ajuda em que"]):
         out = "Vou te ajudar de forma prática: organizar suas ideias, lembrar contexto, transformar conversa em plano, explicar conteúdos, priorizar decisões e executar próximos passos sem perder o fio da conversa."
     elif kind == "how_to":
@@ -50,7 +51,7 @@ def naturalize_response(answer: str, intent: dict, state: dict, autonomous: dict
     elif intent.get("intent") in ["project_execution", "continuity_request"]:
         out = f"{name}, sigo no {focus}. Próximo passo: {plan}."
     else:
-        out = answer if "Diagnóstico:" not in answer else f"Eu sou a Eldora, a camada conversacional do {focus}. Minha função é entender seu contexto, lembrar o que importa e te ajudar sem você precisar reexplicar tudo."
+        out = answer if "Diagnóstico:" not in answer else semantic_recovery(msg)
 
     if is_repeated(user_id, out):
         out = visible_reformulate(out, msg, focus)
@@ -65,6 +66,7 @@ def naturalize_response(answer: str, intent: dict, state: dict, autonomous: dict
     )
     remember_response(user_id, out)
     return out
+
 
 
 

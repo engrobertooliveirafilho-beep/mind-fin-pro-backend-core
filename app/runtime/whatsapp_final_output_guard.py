@@ -80,7 +80,7 @@ def _domain_answer(user_message: str) -> str:
 
 def guard_whatsapp_final_answer(user_message: str, answer: str, context: dict | None = None) -> str:
     if identity_allowed(user_message):
-        return answer or "Sou a Eldora, a camada conversacional do MIND."
+        return answer or "Oi. Me pergunta direto que continuo do contexto."
 
     if has_identity_leak(answer):
         return _domain_answer(user_message)

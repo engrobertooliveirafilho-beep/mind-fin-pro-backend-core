@@ -1,3 +1,5 @@
+
+from app.humanization.universal_recovery_runtime import enforce_no_identity_in_normal_chat
 from fastapi import APIRouter
 from app.persona.eldora_core import build_persona_context
 from app.runtime.intent_router import route_intent
@@ -28,3 +30,8 @@ def respond(payload:dict):
     save_message(user_id,"assistant",final["answer"])
     persist_state(user_id,state)
     return {"STATUS_FINAL":"ELDORA_COGNITIVE_RESPONSE_READY","intent":intent,"state":state,"strategy":strategy,"answer":final["answer"],"scores":final["scores"]}
+
+
+# FINAL_IDENTITY_BLOCK
+def __identity_guard_last_hop(answer,user_message=""):
+    return enforce_no_identity_in_normal_chat(user_message,answer)
