@@ -27,6 +27,9 @@ def semantic_recovery(user_message:str)->str:
         return "Sim. Melhorou, mas ainda tinha um fallback antigo escapando."
     if "implanta" in u or "implata" in u:
         return "Boa. Isso ajuda bastante. Qual camada você vai mexer agora?"
+    if any(x in u for x in ["que ta fazendo","oq ta fazendo","o que ta fazendo","o que você está fazendo","o que vc ta fazendo","fazendo agora"]):
+        return "Estou ajustando a conversa para responder direto e manter contexto sem cair em resposta genérica."
+
     if "porque" in u or "pq" in u:
         return "Porque a conversa precisa manter causa e contexto, não voltar para apresentação fixa."
     if "oi" in u or "boa tarde" in u:
@@ -46,4 +49,5 @@ def universal_recovery_answer(user_message:str, answer:str|None=None, error:Exce
 
 def enforce_no_identity_in_normal_chat(user_message:str,answer:str)->str:
     return universal_recovery_answer(user_message, answer)
+
 
