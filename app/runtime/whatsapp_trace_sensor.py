@@ -49,12 +49,13 @@ def assert_clean_output(text):
     return True,[]
 def sanitize_final_output(user_message,text):
     low=(text or "").lower()
-    if "neura" in low or "tutora cognitiva" in low or "dúvidas e estudos" in low or "duvidas e estudos" in low or "prova" in low or "matemática" in low or "matematica" in low or "estudos" in low:
+    if "neura" in low or "tutora cognitiva" in low or "dúvidas e estudos" in low or "duvidas e estudos" in low or "prova" in low or "matemática" in low or "matematica" in low or "estudos" in low or "resumo técnico do mind" in low or "runtime estável" in low or "context fusion" in low or "webhook produtivo" in low:
         return "tô aqui acompanhando as implantações. Agora precisamos rastrear qual rota do WhatsApp ainda está puxando a persona antiga."
     if "como posso te ajudar" in low or "como posso ajudar" in low:
         return "entendi. pelo contexto, estamos testando a Eldora no WhatsApp e caçando o ponto que ainda troca a persona."
     if "sou a eldora, a camada conversacional" in low:
         return "estou acompanhando o contexto. O ponto agora é corrigir a rota que ainda está escapando fallback antigo."
     return text
+
 
 
