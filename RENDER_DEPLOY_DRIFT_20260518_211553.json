@@ -1,0 +1,12 @@
+{
+  "local_commit": "a782897a843b181b7c88dfca175763b933fa6fc9",
+  "render_health": {
+    "status": "ok",
+    "service": "mind-fin-pro-backend"
+  },
+  "required_action": "Open Render > service mind-fin-pro-backend-core-1 > Manual Deploy > Deploy latest commit from main",
+  "debug_route_in_openapi": true,
+  "target_commit": "a782897",
+  "timestamp": "20260518_211553",
+  "diagnosis": "RENDER_UPDATED"
+}

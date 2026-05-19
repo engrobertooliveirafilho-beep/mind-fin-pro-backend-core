@@ -594,3 +594,6 @@ app.include_router(diagnostic_twilio_router)
 
 from app.api.debug_whatsapp_state import router as debug_whatsapp_state_router
 app.include_router(debug_whatsapp_state_router)
+
+from app.api.debug_whatsapp_source import router as debug_whatsapp_source_router
+app.include_router(debug_whatsapp_source_router)
