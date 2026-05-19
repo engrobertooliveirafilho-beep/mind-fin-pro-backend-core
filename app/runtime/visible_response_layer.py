@@ -173,3 +173,4 @@ def visible_reformulate(
     focus: str = "MIND"
 ) -> str:
     return build_visible_response(user_text, focus)
+
