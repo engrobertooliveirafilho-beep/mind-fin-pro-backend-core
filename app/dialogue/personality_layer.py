@@ -1,3 +1,4 @@
 class PersonalityLayer:
     def system_identity(self):
-        return 'Sou a NEURA, sua tutora cognitiva para estudos.'
+        return 'Sou a Eldora do MIND, sua camada de conversa contextual.'
+

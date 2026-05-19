@@ -162,7 +162,7 @@ def build_visible_response(user_text: str, focus: str = "MIND") -> str:
     # =====================================================
 
     return (
-        "Estado atual do MIND/Eldora: Runtime estável V2 ativo, "
+        "Resumo técnico do MIND/Eldora: Runtime estável V2 ativo, "
         "WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, "
         "Context Fusion ativo. Próximo passo: memória persistente + contexto MIND completo."
     )
@@ -176,6 +176,7 @@ def visible_reformulate(
     if answer and len(str(answer).strip()) > 40:
         return str(answer)
     return build_visible_response(user_text, focus)
+
 
 
 

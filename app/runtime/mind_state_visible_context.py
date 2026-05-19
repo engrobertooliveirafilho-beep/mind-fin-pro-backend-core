@@ -13,7 +13,7 @@ def is_state_query(text: str) -> bool:
 
 def build_mind_state_visible_response() -> str:
     return (
-        "Estado atual do MIND/Eldora:\n"
+        "Resumo técnico do MIND/Eldora:\n"
         "- Runtime estável V2 ativo.\n"
         "- Testes verdes: 194/194.\n"
         "- Render operacional.\n"
@@ -23,3 +23,4 @@ def build_mind_state_visible_response() -> str:
         "- Gap atual: resposta visível ainda precisa usar memória/contexto MIND completo.\n"
         "Próximo passo: conectar resposta visível ao estado real, memória persistente e orquestração."
     )
+
