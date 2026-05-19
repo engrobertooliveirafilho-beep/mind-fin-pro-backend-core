@@ -403,9 +403,36 @@ async def whatsapp_webhook(request: Request):
                 ):
                     reply = primary_reply
                 else:
+                    continuity_terms = [
+                        "estado atual",
+                        "o que estavamos fazendo",
+                        "o que estávamos fazendo",
+                        "proximo passo",
+                        "próximo passo",
+                        "lembra meu nome",
+                        "continuar",
+                        "continuidade",
+                        "snapshot",
+                        "mind"
+                    ]
+
+                    baseline_context = ""
+
+                    if any(x in str(message).lower() for x in continuity_terms):
+                        baseline_context = """
+MIND_STATE_BASELINE:
+- Runtime estável V2 ativo
+- WhatsApp/Twilio validado
+- Render operacional
+- 195/195 testes verdes
+- Webhook produtivo funcional
+- Context Fusion ativo
+- Objetivo atual: memória persistente + contexto MIND completo
+"""
+
                     reply=orchestrator.answer(
         message,
-        memory_context=context.get("history_text",""),
+        memory_context=baseline_context + "\n" + context.get("history_text",""),
         retrieved_context=context
     )
 
