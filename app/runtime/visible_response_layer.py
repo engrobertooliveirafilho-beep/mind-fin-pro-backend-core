@@ -161,9 +161,9 @@ def build_visible_response(user_text: str, focus: str = "MIND") -> str:
     # =====================================================
 
     return (
-        "Estou ajustando a conversa para responder direto, "
-        "sem reiniciar o contexto. Agora me diga o que você "
-        "quer resolver primeiro."
+        "Estado atual do MIND/Eldora: Runtime estável V2 ativo, "
+        "WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, "
+        "Context Fusion ativo. Próximo passo: memória persistente + contexto MIND completo."
     )
 
 
@@ -172,5 +172,8 @@ def visible_reformulate(
     user_text: str = "",
     focus: str = "MIND"
 ) -> str:
+    if answer and len(str(answer).strip()) > 40:
+        return str(answer)
     return build_visible_response(user_text, focus)
+
 

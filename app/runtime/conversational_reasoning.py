@@ -6,7 +6,7 @@ def get_dialogue_state(user_id: str) -> dict:
         "last_assistant_message":"",
         "last_topic":"MIND/Eldora",
         "last_claim":"melhorar conversa natural antes de novas camadas",
-        "last_reasoning":"porque o runtime já funciona; o gargalo atual é qualidade de diálogo.",
+        "last_reasoning":"porque a infraestrutura do runtime já funciona; o gargalo atual é qualidade de diálogo.",
         "confidence":0.86
     })
 
@@ -48,5 +48,6 @@ def resolve_followup(user_id: str, message: str) -> dict:
 
     update_dialogue_state(user_id, message, answer)
     return {"resolved": True, "kind": kind, "answer": answer}
+
 
 
