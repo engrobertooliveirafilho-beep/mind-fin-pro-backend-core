@@ -591,3 +591,6 @@ app.include_router(eldora_autonomous_cognition_router)
 from app.api.diagnostic_twilio import router as diagnostic_twilio_router
 app.include_router(diagnostic_twilio_router)
 
+
+from app.api.debug_whatsapp_state import router as debug_whatsapp_state_router
+app.include_router(debug_whatsapp_state_router)
