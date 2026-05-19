@@ -1,3 +1,7 @@
+from app.dialogue.conversation_continuity_runtime import update,get
+from app.dialogue.context_resolution_engine import resolve
+from app.dialogue.generic_llm_detector import detect,rewrite
+from app.dialogue.persona_consistency_guard import enforce
 from app.humanization.universal_recovery_runtime import enforce_no_identity_in_normal_chat
 from app.humanization.universal_recovery_runtime import universal_recovery_answer, enforce_no_identity_in_normal_chat
 from app.runtime.whatsapp_final_output_guard import guard_whatsapp_final_answer
@@ -135,7 +139,7 @@ def live_whatsapp_override(inbound_text: str) -> str | None:
         return "Estou funcionando, mas ainda estamos ajustando o WhatsApp real para não cair em frase genérica."
 
     if any(x in msg for x in ["quem eh vc", "quem é vc", "quem é você"]):
-        return "Eu sou a Eldora, a camada conversacional do MIND. Minha função é te ajudar sem você precisar reexplicar tudo."
+        return ""
 
     if any(x in msg for x in ["ainda nao conseguimos resolver", "ainda não conseguimos resolver", "nao esta funcionando", "não está funcionando", "não funciona"]):
         remember("whatsapp_runtime","conversation_runtime")
@@ -222,6 +226,7 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
         inbound_text,
         visible
     )
+
 
 
 

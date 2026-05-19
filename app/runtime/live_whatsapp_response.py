@@ -1,3 +1,7 @@
+from app.dialogue.conversation_continuity_runtime import update,get
+from app.dialogue.context_resolution_engine import resolve
+from app.dialogue.generic_llm_detector import detect,rewrite
+from app.dialogue.persona_consistency_guard import enforce
 from app.humanization.universal_recovery_runtime import semantic_recovery
 from app.runtime.identity_guard_runtime import guard_identity_fallback
 def live_whatsapp_response(message: str) -> str | None:
@@ -19,4 +23,5 @@ def live_whatsapp_response(message: str) -> str | None:
         return semantic_recovery(msg if "msg" in locals() else user_text if "user_text" in locals() else inbound_text if "inbound_text" in locals() else "")
 
     return None
+
 
