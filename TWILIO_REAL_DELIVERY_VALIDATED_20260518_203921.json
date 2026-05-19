@@ -1,0 +1,15 @@
+{
+  "status": "READY_TO_RESTORE_PRODUCTION_WEBHOOK",
+  "next_webhook": "https://mind-fin-pro-backend-core-1.onrender.com/webhook/whatsapp",
+  "twilio_real_delivery": "VALIDATED",
+  "test_sequence": [
+    "oi",
+    "prosseguir ativação Eldora",
+    "qual o próximo passo?",
+    "lembra meu nome?",
+    "resuma o estado atual"
+  ],
+  "diagnostic_reply": "DIAG_OK recebido",
+  "timestamp": "20260518_203921",
+  "method": "POST"
+}
