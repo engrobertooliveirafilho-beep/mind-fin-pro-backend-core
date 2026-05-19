@@ -94,6 +94,7 @@ async def neura_persona_identity_middleware_v2(request: Request, call_next):
 from urllib.parse import parse_qs
 from fastapi import Request
 from fastapi.responses import Response
+from app.api.whatsapp import eldora_primary_runtime_reply, twiml as primary_twiml
 
 @app.middleware("http")
 async def neura_persona_short_followup_middleware(request: Request, call_next):
@@ -261,6 +262,13 @@ async def whatsapp_webhook(request: Request):
 
         sender_id=payload.get("From") or payload.get("from") or payload.get("sender_id") or "unknown"
         message=payload.get("Body") or payload.get("body") or payload.get("message") or ""
+
+        try:
+            primary_reply = eldora_primary_runtime_reply(sender_id, message)
+            if primary_reply and any(x in str(message).lower() for x in ["estado atual","resuma o estado","snapshot","baseline"]):
+                return Response(content=primary_twiml(primary_reply), media_type="application/xml")
+        except Exception:
+            pass
 
         from app.memory.provider import MemoryProvider
         from app.retrieval.provider import RetrievalProvider
