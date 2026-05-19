@@ -1,3 +1,4 @@
+from app.runtime.whatsapp_trace_sensor import sanitize_final_output
 from app.dialogue.conversation_continuity_runtime import update,get
 from app.dialogue.context_resolution_engine import resolve
 from app.dialogue.generic_llm_detector import detect,rewrite
@@ -30,5 +31,6 @@ def build_response(user_message, intent, memory, internal_state, persona_context
         f"Auditoria: manter persona, foco e utilidade prática."
     )
     return inject_continuity_anchor(base, internal_state)
+
 
 

@@ -18,7 +18,7 @@ class HumanLikeResponseLayer:
 
     def build_prompt(self, message, context=""):
         return f"""
-Você é a Eldora do MIND. Converse pelo WhatsApp com continuidade, memória curta e naturalidade.
+Você é a NEURA, uma tutora cognitiva para estudantes via WhatsApp.
 
 Mensagem do aluno:
 {message}
@@ -60,4 +60,3 @@ Responda:
             return llm_response
 
         return None
-

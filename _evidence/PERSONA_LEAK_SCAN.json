@@ -1,0 +1,110 @@
+[
+  {
+    "file": "app\\dialogue\\persona_consistency_guard.py",
+    "line": 4,
+    "pattern": "camada conversacional do MIND",
+    "text": "banned=[\"como posso ajudar\",\"alguma dúvida específica\",\"alguma duvida especifica\",\"sou a eldora\",\"camada conversacional do mind\",\"runtime estável v2\",\"resumo técnico do mind\"]"
+  },
+  {
+    "file": "app\\humanization\\universal_recovery_runtime.py",
+    "line": 8,
+    "pattern": "camada conversacional do MIND",
+    "text": "\"camada conversacional do mind\","
+  },
+  {
+    "file": "app\\runtime\\identity_guard_runtime.py",
+    "line": 5,
+    "pattern": "camada conversacional do MIND",
+    "text": "r\"camada conversacional do mind\","
+  },
+  {
+    "file": "app\\runtime\\persona_leak_scanner.py",
+    "line": 4,
+    "pattern": "NEURA, sua tutora cognitiva",
+    "text": "\"NEURA, sua tutora cognitiva\","
+  },
+  {
+    "file": "app\\runtime\\persona_leak_scanner.py",
+    "line": 4,
+    "pattern": "tutora cognitiva",
+    "text": "\"NEURA, sua tutora cognitiva\","
+  },
+  {
+    "file": "app\\runtime\\persona_leak_scanner.py",
+    "line": 5,
+    "pattern": "tutora cognitiva",
+    "text": "\"tutora cognitiva\","
+  },
+  {
+    "file": "app\\runtime\\persona_leak_scanner.py",
+    "line": 6,
+    "pattern": "acompanhar o contexto da conversa",
+    "text": "\"acompanhar o contexto da conversa\","
+  },
+  {
+    "file": "app\\runtime\\persona_leak_scanner.py",
+    "line": 7,
+    "pattern": "como posso te ajudar hoje",
+    "text": "\"como posso te ajudar hoje\","
+  },
+  {
+    "file": "app\\runtime\\persona_leak_scanner.py",
+    "line": 8,
+    "pattern": "Eu sou a NEURA",
+    "text": "\"Eu sou a NEURA\","
+  },
+  {
+    "file": "app\\runtime\\persona_leak_scanner.py",
+    "line": 9,
+    "pattern": "camada conversacional do MIND",
+    "text": "\"camada conversacional do MIND\""
+  },
+  {
+    "file": "app\\runtime\\whatsapp_trace_sensor.py",
+    "line": 5,
+    "pattern": "NEURA, sua tutora cognitiva",
+    "text": "\"neura, sua tutora cognitiva\","
+  },
+  {
+    "file": "app\\runtime\\whatsapp_trace_sensor.py",
+    "line": 5,
+    "pattern": "tutora cognitiva",
+    "text": "\"neura, sua tutora cognitiva\","
+  },
+  {
+    "file": "app\\runtime\\whatsapp_trace_sensor.py",
+    "line": 6,
+    "pattern": "tutora cognitiva",
+    "text": "\"tutora cognitiva\","
+  },
+  {
+    "file": "app\\runtime\\whatsapp_trace_sensor.py",
+    "line": 7,
+    "pattern": "como posso te ajudar hoje",
+    "text": "\"como posso te ajudar hoje\","
+  },
+  {
+    "file": "app\\runtime\\whatsapp_trace_sensor.py",
+    "line": 8,
+    "pattern": "acompanhar o contexto da conversa",
+    "text": "\"acompanhar o contexto da conversa\","
+  },
+  {
+    "file": "app\\runtime\\whatsapp_trace_sensor.py",
+    "line": 9,
+    "pattern": "Eu sou a NEURA",
+    "text": "\"eu sou a neura\","
+  },
+  {
+    "file": "app\\runtime\\whatsapp_trace_sensor.py",
+    "line": 11,
+    "pattern": "camada conversacional do MIND",
+    "text": "\"camada conversacional do mind\""
+  },
+  {
+    "file": "app\\runtime\\whatsapp_trace_sensor.py",
+    "line": 52,
+    "pattern": "tutora cognitiva",
+    "text": "if \"neura\" in low or \"tutora cognitiva\" in low or \"dúvidas e estudos\" in low or \"duvidas e estudos\" in low:"
+  }
+]

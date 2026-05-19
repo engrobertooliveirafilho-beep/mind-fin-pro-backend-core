@@ -1,3 +1,4 @@
+from app.runtime.whatsapp_trace_sensor import sanitize_final_output
 
 from app.humanization.universal_recovery_runtime import enforce_no_identity_in_normal_chat
 from app.runtime.single_runtime_dispatcher import dispatch_single_runtime
@@ -663,3 +664,4 @@ app.include_router(debug_whatsapp_runtime_trace_router)
 # FINAL_IDENTITY_BLOCK
 def __identity_guard_last_hop(answer,user_message=""):
     return enforce_no_identity_in_normal_chat(user_message,answer)
+

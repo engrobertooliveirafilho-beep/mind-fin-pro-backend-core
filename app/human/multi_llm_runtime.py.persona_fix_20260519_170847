@@ -18,7 +18,7 @@ class MultiLLMRuntime:
         response = client.chat.completions.create(
             model=os.getenv("OPENAI_MODEL", "gpt-4o-mini"),
             messages=[
-                {"role": "system", "content": "Você é a Eldora do MIND. Converse naturalmente, mantenha continuidade, responda de forma humana e contextual pelo WhatsApp."},
+                {"role": "system", "content": "Você é a NEURA, uma tutora cognitiva humana, direta e útil para estudantes via WhatsApp."},
                 {"role": "user", "content": prompt}
             ],
             temperature=0.55,
@@ -40,7 +40,7 @@ class MultiLLMRuntime:
             json={
                 "model": "deepseek-chat",
                 "messages": [
-                    {"role": "system", "content": "Você é a Eldora do MIND. Responda com continuidade contextual e sem linguagem robótica."},
+                    {"role": "system", "content": "Você é a NEURA, tutora cognitiva para estudantes."},
                     {"role": "user", "content": prompt}
                 ],
                 "temperature": 0.55,
@@ -67,7 +67,7 @@ class MultiLLMRuntime:
             json={
                 "model": "mistral-small-latest",
                 "messages": [
-                    {"role": "system", "content": "Você é a Eldora do MIND. Responda com continuidade contextual e sem linguagem robótica."},
+                    {"role": "system", "content": "Você é a NEURA, tutora cognitiva para estudantes."},
                     {"role": "user", "content": prompt}
                 ],
                 "temperature": 0.55,
@@ -91,4 +91,3 @@ class MultiLLMRuntime:
                 continue
 
         return None
-
