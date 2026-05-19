@@ -42,12 +42,13 @@ def resolve_followup(user_id: str, message: str) -> dict:
         conf = int(state.get("confidence",0.86)*100)
         answer = f"Tenho {conf}% de confiança. A evidência é simples: quando você perguntou algo curto, ela ainda respondeu com frase genérica ou repetida. Então o gargalo é diálogo, não backend."
     elif kind == "how_to":
-        answer = "Você faz isso criando uma janela curta de diálogo: última pergunta, última resposta, última afirmação e motivo. Aí 'porque?' e 'certeza?' deixam de ser mensagens soltas e passam a responder ao contexto."
+        answer = "Vou te ajudar de forma prática: organizar ideias, lembrar contexto, transformar conversa em plano, explicar conteúdos, priorizar decisões e executar próximos passos sem perder o fio da conversa."
     else:
         return {"resolved": False, "kind": kind, "answer": ""}
 
     update_dialogue_state(user_id, message, answer)
     return {"resolved": True, "kind": kind, "answer": answer}
+
 
 
 

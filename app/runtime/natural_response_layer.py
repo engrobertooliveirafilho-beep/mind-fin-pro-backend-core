@@ -59,11 +59,12 @@ def naturalize_response(answer: str, intent: dict, state: dict, autonomous: dict
         msg,
         out,
         claim="melhorar resposta visível antes de novas camadas",
-        reasoning="o usuário precisa receber resposta direta, não metacomentário do sistema.",
+        reasoning=None,
         confidence=0.90
     )
     remember_response(user_id, out)
     return out
+
 
 
 
