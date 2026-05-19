@@ -177,6 +177,16 @@ def live_whatsapp_override(inbound_text: str) -> str | None:
 from app.runtime.test_contract_wrapper import semantic_test_injection
 
 def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
+    low = (inbound_text or "").lower()
+
+    if any(x in low for x in [
+        "qual seu nome",
+        "como vc chama",
+        "como você chama",
+        "quem é você",
+        "quem e voce"
+    ]):
+        return "sou a Eldora."
 
     t=(inbound_text or "").lower().strip()
 
@@ -227,6 +237,8 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
         inbound_text,
         visible
     )
+
+
 
 
 
