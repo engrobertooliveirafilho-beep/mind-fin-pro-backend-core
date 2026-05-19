@@ -3,6 +3,7 @@ from fastapi import APIRouter, Request
 from fastapi.responses import Response
 from urllib.parse import parse_qs
 from app.runtime.cognitive_pipeline import run_cognitive_pipeline
+from app.runtime.mind_state_visible_context import is_state_query, build_mind_state_visible_response
 from app.runtime.whatsapp_intelligence_activation import enrich_whatsapp_context, whatsapp_intelligence_active
 from app.runtime.short_memory import remember, recall
 
@@ -168,6 +169,9 @@ def live_whatsapp_override(inbound_text: str) -> str | None:
 from app.runtime.test_contract_wrapper import semantic_test_injection
 
 def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
+
+    if is_state_query(inbound_text):
+        return build_mind_state_visible_response()
 
     inbound_text = str(inbound_text or "")
 
