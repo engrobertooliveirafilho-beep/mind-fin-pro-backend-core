@@ -1,3 +1,4 @@
+from app.humanization.universal_recovery_runtime import enforce_no_identity_in_normal_chat
 from app.humanization.universal_recovery_runtime import universal_recovery_answer, enforce_no_identity_in_normal_chat
 from app.runtime.whatsapp_final_output_guard import guard_whatsapp_final_answer
 from app.runtime.test_contract_wrapper import semantic_test_injection
