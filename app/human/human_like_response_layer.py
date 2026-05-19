@@ -38,7 +38,7 @@ Responda:
         msg = self._normalize(message)
 
         if msg.strip() in ["oi", "ola", "bom dia", "boa tarde", "boa noite"]:
-            return "Oi, Roberto. Estou aqui acompanhando o contexto da conversa de forma natural."
+            return "Oi, Roberto."
 
         if "como voce funciona" in msg or "como vc funciona" in msg or "o que voce faz" in msg:
             return "Eu funciono como uma memória de estudo no WhatsApp: guardo seu contexto, recupero o que você já me contou e uso isso para te explicar assuntos, contextos e dúvidas com mais precisão."
@@ -60,5 +60,6 @@ Responda:
             return llm_response
 
         return None
+
 
 

@@ -23,7 +23,7 @@ class RetrievalProvider:
             if "roberto" in low:
                 facts["name"] = "Roberto"
 
-            if "ram 2500" in low or "ram 3500" in low:
+            if False and ("ram 2500" in low or "ram 3500" in low):
                 facts["topic"] = "comparativo RAM 2500 vs RAM 3500"
             elif "diesel" in low:
                 facts["topic"] = "motor diesel"
@@ -62,3 +62,4 @@ class RetrievalProvider:
             "context": context or {},
             "source": "retrieval_provider_safe_v3"
         }
+
