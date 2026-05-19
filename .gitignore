@@ -26,3 +26,18 @@ __pycache__/
 *_STATE.json
 *_VALIDATION.json
 
+
+# TEMP PATCH/FORENSICS
+patch_*.py
+*_forensics.py
+*_DIAG_*.json
+*_FORENSICS_*.json
+*_VALIDATED_*.json
+*_DEPLOYED_*.json
+*_SYNCED_*.json
+RENDER_DEPLOY_DRIFT_*.json
+PROD_STATE_GUARD_ACTIVE_*.json
+TWILIO_*.json
+ELDORA_WHATSAPP_*.json
+VISIBLE_MIND_STATE_*.json
+
