@@ -383,7 +383,27 @@ async def whatsapp_webhook(request: Request):
             if visual_reply:
                 reply=visual_reply
             else:
-                reply=orchestrator.answer(
+                primary_reply = None
+
+                try:
+                    primary_reply = eldora_primary_runtime_reply(sender_id, message)
+                except Exception:
+                    pass
+
+                generic_markers = [
+                    "qual estado atual",
+                    "poderia especificar",
+                    "me explique melhor",
+                    "como posso ajudar"
+                ]
+
+                if (
+                    primary_reply
+                    and not any(x in str(primary_reply).lower() for x in generic_markers)
+                ):
+                    reply = primary_reply
+                else:
+                    reply=orchestrator.answer(
         message,
         memory_context=context.get("history_text",""),
         retrieved_context=context
