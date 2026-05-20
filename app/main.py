@@ -666,3 +666,7 @@ def __identity_guard_last_hop(answer,user_message=""):
     return enforce_no_identity_in_normal_chat(user_message,answer)
 
 
+
+from app.api.eldora_telemetry import router as eldora_telemetry_router
+app.include_router(eldora_telemetry_router)
+

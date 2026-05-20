@@ -4,6 +4,7 @@ from app.runtime.duplicate_response_guard import should_block_duplicate
 from app.humanization.universal_recovery_runtime import enforce_no_identity_in_normal_chat
 from app.humanization.multi_message_reply_runtime import split_human_reply
 from app.runtime.whatsapp_trace_sensor import new_trace,add_event,save_trace,sanitize_final_output
+from app.telemetry.cloud_telemetry import log_event
 try:
     from app.humanization.humanization_runtime import humanize_response
 except Exception:
@@ -32,5 +33,7 @@ def dispatch_single_runtime(sender_id:str,user_message:str,raw_answer:str,module
 
     add_event(trace,"final_output",module,function,answer,final)
     save_trace(trace)
+    log_event(sender_id,user_message,final,kind="real")
 
     return final
+
