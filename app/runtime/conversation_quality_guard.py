@@ -40,10 +40,10 @@ def reset_stale_topic(user_message:str, answer:str)->str:
     return answer
 
 def final_conversation_guard(user_message:str, answer:str)->str:
-    out=reset_stale_topic(user_message, answer)
-    out=strip_repeated_intro(out)
+    out = reset_stale_topic(user_message, answer)
+    out = strip_repeated_intro(out)
 
-    banned=[
+    banned = [
         "você tem alguma informação adicional",
         "alguma novidade",
         "tem alguma novidade",
@@ -55,8 +55,27 @@ def final_conversation_guard(user_message:str, answer:str)->str:
         "pode me dar mais detalhes"
     ]
 
-    low=out.lower()
+    low = out.lower()
+    user_low = (user_message or "").lower()
+
     if any(b in low for b in banned):
-        return out
+
+        casual = any(x in user_low for x in [
+            "oi","ola","olá","bom dia","boa tarde","boa noite",
+            "tudo bem","como vc ta","como voce ta",
+            "e vc","e você"
+        ])
+
+        identity = any(x in user_low for x in [
+            "qual seu nome","quem e voce","quem é você","quem é vc"
+        ])
+
+        if identity:
+            return "Sou a Eldora 🙂"
+
+        if casual:
+            return "Tudo certo por aqui 🙂 E você?"
+
+        return "Entendi 🙂 Me fala o ponto principal e seguimos daqui."
 
     return out
