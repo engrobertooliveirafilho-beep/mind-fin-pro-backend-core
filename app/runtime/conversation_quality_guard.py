@@ -4,7 +4,7 @@ INTRO_PATTERNS=[
     "oi! tudo bem",
     "oi, tudo bem",
     "tudo certo por aqui",
-    "e você? como estão as coisas",
+    "e você?",
     "como posso te ajudar",
     "pode me dar mais detalhes"
 ]

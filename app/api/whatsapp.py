@@ -173,7 +173,7 @@ def live_whatsapp_override(inbound_text: str) -> str | None:
         return "Boa tarde, Roberto ☀️ Como você está?"
 
     if any(x in msg for x in ["como ta", "como tá", "tudo bem"]):
-        return "Tudo certo por aqui 😄 E você?"
+        return "Tudo certo por aqui 🙂 E você?"
 
     if any(x in msg for x in ["quem eh vc", "quem é vc", "quem é você"]):
         return ""
@@ -265,7 +265,7 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
         "quem é você",
         "quem e voce"
     ]):
-        return "sou a Eldora."
+        return "Sou a Eldora 🙂"
 
     t=(inbound_text or "").lower().strip()
 

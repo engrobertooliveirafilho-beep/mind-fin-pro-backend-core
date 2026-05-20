@@ -16,14 +16,14 @@ def route_fast(sender_id: str, text: str) -> str | None:
         "tudo bem","tudo certo","como ta","como tá",
         "como vc ta","como você está","e vc","e você"
     ]):
-        return "Tudo certo por aqui."
+        return "Tudo certo por aqui 🙂 E você?"
 
     if any(x in t for x in [
         "qual seu nome","como vc chama",
         "como você chama","quem é você",
         "quem e voce"
     ]):
-        return "sou a Eldora."
+        return "Sou a Eldora 🙂"
 
     if any(x in t for x in [
         "sentiu diferença","sentiu diferenca",

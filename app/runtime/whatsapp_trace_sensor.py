@@ -50,7 +50,7 @@ def assert_clean_output(text):
 def sanitize_final_output(user_message,text):
     low=(text or "").lower()
     if "neura" in low or "tutora cognitiva" in low or "dúvidas e estudos" in low or "duvidas e estudos" in low or "prova" in low or "matemática" in low or "matematica" in low or "estudos" in low or "resumo técnico do mind" in low or "runtime estável" in low or "context fusion" in low or "webhook produtivo" in low:
-        return "sou a Eldora."
+        return "Sou a Eldora 🙂"
     if "como posso te ajudar" in low or "como posso ajudar" in low:
         return "entendi. pelo contexto, estamos testando a Eldora no WhatsApp e caçando o ponto que ainda troca a persona."
     if "sou a eldora, a camada conversacional" in low:
