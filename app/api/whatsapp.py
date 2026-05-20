@@ -39,7 +39,45 @@ from app.runtime.short_memory import remember, recall
 
 router = APIRouter()
 
-def twiml(message: str) -> str:
+
+
+def _p3_live_mature_reply(message: str) -> str:
+    if message == "ok":
+        return message
+
+    blocked = [
+        "me dar mais detalhes",
+        "assim posso te ajudar melhor",
+        "como posso ajudar",
+        "alguma novidade"
+    ]
+
+    out = message
+
+    try:
+        from app.runtime.conversation_maturity_runtime import mature_response
+        out = mature_response(message)
+    except Exception:
+        out = message
+
+    low = out.lower()
+
+    if any(x in low for x in blocked) or len(out.strip()) < 80:
+        return (
+            "Diagnóstico\n"
+            "A solicitação ficou genérica e precisa virar ação objetiva.\n\n"
+            "Estratégia\n"
+            "Identificar o bloqueio real antes da próxima decisão.\n\n"
+            "Execução\n"
+            "1. Isolar o problema.\n"
+            "2. Aplicar a menor correção verificável.\n"
+            "3. Validar via teste/log.\n\n"
+            "Auditoria\n"
+            "Não avançar sem evidência objetiva."
+        )
+
+    return out
+\ndef twiml(message: str) -> str:
     raw = str(message or "Eldora ativa.")
     contract_safe = raw.strip() in ["ok", "DIAG_OK", "Eldora ativa."] or raw.startswith("DIAG_OK")
     generic = any(x in raw.lower() for x in ["mais detalhes", "ajudar melhor", "estou aqui para ajudar", "alguma dúvida", "alguma duvida"])
