@@ -288,7 +288,10 @@ async def whatsapp_webhook(request: Request):
 
         try:
             primary_reply = dispatch_single_runtime(sender_id,message,eldora_primary_runtime_reply(sender_id,message),module="main",function="eldora_primary_runtime_reply")
-            if primary_reply and any(x in str(message).lower() for x in ["estado atual","resuma o estado","snapshot","baseline"]):
+            if primary_reply and (
+                any(x in str(message).lower() for x in ["estado atual","resuma o estado","snapshot","baseline"])
+                or all(x in str(primary_reply) for x in ["Diagnóstico", "Estratégia", "Execução", "Auditoria"])
+            ):
                 return Response(content=primary_twiml(primary_reply), media_type="application/xml")
         except Exception:
             pass
