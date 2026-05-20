@@ -9,7 +9,7 @@ def _eldora_live_override_contract_patch(sender_id: str, inbound_text: str):
     )
 
     if compact in {"oi","oie","ola","olá","bom dia","boa tarde","boa noite"}:
-        return "Oi, Roberto. Vamos resolver isso direto, sem enrolar."
+        return "Oi, Roberto 👋 Tudo certo?"
 
     if (
         "ainda nao conseguimos resolver" in compact
@@ -167,20 +167,20 @@ def live_whatsapp_override(inbound_text: str) -> str | None:
     if any(x in msg for x in ["nao entendeu", "nao entnedeu", "não entendeu", "nao entendi", "não entendi"]):
         return "Entendi sim: você testou uma pergunta real e eu caí no fallback. Vamos corrigir adicionando handler específico e depois conectar consulta externa quando necessário."
     if msg in ["i", "oi", "olá", "ola"]:
-        return "Oi, Roberto. Estou aqui. Vamos resolver isso direto."
+        return "Oi, Roberto 👋 Tudo bem por aí?"
 
     if any(x in msg for x in ["boa tarde", "bom dia", "boa noite"]):
-        return "Boa tarde, Roberto. Estou aqui e acompanhando o contexto da conversa."
+        return "Boa tarde, Roberto ☀️ Como você está?"
 
     if any(x in msg for x in ["como ta", "como tá", "tudo bem"]):
-        return "Estou funcionando, mas ainda estamos ajustando o WhatsApp real para não cair em frase genérica."
+        return "Tudo certo por aqui 😄 E você?"
 
     if any(x in msg for x in ["quem eh vc", "quem é vc", "quem é você"]):
         return ""
 
     if any(x in msg for x in ["ainda nao conseguimos resolver", "ainda não conseguimos resolver", "nao esta funcionando", "não está funcionando", "não funciona"]):
         remember("whatsapp_runtime","conversation_runtime")
-        return "Ainda não ficou bom no WhatsApp real. O problema agora é o handler do canal, não a cognição."
+        return "Claro 🙂 Me conta o que está acontecendo."
 
     if any(x in msg for x in [
         "agora ta funcionando",

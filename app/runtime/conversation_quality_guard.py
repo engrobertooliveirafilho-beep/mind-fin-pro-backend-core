@@ -47,6 +47,6 @@ def final_conversation_guard(user_message:str, answer:str)->str:
 
     low=out.lower()
     if any(b in low for b in banned):
-        return "entendi. vou responder direto pelo contexto atual, sem repetir introdução e sem puxar assunto antigo."
+        return out
 
     return out
