@@ -40,7 +40,8 @@ from app.runtime.short_memory import remember, recall
 router = APIRouter()
 
 def twiml(message: str) -> str:
-    safe = (message or "Eldora ativa.").replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")
+    matured = mature_response(str(message or "Eldora ativa."), str(message or ""))["output"]
+    safe = matured.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")
     return f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>{safe}</Message></Response>'
 
 def live_whatsapp_override(inbound_text: str) -> str | None:
