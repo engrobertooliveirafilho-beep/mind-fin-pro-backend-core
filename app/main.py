@@ -674,3 +674,7 @@ app.include_router(eldora_telemetry_router)
 from app.api.eldora_swarm import router as eldora_swarm_router
 app.include_router(eldora_swarm_router)
 
+
+from app.api.eldora_swarm_monitor import router as eldora_swarm_monitor_router
+app.include_router(eldora_swarm_monitor_router)
+
