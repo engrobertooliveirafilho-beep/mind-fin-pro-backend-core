@@ -176,7 +176,11 @@ def live_whatsapp_override(inbound_text: str) -> str | None:
 
 from app.runtime.test_contract_wrapper import semantic_test_injection
 
+from app.runtime.intent_first_router import route_fast
 def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
+    fast = route_fast(sender_id, inbound_text)
+    if fast:
+        return fast
     low = (inbound_text or "").lower()
 
     if any(x in low for x in [
@@ -237,6 +241,7 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
         inbound_text,
         visible
     )
+
 
 
 
