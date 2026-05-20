@@ -40,7 +40,10 @@ from app.runtime.short_memory import remember, recall
 router = APIRouter()
 
 def twiml(message: str) -> str:
-    matured = mature_response(str(message or "Eldora ativa."), str(message or ""))["output"]
+    raw = str(message or "Eldora ativa.")
+    low = raw.lower()
+    weak = any(x in low for x in ["pode me dar mais detalhes","posso te ajudar melhor","você não entendeu","voce nao entendeu","não ficou claro","nao ficou claro"])
+    matured = mature_response(raw, raw)["output"] if weak else raw
     safe = matured.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")
     return f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>{safe}</Message></Response>'
 
