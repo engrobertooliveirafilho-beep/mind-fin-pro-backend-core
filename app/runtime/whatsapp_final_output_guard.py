@@ -58,14 +58,14 @@ def _domain_answer(user_message: str) -> str:
     if any(x in u for x in ["sentiu diferença", "sentiu diferenca", "diferença", "diferenca"]):
         return (
             "Senti diferença na direção certa, mas ainda tem vazamento de fallback antigo. "
-            "Quando a resposta volta para apresentação fixa, significa que o runtime real ainda não está passando pelo guard final em todos os caminhos."
+            "Quando a resposta volta para apresentação fixa, significa que o runtime real ainda não está passando pelo guard final em runtime_guards os caminhos."
         )
 
     if u in ["sim", "aham", "ok", "blz", "beleza", "isso", "certo"]:
         return "Perfeito. Continua — estou acompanhando o contexto."
 
     if any(x in u for x in ["oi", "olá", "ola", "boa tarde", "bom dia", "boa noite"]):
-        return "Oi, Roberto. Estou aqui. Vamos direto no que importa."
+        return "Roberto, vamos direto no ponto."
 
     if "humanização" in u or "humanizacao" in u:
         return (
@@ -80,7 +80,7 @@ def _domain_answer(user_message: str) -> str:
 
 def guard_whatsapp_final_answer(user_message: str, answer: str, context: dict | None = None) -> str:
     if identity_allowed(user_message):
-        return answer or "Oi. Me pergunta direto que continuo do contexto."
+        return answer or "Continua do ponto atual que eu respondo pelo contexto."
 
     if has_identity_leak(answer):
         return _domain_answer(user_message)
@@ -90,3 +90,4 @@ def guard_whatsapp_final_answer(user_message: str, answer: str, context: dict | 
         return _domain_answer(user_message)
 
     return cleaned
+
