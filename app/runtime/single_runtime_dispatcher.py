@@ -5,6 +5,7 @@ from app.humanization.universal_recovery_runtime import enforce_no_identity_in_n
 from app.humanization.multi_message_reply_runtime import split_human_reply
 from app.runtime.whatsapp_trace_sensor import new_trace,add_event,save_trace,sanitize_final_output
 from app.telemetry.cloud_telemetry import log_event
+from app.runtime.conversation_quality_guard import final_conversation_guard
 try:
     from app.humanization.humanization_runtime import humanize_response
 except Exception:
@@ -18,6 +19,7 @@ def dispatch_single_runtime(sender_id:str,user_message:str,raw_answer:str,module
     answer=humanize_response(user_message,raw_answer,{})
     answer=enforce_no_identity_in_normal_chat(user_message,answer)
     answer=sanitize_final_output(user_message,answer)
+    answer=final_conversation_guard(user_message,answer)
 
     add_event(trace,"humanized",module,function,raw_answer,answer)
 
@@ -36,4 +38,5 @@ def dispatch_single_runtime(sender_id:str,user_message:str,raw_answer:str,module
     log_event(sender_id,user_message,final,kind="real")
 
     return final
+
 
