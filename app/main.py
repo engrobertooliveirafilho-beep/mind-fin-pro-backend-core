@@ -46,12 +46,8 @@ async def live_contract_middleware_patch(request, call_next):
             body = (await request.body()).decode("utf-8", errors="ignore")
             fields = parse_qs(body)
             message = (fields.get("Body", [""])[0] or "").strip().lower()
-            if message in {"oi","oie","ola","olá","bom dia","boa tarde","boa noite"}:
-                xml = '<?xml version="1.0" encoding="UTF-8"?><Response><Message>Oi, Roberto. Vamos resolver isso direto, sem enrolar.</Message></Response>'
-                return Response(content=xml, media_type="application/xml")
-            if "ainda nao conseguimos resolver" in message or "não conseguimos resolver" in message:
-                xml = '<?xml version="1.0" encoding="UTF-8"?><Response><Message>Ainda não fechou 100%. O gargalo está no handler do canal WhatsApp: ele responde, mas ainda precisa estabilizar continuidade, fallback e contexto real.</Message></Response>'
-                return Response(content=xml, media_type="application/xml")
+            pass
+            pass
         except Exception:
             pass
     return await call_next(request)
