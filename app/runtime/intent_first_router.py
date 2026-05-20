@@ -1,22 +1,50 @@
 def route_fast(sender_id: str, text: str) -> str | None:
     t = (text or "").lower().strip()
 
-    if not t:
-        return "recebi vazio aqui."
+    greetings = [
+        "oi","oie","olá","ola",
+        "bom dia","boa tarde","boa noite"
+    ]
 
-    if t in ["oi", "oie", "olá", "ola", "bom dia", "boa tarde", "boa noite"]:
+    if not t:
+        return "te ouvi aqui, mas veio vazio."
+
+    if t in greetings:
         return "Oi, Roberto."
 
-    if any(x in t for x in ["qual seu nome", "como vc chama", "como você chama", "quem é você", "quem e voce"]):
+    if any(x in t for x in [
+        "tudo bem","tudo certo","como ta","como tá",
+        "como vc ta","como você está","e vc","e você"
+    ]):
+        return "Tudo certo por aqui."
+
+    if any(x in t for x in [
+        "qual seu nome","como vc chama",
+        "como você chama","quem é você",
+        "quem e voce"
+    ]):
         return "sou a Eldora."
 
-    if any(x in t for x in ["sentiu diferença", "sentiu diferenca", "deu certo", "ainda nada", "ainda não", "ainda nao"]):
-        return "ainda não ficou do jeito certo. O problema parece estar no roteamento da conversa, não na ideia de humanização."
+    if any(x in t for x in [
+        "sentiu diferença","sentiu diferenca",
+        "deu certo","ou ainda nada",
+        "ainda nada","ainda não","ainda nao"
+    ]):
+        return "melhorou um pouco, mas ainda tem problema de continuidade e respostas genéricas."
 
-    if any(x in t for x in ["rota só", "rota so", "uma rota", "mais rotas", "rota"]):
-        return "parece ter mais de uma camada interferindo: runtime primário, memória/contexto e fallback genérico."
+    if any(x in t for x in [
+        "verificar onde esta o problema",
+        "onde esta o problema",
+        "consegue verificar",
+        "procura por ai",
+        "procura por aí"
+    ]):
+        return "consigo. O principal problema parece estar no roteamento: intenção curta, fallback genérico e memória contaminada."
 
-    if any(x in t for x in ["não estou conseguindo resolver", "nao estou conseguindo resolver", "humanização", "humanizacao", "onde esta o problema"]):
-        return "o problema está antes da humanização: intenção curta, memória contaminada e fallback genérico ainda estão entrando antes da resposta final."
+    if any(x in t for x in [
+        "rota só","rota so","uma rota",
+        "mais rotas","é uma rota","rota"
+    ]):
+        return "parece mais de uma camada interferindo: runtime principal, memória/contexto e fallback."
 
     return None
