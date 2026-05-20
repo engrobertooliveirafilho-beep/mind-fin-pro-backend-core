@@ -1,5 +1,4 @@
 import os
-import uuid
 import psycopg2
 import psycopg2.extras
 
@@ -47,18 +46,14 @@ def insert_embedding(sender_id: str, text: str, metadata: dict | None = None) ->
     embedding = cached_embed(embedder, text)
 
     if not embedding:
-        raise RuntimeError("embedding_provider_returned_empty")
-
-    item_id = str(uuid.uuid4())
-    payload = metadata or {}
+        raise RuntimeError("embedding_provider_returned_empty")payload = metadata or {}
 
     with psycopg2.connect(_database_url(), connect_timeout=5) as conn:
         with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
             cur.execute("""
-            insert into neura_embeddings(id, sender_id, message, metadata, embedding)
-            values (%s, %s, %s, %s::jsonb, %s::vector)
+            insert into neura_embeddings(sender_id, message, metadata, embedding) values (%s, %s, %s::jsonb, %s::vector)
             returning id, sender_id, message, metadata, created_at
-            """, (item_id, sender_id or "default", text, psycopg2.extras.Json(payload), embedding))
+            """, (sender_id or "default", text, psycopg2.extras.Json(payload), embedding))
             row = dict(cur.fetchone())
         conn.commit()
 
@@ -104,3 +99,4 @@ def semantic_graph_report():
             """)
             rows = [dict(x) for x in cur.fetchall()]
     return {"status": "ok", "source": "pgvector", "nodes_total": len(rows), "graph": rows}
+
