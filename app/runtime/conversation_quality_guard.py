@@ -66,9 +66,9 @@ def final_conversation_guard(user_message:str, answer:str)->str:
 
     if social_mode and leaking_tech:
         return (
-            "Acho que para eu ficar mais fluida, o principal é conversar de forma mais natural, "
-            "lembrar melhor do contexto e responder sem parecer repetitiva 🙂 "
-            "Você percebeu algo específico que te incomodou?"
+            "Quando você me corrige e continua o assunto, eu vou pegando melhor seu jeito 🙂 "
+            "Se eu soar repetitiva, estranha ou travada, me fala na hora. "
+            "O que mais te incomoda hoje na conversa?"
         )
 
     banned = [
