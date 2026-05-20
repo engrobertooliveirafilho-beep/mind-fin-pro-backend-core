@@ -8,11 +8,12 @@ from app.retrieval.semantic_provider import SemanticRetrievalProvider
 from app.runtime.embedding_cache import cached_embed
 
 
-def _database_url() -> str:
-    db = os.getenv("DATABASE_URL")
-    if not db:
-        raise RuntimeError("DATABASE_URL not configured")
-    return db
+def _database_url() -> str | None:
+    return os.getenv("DATABASE_URL")
+
+
+def _db_unavailable() -> dict:
+    return {"status": "unavailable", "stored": False, "reason": "DATABASE_URL not configured", "source": "pgvector"}
 
 
 def _ensure_schema() -> None:
@@ -38,6 +39,9 @@ def insert_embedding(sender_id: str, text: str, metadata: dict | None = None) ->
     if not text or not text.strip():
         return {"status": "skipped", "stored": False, "reason": "empty_text"}
 
+    if not _database_url():
+        return _db_unavailable()
+
     _ensure_schema()
     embedder = EmbeddingProvider()
     embedding = cached_embed(embedder, text)
@@ -62,6 +66,8 @@ def insert_embedding(sender_id: str, text: str, metadata: dict | None = None) ->
 
 
 def semantic_search(sender_id: str, query: str, limit: int = 5) -> list[dict]:
+    if not _database_url():
+        return []
     return SemanticRetrievalProvider().search(sender_id or "default", query, limit)
 
 
@@ -84,6 +90,9 @@ def retrieve_memory(query: str, top_k: int = 3):
 
 
 def semantic_graph_report():
+    if not _database_url():
+        return {"status": "unavailable", "source": "pgvector", "nodes_total": 0, "graph": [], "reason": "DATABASE_URL not configured"}
+
     with psycopg2.connect(_database_url(), connect_timeout=5) as conn:
         with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
             cur.execute("""
