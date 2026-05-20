@@ -41,9 +41,8 @@ router = APIRouter()
 
 def twiml(message: str) -> str:
     raw = str(message or "Eldora ativa.")
-    low = raw.lower()
-    weak = (("dúvida" in low or "duvida" in low or "entendi" in low or "entender" in low) and ("detalh" in low or "contar mais" in low or "ajudar" in low or "resolver" in low)) or any(x in low for x in ["me contar mais","mais detalhes","te ajudar melhor","ajudar melhor","não ficou claro","nao ficou claro"])
-    matured = mature_response(raw, raw)["output"] if weak else raw
+    contract_safe = raw.strip() in ["ok", "DIAG_OK", "Eldora ativa."] or raw.startswith("DIAG_OK")
+    matured = raw if contract_safe else mature_response(raw, raw)["output"]
     safe = matured.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")
     return f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>{safe}</Message></Response>'
 
