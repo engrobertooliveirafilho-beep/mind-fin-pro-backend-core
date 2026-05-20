@@ -17,7 +17,12 @@ def strip_repeated_intro(text:str)->str:
             parts=re.split(r"[.!?]\s+", out, maxsplit=1)
             if len(parts)>1:
                 return parts[1].strip()
-    return out
+    if any(b in low for b in banned):
+    if any(x in (user_message or "").lower() for x in ["oi","ola","olá","bom dia","boa tarde","boa noite","tudo bem","como vc ta","como voce ta","e vc","e você"]):
+        return "Tudo certo por aqui 🙂 E você?"
+    return "Entendi 🙂 Me fala o ponto principal e seguimos daqui."
+
+return out
 
 def reset_stale_topic(user_message:str, answer:str)->str:
     u=(user_message or "").lower()
@@ -41,8 +46,13 @@ def final_conversation_guard(user_message:str, answer:str)->str:
     banned=[
         "você tem alguma informação adicional",
         "alguma novidade",
-        "pode me dar mais detalhes",
-        "como posso te ajudar hoje"
+        "tem alguma novidade",
+        "como estão as coisas",
+        "o que você quer saber exatamente",
+        "sou a eldora",
+        "como posso ajudar",
+        "como posso te ajudar hoje",
+        "pode me dar mais detalhes"
     ]
 
     low=out.lower()
