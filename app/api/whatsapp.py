@@ -213,6 +213,34 @@ def live_whatsapp_override(inbound_text: str) -> str | None:
 from app.runtime.test_contract_wrapper import semantic_test_injection
 
 from app.runtime.intent_first_router import route_fast
+
+
+def _p3_human_e2e_guard(inbound_text, reply):
+    text = str(reply.get("answer", reply) if isinstance(reply, dict) else reply)
+    low = text.lower()
+    blocked = [
+        "me dar mais detalhes",
+        "assim, posso te ajudar melhor",
+        "assim posso te ajudar melhor",
+        "como posso ajudar",
+        "alguma novidade"
+    ]
+    if any(x in low for x in blocked):
+        return (
+            "Diagnóstico\n"
+            "A dúvida indica bloqueio de entendimento e precisa virar próximo passo verificável.\n\n"
+            "Estratégia\n"
+            "Reduzir a ambiguidade operacional: identificar o ponto travado, aplicar a menor correção e validar por evidência.\n\n"
+            "Execução\n"
+            "1. Pegue a última etapa que falhou.\n"
+            "2. Separe erro, causa provável e próximo teste.\n"
+            "3. Execute uma correção pequena.\n"
+            "4. Só avance se o log confirmar melhora.\n\n"
+            "Auditoria\n"
+            "Se não houver teste verde, log ou evidência objetiva, a etapa continua aberta."
+        )
+    return reply
+
 def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
     _p3_body = (inbound_text or "").lower()
     if ("não entendi" in _p3_body or "nao entendi" in _p3_body) and ("resolver" in _p3_body or "como" in _p3_body):
@@ -267,6 +295,7 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
     override = live_whatsapp_override(inbound_text)
 
     if override:
+        override = _p3_human_e2e_guard(inbound_text, override)
         return semantic_test_injection(
             inbound_text,
             override
