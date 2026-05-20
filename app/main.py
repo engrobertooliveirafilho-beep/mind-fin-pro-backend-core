@@ -670,3 +670,7 @@ def __identity_guard_last_hop(answer,user_message=""):
 from app.api.eldora_telemetry import router as eldora_telemetry_router
 app.include_router(eldora_telemetry_router)
 
+
+from app.api.eldora_swarm import router as eldora_swarm_router
+app.include_router(eldora_swarm_router)
+
