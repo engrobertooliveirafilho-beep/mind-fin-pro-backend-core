@@ -38,7 +38,7 @@ def semantic_recovery(user_message:str)->str:
 
 def universal_recovery_answer(user_message:str, answer:str|None=None, error:Exception|None=None)->str:
     if IDENTITY_QUESTION.search(user_message or ""):
-        return answer or "Sou a Eldora."
+        return answer or "Tudo certo por aqui 🙂"
     if error is not None and not answer:
         return semantic_recovery(user_message)
     if not answer:

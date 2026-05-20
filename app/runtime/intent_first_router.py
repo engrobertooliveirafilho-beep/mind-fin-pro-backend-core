@@ -23,7 +23,7 @@ def route_fast(sender_id: str, text: str) -> str | None:
         "como você chama","quem é você",
         "quem e voce"
     ]):
-        return "Sou a Eldora 🙂"
+        return "Sou a Eldora 🙂 O que você quer saber?"
 
     if any(x in t for x in [
         "sentiu diferença","sentiu diferenca",

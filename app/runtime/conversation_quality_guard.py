@@ -4,7 +4,7 @@ INTRO_PATTERNS = [
     "oi! tudo bem",
     "oi, tudo bem",
     "tudo certo por aqui",
-    "e você? como estão as coisas",
+    
     "como posso te ajudar",
     "pode me dar mais detalhes"
 ]
@@ -35,7 +35,7 @@ def final_conversation_guard(user_message:str, answer:str)->str:
     banned = [
         "alguma novidade",
         "tem alguma novidade",
-        "como estão as coisas",
+        
         "o que você quer saber exatamente",
         "sou a eldora",
         "como posso ajudar",
