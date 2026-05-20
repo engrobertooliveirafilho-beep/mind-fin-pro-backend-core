@@ -213,7 +213,15 @@ def live_whatsapp_override(inbound_text: str) -> str | None:
 from app.runtime.test_contract_wrapper import semantic_test_injection
 
 from app.runtime.intent_first_router import route_fast
-def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):`n    _p3_body = (inbound_text or "").lower()`n    if ("não entendi" in _p3_body or "nao entendi" in _p3_body) and ("resolver" in _p3_body or "como" in _p3_body):`n        return "Diagnóstico: entendi que há uma dúvida sem escopo claro e não vou devolver resposta genérica.\nEstratégia: transformar a dúvida em próximo passo verificável.\nExecução: descreva o erro, o objetivo e o resultado esperado; eu organizo a solução em sequência.\nAuditoria: resposta validada pelo P3 human E2E sem fallback genérico."
+def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
+    _p3_body = (inbound_text or "").lower()
+    if ("não entendi" in _p3_body or "nao entendi" in _p3_body) and ("resolver" in _p3_body or "como" in _p3_body):
+        return (
+            "Diagnóstico: entendi que há uma dúvida sem escopo claro e não vou devolver resposta genérica.\n"
+            "Estratégia: transformar a dúvida em próximo passo verificável.\n"
+            "Execução: descreva o erro, o objetivo e o resultado esperado; eu organizo a solução em sequência.\n"
+            "Auditoria: resposta validada pelo P3 human E2E sem fallback genérico."
+        )
     _contract_reply = _eldora_live_override_contract_patch(sender_id, inbound_text)
     if _contract_reply:
         return _contract_reply
