@@ -4,9 +4,38 @@ INTRO_PATTERNS = [
     "oi! tudo bem",
     "oi, tudo bem",
     "tudo certo por aqui",
-    
     "como posso te ajudar",
     "pode me dar mais detalhes"
+]
+
+TECH_TERMS = [
+    "history_count",
+    "persistent_memory_count",
+    "retrieval_provider",
+    "retrieval provider",
+    "runtime",
+    "camada",
+    "memória persistente",
+    "memoria persistente",
+    "context fusion",
+    "mind",
+    "retrieval",
+    "webhook",
+    "handler"
+]
+
+SOCIAL_HINTS = [
+    "mais fluida",
+    "fluida",
+    "como vc ta",
+    "como voce ta",
+    "tudo bem",
+    "o que achou",
+    "vc tem novidade",
+    "e vc",
+    "e você",
+    "o que especifico",
+    "como te deixo"
 ]
 
 def strip_repeated_intro(text:str)->str:
@@ -32,35 +61,26 @@ def final_conversation_guard(user_message:str, answer:str)->str:
     low = out.lower()
     user_low = (user_message or "").lower()
 
+    social_mode = any(x in user_low for x in SOCIAL_HINTS)
+    leaking_tech = any(x in low for x in TECH_TERMS)
+
+    if social_mode and leaking_tech:
+        return (
+            "Acho que para eu ficar mais fluida, o principal é conversar de forma mais natural, "
+            "lembrar melhor do contexto e responder sem parecer repetitiva 🙂 "
+            "Você percebeu algo específico que te incomodou?"
+        )
+
     banned = [
         "alguma novidade",
-        "tem alguma novidade",
-        
-        "o que você quer saber exatamente",
+        "como estão as coisas",
         "sou a eldora",
         "como posso ajudar",
-        "como posso te ajudar hoje",
-        "pode me dar mais detalhes"
+        "pode me dar mais detalhes",
+        "o que você quer saber exatamente"
     ]
 
     if any(x in low for x in banned):
-
-        if any(x in user_low for x in [
-            "oi","ola","olá","bom dia",
-            "boa tarde","boa noite",
-            "tudo bem","como vc ta",
-            "como voce ta","e vc","e você"
-        ]):
-            return "Tudo certo por aqui 🙂 E você?"
-
-        if any(x in user_low for x in [
-            "qual seu nome",
-            "quem e voce",
-            "quem é você",
-            "quem é vc"
-        ]):
-            return "Sou a Eldora 🙂"
-
-        return "Entendi 🙂 Me fala o ponto principal."
+        return "Tudo certo por aqui 🙂 E você?"
 
     return out
