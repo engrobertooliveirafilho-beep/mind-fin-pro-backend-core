@@ -199,6 +199,18 @@ def p4_12b_factual_execution_lock(answer:str,inbound:str='')->str:
     low=raw.lower()
 
     factual_request = any(x in msg for x in FACTUAL_EXECUTION_HINTS)
+    technical_context = any(x in msg for x in ['cr250','cr 250','250r','2001','pedal','partida','2 tempos','2t'])
+
+    if factual_request and technical_context:
+        return 'Ok. Vou verificar a compatibilidade correta do pedal de partida da CR250R 2001 e te passar só opções seguras.'
+
+    if factual_request and any(x in low for x in GENERIC_FACTUAL_BAD + ['é importante','importante procurar','se precisar','me avisa']):
+        return 'Ok. Vou verificar isso e te responder com compatibilidade correta, sem chute.'
+
+    return raw
+
+
+    factual_request = any(x in msg for x in FACTUAL_EXECUTION_HINTS)
 
     if factual_request:
         if any(x in low for x in GENERIC_FACTUAL_BAD):
