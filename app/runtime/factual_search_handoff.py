@@ -1,7 +1,7 @@
 
 def factual_search_handoff(answer: str, inbound: str = "") -> str:
     msg=(inbound or "").lower()
-    trigger=any(x in msg for x in ["verifique","verifica","procure","pesquise","modelo correto","compatível","compativel","qual serve","paralelo","adapta","adaptar","outra moto","serve de outra"])
+    trigger=any(x in msg for x in ["verifique","verifica","procure","pesquise","modelo correto","compatível","compativel","qual serve","paralelo","adapta","adaptar","outra moto","serve de outra","valor","preço","preco","custa","quanto","r$","reais"])
     moto=any(x in msg for x in ["cr250","cr 250","250r","2001","pedal","partida","2 tempos","2t"])
 
     if not (trigger and moto):
@@ -10,7 +10,7 @@ def factual_search_handoff(answer: str, inbound: str = "") -> str:
     try:
         from app.multi_llm.provider_runtime import ProviderRuntime
         prompt=("Pesquise e responda em português, curto e objetivo: "
-                "compatibilidade do pedal de partida da Honda CR250R 2001 2 tempos. "
+                "compatibilidade, adaptação e preço atual do pedal de partida da Honda CR250R 2001 2 tempos, incluindo IMS e Red Dragon quando citado. "
                 "Informe anos compatíveis, OEM/part number se souber, paralelos seguros e incertezas. "
                 "Não dê conselho genérico.")
         result=ProviderRuntime().execute("perplexity", prompt)
