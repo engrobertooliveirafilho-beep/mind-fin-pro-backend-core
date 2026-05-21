@@ -137,3 +137,34 @@ def p4_12_whatsapp_live_ux_guard(text:str,inbound:str='')->str:
         return 'Entendi.'
 
     return raw[:220].strip()
+
+
+TECH_FACTUAL_HINTS = [
+'ano','modelo','pedal','motor','peca','peça','comprar',
+'paralelo','compat','serve','cr ','cr250','250r',
+'2 tempos','2t','yamaha','honda','kawasaki'
+]
+
+GENERIC_BAD_PHRASES = [
+'como posso ajudar',
+'você já encontrou',
+'voce ja encontrou',
+'posso te ajudar',
+'tudo certo por aqui',
+'passou bem a noite'
+]
+
+def p4_12_context_lock(answer:str,inbound:str='')->str:
+    raw=(answer or '').strip()
+    msg=(inbound or '').lower()
+
+    factual=any(x in msg for x in TECH_FACTUAL_HINTS)
+
+    if factual:
+        low=raw.lower()
+
+        for x in GENERIC_BAD_PHRASES:
+            if x in low:
+                return 'Entendi. Me confirma o ano/modelo exato para eu não te indicar peça errada.'
+
+    return raw
