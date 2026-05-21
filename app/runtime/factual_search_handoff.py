@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from app.runtime.factual_session_state import infer_factual_state, should_factual_search, build_factual_prompt
+from app.runtime.factual_conversation_policy import apply_factual_conversation_policy
 
 _LAST_STATE = {}
 
@@ -53,7 +54,7 @@ def factual_search_handoff(answer: str, inbound: str = "") -> str:
             return f"Vou manter o contexto: {state.active_item} da {state.active_subject}. Não vou trocar por outra peça."
 
         if clean and len(clean)>20:
-            return clean[:1200]
+            return apply_factual_conversation_policy(clean[:1200], inbound)
 
     except Exception as e:
         return "Não consegui consultar a busca factual agora. Falha no provider: " + str(e)[:120]
