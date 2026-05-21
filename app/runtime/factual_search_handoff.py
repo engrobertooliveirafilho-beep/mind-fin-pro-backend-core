@@ -1,7 +1,7 @@
 
 def factual_search_handoff(answer: str, inbound: str = "") -> str:
     msg=(inbound or "").lower()
-    trigger=any(x in msg for x in ["verifique","verifica","procure","pesquise","modelo correto","compatível","compativel","qual serve","paralelo"])
+    trigger=any(x in msg for x in ["verifique","verifica","procure","pesquise","modelo correto","compatível","compativel","qual serve","paralelo","adapta","adaptar","outra moto","serve de outra"])
     moto=any(x in msg for x in ["cr250","cr 250","250r","2001","pedal","partida","2 tempos","2t"])
 
     if not (trigger and moto):
@@ -14,8 +14,11 @@ def factual_search_handoff(answer: str, inbound: str = "") -> str:
                 "Informe anos compatíveis, OEM/part number se souber, paralelos seguros e incertezas. "
                 "Não dê conselho genérico.")
         result=ProviderRuntime().execute("perplexity", prompt)
-        if result and len(str(result).strip()) > 20:
-            return str(result).strip()[:1200]
+        if isinstance(result, dict):
+            result = result.get("response") or result.get("result") or str(result)
+        clean = str(result or '').replace('*','').strip()
+        if clean and len(clean) > 20:
+            return clean[:1200]
     except Exception as e:
         return "Não consegui consultar a busca factual agora. Falha no provider: " + str(e)[:120]
 
