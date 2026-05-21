@@ -413,7 +413,7 @@ async def whatsapp_webhook(request: Request):
                 try:
                     primary_reply = dispatch_single_runtime(sender_id,message,eldora_primary_runtime_reply(sender_id,message),module="main",function="eldora_primary_runtime_reply")
                     primary_reply = p4_12_whatsapp_live_ux_guard(primary_reply, message)
-            primary_reply = p4_12_context_lock(primary_reply, message)
+                    primary_reply = p4_12_context_lock(primary_reply, message)
                 except Exception:
                     pass
 
