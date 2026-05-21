@@ -1,40 +1,29 @@
 
+from __future__ import annotations
+
+from app.runtime.factual_session_state import infer_factual_state, should_factual_search, build_factual_prompt
+
+_LAST_STATE = {}
+
+def _sender_key(inbound: str) -> str:
+    return "default"
+
 def factual_search_handoff(answer: str, inbound: str = "") -> str:
-    msg=(inbound or "").lower()
+    key=_sender_key(inbound)
+    prev=_LAST_STATE.get(key)
+    state=infer_factual_state(inbound, prev)
 
-    trigger=any(x in msg for x in [
-        "verifique","verifica","procure","pesquise","modelo correto",
-        "compatível","compativel","qual serve","paralelo","adapta",
-        "adaptar","outra moto","serve de outra","valor","preço",
-        "preco","custa","quanto","r$","reais","web"
-    ])
+    if should_factual_search(state):
+        _LAST_STATE[key]=state
+    elif prev:
+        state=prev
 
-    moto_ctx=any(x in msg for x in [
-        "cr250","cr 250","250r","2001","pedal","partida","2 tempos","2t"
-    ])
-
-    brand_price_ctx=any(x in msg for x in [
-        "ims","red dragon","reddragon","red-dragon","valor","preço","preco","custa","quanto"
-    ])
-
-    active_ctx = moto_ctx or brand_price_ctx
-
-    if not (trigger and active_ctx):
+    if not should_factual_search(state):
         return answer
 
     try:
         from app.multi_llm.provider_runtime import ProviderRuntime
-
-        if brand_price_ctx and not moto_ctx:
-            prompt=("Pesquise na web e responda em português, curto e objetivo: "
-                    "preço atual do pedal de partida IMS e Red Dragon compatível com Honda CR250R 2001 2 tempos. "
-                    "Não troque a peça por carburador. Informe faixa de preço, moeda, loja/fonte se aparecer e incertezas.")
-        else:
-            prompt=("Pesquise na web e responda em português, curto e objetivo: "
-                    "compatibilidade, adaptação e preço atual do pedal de partida da Honda CR250R 2001 2 tempos, incluindo IMS e Red Dragon quando citado. "
-                    "Informe anos compatíveis, OEM/part number se souber, paralelos seguros e incertezas. "
-                    "Não dê conselho genérico.")
-
+        prompt=build_factual_prompt(state, inbound)
         result=ProviderRuntime().execute("perplexity", prompt)
 
         if isinstance(result, dict):
@@ -42,9 +31,9 @@ def factual_search_handoff(answer: str, inbound: str = "") -> str:
 
         clean=str(result or "").replace("*","").strip()
 
-        banned=["não consigo procurar na web","nao consigo procurar na web","carburador","tudo certo por aqui"]
+        banned=["não consigo procurar na web","nao consigo procurar na web","carburador","tudo certo por aqui","você já deu uma olhada"]
         if any(x in clean.lower() for x in banned):
-            return "Vou manter o contexto: pedal de partida da CR250R 2001. Não vou trocar por outra peça."
+            return f"Vou manter o contexto: {state.active_item} da {state.active_subject}. Não vou trocar por outra peça."
 
         if clean and len(clean)>20:
             return clean[:1200]
