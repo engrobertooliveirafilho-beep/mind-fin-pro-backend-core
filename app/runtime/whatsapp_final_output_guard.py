@@ -91,3 +91,49 @@ def guard_whatsapp_final_answer(user_message: str, answer: str, context: dict | 
 
     return cleaned
 
+
+
+FORBIDDEN_P4_12 = [
+'como posso ajudar hoje',
+'organizar suas ideias',
+'eldora do mind',
+'mind',
+'plano',
+'estratégia',
+'estrategia',
+'pode me dar mais detalhes'
+]
+
+SOCIAL_HINTS_P4_12 = [
+'bom dia',
+'boa tarde',
+'boa noite',
+'tudo bem',
+'passou bem',
+'fluida',
+'conversa'
+]
+
+def p4_12_whatsapp_live_ux_guard(text:str,inbound:str='')->str:
+    raw=(text or '').strip()
+    msg=(inbound or '').lower().strip()
+    low=raw.lower()
+
+    social=any(x in msg for x in SOCIAL_HINTS_P4_12)
+    leaked=any(x in low for x in FORBIDDEN_P4_12)
+    too_long=(len(raw)>180 or raw.count('.')+raw.count('!')+raw.count('?')>3)
+
+    if leaked or (social and too_long):
+        if 'bom dia' in msg:
+            return 'Bom dia, Roberto. Tudo certo por aqui.'
+        if 'tudo bem' in msg:
+            return 'Tudo bem sim. E você?'
+        if 'passou bem' in msg:
+            return 'Passei sim. E você, descansou?'
+        if 'fluida' in msg:
+            return 'Me corrija na hora e eu ajusto o jeito.'
+        if 'conversa' in msg:
+            return 'Foi boa. Ainda dá para deixar mais natural.'
+        return 'Entendi.'
+
+    return raw[:220].strip()
