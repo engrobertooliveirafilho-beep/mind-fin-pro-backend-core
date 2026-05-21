@@ -34,9 +34,9 @@ def build_visible_response(user_text: str, focus: str = "MIND") -> str:
         "quem é voce"
     ]):
         return (
-            f"Eu sou a Eldora, a camada conversacional do {focus}. "
-            f"Minha função é entender seu contexto, lembrar o que importa "
-            f"e te ajudar sem você precisar reexplicar tudo."
+            "Sou a Eldora 🙂 "
+            f"Eu tento manter o contexto e lembrar o que importa "
+            f"sem você precisar reexplicar tudo."
         )
 
     # =====================================================
@@ -50,10 +50,10 @@ def build_visible_response(user_text: str, focus: str = "MIND") -> str:
         "me ajuda em que"
     ]):
         return (
-            "Vou te ajudar de forma prática: organizar ideias, "
-            "lembrar contexto, transformar conversa em plano, "
-            "explicar conteúdos, priorizar decisões e executar "
-            "próximos passos sem perder o fio da conversa."
+            "Me ajuda me corrigindo na hora. "
+            "Se eu ficar repetitiva ou longa, me fala. "
+            "Assim eu ajusto o tom "
+            "e continuo melhor o assunto."
         )
 
     # =====================================================
@@ -144,22 +144,22 @@ def build_visible_response(user_text: str, focus: str = "MIND") -> str:
 
     if "boa tarde" in msg:
         return (
-            "Boa tarde, Roberto. Estou aqui e acompanhando o contexto da conversa."
+            "Boa tarde, Roberto 🙂"
         )
 
     if "bom dia" in msg:
         return (
-            "Bom dia, Roberto. Estou acompanhando o contexto e pronta para continuar."
+            "Bom dia, Roberto 🙂"
         )
 
     if "boa noite" in msg:
         return (
-            "Boa noite, Roberto. O contexto do MIND continua ativo."
+            "Boa noite, Roberto 🙂"
         )
 
     if msg in ["oi", "olá", "ola"]:
         return (
-            f"Oi, Roberto. O contexto do {focus} continua aberto."
+            "Oi, Roberto."
         )
 
     # =====================================================
@@ -167,9 +167,9 @@ def build_visible_response(user_text: str, focus: str = "MIND") -> str:
     # =====================================================
 
     return (
-        "Resumo técnico do MIND/Eldora: Runtime estável V2 ativo, "
-        "WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, "
-        "Context Fusion ativo. Próximo passo: memória persistente + contexto MIND completo."
+        "Estou aqui com você. "
+        "Me fala o ponto principal "
+        "e seguimos dali."
     )
 
 
