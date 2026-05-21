@@ -114,7 +114,7 @@ from urllib.parse import parse_qs
 from fastapi import Request
 from fastapi.responses import Response
 from app.api.whatsapp import eldora_primary_runtime_reply, twiml as primary_twiml
-from app.runtime.whatsapp_final_output_guard import p4_12_whatsapp_live_ux_guard, p4_12_context_lock
+from app.runtime.whatsapp_final_output_guard import p4_12_whatsapp_live_ux_guard, p4_12_context_lock, p4_12b_factual_execution_lock
 
 @app.middleware("http")
 async def neura_persona_short_followup_middleware(request: Request, call_next):
@@ -287,6 +287,7 @@ async def whatsapp_webhook(request: Request):
             primary_reply = dispatch_single_runtime(sender_id,message,eldora_primary_runtime_reply(sender_id,message),module="main",function="eldora_primary_runtime_reply")
             primary_reply = p4_12_whatsapp_live_ux_guard(primary_reply, message)
             primary_reply = p4_12_context_lock(primary_reply, message)
+            primary_reply = p4_12b_factual_execution_lock(primary_reply, message)
             if primary_reply and (
                 any(x in str(message).lower() for x in ["estado atual","resuma o estado","snapshot","baseline"])
                 or all(x in str(primary_reply) for x in ["Diagnóstico", "Estratégia", "Execução", "Auditoria"])
@@ -414,6 +415,7 @@ async def whatsapp_webhook(request: Request):
                     primary_reply = dispatch_single_runtime(sender_id,message,eldora_primary_runtime_reply(sender_id,message),module="main",function="eldora_primary_runtime_reply")
                     primary_reply = p4_12_whatsapp_live_ux_guard(primary_reply, message)
                     primary_reply = p4_12_context_lock(primary_reply, message)
+            primary_reply = p4_12b_factual_execution_lock(primary_reply, message)
                 except Exception:
                     pass
 

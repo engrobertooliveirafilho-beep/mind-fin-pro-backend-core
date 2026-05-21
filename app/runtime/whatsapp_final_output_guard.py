@@ -168,3 +168,40 @@ def p4_12_context_lock(answer:str,inbound:str='')->str:
                 return 'Entendi. Me confirma o ano/modelo exato para eu não te indicar peça errada.'
 
     return raw
+
+
+FACTUAL_EXECUTION_HINTS = [
+'verifique','verifica','procure','procura',
+'modelo correto','qual modelo','compat',
+'compativel','compatível','serve',
+'qual serve','comprar','paralelo',
+'ano correto','pedal','peca','peça'
+]
+
+GENERIC_FACTUAL_BAD = [
+'é sempre bom',
+'mecânico',
+'mecanico',
+'fórum',
+'forum',
+'você já',
+'voce ja',
+'loja online',
+'lojas online',
+'posso ajudar',
+'você já deu uma olhada',
+'voce ja deu uma olhada'
+]
+
+def p4_12b_factual_execution_lock(answer:str,inbound:str='')->str:
+    raw=(answer or '').strip()
+    msg=(inbound or '').lower()
+    low=raw.lower()
+
+    factual_request = any(x in msg for x in FACTUAL_EXECUTION_HINTS)
+
+    if factual_request:
+        if any(x in low for x in GENERIC_FACTUAL_BAD):
+            return 'Ok. Vou verificar isso e te responder com compatibilidade correta, sem chute.'
+
+    return raw
