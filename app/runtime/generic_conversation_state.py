@@ -1,5 +1,6 @@
 
 from __future__ import annotations
+from app.runtime.universal_conversation_authority import universal_conversation_reply
 import re, time, hashlib
 from dataclasses import dataclass, field
 
@@ -110,6 +111,7 @@ def update_conversation_state(sender_id:str,text:str)->GenericConversationState:
     mode="factual" if topic=="vehicle_parts_research" else "strategic" if topic=="eldora_runtime_ux" else "general"
 
     st=GenericConversationState(topic,ents,intent,stage,sub,depth,mode,time.time(),prev.last_hashes if prev else [],prev.last_categories if prev else [])
+    setattr(st, "sender_id", key)
     _STATE[key]=st
     return st
 
@@ -138,6 +140,11 @@ def _bank_answer(state:GenericConversationState)->tuple[str,str]:
     return cat, f"{prefix} / {cat}: {text}"
 
 def progressive_answer(answer:str,state:GenericConversationState)->str:
+    if state.intent in ["deepen", "economic_followup"]:
+        sender = getattr(state, "sender_id", "conversation_progressive")
+        synthetic_message = "aprofunde"
+        return universal_conversation_reply(sender, synthetic_message, [])
+
     cleaned=(answer or "").replace("Digite APROFUNDAR para continuar","").replace("Se quiser, eu posso","").replace("😊","").strip()[:900]
     h=_hash(cleaned)
     repeated_hash=h in state.last_hashes
