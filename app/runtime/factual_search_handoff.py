@@ -9,25 +9,41 @@ _LAST_STATE={}
 def _sender_key(inbound: str) -> str:
     return "default"
 
+def _is_eldora_or_mind_topic(raw: str) -> bool:
+    return any(x in raw for x in ["eldora","mind","neura","projeto","lançamento","launch","ux","runtime"])
+
+def _is_factual_motorcycle_topic(raw: str) -> bool:
+    return any(x in raw for x in ["cr250","cr 250","250r","2001","pedal","partida","2 tempos","2t","ims","red dragon"])
+
 def factual_search_handoff(answer: str, inbound: str = "") -> str:
     key=_sender_key(inbound)
     prev=_LAST_STATE.get(key)
     raw=(inbound or "").lower()
 
+    if _is_eldora_or_mind_topic(raw):
+        _LAST_STATE.pop(key, None)
+        return answer
+
     deepen_only=any(x in raw for x in ["aprofundar","aprofunde","detalhar","mais detalhes"])
-    force_factual=(("verifi" in raw or "quero que vc" in raw or "quero que você" in raw) and any(x in raw for x in ["cr250","cr 250","250r","2001","pedal","partida","2 tempos","2t"]))
+    force_factual=(("verifi" in raw or "quero que vc" in raw or "quero que você" in raw) and _is_factual_motorcycle_topic(raw))
 
     state=infer_factual_state(inbound, prev)
 
-    if (force_factual or deepen_only) and not should_factual_search(state):
+    if deepen_only and not prev and not _is_factual_motorcycle_topic(raw):
+        return apply_factual_conversation_policy(answer, inbound, key)
+
+    if force_factual and not should_factual_search(state):
         state=FactualSessionState(
             active_subject="Honda CR250R 2001 2T",
             active_item="pedal de partida",
             active_brands=["IMS","Red Dragon"],
             active_vehicle="Honda CR250R 2001 2 tempos",
-            last_intent="detail_search" if deepen_only else "compatibility_search",
+            last_intent="compatibility_search",
             confidence=0.95,
         )
+
+    if deepen_only and prev and should_factual_search(prev):
+        state=prev
 
     if should_factual_search(state):
         _LAST_STATE[key]=state
