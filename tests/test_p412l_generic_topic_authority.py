@@ -19,4 +19,5 @@ def test_state_tracks_topic_entities_intent_stage():
     assert st.active_topic=="eldora_runtime_ux"
     st2=update_conversation_state("u3","aprofunde")
     assert st2.intent=="deepen"
-    assert st2.stage>st.stage
+    order=["summary","detail","compare","decision","action","validation"]
+    assert order.index(st2.stage)>order.index(st.stage)
