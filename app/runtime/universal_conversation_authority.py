@@ -44,9 +44,9 @@ class UniversalConversationAuthority:
         if ctx["active_intent"] == "execute":
             return "Passo a passo: definir objetivo, preservar contexto, executar menor ação verificável, medir falha e fechar com evidência."
         if ctx["depth_level"] >= 4:
-            return "Aprofundando: preserve o contexto ativo, aumente profundidade e avance sem puxar categorias de conversas anteriores."
+            return "Cognição profunda: preserve o contexto ativo, aumente profundidade e avance sem puxar categorias de conversas anteriores."
         if ctx["depth_level"] >= 3:
-            return "Detalhe: aprofunde o mesmo assunto, mantenha intenção atual e bloqueie troca semântica automática."
+            return "Memória contextual: aprofunde o mesmo assunto, mantenha intenção atual e bloqueie troca semântica automática."
         return "Entendido. Resposta única, curta, contextual e sem bleed."
 
 _ucca = UniversalConversationAuthority()
