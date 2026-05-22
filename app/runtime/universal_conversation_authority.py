@@ -26,7 +26,7 @@ class UniversalConversationAuthority:
         t = message.lower().strip()
         intent = "execute" if any(x in t for x in ["passo a passo","roteiro","plano operacional","como executar"]) else "deepen" if any(x in t for x in ["aprofunde","detalhe melhor","explique melhor","ainda mais"]) else "validate" if any(x in t for x in ["validar","verificar","confirmar","testar"]) else "reflect" if any(x in t for x in ["nÃ£o dormi","cansado","mal hoje","triste","ansioso"]) else "ask"
         depth = 5 if intent == "execute" else min(5, max((prev.depth_level + 1 if prev else 2), 3)) if intent == "deepen" else 1
-        mode = "executional" if intent == "execute" else "emotional_safe" if intent == "reflect" else "decision_support" if intent == "validate" else (prev.active_reasoning_mode if prev and intent == "deepen" else "reflective")
+        mode = "executional" if intent == "execute" else "emotional_safe" if intent == "reflect" else "decision_support" if intent == "validate" else (prev.active_reasoning_mode if prev and intent in {"deepen","ask"} else "reflective")
         stage = "execute" if depth >= 5 else "deepen" if depth >= 3 else "expand" if depth == 2 else "discover"
         ctx = ConversationContext(sender_id, intent, mode, stage, depth, 0.75 if prev else 0.0, "contextual", intent == "execute", "low" if mode == "emotional_safe" else "neutral", 220, memory_context or [])
         self.state[sender_id] = ctx
@@ -51,3 +51,4 @@ def build_universal_conversation_context(sender_id: str, message: str, memory_co
 def universal_conversation_reply(sender_id: str, message: str, memory_context: List[str] | None = None) -> str:
     ctx = _ucca.build_context(sender_id, message, memory_context)
     return _ucca.render(ctx, message)[:ctx["conversational_budget"]]
+
