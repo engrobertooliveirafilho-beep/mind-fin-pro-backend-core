@@ -140,9 +140,10 @@ def _bank_answer(state:GenericConversationState)->tuple[str,str]:
     return cat, f"{prefix} / {cat}: {text}"
 
 def progressive_answer(answer:str,state:GenericConversationState)->str:
-    if state.intent in ["deepen", "economic_followup"]:
+    low_answer = str(answer or "").lower()
+    if state.intent in ["execute", "plan", "deepen", "economic_followup"] or any(x in low_answer for x in ["detalhe / risk","detalhe / price","compatibilidade","preço:","risco:"]):
         sender = getattr(state, "sender_id", "conversation_progressive")
-        synthetic_message = "aprofunde"
+        synthetic_message = "passo a passo" if state.intent in ["execute", "plan"] else "aprofunde"
         return universal_conversation_reply(sender, synthetic_message, [])
 
     cleaned=(answer or "").replace("Digite APROFUNDAR para continuar","").replace("Se quiser, eu posso","").replace("😊","").strip()[:900]
