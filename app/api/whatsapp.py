@@ -213,6 +213,7 @@ def live_whatsapp_override(inbound_text: str) -> str | None:
 from app.runtime.test_contract_wrapper import semantic_test_injection
 
 from app.runtime.intent_first_router import route_fast
+from app.runtime.universal_conversation_authority import universal_conversation_reply
 
 
 def _p3_human_e2e_guard(inbound_text, reply):
@@ -257,7 +258,6 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
     if fast:
         return fast
     low = (inbound_text or "").lower()
-
     if any(x in low for x in [
         "qual seu nome",
         "como vc chama",
@@ -276,12 +276,13 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
     if t in ["nao entendi","não entendi"]:
         return "Vou explicar em três camadas: memória contextual, cognição profunda e continuidade operacional, evitando frases genéricas."
 
-    if "aprofunde" in t:
-        return "A memória contextual preserva histórico, intenção e continuidade sem reiniciar conversa."
 
-    if "detalhe melhor" in t:
-        return "A cognição profunda combina memória, raciocínio e contexto para responder sem cair em fallback."
+    progressive_followup = any(x in t for x in [
+        "aprofunde", "detalhe melhor", "explique melhor", "ainda mais", "passo a passo"
+    ])
 
+    if progressive_followup:
+        return universal_conversation_reply(sender_id, inbound_text, [])
 
     if is_state_query(inbound_text):
         return build_mind_state_visible_response()
