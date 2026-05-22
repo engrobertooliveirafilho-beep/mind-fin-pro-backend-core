@@ -3,6 +3,8 @@ from __future__ import annotations
 
 _STATE={}
 
+from app.runtime.global_topic_authority import global_topic_authority
+
 def strategic_conversation_authority(answer:str,inbound:str="",sender_id:str="default")->str:
     msg=(inbound or "").lower()
     key=sender_id or "default"
@@ -32,4 +34,4 @@ def strategic_conversation_authority(answer:str,inbound:str="",sender_id:str="de
             return "Faça primeiro o SCA real: uma autoridade final que decide a resposta única antes do TwiML. Depois vem memória, busca e refinamento."
         return "A próxima camada crítica é manter tópico ativo e impedir regressão para smalltalk. Sem isso, a Eldora parece instável."
 
-    return answer
+    return global_topic_authority(answer, inbound, key)
