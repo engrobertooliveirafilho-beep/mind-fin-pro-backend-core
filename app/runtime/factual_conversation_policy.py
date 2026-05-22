@@ -19,15 +19,7 @@ def _hash(text:str)->str:
 
 def _clean(text:str)->str:
     t=(text or "").strip()
-    cuts=[
-        "Digite APROFUNDAR para continuar.",
-        "Digite APROFUNDAR para continuar",
-        "Se quiser, eu posso",
-        "se quiser, eu posso",
-        "Estou aqui para ajudar",
-        "😊"
-    ]
-    for c in cuts:
+    for c in ["Digite APROFUNDAR para continuar.","Digite APROFUNDAR para continuar","Se quiser, eu posso","se quiser, eu posso","Estou aqui para ajudar","😊"]:
         t=t.replace(c,"").strip()
     return t[:900].strip()
 
@@ -36,26 +28,29 @@ def apply_factual_conversation_policy(answer:str,inbound:str="",sender_id:str="d
     key=sender_id or "default"
     st=_STATE.get(key) or FactualConversationState()
 
-    if any(x in msg for x in ["cr250","cr 250","250r","pedal","partida","ims","red dragon"]):
-        st.active_topic="Honda CR250R 2001 2T / pedal de partida"
+    deepen=any(x in msg for x in ["aprofundar","aprofunde","detalhar","mais detalhes"])
+    if any(x in msg for x in ["cr250","cr 250","250r","pedal","partida","ims","red dragon"]) or deepen:
+        st.active_topic = st.active_topic or "Honda CR250R 2001 2T / pedal de partida"
 
-    if "aprofundar" in msg or "detalhar" in msg or "mais detalhes" in msg:
-        st.deepen_count+=1
-        st.stage_index=min(st.stage_index+1,len(STAGES)-1)
+    if deepen:
+        st.deepen_count += 1
+        st.stage_index = min(st.stage_index+1, len(STAGES)-1)
 
     stage=STAGES[st.stage_index]
     cleaned=_clean(answer)
     h=_hash(cleaned)
 
-    if h in st.last_hashes:
+    generic=("não ficou claro" in cleaned.lower() or "me dar um pouco mais de contexto" in cleaned.lower() or "que área específica" in cleaned.lower())
+
+    if generic or h in st.last_hashes:
         if stage=="detail":
-            cleaned="Aprofundando: agora o ponto principal é separar oferta disponível de anúncio esgotado e confirmar se o anúncio cita CR250R 97/07."
+            cleaned="Aprofundando: o ponto crítico é confirmar anúncio que cite CR250R 1997–2007/2T, não peça parecida de CRF ou outra moto."
         elif stage=="compare":
-            cleaned="Comparação prática: IMS apareceu com preço real; Red Dragon não apareceu com preço confiável para CR250R 2001. Hoje eu priorizaria IMS com anúncio CR250R 97/07."
+            cleaned="Comparação prática: IMS teve preço real encontrado; Red Dragon não apareceu com fonte confiável para CR250R 2001. Hoje IMS é a rota mais segura."
         elif stage=="decision":
-            cleaned="Decisão objetiva: eu não compraria peça genérica de outra moto. Compraria só anúncio que cite CR250R 1997–2007 ou CR250R 2T."
+            cleaned="Decisão: eu compraria só se o anúncio citar CR250R 97/07 ou CR250R 2T. Evitaria adaptar pedal de CRF/YZ/KX sem medir encaixe."
         else:
-            cleaned="Ação: procurar por 'kick starter Honda CR250R 1997 2007', 'CR250R 2001 kick start lever' e comparar preço + frete + prazo."
+            cleaned="Ação: buscar por 'Honda CR250R 1997 2007 kick starter', 'CR250R 2001 kick start lever' e comparar peça, frete, prazo e devolução."
 
     st.last_hashes=(st.last_hashes+[h])[-5:]
     _STATE[key]=st
