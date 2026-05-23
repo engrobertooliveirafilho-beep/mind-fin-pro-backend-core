@@ -1,3 +1,4 @@
+# P4_12N_MAIN_INTERCEPTOR_TRACE
 
 # P4_12N_MAIN_WEBHOOK_TRACE
 from app.runtime.forensic_trace import event
@@ -60,6 +61,7 @@ app = FastAPI(title="NEURA Cloud Runtime")
 @app.middleware("http")
 async def live_contract_middleware_patch(request, call_next):
     # LIVE_CONTRACT_MIDDLEWARE_PATCH
+    event("MAIN_INTERCEPTOR_CHECK", route="/webhook/whatsapp", module_name="app.main")
     if request.url.path == "/webhook/whatsapp" and request.method.upper() == "POST":
         try:
             from urllib.parse import parse_qs
@@ -80,6 +82,7 @@ for _router in REGISTERED_ROUTERS:
 # NEURA_PERSONA_IDENTITY_MIDDLEWARE_V2
 @app.middleware("http")
 async def neura_persona_identity_middleware_v2(request: Request, call_next):
+    event("MAIN_INTERCEPTOR_CHECK", route="/webhook/whatsapp", module_name="app.main")
     if request.url.path == "/webhook/whatsapp" and request.method.upper() == "POST":
         raw = await request.body()
         data = parse_qs(raw.decode("utf-8", errors="ignore"))
@@ -123,6 +126,7 @@ async def neura_persona_identity_middleware_v2(request: Request, call_next):
 
         if reply:
             twiml = f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>{reply}</Message></Response>'
+            event("MAIN_INTERCEPTOR_RETURN", route="/webhook/whatsapp", module_name="app.main")
             return Response(content=twiml, media_type="application/xml")
 
     return await call_next(request)
@@ -140,6 +144,7 @@ from app.runtime.whatsapp_final_output_guard import p4_12_whatsapp_live_ux_guard
 
 @app.middleware("http")
 async def neura_persona_short_followup_middleware(request: Request, call_next):
+    event("MAIN_INTERCEPTOR_CHECK", route="/webhook/whatsapp", module_name="app.main")
     if request.url.path == "/webhook/whatsapp" and request.method.upper() == "POST":
         body = (await request.body()).decode("utf-8", errors="ignore")
         fields = parse_qs(body)
@@ -153,6 +158,7 @@ async def neura_persona_short_followup_middleware(request: Request, call_next):
                 "A direção ideal para a NEURA é 70% humana e 30% futurista: confiável, memorável e sem assustar."
             )
             twiml = f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>{reply}</Message></Response>'
+            event("MAIN_INTERCEPTOR_RETURN", route="/webhook/whatsapp", module_name="app.main")
             return Response(content=twiml, media_type="application/xml")
     return await call_next(request)
 
@@ -318,7 +324,8 @@ async def whatsapp_webhook(request: Request):
                 any(x in str(message).lower() for x in ["estado atual","resuma o estado","snapshot","baseline"])
                 or all(x in str(primary_reply) for x in ["Diagnóstico", "Estratégia", "Execução", "Auditoria"])
             ):
-                return Response(content=primary_twiml(primary_reply), media_type="application/xml")
+                event("MAIN_INTERCEPTOR_RETURN", route="/webhook/whatsapp", module_name="app.main")
+            return Response(content=primary_twiml(primary_reply), media_type="application/xml")
         except Exception:
             pass
 
