@@ -1,5 +1,5 @@
-
 from __future__ import annotations
+from app.runtime.cognitive_conversation_runtime import decide_turn
 from app.runtime.universal_conversation_authority import universal_conversation_reply
 import re, time, hashlib
 from dataclasses import dataclass, field
@@ -141,6 +141,18 @@ def _bank_answer(state:GenericConversationState)->tuple[str,str]:
 
 def progressive_answer(answer:str,state:GenericConversationState)->str:
     low_answer = str(answer or "").lower()
+
+    inbound = getattr(state, "last_user_message", "") or getattr(state, "inbound", "")
+    decision = decide_turn(inbound)
+
+    progression_ok = (
+        state.intent in ["deepen","execute","plan","economic_followup"]
+        or "aprofunde" in str(inbound or "").lower()
+    )
+
+    if not decision.allow_factual_memory and not progression_ok:
+        cleaned=(answer or "").replace("Digite APROFUNDAR para continuar","").replace("Se quiser, eu posso","").replace("😊","").strip()[:900]
+        return prevent_cross_topic(cleaned,state)
     if state.intent in ["execute", "plan", "deepen", "economic_followup"] or any(x in low_answer for x in ["detalhe / risk","detalhe / price","compatibilidade","preço:","risco:"]):
         sender = getattr(state, "sender_id", "conversation_progressive")
         synthetic_message = "passo a passo" if state.intent in ["execute", "plan"] else "aprofunde"
