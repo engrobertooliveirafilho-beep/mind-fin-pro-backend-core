@@ -1,4 +1,12 @@
 
+# P4_12N_FORENSIC_BOOTSTRAP_ACTIVE
+try:
+    from app.runtime.forensic_trace import event
+    event("FORENSIC_BOOTSTRAP_ACTIVE", module_name="app.main")
+except Exception as _e:
+    print("FORENSIC_BOOTSTRAP_FAIL", repr(_e))
+
+
 # P4.12N forensic observability only: no cognitive guard, no reply mutation
 try:
     from app.runtime import forensic_bootstrap

@@ -1,3 +1,5 @@
+from app.runtime.forensic_trace import event
+# P4_12N_FORENSIC_TRACE_ACTIVE
 
 def _eldora_live_override_contract_patch(sender_id: str, inbound_text: str):
     text = (inbound_text or "").strip().lower()
@@ -41,7 +43,8 @@ from app.runtime.short_memory import remember, recall
 router = APIRouter()
 
 def twiml(message: str) -> str:
-    event('PRE_TWIML', route='/webhook/whatsapp', module_name='app.api.whatsapp', reply_before=message)
+    
+    event("PRE_TWIML", route="/webhook/whatsapp", module_name="app.api.whatsapp", reply_before=message)
     raw = str(message or "Eldora ativa.")
     contract_safe = raw.strip() in ["ok", "DIAG_OK", "Eldora ativa."] or raw.startswith("DIAG_OK")
     generic = any(x in raw.lower() for x in ["mais detalhes", "ajudar melhor", "estou aqui para ajudar", "alguma dúvida", "alguma duvida"])
