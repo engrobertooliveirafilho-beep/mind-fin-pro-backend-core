@@ -1,4 +1,7 @@
 
+# P4_12N_MAIN_WEBHOOK_TRACE
+from app.runtime.forensic_trace import event
+
 # P4_12N_FORENSIC_BOOTSTRAP_ACTIVE
 try:
     from app.runtime.forensic_trace import event
@@ -301,6 +304,7 @@ async def whatsapp_webhook(request: Request):
 
         sender_id=payload.get("From") or payload.get("from") or payload.get("sender_id") or "unknown"
         message=payload.get("Body") or payload.get("body") or payload.get("message") or ""
+        event("REQUEST_IN", route="/webhook/whatsapp", module_name="app.main.whatsapp_webhook", reply_before=message)
 
         try:
             primary_reply = dispatch_single_runtime(sender_id,message,eldora_primary_runtime_reply(sender_id,message),module="main",function="eldora_primary_runtime_reply")
