@@ -731,3 +731,17 @@ app.include_router(eldora_swarm_monitor_router)
 
 
 
+
+
+# P4_12N_FORENSIC_TRACE_DUMP_ENDPOINT
+@app.get("/__forensic/trace")
+def __forensic_trace_dump():
+    from pathlib import Path
+    path = Path("_evidence/WHATSAPP_RUNTIME_TRACE/RUNTIME_PIPELINE_TRACE.jsonl")
+    if not path.exists():
+        return {"exists": False, "path": str(path), "lines": []}
+    return {
+        "exists": True,
+        "path": str(path),
+        "lines": path.read_text(encoding="utf-8", errors="ignore").splitlines()[-500:]
+    }
