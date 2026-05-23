@@ -310,6 +310,10 @@ async def whatsapp_webhook(request: Request):
 
         sender_id=payload.get("From") or payload.get("from") or payload.get("sender_id") or "unknown"
         message=payload.get("Body") or payload.get("body") or payload.get("message") or ""
+        # P4_12N_FACTUAL_BLEED_GUARD
+        from app.runtime.generic_conversation_state import factual_state_allowed_for
+        if not factual_state_allowed_for(message):
+            payload["_p412n_ignore_factual_state"] = True
         event("REQUEST_IN", route="/webhook/whatsapp", module_name="app.main.whatsapp_webhook", reply_before=message)
 
         try:

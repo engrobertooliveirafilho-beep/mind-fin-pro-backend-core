@@ -164,3 +164,26 @@ def progressive_answer(answer:str,state:GenericConversationState)->str:
     state.last_hashes=(state.last_hashes+[h])[-8:]
     state.last_categories=(state.last_categories+[cat])[-4:]
     return prevent_cross_topic(cleaned,state)
+
+
+# P4_12N_FACTUAL_BLEED_FIX
+def is_casual_dialogue(text: str) -> bool:
+    t=(text or "").strip().lower()
+    if not t:
+        return False
+    factual_terms=[
+        "preço","valor","comprar","compatível","serve","modelo","ano","peça",
+        "crf","cr ","motor","produto","link","marca","medida","tamanho",
+        "comparar","orçamento","cotação","mercado livre","shopee"
+    ]
+    if any(x in t for x in factual_terms):
+        return False
+    casual_markers=[
+        "bom dia","boa tarde","boa noite","tudo bem","tudo e vc","e vc",
+        "que foi","oi","olá","ola","blz","beleza","deu errado","não entendi",
+        "como assim","tenho uma dúvida","tenho uma duvida"
+    ]
+    return len(t) <= 80 and any(x in t for x in casual_markers)
+
+def factual_state_allowed_for(text: str) -> bool:
+    return not is_casual_dialogue(text)
