@@ -311,6 +311,28 @@ def _p412n_final_cognitive_safety(message: str, reply: str) -> str:
         return "Entendi. Me diga o objetivo direto que eu sigo sem puxar contexto antigo."
     return raw
 
+
+# P4_12N_FINAL_FALLBACK_NORMALIZER
+def _p412n_final_fallback_normalizer(message: str, reply: str) -> str:
+    from app.runtime.cognitive_conversation_runtime import decide_turn
+    decision=decide_turn(message)
+    raw=str(reply or "").strip()
+    bad=[
+        "Eldora ativa","Tudo certo por aqui","Diagnóstico: o runtime identificou resposta fraca",
+        "Resumo / compatibility","Compatibilidade:"
+    ]
+    if not raw or any(x.lower() in raw.lower() for x in bad):
+        if decision.turn_type=="SOCIAL_DIALOGUE":
+            return "Tudo certo, Roberto. Pode mandar."
+        if decision.turn_type=="META_CONVERSATION":
+            return "Para ficar mais fluida, me corrija no ponto exato e eu ajusto o tom na próxima resposta."
+        if decision.turn_type=="FACTUAL_TASK":
+            return "Entendi. Vou verificar isso com base no que você mandou e te responder direto."
+        if decision.turn_type=="RECOVERY":
+            return "Entendi. Vou corrigir o rumo sem puxar o contexto errado."
+        return "Entendi. Me diga o objetivo direto que eu sigo sem puxar contexto antigo."
+    return raw
+
 @app.post("/webhook/whatsapp")
 async def whatsapp_webhook(request: Request):
     from app.runtime.response_builder import ResponseBuilder
