@@ -43,13 +43,35 @@ from app.runtime.short_memory import remember, recall
 router = APIRouter()
 
 def _p412n_twiml_final_normalizer(message: str) -> str:
+    from app.runtime.cognitive_conversation_runtime import decide_turn
+
     raw=str(message or "").strip()
+    low=raw.lower()
+    decision=decide_turn(raw)
+
     bad=[
-        "Eldora ativa","Tudo certo por aqui","Diagnóstico: o runtime identificou resposta fraca",
-        "Resumo / compatibility","Compatibilidade:"
+        "eldora ativa",
+        "tudo certo por aqui",
+        "diagnóstico: o runtime identificou resposta fraca",
+        "diagnã³stico: o runtime identificou resposta fraca",
+        "resumo / compatibility",
+        "compatibilidade:"
     ]
-    if not raw or any(x.lower() in raw.lower() for x in bad):
-        return "Entendi. Me diga o objetivo direto que eu sigo sem puxar contexto antigo."
+
+    factual_turns={"FACTUAL_TASK","EXECUTE","PLAN","ANALYSIS","MATH"}
+
+    if decision.turn_type in factual_turns:
+        return raw
+
+    if not raw or any(x in low for x in bad):
+        if decision.turn_type=="SOCIAL_DIALOGUE":
+            return "Tudo certo 🙂 E você?"
+        if decision.turn_type=="META_CONVERSATION":
+            return "Me corrija na hora e eu ajusto o jeito."
+        if decision.turn_type=="RECOVERY":
+            return "Entendi. Vou corrigir o rumo."
+        return "Entendi. Me diga melhor o que você precisa."
+
     return raw
 
 # P4_12N_TWIML_FINAL_NORMALIZER
