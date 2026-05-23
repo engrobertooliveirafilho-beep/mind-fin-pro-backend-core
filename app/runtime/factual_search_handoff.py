@@ -1,6 +1,7 @@
 ﻿from __future__ import annotations
 
 from app.runtime.generic_conversation_state import factual_state_allowed_for
+from app.runtime.cognitive_conversation_runtime import decide_turn
 from app.runtime.factual_session_state import (
     infer_factual_state,
     should_factual_search,
@@ -62,6 +63,11 @@ def factual_search_handoff(answer: str, inbound: str = "") -> str:
 
     if deepen_alias and not _is_factual_motorcycle_topic(raw):
         return _recovery_response(key)
+
+    decision = decide_turn(inbound, prev)
+    if not decision.allow_factual_memory and not _is_factual_motorcycle_topic(raw):
+        _LAST_STATE.pop(key, None)
+        return answer
 
     if _is_eldora_or_mind_topic(raw) and not _is_factual_motorcycle_topic(raw):
         _LAST_STATE.pop(key, None)
