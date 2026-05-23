@@ -1,3 +1,11 @@
+
+# P4.12N forensic observability only: no cognitive guard, no reply mutation
+try:
+    from app.runtime import forensic_bootstrap
+    forensic_bootstrap.install()
+except Exception as _mind_forensic_error:
+    print('MIND_FORENSIC_BOOTSTRAP_ERROR', repr(_mind_forensic_error))
+
 from app.runtime.whatsapp_trace_sensor import sanitize_final_output
 
 from app.humanization.universal_recovery_runtime import enforce_no_identity_in_normal_chat
@@ -294,7 +302,6 @@ async def whatsapp_webhook(request: Request):
             primary_reply = factual_search_handoff(primary_reply, message)
             primary_reply = strategic_conversation_authority(primary_reply, message)
             primary_reply = final_conversational_arbiter(sender_id, message, primary_reply)
-            primary_reply = final_conversational_arbiter(sender_id, message, primary_reply)
             if primary_reply and (
                 any(x in str(message).lower() for x in ["estado atual","resuma o estado","snapshot","baseline"])
                 or all(x in str(primary_reply) for x in ["Diagnóstico", "Estratégia", "Execução", "Auditoria"])
@@ -425,6 +432,8 @@ async def whatsapp_webhook(request: Request):
                     primary_reply = p4_12b_factual_execution_lock(primary_reply, message)
                     primary_reply = factual_search_handoff(primary_reply, message)
                     primary_reply = strategic_conversation_authority(primary_reply, message)
+                    primary_reply = final_conversational_arbiter(sender_id, message, primary_reply)
+                    primary_reply = final_conversational_arbiter(sender_id, message, primary_reply)
                 except Exception:
                     pass
 

@@ -28,6 +28,7 @@ from app.humanization.universal_recovery_runtime import enforce_no_identity_in_n
 from app.humanization.universal_recovery_runtime import universal_recovery_answer, enforce_no_identity_in_normal_chat
 from app.runtime.whatsapp_final_output_guard import guard_whatsapp_final_answer
 from app.runtime.test_contract_wrapper import semantic_test_injection
+from app.runtime.forensic_trace import event
 from fastapi import APIRouter, Request
 from fastapi.responses import Response
 from app.runtime.conversation_maturity_runtime import mature_response
@@ -40,6 +41,7 @@ from app.runtime.short_memory import remember, recall
 router = APIRouter()
 
 def twiml(message: str) -> str:
+    event('PRE_TWIML', route='/webhook/whatsapp', module_name='app.api.whatsapp', reply_before=message)
     raw = str(message or "Eldora ativa.")
     contract_safe = raw.strip() in ["ok", "DIAG_OK", "Eldora ativa."] or raw.startswith("DIAG_OK")
     generic = any(x in raw.lower() for x in ["mais detalhes", "ajudar melhor", "estou aqui para ajudar", "alguma dúvida", "alguma duvida"])
@@ -55,6 +57,7 @@ def twiml(message: str) -> str:
     else:
         matured = mature_response(raw, raw)["output"]
     safe = matured.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")
+    event('TWIML_OUT', route='/webhook/whatsapp', module_name='app.api.whatsapp', reply_after=safe)
     return f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>{safe}</Message></Response>'
 
 def live_whatsapp_override(inbound_text: str) -> str | None:
