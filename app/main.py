@@ -2,6 +2,7 @@ from app.runtime.whatsapp_trace_sensor import sanitize_final_output
 
 from app.humanization.universal_recovery_runtime import enforce_no_identity_in_normal_chat
 from app.runtime.single_runtime_dispatcher import dispatch_single_runtime
+from app.runtime.final_conversational_arbiter import final_conversational_arbiter
 
 def twiml(message: str) -> str:
     safe = str(message).replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")
@@ -288,6 +289,7 @@ async def whatsapp_webhook(request: Request):
         try:
             primary_reply = dispatch_single_runtime(sender_id,message,eldora_primary_runtime_reply(sender_id,message),module="main",function="eldora_primary_runtime_reply")
             primary_reply = p4_12_whatsapp_live_ux_guard(primary_reply, message)
+            primary_reply = final_conversational_arbiter(sender_id, message, primary_reply)
             primary_reply = p4_12_context_lock(primary_reply, message)
             primary_reply = p4_12b_factual_execution_lock(primary_reply, message)
             primary_reply = factual_search_handoff(primary_reply, message)
@@ -418,6 +420,7 @@ async def whatsapp_webhook(request: Request):
                 try:
                     primary_reply = dispatch_single_runtime(sender_id,message,eldora_primary_runtime_reply(sender_id,message),module="main",function="eldora_primary_runtime_reply")
                     primary_reply = p4_12_whatsapp_live_ux_guard(primary_reply, message)
+                    primary_reply = final_conversational_arbiter(sender_id, message, primary_reply)
                     primary_reply = p4_12_context_lock(primary_reply, message)
                     primary_reply = p4_12b_factual_execution_lock(primary_reply, message)
                     primary_reply = factual_search_handoff(primary_reply, message)
@@ -708,5 +711,6 @@ app.include_router(eldora_swarm_router)
 
 from app.api.eldora_swarm_monitor import router as eldora_swarm_monitor_router
 app.include_router(eldora_swarm_monitor_router)
+
 
 
