@@ -745,3 +745,9 @@ def __forensic_trace_dump():
         "path": str(path),
         "lines": path.read_text(encoding="utf-8", errors="ignore").splitlines()[-500:]
     }
+
+
+# P4_12N_ROUTE_DUMP_ENDPOINT
+@app.get("/__forensic/routes")
+def __forensic_routes():
+    return [{"path": getattr(r, "path", None), "name": getattr(r, "name", None), "methods": sorted(list(getattr(r, "methods", []) or [])), "endpoint": getattr(getattr(r, "endpoint", None), "__module__", None)+"."+getattr(getattr(r, "endpoint", None), "__name__", "")} for r in app.routes]
