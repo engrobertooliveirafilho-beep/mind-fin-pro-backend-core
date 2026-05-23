@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from app.runtime.generic_conversation_state import factual_state_allowed_for
 from app.runtime.cognitive_conversation_runtime import decide_turn
