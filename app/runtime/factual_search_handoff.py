@@ -1,5 +1,6 @@
 ﻿from __future__ import annotations
 
+from app.runtime.generic_conversation_state import factual_state_allowed_for
 from app.runtime.factual_session_state import (
     infer_factual_state,
     should_factual_search,
@@ -74,6 +75,9 @@ def factual_search_handoff(answer: str, inbound: str = "") -> str:
         and _is_factual_motorcycle_topic(raw)
     )
 
+    # P4_12N_FACTUAL_HANDOFF_CASUAL_ISOLATION
+    if not factual_state_allowed_for(inbound):
+        return answer
     state = infer_factual_state(inbound, prev)
 
     if force_factual or should_factual_search(state, inbound):
@@ -82,3 +86,4 @@ def factual_search_handoff(answer: str, inbound: str = "") -> str:
         return apply_factual_conversation_policy(prompt, inbound, key)
 
     return answer
+
