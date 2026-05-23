@@ -46,6 +46,7 @@ from app.memory.provider import MemoryProvider
 from app.retrieval.provider import RetrievalProvider
 from app.orchestrator.prompt_orchestrator import PromptOrchestrator
 from app.runtime.response_builder import ResponseBuilder
+from app.runtime.cognitive_conversation_runtime import decide_turn
 from fastapi import FastAPI
 from app.api.eldora import router as eldora_router
 import os
@@ -294,6 +295,21 @@ def safe_reply(value):
     if not text:
         text = 'Recebi sua mensagem, mas não consegui gerar uma resposta agora.'
     return text
+
+
+def _p412n_final_cognitive_safety(message: str, reply: str) -> str:
+    decision = decide_turn(message)
+    raw = str(reply or "")
+    bad = ["Resumo /", "compatibility", "Compatibilidade:", "Memória contextual", "Memoria contextual"]
+    if not decision.allow_factual_memory and any(x.lower() in raw.lower() for x in bad):
+        if decision.turn_type == "SOCIAL_DIALOGUE":
+            return "Oi, Roberto. Tudo certo."
+        if decision.turn_type == "META_CONVERSATION":
+            return "Para me deixar mais fluida, fale direto o objetivo e eu respondo sem puxar contexto antigo."
+        if decision.turn_type == "RECOVERY":
+            return "Entendi. Vou corrigir o rumo sem reaproveitar o contexto anterior."
+        return "Entendi. Me diga o objetivo direto que eu sigo sem puxar contexto antigo."
+    return raw
 
 @app.post("/webhook/whatsapp")
 async def whatsapp_webhook(request: Request):
