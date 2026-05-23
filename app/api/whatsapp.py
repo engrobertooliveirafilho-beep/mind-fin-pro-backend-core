@@ -42,7 +42,19 @@ from app.runtime.short_memory import remember, recall
 
 router = APIRouter()
 
+def _p412n_twiml_final_normalizer(message: str) -> str:
+    raw=str(message or "").strip()
+    bad=[
+        "Eldora ativa","Tudo certo por aqui","Diagnóstico: o runtime identificou resposta fraca",
+        "Resumo / compatibility","Compatibilidade:"
+    ]
+    if not raw or any(x.lower() in raw.lower() for x in bad):
+        return "Entendi. Me diga o objetivo direto que eu sigo sem puxar contexto antigo."
+    return raw
+
+# P4_12N_TWIML_FINAL_NORMALIZER
 def twiml(message: str) -> str:
+    message = _p412n_twiml_final_normalizer(message)
     
     event("PRE_TWIML", route="/webhook/whatsapp", module_name="app.api.whatsapp", reply_before=message)
     raw = str(message or "Eldora ativa.")
