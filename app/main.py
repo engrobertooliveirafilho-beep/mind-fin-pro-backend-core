@@ -369,7 +369,16 @@ def _p412n_normalize_xml_response(message: str, xml: str) -> str:
             "calcular","analisar","verificar","comparar",
             "planejar","executar","resumir","auditar"
         }
-        if actionable:
+        forbidden_xml = any(x.lower() in str(xml or "").lower() for x in [
+            "memória contextual",
+            "vou manter a continuidade",
+            "pode mandar a dúvida direto",
+            "entendi. vou tratar isso como tarefa",
+            "sem puxar contexto antigo",
+            "responder pelo que você acabou de falar",
+            "como posso ajudar hoje",
+        ])
+        if actionable or forbidden_xml:
             forced = resolve_actionable_followup(
                 sender_id="",
                 user_message=raw_msg,

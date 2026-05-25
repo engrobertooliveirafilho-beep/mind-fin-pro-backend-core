@@ -28,13 +28,13 @@ FORBIDDEN_FRAGMENTS = [
 ]
 
 INTENT_PATTERNS = {
-    "detalhar": [r"\bdetalh", r"mais detalhes"],
+    "detalhar": [r"\bdetalh", r"mais detalhes", r"detalhar mais"],
     "aprofundar": [r"\baprofund"],
-    "continuar": [r"\be depois\b", r"\bcontinua", r"\bpróximo\b", r"\bsegue\b"],
-    "responder_agora": [r"\bent[aã]o responda\b", r"\bresponda agora\b", r"\bresponde\b"],
+    "continuar": [r"\be depois\b", r"\bdepois\b", r"\bcontinua", r"\bpróximo\b", r"\bsegue\b"],
+    "responder_agora": [r"\bent[aã]o responda\b", r"\bresponda agora\b", r"\bresponde\b", r"\bent[aã]o\b"],
     "calcular": [r"\bcalcule\b", r"\bquanto [ée]\b", r"\d+\s*[\+\-\*/x]\s*\d+"],
     "analisar": [r"\banalis"],
-    "verificar": [r"\bverifi", r"\bche", r"\bvalid"],
+    "verificar": [r"\bverifi", r"\bche", r"\bvalid", r"implanta[cç][oõ]es", r"problema"],
     "comparar": [r"\bcompar"],
     "planejar": [r"\bplanej"],
     "executar": [r"\bexecut"],
