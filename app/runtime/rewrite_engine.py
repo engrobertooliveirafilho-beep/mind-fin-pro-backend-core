@@ -11,3 +11,4 @@ def rewrite_response(text: str, user_text: str="") -> str:
         "Auditoria: checar score, flags, handler interceptado e consistência antes de enviar."
     )
 
+
