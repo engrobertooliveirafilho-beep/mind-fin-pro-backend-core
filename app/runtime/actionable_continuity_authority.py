@@ -1,4 +1,11 @@
 
+def _aca_trace(event_name, **kwargs):
+    try:
+        print("ACA_TRACE|" + event_name + "|" + repr(kwargs))
+    except Exception:
+        pass
+
+
 from __future__ import annotations
 
 import ast
@@ -148,15 +155,38 @@ def resolve_actionable_followup(sender_id: str, user_message: str, last_state: d
     return f"Resposta direta: {base}."
 
 def guard_actionable_reply(reply: str, sender_id: str = "", user_message: str = "", last_state: dict[str, Any] | None = None) -> str:
+    _aca_trace(
+        "ENTER",
+        user_message=user_message,
+        reply_before=reply
+    )
+
     turn = _CURRENT_TURN.get() or {}
     sid = sender_id or turn.get("sender_id", "")
     msg = user_message or turn.get("user_message", "")
     st = last_state or turn.get("last_state", {})
     intent = detect_intent(msg)
+    _aca_trace("INTENT", detected=intent, user_message=msg)
+
     weak = not reply or len(reply.strip()) < 12 or _has_forbidden(reply)
     actionable_intent = intent in set(INTENT_PATTERNS.keys())
     if weak or actionable_intent:
         candidate = resolve_actionable_followup(sid, msg, st)
         if candidate and not _has_forbidden(candidate):
+            
+            _aca_trace(
+                "REWRITE",
+                intent=intent,
+                before=reply,
+                after=candidate
+            )
             return candidate
+
+    
+    _aca_trace(
+        "BYPASS",
+        intent=intent if "intent" in locals() else None,
+        reply_after=reply
+    )
     return reply
+
