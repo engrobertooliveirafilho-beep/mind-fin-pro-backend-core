@@ -1,4 +1,4 @@
-from app.runtime.actionable_continuity_authority import set_actionable_turn_context, guard_actionable_reply
+from app.runtime.actionable_continuity_authority import set_actionable_turn_context, guard_actionable_reply, resolve_actionable_followup, detect_intent
 # P4_12N_MAIN_INTERCEPTOR_TRACE
 
 # P4_12N_MAIN_WEBHOOK_TRACE
@@ -361,7 +361,25 @@ def _p412n_final_fallback_normalizer(message: str, reply: str) -> str:
 
 # P4_12N_XML_RESPONSE_NORMALIZER
 def _p412n_normalize_xml_response(message: str, xml: str) -> str:
-    from app.runtime.cognitive_conversation_runtime import decide_turn
+    try:
+        raw_msg = str(message or "").strip()
+        intent = detect_intent(raw_msg)
+        actionable = intent in {
+            "detalhar","aprofundar","continuar","responder_agora",
+            "calcular","analisar","verificar","comparar",
+            "planejar","executar","resumir","auditar"
+        }
+        if actionable:
+            forced = resolve_actionable_followup(
+                sender_id="",
+                user_message=raw_msg,
+                last_state={}
+            )
+            if forced:
+                return twiml(safe_reply(forced))
+    except Exception:
+        pass
+    # FIX7B_ACTIONABLE_XML_AUTHORITY\n    from app.runtime.cognitive_conversation_runtime import decide_turn
     import re
     msg=str(message or "")
     raw=str(xml or "")
