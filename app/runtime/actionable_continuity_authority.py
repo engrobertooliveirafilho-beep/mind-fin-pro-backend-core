@@ -166,6 +166,9 @@ def guard_actionable_reply(reply: str, sender_id: str = "", user_message: str = 
     msg = user_message or turn.get("user_message", "")
     st = last_state or turn.get("last_state", {})
     intent = detect_intent(msg)
+
+    if is_small_talk(msg):
+        return natural_small_talk(msg)
     _aca_trace("INTENT", detected=intent, user_message=msg)
 
     weak = not reply or len(reply.strip()) < 12 or _has_forbidden(reply)
@@ -189,3 +192,27 @@ def guard_actionable_reply(reply: str, sender_id: str = "", user_message: str = 
         reply_after=reply
     )
     return reply
+
+
+SMALL_TALK_PATTERNS = [
+    "oi","ola","olá","bom dia","boa tarde","boa noite",
+    "tudo bem","como vai","e ai","e aí","opa","blz",
+    "beleza","tranquilo","suave","fala","hello","hi"
+]
+
+def is_small_talk(msg: str) -> bool:
+    m = (msg or "").strip().lower()
+    return any(x in m for x in SMALL_TALK_PATTERNS)
+
+def natural_small_talk(msg: str) -> str:
+    m = (msg or "").lower()
+
+    if "bom dia" in m:
+        return "Bom dia! Tudo certo por aí?"
+    if "boa tarde" in m:
+        return "Boa tarde! Como você está?"
+    if "boa noite" in m:
+        return "Boa noite! Como foi seu dia?"
+    if "tudo bem" in m:
+        return "Tudo certo por aqui. E com você?"
+    return "Oi! O que você precisa?"
