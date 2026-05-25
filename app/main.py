@@ -288,10 +288,22 @@ from fastapi import Request, Response
 
 def _apply_actionable_guard(reply, payload=None, message=""):
     try:
+        data = payload or {}
+        real_message = (
+            str(message or "").strip()
+            or str(data.get("Body") or "").strip()
+            or str(data.get("body") or "").strip()
+            or str(data.get("message") or "").strip()
+        )
+        sender = (
+            str(data.get("From") or "").strip()
+            or str(data.get("from") or "").strip()
+            or str(data.get("sender_id") or "").strip()
+        )
         return guard_actionable_reply(
             str(reply),
-            sender_id=str((payload or {}).get("From", "")),
-            user_message=str(message or ""),
+            sender_id=sender,
+            user_message=real_message,
             last_state={}
         )
     except Exception:
