@@ -128,7 +128,7 @@ async def neura_persona_identity_middleware_v2(request: Request, call_next):
         if reply:
             twiml = f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>{reply}</Message></Response>'
             event("MAIN_INTERCEPTOR_RETURN", route="/webhook/whatsapp", module_name="app.main")
-            return Response(content=twiml, media_type="application/xml")
+            return Response(content=_p412n_normalize_xml_response(message, twiml), media_type="application/xml")
 
     return await call_next(request)
 
@@ -331,6 +331,30 @@ def _p412n_final_fallback_normalizer(message: str, reply: str) -> str:
         if decision.turn_type=="RECOVERY":
             return "Entendi. Vou corrigir o rumo sem puxar o contexto errado."
         return "Entendi. Me diga o objetivo direto que eu sigo sem puxar contexto antigo."
+    return raw
+
+
+# P4_12N_XML_RESPONSE_NORMALIZER
+def _p412n_normalize_xml_response(message: str, xml: str) -> str:
+    from app.runtime.cognitive_conversation_runtime import decide_turn
+    import re
+    msg=str(message or "")
+    raw=str(xml or "")
+    m=re.search(r"<Message>(.*?)</Message>", raw, flags=re.S)
+    body=m.group(1) if m else raw
+    low=(body or "").lower()
+    decision=decide_turn(msg)
+    task_words=["verifique","verificar","calcule","calcular","analise","analisar","compare","pesquise","procure"]
+    is_task=decision.turn_type=="FACTUAL_TASK" or any(x in msg.lower() for x in task_words)
+    bad=("diagn" in low and "runtime identificou resposta fraca" in low) or "entendi. me diga melhor" in low or "eldora ativa" in low or "resumo / compatibility" in low or "compatibilidade:" in low
+    if bad:
+        if is_task:
+            body="Entendi. Vou tratar isso como tarefa e responder direto."
+        else:
+            body="Pode mandar a dúvida direto. Eu sigo sem puxar contexto antigo."
+        if m:
+            return raw[:m.start(1)] + body + raw[m.end(1):]
+        return f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>{body}</Message></Response>'
     return raw
 
 @app.post("/webhook/whatsapp")
