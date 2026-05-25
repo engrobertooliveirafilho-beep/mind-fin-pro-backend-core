@@ -60,10 +60,15 @@ def _p412n_twiml_final_normalizer(message: str) -> str:
 
     factual_turns={"FACTUAL_TASK","EXECUTE","PLAN","ANALYSIS","MATH"}
 
-    if decision.turn_type in factual_turns:
+    task_markers=["verifique","verificar","calcule","calcular","analise","analisar","compare","pesquise","procure"]
+    technical_block=("diagn" in low and "runtime identificou resposta fraca" in low) or ("estrat" in low and "execu" in low and "auditoria" in low)
+
+    if decision.turn_type in factual_turns or any(x in low for x in task_markers):
+        if not raw or any(x in low for x in bad) or technical_block:
+            return "Entendi. Vou tratar isso como tarefa e responder direto."
         return raw
 
-    if not raw or any(x in low for x in bad):
+    if not raw or any(x in low for x in bad) or technical_block:
         if decision.turn_type=="SOCIAL_DIALOGUE":
             return "Tudo certo 🙂 E você?"
         if decision.turn_type=="META_CONVERSATION":
