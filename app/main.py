@@ -438,16 +438,7 @@ async def whatsapp_webhook(request: Request):
                 reply = 'Para uma IA, esse rosto funciona bem. Ele transmite inteligência, controle e proximidade, sem parecer infantil ou caricato. A estética é premium e futurista, boa para posicionar a NEURA como uma presença confiável. Eu manteria essa linha, só suavizando um pouco a expressão para parecer mais acolhedora.'
             else:
                 reply = 'Sobre a imagem anterior: ela transmite uma IA moderna, premium e confiável. O rosto tem uma estética futurista, mas ainda humana o suficiente para criar conexão.'
-            return Response(content=_p412n_normalize_xml_response(message if "message" in locals() else "", try:
-            reply = guard_actionable_reply(
-                str(reply),
-                sender_id=str(payload.get("From","")),
-                user_message=str(message),
-                last_state=locals().get("state", {})
-            )
-        except Exception:
-            pass
-        twiml(safe_reply(reply))), media_type='application/xml')
+            return Response(content=_p412n_normalize_xml_response(message if "message" in locals() else "", twiml(safe_reply(reply))), media_type='application/xml')
         media_url=payload.get("MediaUrl0") or payload.get("media_url")
         print(f'MEDIA_DEBUG_URL={media_url}')
         print(f'MEDIA_DEBUG_TYPE={payload.get("MediaContentType0")}')
@@ -499,16 +490,7 @@ async def whatsapp_webhook(request: Request):
                         print(f'VISUAL_CONTEXT_SAVE_ERROR={e}')
                 else:
                     reply = 'Ainda não encontrei uma imagem anterior para analisar. Envie a imagem novamente.'
-                return Response(content=_p412n_normalize_xml_response(message if "message" in locals() else "", try:
-            reply = guard_actionable_reply(
-                str(reply),
-                sender_id=str(payload.get("From","")),
-                user_message=str(message),
-                last_state=locals().get("state", {})
-            )
-        except Exception:
-            pass
-        twiml(safe_reply(reply))), media_type='application/xml')
+                return Response(content=_p412n_normalize_xml_response(message if "message" in locals() else "", twiml(safe_reply(reply))), media_type='application/xml')
             except Exception as e:
                 print(f'VISUAL_RECOVERY_ERROR={e}')
                 return Response(content=twiml(safe_reply(f'Falhei ao analisar a mídia: {e}')), media_type='application/xml')
@@ -590,16 +572,7 @@ MIND_STATE_BASELINE:
     except Exception as e:
         reply=f"WEBHOOK_ERROR_TOTAL: {type(e).__name__}: {str(e)[:180]}"
 
-    return Response(content=_p412n_normalize_xml_response(message if "message" in locals() else "", try:
-            reply = guard_actionable_reply(
-                str(reply),
-                sender_id=str(payload.get("From","")),
-                user_message=str(message),
-                last_state=locals().get("state", {})
-            )
-        except Exception:
-            pass
-        twiml(safe_reply(reply))), media_type="application/xml")
+    return Response(content=_p412n_normalize_xml_response(message if "message" in locals() else "", twiml(safe_reply(reply))), media_type="application/xml")
 
 from app.admin.semantic_activation import router as semantic_activation_router
 app.include_router(semantic_activation_router)
