@@ -1,3 +1,4 @@
+from __future__ import annotations
 
 def _aca_trace(event_name, **kwargs):
     try:
@@ -6,7 +7,6 @@ def _aca_trace(event_name, **kwargs):
         pass
 
 
-from __future__ import annotations
 
 import ast
 import operator as op
@@ -189,4 +189,3 @@ def guard_actionable_reply(reply: str, sender_id: str = "", user_message: str = 
         reply_after=reply
     )
     return reply
-
