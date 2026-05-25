@@ -363,6 +363,18 @@ def _p412n_final_fallback_normalizer(message: str, reply: str) -> str:
 def _p412n_normalize_xml_response(message: str, xml: str) -> str:
     try:
         raw_msg = str(message or "").strip()
+
+        small_talk_terms = [
+            "oi","ola","olá","bom dia","boa tarde","boa noite",
+            "tudo bem","como vai","opa","e ai","e aí","blz",
+            "beleza","fala","hello","hi"
+        ]
+
+        normalized_msg = raw_msg.lower().strip()
+
+        if any(x in normalized_msg for x in small_talk_terms):
+            return xml
+
         intent = detect_intent(raw_msg)
         actionable = intent in {
             "detalhar","aprofundar","continuar","responder_agora",
