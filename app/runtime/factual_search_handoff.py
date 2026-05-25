@@ -40,7 +40,7 @@ def _recovery_response(key: str) -> str:
     _RECOVERY_STEP[key] = step
 
     if step == 1:
-        return "Memória contextual: aprofundando o mesmo eixo sem perder continuidade."
+        return "Vou aprofundar mantendo o mesmo assunto e sem mudar de direção."
 
     if step == 2:
         return "Cognição profunda: separar causa, prioridade e evidência do contexto ativo."

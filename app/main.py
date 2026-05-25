@@ -308,7 +308,7 @@ def _p412n_final_cognitive_safety(message: str, reply: str) -> str:
             return "Para me deixar mais fluida, fale direto o objetivo e eu respondo sem puxar contexto antigo."
         if decision.turn_type == "RECOVERY":
             return "Entendi. Vou corrigir o rumo sem reaproveitar o contexto anterior."
-        return "Entendi. Me diga o objetivo direto que eu sigo sem puxar contexto antigo."
+        return "Entendi. Vou seguir pelo contexto atual sem reiniciar a conversa."
     return raw
 
 
@@ -330,7 +330,7 @@ def _p412n_final_fallback_normalizer(message: str, reply: str) -> str:
             return "Entendi. Vou verificar isso com base no que você mandou e te responder direto."
         if decision.turn_type=="RECOVERY":
             return "Entendi. Vou corrigir o rumo sem puxar o contexto errado."
-        return "Entendi. Me diga o objetivo direto que eu sigo sem puxar contexto antigo."
+        return "Entendi. Vou seguir pelo contexto atual sem reiniciar a conversa."
     return raw
 
 
@@ -351,7 +351,7 @@ def _p412n_normalize_xml_response(message: str, xml: str) -> str:
         if is_task:
             body="Entendi. Vou tratar isso como tarefa e responder direto."
         else:
-            body="Pode mandar a dúvida direto. Eu sigo sem puxar contexto antigo."
+            body="Entendi. Vou manter a continuidade e responder pelo que você acabou de falar."
         if m:
             return raw[:m.start(1)] + body + raw[m.end(1):]
         return f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>{body}</Message></Response>'
