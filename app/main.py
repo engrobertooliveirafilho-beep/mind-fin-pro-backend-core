@@ -31,7 +31,7 @@ def twiml(message: str) -> str:
     safe = str(message).replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <Response>
-<Message>{sanitize_final_human_output(safe)}</Message>
+<Message>{sanitize_final_human_output(sanitize_final_human_output(safe))}</Message>
 </Response>"""
 
 from fastapi import FastAPI, Request
@@ -129,7 +129,7 @@ async def neura_persona_identity_middleware_v2(request: Request, call_next):
             )
 
         if reply:
-            twiml = f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>{sanitize_final_human_output(reply)}</Message></Response>'
+            twiml = f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>{sanitize_final_human_output(sanitize_final_human_output(reply))}</Message></Response>'
             event("MAIN_INTERCEPTOR_RETURN", route="/webhook/whatsapp", module_name="app.main")
             return Response(content=_p412n_normalize_xml_response(message, twiml), media_type="application/xml")
 
@@ -161,7 +161,7 @@ async def neura_persona_short_followup_middleware(request: Request, call_next):
                 "reduziria excesso de simetria para não parecer artificial, manteria a estética premium e usaria iluminação mais calma. "
                 "A direção ideal para a NEURA é 70% humana e 30% futurista: confiável, memorável e sem assustar."
             )
-            twiml = f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>{sanitize_final_human_output(reply)}</Message></Response>'
+            twiml = f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>{sanitize_final_human_output(sanitize_final_human_output(reply))}</Message></Response>'
             event("MAIN_INTERCEPTOR_RETURN", route="/webhook/whatsapp", module_name="app.main")
             return Response(content=_p412n_normalize_xml_response(message if "message" in locals() else "", twiml), media_type="application/xml")
     return await call_next(request)
@@ -420,7 +420,7 @@ def _p412n_normalize_xml_response(message: str, xml: str) -> str:
             body="Entendi. Vou manter a continuidade e responder pelo que você acabou de falar."
         if m:
             return raw[:m.start(1)] + body + raw[m.end(1):]
-        return f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>{sanitize_final_human_output(body)}</Message></Response>'
+        return f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>{sanitize_final_human_output(sanitize_final_human_output(body))}</Message></Response>'
     return raw
 
 @app.post("/webhook/whatsapp")
@@ -785,7 +785,7 @@ async def neura_persona_webhook_stable(Body: str = Form(default=""), From: str =
         )
 
     return Response(
-        content=f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>{sanitize_final_human_output(reply)}</Message></Response>',
+        content=f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>{sanitize_final_human_output(sanitize_final_human_output(reply))}</Message></Response>',
         media_type="application/xml"
     )
 
