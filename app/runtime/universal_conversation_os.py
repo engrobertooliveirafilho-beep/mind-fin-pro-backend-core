@@ -9,7 +9,7 @@ import ast, operator, re
 class ConversationMode(str, Enum):
     SOCIAL="SOCIAL"; TASK="TASK"; FOLLOWUP="FOLLOWUP"; EXECUTION="EXECUTION"; ANALYSIS="ANALYSIS"; CALCULATION="CALCULATION"; VERIFICATION="VERIFICATION"; CLARIFICATION="CLARIFICATION"; EMOTIONAL_SAFE="EMOTIONAL_SAFE"; CLOSURE="CLOSURE"
 
-FORBIDDEN=["Entendi. Me diga melhor","Resposta direta:","Ação recomendada:","Memória contextual:","Vou manter continuidade","Pode mandar a dúvida direto","Como posso ajudar hoje?","Resumo / compatibility","risk:","compatibility:"]
+FORBIDDEN=["Entendi. Me diga melhor","Resposta direta:","Ação recomendada:","Memória contextual:","Vou manter continuidade","Pode mandar a dúvida direto","Como posso ajudar hoje?","Resumo / compatibility","risk:","compatibility:","Diagnóstico:","Estratégia:","Execução:","Auditoria:","Detalhamento:","Pontos-chave:","Análise: contexto="]
 
 @dataclass
 class SenderState:
@@ -85,14 +85,15 @@ class UniversalConversationOS:
         calc=SafeCalculator.eval_expr(msg or "")
         if mode==ConversationMode.SOCIAL: reply="Tudo certo, Roberto. Seguimos firmes."
         elif mode==ConversationMode.CALCULATION: reply=f"Resultado: {int(calc) if calc is not None and calc==int(calc) else calc}." if calc is not None else "Me mande a expressão completa em uma linha."
-        elif mode==ConversationMode.FOLLOWUP: reply=f"Continuando no contexto de {topic}: vou aprofundar sem reiniciar a conversa e validar o próximo ponto real."
+        elif mode==ConversationMode.FOLLOWUP: reply=f"Vamos aprofundar no mesmo contexto: {topic}. O foco é achar a causa real, separar sintoma de origem e validar o próximo teste sem reiniciar a conversa."
         elif mode==ConversationMode.VERIFICATION: reply="Checklist real: 1) isolar último ponto alterado, 2) rodar teste mínimo, 3) comparar saída esperada vs real, 4) registrar evidência."
         elif mode==ConversationMode.ANALYSIS: reply="Envie o arquivo, imagem ou texto exato para eu analisar sem inferir."
         elif mode==ConversationMode.EXECUTION: reply="Execução: aplicar a ação pedida, validar retorno e bloquear falso positivo."
         elif mode==ConversationMode.EMOTIONAL_SAFE: reply=f"Vamos resolver por partes. No contexto de {topic}, começo isolando o erro e reduzindo o escopo."
         elif mode==ConversationMode.CLARIFICATION: reply="Qual item exato você quer que eu valide agora?"
         else: reply=(candidate_reply or "Próximo passo objetivo: definir entrada, validar saída e registrar evidência.").strip()
-        if any(x.lower() in reply.lower() for x in FORBIDDEN): reply="Próximo passo objetivo: validar o ponto real, corrigir o mínimo necessário e registrar evidência."
+        if any(x.lower() in reply.lower() for x in FORBIDDEN):
+            reply=f"Vamos seguir de forma direta no contexto de {topic}. O próximo passo é isolar a causa real, testar a hipótese principal e registrar evidência antes de avançar."
         state.conversation_depth+=1; state.last_user_message=msg or ""; state.last_assistant_reply=reply; state.last_mode=mode.value; state.last_intent=mode.value.lower()
         if mode not in [ConversationMode.SOCIAL,ConversationMode.CLARIFICATION]: state.last_topic=topic
         if mode in [ConversationMode.TASK,ConversationMode.EXECUTION,ConversationMode.VERIFICATION,ConversationMode.ANALYSIS]: state.last_task=topic; state.open_loop=topic
