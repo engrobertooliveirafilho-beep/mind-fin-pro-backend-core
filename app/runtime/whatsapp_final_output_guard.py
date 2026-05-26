@@ -76,7 +76,7 @@ def _domain_answer(user_message: str) -> str:
     if "e agora" in u:
         return "Agora o foco é corrigir o caminho real do WhatsApp, validar no Render e testar as frases que ainda estão quebrando."
 
-    return "Entendi. Continua — vou responder pelo contexto da conversa, sem resetar para apresentação."
+    return None
 
 def guard_whatsapp_final_answer(user_message: str, answer: str, context: dict | None = None) -> str:
     if identity_allowed(user_message):
@@ -134,7 +134,7 @@ def p4_12_whatsapp_live_ux_guard(text:str,inbound:str='')->str:
             return 'Me corrija na hora e eu ajusto o jeito.'
         if 'conversa' in msg:
             return 'Foi boa. Ainda dá para deixar mais natural.'
-        return 'Entendi.'
+        return None
 
     return raw[:220].strip()
 

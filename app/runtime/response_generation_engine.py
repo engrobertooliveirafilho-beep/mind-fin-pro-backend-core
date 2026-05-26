@@ -29,4 +29,4 @@ AplicaÃ§Ã£o: {d['application']}
             return llm_answer or 'Envie o conteÃºdo que eu resumo em tÃ³picos, conceitos-chave e plano de revisÃ£o.'
         if intent in ['PDF_ANALYSIS','AUDIO_TRANSCRIPTION']:
             return 'Pode enviar o material. Eu extraio, resumo, explico e transformo em plano de estudo.'
-        return llm_answer or 'Entendi. Vou seguir pelo caminho mais direto.'
+        return llm_answer or None

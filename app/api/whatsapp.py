@@ -68,7 +68,7 @@ def _p412n_twiml_final_normalizer(message: str) -> str:
 
     if decision.turn_type in factual_turns or any(x in low for x in task_markers):
         if not raw or any(x in low for x in bad) or technical_block:
-            return "Entendi. Vou tratar isso como tarefa e responder direto."
+            return None
         return raw
 
     if not raw or any(x in low for x in bad) or technical_block:
@@ -77,8 +77,8 @@ def _p412n_twiml_final_normalizer(message: str) -> str:
         if decision.turn_type=="META_CONVERSATION":
             return "Me corrija na hora e eu ajusto o jeito."
         if decision.turn_type=="RECOVERY":
-            return "Entendi. Vou corrigir o rumo."
-        return "Entendi. Me diga melhor o que você precisa."
+            return None
+        return None
 
     return raw
 

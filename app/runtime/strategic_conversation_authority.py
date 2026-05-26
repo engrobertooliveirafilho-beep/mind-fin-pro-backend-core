@@ -29,7 +29,7 @@ def strategic_conversation_authority(answer:str,inbound:str="",sender_id:str="de
         st["stage"]=st.get("stage",0)+1
         _STATE[key]=st
         if "fluidez" in msg or st["stage"] <= 1:
-            return "Primeiro: corrigir fluidez conversacional real. Prioridade 80/20: 1 resposta por mensagem, sem fallback genérico, sem tom coach e mantendo contexto por 10–15 mensagens."
+            return None
         if "primeiro" in msg or "o que fazer" in msg:
             return "Faça primeiro o SCA real: uma autoridade final que decide a resposta única antes do TwiML. Depois vem memória, busca e refinamento."
         return "A próxima camada crítica é manter tópico ativo e impedir regressão para smalltalk. Sem isso, a Eldora parece instável."

@@ -60,7 +60,7 @@ class PromptOrchestrator:
         if human_answer:
             return human_answer
 
-        return 'Entendi. Me diga um pouco mais para eu te responder com precisão.'
+        return None
 
 
 
