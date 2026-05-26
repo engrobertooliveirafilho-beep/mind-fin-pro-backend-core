@@ -1,4 +1,4 @@
-﻿from app.runtime.universal_conversation_authority import build_universal_conversation_context, universal_conversation_reply
+from app.runtime.universal_conversation_authority import build_universal_conversation_context, universal_conversation_reply
 
 def test_p412n_ucca_contract():
     ctx = build_universal_conversation_context("u1", "detalhe melhor", [])
