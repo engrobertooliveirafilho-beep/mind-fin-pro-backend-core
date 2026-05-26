@@ -83,25 +83,9 @@ def _p412n_twiml_final_normalizer(message: str) -> str:
 
 # P4_12N_TWIML_FINAL_NORMALIZER
 def twiml(message: str) -> str:
-    message = _p412n_twiml_final_normalizer(message)
-    
-    event("PRE_TWIML", route="/webhook/whatsapp", module_name="app.api.whatsapp", reply_before=message)
-    raw = str(message or "Eldora ativa.")
-    contract_safe = raw.strip() in ["ok", "DIAG_OK", "Eldora ativa."] or raw.startswith("DIAG_OK")
-    generic = any(x in raw.lower() for x in ["mais detalhes", "ajudar melhor", "estou aqui para ajudar", "alguma dúvida", "alguma duvida"])
-    if contract_safe:
-        matured = raw
-    elif generic:
-        matured = (
-            "Diagnóstico: entendi que há uma dúvida sem escopo claro e não vou devolver resposta genérica.\n"
-            "Estratégia: transformar a dúvida em próximo passo verificável.\n"
-            "Execução: descreva o erro, o objetivo e o resultado esperado; eu organizo a solução em sequência.\n"
-            "Auditoria: se a resposta voltar genérica, o handler final ainda está bypassando a maturidade."
-        )
-    else:
-        matured = mature_response(raw, raw)["output"]
-    safe = matured.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")
-    event('TWIML_OUT', route='/webhook/whatsapp', module_name='app.api.whatsapp', reply_after=safe)
+    from html import escape
+    guarded = universal_conversation_guard("", None, message)
+    safe = escape(str(guarded or "").strip())
     return f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>{safe}</Message></Response>'
 
 def live_whatsapp_override(inbound_text: str) -> str | None:
