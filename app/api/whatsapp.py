@@ -85,9 +85,17 @@ def _p412n_twiml_final_normalizer(message: str) -> str:
 # P4_12N_TWIML_FINAL_NORMALIZER
 def twiml(message: str) -> str:
     from html import escape
-    guarded = universal_conversation_guard("", None, message)
-    safe = escape(sanitize_final_human_output(sanitize_final_human_output(str(sanitize_final_human_output(guarded or "")))).strip())
-    return f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>{sanitize_final_human_output(sanitize_final_human_output(safe))}</Message></Response>'
+
+    safe = escape(
+        str(
+            sanitize_final_human_output(message or "")
+        ).strip()
+    )
+
+    return (
+        f'<?xml version="1.0" encoding="UTF-8"?>'
+        f'<Response><Message>{safe}</Message></Response>'
+    )
 
 def live_whatsapp_override(inbound_text: str) -> str | None:
     msg = (inbound_text or "").lower().strip()
