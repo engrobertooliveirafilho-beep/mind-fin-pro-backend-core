@@ -43,7 +43,7 @@ class SafeCalculator:
     @classmethod
     def eval_expr(cls,msg:str):
         expr=(msg or "").lower().replace("x","*").replace(",",".")
-        expr=re.sub(r"[^0-9\.\+\-\*\/\(\) ]"," ",expr)
+        expr=re.sub(r"[^0-9\.\+\-\*\/\(\) ]"," ",expr).strip()
         if not re.search(r"\d+\s*[\+\-\*\/]\s*\d+",expr): return None
         return cls._eval(ast.parse(expr,mode="eval").body)
     @classmethod
@@ -69,8 +69,8 @@ class UniversalConversationOS:
         low=(msg or "").lower(); toks=cls._tokens(msg)
         if SafeCalculator.eval_expr(low) is not None or any(x in low for x in ["calcula","calcule","quanto dá","quanto da","soma"]): return ConversationMode.CALCULATION
         if toks & cls.ANALYSIS: return ConversationMode.ANALYSIS
-        if toks & cls.VERIFY: return ConversationMode.VERIFICATION
         if toks & cls.EXEC: return ConversationMode.EXECUTION
+        if toks & cls.VERIFY: return ConversationMode.VERIFICATION
         if toks & cls.EMO: return ConversationMode.EMOTIONAL_SAFE
         if toks & cls.FOLLOW or (len(toks)<=4 and (state.last_topic or state.last_task)): return ConversationMode.FOLLOWUP
         if len(toks)<=6 and len(toks & cls.SOCIAL)>=max(1,len(toks)//2): return ConversationMode.SOCIAL
