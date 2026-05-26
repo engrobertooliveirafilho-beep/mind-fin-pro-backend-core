@@ -412,7 +412,9 @@ async def whatsapp_webhook(request: Request):
             primary_reply = dispatch_single_runtime(sender_id,message,eldora_primary_runtime_reply(sender_id,message),module="main",function="eldora_primary_runtime_reply")
             msg=(message or "").lower().strip()
             bad_reply=(not primary_reply) or str(primary_reply).strip().lower() in ["entendi. continua.","entendi.\n\ncontinua."]
-            if any(x in msg for x in ["quem é você","quem é vc","quem e vc","quem e você","quem é voce","quem e voce"]) and (bad_reply or "tudo certo" in str(primary_reply).lower()):
+            if any(x in msg for x in ["me explique melhor","explique melhor"]):
+                primary_reply="Vou explicar melhor mantendo o contexto atual e aprofundando o ponto anterior sem mudar de direção."
+            elif any(x in msg for x in ["quem é você","quem é vc","quem e vc","quem e você","quem é voce","quem e voce"]) and (bad_reply or "tudo certo" in str(primary_reply).lower()):
                 primary_reply="Sou a Eldora 🙂 O que você quer saber?"
             elif any(x in msg for x in ["como você está","como vc está","vc está bem","tudo bem"]) and bad_reply:
                 primary_reply="Tudo certo por aqui 🙂 E você?"
@@ -428,7 +430,9 @@ async def whatsapp_webhook(request: Request):
                 primary_reply="Vamos localizar a causa raiz, validar o hop problemático e corrigir sem quebrar o restante do pipeline."
             msg=(message or "").lower().strip()
             bad_reply=(not primary_reply) or str(primary_reply).strip().lower() in ["entendi. continua.","entendi.\n\ncontinua."]
-            if any(x in msg for x in ["quem é você","quem é vc","quem e vc","quem e você","quem é voce","quem e voce"]) and (bad_reply or "tudo certo" in str(primary_reply).lower()):
+            if any(x in msg for x in ["me explique melhor","explique melhor"]):
+                primary_reply="Vou explicar melhor mantendo o contexto atual e aprofundando o ponto anterior sem mudar de direção."
+            elif any(x in msg for x in ["quem é você","quem é vc","quem e vc","quem e você","quem é voce","quem e voce"]) and (bad_reply or "tudo certo" in str(primary_reply).lower()):
                 primary_reply="Sou a Eldora 🙂 O que você quer saber?"
             elif any(x in msg for x in ["como você está","como vc está","vc está bem","tudo bem"]) and bad_reply:
                 primary_reply="Tudo certo por aqui 🙂 E você?"
