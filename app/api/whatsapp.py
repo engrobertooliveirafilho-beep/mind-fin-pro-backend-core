@@ -1,5 +1,5 @@
 from app.runtime.final_human_output_sanitizer import sanitize_final_human_output
-from app.runtime.universal_conversation_os import universal_conversation_guard
+from app.runtime.universal_conversation_os import universal_conversation_guard, UniversalConversationOS
 from app.runtime.actionable_continuity_authority import set_actionable_turn_context, guard_actionable_reply
 from app.runtime.forensic_trace import event
 # P4_12N_FORENSIC_TRACE_ACTIVE
@@ -283,6 +283,10 @@ def _p3_human_e2e_guard(inbound_text, reply):
     return reply
 
 def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
+    os_probe = UniversalConversationOS.process(inbound_text, sender_id, candidate_reply="")
+    if os_probe.get("mode") in {"SOCIAL","FOLLOWUP","EXECUTION","CALCULATION","VERIFICATION"}:
+        return os_probe["reply"]
+
     _p3_body = (inbound_text or "").lower()
     if ("não entendi" in _p3_body or "nao entendi" in _p3_body) and ("resolver" in _p3_body or "como" in _p3_body):
         return (
