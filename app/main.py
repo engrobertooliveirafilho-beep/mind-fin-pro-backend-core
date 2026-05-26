@@ -34,6 +34,7 @@ def twiml(message: str) -> str:
 <Message>{sanitize_final_human_output(sanitize_final_human_output(safe))}</Message>
 </Response>"""
 
+from app.runtime.forensic_trace import new_trace,mark,fail,save
 from fastapi import FastAPI, Request
 # disabled missing module neura_viral_router
 from app.medical_curriculum.routes import router as medical_curriculum_router
@@ -92,7 +93,17 @@ async def neura_persona_identity_middleware_v2(request: Request, call_next):
         data = parse_qs(raw.decode("utf-8", errors="ignore"))
         msg = (data.get("Body", [""])[0] or "").lower().strip()
 
-        reply = None
+        mark(_fix11k_trace,"primary_raw",locals().get("reply"))
+    mark(_fix11k_trace,"after_dispatch",locals().get("reply"))
+    mark(_fix11k_trace,"after_ux_guard",locals().get("reply"))
+    mark(_fix11k_trace,"after_context_lock",locals().get("reply"))
+    mark(_fix11k_trace,"after_factual_lock",locals().get("reply"))
+    mark(_fix11k_trace,"after_factual_handoff",locals().get("reply"))
+    mark(_fix11k_trace,"after_sca",locals().get("reply"))
+    mark(_fix11k_trace,"after_arbiter",locals().get("reply"))
+    mark(_fix11k_trace,"before_normalize",locals().get("reply"))
+    mark(_fix11k_trace,"after_normalize",locals().get("reply"))
+    reply = None
 
         if any(x in msg for x in ["me diz sua opinião", "sua opinião primeiro", "me diga vc primeiro", "me diga você primeiro", "suas ideias", "vc primeiro"]):
             reply = (
@@ -131,7 +142,9 @@ async def neura_persona_identity_middleware_v2(request: Request, call_next):
         if reply:
             twiml = f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>{sanitize_final_human_output(sanitize_final_human_output(reply))}</Message></Response>'
             event("MAIN_INTERCEPTOR_RETURN", route="/webhook/whatsapp", module_name="app.main")
-            return Response(content=_p412n_normalize_xml_response(message, twiml), media_type="application/xml")
+            mark(_fix11k_trace,"final_xml",locals().get("xml") or "")
+    save(_fix11k_trace)
+    return Response(content=_p412n_normalize_xml_response(message, twiml), media_type="application/xml")
 
     return await call_next(request)
 
@@ -442,7 +455,21 @@ def _p412n_normalize_xml_response(message: str, xml: str) -> str:
     return raw
 
 @app.post("/webhook/whatsapp")
-async def whatsapp_webhook(request: Request):
+async def whatsapp_webhook(request:
+    # FIX11K_TRACE_ACTIVE
+    _fix11k_trace=None
+    try:
+        _fix11k_trace=new_trace(
+            "POST /webhook/whatsapp",
+            str(locals().get("Body") or locals().get("body") or ""),
+            str(locals().get("From") or "")
+        )
+        mark(_fix11k_trace,"route","POST /webhook/whatsapp")
+        mark(_fix11k_trace,"sender_id",locals().get("From"))
+        mark(_fix11k_trace,"inbound_message",locals().get("Body"))
+    except Exception:
+        pass
+ Request):
     from app.runtime.response_builder import ResponseBuilder
     builder=ResponseBuilder()
 

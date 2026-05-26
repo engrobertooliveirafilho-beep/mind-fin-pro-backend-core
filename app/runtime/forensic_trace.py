@@ -1,36 +1,35 @@
-
-import json, os
-from datetime import datetime, timezone
+﻿from __future__ import annotations
+import json, os, uuid, time, traceback
 from pathlib import Path
 
-TRACE_DIR = Path(os.getenv("MIND_FORENSIC_TRACE_DIR", "_evidence/WHATSAPP_RUNTIME_TRACE"))
+TRACE_DIR = Path("_evidence/runtime_real_hop_trace")
 TRACE_DIR.mkdir(parents=True, exist_ok=True)
-TRACE_FILE = TRACE_DIR / "RUNTIME_PIPELINE_TRACE.jsonl"
 
-def event(hop, **kw):
-    payload = {
-        "hop": hop,
-        "sender_id": kw.get("sender_id"),
-        "route": kw.get("route"),
-        "module_name": kw.get("module_name"),
-        "reply_before": str(kw.get("reply_before"))[:2000],
-        "reply_after": str(kw.get("reply_after"))[:2000],
-        "reasoning_mode": str(kw.get("reasoning_mode"))[:500],
-        "aco_state": str(kw.get("aco_state"))[:500],
-        "topic": str(kw.get("topic"))[:500],
-        "intent": str(kw.get("intent"))[:500],
-        "memory_hit": str(kw.get("memory_hit"))[:500],
-        "factual_state": str(kw.get("factual_state"))[:500],
-        "runtime_commit": os.getenv("RENDER_GIT_COMMIT") or os.getenv("COMMIT_SHA") or os.getenv("SOURCE_VERSION"),
-        "timestamp": datetime.now(timezone.utc).isoformat(),
-        "extra": kw.get("extra", {}),
+def new_trace(route,inbound_message,sender_id):
+    return {
+        "correlation_id": str(uuid.uuid4()),
+        "created_at": time.time(),
+        "route": route,
+        "sender_id": sender_id,
+        "inbound_message": inbound_message,
+        "hops": {},
+        "errors": []
     }
-    with TRACE_FILE.open("a", encoding="utf-8") as f:
-        f.write(json.dumps(payload, ensure_ascii=False) + "\n")
-    return payload
 
+def mark(trace, hop, value):
+    trace["hops"][hop] = {
+        "type": type(value).__name__,
+        "text": str(value)[:5000]
+    }
 
-def wrap_callable(module, name, hop):
-    # compatibility stub for forensic audit
-    # does NOT mutate runtime behavior
-    return False
+def fail(trace, hop, exc):
+    trace["errors"].append({
+        "hop": hop,
+        "error": repr(exc),
+        "traceback": traceback.format_exc()[-5000:]
+    })
+
+def save(trace):
+    p = TRACE_DIR / f"{trace['correlation_id']}.json"
+    p.write_text(json.dumps(trace,ensure_ascii=False,indent=2),encoding="utf-8")
+    return str(p)
