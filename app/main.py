@@ -362,6 +362,24 @@ def _p412n_final_fallback_normalizer(message: str, reply: str) -> str:
 
 
 # P4_12N_XML_RESPONSE_NORMALIZER
+
+def _p412n_response_quality_bad(reply: str) -> bool:
+    low = (reply or "").lower().strip()
+    bad = (
+        "", "entendi.", "entendi. continua.",
+        "próximo passo objetivo: definir entrada",
+        "proximo passo objetivo: definir entrada",
+        "vamos aprofundar sem reiniciar a conversa"
+    )
+    return (not low) or any(x in low for x in bad)
+
+def _p412n_rescue_if_bad(sender_id: str, message: str, reply: str) -> str:
+    if not _p412n_response_quality_bad(reply):
+        return reply
+    from app.runtime.universal_conversation_os import UniversalConversationOS
+    rescued = UniversalConversationOS.process(message, sender_id, candidate_reply="").get("reply")
+    return rescued or reply
+
 def _p412n_normalize_xml_response(message: str, xml: str) -> str:
     try:
         raw_msg = str(message or "").strip()
