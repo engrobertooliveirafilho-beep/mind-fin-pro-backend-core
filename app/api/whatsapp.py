@@ -333,11 +333,7 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
     # PRIORIDADE 1 — LIVE OVERRIDES
     # ==========================================
 
-    override = None
-    low = (inbound_text or "").lower().strip()
-    admin_terms = ("runtime","deploy","render","commit","pytest","webhook trace","p4.","p412","debug","audit","logs")
-    if any(x in low for x in admin_terms):
-        override = live_whatsapp_override(inbound_text)
+    override = live_whatsapp_override(inbound_text)
 
     if override:
         override = _p3_human_e2e_guard(inbound_text, override)
