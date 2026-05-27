@@ -1,0 +1,102 @@
+[
+  {
+    "message": "Oi",
+    "status": "OK",
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Oi, Roberto 👋 Tudo certo?</Message></Response>"
+  },
+  {
+    "message": "Tudo bem?",
+    "status": "OK",
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Tudo certo por aqui 🙂 E você?</Message></Response>"
+  },
+  {
+    "message": "Quem é vc?",
+    "status": "OK",
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Sou a Eldora. O que você quer saber?</Message></Response>"
+  },
+  {
+    "message": "Como vc está?",
+    "status": "OK",
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Tudo certo por aqui. E você?</Message></Response>"
+  },
+  {
+    "message": "Problemas na implantação ainda",
+    "status": "OK",
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Boa.\n\nIsso ajuda bastante.\n\nQual camada você vai mexer agora?</Message></Response>"
+  },
+  {
+    "message": "Busque o erro",
+    "status": "OK",
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Entendi.\n\nContinua.</Message></Response>"
+  },
+  {
+    "message": "Aprofunde",
+    "status": "OK",
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vou aprofundar mantendo o mesmo assunto e sem mudar de direção.</Message></Response>"
+  },
+  {
+    "message": "E depois?",
+    "status": "OK",
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Depois validamos o fluxo real, corrigimos a camada problemática e seguimos sem reset semântico.</Message></Response>"
+  },
+  {
+    "message": "Ainda deu errado",
+    "status": "OK",
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vamos localizar a causa raiz, validar o hop problemático e corrigir sem quebrar o restante do pipeline.</Message></Response>"
+  },
+  {
+    "message": "Explique melhor",
+    "status": "OK",
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vou explicar melhor mantendo o contexto atual e aprofundando o ponto anterior sem mudar de direção.</Message></Response>"
+  },
+  {
+    "message": "Quanto é 4x6",
+    "status": "OK",
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Resultado: 24.</Message></Response>"
+  },
+  {
+    "message": "Analise isso",
+    "status": "OK",
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vamos seguir pelo ponto real e validar o próximo passo.</Message></Response>"
+  },
+  {
+    "message": "Verifique isso",
+    "status": "OK",
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vamos seguir pelo ponto real e validar o próximo passo.</Message></Response>"
+  },
+  {
+    "message": "O deploy falhou",
+    "status": "OK",
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vamos seguir pelo ponto real e validar o próximo passo.</Message></Response>"
+  },
+  {
+    "message": "Me ajuda nisso",
+    "status": "OK",
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Entendi.\n\nContinua.</Message></Response>"
+  },
+  {
+    "message": "Parece estranho",
+    "status": "OK",
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vamos seguir pelo ponto real e validar o próximo passo.</Message></Response>"
+  },
+  {
+    "message": "Continua",
+    "status": "OK",
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vamos seguir pelo ponto real e validar o próximo passo.</Message></Response>"
+  },
+  {
+    "message": "Detalha melhor",
+    "status": "OK",
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vamos seguir pelo ponto real e validar o próximo passo.</Message></Response>"
+  },
+  {
+    "message": "Agora mudou de assunto",
+    "status": "OK",
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vamos seguir pelo ponto real e validar o próximo passo.</Message></Response>"
+  },
+  {
+    "message": "Volta no erro anterior",
+    "status": "OK",
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vamos seguir pelo ponto real e validar o próximo passo.</Message></Response>"
+  }
+]

@@ -93,3 +93,75 @@
 {"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779900781.1510453, "route": "/webhook/whatsapp", "module_name": "app.main"}
 {"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779900781.1536727, "route": "/webhook/whatsapp", "module_name": "app.main"}
 {"event": "REQUEST_IN", "ts": 1779900781.1694744, "route": "/webhook/whatsapp", "module_name": "app.main.whatsapp_webhook", "reply_before": "me explique derivadas"}
+{"event": "FORENSIC_BOOTSTRAP_ACTIVE", "ts": 1779904201.3602695, "module_name": "app.main"}
+{"event": "FORENSIC_BOOTSTRAP_INSTALLED", "ts": 1779904201.426785, "reply_after": ["app.runtime.live_whatsapp_response.eldora_primary_runtime_reply", "app.runtime.live_whatsapp_response.live_whatsapp_response", "app.runtime.universal_conversation_authority.universal_conversation_authority", "app.runtime.universal_conversation_authority.apply_universal_conversation_authority", "app.runtime.factual_search_handoff.factual_search_handoff", "app.runtime.factual_search_handoff.apply_factual_search_handoff", "app.runtime.whatsapp_final_output_guard.whatsapp_final_output_guard", "app.runtime.whatsapp_final_output_guard.apply_whatsapp_final_output_guard", "app.runtime.final_conversational_arbiter.final_conversational_arbiter", "app.runtime.final_conversational_arbiter.apply_final_conversational_arbiter", "app.runtime.generic_conversation_state.get_state", "app.runtime.generic_conversation_state.set_state", "app.runtime.generic_conversation_state.clear_state", "app.api.whatsapp.twiml", "app.api.whatsapp.webhook", "app.api.whatsapp.whatsapp_webhook"], "extra": {"wrapped_count": 16}}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779904206.7573972, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779904206.7584076, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779904206.7584076, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779904251.4766314, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779904251.4776392, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779904251.4786322, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779904251.4936385, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779904251.4946356, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779904251.4956315, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "REQUEST_IN", "ts": 1779904251.5126214, "route": "/webhook/whatsapp", "module_name": "app.main.whatsapp_webhook", "reply_before": "me explique derivadas"}
+{"event": "FORENSIC_BOOTSTRAP_ACTIVE", "ts": 1779904515.5097318, "module_name": "app.main"}
+{"event": "FORENSIC_BOOTSTRAP_INSTALLED", "ts": 1779904515.642831, "reply_after": ["app.runtime.live_whatsapp_response.eldora_primary_runtime_reply", "app.runtime.live_whatsapp_response.live_whatsapp_response", "app.runtime.universal_conversation_authority.universal_conversation_authority", "app.runtime.universal_conversation_authority.apply_universal_conversation_authority", "app.runtime.factual_search_handoff.factual_search_handoff", "app.runtime.factual_search_handoff.apply_factual_search_handoff", "app.runtime.whatsapp_final_output_guard.whatsapp_final_output_guard", "app.runtime.whatsapp_final_output_guard.apply_whatsapp_final_output_guard", "app.runtime.final_conversational_arbiter.final_conversational_arbiter", "app.runtime.final_conversational_arbiter.apply_final_conversational_arbiter", "app.runtime.generic_conversation_state.get_state", "app.runtime.generic_conversation_state.set_state", "app.runtime.generic_conversation_state.clear_state", "app.api.whatsapp.twiml", "app.api.whatsapp.webhook", "app.api.whatsapp.whatsapp_webhook"], "extra": {"wrapped_count": 16}}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779904522.7460763, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779904522.7460763, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779904522.7460763, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779904569.151914, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779904569.151914, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779904569.151914, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779904569.1798592, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779904569.1826541, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779904569.1846514, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "REQUEST_IN", "ts": 1779904569.189645, "route": "/webhook/whatsapp", "module_name": "app.main.whatsapp_webhook", "reply_before": "me explique derivadas"}
+{"event": "FORENSIC_BOOTSTRAP_ACTIVE", "ts": 1779905456.1730108, "module_name": "app.main"}
+{"event": "FORENSIC_BOOTSTRAP_INSTALLED", "ts": 1779905456.2084148, "reply_after": ["app.runtime.live_whatsapp_response.eldora_primary_runtime_reply", "app.runtime.live_whatsapp_response.live_whatsapp_response", "app.runtime.universal_conversation_authority.universal_conversation_authority", "app.runtime.universal_conversation_authority.apply_universal_conversation_authority", "app.runtime.factual_search_handoff.factual_search_handoff", "app.runtime.factual_search_handoff.apply_factual_search_handoff", "app.runtime.whatsapp_final_output_guard.whatsapp_final_output_guard", "app.runtime.whatsapp_final_output_guard.apply_whatsapp_final_output_guard", "app.runtime.final_conversational_arbiter.final_conversational_arbiter", "app.runtime.final_conversational_arbiter.apply_final_conversational_arbiter", "app.runtime.generic_conversation_state.get_state", "app.runtime.generic_conversation_state.set_state", "app.runtime.generic_conversation_state.clear_state", "app.api.whatsapp.twiml", "app.api.whatsapp.webhook", "app.api.whatsapp.whatsapp_webhook"], "extra": {"wrapped_count": 16}}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779905459.7106278, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779905459.7106278, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779905459.7106278, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779905505.3553524, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779905505.3553524, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779905505.3553524, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779905505.370992, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779905505.370992, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779905505.370992, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "REQUEST_IN", "ts": 1779905505.386622, "route": "/webhook/whatsapp", "module_name": "app.main.whatsapp_webhook", "reply_before": "me explique derivadas"}
+{"event": "FORENSIC_BOOTSTRAP_ACTIVE", "ts": 1779906466.1224885, "module_name": "app.main"}
+{"event": "FORENSIC_BOOTSTRAP_INSTALLED", "ts": 1779906466.2576494, "reply_after": ["app.runtime.live_whatsapp_response.eldora_primary_runtime_reply", "app.runtime.live_whatsapp_response.live_whatsapp_response", "app.runtime.universal_conversation_authority.universal_conversation_authority", "app.runtime.universal_conversation_authority.apply_universal_conversation_authority", "app.runtime.factual_search_handoff.factual_search_handoff", "app.runtime.factual_search_handoff.apply_factual_search_handoff", "app.runtime.whatsapp_final_output_guard.whatsapp_final_output_guard", "app.runtime.whatsapp_final_output_guard.apply_whatsapp_final_output_guard", "app.runtime.final_conversational_arbiter.final_conversational_arbiter", "app.runtime.final_conversational_arbiter.apply_final_conversational_arbiter", "app.runtime.generic_conversation_state.get_state", "app.runtime.generic_conversation_state.set_state", "app.runtime.generic_conversation_state.clear_state", "app.api.whatsapp.twiml", "app.api.whatsapp.webhook", "app.api.whatsapp.whatsapp_webhook"], "extra": {"wrapped_count": 16}}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779906473.193873, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779906473.193873, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779906473.2037947, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779906516.8214295, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779906516.82242, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779906516.82342, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779906516.8366022, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779906516.8366022, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779906516.8466794, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "REQUEST_IN", "ts": 1779906516.8564482, "route": "/webhook/whatsapp", "module_name": "app.main.whatsapp_webhook", "reply_before": "me explique derivadas"}
+{"event": "FORENSIC_BOOTSTRAP_ACTIVE", "ts": 1779906908.849597, "module_name": "app.main"}
+{"event": "FORENSIC_BOOTSTRAP_INSTALLED", "ts": 1779906908.9779508, "reply_after": ["app.runtime.live_whatsapp_response.eldora_primary_runtime_reply", "app.runtime.live_whatsapp_response.live_whatsapp_response", "app.runtime.universal_conversation_authority.universal_conversation_authority", "app.runtime.universal_conversation_authority.apply_universal_conversation_authority", "app.runtime.factual_search_handoff.factual_search_handoff", "app.runtime.factual_search_handoff.apply_factual_search_handoff", "app.runtime.whatsapp_final_output_guard.whatsapp_final_output_guard", "app.runtime.whatsapp_final_output_guard.apply_whatsapp_final_output_guard", "app.runtime.final_conversational_arbiter.final_conversational_arbiter", "app.runtime.final_conversational_arbiter.apply_final_conversational_arbiter", "app.runtime.generic_conversation_state.get_state", "app.runtime.generic_conversation_state.set_state", "app.runtime.generic_conversation_state.clear_state", "app.api.whatsapp.twiml", "app.api.whatsapp.webhook", "app.api.whatsapp.whatsapp_webhook"], "extra": {"wrapped_count": 16}}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779906917.161812, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779906917.1648347, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779906917.1658332, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779906961.4225135, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779906961.4235642, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779906961.4255245, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779906961.4720361, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779906961.474057, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779906961.4750347, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "REQUEST_IN", "ts": 1779906961.4896145, "route": "/webhook/whatsapp", "module_name": "app.main.whatsapp_webhook", "reply_before": "me explique derivadas"}
+{"event": "FORENSIC_BOOTSTRAP_ACTIVE", "ts": 1779908755.3670104, "module_name": "app.main"}
+{"event": "FORENSIC_BOOTSTRAP_INSTALLED", "ts": 1779908755.465533, "reply_after": ["app.runtime.live_whatsapp_response.eldora_primary_runtime_reply", "app.runtime.live_whatsapp_response.live_whatsapp_response", "app.runtime.universal_conversation_authority.universal_conversation_authority", "app.runtime.universal_conversation_authority.apply_universal_conversation_authority", "app.runtime.factual_search_handoff.factual_search_handoff", "app.runtime.factual_search_handoff.apply_factual_search_handoff", "app.runtime.whatsapp_final_output_guard.whatsapp_final_output_guard", "app.runtime.whatsapp_final_output_guard.apply_whatsapp_final_output_guard", "app.runtime.final_conversational_arbiter.final_conversational_arbiter", "app.runtime.final_conversational_arbiter.apply_final_conversational_arbiter", "app.runtime.generic_conversation_state.get_state", "app.runtime.generic_conversation_state.set_state", "app.runtime.generic_conversation_state.clear_state", "app.api.whatsapp.twiml", "app.api.whatsapp.webhook", "app.api.whatsapp.whatsapp_webhook"], "extra": {"wrapped_count": 16}}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779908762.0616746, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779908762.0626786, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779908762.0646546, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779908805.5667126, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779908805.5667126, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779908805.5667126, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779908805.58344, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779908805.58344, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "MAIN_INTERCEPTOR_CHECK", "ts": 1779908805.58344, "route": "/webhook/whatsapp", "module_name": "app.main"}
+{"event": "REQUEST_IN", "ts": 1779908805.6002462, "route": "/webhook/whatsapp", "module_name": "app.main.whatsapp_webhook", "reply_before": "me explique derivadas"}

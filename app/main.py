@@ -1,3 +1,10 @@
+
+try:
+    from app.runtime.ucce_canary_router import should_use_ucce
+    from app.runtime.ucce_shadow_mode import run_ucce_shadow
+except Exception:
+    should_use_ucce=None
+
 try:
     from app.runtime.ucce_shadow_mode import run_ucce_shadow
     from app.runtime.ucce_decision_diff import compare_decisions
