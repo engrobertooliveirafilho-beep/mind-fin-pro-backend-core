@@ -33,3 +33,21 @@ def save(trace):
     p = TRACE_DIR / f"{trace['correlation_id']}.json"
     p.write_text(json.dumps(trace,ensure_ascii=False,indent=2),encoding="utf-8")
     return str(p)
+
+
+def event(name, **kwargs):
+    try:
+        payload = {
+            "event": name,
+            "ts": time.time(),
+            **kwargs
+        }
+        p = TRACE_DIR / "events.jsonl"
+        with p.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(payload, ensure_ascii=False) + "\n")
+    except Exception:
+        pass
+
+
+def wrap_callable(fn):
+    return fn

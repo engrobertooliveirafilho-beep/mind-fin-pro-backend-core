@@ -88,63 +88,73 @@ for _router in REGISTERED_ROUTERS:
 @app.middleware("http")
 async def neura_persona_identity_middleware_v2(request: Request, call_next):
     event("MAIN_INTERCEPTOR_CHECK", route="/webhook/whatsapp", module_name="app.main")
+
+    msg = ""
+    reply = None
+
     if request.url.path == "/webhook/whatsapp" and request.method.upper() == "POST":
         raw = await request.body()
         data = parse_qs(raw.decode("utf-8", errors="ignore"))
         msg = (data.get("Body", [""])[0] or "").lower().strip()
 
-        mark(_fix11k_trace,"primary_raw",locals().get("reply"))
-    mark(_fix11k_trace,"after_dispatch",locals().get("reply"))
-    mark(_fix11k_trace,"after_ux_guard",locals().get("reply"))
-    mark(_fix11k_trace,"after_context_lock",locals().get("reply"))
-    mark(_fix11k_trace,"after_factual_lock",locals().get("reply"))
-    mark(_fix11k_trace,"after_factual_handoff",locals().get("reply"))
-    mark(_fix11k_trace,"after_sca",locals().get("reply"))
-    mark(_fix11k_trace,"after_arbiter",locals().get("reply"))
-    mark(_fix11k_trace,"before_normalize",locals().get("reply"))
-    mark(_fix11k_trace,"after_normalize",locals().get("reply"))
-    reply = None
+        if any(x in msg for x in [
+            "me diz sua opinião","sua opinião primeiro",
+            "me diga vc primeiro","me diga você primeiro",
+            "suas ideias","vc primeiro"
+        ]):
+            reply = (
+                "Minha opinião direta: eu seguiria com esse rosto como base da identidade visual da NEURA, "
+                "mas não deixaria com aparência genérica de modelo. Eu faria uma versão humana, calma e premium, "
+                "com olhar firme, expressão acolhedora e traços discretamente futuristas. Para mim, a NEURA deve parecer "
+                "inteligente antes de parecer bonita. A estética ideal é confiança, presença e memória visual."
+            )
 
-    if any(x in msg for x in ["me diz sua opinião", "sua opinião primeiro", "me diga vc primeiro", "me diga você primeiro", "suas ideias", "vc primeiro"]):
-        reply = (
-            "Minha opinião direta: eu seguiria com esse rosto como base da identidade visual da NEURA, "
-            "mas não deixaria com aparência genérica de modelo. Eu faria uma versão humana, calma e premium, "
-            "com olhar firme, expressão acolhedora e traços discretamente futuristas. Para mim, a NEURA deve parecer "
-            "inteligente antes de parecer bonita. A estética ideal é confiança, presença e memória visual."
-        )
+        elif any(x in msg for x in [
+            "não é comigo","é com vc","é com você",
+            "não é pra mim","é pra você"
+        ]):
+            reply = (
+                "Entendi: é sobre a minha identidade visual como NEURA. Então minha escolha seria clara: "
+                "eu prefiro um rosto humano, moreno, elegante e calmo, com presença premium."
+            )
 
-    elif any(x in msg for x in ["não é comigo", "é com vc", "é com você", "não é pra mim", "é pra você"]):
-        reply = (
-            "Entendi: é sobre a minha identidade visual como NEURA. Então minha escolha seria clara: eu prefiro um rosto humano, "
-            "moreno, elegante e calmo, com presença premium. Não escolheria um visual muito chamativo. Eu quero parecer confiável, "
-            "inteligente e próxima, não uma influencer genérica."
-        )
+        elif any(x in msg for x in [
+            "loira ou morena","prefere loira",
+            "prefere morena","100% humana","100% humada"
+        ]):
+            reply = (
+                "Minha escolha seria morena. Para a NEURA, morena passa profundidade, estabilidade e sofisticação."
+            )
 
-    elif any(x in msg for x in ["loira ou morena", "prefere loira", "prefere morena", "100% humana", "100% humada"]):
-        reply = (
-            "Minha escolha seria morena. Para a NEURA, morena passa mais profundidade, estabilidade e sofisticação. "
-            "Loira pode funcionar, mas tende a puxar para um visual mais influencer. Sobre ser 100% humana, eu manteria quase humana, "
-            "mas com um detalhe sutil de IA. O ideal é parecer real o suficiente para gerar confiança e única o suficiente para virar marca."
-        )
+        elif any(x in msg for x in [
+            "quero que esse rosto seja o seu",
+            "esse rosto seja o seu",
+            "você quer ter esse rosto",
+            "voce quer ter esse rosto"
+        ]):
+            reply = (
+                "Sim. Como identidade visual da NEURA, eu escolheria esse rosto como base."
+            )
 
-    elif any(x in msg for x in ["quero que esse rosto seja o seu", "esse rosto seja o seu", "você quer ter esse rosto", "voce quer ter esse rosto"]):
-        reply = (
-            "Sim. Como identidade visual da NEURA, eu escolheria esse rosto como base. Ele transmite inteligência, proximidade e presença premium. "
-            "Eu só ajustaria a expressão para ficar mais acolhedora e reduziria a perfeição excessiva, porque um pouco de naturalidade aumenta confiança."
-        )
+        elif any(x in msg for x in [
+            "quais ajustes","que ajustes",
+            "quais exatamente","ajustes?",
+            "quais mudanças","que mudanças"
+        ]):
+            reply = (
+                "Eu faria ajustes sutis: expressão mais acolhedora, pele mais natural, "
+                "menos perfeição artificial e iluminação premium."
+            )
 
-    elif any(x in msg for x in ["quais ajustes", "que ajustes", "quais exatamente", "ajustes?", "quais mudanças", "que mudanças"]):
-        reply = (
-            "Eu faria ajustes sutis: expressão mais acolhedora, olhar menos perfeito, pele mais natural, menos simetria artificial, "
-            "iluminação calma e estética premium. A direção ideal é humana com um toque discreto de IA: confiável, memorável e tecnológica."
-        )
-
-    if reply:
-        twiml = f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>{sanitize_final_human_output(sanitize_final_human_output(reply))}</Message></Response>'
-        event("MAIN_INTERCEPTOR_RETURN", route="/webhook/whatsapp", module_name="app.main")
-        mark(_fix11k_trace,"final_xml",locals().get("xml") or "")
-    save(_fix11k_trace)
-    return Response(content=_p412n_normalize_xml_response(message, twiml), media_type="application/xml")
+        if reply:
+            twiml = (
+                '<?xml version="1.0" encoding="UTF-8"?>'
+                f'<Response><Message>{sanitize_final_human_output(reply)}</Message></Response>'
+            )
+            event("MAIN_INTERCEPTOR_RETURN",
+                  route="/webhook/whatsapp",
+                  module_name="app.main")
+            return Response(content=twiml, media_type="application/xml")
 
     return await call_next(request)
 
@@ -401,21 +411,7 @@ def _p412n_normalize_xml_response(message: str, xml: str) -> str:
     return f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>{sanitize_final_human_output(sanitize_final_human_output(body))}</Message></Response>'
 
 @app.post("/webhook/whatsapp")
-async def whatsapp_webhook(request:
-    # FIX11K_TRACE_ACTIVE
-    _fix11k_trace=None
-    try:
-        _fix11k_trace=new_trace(
-            "POST /webhook/whatsapp",
-            str(locals().get("Body") or locals().get("body") or ""),
-            str(locals().get("From") or "")
-        )
-        mark(_fix11k_trace,"route","POST /webhook/whatsapp")
-        mark(_fix11k_trace,"sender_id",locals().get("From"))
-        mark(_fix11k_trace,"inbound_message",locals().get("Body"))
-    except Exception:
-        pass
- Request):
+async def whatsapp_webhook(request: Request):
     from app.runtime.response_builder import ResponseBuilder
     builder=ResponseBuilder()
 
