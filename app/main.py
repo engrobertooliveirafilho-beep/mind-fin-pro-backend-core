@@ -1,6 +1,7 @@
 
 try:
-    from app.runtime.ucce_canary_router import should_use_ucce
+    from app.runtime.ucce_canary_router import should_use_ucce, CANARY_ENABLED, CANARY_PERCENT, ALLOWLIST
+    from app.runtime.ucce_canary_trace import trace_canary, get_last_canary_trace
     from app.runtime.ucce_shadow_mode import run_ucce_shadow
 except Exception:
     should_use_ucce=None
@@ -310,6 +311,14 @@ def health_env():
         "fetch_error": LAST_FETCH_ERROR
     }
 
+
+@app.get("/ucce/canary-trace")
+def ucce_canary_trace_route():
+    try:
+        return get_last_canary_trace()
+    except Exception as e:
+        return {"error": str(e)}
+        
 @app.get("/version")
 def version():
     from app.runtime.version_runtime import runtime_version
@@ -937,4 +946,6 @@ def __forensic_trace_dump():
 @app.get("/__forensic/routes")
 def __forensic_routes():
     return [{"path": getattr(r, "path", None), "name": getattr(r, "name", None), "methods": sorted(list(getattr(r, "methods", []) or [])), "endpoint": getattr(getattr(r, "endpoint", None), "__module__", None)+"."+getattr(getattr(r, "endpoint", None), "__name__", "")} for r in app.routes]
+
+
 
