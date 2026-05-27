@@ -454,7 +454,40 @@ async def whatsapp_webhook(request: Request):
         event("REQUEST_IN", route="/webhook/whatsapp", module_name="app.main.whatsapp_webhook", reply_before=message)
 
         try:
-            primary_reply = dispatch_single_runtime(sender_id,message,eldora_primary_runtime_reply(sender_id,message),module="main",function="eldora_primary_runtime_reply")
+            __ucce_enabled = bool(should_use_ucce and should_use_ucce(sender_id))
+
+            try:
+                trace_canary(
+                    sender_id,
+                    message,
+                    CANARY_ENABLED,
+                    CANARY_PERCENT,
+                    list(ALLOWLIST),
+                    __ucce_enabled,
+                    "ucce" if __ucce_enabled else "legacy"
+                )
+            except Exception:
+                pass
+
+            if __ucce_enabled:
+                try:
+                    primary_reply = run_ucce_shadow(sender_id, message, "").get("reply","")
+                except Exception:
+                    primary_reply = dispatch_single_runtime(
+                        sender_id,
+                        message,
+                        eldora_primary_runtime_reply(sender_id,message),
+                        module="main",
+                        function="eldora_primary_runtime_reply"
+                    )
+            else:
+                primary_reply = dispatch_single_runtime(
+                    sender_id,
+                    message,
+                    eldora_primary_runtime_reply(sender_id,message),
+                    module="main",
+                    function="eldora_primary_runtime_reply"
+                )
             msg=(message or "").lower().strip()
             bad_reply=(not primary_reply) or str(primary_reply).strip().lower() in ["entendi. continua.","entendi.\n\ncontinua."]
             if any(x in msg for x in ["como vc esta","como vc está","como você está","como voce esta","vc esta bem","vc está bem"]):
@@ -632,7 +665,40 @@ async def whatsapp_webhook(request: Request):
                 primary_reply = None
 
                 try:
-                    primary_reply = dispatch_single_runtime(sender_id,message,eldora_primary_runtime_reply(sender_id,message),module="main",function="eldora_primary_runtime_reply")
+                    __ucce_enabled = bool(should_use_ucce and should_use_ucce(sender_id))
+
+                    try:
+                        trace_canary(
+                            sender_id,
+                            message,
+                            CANARY_ENABLED,
+                            CANARY_PERCENT,
+                            list(ALLOWLIST),
+                            __ucce_enabled,
+                            "ucce" if __ucce_enabled else "legacy"
+                        )
+                    except Exception:
+                        pass
+
+                    if __ucce_enabled:
+                        try:
+                            primary_reply = run_ucce_shadow(sender_id, message, "").get("reply","")
+                        except Exception:
+                            primary_reply = dispatch_single_runtime(
+                                sender_id,
+                                message,
+                                eldora_primary_runtime_reply(sender_id,message),
+                                module="main",
+                                function="eldora_primary_runtime_reply"
+                            )
+                    else:
+                        primary_reply = dispatch_single_runtime(
+                            sender_id,
+                            message,
+                            eldora_primary_runtime_reply(sender_id,message),
+                            module="main",
+                            function="eldora_primary_runtime_reply"
+                        )
                     primary_reply = p4_12_whatsapp_live_ux_guard(primary_reply, message)
                     primary_reply = p4_12_context_lock(primary_reply, message)
                     primary_reply = p4_12b_factual_execution_lock(primary_reply, message)
