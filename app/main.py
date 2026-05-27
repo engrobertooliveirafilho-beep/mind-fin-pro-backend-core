@@ -1,3 +1,9 @@
+try:
+    from app.runtime.ucce_shadow_mode import run_ucce_shadow
+    from app.runtime.ucce_decision_diff import compare_decisions
+except Exception:
+    run_ucce_shadow=None
+    compare_decisions=None
 from app.runtime.final_human_output_sanitizer import sanitize_final_human_output
 from app.runtime.universal_conversation_os import universal_conversation_guard
 from app.runtime.actionable_continuity_authority import set_actionable_turn_context, guard_actionable_reply, resolve_actionable_followup, detect_intent
@@ -924,3 +930,4 @@ def __forensic_trace_dump():
 @app.get("/__forensic/routes")
 def __forensic_routes():
     return [{"path": getattr(r, "path", None), "name": getattr(r, "name", None), "methods": sorted(list(getattr(r, "methods", []) or [])), "endpoint": getattr(getattr(r, "endpoint", None), "__module__", None)+"."+getattr(getattr(r, "endpoint", None), "__name__", "")} for r in app.routes]
+

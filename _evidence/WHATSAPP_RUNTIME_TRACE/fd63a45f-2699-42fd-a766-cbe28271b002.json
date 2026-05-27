@@ -1,0 +1,35 @@
+{
+  "trace_id": "fd63a45f-2699-42fd-a766-cbe28271b002",
+  "ts": 1779814490.4401867,
+  "sender_id": "whatsapp:+559999999999",
+  "user_message": "E depois?",
+  "events": [
+    {
+      "stage": "input",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "E depois?",
+      "output_preview": "O plano já está funcionando parcialmente. Agora precisamos manter contexto entre perguntas curtas sem cair em resposta genérica.",
+      "leaks": [],
+      "extra": {}
+    },
+    {
+      "stage": "humanized",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "O plano já está funcionando parcialmente. Agora precisamos manter contexto entre perguntas curtas sem cair em resposta genérica.",
+      "output_preview": "O plano já está funcionando parcialmente. Agora precisamos manter contexto entre perguntas curtas sem cair em resposta genérica.",
+      "leaks": [],
+      "extra": {}
+    },
+    {
+      "stage": "final_output",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "O plano já está funcionando parcialmente. Agora precisamos manter contexto entre perguntas curtas sem cair em resposta genérica.",
+      "output_preview": "O plano já está funcionando parcialmente.\n\nAgora precisamos manter contexto entre perguntas curtas sem cair em resposta genérica.",
+      "leaks": [],
+      "extra": {}
+    }
+  ]
+}

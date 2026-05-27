@@ -1,0 +1,35 @@
+{
+  "trace_id": "ddfc16ec-b9c6-40d5-b977-2f996fdaa2b9",
+  "ts": 1779819343.021407,
+  "sender_id": "whatsapp:+559999999999",
+  "user_message": "Oi",
+  "events": [
+    {
+      "stage": "input",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "Oi",
+      "output_preview": "Oi, Roberto 👋 Tudo certo?",
+      "leaks": [],
+      "extra": {}
+    },
+    {
+      "stage": "humanized",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "Oi, Roberto 👋 Tudo certo?",
+      "output_preview": "Oi, Roberto 👋 Tudo certo?",
+      "leaks": [],
+      "extra": {}
+    },
+    {
+      "stage": "final_output",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "Oi, Roberto 👋 Tudo certo?",
+      "output_preview": "Oi, Roberto 👋 Tudo certo?",
+      "leaks": [],
+      "extra": {}
+    }
+  ]
+}

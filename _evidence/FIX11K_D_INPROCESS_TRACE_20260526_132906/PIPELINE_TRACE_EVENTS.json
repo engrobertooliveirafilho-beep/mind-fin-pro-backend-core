@@ -1,0 +1,1406 @@
+[
+  {
+    "ts": 1779812952.1790326,
+    "hop": "inbound_message",
+    "data": {
+      "message": "Oi"
+    }
+  },
+  {
+    "ts": 1779812952.205691,
+    "hop": "before_dispatch_single_runtime",
+    "data": {
+      "args": "('whatsapp:+559999999999', 'Oi', 'Oi, Roberto 👋 Tudo certo?')",
+      "kwargs": "{'module': 'main', 'function': 'eldora_primary_runtime_reply'}"
+    }
+  },
+  {
+    "ts": 1779812952.7468746,
+    "hop": "after_dispatch_single_runtime",
+    "data": {
+      "output": "Oi, Roberto 👋 Tudo certo?"
+    }
+  },
+  {
+    "ts": 1779812952.7468746,
+    "hop": "before_p4_12_whatsapp_live_ux_guard",
+    "data": {
+      "args": "('Oi, Roberto 👋 Tudo certo?', 'Oi')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812952.7468746,
+    "hop": "after_p4_12_whatsapp_live_ux_guard",
+    "data": {
+      "output": "Oi, Roberto 👋 Tudo certo?"
+    }
+  },
+  {
+    "ts": 1779812952.7468746,
+    "hop": "before_p4_12_context_lock",
+    "data": {
+      "args": "('Oi, Roberto 👋 Tudo certo?', 'Oi')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812952.7468746,
+    "hop": "after_p4_12_context_lock",
+    "data": {
+      "output": "Oi, Roberto 👋 Tudo certo?"
+    }
+  },
+  {
+    "ts": 1779812952.7468746,
+    "hop": "before_p4_12b_factual_execution_lock",
+    "data": {
+      "args": "('Oi, Roberto 👋 Tudo certo?', 'Oi')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812952.7468746,
+    "hop": "after_p4_12b_factual_execution_lock",
+    "data": {
+      "output": "Oi, Roberto 👋 Tudo certo?"
+    }
+  },
+  {
+    "ts": 1779812952.7468746,
+    "hop": "before_factual_search_handoff",
+    "data": {
+      "args": "('Oi, Roberto 👋 Tudo certo?', 'Oi')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812952.7468746,
+    "hop": "after_factual_search_handoff",
+    "data": {
+      "output": "Oi, Roberto 👋 Tudo certo?"
+    }
+  },
+  {
+    "ts": 1779812952.7468746,
+    "hop": "before_strategic_conversation_authority",
+    "data": {
+      "args": "('Oi, Roberto 👋 Tudo certo?', 'Oi')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812952.7468746,
+    "hop": "after_strategic_conversation_authority",
+    "data": {
+      "output": "None"
+    }
+  },
+  {
+    "ts": 1779812952.7468746,
+    "hop": "before_final_conversational_arbiter",
+    "data": {
+      "args": "('whatsapp:+559999999999', 'Oi', None)",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812952.7468746,
+    "hop": "after_final_conversational_arbiter",
+    "data": {
+      "output": ""
+    }
+  },
+  {
+    "ts": 1779812952.7468746,
+    "hop": "before__p412n_normalize_xml_response",
+    "data": {
+      "args": "('Oi', '<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vamos seguir pelo ponto real e validar o próximo passo.</Message></Response>')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812952.7468746,
+    "hop": "after__p412n_normalize_xml_response",
+    "data": {
+      "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vamos seguir pelo ponto real e validar o próximo passo.</Message></Response>"
+    }
+  },
+  {
+    "ts": 1779812952.7498834,
+    "hop": "final_xml",
+    "data": {
+      "message": "Oi",
+      "status": "200",
+      "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vamos seguir pelo ponto real e validar o próximo passo.</Message></Response>"
+    }
+  },
+  {
+    "ts": 1779812952.7498834,
+    "hop": "inbound_message",
+    "data": {
+      "message": "Tudo bem?"
+    }
+  },
+  {
+    "ts": 1779812952.9068794,
+    "hop": "before_dispatch_single_runtime",
+    "data": {
+      "args": "('whatsapp:+559999999999', 'Tudo bem?', 'Tudo certo por aqui 🙂 E você?')",
+      "kwargs": "{'module': 'main', 'function': 'eldora_primary_runtime_reply'}"
+    }
+  },
+  {
+    "ts": 1779812953.1609051,
+    "hop": "after_dispatch_single_runtime",
+    "data": {
+      "output": "Tudo certo por aqui 🙂 E você?"
+    }
+  },
+  {
+    "ts": 1779812953.1609051,
+    "hop": "before_p4_12_whatsapp_live_ux_guard",
+    "data": {
+      "args": "('Tudo certo por aqui 🙂 E você?', 'Tudo bem?')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812953.1609051,
+    "hop": "after_p4_12_whatsapp_live_ux_guard",
+    "data": {
+      "output": "Tudo certo por aqui 🙂 E você?"
+    }
+  },
+  {
+    "ts": 1779812953.1609051,
+    "hop": "before_p4_12_context_lock",
+    "data": {
+      "args": "('Tudo certo por aqui 🙂 E você?', 'Tudo bem?')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812953.1609051,
+    "hop": "after_p4_12_context_lock",
+    "data": {
+      "output": "Tudo certo por aqui 🙂 E você?"
+    }
+  },
+  {
+    "ts": 1779812953.1609051,
+    "hop": "before_p4_12b_factual_execution_lock",
+    "data": {
+      "args": "('Tudo certo por aqui 🙂 E você?', 'Tudo bem?')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812953.1609051,
+    "hop": "after_p4_12b_factual_execution_lock",
+    "data": {
+      "output": "Tudo certo por aqui 🙂 E você?"
+    }
+  },
+  {
+    "ts": 1779812953.1609051,
+    "hop": "before_factual_search_handoff",
+    "data": {
+      "args": "('Tudo certo por aqui 🙂 E você?', 'Tudo bem?')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812953.1609051,
+    "hop": "after_factual_search_handoff",
+    "data": {
+      "output": "Tudo certo por aqui 🙂 E você?"
+    }
+  },
+  {
+    "ts": 1779812953.1609051,
+    "hop": "before_strategic_conversation_authority",
+    "data": {
+      "args": "('Tudo certo por aqui 🙂 E você?', 'Tudo bem?')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812953.1609051,
+    "hop": "after_strategic_conversation_authority",
+    "data": {
+      "output": "None"
+    }
+  },
+  {
+    "ts": 1779812953.1609051,
+    "hop": "before_final_conversational_arbiter",
+    "data": {
+      "args": "('whatsapp:+559999999999', 'Tudo bem?', None)",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812953.1609051,
+    "hop": "after_final_conversational_arbiter",
+    "data": {
+      "output": ""
+    }
+  },
+  {
+    "ts": 1779812953.1609051,
+    "hop": "before__p412n_normalize_xml_response",
+    "data": {
+      "args": "('Tudo bem?', '<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vamos seguir pelo ponto real e validar o próximo passo.</Message></Response>')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812953.1609051,
+    "hop": "after__p412n_normalize_xml_response",
+    "data": {
+      "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vamos seguir pelo ponto real e validar o próximo passo.</Message></Response>"
+    }
+  },
+  {
+    "ts": 1779812953.1638987,
+    "hop": "final_xml",
+    "data": {
+      "message": "Tudo bem?",
+      "status": "200",
+      "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vamos seguir pelo ponto real e validar o próximo passo.</Message></Response>"
+    }
+  },
+  {
+    "ts": 1779812953.1638987,
+    "hop": "inbound_message",
+    "data": {
+      "message": "Quem é você?"
+    }
+  },
+  {
+    "ts": 1779812953.4218824,
+    "hop": "before_dispatch_single_runtime",
+    "data": {
+      "args": "('whatsapp:+559999999999', 'Quem é você?', 'Sou a Eldora 🙂 O que você quer saber?')",
+      "kwargs": "{'module': 'main', 'function': 'eldora_primary_runtime_reply'}"
+    }
+  },
+  {
+    "ts": 1779812953.422887,
+    "hop": "after_dispatch_single_runtime",
+    "data": {
+      "output": ""
+    }
+  },
+  {
+    "ts": 1779812953.422887,
+    "hop": "before_p4_12_whatsapp_live_ux_guard",
+    "data": {
+      "args": "('', 'Quem é você?')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812953.422887,
+    "hop": "after_p4_12_whatsapp_live_ux_guard",
+    "data": {
+      "output": ""
+    }
+  },
+  {
+    "ts": 1779812953.422887,
+    "hop": "before_p4_12_context_lock",
+    "data": {
+      "args": "('', 'Quem é você?')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812953.422887,
+    "hop": "after_p4_12_context_lock",
+    "data": {
+      "output": ""
+    }
+  },
+  {
+    "ts": 1779812953.422887,
+    "hop": "before_p4_12b_factual_execution_lock",
+    "data": {
+      "args": "('', 'Quem é você?')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812953.422887,
+    "hop": "after_p4_12b_factual_execution_lock",
+    "data": {
+      "output": ""
+    }
+  },
+  {
+    "ts": 1779812953.422887,
+    "hop": "before_factual_search_handoff",
+    "data": {
+      "args": "('', 'Quem é você?')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812953.422887,
+    "hop": "after_factual_search_handoff",
+    "data": {
+      "output": ""
+    }
+  },
+  {
+    "ts": 1779812953.422887,
+    "hop": "before_strategic_conversation_authority",
+    "data": {
+      "args": "('', 'Quem é você?')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812953.422887,
+    "hop": "after_strategic_conversation_authority",
+    "data": {
+      "output": "None"
+    }
+  },
+  {
+    "ts": 1779812953.422887,
+    "hop": "before_final_conversational_arbiter",
+    "data": {
+      "args": "('whatsapp:+559999999999', 'Quem é você?', None)",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812953.422887,
+    "hop": "after_final_conversational_arbiter",
+    "data": {
+      "output": ""
+    }
+  },
+  {
+    "ts": 1779812953.422887,
+    "hop": "before__p412n_normalize_xml_response",
+    "data": {
+      "args": "('Quem é você?', '<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vamos seguir pelo ponto real e validar o próximo passo.</Message></Response>')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812953.4258835,
+    "hop": "before_safe_reply",
+    "data": {
+      "args": "('Resposta direta: Quem é você?. Ação recomendada: validar no caminho real, eliminar placeholder e registrar evidência.',)",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812953.4268804,
+    "hop": "after_safe_reply",
+    "data": {
+      "output": "Resposta direta: Quem é você?. Ação recomendada: validar no caminho real, eliminar placeholder e registrar evidência."
+    }
+  },
+  {
+    "ts": 1779812953.4268804,
+    "hop": "before_twiml",
+    "data": {
+      "args": "('Resposta direta: Quem é você?. Ação recomendada: validar no caminho real, eliminar placeholder e registrar evidência.',)",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812953.4268804,
+    "hop": "after_twiml",
+    "data": {
+      "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Response>\n<Message>Vamos aprofundar sem reiniciar a conversa: primeiro isolamos a causa real, depois testamos a hipótese principal e só avançamos com evidência.</Message>\n</Response>"
+    }
+  },
+  {
+    "ts": 1779812953.4268804,
+    "hop": "after__p412n_normalize_xml_response",
+    "data": {
+      "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Response>\n<Message>Vamos aprofundar sem reiniciar a conversa: primeiro isolamos a causa real, depois testamos a hipótese principal e só avançamos com evidência.</Message>\n</Response>"
+    }
+  },
+  {
+    "ts": 1779812953.4298875,
+    "hop": "final_xml",
+    "data": {
+      "message": "Quem é você?",
+      "status": "200",
+      "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Response>\n<Message>Vamos aprofundar sem reiniciar a conversa: primeiro isolamos a causa real, depois testamos a hipótese principal e só avançamos com evidência.</Message>\n</Response>"
+    }
+  },
+  {
+    "ts": 1779812953.4298875,
+    "hop": "inbound_message",
+    "data": {
+      "message": "Como você está?"
+    }
+  },
+  {
+    "ts": 1779812953.4378822,
+    "hop": "before_dispatch_single_runtime",
+    "data": {
+      "args": "('whatsapp:+559999999999', 'Como você está?', 'Tudo certo por aqui 🙂 E você?')",
+      "kwargs": "{'module': 'main', 'function': 'eldora_primary_runtime_reply'}"
+    }
+  },
+  {
+    "ts": 1779812953.4388833,
+    "hop": "after_dispatch_single_runtime",
+    "data": {
+      "output": ""
+    }
+  },
+  {
+    "ts": 1779812953.4388833,
+    "hop": "before_p4_12_whatsapp_live_ux_guard",
+    "data": {
+      "args": "('', 'Como você está?')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812953.4388833,
+    "hop": "after_p4_12_whatsapp_live_ux_guard",
+    "data": {
+      "output": ""
+    }
+  },
+  {
+    "ts": 1779812953.4388833,
+    "hop": "before_p4_12_context_lock",
+    "data": {
+      "args": "('', 'Como você está?')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812953.4388833,
+    "hop": "after_p4_12_context_lock",
+    "data": {
+      "output": ""
+    }
+  },
+  {
+    "ts": 1779812953.4388833,
+    "hop": "before_p4_12b_factual_execution_lock",
+    "data": {
+      "args": "('', 'Como você está?')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812953.4388833,
+    "hop": "after_p4_12b_factual_execution_lock",
+    "data": {
+      "output": ""
+    }
+  },
+  {
+    "ts": 1779812953.4388833,
+    "hop": "before_factual_search_handoff",
+    "data": {
+      "args": "('', 'Como você está?')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812953.439884,
+    "hop": "after_factual_search_handoff",
+    "data": {
+      "output": ""
+    }
+  },
+  {
+    "ts": 1779812953.439884,
+    "hop": "before_strategic_conversation_authority",
+    "data": {
+      "args": "('', 'Como você está?')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812953.439884,
+    "hop": "after_strategic_conversation_authority",
+    "data": {
+      "output": "None"
+    }
+  },
+  {
+    "ts": 1779812953.439884,
+    "hop": "before_final_conversational_arbiter",
+    "data": {
+      "args": "('whatsapp:+559999999999', 'Como você está?', None)",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812953.439884,
+    "hop": "after_final_conversational_arbiter",
+    "data": {
+      "output": ""
+    }
+  },
+  {
+    "ts": 1779812953.439884,
+    "hop": "before__p412n_normalize_xml_response",
+    "data": {
+      "args": "('Como você está?', '<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vamos seguir pelo ponto real e validar o próximo passo.</Message></Response>')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812953.439884,
+    "hop": "before_safe_reply",
+    "data": {
+      "args": "('Resposta direta: Como você está?. Ação recomendada: validar no caminho real, eliminar placeholder e registrar evidência.',)",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812953.447891,
+    "hop": "after_safe_reply",
+    "data": {
+      "output": "Resposta direta: Como você está?. Ação recomendada: validar no caminho real, eliminar placeholder e registrar evidência."
+    }
+  },
+  {
+    "ts": 1779812953.447891,
+    "hop": "before_twiml",
+    "data": {
+      "args": "('Resposta direta: Como você está?. Ação recomendada: validar no caminho real, eliminar placeholder e registrar evidência.',)",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812953.447891,
+    "hop": "after_twiml",
+    "data": {
+      "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Response>\n<Message>Vamos aprofundar sem reiniciar a conversa: primeiro isolamos a causa real, depois testamos a hipótese principal e só avançamos com evidência.</Message>\n</Response>"
+    }
+  },
+  {
+    "ts": 1779812953.447891,
+    "hop": "after__p412n_normalize_xml_response",
+    "data": {
+      "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Response>\n<Message>Vamos aprofundar sem reiniciar a conversa: primeiro isolamos a causa real, depois testamos a hipótese principal e só avançamos com evidência.</Message>\n</Response>"
+    }
+  },
+  {
+    "ts": 1779812953.4498873,
+    "hop": "final_xml",
+    "data": {
+      "message": "Como você está?",
+      "status": "200",
+      "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Response>\n<Message>Vamos aprofundar sem reiniciar a conversa: primeiro isolamos a causa real, depois testamos a hipótese principal e só avançamos com evidência.</Message>\n</Response>"
+    }
+  },
+  {
+    "ts": 1779812953.4498873,
+    "hop": "inbound_message",
+    "data": {
+      "message": "Por que está dando erro?"
+    }
+  },
+  {
+    "ts": 1779812954.8915033,
+    "hop": "before_dispatch_single_runtime",
+    "data": {
+      "args": "('whatsapp:+559999999999', 'Por que está dando erro?', 'Entendi. Continua.')",
+      "kwargs": "{'module': 'main', 'function': 'eldora_primary_runtime_reply'}"
+    }
+  },
+  {
+    "ts": 1779812955.1142538,
+    "hop": "after_dispatch_single_runtime",
+    "data": {
+      "output": "Entendi.\n\nContinua."
+    }
+  },
+  {
+    "ts": 1779812955.1142538,
+    "hop": "before_p4_12_whatsapp_live_ux_guard",
+    "data": {
+      "args": "('Entendi.\\n\\nContinua.', 'Por que está dando erro?')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812955.1142538,
+    "hop": "after_p4_12_whatsapp_live_ux_guard",
+    "data": {
+      "output": "Entendi.\n\nContinua."
+    }
+  },
+  {
+    "ts": 1779812955.1142538,
+    "hop": "before_p4_12_context_lock",
+    "data": {
+      "args": "('Entendi.\\n\\nContinua.', 'Por que está dando erro?')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812955.1142538,
+    "hop": "after_p4_12_context_lock",
+    "data": {
+      "output": "Entendi.\n\nContinua."
+    }
+  },
+  {
+    "ts": 1779812955.1142538,
+    "hop": "before_p4_12b_factual_execution_lock",
+    "data": {
+      "args": "('Entendi.\\n\\nContinua.', 'Por que está dando erro?')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812955.1142538,
+    "hop": "after_p4_12b_factual_execution_lock",
+    "data": {
+      "output": "Entendi.\n\nContinua."
+    }
+  },
+  {
+    "ts": 1779812955.1142538,
+    "hop": "before_factual_search_handoff",
+    "data": {
+      "args": "('Entendi.\\n\\nContinua.', 'Por que está dando erro?')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812955.1142538,
+    "hop": "after_factual_search_handoff",
+    "data": {
+      "output": "Entendi.\n\nContinua."
+    }
+  },
+  {
+    "ts": 1779812955.1142538,
+    "hop": "before_strategic_conversation_authority",
+    "data": {
+      "args": "('Entendi.\\n\\nContinua.', 'Por que está dando erro?')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812955.1142538,
+    "hop": "after_strategic_conversation_authority",
+    "data": {
+      "output": "None"
+    }
+  },
+  {
+    "ts": 1779812955.1142538,
+    "hop": "before_final_conversational_arbiter",
+    "data": {
+      "args": "('whatsapp:+559999999999', 'Por que está dando erro?', None)",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812955.1142538,
+    "hop": "after_final_conversational_arbiter",
+    "data": {
+      "output": ""
+    }
+  },
+  {
+    "ts": 1779812955.1142538,
+    "hop": "before__p412n_normalize_xml_response",
+    "data": {
+      "args": "('Por que está dando erro?', '<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vamos seguir pelo ponto real e validar o próximo passo.</Message></Response>')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812955.1152778,
+    "hop": "before_safe_reply",
+    "data": {
+      "args": "('Análise: contexto=Por que está dando erro?. Diagnóstico: falta evidência completa. Risco: falso verde. Ação: testar fluxo real e salvar relatório.',)",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812955.1432438,
+    "hop": "after_safe_reply",
+    "data": {
+      "output": "Análise: contexto=Por que está dando erro?. Diagnóstico: falta evidência completa. Risco: falso verde. Ação: testar fluxo real e salvar relatório."
+    }
+  },
+  {
+    "ts": 1779812955.1432438,
+    "hop": "before_twiml",
+    "data": {
+      "args": "('Análise: contexto=Por que está dando erro?. Diagnóstico: falta evidência completa. Risco: falso verde. Ação: testar fluxo real e salvar relatório.',)",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812955.1432438,
+    "hop": "after_twiml",
+    "data": {
+      "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Response>\n<Message>Vamos aprofundar sem reiniciar a conversa: primeiro isolamos a causa real, depois testamos a hipótese principal e só avançamos com evidência.</Message>\n</Response>"
+    }
+  },
+  {
+    "ts": 1779812955.1432438,
+    "hop": "after__p412n_normalize_xml_response",
+    "data": {
+      "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Response>\n<Message>Vamos aprofundar sem reiniciar a conversa: primeiro isolamos a causa real, depois testamos a hipótese principal e só avançamos com evidência.</Message>\n</Response>"
+    }
+  },
+  {
+    "ts": 1779812955.1562545,
+    "hop": "final_xml",
+    "data": {
+      "message": "Por que está dando erro?",
+      "status": "200",
+      "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Response>\n<Message>Vamos aprofundar sem reiniciar a conversa: primeiro isolamos a causa real, depois testamos a hipótese principal e só avançamos com evidência.</Message>\n</Response>"
+    }
+  },
+  {
+    "ts": 1779812955.1562545,
+    "hop": "inbound_message",
+    "data": {
+      "message": "Aprofunde"
+    }
+  },
+  {
+    "ts": 1779812955.2862704,
+    "hop": "before_dispatch_single_runtime",
+    "data": {
+      "args": "('whatsapp:+559999999999', 'Aprofunde', 'Memória contextual: aprofunde Aprofunde mantendo autoridade contextual, mesmo eixo e sem puxar outro domínio.')",
+      "kwargs": "{'module': 'main', 'function': 'eldora_primary_runtime_reply'}"
+    }
+  },
+  {
+    "ts": 1779812955.520313,
+    "hop": "after_dispatch_single_runtime",
+    "data": {
+      "output": "Memória contextual: aprofunde Aprofunde mantendo autoridade contextual, mesmo eixo e sem puxar outro domínio."
+    }
+  },
+  {
+    "ts": 1779812955.520313,
+    "hop": "before_p4_12_whatsapp_live_ux_guard",
+    "data": {
+      "args": "('Memória contextual: aprofunde Aprofunde mantendo autoridade contextual, mesmo eixo e sem puxar outro domínio.', 'Aprofunde')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812955.520313,
+    "hop": "after_p4_12_whatsapp_live_ux_guard",
+    "data": {
+      "output": "Memória contextual: aprofunde Aprofunde mantendo autoridade contextual, mesmo eixo e sem puxar outro domínio."
+    }
+  },
+  {
+    "ts": 1779812955.520313,
+    "hop": "before_p4_12_context_lock",
+    "data": {
+      "args": "('Memória contextual: aprofunde Aprofunde mantendo autoridade contextual, mesmo eixo e sem puxar outro domínio.', 'Aprofunde')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812955.520313,
+    "hop": "after_p4_12_context_lock",
+    "data": {
+      "output": "Memória contextual: aprofunde Aprofunde mantendo autoridade contextual, mesmo eixo e sem puxar outro domínio."
+    }
+  },
+  {
+    "ts": 1779812955.520313,
+    "hop": "before_p4_12b_factual_execution_lock",
+    "data": {
+      "args": "('Memória contextual: aprofunde Aprofunde mantendo autoridade contextual, mesmo eixo e sem puxar outro domínio.', 'Aprofunde')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812955.520313,
+    "hop": "after_p4_12b_factual_execution_lock",
+    "data": {
+      "output": "Memória contextual: aprofunde Aprofunde mantendo autoridade contextual, mesmo eixo e sem puxar outro domínio."
+    }
+  },
+  {
+    "ts": 1779812955.520313,
+    "hop": "before_factual_search_handoff",
+    "data": {
+      "args": "('Memória contextual: aprofunde Aprofunde mantendo autoridade contextual, mesmo eixo e sem puxar outro domínio.', 'Aprofunde')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812955.520313,
+    "hop": "after_factual_search_handoff",
+    "data": {
+      "output": "Vou aprofundar mantendo o mesmo assunto e sem mudar de direção."
+    }
+  },
+  {
+    "ts": 1779812955.520313,
+    "hop": "before_strategic_conversation_authority",
+    "data": {
+      "args": "('Vou aprofundar mantendo o mesmo assunto e sem mudar de direção.', 'Aprofunde')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812955.520313,
+    "hop": "after_strategic_conversation_authority",
+    "data": {
+      "output": "None"
+    }
+  },
+  {
+    "ts": 1779812955.520313,
+    "hop": "before_final_conversational_arbiter",
+    "data": {
+      "args": "('whatsapp:+559999999999', 'Aprofunde', None)",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812955.520313,
+    "hop": "after_final_conversational_arbiter",
+    "data": {
+      "output": ""
+    }
+  },
+  {
+    "ts": 1779812955.520313,
+    "hop": "before__p412n_normalize_xml_response",
+    "data": {
+      "args": "('Aprofunde', '<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vamos seguir pelo ponto real e validar o próximo passo.</Message></Response>')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812955.520313,
+    "hop": "before_safe_reply",
+    "data": {
+      "args": "('Detalhamento: Aprofunde. Pontos-chave: 1) causa provável, 2) impacto prático, 3) próxima validação objetiva.',)",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812955.520313,
+    "hop": "after_safe_reply",
+    "data": {
+      "output": "Detalhamento: Aprofunde. Pontos-chave: 1) causa provável, 2) impacto prático, 3) próxima validação objetiva."
+    }
+  },
+  {
+    "ts": 1779812955.520313,
+    "hop": "before_twiml",
+    "data": {
+      "args": "('Detalhamento: Aprofunde. Pontos-chave: 1) causa provável, 2) impacto prático, 3) próxima validação objetiva.',)",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812955.520313,
+    "hop": "after_twiml",
+    "data": {
+      "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Response>\n<Message>Vamos aprofundar sem reiniciar a conversa: primeiro isolamos a causa real, depois testamos a hipótese principal e só avançamos com evidência.</Message>\n</Response>"
+    }
+  },
+  {
+    "ts": 1779812955.520313,
+    "hop": "after__p412n_normalize_xml_response",
+    "data": {
+      "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Response>\n<Message>Vamos aprofundar sem reiniciar a conversa: primeiro isolamos a causa real, depois testamos a hipótese principal e só avançamos com evidência.</Message>\n</Response>"
+    }
+  },
+  {
+    "ts": 1779812955.520313,
+    "hop": "final_xml",
+    "data": {
+      "message": "Aprofunde",
+      "status": "200",
+      "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Response>\n<Message>Vamos aprofundar sem reiniciar a conversa: primeiro isolamos a causa real, depois testamos a hipótese principal e só avançamos com evidência.</Message>\n</Response>"
+    }
+  },
+  {
+    "ts": 1779812955.520313,
+    "hop": "inbound_message",
+    "data": {
+      "message": "E depois?"
+    }
+  },
+  {
+    "ts": 1779812955.7684119,
+    "hop": "before_dispatch_single_runtime",
+    "data": {
+      "args": "('whatsapp:+559999999999', 'E depois?', 'O plano já está funcionando parcialmente. Agora precisamos manter contexto entre perguntas curtas sem cair em resposta genérica.')",
+      "kwargs": "{'module': 'main', 'function': 'eldora_primary_runtime_reply'}"
+    }
+  },
+  {
+    "ts": 1779812955.9836793,
+    "hop": "after_dispatch_single_runtime",
+    "data": {
+      "output": "O plano já está funcionando parcialmente.\n\nAgora precisamos manter contexto entre perguntas curtas sem cair em resposta genérica."
+    }
+  },
+  {
+    "ts": 1779812955.9836793,
+    "hop": "before_p4_12_whatsapp_live_ux_guard",
+    "data": {
+      "args": "('O plano já está funcionando parcialmente.\\n\\nAgora precisamos manter contexto entre perguntas curtas sem cair em resposta genérica.', 'E depois?')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812955.9836793,
+    "hop": "after_p4_12_whatsapp_live_ux_guard",
+    "data": {
+      "output": "None"
+    }
+  },
+  {
+    "ts": 1779812955.9836793,
+    "hop": "before_p4_12_context_lock",
+    "data": {
+      "args": "(None, 'E depois?')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812955.9836793,
+    "hop": "after_p4_12_context_lock",
+    "data": {
+      "output": ""
+    }
+  },
+  {
+    "ts": 1779812955.9836793,
+    "hop": "before_p4_12b_factual_execution_lock",
+    "data": {
+      "args": "('', 'E depois?')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812955.9836793,
+    "hop": "after_p4_12b_factual_execution_lock",
+    "data": {
+      "output": ""
+    }
+  },
+  {
+    "ts": 1779812955.9836793,
+    "hop": "before_factual_search_handoff",
+    "data": {
+      "args": "('', 'E depois?')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812955.9836793,
+    "hop": "after_factual_search_handoff",
+    "data": {
+      "output": ""
+    }
+  },
+  {
+    "ts": 1779812955.9836793,
+    "hop": "before_strategic_conversation_authority",
+    "data": {
+      "args": "('', 'E depois?')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812955.9836793,
+    "hop": "after_strategic_conversation_authority",
+    "data": {
+      "output": "None"
+    }
+  },
+  {
+    "ts": 1779812955.9836793,
+    "hop": "before_final_conversational_arbiter",
+    "data": {
+      "args": "('whatsapp:+559999999999', 'E depois?', None)",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812955.9836793,
+    "hop": "after_final_conversational_arbiter",
+    "data": {
+      "output": ""
+    }
+  },
+  {
+    "ts": 1779812955.9836793,
+    "hop": "before__p412n_normalize_xml_response",
+    "data": {
+      "args": "('E depois?', '<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vamos seguir pelo ponto real e validar o próximo passo.</Message></Response>')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812955.9836793,
+    "hop": "after__p412n_normalize_xml_response",
+    "data": {
+      "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vamos seguir pelo ponto real e validar o próximo passo.</Message></Response>"
+    }
+  },
+  {
+    "ts": 1779812955.9855578,
+    "hop": "final_xml",
+    "data": {
+      "message": "E depois?",
+      "status": "200",
+      "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vamos seguir pelo ponto real e validar o próximo passo.</Message></Response>"
+    }
+  },
+  {
+    "ts": 1779812955.9855578,
+    "hop": "inbound_message",
+    "data": {
+      "message": "Procure o erro principal"
+    }
+  },
+  {
+    "ts": 1779812957.3729494,
+    "hop": "before_dispatch_single_runtime",
+    "data": {
+      "args": "('whatsapp:+559999999999', 'Procure o erro principal', 'Resumo técnico do MIND/Eldora: Runtime estável V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Próximo passo: memória persistente + contexto MIND completo.')",
+      "kwargs": "{'module': 'main', 'function': 'eldora_primary_runtime_reply'}"
+    }
+  },
+  {
+    "ts": 1779812957.5837855,
+    "hop": "after_dispatch_single_runtime",
+    "data": {
+      "output": "Tudo certo por aqui 🙂"
+    }
+  },
+  {
+    "ts": 1779812957.5837855,
+    "hop": "before_p4_12_whatsapp_live_ux_guard",
+    "data": {
+      "args": "('Tudo certo por aqui 🙂', 'Procure o erro principal')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812957.5837855,
+    "hop": "after_p4_12_whatsapp_live_ux_guard",
+    "data": {
+      "output": "Tudo certo por aqui 🙂"
+    }
+  },
+  {
+    "ts": 1779812957.5837855,
+    "hop": "before_p4_12_context_lock",
+    "data": {
+      "args": "('Tudo certo por aqui 🙂', 'Procure o erro principal')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812957.5837855,
+    "hop": "after_p4_12_context_lock",
+    "data": {
+      "output": "Tudo certo por aqui 🙂"
+    }
+  },
+  {
+    "ts": 1779812957.5837855,
+    "hop": "before_p4_12b_factual_execution_lock",
+    "data": {
+      "args": "('Tudo certo por aqui 🙂', 'Procure o erro principal')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812957.5837855,
+    "hop": "after_p4_12b_factual_execution_lock",
+    "data": {
+      "output": "Tudo certo por aqui 🙂"
+    }
+  },
+  {
+    "ts": 1779812957.5837855,
+    "hop": "before_factual_search_handoff",
+    "data": {
+      "args": "('Tudo certo por aqui 🙂', 'Procure o erro principal')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812957.5837855,
+    "hop": "after_factual_search_handoff",
+    "data": {
+      "output": "Tudo certo por aqui 🙂"
+    }
+  },
+  {
+    "ts": 1779812957.5837855,
+    "hop": "before_strategic_conversation_authority",
+    "data": {
+      "args": "('Tudo certo por aqui 🙂', 'Procure o erro principal')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812957.5837855,
+    "hop": "after_strategic_conversation_authority",
+    "data": {
+      "output": "None"
+    }
+  },
+  {
+    "ts": 1779812957.5837855,
+    "hop": "before_final_conversational_arbiter",
+    "data": {
+      "args": "('whatsapp:+559999999999', 'Procure o erro principal', None)",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812957.5837855,
+    "hop": "after_final_conversational_arbiter",
+    "data": {
+      "output": ""
+    }
+  },
+  {
+    "ts": 1779812957.5837855,
+    "hop": "before__p412n_normalize_xml_response",
+    "data": {
+      "args": "('Procure o erro principal', '<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vamos seguir pelo ponto real e validar o próximo passo.</Message></Response>')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812957.5837855,
+    "hop": "before_safe_reply",
+    "data": {
+      "args": "('Resposta direta: Procure o erro principal. Ação recomendada: validar no caminho real, eliminar placeholder e registrar evidência.',)",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812957.5837855,
+    "hop": "after_safe_reply",
+    "data": {
+      "output": "Resposta direta: Procure o erro principal. Ação recomendada: validar no caminho real, eliminar placeholder e registrar evidência."
+    }
+  },
+  {
+    "ts": 1779812957.5837855,
+    "hop": "before_twiml",
+    "data": {
+      "args": "('Resposta direta: Procure o erro principal. Ação recomendada: validar no caminho real, eliminar placeholder e registrar evidência.',)",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812957.5837855,
+    "hop": "after_twiml",
+    "data": {
+      "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Response>\n<Message>Vamos aprofundar sem reiniciar a conversa: primeiro isolamos a causa real, depois testamos a hipótese principal e só avançamos com evidência.</Message>\n</Response>"
+    }
+  },
+  {
+    "ts": 1779812957.5837855,
+    "hop": "after__p412n_normalize_xml_response",
+    "data": {
+      "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Response>\n<Message>Vamos aprofundar sem reiniciar a conversa: primeiro isolamos a causa real, depois testamos a hipótese principal e só avançamos com evidência.</Message>\n</Response>"
+    }
+  },
+  {
+    "ts": 1779812957.5837855,
+    "hop": "final_xml",
+    "data": {
+      "message": "Procure o erro principal",
+      "status": "200",
+      "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Response>\n<Message>Vamos aprofundar sem reiniciar a conversa: primeiro isolamos a causa real, depois testamos a hipótese principal e só avançamos com evidência.</Message>\n</Response>"
+    }
+  },
+  {
+    "ts": 1779812957.5837855,
+    "hop": "inbound_message",
+    "data": {
+      "message": "Quanto é 4x6"
+    }
+  },
+  {
+    "ts": 1779812958.927481,
+    "hop": "before_dispatch_single_runtime",
+    "data": {
+      "args": "('whatsapp:+559999999999', 'Quanto é 4x6', 'Resumo técnico do MIND/Eldora: Runtime estável V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Próximo passo: memória persistente + contexto MIND completo.')",
+      "kwargs": "{'module': 'main', 'function': 'eldora_primary_runtime_reply'}"
+    }
+  },
+  {
+    "ts": 1779812958.9304783,
+    "hop": "after_dispatch_single_runtime",
+    "data": {
+      "output": ""
+    }
+  },
+  {
+    "ts": 1779812958.9304783,
+    "hop": "before_p4_12_whatsapp_live_ux_guard",
+    "data": {
+      "args": "('', 'Quanto é 4x6')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812958.9304783,
+    "hop": "after_p4_12_whatsapp_live_ux_guard",
+    "data": {
+      "output": ""
+    }
+  },
+  {
+    "ts": 1779812958.9304783,
+    "hop": "before_p4_12_context_lock",
+    "data": {
+      "args": "('', 'Quanto é 4x6')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812958.9304783,
+    "hop": "after_p4_12_context_lock",
+    "data": {
+      "output": ""
+    }
+  },
+  {
+    "ts": 1779812958.9304783,
+    "hop": "before_p4_12b_factual_execution_lock",
+    "data": {
+      "args": "('', 'Quanto é 4x6')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812958.9304783,
+    "hop": "after_p4_12b_factual_execution_lock",
+    "data": {
+      "output": ""
+    }
+  },
+  {
+    "ts": 1779812958.9304783,
+    "hop": "before_factual_search_handoff",
+    "data": {
+      "args": "('', 'Quanto é 4x6')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812958.9304783,
+    "hop": "after_factual_search_handoff",
+    "data": {
+      "output": ""
+    }
+  },
+  {
+    "ts": 1779812958.9304783,
+    "hop": "before_strategic_conversation_authority",
+    "data": {
+      "args": "('', 'Quanto é 4x6')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812958.9304783,
+    "hop": "after_strategic_conversation_authority",
+    "data": {
+      "output": "None"
+    }
+  },
+  {
+    "ts": 1779812958.9304783,
+    "hop": "before_final_conversational_arbiter",
+    "data": {
+      "args": "('whatsapp:+559999999999', 'Quanto é 4x6', None)",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812958.9304783,
+    "hop": "after_final_conversational_arbiter",
+    "data": {
+      "output": ""
+    }
+  },
+  {
+    "ts": 1779812958.9304783,
+    "hop": "before__p412n_normalize_xml_response",
+    "data": {
+      "args": "('Quanto é 4x6', '<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vamos seguir pelo ponto real e validar o próximo passo.</Message></Response>')",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812958.9314709,
+    "hop": "before_safe_reply",
+    "data": {
+      "args": "('Resultado: 24.',)",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812958.9324925,
+    "hop": "after_safe_reply",
+    "data": {
+      "output": "Resultado: 24."
+    }
+  },
+  {
+    "ts": 1779812958.9324925,
+    "hop": "before_twiml",
+    "data": {
+      "args": "('Resultado: 24.',)",
+      "kwargs": "{}"
+    }
+  },
+  {
+    "ts": 1779812958.9324925,
+    "hop": "after_twiml",
+    "data": {
+      "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Response>\n<Message>Resultado: 24.</Message>\n</Response>"
+    }
+  },
+  {
+    "ts": 1779812958.9324925,
+    "hop": "after__p412n_normalize_xml_response",
+    "data": {
+      "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Response>\n<Message>Resultado: 24.</Message>\n</Response>"
+    }
+  },
+  {
+    "ts": 1779812958.935479,
+    "hop": "final_xml",
+    "data": {
+      "message": "Quanto é 4x6",
+      "status": "200",
+      "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Response>\n<Message>Resultado: 24.</Message>\n</Response>"
+    }
+  }
+]

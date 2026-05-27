@@ -1,0 +1,35 @@
+{
+  "trace_id": "df670016-c472-46d4-94bb-5714dce4e7cb",
+  "ts": 1779815440.9026997,
+  "sender_id": "whatsapp:+559999999999",
+  "user_message": "quem é vc",
+  "events": [
+    {
+      "stage": "input",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "quem é vc",
+      "output_preview": "Sou a Eldora do MIND. Converso com contexto e continuidade, sem resetar a conversa.",
+      "leaks": [],
+      "extra": {}
+    },
+    {
+      "stage": "humanized",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "Sou a Eldora do MIND. Converso com contexto e continuidade, sem resetar a conversa.",
+      "output_preview": "Tudo certo por aqui 🙂 E você?",
+      "leaks": [],
+      "extra": {}
+    },
+    {
+      "stage": "final_output",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "Tudo certo por aqui 🙂 E você?",
+      "output_preview": "Tudo certo por aqui 🙂 E você?",
+      "leaks": [],
+      "extra": {}
+    }
+  ]
+}

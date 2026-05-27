@@ -1,0 +1,35 @@
+{
+  "trace_id": "6bdb9cae-39f0-4c5b-95c9-deac87da3186",
+  "ts": 1779820337.1659079,
+  "sender_id": "whatsapp:+559999999999",
+  "user_message": "vc está bem?",
+  "events": [
+    {
+      "stage": "input",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "vc está bem?",
+      "output_preview": "Estou funcionando bem agora e melhorando a conversa da Eldora para responder de forma mais natural e contextual.",
+      "leaks": [],
+      "extra": {}
+    },
+    {
+      "stage": "humanized",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "Estou funcionando bem agora e melhorando a conversa da Eldora para responder de forma mais natural e contextual.",
+      "output_preview": "Estou funcionando bem agora e melhorando a conversa da Eldora para responder de forma mais natural e contextual.",
+      "leaks": [],
+      "extra": {}
+    },
+    {
+      "stage": "final_output",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "Estou funcionando bem agora e melhorando a conversa da Eldora para responder de forma mais natural e contextual.",
+      "output_preview": "Estou funcionando bem agora e melhorando a conversa da Eldora para responder de forma mais natural e contextual.",
+      "leaks": [],
+      "extra": {}
+    }
+  ]
+}
