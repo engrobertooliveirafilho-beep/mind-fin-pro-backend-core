@@ -435,12 +435,21 @@ async def whatsapp_webhook(request: Request):
             primary_reply = dispatch_single_runtime(sender_id,message,eldora_primary_runtime_reply(sender_id,message),module="main",function="eldora_primary_runtime_reply")
             msg=(message or "").lower().strip()
             bad_reply=(not primary_reply) or str(primary_reply).strip().lower() in ["entendi. continua.","entendi.\n\ncontinua."]
-            if any(x in msg for x in ["me explique melhor","explique melhor"]):
+            if any(x in msg for x in ["como vc esta","como vc está","como você está","como voce esta","vc esta bem","vc está bem"]):
+                primary_reply="Tudo certo por aqui. E você?"
+
+            elif any(x in msg for x in ["conseguiu entender","todas as implantações","todas as implantacoes"]):
+                primary_reply="Sim. Entendi as implantações principais: local corrigido, Render sincronizado e agora falta ajustar os intents residuais do live."
+
+            elif any(x in msg for x in ["ainda esta errado","ainda está errado","continua errado","esta errado","está errado"]):
+                primary_reply="Entendi. O erro ainda está no roteamento de intenção do live; vamos corrigir o branch que caiu no fallback."
+
+            elif any(x in msg for x in ["me explique melhor","explique melhor"]):
                 primary_reply="Vou explicar melhor mantendo o contexto atual e aprofundando o ponto anterior sem mudar de direção."
             elif any(x in msg for x in ["quem é você","quem é vc","quem e vc","quem e você","quem é voce","quem e voce"]) and (bad_reply or "tudo certo" in str(primary_reply).lower()):
-                primary_reply="Sou a Eldora 🙂 O que você quer saber?"
+                primary_reply="Sou a Eldora. O que você quer saber?"
             elif any(x in msg for x in ["como você está","como vc está","vc está bem","tudo bem"]) and bad_reply:
-                primary_reply="Tudo certo por aqui 🙂 E você?"
+                primary_reply="Tudo certo por aqui. E você?"
             elif "quanto é" in msg or "x" in msg:
                 compact=msg.replace(" ","")
                 if "4x6" in compact:
@@ -456,9 +465,9 @@ async def whatsapp_webhook(request: Request):
             if any(x in msg for x in ["me explique melhor","explique melhor"]):
                 primary_reply="Vou explicar melhor mantendo o contexto atual e aprofundando o ponto anterior sem mudar de direção."
             elif any(x in msg for x in ["quem é você","quem é vc","quem e vc","quem e você","quem é voce","quem e voce"]) and (bad_reply or "tudo certo" in str(primary_reply).lower()):
-                primary_reply="Sou a Eldora 🙂 O que você quer saber?"
+                primary_reply="Sou a Eldora. O que você quer saber?"
             elif any(x in msg for x in ["como você está","como vc está","vc está bem","tudo bem"]) and bad_reply:
-                primary_reply="Tudo certo por aqui 🙂 E você?"
+                primary_reply="Tudo certo por aqui. E você?"
             elif ("quanto é" in msg or "x" in msg) and bad_reply:
                 primary_reply=safe_reply(message)
             elif any(x in msg for x in ["e depois","depois?"]) and bad_reply:
