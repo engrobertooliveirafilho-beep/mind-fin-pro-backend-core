@@ -49,5 +49,5 @@ def event(name, **kwargs):
         pass
 
 
-def wrap_callable(fn):
+def wrap_callable(fn, *args, **kwargs):
     return fn
