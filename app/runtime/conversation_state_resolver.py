@@ -2,7 +2,7 @@ from app.runtime.decision_memory import get_state
 
 FOLLOWUP = {"aprofunde","continua","prossiga","e depois","explica melhor","detalha","explique melhor"}
 TROUBLE = {"erro","falhou","deu errado","não funcionou","nao funcionou","quebrou","implantação","implantacao"}
-SOCIAL_EXACT = {"oi","olá","ola","tudo bem","quem é vc","quem é você","como vc está","como você está","bom dia","boa tarde","boa noite"}
+SOCIAL_EXACT = {"oi","olá","ola","tudo bem","quem é vc","quem é você","como vc está","como você está","bom dia","boa tarde","boa noite","você está funcionando","voce esta funcionando","qual seu papel aqui","qual é seu papel","qual e seu papel","o que você faz","o que voce faz","quem é a eldora","quem e a eldora"}
 TASK = {"analise","verifique","busque","calcule","confira","execute"}
 
 def _norm(msg: str) -> str:
@@ -29,3 +29,4 @@ def resolve(sender_id, msg):
         return "SOCIAL", s
 
     return "AMBIGUOUS", s
+
