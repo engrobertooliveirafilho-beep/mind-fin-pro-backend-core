@@ -291,13 +291,24 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
             "Execução: descreva o erro, o objetivo e o resultado esperado; eu organizo a solução em sequência.\n"
             "Auditoria: resposta validada pelo P3 human E2E sem fallback genérico."
         )
+    low = (inbound_text or "").lower()
+    if any(x in low for x in [
+        "qual seu nome",
+        "como vc chama",
+        "como você chama",
+        "quem é vc",
+        "quem e vc",
+        "quem é você",
+        "quem e voce"
+    ]):
+        return "Sou a Eldora 🙂"
+
     _contract_reply = _eldora_live_override_contract_patch(sender_id, inbound_text)
     if _contract_reply:
         return _contract_reply
     fast = route_fast(sender_id, inbound_text)
     if fast:
         return fast
-    low = (inbound_text or "").lower()
     if any(x in low for x in [
         "qual seu nome",
         "como vc chama",
