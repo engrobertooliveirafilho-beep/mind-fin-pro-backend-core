@@ -2,7 +2,7 @@ from __future__ import annotations
 import re
 
 IDENTITY_ALLOWED = re.compile(
-    r"(quem\s+(é|e)\s+você|quem\s+(é|e)\s+voce|qual\s+(é|e)\s+seu\s+nome|se\s+apresente|vc\s+(é|e)\s+quem|você\s+(é|e)\s+quem)",
+    r"(quem\s+(é|e)\s+você|quem\s+(é|e)\s+voce|qual\s+(é|e)\s+seu\s+nome|se\s+apresente|vc\s+(é|e)\s+quem|você\s+(é|e)\s+quem|quem\s+(é|e)\s+vc|quem\s+(é|e)\s+v c)",
     re.I,
 )
 
@@ -217,3 +217,4 @@ def p4_12b_factual_execution_lock(answer:str,inbound:str='')->str:
             return 'Ok. Vou verificar isso e te responder com compatibilidade correta, sem chute.'
 
     return raw
+
