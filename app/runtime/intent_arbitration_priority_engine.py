@@ -58,3 +58,8 @@ def arbitrate_intent_priority(message:str, context:Optional[Dict[str,Any]]=None,
 
 def decision_to_dict(d:IntentArbitrationDecision)->Dict[str,Any]:
     return asdict(d)
+
+def classify_intent(message: str):
+    """Public SSA adapter: exposes IAPE intent classification without response patching."""
+    return classify_explicit_intent(message)
+

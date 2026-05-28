@@ -16,9 +16,10 @@ def final_conversational_arbiter(sender_id: str, inbound: str, answer: str) -> s
 
     if any(x in msg for x in PROGRESSIVE) and any(x in low for x in BAD_FACTUAL_BLEED):
         synthetic = "passo a passo" if "passo a passo" in msg else "aprofunde"
-        return universal_conversation_reply(sender_id, synthetic, [])
+        return out
 
     if out.count("\n\n") > 4 and any(x in msg for x in PROGRESSIVE):
-        return universal_conversation_reply(sender_id, "aprofunde", [])
+        return out
 
     return out
+
