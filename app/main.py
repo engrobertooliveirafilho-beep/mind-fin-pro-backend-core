@@ -458,7 +458,7 @@ async def whatsapp_webhook(request: Request):
             return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Sou a Eldora 🙂</Message></Response>', media_type="application/xml")
 
         if msg_norm in ["aprofunde", "aprofundar", "detalhe", "detalhe melhor", "explique melhor"]:
-            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Execução contextual: aprofundar a causa, priorizar o próximo teste e validar por evidência.</Message></Response>', media_type="application/xml")
+            pass
 
         try:
             __ucce_enabled = bool(should_use_ucce and should_use_ucce(sender_id))

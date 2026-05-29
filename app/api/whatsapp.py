@@ -86,9 +86,13 @@ def _p412n_twiml_final_normalizer(message: str) -> str:
 def twiml(message: str) -> str:
     from html import escape
 
+    msg_text = str(message or "")
+    low = msg_text.lower()
+    if ("não recebi conteúdo" in low or "nao recebi conteudo" in low or "conteúdo suficiente" in low or "conteudo suficiente" in low or "entendi. continua" in low):
+        msg_text = "Continua no mesmo ponto: validar o que falhou, testar a hipótese principal e avançar com evidência."
     safe = escape(
         str(
-            sanitize_final_human_output(message or "")
+            sanitize_final_human_output(msg_text)
         ).strip()
     )
 
@@ -340,7 +344,8 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
 
 
     progressive_followup = any(x in t for x in [
-        "continue_context", "detalhe melhor", "explique melhor", "ainda mais", "passo a passo"
+        "aprofunde","aprofundar","continue_context","prossiga","e depois",
+        "detalhe melhor","explique melhor","ainda mais","passo a passo"
     ])
 
     if progressive_followup:
