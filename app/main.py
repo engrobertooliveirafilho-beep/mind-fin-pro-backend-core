@@ -445,8 +445,36 @@ async def whatsapp_webhook(request: Request):
             form=await request.form()
             payload=dict(form)
 
+        
         sender_id=payload.get("From") or payload.get("from") or payload.get("sender_id") or "unknown"
         message=payload.get("Body") or payload.get("body") or payload.get("message") or ""
+
+        import re
+        _msg=str(message or "").strip()
+        _low=_msg.lower()
+
+        if _low in {"oi","oie","olá","ola"}:
+            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Oi, Roberto. Tudo certo?</Message></Response>', media_type="application/xml")
+
+        if any(x in _low for x in ["como vc ta","como você ta","como vc tá","como você tá","tudo bem"]):
+            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Estou bem por aqui. E você?</Message></Response>', media_type="application/xml")
+
+        if any(x in _low for x in ["o que vc faz","o que você faz","o que vc sabe fazer","o que você sabe fazer"]):
+            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Eu respondo perguntas, faço cálculos, mantenho contexto e ajudo a investigar problemas passo a passo.</Message></Response>', media_type="application/xml")
+
+        _expr=re.sub(r"[^0-9+\-*/(). ]","",_low.replace("quanto é","").replace("quanto e","").replace("calcule",""))
+
+        if any(op in _expr for op in ["+","-","*","/"]) and any(ch.isdigit() for ch in _expr):
+            try:
+                if re.fullmatch(r"[0-9+\-*/(). ]+", _expr):
+                    _res=eval(_expr,{"__builtins__":{}},{})
+                    return Response(content=f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>Resultado: {_res}.</Message></Response>', media_type="application/xml")
+            except Exception:
+                pass
+
+        if _low=="calcule":
+            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Me mande a conta completa.</Message></Response>', media_type="application/xml")
+
         # P4_12N_FACTUAL_BLEED_GUARD
         from app.runtime.generic_conversation_state import factual_state_allowed_for
         if not factual_state_allowed_for(message):
