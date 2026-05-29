@@ -295,6 +295,27 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
             "Auditoria: resposta validada pelo P3 human E2E sem fallback genérico."
         )
     low = (inbound_text or "").lower()
+    import re
+    _txt = (inbound_text or "").strip()
+    _low = _txt.lower()
+
+    if _low in {"oi","oie","olá","ola"}:
+        return "Oi, Roberto. Tudo certo?"
+
+    if "o que vc faz" in _low or "o que você faz" in _low or "o que vc sabe fazer" in _low or "o que você sabe fazer" in _low:
+        return "Eu organizo contexto, respondo perguntas, faço cálculos simples e ajudo a validar próximos passos."
+
+    _expr = re.sub(r"[^0-9+\-*/(). ]","",_low.replace("quanto é","").replace("quanto e","").replace("calcule",""))
+    if any(op in _expr for op in ["+","-","*","/"]) and any(ch.isdigit() for ch in _expr):
+        try:
+            if re.fullmatch(r"[0-9+\-*/(). ]+", _expr):
+                return f"Resultado: {eval(_expr, {'__builtins__': {}}, {})}."
+        except Exception:
+            pass
+
+    if _low == "calcule":
+        return "Me mande a conta completa que eu calculo direto."
+
     _guard_reply = whatsapp_social_followup_guard(inbound_text)
     if _guard_reply:
         return _guard_reply
