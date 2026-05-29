@@ -344,7 +344,10 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
     ])
 
     if progressive_followup:
-        return universal_conversation_reply(sender_id, inbound_text, [])
+        _followup_reply = universal_conversation_reply(sender_id, inbound_text, [])
+        if block_meta_reply(_followup_reply):
+            return "Continua no mesmo ponto: validar o que falhou, testar a hipótese principal e avançar com evidência."
+        return _followup_reply
 
     if is_state_query(inbound_text):
         return build_mind_state_visible_response()
