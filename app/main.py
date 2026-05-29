@@ -179,6 +179,7 @@ from urllib.parse import parse_qs
 from fastapi import Request
 from fastapi.responses import Response
 from app.api.whatsapp import eldora_primary_runtime_reply, twiml as primary_twiml
+from app.runtime.p4_13g_router import route_natural_whatsapp
 from app.runtime.factual_search_handoff import factual_search_handoff
 from app.runtime.strategic_conversation_authority import strategic_conversation_authority
 from app.runtime.whatsapp_final_output_guard import p4_12_whatsapp_live_ux_guard, p4_12_context_lock, p4_12b_factual_execution_lock
@@ -525,7 +526,10 @@ async def whatsapp_webhook(request: Request):
                 try:
                     primary_reply = run_ucce_shadow(sender_id, message, "").get("reply","")
                 except Exception:
-                    primary_reply = dispatch_single_runtime(
+                                p4_13g_reply = route_natural_whatsapp(message)
+            if p4_13g_reply and ("não entendi" not in str(p4_13g_reply).lower()) and ("o que você quer verificar" not in str(p4_13g_reply).lower()):
+                primary_reply = p4_13g_reply
+            else:            primary_reply = dispatch_single_runtime(
                         sender_id,
                         message,
                         eldora_primary_runtime_reply(sender_id,message),
@@ -533,7 +537,10 @@ async def whatsapp_webhook(request: Request):
                         function="eldora_primary_runtime_reply"
                     )
             else:
-                primary_reply = dispatch_single_runtime(
+                            p4_13g_reply = route_natural_whatsapp(message)
+            if p4_13g_reply and ("não entendi" not in str(p4_13g_reply).lower()) and ("o que você quer verificar" not in str(p4_13g_reply).lower()):
+                primary_reply = p4_13g_reply
+            else:            primary_reply = dispatch_single_runtime(
                     sender_id,
                     message,
                     eldora_primary_runtime_reply(sender_id,message),
@@ -736,7 +743,10 @@ async def whatsapp_webhook(request: Request):
                         try:
                             primary_reply = run_ucce_shadow(sender_id, message, "").get("reply","")
                         except Exception:
-                            primary_reply = dispatch_single_runtime(
+                                        p4_13g_reply = route_natural_whatsapp(message)
+            if p4_13g_reply and ("não entendi" not in str(p4_13g_reply).lower()) and ("o que você quer verificar" not in str(p4_13g_reply).lower()):
+                primary_reply = p4_13g_reply
+            else:            primary_reply = dispatch_single_runtime(
                                 sender_id,
                                 message,
                                 eldora_primary_runtime_reply(sender_id,message),
@@ -744,7 +754,10 @@ async def whatsapp_webhook(request: Request):
                                 function="eldora_primary_runtime_reply"
                             )
                     else:
-                        primary_reply = dispatch_single_runtime(
+                                    p4_13g_reply = route_natural_whatsapp(message)
+            if p4_13g_reply and ("não entendi" not in str(p4_13g_reply).lower()) and ("o que você quer verificar" not in str(p4_13g_reply).lower()):
+                primary_reply = p4_13g_reply
+            else:            primary_reply = dispatch_single_runtime(
                             sender_id,
                             message,
                             eldora_primary_runtime_reply(sender_id,message),
@@ -1064,6 +1077,7 @@ def __forensic_trace_dump():
 @app.get("/__forensic/routes")
 def __forensic_routes():
     return [{"path": getattr(r, "path", None), "name": getattr(r, "name", None), "methods": sorted(list(getattr(r, "methods", []) or [])), "endpoint": getattr(getattr(r, "endpoint", None), "__module__", None)+"."+getattr(getattr(r, "endpoint", None), "__name__", "")} for r in app.routes]
+
 
 
 
