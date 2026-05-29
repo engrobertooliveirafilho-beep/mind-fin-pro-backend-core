@@ -17,7 +17,7 @@ PROVIDERS = [
     {"name":"speechmatics","envs":["SPEECHMATICS_API_KEY","SPEECHMATICS_KEY"],"model_env":"SPEECHMATICS_MODEL","default_model":"asr","role":"speech_to_text"},
 ]
 
-FALLBACK_ORDER = ["openai","groq","anthropic","mistral","deepseek","perplexity","google_cloud","cohere","together","sambanova","huggingface"]
+FALLBACK_ORDER = ["openai","mistral","deepseek","perplexity","google_cloud","cohere","together","sambanova","huggingface","groq","anthropic"]
 
 def _active_env(envs):
     for e in envs:
@@ -49,3 +49,4 @@ def configured_text_providers():
     status=provider_registry_status()["providers"]
     names={p["name"]:p for p in status if p["configured"]}
     return [names[n] for n in FALLBACK_ORDER if n in names]
+
