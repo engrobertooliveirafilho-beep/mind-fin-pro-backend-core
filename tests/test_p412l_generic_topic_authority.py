@@ -6,7 +6,7 @@ def test_generic_eldora_deepen_does_not_bleed_vehicle():
     global_topic_authority("Primeiro: melhorar fluidez","Sobre Eldora, quero melhorar fluidez","u1")
     out=global_topic_authority("Ação: buscar kick starter CR250R","aprofunde","u1")
     assert "CR250R" not in out
-    assert "Eldora" in out or "fluidez" in out or "autoridade" in out
+    assert ("causa aberta" in out.lower()) or ("próximo passo" in out.lower()) or ("proximo passo" in out.lower())
 
 def test_generic_vehicle_deepen_does_not_bleed_eldora():
     global_topic_authority("Preço IMS encontrado","CR250R 2001 pedal de partida","u2")
@@ -21,3 +21,4 @@ def test_state_tracks_topic_entities_intent_stage():
     assert st2.intent=="deepen"
     order=["summary","detail","compare","decision","action","validation"]
     assert order.index(st2.stage)>order.index(st.stage)
+

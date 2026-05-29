@@ -143,10 +143,7 @@ class UniversalConversationAuthority:
         if "aprofunde" in t or "ainda mais" in t:
 
             if depth <= 2:
-                return (
-                    f"Memória contextual: aprofunde {problem} "
-                    "mantendo autoridade contextual, mesmo eixo e sem puxar outro domínio."
-                )
+                return f"A causa aberta é {problem}. Próximo passo: isolar a falha, testar uma hipótese e registrar evidência."
 
             if depth == 3:
                 return (
@@ -200,4 +197,7 @@ def universal_conversation_reply(
         ctx,
         message
     )[:ctx["conversational_budget"]]
+
+
+
 

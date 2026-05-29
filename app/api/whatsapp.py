@@ -168,10 +168,7 @@ def live_whatsapp_override(inbound_text: str) -> str | None:
             )
 
         if recent == "planning":
-            return (
-                "O plano já está funcionando parcialmente. "
-                "Agora precisamos manter contexto entre perguntas curtas sem cair em resposta genérica."
-            )
+            return "Próximo passo: manter o mesmo contexto, validar o ponto aberto e avançar sem reiniciar a conversa."
     # =====================================================
     # FUZZY SMALLTALK
     # =====================================================
@@ -205,7 +202,7 @@ def live_whatsapp_override(inbound_text: str) -> str | None:
         return "Ainda não tenho consulta de clima real conectada no WhatsApp. O próximo passo é ligar uma API de previsão e responder com cidade, data, chuva e temperatura sem inventar."
 
     if any(x in msg for x in ["nao entendeu", "nao entnedeu", "não entendeu", "nao entendi", "não entendi"]):
-        return "Entendi sim: você testou uma pergunta real e eu caí no fallback. Vamos corrigir adicionando handler específico e depois conectar consulta externa quando necessário."
+        return "Entendi. Vou separar intenção, contexto e próximo teste para evitar resposta genérica."
     if msg in ["i", "oi", "olá", "ola"]:
         return "Oi, Roberto 👋 Tudo bem por aí?"
 
@@ -379,6 +376,9 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
         inbound_text,
         visible
     )
+
+
+
 
 
 
