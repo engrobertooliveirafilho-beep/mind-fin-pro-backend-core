@@ -1072,3 +1072,13 @@ def __forensic_routes():
 
 
 
+
+@app.get("/p4-13g-proof")
+def p4_13g_proof():
+    from app.runtime.p4_13g_router import route_natural_whatsapp
+    return {
+        "proof": "P4_13G_DEPLOY_PROOF",
+        "expected_head": "d1e117764ef7383308f48288e18550ee34b9f341",
+        "bmw": route_natural_whatsapp("quero comprar uma moto k1300 quais são as melhores qualidades dela?"),
+        "holambra": route_natural_whatsapp("me diga um ponto turistico em Holambra")
+    }
