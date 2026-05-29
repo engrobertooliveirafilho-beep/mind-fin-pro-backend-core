@@ -180,7 +180,6 @@ from fastapi import Request
 from fastapi.responses import Response
 from app.api.whatsapp import eldora_primary_runtime_reply, twiml as primary_twiml
 from app.runtime.p4_13g_router import route_natural_whatsapp
-from app.runtime.semantic_whatsapp_runtime import route_semantic_whatsapp
 from app.runtime.factual_search_handoff import factual_search_handoff
 from app.runtime.strategic_conversation_authority import strategic_conversation_authority
 from app.runtime.whatsapp_final_output_guard import p4_12_whatsapp_live_ux_guard, p4_12_context_lock, p4_12b_factual_execution_lock
@@ -453,9 +452,6 @@ async def whatsapp_webhook(request: Request):
 
         import re
         _msg=str(message or "").strip()
-        p4_13h_reply = route_semantic_whatsapp(message, sender_id)
-        if p4_13h_reply and ('provider factual real não configurado' not in str(p4_13h_reply).lower()):
-            return Response(content=_p412n_normalize_xml_response(message if "message" in locals() else "", primary_twiml(p4_13h_reply)), media_type="application/xml")
         p4_13g_reply = route_natural_whatsapp(message)
         if p4_13g_reply and ("não entendi" not in str(p4_13g_reply).lower()) and ("o que você quer verificar" not in str(p4_13g_reply).lower()):
             return Response(content=_p412n_normalize_xml_response(message if "message" in locals() else "", primary_twiml(p4_13g_reply)), media_type="application/xml")
@@ -1080,11 +1076,9 @@ def __forensic_routes():
 @app.get("/p4-13g-proof")
 def p4_13g_proof():
     from app.runtime.p4_13g_router import route_natural_whatsapp
-from app.runtime.semantic_whatsapp_runtime import route_semantic_whatsapp
     return {
         "proof": "P4_13G_DEPLOY_PROOF",
         "expected_head": "d1e117764ef7383308f48288e18550ee34b9f341",
         "bmw": route_natural_whatsapp("quero comprar uma moto k1300 quais são as melhores qualidades dela?"),
         "holambra": route_natural_whatsapp("me diga um ponto turistico em Holambra")
     }
-
