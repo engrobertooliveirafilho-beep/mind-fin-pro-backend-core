@@ -4,7 +4,7 @@ def factual_answer(text: str) -> str:
     t = (text or "").lower()
 
     if "qual seu nome" in t or "quem é você" in t or "quem e voce" in t:
-        return "Sou a Eldora."
+        return "Sou seu assistente no WhatsApp."
 
     if "holambra" in t:
         return "Em Holambra, visite o Moinho Povos Unidos. É um dos pontos mais conhecidos e rende bom passeio no fim de semana."
@@ -20,3 +20,4 @@ def factual_answer(text: str) -> str:
         return "Vou direto ao ponto: preciso responder com fato útil, contexto curto e próximo passo prático."
 
     return ""
+
