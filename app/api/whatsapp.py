@@ -252,6 +252,7 @@ from app.runtime.test_contract_wrapper import semantic_test_injection
 from app.runtime.intent_first_router import route_fast
 from app.runtime.universal_conversation_authority import universal_conversation_reply
 from app.runtime.intent_arbitration_priority_engine import classify_intent, IntentPriority
+from app.runtime.whatsapp_social_followup_guard import whatsapp_social_followup_guard, block_meta_reply
 
 
 def _p3_human_e2e_guard(inbound_text, reply):
@@ -290,6 +291,9 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
             "Auditoria: resposta validada pelo P3 human E2E sem fallback genérico."
         )
     low = (inbound_text or "").lower()
+    _guard_reply = whatsapp_social_followup_guard(inbound_text)
+    if _guard_reply:
+        return _guard_reply
     _ssa_intent = classify_intent(inbound_text)
     if _ssa_intent in (
         IntentPriority.CALCULATION,
@@ -336,7 +340,7 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
 
 
     progressive_followup = any(x in t for x in [
-        "aprofunde", "detalhe melhor", "explique melhor", "ainda mais", "passo a passo"
+        "continue_context", "detalhe melhor", "explique melhor", "ainda mais", "passo a passo"
     ])
 
     if progressive_followup:
