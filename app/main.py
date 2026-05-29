@@ -462,6 +462,9 @@ async def whatsapp_webhook(request: Request):
         if any(x in _low for x in ["o que vc faz","o que você faz","o que vc sabe fazer","o que você sabe fazer"]):
             return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Eu respondo perguntas, faço cálculos, mantenho contexto e ajudo a investigar problemas passo a passo.</Message></Response>', media_type="application/xml")
 
+        if _low.startswith("o que ") and not any(x in _low for x in ["vc faz","você faz","vc sabe fazer","você sabe fazer"]):
+            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Não entendi essa pergunta. Reformule com outras palavras.</Message></Response>', media_type="application/xml")
+
         _expr=re.sub(r"[^0-9+\-*/(). ]","",_low.replace("quanto é","").replace("quanto e","").replace("calcule",""))
 
         if any(op in _expr for op in ["+","-","*","/"]) and any(ch.isdigit() for ch in _expr):
