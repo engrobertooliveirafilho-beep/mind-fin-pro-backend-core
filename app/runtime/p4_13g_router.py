@@ -1,18 +1,27 @@
 from app.runtime.intent_arbitration_priority_engine import classify_intent
 from app.runtime.factual_search_handoff import factual_answer
 from app.runtime.whatsapp_social_followup_guard import social_reply
-from app.runtime.ux_scoreboard import score_message
+
+def _calc_text(text: str) -> str:
+    import re
+    raw = (text or "").lower().replace(",", ".")
+    expr = raw.replace("quanto é", "").replace("quanto e", "").replace("calcule", "")
+    expr = re.sub(r"[^0-9+\-*/(). ]", "", expr)
+    if any(op in expr for op in ["+","-","*","/"]) and any(ch.isdigit() for ch in expr):
+        if re.fullmatch(r"[0-9+\-*/(). ]+", expr):
+            try:
+                return str(eval(expr, {"__builtins__": {}}, {}))
+            except Exception:
+                return ""
+    return ""
 
 def route_natural_whatsapp(text: str) -> str:
+    calc = _calc_text(text)
+    if calc:
+        return calc
+
     c = classify_intent(text)
     intent = c["intent"]
-
-    if intent == "CALCULATION":
-        try:
-            safe = "".join(ch for ch in text.replace(",", ".") if ch in "0123456789+-*/(). ")
-            return str(eval(safe, {"__builtins__": {}}, {}))
-        except Exception:
-            return "Não consegui calcular com segurança."
 
     if intent in ("FACTUAL_QUESTION", "BUYING_ADVICE"):
         ans = factual_answer(text)
@@ -20,7 +29,7 @@ def route_natural_whatsapp(text: str) -> str:
             return ans[:220]
 
     if intent == "SOCIAL":
-        ans = social_reply(text)
+        ans = factual_answer(text) or social_reply(text)
         if ans:
             return ans[:220]
 
