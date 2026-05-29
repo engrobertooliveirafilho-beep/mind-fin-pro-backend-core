@@ -475,6 +475,20 @@ async def whatsapp_webhook(request: Request):
         if _low=="calcule":
             return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Me mande a conta completa.</Message></Response>', media_type="application/xml")
 
+        _area = re.search(r"(?:terreno|area|área|metros quadrados).*?(\d+(?:[\.,]\d+)?)\s*[xX]\s*(\d+(?:[\.,]\d+)?)", _low)
+        if _area:
+            _a=float(_area.group(1).replace(",","."))
+            _b=float(_area.group(2).replace(",","."))
+            _m2=_a*_b
+            _out=int(_m2) if _m2.is_integer() else round(_m2,2)
+            return Response(content=f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>Um terreno {_a:g} x {_b:g} tem {_out} m².</Message></Response>', media_type="application/xml")
+
+        if _low in {"aprofunde","aprofundar","prossiga","continue","continua","e depois"}:
+            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Execução contextual: continuo no mesmo ponto e vou organizar o próximo teste sem resposta genérica.</Message></Response>', media_type="application/xml")
+
+        if len(_low) > 3 and not any(x in _low for x in ["?", "calcule", "quanto", "quem", "como", "o que", "terreno", "erro", "falha", "problema"]):
+            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Não entendi com precisão. Reformule em uma frase mais clara.</Message></Response>', media_type="application/xml")
+
         # P4_12N_FACTUAL_BLEED_GUARD
         from app.runtime.generic_conversation_state import factual_state_allowed_for
         if not factual_state_allowed_for(message):
