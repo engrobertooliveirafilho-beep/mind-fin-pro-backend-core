@@ -1,28 +1,56 @@
+import json, os, re, urllib.request
 from app.runtime.semantic_router import semantic_route, norm
+
+OPENAI_URL = "https://api.openai.com/v1/chat/completions"
+
+def _call_llm(system, user):
+    key = os.getenv("OPENAI_API_KEY", "").strip()
+    if not key:
+        return None
+    body = json.dumps({
+        "model": os.getenv("OPENAI_MODEL", "gpt-4o-mini"),
+        "temperature": 0.2,
+        "messages": [
+            {"role": "system", "content": system},
+            {"role": "user", "content": user}
+        ]
+    }).encode("utf-8")
+    req = urllib.request.Request(
+        OPENAI_URL,
+        data=body,
+        headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+        method="POST",
+    )
+    with urllib.request.urlopen(req, timeout=20) as r:
+        data = json.loads(r.read().decode("utf-8"))
+    return data["choices"][0]["message"]["content"].strip()
 
 def real_factual_provider(message: str, sender_id: str = "default", context: dict | None = None) -> dict:
     ctx = context or {}
-    d = semantic_route(message, ctx)
-    loc = (d.entities or {}).get("location") or ctx.get("location")
-    brand = (d.entities or {}).get("brand")
-    model = (d.entities or {}).get("vehicle_model")
-    subject = " ".join(x for x in [brand, model] if x) or loc or "o tema"
+    decision = semantic_route(message, ctx)
 
-    if d.domain == "local_food":
-        if not loc:
-            return {"ok": False, "answer": "Me diga a cidade para eu recomendar restaurantes com critério."}
-        return {"ok": True, "answer": f"Para restaurantes em {loc}, eu avaliaria: nota recente, volume de avaliações, tipo de cozinha, preço, localização e horário. A melhor resposta exige busca atualizada; posso listar por custo-benefício, romântico, família ou comida típica."}
+    system = (
+        "Você é um assistente factual para WhatsApp. Responda em português do Brasil, curto, útil e direto. "
+        "Não invente fonte, ranking ou dado atual se não tiver certeza. "
+        "Para recomendações locais, dê critérios e opções prováveis apenas se forem conhecimento comum; se exigir atualização, diga que precisa de busca real. "
+        "Para compra de veículo/produto, dê qualidades, riscos, checklist e próximo passo."
+    )
 
-    if d.domain == "vehicle_buying":
-        return {"ok": True, "answer": f"Sobre {subject}: avalie motor, câmbio, suspensão, elétrica, histórico, disponibilidade de peças e custo de seguro. Boa compra só com laudo, teste frio e revisão documental."}
+    payload = {
+        "message": message,
+        "intent": decision.intent,
+        "domain": decision.domain,
+        "entities": decision.entities,
+        "safe_context": ctx,
+        "instruction": "gere a melhor resposta final para WhatsApp, sem metacomentário",
+    }
 
-    if d.domain == "travel":
-        return {"ok": True, "answer": f"Para viagem de fim de semana{(' em '+loc) if loc else ''}: escolha 1 atração principal, 1 restaurante, tempo real de estrada, estacionamento e plano B para chuva."}
+    answer = _call_llm(system, json.dumps(payload, ensure_ascii=False))
+    if answer:
+        return {"ok": True, "provider": "openai", "answer": answer[:900]}
 
-    if d.domain == "math":
-        return {"ok": True, "answer": d.answer}
-
-    if d.domain == "social":
-        return {"ok": True, "answer": d.answer}
-
-    return {"ok": False, "answer": ""}
+    return {
+        "ok": False,
+        "provider": "none",
+        "answer": "Provider factual real não configurado. Configure OPENAI_API_KEY no Render para eu responder dinamicamente sem inventar."
+    }
