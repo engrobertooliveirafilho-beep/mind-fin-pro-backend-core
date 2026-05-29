@@ -1,5 +1,17 @@
 import re
 import unicodedata
+from enum import Enum
+
+class IntentPriority(str, Enum):
+    CALCULATION = 'CALCULATION'
+    FACTUAL_QUESTION = 'FACTUAL_QUESTION'
+    BUYING_ADVICE = 'BUYING_ADVICE'
+    TASK_VERIFICATION = 'TASK_VERIFICATION'
+    VERIFICATION = 'TASK_VERIFICATION'
+    SOCIAL = 'SOCIAL'
+    FOLLOWUP = 'FOLLOWUP'
+    OPEN_LOOP = 'OPEN_LOOP'
+    AMBIGUOUS_FALLBACK = 'AMBIGUOUS_FALLBACK'
 
 PRIORITY = [
     "CALCULATION",
@@ -56,3 +68,4 @@ def classify_intent(text: str) -> dict:
         return {"intent": "OPEN_LOOP", "confidence": 0.55, "reason": "short_open_loop"}
 
     return {"intent": "AMBIGUOUS_FALLBACK", "confidence": 0.30, "reason": "no_class"}
+
