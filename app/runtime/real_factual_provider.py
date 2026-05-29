@@ -49,8 +49,13 @@ def real_factual_provider(message: str, sender_id: str="default", context: dict|
         }
 
     except Exception as e:
-        return {
-            "ok": False,
-            "provider": "openai_error",
-            "answer": f"FACTUAL_PROVIDER_ERROR: {type(e).__name__}"
-        }
+        detail = type(e).__name__
+        try:
+            detail += ":" + str(getattr(e, "code", ""))
+            body = e.read().decode("utf-8", errors="ignore")[:300] if hasattr(e, "read") else ""
+            if body:
+                detail += ":" + body
+        except Exception:
+            pass
+        return {"ok": False, "provider": "openai_error", "answer": "FACTUAL_PROVIDER_ERROR: " + detail}
+
