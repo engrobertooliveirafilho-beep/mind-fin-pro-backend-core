@@ -1082,3 +1082,4 @@ def p4_13g_proof():
         "bmw": route_natural_whatsapp("quero comprar uma moto k1300 quais são as melhores qualidades dela?"),
         "holambra": route_natural_whatsapp("me diga um ponto turistico em Holambra")
     }
+
