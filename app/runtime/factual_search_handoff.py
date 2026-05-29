@@ -17,9 +17,9 @@ def _next_deepen_step(key:str)->str:
     step=_RECOVERY_STEP.get(key,0)+1
     _RECOVERY_STEP[key]=step
     steps=[
-        "Execução contextual: aprofundar a causa, priorizar o próximo teste e validar por evidência.",
-        "Execução contextual: separar causa, prioridade e evidência antes do próximo teste.",
-        "Execução contextual: consolidar a causa e avançar sem resposta genérica."
+        "Execução contextual: continuo no mesmo ponto e vou organizar o próximo teste sem resposta genérica.",
+        "Execução contextual: separar o que falhou, o que testar e qual evidência registrar.",
+        "Execução contextual: fechar a causa provável e avançar com validação objetiva."
     ]
     return steps[(step-1)%len(steps)]
 
