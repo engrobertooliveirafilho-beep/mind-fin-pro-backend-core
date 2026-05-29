@@ -452,6 +452,9 @@ async def whatsapp_webhook(request: Request):
 
         import re
         _msg=str(message or "").strip()
+        p4_13g_reply = route_natural_whatsapp(message)
+        if p4_13g_reply and ("não entendi" not in str(p4_13g_reply).lower()) and ("o que você quer verificar" not in str(p4_13g_reply).lower()):
+            return Response(content=_p412n_normalize_xml_response(message if "message" in locals() else "", primary_twiml(p4_13g_reply)), media_type="application/xml")
         _low=_msg.lower()
 
         if _low in {"oi","oie","olá","ola"}:
@@ -526,10 +529,7 @@ async def whatsapp_webhook(request: Request):
                 try:
                     primary_reply = run_ucce_shadow(sender_id, message, "").get("reply","")
                 except Exception:
-                                p4_13g_reply = route_natural_whatsapp(message)
-            if p4_13g_reply and ("não entendi" not in str(p4_13g_reply).lower()) and ("o que você quer verificar" not in str(p4_13g_reply).lower()):
-                primary_reply = p4_13g_reply
-            else:            primary_reply = dispatch_single_runtime(
+                    primary_reply = dispatch_single_runtime(
                         sender_id,
                         message,
                         eldora_primary_runtime_reply(sender_id,message),
@@ -537,10 +537,7 @@ async def whatsapp_webhook(request: Request):
                         function="eldora_primary_runtime_reply"
                     )
             else:
-                            p4_13g_reply = route_natural_whatsapp(message)
-            if p4_13g_reply and ("não entendi" not in str(p4_13g_reply).lower()) and ("o que você quer verificar" not in str(p4_13g_reply).lower()):
-                primary_reply = p4_13g_reply
-            else:            primary_reply = dispatch_single_runtime(
+                primary_reply = dispatch_single_runtime(
                     sender_id,
                     message,
                     eldora_primary_runtime_reply(sender_id,message),
@@ -743,10 +740,7 @@ async def whatsapp_webhook(request: Request):
                         try:
                             primary_reply = run_ucce_shadow(sender_id, message, "").get("reply","")
                         except Exception:
-                                        p4_13g_reply = route_natural_whatsapp(message)
-            if p4_13g_reply and ("não entendi" not in str(p4_13g_reply).lower()) and ("o que você quer verificar" not in str(p4_13g_reply).lower()):
-                primary_reply = p4_13g_reply
-            else:            primary_reply = dispatch_single_runtime(
+                            primary_reply = dispatch_single_runtime(
                                 sender_id,
                                 message,
                                 eldora_primary_runtime_reply(sender_id,message),
@@ -754,10 +748,7 @@ async def whatsapp_webhook(request: Request):
                                 function="eldora_primary_runtime_reply"
                             )
                     else:
-                                    p4_13g_reply = route_natural_whatsapp(message)
-            if p4_13g_reply and ("não entendi" not in str(p4_13g_reply).lower()) and ("o que você quer verificar" not in str(p4_13g_reply).lower()):
-                primary_reply = p4_13g_reply
-            else:            primary_reply = dispatch_single_runtime(
+                        primary_reply = dispatch_single_runtime(
                             sender_id,
                             message,
                             eldora_primary_runtime_reply(sender_id,message),
