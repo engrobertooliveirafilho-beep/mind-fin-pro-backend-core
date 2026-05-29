@@ -33,14 +33,13 @@ def classify_intent(text: str) -> dict:
 
     buying = r"\b(comprar|compra|vale a pena|moto|carro|veiculo|veiculo|bmw|honda|yamaha|k1300|qualidades|pontos fortes|melhores|defeitos|problemas)\b"
     question = r"\b(qual|quais|quanto|quem|onde|quando|como|porque|por que|melhor|melhores|pontos fortes|vale a pena)\b"
-    if re.search(buying, t) and (re.search(question, t) or "comprar" in t):
+    if re.search(buying, t):
         return {"intent": "BUYING_ADVICE", "confidence": 0.93, "reason": "buying_product_vehicle"}
 
     if re.search(question, t):
         return {"intent": "FACTUAL_QUESTION", "confidence": 0.88, "reason": "question_word"}
 
-    if re.search(r"\b(verificar|validar|testar|corrigir|executar|criar|gerar|analisar|procure|buscar)\b", t):
-        return {"intent": "TASK_VERIFICATION", "confidence": 0.84, "reason": "task_word"}
+    
 
     if t in {"e depois?", "e depois", "aprofunde", "continue", "prossiga", "explique melhor"}:
         return {"intent": "FOLLOWUP", "confidence": 0.82, "reason": "followup"}
@@ -49,3 +48,9 @@ def classify_intent(text: str) -> dict:
         return {"intent": "OPEN_LOOP", "confidence": 0.55, "reason": "short_open_loop"}
 
     return {"intent": "AMBIGUOUS_FALLBACK", "confidence": 0.30, "reason": "no_class"}
+
+
+# LAST PRIORITY: TASK VERIFICATION
+if re.search(r"\b(verificar|validar|testar|corrigir|executar|analisar|auditar)\b", t):
+    return {"intent": "TASK_VERIFICATION", "confidence": 0.70, "reason": "task_word_low_priority"}
+
