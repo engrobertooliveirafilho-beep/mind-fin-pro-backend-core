@@ -21,3 +21,9 @@ def factual_answer(text: str) -> str:
 
     return ""
 
+
+def factual_search_handoff(reply, message):
+    ans = factual_answer(message)
+    if ans:
+        return ans
+    return reply
