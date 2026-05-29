@@ -1,5 +1,6 @@
 from app.runtime.semantic_router import semantic_route
 from app.runtime.multi_provider_factual_provider import multi_provider_factual_provider
+from app.runtime.whatsapp_ux_output_guard import whatsapp_ux_guard
 
 _CONTEXT = {}
 
@@ -13,9 +14,10 @@ def semantic_whatsapp_payload(message: str, sender_id: str = "default") -> dict:
     _CONTEXT[sid]=ctx
 
     provider = multi_provider_factual_provider(message, sid, ctx)
-    answer = provider["answer"] if provider.get("ok") else decision.answer
+    answer = provider["answer"] if provider.get("ok") else decision.answer`r`n    answer = whatsapp_ux_guard(message, answer)
 
     return {"intent":decision.intent,"domain":decision.domain,"confidence":decision.confidence,"entities":decision.entities,"context":ctx,"provider_ok":provider.get("ok",False),"provider":provider.get("provider"),"model":provider.get("model"),"answer":answer[:900],"errors":provider.get("errors",[])}
 
 def route_semantic_whatsapp(message: str, sender_id: str = "default") -> str:
     return semantic_whatsapp_payload(message, sender_id).get("answer", "")
+
