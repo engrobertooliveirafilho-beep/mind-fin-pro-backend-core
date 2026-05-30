@@ -2,8 +2,7 @@ from app.runtime.semantic_router import semantic_route
 from app.runtime.multi_provider_factual_provider import multi_provider_factual_provider
 from app.runtime.whatsapp_ux_output_guard import whatsapp_ux_guard
 from app.runtime.context_priority_engine import context_priority_reply
-from app.runtime.generic_topic_memory_engine import update_topic_context, expand_followup
-from app.runtime.cognitive_conversation_engine import cognitive_expand
+from app.runtime.conversation_state_machine import build_conversation_payload
 
 _CONTEXT = {}
 
@@ -16,24 +15,17 @@ def semantic_whatsapp_payload(message: str, sender_id: str = "default") -> dict:
         answer = whatsapp_ux_guard(message, priority)
         return {"intent":"CONTEXT_PRIORITY","domain":"project_context","confidence":0.99,"entities":{},"context":ctx,"provider_ok":False,"provider":"context_priority_engine","model":None,"answer":answer,"errors":[]}
 
-    routed_message = cognitive_expand(expand_followup(message, ctx), ctx)
-    decision = semantic_route(routed_message, ctx)
+    provider_message = build_conversation_payload(message, ctx)
+    decision = semantic_route(provider_message, ctx)
 
-    entities = getattr(decision, "entities", {}) or {}
-    for k, v in entities.items():
-        if v:
-            ctx[k] = v
-
-    ctx = update_topic_context(message, ctx, getattr(decision, "domain", "general"))
+    ctx["last_domain"] = ctx.get("last_domain") or getattr(decision, "domain", "general")
     _CONTEXT[sid] = ctx
 
-    provider = multi_provider_factual_provider(routed_message, sid, ctx)
-
+    provider = multi_provider_factual_provider(provider_message, sid, ctx)
     answer = provider["answer"] if provider.get("ok") else getattr(decision, "answer", "Recebi. Reformule em uma frase.")
     answer = whatsapp_ux_guard(message, answer)
 
-    return {"intent":getattr(decision,"intent","UNKNOWN"),"domain":getattr(decision,"domain","general"),"confidence":getattr(decision,"confidence",0.0),"entities":entities,"context":ctx,"provider_ok":provider.get("ok",False),"provider":provider.get("provider"),"model":provider.get("model"),"answer":answer,"errors":provider.get("errors",[])}
+    return {"intent":getattr(decision,"intent","UNKNOWN"),"domain":ctx.get("last_domain","general"),"confidence":getattr(decision,"confidence",0.0),"entities":{},"context":ctx,"provider_ok":provider.get("ok",False),"provider":provider.get("provider"),"model":provider.get("model"),"answer":answer,"errors":provider.get("errors",[])}
 
 def route_semantic_whatsapp(message: str, sender_id: str = "default") -> str:
     return semantic_whatsapp_payload(message, sender_id).get("answer", "")
-
