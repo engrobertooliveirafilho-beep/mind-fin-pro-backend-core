@@ -2,6 +2,7 @@ from app.runtime.semantic_router import semantic_route
 from app.runtime.multi_provider_factual_provider import multi_provider_factual_provider
 from app.runtime.whatsapp_ux_output_guard import whatsapp_ux_guard
 from app.runtime.context_priority_engine import context_priority_reply
+from app.runtime.topic_continuity_engine import resolve_followup
 
 _CONTEXT = {}
 
@@ -15,6 +16,14 @@ def semantic_whatsapp_payload(message: str, sender_id: str = "default") -> dict:
         answer = whatsapp_ux_guard(message, priority)
         return {"intent":"CONTEXT_PRIORITY","domain":"project_context","confidence":0.99,"entities":{},"context":ctx,"provider_ok":False,"provider":"context_priority_engine","model":None,"answer":answer,"errors":[]}
 
+        followup = resolve_followup(message, ctx)
+    if followup.get("followup") and followup.get("topic")=="BMW_K1300_BUYING":
+        return {
+            "intent":"FOLLOWUP",
+            "domain":"vehicle_buying",
+            "confidence":0.99,
+            "answer":"BMW K1300: pontos fortes são motor muito forte, estabilidade, conforto em estrada e tecnologia. Pontos fracos: manutenção cara, suspensão ESA, cardã, eletrônica, seguro e peças. Antes de comprar: histórico, revisão e teste a frio."
+        }
     decision = semantic_route(message, ctx)
 
     entities = getattr(decision, "entities", {}) or {}
@@ -50,4 +59,5 @@ def semantic_whatsapp_payload(message: str, sender_id: str = "default") -> dict:
 
 def route_semantic_whatsapp(message: str, sender_id: str = "default") -> str:
     return semantic_whatsapp_payload(message, sender_id).get("answer", "")
+
 
