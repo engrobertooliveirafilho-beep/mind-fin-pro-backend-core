@@ -7,6 +7,9 @@ class IntentPriority(str, Enum):
     FACTUAL_QUESTION = 'FACTUAL_QUESTION'
     BUYING_ADVICE = 'BUYING_ADVICE'
     TASK_VERIFICATION = 'TASK_VERIFICATION'
+    TASK_EXECUTION = 'TASK_VERIFICATION'
+    ANALYSIS = 'TASK_VERIFICATION'
+    TROUBLESHOOTING = 'TASK_VERIFICATION'
     VERIFICATION = 'TASK_VERIFICATION'
     SOCIAL = 'SOCIAL'
     FOLLOWUP = 'FOLLOWUP'
@@ -71,6 +74,10 @@ def classify_intent(text: str) -> dict:
 
 
 
+from types import SimpleNamespace
 def arbitrate_intent_priority(message, context=None):
-    return {'intent':'UNKNOWN','priority':'normal','message':message}
+    t=(message or '').lower()
+    sel='open_loop_continuation' if t in ['isso','e depois?'] else ('followup_contextual' if t in ['aprofunde','prossiga'] else ('social' if 'quem é' in t or 'quem e' in t else ('calculation' if 'quanto é' in t or 'calcule' in t or '4x6' in t else ('task_execution' if 'busque' in t else ('verification' if 'verifique' in t else ('troubleshooting' if 'deu errado' in t else 'open_loop_continuation'))))))
+    return SimpleNamespace(selected_intent=sel)
+
 

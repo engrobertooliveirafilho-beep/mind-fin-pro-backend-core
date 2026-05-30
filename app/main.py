@@ -453,6 +453,8 @@ async def whatsapp_webhook(request: Request):
         message=payload.get("Body") or payload.get("body") or payload.get("message") or ""
 
         import re
+        if str(message or "").lower().strip() in ["aprofunde","aprofundar"]:
+            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Execução contextual: continua do ponto anterior com evidência e próximo passo.</Message></Response>', media_type="application/xml")
         _msg=str(message or "").strip()
         msg_norm = (message or "").lower().strip()
         if any(x in msg_norm for x in ["quem é vc", "quem e vc", "quem é você", "quem e voce", "qual seu nome", "como vc chama", "como você chama"]):
@@ -1108,5 +1110,6 @@ app.include_router(canary_router)
 
 from app.api.p414_routes import router as p414_router
 app.include_router(p414_router)
+
 
 

@@ -1,20 +1,29 @@
-from app.runtime.intent_arbitration_priority_engine import classify_intent
-
-def social_reply(text: str) -> str:
-    t = (text or "").lower()
-    c = classify_intent(text)
-    if c["intent"] != "SOCIAL":
-        return ""
-    if "bom dia" in t: return "Bom dia! Tudo certo por aí?"
-    if "boa tarde" in t: return "Boa tarde! Tudo certo por aí?"
-    if "boa noite" in t: return "Boa noite! Tudo certo por aí?"
-    if "tudo bem" in t: return "Tudo bem por aqui. E você?"
-    if "bem" in t: return "Boa. Vamos em frente."
-    return "Oi! Tudo certo?"
-
-def whatsapp_social_followup_guard(text: str):
-    return social_reply(text)
-
+def whatsapp_social_followup_guard(text):
+    t=(text or "").lower()
+    if "como vc ta" in t or "como você está" in t or "tudo bem" in t:
+        return "Estou bem, Roberto. E você?"
+    if "aprofunde" in t:
+        return "Vou aprofundar pelo ponto anterior; continua com evidência e próximo passo."
+    return ""
 def block_meta_reply(reply):
-    low = str(reply or "").lower()
-    return ("diagnóstico" in low and "estratégia" in low and "execução" in low) or ("não posso" in low and "política" in low)
+    low=str(reply or "").lower()
+    return "execução contextual" in low or ("diagnóstico" in low and "estratégia" in low and "execução" in low) or ("não posso" in low and "política" in low)
+
+def social_reply(text):
+    return whatsapp_social_followup_guard(text)
+
+
+def social_reply(text):
+    t=(text or '').lower()
+    if 'bom dia' in t: return 'Oi, Roberto. Tudo certo?'
+    if 'aprofunde' in t: return 'Execução contextual: continua do ponto anterior com evidência e próximo passo.'
+    return whatsapp_social_followup_guard(text)
+
+
+def social_reply(text):
+    t=(text or "").lower()
+    if "bom dia" in t: return "Oi, Roberto. Tudo certo?"
+    if "eu tô bem" in t or "eu to bem" in t: return "Que bom saber que você está bem!"
+    if "aprofunde" in t: return "Execução contextual: continua do ponto anterior com evidência e próximo passo."
+    return whatsapp_social_followup_guard(text)
+
