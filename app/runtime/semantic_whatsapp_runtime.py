@@ -3,6 +3,7 @@ from app.runtime.multi_provider_factual_provider import multi_provider_factual_p
 from app.runtime.whatsapp_ux_output_guard import whatsapp_ux_guard
 from app.runtime.context_priority_engine import context_priority_reply
 from app.runtime.generic_topic_memory_engine import update_topic_context, expand_followup
+from app.runtime.cognitive_conversation_engine import cognitive_expand
 
 _CONTEXT = {}
 
@@ -15,7 +16,7 @@ def semantic_whatsapp_payload(message: str, sender_id: str = "default") -> dict:
         answer = whatsapp_ux_guard(message, priority)
         return {"intent":"CONTEXT_PRIORITY","domain":"project_context","confidence":0.99,"entities":{},"context":ctx,"provider_ok":False,"provider":"context_priority_engine","model":None,"answer":answer,"errors":[]}
 
-    routed_message = expand_followup(message, ctx)
+    routed_message = cognitive_expand(expand_followup(message, ctx), ctx)
     decision = semantic_route(routed_message, ctx)
 
     entities = getattr(decision, "entities", {}) or {}
@@ -35,3 +36,4 @@ def semantic_whatsapp_payload(message: str, sender_id: str = "default") -> dict:
 
 def route_semantic_whatsapp(message: str, sender_id: str = "default") -> str:
     return semantic_whatsapp_payload(message, sender_id).get("answer", "")
+
