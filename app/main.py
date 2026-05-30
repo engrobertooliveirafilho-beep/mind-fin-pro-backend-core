@@ -1094,3 +1094,7 @@ def p4_13g_proof():
 from app.api.canary_routes import router as canary_router
 app.include_router(canary_router)
 
+
+from app.api.p414_routes import router as p414_router
+app.include_router(p414_router)
+
