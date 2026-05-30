@@ -454,6 +454,17 @@ async def whatsapp_webhook(request: Request):
 
         import re
         _msg=str(message or "").strip()
+        msg_norm = (message or "").lower().strip()
+        if any(x in msg_norm for x in ["quem é vc", "quem e vc", "quem é você", "quem e voce", "qual seu nome", "como vc chama", "como você chama"]):
+            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Sou a Eldora 🙂</Message></Response>', media_type="application/xml")
+        _expr = re.sub(r"[^0-9+\-*/(). ]", "", msg_norm.replace("quanto é", "").replace("quanto e", "").replace("calcule", ""))
+        if any(op in _expr for op in ["+","-","*","/"]) and any(ch.isdigit() for ch in _expr):
+            try:
+                if re.fullmatch(r"[0-9+\-*/(). ]+", _expr):
+                    _res = eval(_expr, {"__builtins__": {}}, {})
+                    return Response(content=f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>Resultado: {_res}.</Message></Response>', media_type="application/xml")
+            except Exception:
+                pass
         p4_13k_reply = route_semantic_whatsapp(message, sender_id) if (semantic_enabled() and canary_allowed(sender_id)) else ''
         if p4_13k_reply and ('MULTI_AI_PROVIDER_FAILED' not in str(p4_13k_reply)) and ('NOT_CONFIGURED' not in str(p4_13k_reply)):
             log_canary(sender_id, message, p4_13k_reply); return Response(content=_p412n_normalize_xml_response(message if "message" in locals() else "", primary_twiml(p4_13k_reply)), media_type="application/xml")
@@ -1097,4 +1108,5 @@ app.include_router(canary_router)
 
 from app.api.p414_routes import router as p414_router
 app.include_router(p414_router)
+
 
