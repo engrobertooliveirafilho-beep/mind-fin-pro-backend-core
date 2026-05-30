@@ -27,3 +27,7 @@ def factual_search_handoff(reply, message):
     if ans:
         return ans
     return reply
+
+
+_LAST_STATE = {}
+

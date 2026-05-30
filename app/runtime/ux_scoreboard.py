@@ -11,3 +11,8 @@ def score_message(user_text: str, answer: str) -> dict:
     size_ok = len(answer) <= 220
     score = 10 - leak*3 - fallback*4 - duplication*1 - (0 if size_ok else 2)
     return {"intent": intent, "score": max(score,0), "leak": leak, "fallback": fallback, "duplication": duplication, "size_ok": size_ok, "chars": len(answer)}
+
+
+def score_batch(items):
+    return [score_message(x) for x in items]
+

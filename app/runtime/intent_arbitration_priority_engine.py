@@ -69,3 +69,8 @@ def classify_intent(text: str) -> dict:
 
     return {"intent": "AMBIGUOUS_FALLBACK", "confidence": 0.30, "reason": "no_class"}
 
+
+
+def arbitrate_intent_priority(message, context=None):
+    return {'intent':'UNKNOWN','priority':'normal','message':message}
+
