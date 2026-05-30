@@ -4,6 +4,7 @@ from app.runtime.whatsapp_ux_output_guard import whatsapp_ux_guard
 from app.runtime.context_priority_engine import context_priority_reply
 from app.runtime.humanized_answer_composer import humanized_answer
 from app.runtime.cognitive_style_composer import compose_human_style
+from app.runtime.relational_conversation_engine import relationalize
 from app.runtime.conversation_state_machine import build_conversation_payload
 
 _CONTEXT = {}
@@ -27,11 +28,13 @@ def semantic_whatsapp_payload(message: str, sender_id: str = "default") -> dict:
     answer = provider["answer"] if provider.get("ok") else getattr(decision, "answer", "Recebi. Reformule em uma frase.")
     answer = humanized_answer(message, answer, ctx)
     answer = compose_human_style(message, answer, ctx)
+    answer = relationalize(message, answer, ctx)
     answer = whatsapp_ux_guard(message, answer)
 
     return {"intent":getattr(decision,"intent","UNKNOWN"),"domain":ctx.get("last_domain","general"),"confidence":getattr(decision,"confidence",0.0),"entities":{},"context":ctx,"provider_ok":provider.get("ok",False),"provider":provider.get("provider"),"model":provider.get("model"),"answer":answer,"errors":provider.get("errors",[])}
 
 def route_semantic_whatsapp(message: str, sender_id: str = "default") -> str:
     return semantic_whatsapp_payload(message, sender_id).get("answer", "")
+
 
 
