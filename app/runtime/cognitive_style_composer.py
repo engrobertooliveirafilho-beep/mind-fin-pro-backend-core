@@ -16,7 +16,7 @@ def compose_human_style(message:str, answer:str, ctx:dict|None=None)->str:
     text = re.sub(r'\bPreço médio.*$', '', text, flags=re.I)
     text = re.sub(r'[⚠️✅💰🔧]', '', text)
     text = text.replace("Aqui estão algumas dicas que podem te ajudar", "")
-    text = text.replace("Aqui estão algumas dicas", "")
+    text = text.replace("Aqui estão algumas dicas", "")`r`n    text = text.replace("aqui estão algumas dicas", "")`r`n    text = text.replace("para ajudá-lo na sua busca", "")`r`n    text = text.replace("para te ajudar na sua busca", "")`r`n    text = text.replace("Se você está pensando em comprar", "Se você está pensando nela")
     text = text.replace("Olha, Olha,", "Olha,")
     text = re.sub(r'\s+', ' ', text).strip()
 
@@ -36,4 +36,5 @@ def compose_human_style(message:str, answer:str, ctx:dict|None=None)->str:
         return f"Olha, a {subject} pode ser uma boa compra se estiver inteira. {core} Antes de animar, eu olharia manutenção, elétrica, suspensão e documento."
 
     return core or text
+
 
