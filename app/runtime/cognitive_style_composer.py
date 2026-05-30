@@ -9,6 +9,8 @@ def compose_human_style(message:str, answer:str, ctx:dict|None=None)->str:
 
     text = re.sub(r'^\s*Olha,\s*sobre\s*a?\s*[^:]+:\s*', '', text, flags=re.I)
     text = re.sub(r'^\s*[A-Za-zÁ-Úá-ú0-9\s()./-]+:\s*', '', text)
+    text = re.sub(r'\b[A-Za-z]{1,4}\s*\d{2,4}\s*\(\d{4}\):\s*', '', text, flags=re.I)
+    text = re.sub(r'\s+-\s+', ' ', text)
     text = re.sub(r'\bPrós:\s*', '', text, flags=re.I)
     text = re.sub(r'\bCuidados:\s*', '', text, flags=re.I)
     text = re.sub(r'\bPreço médio.*$', '', text, flags=re.I)
@@ -34,3 +36,4 @@ def compose_human_style(message:str, answer:str, ctx:dict|None=None)->str:
         return f"Olha, a {subject} pode ser uma boa compra se estiver inteira. {core} Antes de animar, eu olharia manutenção, elétrica, suspensão e documento."
 
     return core or text
+
