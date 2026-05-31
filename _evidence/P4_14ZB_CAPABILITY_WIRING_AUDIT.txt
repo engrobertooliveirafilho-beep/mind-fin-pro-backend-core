@@ -1,0 +1,104 @@
+
+  app\api\eldora_social.py:1:from fastapi import APIRouter
+  app\api\eldora_social.py:2:
+  app\api\eldora_social.py:3:from app.eldora.core.persistent_social_memory import (
+> app\api\eldora_social.py:4:    store_social_memory,
+> app\api\eldora_social.py:5:    social_memory_report
+  app\api\eldora_social.py:6:)
+  app\api\eldora_social.py:7:
+  app\api\eldora_social.py:8:from app.eldora.core.emotional_continuity_engine import (
+  app\api\eldora_social.py:9:    emotional_continuity,
+  app\api\eldora_social.py:10:    emotional_report
+  app\api\eldora_social.py:11:)
+  app\api\eldora_social.py:22:
+  app\api\eldora_social.py:23:@router.post("/memory/store")
+  app\api\eldora_social.py:24:async def memory(user_id:str, interaction:str):
+> app\api\eldora_social.py:25:    return store_social_memory(user_id, interaction)
+  app\api\eldora_social.py:26:
+  app\api\eldora_social.py:27:@router.get("/memory/report")
+  app\api\eldora_social.py:28:async def memory_runtime():
+> app\api\eldora_social.py:29:    return social_memory_report()
+  app\api\eldora_social.py:30:
+  app\api\eldora_social.py:31:@router.post("/emotion/analyze")
+  app\api\eldora_social.py:32:async def emotion(user_id:str, emotion:str, context:str):
+  app\api\eldora_social.py:33:    return emotional_continuity(user_id, emotion, context)
+  app\api\eldora_social.py:34:
+  app\api\eldora_social.py:35:@router.get("/emotion/report")
+  app\api\whatsapp.py:1:from app.runtime.final_human_output_sanitizer import sanitize_final_human_output
+  app\api\whatsapp.py:2:from app.runtime.universal_conversation_os import universal_conversation_guard
+> app\api\whatsapp.py:3:from app.runtime.actionable_continuity_authority import set_actionable_turn_context, guard_actionable_reply
+  app\api\whatsapp.py:4:from app.runtime.forensic_trace import event
+  app\api\whatsapp.py:5:# P4_12N_FORENSIC_TRACE_ACTIVE
+  app\api\whatsapp.py:6:
+  app\api\whatsapp.py:7:def _eldora_live_override_contract_patch(sender_id: str, inbound_text: str):
+  app\api\whatsapp.py:8:    text = (inbound_text or "").strip().lower()
+  app\api\whatsapp.py:9:    compact = (
+  app\dialogue\context_resolution_engine.py:1:from app.dialogue.conversation_continuity_runtime import get
+> app\dialogue\context_resolution_engine.py:2:def resolve(sender_id,user_text):
+  app\dialogue\context_resolution_engine.py:3:    st=get(sender_id)
+  app\dialogue\context_resolution_engine.py:4:    low=(user_text or "").lower()
+  app\dialogue\context_resolution_engine.py:5:    topic=st.get("active_topic","")
+  app\dialogue\context_resolution_engine.py:6:    if any(x in low for x in ["isso","esse","agora","e ai","e aí","como ficou","sentiu diferença","qual score","e depois"]):
+  app\dialogue\context_resolution_engine.py:7:        return topic or "conversa_geral"
+  app\dialogue\context_resolution_engine.py:8:    return topic
+  app\runtime\actionable_continuity_authority.py:60:    last_reply: str = ""
+  app\runtime\actionable_continuity_authority.py:61:    conversation_summary: str = ""
+  app\runtime\actionable_continuity_authority.py:62:
+> app\runtime\actionable_continuity_authority.py:63:def set_actionable_turn_context(sender_id: str, user_message: str, last_state: dict[str, Any] | None = None) -> None:
+  app\runtime\actionable_continuity_authority.py:64:    _CURRENT_TURN.set({"sender_id": sender_id or "", "user_message": user_message or "", "last_state": last_state or {}})
+  app\runtime\actionable_continuity_authority.py:65:
+  app\runtime\actionable_continuity_authority.py:66:def _norm(s: str) -> str:
+  app\runtime\actionable_continuity_authority.py:67:    return (s or "").strip()
+  app\runtime\actionable_continuity_authority.py:68:
+  app\runtime\actionable_continuity_authority.py:69:def _state(last_state: dict[str, Any] | None) -> ContinuityState:
+  app\runtime\actionable_continuity_authority.py:154:
+  app\runtime\actionable_continuity_authority.py:155:    return f"Resposta direta: {base}."
+  app\runtime\actionable_continuity_authority.py:156:
+> app\runtime\actionable_continuity_authority.py:157:def guard_actionable_reply(reply: str, sender_id: str = "", user_message: str = "", last_state: dict[str, Any] | None = None) -> str:
+  app\runtime\actionable_continuity_authority.py:158:    _aca_trace(
+  app\runtime\actionable_continuity_authority.py:159:        "ENTER",
+  app\runtime\actionable_continuity_authority.py:160:        user_message=user_message,
+  app\runtime\actionable_continuity_authority.py:161:        reply_before=reply
+  app\runtime\actionable_continuity_authority.py:162:    )
+  app\runtime\actionable_continuity_authority.py:163:
+  app\runtime\conversation_state_resolver.py:15:def _has(m, items):
+  app\runtime\conversation_state_resolver.py:16:    return any(x in m for x in items)
+  app\runtime\conversation_state_resolver.py:17:
+> app\runtime\conversation_state_resolver.py:18:def resolve(sender_id,msg):
+  app\runtime\conversation_state_resolver.py:19:    s=get_state(sender_id); m=_norm(msg)
+  app\runtime\conversation_state_resolver.py:20:    if _has(m,TROUBLE): return "TROUBLESHOOTING",s
+  app\runtime\conversation_state_resolver.py:21:    if _has(m,FOLLOWUP): return "FOLLOWUP",s
+  app\runtime\conversation_state_resolver.py:22:    if _has(m,TASK): return "TASK",s
+  app\runtime\conversation_state_resolver.py:23:    if _has(m,SOCIAL): return "SOCIAL",s
+  app\runtime\conversation_state_resolver.py:24:    return "AMBIGUOUS",s
+  app\runtime\ucce_canary_router.py:4:CANARY_PERCENT=int(os.getenv("UCCE_CANARY_PERCENT","10"))
+  app\runtime\ucce_canary_router.py:5:ALLOWLIST=set(filter(None,os.getenv("UCCE_CANARY_ALLOWLIST","").split(",")))
+  app\runtime\ucce_canary_router.py:6:
+> app\runtime\ucce_canary_router.py:7:def should_use_ucce(sender_id:str)->bool:
+  app\runtime\ucce_canary_router.py:8:    if not CANARY_ENABLED:
+  app\runtime\ucce_canary_router.py:9:        return False
+  app\runtime\ucce_canary_router.py:10:
+  app\runtime\ucce_canary_router.py:11:    sender=(sender_id or "").strip()
+  app\runtime\ucce_canary_router.py:12:
+  app\runtime\ucce_canary_router.py:13:    if sender in ALLOWLIST:
+> app\runtime\ucce_decision_diff.py:1:def compare_decisions(dispatcher_reply,ucce):
+  app\runtime\ucce_decision_diff.py:2:    r=(ucce.get("reply","") or "").lower()
+  app\runtime\ucce_decision_diff.py:3:    c=9 if ucce.get("context_used") else 5
+  app\runtime\ucce_decision_diff.py:4:    social=9 if ucce.get("classification")=="SOCIAL" else 6
+  app\runtime\ucce_decision_diff.py:5:    fallback=1 if "exatamente" in r else 0
+  app\runtime\ucce_decision_diff.py:6:    return {"contextual_continuity_score":c,"semantic_collapse_score":0,"placeholder_score":0,"social_naturalness_score":social,"repetition_score":0,"execution_usefulness_score":8,"fallback_dependency_score":fallback,"winner":"ucce" if c>=8 else "dispatcher"}
+  app\runtime\ucce_shadow_mode.py:1:from app.runtime.universal_contextual_continuity_engine import ucce_shadow_evaluate
+> app\runtime\ucce_shadow_mode.py:2:def run_ucce_shadow(sender_id,inbound_message,live_reply,state=None):
+  app\runtime\ucce_shadow_mode.py:3:    try:return ucce_shadow_evaluate(sender_id,inbound_message,state)
+  app\runtime\ucce_shadow_mode.py:4:    except Exception as e:return {"classification":"ERROR","reply":live_reply,"error":str(e)}
+  app\runtime\universal_contextual_continuity_engine.py:43:    s=get_state(sender_id)
+  app\runtime\universal_contextual_continuity_engine.py:44:    raw=(inbound_message or "").strip()
+  app\runtime\universal_contextual_continuity_engine.py:45:    msg=raw.lower()
+> app\runtime\universal_contextual_continuity_engine.py:46:    intent,_=resolve(sender_id,raw)
+  app\runtime\universal_contextual_continuity_engine.py:47:    ctx=recover_context(s)
+  app\runtime\universal_contextual_continuity_engine.py:48:
+  app\runtime\universal_contextual_continuity_engine.py:49:    deployment_terms=["implantacao","implantação","implantações","implantacoes","deploy","render","version","versao","versão","elas"]
+  app\runtime\universal_contextual_continuity_engine.py:50:    status_terms=["como","status","estao","estão","andamento","deu certo","funcionou"]
+  app\runtime\universal_contextual_continuity_engine.py:51:
+  app\runtime\universal_contextual_continuity_engine.py:52:    if _has(msg,deployment_terms):
+

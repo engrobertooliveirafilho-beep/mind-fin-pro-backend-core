@@ -1,0 +1,107 @@
+
+app\api\whatsapp.py:16:    if compact in {"oi","oie","ola","olá","bom dia","boa tarde","boa noite"}:
+app\api\whatsapp.py:17:        return "Oi, Roberto 👋 Tudo certo?"
+app\api\whatsapp.py:19:    if (
+app\api\whatsapp.py:24:        return "Ainda não fechou 100%. O gargalo está no handler do canal WhatsApp: ele responde, mas ainda precisa estabilizar continuidade, fallback e contexto real."
+app\api\whatsapp.py:26:    return None
+app\api\whatsapp.py:41:from app.runtime.cognitive_pipeline import run_cognitive_pipeline
+app\api\whatsapp.py:69:    if decision.turn_type in factual_turns or any(x in low for x in task_markers):
+app\api\whatsapp.py:70:        if not raw or any(x in low for x in bad) or technical_block:
+app\api\whatsapp.py:71:            return None
+app\api\whatsapp.py:72:        return raw
+app\api\whatsapp.py:74:    if not raw or any(x in low for x in bad) or technical_block:
+app\api\whatsapp.py:75:        if decision.turn_type=="SOCIAL_DIALOGUE":
+app\api\whatsapp.py:76:            return "Tudo certo 🙂 E você?"
+app\api\whatsapp.py:77:        if decision.turn_type=="META_CONVERSATION":
+app\api\whatsapp.py:78:            return "Me corrija na hora e eu ajusto o jeito."
+app\api\whatsapp.py:79:        if decision.turn_type=="RECOVERY":
+app\api\whatsapp.py:80:            return None
+app\api\whatsapp.py:81:        return None
+app\api\whatsapp.py:83:    return raw
+app\api\whatsapp.py:91:    if ("não recebi conteúdo" in low or "nao recebi conteudo" in low or "conteúdo suficiente" in low or "conteudo suficiente" in low or "entendi. continua" in low):
+app\api\whatsapp.py:99:    return (
+app\api\whatsapp.py:104:def live_whatsapp_override(inbound_text: str) -> str | None:
+app\api\whatsapp.py:123:    if any(x in msg for x in ["como esta", "como esta indo", "como vai", "esta indo", "ta indo"]):
+app\api\whatsapp.py:124:        return (
+app\api\whatsapp.py:129:    if any(x in msg for x in ["deu ruim", "bugou", "nao funcionou", "nao respondeu"]):
+app\api\whatsapp.py:130:        return (
+app\api\whatsapp.py:138:    if any(x in msg for x in [
+app\api\whatsapp.py:147:        return (
+app\api\whatsapp.py:151:    if msg in ["como", "e como"]:
+app\api\whatsapp.py:152:        return (
+app\api\whatsapp.py:159:    if any(x in msg for x in [
+app\api\whatsapp.py:168:        if recent == "conversation_runtime":
+app\api\whatsapp.py:169:            return (
+app\api\whatsapp.py:174:        if recent == "planning":
+app\api\whatsapp.py:175:            return "Próximo passo: manter o mesmo contexto, validar o ponto aberto e avançar sem reiniciar a conversa."
+app\api\whatsapp.py:180:    if any(x in msg for x in [
+app\api\whatsapp.py:187:        return (
+app\api\whatsapp.py:196:    if any(x in msg for x in [
+app\api\whatsapp.py:202:        return (
+app\api\whatsapp.py:205:    if any(x in msg for x in ["previsao do tempo", "previsão do tempo", "tempo para amanha", "tempo para amanhã", "clima amanha", "clima amanhã"]):
+app\api\whatsapp.py:206:        return "Ainda não tenho consulta de clima real conectada no WhatsApp. O próximo passo é ligar uma API de previsão e responder com cidade, data, chuva e temperatura sem inventar."
+app\api\whatsapp.py:208:    if any(x in msg for x in ["nao entendeu", "nao entnedeu", "não entendeu", "nao entendi", "não entendi"]):
+app\api\whatsapp.py:209:        return "Entendi. Vou separar intenção, contexto e próximo teste para evitar resposta genérica."
+app\api\whatsapp.py:210:    if msg in ["i", "oi", "olá", "ola"]:
+app\api\whatsapp.py:211:        return "Oi, Roberto 👋 Tudo bem por aí?"
+app\api\whatsapp.py:213:    if any(x in msg for x in ["boa tarde", "bom dia", "boa noite"]):
+app\api\whatsapp.py:214:        return "Boa tarde, Roberto ☀️ Como você está?"
+app\api\whatsapp.py:216:    if any(x in msg for x in ["como ta", "como tá", "tudo bem"]):
+app\api\whatsapp.py:217:        return "Tudo certo por aqui 🙂 E você?"
+app\api\whatsapp.py:219:    if any(x in msg for x in ["quem eh vc", "quem é vc", "quem é você"]):
+app\api\whatsapp.py:220:        return ""
+app\api\whatsapp.py:222:    if any(x in msg for x in ["ainda nao conseguimos resolver", "ainda não conseguimos resolver", "nao esta funcionando", "não está funcionando", "não funciona"]):
+app\api\whatsapp.py:224:        return "Claro 🙂 Me conta o que está acontecendo."
+app\api\whatsapp.py:226:    if any(x in msg for x in [
+app\api\whatsapp.py:236:        return (
+app\api\whatsapp.py:241:    if any(x in msg for x in [
+app\api\whatsapp.py:245:        return (
+app\api\whatsapp.py:248:    if any(x in msg for x in ["o que fazer", "oque fazer", "como resolver", "como arrumar"]):
+app\api\whatsapp.py:250:        return "Agora vamos estabilizar o runtime do WhatsApp antes de religar toda a camada cognitiva."
+app\api\whatsapp.py:252:    return None
+app\api\whatsapp.py:256:from app.runtime.intent_first_router import route_fast
+app\api\whatsapp.py:263:    text = str(reply.get("answer", reply) if isinstance(reply, dict) else reply)
+app\api\whatsapp.py:272:    if any(x in low for x in blocked):
+app\api\whatsapp.py:273:        return (
+app\api\whatsapp.py:286:    return reply
+app\api\whatsapp.py:290:    if ("não entendi" in _p3_body or "nao entendi" in _p3_body) and ("resolver" in _p3_body or "como" in _p3_body):
+app\api\whatsapp.py:291:        return (
+app\api\whatsapp.py:302:    if _low in {"oi","oie","olá","ola"}:
+app\api\whatsapp.py:303:        return "Oi, Roberto. Tudo certo?"
+app\api\whatsapp.py:305:    if "o que vc faz" in _low or "o que você faz" in _low or "o que vc sabe fazer" in _low or "o que você sabe fazer" in _low:
+app\api\whatsapp.py:306:        return "Eu organizo contexto, respondo perguntas, faço cálculos simples e ajudo a validar próximos passos."
+app\api\whatsapp.py:309:    if any(op in _expr for op in ["+","-","*","/"]) and any(ch.isdigit() for ch in _expr):
+app\api\whatsapp.py:311:            if re.fullmatch(r"[0-9+\-*/(). ]+", _expr):
+app\api\whatsapp.py:312:                return f"Resultado: {eval(_expr, {'__builtins__': {}}, {})}."
+app\api\whatsapp.py:316:    if _low == "calcule":
+app\api\whatsapp.py:317:        return "Me mande a conta completa que eu calculo direto."
+app\api\whatsapp.py:320:    if _guard_reply:
+app\api\whatsapp.py:321:        return _guard_reply
+app\api\whatsapp.py:323:    if _ssa_intent in (
+app\api\whatsapp.py:330:        return universal_conversation_guard(inbound_text, sender_id, "")
+app\api\whatsapp.py:331:    if any(x in low for x in [
+app\api\whatsapp.py:340:        return "Sou a Eldora 🙂"
+app\api\whatsapp.py:343:    if _contract_reply:
+app\api\whatsapp.py:344:        return _contract_reply
+app\api\whatsapp.py:345:    fast = route_fast(sender_id, inbound_text)
+app\api\whatsapp.py:346:    if fast:
+app\api\whatsapp.py:347:        return fast
+app\api\whatsapp.py:348:    if any(x in low for x in [
+app\api\whatsapp.py:355:        return "Sou a Eldora 🙂"
+app\api\whatsapp.py:360:    if "prosseguir evolução do mind" in t or "prosseguir evolucao do mind" in t:
+app\api\whatsapp.py:361:        return "Diagnóstico\nRoberto, sigo no MIND. Próximo passo: avançar a próxima camada crítica.\n\nEstratégia\nContinuidade cognitiva ativa.\n\nExecução\nRuntime semântico operacional.\n\nAuditoria\nCompatibilidade legada validada."
+app\api\whatsapp.py:363:    if t in ["nao entendi","não entendi"]:
+app\api\whatsapp.py:364:        return "Vou explicar em três camadas: memória contextual, cognição profunda e continuidade operacional, evitando frases genéricas."
+app\api\whatsapp.py:372:    if progressive_followup:
+app\api\whatsapp.py:374:        if block_meta_reply(_followup_reply):
+app\api\whatsapp.py:375:            return "Continua no mesmo ponto: validar o que falhou, testar a hipótese principal e avançar com evidência."
+app\api\whatsapp.py:376:        return _followup_reply
+app\api\whatsapp.py:378:    if is_state_query(inbound_text):
+app\api\whatsapp.py:379:        return build_mind_state_visible_response()
+app\api\whatsapp.py:387:    override = live_whatsapp_override(inbound_text)
+app\api\whatsapp.py:389:    if override:
+app\api\whatsapp.py:391:        return semantic_test_injection(
+app\api\whatsapp.py:400:    visible = run_cognitive_pipeline(
+app\api\whatsapp.py:405:    if whatsapp_intelligence_active() and isinstance(visible, dict):
+app\api\whatsapp.py:408:    return semantic_test_injection(
+

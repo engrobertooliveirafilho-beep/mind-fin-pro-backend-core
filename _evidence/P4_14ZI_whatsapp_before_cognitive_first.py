@@ -316,19 +316,6 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
     if _low == "calcule":
         return "Me mande a conta completa que eu calculo direto."
 
-    # P4_14ZI_COGNITIVE_FIRST_RUNTIME
-    try:
-        _visible = run_cognitive_pipeline(sender_id, inbound_text)
-        if whatsapp_intelligence_active() and isinstance(_visible, dict):
-            _visible["activation_context"] = enrich_whatsapp_context(sender_id, inbound_text, {})
-        _candidate = semantic_test_injection(inbound_text, _visible)
-        _text = _candidate.get("answer", "") if isinstance(_candidate, dict) else str(_candidate or "")
-        _text = guard_actionable_reply(_text, sender_id, inbound_text, {})
-        if _text and len(_text.strip()) >= 8 and "não recebi conteúdo" not in _text.lower():
-            return _text
-    except Exception as _p414zi_error:
-        event("P4_14ZI_COGNITIVE_FIRST_ERROR", error=str(_p414zi_error), inbound=inbound_text)
-
     _guard_reply = whatsapp_social_followup_guard(inbound_text)
     if _guard_reply:
         return _guard_reply

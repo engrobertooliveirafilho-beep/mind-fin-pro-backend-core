@@ -1,0 +1,99 @@
+
+> app\api\whatsapp.py:17:        return "Oi, Roberto 👋 Tudo certo?"
+  app\api\whatsapp.py:18:
+> app\api\whatsapp.py:24:        return "Ainda não fechou 100%. O gargalo está no handler do canal WhatsApp: ele responde, mas ainda precisa estabilizar continuidade, fallback e contexto real."
+  app\api\whatsapp.py:25:
+> app\api\whatsapp.py:26:    return None
+  app\api\whatsapp.py:27:from app.runtime.whatsapp_trace_sensor import sanitize_final_output
+> app\api\whatsapp.py:71:            return None
+> app\api\whatsapp.py:72:        return raw
+  app\api\whatsapp.py:73:
+> app\api\whatsapp.py:76:            return "Tudo certo 🙂 E você?"
+  app\api\whatsapp.py:77:        if decision.turn_type=="META_CONVERSATION":
+> app\api\whatsapp.py:78:            return "Me corrija na hora e eu ajusto o jeito."
+  app\api\whatsapp.py:79:        if decision.turn_type=="RECOVERY":
+> app\api\whatsapp.py:80:            return None
+> app\api\whatsapp.py:81:        return None
+  app\api\whatsapp.py:82:
+> app\api\whatsapp.py:83:    return raw
+  app\api\whatsapp.py:84:
+> app\api\whatsapp.py:99:    return (
+  app\api\whatsapp.py:100:        f'<?xml version="1.0" encoding="UTF-8"?>'
+> app\api\whatsapp.py:124:        return (
+  app\api\whatsapp.py:125:            "Está melhorando. O runtime novo já responde no WhatsApp, "
+> app\api\whatsapp.py:130:        return (
+  app\api\whatsapp.py:131:            "Ainda existem falhas de continuidade no canal real, "
+> app\api\whatsapp.py:147:        return (
+  app\api\whatsapp.py:148:            "O plano agora é estabilizar primeiro a conversa curta no WhatsApp, "
+> app\api\whatsapp.py:152:        return (
+  app\api\whatsapp.py:153:            "Fazendo em camadas: primeiro blindamos as respostas curtas do WhatsApp, "
+> app\api\whatsapp.py:169:            return (
+  app\api\whatsapp.py:170:                "Ainda não ficou totalmente natural. "
+> app\api\whatsapp.py:175:            return "Próximo passo: manter o mesmo contexto, validar o ponto aberto e avançar sem reiniciar a conversa."
+  app\api\whatsapp.py:176:    # =====================================================
+> app\api\whatsapp.py:187:        return (
+  app\api\whatsapp.py:188:            "Está melhorando. O WhatsApp já responde melhor, "
+> app\api\whatsapp.py:202:        return (
+  app\api\whatsapp.py:203:            "Sim. Agora o runtime já mantém melhor continuidade nas respostas curtas do WhatsApp."
+> app\api\whatsapp.py:206:        return "Ainda não tenho consulta de clima real conectada no WhatsApp. O próximo passo é ligar uma API de previsão e responder com cidade, data, chuva e temperatura sem inventar."
+  app\api\whatsapp.py:207:
+> app\api\whatsapp.py:209:        return "Entendi. Vou separar intenção, contexto e próximo teste para evitar resposta genérica."
+  app\api\whatsapp.py:210:    if msg in ["i", "oi", "olá", "ola"]:
+> app\api\whatsapp.py:211:        return "Oi, Roberto 👋 Tudo bem por aí?"
+  app\api\whatsapp.py:212:
+> app\api\whatsapp.py:214:        return "Boa tarde, Roberto ☀️ Como você está?"
+  app\api\whatsapp.py:215:
+> app\api\whatsapp.py:217:        return "Tudo certo por aqui 🙂 E você?"
+  app\api\whatsapp.py:218:
+> app\api\whatsapp.py:220:        return ""
+  app\api\whatsapp.py:221:
+> app\api\whatsapp.py:224:        return "Claro 🙂 Me conta o que está acontecendo."
+  app\api\whatsapp.py:225:
+> app\api\whatsapp.py:236:        return (
+  app\api\whatsapp.py:237:            "Está melhorando. O WhatsApp já está respondendo pelo runtime novo, "
+> app\api\whatsapp.py:245:        return (
+  app\api\whatsapp.py:246:            "Sandbox conectado com sucesso. O canal do WhatsApp está ativo."
+> app\api\whatsapp.py:250:        return "Agora vamos estabilizar o runtime do WhatsApp antes de religar toda a camada cognitiva."
+  app\api\whatsapp.py:251:
+> app\api\whatsapp.py:252:    return None
+  app\api\whatsapp.py:253:
+> app\api\whatsapp.py:273:        return (
+  app\api\whatsapp.py:274:            "Diagnóstico\n"
+> app\api\whatsapp.py:286:    return reply
+  app\api\whatsapp.py:287:
+> app\api\whatsapp.py:291:        return (
+  app\api\whatsapp.py:292:            "Diagnóstico: entendi que há uma dúvida sem escopo claro e não vou devolver resposta genérica.\n"
+> app\api\whatsapp.py:303:        return "Oi, Roberto. Tudo certo?"
+  app\api\whatsapp.py:304:
+> app\api\whatsapp.py:306:        return "Eu organizo contexto, respondo perguntas, faço cálculos simples e ajudo a validar próximos passos."
+  app\api\whatsapp.py:307:
+> app\api\whatsapp.py:312:                return f"Resultado: {eval(_expr, {'__builtins__': {}}, {})}."
+  app\api\whatsapp.py:313:        except Exception:
+> app\api\whatsapp.py:317:        return "Me mande a conta completa que eu calculo direto."
+  app\api\whatsapp.py:318:
+> app\api\whatsapp.py:321:        return _guard_reply
+  app\api\whatsapp.py:322:    _ssa_intent = classify_intent(inbound_text)
+> app\api\whatsapp.py:330:        return universal_conversation_guard(inbound_text, sender_id, "")
+  app\api\whatsapp.py:331:    if any(x in low for x in [
+> app\api\whatsapp.py:340:        return "Sou a Eldora 🙂"
+  app\api\whatsapp.py:341:
+> app\api\whatsapp.py:344:        return _contract_reply
+  app\api\whatsapp.py:345:    fast = route_fast(sender_id, inbound_text)
+> app\api\whatsapp.py:347:        return fast
+  app\api\whatsapp.py:348:    if any(x in low for x in [
+> app\api\whatsapp.py:355:        return "Sou a Eldora 🙂"
+  app\api\whatsapp.py:356:
+> app\api\whatsapp.py:361:        return "Diagnóstico\nRoberto, sigo no MIND. Próximo passo: avançar a próxima camada crítica.\n\nEstratégia\nContinuidade cognitiva ativa.\n\nExecução\nRuntime semântico operacional.\n\nAuditoria\nCompatibilidade legada validada."
+  app\api\whatsapp.py:362:
+> app\api\whatsapp.py:364:        return "Vou explicar em três camadas: memória contextual, cognição profunda e continuidade operacional, evitando frases genéricas."
+  app\api\whatsapp.py:365:
+> app\api\whatsapp.py:375:            return "Continua no mesmo ponto: validar o que falhou, testar a hipótese principal e avançar com evidência."
+> app\api\whatsapp.py:376:        return _followup_reply
+  app\api\whatsapp.py:377:
+> app\api\whatsapp.py:379:        return build_mind_state_visible_response()
+  app\api\whatsapp.py:380:
+> app\api\whatsapp.py:391:        return semantic_test_injection(
+  app\api\whatsapp.py:392:            inbound_text,
+> app\api\whatsapp.py:408:    return semantic_test_injection(
+  app\api\whatsapp.py:409:        inbound_text,
+
