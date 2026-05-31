@@ -10,6 +10,9 @@ def run_cognitive_pipeline(user_id: str, message: str) -> dict:
     from app.runtime.quality_gate import rewrite_if_needed
     from app.runtime.autonomous_cognition_layer import run_autonomous_cognition_layer
     from app.runtime.natural_response_layer import naturalize_response
+    from app.runtime.real_social_memory_layer import infer_social_profile
+    from app.runtime.real_emotional_state_layer import infer_emotional_state
+    from app.runtime.real_relationship_profile_layer import build_relationship_profile
 
     save_message(user_id, "user", message)
 
@@ -87,6 +90,14 @@ def run_cognitive_pipeline(user_id: str, message: str) -> dict:
         "autonomous": autonomous
     }
 
+    # P4_16D_REAL_SOCIAL_LAYERS_ACTIVE
+    social = infer_social_profile(user_id, message, memory)
+    emotion = infer_emotional_state(user_id, message, memory)
+    relationship = build_relationship_profile(user_id, social, emotion, memory)
+    memory["social"] = social
+    memory["emotion"] = emotion
+    memory["relationship"] = relationship
+
     state = update_state(message, intent, memory)
     persona = build_persona_context(user_id, state, memory)
     strategy = build_response_strategy(intent, state, memory)
@@ -103,7 +114,10 @@ def run_cognitive_pipeline(user_id: str, message: str) -> dict:
         "intent": intent,
         "scores": final["scores"],
         "state": state,
-        "autonomous": autonomous
+        "autonomous": autonomous,
+        "social": memory.get("social", {}),
+        "emotion": memory.get("emotion", {}),
+        "relationship": memory.get("relationship", {})
     }
 
 
