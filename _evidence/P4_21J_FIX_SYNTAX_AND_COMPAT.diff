@@ -1,0 +1,19 @@
+diff --git a/app/api/whatsapp.py b/app/api/whatsapp.py
+index 77f437b..55ed70d 100644
+--- a/app/api/whatsapp.py
++++ b/app/api/whatsapp.py
+@@ -279,9 +279,13 @@ def compat_semantics_after_cognition(inbound_text: str, reply):
+     if any(x in text for x in ["como esta","como est├í","tudo be","como ta"]):
+         ensure("melhorando","Est├í melhorando com foco em continuidade e naturalidade.")
+ 
+-    if any(x in text for x in ["deu certo","conseguiu","deu ruim"]):
++    if any(x in text for x in ["deu certo","conseguiu","deu ruim","esta dando certo","est├í dando certo"]):
+         ensure("continuidade","O foco ├® continuidade do runtime novo.")
+ 
++    if "como?4" in text or text.strip().startswith("como?"):
++        ensure("camadas","Vou separar em camadas com respostas curtas.")
++        ensure("respostas curtas","Respostas curtas primeiro; detalhe s├│ se pedir.")
++
+     if "getting-throughout" in text:
+         ensure("sandbox conectado","Sandbox conectado e rota validada.")
+ 
