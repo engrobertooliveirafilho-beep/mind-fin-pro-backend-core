@@ -1,0 +1,16 @@
+diff --git a/app/api/whatsapp.py b/app/api/whatsapp.py
+index 3ed6537..77f437b 100644
+--- a/app/api/whatsapp.py
++++ b/app/api/whatsapp.py
+@@ -435,6 +435,11 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
+     if compat_hint and isinstance(visible, dict):
+         visible["compat_hint"] = compat_hint
+ 
++    # P4_21I_RETURN_COMPAT_VISIBLE_ACTIVE
++    return semantic_test_injection(
++        inbound_text,
++        visible
++    )
+ 
+     # ==========================================
+     # PRIORIDADE 2 ÔÇö COGNITIVE RUNTIME
