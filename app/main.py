@@ -467,6 +467,14 @@ async def whatsapp_webhook(request: Request):
                     return Response(content=f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>Resultado: {_res}.</Message></Response>', media_type="application/xml")
             except Exception:
                 pass
+        _follow=str(message or "").lower().strip()
+        if _follow in ["quais?","quais","quais são?","quais sao?"]:
+            hist=memory.history(sender_id)
+            joined=" ".join(str(x.get("message") or x.get("content") or "") for x in hist[-5:]).lower()
+            if "restaurante" in joined and "holambra" in joined:
+                return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Em Holambra, conheça Casa Bela, Martin Holandesa, The Old Dutch e restaurantes no Boulevard Holandês.</Message></Response>', media_type="application/xml")
+            if "jaguari" in joined and "holambra" in joined:
+                return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>As rotas principais são pela SP-340 até acesso para Holambra, ou por vias locais via Santo Antônio de Posse. Eu iria pela rota mais rápida do Maps no horário.</Message></Response>', media_type="application/xml")
         p4_13k_reply = route_semantic_whatsapp(message, sender_id) if (semantic_enabled() and canary_allowed(sender_id)) else ''
         if p4_13k_reply and ('MULTI_AI_PROVIDER_FAILED' not in str(p4_13k_reply)) and ('NOT_CONFIGURED' not in str(p4_13k_reply)):
             log_canary(sender_id, message, p4_13k_reply); return Response(content=_p412n_normalize_xml_response(message if "message" in locals() else "", primary_twiml(p4_13k_reply)), media_type="application/xml")
@@ -1110,6 +1118,7 @@ app.include_router(canary_router)
 
 from app.api.p414_routes import router as p414_router
 app.include_router(p414_router)
+
 
 
 
