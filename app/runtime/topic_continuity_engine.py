@@ -1,7 +1,7 @@
 FOLLOWUP_WORDS = {
     "aprofunde","aprofundar","continue","continua","continue isso",
     "explique mais","detalhe","mais detalhes","sobre isso",
-    "e os pontos fracos","e manutenção","e consumo","vale a pena"
+    "e os pontos fracos","e manutenção","e consumo","vale a pena","quais?","quais","quais são?","quais sao?","qual deles?","qual delas?","e quais?"
 }
 
 def resolve_followup(message:str, session_ctx:dict):
@@ -15,3 +15,4 @@ def resolve_followup(message:str, session_ctx:dict):
         session_ctx["last_topic"]="BMW_K1300_BUYING"
 
     return {"followup":False,"topic":session_ctx.get("last_topic")}
+
