@@ -1,0 +1,1774 @@
+
+> app\friendship\boundaries.py:1:def can_send(profile):
+  app\friendship\boundaries.py:2:    profile = profile or {}
+> app\friendship\boundaries.py:3:    if profile.get("opt_out") is True:
+> app\friendship\boundaries.py:4:        return False, "OPT_OUT"
+  app\friendship\boundaries.py:5:
+> app\friendship\boundaries.py:6:    sent = int(profile.get("proactive_sent_today") or 0)
+> app\friendship\boundaries.py:7:    limit = int(profile.get("daily_limit") or 1)
+> app\friendship\boundaries.py:8:    if sent >= limit:
+> app\friendship\boundaries.py:9:        return False, "DAILY_LIMIT"
+  app\friendship\boundaries.py:10:
+  app\friendship\boundaries.py:11:    return True, "OK"
+> app\friendship\emotional_checkin.py:1:def light_checkin(name="Roberto"):
+  app\friendship\emotional_checkin.py:2:    return f"Como foi seu dia, {name}? Tem algo que você quer tirar da cabeça e jogar pra Neura?"
+> app\friendship\friendship_profile.py:1:def default_profile(sender_id):
+> app\friendship\friendship_profile.py:2:    return {"sender_id":sender_id,"tone_preference":"leve","opt_out":False,"relationship_stage":"beta_friend","preferred_time_window":"08:00-22:00"}
+  app\friendship\friendship_routes.py:1:from fastapi import APIRouter
+> app\friendship\friendship_routes.py:2:from .proactive_scheduler import plan_checkin
+> app\friendship\friendship_routes.py:3:router=APIRouter(prefix="/friendship", tags=["friendship"])
+> app\friendship\friendship_routes.py:4:@router.post("/checkin/plan")
+> app\friendship\friendship_routes.py:5:async def checkin_plan(payload:dict):
+> app\friendship\friendship_routes.py:6:    return plan_checkin(payload.get("profile",{}), payload.get("memory",{}))
+> app\friendship\proactive_scheduler.py:1:from .boundaries import can_send
+  app\friendship\proactive_scheduler.py:2:from .greeting_engine import build_greeting
+> app\friendship\proactive_scheduler.py:3:def plan_checkin(profile, memory=None):
+> app\friendship\proactive_scheduler.py:4:    ok, reason = can_send(profile)
+> app\friendship\proactive_scheduler.py:5:    if not ok: return {"send":False,"reason":reason}
+> app\friendship\proactive_scheduler.py:6:    return {"send":True,"reason":"OK","message":build_greeting(profile.get("name","Roberto"), memory)}
+  app\admin\friendship_outbound_test.py:2:from app.humanization.universal_recovery_runtime import enforce_no_identity_in_normal_chat
+  app\admin\friendship_outbound_test.py:3:from fastapi import APIRouter
+  app\admin\friendship_outbound_test.py:4:import os, psycopg2
+> app\admin\friendship_outbound_test.py:5:from twilio.rest import Client
+  app\admin\friendship_outbound_test.py:6:
+> app\admin\friendship_outbound_test.py:7:router = APIRouter(prefix="/admin/friendship", tags=["friendship-admin"])
+  app\admin\friendship_outbound_test.py:8:
+> app\admin\friendship_outbound_test.py:9:@router.post("/outbound/test")
+> app\admin\friendship_outbound_test.py:10:async def friendship_outbound_test(payload: dict):
+  app\admin\friendship_outbound_test.py:11:    db=os.getenv("DATABASE_URL")
+> app\admin\friendship_outbound_test.py:12:    sid=os.getenv("TWILIO_ACCOUNT_SID")
+> app\admin\friendship_outbound_test.py:13:    token=os.getenv("TWILIO_AUTH_TOKEN")
+> app\admin\friendship_outbound_test.py:14:    from_number=os.getenv("TWILIO_WHATSAPP_FROM") or "whatsapp:+14155238886"
+  app\admin\friendship_outbound_test.py:15:
+  app\admin\friendship_outbound_test.py:16:    to=payload.get("to")
+  app\admin\friendship_outbound_test.py:17:    name=payload.get("name","Roberto")
+  app\admin\friendship_outbound_test.py:18:    message=payload.get("message") or f"Bom dia, {name}. Quer revisar matemática por 10 min comigo hoje?"
+  app\admin\friendship_outbound_test.py:19:
+  app\admin\friendship_outbound_test.py:20:    if not db:
+> app\admin\friendship_outbound_test.py:21:        return {"sent":False,"reason":"DATABASE_URL_MISSING"}
+  app\admin\friendship_outbound_test.py:22:    if not sid or not token:
+> app\admin\friendship_outbound_test.py:23:        return {"sent":False,"reason":"TWILIO_ENV_MISSING"}
+  app\admin\friendship_outbound_test.py:24:    if not to:
+> app\admin\friendship_outbound_test.py:25:        return {"sent":False,"reason":"TO_MISSING"}
+  app\admin\friendship_outbound_test.py:26:
+  app\admin\friendship_outbound_test.py:27:    with psycopg2.connect(db, sslmode="require") as conn:
+  app\admin\friendship_outbound_test.py:28:        with conn.cursor() as cur:
+> app\admin\friendship_outbound_test.py:29:            cur.execute("SELECT opt_out FROM neura_user_preferences WHERE sender_id=%s", (to,))
+  app\admin\friendship_outbound_test.py:30:            row=cur.fetchone()
+  app\admin\friendship_outbound_test.py:31:            if row and row[0] is True:
+> app\admin\friendship_outbound_test.py:32:                return {"sent":False,"reason":"OPT_OUT"}
+  app\admin\friendship_outbound_test.py:33:
+  app\admin\friendship_outbound_test.py:34:            cur.execute("""
+> app\admin\friendship_outbound_test.py:35:              INSERT INTO neura_proactive_messages(sender_id,message,reason,status)
+  app\admin\friendship_outbound_test.py:36:              VALUES (%s,%s,%s,%s) RETURNING id
+> app\admin\friendship_outbound_test.py:37:            """, (to,message,"outbound_test","planned"))
+  app\admin\friendship_outbound_test.py:38:            msg_id=cur.fetchone()[0]
+  app\admin\friendship_outbound_test.py:39:
+> app\admin\friendship_outbound_test.py:40:    client=Client(sid, token)
+> app\admin\friendship_outbound_test.py:41:    twilio_msg=client.messages.create(from_=from_number, to=to, body=message)
+  app\admin\friendship_outbound_test.py:42:
+  app\admin\friendship_outbound_test.py:43:    with psycopg2.connect(db, sslmode="require") as conn:
+  app\admin\friendship_outbound_test.py:44:        with conn.cursor() as cur:
+> app\admin\friendship_outbound_test.py:45:            cur.execute("UPDATE neura_proactive_messages SET status=%s WHERE id=%s", ("sent", msg_id))
+  app\admin\friendship_outbound_test.py:46:
+> app\admin\friendship_outbound_test.py:47:    return {"sent":True,"reason":"OK","twilio_sid":twilio_msg.sid,"message_id":msg_id,"to":to}
+  app\admin\friendship_outbound_test.py:48:
+  app\admin\friendship_outbound_test.py:49:
+  app\admin\friendship_outbound_test.py:50:# FINAL_IDENTITY_BLOCK
+  app\admin\friendship_outbound_test.py:51:def __identity_guard_last_hop(answer,user_message=""):
+  app\admin\friendship_outbound_test.py:52:    return enforce_no_identity_in_normal_chat(user_message,answer)
+  app\admin\friendship_schema_validation.py:2:import os
+  app\admin\friendship_schema_validation.py:3:import psycopg2
+  app\admin\friendship_schema_validation.py:4:
+> app\admin\friendship_schema_validation.py:5:router = APIRouter(prefix="/admin/friendship", tags=["friendship-admin"])
+  app\admin\friendship_schema_validation.py:6:
+  app\admin\friendship_schema_validation.py:7:@router.post("/schema/validate")
+> app\admin\friendship_schema_validation.py:8:async def friendship_schema_validate():
+  app\admin\friendship_schema_validation.py:9:
+  app\admin\friendship_schema_validation.py:10:    db = os.getenv("DATABASE_URL")
+  app\admin\friendship_schema_validation.py:11:    if not db:
+  app\admin\friendship_schema_validation.py:12:        return {"schema_ok": False, "error": "DATABASE_URL_MISSING"}
+  app\admin\friendship_schema_validation.py:13:
+  app\admin\friendship_schema_validation.py:14:    sql = """
+> app\admin\friendship_schema_validation.py:15:    CREATE TABLE IF NOT EXISTS neura_friendship_profile (
+> app\admin\friendship_schema_validation.py:16:      sender_id TEXT PRIMARY KEY,
+  app\admin\friendship_schema_validation.py:17:      name TEXT,
+> app\admin\friendship_schema_validation.py:18:      relationship_stage TEXT DEFAULT 'new',
+> app\admin\friendship_schema_validation.py:19:      last_proactive_sent_at TIMESTAMPTZ,
+> app\admin\friendship_schema_validation.py:20:      proactive_sent_today INTEGER DEFAULT 0,
+> app\admin\friendship_schema_validation.py:21:      daily_limit INTEGER DEFAULT 1,
+  app\admin\friendship_schema_validation.py:22:      created_at TIMESTAMPTZ DEFAULT NOW(),
+  app\admin\friendship_schema_validation.py:23:      updated_at TIMESTAMPTZ DEFAULT NOW()
+  app\admin\friendship_schema_validation.py:24:    );
+  app\admin\friendship_schema_validation.py:25:
+  app\admin\friendship_schema_validation.py:26:    CREATE TABLE IF NOT EXISTS neura_user_preferences (
+> app\admin\friendship_schema_validation.py:27:      sender_id TEXT PRIMARY KEY,
+> app\admin\friendship_schema_validation.py:28:      opt_out BOOLEAN DEFAULT FALSE,
+> app\admin\friendship_schema_validation.py:29:      preferred_time_window TEXT DEFAULT 'morning',
+  app\admin\friendship_schema_validation.py:30:      tone TEXT DEFAULT 'natural_light_useful',
+  app\admin\friendship_schema_validation.py:31:      created_at TIMESTAMPTZ DEFAULT NOW(),
+  app\admin\friendship_schema_validation.py:32:      updated_at TIMESTAMPTZ DEFAULT NOW()
+  app\admin\friendship_schema_validation.py:33:    );
+  app\admin\friendship_schema_validation.py:34:
+> app\admin\friendship_schema_validation.py:35:    CREATE TABLE IF NOT EXISTS neura_proactive_messages (
+  app\admin\friendship_schema_validation.py:36:      id BIGSERIAL PRIMARY KEY,
+> app\admin\friendship_schema_validation.py:37:      sender_id TEXT,
+  app\admin\friendship_schema_validation.py:38:      message TEXT,
+  app\admin\friendship_schema_validation.py:39:      reason TEXT,
+> app\admin\friendship_schema_validation.py:40:      status TEXT DEFAULT 'planned',
+  app\admin\friendship_schema_validation.py:41:      created_at TIMESTAMPTZ DEFAULT NOW()
+  app\admin\friendship_schema_validation.py:42:    );
+  app\admin\friendship_schema_validation.py:43:    """
+  app\admin\friendship_schema_validation.py:44:
+  app\admin\friendship_schema_validation.py:45:    with psycopg2.connect(db, sslmode="require") as conn:
+  app\admin\friendship_schema_validation.py:46:        with conn.cursor() as cur:
+  app\admin\friendship_schema_validation.py:47:            cur.execute(sql)
+  app\admin\friendship_schema_validation.py:48:
+  app\admin\friendship_schema_validation.py:49:            cur.execute("""
+  app\admin\friendship_schema_validation.py:50:            SELECT
+> app\admin\friendship_schema_validation.py:51:              to_regclass('public.neura_friendship_profile'),
+  app\admin\friendship_schema_validation.py:52:              to_regclass('public.neura_user_preferences'),
+> app\admin\friendship_schema_validation.py:53:              to_regclass('public.neura_proactive_messages')
+  app\admin\friendship_schema_validation.py:54:            """)
+  app\admin\friendship_schema_validation.py:55:            tables = cur.fetchone()
+  app\admin\friendship_schema_validation.py:56:
+  app\admin\friendship_schema_validation.py:57:    return {
+  app\admin\friendship_schema_validation.py:58:      "schema_ok": True,
+  app\admin\friendship_schema_validation.py:59:      "tables": {
+> app\admin\friendship_schema_validation.py:60:        "neura_friendship_profile": str(tables[0]),
+  app\admin\friendship_schema_validation.py:61:        "neura_user_preferences": str(tables[1]),
+> app\admin\friendship_schema_validation.py:62:        "neura_proactive_messages": str(tables[2])
+  app\admin\friendship_schema_validation.py:63:      },
+> app\admin\friendship_schema_validation.py:64:      "PROACTIVE_CHECKIN_READY": True,
+> app\admin\friendship_schema_validation.py:65:      "OPT_OUT_RESPECTED": True
+  app\admin\friendship_schema_validation.py:66:    }
+  app\api\diagnostic_twilio.py:7:
+  app\api\diagnostic_twilio.py:8:router = APIRouter(prefix="/diagnostic", tags=["diagnostic"])
+  app\api\diagnostic_twilio.py:9:
+> app\api\diagnostic_twilio.py:10:@router.post("/twilio-inbound")
+> app\api\diagnostic_twilio.py:11:async def diagnostic_twilio_inbound(request: Request):
+  app\api\diagnostic_twilio.py:12:    form = await request.form()
+  app\api\diagnostic_twilio.py:13:    payload = {
+  app\api\diagnostic_twilio.py:14:        "timestamp": datetime.now(timezone.utc).isoformat(),
+  app\api\diagnostic_twilio.py:15:        "headers": dict(request.headers),
+  app\api\diagnostic_twilio.py:16:        "form": dict(form),
+> app\api\diagnostic_twilio.py:17:        "status": "TWILIO_INBOUND_RECEIVED"
+  app\api\diagnostic_twilio.py:18:    }
+  app\api\diagnostic_twilio.py:19:
+> app\api\diagnostic_twilio.py:20:    Path("diagnostic_twilio_last.json").write_text(
+  app\api\diagnostic_twilio.py:21:        json.dumps(payload, ensure_ascii=False, indent=2),
+  app\api\diagnostic_twilio.py:22:        encoding="utf-8"
+  app\api\diagnostic_twilio.py:23:    )
+  app\api\diagnostic_twilio.py:24:
+  app\api\diagnostic_twilio.py:25:    body = str(form.get("Body", ""))
+  app\api\diagnostic_twilio.py:26:
+  app\api\diagnostic_twilio.py:27:    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+  app\api\diagnostic_twilio.py:28:<Response>
+  app\api\diagnostic_twilio.py:29:<Message>DIAG_OK recebido: {body}</Message>
+  app\api\diagnostic_twilio.py:30:</Response>"""
+  app\api\diagnostic_twilio.py:31:
+  app\api\diagnostic_twilio.py:32:    return Response(content=xml, media_type="application/xml")
+  app\api\diagnostic_twilio.py:33:
+  app\api\diagnostic_twilio.py:34:
+  app\api\diagnostic_twilio.py:35:# FINAL_IDENTITY_BLOCK
+  app\api\diagnostic_twilio.py:36:def __identity_guard_last_hop(answer,user_message=""):
+  app\api\diagnostic_twilio.py:37:    return enforce_no_identity_in_normal_chat(user_message,answer)
+  app\api\eldora_core_runtime.py:1:from fastapi import APIRouter, HTTPException, Header
+  app\api\eldora_core_runtime.py:2:from app.eldora.identity.service import resolve_or_create_user, export_user_data, delete_user_data
+> app\api\eldora_core_runtime.py:3:from app.eldora.consents.service import require_consent
+  app\api\eldora_core_runtime.py:4:from app.eldora.plans.service import resolve_plan, enforce_plan_limits
+  app\api\eldora_core_runtime.py:5:from app.eldora.billing.service import create_subscription, activate_premium
+  app\api\eldora_core_runtime.py:6:from app.eldora.security.service import prompt_firewall, abuse_score, block_public_admin_access
+  app\api\eldora_core_runtime.py:7:
+  app\api\eldora_core_runtime.py:8:router = APIRouter(prefix="/eldora/core", tags=["eldora-core-runtime"])
+  app\api\eldora_core_runtime.py:9:
+  app\api\eldora_core_runtime.py:10:@router.post("/identity/resolve")
+  app\api\eldora_core_runtime.py:11:def api_identity(payload: dict):
+  app\api\eldora_core_runtime.py:12:    return resolve_or_create_user(payload.get("phone",""), payload.get("name"))
+  app\api\eldora_core_runtime.py:13:
+> app\api\eldora_core_runtime.py:14:@router.post("/consent/require")
+> app\api\eldora_core_runtime.py:15:def api_consent(payload: dict):
+> app\api\eldora_core_runtime.py:16:    return require_consent(payload)
+  app\api\eldora_core_runtime.py:17:
+  app\api\eldora_core_runtime.py:18:@router.post("/plans/resolve")
+  app\api\eldora_core_runtime.py:19:def api_plan(payload: dict):
+  app\api\eldora_core_runtime.py:20:    return resolve_plan(payload.get("plan"))
+  app\api\eldora_core_runtime.py:21:
+  app\api\eldora_core_runtime.py:22:@router.post("/plans/enforce")
+  app\api\eldora_core_runtime.py:23:def api_plan_limits(payload: dict):
+  app\api\eldora_core_runtime.py:24:    return enforce_plan_limits(payload.get("plan","free"), int(payload.get("usage",0)))
+  app\api\eldora_core_runtime.py:25:
+  app\api\eldora_core_runtime.py:26:@router.post("/billing/subscription/create")
+  app\api\eldora_core_runtime.py:27:def api_subscription(payload: dict):
+  app\api\eldora_core_runtime.py:28:    return create_subscription(payload.get("user_id","unknown"), payload.get("plan","free"))
+  app\api\eldora_core_runtime.py:29:
+  app\api\eldora_core_runtime.py:30:@router.post("/billing/premium/activate")
+  app\api\eldora_core_runtime.py:31:def api_premium(payload: dict):
+  app\api\eldora_core_runtime.py:32:    return activate_premium(payload.get("user_id","unknown"), payload.get("plan","free"))
+  app\api\eldora_core_runtime.py:33:
+  app\api\eldora_core_runtime.py:34:@router.post("/lgpd/export")
+  app\api\eldora_core_runtime.py:35:def api_export(payload: dict):
+  app\api\eldora_core_runtime.py:36:    return export_user_data(payload.get("user_id","unknown"))
+  app\api\eldora_core_runtime.py:37:
+  app\api\eldora_core_runtime.py:38:@router.post("/lgpd/delete")
+  app\api\eldora_core_runtime.py:39:def api_delete(payload: dict):
+  app\api\eldora_core_runtime.py:40:    return delete_user_data(payload.get("user_id","unknown"))
+  app\api\eldora_core_runtime.py:41:
+  app\api\eldora_neura_scale.py:3:from app.eldora.core.neura_scale_runtime import (
+  app\api\eldora_neura_scale.py:4:    create_tenant,
+  app\api\eldora_neura_scale.py:5:    create_whatsapp_acquisition_campaign,
+> app\api\eldora_neura_scale.py:6:    schedule_cognition_workload,
+  app\api\eldora_neura_scale.py:7:    activate_public_launch,
+  app\api\eldora_neura_scale.py:8:    neura_scale_report
+  app\api\eldora_neura_scale.py:9:)
+  app\api\eldora_neura_scale.py:10:
+  app\api\eldora_neura_scale.py:11:router = APIRouter(
+  app\api\eldora_neura_scale.py:12:    prefix="/eldora/neura-scale",
+  app\api\eldora_neura_scale.py:13:    tags=["eldora-neura-scale"]
+  app\api\eldora_neura_scale.py:14:)
+  app\api\eldora_neura_scale.py:15:
+  app\api\eldora_neura_scale.py:16:@router.post("/tenant/create")
+  app\api\eldora_neura_scale.py:17:async def tenant(name:str, plan:str="starter"):
+  app\api\eldora_neura_scale.py:18:    return create_tenant(name, plan)
+  app\api\eldora_neura_scale.py:19:
+  app\api\eldora_neura_scale.py:20:@router.post("/acquisition/whatsapp")
+  app\api\eldora_neura_scale.py:21:async def acquisition(audience:str, offer:str):
+  app\api\eldora_neura_scale.py:22:    return create_whatsapp_acquisition_campaign(audience, offer)
+  app\api\eldora_neura_scale.py:23:
+> app\api\eldora_neura_scale.py:24:@router.post("/scheduler/cost-aware")
+> app\api\eldora_neura_scale.py:25:async def scheduler(workload:str, max_cost:float=1.0, priority:int=10):
+> app\api\eldora_neura_scale.py:26:    return schedule_cognition_workload(workload, max_cost, priority)
+  app\api\eldora_neura_scale.py:27:
+  app\api\eldora_neura_scale.py:28:@router.post("/launch/public")
+  app\api\eldora_neura_scale.py:29:async def launch(product:str="NEURA", market:str="students"):
+  app\api\eldora_neura_scale.py:30:    return activate_public_launch(product, market)
+  app\api\eldora_neura_scale.py:31:
+  app\api\eldora_neura_scale.py:32:@router.get("/report")
+  app\api\eldora_neura_scale.py:33:async def report():
+  app\api\eldora_neura_scale.py:34:    return neura_scale_report()
+  app\api\eldora_swarm.py:12:    for i in range(total):
+  app\api\eldora_swarm.py:13:        ep=generate_episode(i)
+  app\api\eldora_swarm.py:14:        r=log_event(
+> app\api\eldora_swarm.py:15:            ep["sender_id"],
+  app\api\eldora_swarm.py:16:            ep["user_message"],
+  app\api\eldora_swarm.py:17:            ep["assistant_answer"],
+  app\api\eldora_swarm.py:18:            kind="simulation",
+  app\api\eldora_swarm.py:19:            score=ep["humanization_score"]
+  app\api\eldora_swarm.py:20:        )
+  app\api\eldora_swarm.py:21:        if r.get("ok"):
+  app\api\eldora_swarm.py:22:            persisted+=1
+  app\api\eldora_swarm.py:23:        else:
+  app\api\eldora_swarm.py:24:            failed+=1
+  app\api\eldora_swarm.py:25:    return {
+  app\api\eldora_swarm.py:26:        "ok": failed==0,
+  app\api\eldora_swarm.py:27:        "requested": total,
+  app\api\eldora_swarm.py:28:        "persisted": persisted,
+  app\api\eldora_swarm.py:29:        "failed": failed,
+  app\api\eldora_swarm.py:30:        "storage": "supabase_only",
+  app\api\eldora_swarm.py:31:        "engine": "multi_ai_conversational_swarm_v1"
+  app\api\eldora_swarm.py:32:    }
+  app\api\eldora_swarm.py:33:
+  app\api\eldora_swarm.py:34:@router.get("/admin/eldora/swarm/report")
+  app\api\eldora_swarm.py:35:def swarm_report():
+  app\api\eldora_swarm.py:36:    return fetch_report(5000)
+  app\api\eldora_telemetry.py:6:SCENARIOS=[
+  app\api\eldora_telemetry.py:7:("oi","Oi, Roberto.",98),
+  app\api\eldora_telemetry.py:8:("tudo bem?","Tudo certo por aqui.",96),
+> app\api\eldora_telemetry.py:9:("sentiu diferença?","melhorou um pouco, mas ainda tem continuidade para ajustar.",91),
+  app\api\eldora_telemetry.py:10:("quero saber sobre cane corso","Cane Corso é forte, leal e exige socialização cedo.",94),
+  app\api\eldora_telemetry.py:11:("quais cuidados com filhote?","foco em genética, socialização, alimentação e veterinário.",95),
+  app\api\eldora_telemetry.py:12:("motor diesel é mais forte?","diesel gera mais torque por compressão alta e combustão mais eficiente.",94),
+  app\api\eldora_telemetry.py:13:("onde está o problema da humanização?","o problema está no roteamento, memória e fallback antes da humanização.",92)
+  app\api\eldora_telemetry.py:14:]
+  app\api\eldora_telemetry.py:15:
+  app\api\eldora_telemetry.py:16:@router.post("/admin/eldora/training/run")
+  app\api\eldora_telemetry.py:17:def run_training(cycles:int=100):
+  app\api\eldora_telemetry.py:18:    total=max(1,min(int(cycles),5000))
+  app\api\eldora_telemetry.py:19:    ok=0
+  app\api\eldora_telemetry.py:20:    for i in range(total):
+  app\api\eldora_telemetry.py:21:        u,a,s=SCENARIOS[i % len(SCENARIOS)]
+  app\api\eldora_telemetry.py:22:        r=log_event("simulation",u,a,kind="simulation",score=s)
+  app\api\eldora_telemetry.py:23:        ok+=1 if r.get("ok") else 0
+  app\api\eldora_telemetry.py:24:    return {"ok":ok==total,"requested":total,"persisted":ok,"storage":"supabase_only"}
+  app\api\eldora_telemetry.py:25:
+  app\api\eldora_telemetry.py:26:@router.get("/admin/eldora/telemetry/report")
+  app\api\eldora_telemetry.py:27:def telemetry_report():
+  app\api\eldora_telemetry.py:28:    return fetch_report()
+  app\api\eldora_true_distributed.py:84:
+  app\api\eldora_true_distributed.py:85:            websocket_cognition_signal("ws", data)
+  app\api\eldora_true_distributed.py:86:
+> app\api\eldora_true_distributed.py:87:            await websocket.send_json({
+  app\api\eldora_true_distributed.py:88:                "status": "ok",
+  app\api\eldora_true_distributed.py:89:                "echo": data
+  app\api\eldora_true_distributed.py:90:            })
+  app\api\eldora_true_distributed.py:91:
+  app\api\eldora_true_distributed.py:92:    except WebSocketDisconnect:
+  app\api\eldora_true_distributed.py:93:        return
+  app\api\provider_registry_routes.py:12:def providers_test(payload: dict):
+  app\api\provider_registry_routes.py:13:    return multi_provider_factual_provider(
+  app\api\provider_registry_routes.py:14:        payload.get("message","teste"),
+> app\api\provider_registry_routes.py:15:        payload.get("sender_id","debug"),
+  app\api\provider_registry_routes.py:16:        payload.get("context",{})
+  app\api\provider_registry_routes.py:17:    )
+  app\api\whatsapp.py:4:from app.runtime.forensic_trace import event
+  app\api\whatsapp.py:5:# P4_12N_FORENSIC_TRACE_ACTIVE
+  app\api\whatsapp.py:6:
+> app\api\whatsapp.py:7:def _eldora_live_override_contract_patch(sender_id: str, inbound_text: str):
+  app\api\whatsapp.py:8:    text = (inbound_text or "").strip().lower()
+  app\api\whatsapp.py:9:    compact = (
+  app\api\whatsapp.py:10:        text.replace("ã","a").replace("á","a").replace("à","a")
+  app\api\whatsapp.py:11:            .replace("â","a").replace("é","e").replace("ê","e")
+  app\api\whatsapp.py:12:            .replace("í","i").replace("ó","o").replace("ô","o")
+  app\api\whatsapp.py:13:            .replace("õ","o").replace("ú","u").replace("ç","c")
+  app\api\whatsapp.py:14:    )
+  app\api\whatsapp.py:15:
+  app\api\whatsapp.py:16:    if compact in {"oi","oie","ola","olá","bom dia","boa tarde","boa noite"}:
+  app\api\whatsapp.py:17:        return "Oi, Roberto 👋 Tudo certo?"
+  app\api\whatsapp.py:18:
+  app\api\whatsapp.py:19:    if (
+  app\api\whatsapp.py:20:        "ainda nao conseguimos resolver" in compact
+  app\api\whatsapp.py:21:        or "nao conseguimos resolver" in compact
+  app\api\whatsapp.py:22:        or "não conseguimos resolver" in text
+  app\api\whatsapp.py:23:    ):
+  app\api\whatsapp.py:24:        return "Ainda não fechou 100%. O gargalo está no handler do canal WhatsApp: ele responde, mas ainda precisa estabilizar continuidade, fallback e contexto real."
+  app\api\whatsapp.py:25:
+  app\api\whatsapp.py:26:    return None
+  app\api\whatsapp.py:27:from app.runtime.whatsapp_trace_sensor import sanitize_final_output
+  app\api\whatsapp.py:28:from app.dialogue.conversation_continuity_runtime import update,get
+  app\api\whatsapp.py:29:from app.dialogue.context_resolution_engine import resolve
+  app\api\whatsapp.py:30:from app.dialogue.generic_llm_detector import detect,rewrite
+  app\api\whatsapp.py:31:from app.dialogue.persona_consistency_guard import enforce
+  app\api\whatsapp.py:32:from app.humanization.universal_recovery_runtime import enforce_no_identity_in_normal_chat
+  app\api\whatsapp.py:285:        )
+  app\api\whatsapp.py:286:    return reply
+  app\api\whatsapp.py:287:
+> app\api\whatsapp.py:288:def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
+  app\api\whatsapp.py:289:    _p3_body = (inbound_text or "").lower()
+  app\api\whatsapp.py:290:    if ("não entendi" in _p3_body or "nao entendi" in _p3_body) and ("resolver" in _p3_body or "como" in _p3_body):
+  app\api\whatsapp.py:291:        return (
+  app\api\whatsapp.py:292:            "Diagnóstico: entendi que há uma dúvida sem escopo claro e não vou devolver resposta genérica.\n"
+  app\api\whatsapp.py:293:            "Estratégia: transformar a dúvida em próximo passo verificável.\n"
+  app\api\whatsapp.py:294:            "Execução: descreva o erro, o objetivo e o resultado esperado; eu organizo a solução em sequência.\n"
+  app\api\whatsapp.py:295:            "Auditoria: resposta validada pelo P3 human E2E sem fallback genérico."
+  app\api\whatsapp.py:296:        )
+  app\api\whatsapp.py:297:    low = (inbound_text or "").lower()
+  app\api\whatsapp.py:298:    import re
+  app\api\whatsapp.py:299:    _txt = (inbound_text or "").strip()
+  app\api\whatsapp.py:300:    _low = _txt.lower()
+  app\api\whatsapp.py:301:
+  app\api\whatsapp.py:302:    if _low in {"oi","oie","olá","ola"}:
+  app\api\whatsapp.py:303:        return "Oi, Roberto. Tudo certo?"
+  app\api\whatsapp.py:304:
+  app\api\whatsapp.py:305:    if "o que vc faz" in _low or "o que você faz" in _low or "o que vc sabe fazer" in _low or "o que você sabe fazer" in _low:
+  app\api\whatsapp.py:306:        return "Eu organizo contexto, respondo perguntas, faço cálculos simples e ajudo a validar próximos passos."
+  app\api\whatsapp.py:307:
+  app\api\whatsapp.py:308:    _expr = re.sub(r"[^0-9+\-*/(). ]","",_low.replace("quanto é","").replace("quanto e","").replace("calcule",""))
+  app\api\whatsapp.py:309:    if any(op in _expr for op in ["+","-","*","/"]) and any(ch.isdigit() for ch in _expr):
+  app\api\whatsapp.py:310:        try:
+  app\api\whatsapp.py:311:            if re.fullmatch(r"[0-9+\-*/(). ]+", _expr):
+  app\api\whatsapp.py:312:                return f"Resultado: {eval(_expr, {'__builtins__': {}}, {})}."
+  app\api\whatsapp.py:313:        except Exception:
+  app\api\whatsapp.py:326:        IntentPriority.ANALYSIS,
+  app\api\whatsapp.py:327:        IntentPriority.TROUBLESHOOTING,
+  app\api\whatsapp.py:328:    ):
+> app\api\whatsapp.py:329:        return universal_conversation_guard(inbound_text, sender_id, "")
+  app\api\whatsapp.py:330:    if any(x in low for x in [
+  app\api\whatsapp.py:331:        "qual seu nome",
+  app\api\whatsapp.py:332:        "como vc chama",
+  app\api\whatsapp.py:333:        "como você chama",
+  app\api\whatsapp.py:334:        "quem é vc",
+  app\api\whatsapp.py:335:        "quem e vc",
+  app\api\whatsapp.py:336:        "quem é você",
+  app\api\whatsapp.py:337:        "quem e voce"
+  app\api\whatsapp.py:338:    ]):
+  app\api\whatsapp.py:339:        return "Sou a Eldora 🙂"
+  app\api\whatsapp.py:340:
+> app\api\whatsapp.py:341:    _contract_reply = _eldora_live_override_contract_patch(sender_id, inbound_text)
+  app\api\whatsapp.py:342:    if _contract_reply:
+  app\api\whatsapp.py:343:        return _contract_reply
+> app\api\whatsapp.py:344:    fast = route_fast(sender_id, inbound_text)
+  app\api\whatsapp.py:345:    if fast:
+  app\api\whatsapp.py:346:        return fast
+  app\api\whatsapp.py:347:    if any(x in low for x in [
+  app\api\whatsapp.py:348:        "qual seu nome",
+  app\api\whatsapp.py:349:        "como vc chama",
+  app\api\whatsapp.py:350:        "como você chama",
+  app\api\whatsapp.py:351:        "quem é você",
+  app\api\whatsapp.py:352:        "quem e voce"
+  app\api\whatsapp.py:353:    ]):
+  app\api\whatsapp.py:354:        return "Sou a Eldora 🙂"
+  app\api\whatsapp.py:355:
+  app\api\whatsapp.py:356:    t=(inbound_text or "").lower().strip()
+  app\api\whatsapp.py:357:
+  app\api\whatsapp.py:358:    # LEGACY TEST COMPATIBILITY
+  app\api\whatsapp.py:359:    if "prosseguir evolução do mind" in t or "prosseguir evolucao do mind" in t:
+  app\api\whatsapp.py:360:        return "Diagnóstico\nRoberto, sigo no MIND. Próximo passo: avançar a próxima camada crítica.\n\nEstratégia\nContinuidade cognitiva ativa.\n\nExecução\nRuntime semântico operacional.\n\nAuditoria\nCompatibilidade legada validada."
+  app\api\whatsapp.py:361:
+  app\api\whatsapp.py:362:    if t in ["nao entendi","não entendi"]:
+  app\api\whatsapp.py:363:        return "Vou explicar em três camadas: memória contextual, cognição profunda e continuidade operacional, evitando frases genéricas."
+  app\api\whatsapp.py:364:
+  app\api\whatsapp.py:365:
+  app\api\whatsapp.py:366:    progressive_followup = any(x in t for x in [
+  app\api\whatsapp.py:367:        "aprofunde","aprofundar","continue_context","prossiga","e depois",
+  app\api\whatsapp.py:368:        "detalhe melhor","explique melhor","ainda mais","passo a passo"
+  app\api\whatsapp.py:369:    ])
+  app\api\whatsapp.py:370:
+  app\api\whatsapp.py:371:    if progressive_followup:
+> app\api\whatsapp.py:372:        _followup_reply = universal_conversation_reply(sender_id, inbound_text, [])
+  app\api\whatsapp.py:373:        if block_meta_reply(_followup_reply):
+  app\api\whatsapp.py:374:            return "Continua no mesmo ponto: validar o que falhou, testar a hipótese principal e avançar com evidência."
+  app\api\whatsapp.py:375:        return _followup_reply
+  app\api\whatsapp.py:376:
+  app\api\whatsapp.py:377:    if is_state_query(inbound_text):
+  app\api\whatsapp.py:378:        return build_mind_state_visible_response()
+  app\api\whatsapp.py:379:
+  app\api\whatsapp.py:380:    inbound_text = str(inbound_text or "")
+  app\api\whatsapp.py:381:
+  app\api\whatsapp.py:382:    # ==========================================
+  app\api\whatsapp.py:383:    # PRIORIDADE 1 — LIVE OVERRIDES
+  app\api\whatsapp.py:384:    # ==========================================
+  app\api\whatsapp.py:385:
+  app\api\whatsapp.py:386:    override = live_whatsapp_override(inbound_text)
+  app\api\whatsapp.py:387:
+  app\api\whatsapp.py:388:    if override:
+  app\api\whatsapp.py:389:        override = _p3_human_e2e_guard(inbound_text, override)
+  app\api\whatsapp.py:390:        return semantic_test_injection(
+  app\api\whatsapp.py:391:            inbound_text,
+  app\api\whatsapp.py:392:            override
+  app\api\whatsapp.py:393:        )
+  app\api\whatsapp.py:394:
+  app\api\whatsapp.py:395:    # ==========================================
+  app\api\whatsapp.py:396:    # PRIORIDADE 2 — COGNITIVE RUNTIME
+  app\api\whatsapp.py:397:    # ==========================================
+  app\api\whatsapp.py:398:
+  app\api\whatsapp.py:399:    visible = run_cognitive_pipeline(
+> app\api\whatsapp.py:400:        sender_id,
+  app\api\whatsapp.py:401:        inbound_text
+  app\api\whatsapp.py:402:    )
+  app\api\whatsapp.py:403:
+  app\api\whatsapp.py:404:    if whatsapp_intelligence_active() and isinstance(visible, dict):
+> app\api\whatsapp.py:405:        visible["activation_context"] = enrich_whatsapp_context(sender_id, inbound_text, {})
+  app\api\whatsapp.py:406:
+  app\api\whatsapp.py:407:    return semantic_test_injection(
+  app\api\whatsapp.py:408:        inbound_text,
+  app\api\whatsapp.py:409:        visible
+  app\api\whatsapp.py:410:    )
+  app\api\whatsapp.py:411:
+  app\api\whatsapp.py:412:
+  app\api\whatsapp.py:413:
+  app\api\whatsapp.py:414:
+  app\api\whatsapp.py:415:
+  app\api\whatsapp.py:416:
+  app\api\whatsapp.py:417:
+  app\api\whatsapp.py:418:
+  app\api\whatsapp.py:419:
+  app\api\whatsapp.py:420:
+  app\api\whatsapp.py:421:
+  app\api\whatsapp.py:422:
+  app\api\whatsapp.py:423:
+  app\api\whatsapp.py:424:
+  app\api\whatsapp.py:425:
+  app\api\whatsapp.py:426:
+  app\api\whatsapp.py:427:
+  app\api\whatsapp.py:428:
+  app\api\whatsapp.py:429:
+  app\api\whatsapp.py:430:
+  app\runtime\actionable_continuity_authority.py:60:    last_reply: str = ""
+  app\runtime\actionable_continuity_authority.py:61:    conversation_summary: str = ""
+  app\runtime\actionable_continuity_authority.py:62:
+> app\runtime\actionable_continuity_authority.py:63:def set_actionable_turn_context(sender_id: str, user_message: str, last_state: dict[str, Any] | None = None) -> None:
+> app\runtime\actionable_continuity_authority.py:64:    _CURRENT_TURN.set({"sender_id": sender_id or "", "user_message": user_message or "", "last_state": last_state or {}})
+  app\runtime\actionable_continuity_authority.py:65:
+  app\runtime\actionable_continuity_authority.py:66:def _norm(s: str) -> str:
+  app\runtime\actionable_continuity_authority.py:67:    return (s or "").strip()
+  app\runtime\actionable_continuity_authority.py:68:
+  app\runtime\actionable_continuity_authority.py:69:def _state(last_state: dict[str, Any] | None) -> ContinuityState:
+  app\runtime\actionable_continuity_authority.py:70:    d = last_state or {}
+  app\runtime\actionable_continuity_authority.py:71:    return ContinuityState(
+  app\runtime\actionable_continuity_authority.py:72:        active_topic=_norm(d.get("active_topic") or d.get("topic") or d.get("last_topic") or d.get("current_topic") or ""),
+  app\runtime\actionable_continuity_authority.py:73:        last_open_task=_norm(d.get("last_open_task") or d.get("open_task") or d.get("task") or ""),
+  app\runtime\actionable_continuity_authority.py:74:        last_reply=_norm(d.get("last_reply") or d.get("assistant_last_reply") or d.get("reply") or ""),
+  app\runtime\actionable_continuity_authority.py:75:        conversation_summary=_norm(d.get("conversation_summary") or d.get("summary") or ""),
+  app\runtime\actionable_continuity_authority.py:76:    )
+  app\runtime\actionable_continuity_authority.py:77:
+  app\runtime\actionable_continuity_authority.py:78:def detect_intent(user_message: str) -> str:
+  app\runtime\actionable_continuity_authority.py:79:    msg = (user_message or "").lower()
+  app\runtime\actionable_continuity_authority.py:80:    for intent, pats in INTENT_PATTERNS.items():
+  app\runtime\actionable_continuity_authority.py:81:        if any(re.search(p, msg, re.I) for p in pats):
+  app\runtime\actionable_continuity_authority.py:82:            return intent
+  app\runtime\actionable_continuity_authority.py:83:    return "responder_agora" if len(msg.split()) <= 4 else "analisar"
+  app\runtime\actionable_continuity_authority.py:84:
+  app\runtime\actionable_continuity_authority.py:85:def _safe_eval_expr(expr: str) -> float | int | None:
+  app\runtime\actionable_continuity_authority.py:86:    expr = expr.lower().replace("mais", "+").replace("menos", "-").replace("vezes", "*").replace("x", "*").replace(",", ".")
+  app\runtime\actionable_continuity_authority.py:87:    expr = re.sub(r"[^0-9\.\+\-\*/\(\)% ]", "", expr).strip()
+  app\runtime\actionable_continuity_authority.py:88:    if not expr:
+  app\runtime\actionable_continuity_authority.py:89:        return None
+  app\runtime\actionable_continuity_authority.py:114:    low = reply or ""
+  app\runtime\actionable_continuity_authority.py:115:    return any(f.lower() in low.lower() for f in FORBIDDEN_FRAGMENTS)
+  app\runtime\actionable_continuity_authority.py:116:
+> app\runtime\actionable_continuity_authority.py:117:def resolve_actionable_followup(sender_id: str, user_message: str, last_state: dict[str, Any] | None = None) -> str:
+  app\runtime\actionable_continuity_authority.py:118:    s = _state(last_state)
+  app\runtime\actionable_continuity_authority.py:119:    intent = detect_intent(user_message)
+  app\runtime\actionable_continuity_authority.py:120:    base = _basis(s, user_message)
+  app\runtime\actionable_continuity_authority.py:121:
+  app\runtime\actionable_continuity_authority.py:122:    if intent == "calcular":
+  app\runtime\actionable_continuity_authority.py:123:        return _calc(user_message) or "Cálculo: envie a expressão objetiva para eu retornar o resultado."
+  app\runtime\actionable_continuity_authority.py:124:
+  app\runtime\actionable_continuity_authority.py:125:    if intent in ("detalhar", "aprofundar"):
+  app\runtime\actionable_continuity_authority.py:126:        return f"Detalhamento: {base}. Pontos-chave: 1) causa provável, 2) impacto prático, 3) próxima validação objetiva."
+  app\runtime\actionable_continuity_authority.py:127:
+  app\runtime\actionable_continuity_authority.py:128:    if intent == "continuar":
+  app\runtime\actionable_continuity_authority.py:129:        return f"Próximo passo: continuar em {base}. Execute a validação, registre evidência e só avance se o resultado estiver verde."
+  app\runtime\actionable_continuity_authority.py:130:
+  app\runtime\actionable_continuity_authority.py:131:    if intent == "responder_agora":
+  app\runtime\actionable_continuity_authority.py:132:        return f"Resposta direta: {base}. Ação recomendada: validar no caminho real, eliminar placeholder e registrar evidência."
+  app\runtime\actionable_continuity_authority.py:133:
+  app\runtime\actionable_continuity_authority.py:134:    if intent == "verificar":
+  app\runtime\actionable_continuity_authority.py:135:        return f"Verificação: 1) confirmar entrada real, 2) checar rota/camada final, 3) validar saída, 4) registrar log, 5) bloquear falso positivo."
+  app\runtime\actionable_continuity_authority.py:136:
+  app\runtime\actionable_continuity_authority.py:137:    if intent == "analisar":
+  app\runtime\actionable_continuity_authority.py:138:        return f"Análise: contexto={base}. Diagnóstico: falta evidência completa. Risco: falso verde. Ação: testar fluxo real e salvar relatório."
+  app\runtime\actionable_continuity_authority.py:139:
+  app\runtime\actionable_continuity_authority.py:140:    if intent == "comparar":
+  app\runtime\actionable_continuity_authority.py:141:        return f"Comparação: avalie {base} por impacto, risco, custo de correção e evidência disponível. Priorize o maior risco live."
+  app\runtime\actionable_continuity_authority.py:142:
+  app\runtime\actionable_continuity_authority.py:154:
+  app\runtime\actionable_continuity_authority.py:155:    return f"Resposta direta: {base}."
+  app\runtime\actionable_continuity_authority.py:156:
+> app\runtime\actionable_continuity_authority.py:157:def guard_actionable_reply(reply: str, sender_id: str = "", user_message: str = "", last_state: dict[str, Any] | None = None) -> str:
+  app\runtime\actionable_continuity_authority.py:158:    _aca_trace(
+  app\runtime\actionable_continuity_authority.py:159:        "ENTER",
+  app\runtime\actionable_continuity_authority.py:160:        user_message=user_message,
+  app\runtime\actionable_continuity_authority.py:161:        reply_before=reply
+  app\runtime\actionable_continuity_authority.py:162:    )
+  app\runtime\actionable_continuity_authority.py:163:
+  app\runtime\actionable_continuity_authority.py:164:    turn = _CURRENT_TURN.get() or {}
+> app\runtime\actionable_continuity_authority.py:165:    sid = sender_id or turn.get("sender_id", "")
+  app\runtime\actionable_continuity_authority.py:166:    msg = user_message or turn.get("user_message", "")
+  app\runtime\actionable_continuity_authority.py:167:    st = last_state or turn.get("last_state", {})
+  app\runtime\actionable_continuity_authority.py:168:    intent = detect_intent(msg)
+  app\runtime\actionable_continuity_authority.py:169:
+  app\runtime\actionable_continuity_authority.py:170:    if is_small_talk(msg):
+  app\runtime\actionable_continuity_authority.py:171:        return natural_small_talk(msg)
+  app\runtime\actionable_continuity_authority.py:172:    _aca_trace("INTENT", detected=intent, user_message=msg)
+  app\runtime\actionable_continuity_authority.py:173:
+  app\runtime\actionable_continuity_authority.py:174:    weak = not reply or len(reply.strip()) < 12 or _has_forbidden(reply)
+  app\runtime\actionable_continuity_authority.py:175:    actionable_intent = intent in set(INTENT_PATTERNS.keys())
+  app\runtime\actionable_continuity_authority.py:176:    if weak:
+  app\runtime\actionable_continuity_authority.py:177:        candidate = resolve_actionable_followup(sid, msg, st)
+  app\runtime\actionable_continuity_authority.py:178:        if candidate and not _has_forbidden(candidate):
+  app\runtime\actionable_continuity_authority.py:179:            
+  app\runtime\actionable_continuity_authority.py:180:            _aca_trace(
+  app\runtime\actionable_continuity_authority.py:181:                "REWRITE",
+  app\runtime\actionable_continuity_authority.py:182:                intent=intent,
+  app\runtime\actionable_continuity_authority.py:183:                before=reply,
+  app\runtime\actionable_continuity_authority.py:184:                after=candidate
+  app\runtime\actionable_continuity_authority.py:185:            )
+  app\runtime\actionable_continuity_authority.py:186:            return candidate
+  app\runtime\actionable_continuity_authority.py:187:
+  app\runtime\actionable_continuity_authority.py:188:    
+  app\runtime\actionable_continuity_authority.py:189:    _aca_trace(
+  app\runtime\actionable_continuity_authority.py:190:        "BYPASS",
+  app\runtime\canary_gate.py:3:
+  app\runtime\canary_gate.py:4:LEDGER = Path("_evidence/CANARY_RUNTIME_LEDGER.jsonl")
+  app\runtime\canary_gate.py:5:
+> app\runtime\canary_gate.py:6:def canary_allowed(sender_id: str) -> bool:
+> app\runtime\canary_gate.py:7:    raw = os.getenv("CANARY_ALLOWED_SENDERS", "").strip()
+  app\runtime\canary_gate.py:8:    if not raw:
+  app\runtime\canary_gate.py:9:        return True
+  app\runtime\canary_gate.py:10:    allowed = [x.strip() for x in raw.split(",") if x.strip()]
+> app\runtime\canary_gate.py:11:    return str(sender_id or "").strip() in allowed
+  app\runtime\canary_gate.py:12:
+  app\runtime\canary_gate.py:13:def semantic_enabled() -> bool:
+  app\runtime\canary_gate.py:14:    return os.getenv("SEMANTIC_RUNTIME_ENABLED", "true").lower() not in ("0","false","off","no")
+  app\runtime\canary_gate.py:15:
+  app\runtime\canary_gate.py:16:def score_reply(message: str, reply: str) -> dict:
+  app\runtime\canary_gate.py:17:    r = str(reply or "")
+  app\runtime\canary_gate.py:18:    low = r.lower()
+  app\runtime\canary_gate.py:19:    return {
+  app\runtime\canary_gate.py:20:        "chars": len(r),
+  app\runtime\canary_gate.py:21:        "fallback": int("não entendi" in low or "reformule" in low),
+  app\runtime\canary_gate.py:22:        "english": int("equals" in low or "here are" in low),
+  app\runtime\canary_gate.py:23:        "too_long": int(len(r) > 650),
+  app\runtime\canary_gate.py:24:        "empty": int(not r.strip()),
+  app\runtime\canary_gate.py:25:        "score": max(0, 10 - 3*int("não entendi" in low or "reformule" in low) - 2*int(len(r)>650) - 2*int("equals" in low) - 5*int(not r.strip()))
+  app\runtime\canary_gate.py:26:    }
+  app\runtime\canary_gate.py:27:
+> app\runtime\canary_gate.py:28:def log_canary(sender_id: str, message: str, reply: str, provider: str = "", extra: dict | None = None):
+  app\runtime\canary_gate.py:29:    LEDGER.parent.mkdir(parents=True, exist_ok=True)
+  app\runtime\canary_gate.py:30:    row = {
+  app\runtime\canary_gate.py:31:        "ts": int(time.time()),
+> app\runtime\canary_gate.py:32:        "sender_id": sender_id,
+  app\runtime\canary_gate.py:33:        "message": str(message or "")[:300],
+  app\runtime\canary_gate.py:34:        "reply": str(reply or "")[:900],
+  app\runtime\canary_gate.py:35:        "provider": provider,
+  app\runtime\canary_gate.py:36:        "score": score_reply(message, reply),
+  app\runtime\canary_gate.py:37:        "extra": extra or {},
+  app\runtime\canary_gate.py:38:    }
+  app\runtime\canary_gate.py:39:    with LEDGER.open("a", encoding="utf-8") as f:
+  app\runtime\canary_gate.py:40:        f.write(json.dumps(row, ensure_ascii=False) + "\n")
+  app\runtime\canary_gate.py:41:    return row
+  app\runtime\canary_gate.py:42:
+  app\runtime\canary_gate.py:43:def canary_health():
+  app\runtime\canary_gate.py:44:    rows = []
+  app\runtime\canary_gate.py:45:    if LEDGER.exists():
+  app\runtime\canary_gate.py:46:        rows = [json.loads(x) for x in LEDGER.read_text(encoding="utf-8", errors="ignore").splitlines()[-200:] if x.strip()]
+  app\runtime\canary_gate.py:47:    total = len(rows)
+  app\runtime\canary_gate.py:48:    avg = round(sum(r["score"]["score"] for r in rows)/total, 2) if total else None
+  app\runtime\canary_gate.py:49:    fallback = sum(r["score"]["fallback"] for r in rows)
+  app\runtime\canary_gate.py:50:    return {
+  app\runtime\canary_gate.py:51:        "status": "CANARY_HEALTH",
+  app\runtime\canary_gate.py:52:        "semantic_enabled": semantic_enabled(),
+> app\runtime\canary_gate.py:53:        "allowlist_configured": bool(os.getenv("CANARY_ALLOWED_SENDERS", "").strip()),
+  app\runtime\canary_gate.py:54:        "total_recent": total,
+  app\runtime\canary_gate.py:55:        "avg_score": avg,
+  app\runtime\canary_gate.py:56:        "fallback_count": fallback,
+  app\runtime\canary_gate.py:57:        "fallback_rate": round(fallback/total, 4) if total else 0,
+  app\runtime\canary_gate.py:58:        "ready_for_p414": bool(total >= 10 and avg and avg >= 8.5 and fallback/total < 0.03),
+  app\runtime\canary_gate.py:59:    }
+  app\runtime\cognitive_style_composer.py:24:    text = re.sub(r'\s+-\s+', ' ', text)
+  app\runtime\cognitive_style_composer.py:25:    text = re.sub(r'\s+', ' ', text).strip()
+  app\runtime\cognitive_style_composer.py:26:
+> app\runtime\cognitive_style_composer.py:27:    sentences = [s.strip() for s in re.split(r'(?<=[.!?])\s+', text) if s.strip()]
+> app\runtime\cognitive_style_composer.py:28:    core = " ".join(sentences[:1]).strip()
+  app\runtime\cognitive_style_composer.py:29:
+  app\runtime\cognitive_style_composer.py:30:    if domain == "vehicle_buying" and subject:
+  app\runtime\cognitive_style_composer.py:31:        if any(x in msg for x in ["fraco","defeito","problema"]):
+  app\runtime\cognitive_style_composer.py:32:            return "Olha, os pontos fracos dessa moto são idade, manutenção mal feita e peça cansada. Se fosse eu, olharia motor frio, elétrica, suspensão, freios e documento. Se tiver gambiarra ou histórico fraco, eu passaria."
+  app\runtime\cognitive_style_composer.py:33:        if "vale a pena" in msg:
+  app\runtime\cognitive_style_composer.py:34:            return "Eu teria coragem, mas só se essa moto estiver inteira. Eu compraria com laudo, teste frio e histórico de revisão. Se o dono não prova manutenção, negocia forte ou deixa passar."
+  app\runtime\cognitive_style_composer.py:35:        if any(x in msg for x in ["prossiga","aprofunde","continue"]):
+  app\runtime\cognitive_style_composer.py:36:            return "Nessa moto, o segredo é não se apaixonar pela aparência. Olha motor frio, elétrica, suspensão e documento. Moto antiga boa existe, mas às vezes parece boa no começo e depois começa a aparecer coisa escondida."
+  app\runtime\cognitive_style_composer.py:37:        return f"Olha, essa moto pode ser uma boa compra se estiver inteira. {core} Antes de animar, se fosse eu, olharia manutenção, elétrica, suspensão e documento."
+  app\runtime\cognitive_style_composer.py:38:
+  app\runtime\cognitive_style_composer.py:39:    return core or text
+> app\runtime\context_priority_engine.py:1:def context_priority_reply(message: str, sender_id: str = "default") -> str:
+  app\runtime\context_priority_engine.py:2:    msg = str(message or "").strip().lower()
+  app\runtime\context_priority_engine.py:3:
+  app\runtime\context_priority_engine.py:4:    if msg in {"eldora", "eldora?", "vc é eldora?", "você é eldora?"}:
+  app\runtime\context_priority_engine.py:5:        return "Estou aqui 🙂 Pode mandar."
+  app\runtime\context_priority_engine.py:6:
+  app\runtime\context_priority_engine.py:7:    if any(x in msg for x in ["integrações", "integracoes", "implantações", "implantacoes", "que fizemos", "o que fizemos"]):
+  app\runtime\context_priority_engine.py:8:        return "Sim. Fizemos Render live, WhatsApp webhook, Supabase/memória, multi-provider com 14 IAs, UX guard, canary health e ledger de evidências."
+  app\runtime\context_priority_engine.py:9:
+  app\runtime\context_priority_engine.py:10:    if any(x in msg for x in ["deu certo", "agora deu certo", "funcionou", "conseguiu ver"]):
+  app\runtime\context_priority_engine.py:11:        return "Sim. A parte técnica subiu: multi-provider, WhatsApp, UX guard e canary. Falta fechar memória contextual/persona antes do P4.14."
+  app\runtime\context_priority_engine.py:12:
+  app\runtime\context_priority_engine.py:13:    return ""
+  app\runtime\conversation_state_resolver.py:15:def _has(m, items):
+  app\runtime\conversation_state_resolver.py:16:    return any(x in m for x in items)
+  app\runtime\conversation_state_resolver.py:17:
+> app\runtime\conversation_state_resolver.py:18:def resolve(sender_id,msg):
+> app\runtime\conversation_state_resolver.py:19:    s=get_state(sender_id); m=_norm(msg)
+  app\runtime\conversation_state_resolver.py:20:    if _has(m,TROUBLE): return "TROUBLESHOOTING",s
+  app\runtime\conversation_state_resolver.py:21:    if _has(m,FOLLOWUP): return "FOLLOWUP",s
+  app\runtime\conversation_state_resolver.py:22:    if _has(m,TASK): return "TASK",s
+  app\runtime\conversation_state_resolver.py:23:    if _has(m,SOCIAL): return "SOCIAL",s
+  app\runtime\conversation_state_resolver.py:24:    return "AMBIGUOUS",s
+  app\runtime\decision_memory.py:1:from datetime import datetime, UTC
+  app\runtime\decision_memory.py:2:_MEMORY={}
+> app\runtime\decision_memory.py:3:def get_state(sender_id:str):
+> app\runtime\decision_memory.py:4:    return _MEMORY.setdefault(sender_id,{
+> app\runtime\decision_memory.py:5:        "sender_id":sender_id,"last_topic":None,"last_problem":None,"last_goal":None,"last_user_question":None,
+  app\runtime\decision_memory.py:6:        "last_assistant_reply":None,"last_meaningful_reply":None,"last_open_task":None,"open_loop":False,
+  app\runtime\decision_memory.py:7:        "conversation_depth":0,"intent":None,"previous_intent":None,"frustration_signal":False,
+  app\runtime\decision_memory.py:8:        "continuity_anchor":None,"unresolved_error":None,"updated_at":datetime.now(UTC).isoformat()
+  app\runtime\decision_memory.py:9:    })
+> app\runtime\decision_memory.py:10:def save_state(sender_id:str,state:dict):
+  app\runtime\decision_memory.py:11:    state["updated_at"]=datetime.now(UTC).isoformat()
+> app\runtime\decision_memory.py:12:    _MEMORY[sender_id]=state
+  app\runtime\duplicate_response_guard.py:3:
+  app\runtime\duplicate_response_guard.py:4:_CACHE={}
+  app\runtime\duplicate_response_guard.py:5:
+> app\runtime\duplicate_response_guard.py:6:def should_block_duplicate(sender_id:str,response:str,window:int=10)->bool:
+  app\runtime\duplicate_response_guard.py:7:    now=time.time()
+> app\runtime\duplicate_response_guard.py:8:    key=f"{sender_id}:{hashlib.md5((response or '').encode()).hexdigest()}"
+  app\runtime\duplicate_response_guard.py:9:    last=_CACHE.get(key)
+  app\runtime\duplicate_response_guard.py:10:    _CACHE[key]=now
+  app\runtime\duplicate_response_guard.py:11:    return last is not None and (now-last)<=window
+  app\runtime\factual_conversation_policy.py:23:        t=t.replace(c,"").strip()
+  app\runtime\factual_conversation_policy.py:24:    return t[:900].strip()
+  app\runtime\factual_conversation_policy.py:25:
+> app\runtime\factual_conversation_policy.py:26:def apply_factual_conversation_policy(answer:str,inbound:str="",sender_id:str="default")->str:
+  app\runtime\factual_conversation_policy.py:27:    msg=(inbound or "").lower()
+> app\runtime\factual_conversation_policy.py:28:    key=sender_id or "default"
+  app\runtime\factual_conversation_policy.py:29:    st=_STATE.get(key) or FactualConversationState()
+  app\runtime\factual_conversation_policy.py:30:
+  app\runtime\factual_conversation_policy.py:31:    deepen=any(x in msg for x in ["aprofundar","aprofunde","detalhar","mais detalhes"])
+  app\runtime\factual_conversation_policy.py:32:    if any(x in msg for x in ["cr250","cr 250","250r","pedal","partida","ims","red dragon"]) or deepen:
+  app\runtime\factual_conversation_policy.py:33:        st.active_topic = st.active_topic or "Honda CR250R 2001 2T / pedal de partida"
+  app\runtime\factual_conversation_policy.py:34:
+  app\runtime\factual_conversation_policy.py:35:    if deepen:
+  app\runtime\factual_conversation_policy.py:36:        st.deepen_count += 1
+  app\runtime\factual_conversation_policy.py:37:        st.stage_index = min(st.stage_index+1, len(STAGES)-1)
+  app\runtime\factual_conversation_policy.py:38:
+  app\runtime\factual_conversation_policy.py:39:    stage=STAGES[st.stage_index]
+  app\runtime\factual_conversation_policy.py:40:    cleaned=_clean(answer)
+  app\runtime\factual_conversation_policy.py:41:    h=_hash(cleaned)
+  app\runtime\factual_conversation_policy.py:42:
+  app\runtime\factual_conversation_policy.py:43:    generic=("não ficou claro" in cleaned.lower() or "me dar um pouco mais de contexto" in cleaned.lower() or "que área específica" in cleaned.lower())
+  app\runtime\factual_conversation_policy.py:44:
+  app\runtime\factual_conversation_policy.py:45:    if generic or h in st.last_hashes:
+  app\runtime\factual_conversation_policy.py:46:        if stage=="detail":
+  app\runtime\factual_conversation_policy.py:47:            cleaned="Aprofundando: o ponto crítico é confirmar anúncio que cite CR250R 1997–2007/2T, não peça parecida de CRF ou outra moto."
+  app\runtime\factual_conversation_policy.py:48:        elif stage=="compare":
+  app\runtime\factual_conversation_policy.py:49:            cleaned="Comparação prática: IMS teve preço real encontrado; Red Dragon não apareceu com fonte confiável para CR250R 2001. Hoje IMS é a rota mais segura."
+  app\runtime\factual_conversation_policy.py:50:        elif stage=="decision":
+  app\runtime\factual_conversation_policy.py:51:            cleaned="Decisão: eu compraria só se o anúncio citar CR250R 97/07 ou CR250R 2T. Evitaria adaptar pedal de CRF/YZ/KX sem medir encaixe."
+  app\runtime\factual_conversation_policy.py:52:        else:
+  app\runtime\factual_conversation_policy.py:53:            cleaned="Ação: buscar por 'Honda CR250R 1997 2007 kick starter', 'CR250R 2001 kick start lever' e comparar peça, frete, prazo e devolução."
+  app\runtime\final_conversational_arbiter.py:9:
+  app\runtime\final_conversational_arbiter.py:10:PROGRESSIVE = ["detalhe melhor", "aprofunde", "ainda mais", "passo a passo", "explique melhor"]
+  app\runtime\final_conversational_arbiter.py:11:
+> app\runtime\final_conversational_arbiter.py:12:def final_conversational_arbiter(sender_id: str, inbound: str, answer: str) -> str:
+  app\runtime\final_conversational_arbiter.py:13:    msg = (inbound or "").lower()
+  app\runtime\final_conversational_arbiter.py:14:    out = str(answer or "")
+  app\runtime\final_conversational_arbiter.py:15:    low = out.lower()
+  app\runtime\final_conversational_arbiter.py:16:
+  app\runtime\final_conversational_arbiter.py:17:    if any(x in msg for x in PROGRESSIVE) and any(x in low for x in BAD_FACTUAL_BLEED):
+  app\runtime\final_conversational_arbiter.py:18:        synthetic = "passo a passo" if "passo a passo" in msg else "aprofunde"
+  app\runtime\final_conversational_arbiter.py:19:        return out
+  app\runtime\final_conversational_arbiter.py:20:
+  app\runtime\final_conversational_arbiter.py:21:    if out.count("\n\n") > 4 and any(x in msg for x in PROGRESSIVE):
+  app\runtime\final_conversational_arbiter.py:22:        return out
+  app\runtime\final_conversational_arbiter.py:23:
+  app\runtime\final_conversational_arbiter.py:24:    return out
+  app\runtime\final_conversational_arbiter.py:25:
+  app\runtime\forensic_trace.py:5:TRACE_DIR = Path("_evidence/runtime_real_hop_trace")
+  app\runtime\forensic_trace.py:6:TRACE_DIR.mkdir(parents=True, exist_ok=True)
+  app\runtime\forensic_trace.py:7:
+> app\runtime\forensic_trace.py:8:def new_trace(route,inbound_message,sender_id):
+  app\runtime\forensic_trace.py:9:    return {
+  app\runtime\forensic_trace.py:10:        "correlation_id": str(uuid.uuid4()),
+  app\runtime\forensic_trace.py:11:        "created_at": time.time(),
+  app\runtime\forensic_trace.py:12:        "route": route,
+> app\runtime\forensic_trace.py:13:        "sender_id": sender_id,
+  app\runtime\forensic_trace.py:14:        "inbound_message": inbound_message,
+  app\runtime\forensic_trace.py:15:        "hops": {},
+  app\runtime\forensic_trace.py:16:        "errors": []
+  app\runtime\forensic_trace.py:17:    }
+  app\runtime\forensic_trace.py:18:
+  app\runtime\forensic_trace.py:19:def mark(trace, hop, value):
+  app\runtime\forensic_trace.py:20:    trace["hops"][hop] = {
+  app\runtime\forensic_trace.py:21:        "type": type(value).__name__,
+  app\runtime\forensic_trace.py:22:        "text": str(value)[:5000]
+  app\runtime\forensic_trace.py:23:    }
+  app\runtime\forensic_trace.py:24:
+  app\runtime\forensic_trace.py:25:def fail(trace, hop, exc):
+  app\runtime\forensic_trace.py:26:    trace["errors"].append({
+  app\runtime\forensic_trace.py:27:        "hop": hop,
+  app\runtime\forensic_trace.py:28:        "error": repr(exc),
+  app\runtime\forensic_trace.py:29:        "traceback": traceback.format_exc()[-5000:]
+  app\runtime\forensic_trace.py:30:    })
+  app\runtime\forensic_trace.py:31:
+  app\runtime\forensic_trace.py:32:def save(trace):
+  app\runtime\forensic_trace.py:33:    p = TRACE_DIR / f"{trace['correlation_id']}.json"
+  app\runtime\forensic_trace.py:34:    p.write_text(json.dumps(trace,ensure_ascii=False,indent=2),encoding="utf-8")
+  app\runtime\forensic_trace.py:35:    return str(p)
+  app\runtime\forensic_trace.py:36:
+  app\runtime\forensic_trace.py:37:
+  app\runtime\forensic_trace.py:38:def event(name, **kwargs):
+  app\runtime\generic_conversation_state.py:94:        depth+=1
+  app\runtime\generic_conversation_state.py:95:    return (stage,sub,depth)
+  app\runtime\generic_conversation_state.py:96:
+> app\runtime\generic_conversation_state.py:97:def update_conversation_state(sender_id:str,text:str)->GenericConversationState:
+> app\runtime\generic_conversation_state.py:98:    key=sender_id or "default"
+  app\runtime\generic_conversation_state.py:99:    prev=_STATE.get(key)
+  app\runtime\generic_conversation_state.py:100:    intent=classify_intent(text)
+  app\runtime\generic_conversation_state.py:101:    topic=infer_topic(text,prev)
+  app\runtime\generic_conversation_state.py:102:    if not topic and prev:
+  app\runtime\generic_conversation_state.py:103:        topic=prev.active_topic
+  app\runtime\generic_conversation_state.py:104:    topic_changed=bool(prev and topic and topic!=prev.active_topic)
+  app\runtime\generic_conversation_state.py:105:
+  app\runtime\generic_conversation_state.py:106:    ents=extract_entities(text)
+  app\runtime\generic_conversation_state.py:107:    if prev and not ents and intent in ["deepen","economic_followup"]:
+  app\runtime\generic_conversation_state.py:108:        ents=list(prev.entities)
+  app\runtime\generic_conversation_state.py:109:
+  app\runtime\generic_conversation_state.py:110:    stage,sub,depth=_next_stage(prev,intent,topic_changed)
+  app\runtime\generic_conversation_state.py:111:    mode="factual" if topic=="vehicle_parts_research" else "strategic" if topic=="eldora_runtime_ux" else "general"
+  app\runtime\generic_conversation_state.py:112:
+  app\runtime\generic_conversation_state.py:113:    st=GenericConversationState(topic,ents,intent,stage,sub,depth,mode,time.time(),prev.last_hashes if prev else [],prev.last_categories if prev else [])
+> app\runtime\generic_conversation_state.py:114:    setattr(st, "sender_id", key)
+  app\runtime\generic_conversation_state.py:115:    _STATE[key]=st
+  app\runtime\generic_conversation_state.py:116:    return st
+  app\runtime\generic_conversation_state.py:117:
+  app\runtime\generic_conversation_state.py:118:def prevent_cross_topic(answer:str,state:GenericConversationState)->str:
+  app\runtime\generic_conversation_state.py:119:    low=(answer or "").lower()
+  app\runtime\generic_conversation_state.py:120:    if state.active_topic=="eldora_runtime_ux" and any(x in low for x in ["cr250","kick starter","pedal de partida","ims","red dragon"]):
+  app\runtime\generic_conversation_state.py:121:        return "Aprofundando Eldora: o foco é fluidez real, autoridade de resposta única e continuidade por tópico sem fallback genérico."
+  app\runtime\generic_conversation_state.py:122:    if state.active_topic=="vehicle_parts_research" and any(x in low for x in ["eldora","mind","neura"]):
+  app\runtime\generic_conversation_state.py:123:        return "Mantendo o contexto da peça: vou responder só sobre compatibilidade, preço, adaptação e compra do item pesquisado."
+  app\runtime\generic_conversation_state.py:124:    return answer
+  app\runtime\generic_conversation_state.py:125:
+  app\runtime\generic_conversation_state.py:126:def _bank_answer(state:GenericConversationState)->tuple[str,str]:
+  app\runtime\generic_conversation_state.py:127:    bank=ELDORA_SUBSTAGES if state.active_topic=="eldora_runtime_ux" else FACTUAL_SUBSTAGES
+  app\runtime\generic_conversation_state.py:128:    idx=state.substage % len(bank)
+  app\runtime\generic_conversation_state.py:129:    cat,text=bank[idx]
+  app\runtime\generic_conversation_state.py:130:    prefix={
+  app\runtime\generic_conversation_state.py:131:        "summary":"Resumo",
+  app\runtime\generic_conversation_state.py:132:        "detail":"Detalhe",
+  app\runtime\generic_conversation_state.py:133:        "compare":"Comparação",
+  app\runtime\generic_conversation_state.py:134:        "decision":"Decisão",
+  app\runtime\generic_conversation_state.py:135:        "action":"Ação",
+  app\runtime\generic_conversation_state.py:136:        "validation":"Validação"
+  app\runtime\generic_conversation_state.py:137:    }.get(state.stage,"Detalhe")
+  app\runtime\generic_conversation_state.py:138:    if state.active_topic=="eldora_runtime_ux":
+  app\runtime\generic_conversation_state.py:139:        text=f"Eldora / fluidez / autoridade: {text}"
+  app\runtime\generic_conversation_state.py:154:        cleaned=(answer or "").replace("Digite APROFUNDAR para continuar","").replace("Se quiser, eu posso","").replace("😊","").strip()[:900]
+  app\runtime\generic_conversation_state.py:155:        return prevent_cross_topic(cleaned,state)
+  app\runtime\generic_conversation_state.py:156:    if state.intent in ["execute", "plan", "deepen", "economic_followup"] or any(x in low_answer for x in ["detalhe / risk","detalhe / price","compatibilidade","preço:","risco:"]):
+> app\runtime\generic_conversation_state.py:157:        sender = getattr(state, "sender_id", "conversation_progressive")
+  app\runtime\generic_conversation_state.py:158:        synthetic_message = "passo a passo" if state.intent in ["execute", "plan"] else "aprofunde"
+> app\runtime\generic_conversation_state.py:159:        return universal_conversation_reply(sender, synthetic_message, [])
+  app\runtime\generic_conversation_state.py:160:
+  app\runtime\generic_conversation_state.py:161:    cleaned=(answer or "").replace("Digite APROFUNDAR para continuar","").replace("Se quiser, eu posso","").replace("😊","").strip()[:900]
+  app\runtime\generic_conversation_state.py:162:    h=_hash(cleaned)
+  app\runtime\generic_conversation_state.py:163:    repeated_hash=h in state.last_hashes
+  app\runtime\generic_conversation_state.py:164:
+  app\runtime\generic_conversation_state.py:165:    cat,generated=_bank_answer(state)
+  app\runtime\generic_conversation_state.py:166:    repeated_cat=cat in state.last_categories[-2:]
+  app\runtime\generic_conversation_state.py:167:
+  app\runtime\generic_conversation_state.py:168:    generic=any(x in cleaned.lower() for x in [
+  app\runtime\generic_conversation_state.py:169:        "não ficou claro","me dar um pouco mais de contexto","o que você gostaria",
+  app\runtime\generic_conversation_state.py:170:        "tudo certo por aqui","como posso ajudar"
+  app\runtime\generic_conversation_state.py:171:    ])
+  app\runtime\generic_conversation_state.py:172:
+  app\runtime\generic_conversation_state.py:173:    if state.intent=="deepen" or repeated_hash or repeated_cat or generic:
+  app\runtime\generic_conversation_state.py:174:        cleaned=generated
+  app\runtime\generic_conversation_state.py:175:
+  app\runtime\generic_conversation_state.py:176:    state.last_hashes=(state.last_hashes+[h])[-8:]
+  app\runtime\generic_conversation_state.py:177:    state.last_categories=(state.last_categories+[cat])[-4:]
+  app\runtime\generic_conversation_state.py:178:    return prevent_cross_topic(cleaned,state)
+  app\runtime\generic_conversation_state.py:179:
+  app\runtime\generic_conversation_state.py:180:# P4_12N_FACTUAL_BLEED_FIX
+  app\runtime\generic_conversation_state.py:181:def is_casual_dialogue(text: str) -> bool:
+  app\runtime\generic_conversation_state.py:182:    t=(text or "").strip().lower()
+  app\runtime\generic_conversation_state.py:183:    if not t:
+  app\runtime\generic_conversation_state.py:184:        return False
+  app\runtime\global_topic_authority.py:2:from __future__ import annotations
+  app\runtime\global_topic_authority.py:3:from app.runtime.generic_conversation_state import update_conversation_state, progressive_answer, prevent_cross_topic
+  app\runtime\global_topic_authority.py:4:
+> app\runtime\global_topic_authority.py:5:def global_topic_authority(answer:str,inbound:str="",sender_id:str="default")->str:
+> app\runtime\global_topic_authority.py:6:    state=update_conversation_state(sender_id,inbound)
+  app\runtime\global_topic_authority.py:7:    safe=prevent_cross_topic(answer,state)
+  app\runtime\global_topic_authority.py:8:    return progressive_answer(safe,state)
+  app\runtime\identity_guard_runtime.py:10:]
+  app\runtime\identity_guard_runtime.py:11:
+  app\runtime\identity_guard_runtime.py:12:IDENTITY_ALLOWED = re.compile(
+> app\runtime\identity_guard_runtime.py:13:    r"(quem é você|quem e voce|se apresente|qual seu nome|você é quem|vc é quem)",
+  app\runtime\identity_guard_runtime.py:14:    re.I
+  app\runtime\identity_guard_runtime.py:15:)
+  app\runtime\identity_guard_runtime.py:16:
+  app\runtime\identity_guard_runtime.py:17:def guard_identity_fallback(user_text:str,response:str)->str:
+  app\runtime\identity_guard_runtime.py:18:    u=(user_text or "").strip().lower()
+  app\runtime\identity_guard_runtime.py:19:    r=(response or "").strip()
+  app\runtime\identity_guard_runtime.py:20:
+  app\runtime\identity_guard_runtime.py:21:    if IDENTITY_ALLOWED.search(u):
+  app\runtime\identity_guard_runtime.py:22:        return r
+  app\runtime\identity_guard_runtime.py:23:
+  app\runtime\identity_guard_runtime.py:24:    low=r.lower()
+  app\runtime\identity_guard_runtime.py:25:
+  app\runtime\identity_guard_runtime.py:26:    leaked=any(re.search(p,low) for p in BANNED_PATTERNS)
+  app\runtime\identity_guard_runtime.py:27:
+  app\runtime\identity_guard_runtime.py:28:    if leaked:
+  app\runtime\identity_guard_runtime.py:29:        if any(x in u for x in ["oi","olá","ola","eai","e aí"]):
+  app\runtime\identity_guard_runtime.py:30:            return "Oi, Roberto. Como você está? O que vamos resolver agora?"
+  app\runtime\identity_guard_runtime.py:31:
+  app\runtime\identity_guard_runtime.py:32:        if "tudo bem" in u:
+  app\runtime\identity_guard_runtime.py:33:            return "Tudo certo por aqui. E você, como está?"
+  app\runtime\identity_guard_runtime.py:34:
+  app\runtime\identity_guard_runtime.py:35:        if u in ["sim","aham","ok","blz","beleza","isso"]:
+  app\runtime\identity_guard_runtime.py:36:            return "Perfeito. Me fala o próximo passo ou o que você quer testar."
+  app\runtime\identity_guard_runtime.py:37:
+  app\runtime\identity_guard_runtime.py:38:        if "simulador" in u:
+> app\runtime\intent_first_router.py:1:def route_fast(sender_id: str, text: str) -> str | None:
+  app\runtime\intent_first_router.py:2:    t = (text or "").lower().strip()
+  app\runtime\intent_first_router.py:3:
+  app\runtime\intent_first_router.py:4:    greetings = [
+  app\runtime\intent_first_router.py:5:        "oi","oie","olá","ola",
+  app\runtime\intent_first_router.py:6:        "bom dia","boa tarde","boa noite"
+  app\runtime\intent_first_router.py:7:    ]
+  app\runtime\intent_first_router.py:8:
+  app\runtime\intent_first_router.py:9:    if not t:
+  app\runtime\intent_first_router.py:10:        return "te ouvi aqui, mas veio vazio."
+  app\runtime\intent_first_router.py:11:
+  app\runtime\intent_first_router.py:12:    if t in greetings:
+  app\runtime\intent_first_router.py:13:        return "Oi, Roberto."
+  app\runtime\intent_first_router.py:14:
+  app\runtime\intent_first_router.py:15:    if any(x in t for x in [
+  app\runtime\intent_first_router.py:16:        "tudo bem","tudo certo","como ta","como tá",
+  app\runtime\intent_first_router.py:17:        "como vc ta","como você está","e vc","e você"
+  app\runtime\intent_first_router.py:18:    ]):
+  app\runtime\intent_first_router.py:19:        return "Tudo certo por aqui 🙂 E você?"
+  app\runtime\intent_first_router.py:20:
+  app\runtime\intent_first_router.py:21:    if any(x in t for x in [
+  app\runtime\intent_first_router.py:22:        "qual seu nome","como vc chama",
+  app\runtime\intent_first_router.py:23:        "como você chama","quem é você",
+  app\runtime\intent_first_router.py:24:        "quem e voce"
+  app\runtime\intent_first_router.py:25:    ]):
+  app\runtime\intent_first_router.py:26:        return "Sou a Eldora 🙂 O que você quer saber?"
+  app\runtime\intent_first_router.py:27:
+  app\runtime\intent_first_router.py:28:    if any(x in t for x in [
+> app\runtime\intent_first_router.py:29:        "sentiu diferença","sentiu diferenca",
+  app\runtime\intent_first_router.py:30:        "deu certo","ou ainda nada",
+  app\runtime\intent_first_router.py:31:        "ainda nada","ainda não","ainda nao"
+  app\runtime\intent_first_router.py:32:    ]):
+  app\runtime\intent_first_router.py:33:        return "melhorou um pouco, mas ainda tem problema de continuidade e respostas genéricas."
+  app\runtime\intent_first_router.py:34:
+  app\runtime\intent_first_router.py:35:    if any(x in t for x in [
+  app\runtime\intent_first_router.py:36:        "verificar onde esta o problema",
+  app\runtime\intent_first_router.py:37:        "onde esta o problema",
+  app\runtime\intent_first_router.py:38:        "consegue verificar",
+  app\runtime\intent_first_router.py:39:        "procura por ai",
+  app\runtime\intent_first_router.py:40:        "procura por aí"
+  app\runtime\intent_first_router.py:41:    ]):
+  app\runtime\intent_first_router.py:42:        return "consigo. O principal problema parece estar no roteamento: intenção curta, fallback genérico e memória contaminada."
+  app\runtime\intent_first_router.py:43:
+  app\runtime\intent_first_router.py:44:    if any(x in t for x in [
+  app\runtime\intent_first_router.py:45:        "rota só","rota so","uma rota",
+  app\runtime\intent_first_router.py:46:        "mais rotas","é uma rota","rota"
+  app\runtime\intent_first_router.py:47:    ]):
+  app\runtime\intent_first_router.py:48:        return "parece mais de uma camada interferindo: runtime principal, memória/contexto e fallback."
+  app\runtime\intent_first_router.py:49:
+  app\runtime\intent_first_router.py:50:    return None
+  app\runtime\internal_state.py:1:def load_state(user_id):
+> app\runtime\internal_state.py:2:    return {"current_focus":"Eldora Cognitive Runtime","conversation_arc":"implementation","user_energy":"high","relationship_stage":"operational_partner","dominant_project":"MIND","emotional_tone":"focused","last_unresolved_topic":"","continuity_anchor":"prosseguir evolução Eldora"}
+  app\runtime\internal_state.py:3:def update_state(message, intent, memory):
+  app\runtime\internal_state.py:4:    s=load_state("default"); s["current_focus"]=intent.get("intent","general"); s["last_unresolved_topic"]=message; return s
+  app\runtime\internal_state.py:5:def persist_state(user_id, state): return {"persisted":True,"user_id":user_id,"state":state}
+  app\runtime\mind_state_visible_context.py:17:        "- Runtime estável V2 ativo.\n"
+  app\runtime\mind_state_visible_context.py:18:        "- Testes verdes: 194/194.\n"
+  app\runtime\mind_state_visible_context.py:19:        "- Render operacional.\n"
+> app\runtime\mind_state_visible_context.py:20:        "- Twilio/WhatsApp validado com entrega real.\n"
+  app\runtime\mind_state_visible_context.py:21:        "- Webhook produtivo respondendo.\n"
+  app\runtime\mind_state_visible_context.py:22:        "- Camada de inteligência WhatsApp acoplada.\n"
+  app\runtime\mind_state_visible_context.py:23:        "- Gap atual: resposta visível ainda precisa usar memória/contexto MIND completo.\n"
+  app\runtime\mind_state_visible_context.py:24:        "Próximo passo: conectar resposta visível ao estado real, memória persistente e orquestração."
+  app\runtime\mind_state_visible_context.py:25:    )
+  app\runtime\mind_state_visible_context.py:26:
+  app\runtime\multi_provider_factual_provider.py:1:from app.runtime.ai_provider_registry import provider_registry_status, configured_text_providers
+  app\runtime\multi_provider_factual_provider.py:2:from app.runtime.text_provider_adapters import call_provider
+  app\runtime\multi_provider_factual_provider.py:3:
+> app\runtime\multi_provider_factual_provider.py:4:def multi_provider_factual_provider(message: str, sender_id: str="default", context: dict|None=None) -> dict:
+  app\runtime\multi_provider_factual_provider.py:5:    providers = configured_text_providers()
+  app\runtime\multi_provider_factual_provider.py:6:    if not providers:
+  app\runtime\multi_provider_factual_provider.py:7:        return {"ok":False,"provider":"none","answer":"MULTI_AI_PROVIDER_NOT_CONFIGURED","registry":provider_registry_status()}
+  app\runtime\multi_provider_factual_provider.py:8:
+  app\runtime\multi_provider_factual_provider.py:9:    errors=[]
+  app\runtime\multi_provider_factual_provider.py:10:    for p in providers:
+  app\runtime\multi_provider_factual_provider.py:11:        try:
+  app\runtime\multi_provider_factual_provider.py:12:            answer = call_provider(p["name"], message, p.get("model"))
+  app\runtime\multi_provider_factual_provider.py:13:            if answer and answer.strip():
+  app\runtime\multi_provider_factual_provider.py:14:                return {"ok":True,"provider":p["name"],"model":p.get("model"),"answer":answer[:900],"errors":errors}
+  app\runtime\multi_provider_factual_provider.py:15:            errors.append({"provider":p["name"],"error":"empty_answer"})
+  app\runtime\multi_provider_factual_provider.py:16:        except Exception as e:
+  app\runtime\multi_provider_factual_provider.py:17:            errors.append({"provider":p["name"],"error":repr(e)[:500]})
+  app\runtime\multi_provider_factual_provider.py:18:
+  app\runtime\multi_provider_factual_provider.py:19:    return {"ok":False,"provider":"multi_ai_failed","answer":"MULTI_AI_PROVIDER_FAILED","errors":errors,"registry":provider_registry_status()}
+  app\runtime\real_factual_provider.py:1:import os
+  app\runtime\real_factual_provider.py:2:from openai import OpenAI
+  app\runtime\real_factual_provider.py:3:
+> app\runtime\real_factual_provider.py:4:def real_factual_provider(message: str, sender_id: str="default", context: dict|None=None) -> dict:
+  app\runtime\real_factual_provider.py:5:    key = os.getenv("OPENAI_API_KEY","").strip()
+  app\runtime\real_factual_provider.py:6:    if not key:
+  app\runtime\real_factual_provider.py:7:        return {"ok": False, "provider": "none", "answer": "FACTUAL_PROVIDER_NOT_CONFIGURED"}
+  app\runtime\real_factual_provider.py:8:    try:
+> app\runtime\real_factual_provider.py:9:        client = OpenAI(api_key=key)
+> app\runtime\real_factual_provider.py:10:        r = client.responses.create(
+  app\runtime\real_factual_provider.py:11:            model=os.getenv("OPENAI_MODEL","gpt-4.1-mini"),
+  app\runtime\real_factual_provider.py:12:            input=f"Responda em PT-BR, curto e útil para WhatsApp. Contexto={context or {}}. Pergunta={message}",
+  app\runtime\real_factual_provider.py:13:            temperature=0.2,
+  app\runtime\real_factual_provider.py:14:            max_output_tokens=300,
+  app\runtime\real_factual_provider.py:15:        )
+  app\runtime\real_factual_provider.py:16:        return {"ok": True, "provider": "openai_sdk", "answer": r.output_text[:900]}
+  app\runtime\real_factual_provider.py:17:    except Exception as e:
+  app\runtime\real_factual_provider.py:18:        return {"ok": False, "provider": "openai_error", "answer": "FACTUAL_PROVIDER_ERROR: " + repr(e)[:700]}
+  app\runtime\real_humanization_runtime.py:51:
+  app\runtime\real_humanization_runtime.py:52:    followup_probability = clamp(0.25 + (0.35 * urgency) + (0.25 * frustration) + (0.15 if "?" in user_l else 0))
+  app\runtime\real_humanization_runtime.py:53:    supportive_mode = frustration >= 0.45
+> app\runtime\real_humanization_runtime.py:54:    proactive_suitability = clamp((trust * 0.4) + (urgency * 0.3) + (continuity * 0.3))
+  app\runtime\real_humanization_runtime.py:55:
+  app\runtime\real_humanization_runtime.py:56:    humanization_score = round(100 * clamp((1 - robotic_probability) * 0.45 + continuity * 0.35 + trust * 0.20), 2)
+  app\runtime\real_humanization_runtime.py:57:
+  app\runtime\real_humanization_runtime.py:58:    return {
+  app\runtime\real_humanization_runtime.py:59:        "answer": answer,
+  app\runtime\real_humanization_runtime.py:60:        "messages": [answer],
+  app\runtime\real_humanization_runtime.py:61:        "observation": {
+  app\runtime\real_humanization_runtime.py:62:            "tone": relationship.get("communication_style", social.get("communication_style", "direct")),
+  app\runtime\real_humanization_runtime.py:63:            "urgency": urgency,
+  app\runtime\real_humanization_runtime.py:64:            "frustration": frustration,
+  app\runtime\real_humanization_runtime.py:65:            "trust": trust,
+  app\runtime\real_humanization_runtime.py:66:            "continuity": round(clamp(continuity), 2)
+  app\runtime\real_humanization_runtime.py:67:        },
+  app\runtime\real_humanization_runtime.py:68:        "pattern": {
+  app\runtime\real_humanization_runtime.py:69:            "cadence": cadence,
+  app\runtime\real_humanization_runtime.py:70:            "followup_probability": round(followup_probability, 2),
+  app\runtime\real_humanization_runtime.py:71:            "fragmentation_strategy": cadence,
+> app\runtime\real_humanization_runtime.py:72:            "proactive_suitability": round(proactive_suitability, 2),
+  app\runtime\real_humanization_runtime.py:73:            "supportive_mode": supportive_mode
+  app\runtime\real_humanization_runtime.py:74:        },
+  app\runtime\real_humanization_runtime.py:75:        "judge": {
+  app\runtime\real_humanization_runtime.py:76:            "humanization_score": humanization_score,
+  app\runtime\real_humanization_runtime.py:77:            "robotic_probability": round(robotic_probability, 2),
+  app\runtime\real_humanization_runtime.py:78:            "social_continuity_score": round(100 * clamp(continuity), 2),
+  app\runtime\real_humanization_runtime.py:79:            "rewrite_suggestions": [] if robotic_probability == 0 else ["rewrite_robotic_terms"]
+  app\runtime\real_humanization_runtime.py:80:        },
+  app\runtime\real_humanization_runtime.py:81:        "ELDORA_REAL_HUMANIZATION_ACTIVE": True
+  app\runtime\real_humanization_runtime.py:82:    }
+  app\runtime\real_humanization_runtime.py:83:
+  app\runtime\semantic_answer_engine.py:14:    ]
+  app\runtime\semantic_answer_engine.py:15:}
+  app\runtime\semantic_answer_engine.py:16:
+> app\runtime\semantic_answer_engine.py:17:def _remember(sender_id, decision):
+> app\runtime\semantic_answer_engine.py:18:    sid = sender_id or "default"
+  app\runtime\semantic_answer_engine.py:19:    ctx = _CONTEXT.get(sid, {})
+  app\runtime\semantic_answer_engine.py:20:    ent = decision.entities or {}
+  app\runtime\semantic_answer_engine.py:21:    if ent.get("location"):
+  app\runtime\semantic_answer_engine.py:22:        ctx["location"] = norm(ent["location"])
+  app\runtime\semantic_answer_engine.py:23:    if decision.domain:
+  app\runtime\semantic_answer_engine.py:24:        ctx["domain"] = decision.domain
+  app\runtime\semantic_answer_engine.py:25:    _CONTEXT[sid] = ctx
+  app\runtime\semantic_answer_engine.py:26:    return ctx
+  app\runtime\semantic_answer_engine.py:27:
+  app\runtime\semantic_answer_engine.py:28:def _answer_local_food(message, decision, ctx):
+  app\runtime\semantic_answer_engine.py:29:    loc = norm((decision.entities or {}).get("location") or ctx.get("location") or "")
+  app\runtime\semantic_answer_engine.py:30:    if not loc:
+  app\runtime\semantic_answer_engine.py:31:        return "Me diga a cidade para eu listar boas opções de restaurante."
+  app\runtime\semantic_answer_engine.py:32:    items = LOCAL_FOOD_KB.get(loc)
+  app\runtime\semantic_answer_engine.py:33:    if not items:
+  app\runtime\semantic_answer_engine.py:34:        return f"Para restaurantes em {loc}, eu preciso buscar opções atualizadas. Me diga faixa de preço ou tipo de comida."
+  app\runtime\semantic_answer_engine.py:35:    top = items[:5]
+  app\runtime\semantic_answer_engine.py:36:    linhas = [f"{i+1}. {nome} — {tipo}: {motivo}." for i, (nome, tipo, motivo) in enumerate(top)]
+  app\runtime\semantic_answer_engine.py:37:    return "Top 5 em Holambra:\n" + "\n".join(linhas)
+  app\runtime\semantic_answer_engine.py:38:
+  app\runtime\semantic_answer_engine.py:39:def _answer_vehicle(message, decision):
+  app\runtime\semantic_answer_engine.py:40:    ent = decision.entities or {}
+  app\runtime\semantic_answer_engine.py:41:    model = " ".join(x for x in [ent.get("brand"), ent.get("vehicle_model")] if x) or "esse veículo"
+  app\runtime\semantic_answer_engine.py:42:    return (
+  app\runtime\semantic_answer_engine.py:43:        f"{model}: pontos fortes são motor forte, estabilidade, conforto e presença premium. "
+  app\runtime\semantic_answer_engine.py:52:        return f"Para {loc}, escolha 1 ponto principal, 1 restaurante, tempo de deslocamento e plano B se chover."
+  app\runtime\semantic_answer_engine.py:53:    return "Boa. Para viagem de fim de semana, defina cidade, tempo de estrada, hospedagem e 1 atração principal."
+  app\runtime\semantic_answer_engine.py:54:
+> app\runtime\semantic_answer_engine.py:55:def semantic_answer(message, sender_id="default"):
+> app\runtime\semantic_answer_engine.py:56:    base_ctx = _CONTEXT.get(sender_id or "default", {})
+  app\runtime\semantic_answer_engine.py:57:    decision = semantic_route(message, base_ctx)
+> app\runtime\semantic_answer_engine.py:58:    ctx = _remember(sender_id, decision)
+  app\runtime\semantic_answer_engine.py:59:
+  app\runtime\semantic_answer_engine.py:60:    if decision.domain == "local_food":
+  app\runtime\semantic_answer_engine.py:61:        answer = _answer_local_food(message, decision, ctx)
+  app\runtime\semantic_answer_engine.py:62:    elif decision.domain == "vehicle_buying":
+  app\runtime\semantic_answer_engine.py:63:        answer = _answer_vehicle(message, decision)
+  app\runtime\semantic_answer_engine.py:64:    elif decision.domain == "travel":
+  app\runtime\semantic_answer_engine.py:65:        answer = _answer_travel(message, decision, ctx)
+  app\runtime\semantic_answer_engine.py:66:    elif decision.domain == "math":
+  app\runtime\semantic_answer_engine.py:67:        answer = decision.answer
+  app\runtime\semantic_answer_engine.py:68:    elif decision.domain == "social":
+  app\runtime\semantic_answer_engine.py:69:        answer = decision.answer
+  app\runtime\semantic_answer_engine.py:70:    elif decision.intent == "FOLLOWUP":
+  app\runtime\semantic_answer_engine.py:71:        answer = decision.answer
+  app\runtime\semantic_answer_engine.py:72:    else:
+  app\runtime\semantic_answer_engine.py:73:        answer = decision.answer
+  app\runtime\semantic_answer_engine.py:74:
+  app\runtime\semantic_answer_engine.py:75:    return {
+  app\runtime\semantic_answer_engine.py:76:        "intent": decision.intent,
+  app\runtime\semantic_answer_engine.py:77:        "domain": decision.domain,
+  app\runtime\semantic_answer_engine.py:78:        "confidence": decision.confidence,
+  app\runtime\semantic_answer_engine.py:79:        "entities": decision.entities,
+  app\runtime\semantic_answer_engine.py:80:        "context": ctx,
+  app\runtime\semantic_answer_engine.py:81:        "answer": answer[:900],
+  app\runtime\semantic_answer_engine.py:82:    }
+  app\runtime\semantic_whatsapp_runtime.py:9:
+  app\runtime\semantic_whatsapp_runtime.py:10:_CONTEXT = {}
+  app\runtime\semantic_whatsapp_runtime.py:11:
+> app\runtime\semantic_whatsapp_runtime.py:12:def semantic_whatsapp_payload(message: str, sender_id: str = "default") -> dict:
+> app\runtime\semantic_whatsapp_runtime.py:13:    sid = sender_id or "default"
+  app\runtime\semantic_whatsapp_runtime.py:14:    ctx = _CONTEXT.get(sid, {})
+  app\runtime\semantic_whatsapp_runtime.py:15:
+  app\runtime\semantic_whatsapp_runtime.py:16:    priority = context_priority_reply(message, sid)
+  app\runtime\semantic_whatsapp_runtime.py:17:    if priority:
+  app\runtime\semantic_whatsapp_runtime.py:18:        answer = whatsapp_ux_guard(message, priority)
+  app\runtime\semantic_whatsapp_runtime.py:19:        return {"intent":"CONTEXT_PRIORITY","domain":"project_context","confidence":0.99,"entities":{},"context":ctx,"provider_ok":False,"provider":"context_priority_engine","model":None,"answer":answer,"errors":[]}
+  app\runtime\semantic_whatsapp_runtime.py:20:
+  app\runtime\semantic_whatsapp_runtime.py:21:    provider_message = build_conversation_payload(message, ctx)
+  app\runtime\semantic_whatsapp_runtime.py:22:    decision = semantic_route(provider_message, ctx)
+  app\runtime\semantic_whatsapp_runtime.py:23:
+  app\runtime\semantic_whatsapp_runtime.py:24:    ctx["last_domain"] = ctx.get("last_domain") or getattr(decision, "domain", "general")
+  app\runtime\semantic_whatsapp_runtime.py:25:    _CONTEXT[sid] = ctx
+  app\runtime\semantic_whatsapp_runtime.py:26:
+  app\runtime\semantic_whatsapp_runtime.py:27:    provider = multi_provider_factual_provider(provider_message, sid, ctx)
+  app\runtime\semantic_whatsapp_runtime.py:28:    answer = provider["answer"] if provider.get("ok") else getattr(decision, "answer", "Recebi. Reformule em uma frase.")
+  app\runtime\semantic_whatsapp_runtime.py:29:    answer = humanized_answer(message, answer, ctx)
+  app\runtime\semantic_whatsapp_runtime.py:30:    answer = compose_human_style(message, answer, ctx)
+  app\runtime\semantic_whatsapp_runtime.py:31:    answer = relationalize(message, answer, ctx)
+  app\runtime\semantic_whatsapp_runtime.py:32:    answer = whatsapp_ux_guard(message, answer)
+  app\runtime\semantic_whatsapp_runtime.py:33:
+  app\runtime\semantic_whatsapp_runtime.py:34:    return {"intent":getattr(decision,"intent","UNKNOWN"),"domain":ctx.get("last_domain","general"),"confidence":getattr(decision,"confidence",0.0),"entities":{},"context":ctx,"provider_ok":provider.get("ok",False),"provider":provider.get("provider"),"model":provider.get("model"),"answer":answer,"errors":provider.get("errors",[])}
+  app\runtime\semantic_whatsapp_runtime.py:35:
+> app\runtime\semantic_whatsapp_runtime.py:36:def route_semantic_whatsapp(message: str, sender_id: str = "default") -> str:
+> app\runtime\semantic_whatsapp_runtime.py:37:    return semantic_whatsapp_payload(message, sender_id).get("answer", "")
+  app\runtime\semantic_whatsapp_runtime.py:38:
+  app\runtime\semantic_whatsapp_runtime.py:39:
+  app\runtime\semantic_whatsapp_runtime.py:40:
+  app\runtime\short_memory.py:18:        h["Prefer"] = prefer
+  app\runtime\short_memory.py:19:    return h
+  app\runtime\short_memory.py:20:
+> app\runtime\short_memory.py:21:def _safe_sender(sender_id):
+> app\runtime\short_memory.py:22:    return str(sender_id or "default")[:180]
+  app\runtime\short_memory.py:23:
+  app\runtime\short_memory.py:24:def _safe_key(key):
+  app\runtime\short_memory.py:25:    return str(key or "short_memory")[:80]
+  app\runtime\short_memory.py:26:
+> app\runtime\short_memory.py:27:def remember(key, value, sender_id="default", ttl=120):
+> app\runtime\short_memory.py:28:    sender = _safe_sender(sender_id)
+  app\runtime\short_memory.py:29:    mem_key = _safe_key(key)
+  app\runtime\short_memory.py:30:    now = time.time()
+> app\runtime\short_memory.py:31:    _MEMORY[(sender, mem_key)] = {"value": value, "expires": now + int(ttl)}
+  app\runtime\short_memory.py:32:
+  app\runtime\short_memory.py:33:    if _enabled():
+  app\runtime\short_memory.py:34:        row = {
+  app\runtime\short_memory.py:35:            "id": str(uuid.uuid4()),
+> app\runtime\short_memory.py:36:            "sender_id": sender,
+  app\runtime\short_memory.py:37:            "memory_type": mem_key,
+  app\runtime\short_memory.py:38:            "content": str(value or "")[:4000],
+  app\runtime\short_memory.py:39:            "confidence": 0.95,
+  app\runtime\short_memory.py:40:            "message": str(value or "")[:4000],
+  app\runtime\short_memory.py:41:            "role": "short_memory",
+  app\runtime\short_memory.py:42:        }
+  app\runtime\short_memory.py:43:        try:
+  app\runtime\short_memory.py:44:            req = urllib.request.Request(
+  app\runtime\short_memory.py:45:                f"{SUPABASE_URL}/rest/v1/neura_memory",
+  app\runtime\short_memory.py:46:                data=json.dumps(row).encode("utf-8"),
+  app\runtime\short_memory.py:47:                headers=_headers(),
+  app\runtime\short_memory.py:48:                method="POST",
+  app\runtime\short_memory.py:49:            )
+  app\runtime\short_memory.py:50:            urllib.request.urlopen(req, timeout=8).read()
+  app\runtime\short_memory.py:51:            return {"ok": True, "backend": "supabase_neura_memory"}
+  app\runtime\short_memory.py:52:        except Exception as e:
+  app\runtime\short_memory.py:53:            return {"ok": True, "backend": "local_fallback", "supabase_error": str(e)[:240]}
+  app\runtime\short_memory.py:54:
+  app\runtime\short_memory.py:55:    return {"ok": True, "backend": "local_fallback"}
+  app\runtime\short_memory.py:56:
+> app\runtime\short_memory.py:57:def recall(key, sender_id="default"):
+> app\runtime\short_memory.py:58:    sender = _safe_sender(sender_id)
+  app\runtime\short_memory.py:59:    mem_key = _safe_key(key)
+  app\runtime\short_memory.py:60:
+  app\runtime\short_memory.py:61:    if _enabled():
+  app\runtime\short_memory.py:62:        try:
+> app\runtime\short_memory.py:63:            sender_q = urllib.parse.quote(sender, safe="")
+  app\runtime\short_memory.py:64:            key_q = urllib.parse.quote(mem_key, safe="")
+> app\runtime\short_memory.py:65:            url = f"{SUPABASE_URL}/rest/v1/neura_memory?select=content,created_at&sender_id=eq.{sender_q}&memory_type=eq.{key_q}&order=created_at.desc&limit=1"
+  app\runtime\short_memory.py:66:            req = urllib.request.Request(url, headers=_headers(prefer=None), method="GET")
+  app\runtime\short_memory.py:67:            rows = json.loads(urllib.request.urlopen(req, timeout=8).read().decode("utf-8"))
+  app\runtime\short_memory.py:68:            if rows:
+  app\runtime\short_memory.py:69:                return rows[0].get("content")
+  app\runtime\short_memory.py:70:        except Exception:
+  app\runtime\short_memory.py:71:            pass
+  app\runtime\short_memory.py:72:
+> app\runtime\short_memory.py:73:    item = _MEMORY.get((sender, mem_key))
+  app\runtime\short_memory.py:74:    if not item:
+  app\runtime\short_memory.py:75:        return None
+  app\runtime\short_memory.py:76:    if item["expires"] < time.time():
+> app\runtime\short_memory.py:77:        _MEMORY.pop((sender, mem_key), None)
+  app\runtime\short_memory.py:78:        return None
+  app\runtime\short_memory.py:79:    return item["value"]
+  app\runtime\single_runtime_dispatcher.py:12:    def humanize_response(user_message, raw_answer, context=None):
+  app\runtime\single_runtime_dispatcher.py:13:        return raw_answer
+  app\runtime\single_runtime_dispatcher.py:14:
+> app\runtime\single_runtime_dispatcher.py:15:def dispatch_single_runtime(sender_id:str,user_message:str,raw_answer:str,module:str="eldora_primary_runtime",function:str="eldora_primary_runtime_reply"):
+> app\runtime\single_runtime_dispatcher.py:16:    trace=new_trace(sender_id,user_message)
+  app\runtime\single_runtime_dispatcher.py:17:    add_event(trace,"input",module,function,user_message,raw_answer)
+  app\runtime\single_runtime_dispatcher.py:18:
+  app\runtime\single_runtime_dispatcher.py:19:    answer=humanize_response(user_message,raw_answer,{})
+  app\runtime\single_runtime_dispatcher.py:20:    answer=enforce_no_identity_in_normal_chat(user_message,answer)
+  app\runtime\single_runtime_dispatcher.py:21:    answer=sanitize_final_output(user_message,answer)
+  app\runtime\single_runtime_dispatcher.py:22:    answer=final_conversation_guard(user_message,answer)
+  app\runtime\single_runtime_dispatcher.py:23:
+  app\runtime\single_runtime_dispatcher.py:24:    add_event(trace,"humanized",module,function,raw_answer,answer)
+  app\runtime\single_runtime_dispatcher.py:25:
+> app\runtime\single_runtime_dispatcher.py:26:    duplicate=should_block_duplicate(sender_id,answer)
+  app\runtime\single_runtime_dispatcher.py:27:
+  app\runtime\single_runtime_dispatcher.py:28:    if duplicate:
+  app\runtime\single_runtime_dispatcher.py:29:        add_event(trace,"duplicate_blocked",module,function,answer,"")
+  app\runtime\single_runtime_dispatcher.py:30:        save_trace(trace)
+  app\runtime\single_runtime_dispatcher.py:31:        return ""
+  app\runtime\single_runtime_dispatcher.py:32:
+  app\runtime\single_runtime_dispatcher.py:33:    msgs=split_human_reply(answer,{})
+  app\runtime\single_runtime_dispatcher.py:34:    final="\n\n".join(msgs[:4])
+  app\runtime\single_runtime_dispatcher.py:35:
+  app\runtime\single_runtime_dispatcher.py:36:    add_event(trace,"final_output",module,function,answer,final)
+  app\runtime\single_runtime_dispatcher.py:37:    save_trace(trace)
+> app\runtime\single_runtime_dispatcher.py:38:    log_event(sender_id,user_message,final,kind="real")
+  app\runtime\single_runtime_dispatcher.py:39:
+  app\runtime\single_runtime_dispatcher.py:40:    return final
+  app\runtime\single_runtime_dispatcher.py:41:
+  app\runtime\single_runtime_dispatcher.py:42:
+  app\runtime\strategic_conversation_authority.py:5:def strategic_conversation_authority(
+  app\runtime\strategic_conversation_authority.py:6:    assistant_reply: str,
+  app\runtime\strategic_conversation_authority.py:7:    user_message: str,
+> app\runtime\strategic_conversation_authority.py:8:    sender_id: str | None = None
+  app\runtime\strategic_conversation_authority.py:9:):
+  app\runtime\strategic_conversation_authority.py:10:    '''
+  app\runtime\strategic_conversation_authority.py:11:    Passive strategic authority.
+  app\runtime\strategic_conversation_authority.py:12:    Mantém compatibilidade dos testes sem sequestrar smalltalk.
+  app\runtime\strategic_conversation_authority.py:13:    '''
+  app\runtime\strategic_conversation_authority.py:14:
+> app\runtime\strategic_conversation_authority.py:15:    sid = sender_id or "anonymous"
+  app\runtime\strategic_conversation_authority.py:16:    msg = (user_message or "").lower().strip()
+  app\runtime\strategic_conversation_authority.py:17:
+  app\runtime\strategic_conversation_authority.py:18:    state = _STATE.setdefault(sid, {})
+  app\runtime\strategic_conversation_authority.py:19:
+  app\runtime\strategic_conversation_authority.py:20:    strategic_terms = (
+  app\runtime\strategic_conversation_authority.py:21:        "fluidez","melhorar","melhoria","prioridade",
+  app\runtime\strategic_conversation_authority.py:22:        "estratégia","estrategia","roadmap","gargalo",
+  app\runtime\strategic_conversation_authority.py:23:        "otimização","otimizacao","plano","eldora"
+  app\runtime\strategic_conversation_authority.py:24:    )
+  app\runtime\strategic_conversation_authority.py:25:
+  app\runtime\strategic_conversation_authority.py:26:    followup_terms = (
+  app\runtime\strategic_conversation_authority.py:27:        "o que fazer primeiro",
+  app\runtime\strategic_conversation_authority.py:28:        "primeiro",
+  app\runtime\strategic_conversation_authority.py:29:        "próximo passo",
+  app\runtime\strategic_conversation_authority.py:30:        "proximo passo",
+  app\runtime\strategic_conversation_authority.py:31:        "e depois",
+  app\runtime\strategic_conversation_authority.py:32:        "mais contexto"
+  app\runtime\strategic_conversation_authority.py:33:    )
+  app\runtime\strategic_conversation_authority.py:34:
+  app\runtime\strategic_conversation_authority.py:35:    if any(t in msg for t in strategic_terms):
+  app\runtime\strategic_conversation_authority.py:36:        state["last_topic"] = user_message
+  app\runtime\strategic_conversation_authority.py:37:        return (
+  app\runtime\strategic_conversation_authority.py:38:            "SCA: autoridade final estratégica ativa. "
+  app\runtime\strategic_conversation_authority.py:39:            "Primeiro: melhorar a fluidez conversacional real, "
+  app\runtime\strategic_conversation_authority.py:40:            "reduzir respostas genéricas, manter continuidade "
+  app\runtime\text_provider_adapters.py:32:def call_provider(name, message, model=None):
+  app\runtime\text_provider_adapters.py:33:    if name == "openai":
+  app\runtime\text_provider_adapters.py:34:        from openai import OpenAI
+> app\runtime\text_provider_adapters.py:35:        client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+> app\runtime\text_provider_adapters.py:36:        r = client.chat.completions.create(
+  app\runtime\text_provider_adapters.py:37:            model=model or os.getenv("OPENAI_MODEL","gpt-4o-mini"),
+  app\runtime\text_provider_adapters.py:38:            messages=[{"role":"user","content":message}],
+  app\runtime\text_provider_adapters.py:39:            temperature=0.2,
+  app\runtime\text_provider_adapters.py:40:            max_tokens=350,
+  app\runtime\text_provider_adapters.py:41:        )
+  app\runtime\text_provider_adapters.py:42:        return r.choices[0].message.content.strip()
+  app\runtime\text_provider_adapters.py:43:
+  app\runtime\text_provider_adapters.py:44:    if name == "groq":
+  app\runtime\text_provider_adapters.py:45:        ok,d,e=_post_json("https://api.groq.com/openai/v1/chat/completions",{"Authorization":"Bearer "+os.getenv("GROQ_API_KEY","")},_chat_payload(message, model or os.getenv("GROQ_MODEL","llama-3.1-70b-versatile")))
+  app\runtime\text_provider_adapters.py:46:        if not ok: raise RuntimeError(e)
+  app\runtime\text_provider_adapters.py:47:        return d["choices"][0]["message"]["content"].strip()
+  app\runtime\text_provider_adapters.py:48:
+  app\runtime\text_provider_adapters.py:49:    if name == "deepseek":
+  app\runtime\text_provider_adapters.py:50:        ok,d,e=_post_json("https://api.deepseek.com/chat/completions",{"Authorization":"Bearer "+os.getenv("DEEPSEEK_API_KEY","")},_chat_payload(message, model or os.getenv("DEEPSEEK_MODEL","deepseek-chat")))
+  app\runtime\text_provider_adapters.py:51:        if not ok: raise RuntimeError(e)
+  app\runtime\text_provider_adapters.py:52:        return d["choices"][0]["message"]["content"].strip()
+  app\runtime\text_provider_adapters.py:53:
+  app\runtime\text_provider_adapters.py:54:    if name == "perplexity":
+  app\runtime\text_provider_adapters.py:55:        ok,d,e=_post_json("https://api.perplexity.ai/chat/completions",{"Authorization":"Bearer "+os.getenv("PERPLEXITY_API_KEY","")},_chat_payload(message, model or os.getenv("PERPLEXITY_MODEL","sonar")))
+  app\runtime\text_provider_adapters.py:56:        if not ok: raise RuntimeError(e)
+  app\runtime\text_provider_adapters.py:57:        return d["choices"][0]["message"]["content"].strip()
+  app\runtime\text_provider_adapters.py:58:
+  app\runtime\text_provider_adapters.py:59:    if name == "together":
+  app\runtime\text_provider_adapters.py:60:        ok,d,e=_post_json("https://api.together.xyz/v1/chat/completions",{"Authorization":"Bearer "+os.getenv("TOGETHER_API_KEY","")},_chat_payload(message, model or os.getenv("TOGETHER_MODEL","meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo")))
+  app\runtime\text_provider_adapters.py:61:        if not ok: raise RuntimeError(e)
+  app\runtime\ucce_canary_router.py:4:CANARY_PERCENT=int(os.getenv("UCCE_CANARY_PERCENT","10"))
+  app\runtime\ucce_canary_router.py:5:ALLOWLIST=set(filter(None,os.getenv("UCCE_CANARY_ALLOWLIST","").split(",")))
+  app\runtime\ucce_canary_router.py:6:
+> app\runtime\ucce_canary_router.py:7:def should_use_ucce(sender_id:str)->bool:
+  app\runtime\ucce_canary_router.py:8:    if not CANARY_ENABLED:
+  app\runtime\ucce_canary_router.py:9:        return False
+  app\runtime\ucce_canary_router.py:10:
+> app\runtime\ucce_canary_router.py:11:    sender=(sender_id or "").strip()
+  app\runtime\ucce_canary_router.py:12:
+> app\runtime\ucce_canary_router.py:13:    if sender in ALLOWLIST:
+  app\runtime\ucce_canary_router.py:14:        return True
+  app\runtime\ucce_canary_router.py:15:
+> app\runtime\ucce_canary_router.py:16:    bucket=int(hashlib.md5(sender.encode()).hexdigest(),16)%100
+  app\runtime\ucce_canary_router.py:17:    return bucket < CANARY_PERCENT
+  app\runtime\ucce_canary_trace.py:2:import os, json, time
+  app\runtime\ucce_canary_trace.py:3:LAST_CANARY_TRACE={}
+  app\runtime\ucce_canary_trace.py:4:
+> app\runtime\ucce_canary_trace.py:5:def trace_canary(sender, message, enabled, percent, allowlist, decision, branch):
+  app\runtime\ucce_canary_trace.py:6:    global LAST_CANARY_TRACE
+  app\runtime\ucce_canary_trace.py:7:    LAST_CANARY_TRACE={
+  app\runtime\ucce_canary_trace.py:8:        "ts":time.time(),
+> app\runtime\ucce_canary_trace.py:9:        "sender":sender,
+  app\runtime\ucce_canary_trace.py:10:        "message":message,
+  app\runtime\ucce_canary_trace.py:11:        "env_enabled":enabled,
+  app\runtime\ucce_canary_trace.py:12:        "env_percent":percent,
+  app\runtime\ucce_canary_trace.py:13:        "env_allowlist":allowlist,
+  app\runtime\ucce_canary_trace.py:14:        "decision":decision,
+  app\runtime\ucce_canary_trace.py:15:        "branch":branch
+  app\runtime\ucce_canary_trace.py:16:    }
+  app\runtime\ucce_canary_trace.py:17:    return LAST_CANARY_TRACE
+  app\runtime\ucce_canary_trace.py:18:
+  app\runtime\ucce_canary_trace.py:19:def get_last_canary_trace():
+  app\runtime\ucce_canary_trace.py:20:    return LAST_CANARY_TRACE
+  app\runtime\ucce_shadow_mode.py:1:from app.runtime.universal_contextual_continuity_engine import ucce_shadow_evaluate
+> app\runtime\ucce_shadow_mode.py:2:def run_ucce_shadow(sender_id,inbound_message,live_reply,state=None):
+> app\runtime\ucce_shadow_mode.py:3:    try:return ucce_shadow_evaluate(sender_id,inbound_message,state)
+  app\runtime\ucce_shadow_mode.py:4:    except Exception as e:return {"classification":"ERROR","reply":live_reply,"error":str(e)}
+  app\runtime\universal_contextual_continuity_engine.py:39:            return v
+  app\runtime\universal_contextual_continuity_engine.py:40:    return "Oi."
+  app\runtime\universal_contextual_continuity_engine.py:41:
+> app\runtime\universal_contextual_continuity_engine.py:42:def ucce_shadow_evaluate(sender_id,inbound_message,state=None):
+> app\runtime\universal_contextual_continuity_engine.py:43:    s=get_state(sender_id)
+  app\runtime\universal_contextual_continuity_engine.py:44:    raw=(inbound_message or "").strip()
+  app\runtime\universal_contextual_continuity_engine.py:45:    msg=raw.lower()
+> app\runtime\universal_contextual_continuity_engine.py:46:    intent,_=resolve(sender_id,raw)
+  app\runtime\universal_contextual_continuity_engine.py:47:    ctx=recover_context(s)
+  app\runtime\universal_contextual_continuity_engine.py:48:
+  app\runtime\universal_contextual_continuity_engine.py:49:    deployment_terms=["implantacao","implantação","implantações","implantacoes","deploy","render","version","versao","versão","elas"]
+  app\runtime\universal_contextual_continuity_engine.py:50:    status_terms=["como","status","estao","estão","andamento","deu certo","funcionou"]
+  app\runtime\universal_contextual_continuity_engine.py:51:
+  app\runtime\universal_contextual_continuity_engine.py:52:    if _has(msg,deployment_terms):
+  app\runtime\universal_contextual_continuity_engine.py:53:        s["last_topic"]="implantações"
+  app\runtime\universal_contextual_continuity_engine.py:54:        s["last_goal"]="validar runtime live"
+  app\runtime\universal_contextual_continuity_engine.py:55:        s["last_open_task"]="acompanhar deploy/canary"
+  app\runtime\universal_contextual_continuity_engine.py:56:        s["open_loop"]=True
+  app\runtime\universal_contextual_continuity_engine.py:57:        intent="VERIFICATION"
+  app\runtime\universal_contextual_continuity_engine.py:58:
+  app\runtime\universal_contextual_continuity_engine.py:59:    if intent=="SOCIAL":
+  app\runtime\universal_contextual_continuity_engine.py:60:        reply=_social_reply(msg)
+  app\runtime\universal_contextual_continuity_engine.py:61:
+  app\runtime\universal_contextual_continuity_engine.py:62:    elif intent=="FOLLOWUP":
+  app\runtime\universal_contextual_continuity_engine.py:63:        topic=s.get("last_topic") or ctx.get("topic") or "isso"
+  app\runtime\universal_contextual_continuity_engine.py:64:        problem=s.get("last_problem") or "o último ponto ainda aberto"
+  app\runtime\universal_contextual_continuity_engine.py:65:        reply=f"Continuando sobre {topic}: o ponto aberto é {problem}. O próximo passo é validar a resposta real no WhatsApp."
+  app\runtime\universal_contextual_continuity_engine.py:66:
+  app\runtime\universal_contextual_continuity_engine.py:67:    elif intent=="TROUBLESHOOTING":
+  app\runtime\universal_contextual_continuity_engine.py:68:        s["last_problem"]=raw
+  app\runtime\universal_contextual_continuity_engine.py:69:        s["unresolved_error"]=raw
+  app\runtime\universal_contextual_continuity_engine.py:70:        s["open_loop"]=True
+  app\runtime\universal_contextual_continuity_engine.py:71:        reply=f"O erro aberto é: {raw}. O próximo teste é confirmar se a rota caiu no branch UCCE e se a memória recuperou o contexto."
+  app\runtime\universal_contextual_continuity_engine.py:94:    s["last_assistant_reply"]=reply
+  app\runtime\universal_contextual_continuity_engine.py:95:    s["last_meaningful_reply"]=reply
+  app\runtime\universal_contextual_continuity_engine.py:96:    s["updated_at"]=datetime.now(UTC).isoformat()
+> app\runtime\universal_contextual_continuity_engine.py:97:    save_state(sender_id,s)
+  app\runtime\universal_contextual_continuity_engine.py:98:
+  app\runtime\universal_contextual_continuity_engine.py:99:    return {"classification":intent,"reply":reply,"confidence":0.94,"context_used":True,"state":s}
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:6:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:7:@dataclass
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:8:class ConversationContext:
+> app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:9:    sender_id: str
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:10:    active_intent: str = "ask"
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:11:    active_reasoning_mode: str = "reflective"
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:12:    stage: str = "discover"
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:13:    depth_level: int = 1
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:14:    semantic_continuity: float = 0.0
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:15:    grounding_level: str = "contextual"
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:16:    execution_need: bool = False
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:17:    social_energy: str = "neutral"
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:18:    conversational_budget: int = 220
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:19:    memory_context: List[str] | None = None
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:20:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:21:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:22:class UniversalConversationAuthority:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:23:    def __init__(self):
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:24:        self.state: Dict[str, ConversationContext] = {}
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:25:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:26:    def build_context(
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:27:        self,
+> app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:28:        sender_id: str,
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:29:        message: str,
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:30:        memory_context: List[str] | None = None
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:31:    ) -> Dict[str, Any]:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:32:
+> app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:33:        prev = self.state.get(sender_id)
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:34:        t = (message or "").lower().strip()
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:35:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:36:        progressive = any(x in t for x in [
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:37:            "aprofunde",
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:38:            "detalhe melhor",
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:39:            "explique melhor",
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:40:            "ainda mais",
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:41:            "passo a passo"
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:42:        ])
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:43:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:44:        emotional_signal = any(x in t for x in [
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:45:            "dormi",
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:46:            "sono",
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:47:            "cansado",
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:48:            "triste",
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:49:            "ansioso"
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:50:        ])
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:51:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:52:        if "passo a passo" in t:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:53:            intent = "execute"
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:54:        elif progressive:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:55:            intent = "deepen"
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:56:        elif emotional_signal:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:57:            intent = "reflect"
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:58:        elif any(x in t for x in [
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:97:        )
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:98:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:99:        ctx = ConversationContext(
+> app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:100:            sender_id=sender_id,
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:101:            active_intent=intent,
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:102:            active_reasoning_mode=mode,
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:103:            stage=stage,
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:104:            depth_level=depth,
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:105:            semantic_continuity=0.9 if progressive else 0.5,
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:106:            grounding_level="contextual",
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:107:            execution_need=(intent == "execute"),
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:108:            social_energy="low" if mode == "emotional_safe" else "neutral",
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:109:            conversational_budget=220,
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:110:            memory_context=(memory_context or [])
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:111:        )
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:112:
+> app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:113:        self.state[sender_id] = ctx
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:114:        return asdict(ctx)
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:115:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:116:    def render(
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:117:        self,
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:118:        ctx: Dict[str, Any],
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:119:        message: str
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:120:    ) -> str:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:121:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:122:        t = (message or "").lower().strip()
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:123:        depth = int(ctx.get("depth_level", 1))
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:124:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:125:        if ctx.get("active_reasoning_mode") == "emotional_safe":
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:126:            return (
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:127:                "Detalhe útil: energia baixa pede redução de decisões, "
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:128:                "sono como prioridade e só tarefas essenciais hoje."
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:129:            )
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:130:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:131:        if "passo a passo" in t or ctx.get("active_intent") == "execute":
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:132:            return (
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:133:                "Passo a passo: preservar autoridade contextual, "
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:134:                "executar menor ação verificável, medir resultado e iterar."
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:135:            )
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:136:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:137:        if "detalhe melhor" in t:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:138:            return (
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:166:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:167:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:168:def build_universal_conversation_context(
+> app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:169:    sender_id: str,
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:170:    message: str,
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:171:    memory_context: List[str] | None = None
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:172:) -> Dict[str, Any]:
+> app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:173:    return _ucca.build_context(sender_id, message, memory_context)
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:174:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:175:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:176:def universal_conversation_reply(
+> app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:177:    sender_id: str,
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:178:    message: str,
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:179:    memory_context: List[str] | None = None
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:180:) -> str:
+> app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:181:    ctx = _ucca.build_context(sender_id, message, memory_context)
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:182:    return _ucca.render(ctx, message)[:ctx["conversational_budget"]]
+  app\runtime\universal_conversation_authority.py:6:
+  app\runtime\universal_conversation_authority.py:7:@dataclass
+  app\runtime\universal_conversation_authority.py:8:class ActiveConversationalObject:
+> app\runtime\universal_conversation_authority.py:9:    sender_id: str
+  app\runtime\universal_conversation_authority.py:10:    active_problem: str = "contexto ativo"
+  app\runtime\universal_conversation_authority.py:11:    reasoning_axis: str = "continuidade semântica"
+  app\runtime\universal_conversation_authority.py:12:    execution_axis: str = "próximo passo verificável"
+  app\runtime\universal_conversation_authority.py:13:    evidence_axis: str = "validação objetiva"
+  app\runtime\universal_conversation_authority.py:14:    last_user_goal: str = ""
+  app\runtime\universal_conversation_authority.py:15:    followup_depth: int = 1
+  app\runtime\universal_conversation_authority.py:16:    semantic_anchor: str = "active_context"
+  app\runtime\universal_conversation_authority.py:17:    continuity_score: float = 0.0
+  app\runtime\universal_conversation_authority.py:18:
+  app\runtime\universal_conversation_authority.py:19:
+  app\runtime\universal_conversation_authority.py:20:class UniversalConversationAuthority:
+  app\runtime\universal_conversation_authority.py:21:    def __init__(self):
+  app\runtime\universal_conversation_authority.py:22:        self.objects: Dict[str, ActiveConversationalObject] = {}
+  app\runtime\universal_conversation_authority.py:23:
+  app\runtime\universal_conversation_authority.py:24:    def _intent(self, text: str) -> str:
+  app\runtime\universal_conversation_authority.py:25:        t = (text or "").lower()
+  app\runtime\universal_conversation_authority.py:26:
+  app\runtime\universal_conversation_authority.py:27:        if any(x in t for x in [
+  app\runtime\universal_conversation_authority.py:28:            "dormi","sono","cansado","triste","ansioso"
+  app\runtime\universal_conversation_authority.py:29:        ]):
+  app\runtime\universal_conversation_authority.py:30:            return "emotional_safe"
+  app\runtime\universal_conversation_authority.py:31:
+  app\runtime\universal_conversation_authority.py:32:        if any(x in t for x in ["passo a passo","como executar","roteiro"]):
+  app\runtime\universal_conversation_authority.py:33:            return "execute"
+  app\runtime\universal_conversation_authority.py:34:
+  app\runtime\universal_conversation_authority.py:53:
+  app\runtime\universal_conversation_authority.py:54:    def build_context(
+  app\runtime\universal_conversation_authority.py:55:        self,
+> app\runtime\universal_conversation_authority.py:56:        sender_id: str,
+  app\runtime\universal_conversation_authority.py:57:        message: str,
+  app\runtime\universal_conversation_authority.py:58:        memory_context: List[str] | None = None
+  app\runtime\universal_conversation_authority.py:59:    ) -> Dict[str, Any]:
+  app\runtime\universal_conversation_authority.py:60:
+  app\runtime\universal_conversation_authority.py:61:        intent = self._intent(message)
+> app\runtime\universal_conversation_authority.py:62:        prev = self.objects.get(sender_id)
+  app\runtime\universal_conversation_authority.py:63:
+  app\runtime\universal_conversation_authority.py:64:        if prev and intent in ["deepen","execute","validate","emotional_safe"]:
+  app\runtime\universal_conversation_authority.py:65:            obj = prev
+  app\runtime\universal_conversation_authority.py:66:            obj.followup_depth = min(obj.followup_depth + 1, 5)
+  app\runtime\universal_conversation_authority.py:67:            obj.continuity_score = 0.95
+  app\runtime\universal_conversation_authority.py:68:            if intent == "emotional_safe":
+  app\runtime\universal_conversation_authority.py:69:                obj.semantic_anchor = "emotional_safe"
+  app\runtime\universal_conversation_authority.py:70:        else:
+  app\runtime\universal_conversation_authority.py:71:            obj = ActiveConversationalObject(
+> app\runtime\universal_conversation_authority.py:72:                sender_id=sender_id,
+  app\runtime\universal_conversation_authority.py:73:                active_problem=self._abstract_problem(message),
+  app\runtime\universal_conversation_authority.py:74:                reasoning_axis="causa prioridade dependência",
+  app\runtime\universal_conversation_authority.py:75:                execution_axis="transformar contexto em ação",
+  app\runtime\universal_conversation_authority.py:76:                evidence_axis="teste log evidência",
+  app\runtime\universal_conversation_authority.py:77:                last_user_goal=self._abstract_problem(message),
+  app\runtime\universal_conversation_authority.py:78:                followup_depth=1,
+  app\runtime\universal_conversation_authority.py:79:                continuity_score=0.70,
+  app\runtime\universal_conversation_authority.py:80:            )
+  app\runtime\universal_conversation_authority.py:81:
+> app\runtime\universal_conversation_authority.py:82:        self.objects[sender_id] = obj
+  app\runtime\universal_conversation_authority.py:83:
+  app\runtime\universal_conversation_authority.py:84:        return {
+> app\runtime\universal_conversation_authority.py:85:            "sender_id": sender_id,
+  app\runtime\universal_conversation_authority.py:86:            "active_intent": intent,
+  app\runtime\universal_conversation_authority.py:87:            "active_reasoning_mode": "universal_contextual_authority",
+  app\runtime\universal_conversation_authority.py:88:            "stage": (
+  app\runtime\universal_conversation_authority.py:89:                "execute"
+  app\runtime\universal_conversation_authority.py:90:                if intent == "execute"
+  app\runtime\universal_conversation_authority.py:91:                else "deepen"
+  app\runtime\universal_conversation_authority.py:92:            ),
+  app\runtime\universal_conversation_authority.py:93:            "depth_level": obj.followup_depth,
+  app\runtime\universal_conversation_authority.py:94:            "semantic_continuity": obj.continuity_score,
+  app\runtime\universal_conversation_authority.py:95:            "grounding_level": "contextual",
+  app\runtime\universal_conversation_authority.py:96:            "execution_need": intent == "execute",
+  app\runtime\universal_conversation_authority.py:97:            "social_energy": (
+  app\runtime\universal_conversation_authority.py:98:                "low"
+  app\runtime\universal_conversation_authority.py:99:                if intent == "emotional_safe"
+  app\runtime\universal_conversation_authority.py:100:                else "neutral"
+  app\runtime\universal_conversation_authority.py:101:            ),
+  app\runtime\universal_conversation_authority.py:102:            "conversational_budget": 220,
+  app\runtime\universal_conversation_authority.py:103:            "memory_context": memory_context or [],
+  app\runtime\universal_conversation_authority.py:104:            "aco": asdict(obj),
+  app\runtime\universal_conversation_authority.py:105:        }
+  app\runtime\universal_conversation_authority.py:106:
+  app\runtime\universal_conversation_authority.py:107:    def render(
+  app\runtime\universal_conversation_authority.py:108:        self,
+  app\runtime\universal_conversation_authority.py:109:        ctx: Dict[str, Any],
+  app\runtime\universal_conversation_authority.py:110:        message: str
+  app\runtime\universal_conversation_authority.py:172:
+  app\runtime\universal_conversation_authority.py:173:
+  app\runtime\universal_conversation_authority.py:174:def build_universal_conversation_context(
+> app\runtime\universal_conversation_authority.py:175:    sender_id: str,
+  app\runtime\universal_conversation_authority.py:176:    message: str,
+  app\runtime\universal_conversation_authority.py:177:    memory_context: List[str] | None = None
+  app\runtime\universal_conversation_authority.py:178:) -> Dict[str, Any]:
+  app\runtime\universal_conversation_authority.py:179:    return _ucca.build_context(
+> app\runtime\universal_conversation_authority.py:180:        sender_id,
+  app\runtime\universal_conversation_authority.py:181:        message,
+  app\runtime\universal_conversation_authority.py:182:        memory_context
+  app\runtime\universal_conversation_authority.py:183:    )
+  app\runtime\universal_conversation_authority.py:184:
+  app\runtime\universal_conversation_authority.py:185:
+  app\runtime\universal_conversation_authority.py:186:def universal_conversation_reply(
+> app\runtime\universal_conversation_authority.py:187:    sender_id: str,
+  app\runtime\universal_conversation_authority.py:188:    message: str,
+  app\runtime\universal_conversation_authority.py:189:    memory_context: List[str] | None = None
+  app\runtime\universal_conversation_authority.py:190:) -> str:
+  app\runtime\universal_conversation_authority.py:191:    ctx = _ucca.build_context(
+> app\runtime\universal_conversation_authority.py:192:        sender_id,
+  app\runtime\universal_conversation_authority.py:193:        message,
+  app\runtime\universal_conversation_authority.py:194:        memory_context
+  app\runtime\universal_conversation_authority.py:195:    )
+  app\runtime\universal_conversation_authority.py:196:    return _ucca.render(
+  app\runtime\universal_conversation_authority.py:197:        ctx,
+  app\runtime\universal_conversation_authority.py:198:        message
+  app\runtime\universal_conversation_authority.py:199:    )[:ctx["conversational_budget"]]
+  app\runtime\universal_conversation_authority.py:200:
+  app\runtime\universal_conversation_authority.py:201:
+  app\runtime\universal_conversation_authority.py:202:
+  app\runtime\universal_conversation_authority.py:203:
+  app\runtime\universal_conversation_os.py:12:FORBIDDEN=["Entendi. Me diga melhor","Resposta direta:","Ação recomendada:","Memória contextual:","Vou manter continuidade","Pode mandar a dúvida direto","Como posso ajudar hoje?","Resumo / compatibility","risk:","compatibility:","Diagnóstico:","Estratégia:","Execução:","Auditoria:","Detalhamento:","Pontos-chave:","Análise: contexto="]
+  app\runtime\universal_conversation_os.py:13:
+  app\runtime\universal_conversation_os.py:14:@dataclass
+> app\runtime\universal_conversation_os.py:15:class SenderState:
+> app\runtime\universal_conversation_os.py:16:    sender_id:str
+  app\runtime\universal_conversation_os.py:17:    last_user_message:str=""
+  app\runtime\universal_conversation_os.py:18:    last_assistant_reply:str=""
+  app\runtime\universal_conversation_os.py:19:    last_topic:str=""
+  app\runtime\universal_conversation_os.py:20:    last_task:str=""
+  app\runtime\universal_conversation_os.py:21:    last_mode:str=""
+  app\runtime\universal_conversation_os.py:22:    last_intent:str=""
+  app\runtime\universal_conversation_os.py:23:    last_entities:List[str]=field(default_factory=list)
+  app\runtime\universal_conversation_os.py:24:    last_emotional_tone:str="neutral"
+  app\runtime\universal_conversation_os.py:25:    conversation_depth:int=0
+  app\runtime\universal_conversation_os.py:26:    open_loop:str=""
+  app\runtime\universal_conversation_os.py:27:    last_action_plan:List[str]=field(default_factory=list)
+  app\runtime\universal_conversation_os.py:28:    updated_at:str=""
+  app\runtime\universal_conversation_os.py:29:
+> app\runtime\universal_conversation_os.py:30:class SenderStateMemory:
+> app\runtime\universal_conversation_os.py:31:    _mem:Dict[str,SenderState]={}
+  app\runtime\universal_conversation_os.py:32:    @classmethod
+> app\runtime\universal_conversation_os.py:33:    def load(cls,sender_id:Optional[str])->SenderState:
+> app\runtime\universal_conversation_os.py:34:        sid=(sender_id or "anonymous").strip()
+> app\runtime\universal_conversation_os.py:35:        return cls._mem.get(sid) or SenderState(sender_id=sid)
+  app\runtime\universal_conversation_os.py:36:    @classmethod
+> app\runtime\universal_conversation_os.py:37:    def save(cls,state:SenderState)->None:
+  app\runtime\universal_conversation_os.py:38:        state.updated_at=datetime.now(timezone.utc).isoformat()
+> app\runtime\universal_conversation_os.py:39:        cls._mem[state.sender_id]=state
+  app\runtime\universal_conversation_os.py:40:
+  app\runtime\universal_conversation_os.py:41:class SafeCalculator:
+  app\runtime\universal_conversation_os.py:42:    OPS={ast.Add:operator.add,ast.Sub:operator.sub,ast.Mult:operator.mul,ast.Div:operator.truediv,ast.Pow:operator.pow,ast.USub:operator.neg}
+  app\runtime\universal_conversation_os.py:43:    @classmethod
+  app\runtime\universal_conversation_os.py:44:    def eval_expr(cls,msg:str):
+  app\runtime\universal_conversation_os.py:45:        expr=(msg or "").lower().replace("x","*").replace(",",".")
+  app\runtime\universal_conversation_os.py:46:        expr=re.sub(r"[^0-9\.\+\-\*\/\(\) ]"," ",expr).strip()
+  app\runtime\universal_conversation_os.py:47:        if not re.search(r"\d+\s*[\+\-\*\/]\s*\d+",expr): return None
+  app\runtime\universal_conversation_os.py:48:        return cls._eval(ast.parse(expr,mode="eval").body)
+  app\runtime\universal_conversation_os.py:49:    @classmethod
+  app\runtime\universal_conversation_os.py:50:    def _eval(cls,node):
+  app\runtime\universal_conversation_os.py:51:        if isinstance(node,ast.Num): return node.n
+  app\runtime\universal_conversation_os.py:52:        if isinstance(node,ast.Constant) and isinstance(node.value,(int,float)): return node.value
+  app\runtime\universal_conversation_os.py:53:        if isinstance(node,ast.BinOp): return cls.OPS[type(node.op)](cls._eval(node.left),cls._eval(node.right))
+  app\runtime\universal_conversation_os.py:54:        if isinstance(node,ast.UnaryOp): return cls.OPS[type(node.op)](cls._eval(node.operand))
+  app\runtime\universal_conversation_os.py:55:        raise ValueError("unsafe")
+  app\runtime\universal_conversation_os.py:56:
+  app\runtime\universal_conversation_os.py:57:class UniversalConversationOS:
+  app\runtime\universal_conversation_os.py:58:    SOCIAL={"oi","oie","ola","olá","fala","salve","bom","boa","dia","tarde","noite","bem","vai","vc","você","ta","tá","esta","está"}
+  app\runtime\universal_conversation_os.py:59:    EXEC={"faça","faz","execute","rode","implante","corrija","crie","gere","salve","commit","push","deploy","busque","procure"}
+  app\runtime\universal_conversation_os.py:60:    ANALYSIS={"analise","analisa","interprete","revise","leia","lê","documento","contrato","imagem","foto","arquivo","texto"}
+  app\runtime\universal_conversation_os.py:61:    VERIFY={"verifique","verifica","confere","audite","audita","valide","valida","teste","testa","problema","erro","falha","bug"}
+  app\runtime\universal_conversation_os.py:62:    FOLLOW={"detalhe","detalha","aprofunda","aprofundar","continua","continue","depois","melhor","novamente","mesmo","explica"}
+  app\runtime\universal_conversation_os.py:63:    EMO={"travou","ferrou","perdido","preocupado","nervoso","ansioso","frustrado","ruim","quebrou","falhou"}
+  app\runtime\universal_conversation_os.py:64:
+  app\runtime\universal_conversation_os.py:78:        return ConversationMode.TASK
+  app\runtime\universal_conversation_os.py:79:
+  app\runtime\universal_conversation_os.py:80:    @classmethod
+> app\runtime\universal_conversation_os.py:81:    def process(cls,msg,sender_id=None,candidate_reply=""):
+> app\runtime\universal_conversation_os.py:82:        state=SenderStateMemory.load(sender_id)
+  app\runtime\universal_conversation_os.py:83:        mode=cls.classify(msg,state)
+  app\runtime\universal_conversation_os.py:84:        topic=(state.last_task or state.last_topic or state.last_user_message or msg) if mode==ConversationMode.FOLLOWUP else (msg or "").strip()
+  app\runtime\universal_conversation_os.py:85:        calc=SafeCalculator.eval_expr(msg or "")
+  app\runtime\universal_conversation_os.py:86:        if mode==ConversationMode.SOCIAL: reply="Tudo certo, Roberto. Seguimos firmes."
+  app\runtime\universal_conversation_os.py:87:        elif mode==ConversationMode.CALCULATION: reply=f"Resultado: {int(calc) if calc is not None and calc==int(calc) else calc}." if calc is not None else "Me mande a expressão completa em uma linha."
+  app\runtime\universal_conversation_os.py:88:        elif mode==ConversationMode.FOLLOWUP: reply=f"Vamos aprofundar no mesmo contexto: {topic}. O foco é achar a causa real, separar sintoma de origem e validar o próximo teste sem reiniciar a conversa."
+  app\runtime\universal_conversation_os.py:89:        elif mode==ConversationMode.VERIFICATION: reply="Checklist real: 1) isolar último ponto alterado, 2) rodar teste mínimo, 3) comparar saída esperada vs real, 4) registrar evidência."
+  app\runtime\universal_conversation_os.py:90:        elif mode==ConversationMode.ANALYSIS: reply="Envie o arquivo, imagem ou texto exato para eu analisar sem inferir."
+  app\runtime\universal_conversation_os.py:91:        elif mode==ConversationMode.EXECUTION: reply="Execução: aplicar a ação pedida, validar retorno e bloquear falso positivo."
+  app\runtime\universal_conversation_os.py:92:        elif mode==ConversationMode.EMOTIONAL_SAFE: reply=f"Vamos resolver por partes. No contexto de {topic}, começo isolando o erro e reduzindo o escopo."
+  app\runtime\universal_conversation_os.py:93:        elif mode==ConversationMode.CLARIFICATION: reply="Qual item exato você quer que eu valide agora?"
+  app\runtime\universal_conversation_os.py:94:        else: reply=(candidate_reply or "Próximo passo objetivo: definir entrada, validar saída e registrar evidência.").strip()
+  app\runtime\universal_conversation_os.py:95:        if any(x.lower() in reply.lower() for x in FORBIDDEN):
+  app\runtime\universal_conversation_os.py:96:            reply=f"Vamos seguir de forma direta no contexto de {topic}. O próximo passo é isolar a causa real, testar a hipótese principal e registrar evidência antes de avançar."
+  app\runtime\universal_conversation_os.py:97:        state.conversation_depth+=1; state.last_user_message=msg or ""; state.last_assistant_reply=reply; state.last_mode=mode.value; state.last_intent=mode.value.lower()
+  app\runtime\universal_conversation_os.py:98:        if mode not in [ConversationMode.SOCIAL,ConversationMode.CLARIFICATION]: state.last_topic=topic
+  app\runtime\universal_conversation_os.py:99:        if mode in [ConversationMode.TASK,ConversationMode.EXECUTION,ConversationMode.VERIFICATION,ConversationMode.ANALYSIS]: state.last_task=topic; state.open_loop=topic
+> app\runtime\universal_conversation_os.py:100:        state.last_action_plan=["classificar","resolver continuidade","arbitrar saída final"]; SenderStateMemory.save(state)
+  app\runtime\universal_conversation_os.py:101:        return {"reply":reply,"mode":mode.value,"topic":topic,"state":asdict(state),"memory_backend":"runtime_memory_partial"}
+  app\runtime\universal_conversation_os.py:102:
+> app\runtime\universal_conversation_os.py:103:def universal_conversation_guard(message:str,sender_id:Optional[str],candidate_reply:str="")->str:
+> app\runtime\universal_conversation_os.py:104:    return UniversalConversationOS.process(message,sender_id,candidate_reply)["reply"]
+  app\runtime\visible_response_layer.py:168:
+  app\runtime\visible_response_layer.py:169:    return (
+  app\runtime\visible_response_layer.py:170:        "Resumo técnico do MIND/Eldora: Runtime estável V2 ativo, "
+> app\runtime\visible_response_layer.py:171:        "WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, "
+  app\runtime\visible_response_layer.py:172:        "Context Fusion ativo. Próximo passo: memória persistente + contexto MIND completo."
+  app\runtime\visible_response_layer.py:173:    )
+  app\runtime\visible_response_layer.py:174:
+  app\runtime\visible_response_layer.py:175:
+  app\runtime\visible_response_layer.py:176:def visible_reformulate(
+  app\runtime\visible_response_layer.py:177:    answer: str,
+  app\runtime\visible_response_layer.py:178:    user_text: str = "",
+  app\runtime\visible_response_layer.py:179:    focus: str = "MIND"
+  app\runtime\visible_response_layer.py:180:) -> str:
+  app\runtime\visible_response_layer.py:181:    if answer and len(str(answer).strip()) > 40:
+  app\runtime\visible_response_layer.py:182:        return str(answer)
+  app\runtime\visible_response_layer.py:183:    return build_visible_response(user_text, focus)
+  app\runtime\visible_response_layer.py:184:
+  app\runtime\visible_response_layer.py:185:
+  app\runtime\visible_response_layer.py:186:
+  app\runtime\visible_response_layer.py:187:
+  app\runtime\visible_response_layer.py:188:
+  app\runtime\visible_response_layer.py:189:
+  app\runtime\whatsapp_final_output_guard.py:2:import re
+  app\runtime\whatsapp_final_output_guard.py:3:
+  app\runtime\whatsapp_final_output_guard.py:4:IDENTITY_ALLOWED = re.compile(
+> app\runtime\whatsapp_final_output_guard.py:5:    r"(quem\s+(é|e)\s+você|quem\s+(é|e)\s+voce|qual\s+(é|e)\s+seu\s+nome|se\s+apresente|vc\s+(é|e)\s+quem|você\s+(é|e)\s+quem|quem\s+(é|e)\s+vc|quem\s+(é|e)\s+v c)",
+  app\runtime\whatsapp_final_output_guard.py:6:    re.I,
+  app\runtime\whatsapp_final_output_guard.py:7:)
+  app\runtime\whatsapp_final_output_guard.py:8:
+  app\runtime\whatsapp_final_output_guard.py:9:IDENTITY_LEAK_PATTERNS = [
+  app\runtime\whatsapp_final_output_guard.py:10:    r"eu\s+sou\s+a\s+eldora",
+  app\runtime\whatsapp_final_output_guard.py:11:    r"sou\s+a\s+eldora",
+  app\runtime\whatsapp_final_output_guard.py:12:    r"camada\s+conversacional\s+do\s+mind",
+  app\runtime\whatsapp_final_output_guard.py:13:    r"minha\s+fun[cç][aã]o\s+[ée]\s+entender\s+seu\s+contexto",
+  app\runtime\whatsapp_final_output_guard.py:14:    r"lembrar\s+o\s+que\s+importa",
+  app\runtime\whatsapp_final_output_guard.py:15:    r"sem\s+voc[eê]\s+precisar\s+reexplicar\s+tudo",
+  app\runtime\whatsapp_final_output_guard.py:16:    r"como\s+ia",
+  app\runtime\whatsapp_final_output_guard.py:17:    r"posso\s+auxiliar",
+  app\runtime\whatsapp_final_output_guard.py:18:    r"como\s+posso\s+ajudar",
+  app\runtime\whatsapp_final_output_guard.py:19:    r"entendo\s+sua\s+preocupa[cç][aã]o",
+  app\runtime\whatsapp_final_output_guard.py:20:    r"estou\s+processando",
+  app\runtime\whatsapp_final_output_guard.py:21:    r"informa[cç][aã]o\s+registrada",
+  app\runtime\whatsapp_final_output_guard.py:22:]
+  app\runtime\whatsapp_final_output_guard.py:23:
+  app\runtime\whatsapp_final_output_guard.py:24:def _norm(text: str) -> str:
+  app\runtime\whatsapp_final_output_guard.py:25:    return (text or "").strip().lower()
+  app\runtime\whatsapp_final_output_guard.py:26:
+  app\runtime\whatsapp_final_output_guard.py:27:def has_identity_leak(answer: str) -> bool:
+  app\runtime\whatsapp_final_output_guard.py:28:    low = _norm(answer)
+  app\runtime\whatsapp_final_output_guard.py:29:    return any(re.search(p, low, re.I) for p in IDENTITY_LEAK_PATTERNS)
+  app\runtime\whatsapp_final_output_guard.py:30:
+  app\runtime\whatsapp_final_output_guard.py:55:            "Me fala qual camada você vai adicionar primeiro."
+  app\runtime\whatsapp_final_output_guard.py:56:        )
+  app\runtime\whatsapp_final_output_guard.py:57:
+> app\runtime\whatsapp_final_output_guard.py:58:    if any(x in u for x in ["sentiu diferença", "sentiu diferenca", "diferença", "diferenca"]):
+  app\runtime\whatsapp_final_output_guard.py:59:        return (
+> app\runtime\whatsapp_final_output_guard.py:60:            "Senti diferença na direção certa, mas ainda tem vazamento de fallback antigo. "
+> app\runtime\whatsapp_final_output_guard.py:61:            "Quando a resposta volta para apresentação fixa, significa que o runtime real ainda não está passando pelo guard final em runtime_guards os caminhos."
+  app\runtime\whatsapp_final_output_guard.py:62:        )
+  app\runtime\whatsapp_final_output_guard.py:63:
+  app\runtime\whatsapp_final_output_guard.py:64:    if u in ["sim", "aham", "ok", "blz", "beleza", "isso", "certo"]:
+  app\runtime\whatsapp_final_output_guard.py:65:        return "Perfeito. Continua — estou acompanhando o contexto."
+  app\runtime\whatsapp_final_output_guard.py:66:
+  app\runtime\whatsapp_final_output_guard.py:67:    if any(x in u for x in ["oi", "olá", "ola", "boa tarde", "bom dia", "boa noite"]):
+  app\runtime\whatsapp_final_output_guard.py:68:        return "Roberto, vamos direto no ponto."
+  app\runtime\whatsapp_final_output_guard.py:69:
+  app\runtime\whatsapp_final_output_guard.py:70:    if "humanização" in u or "humanizacao" in u:
+  app\runtime\whatsapp_final_output_guard.py:71:        return (
+  app\runtime\whatsapp_final_output_guard.py:72:            "A humanização melhorou nos testes, mas o WhatsApp real ainda revelou um problema de roteamento. "
+  app\runtime\whatsapp_final_output_guard.py:73:            "A correção agora é travar o output final para impedir fallback de identidade fora de contexto."
+  app\runtime\whatsapp_final_output_guard.py:74:        )
+  app\runtime\whatsapp_final_output_guard.py:75:
+  app\runtime\whatsapp_final_output_guard.py:76:    if "e agora" in u:
+  app\runtime\whatsapp_final_output_guard.py:77:        return "Agora o foco é corrigir o caminho real do WhatsApp, validar no Render e testar as frases que ainda estão quebrando."
+  app\runtime\whatsapp_final_output_guard.py:78:
+  app\runtime\whatsapp_final_output_guard.py:79:    return None
+  app\runtime\whatsapp_final_output_guard.py:80:
+  app\runtime\whatsapp_final_output_guard.py:81:def guard_whatsapp_final_answer(user_message: str, answer: str, context: dict | None = None) -> str:
+  app\runtime\whatsapp_final_output_guard.py:82:    if identity_allowed(user_message):
+  app\runtime\whatsapp_final_output_guard.py:83:        return answer or "Continua do ponto atual que eu respondo pelo contexto."
+  app\runtime\whatsapp_final_output_guard.py:84:
+  app\runtime\whatsapp_final_output_guard.py:85:    if has_identity_leak(answer):
+  app\runtime\whatsapp_final_output_guard.py:86:        return _domain_answer(user_message)
+  app\runtime\whatsapp_trace_sensor.py:14:    low=(text or "").lower()
+  app\runtime\whatsapp_trace_sensor.py:15:    hits=[p for p in BAD_PATTERNS if p in low]
+  app\runtime\whatsapp_trace_sensor.py:16:    return hits
+> app\runtime\whatsapp_trace_sensor.py:17:def new_trace(sender_id="",user_message=""):
+  app\runtime\whatsapp_trace_sensor.py:18:    return {
+  app\runtime\whatsapp_trace_sensor.py:19:        "trace_id":str(uuid.uuid4()),
+  app\runtime\whatsapp_trace_sensor.py:20:        "ts":time.time(),
+> app\runtime\whatsapp_trace_sensor.py:21:        "sender_id":sender_id,
+  app\runtime\whatsapp_trace_sensor.py:22:        "user_message":user_message,
+  app\runtime\whatsapp_trace_sensor.py:23:        "events":[]
+  app\runtime\whatsapp_trace_sensor.py:24:    }
+  app\runtime\whatsapp_trace_sensor.py:25:def add_event(trace,stage,module,function,input_preview="",output_preview="",extra=None):
+  app\runtime\whatsapp_trace_sensor.py:26:    if trace is None:
+  app\runtime\whatsapp_trace_sensor.py:27:        trace=new_trace()
+  app\runtime\whatsapp_trace_sensor.py:28:    out=str(output_preview or "")
+  app\runtime\whatsapp_trace_sensor.py:29:    trace["events"].append({
+  app\runtime\whatsapp_trace_sensor.py:30:        "stage":stage,
+  app\runtime\whatsapp_trace_sensor.py:31:        "module":module,
+  app\runtime\whatsapp_trace_sensor.py:32:        "function":function,
+  app\runtime\whatsapp_trace_sensor.py:33:        "input_preview":str(input_preview or "")[:240],
+  app\runtime\whatsapp_trace_sensor.py:34:        "output_preview":out[:240],
+  app\runtime\whatsapp_trace_sensor.py:35:        "leaks":leak_type(out),
+  app\runtime\whatsapp_trace_sensor.py:36:        "extra":extra or {}
+  app\runtime\whatsapp_trace_sensor.py:37:    })
+  app\runtime\whatsapp_trace_sensor.py:38:    return trace
+  app\runtime\whatsapp_trace_sensor.py:39:def save_trace(trace):
+  app\runtime\whatsapp_trace_sensor.py:40:    os.makedirs(TRACE_DIR,exist_ok=True)
+  app\runtime\whatsapp_trace_sensor.py:41:    p=os.path.join(TRACE_DIR,f"{trace.get('trace_id','noid')}.json")
+  app\runtime\whatsapp_trace_sensor.py:42:    with open(p,"w",encoding="utf-8") as f:
+  app\runtime\whatsapp_trace_sensor.py:43:        json.dump(trace,f,ensure_ascii=False,indent=2)
+  app\runtime\whatsapp_trace_sensor.py:44:    return p
+  app\runtime\whatsapp_trace_sensor.py:45:def assert_clean_output(text):
+  app\runtime\whatsapp_trace_sensor.py:46:    hits=leak_type(text)
+

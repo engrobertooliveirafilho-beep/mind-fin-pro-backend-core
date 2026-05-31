@@ -1,0 +1,860 @@
+
+  app\api\whatsapp.py:12:            .replace("í","i").replace("ó","o").replace("ô","o")
+  app\api\whatsapp.py:13:            .replace("õ","o").replace("ú","u").replace("ç","c")
+  app\api\whatsapp.py:14:    )
+  app\api\whatsapp.py:15:
+> app\api\whatsapp.py:16:    if compact in {"oi","oie","ola","olá","bom dia","boa tarde","boa noite"}:
+> app\api\whatsapp.py:17:        return "Oi, Roberto 👋 Tudo certo?"
+  app\api\whatsapp.py:18:
+  app\api\whatsapp.py:19:    if (
+  app\api\whatsapp.py:20:        "ainda nao conseguimos resolver" in compact
+  app\api\whatsapp.py:21:        or "nao conseguimos resolver" in compact
+  app\api\whatsapp.py:22:        or "não conseguimos resolver" in text
+  app\api\whatsapp.py:23:    ):
+  app\api\whatsapp.py:24:        return "Ainda não fechou 100%. O gargalo está no handler do canal WhatsApp: ele responde, mas ainda precisa estabilizar continuidade, fallback e contexto real."
+  app\api\whatsapp.py:25:
+  app\api\whatsapp.py:26:    return None
+  app\api\whatsapp.py:27:from app.runtime.whatsapp_trace_sensor import sanitize_final_output
+  app\api\whatsapp.py:28:from app.dialogue.conversation_continuity_runtime import update,get
+  app\api\whatsapp.py:29:from app.dialogue.context_resolution_engine import resolve
+  app\api\whatsapp.py:30:from app.dialogue.generic_llm_detector import detect,rewrite
+  app\api\whatsapp.py:31:from app.dialogue.persona_consistency_guard import enforce
+  app\api\whatsapp.py:32:from app.humanization.universal_recovery_runtime import enforce_no_identity_in_normal_chat
+  app\api\whatsapp.py:33:from app.humanization.universal_recovery_runtime import universal_recovery_answer, enforce_no_identity_in_normal_chat
+  app\api\whatsapp.py:34:from app.runtime.whatsapp_final_output_guard import guard_whatsapp_final_answer
+  app\api\whatsapp.py:35:from app.runtime.test_contract_wrapper import semantic_test_injection
+  app\api\whatsapp.py:36:from app.runtime.forensic_trace import event
+  app\api\whatsapp.py:37:from fastapi import APIRouter, Request
+  app\api\whatsapp.py:38:from fastapi.responses import Response
+  app\api\whatsapp.py:39:from app.runtime.conversation_maturity_runtime import mature_response
+  app\api\whatsapp.py:40:from urllib.parse import parse_qs
+  app\api\whatsapp.py:41:from app.runtime.cognitive_pipeline import run_cognitive_pipeline
+  app\api\whatsapp.py:42:from app.runtime.mind_state_visible_context import is_state_query, build_mind_state_visible_response
+  app\api\whatsapp.py:53:    decision=decide_turn(raw)
+  app\api\whatsapp.py:54:
+  app\api\whatsapp.py:55:    bad=[
+  app\api\whatsapp.py:56:        "eldora ativa",
+> app\api\whatsapp.py:57:        "tudo certo por aqui",
+  app\api\whatsapp.py:58:        "diagnóstico: o runtime identificou resposta fraca",
+  app\api\whatsapp.py:59:        "diagnã³stico: o runtime identificou resposta fraca",
+  app\api\whatsapp.py:60:        "resumo / compatibility",
+  app\api\whatsapp.py:61:        "compatibilidade:"
+  app\api\whatsapp.py:62:    ]
+  app\api\whatsapp.py:63:
+  app\api\whatsapp.py:64:    factual_turns={"FACTUAL_TASK","EXECUTE","PLAN","ANALYSIS","MATH"}
+  app\api\whatsapp.py:65:
+  app\api\whatsapp.py:66:    task_markers=["verifique","verificar","calcule","calcular","analise","analisar","compare","pesquise","procure"]
+  app\api\whatsapp.py:67:    technical_block=("diagn" in low and "runtime identificou resposta fraca" in low) or ("estrat" in low and "execu" in low and "auditoria" in low)
+  app\api\whatsapp.py:68:
+  app\api\whatsapp.py:69:    if decision.turn_type in factual_turns or any(x in low for x in task_markers):
+  app\api\whatsapp.py:70:        if not raw or any(x in low for x in bad) or technical_block:
+  app\api\whatsapp.py:71:            return None
+  app\api\whatsapp.py:72:        return raw
+  app\api\whatsapp.py:73:
+  app\api\whatsapp.py:74:    if not raw or any(x in low for x in bad) or technical_block:
+  app\api\whatsapp.py:75:        if decision.turn_type=="SOCIAL_DIALOGUE":
+  app\api\whatsapp.py:76:            return "Tudo certo 🙂 E você?"
+  app\api\whatsapp.py:77:        if decision.turn_type=="META_CONVERSATION":
+  app\api\whatsapp.py:78:            return "Me corrija na hora e eu ajusto o jeito."
+  app\api\whatsapp.py:79:        if decision.turn_type=="RECOVERY":
+  app\api\whatsapp.py:80:            return None
+  app\api\whatsapp.py:81:        return None
+  app\api\whatsapp.py:82:
+  app\api\whatsapp.py:100:        f'<?xml version="1.0" encoding="UTF-8"?>'
+  app\api\whatsapp.py:101:        f'<Response><Message>{safe}</Message></Response>'
+  app\api\whatsapp.py:102:    )
+  app\api\whatsapp.py:103:
+> app\api\whatsapp.py:104:def live_whatsapp_override(inbound_text: str) -> str | None:
+  app\api\whatsapp.py:105:    msg = (inbound_text or "").lower().strip()
+  app\api\whatsapp.py:106:
+  app\api\whatsapp.py:107:    # normalização semântica leve
+  app\api\whatsapp.py:108:    msg = (
+  app\api\whatsapp.py:109:        msg.replace("á","a")
+  app\api\whatsapp.py:110:           .replace("à","a")
+  app\api\whatsapp.py:111:           .replace("ã","a")
+  app\api\whatsapp.py:112:           .replace("é","e")
+  app\api\whatsapp.py:113:           .replace("ê","e")
+  app\api\whatsapp.py:114:           .replace("í","i")
+  app\api\whatsapp.py:115:           .replace("ó","o")
+  app\api\whatsapp.py:116:           .replace("ô","o")
+  app\api\whatsapp.py:117:           .replace("õ","o")
+  app\api\whatsapp.py:118:           .replace("ú","u")
+  app\api\whatsapp.py:119:           .replace("?","")
+  app\api\whatsapp.py:120:           .replace("!","").replace("0","").replace("1","").replace("2","").replace("3","").replace("4","").replace("5","").replace("6","").replace("7","").replace("8","").replace("9","")
+  app\api\whatsapp.py:121:    )
+  app\api\whatsapp.py:122:
+  app\api\whatsapp.py:123:    if any(x in msg for x in ["como esta", "como esta indo", "como vai", "esta indo", "ta indo"]):
+  app\api\whatsapp.py:124:        return (
+  app\api\whatsapp.py:125:            "Está melhorando. O runtime novo já responde no WhatsApp, "
+  app\api\whatsapp.py:126:            "mas ainda estamos refinando continuidade e naturalidade."
+  app\api\whatsapp.py:127:        )
+  app\api\whatsapp.py:128:
+  app\api\whatsapp.py:129:    if any(x in msg for x in ["deu ruim", "bugou", "nao funcionou", "nao respondeu"]):
+  app\api\whatsapp.py:207:
+  app\api\whatsapp.py:208:    if any(x in msg for x in ["nao entendeu", "nao entnedeu", "não entendeu", "nao entendi", "não entendi"]):
+  app\api\whatsapp.py:209:        return "Entendi. Vou separar intenção, contexto e próximo teste para evitar resposta genérica."
+  app\api\whatsapp.py:210:    if msg in ["i", "oi", "olá", "ola"]:
+> app\api\whatsapp.py:211:        return "Oi, Roberto 👋 Tudo bem por aí?"
+  app\api\whatsapp.py:212:
+> app\api\whatsapp.py:213:    if any(x in msg for x in ["boa tarde", "bom dia", "boa noite"]):
+  app\api\whatsapp.py:214:        return "Boa tarde, Roberto ☀️ Como você está?"
+  app\api\whatsapp.py:215:
+  app\api\whatsapp.py:216:    if any(x in msg for x in ["como ta", "como tá", "tudo bem"]):
+> app\api\whatsapp.py:217:        return "Tudo certo por aqui 🙂 E você?"
+  app\api\whatsapp.py:218:
+  app\api\whatsapp.py:219:    if any(x in msg for x in ["quem eh vc", "quem é vc", "quem é você"]):
+  app\api\whatsapp.py:220:        return ""
+  app\api\whatsapp.py:221:
+  app\api\whatsapp.py:222:    if any(x in msg for x in ["ainda nao conseguimos resolver", "ainda não conseguimos resolver", "nao esta funcionando", "não está funcionando", "não funciona"]):
+  app\api\whatsapp.py:223:        remember("whatsapp_runtime","conversation_runtime")
+  app\api\whatsapp.py:224:        return "Claro 🙂 Me conta o que está acontecendo."
+  app\api\whatsapp.py:225:
+  app\api\whatsapp.py:226:    if any(x in msg for x in [
+  app\api\whatsapp.py:227:        "agora ta funcionando",
+  app\api\whatsapp.py:228:        "agora está funcionando",
+  app\api\whatsapp.py:229:        "esta dando certo",
+  app\api\whatsapp.py:230:        "está dando certo",
+  app\api\whatsapp.py:231:        "como esta indo",
+  app\api\whatsapp.py:232:        "como está indo",
+  app\api\whatsapp.py:233:        "travou",
+  app\api\whatsapp.py:234:        "parou de falar"
+  app\api\whatsapp.py:235:    ]):
+  app\api\whatsapp.py:236:        return (
+  app\api\whatsapp.py:237:            "Está melhorando. O WhatsApp já está respondendo pelo runtime novo, "
+  app\api\whatsapp.py:238:            "mas ainda estamos ajustando a continuidade da conversa."
+  app\api\whatsapp.py:239:        )
+  app\api\whatsapp.py:240:
+  app\api\whatsapp.py:241:    if any(x in msg for x in [
+  app\api\whatsapp.py:242:        "getting-throughout",
+  app\api\whatsapp.py:252:    return None
+  app\api\whatsapp.py:253:
+  app\api\whatsapp.py:254:from app.runtime.test_contract_wrapper import semantic_test_injection
+  app\api\whatsapp.py:255:
+> app\api\whatsapp.py:256:from app.runtime.intent_first_router import route_fast
+  app\api\whatsapp.py:257:from app.runtime.universal_conversation_authority import universal_conversation_reply
+  app\api\whatsapp.py:258:from app.runtime.intent_arbitration_priority_engine import classify_intent, IntentPriority
+> app\api\whatsapp.py:259:from app.runtime.whatsapp_social_followup_guard import whatsapp_social_followup_guard, block_meta_reply
+  app\api\whatsapp.py:260:
+  app\api\whatsapp.py:261:
+  app\api\whatsapp.py:262:def _p3_human_e2e_guard(inbound_text, reply):
+  app\api\whatsapp.py:263:    text = str(reply.get("answer", reply) if isinstance(reply, dict) else reply)
+  app\api\whatsapp.py:264:    low = text.lower()
+  app\api\whatsapp.py:265:    blocked = [
+  app\api\whatsapp.py:266:        "me dar mais detalhes",
+  app\api\whatsapp.py:267:        "assim, posso te ajudar melhor",
+  app\api\whatsapp.py:268:        "assim posso te ajudar melhor",
+  app\api\whatsapp.py:269:        "como posso ajudar",
+  app\api\whatsapp.py:270:        "alguma novidade"
+  app\api\whatsapp.py:271:    ]
+  app\api\whatsapp.py:272:    if any(x in low for x in blocked):
+  app\api\whatsapp.py:273:        return (
+  app\api\whatsapp.py:274:            "Diagnóstico\n"
+  app\api\whatsapp.py:275:            "A dúvida indica bloqueio de entendimento e precisa virar próximo passo verificável.\n\n"
+  app\api\whatsapp.py:276:            "Estratégia\n"
+  app\api\whatsapp.py:277:            "Reduzir a ambiguidade operacional: identificar o ponto travado, aplicar a menor correção e validar por evidência.\n\n"
+  app\api\whatsapp.py:278:            "Execução\n"
+  app\api\whatsapp.py:279:            "1. Pegue a última etapa que falhou.\n"
+  app\api\whatsapp.py:280:            "2. Separe erro, causa provável e próximo teste.\n"
+  app\api\whatsapp.py:281:            "3. Execute uma correção pequena.\n"
+  app\api\whatsapp.py:282:            "4. Só avance se o log confirmar melhora.\n\n"
+  app\api\whatsapp.py:283:            "Auditoria\n"
+  app\api\whatsapp.py:284:            "Se não houver teste verde, log ou evidência objetiva, a etapa continua aberta."
+  app\api\whatsapp.py:299:    _txt = (inbound_text or "").strip()
+  app\api\whatsapp.py:300:    _low = _txt.lower()
+  app\api\whatsapp.py:301:
+  app\api\whatsapp.py:302:    if _low in {"oi","oie","olá","ola"}:
+> app\api\whatsapp.py:303:        return "Oi, Roberto. Tudo certo?"
+  app\api\whatsapp.py:304:
+  app\api\whatsapp.py:305:    if "o que vc faz" in _low or "o que você faz" in _low or "o que vc sabe fazer" in _low or "o que você sabe fazer" in _low:
+  app\api\whatsapp.py:306:        return "Eu organizo contexto, respondo perguntas, faço cálculos simples e ajudo a validar próximos passos."
+  app\api\whatsapp.py:307:
+  app\api\whatsapp.py:308:    _expr = re.sub(r"[^0-9+\-*/(). ]","",_low.replace("quanto é","").replace("quanto e","").replace("calcule",""))
+  app\api\whatsapp.py:309:    if any(op in _expr for op in ["+","-","*","/"]) and any(ch.isdigit() for ch in _expr):
+  app\api\whatsapp.py:310:        try:
+  app\api\whatsapp.py:311:            if re.fullmatch(r"[0-9+\-*/(). ]+", _expr):
+  app\api\whatsapp.py:312:                return f"Resultado: {eval(_expr, {'__builtins__': {}}, {})}."
+  app\api\whatsapp.py:313:        except Exception:
+  app\api\whatsapp.py:314:            pass
+  app\api\whatsapp.py:315:
+  app\api\whatsapp.py:316:    if _low == "calcule":
+  app\api\whatsapp.py:317:        return "Me mande a conta completa que eu calculo direto."
+> app\api\whatsapp.py:318:    _guard_reply = whatsapp_social_followup_guard(inbound_text)
+  app\api\whatsapp.py:319:    if _guard_reply:
+  app\api\whatsapp.py:320:        return _guard_reply
+  app\api\whatsapp.py:321:    _ssa_intent = classify_intent(inbound_text)
+  app\api\whatsapp.py:322:    if _ssa_intent in (
+  app\api\whatsapp.py:323:        IntentPriority.CALCULATION,
+  app\api\whatsapp.py:324:        IntentPriority.TASK_EXECUTION,
+  app\api\whatsapp.py:325:        IntentPriority.VERIFICATION,
+  app\api\whatsapp.py:326:        IntentPriority.ANALYSIS,
+  app\api\whatsapp.py:327:        IntentPriority.TROUBLESHOOTING,
+  app\api\whatsapp.py:328:    ):
+  app\api\whatsapp.py:329:        return universal_conversation_guard(inbound_text, sender_id, "")
+  app\api\whatsapp.py:330:    if any(x in low for x in [
+  app\api\whatsapp.py:331:        "qual seu nome",
+  app\api\whatsapp.py:332:        "como vc chama",
+  app\api\whatsapp.py:333:        "como você chama",
+  app\api\whatsapp.py:334:        "quem é vc",
+  app\api\whatsapp.py:335:        "quem e vc",
+  app\api\whatsapp.py:336:        "quem é você",
+  app\api\whatsapp.py:337:        "quem e voce"
+  app\api\whatsapp.py:338:    ]):
+  app\api\whatsapp.py:339:        return "Sou a Eldora 🙂"
+  app\api\whatsapp.py:340:
+  app\api\whatsapp.py:341:    _contract_reply = _eldora_live_override_contract_patch(sender_id, inbound_text)
+  app\api\whatsapp.py:342:    if _contract_reply:
+  app\api\whatsapp.py:343:        return _contract_reply
+  app\api\whatsapp.py:382:    # ==========================================
+  app\api\whatsapp.py:383:    # PRIORIDADE 1 — LIVE OVERRIDES
+  app\api\whatsapp.py:384:    # ==========================================
+  app\api\whatsapp.py:385:
+> app\api\whatsapp.py:386:    override = live_whatsapp_override(inbound_text)
+  app\api\whatsapp.py:387:
+  app\api\whatsapp.py:388:    if override:
+  app\api\whatsapp.py:389:        override = _p3_human_e2e_guard(inbound_text, override)
+  app\api\whatsapp.py:390:        return semantic_test_injection(
+  app\api\whatsapp.py:391:            inbound_text,
+  app\api\whatsapp.py:392:            override
+  app\api\whatsapp.py:393:        )
+  app\api\whatsapp.py:394:
+  app\api\whatsapp.py:395:    # ==========================================
+  app\api\whatsapp.py:396:    # PRIORIDADE 2 — COGNITIVE RUNTIME
+  app\api\whatsapp.py:397:    # ==========================================
+  app\api\whatsapp.py:398:
+  app\api\whatsapp.py:399:    visible = run_cognitive_pipeline(
+  app\api\whatsapp.py:400:        sender_id,
+  app\api\whatsapp.py:401:        inbound_text
+  app\api\whatsapp.py:402:    )
+  app\api\whatsapp.py:403:
+  app\api\whatsapp.py:404:    if whatsapp_intelligence_active() and isinstance(visible, dict):
+  app\api\whatsapp.py:405:        visible["activation_context"] = enrich_whatsapp_context(sender_id, inbound_text, {})
+  app\api\whatsapp.py:406:
+  app\api\whatsapp.py:407:    return semantic_test_injection(
+  app\api\whatsapp.py:408:        inbound_text,
+  app\api\whatsapp.py:409:        visible
+  app\api\whatsapp.py:410:    )
+  app\api\whatsapp.py:411:
+  app\runtime\actionable_continuity_authority.py:194:    return reply
+  app\runtime\actionable_continuity_authority.py:195:
+  app\runtime\actionable_continuity_authority.py:196:
+  app\runtime\actionable_continuity_authority.py:197:SMALL_TALK_PATTERNS = [
+> app\runtime\actionable_continuity_authority.py:198:    "oi","ola","olá","bom dia","boa tarde","boa noite",
+  app\runtime\actionable_continuity_authority.py:199:    "tudo bem","como vai","e ai","e aí","opa","blz",
+  app\runtime\actionable_continuity_authority.py:200:    "beleza","tranquilo","suave","fala","hello","hi"
+  app\runtime\actionable_continuity_authority.py:201:]
+  app\runtime\actionable_continuity_authority.py:202:
+  app\runtime\actionable_continuity_authority.py:203:def is_small_talk(msg: str) -> bool:
+  app\runtime\actionable_continuity_authority.py:204:    m = (msg or "").strip().lower()
+  app\runtime\actionable_continuity_authority.py:205:    return any(x in m for x in SMALL_TALK_PATTERNS)
+  app\runtime\actionable_continuity_authority.py:206:
+  app\runtime\actionable_continuity_authority.py:207:def natural_small_talk(msg: str) -> str:
+  app\runtime\actionable_continuity_authority.py:208:    m = (msg or "").lower()
+  app\runtime\actionable_continuity_authority.py:209:
+> app\runtime\actionable_continuity_authority.py:210:    if "bom dia" in m:
+> app\runtime\actionable_continuity_authority.py:211:        return "Bom dia! Tudo certo por aí?"
+  app\runtime\actionable_continuity_authority.py:212:    if "boa tarde" in m:
+  app\runtime\actionable_continuity_authority.py:213:        return "Boa tarde! Como você está?"
+  app\runtime\actionable_continuity_authority.py:214:    if "boa noite" in m:
+  app\runtime\actionable_continuity_authority.py:215:        return "Boa noite! Como foi seu dia?"
+  app\runtime\actionable_continuity_authority.py:216:    if "tudo bem" in m:
+> app\runtime\actionable_continuity_authority.py:217:        return "Tudo certo por aqui. E com você?"
+  app\runtime\actionable_continuity_authority.py:218:    return "Oi! O que você precisa?"
+  app\runtime\actionable_continuity_authority.py:219:
+  app\runtime\cognitive_conversation_runtime.py:13:    if not text:
+  app\runtime\cognitive_conversation_runtime.py:14:        return TurnDecision("EMPTY", False, False, "empty input")
+  app\runtime\cognitive_conversation_runtime.py:15:
+  app\runtime\cognitive_conversation_runtime.py:16:    social = [
+> app\runtime\cognitive_conversation_runtime.py:17:        "oi", "olá", "ola", "bom dia", "boa tarde", "boa noite", "tudo bem",
+  app\runtime\cognitive_conversation_runtime.py:18:        "tudo e vc", "e vc", "blz", "beleza", "que foi", "como assim"
+  app\runtime\cognitive_conversation_runtime.py:19:    ]
+  app\runtime\cognitive_conversation_runtime.py:20:    meta = [
+  app\runtime\cognitive_conversation_runtime.py:21:        "como eu te deixo", "mais fluida", "melhorar sua resposta",
+  app\runtime\cognitive_conversation_runtime.py:22:        "você está", "voce está", "seu comportamento", "sua conversa"
+  app\runtime\cognitive_conversation_runtime.py:23:    ]
+  app\runtime\cognitive_conversation_runtime.py:24:    recovery = [
+  app\runtime\cognitive_conversation_runtime.py:25:        "não entendi", "nao entendi", "deu errado", "erro", "não era isso",
+  app\runtime\cognitive_conversation_runtime.py:26:        "nao era isso", "explica melhor"
+  app\runtime\cognitive_conversation_runtime.py:27:    ]
+  app\runtime\cognitive_conversation_runtime.py:28:
+  app\runtime\cognitive_conversation_runtime.py:29:    explicit_factual = [
+  app\runtime\cognitive_conversation_runtime.py:30:        "verifique", "verificar", "verifi", "pesquise", "pesquisar", "procure", "procurar", "calcule", "calcular", "compare", "comparar", "valide", "validar", "confirme", "confirmar", "analise", "analisar",
+  app\runtime\cognitive_conversation_runtime.py:31:        "qual", "quanto", "onde", "quando", "preço", "valor", "link",
+  app\runtime\cognitive_conversation_runtime.py:32:        "modelo", "ano", "compatível", "compativel", "serve", "documento",
+  app\runtime\cognitive_conversation_runtime.py:33:        "arquivo", "contrato", "nota", "relatório", "relatorio"
+  app\runtime\cognitive_conversation_runtime.py:34:    ]
+  app\runtime\cognitive_conversation_runtime.py:35:
+  app\runtime\cognitive_conversation_runtime.py:36:    if any(x in text for x in meta):
+  app\runtime\cognitive_conversation_runtime.py:37:        return TurnDecision("META_CONVERSATION", False, False, "meta conversation blocks factual carryover")
+  app\runtime\cognitive_conversation_runtime.py:38:
+  app\runtime\cognitive_conversation_runtime.py:39:    if any(x in text for x in social):
+  app\runtime\cognitive_conversation_runtime.py:40:        return TurnDecision("SOCIAL_DIALOGUE", False, False, "social dialogue blocks factual carryover")
+  app\runtime\cognitive_conversation_runtime.py:41:
+  app\runtime\cognitive_conversation_runtime.py:42:    if any(x in text for x in recovery):
+  app\runtime\cognitive_pipeline.py:43:            "state": {},
+  app\runtime\cognitive_pipeline.py:44:            "autonomous": {}
+  app\runtime\cognitive_pipeline.py:45:        }
+  app\runtime\cognitive_pipeline.py:46:
+> app\runtime\cognitive_pipeline.py:47:    if "bom dia" in msg_l:
+> app\runtime\cognitive_pipeline.py:48:        answer = "Bom dia, Roberto. Estou acompanhando o contexto e pronta para continuar."
+  app\runtime\cognitive_pipeline.py:49:        save_message(user_id, "assistant", answer)
+  app\runtime\cognitive_pipeline.py:50:        return {
+  app\runtime\cognitive_pipeline.py:51:            "answer": answer,
+  app\runtime\cognitive_pipeline.py:52:            "intent": {"intent": "greeting"},
+  app\runtime\cognitive_pipeline.py:53:            "scores": {},
+  app\runtime\cognitive_pipeline.py:54:            "state": {},
+  app\runtime\cognitive_pipeline.py:55:            "autonomous": {}
+  app\runtime\cognitive_pipeline.py:56:        }
+  app\runtime\cognitive_pipeline.py:57:
+  app\runtime\cognitive_pipeline.py:58:    if "boa noite" in msg_l:
+  app\runtime\cognitive_pipeline.py:59:        answer = "Boa noite, Roberto. O contexto do MIND continua ativo."
+  app\runtime\cognitive_pipeline.py:60:        save_message(user_id, "assistant", answer)
+  app\runtime\cognitive_pipeline.py:61:        return {
+  app\runtime\cognitive_pipeline.py:62:            "answer": answer,
+  app\runtime\cognitive_pipeline.py:63:            "intent": {"intent": "greeting"},
+  app\runtime\cognitive_pipeline.py:64:            "scores": {},
+  app\runtime\cognitive_pipeline.py:65:            "state": {},
+  app\runtime\cognitive_pipeline.py:66:            "autonomous": {}
+  app\runtime\cognitive_pipeline.py:67:        }
+  app\runtime\cognitive_pipeline.py:68:    if any(x in msg_l for x in [
+  app\runtime\cognitive_pipeline.py:69:        "cade a resposta",
+  app\runtime\cognitive_pipeline.py:70:        "cadê a resposta",
+  app\runtime\cognitive_pipeline.py:71:        "onde ta a resposta",
+  app\runtime\cognitive_pipeline.py:72:        "onde está a resposta"
+  app\runtime\cognitive_pipeline.py:73:    ]):
+  app\runtime\conversation_quality_guard.py:2:
+  app\runtime\conversation_quality_guard.py:3:INTRO_PATTERNS = [
+  app\runtime\conversation_quality_guard.py:4:    "oi! tudo bem",
+  app\runtime\conversation_quality_guard.py:5:    "oi, tudo bem",
+> app\runtime\conversation_quality_guard.py:6:    "tudo certo por aqui",
+  app\runtime\conversation_quality_guard.py:7:    "como posso te ajudar",
+  app\runtime\conversation_quality_guard.py:8:    "pode me dar mais detalhes"
+  app\runtime\conversation_quality_guard.py:9:]
+  app\runtime\conversation_quality_guard.py:10:
+  app\runtime\conversation_quality_guard.py:11:TECH_TERMS = [
+  app\runtime\conversation_quality_guard.py:12:    "history_count",
+  app\runtime\conversation_quality_guard.py:13:    "persistent_memory_count",
+  app\runtime\conversation_quality_guard.py:14:    "retrieval_provider",
+  app\runtime\conversation_quality_guard.py:15:    "retrieval provider",
+  app\runtime\conversation_quality_guard.py:16:    "runtime",
+  app\runtime\conversation_quality_guard.py:17:    "camada",
+  app\runtime\conversation_quality_guard.py:18:    "memória persistente",
+  app\runtime\conversation_quality_guard.py:19:    "memoria persistente",
+  app\runtime\conversation_quality_guard.py:20:    "context fusion",
+  app\runtime\conversation_quality_guard.py:21:    "mind",
+  app\runtime\conversation_quality_guard.py:22:    "retrieval",
+  app\runtime\conversation_quality_guard.py:23:    "webhook",
+  app\runtime\conversation_quality_guard.py:24:    "handler"
+  app\runtime\conversation_quality_guard.py:25:]
+  app\runtime\conversation_quality_guard.py:26:
+  app\runtime\conversation_quality_guard.py:27:SOCIAL_HINTS = [
+  app\runtime\conversation_quality_guard.py:28:    "mais fluida",
+  app\runtime\conversation_quality_guard.py:29:    "fluida",
+  app\runtime\conversation_quality_guard.py:30:    "como vc ta",
+  app\runtime\conversation_quality_guard.py:31:    "como voce ta",
+  app\runtime\conversation_quality_guard.py:80:        "o que você quer saber exatamente"
+  app\runtime\conversation_quality_guard.py:81:    ]
+  app\runtime\conversation_quality_guard.py:82:
+  app\runtime\conversation_quality_guard.py:83:    if any(x in low for x in banned):
+> app\runtime\conversation_quality_guard.py:84:        return "Tudo certo por aqui 🙂 E você?"
+  app\runtime\conversation_quality_guard.py:85:
+  app\runtime\conversation_quality_guard.py:86:    return out
+  app\runtime\conversation_state_resolver.py:3:
+  app\runtime\conversation_state_resolver.py:4:FOLLOWUP={"aprofunde","continua","prossiga","e depois","explica melhor","detalha","explique melhor"}
+  app\runtime\conversation_state_resolver.py:5:TROUBLE={"erro","falhou","deu errado","nao funcionou","quebrou","implantacao"}
+  app\runtime\conversation_state_resolver.py:6:TASK={"analise","verifique","busque","calcule","confira","execute"}
+> app\runtime\conversation_state_resolver.py:7:SOCIAL={"oi","ola","tudo bem","quem e vc","quem e voce","como vc esta","como voce esta","bom dia","boa tarde","boa noite","voce esta funcionando","qual seu papel aqui","qual e seu papel","o que voce faz","quem e a eldora"}
+  app\runtime\conversation_state_resolver.py:8:
+  app\runtime\conversation_state_resolver.py:9:def _norm(msg:str)->str:
+  app\runtime\conversation_state_resolver.py:10:    s=(msg or "").lower().strip()
+  app\runtime\conversation_state_resolver.py:11:    s="".join(c for c in unicodedata.normalize("NFD",s) if unicodedata.category(c)!="Mn")
+  app\runtime\conversation_state_resolver.py:12:    s=re.sub(r"[^a-z0-9\s]"," ",s)
+  app\runtime\conversation_state_resolver.py:13:    return " ".join(s.split())
+  app\runtime\conversation_state_resolver.py:14:
+  app\runtime\conversation_state_resolver.py:15:def _has(m, items):
+  app\runtime\conversation_state_resolver.py:16:    return any(x in m for x in items)
+  app\runtime\conversation_state_resolver.py:17:
+  app\runtime\conversation_state_resolver.py:18:def resolve(sender_id,msg):
+  app\runtime\conversation_state_resolver.py:19:    s=get_state(sender_id); m=_norm(msg)
+  app\runtime\conversation_state_resolver.py:20:    if _has(m,TROUBLE): return "TROUBLESHOOTING",s
+  app\runtime\conversation_state_resolver.py:21:    if _has(m,FOLLOWUP): return "FOLLOWUP",s
+  app\runtime\conversation_state_resolver.py:22:    if _has(m,TASK): return "TASK",s
+  app\runtime\conversation_state_resolver.py:23:    if _has(m,SOCIAL): return "SOCIAL",s
+  app\runtime\conversation_state_resolver.py:24:    return "AMBIGUOUS",s
+  app\runtime\dialogue_state.py:15:    return any(item["hash"] == h for item in _LAST_BY_USER.get(user_id, []))
+  app\runtime\dialogue_state.py:16:
+  app\runtime\dialogue_state.py:17:def short_message_type(message: str) -> str:
+  app\runtime\dialogue_state.py:18:    t = (message or "").strip().lower()
+> app\runtime\dialogue_state.py:19:    if t in ["oi", "olá", "ola", "bom dia", "boa tarde", "boa noite"]: return "greeting"
+  app\runtime\dialogue_state.py:20:    if t in ["ok", "certo", "beleza", "show", "fechado"]: return "ack"
+  app\runtime\dialogue_state.py:21:    if "repete" in t or "porque vc repete" in t: return "repetition_complaint"
+  app\runtime\dialogue_state.py:22:    if t.startswith("como") or "como posso" in t: return "how_to"
+  app\runtime\dialogue_state.py:23:    if t in ["prosseguir", "continua", "segue"]: return "continue"
+  app\runtime\dialogue_state.py:24:    return "normal"
+  app\runtime\generic_conversation_state.py:166:    repeated_cat=cat in state.last_categories[-2:]
+  app\runtime\generic_conversation_state.py:167:
+  app\runtime\generic_conversation_state.py:168:    generic=any(x in cleaned.lower() for x in [
+  app\runtime\generic_conversation_state.py:169:        "não ficou claro","me dar um pouco mais de contexto","o que você gostaria",
+> app\runtime\generic_conversation_state.py:170:        "tudo certo por aqui","como posso ajudar"
+  app\runtime\generic_conversation_state.py:171:    ])
+  app\runtime\generic_conversation_state.py:172:
+  app\runtime\generic_conversation_state.py:173:    if state.intent=="deepen" or repeated_hash or repeated_cat or generic:
+  app\runtime\generic_conversation_state.py:174:        cleaned=generated
+  app\runtime\generic_conversation_state.py:175:
+  app\runtime\generic_conversation_state.py:176:    state.last_hashes=(state.last_hashes+[h])[-8:]
+  app\runtime\generic_conversation_state.py:177:    state.last_categories=(state.last_categories+[cat])[-4:]
+  app\runtime\generic_conversation_state.py:178:    return prevent_cross_topic(cleaned,state)
+  app\runtime\generic_conversation_state.py:179:
+  app\runtime\generic_conversation_state.py:180:# P4_12N_FACTUAL_BLEED_FIX
+  app\runtime\generic_conversation_state.py:181:def is_casual_dialogue(text: str) -> bool:
+  app\runtime\generic_conversation_state.py:182:    t=(text or "").strip().lower()
+  app\runtime\generic_conversation_state.py:183:    if not t:
+  app\runtime\generic_conversation_state.py:184:        return False
+  app\runtime\generic_conversation_state.py:185:    factual_terms=[
+  app\runtime\generic_conversation_state.py:186:        "preço","valor","comprar","compatível","compativel","serve","modelo","ano",
+  app\runtime\generic_conversation_state.py:187:        "peça","peca","pedal","partida","verifique","verificar","crf","cr250","cr250r",
+  app\runtime\generic_conversation_state.py:188:        "moto","motor","produto","link","marca","medida","tamanho","comparar",
+  app\runtime\generic_conversation_state.py:189:        "orçamento","orcamento","cotação","cotacao","mercado livre","shopee"
+  app\runtime\generic_conversation_state.py:190:    ]
+  app\runtime\generic_conversation_state.py:191:    if any(x in t for x in factual_terms):
+  app\runtime\generic_conversation_state.py:192:        return False
+  app\runtime\generic_conversation_state.py:193:    casual_markers=[
+> app\runtime\generic_conversation_state.py:194:        "bom dia","boa tarde","boa noite","tudo bem","tudo e vc","e vc",
+  app\runtime\generic_conversation_state.py:195:        "que foi","oi","olá","ola","blz","beleza","deu errado","não entendi",
+  app\runtime\generic_conversation_state.py:196:        "nao entendi","como assim","tenho uma dúvida","tenho uma duvida",
+  app\runtime\generic_conversation_state.py:197:        "como eu te deixo mais fluida"
+  app\runtime\generic_conversation_state.py:198:    ]
+  app\runtime\generic_conversation_state.py:199:    return len(t) <= 100 and any(x in t for x in casual_markers)
+  app\runtime\generic_conversation_state.py:200:
+  app\runtime\generic_conversation_state.py:201:def factual_state_allowed_for(text: str) -> bool:
+  app\runtime\generic_conversation_state.py:202:    return not is_casual_dialogue(text)
+  app\runtime\identity_guard_runtime.py:26:    leaked=any(re.search(p,low) for p in BANNED_PATTERNS)
+  app\runtime\identity_guard_runtime.py:27:
+  app\runtime\identity_guard_runtime.py:28:    if leaked:
+  app\runtime\identity_guard_runtime.py:29:        if any(x in u for x in ["oi","olá","ola","eai","e aí"]):
+> app\runtime\identity_guard_runtime.py:30:            return "Oi, Roberto. Como você está? O que vamos resolver agora?"
+  app\runtime\identity_guard_runtime.py:31:
+  app\runtime\identity_guard_runtime.py:32:        if "tudo bem" in u:
+> app\runtime\identity_guard_runtime.py:33:            return "Tudo certo por aqui. E você, como está?"
+  app\runtime\identity_guard_runtime.py:34:
+  app\runtime\identity_guard_runtime.py:35:        if u in ["sim","aham","ok","blz","beleza","isso"]:
+  app\runtime\identity_guard_runtime.py:36:            return "Perfeito. Me fala o próximo passo ou o que você quer testar."
+  app\runtime\identity_guard_runtime.py:37:
+  app\runtime\identity_guard_runtime.py:38:        if "simulador" in u:
+  app\runtime\identity_guard_runtime.py:39:            return "Boa. Isso pode ajudar bastante a amadurecer conversa, continuidade e respostas menos robóticas. Como você imagina esse simulador?"
+  app\runtime\identity_guard_runtime.py:40:
+  app\runtime\identity_guard_runtime.py:41:        return "Entendi. Continua — estou acompanhando o contexto."
+  app\runtime\identity_guard_runtime.py:42:
+  app\runtime\identity_guard_runtime.py:43:    return r
+  app\runtime\intent_arbitration_priority_engine.py:40:    if re.fullmatch(r"[0-9\s\+\-\*\/\(\)\.,]+", t) and re.search(r"\d", t) and re.search(r"[\+\-\*\/]", t):
+  app\runtime\intent_arbitration_priority_engine.py:41:        return {"intent": "CALCULATION", "confidence": 0.99, "reason": "math_expression"}
+  app\runtime\intent_arbitration_priority_engine.py:42:
+  app\runtime\intent_arbitration_priority_engine.py:43:    social_exact = {
+> app\runtime\intent_arbitration_priority_engine.py:44:        "oi","ola","olá","bom dia","boa tarde","boa noite","tudo bem","tudo bem?",
+  app\runtime\intent_arbitration_priority_engine.py:45:        "eu to bem","eu tô bem","eu estou bem","to bem","tô bem","estou bem","beleza",
+  app\runtime\intent_arbitration_priority_engine.py:46:        "vamos testar agora","amos testar agora","vou viajar final de semana","vou fazer uma viagem final de semana"
+  app\runtime\intent_arbitration_priority_engine.py:47:    }
+  app\runtime\intent_arbitration_priority_engine.py:48:    if t in {_norm(x) for x in social_exact}:
+  app\runtime\intent_arbitration_priority_engine.py:49:        return {"intent": "SOCIAL", "confidence": 0.95, "reason": "social_or_contextual_exact"}
+  app\runtime\intent_arbitration_priority_engine.py:50:
+  app\runtime\intent_arbitration_priority_engine.py:51:    buying_terms = r"\b(comprar|compra|vale a pena|moto|carro|veiculo|veículo|bmw|honda|yamaha|k1300|qualidades|pontos fortes|melhores|defeitos|problemas|manutencao|manutenção)\b"
+  app\runtime\intent_arbitration_priority_engine.py:52:    question_terms = r"\b(qual|quais|quanto|quem|onde|quando|como|porque|por que|melhor|melhores|pontos fortes|vale a pena|me diga|explique)\b"
+  app\runtime\intent_arbitration_priority_engine.py:53:    travel_terms = r"\b(viagem|viajar|turistico|turístico|holambra|passeio|roteiro|final de semana)\b"
+  app\runtime\intent_arbitration_priority_engine.py:54:
+  app\runtime\intent_arbitration_priority_engine.py:55:    if re.search(buying_terms, t):
+  app\runtime\intent_arbitration_priority_engine.py:56:        return {"intent": "BUYING_ADVICE", "confidence": 0.94, "reason": "buying_product_vehicle"}
+  app\runtime\intent_arbitration_priority_engine.py:57:
+  app\runtime\intent_arbitration_priority_engine.py:58:    if re.search(travel_terms, t):
+  app\runtime\intent_arbitration_priority_engine.py:59:        return {"intent": "FACTUAL_QUESTION", "confidence": 0.88, "reason": "travel_or_place_factual"}
+  app\runtime\intent_arbitration_priority_engine.py:60:
+  app\runtime\intent_arbitration_priority_engine.py:61:    if re.search(question_terms, t):
+  app\runtime\intent_arbitration_priority_engine.py:62:        return {"intent": "FACTUAL_QUESTION", "confidence": 0.88, "reason": "question_word"}
+  app\runtime\intent_arbitration_priority_engine.py:63:
+  app\runtime\intent_arbitration_priority_engine.py:64:    if t in {"e depois?", "e depois", "aprofunde", "continue", "prossiga", "explique melhor"}:
+  app\runtime\intent_arbitration_priority_engine.py:65:        return {"intent": "FOLLOWUP", "confidence": 0.82, "reason": "followup"}
+  app\runtime\intent_arbitration_priority_engine.py:66:
+  app\runtime\intent_arbitration_priority_engine.py:67:    if re.search(r"\b(verificar|validar|testar|corrigir|executar|analisar|auditar)\b", t):
+  app\runtime\intent_arbitration_priority_engine.py:68:        return {"intent": "TASK_VERIFICATION", "confidence": 0.70, "reason": "task_word_low_priority"}
+  app\runtime\intent_arbitration_priority_engine.py:69:
+  app\runtime\intent_first_router.py:2:    t = (text or "").lower().strip()
+  app\runtime\intent_first_router.py:3:
+  app\runtime\intent_first_router.py:4:    greetings = [
+  app\runtime\intent_first_router.py:5:        "oi","oie","olá","ola",
+> app\runtime\intent_first_router.py:6:        "bom dia","boa tarde","boa noite"
+  app\runtime\intent_first_router.py:7:    ]
+  app\runtime\intent_first_router.py:8:
+  app\runtime\intent_first_router.py:9:    if not t:
+  app\runtime\intent_first_router.py:10:        return "te ouvi aqui, mas veio vazio."
+  app\runtime\intent_first_router.py:11:
+  app\runtime\intent_first_router.py:12:    if t in greetings:
+> app\runtime\intent_first_router.py:13:        return "Oi, Roberto."
+  app\runtime\intent_first_router.py:14:
+  app\runtime\intent_first_router.py:15:    if any(x in t for x in [
+  app\runtime\intent_first_router.py:16:        "tudo bem","tudo certo","como ta","como tá",
+  app\runtime\intent_first_router.py:17:        "como vc ta","como você está","e vc","e você"
+  app\runtime\intent_first_router.py:18:    ]):
+> app\runtime\intent_first_router.py:19:        return "Tudo certo por aqui 🙂 E você?"
+  app\runtime\intent_first_router.py:20:
+  app\runtime\intent_first_router.py:21:    if any(x in t for x in [
+  app\runtime\intent_first_router.py:22:        "qual seu nome","como vc chama",
+  app\runtime\intent_first_router.py:23:        "como você chama","quem é você",
+  app\runtime\intent_first_router.py:24:        "quem e voce"
+  app\runtime\intent_first_router.py:25:    ]):
+  app\runtime\intent_first_router.py:26:        return "Sou a Eldora 🙂 O que você quer saber?"
+  app\runtime\intent_first_router.py:27:
+  app\runtime\intent_first_router.py:28:    if any(x in t for x in [
+  app\runtime\intent_first_router.py:29:        "sentiu diferença","sentiu diferenca",
+  app\runtime\intent_first_router.py:30:        "deu certo","ou ainda nada",
+  app\runtime\intent_first_router.py:31:        "ainda nada","ainda não","ainda nao"
+  app\runtime\intent_first_router.py:32:    ]):
+  app\runtime\intent_first_router.py:33:        return "melhorou um pouco, mas ainda tem problema de continuidade e respostas genéricas."
+  app\runtime\intent_first_router.py:34:
+  app\runtime\intent_first_router.py:35:    if any(x in t for x in [
+  app\runtime\intent_first_router.py:36:        "verificar onde esta o problema",
+  app\runtime\intent_first_router.py:37:        "onde esta o problema",
+  app\runtime\intent_first_router.py:38:        "consegue verificar",
+  app\runtime\intent_first_router.py:39:        "procura por ai",
+  app\runtime\intent_first_router.py:40:        "procura por aí"
+  app\runtime\intent_first_router.py:41:    ]):
+  app\runtime\intent_first_router.py:42:        return "consigo. O principal problema parece estar no roteamento: intenção curta, fallback genérico e memória contaminada."
+  app\runtime\intent_first_router.py:43:
+  app\runtime\intent_first_router.py:44:    if any(x in t for x in [
+  app\runtime\live_whatsapp_response.py:8:def live_whatsapp_response(message: str) -> str | None:
+  app\runtime\live_whatsapp_response.py:9:    msg = (message or "").lower().strip()
+  app\runtime\live_whatsapp_response.py:10:
+  app\runtime\live_whatsapp_response.py:11:    if msg in ["i", "oi", "olá", "ola"]:
+> app\runtime\live_whatsapp_response.py:12:        return "Oi, Roberto. Estou aqui. Vamos resolver isso direto."
+  app\runtime\live_whatsapp_response.py:13:
+  app\runtime\live_whatsapp_response.py:14:    if any(x in msg for x in ["ainda nao conseguimos resolver", "ainda não conseguimos resolver", "nao esta funcionando", "não está funcionando", "não funciona"]):
+  app\runtime\live_whatsapp_response.py:15:        return "Ainda não ficou bom no WhatsApp real. O próximo passo é corrigir o handler do canal, não criar mais camada."
+  app\runtime\live_whatsapp_response.py:16:
+  app\runtime\live_whatsapp_response.py:17:    if any(x in msg for x in ["o que fazer", "oque fazer", "como resolver", "como arrumar"]):
+  app\runtime\live_whatsapp_response.py:18:        return "Agora é simples: colocar uma resposta viva antes do pipeline cognitivo, testar no WhatsApp e só depois religar a cognição completa."
+  app\runtime\live_whatsapp_response.py:19:
+> app\runtime\live_whatsapp_response.py:20:    if any(x in msg for x in ["como ta", "como tá", "tudo bem", "boa tarde", "bom dia", "boa noite"]):
+  app\runtime\live_whatsapp_response.py:21:        return "Estou funcionando, mas o WhatsApp ainda precisa desse ajuste de resposta viva para não cair em frase genérica."
+  app\runtime\live_whatsapp_response.py:22:
+  app\runtime\live_whatsapp_response.py:23:    if any(x in msg for x in ["quem eh vc", "quem é vc", "quem é você"]):
+  app\runtime\live_whatsapp_response.py:24:        return semantic_recovery(msg if "msg" in locals() else user_text if "user_text" in locals() else inbound_text if "inbound_text" in locals() else "")
+  app\runtime\live_whatsapp_response.py:25:
+  app\runtime\live_whatsapp_response.py:26:    return None
+  app\runtime\live_whatsapp_response.py:27:
+  app\runtime\live_whatsapp_response.py:28:
+  app\runtime\live_whatsapp_response.py:29:
+  app\runtime\live_whatsapp_response.py:30:
+  app\runtime\p4_13g_router.py:6:
+  app\runtime\p4_13g_router.py:7:    if msg in ["aprofunde","aprofundar"]:
+  app\runtime\p4_13g_router.py:8:        return "Execução contextual: continua do ponto anterior com evidência e próximo passo."
+  app\runtime\p4_13g_router.py:9:
+> app\runtime\p4_13g_router.py:10:    if msg in ["bom dia","boa tarde","boa noite","oi","olá","ola","eu tô bem","eu to bem"]:
+> app\runtime\p4_13g_router.py:11:        return "Oi, Roberto. Tudo certo?"
+  app\runtime\p4_13g_router.py:12:
+  app\runtime\p4_13g_router.py:13:    return "Resposta direta registrada."
+  app\runtime\response_generation_engine.py:17:AplicaÃ§Ã£o: {d['application']}
+  app\runtime\response_generation_engine.py:18:
+  app\runtime\response_generation_engine.py:19:{d['check_question']}"""
+  app\runtime\response_generation_engine.py:20:        if intent == 'CONVERSATION':
+> app\runtime\response_generation_engine.py:21:            return 'Oi, Roberto. Me manda uma matÃ©ria, dÃºvida, PDF ou Ã¡udio de aula que eu organizo e explico para vocÃª.'
+  app\runtime\response_generation_engine.py:22:        if intent == 'PLANNING':
+  app\runtime\response_generation_engine.py:23:            return 'Plano de estudo: 1) mapear conteÃºdo, 2) revisar teoria, 3) fazer exercÃ­cios, 4) criar flashcards, 5) simulado curto.'
+  app\runtime\response_generation_engine.py:24:        if intent == 'MEMORY_STORE':
+  app\runtime\response_generation_engine.py:25:            return 'InformaÃ§Ã£o registrada e contexto atualizado.'
+  app\runtime\response_generation_engine.py:26:        if intent == 'MEMORY_QUERY':
+  app\runtime\response_generation_engine.py:27:            return llm_answer or 'Vou consultar sua memÃ³ria antes de responder.'
+  app\runtime\response_generation_engine.py:28:        if intent == 'SUMMARIZATION':
+  app\runtime\response_generation_engine.py:29:            return llm_answer or 'Envie o conteÃºdo que eu resumo em tÃ³picos, conceitos-chave e plano de revisÃ£o.'
+  app\runtime\response_generation_engine.py:30:        if intent in ['PDF_ANALYSIS','AUDIO_TRANSCRIPTION']:
+  app\runtime\response_generation_engine.py:31:            return 'Pode enviar o material. Eu extraio, resumo, explico e transformo em plano de estudo.'
+  app\runtime\response_generation_engine.py:32:        return llm_answer or None
+  app\runtime\semantic_router.py:39:            return SemanticDecision("CALCULATION","math",.99,ent,str(eval(expr,{"__builtins__":{}},{})))
+  app\runtime\semantic_router.py:40:        except Exception:
+  app\runtime\semantic_router.py:41:            return SemanticDecision("CLARIFY","math",.4,ent,"Me mande a conta completa.")
+  app\runtime\semantic_router.py:42:
+> app\runtime\semantic_router.py:43:    if any(x in t for x in ["oi","bom dia","boa tarde","boa noite","tudo bem","estou bem","to bem","eldora"]):
+  app\runtime\semantic_router.py:44:        return SemanticDecision("SOCIAL","social",.9,ent,"Estou aqui. Pode mandar.")
+  app\runtime\semantic_router.py:45:
+  app\runtime\semantic_router.py:46:    if any(x in t for x in ["comprar","vale a pena","moto","carro","veiculo","veículo"]) or ent.get("brand") or ent.get("vehicle_model"):
+  app\runtime\semantic_router.py:47:        model = " ".join(x for x in [ent.get("brand"), ent.get("vehicle_model")] if x) or "esse veículo"
+  app\runtime\semantic_router.py:48:        return SemanticDecision("ADVICE","vehicle_buying",.9,ent,f"{model} pode ser boa compra se histórico, manutenção, elétrica, suspensão e peças estiverem OK. Priorize laudo e teste frio.")
+  app\runtime\semantic_router.py:49:
+  app\runtime\semantic_router.py:50:    if any(x in t for x in ["restaurante","comida","comer","almoço","jantar","bar","cafe","café"]):
+  app\runtime\semantic_router.py:51:        loc = ent.get("location") or ctx.get("location") or "a região"
+  app\runtime\semantic_router.py:52:        return SemanticDecision("RECOMMENDATION","local_food",.88,ent,f"Para comer em {loc}, eu filtraria por: avaliação recente, cozinha local, preço, estacionamento e distância. Peça 5 opções com faixa de preço.")
+  app\runtime\semantic_router.py:53:
+  app\runtime\semantic_router.py:54:    if any(x in t for x in ["turistico","turístico","passeio","viagem","viajar","fim de semana","final de semana","roteiro"]):
+  app\runtime\semantic_router.py:55:        loc = ent.get("location") or ctx.get("location") or "o destino"
+  app\runtime\semantic_router.py:56:        return SemanticDecision("RECOMMENDATION","travel",.86,ent,f"Para {loc}, monte um roteiro simples: 1 ponto principal, 1 restaurante, tempo de deslocamento e plano B se chover.")
+  app\runtime\semantic_router.py:57:
+  app\runtime\semantic_router.py:58:    if any(x in t for x in ["qual","quais","quem","onde","quando","como","me diga","cite","liste","melhores"]):
+  app\runtime\semantic_router.py:59:        return SemanticDecision("FACTUAL","general",.75,ent,"Vou responder direto: preciso identificar o tema, trazer opções úteis e fechar com próximo passo.")
+  app\runtime\semantic_router.py:60:
+  app\runtime\semantic_router.py:61:    if len(t.split()) <= 3:
+  app\runtime\semantic_router.py:62:        prev = ctx.get("domain")
+  app\runtime\semantic_router.py:63:        if prev == "local_food":
+  app\runtime\semantic_router.py:64:            loc = ctx.get("location","a região")
+  app\runtime\semantic_router.py:65:            return SemanticDecision("FOLLOWUP","local_food",.7,ent,f"Seguindo em comida em {loc}: melhor filtrar por tipo de cozinha, preço e distância.")
+  app\runtime\semantic_router.py:66:        return SemanticDecision("OPEN_LOOP","general",.55,ent,"Estou aqui. Me diga o tema principal.")
+  app\runtime\semantic_router.py:67:
+  app\runtime\semantic_router.py:68:    return SemanticDecision("OPEN_LOOP","general",.4,ent,"Entendi. Me diga o objetivo em uma frase.")
+  app\runtime\universal_contextual_continuity_engine.py:4:from app.runtime.decision_memory import get_state, save_state
+  app\runtime\universal_contextual_continuity_engine.py:5:
+  app\runtime\universal_contextual_continuity_engine.py:6:BANNED=[
+  app\runtime\universal_contextual_continuity_engine.py:7:"vamos seguir pelo ponto real",
+> app\runtime\universal_contextual_continuity_engine.py:8:"tudo certo por aqui",
+  app\runtime\universal_contextual_continuity_engine.py:9:"entendi",
+  app\runtime\universal_contextual_continuity_engine.py:10:"resposta direta",
+  app\runtime\universal_contextual_continuity_engine.py:11:"ação recomendada",
+  app\runtime\universal_contextual_continuity_engine.py:12:"memória contextual",
+  app\runtime\universal_contextual_continuity_engine.py:13:"como posso ajudar hoje"
+  app\runtime\universal_contextual_continuity_engine.py:14:]
+  app\runtime\universal_contextual_continuity_engine.py:15:
+  app\runtime\universal_contextual_continuity_engine.py:16:SOCIAL_MAP = {
+  app\runtime\universal_contextual_continuity_engine.py:17:    "oi":"Oi.",
+  app\runtime\universal_contextual_continuity_engine.py:18:    "ola":"Oi.",
+  app\runtime\universal_contextual_continuity_engine.py:19:    "olá":"Oi.",
+> app\runtime\universal_contextual_continuity_engine.py:20:    "bom dia":"Bom dia.",
+  app\runtime\universal_contextual_continuity_engine.py:21:    "boa tarde":"Boa tarde.",
+  app\runtime\universal_contextual_continuity_engine.py:22:    "boa noite":"Boa noite.",
+  app\runtime\universal_contextual_continuity_engine.py:23:    "tudo bem":"Tudo bem por aqui. E com você?",
+  app\runtime\universal_contextual_continuity_engine.py:24:    "como vc esta":"Estou funcionando bem. E você?",
+  app\runtime\universal_contextual_continuity_engine.py:25:    "como vc ta":"Estou funcionando bem. E você?",
+  app\runtime\universal_contextual_continuity_engine.py:26:    "como você está":"Estou funcionando bem. E você?",
+  app\runtime\universal_contextual_continuity_engine.py:27:    "quem e vc":"Sou a IA do MIND, focada em contexto e execução.",
+  app\runtime\universal_contextual_continuity_engine.py:28:    "quem é vc":"Sou a IA do MIND, focada em contexto e execução.",
+  app\runtime\universal_contextual_continuity_engine.py:29:    "quem e voce":"Sou a IA do MIND, focada em contexto e execução.",
+  app\runtime\universal_contextual_continuity_engine.py:30:    "quem é você":"Sou a IA do MIND, focada em contexto e execução."
+  app\runtime\universal_contextual_continuity_engine.py:31:}
+  app\runtime\universal_contextual_continuity_engine.py:32:
+  app\runtime\universal_contextual_continuity_engine.py:33:def _has(msg, terms):
+  app\runtime\universal_contextual_continuity_engine.py:34:    return any(t in msg for t in terms)
+  app\runtime\universal_contextual_continuity_engine.py:35:
+  app\runtime\universal_contextual_continuity_engine.py:36:def _social_reply(msg):
+  app\runtime\universal_contextual_continuity_engine.py:37:    for k,v in SOCIAL_MAP.items():
+  app\runtime\universal_contextual_continuity_engine.py:38:        if k in msg:
+  app\runtime\universal_contextual_continuity_engine.py:39:            return v
+  app\runtime\universal_contextual_continuity_engine.py:40:    return "Oi."
+  app\runtime\universal_contextual_continuity_engine.py:41:
+  app\runtime\universal_contextual_continuity_engine.py:42:def ucce_shadow_evaluate(sender_id,inbound_message,state=None):
+  app\runtime\universal_contextual_continuity_engine.py:43:    s=get_state(sender_id)
+  app\runtime\universal_contextual_continuity_engine.py:44:    raw=(inbound_message or "").strip()
+  app\runtime\universal_contextual_continuity_engine.py:45:    msg=raw.lower()
+  app\runtime\visible_response_layer.py:146:        return (
+  app\runtime\visible_response_layer.py:147:            "Boa tarde, Roberto. Estou aqui e acompanhando o contexto da conversa."
+  app\runtime\visible_response_layer.py:148:        )
+  app\runtime\visible_response_layer.py:149:
+> app\runtime\visible_response_layer.py:150:    if "bom dia" in msg:
+  app\runtime\visible_response_layer.py:151:        return (
+> app\runtime\visible_response_layer.py:152:            "Bom dia, Roberto. Estou acompanhando o contexto e pronta para continuar."
+  app\runtime\visible_response_layer.py:153:        )
+  app\runtime\visible_response_layer.py:154:
+  app\runtime\visible_response_layer.py:155:    if "boa noite" in msg:
+  app\runtime\visible_response_layer.py:156:        return (
+  app\runtime\visible_response_layer.py:157:            "Boa noite, Roberto. O contexto do MIND continua ativo."
+  app\runtime\visible_response_layer.py:158:        )
+  app\runtime\visible_response_layer.py:159:
+  app\runtime\visible_response_layer.py:160:    if msg in ["oi", "olá", "ola"]:
+  app\runtime\visible_response_layer.py:161:        return (
+> app\runtime\visible_response_layer.py:162:            f"Oi, Roberto. O contexto do {focus} continua aberto."
+  app\runtime\visible_response_layer.py:163:        )
+  app\runtime\visible_response_layer.py:164:
+  app\runtime\visible_response_layer.py:165:    # =====================================================
+  app\runtime\visible_response_layer.py:166:    # DEFAULT
+  app\runtime\visible_response_layer.py:167:    # =====================================================
+  app\runtime\visible_response_layer.py:168:
+  app\runtime\visible_response_layer.py:169:    return (
+  app\runtime\visible_response_layer.py:170:        "Resumo técnico do MIND/Eldora: Runtime estável V2 ativo, "
+  app\runtime\visible_response_layer.py:171:        "WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, "
+  app\runtime\visible_response_layer.py:172:        "Context Fusion ativo. Próximo passo: memória persistente + contexto MIND completo."
+  app\runtime\visible_response_layer.py:173:    )
+  app\runtime\visible_response_layer.py:174:
+  app\runtime\visible_response_layer.py:175:
+  app\runtime\visible_response_layer.py:176:def visible_reformulate(
+  app\runtime\visible_response_layer.py:177:    answer: str,
+  app\runtime\visible_response_layer.py:178:    user_text: str = "",
+  app\runtime\visible_response_layer.py:179:    focus: str = "MIND"
+  app\runtime\visible_response_layer.py:180:) -> str:
+  app\runtime\visible_response_layer.py:181:    if answer and len(str(answer).strip()) > 40:
+  app\runtime\visible_response_layer.py:182:        return str(answer)
+  app\runtime\visible_response_layer.py:183:    return build_visible_response(user_text, focus)
+  app\runtime\visible_response_layer.py:184:
+  app\runtime\visible_response_layer.py:185:
+  app\runtime\visible_response_layer.py:186:
+  app\runtime\visible_response_layer.py:187:
+  app\runtime\whatsapp_final_output_guard.py:63:
+  app\runtime\whatsapp_final_output_guard.py:64:    if u in ["sim", "aham", "ok", "blz", "beleza", "isso", "certo"]:
+  app\runtime\whatsapp_final_output_guard.py:65:        return "Perfeito. Continua — estou acompanhando o contexto."
+  app\runtime\whatsapp_final_output_guard.py:66:
+> app\runtime\whatsapp_final_output_guard.py:67:    if any(x in u for x in ["oi", "olá", "ola", "boa tarde", "bom dia", "boa noite"]):
+  app\runtime\whatsapp_final_output_guard.py:68:        return "Roberto, vamos direto no ponto."
+  app\runtime\whatsapp_final_output_guard.py:69:
+  app\runtime\whatsapp_final_output_guard.py:70:    if "humanização" in u or "humanizacao" in u:
+  app\runtime\whatsapp_final_output_guard.py:71:        return (
+  app\runtime\whatsapp_final_output_guard.py:72:            "A humanização melhorou nos testes, mas o WhatsApp real ainda revelou um problema de roteamento. "
+  app\runtime\whatsapp_final_output_guard.py:73:            "A correção agora é travar o output final para impedir fallback de identidade fora de contexto."
+  app\runtime\whatsapp_final_output_guard.py:74:        )
+  app\runtime\whatsapp_final_output_guard.py:75:
+  app\runtime\whatsapp_final_output_guard.py:76:    if "e agora" in u:
+  app\runtime\whatsapp_final_output_guard.py:77:        return "Agora o foco é corrigir o caminho real do WhatsApp, validar no Render e testar as frases que ainda estão quebrando."
+  app\runtime\whatsapp_final_output_guard.py:78:
+  app\runtime\whatsapp_final_output_guard.py:79:    return None
+  app\runtime\whatsapp_final_output_guard.py:80:
+  app\runtime\whatsapp_final_output_guard.py:81:def guard_whatsapp_final_answer(user_message: str, answer: str, context: dict | None = None) -> str:
+  app\runtime\whatsapp_final_output_guard.py:82:    if identity_allowed(user_message):
+  app\runtime\whatsapp_final_output_guard.py:83:        return answer or "Continua do ponto atual que eu respondo pelo contexto."
+  app\runtime\whatsapp_final_output_guard.py:84:
+  app\runtime\whatsapp_final_output_guard.py:85:    if has_identity_leak(answer):
+  app\runtime\whatsapp_final_output_guard.py:86:        return _domain_answer(user_message)
+  app\runtime\whatsapp_final_output_guard.py:87:
+  app\runtime\whatsapp_final_output_guard.py:88:    cleaned = answer or ""
+  app\runtime\whatsapp_final_output_guard.py:89:    if not cleaned.strip():
+  app\runtime\whatsapp_final_output_guard.py:90:        return _domain_answer(user_message)
+  app\runtime\whatsapp_final_output_guard.py:91:
+  app\runtime\whatsapp_final_output_guard.py:92:    return cleaned
+  app\runtime\whatsapp_final_output_guard.py:104:'pode me dar mais detalhes'
+  app\runtime\whatsapp_final_output_guard.py:105:]
+  app\runtime\whatsapp_final_output_guard.py:106:
+  app\runtime\whatsapp_final_output_guard.py:107:SOCIAL_HINTS_P4_12 = [
+> app\runtime\whatsapp_final_output_guard.py:108:'bom dia',
+  app\runtime\whatsapp_final_output_guard.py:109:'boa tarde',
+  app\runtime\whatsapp_final_output_guard.py:110:'boa noite',
+  app\runtime\whatsapp_final_output_guard.py:111:'tudo bem',
+  app\runtime\whatsapp_final_output_guard.py:112:'passou bem',
+  app\runtime\whatsapp_final_output_guard.py:113:'fluida',
+  app\runtime\whatsapp_final_output_guard.py:114:'conversa'
+  app\runtime\whatsapp_final_output_guard.py:115:]
+  app\runtime\whatsapp_final_output_guard.py:116:
+  app\runtime\whatsapp_final_output_guard.py:117:def p4_12_whatsapp_live_ux_guard(text:str,inbound:str='')->str:
+  app\runtime\whatsapp_final_output_guard.py:118:    raw=(text or '').strip()
+  app\runtime\whatsapp_final_output_guard.py:119:    msg=(inbound or '').lower().strip()
+  app\runtime\whatsapp_final_output_guard.py:120:    low=raw.lower()
+  app\runtime\whatsapp_final_output_guard.py:121:
+  app\runtime\whatsapp_final_output_guard.py:122:    social=any(x in msg for x in SOCIAL_HINTS_P4_12)
+  app\runtime\whatsapp_final_output_guard.py:123:    leaked=any(x in low for x in FORBIDDEN_P4_12)
+  app\runtime\whatsapp_final_output_guard.py:124:    too_long=(len(raw)>180 or raw.count('.')+raw.count('!')+raw.count('?')>3)
+  app\runtime\whatsapp_final_output_guard.py:125:
+  app\runtime\whatsapp_final_output_guard.py:126:    if leaked or (social and too_long):
+> app\runtime\whatsapp_final_output_guard.py:127:        if 'bom dia' in msg:
+> app\runtime\whatsapp_final_output_guard.py:128:            return 'Bom dia, Roberto. Tudo certo por aqui.'
+  app\runtime\whatsapp_final_output_guard.py:129:        if 'tudo bem' in msg:
+  app\runtime\whatsapp_final_output_guard.py:130:            return 'Tudo bem sim. E você?'
+  app\runtime\whatsapp_final_output_guard.py:131:        if 'passou bem' in msg:
+  app\runtime\whatsapp_final_output_guard.py:132:            return 'Passei sim. E você, descansou?'
+  app\runtime\whatsapp_final_output_guard.py:133:        if 'fluida' in msg:
+  app\runtime\whatsapp_final_output_guard.py:134:            return 'Me corrija na hora e eu ajusto o jeito.'
+  app\runtime\whatsapp_final_output_guard.py:135:        if 'conversa' in msg:
+  app\runtime\whatsapp_final_output_guard.py:136:            return 'Foi boa. Ainda dá para deixar mais natural.'
+  app\runtime\whatsapp_final_output_guard.py:137:        return None
+  app\runtime\whatsapp_final_output_guard.py:138:
+  app\runtime\whatsapp_final_output_guard.py:139:    return raw[:220].strip()
+  app\runtime\whatsapp_final_output_guard.py:140:
+  app\runtime\whatsapp_final_output_guard.py:141:
+  app\runtime\whatsapp_final_output_guard.py:142:TECH_FACTUAL_HINTS = [
+  app\runtime\whatsapp_final_output_guard.py:143:'ano','modelo','pedal','motor','peca','peça','comprar',
+  app\runtime\whatsapp_final_output_guard.py:144:'paralelo','compat','serve','cr ','cr250','250r',
+  app\runtime\whatsapp_final_output_guard.py:145:'2 tempos','2t','yamaha','honda','kawasaki'
+  app\runtime\whatsapp_final_output_guard.py:146:]
+  app\runtime\whatsapp_final_output_guard.py:147:
+  app\runtime\whatsapp_final_output_guard.py:148:GENERIC_BAD_PHRASES = [
+  app\runtime\whatsapp_final_output_guard.py:149:'como posso ajudar',
+  app\runtime\whatsapp_final_output_guard.py:150:'você já encontrou',
+  app\runtime\whatsapp_final_output_guard.py:151:'voce ja encontrou',
+  app\runtime\whatsapp_final_output_guard.py:152:'posso te ajudar',
+> app\runtime\whatsapp_final_output_guard.py:153:'tudo certo por aqui',
+  app\runtime\whatsapp_final_output_guard.py:154:'passou bem a noite'
+  app\runtime\whatsapp_final_output_guard.py:155:]
+  app\runtime\whatsapp_final_output_guard.py:156:
+  app\runtime\whatsapp_final_output_guard.py:157:def p4_12_context_lock(answer:str,inbound:str='')->str:
+  app\runtime\whatsapp_final_output_guard.py:158:    raw=(answer or '').strip()
+  app\runtime\whatsapp_final_output_guard.py:159:    msg=(inbound or '').lower()
+  app\runtime\whatsapp_final_output_guard.py:160:
+  app\runtime\whatsapp_final_output_guard.py:161:    factual=any(x in msg for x in TECH_FACTUAL_HINTS)
+  app\runtime\whatsapp_final_output_guard.py:162:
+  app\runtime\whatsapp_final_output_guard.py:163:    if factual:
+  app\runtime\whatsapp_final_output_guard.py:164:        low=raw.lower()
+  app\runtime\whatsapp_final_output_guard.py:165:
+  app\runtime\whatsapp_final_output_guard.py:166:        for x in GENERIC_BAD_PHRASES:
+  app\runtime\whatsapp_final_output_guard.py:167:            if x in low:
+  app\runtime\whatsapp_final_output_guard.py:168:                return 'Entendi. Me confirma o ano/modelo exato para eu não te indicar peça errada.'
+  app\runtime\whatsapp_final_output_guard.py:169:
+  app\runtime\whatsapp_final_output_guard.py:170:    return raw
+  app\runtime\whatsapp_final_output_guard.py:171:
+  app\runtime\whatsapp_final_output_guard.py:172:
+  app\runtime\whatsapp_final_output_guard.py:173:FACTUAL_EXECUTION_HINTS = [
+  app\runtime\whatsapp_final_output_guard.py:174:'verifique','verifica','procure','procura',
+  app\runtime\whatsapp_final_output_guard.py:175:'modelo correto','qual modelo','compat',
+  app\runtime\whatsapp_final_output_guard.py:176:'compativel','compatível','serve',
+  app\runtime\whatsapp_final_output_guard.py:177:'qual serve','comprar','paralelo',
+  app\runtime\whatsapp_final_output_guard.py:178:'ano correto','pedal','peca','peça'
+> app\runtime\whatsapp_social_followup_guard.py:1:def whatsapp_social_followup_guard(text):
+  app\runtime\whatsapp_social_followup_guard.py:2:    t=(text or "").lower()
+  app\runtime\whatsapp_social_followup_guard.py:3:    if "como vc ta" in t or "como você está" in t or "tudo bem" in t:
+  app\runtime\whatsapp_social_followup_guard.py:4:        return "Estou bem, Roberto. E você?"
+  app\runtime\whatsapp_social_followup_guard.py:5:    if "aprofunde" in t:
+  app\runtime\whatsapp_social_followup_guard.py:6:        return "Vou aprofundar pelo ponto anterior; continua com evidência e próximo passo."
+  app\runtime\whatsapp_social_followup_guard.py:7:    return ""
+  app\runtime\whatsapp_social_followup_guard.py:8:def block_meta_reply(reply):
+  app\runtime\whatsapp_social_followup_guard.py:9:    low=str(reply or "").lower()
+  app\runtime\whatsapp_social_followup_guard.py:10:    return "execução contextual" in low or ("diagnóstico" in low and "estratégia" in low and "execução" in low) or ("não posso" in low and "política" in low)
+  app\runtime\whatsapp_social_followup_guard.py:11:
+  app\runtime\whatsapp_social_followup_guard.py:12:def social_reply(text):
+> app\runtime\whatsapp_social_followup_guard.py:13:    return whatsapp_social_followup_guard(text)
+  app\runtime\whatsapp_social_followup_guard.py:14:
+  app\runtime\whatsapp_social_followup_guard.py:15:
+  app\runtime\whatsapp_social_followup_guard.py:16:def social_reply(text):
+  app\runtime\whatsapp_social_followup_guard.py:17:    t=(text or '').lower()
+> app\runtime\whatsapp_social_followup_guard.py:18:    if 'bom dia' in t: return 'Oi, Roberto. Tudo certo?'
+  app\runtime\whatsapp_social_followup_guard.py:19:    if 'aprofunde' in t: return 'Execução contextual: continua do ponto anterior com evidência e próximo passo.'
+> app\runtime\whatsapp_social_followup_guard.py:20:    return whatsapp_social_followup_guard(text)
+  app\runtime\whatsapp_social_followup_guard.py:21:
+  app\runtime\whatsapp_social_followup_guard.py:22:
+  app\runtime\whatsapp_social_followup_guard.py:23:def social_reply(text):
+  app\runtime\whatsapp_social_followup_guard.py:24:    t=(text or "").lower()
+> app\runtime\whatsapp_social_followup_guard.py:25:    if "bom dia" in t: return "Oi, Roberto. Tudo certo?"
+  app\runtime\whatsapp_social_followup_guard.py:26:    if "eu tô bem" in t or "eu to bem" in t: return "Que bom saber que você está bem!"
+  app\runtime\whatsapp_social_followup_guard.py:27:    if "aprofunde" in t: return "Execução contextual: continua do ponto anterior com evidência e próximo passo."
+> app\runtime\whatsapp_social_followup_guard.py:28:    return whatsapp_social_followup_guard(text)
+  app\runtime\whatsapp_social_followup_guard.py:29:
+  app\runtime\whatsapp_trace_sensor.py:49:    return True,[]
+  app\runtime\whatsapp_trace_sensor.py:50:def sanitize_final_output(user_message,text):
+  app\runtime\whatsapp_trace_sensor.py:51:    low=(text or "").lower()
+  app\runtime\whatsapp_trace_sensor.py:52:    if "neura" in low or "tutora cognitiva" in low or "dúvidas e estudos" in low or "duvidas e estudos" in low or "prova" in low or "matemática" in low or "matematica" in low or "estudos" in low or "resumo técnico do mind" in low or "runtime estável" in low or "context fusion" in low or "webhook produtivo" in low:
+> app\runtime\whatsapp_trace_sensor.py:53:        return "Tudo certo por aqui 🙂"
+  app\runtime\whatsapp_trace_sensor.py:54:    if "como posso te ajudar" in low or "como posso ajudar" in low:
+  app\runtime\whatsapp_trace_sensor.py:55:        return "entendi. pelo contexto, estamos testando a Eldora no WhatsApp e caçando o ponto que ainda troca a persona."
+  app\runtime\whatsapp_trace_sensor.py:56:    if "sou a eldora, a camada conversacional" in low:
+  app\runtime\whatsapp_trace_sensor.py:57:        return "estou acompanhando o contexto. O ponto agora é corrigir a rota que ainda está escapando fallback antigo."
+  app\runtime\whatsapp_trace_sensor.py:58:    return text
+  app\runtime\whatsapp_trace_sensor.py:59:
+  app\runtime\whatsapp_trace_sensor.py:60:
+  app\runtime\whatsapp_trace_sensor.py:61:
+  app\runtime\whatsapp_trace_sensor.py:62:
+  app\human\human_like_response_layer.py:36:
+  app\human\human_like_response_layer.py:37:    def answer(self, message, context=""):
+  app\human\human_like_response_layer.py:38:        msg = self._normalize(message)
+  app\human\human_like_response_layer.py:39:
+> app\human\human_like_response_layer.py:40:        if msg.strip() in ["oi", "ola", "bom dia", "boa tarde", "boa noite"]:
+> app\human\human_like_response_layer.py:41:            return "Oi, Roberto."
+  app\human\human_like_response_layer.py:42:
+  app\human\human_like_response_layer.py:43:        if "como voce funciona" in msg or "como vc funciona" in msg or "o que voce faz" in msg:
+  app\human\human_like_response_layer.py:44:            return "Eu funciono como uma memória de estudo no WhatsApp: guardo seu contexto, recupero o que você já me contou e uso isso para te explicar assuntos, contextos e dúvidas com mais precisão."
+  app\human\human_like_response_layer.py:45:
+  app\human\human_like_response_layer.py:46:        if (
+  app\human\human_like_response_layer.py:47:            "simulacoes" in msg
+  app\human\human_like_response_layer.py:48:            or "outras ias" in msg
+  app\human\human_like_response_layer.py:49:            or "outras inteligencias" in msg
+  app\human\human_like_response_layer.py:50:            or "modelos" in msg
+  app\human\human_like_response_layer.py:51:            or "multi llm" in msg
+  app\human\human_like_response_layer.py:52:            or "multillm" in msg
+  app\human\human_like_response_layer.py:53:        ):
+  app\human\human_like_response_layer.py:54:            return "As simulações MultiLLM estão sendo ativadas agora: OpenAI entra como motor principal, DeepSeek e Mistral entram como fallback cognitivo, e a NEURA escolhe a melhor resposta disponível antes de cair no fallback de emergência."
+  app\human\human_like_response_layer.py:55:
+  app\human\human_like_response_layer.py:56:        prompt = self.build_prompt(message, context)
+  app\human\human_like_response_layer.py:57:        llm_response = self.llm.generate(prompt)
+  app\human\human_like_response_layer.py:58:
+  app\human\human_like_response_layer.py:59:        if llm_response:
+  app\human\human_like_response_layer.py:60:            return llm_response
+  app\human\human_like_response_layer.py:61:
+  app\human\human_like_response_layer.py:62:        return None
+  app\human\human_like_response_layer.py:63:
+  app\human\human_like_response_layer.py:64:
+  app\human\human_like_response_layer.py:65:
+

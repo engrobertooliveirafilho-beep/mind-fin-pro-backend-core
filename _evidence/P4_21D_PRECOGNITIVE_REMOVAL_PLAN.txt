@@ -1,0 +1,30 @@
+P4.21D — PRECOGNITIVE ILLUSION REMOVAL
+
+BLOCK_REMOVE_PRIORITY_1
+- app/api/whatsapp.py
+  - live_whatsapp_override()
+  - greeting returns
+  - PRIORIDADE 1 override before cognitive pipeline
+
+BLOCK_REMOVE_PRIORITY_2
+- app/runtime/intent_first_router.py
+- app/runtime/p4_13g_router.py
+- app/runtime/live_whatsapp_response.py
+- app/runtime/whatsapp_social_followup_guard.py
+- app/human/human_like_response_layer.py
+
+BLOCK_REWRITE_POST_COGNITIVE
+- actionable_continuity_authority.py
+- identity_guard_runtime.py
+- conversation_quality_guard.py
+- visible_response_layer.py
+- cognitive_pipeline.py
+
+RULES
+- preserve interfaces
+- preserve whatsapp runtime
+- preserve cognitive pipeline
+- preserve 333 passed
+- no hardcoded social greeting before cognition
+- no "Tudo certo por aqui"
+- no "Oi, Roberto" static reply

@@ -1,0 +1,56 @@
+
+app\api\eldora_swarm.py:18:            kind="simulation",
+app\api\eldora_telemetry.py:7:("oi","Oi, Roberto.",98),
+app\api\eldora_telemetry.py:8:("tudo bem?","Tudo certo por aqui.",96),
+app\api\eldora_telemetry.py:22:        r=log_event("simulation",u,a,kind="simulation",score=s)
+app\api\eldora_true_distributed.py:26:            "backend": "memory_fallback",
+app\api\eldora_true_distributed.py:42:            "backend": "memory_fallback",
+app\api\whatsapp.py:17:        return "Oi, Roberto 👋 Tudo certo?"
+app\api\whatsapp.py:41:from app.runtime.cognitive_pipeline import run_cognitive_pipeline
+app\api\whatsapp.py:57:        "tudo certo por aqui",
+app\api\whatsapp.py:104:def live_whatsapp_override(inbound_text: str) -> str | None:
+app\api\whatsapp.py:211:        return "Oi, Roberto 👋 Tudo bem por aí?"
+app\api\whatsapp.py:217:        return "Tudo certo por aqui 🙂 E você?"
+app\api\whatsapp.py:303:        return "Oi, Roberto. Tudo certo?"
+app\api\whatsapp.py:386:    override = live_whatsapp_override(inbound_text)
+app\api\whatsapp.py:399:    visible = run_cognitive_pipeline(
+app\friendship\emotional_checkin.py:1:def light_checkin(name="Roberto"):
+app\friendship\friendship_profile.py:2:    return {"sender_id":sender_id,"tone_preference":"leve","opt_out":False,"relationship_stage":"beta_friend","preferred_time_window":"08:00-22:00"}
+app\human\human_like_response_layer.py:41:            return "Oi, Roberto."
+app\humanization\anti_llm_speech_filter.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+app\humanization\conversation_maturity_engine.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+app\humanization\conversation_training_runtime.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+app\humanization\humanization_reward_engine.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+app\humanization\humanization_runtime.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+app\humanization\multi_ai_conversation_simulator.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+app\humanization\multi_message_reply_runtime.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+app\humanization\naturalness_judge.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+app\humanization\social_dataset_builder.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+app\humanization\social_memory_provider.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+app\humanization\social_observation_layer.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+app\humanization\social_pattern_extractor.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+app\humanization\universal_recovery_runtime.py:36:        return "Oi, Roberto. Estou aqui."
+app\humanization\universal_recovery_runtime.py:41:        return answer or "Tudo certo por aqui 🙂"
+app\runtime\actionable_continuity_authority.py:217:        return "Tudo certo por aqui. E com você?"
+app\runtime\cognitive_pipeline.py:3:def run_cognitive_pipeline(user_id: str, message: str) -> dict:
+app\runtime\conversation_quality_guard.py:6:    "tudo certo por aqui",
+app\runtime\conversation_quality_guard.py:84:        return "Tudo certo por aqui 🙂 E você?"
+app\runtime\generic_conversation_state.py:170:        "tudo certo por aqui","como posso ajudar"
+app\runtime\identity_guard_runtime.py:30:            return "Oi, Roberto. Como você está? O que vamos resolver agora?"
+app\runtime\identity_guard_runtime.py:33:            return "Tudo certo por aqui. E você, como está?"
+app\runtime\intent_first_router.py:13:        return "Oi, Roberto."
+app\runtime\intent_first_router.py:19:        return "Tudo certo por aqui 🙂 E você?"
+app\runtime\live_whatsapp_response.py:12:        return "Oi, Roberto. Estou aqui. Vamos resolver isso direto."
+app\runtime\p4_13g_router.py:11:        return "Oi, Roberto. Tudo certo?"
+app\runtime\real_humanization_runtime.py:52:    followup_probability = clamp(0.25 + (0.35 * urgency) + (0.25 * frustration) + (0.15 if "?" in user_l else 0))
+app\runtime\real_humanization_runtime.py:70:            "followup_probability": round(followup_probability, 2),
+app\runtime\response_generation_engine.py:21:            return 'Oi, Roberto. Me manda uma matÃ©ria, dÃºvida, PDF ou Ã¡udio de aula que eu organizo e explico para vocÃª.'
+app\runtime\universal_contextual_continuity_engine.py:8:"tudo certo por aqui",
+app\runtime\visible_response_layer.py:162:            f"Oi, Roberto. O contexto do {focus} continua aberto."
+app\runtime\whatsapp_final_output_guard.py:128:            return 'Bom dia, Roberto. Tudo certo por aqui.'
+app\runtime\whatsapp_final_output_guard.py:153:'tudo certo por aqui',
+app\runtime\whatsapp_social_followup_guard.py:18:    if 'bom dia' in t: return 'Oi, Roberto. Tudo certo?'
+app\runtime\whatsapp_social_followup_guard.py:25:    if "bom dia" in t: return "Oi, Roberto. Tudo certo?"
+app\runtime\whatsapp_trace_sensor.py:53:        return "Tudo certo por aqui 🙂"
+app\training\multi_ai_conversation_swarm.py:46:        return "tudo certo por aqui."
+
