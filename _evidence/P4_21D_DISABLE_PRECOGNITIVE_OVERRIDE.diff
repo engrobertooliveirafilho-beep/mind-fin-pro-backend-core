@@ -1,0 +1,881 @@
+diff --git a/app/api/whatsapp.py b/app/api/whatsapp.py
+index 6a6d89d..4b92bcd 100644
+--- a/app/api/whatsapp.py
++++ b/app/api/whatsapp.py
+@@ -1,435 +1,440 @@
+-from app.runtime.final_human_output_sanitizer import sanitize_final_human_output
+-from app.runtime.universal_conversation_os import universal_conversation_guard
+-from app.runtime.actionable_continuity_authority import set_actionable_turn_context, guard_actionable_reply
+-from app.runtime.forensic_trace import event
+-# P4_12N_FORENSIC_TRACE_ACTIVE
+-
+-def _eldora_live_override_contract_patch(sender_id: str, inbound_text: str):
+-    text = (inbound_text or "").strip().lower()
+-    compact = (
+-        text.replace("├ú","a").replace("├í","a").replace("├á","a")
+-            .replace("├ó","a").replace("├®","e").replace("├¬","e")
+-            .replace("├¡","i").replace("├│","o").replace("├┤","o")
+-            .replace("├Á","o").replace("├║","u").replace("├º","c")
+-    )
+-
+-    if compact in {"oi","oie","ola","ol├í","bom dia","boa tarde","boa noite"}:
+-        return "Oi, Roberto ­ƒæï Tudo certo?"
+-
+-    if (
+-        "ainda nao conseguimos resolver" in compact
+-        or "nao conseguimos resolver" in compact
+-        or "n├úo conseguimos resolver" in text
+-    ):
+-        return "Ainda n├úo fechou 100%. O gargalo est├í no handler do canal WhatsApp: ele responde, mas ainda precisa estabilizar continuidade, fallback e contexto real."
+-
+-    return None
+-from app.runtime.whatsapp_trace_sensor import sanitize_final_output
+-from app.dialogue.conversation_continuity_runtime import update,get
+-from app.dialogue.context_resolution_engine import resolve
+-from app.dialogue.generic_llm_detector import detect,rewrite
+-from app.dialogue.persona_consistency_guard import enforce
+-from app.humanization.universal_recovery_runtime import enforce_no_identity_in_normal_chat
+-from app.humanization.universal_recovery_runtime import universal_recovery_answer, enforce_no_identity_in_normal_chat
+-from app.runtime.whatsapp_final_output_guard import guard_whatsapp_final_answer
+-from app.runtime.test_contract_wrapper import semantic_test_injection
+-from app.runtime.forensic_trace import event
+-from fastapi import APIRouter, Request
+-from fastapi.responses import Response
+-from app.runtime.conversation_maturity_runtime import mature_response
+-from urllib.parse import parse_qs
+-from app.runtime.cognitive_pipeline import run_cognitive_pipeline
+-from app.runtime.mind_state_visible_context import is_state_query, build_mind_state_visible_response
+-from app.runtime.whatsapp_intelligence_activation import enrich_whatsapp_context, whatsapp_intelligence_active
+-from app.runtime.short_memory import remember, recall
+-
+-router = APIRouter()
+-
+-def _p412n_twiml_final_normalizer(message: str) -> str:
+-    from app.runtime.cognitive_conversation_runtime import decide_turn
+-
+-    raw=str(message or "").strip()
+-    low=raw.lower()
+-    decision=decide_turn(raw)
+-
+-    bad=[
+-        "eldora ativa",
+-        "tudo certo por aqui",
+-        "diagn├│stico: o runtime identificou resposta fraca",
+-        "diagn├ú┬│stico: o runtime identificou resposta fraca",
+-        "resumo / compatibility",
+-        "compatibilidade:"
+-    ]
+-
+-    factual_turns={"FACTUAL_TASK","EXECUTE","PLAN","ANALYSIS","MATH"}
+-
+-    task_markers=["verifique","verificar","calcule","calcular","analise","analisar","compare","pesquise","procure"]
+-    technical_block=("diagn" in low and "runtime identificou resposta fraca" in low) or ("estrat" in low and "execu" in low and "auditoria" in low)
+-
+-    if decision.turn_type in factual_turns or any(x in low for x in task_markers):
+-        if not raw or any(x in low for x in bad) or technical_block:
+-            return None
+-        return raw
+-
+-    if not raw or any(x in low for x in bad) or technical_block:
+-        if decision.turn_type=="SOCIAL_DIALOGUE":
+-            return "Tudo certo ­ƒÖé E voc├¬?"
+-        if decision.turn_type=="META_CONVERSATION":
+-            return "Me corrija na hora e eu ajusto o jeito."
+-        if decision.turn_type=="RECOVERY":
+-            return None
+-        return None
+-
+-    return raw
+-
+-# P4_12N_TWIML_FINAL_NORMALIZER
+-def twiml(message: str) -> str:
+-    from html import escape
+-
+-    msg_text = str(message or "")
+-    low = msg_text.lower()
+-    if ("n├úo recebi conte├║do" in low or "nao recebi conteudo" in low or "conte├║do suficiente" in low or "conteudo suficiente" in low or "entendi. continua" in low):
+-        msg_text = "Continua no mesmo ponto: validar o que falhou, testar a hip├│tese principal e avan├ºar com evid├¬ncia."
+-    safe = escape(
+-        str(
+-            sanitize_final_human_output(msg_text)
+-        ).strip()
+-    )
+-
+-    return (
+-        f'<?xml version="1.0" encoding="UTF-8"?>'
+-        f'<Response><Message>{safe}</Message></Response>'
+-    )
+-
+-def live_whatsapp_override(inbound_text: str) -> str | None:
+-    msg = (inbound_text or "").lower().strip()
+-
+-    # normaliza├º├úo sem├óntica leve
+-    msg = (
+-        msg.replace("├í","a")
+-           .replace("├á","a")
+-           .replace("├ú","a")
+-           .replace("├®","e")
+-           .replace("├¬","e")
+-           .replace("├¡","i")
+-           .replace("├│","o")
+-           .replace("├┤","o")
+-           .replace("├Á","o")
+-           .replace("├║","u")
+-           .replace("?","")
+-           .replace("!","").replace("0","").replace("1","").replace("2","").replace("3","").replace("4","").replace("5","").replace("6","").replace("7","").replace("8","").replace("9","")
+-    )
+-
+-    if any(x in msg for x in ["como esta", "como esta indo", "como vai", "esta indo", "ta indo"]):
+-        return (
+-            "Est├í melhorando. O runtime novo j├í responde no WhatsApp, "
+-            "mas ainda estamos refinando continuidade e naturalidade."
+-        )
+-
+-    if any(x in msg for x in ["deu ruim", "bugou", "nao funcionou", "nao respondeu"]):
+-        return (
+-            "Ainda existem falhas de continuidade no canal real, "
+-            "mas o runtime novo j├í est├í ativo e evoluindo."
+-        )
+-    # =====================================================
+-    # SEMANTIC PLAN / NEXT STEP
+-    # =====================================================
+-
+-    if any(x in msg for x in [
+-        "qual o plano",
+-        "como fazer",
+-        "e como fazer",
+-        "proximo passo",
+-        "pr├│ximo passo",
+-        "e agora",
+-        "qual caminho"
+-    ]):
+-        return (
+-            "O plano agora ├® estabilizar primeiro a conversa curta no WhatsApp, "
+-            "depois religar mem├│ria contextual e s├│ ent├úo expandir a cogni├º├úo completa."
+-        )
+-    if msg in ["como", "e como"]:
+-        return (
+-            "Fazendo em camadas: primeiro blindamos as respostas curtas do WhatsApp, "
+-            "depois conectamos mem├│ria contextual e por ├║ltimo liberamos a cogni├º├úo profunda."
+-        )
+-
+-    recent = recall("whatsapp_runtime")
+-
+-    if any(x in msg for x in [
+-        "conseguiu",
+-        "parece que nao",
+-        "parece que n├úo",
+-        "e depois",
+-        "mas porque",
+-        "mas por que"
+-    ]):
+-
+-        if recent == "conversation_runtime":
+-            return (
+-                "Ainda n├úo ficou totalmente natural. "
+-                "J├í melhoramos respostas curtas, mas a continuidade entre mensagens ainda precisa evoluir."
+-            )
+-
+-        if recent == "planning":
+-            return "Pr├│ximo passo: manter o mesmo contexto, validar o ponto aberto e avan├ºar sem reiniciar a conversa."
+-    # =====================================================
+-    # FUZZY SMALLTALK
+-    # =====================================================
+-
+-    if any(x in msg for x in [
+-        "tudo be",
+-        "tudo bem",
+-        "como ta",
+-        "como esta"
+-    ]):
+-        remember("whatsapp_runtime","conversation_runtime")
+-        return (
+-            "Est├í melhorando. O WhatsApp j├í responde melhor, "
+-            "mas ainda estamos refinando continuidade e naturalidade."
+-        )
+-
+-    # =====================================================
+-    # POSITIVE CONFIRMATION
+-    # =====================================================
+-
+-    if any(x in msg for x in [
+-        "deu certo",
+-        "agora foi",
+-        "funcionou",
+-        "melhorou"
+-    ]):
+-        return (
+-            "Sim. Agora o runtime j├í mant├®m melhor continuidade nas respostas curtas do WhatsApp."
+-        )
+-    if any(x in msg for x in ["previsao do tempo", "previs├úo do tempo", "tempo para amanha", "tempo para amanh├ú", "clima amanha", "clima amanh├ú"]):
+-        return "Ainda n├úo tenho consulta de clima real conectada no WhatsApp. O pr├│ximo passo ├® ligar uma API de previs├úo e responder com cidade, data, chuva e temperatura sem inventar."
+-
+-    if any(x in msg for x in ["nao entendeu", "nao entnedeu", "n├úo entendeu", "nao entendi", "n├úo entendi"]):
+-        return "Entendi. Vou separar inten├º├úo, contexto e pr├│ximo teste para evitar resposta gen├®rica."
+-    if msg in ["i", "oi", "ol├í", "ola"]:
+-        return "Oi, Roberto ­ƒæï Tudo bem por a├¡?"
+-
+-    if any(x in msg for x in ["boa tarde", "bom dia", "boa noite"]):
+-        return "Boa tarde, Roberto ÔÿÇ´©Å Como voc├¬ est├í?"
+-
+-    if any(x in msg for x in ["como ta", "como t├í", "tudo bem"]):
+-        return "Tudo certo por aqui ­ƒÖé E voc├¬?"
+-
+-    if any(x in msg for x in ["quem eh vc", "quem ├® vc", "quem ├® voc├¬"]):
+-        return ""
+-
+-    if any(x in msg for x in ["ainda nao conseguimos resolver", "ainda n├úo conseguimos resolver", "nao esta funcionando", "n├úo est├í funcionando", "n├úo funciona"]):
+-        remember("whatsapp_runtime","conversation_runtime")
+-        return "Claro ­ƒÖé Me conta o que est├í acontecendo."
+-
+-    if any(x in msg for x in [
+-        "agora ta funcionando",
+-        "agora est├í funcionando",
+-        "esta dando certo",
+-        "est├í dando certo",
+-        "como esta indo",
+-        "como est├í indo",
+-        "travou",
+-        "parou de falar"
+-    ]):
+-        return (
+-            "Est├í melhorando. O WhatsApp j├í est├í respondendo pelo runtime novo, "
+-            "mas ainda estamos ajustando a continuidade da conversa."
+-        )
+-
+-    if any(x in msg for x in [
+-        "getting-throughout",
+-        "join getting-throughout"
+-    ]):
+-        return (
+-            "Sandbox conectado com sucesso. O canal do WhatsApp est├í ativo."
+-        )
+-    if any(x in msg for x in ["o que fazer", "oque fazer", "como resolver", "como arrumar"]):
+-        remember("whatsapp_runtime","planning")
+-        return "Agora vamos estabilizar o runtime do WhatsApp antes de religar toda a camada cognitiva."
+-
+-    return None
+-
+-from app.runtime.test_contract_wrapper import semantic_test_injection
+-
+-from app.runtime.intent_first_router import route_fast
+-from app.runtime.universal_conversation_authority import universal_conversation_reply
+-from app.runtime.intent_arbitration_priority_engine import classify_intent, IntentPriority
+-from app.runtime.whatsapp_social_followup_guard import whatsapp_social_followup_guard, block_meta_reply
+-
+-
+-def _p3_human_e2e_guard(inbound_text, reply):
+-    text = str(reply.get("answer", reply) if isinstance(reply, dict) else reply)
+-    low = text.lower()
+-    blocked = [
+-        "me dar mais detalhes",
+-        "assim, posso te ajudar melhor",
+-        "assim posso te ajudar melhor",
+-        "como posso ajudar",
+-        "alguma novidade"
+-    ]
+-    if any(x in low for x in blocked):
+-        return (
+-            "Diagn├│stico\n"
+-            "A d├║vida indica bloqueio de entendimento e precisa virar pr├│ximo passo verific├ível.\n\n"
+-            "Estrat├®gia\n"
+-            "Reduzir a ambiguidade operacional: identificar o ponto travado, aplicar a menor corre├º├úo e validar por evid├¬ncia.\n\n"
+-            "Execu├º├úo\n"
+-            "1. Pegue a ├║ltima etapa que falhou.\n"
+-            "2. Separe erro, causa prov├ível e pr├│ximo teste.\n"
+-            "3. Execute uma corre├º├úo pequena.\n"
+-            "4. S├│ avance se o log confirmar melhora.\n\n"
+-            "Auditoria\n"
+-            "Se n├úo houver teste verde, log ou evid├¬ncia objetiva, a etapa continua aberta."
+-        )
+-    return reply
+-
+-def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
+-    _p3_body = (inbound_text or "").lower()
+-    if ("n├úo entendi" in _p3_body or "nao entendi" in _p3_body) and ("resolver" in _p3_body or "como" in _p3_body):
+-        return (
+-            "Diagn├│stico: entendi que h├í uma d├║vida sem escopo claro e n├úo vou devolver resposta gen├®rica.\n"
+-            "Estrat├®gia: transformar a d├║vida em pr├│ximo passo verific├ível.\n"
+-            "Execu├º├úo: descreva o erro, o objetivo e o resultado esperado; eu organizo a solu├º├úo em sequ├¬ncia.\n"
+-            "Auditoria: resposta validada pelo P3 human E2E sem fallback gen├®rico."
+-        )
+-    low = (inbound_text or "").lower()
+-    import re
+-    _txt = (inbound_text or "").strip()
+-    _low = _txt.lower()
+-
+-    if _low in {"oi","oie","ol├í","ola"}:
+-        return "Oi, Roberto. Tudo certo?"
+-
+-    if "o que vc faz" in _low or "o que voc├¬ faz" in _low or "o que vc sabe fazer" in _low or "o que voc├¬ sabe fazer" in _low:
+-        return "Eu organizo contexto, respondo perguntas, fa├ºo c├ílculos simples e ajudo a validar pr├│ximos passos."
+-
+-    _expr = re.sub(r"[^0-9+\-*/(). ]","",_low.replace("quanto ├®","").replace("quanto e","").replace("calcule",""))
+-    if any(op in _expr for op in ["+","-","*","/"]) and any(ch.isdigit() for ch in _expr):
+-        try:
+-            if re.fullmatch(r"[0-9+\-*/(). ]+", _expr):
+-                return f"Resultado: {eval(_expr, {'__builtins__': {}}, {})}."
+-        except Exception:
+-            pass
+-
+-    if _low == "calcule":
+-        return "Me mande a conta completa que eu calculo direto."
+    _guard_reply = whatsapp_social_followup_guard(inbound_text)
+-    if _guard_reply:
+-        return _guard_reply
+-    _ssa_intent = classify_intent(inbound_text)
+-    if _ssa_intent in (
+-        IntentPriority.CALCULATION,
+-        IntentPriority.TASK_EXECUTION,
+-        IntentPriority.VERIFICATION,
+-        IntentPriority.ANALYSIS,
+-        IntentPriority.TROUBLESHOOTING,
+-    ):
+-        return universal_conversation_guard(inbound_text, sender_id, "")
+-    if any(x in low for x in [
+-        "qual seu nome",
+-        "como vc chama",
+-        "como voc├¬ chama",
+-        "quem ├® vc",
+-        "quem e vc",
+-        "quem ├® voc├¬",
+-        "quem e voce"
+-    ]):
+-        return "Sou a Eldora ­ƒÖé"
+-
+-    _contract_reply = _eldora_live_override_contract_patch(sender_id, inbound_text)
+-    if _contract_reply:
+-        return _contract_reply
+-    fast = route_fast(sender_id, inbound_text)
+-    if fast:
+-        return fast
+-    if any(x in low for x in [
+-        "qual seu nome",
+-        "como vc chama",
+-        "como voc├¬ chama",
+-        "quem ├® voc├¬",
+-        "quem e voce"
+-    ]):
+-        return "Sou a Eldora ­ƒÖé"
+-
+-    t=(inbound_text or "").lower().strip()
+-
+-    # LEGACY TEST COMPATIBILITY
+-    if "prosseguir evolu├º├úo do mind" in t or "prosseguir evolucao do mind" in t:
+-        return "Diagn├│stico\nRoberto, sigo no MIND. Pr├│ximo passo: avan├ºar a pr├│xima camada cr├¡tica.\n\nEstrat├®gia\nContinuidade cognitiva ativa.\n\nExecu├º├úo\nRuntime sem├óntico operacional.\n\nAuditoria\nCompatibilidade legada validada."
+-
+-    if t in ["nao entendi","n├úo entendi"]:
+-        return "Vou explicar em tr├¬s camadas: mem├│ria contextual, cogni├º├úo profunda e continuidade operacional, evitando frases gen├®ricas."
+-
+-
+-    progressive_followup = any(x in t for x in [
+-        "aprofunde","aprofundar","continue_context","prossiga","e depois",
+-        "detalhe melhor","explique melhor","ainda mais","passo a passo"
+-    ])
+-
+-    if progressive_followup:
+-        _followup_reply = universal_conversation_reply(sender_id, inbound_text, [])
+-        if block_meta_reply(_followup_reply):
+-            return "Continua no mesmo ponto: validar o que falhou, testar a hip├│tese principal e avan├ºar com evid├¬ncia."
+-        return _followup_reply
+-
+-    if is_state_query(inbound_text):
+-        return build_mind_state_visible_response()
+-
+-    inbound_text = str(inbound_text or "")
+-
+-    # ==========================================
+-    # PRIORIDADE 1 ÔÇö LIVE OVERRIDES
+-    # ==========================================
+-
+-    override = live_whatsapp_override(inbound_text)
+-
+-    if override:
+-        override = _p3_human_e2e_guard(inbound_text, override)
+-        return semantic_test_injection(
+-            inbound_text,
+-            override
+-        )
+-
+-    # ==========================================
+-    # PRIORIDADE 2 ÔÇö COGNITIVE RUNTIME
+-    # ==========================================
+-
+-    visible = run_cognitive_pipeline(
+-        sender_id,
+-        inbound_text
+-    )
+-
+-    if whatsapp_intelligence_active() and isinstance(visible, dict):
+-        visible["activation_context"] = enrich_whatsapp_context(sender_id, inbound_text, {})
+-
+-    return semantic_test_injection(
+-        inbound_text,
+-        visible
+-    )
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
++from app.runtime.final_human_output_sanitizer import sanitize_final_human_output
++from app.runtime.universal_conversation_os import universal_conversation_guard
++from app.runtime.actionable_continuity_authority import set_actionable_turn_context, guard_actionable_reply
++from app.runtime.forensic_trace import event
++# P4_12N_FORENSIC_TRACE_ACTIVE
++
++def _eldora_live_override_contract_patch(sender_id: str, inbound_text: str):
++    text = (inbound_text or "").strip().lower()
++    compact = (
++        text.replace("├ú","a").replace("├í","a").replace("├á","a")
++            .replace("├ó","a").replace("├®","e").replace("├¬","e")
++            .replace("├¡","i").replace("├│","o").replace("├┤","o")
++            .replace("├Á","o").replace("├║","u").replace("├º","c")
++    )
++
++    if compact in {"oi","oie","ola","ol├í","bom dia","boa tarde","boa noite"}:
++        return "Oi, Roberto ­ƒæï Tudo certo?"
++
++    if (
++        "ainda nao conseguimos resolver" in compact
++        or "nao conseguimos resolver" in compact
++        or "n├úo conseguimos resolver" in text
++    ):
++        return "Ainda n├úo fechou 100%. O gargalo est├í no handler do canal WhatsApp: ele responde, mas ainda precisa estabilizar continuidade, fallback e contexto real."
++
++    return None
++from app.runtime.whatsapp_trace_sensor import sanitize_final_output
++from app.dialogue.conversation_continuity_runtime import update,get
++from app.dialogue.context_resolution_engine import resolve
++from app.dialogue.generic_llm_detector import detect,rewrite
++from app.dialogue.persona_consistency_guard import enforce
++from app.humanization.universal_recovery_runtime import enforce_no_identity_in_normal_chat
++from app.humanization.universal_recovery_runtime import universal_recovery_answer, enforce_no_identity_in_normal_chat
++from app.runtime.whatsapp_final_output_guard import guard_whatsapp_final_answer
++from app.runtime.test_contract_wrapper import semantic_test_injection
++from app.runtime.forensic_trace import event
++from fastapi import APIRouter, Request
++from fastapi.responses import Response
++from app.runtime.conversation_maturity_runtime import mature_response
++from urllib.parse import parse_qs
++from app.runtime.cognitive_pipeline import run_cognitive_pipeline
++from app.runtime.mind_state_visible_context import is_state_query, build_mind_state_visible_response
++from app.runtime.whatsapp_intelligence_activation import enrich_whatsapp_context, whatsapp_intelligence_active
++from app.runtime.short_memory import remember, recall
++
++router = APIRouter()
++
++def _p412n_twiml_final_normalizer(message: str) -> str:
++    from app.runtime.cognitive_conversation_runtime import decide_turn
++
++    raw=str(message or "").strip()
++    low=raw.lower()
++    decision=decide_turn(raw)
++
++    bad=[
++        "eldora ativa",
++        "tudo certo por aqui",
++        "diagn├│stico: o runtime identificou resposta fraca",
++        "diagn├ú┬│stico: o runtime identificou resposta fraca",
++        "resumo / compatibility",
++        "compatibilidade:"
++    ]
++
++    factual_turns={"FACTUAL_TASK","EXECUTE","PLAN","ANALYSIS","MATH"}
++
++    task_markers=["verifique","verificar","calcule","calcular","analise","analisar","compare","pesquise","procure"]
++    technical_block=("diagn" in low and "runtime identificou resposta fraca" in low) or ("estrat" in low and "execu" in low and "auditoria" in low)
++
++    if decision.turn_type in factual_turns or any(x in low for x in task_markers):
++        if not raw or any(x in low for x in bad) or technical_block:
++            return None
++        return raw
++
++    if not raw or any(x in low for x in bad) or technical_block:
++        if decision.turn_type=="SOCIAL_DIALOGUE":
++            return "Tudo certo ­ƒÖé E voc├¬?"
++        if decision.turn_type=="META_CONVERSATION":
++            return "Me corrija na hora e eu ajusto o jeito."
++        if decision.turn_type=="RECOVERY":
++            return None
++        return None
++
++    return raw
++
++# P4_12N_TWIML_FINAL_NORMALIZER
++def twiml(message: str) -> str:
++    from html import escape
++
++    msg_text = str(message or "")
++    low = msg_text.lower()
++    if ("n├úo recebi conte├║do" in low or "nao recebi conteudo" in low or "conte├║do suficiente" in low or "conteudo suficiente" in low or "entendi. continua" in low):
++        msg_text = "Continua no mesmo ponto: validar o que falhou, testar a hip├│tese principal e avan├ºar com evid├¬ncia."
++    safe = escape(
++        str(
++            sanitize_final_human_output(msg_text)
++        ).strip()
++    )
++
++    return (
++        f'<?xml version="1.0" encoding="UTF-8"?>'
++        f'<Response><Message>{safe}</Message></Response>'
++    )
++
++def live_whatsapp_override(inbound_text: str) -> str | None:
++    # P4_21D_PRECOGNITIVE_OVERRIDE_DISABLED
++    # Social/greeting overrides must not answer before cognitive runtime.
++    return None
++
++    msg = (inbound_text or "").lower().strip()
++
++    # normaliza├º├úo sem├óntica leve
++    msg = (
++        msg.replace("├í","a")
++           .replace("├á","a")
++           .replace("├ú","a")
++           .replace("├®","e")
++           .replace("├¬","e")
++           .replace("├¡","i")
++           .replace("├│","o")
++           .replace("├┤","o")
++           .replace("├Á","o")
++           .replace("├║","u")
++           .replace("?","")
++           .replace("!","").replace("0","").replace("1","").replace("2","").replace("3","").replace("4","").replace("5","").replace("6","").replace("7","").replace("8","").replace("9","")
++    )
++
++    if any(x in msg for x in ["como esta", "como esta indo", "como vai", "esta indo", "ta indo"]):
++        return (
++            "Est├í melhorando. O runtime novo j├í responde no WhatsApp, "
++            "mas ainda estamos refinando continuidade e naturalidade."
++        )
++
++    if any(x in msg for x in ["deu ruim", "bugou", "nao funcionou", "nao respondeu"]):
++        return (
++            "Ainda existem falhas de continuidade no canal real, "
++            "mas o runtime novo j├í est├í ativo e evoluindo."
++        )
++    # =====================================================
++    # SEMANTIC PLAN / NEXT STEP
++    # =====================================================
++
++    if any(x in msg for x in [
++        "qual o plano",
++        "como fazer",
++        "e como fazer",
++        "proximo passo",
++        "pr├│ximo passo",
++        "e agora",
++        "qual caminho"
++    ]):
++        return (
++            "O plano agora ├® estabilizar primeiro a conversa curta no WhatsApp, "
++            "depois religar mem├│ria contextual e s├│ ent├úo expandir a cogni├º├úo completa."
++        )
++    if msg in ["como", "e como"]:
++        return (
++            "Fazendo em camadas: primeiro blindamos as respostas curtas do WhatsApp, "
++            "depois conectamos mem├│ria contextual e por ├║ltimo liberamos a cogni├º├úo profunda."
++        )
++
++    recent = recall("whatsapp_runtime")
++
++    if any(x in msg for x in [
++        "conseguiu",
++        "parece que nao",
++        "parece que n├úo",
++        "e depois",
++        "mas porque",
++        "mas por que"
++    ]):
++
++        if recent == "conversation_runtime":
++            return (
++                "Ainda n├úo ficou totalmente natural. "
++                "J├í melhoramos respostas curtas, mas a continuidade entre mensagens ainda precisa evoluir."
++            )
++
++        if recent == "planning":
++            return "Pr├│ximo passo: manter o mesmo contexto, validar o ponto aberto e avan├ºar sem reiniciar a conversa."
++    # =====================================================
++    # FUZZY SMALLTALK
++    # =====================================================
++
++    if any(x in msg for x in [
++        "tudo be",
++        "tudo bem",
++        "como ta",
++        "como esta"
++    ]):
++        remember("whatsapp_runtime","conversation_runtime")
++        return (
++            "Est├í melhorando. O WhatsApp j├í responde melhor, "
++            "mas ainda estamos refinando continuidade e naturalidade."
++        )
++
++    # =====================================================
++    # POSITIVE CONFIRMATION
++    # =====================================================
++
++    if any(x in msg for x in [
++        "deu certo",
++        "agora foi",
++        "funcionou",
++        "melhorou"
++    ]):
++        return (
++            "Sim. Agora o runtime j├í mant├®m melhor continuidade nas respostas curtas do WhatsApp."
++        )
++    if any(x in msg for x in ["previsao do tempo", "previs├úo do tempo", "tempo para amanha", "tempo para amanh├ú", "clima amanha", "clima amanh├ú"]):
++        return "Ainda n├úo tenho consulta de clima real conectada no WhatsApp. O pr├│ximo passo ├® ligar uma API de previs├úo e responder com cidade, data, chuva e temperatura sem inventar."
++
++    if any(x in msg for x in ["nao entendeu", "nao entnedeu", "n├úo entendeu", "nao entendi", "n├úo entendi"]):
++        return "Entendi. Vou separar inten├º├úo, contexto e pr├│ximo teste para evitar resposta gen├®rica."
++    if msg in ["i", "oi", "ol├í", "ola"]:
++        return "Oi, Roberto ­ƒæï Tudo bem por a├¡?"
++
++    if any(x in msg for x in ["boa tarde", "bom dia", "boa noite"]):
++        return "Boa tarde, Roberto ÔÿÇ´©Å Como voc├¬ est├í?"
++
++    if any(x in msg for x in ["como ta", "como t├í", "tudo bem"]):
++        return "Tudo certo por aqui ­ƒÖé E voc├¬?"
++
++    if any(x in msg for x in ["quem eh vc", "quem ├® vc", "quem ├® voc├¬"]):
++        return ""
++
++    if any(x in msg for x in ["ainda nao conseguimos resolver", "ainda n├úo conseguimos resolver", "nao esta funcionando", "n├úo est├í funcionando", "n├úo funciona"]):
++        remember("whatsapp_runtime","conversation_runtime")
++        return "Claro ­ƒÖé Me conta o que est├í acontecendo."
++
++    if any(x in msg for x in [
++        "agora ta funcionando",
++        "agora est├í funcionando",
++        "esta dando certo",
++        "est├í dando certo",
++        "como esta indo",
++        "como est├í indo",
++        "travou",
++        "parou de falar"
++    ]):
++        return (
++            "Est├í melhorando. O WhatsApp j├í est├í respondendo pelo runtime novo, "
++            "mas ainda estamos ajustando a continuidade da conversa."
++        )
++
++    if any(x in msg for x in [
++        "getting-throughout",
++        "join getting-throughout"
++    ]):
++        return (
++            "Sandbox conectado com sucesso. O canal do WhatsApp est├í ativo."
++        )
++    if any(x in msg for x in ["o que fazer", "oque fazer", "como resolver", "como arrumar"]):
++        remember("whatsapp_runtime","planning")
++        return "Agora vamos estabilizar o runtime do WhatsApp antes de religar toda a camada cognitiva."
++
++    return None
++
++from app.runtime.test_contract_wrapper import semantic_test_injection
++
++from app.runtime.intent_first_router import route_fast
++from app.runtime.universal_conversation_authority import universal_conversation_reply
++from app.runtime.intent_arbitration_priority_engine import classify_intent, IntentPriority
++from app.runtime.whatsapp_social_followup_guard import whatsapp_social_followup_guard, block_meta_reply
++
++
++def _p3_human_e2e_guard(inbound_text, reply):
++    text = str(reply.get("answer", reply) if isinstance(reply, dict) else reply)
++    low = text.lower()
++    blocked = [
++        "me dar mais detalhes",
++        "assim, posso te ajudar melhor",
++        "assim posso te ajudar melhor",
++        "como posso ajudar",
++        "alguma novidade"
++    ]
++    if any(x in low for x in blocked):
++        return (
++            "Diagn├│stico\n"
++            "A d├║vida indica bloqueio de entendimento e precisa virar pr├│ximo passo verific├ível.\n\n"
++            "Estrat├®gia\n"
++            "Reduzir a ambiguidade operacional: identificar o ponto travado, aplicar a menor corre├º├úo e validar por evid├¬ncia.\n\n"
++            "Execu├º├úo\n"
++            "1. Pegue a ├║ltima etapa que falhou.\n"
++            "2. Separe erro, causa prov├ível e pr├│ximo teste.\n"
++            "3. Execute uma corre├º├úo pequena.\n"
++            "4. S├│ avance se o log confirmar melhora.\n\n"
++            "Auditoria\n"
++            "Se n├úo houver teste verde, log ou evid├¬ncia objetiva, a etapa continua aberta."
++        )
++    return reply
++
++def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
++    _p3_body = (inbound_text or "").lower()
++    if ("n├úo entendi" in _p3_body or "nao entendi" in _p3_body) and ("resolver" in _p3_body or "como" in _p3_body):
++        return (
++            "Diagn├│stico: entendi que h├í uma d├║vida sem escopo claro e n├úo vou devolver resposta gen├®rica.\n"
++            "Estrat├®gia: transformar a d├║vida em pr├│ximo passo verific├ível.\n"
++            "Execu├º├úo: descreva o erro, o objetivo e o resultado esperado; eu organizo a solu├º├úo em sequ├¬ncia.\n"
++            "Auditoria: resposta validada pelo P3 human E2E sem fallback gen├®rico."
++        )
++    low = (inbound_text or "").lower()
++    import re
++    _txt = (inbound_text or "").strip()
++    _low = _txt.lower()
++
++    if _low in {"oi","oie","ol├í","ola"}:
++        return "Oi, Roberto. Tudo certo?"
++
++    if "o que vc faz" in _low or "o que voc├¬ faz" in _low or "o que vc sabe fazer" in _low or "o que voc├¬ sabe fazer" in _low:
++        return "Eu organizo contexto, respondo perguntas, fa├ºo c├ílculos simples e ajudo a validar pr├│ximos passos."
++
++    _expr = re.sub(r"[^0-9+\-*/(). ]","",_low.replace("quanto ├®","").replace("quanto e","").replace("calcule",""))
++    if any(op in _expr for op in ["+","-","*","/"]) and any(ch.isdigit() for ch in _expr):
++        try:
++            if re.fullmatch(r"[0-9+\-*/(). ]+", _expr):
++                return f"Resultado: {eval(_expr, {'__builtins__': {}}, {})}."
++        except Exception:
++            pass
++
++    if _low == "calcule":
++        return "Me mande a conta completa que eu calculo direto."
++    _guard_reply = whatsapp_social_followup_guard(inbound_text)
++    if _guard_reply:
++        return _guard_reply
++    _ssa_intent = classify_intent(inbound_text)
++    if _ssa_intent in (
++        IntentPriority.CALCULATION,
++        IntentPriority.TASK_EXECUTION,
++        IntentPriority.VERIFICATION,
++        IntentPriority.ANALYSIS,
++        IntentPriority.TROUBLESHOOTING,
++    ):
++        return universal_conversation_guard(inbound_text, sender_id, "")
++    if any(x in low for x in [
++        "qual seu nome",
++        "como vc chama",
++        "como voc├¬ chama",
++        "quem ├® vc",
++        "quem e vc",
++        "quem ├® voc├¬",
++        "quem e voce"
++    ]):
++        return "Sou a Eldora ­ƒÖé"
++
++    _contract_reply = _eldora_live_override_contract_patch(sender_id, inbound_text)
++    if _contract_reply:
++        return _contract_reply
++    fast = route_fast(sender_id, inbound_text)
++    if fast:
++        return fast
++    if any(x in low for x in [
++        "qual seu nome",
++        "como vc chama",
++        "como voc├¬ chama",
++        "quem ├® voc├¬",
++        "quem e voce"
++    ]):
++        return "Sou a Eldora ­ƒÖé"
++
++    t=(inbound_text or "").lower().strip()
++
++    # LEGACY TEST COMPATIBILITY
++    if "prosseguir evolu├º├úo do mind" in t or "prosseguir evolucao do mind" in t:
++        return "Diagn├│stico\nRoberto, sigo no MIND. Pr├│ximo passo: avan├ºar a pr├│xima camada cr├¡tica.\n\nEstrat├®gia\nContinuidade cognitiva ativa.\n\nExecu├º├úo\nRuntime sem├óntico operacional.\n\nAuditoria\nCompatibilidade legada validada."
++
++    if t in ["nao entendi","n├úo entendi"]:
++        return "Vou explicar em tr├¬s camadas: mem├│ria contextual, cogni├º├úo profunda e continuidade operacional, evitando frases gen├®ricas."
++
++
++    progressive_followup = any(x in t for x in [
++        "aprofunde","aprofundar","continue_context","prossiga","e depois",
++        "detalhe melhor","explique melhor","ainda mais","passo a passo"
++    ])
++
++    if progressive_followup:
++        _followup_reply = universal_conversation_reply(sender_id, inbound_text, [])
++        if block_meta_reply(_followup_reply):
++            return "Continua no mesmo ponto: validar o que falhou, testar a hip├│tese principal e avan├ºar com evid├¬ncia."
++        return _followup_reply
++
++    if is_state_query(inbound_text):
++        return build_mind_state_visible_response()
++
++    inbound_text = str(inbound_text or "")
++
++    # ==========================================
++    # PRIORIDADE 1 ÔÇö LIVE OVERRIDES
++    # ==========================================
++
++    override = live_whatsapp_override(inbound_text)
++
++    if override:
++        override = _p3_human_e2e_guard(inbound_text, override)
++        return semantic_test_injection(
++            inbound_text,
++            override
++        )
++
++    # ==========================================
++    # PRIORIDADE 2 ÔÇö COGNITIVE RUNTIME
++    # ==========================================
++
++    visible = run_cognitive_pipeline(
++        sender_id,
++        inbound_text
++    )
++
++    if whatsapp_intelligence_active() and isinstance(visible, dict):
++        visible["activation_context"] = enrich_whatsapp_context(sender_id, inbound_text, {})
++
++    return semantic_test_injection(
++        inbound_text,
++        visible
++    )
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++

@@ -102,6 +102,10 @@ def twiml(message: str) -> str:
     )
 
 def live_whatsapp_override(inbound_text: str) -> str | None:
+    # P4_21D_PRECOGNITIVE_OVERRIDE_DISABLED
+    # Social/greeting overrides must not answer before cognitive runtime.
+    return None
+
     msg = (inbound_text or "").lower().strip()
 
     # normalização semântica leve
@@ -314,7 +318,8 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
             pass
 
     if _low == "calcule":
-        return "Me mande a conta completa que eu calculo direto."    _guard_reply = whatsapp_social_followup_guard(inbound_text)
+        return "Me mande a conta completa que eu calculo direto."
+    _guard_reply = whatsapp_social_followup_guard(inbound_text)
     if _guard_reply:
         return _guard_reply
     _ssa_intent = classify_intent(inbound_text)
