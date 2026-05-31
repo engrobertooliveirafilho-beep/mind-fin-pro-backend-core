@@ -1,0 +1,93 @@
+
+  app\api\eldora_social.py:1:from fastapi import APIRouter
+  app\api\eldora_social.py:2:
+> app\api\eldora_social.py:3:from app.eldora.core.persistent_social_memory import (
+  app\api\eldora_social.py:4:    store_social_memory,
+> app\api\eldora_social.py:5:    social_memory_report
+  app\api\eldora_social.py:6:)
+  app\api\eldora_social.py:7:
+  app\api\eldora_social.py:8:from app.eldora.core.emotional_continuity_engine import (
+  app\api\eldora_social.py:9:    emotional_continuity,
+  app\api\eldora_social.py:10:    emotional_report
+  app\api\eldora_social.py:11:)
+  app\api\eldora_social.py:12:
+> app\api\eldora_social.py:13:from app.eldora.core.relational_cognition_engine import (
+  app\api\eldora_social.py:14:    relational_analysis,
+  app\api\eldora_social.py:15:    relational_report
+  app\api\eldora_social.py:16:)
+  app\api\eldora_social.py:17:
+  app\api\eldora_social.py:18:router = APIRouter(
+  app\api\eldora_social.py:19:    prefix="/eldora/social",
+  app\api\eldora_social.py:20:    tags=["eldora-social"]
+  app\api\eldora_social.py:21:)
+  app\api\eldora_social.py:22:
+  app\api\eldora_social.py:23:@router.post("/memory/store")
+  app\api\eldora_social.py:24:async def memory(user_id:str, interaction:str):
+  app\api\eldora_social.py:25:    return store_social_memory(user_id, interaction)
+  app\api\eldora_social.py:26:
+  app\api\eldora_social.py:27:@router.get("/memory/report")
+  app\api\eldora_social.py:28:async def memory_runtime():
+> app\api\eldora_social.py:29:    return social_memory_report()
+  app\api\eldora_social.py:30:
+  app\api\eldora_social.py:31:@router.post("/emotion/analyze")
+  app\api\eldora_social.py:32:async def emotion(user_id:str, emotion:str, context:str):
+  app\api\eldora_social.py:33:    return emotional_continuity(user_id, emotion, context)
+  app\api\eldora_social.py:34:
+  app\api\eldora_social.py:35:@router.get("/emotion/report")
+  app\api\eldora_social.py:36:async def emotion_runtime():
+  app\api\eldora_social.py:37:    return emotional_report()
+  app\api\eldora_social.py:38:
+  app\api\eldora_social.py:39:@router.post("/relationship/analyze")
+  app\api\eldora_social.py:40:async def relationship(user_id:str, profile:str):
+  app\api\eldora_social.py:41:    return relational_analysis(user_id, profile)
+  app\api\eldora_social.py:42:
+  app\api\eldora_social.py:43:@router.get("/relationship/report")
+  app\api\eldora_social.py:44:async def relationship_runtime():
+  app\api\eldora_social.py:45:    return relational_report()
+  app\runtime\emotional_continuity_engine.py:1:from __future__ import annotations
+  app\runtime\emotional_continuity_engine.py:2:from typing import Any
+  app\runtime\emotional_continuity_engine.py:3:from app.runtime.advanced_runtime_base import AdvancedRuntimeEngine
+  app\runtime\emotional_continuity_engine.py:4:
+> app\runtime\emotional_continuity_engine.py:5:class EmotionalContinuityEngine(AdvancedRuntimeEngine):
+  app\runtime\emotional_continuity_engine.py:6:    module_name = "emotional_continuity_engine"
+  app\runtime\emotional_continuity_engine.py:7:    domain = "emotion"
+  app\runtime\emotional_continuity_engine.py:8:
+  app\runtime\emotional_continuity_engine.py:9:    def _signals(self, payload: dict[str, Any]) -> dict[str, Any]:
+  app\runtime\emotional_continuity_engine.py:10:        signals = super()._signals(payload)
+  app\runtime\emotional_continuity_engine.py:11:        text = str((payload or {}).get("text") or (payload or {}).get("message") or "").lower()
+  app\runtime\emotional_continuity_engine.py:12:        signals.update({
+  app\runtime\emotional_continuity_engine.py:13:            "contains_question": "?" in text or any(x in text for x in ["como", "qual", "por que", "quando"]),
+  app\runtime\emotional_continuity_engine.py:14:            "contains_risk": any(x in text for x in ["erro", "falha", "bug", "risco", "alucina"]),
+  app\runtime\emotional_continuity_engine.py:15:            "contains_memory_need": any(x in text for x in ["lembra", "contexto", "continuidade", "histórico"]),
+  app\runtime\emotional_continuity_engine.py:16:            "contains_action_need": any(x in text for x in ["faça", "executa", "cria", "corrige", "implanta"]),
+  app\runtime\emotional_continuity_engine.py:17:        })
+  app\runtime\emotional_continuity_engine.py:18:        return signals
+  app\runtime\emotional_continuity_engine.py:19:
+  app\runtime\emotional_continuity_engine.py:20:def health() -> dict[str, Any]:
+  app\runtime\emotional_continuity_engine.py:21:    return EmotionalContinuityEngine().health()
+  app\runtime\emotional_continuity_engine.py:22:
+  app\runtime\emotional_continuity_engine.py:23:def run(payload: dict[str, Any] | None = None) -> dict[str, Any]:
+  app\runtime\persistent_social_memory.py:2:from typing import Any
+  app\runtime\persistent_social_memory.py:3:from app.runtime.advanced_runtime_base import AdvancedRuntimeEngine
+  app\runtime\persistent_social_memory.py:4:
+  app\runtime\persistent_social_memory.py:5:class PersistentSocialMemory(AdvancedRuntimeEngine):
+> app\runtime\persistent_social_memory.py:6:    module_name = "persistent_social_memory"
+  app\runtime\persistent_social_memory.py:7:    domain = "social"
+  app\runtime\persistent_social_memory.py:8:
+  app\runtime\persistent_social_memory.py:9:    def _signals(self, payload: dict[str, Any]) -> dict[str, Any]:
+  app\runtime\persistent_social_memory.py:10:        signals = super()._signals(payload)
+  app\runtime\persistent_social_memory.py:11:        text = str((payload or {}).get("text") or (payload or {}).get("message") or "").lower()
+  app\runtime\persistent_social_memory.py:12:        signals.update({
+  app\runtime\persistent_social_memory.py:13:            "contains_question": "?" in text or any(x in text for x in ["como", "qual", "por que", "quando"]),
+  app\runtime\persistent_social_memory.py:14:            "contains_risk": any(x in text for x in ["erro", "falha", "bug", "risco", "alucina"]),
+  app\runtime\persistent_social_memory.py:15:            "contains_memory_need": any(x in text for x in ["lembra", "contexto", "continuidade", "histórico"]),
+  app\runtime\persistent_social_memory.py:16:            "contains_action_need": any(x in text for x in ["faça", "executa", "cria", "corrige", "implanta"]),
+  app\runtime\persistent_social_memory.py:17:        })
+  app\runtime\persistent_social_memory.py:18:        return signals
+  app\runtime\persistent_social_memory.py:19:
+  app\runtime\persistent_social_memory.py:20:def health() -> dict[str, Any]:
+  app\runtime\persistent_social_memory.py:21:    return PersistentSocialMemory().health()
+  app\runtime\persistent_social_memory.py:22:
+  app\runtime\persistent_social_memory.py:23:def run(payload: dict[str, Any] | None = None) -> dict[str, Any]:
+  app\runtime\persistent_social_memory.py:24:    return PersistentSocialMemory().run(payload)
+

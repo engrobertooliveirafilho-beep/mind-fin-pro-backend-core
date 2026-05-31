@@ -1,0 +1,97 @@
+
+  app\runtime\advanced_runtime_base.py:16:    risks: list[str]
+  app\runtime\advanced_runtime_base.py:17:    output: dict[str, Any]
+  app\runtime\advanced_runtime_base.py:18:
+> app\runtime\advanced_runtime_base.py:19:class AdvancedRuntimeEngine:
+  app\runtime\advanced_runtime_base.py:20:    module_name = "advanced_runtime_engine"
+  app\runtime\advanced_runtime_base.py:21:    domain = "generic"
+  app\runtime\advanced_runtime_base.py:22:    version = "1.0.0"
+  app\runtime\advanced_runtime_base.py:23:
+  app\runtime\advanced_runtime_base.py:24:    def _trace(self, payload: dict[str, Any]) -> str:
+  app\runtime\advanced_runtime_base.py:25:        raw = repr(sorted((payload or {}).items())).encode("utf-8", "ignore")
+> app\runtime\advanced_runtime_base.py:26:        return sha256(raw + self.module_name.encode()).hexdigest()[:16]
+  app\runtime\advanced_runtime_base.py:27:
+> app\runtime\advanced_runtime_base.py:28:    def _signals(self, payload: dict[str, Any]) -> dict[str, Any]:
+  app\runtime\advanced_runtime_base.py:29:        text = str((payload or {}).get("text") or (payload or {}).get("message") or "")
+> app\runtime\advanced_runtime_base.py:30:        return {
+  app\runtime\advanced_runtime_base.py:31:            "has_payload": bool(payload),
+  app\runtime\advanced_runtime_base.py:32:            "text_length": len(text),
+  app\runtime\advanced_runtime_base.py:33:            "domain": self.domain,
+  app\runtime\advanced_runtime_base.py:34:            "timestamp": datetime.now(timezone.utc).isoformat(),
+  app\runtime\advanced_runtime_base.py:35:        }
+  app\runtime\advanced_runtime_base.py:36:
+  app\runtime\advanced_runtime_base.py:37:    def evaluate(self, payload: dict[str, Any] | None = None) -> RuntimeResult:
+  app\runtime\advanced_runtime_base.py:38:        payload = payload or {}
+  app\runtime\advanced_runtime_base.py:39:        signals = self._signals(payload)
+  app\runtime\advanced_runtime_base.py:40:        conf = 0.75 + min(signals.get("text_length", 0), 100) / 500
+  app\runtime\advanced_runtime_base.py:41:        conf = round(min(conf, 0.95), 3)
+> app\runtime\advanced_runtime_base.py:42:        return RuntimeResult(
+  app\runtime\advanced_runtime_base.py:43:            module=self.module_name,
+  app\runtime\advanced_runtime_base.py:44:            status="operational",
+  app\runtime\advanced_runtime_base.py:45:            confidence=conf,
+  app\runtime\advanced_runtime_base.py:46:            trace_id=self._trace(payload),
+  app\runtime\advanced_runtime_base.py:47:            input_hash=sha256(repr(payload).encode("utf-8", "ignore")).hexdigest()[:16],
+  app\runtime\advanced_runtime_base.py:48:            signals=signals,
+  app\runtime\advanced_runtime_base.py:49:            actions=[f"{self.domain}:evaluate", f"{self.domain}:route"],
+  app\runtime\advanced_runtime_base.py:50:            risks=[] if conf >= 0.8 else ["low_context"],
+  app\runtime\advanced_runtime_base.py:51:            output={"accepted": True, "domain": self.domain, "version": self.version},
+  app\runtime\advanced_runtime_base.py:52:        )
+  app\runtime\advanced_runtime_base.py:53:
+> app\runtime\advanced_runtime_base.py:54:    def run(self, payload: dict[str, Any] | None = None) -> dict[str, Any]:
+> app\runtime\advanced_runtime_base.py:55:        return asdict(self.evaluate(payload))
+  app\runtime\advanced_runtime_base.py:56:
+> app\runtime\advanced_runtime_base.py:57:    def health(self) -> dict[str, Any]:
+> app\runtime\advanced_runtime_base.py:58:        return {
+  app\runtime\advanced_runtime_base.py:59:            "module": self.module_name,
+  app\runtime\advanced_runtime_base.py:60:            "domain": self.domain,
+  app\runtime\advanced_runtime_base.py:61:            "status": "operational",
+  app\runtime\advanced_runtime_base.py:62:            "version": self.version,
+  app\runtime\advanced_runtime_base.py:63:            "advanced": True,
+  app\runtime\advanced_runtime_base.py:64:        }
+  app\runtime\emotional_continuity_engine.py:2:from typing import Any
+  app\runtime\emotional_continuity_engine.py:3:from app.runtime.advanced_runtime_base import AdvancedRuntimeEngine
+  app\runtime\emotional_continuity_engine.py:4:
+> app\runtime\emotional_continuity_engine.py:5:class EmotionalContinuityEngine(AdvancedRuntimeEngine):
+> app\runtime\emotional_continuity_engine.py:6:    module_name = "emotional_continuity_engine"
+> app\runtime\emotional_continuity_engine.py:7:    domain = "emotion"
+  app\runtime\emotional_continuity_engine.py:8:
+> app\runtime\emotional_continuity_engine.py:9:    def _signals(self, payload: dict[str, Any]) -> dict[str, Any]:
+  app\runtime\emotional_continuity_engine.py:10:        signals = super()._signals(payload)
+  app\runtime\emotional_continuity_engine.py:11:        text = str((payload or {}).get("text") or (payload or {}).get("message") or "").lower()
+  app\runtime\emotional_continuity_engine.py:12:        signals.update({
+  app\runtime\emotional_continuity_engine.py:13:            "contains_question": "?" in text or any(x in text for x in ["como", "qual", "por que", "quando"]),
+  app\runtime\emotional_continuity_engine.py:14:            "contains_risk": any(x in text for x in ["erro", "falha", "bug", "risco", "alucina"]),
+> app\runtime\emotional_continuity_engine.py:15:            "contains_memory_need": any(x in text for x in ["lembra", "contexto", "continuidade", "histórico"]),
+  app\runtime\emotional_continuity_engine.py:16:            "contains_action_need": any(x in text for x in ["faça", "executa", "cria", "corrige", "implanta"]),
+  app\runtime\emotional_continuity_engine.py:17:        })
+> app\runtime\emotional_continuity_engine.py:18:        return signals
+  app\runtime\emotional_continuity_engine.py:19:
+> app\runtime\emotional_continuity_engine.py:20:def health() -> dict[str, Any]:
+> app\runtime\emotional_continuity_engine.py:21:    return EmotionalContinuityEngine().health()
+  app\runtime\emotional_continuity_engine.py:22:
+> app\runtime\emotional_continuity_engine.py:23:def run(payload: dict[str, Any] | None = None) -> dict[str, Any]:
+> app\runtime\emotional_continuity_engine.py:24:    return EmotionalContinuityEngine().run(payload)
+  app\runtime\persistent_social_memory.py:2:from typing import Any
+  app\runtime\persistent_social_memory.py:3:from app.runtime.advanced_runtime_base import AdvancedRuntimeEngine
+  app\runtime\persistent_social_memory.py:4:
+> app\runtime\persistent_social_memory.py:5:class PersistentSocialMemory(AdvancedRuntimeEngine):
+> app\runtime\persistent_social_memory.py:6:    module_name = "persistent_social_memory"
+> app\runtime\persistent_social_memory.py:7:    domain = "social"
+  app\runtime\persistent_social_memory.py:8:
+> app\runtime\persistent_social_memory.py:9:    def _signals(self, payload: dict[str, Any]) -> dict[str, Any]:
+  app\runtime\persistent_social_memory.py:10:        signals = super()._signals(payload)
+  app\runtime\persistent_social_memory.py:11:        text = str((payload or {}).get("text") or (payload or {}).get("message") or "").lower()
+  app\runtime\persistent_social_memory.py:12:        signals.update({
+  app\runtime\persistent_social_memory.py:13:            "contains_question": "?" in text or any(x in text for x in ["como", "qual", "por que", "quando"]),
+  app\runtime\persistent_social_memory.py:14:            "contains_risk": any(x in text for x in ["erro", "falha", "bug", "risco", "alucina"]),
+> app\runtime\persistent_social_memory.py:15:            "contains_memory_need": any(x in text for x in ["lembra", "contexto", "continuidade", "histórico"]),
+  app\runtime\persistent_social_memory.py:16:            "contains_action_need": any(x in text for x in ["faça", "executa", "cria", "corrige", "implanta"]),
+  app\runtime\persistent_social_memory.py:17:        })
+> app\runtime\persistent_social_memory.py:18:        return signals
+  app\runtime\persistent_social_memory.py:19:
+> app\runtime\persistent_social_memory.py:20:def health() -> dict[str, Any]:
+> app\runtime\persistent_social_memory.py:21:    return PersistentSocialMemory().health()
+  app\runtime\persistent_social_memory.py:22:
+> app\runtime\persistent_social_memory.py:23:def run(payload: dict[str, Any] | None = None) -> dict[str, Any]:
+> app\runtime\persistent_social_memory.py:24:    return PersistentSocialMemory().run(payload)
+
