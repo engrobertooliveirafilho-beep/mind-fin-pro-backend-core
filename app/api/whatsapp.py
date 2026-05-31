@@ -279,10 +279,10 @@ def compat_semantics_after_cognition(inbound_text: str, reply):
     if any(x in text for x in ["como esta","como está","tudo be","como ta"]):
         ensure("melhorando","Está melhorando com foco em continuidade e naturalidade.")
 
-    if any(x in text for x in ["deu certo","conseguiu","deu ruim"]):
+    if any(x in text for x in ["deu certo","conseguiu","deu ruim","esta dando certo","está dando certo"]):
         ensure("continuidade","O foco é continuidade do runtime novo.")
 
-    if "getting-throughout" in text:
+    if "como?4" in text or text.strip().startswith("como?"):\n        ensure("camadas","Vou separar em camadas com respostas curtas.")\n        ensure("respostas curtas","Respostas curtas primeiro; detalhe só se pedir.")\n\n    if "getting-throughout" in text:
         ensure("sandbox conectado","Sandbox conectado e rota validada.")
 
     if "previsao do tempo" in text or "previsão do tempo" in text:
