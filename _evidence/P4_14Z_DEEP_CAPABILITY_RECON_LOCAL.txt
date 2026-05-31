@@ -1,0 +1,28 @@
+
+app\admin\semantic_activation.py:94:      "memory_recall_success":semantic_hit_rate,
+app\api\eldora_social.py:3:from app.eldora.core.persistent_social_memory import (
+app\api\eldora_social.py:4:    store_social_memory,
+app\api\eldora_social.py:5:    social_memory_report
+app\api\eldora_social.py:25:    return store_social_memory(user_id, interaction)
+app\api\eldora_social.py:29:    return social_memory_report()
+app\api\whatsapp.py:3:from app.runtime.actionable_continuity_authority import set_actionable_turn_context, guard_actionable_reply
+app\runtime\contextual_followup_engine.py:6:    module_name = "contextual_followup_engine"
+app\runtime\persistent_social_memory.py:6:    module_name = "persistent_social_memory"
+app\runtime\ucce_canary_router.py:3:CANARY_ENABLED=os.getenv("UCCE_CANARY_ENABLED","false").lower()=="true"
+app\runtime\ucce_canary_router.py:4:CANARY_PERCENT=int(os.getenv("UCCE_CANARY_PERCENT","10"))
+app\runtime\ucce_canary_router.py:5:ALLOWLIST=set(filter(None,os.getenv("UCCE_CANARY_ALLOWLIST","").split(",")))
+app\runtime\ucce_canary_router.py:7:def should_use_ucce(sender_id:str)->bool:
+app\runtime\ucce_decision_diff.py:1:def compare_decisions(dispatcher_reply,ucce):
+app\runtime\ucce_decision_diff.py:2:    r=(ucce.get("reply","") or "").lower()
+app\runtime\ucce_decision_diff.py:3:    c=9 if ucce.get("context_used") else 5
+app\runtime\ucce_decision_diff.py:4:    social=9 if ucce.get("classification")=="SOCIAL" else 6
+app\runtime\ucce_decision_diff.py:6:    return {"contextual_continuity_score":c,"semantic_collapse_score":0,"placeholder_score":0,"social_naturalness_score":social,"repetition_score":0,"execution_usefulness_score":8,"fallback_dependency_score":fallback,"winner":"ucce" if c>=8 else "dispatcher"}
+app\runtime\ucce_shadow_mode.py:1:from app.runtime.universal_contextual_continuity_engine import ucce_shadow_evaluate
+app\runtime\ucce_shadow_mode.py:2:def run_ucce_shadow(sender_id,inbound_message,live_reply,state=None):
+app\runtime\ucce_shadow_mode.py:3:    try:return ucce_shadow_evaluate(sender_id,inbound_message,state)
+app\runtime\universal_contextual_continuity_engine.py:2:from app.runtime.conversation_state_resolver import resolve
+app\runtime\universal_contextual_continuity_engine.py:42:def ucce_shadow_evaluate(sender_id,inbound_message,state=None):
+app\runtime\universal_contextual_continuity_engine.py:71:        reply=f"O erro aberto é: {raw}. O próximo teste é confirmar se a rota caiu no branch UCCE e se a memória recuperou o contexto."
+app\runtime\universal_contextual_continuity_engine.py:76:            reply="As implantações estão parcialmente validadas: Render sincronizou e UCCE entrou no canary, mas a memória contextual ainda falhou no WhatsApp."
+app\training\multi_ai_conversation_maturity.py:7:    return {"mode":"provider_discovery_no_fake_success","available_providers":available,"skipped_providers":skipped,"roles":ROLES,"executed":len(available)>0,"note":"Sem credencial/env, P2 fica plugável e auditado, não simulado como sucesso falso."}
+
