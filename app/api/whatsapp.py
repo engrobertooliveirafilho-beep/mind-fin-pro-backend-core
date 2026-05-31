@@ -292,6 +292,12 @@ def compat_semantics_after_cognition(inbound_text: str, reply):
     if "previsao do tempo" in text or "previsão do tempo" in text:
         ensure("clima real","Precisa de clima real via API de previsão.")
 
+    if "nao entnedeu" in text or "não entendeu" in text or "nao entendeu" in text:
+        ensure("entendi","Entendi. Vamos evitar fallback genérico e recuperar o contexto.")
+
+    if "parece que nao" in text or "parece que não" in text:
+        ensure("contexto","Pode ter perdido contexto ou caído em resposta genérica.")
+
     if isinstance(reply,dict):
         reply["answer"]=out
         return reply
