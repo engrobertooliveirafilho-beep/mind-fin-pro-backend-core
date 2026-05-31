@@ -1,0 +1,13 @@
+diff --git a/app/runtime/p4_13g_router.py b/app/runtime/p4_13g_router.py
+index 55deded..fd5e893 100644
+--- a/app/runtime/p4_13g_router.py
++++ b/app/runtime/p4_13g_router.py
+@@ -8,6 +8,6 @@ def route_natural_whatsapp(message):
+         return "Resposta direta registrada."
+ 
+     if msg in ["bom dia","boa tarde","boa noite","oi","ol├í","ola","eu t├┤ bem","eu to bem"]:
+-        return None
++        return "Resposta direta registrada."
+ 
+-    return None
++    return "Resposta direta registrada."

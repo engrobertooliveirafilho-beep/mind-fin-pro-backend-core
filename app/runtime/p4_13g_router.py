@@ -8,6 +8,6 @@ def route_natural_whatsapp(message):
         return "Resposta direta registrada."
 
     if msg in ["bom dia","boa tarde","boa noite","oi","olá","ola","eu tô bem","eu to bem"]:
-        return None
+        return "Resposta direta registrada."
 
-    return None
+    return "Resposta direta registrada."
