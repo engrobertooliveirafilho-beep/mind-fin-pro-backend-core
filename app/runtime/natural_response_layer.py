@@ -15,6 +15,7 @@ from app.runtime.conversational_reasoning import (
     update_dialogue_state
 )
 from app.runtime.visible_response_layer import visible_reformulate
+from app.runtime.real_humanization_runtime import real_humanization_runtime
 
 def naturalize_response(answer: str, intent: dict, state: dict, autonomous: dict) -> str:
     # P4_16F_RELATIONAL_TONE_ACTIVE
@@ -83,6 +84,20 @@ def naturalize_response(answer: str, intent: dict, state: dict, autonomous: dict
         reasoning=None,
         confidence=0.90
     )
+    # P4_17F_REAL_HUMANIZATION_ACTIVE
+    humanized = real_humanization_runtime(
+        msg,
+        out,
+        {
+            "social": social,
+            "emotion": emotion,
+            "relationship": relationship,
+            "state": state,
+            "autonomous": autonomous
+        }
+    )
+    out = humanized.get("answer", out)
+
     remember_response(user_id, out)
     return out
 
