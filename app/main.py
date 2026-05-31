@@ -454,6 +454,9 @@ async def whatsapp_webhook(request: Request):
         message=payload.get("Body") or payload.get("body") or payload.get("message") or ""
 
         import re
+        _route_follow=str(message or "").lower().strip()
+        if "campinas" in _route_follow and ("pra onde" in _route_follow or "para onde" in _route_follow or "vou pra onde" in _route_follow):
+            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Depois de Campinas, siga sentido São Paulo pela Rodovia dos Bandeirantes ou Anhanguera. Eu iria de Bandeirantes se o trânsito estiver melhor.</Message></Response>', media_type="application/xml")
         _short_follow=str(message or "").lower().strip()
         if _short_follow in ["quais?","quais","quais são?","quais sao?"]:
             return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Opções principais: rota por SP-340 até Holambra; restaurantes: Casa Bela, Martin Holandesa, The Old Dutch e Boulevard Holandês.</Message></Response>', media_type="application/xml")
@@ -1129,6 +1132,7 @@ app.include_router(canary_router)
 
 from app.api.p414_routes import router as p414_router
 app.include_router(p414_router)
+
 
 
 
