@@ -1,0 +1,196 @@
+........................................................................ [ 21%]
+........................................................................ [ 42%]
+...............................sss...........................F.......... [ 64%]
+.....F.................................................................. [ 85%]
+..............................FFFFFFFFFFFFF..FFF                         [100%]
+================================== FAILURES ===================================
+________________________ test_primary_whatsapp_runtime ________________________
+tests\test_eldora_whatsapp_primary_runtime.py:5: in test_primary_whatsapp_runtime
+    assert "Diagn¾stico" in out
+E   AssertionError: assert 'Diagn¾stico' in 'Resposta direta: prosseguir evoluþÒo do MIND. AþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.'
+---------------------------- Captured stdout call -----------------------------
+ACA_TRACE|ENTER|{'user_message': 'prosseguir evoluþÒo do MIND', 'reply_before': 'Roberto, sigo no MIND. Pr¾ximo passo: avanþar a pr¾xima camada crÝtica.'}
+ACA_TRACE|INTENT|{'detected': 'responder_agora', 'user_message': 'prosseguir evoluþÒo do MIND'}
+ACA_TRACE|REWRITE|{'intent': 'responder_agora', 'before': 'Roberto, sigo no MIND. Pr¾ximo passo: avanþar a pr¾xima camada crÝtica.', 'after': 'Resposta direta: prosseguir evoluþÒo do MIND. AþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.'}
+______________ test_primary_identity_precedence_before_override _______________
+tests\test_fix11l2f_primary_identity_precedence.py:4: in test_primary_identity_precedence_before_override
+    assert out == "Sou a Eldora \U0001f642"
+E   AssertionError: assert 'Resposta dir...ar evid\xeancia.' == 'Sou a Eldora \U0001f642'
+E     
+E     - Sou a Eldora \U0001f642
+E     + Resposta direta: Quem Ú vc?. AþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.
+---------------------------- Captured stdout call -----------------------------
+ACA_TRACE|ENTER|{'user_message': 'Quem Ú vc?', 'reply_before': 'Sou a Eldora do MIND. Converso com contexto e continuidade, sem resetar a conversa.'}
+ACA_TRACE|INTENT|{'detected': 'responder_agora', 'user_message': 'Quem Ú vc?'}
+ACA_TRACE|REWRITE|{'intent': 'responder_agora', 'before': 'Sou a Eldora do MIND. Converso com contexto e continuidade, sem resetar a conversa.', 'after': 'Resposta direta: Quem Ú vc?. AþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.'}
+___________________________ test_noisy_how_followup ___________________________
+tests\test_whatsapp_noisy_followup.py:5: in test_noisy_how_followup
+    assert "camadas" in out
+E   AssertionError: assert 'camadas' in 'resposta direta: como?4. aþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.'
+---------------------------- Captured stdout call -----------------------------
+ACA_TRACE|ENTER|{'user_message': 'como?4', 'reply_before': 'Vou te ajudar de forma prßtica: organizar ideias, lembrar contexto, transformar conversa em plano, explicar conte·dos, priorizar decis§es e executar pr¾ximos passos sem perder o fio da conversa.'}
+ACA_TRACE|INTENT|{'detected': 'responder_agora', 'user_message': 'como?4'}
+ACA_TRACE|REWRITE|{'intent': 'responder_agora', 'before': 'Vou te ajudar de forma prßtica: organizar ideias, lembrar contexto, transformar conversa em plano, explicar conte·dos, priorizar decis§es e executar pr¾ximos passos sem perder o fio da conversa.', 'after': 'Resposta direta: como?4. AþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.'}
+_____________________________ test_semantic_plan ______________________________
+tests\test_whatsapp_plan_override.py:5: in test_semantic_plan
+    assert "estabilizar" in out
+E   AssertionError: assert 'estabilizar' in 'resposta direta: qual o plano?. aþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.'
+---------------------------- Captured stdout call -----------------------------
+ACA_TRACE|ENTER|{'user_message': 'qual o plano?', 'reply_before': 'Entendi. Continua.'}
+ACA_TRACE|INTENT|{'detected': 'responder_agora', 'user_message': 'qual o plano?'}
+ACA_TRACE|REWRITE|{'intent': 'responder_agora', 'before': 'Entendi. Continua.', 'after': 'Resposta direta: qual o plano?. AþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.'}
+____________________________ test_semantic_how_to _____________________________
+tests\test_whatsapp_plan_override.py:9: in test_semantic_how_to
+    assert "memoria contextual" in out or "estabilizar" in out
+E   AssertionError: assert ('memoria contextual' in 'resposta direta: e como fazer?. aþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.' or 'estabilizar' in 'resposta direta: e como fazer?. aþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.')
+---------------------------- Captured stdout call -----------------------------
+ACA_TRACE|ENTER|{'user_message': 'e como fazer?', 'reply_before': 'Resumo tÚcnico do MIND/Eldora: Runtime estßvel V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Pr¾ximo passo: mem¾ria persistente + contexto MIND completo.'}
+ACA_TRACE|INTENT|{'detected': 'responder_agora', 'user_message': 'e como fazer?'}
+ACA_TRACE|REWRITE|{'intent': 'responder_agora', 'before': 'Resumo tÚcnico do MIND/Eldora: Runtime estßvel V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Pr¾ximo passo: mem¾ria persistente + contexto MIND completo.', 'after': 'Resposta direta: e como fazer?. AþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.'}
+_________________________ test_fuzzy_everything_good __________________________
+tests\test_whatsapp_positive_feedback.py:5: in test_fuzzy_everything_good
+    assert "melhorando" in out
+E   AssertionError: assert 'melhorando' in 'resposta direta: tudo be?. aþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.'
+---------------------------- Captured stdout call -----------------------------
+ACA_TRACE|ENTER|{'user_message': 'tudo be?', 'reply_before': 'Resumo tÚcnico do MIND/Eldora: Runtime estßvel V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Pr¾ximo passo: mem¾ria persistente + contexto MIND completo.'}
+ACA_TRACE|INTENT|{'detected': 'responder_agora', 'user_message': 'tudo be?'}
+ACA_TRACE|REWRITE|{'intent': 'responder_agora', 'before': 'Resumo tÚcnico do MIND/Eldora: Runtime estßvel V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Pr¾ximo passo: mem¾ria persistente + contexto MIND completo.', 'after': 'Resposta direta: tudo be?. AþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.'}
+_________________________ test_positive_confirmation __________________________
+tests\test_whatsapp_positive_feedback.py:9: in test_positive_confirmation
+    assert "continuidade" in out or "runtime" in out
+E   AssertionError: assert ('continuidade' in 'resposta direta: deu certo. aþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.' or 'runtime' in 'resposta direta: deu certo. aþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.')
+---------------------------- Captured stdout call -----------------------------
+ACA_TRACE|ENTER|{'user_message': 'deu certo', 'reply_before': 'Resumo tÚcnico do MIND/Eldora: Runtime estßvel V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Pr¾ximo passo: mem¾ria persistente + contexto MIND completo.'}
+ACA_TRACE|INTENT|{'detected': 'responder_agora', 'user_message': 'deu certo'}
+ACA_TRACE|REWRITE|{'intent': 'responder_agora', 'before': 'Resumo tÚcnico do MIND/Eldora: Runtime estßvel V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Pr¾ximo passo: mem¾ria persistente + contexto MIND completo.', 'after': 'Resposta direta: deu certo. AþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.'}
+___________________________ test_progress_question ____________________________
+tests\test_whatsapp_progress_override.py:5: in test_progress_question
+    assert "melhorando" in out
+E   AssertionError: assert 'melhorando' in 'resposta direta: e como esta indo?. aþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.'
+---------------------------- Captured stdout call -----------------------------
+ACA_TRACE|ENTER|{'user_message': 'e como esta indo?', 'reply_before': 'Resumo tÚcnico do MIND/Eldora: Runtime estßvel V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Pr¾ximo passo: mem¾ria persistente + contexto MIND completo.'}
+ACA_TRACE|INTENT|{'detected': 'responder_agora', 'user_message': 'e como esta indo?'}
+ACA_TRACE|REWRITE|{'intent': 'responder_agora', 'before': 'Resumo tÚcnico do MIND/Eldora: Runtime estßvel V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Pr¾ximo passo: mem¾ria persistente + contexto MIND completo.', 'after': 'Resposta direta: e como esta indo?. AþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.'}
+____________________________ test_working_question ____________________________
+tests\test_whatsapp_progress_override.py:9: in test_working_question
+    assert "runtime novo" in out or "melhorando" in out
+E   AssertionError: assert ('runtime novo' in 'resposta direta: esta dando certo?. aþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.' or 'melhorando' in 'resposta direta: esta dando certo?. aþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.')
+---------------------------- Captured stdout call -----------------------------
+ACA_TRACE|ENTER|{'user_message': 'esta dando certo?', 'reply_before': 'Resumo tÚcnico do MIND/Eldora: Runtime estßvel V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Pr¾ximo passo: mem¾ria persistente + contexto MIND completo.'}
+ACA_TRACE|INTENT|{'detected': 'responder_agora', 'user_message': 'esta dando certo?'}
+ACA_TRACE|REWRITE|{'intent': 'responder_agora', 'before': 'Resumo tÚcnico do MIND/Eldora: Runtime estßvel V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Pr¾ximo passo: mem¾ria persistente + contexto MIND completo.', 'after': 'Resposta direta: esta dando certo?. AþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.'}
+______________________________ test_join_message ______________________________
+tests\test_whatsapp_progress_override.py:13: in test_join_message
+    assert "sandbox conectado" in out
+E   AssertionError: assert 'sandbox conectado' in 'resposta direta: getting-throughout. aþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.'
+---------------------------- Captured stdout call -----------------------------
+ACA_TRACE|ENTER|{'user_message': 'getting-throughout', 'reply_before': 'Entendi. Continua.'}
+ACA_TRACE|INTENT|{'detected': 'responder_agora', 'user_message': 'getting-throughout'}
+ACA_TRACE|REWRITE|{'intent': 'responder_agora', 'before': 'Entendi. Continua.', 'after': 'Resposta direta: getting-throughout. AþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.'}
+_________________________________ test_deepen _________________________________
+tests\test_whatsapp_reflective_followup.py:5: in test_deepen
+    assert ("causa aberta" in out) or ("pr¾ximo passo" in out) or ("proximo passo" in out) or ("continua" in out)
+E   AssertionError: assert ('causa aberta' in 'detalhamento: aprofunde. pontos-chave: 1) causa provßvel, 2) impacto prßtico, 3) pr¾xima validaþÒo objetiva.' or 'pr¾ximo passo' in 'detalhamento: aprofunde. pontos-chave: 1) causa provßvel, 2) impacto prßtico, 3) pr¾xima validaþÒo objetiva.' or 'proximo passo' in 'detalhamento: aprofunde. pontos-chave: 1) causa provßvel, 2) impacto prßtico, 3) pr¾xima validaþÒo objetiva.' or 'continua' in 'detalhamento: aprofunde. pontos-chave: 1) causa provßvel, 2) impacto prßtico, 3) pr¾xima validaþÒo objetiva.')
+---------------------------- Captured stdout call -----------------------------
+ACA_TRACE|ENTER|{'user_message': 'aprofunde', 'reply_before': 'Resumo tÚcnico do MIND/Eldora: Runtime estßvel V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Pr¾ximo passo: mem¾ria persistente + contexto MIND completo.'}
+ACA_TRACE|INTENT|{'detected': 'aprofundar', 'user_message': 'aprofunde'}
+ACA_TRACE|REWRITE|{'intent': 'aprofundar', 'before': 'Resumo tÚcnico do MIND/Eldora: Runtime estßvel V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Pr¾ximo passo: mem¾ria persistente + contexto MIND completo.', 'after': 'Detalhamento: aprofunde. Pontos-chave: 1) causa provßvel, 2) impacto prßtico, 3) pr¾xima validaþÒo objetiva.'}
+____________________________ test_semantic_status _____________________________
+tests\test_whatsapp_semantic_override.py:5: in test_semantic_status
+    assert "melhorando" in out
+E   AssertionError: assert 'melhorando' in 'resposta direta: como esta ?. aþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.'
+---------------------------- Captured stdout call -----------------------------
+ACA_TRACE|ENTER|{'user_message': 'como esta ?', 'reply_before': 'Vou te ajudar de forma prßtica: organizar ideias, lembrar contexto, transformar conversa em plano, explicar conte·dos, priorizar decis§es e executar pr¾ximos passos sem perder o fio da conversa.'}
+ACA_TRACE|INTENT|{'detected': 'responder_agora', 'user_message': 'como esta ?'}
+ACA_TRACE|REWRITE|{'intent': 'responder_agora', 'before': 'Vou te ajudar de forma prßtica: organizar ideias, lembrar contexto, transformar conversa em plano, explicar conte·dos, priorizar decis§es e executar pr¾ximos passos sem perder o fio da conversa.', 'after': 'Resposta direta: como esta ?. AþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.'}
+____________________________ test_semantic_failure ____________________________
+tests\test_whatsapp_semantic_override.py:9: in test_semantic_failure
+    assert "runtime novo" in out or "continuidade" in out
+E   AssertionError: assert ('runtime novo' in 'resposta direta: deu ruim. aþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.' or 'continuidade' in 'resposta direta: deu ruim. aþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.')
+---------------------------- Captured stdout call -----------------------------
+ACA_TRACE|ENTER|{'user_message': 'deu ruim', 'reply_before': 'Resumo tÚcnico do MIND/Eldora: Runtime estßvel V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Pr¾ximo passo: mem¾ria persistente + contexto MIND completo.'}
+ACA_TRACE|INTENT|{'detected': 'responder_agora', 'user_message': 'deu ruim'}
+ACA_TRACE|REWRITE|{'intent': 'responder_agora', 'before': 'Resumo tÚcnico do MIND/Eldora: Runtime estßvel V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Pr¾ximo passo: mem¾ria persistente + contexto MIND completo.', 'after': 'Resposta direta: deu ruim. AþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.'}
+___________________________ test_followup_conseguiu ___________________________
+tests\test_whatsapp_short_memory.py:6: in test_followup_conseguiu
+    assert "continuidade" in out or "natural" in out
+E   AssertionError: assert ('continuidade' in 'resposta direta: conseguiu?. aþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.' or 'natural' in 'resposta direta: conseguiu?. aþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.')
+---------------------------- Captured stdout call -----------------------------
+ACA_TRACE|ENTER|{'user_message': 'nao esta funcionando', 'reply_before': 'Resumo tÚcnico do MIND/Eldora: Runtime estßvel V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Pr¾ximo passo: mem¾ria persistente + contexto MIND completo.'}
+ACA_TRACE|INTENT|{'detected': 'responder_agora', 'user_message': 'nao esta funcionando'}
+ACA_TRACE|REWRITE|{'intent': 'responder_agora', 'before': 'Resumo tÚcnico do MIND/Eldora: Runtime estßvel V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Pr¾ximo passo: mem¾ria persistente + contexto MIND completo.', 'after': 'Resposta direta: nao esta funcionando. AþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.'}
+ACA_TRACE|ENTER|{'user_message': 'conseguiu?', 'reply_before': 'Resumo tÚcnico do MIND/Eldora: Runtime estßvel V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Pr¾ximo passo: mem¾ria persistente + contexto MIND completo.'}
+ACA_TRACE|INTENT|{'detected': 'responder_agora', 'user_message': 'conseguiu?'}
+ACA_TRACE|REWRITE|{'intent': 'responder_agora', 'before': 'Resumo tÚcnico do MIND/Eldora: Runtime estßvel V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Pr¾ximo passo: mem¾ria persistente + contexto MIND completo.', 'after': 'Resposta direta: conseguiu?. AþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.'}
+__________________________ test_followup_parece_nao ___________________________
+tests\test_whatsapp_short_memory.py:11: in test_followup_parece_nao
+    assert "contexto" in out or "generica" in out or "genÚrica" in out
+E   AssertionError: assert ('contexto' in 'resposta direta: parece que nao. aþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.' or 'generica' in 'resposta direta: parece que nao. aþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.' or 'genÚrica' in 'resposta direta: parece que nao. aþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.')
+---------------------------- Captured stdout call -----------------------------
+ACA_TRACE|ENTER|{'user_message': 'o que fazer?', 'reply_before': 'Entendi. Continua.'}
+ACA_TRACE|INTENT|{'detected': 'responder_agora', 'user_message': 'o que fazer?'}
+ACA_TRACE|REWRITE|{'intent': 'responder_agora', 'before': 'Entendi. Continua.', 'after': 'Resposta direta: o que fazer?. AþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.'}
+ACA_TRACE|ENTER|{'user_message': 'parece que nao', 'reply_before': 'Resumo tÚcnico do MIND/Eldora: Runtime estßvel V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Pr¾ximo passo: mem¾ria persistente + contexto MIND completo.'}
+ACA_TRACE|INTENT|{'detected': 'responder_agora', 'user_message': 'parece que nao'}
+ACA_TRACE|REWRITE|{'intent': 'responder_agora', 'before': 'Resumo tÚcnico do MIND/Eldora: Runtime estßvel V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Pr¾ximo passo: mem¾ria persistente + contexto MIND completo.', 'after': 'Resposta direta: parece que nao. AþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.'}
+__________________ test_whatsapp_visible_mind_state_context ___________________
+tests\test_whatsapp_visible_mind_state_context.py:5: in test_whatsapp_visible_mind_state_context
+    assert "194/194" in out
+E   AssertionError: assert '194/194' in 'Resumo: resuma o estado atual. Status: exige validaþÒo objetiva antes de declarar fechamento.'
+---------------------------- Captured stdout call -----------------------------
+ACA_TRACE|ENTER|{'user_message': 'resuma o estado atual', 'reply_before': 'Resumo tÚcnico do MIND/Eldora: Runtime estßvel V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Pr¾ximo passo: mem¾ria persistente + contexto MIND completo.'}
+ACA_TRACE|INTENT|{'detected': 'resumir', 'user_message': 'resuma o estado atual'}
+ACA_TRACE|REWRITE|{'intent': 'resumir', 'before': 'Resumo tÚcnico do MIND/Eldora: Runtime estßvel V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Pr¾ximo passo: mem¾ria persistente + contexto MIND completo.', 'after': 'Resumo: resuma o estado atual. Status: exige validaþÒo objetiva antes de declarar fechamento.'}
+__________________________ test_weather_request_safe __________________________
+tests\test_whatsapp_weather_and_typo.py:5: in test_weather_request_safe
+    assert "clima real" in out or "api de previsÒo" in out
+E   AssertionError: assert ('clima real' in 'anßlise: contexto=qual a previsÒo do tempo para amanhÒ em jaguariuna?. diagn¾stico: falta evidÛncia completa. risco: falso verde. aþÒo: testar fluxo real e salvar relat¾rio.' or 'api de previsÒo' in 'anßlise: contexto=qual a previsÒo do tempo para amanhÒ em jaguariuna?. diagn¾stico: falta evidÛncia completa. risco: falso verde. aþÒo: testar fluxo real e salvar relat¾rio.')
+---------------------------- Captured stdout call -----------------------------
+ACA_TRACE|ENTER|{'user_message': 'qual a previsÒo do tempo para amanhÒ em Jaguariuna?', 'reply_before': 'Resumo tÚcnico do MIND/Eldora: Runtime estßvel V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Pr¾ximo passo: mem¾ria persistente + contexto MIND completo.'}
+ACA_TRACE|INTENT|{'detected': 'analisar', 'user_message': 'qual a previsÒo do tempo para amanhÒ em Jaguariuna?'}
+ACA_TRACE|REWRITE|{'intent': 'analisar', 'before': 'Resumo tÚcnico do MIND/Eldora: Runtime estßvel V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Pr¾ximo passo: mem¾ria persistente + contexto MIND completo.', 'after': 'Anßlise: contexto=qual a previsÒo do tempo para amanhÒ em Jaguariuna?. Diagn¾stico: falta evidÛncia completa. Risco: falso verde. AþÒo: testar fluxo real e salvar relat¾rio.'}
+__________________________ test_typo_not_understood ___________________________
+tests\test_whatsapp_weather_and_typo.py:9: in test_typo_not_understood
+    assert "fallback" in out or "entendi" in out
+E   AssertionError: assert ('fallback' in 'resposta direta: nao entnedeu?. aþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.' or 'entendi' in 'resposta direta: nao entnedeu?. aþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.')
+---------------------------- Captured stdout call -----------------------------
+ACA_TRACE|ENTER|{'user_message': 'nao entnedeu?', 'reply_before': 'Resumo tÚcnico do MIND/Eldora: Runtime estßvel V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Pr¾ximo passo: mem¾ria persistente + contexto MIND completo.'}
+ACA_TRACE|INTENT|{'detected': 'responder_agora', 'user_message': 'nao entnedeu?'}
+ACA_TRACE|REWRITE|{'intent': 'responder_agora', 'before': 'Resumo tÚcnico do MIND/Eldora: Runtime estßvel V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Pr¾ximo passo: mem¾ria persistente + contexto MIND completo.', 'after': 'Resposta direta: nao entnedeu?. AþÒo recomendada: validar no caminho real, eliminar placeholder e registrar evidÛncia.'}
+============================== warnings summary ===============================
+tests/test_universal_conversation_os.py: 13 warnings
+  C:\Users\MindFin\Desktop\mind-fin-pro-backend-core\app\runtime\universal_conversation_os.py:51: DeprecationWarning: ast.Num is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    if isinstance(node,ast.Num): return node.n
+
+tests/test_universal_conversation_os.py::test_mode_classes[calc-calcula 20 + 30-CALCULATION]
+tests/test_universal_conversation_os.py::test_mode_classes[calc-calcula 20 + 30-CALCULATION]
+tests/test_universal_conversation_os.py::test_mode_classes[calc-calcula 20 + 30-CALCULATION]
+tests/test_universal_conversation_os.py::test_mode_classes[calc-calcula 20 + 30-CALCULATION]
+tests/test_universal_conversation_os.py::test_mode_classes[calc_syn-quanto d\xe1 7*8-CALCULATION]
+tests/test_universal_conversation_os.py::test_mode_classes[calc_syn-quanto d\xe1 7*8-CALCULATION]
+tests/test_universal_conversation_os.py::test_mode_classes[calc_syn-quanto d\xe1 7*8-CALCULATION]
+tests/test_universal_conversation_os.py::test_mode_classes[calc_syn-quanto d\xe1 7*8-CALCULATION]
+  C:\Users\MindFin\Desktop\mind-fin-pro-backend-core\app\runtime\universal_conversation_os.py:51: DeprecationWarning: Attribute n is deprecated and will be removed in Python 3.14; use value instead
+    if isinstance(node,ast.Num): return node.n
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_eldora_whatsapp_primary_runtime.py::test_primary_whatsapp_runtime
+FAILED tests/test_fix11l2f_primary_identity_precedence.py::test_primary_identity_precedence_before_override
+FAILED tests/test_whatsapp_noisy_followup.py::test_noisy_how_followup - Asser...
+FAILED tests/test_whatsapp_plan_override.py::test_semantic_plan - AssertionEr...
+FAILED tests/test_whatsapp_plan_override.py::test_semantic_how_to - Assertion...
+FAILED tests/test_whatsapp_positive_feedback.py::test_fuzzy_everything_good
+FAILED tests/test_whatsapp_positive_feedback.py::test_positive_confirmation
+FAILED tests/test_whatsapp_progress_override.py::test_progress_question - Ass...
+FAILED tests/test_whatsapp_progress_override.py::test_working_question - Asse...
+FAILED tests/test_whatsapp_progress_override.py::test_join_message - Assertio...
+FAILED tests/test_whatsapp_reflective_followup.py::test_deepen - AssertionErr...
+FAILED tests/test_whatsapp_semantic_override.py::test_semantic_status - Asser...
+FAILED tests/test_whatsapp_semantic_override.py::test_semantic_failure - Asse...
+FAILED tests/test_whatsapp_short_memory.py::test_followup_conseguiu - Asserti...
+FAILED tests/test_whatsapp_short_memory.py::test_followup_parece_nao - Assert...
+FAILED tests/test_whatsapp_visible_mind_state_context.py::test_whatsapp_visible_mind_state_context
+FAILED tests/test_whatsapp_weather_and_typo.py::test_weather_request_safe - A...
+FAILED tests/test_whatsapp_weather_and_typo.py::test_typo_not_understood - As...
+18 failed, 315 passed, 3 skipped, 21 warnings in 100.30s (0:01:40)

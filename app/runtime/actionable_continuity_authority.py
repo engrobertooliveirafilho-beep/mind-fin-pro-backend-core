@@ -173,7 +173,7 @@ def guard_actionable_reply(reply: str, sender_id: str = "", user_message: str = 
 
     weak = not reply or len(reply.strip()) < 12 or _has_forbidden(reply)
     actionable_intent = intent in set(INTENT_PATTERNS.keys())
-    if weak or actionable_intent:
+    if weak:
         candidate = resolve_actionable_followup(sid, msg, st)
         if candidate and not _has_forbidden(candidate):
             
@@ -216,3 +216,4 @@ def natural_small_talk(msg: str) -> str:
     if "tudo bem" in m:
         return "Tudo certo por aqui. E com você?"
     return "Oi! O que você precisa?"
+

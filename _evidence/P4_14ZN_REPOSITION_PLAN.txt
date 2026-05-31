@@ -1,0 +1,52 @@
+
+  app\api\whatsapp.py:314:            pass
+  app\api\whatsapp.py:315:
+  app\api\whatsapp.py:316:    if _low == "calcule":
+  app\api\whatsapp.py:317:        return "Me mande a conta completa que eu calculo direto."
+  app\api\whatsapp.py:318:
+> app\api\whatsapp.py:319:    # P4_14ZI_COGNITIVE_FIRST_RUNTIME
+  app\api\whatsapp.py:320:    try:
+  app\api\whatsapp.py:321:        _visible = run_cognitive_pipeline(sender_id, inbound_text)
+  app\api\whatsapp.py:322:        if whatsapp_intelligence_active() and isinstance(_visible, dict):
+  app\api\whatsapp.py:323:            _visible["activation_context"] = enrich_whatsapp_context(sender_id, inbound_text, {})
+  app\api\whatsapp.py:324:        _candidate = semantic_test_injection(inbound_text, _visible)
+  app\api\whatsapp.py:325:        _text = _candidate.get("answer", "") if isinstance(_candidate, dict) else str(_candidate or "")
+  app\api\whatsapp.py:326:        _text = guard_actionable_reply(_text, sender_id, inbound_text, {})
+  app\api\whatsapp.py:327:        if _text and len(_text.strip()) >= 8 and "não recebi conteúdo" not in _text.lower():
+  app\api\whatsapp.py:328:            return _text
+  app\api\whatsapp.py:329:    except Exception as _p414zi_error:
+  app\api\whatsapp.py:330:        event("P4_14ZI_COGNITIVE_FIRST_ERROR", error=str(_p414zi_error), inbound=inbound_text)
+  app\api\whatsapp.py:331:
+  app\api\whatsapp.py:332:    _guard_reply = whatsapp_social_followup_guard(inbound_text)
+  app\api\whatsapp.py:333:    if _guard_reply:
+  app\api\whatsapp.py:334:        return _guard_reply
+  app\api\whatsapp.py:335:    _ssa_intent = classify_intent(inbound_text)
+  app\api\whatsapp.py:336:    if _ssa_intent in (
+  app\api\whatsapp.py:337:        IntentPriority.CALCULATION,
+  app\api\whatsapp.py:395:
+  app\api\whatsapp.py:396:    # ==========================================
+  app\api\whatsapp.py:397:    # PRIORIDADE 1 — LIVE OVERRIDES
+  app\api\whatsapp.py:398:    # ==========================================
+  app\api\whatsapp.py:399:
+> app\api\whatsapp.py:400:    override = live_whatsapp_override(inbound_text)
+  app\api\whatsapp.py:401:
+> app\api\whatsapp.py:402:    if override:
+  app\api\whatsapp.py:403:        override = _p3_human_e2e_guard(inbound_text, override)
+  app\api\whatsapp.py:404:        return semantic_test_injection(
+  app\api\whatsapp.py:405:            inbound_text,
+  app\api\whatsapp.py:406:            override
+  app\api\whatsapp.py:407:        )
+  app\api\whatsapp.py:408:
+  app\api\whatsapp.py:409:    # ==========================================
+  app\api\whatsapp.py:410:    # PRIORIDADE 2 — COGNITIVE RUNTIME
+  app\api\whatsapp.py:411:    # ==========================================
+  app\api\whatsapp.py:412:
+  app\api\whatsapp.py:413:    visible = run_cognitive_pipeline(
+  app\api\whatsapp.py:414:        sender_id,
+  app\api\whatsapp.py:415:        inbound_text
+  app\api\whatsapp.py:416:    )
+  app\api\whatsapp.py:417:
+  app\api\whatsapp.py:418:    if whatsapp_intelligence_active() and isinstance(visible, dict):
+  app\api\whatsapp.py:419:        visible["activation_context"] = enrich_whatsapp_context(sender_id, inbound_text, {})
+  app\api\whatsapp.py:420:
+

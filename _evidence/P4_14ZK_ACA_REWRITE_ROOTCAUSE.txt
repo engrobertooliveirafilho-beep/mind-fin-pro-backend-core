@@ -1,0 +1,81 @@
+
+  app\runtime\actionable_continuity_authority.py:120:    base = _basis(s, user_message)
+  app\runtime\actionable_continuity_authority.py:121:
+  app\runtime\actionable_continuity_authority.py:122:    if intent == "calcular":
+  app\runtime\actionable_continuity_authority.py:123:        return _calc(user_message) or "Cálculo: envie a expressão objetiva para eu retornar o resultado."
+  app\runtime\actionable_continuity_authority.py:124:
+  app\runtime\actionable_continuity_authority.py:125:    if intent in ("detalhar", "aprofundar"):
+> app\runtime\actionable_continuity_authority.py:126:        return f"Detalhamento: {base}. Pontos-chave: 1) causa provável, 2) impacto prático, 3) próxima validação objetiva."
+  app\runtime\actionable_continuity_authority.py:127:
+  app\runtime\actionable_continuity_authority.py:128:    if intent == "continuar":
+  app\runtime\actionable_continuity_authority.py:129:        return f"Próximo passo: continuar em {base}. Execute a validação, registre evidência e só avance se o resultado estiver verde."
+  app\runtime\actionable_continuity_authority.py:130:
+  app\runtime\actionable_continuity_authority.py:131:    if intent == "responder_agora":
+> app\runtime\actionable_continuity_authority.py:132:        return f"Resposta direta: {base}. Ação recomendada: validar no caminho real, eliminar placeholder e registrar evidência."
+  app\runtime\actionable_continuity_authority.py:133:
+  app\runtime\actionable_continuity_authority.py:134:    if intent == "verificar":
+  app\runtime\actionable_continuity_authority.py:135:        return f"Verificação: 1) confirmar entrada real, 2) checar rota/camada final, 3) validar saída, 4) registrar log, 5) bloquear falso positivo."
+  app\runtime\actionable_continuity_authority.py:136:
+  app\runtime\actionable_continuity_authority.py:137:    if intent == "analisar":
+> app\runtime\actionable_continuity_authority.py:138:        return f"Análise: contexto={base}. Diagnóstico: falta evidência completa. Risco: falso verde. Ação: testar fluxo real e salvar relatório."
+  app\runtime\actionable_continuity_authority.py:139:
+  app\runtime\actionable_continuity_authority.py:140:    if intent == "comparar":
+  app\runtime\actionable_continuity_authority.py:141:        return f"Comparação: avalie {base} por impacto, risco, custo de correção e evidência disponível. Priorize o maior risco live."
+  app\runtime\actionable_continuity_authority.py:142:
+  app\runtime\actionable_continuity_authority.py:143:    if intent == "planejar":
+  app\runtime\actionable_continuity_authority.py:144:        return f"Plano: 1) isolar fluxo real, 2) corrigir último hop, 3) testar local, 4) validar live, 5) exportar evidências."
+  app\runtime\actionable_continuity_authority.py:145:
+  app\runtime\actionable_continuity_authority.py:146:    if intent == "executar":
+  app\runtime\actionable_continuity_authority.py:147:        return f"Execução: aplique correção no caminho real, rode py_compile/pytest, valide /version, teste webhook e exporte JSONs."
+  app\runtime\actionable_continuity_authority.py:148:
+  app\runtime\actionable_continuity_authority.py:149:    if intent == "resumir":
+> app\runtime\actionable_continuity_authority.py:150:        return f"Resumo: {base}. Status: exige validação objetiva antes de declarar fechamento."
+  app\runtime\actionable_continuity_authority.py:151:
+  app\runtime\actionable_continuity_authority.py:152:    if intent == "auditar":
+  app\runtime\actionable_continuity_authority.py:153:        return f"Auditoria: verifique placeholders, duplicação, fallback fraco, resposta vaga, sync Render, teste live e evidência Drive."
+  app\runtime\actionable_continuity_authority.py:154:
+> app\runtime\actionable_continuity_authority.py:155:    return f"Resposta direta: {base}."
+  app\runtime\actionable_continuity_authority.py:156:
+  app\runtime\actionable_continuity_authority.py:157:def guard_actionable_reply(reply: str, sender_id: str = "", user_message: str = "", last_state: dict[str, Any] | None = None) -> str:
+  app\runtime\actionable_continuity_authority.py:158:    _aca_trace(
+  app\runtime\actionable_continuity_authority.py:159:        "ENTER",
+  app\runtime\actionable_continuity_authority.py:160:        user_message=user_message,
+  app\runtime\actionable_continuity_authority.py:161:        reply_before=reply
+  app\runtime\actionable_continuity_authority.py:162:    )
+  app\runtime\actionable_continuity_authority.py:163:
+  app\runtime\actionable_continuity_authority.py:164:    turn = _CURRENT_TURN.get() or {}
+  app\runtime\actionable_continuity_authority.py:165:    sid = sender_id or turn.get("sender_id", "")
+  app\runtime\actionable_continuity_authority.py:166:    msg = user_message or turn.get("user_message", "")
+  app\runtime\actionable_continuity_authority.py:167:    st = last_state or turn.get("last_state", {})
+  app\runtime\actionable_continuity_authority.py:168:    intent = detect_intent(msg)
+  app\runtime\actionable_continuity_authority.py:169:
+  app\runtime\actionable_continuity_authority.py:170:    if is_small_talk(msg):
+  app\runtime\actionable_continuity_authority.py:171:        return natural_small_talk(msg)
+  app\runtime\actionable_continuity_authority.py:172:    _aca_trace("INTENT", detected=intent, user_message=msg)
+  app\runtime\actionable_continuity_authority.py:173:
+  app\runtime\actionable_continuity_authority.py:175:    actionable_intent = intent in set(INTENT_PATTERNS.keys())
+  app\runtime\actionable_continuity_authority.py:176:    if weak or actionable_intent:
+  app\runtime\actionable_continuity_authority.py:177:        candidate = resolve_actionable_followup(sid, msg, st)
+  app\runtime\actionable_continuity_authority.py:178:        if candidate and not _has_forbidden(candidate):
+  app\runtime\actionable_continuity_authority.py:179:            
+  app\runtime\actionable_continuity_authority.py:180:            _aca_trace(
+> app\runtime\actionable_continuity_authority.py:181:                "REWRITE",
+  app\runtime\actionable_continuity_authority.py:182:                intent=intent,
+  app\runtime\actionable_continuity_authority.py:183:                before=reply,
+  app\runtime\actionable_continuity_authority.py:184:                after=candidate
+  app\runtime\actionable_continuity_authority.py:185:            )
+  app\runtime\actionable_continuity_authority.py:186:            return candidate
+  app\runtime\actionable_continuity_authority.py:187:
+  app\runtime\actionable_continuity_authority.py:188:    
+  app\runtime\actionable_continuity_authority.py:189:    _aca_trace(
+  app\runtime\actionable_continuity_authority.py:190:        "BYPASS",
+  app\runtime\actionable_continuity_authority.py:191:        intent=intent if "intent" in locals() else None,
+  app\runtime\actionable_continuity_authority.py:192:        reply_after=reply
+  app\runtime\actionable_continuity_authority.py:193:    )
+  app\runtime\actionable_continuity_authority.py:194:    return reply
+  app\runtime\actionable_continuity_authority.py:195:
+  app\runtime\actionable_continuity_authority.py:196:
+  app\runtime\actionable_continuity_authority.py:197:SMALL_TALK_PATTERNS = [
+  app\runtime\actionable_continuity_authority.py:198:    "oi","ola","olá","bom dia","boa tarde","boa noite",
+  app\runtime\actionable_continuity_authority.py:199:    "tudo bem","como vai","e ai","e aí","opa","blz",
+
