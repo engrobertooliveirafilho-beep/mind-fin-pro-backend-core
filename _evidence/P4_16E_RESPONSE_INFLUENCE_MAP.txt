@@ -1,0 +1,94 @@
+
+> app\runtime\response_strategy.py:1:def build_response_strategy(intent, state, memory):
+  app\runtime\response_strategy.py:2:    depth=intent.get("depth_required","medium")
+> app\runtime\response_strategy.py:3:    strategy="executar" if intent.get("intent") in ["project_execution","technical_debug"] else "aprofundar"
+> app\runtime\response_strategy.py:4:    return {"strategy":strategy,"required_sections":["Diagnóstico","Estratégia","Execução","Auditoria"],"depth_level":depth,"must_reference_memory":True,"avoid":["generic_answer","topic_drift","unnecessary_question"]}
+  app\runtime\response_builder.py:9:class ResponseBuilder:
+  app\runtime\response_builder.py:10:    def __init__(self, *args, **kwargs):
+  app\runtime\response_builder.py:11:        self.version = "response_builder_compat_v2"
+  app\runtime\response_builder.py:12:
+> app\runtime\response_builder.py:13:    def build(self, user_message="", intent=None, memory=None, internal_state=None, persona_context=None, strategy=None):
+  app\runtime\response_builder.py:14:        return build_response(
+  app\runtime\response_builder.py:15:            user_message=user_message,
+  app\runtime\response_builder.py:16:            intent=intent or {"intent":"general"},
+> app\runtime\response_builder.py:17:            memory=memory or {},
+  app\runtime\response_builder.py:18:            internal_state=internal_state or {},
+  app\runtime\response_builder.py:19:            persona_context=persona_context or {},
+> app\runtime\response_builder.py:20:            strategy=strategy or {"strategy":"responder"}
+  app\runtime\response_builder.py:21:        )
+  app\runtime\response_builder.py:22:
+> app\runtime\response_builder.py:23:    def build_response(self, *args, **kwargs):
+  app\runtime\response_builder.py:24:        return self.build(*args, **kwargs)
+  app\runtime\response_builder.py:25:
+> app\runtime\response_builder.py:26:def build_response(user_message, intent, memory, internal_state, persona_context, strategy):
+  app\runtime\response_builder.py:27:    base = (
+  app\runtime\response_builder.py:28:        f"Diagnóstico: entendi a intenção {intent.get('intent','general')} no contexto {internal_state.get('dominant_project','MIND')}.\n"
+  app\runtime\response_builder.py:29:        f"Estratégia: vou responder como Eldora, com continuidade, memória e ação concreta.\n"
+> app\runtime\response_builder.py:30:        f"Execução: {strategy.get('strategy','responder')} sem resetar contexto e sem resposta genérica.\n"
+  app\runtime\response_builder.py:31:        f"Auditoria: manter persona, foco e utilidade prática."
+  app\runtime\response_builder.py:32:    )
+  app\runtime\response_builder.py:33:    return inject_continuity_anchor(base, internal_state)
+  app\runtime\response_builder.py:34:
+  app\runtime\response_builder.py:35:
+  app\runtime\response_builder.py:36:
+  app\runtime\natural_response_layer.py:15:    update_dialogue_state
+  app\runtime\natural_response_layer.py:16:)
+  app\runtime\natural_response_layer.py:17:from app.runtime.visible_response_layer import visible_reformulate
+  app\runtime\natural_response_layer.py:18:
+> app\runtime\natural_response_layer.py:19:def naturalize_response(answer: str, intent: dict, state: dict, autonomous: dict) -> str:
+  app\runtime\natural_response_layer.py:20:    user_id = state.get("user_id", "Roberto")
+  app\runtime\natural_response_layer.py:21:    name = "Roberto"
+  app\runtime\natural_response_layer.py:22:    focus = state.get("dominant_project", "MIND")
+  app\runtime\natural_response_layer.py:23:    msg = (state.get("last_unresolved_topic") or "").strip()
+  app\runtime\natural_response_layer.py:24:    msg_l = msg.lower()
+  app\runtime\natural_response_layer.py:25:    kind = short_message_type(msg)
+  app\runtime\natural_response_layer.py:26:
+  app\runtime\natural_response_layer.py:27:    follow = resolve_followup(user_id, msg)
+  app\runtime\natural_response_layer.py:28:    if follow.get("resolved"):
+> app\runtime\natural_response_layer.py:29:        out = visible_reformulate(follow["answer"], msg, focus)
+  app\runtime\natural_response_layer.py:30:        remember_response(user_id, out)
+  app\runtime\natural_response_layer.py:31:        update_dialogue_state(user_id, msg, out)
+  app\runtime\natural_response_layer.py:32:        return out
+  app\runtime\natural_response_layer.py:33:
+  app\runtime\natural_response_layer.py:34:    plan = autonomous.get("plan", {}).get("next_action", "avançar a próxima camada crítica")
+  app\runtime\natural_response_layer.py:35:
+  app\runtime\natural_response_layer.py:36:    if kind == "greeting":
+  app\runtime\natural_response_layer.py:37:        out = f"Oi, {name}. Estou aqui. O contexto do {focus} continua aberto."
+  app\runtime\natural_response_layer.py:38:    elif kind == "ack":
+  app\runtime\natural_response_layer.py:39:        out = f"Fechado. Seguimos com o {focus} sem reiniciar contexto."
+  app\runtime\natural_response_layer.py:40:    elif kind == "repetition_complaint":
+  app\runtime\natural_response_layer.py:41:        out = "Você tem razão. Eu estava repetindo em vez de responder. Vou corrigir isso: a partir daqui, respondo a pergunta direta primeiro."
+  app\runtime\natural_response_layer.py:42:    elif any(x in msg_l for x in ["mas nao ta funcionando","não ta funcionando","nao está funcionando","não está funcionando","ainda nao arrumou","ainda não arrumou"]):
+  app\runtime\natural_response_layer.py:43:        out = "Você tem razão. O problema é que ela voltou para frase genérica em vez de continuar o contexto. O conserto é continuidade conversacional e bloqueio de repetição."
+  app\runtime\natural_response_layer.py:44:    elif "qual seria" in msg_l:
+  app\runtime\natural_response_layer.py:45:        out = "O gargalo é a memória curta da conversa. Ela precisa lembrar o contexto anterior e responder o follow-up sem voltar para frase genérica."
+  app\runtime\natural_response_layer.py:46:    elif any(x in msg_l for x in ["quem eh vc","quem é vc","quem é você","quem e voce","quem é voce"]):
+  app\runtime\natural_response_layer.py:47:        out = "Sou a Eldora do MIND. Converso com contexto e continuidade, sem resetar a conversa."
+  app\runtime\natural_response_layer.py:48:    elif any(x in msg_l for x in ["como vai me ajudar","como vc vai me ajudar","como você vai me ajudar","me ajuda em que"]):
+  app\runtime\natural_response_layer.py:49:        out = "Vou te ajudar de forma prática: organizar suas ideias, lembrar contexto, transformar conversa em plano, explicar conteúdos, priorizar decisões e executar próximos passos sem perder o fio da conversa."
+  app\runtime\natural_response_layer.py:55:        out = f"Eu achei que foi um avanço real, {name}. A base funciona; agora o desafio é fazer a Eldora conversar melhor."
+  app\runtime\natural_response_layer.py:56:    elif intent.get("intent") in ["project_execution", "continuity_request"]:
+  app\runtime\natural_response_layer.py:57:        out = f"{name}, sigo no {focus}. Próximo passo: {plan}."
+  app\runtime\natural_response_layer.py:58:    else:
+> app\runtime\natural_response_layer.py:59:        out = answer if "Diagnóstico:" not in answer else semantic_recovery(msg)
+  app\runtime\natural_response_layer.py:60:
+  app\runtime\natural_response_layer.py:61:    if is_repeated(user_id, out):
+  app\runtime\natural_response_layer.py:62:        out = visible_reformulate(out, msg, focus)
+  app\runtime\natural_response_layer.py:63:
+  app\runtime\natural_response_layer.py:64:    update_dialogue_state(
+  app\runtime\natural_response_layer.py:65:        user_id,
+  app\runtime\natural_response_layer.py:66:        msg,
+  app\runtime\natural_response_layer.py:67:        out,
+  app\runtime\natural_response_layer.py:68:        claim="melhorar resposta visível antes de novas camadas",
+  app\runtime\natural_response_layer.py:69:        reasoning=None,
+  app\runtime\natural_response_layer.py:70:        confidence=0.90
+  app\runtime\natural_response_layer.py:71:    )
+  app\runtime\natural_response_layer.py:72:    remember_response(user_id, out)
+  app\runtime\natural_response_layer.py:73:    return out
+  app\runtime\natural_response_layer.py:74:
+  app\runtime\natural_response_layer.py:75:
+  app\runtime\natural_response_layer.py:76:
+  app\runtime\natural_response_layer.py:77:
+  app\runtime\natural_response_layer.py:78:
+  app\runtime\natural_response_layer.py:79:
+
