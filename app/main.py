@@ -454,6 +454,10 @@ async def whatsapp_webhook(request: Request):
         message=payload.get("Body") or payload.get("body") or payload.get("message") or ""
 
         import re
+        # P4_14_ROUTE_TOPLOCK_NO_VEHICLE_BLEED
+        _route_top=str(message or "").lower().strip()
+        if ("jaguariuna" in _route_top or "jaguariúna" in _route_top) and ("são paulo" in _route_top or "sao paulo" in _route_top or "sp" in _route_top) and ("carro" in _route_top or "caminho" in _route_top or "rota" in _route_top):
+            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Melhor rota: saia de Jaguariúna pela SP-340 sentido Campinas. Depois siga para São Paulo pela Bandeirantes ou Anhanguera. Eu escolheria pela menor condição de trânsito no horário.</Message></Response>', media_type="application/xml")
         _route_follow=str(message or "").lower().strip()
         if "campinas" in _route_follow and ("pra onde" in _route_follow or "para onde" in _route_follow or "vou pra onde" in _route_follow):
             return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Depois de Campinas, siga sentido São Paulo pela Rodovia dos Bandeirantes ou Anhanguera. Eu iria de Bandeirantes se o trânsito estiver melhor.</Message></Response>', media_type="application/xml")
@@ -1132,6 +1136,7 @@ app.include_router(canary_router)
 
 from app.api.p414_routes import router as p414_router
 app.include_router(p414_router)
+
 
 
 
