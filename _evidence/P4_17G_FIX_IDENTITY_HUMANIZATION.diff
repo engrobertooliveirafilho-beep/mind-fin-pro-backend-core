@@ -1,0 +1,20 @@
+diff --git a/app/runtime/real_humanization_runtime.py b/app/runtime/real_humanization_runtime.py
+index b44f640..24de05f 100644
+--- a/app/runtime/real_humanization_runtime.py
++++ b/app/runtime/real_humanization_runtime.py
+@@ -9,8 +9,8 @@ def clamp(v: float) -> float:
+ def rewrite_robotic(answer: str) -> str:
+     out = str(answer or "")
+     replacements = {
+-        "Sou a Eldora": "Estou aqui",
+-        "sou a eldora": "estou aqui",
++        "Sou a Eldora": "Sou a Eldora",
++        "sou a eldora": "sou a eldora",
+         "Como posso ajudar?": "Me fala o que voc├¬ quer resolver.",
+         "como posso ajudar": "me fala o que voc├¬ quer resolver",
+         "posso auxiliar": "vamos resolver",
+@@ -80,3 +80,4 @@ def real_humanization_runtime(user_message: str, draft_answer: str, context: dic
+         },
+         "ELDORA_REAL_HUMANIZATION_ACTIVE": True
+     }
++
