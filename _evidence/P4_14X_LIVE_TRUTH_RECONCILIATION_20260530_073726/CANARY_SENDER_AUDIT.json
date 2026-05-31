@@ -1,0 +1,447 @@
+[
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\.env",
+    "LineNumber": 2,
+    "Line": "ALLOWLIST_NUMBERS=whatsapp:+5519996166906"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\.env",
+    "LineNumber": 3,
+    "Line": "CANARY_MODE=true"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\.env",
+    "LineNumber": 4,
+    "Line": "CANARY_SAMPLE_TARGET=300"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\.env",
+    "LineNumber": 5,
+    "Line": "CANARY_MIN_SCORE=8.5"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\.env",
+    "LineNumber": 6,
+    "Line": "CANARY_MAX_FALLBACK_RATE=0.03"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\.env",
+    "LineNumber": 7,
+    "Line": "CANARY_KILL_SWITCH=true"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\.env",
+    "LineNumber": 8,
+    "Line": "CANARY_AUTO_SCORE=true"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\.env",
+    "LineNumber": 9,
+    "Line": "CANARY_TRACE=true"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\.env",
+    "LineNumber": 10,
+    "Line": "CANARY_LEDGER_PATH=_evidence/runtime_canary"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\.env",
+    "LineNumber": 11,
+    "Line": "CANARY_PERSONA_BREAK_THRESHOLD=0.02"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\_emoji_codes.py",
+    "LineNumber": 54,
+    "Line": "    \"canary_islands\": \"🇮🇨\","
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\_emoji_codes.py",
+    "LineNumber": 3039,
+    "Line": "    \"flag_for_canary_islands\": \"🇮🇨\","
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "LineNumber": 3,
+    "Line": "    from app.runtime.ucce_canary_router import should_use_ucce, CANARY_ENABLED, CANARY_PERCENT, ALLOWLIST"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "LineNumber": 4,
+    "Line": "    from app.runtime.ucce_canary_trace import trace_canary, get_last_canary_trace"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "LineNumber": 184,
+    "Line": "from app.runtime.canary_gate import canary_allowed, semantic_enabled, log_canary"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "LineNumber": 318,
+    "Line": "@app.get(\"/ucce/canary-trace\")"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "LineNumber": 319,
+    "Line": "def ucce_canary_trace_route():"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "LineNumber": 321,
+    "Line": "        return get_last_canary_trace()"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "LineNumber": 457,
+    "Line": "        p4_13k_reply = route_semantic_whatsapp(message, sender_id) if (semantic_enabled() and canary_allowed(sender_id)) else ''"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "LineNumber": 459,
+    "Line": "            log_canary(sender_id, message, p4_13k_reply); return Response(content=_p412n_normalize_xml_response(message if \"message\" in locals() else \"\", primary_twiml(p4_13k_reply)), media_type=\"application/xml\")"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "LineNumber": 521,
+    "Line": "                trace_canary("
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "LineNumber": 524,
+    "Line": "                    CANARY_ENABLED,"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "LineNumber": 525,
+    "Line": "                    CANARY_PERCENT,"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "LineNumber": 732,
+    "Line": "                        trace_canary("
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "LineNumber": 735,
+    "Line": "                            CANARY_ENABLED,"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "LineNumber": 736,
+    "Line": "                            CANARY_PERCENT,"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "LineNumber": 1094,
+    "Line": "from app.api.canary_routes import router as canary_router"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "LineNumber": 1095,
+    "Line": "app.include_router(canary_router)"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "LineNumber": 1098,
+    "Line": "from app.api.p414_routes import router as p414_router"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "LineNumber": 1099,
+    "Line": "app.include_router(p414_router)"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\admin\\semantic_activation.py",
+    "LineNumber": 77,
+    "Line": "            rows=sr.search(\"whatsapp:+5519996166906\",q,8)"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\admin\\semantic_activation.py",
+    "LineNumber": 138,
+    "Line": "    sender_id=payload.get(\"sender_id\",\"whatsapp:+5519996166906\")"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\admin\\semantic_activation.py",
+    "LineNumber": 183,
+    "Line": "    sender_id = payload.get(\"sender_id\",\"whatsapp:+5519996166906\")"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\api\\canary_routes.py",
+    "LineNumber": 2,
+    "Line": "from app.runtime.canary_gate import canary_health"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\api\\canary_routes.py",
+    "LineNumber": 6,
+    "Line": "@router.get(\"/health/canary\")"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\api\\canary_routes.py",
+    "LineNumber": 7,
+    "Line": "def health_canary():"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\api\\canary_routes.py",
+    "LineNumber": 8,
+    "Line": "    return canary_health()"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\api\\p414_routes.py",
+    "LineNumber": 2,
+    "Line": "from app.runtime.canary_gate import canary_health"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\api\\p414_routes.py",
+    "LineNumber": 5,
+    "Line": "@router.get(\"/health/p414\")"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\api\\p414_routes.py",
+    "LineNumber": 6,
+    "Line": "def p414_health():"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\api\\p414_routes.py",
+    "LineNumber": 7,
+    "Line": "    return canary_health()"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\canary_gate.py",
+    "LineNumber": 4,
+    "Line": "LEDGER = Path(\"_evidence/CANARY_RUNTIME_LEDGER.jsonl\")"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\canary_gate.py",
+    "LineNumber": 6,
+    "Line": "def canary_allowed(sender_id: str) -> bool:"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\canary_gate.py",
+    "LineNumber": 7,
+    "Line": "    raw = os.getenv(\"CANARY_ALLOWED_SENDERS\", \"\").strip()"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\canary_gate.py",
+    "LineNumber": 28,
+    "Line": "def log_canary(sender_id: str, message: str, reply: str, provider: str = \"\", extra: dict | None = None):"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\canary_gate.py",
+    "LineNumber": 43,
+    "Line": "def canary_health():"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\canary_gate.py",
+    "LineNumber": 51,
+    "Line": "        \"status\": \"CANARY_HEALTH\","
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\canary_gate.py",
+    "LineNumber": 53,
+    "Line": "        \"allowlist_configured\": bool(os.getenv(\"CANARY_ALLOWED_SENDERS\", \"\").strip()),"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\canary_gate.py",
+    "LineNumber": 58,
+    "Line": "        \"ready_for_p414\": bool(total >= 10 and avg and avg >= 8.5 and fallback/total < 0.03),"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\context_priority_engine.py",
+    "LineNumber": 8,
+    "Line": "        return \"Sim. Fizemos Render live, WhatsApp webhook, Supabase/memória, multi-provider com 14 IAs, UX guard, canary health e ledger de evidências.\""
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\context_priority_engine.py",
+    "LineNumber": 11,
+    "Line": "        return \"Sim. A parte técnica subiu: multi-provider, WhatsApp, UX guard e canary. Falta fechar memória contextual/persona antes do P4.14.\""
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\ucce_canary_router.py",
+    "LineNumber": 3,
+    "Line": "CANARY_ENABLED=os.getenv(\"UCCE_CANARY_ENABLED\",\"false\").lower()==\"true\""
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\ucce_canary_router.py",
+    "LineNumber": 4,
+    "Line": "CANARY_PERCENT=int(os.getenv(\"UCCE_CANARY_PERCENT\",\"10\"))"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\ucce_canary_router.py",
+    "LineNumber": 5,
+    "Line": "ALLOWLIST=set(filter(None,os.getenv(\"UCCE_CANARY_ALLOWLIST\",\"\").split(\",\")))"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\ucce_canary_router.py",
+    "LineNumber": 8,
+    "Line": "    if not CANARY_ENABLED:"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\ucce_canary_router.py",
+    "LineNumber": 17,
+    "Line": "    return bucket < CANARY_PERCENT"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\ucce_canary_trace.py",
+    "LineNumber": 3,
+    "Line": "LAST_CANARY_TRACE={}"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\ucce_canary_trace.py",
+    "LineNumber": 5,
+    "Line": "def trace_canary(sender, message, enabled, percent, allowlist, decision, branch):"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\ucce_canary_trace.py",
+    "LineNumber": 6,
+    "Line": "    global LAST_CANARY_TRACE"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\ucce_canary_trace.py",
+    "LineNumber": 7,
+    "Line": "    LAST_CANARY_TRACE={"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\ucce_canary_trace.py",
+    "LineNumber": 17,
+    "Line": "    return LAST_CANARY_TRACE"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\ucce_canary_trace.py",
+    "LineNumber": 19,
+    "Line": "def get_last_canary_trace():"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\ucce_canary_trace.py",
+    "LineNumber": 20,
+    "Line": "    return LAST_CANARY_TRACE"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\universal_contextual_continuity_engine.py",
+    "LineNumber": 55,
+    "Line": "        s[\"last_open_task\"]=\"acompanhar deploy/canary\""
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\universal_contextual_continuity_engine.py",
+    "LineNumber": 76,
+    "Line": "            reply=\"As implantações estão parcialmente validadas: Render sincronizou e UCCE entrou no canary, mas a memória contextual ainda falhou no WhatsApp.\""
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\tests\\test_fix11l2h_webhook_identity_toplock.py",
+    "LineNumber": 6,
+    "Line": "    r = client.post(\"/webhook/whatsapp\", data={\"From\":\"whatsapp:+5519996166906\",\"Body\":\"Quem é vc?\"})"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\tests\\test_fix11l2i_webhook_followup_toplock.py",
+    "LineNumber": 6,
+    "Line": "    r = client.post(\"/webhook/whatsapp\", data={\"From\":\"whatsapp:+5519996166906\",\"Body\":\"Aprofunde\"})"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\_evidence\\P4_13G_20260529_113601\\FACTUAL_ROUTING_AUDIT.json",
+    "LineNumber": 7,
+    "Line": "  \"from\": \"whatsapp:+5519996166906\","
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\_evidence\\P4_13G_20260529_113601\\FACTUAL_ROUTING_AUDIT.json",
+    "LineNumber": 8,
+    "Line": "  \"p4_14_status\": \"CANARY_READY_AFTER_REAL_WEBHOOK_CONFIRMATION\","
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\_evidence\\P4_13G_20260529_113601\\FINAL_TRUTH_LEDGER.json",
+    "LineNumber": 7,
+    "Line": "  \"from\": \"whatsapp:+5519996166906\","
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\_evidence\\P4_13G_20260529_113601\\FINAL_TRUTH_LEDGER.json",
+    "LineNumber": 8,
+    "Line": "  \"p4_14_status\": \"CANARY_READY_AFTER_REAL_WEBHOOK_CONFIRMATION\","
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\_evidence\\P4_13G_20260529_113601\\P4_13G_LIVE_UX_REPORT.json",
+    "LineNumber": 3,
+    "Line": "    \"from\": \"whatsapp:+5519996166906\","
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\_evidence\\P4_13G_20260529_113601\\P4_13G_LIVE_UX_REPORT.json",
+    "LineNumber": 10,
+    "Line": "    \"from\": \"whatsapp:+5519996166906\","
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\_evidence\\P4_13G_20260529_113601\\P4_13G_LIVE_UX_REPORT.json",
+    "LineNumber": 17,
+    "Line": "    \"from\": \"whatsapp:+5519996166906\","
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\_evidence\\P4_13G_20260529_113601\\P4_13G_LIVE_UX_REPORT.json",
+    "LineNumber": 24,
+    "Line": "    \"from\": \"whatsapp:+5519996166906\","
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\_evidence\\P4_13G_20260529_113601\\P4_13G_LIVE_UX_REPORT.json",
+    "LineNumber": 31,
+    "Line": "    \"from\": \"whatsapp:+5519996166906\","
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\_evidence\\P4_13G_20260529_113601\\P4_13G_LIVE_UX_REPORT.json",
+    "LineNumber": 38,
+    "Line": "    \"from\": \"whatsapp:+5519996166906\","
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\_evidence\\P4_13G_20260529_113601\\P4_13G_LIVE_UX_REPORT.json",
+    "LineNumber": 45,
+    "Line": "    \"from\": \"whatsapp:+5519996166906\","
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\_evidence\\P4_13G_20260529_113601\\P4_13G_LIVE_UX_REPORT.json",
+    "LineNumber": 52,
+    "Line": "    \"from\": \"whatsapp:+5519996166906\","
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\_evidence\\P4_13G_20260529_113601\\P4_13G_LIVE_UX_REPORT.json",
+    "LineNumber": 59,
+    "Line": "    \"from\": \"whatsapp:+5519996166906\","
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\_evidence\\P4_13G_20260529_113601\\P4_13G_LIVE_UX_REPORT.json",
+    "LineNumber": 66,
+    "Line": "    \"from\": \"whatsapp:+5519996166906\","
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\_evidence\\P4_13G_20260529_113601\\SOCIAL_NATURALITY_AUDIT.json",
+    "LineNumber": 7,
+    "Line": "  \"from\": \"whatsapp:+5519996166906\","
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\_evidence\\P4_13G_20260529_113601\\SOCIAL_NATURALITY_AUDIT.json",
+    "LineNumber": 8,
+    "Line": "  \"p4_14_status\": \"CANARY_READY_AFTER_REAL_WEBHOOK_CONFIRMATION\","
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\_evidence\\P4_13K_MULTI_PROVIDER_LIVE_20260529_162417\\FINAL_TRUTH_LEDGER.json",
+    "LineNumber": 11,
+    "Line": "  \"p414\": \"READY_FOR_CANARY_PREP\""
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\_evidence\\P4_13L_CANARY_GATE_20260530_052226\\FINAL_TRUTH_LEDGER.json",
+    "LineNumber": 4,
+    "Line": "  \"p414\": \"READY_CANARY_BETA_CONTROLLED\","
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\_evidence\\P4_13L_CANARY_GATE_20260530_052226\\FINAL_TRUTH_LEDGER.json",
+    "LineNumber": 7,
+    "Line": "  \"ready_for_p414\": true,"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\_evidence\\P4_14_CANARY_BETA_20260530_053524\\FINAL_TRUTH_LEDGER.json",
+    "LineNumber": 3,
+    "Line": "  \"ready_for_p414\": true,"
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\_evidence\\P4_14_CANARY_BETA_20260530_053524\\FINAL_TRUTH_LEDGER.json",
+    "LineNumber": 4,
+    "Line": "  \"status\": \"CANARY_INITIAL_GATE_PASS\","
+  },
+  {
+    "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\_evidence\\P4_14_CANARY_BETA_20260530_053524\\FINAL_TRUTH_LEDGER.json",
+    "LineNumber": 5,
+    "Line": "  \"phase\": \"P4.14\","
+  }
+]
