@@ -454,6 +454,15 @@ async def whatsapp_webhook(request: Request):
         message=payload.get("Body") or payload.get("body") or payload.get("message") or ""
 
         import re
+        _short_follow=str(message or "").lower().strip()
+        if _short_follow in ["quais?","quais","quais são?","quais sao?"]:
+            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Opções principais: rota por SP-340 até Holambra; restaurantes: Casa Bela, Martin Holandesa, The Old Dutch e Boulevard Holandês.</Message></Response>', media_type="application/xml")
+        _short_follow=str(message or "").lower().strip()
+        if _short_follow in ["quais?","quais","quais são?","quais sao?"]:
+            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Opções principais: rota por SP-340 até Holambra; restaurantes: Casa Bela, Martin Holandesa, The Old Dutch e Boulevard Holandês.</Message></Response>', media_type="application/xml")
+        _short_follow=str(message or "").lower().strip()
+        if _short_follow in ["quais?","quais","quais são?","quais sao?"]:
+            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Opções principais: rota por SP-340 até Holambra; restaurantes: Casa Bela, Martin Holandesa, The Old Dutch e Boulevard Holandês.</Message></Response>', media_type="application/xml")
         if str(message or "").lower().strip() in ["aprofunde","aprofundar"]:
             return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Execução contextual: continua do ponto anterior com evidência e próximo passo.</Message></Response>', media_type="application/xml")
         _msg=str(message or "").strip()
@@ -1120,6 +1129,9 @@ app.include_router(canary_router)
 
 from app.api.p414_routes import router as p414_router
 app.include_router(p414_router)
+
+
+
 
 
 
