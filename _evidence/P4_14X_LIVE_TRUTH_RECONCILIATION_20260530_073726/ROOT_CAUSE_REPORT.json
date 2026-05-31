@@ -1,0 +1,51 @@
+{
+  "head_local": "a4864dab5e06d11fd269cb5f771ef2bedd2e5b98",
+  "head_github": "a4864dab5e06d11fd269cb5f771ef2bedd2e5b98",
+  "version_live": {
+    "commit": "a4864da",
+    "runtime": "neura_runtime_live"
+  },
+  "sender": "whatsapp:+5519996166906",
+  "live_messages": [
+    {
+      "sender": "whatsapp:+5519996166906",
+      "message": "Bom dia",
+      "reply": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Bom dia!</Message></Response>",
+      "timestamp": "2026-05-30T07:40:25"
+    },
+    {
+      "sender": "whatsapp:+5519996166906",
+      "message": "Tudo bem?",
+      "reply": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Tudo bem, obrigado!</Message></Response>",
+      "timestamp": "2026-05-30T07:40:27"
+    },
+    {
+      "sender": "whatsapp:+5519996166906",
+      "message": "Eu tô bem",
+      "reply": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Que bom saber que você está bem!</Message></Response>",
+      "timestamp": "2026-05-30T07:40:28"
+    },
+    {
+      "sender": "whatsapp:+5519996166906",
+      "message": "Qual seu nome?",
+      "reply": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Eu sou o ChatGPT, um modelo de linguagem desenvolvido pela OpenAI.</Message></Response>",
+      "timestamp": "2026-05-30T07:40:29"
+    },
+    {
+      "sender": "whatsapp:+5519996166906",
+      "message": "quais os pontos fortes da BMW K1300",
+      "reply": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Olha, essa moto pode ser uma boa compra se estiver inteira. Claro! Antes de animar, se fosse eu, olharia manutenção, elétrica, suspensão e documento.</Message></Response>",
+      "timestamp": "2026-05-30T07:40:32"
+    },
+    {
+      "sender": "whatsapp:+5519996166906",
+      "message": "quanto é 5/4",
+      "reply": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Olha, essa moto pode ser uma boa compra se estiver inteira. Oi, Roberto! Antes de animar, se fosse eu, olharia manutenção, elétrica, suspensão e documento.</Message></Response>",
+      "timestamp": "2026-05-30T07:40:34"
+    }
+  ],
+  "string_origin_found": 4.0,
+  "runtime_trace_entries": 56,
+  "canary_hits": 89,
+  "abort": false
+}
