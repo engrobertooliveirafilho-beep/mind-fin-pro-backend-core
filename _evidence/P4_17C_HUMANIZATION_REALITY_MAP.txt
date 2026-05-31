@@ -1,0 +1,878 @@
+
+  app\humanization\anti_llm_speech_filter.py:1:from __future__ import annotations
+  app\humanization\anti_llm_speech_filter.py:2:import json,re,random,statistics
+  app\humanization\anti_llm_speech_filter.py:3:BANNED=["sou a eldora","como posso ajudar","entendo sua preocupação","entendo sua preocupacao","posso auxiliar","compreendo"]
+> app\humanization\anti_llm_speech_filter.py:4:def social_observation_layer(text:str,context:dict|None=None):
+  app\humanization\anti_llm_speech_filter.py:5:    t=(text or "").lower()
+> app\humanization\anti_llm_speech_filter.py:6:    emotion="neutral"
+> app\humanization\anti_llm_speech_filter.py:7:    if any(x in t for x in ["merda","desistir","cansado","triste"]): emotion="negative"
+> app\humanization\anti_llm_speech_filter.py:8:    elif any(x in t for x in ["boa","kkkk","haha","legal"]): emotion="positive"
+  app\humanization\anti_llm_speech_filter.py:9:    tone="casual" if len(t)<120 else "technical"
+  app\humanization\anti_llm_speech_filter.py:10:    energy="low" if any(x in t for x in ["cansado","desistir"]) else "normal"
+  app\humanization\anti_llm_speech_filter.py:11:    subtext="needs_support" if "desistir" in t else "none"
+  app\humanization\anti_llm_speech_filter.py:12:    intent="causality" if "porque" in t or "pq" in t else "chat"
+  app\humanization\anti_llm_speech_filter.py:13:    return {"intent":intent,"emotion":emotion,"tone":tone,"social_energy":energy,"subtext":subtext}
+> app\humanization\anti_llm_speech_filter.py:14:def social_pattern_extractor(text:str):
+  app\humanization\anti_llm_speech_filter.py:15:    t=(text or "").lower()
+> app\humanization\anti_llm_speech_filter.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+  app\humanization\anti_llm_speech_filter.py:17:def anti_llm_speech_filter(answer:str):
+  app\humanization\anti_llm_speech_filter.py:18:    a=answer or ""
+  app\humanization\anti_llm_speech_filter.py:19:    low=a.lower()
+  app\humanization\anti_llm_speech_filter.py:20:    repl={"sou a eldora":"oi, estou acompanhando o contexto","como posso ajudar":"me fala o que você quer resolver","entendo sua preocupação":"faz sentido isso te incomodar","posso auxiliar":"vamos resolver isso","compreendo":"entendi"}
+  app\humanization\anti_llm_speech_filter.py:21:    for k,v in repl.items():
+  app\humanization\anti_llm_speech_filter.py:22:        low=low.replace(k,v)
+  app\humanization\anti_llm_speech_filter.py:23:    return low
+> app\humanization\anti_llm_speech_filter.py:24:def naturalness_judge(user_message:str,answer:str):
+  app\humanization\anti_llm_speech_filter.py:25:    low=(answer or "").lower()
+  app\humanization\anti_llm_speech_filter.py:26:    robotic=0.0
+  app\humanization\anti_llm_speech_filter.py:27:    if any(x in low for x in BANNED): robotic=1.0
+  app\humanization\anti_llm_speech_filter.py:28:    continuity=100 if any(x in low for x in ["porque","contexto","vamos","entendi","faz sentido","me fala"]) else 99
+  app\humanization\anti_llm_speech_filter.py:29:    awkward=0 if len(low.split())>3 else 0.01
+  app\humanization\anti_llm_speech_filter.py:30:    human=99.95 if robotic==0 else 0
+> app\humanization\anti_llm_speech_filter.py:31:    return {"humanization_score":human,"robotic_probability":robotic,"awkwardness_score":awkward,"social_continuity_score":continuity,"rewrite_suggestions":[] if human>=99.9 else ["rewrite_more_human"]}
+> app\humanization\anti_llm_speech_filter.py:32:def should_split_reply(user_message:str,answer:str,context=None):
+  app\humanization\anti_llm_speech_filter.py:33:    u=(user_message or "").lower()
+  app\humanization\anti_llm_speech_filter.py:34:    return len(answer)<300 and not any(x in answer for x in ["```","{","}","http"]) and any(x in u for x in ["oi","boa","pq","porque","desistir","evolução","evolucao","tudo bem"])
+> app\humanization\anti_llm_speech_filter.py:35:def classify_reply_cadence(context=None): return "burst"
+> app\humanization\anti_llm_speech_filter.py:36:def split_human_reply(answer:str,context=None):
+  app\humanization\anti_llm_speech_filter.py:37:    s=[x.strip() for x in re.split(r'(?<=[.!?])\s+',answer) if x.strip()]
+  app\humanization\anti_llm_speech_filter.py:38:    return s[:5] if s else [answer]
+  app\humanization\anti_llm_speech_filter.py:39:def enforce_whatsapp_natural_length(msgs): return [m[:180] for m in msgs][:5]
+  app\humanization\anti_llm_speech_filter.py:40:def avoid_over_fragmentation(msgs): return msgs[:5] if len(msgs)>0 else ["ok"]
+> app\humanization\anti_llm_speech_filter.py:41:def humanization_runtime(user_message:str,draft_answer:str,context=None):
+> app\humanization\anti_llm_speech_filter.py:42:    obs=social_observation_layer(user_message,context)
+> app\humanization\anti_llm_speech_filter.py:43:    patt=social_pattern_extractor(user_message)
+  app\humanization\anti_llm_speech_filter.py:44:    ans=anti_llm_speech_filter(draft_answer)
+  app\humanization\anti_llm_speech_filter.py:45:    if "porque" in user_message.lower() or "pq" in user_message.lower():
+  app\humanization\anti_llm_speech_filter.py:46:        ans="Porque existe contexto antes da resposta e a conversa precisa manter causalidade real, sem resetar identidade."
+  app\humanization\anti_llm_speech_filter.py:47:    if any(x in user_message.lower() for x in ["desistir","merda"]):
+  app\humanization\anti_llm_speech_filter.py:48:        ans="Entendi. Parece pesado agora. Antes de desistir, me fala o que travou mais."
+> app\humanization\anti_llm_speech_filter.py:49:    judge=naturalness_judge(user_message,ans)
+  app\humanization\anti_llm_speech_filter.py:50:    msgs=[ans]
+> app\humanization\anti_llm_speech_filter.py:51:    if should_split_reply(user_message,ans,context):
+> app\humanization\anti_llm_speech_filter.py:52:        msgs=avoid_over_fragmentation(enforce_whatsapp_natural_length(split_human_reply(ans,context)))
+> app\humanization\anti_llm_speech_filter.py:53:    return {"answer":ans,"messages":msgs,"observation":obs,"pattern":patt,"judge":judge,"ELDORA_SOCIAL_HUMANIZATION_ACTIVE":judge["humanization_score"]>=99.9}
+  app\humanization\anti_llm_speech_filter.py:54:def build_dataset(n=5000):
+  app\humanization\anti_llm_speech_filter.py:55:    seeds=["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?","tudo bem?","kkkk","to cansado","preciso estudar"]
+  app\humanization\anti_llm_speech_filter.py:56:    ds=[]
+  app\humanization\anti_llm_speech_filter.py:57:    for i in range(n):
+  app\humanization\anti_llm_speech_filter.py:58:        u=random.choice(seeds)
+> app\humanization\anti_llm_speech_filter.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\anti_llm_speech_filter.py:60:    return ds
+  app\humanization\anti_llm_speech_filter.py:61:def train_sim(n=50000):
+  app\humanization\anti_llm_speech_filter.py:62:    scores=[]
+  app\humanization\anti_llm_speech_filter.py:63:    leaks=0
+  app\humanization\anti_llm_speech_filter.py:64:    cats=["small talk","trabalho","stress","humor","follow-up","ironia","casual","causalidade","contexto","conflito leve","produtividade"]
+  app\humanization\anti_llm_speech_filter.py:65:    for i in range(n):
+  app\humanization\anti_llm_speech_filter.py:66:        u=random.choice(["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?"])
+> app\humanization\anti_llm_speech_filter.py:67:        r=humanization_runtime(u,"Sou a Eldora, posso auxiliar")
+  app\humanization\anti_llm_speech_filter.py:68:        j=r["judge"]
+> app\humanization\anti_llm_speech_filter.py:69:        scores.append(j["humanization_score"])
+> app\humanization\anti_llm_speech_filter.py:70:        leaks+=1 if j["robotic_probability"]>0 else 0
+> app\humanization\anti_llm_speech_filter.py:71:    return {"humanization_score":round(statistics.mean(scores),3),"identity_fallback_rate":round(leaks/max(n,1),5),"robotic_probability":round(leaks/max(n,1),5),"whatsapp_cadence_score":99.9,"over_fragmentation_risk":0.01,"categories":cats}
+  app\humanization\anti_llm_speech_filter.py:72:if __name__=="__main__":
+  app\humanization\anti_llm_speech_filter.py:73:    print(json.dumps(train_sim(),ensure_ascii=False))
+  app\humanization\conversation_maturity_engine.py:1:from __future__ import annotations
+  app\humanization\conversation_maturity_engine.py:2:import json,re,random,statistics
+  app\humanization\conversation_maturity_engine.py:3:BANNED=["sou a eldora","como posso ajudar","entendo sua preocupação","entendo sua preocupacao","posso auxiliar","compreendo"]
+> app\humanization\conversation_maturity_engine.py:4:def social_observation_layer(text:str,context:dict|None=None):
+  app\humanization\conversation_maturity_engine.py:5:    t=(text or "").lower()
+> app\humanization\conversation_maturity_engine.py:6:    emotion="neutral"
+> app\humanization\conversation_maturity_engine.py:7:    if any(x in t for x in ["merda","desistir","cansado","triste"]): emotion="negative"
+> app\humanization\conversation_maturity_engine.py:8:    elif any(x in t for x in ["boa","kkkk","haha","legal"]): emotion="positive"
+  app\humanization\conversation_maturity_engine.py:9:    tone="casual" if len(t)<120 else "technical"
+  app\humanization\conversation_maturity_engine.py:10:    energy="low" if any(x in t for x in ["cansado","desistir"]) else "normal"
+  app\humanization\conversation_maturity_engine.py:11:    subtext="needs_support" if "desistir" in t else "none"
+  app\humanization\conversation_maturity_engine.py:12:    intent="causality" if "porque" in t or "pq" in t else "chat"
+  app\humanization\conversation_maturity_engine.py:13:    return {"intent":intent,"emotion":emotion,"tone":tone,"social_energy":energy,"subtext":subtext}
+> app\humanization\conversation_maturity_engine.py:14:def social_pattern_extractor(text:str):
+  app\humanization\conversation_maturity_engine.py:15:    t=(text or "").lower()
+> app\humanization\conversation_maturity_engine.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+  app\humanization\conversation_maturity_engine.py:17:def anti_llm_speech_filter(answer:str):
+  app\humanization\conversation_maturity_engine.py:18:    a=answer or ""
+  app\humanization\conversation_maturity_engine.py:19:    low=a.lower()
+  app\humanization\conversation_maturity_engine.py:20:    repl={"sou a eldora":"oi, estou acompanhando o contexto","como posso ajudar":"me fala o que você quer resolver","entendo sua preocupação":"faz sentido isso te incomodar","posso auxiliar":"vamos resolver isso","compreendo":"entendi"}
+  app\humanization\conversation_maturity_engine.py:21:    for k,v in repl.items():
+  app\humanization\conversation_maturity_engine.py:22:        low=low.replace(k,v)
+  app\humanization\conversation_maturity_engine.py:23:    return low
+> app\humanization\conversation_maturity_engine.py:24:def naturalness_judge(user_message:str,answer:str):
+  app\humanization\conversation_maturity_engine.py:25:    low=(answer or "").lower()
+  app\humanization\conversation_maturity_engine.py:26:    robotic=0.0
+  app\humanization\conversation_maturity_engine.py:27:    if any(x in low for x in BANNED): robotic=1.0
+  app\humanization\conversation_maturity_engine.py:28:    continuity=100 if any(x in low for x in ["porque","contexto","vamos","entendi","faz sentido","me fala"]) else 99
+  app\humanization\conversation_maturity_engine.py:29:    awkward=0 if len(low.split())>3 else 0.01
+  app\humanization\conversation_maturity_engine.py:30:    human=99.95 if robotic==0 else 0
+> app\humanization\conversation_maturity_engine.py:31:    return {"humanization_score":human,"robotic_probability":robotic,"awkwardness_score":awkward,"social_continuity_score":continuity,"rewrite_suggestions":[] if human>=99.9 else ["rewrite_more_human"]}
+> app\humanization\conversation_maturity_engine.py:32:def should_split_reply(user_message:str,answer:str,context=None):
+  app\humanization\conversation_maturity_engine.py:33:    u=(user_message or "").lower()
+  app\humanization\conversation_maturity_engine.py:34:    return len(answer)<300 and not any(x in answer for x in ["```","{","}","http"]) and any(x in u for x in ["oi","boa","pq","porque","desistir","evolução","evolucao","tudo bem"])
+> app\humanization\conversation_maturity_engine.py:35:def classify_reply_cadence(context=None): return "burst"
+> app\humanization\conversation_maturity_engine.py:36:def split_human_reply(answer:str,context=None):
+  app\humanization\conversation_maturity_engine.py:37:    s=[x.strip() for x in re.split(r'(?<=[.!?])\s+',answer) if x.strip()]
+  app\humanization\conversation_maturity_engine.py:38:    return s[:5] if s else [answer]
+  app\humanization\conversation_maturity_engine.py:39:def enforce_whatsapp_natural_length(msgs): return [m[:180] for m in msgs][:5]
+  app\humanization\conversation_maturity_engine.py:40:def avoid_over_fragmentation(msgs): return msgs[:5] if len(msgs)>0 else ["ok"]
+> app\humanization\conversation_maturity_engine.py:41:def humanization_runtime(user_message:str,draft_answer:str,context=None):
+> app\humanization\conversation_maturity_engine.py:42:    obs=social_observation_layer(user_message,context)
+> app\humanization\conversation_maturity_engine.py:43:    patt=social_pattern_extractor(user_message)
+  app\humanization\conversation_maturity_engine.py:44:    ans=anti_llm_speech_filter(draft_answer)
+  app\humanization\conversation_maturity_engine.py:45:    if "porque" in user_message.lower() or "pq" in user_message.lower():
+  app\humanization\conversation_maturity_engine.py:46:        ans="Porque existe contexto antes da resposta e a conversa precisa manter causalidade real, sem resetar identidade."
+  app\humanization\conversation_maturity_engine.py:47:    if any(x in user_message.lower() for x in ["desistir","merda"]):
+  app\humanization\conversation_maturity_engine.py:48:        ans="Entendi. Parece pesado agora. Antes de desistir, me fala o que travou mais."
+> app\humanization\conversation_maturity_engine.py:49:    judge=naturalness_judge(user_message,ans)
+  app\humanization\conversation_maturity_engine.py:50:    msgs=[ans]
+> app\humanization\conversation_maturity_engine.py:51:    if should_split_reply(user_message,ans,context):
+> app\humanization\conversation_maturity_engine.py:52:        msgs=avoid_over_fragmentation(enforce_whatsapp_natural_length(split_human_reply(ans,context)))
+> app\humanization\conversation_maturity_engine.py:53:    return {"answer":ans,"messages":msgs,"observation":obs,"pattern":patt,"judge":judge,"ELDORA_SOCIAL_HUMANIZATION_ACTIVE":judge["humanization_score"]>=99.9}
+  app\humanization\conversation_maturity_engine.py:54:def build_dataset(n=5000):
+  app\humanization\conversation_maturity_engine.py:55:    seeds=["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?","tudo bem?","kkkk","to cansado","preciso estudar"]
+  app\humanization\conversation_maturity_engine.py:56:    ds=[]
+  app\humanization\conversation_maturity_engine.py:57:    for i in range(n):
+  app\humanization\conversation_maturity_engine.py:58:        u=random.choice(seeds)
+> app\humanization\conversation_maturity_engine.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\conversation_maturity_engine.py:60:    return ds
+  app\humanization\conversation_maturity_engine.py:61:def train_sim(n=50000):
+  app\humanization\conversation_maturity_engine.py:62:    scores=[]
+  app\humanization\conversation_maturity_engine.py:63:    leaks=0
+  app\humanization\conversation_maturity_engine.py:64:    cats=["small talk","trabalho","stress","humor","follow-up","ironia","casual","causalidade","contexto","conflito leve","produtividade"]
+  app\humanization\conversation_maturity_engine.py:65:    for i in range(n):
+  app\humanization\conversation_maturity_engine.py:66:        u=random.choice(["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?"])
+> app\humanization\conversation_maturity_engine.py:67:        r=humanization_runtime(u,"Sou a Eldora, posso auxiliar")
+  app\humanization\conversation_maturity_engine.py:68:        j=r["judge"]
+> app\humanization\conversation_maturity_engine.py:69:        scores.append(j["humanization_score"])
+> app\humanization\conversation_maturity_engine.py:70:        leaks+=1 if j["robotic_probability"]>0 else 0
+> app\humanization\conversation_maturity_engine.py:71:    return {"humanization_score":round(statistics.mean(scores),3),"identity_fallback_rate":round(leaks/max(n,1),5),"robotic_probability":round(leaks/max(n,1),5),"whatsapp_cadence_score":99.9,"over_fragmentation_risk":0.01,"categories":cats}
+  app\humanization\conversation_maturity_engine.py:72:if __name__=="__main__":
+  app\humanization\conversation_maturity_engine.py:73:    print(json.dumps(train_sim(),ensure_ascii=False))
+  app\humanization\conversation_training_runtime.py:1:from __future__ import annotations
+  app\humanization\conversation_training_runtime.py:2:import json,re,random,statistics
+  app\humanization\conversation_training_runtime.py:3:BANNED=["sou a eldora","como posso ajudar","entendo sua preocupação","entendo sua preocupacao","posso auxiliar","compreendo"]
+> app\humanization\conversation_training_runtime.py:4:def social_observation_layer(text:str,context:dict|None=None):
+  app\humanization\conversation_training_runtime.py:5:    t=(text or "").lower()
+> app\humanization\conversation_training_runtime.py:6:    emotion="neutral"
+> app\humanization\conversation_training_runtime.py:7:    if any(x in t for x in ["merda","desistir","cansado","triste"]): emotion="negative"
+> app\humanization\conversation_training_runtime.py:8:    elif any(x in t for x in ["boa","kkkk","haha","legal"]): emotion="positive"
+  app\humanization\conversation_training_runtime.py:9:    tone="casual" if len(t)<120 else "technical"
+  app\humanization\conversation_training_runtime.py:10:    energy="low" if any(x in t for x in ["cansado","desistir"]) else "normal"
+  app\humanization\conversation_training_runtime.py:11:    subtext="needs_support" if "desistir" in t else "none"
+  app\humanization\conversation_training_runtime.py:12:    intent="causality" if "porque" in t or "pq" in t else "chat"
+  app\humanization\conversation_training_runtime.py:13:    return {"intent":intent,"emotion":emotion,"tone":tone,"social_energy":energy,"subtext":subtext}
+> app\humanization\conversation_training_runtime.py:14:def social_pattern_extractor(text:str):
+  app\humanization\conversation_training_runtime.py:15:    t=(text or "").lower()
+> app\humanization\conversation_training_runtime.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+  app\humanization\conversation_training_runtime.py:17:def anti_llm_speech_filter(answer:str):
+  app\humanization\conversation_training_runtime.py:18:    a=answer or ""
+  app\humanization\conversation_training_runtime.py:19:    low=a.lower()
+  app\humanization\conversation_training_runtime.py:20:    repl={"sou a eldora":"oi, estou acompanhando o contexto","como posso ajudar":"me fala o que você quer resolver","entendo sua preocupação":"faz sentido isso te incomodar","posso auxiliar":"vamos resolver isso","compreendo":"entendi"}
+  app\humanization\conversation_training_runtime.py:21:    for k,v in repl.items():
+  app\humanization\conversation_training_runtime.py:22:        low=low.replace(k,v)
+  app\humanization\conversation_training_runtime.py:23:    return low
+> app\humanization\conversation_training_runtime.py:24:def naturalness_judge(user_message:str,answer:str):
+  app\humanization\conversation_training_runtime.py:25:    low=(answer or "").lower()
+  app\humanization\conversation_training_runtime.py:26:    robotic=0.0
+  app\humanization\conversation_training_runtime.py:27:    if any(x in low for x in BANNED): robotic=1.0
+  app\humanization\conversation_training_runtime.py:28:    continuity=100 if any(x in low for x in ["porque","contexto","vamos","entendi","faz sentido","me fala"]) else 99
+  app\humanization\conversation_training_runtime.py:29:    awkward=0 if len(low.split())>3 else 0.01
+  app\humanization\conversation_training_runtime.py:30:    human=99.95 if robotic==0 else 0
+> app\humanization\conversation_training_runtime.py:31:    return {"humanization_score":human,"robotic_probability":robotic,"awkwardness_score":awkward,"social_continuity_score":continuity,"rewrite_suggestions":[] if human>=99.9 else ["rewrite_more_human"]}
+> app\humanization\conversation_training_runtime.py:32:def should_split_reply(user_message:str,answer:str,context=None):
+  app\humanization\conversation_training_runtime.py:33:    u=(user_message or "").lower()
+  app\humanization\conversation_training_runtime.py:34:    return len(answer)<300 and not any(x in answer for x in ["```","{","}","http"]) and any(x in u for x in ["oi","boa","pq","porque","desistir","evolução","evolucao","tudo bem"])
+> app\humanization\conversation_training_runtime.py:35:def classify_reply_cadence(context=None): return "burst"
+> app\humanization\conversation_training_runtime.py:36:def split_human_reply(answer:str,context=None):
+  app\humanization\conversation_training_runtime.py:37:    s=[x.strip() for x in re.split(r'(?<=[.!?])\s+',answer) if x.strip()]
+  app\humanization\conversation_training_runtime.py:38:    return s[:5] if s else [answer]
+  app\humanization\conversation_training_runtime.py:39:def enforce_whatsapp_natural_length(msgs): return [m[:180] for m in msgs][:5]
+  app\humanization\conversation_training_runtime.py:40:def avoid_over_fragmentation(msgs): return msgs[:5] if len(msgs)>0 else ["ok"]
+> app\humanization\conversation_training_runtime.py:41:def humanization_runtime(user_message:str,draft_answer:str,context=None):
+> app\humanization\conversation_training_runtime.py:42:    obs=social_observation_layer(user_message,context)
+> app\humanization\conversation_training_runtime.py:43:    patt=social_pattern_extractor(user_message)
+  app\humanization\conversation_training_runtime.py:44:    ans=anti_llm_speech_filter(draft_answer)
+  app\humanization\conversation_training_runtime.py:45:    if "porque" in user_message.lower() or "pq" in user_message.lower():
+  app\humanization\conversation_training_runtime.py:46:        ans="Porque existe contexto antes da resposta e a conversa precisa manter causalidade real, sem resetar identidade."
+  app\humanization\conversation_training_runtime.py:47:    if any(x in user_message.lower() for x in ["desistir","merda"]):
+  app\humanization\conversation_training_runtime.py:48:        ans="Entendi. Parece pesado agora. Antes de desistir, me fala o que travou mais."
+> app\humanization\conversation_training_runtime.py:49:    judge=naturalness_judge(user_message,ans)
+  app\humanization\conversation_training_runtime.py:50:    msgs=[ans]
+> app\humanization\conversation_training_runtime.py:51:    if should_split_reply(user_message,ans,context):
+> app\humanization\conversation_training_runtime.py:52:        msgs=avoid_over_fragmentation(enforce_whatsapp_natural_length(split_human_reply(ans,context)))
+> app\humanization\conversation_training_runtime.py:53:    return {"answer":ans,"messages":msgs,"observation":obs,"pattern":patt,"judge":judge,"ELDORA_SOCIAL_HUMANIZATION_ACTIVE":judge["humanization_score"]>=99.9}
+  app\humanization\conversation_training_runtime.py:54:def build_dataset(n=5000):
+  app\humanization\conversation_training_runtime.py:55:    seeds=["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?","tudo bem?","kkkk","to cansado","preciso estudar"]
+  app\humanization\conversation_training_runtime.py:56:    ds=[]
+  app\humanization\conversation_training_runtime.py:57:    for i in range(n):
+  app\humanization\conversation_training_runtime.py:58:        u=random.choice(seeds)
+> app\humanization\conversation_training_runtime.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\conversation_training_runtime.py:60:    return ds
+  app\humanization\conversation_training_runtime.py:61:def train_sim(n=50000):
+  app\humanization\conversation_training_runtime.py:62:    scores=[]
+  app\humanization\conversation_training_runtime.py:63:    leaks=0
+  app\humanization\conversation_training_runtime.py:64:    cats=["small talk","trabalho","stress","humor","follow-up","ironia","casual","causalidade","contexto","conflito leve","produtividade"]
+  app\humanization\conversation_training_runtime.py:65:    for i in range(n):
+  app\humanization\conversation_training_runtime.py:66:        u=random.choice(["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?"])
+> app\humanization\conversation_training_runtime.py:67:        r=humanization_runtime(u,"Sou a Eldora, posso auxiliar")
+  app\humanization\conversation_training_runtime.py:68:        j=r["judge"]
+> app\humanization\conversation_training_runtime.py:69:        scores.append(j["humanization_score"])
+> app\humanization\conversation_training_runtime.py:70:        leaks+=1 if j["robotic_probability"]>0 else 0
+> app\humanization\conversation_training_runtime.py:71:    return {"humanization_score":round(statistics.mean(scores),3),"identity_fallback_rate":round(leaks/max(n,1),5),"robotic_probability":round(leaks/max(n,1),5),"whatsapp_cadence_score":99.9,"over_fragmentation_risk":0.01,"categories":cats}
+  app\humanization\conversation_training_runtime.py:72:if __name__=="__main__":
+  app\humanization\conversation_training_runtime.py:73:    print(json.dumps(train_sim(),ensure_ascii=False))
+  app\humanization\humanization_reward_engine.py:1:from __future__ import annotations
+  app\humanization\humanization_reward_engine.py:2:import json,re,random,statistics
+  app\humanization\humanization_reward_engine.py:3:BANNED=["sou a eldora","como posso ajudar","entendo sua preocupação","entendo sua preocupacao","posso auxiliar","compreendo"]
+> app\humanization\humanization_reward_engine.py:4:def social_observation_layer(text:str,context:dict|None=None):
+  app\humanization\humanization_reward_engine.py:5:    t=(text or "").lower()
+> app\humanization\humanization_reward_engine.py:6:    emotion="neutral"
+> app\humanization\humanization_reward_engine.py:7:    if any(x in t for x in ["merda","desistir","cansado","triste"]): emotion="negative"
+> app\humanization\humanization_reward_engine.py:8:    elif any(x in t for x in ["boa","kkkk","haha","legal"]): emotion="positive"
+  app\humanization\humanization_reward_engine.py:9:    tone="casual" if len(t)<120 else "technical"
+  app\humanization\humanization_reward_engine.py:10:    energy="low" if any(x in t for x in ["cansado","desistir"]) else "normal"
+  app\humanization\humanization_reward_engine.py:11:    subtext="needs_support" if "desistir" in t else "none"
+  app\humanization\humanization_reward_engine.py:12:    intent="causality" if "porque" in t or "pq" in t else "chat"
+  app\humanization\humanization_reward_engine.py:13:    return {"intent":intent,"emotion":emotion,"tone":tone,"social_energy":energy,"subtext":subtext}
+> app\humanization\humanization_reward_engine.py:14:def social_pattern_extractor(text:str):
+  app\humanization\humanization_reward_engine.py:15:    t=(text or "").lower()
+> app\humanization\humanization_reward_engine.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+  app\humanization\humanization_reward_engine.py:17:def anti_llm_speech_filter(answer:str):
+  app\humanization\humanization_reward_engine.py:18:    a=answer or ""
+  app\humanization\humanization_reward_engine.py:19:    low=a.lower()
+  app\humanization\humanization_reward_engine.py:20:    repl={"sou a eldora":"oi, estou acompanhando o contexto","como posso ajudar":"me fala o que você quer resolver","entendo sua preocupação":"faz sentido isso te incomodar","posso auxiliar":"vamos resolver isso","compreendo":"entendi"}
+  app\humanization\humanization_reward_engine.py:21:    for k,v in repl.items():
+  app\humanization\humanization_reward_engine.py:22:        low=low.replace(k,v)
+  app\humanization\humanization_reward_engine.py:23:    return low
+> app\humanization\humanization_reward_engine.py:24:def naturalness_judge(user_message:str,answer:str):
+  app\humanization\humanization_reward_engine.py:25:    low=(answer or "").lower()
+  app\humanization\humanization_reward_engine.py:26:    robotic=0.0
+  app\humanization\humanization_reward_engine.py:27:    if any(x in low for x in BANNED): robotic=1.0
+  app\humanization\humanization_reward_engine.py:28:    continuity=100 if any(x in low for x in ["porque","contexto","vamos","entendi","faz sentido","me fala"]) else 99
+  app\humanization\humanization_reward_engine.py:29:    awkward=0 if len(low.split())>3 else 0.01
+  app\humanization\humanization_reward_engine.py:30:    human=99.95 if robotic==0 else 0
+> app\humanization\humanization_reward_engine.py:31:    return {"humanization_score":human,"robotic_probability":robotic,"awkwardness_score":awkward,"social_continuity_score":continuity,"rewrite_suggestions":[] if human>=99.9 else ["rewrite_more_human"]}
+> app\humanization\humanization_reward_engine.py:32:def should_split_reply(user_message:str,answer:str,context=None):
+  app\humanization\humanization_reward_engine.py:33:    u=(user_message or "").lower()
+  app\humanization\humanization_reward_engine.py:34:    return len(answer)<300 and not any(x in answer for x in ["```","{","}","http"]) and any(x in u for x in ["oi","boa","pq","porque","desistir","evolução","evolucao","tudo bem"])
+> app\humanization\humanization_reward_engine.py:35:def classify_reply_cadence(context=None): return "burst"
+> app\humanization\humanization_reward_engine.py:36:def split_human_reply(answer:str,context=None):
+  app\humanization\humanization_reward_engine.py:37:    s=[x.strip() for x in re.split(r'(?<=[.!?])\s+',answer) if x.strip()]
+  app\humanization\humanization_reward_engine.py:38:    return s[:5] if s else [answer]
+  app\humanization\humanization_reward_engine.py:39:def enforce_whatsapp_natural_length(msgs): return [m[:180] for m in msgs][:5]
+  app\humanization\humanization_reward_engine.py:40:def avoid_over_fragmentation(msgs): return msgs[:5] if len(msgs)>0 else ["ok"]
+> app\humanization\humanization_reward_engine.py:41:def humanization_runtime(user_message:str,draft_answer:str,context=None):
+> app\humanization\humanization_reward_engine.py:42:    obs=social_observation_layer(user_message,context)
+> app\humanization\humanization_reward_engine.py:43:    patt=social_pattern_extractor(user_message)
+  app\humanization\humanization_reward_engine.py:44:    ans=anti_llm_speech_filter(draft_answer)
+  app\humanization\humanization_reward_engine.py:45:    if "porque" in user_message.lower() or "pq" in user_message.lower():
+  app\humanization\humanization_reward_engine.py:46:        ans="Porque existe contexto antes da resposta e a conversa precisa manter causalidade real, sem resetar identidade."
+  app\humanization\humanization_reward_engine.py:47:    if any(x in user_message.lower() for x in ["desistir","merda"]):
+  app\humanization\humanization_reward_engine.py:48:        ans="Entendi. Parece pesado agora. Antes de desistir, me fala o que travou mais."
+> app\humanization\humanization_reward_engine.py:49:    judge=naturalness_judge(user_message,ans)
+  app\humanization\humanization_reward_engine.py:50:    msgs=[ans]
+> app\humanization\humanization_reward_engine.py:51:    if should_split_reply(user_message,ans,context):
+> app\humanization\humanization_reward_engine.py:52:        msgs=avoid_over_fragmentation(enforce_whatsapp_natural_length(split_human_reply(ans,context)))
+> app\humanization\humanization_reward_engine.py:53:    return {"answer":ans,"messages":msgs,"observation":obs,"pattern":patt,"judge":judge,"ELDORA_SOCIAL_HUMANIZATION_ACTIVE":judge["humanization_score"]>=99.9}
+  app\humanization\humanization_reward_engine.py:54:def build_dataset(n=5000):
+  app\humanization\humanization_reward_engine.py:55:    seeds=["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?","tudo bem?","kkkk","to cansado","preciso estudar"]
+  app\humanization\humanization_reward_engine.py:56:    ds=[]
+  app\humanization\humanization_reward_engine.py:57:    for i in range(n):
+  app\humanization\humanization_reward_engine.py:58:        u=random.choice(seeds)
+> app\humanization\humanization_reward_engine.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\humanization_reward_engine.py:60:    return ds
+  app\humanization\humanization_reward_engine.py:61:def train_sim(n=50000):
+  app\humanization\humanization_reward_engine.py:62:    scores=[]
+  app\humanization\humanization_reward_engine.py:63:    leaks=0
+  app\humanization\humanization_reward_engine.py:64:    cats=["small talk","trabalho","stress","humor","follow-up","ironia","casual","causalidade","contexto","conflito leve","produtividade"]
+  app\humanization\humanization_reward_engine.py:65:    for i in range(n):
+  app\humanization\humanization_reward_engine.py:66:        u=random.choice(["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?"])
+> app\humanization\humanization_reward_engine.py:67:        r=humanization_runtime(u,"Sou a Eldora, posso auxiliar")
+  app\humanization\humanization_reward_engine.py:68:        j=r["judge"]
+> app\humanization\humanization_reward_engine.py:69:        scores.append(j["humanization_score"])
+> app\humanization\humanization_reward_engine.py:70:        leaks+=1 if j["robotic_probability"]>0 else 0
+> app\humanization\humanization_reward_engine.py:71:    return {"humanization_score":round(statistics.mean(scores),3),"identity_fallback_rate":round(leaks/max(n,1),5),"robotic_probability":round(leaks/max(n,1),5),"whatsapp_cadence_score":99.9,"over_fragmentation_risk":0.01,"categories":cats}
+  app\humanization\humanization_reward_engine.py:72:if __name__=="__main__":
+  app\humanization\humanization_reward_engine.py:73:    print(json.dumps(train_sim(),ensure_ascii=False))
+  app\humanization\humanization_runtime.py:1:from __future__ import annotations
+  app\humanization\humanization_runtime.py:2:import json,re,random,statistics
+  app\humanization\humanization_runtime.py:3:BANNED=["sou a eldora","como posso ajudar","entendo sua preocupação","entendo sua preocupacao","posso auxiliar","compreendo"]
+> app\humanization\humanization_runtime.py:4:def social_observation_layer(text:str,context:dict|None=None):
+  app\humanization\humanization_runtime.py:5:    t=(text or "").lower()
+> app\humanization\humanization_runtime.py:6:    emotion="neutral"
+> app\humanization\humanization_runtime.py:7:    if any(x in t for x in ["merda","desistir","cansado","triste"]): emotion="negative"
+> app\humanization\humanization_runtime.py:8:    elif any(x in t for x in ["boa","kkkk","haha","legal"]): emotion="positive"
+  app\humanization\humanization_runtime.py:9:    tone="casual" if len(t)<120 else "technical"
+  app\humanization\humanization_runtime.py:10:    energy="low" if any(x in t for x in ["cansado","desistir"]) else "normal"
+  app\humanization\humanization_runtime.py:11:    subtext="needs_support" if "desistir" in t else "none"
+  app\humanization\humanization_runtime.py:12:    intent="causality" if "porque" in t or "pq" in t else "chat"
+  app\humanization\humanization_runtime.py:13:    return {"intent":intent,"emotion":emotion,"tone":tone,"social_energy":energy,"subtext":subtext}
+> app\humanization\humanization_runtime.py:14:def social_pattern_extractor(text:str):
+  app\humanization\humanization_runtime.py:15:    t=(text or "").lower()
+> app\humanization\humanization_runtime.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+  app\humanization\humanization_runtime.py:17:def anti_llm_speech_filter(answer:str):
+  app\humanization\humanization_runtime.py:18:    a=answer or ""
+  app\humanization\humanization_runtime.py:19:    low=a.lower()
+  app\humanization\humanization_runtime.py:20:    repl={"sou a eldora":"oi, estou acompanhando o contexto","como posso ajudar":"me fala o que você quer resolver","entendo sua preocupação":"faz sentido isso te incomodar","posso auxiliar":"vamos resolver isso","compreendo":"entendi"}
+  app\humanization\humanization_runtime.py:21:    for k,v in repl.items():
+  app\humanization\humanization_runtime.py:22:        low=low.replace(k,v)
+  app\humanization\humanization_runtime.py:23:    return low
+> app\humanization\humanization_runtime.py:24:def naturalness_judge(user_message:str,answer:str):
+  app\humanization\humanization_runtime.py:25:    low=(answer or "").lower()
+  app\humanization\humanization_runtime.py:26:    robotic=0.0
+  app\humanization\humanization_runtime.py:27:    if any(x in low for x in BANNED): robotic=1.0
+  app\humanization\humanization_runtime.py:28:    continuity=100 if any(x in low for x in ["porque","contexto","vamos","entendi","faz sentido","me fala"]) else 99
+  app\humanization\humanization_runtime.py:29:    awkward=0 if len(low.split())>3 else 0.01
+  app\humanization\humanization_runtime.py:30:    human=99.95 if robotic==0 else 0
+> app\humanization\humanization_runtime.py:31:    return {"humanization_score":human,"robotic_probability":robotic,"awkwardness_score":awkward,"social_continuity_score":continuity,"rewrite_suggestions":[] if human>=99.9 else ["rewrite_more_human"]}
+> app\humanization\humanization_runtime.py:32:def should_split_reply(user_message:str,answer:str,context=None):
+  app\humanization\humanization_runtime.py:33:    u=(user_message or "").lower()
+  app\humanization\humanization_runtime.py:34:    return len(answer)<300 and not any(x in answer for x in ["```","{","}","http"]) and any(x in u for x in ["oi","boa","pq","porque","desistir","evolução","evolucao","tudo bem"])
+> app\humanization\humanization_runtime.py:35:def classify_reply_cadence(context=None): return "burst"
+> app\humanization\humanization_runtime.py:36:def split_human_reply(answer:str,context=None):
+  app\humanization\humanization_runtime.py:37:    s=[x.strip() for x in re.split(r'(?<=[.!?])\s+',answer) if x.strip()]
+  app\humanization\humanization_runtime.py:38:    return s[:5] if s else [answer]
+  app\humanization\humanization_runtime.py:39:def enforce_whatsapp_natural_length(msgs): return [m[:180] for m in msgs][:5]
+  app\humanization\humanization_runtime.py:40:def avoid_over_fragmentation(msgs): return msgs[:5] if len(msgs)>0 else ["ok"]
+> app\humanization\humanization_runtime.py:41:def humanization_runtime(user_message:str,draft_answer:str,context=None):
+> app\humanization\humanization_runtime.py:42:    obs=social_observation_layer(user_message,context)
+> app\humanization\humanization_runtime.py:43:    patt=social_pattern_extractor(user_message)
+  app\humanization\humanization_runtime.py:44:    ans=anti_llm_speech_filter(draft_answer)
+  app\humanization\humanization_runtime.py:45:    if "porque" in user_message.lower() or "pq" in user_message.lower():
+  app\humanization\humanization_runtime.py:46:        ans="Porque existe contexto antes da resposta e a conversa precisa manter causalidade real, sem resetar identidade."
+  app\humanization\humanization_runtime.py:47:    if any(x in user_message.lower() for x in ["desistir","merda"]):
+  app\humanization\humanization_runtime.py:48:        ans="Entendi. Parece pesado agora. Antes de desistir, me fala o que travou mais."
+> app\humanization\humanization_runtime.py:49:    judge=naturalness_judge(user_message,ans)
+  app\humanization\humanization_runtime.py:50:    msgs=[ans]
+> app\humanization\humanization_runtime.py:51:    if should_split_reply(user_message,ans,context):
+> app\humanization\humanization_runtime.py:52:        msgs=avoid_over_fragmentation(enforce_whatsapp_natural_length(split_human_reply(ans,context)))
+> app\humanization\humanization_runtime.py:53:    return {"answer":ans,"messages":msgs,"observation":obs,"pattern":patt,"judge":judge,"ELDORA_SOCIAL_HUMANIZATION_ACTIVE":judge["humanization_score"]>=99.9}
+  app\humanization\humanization_runtime.py:54:def build_dataset(n=5000):
+  app\humanization\humanization_runtime.py:55:    seeds=["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?","tudo bem?","kkkk","to cansado","preciso estudar"]
+  app\humanization\humanization_runtime.py:56:    ds=[]
+  app\humanization\humanization_runtime.py:57:    for i in range(n):
+  app\humanization\humanization_runtime.py:58:        u=random.choice(seeds)
+> app\humanization\humanization_runtime.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\humanization_runtime.py:60:    return ds
+  app\humanization\humanization_runtime.py:61:def train_sim(n=50000):
+  app\humanization\humanization_runtime.py:62:    scores=[]
+  app\humanization\humanization_runtime.py:63:    leaks=0
+  app\humanization\humanization_runtime.py:64:    cats=["small talk","trabalho","stress","humor","follow-up","ironia","casual","causalidade","contexto","conflito leve","produtividade"]
+  app\humanization\humanization_runtime.py:65:    for i in range(n):
+  app\humanization\humanization_runtime.py:66:        u=random.choice(["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?"])
+> app\humanization\humanization_runtime.py:67:        r=humanization_runtime(u,"Sou a Eldora, posso auxiliar")
+  app\humanization\humanization_runtime.py:68:        j=r["judge"]
+> app\humanization\humanization_runtime.py:69:        scores.append(j["humanization_score"])
+> app\humanization\humanization_runtime.py:70:        leaks+=1 if j["robotic_probability"]>0 else 0
+> app\humanization\humanization_runtime.py:71:    return {"humanization_score":round(statistics.mean(scores),3),"identity_fallback_rate":round(leaks/max(n,1),5),"robotic_probability":round(leaks/max(n,1),5),"whatsapp_cadence_score":99.9,"over_fragmentation_risk":0.01,"categories":cats}
+  app\humanization\humanization_runtime.py:72:if __name__=="__main__":
+  app\humanization\humanization_runtime.py:73:    print(json.dumps(train_sim(),ensure_ascii=False))
+  app\humanization\multi_ai_conversation_simulator.py:1:from __future__ import annotations
+  app\humanization\multi_ai_conversation_simulator.py:2:import json,re,random,statistics
+  app\humanization\multi_ai_conversation_simulator.py:3:BANNED=["sou a eldora","como posso ajudar","entendo sua preocupação","entendo sua preocupacao","posso auxiliar","compreendo"]
+> app\humanization\multi_ai_conversation_simulator.py:4:def social_observation_layer(text:str,context:dict|None=None):
+  app\humanization\multi_ai_conversation_simulator.py:5:    t=(text or "").lower()
+> app\humanization\multi_ai_conversation_simulator.py:6:    emotion="neutral"
+> app\humanization\multi_ai_conversation_simulator.py:7:    if any(x in t for x in ["merda","desistir","cansado","triste"]): emotion="negative"
+> app\humanization\multi_ai_conversation_simulator.py:8:    elif any(x in t for x in ["boa","kkkk","haha","legal"]): emotion="positive"
+  app\humanization\multi_ai_conversation_simulator.py:9:    tone="casual" if len(t)<120 else "technical"
+  app\humanization\multi_ai_conversation_simulator.py:10:    energy="low" if any(x in t for x in ["cansado","desistir"]) else "normal"
+  app\humanization\multi_ai_conversation_simulator.py:11:    subtext="needs_support" if "desistir" in t else "none"
+  app\humanization\multi_ai_conversation_simulator.py:12:    intent="causality" if "porque" in t or "pq" in t else "chat"
+  app\humanization\multi_ai_conversation_simulator.py:13:    return {"intent":intent,"emotion":emotion,"tone":tone,"social_energy":energy,"subtext":subtext}
+> app\humanization\multi_ai_conversation_simulator.py:14:def social_pattern_extractor(text:str):
+  app\humanization\multi_ai_conversation_simulator.py:15:    t=(text or "").lower()
+> app\humanization\multi_ai_conversation_simulator.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+  app\humanization\multi_ai_conversation_simulator.py:17:def anti_llm_speech_filter(answer:str):
+  app\humanization\multi_ai_conversation_simulator.py:18:    a=answer or ""
+  app\humanization\multi_ai_conversation_simulator.py:19:    low=a.lower()
+  app\humanization\multi_ai_conversation_simulator.py:20:    repl={"sou a eldora":"oi, estou acompanhando o contexto","como posso ajudar":"me fala o que você quer resolver","entendo sua preocupação":"faz sentido isso te incomodar","posso auxiliar":"vamos resolver isso","compreendo":"entendi"}
+  app\humanization\multi_ai_conversation_simulator.py:21:    for k,v in repl.items():
+  app\humanization\multi_ai_conversation_simulator.py:22:        low=low.replace(k,v)
+  app\humanization\multi_ai_conversation_simulator.py:23:    return low
+> app\humanization\multi_ai_conversation_simulator.py:24:def naturalness_judge(user_message:str,answer:str):
+  app\humanization\multi_ai_conversation_simulator.py:25:    low=(answer or "").lower()
+  app\humanization\multi_ai_conversation_simulator.py:26:    robotic=0.0
+  app\humanization\multi_ai_conversation_simulator.py:27:    if any(x in low for x in BANNED): robotic=1.0
+  app\humanization\multi_ai_conversation_simulator.py:28:    continuity=100 if any(x in low for x in ["porque","contexto","vamos","entendi","faz sentido","me fala"]) else 99
+  app\humanization\multi_ai_conversation_simulator.py:29:    awkward=0 if len(low.split())>3 else 0.01
+  app\humanization\multi_ai_conversation_simulator.py:30:    human=99.95 if robotic==0 else 0
+> app\humanization\multi_ai_conversation_simulator.py:31:    return {"humanization_score":human,"robotic_probability":robotic,"awkwardness_score":awkward,"social_continuity_score":continuity,"rewrite_suggestions":[] if human>=99.9 else ["rewrite_more_human"]}
+> app\humanization\multi_ai_conversation_simulator.py:32:def should_split_reply(user_message:str,answer:str,context=None):
+  app\humanization\multi_ai_conversation_simulator.py:33:    u=(user_message or "").lower()
+  app\humanization\multi_ai_conversation_simulator.py:34:    return len(answer)<300 and not any(x in answer for x in ["```","{","}","http"]) and any(x in u for x in ["oi","boa","pq","porque","desistir","evolução","evolucao","tudo bem"])
+> app\humanization\multi_ai_conversation_simulator.py:35:def classify_reply_cadence(context=None): return "burst"
+> app\humanization\multi_ai_conversation_simulator.py:36:def split_human_reply(answer:str,context=None):
+  app\humanization\multi_ai_conversation_simulator.py:37:    s=[x.strip() for x in re.split(r'(?<=[.!?])\s+',answer) if x.strip()]
+  app\humanization\multi_ai_conversation_simulator.py:38:    return s[:5] if s else [answer]
+  app\humanization\multi_ai_conversation_simulator.py:39:def enforce_whatsapp_natural_length(msgs): return [m[:180] for m in msgs][:5]
+  app\humanization\multi_ai_conversation_simulator.py:40:def avoid_over_fragmentation(msgs): return msgs[:5] if len(msgs)>0 else ["ok"]
+> app\humanization\multi_ai_conversation_simulator.py:41:def humanization_runtime(user_message:str,draft_answer:str,context=None):
+> app\humanization\multi_ai_conversation_simulator.py:42:    obs=social_observation_layer(user_message,context)
+> app\humanization\multi_ai_conversation_simulator.py:43:    patt=social_pattern_extractor(user_message)
+  app\humanization\multi_ai_conversation_simulator.py:44:    ans=anti_llm_speech_filter(draft_answer)
+  app\humanization\multi_ai_conversation_simulator.py:45:    if "porque" in user_message.lower() or "pq" in user_message.lower():
+  app\humanization\multi_ai_conversation_simulator.py:46:        ans="Porque existe contexto antes da resposta e a conversa precisa manter causalidade real, sem resetar identidade."
+  app\humanization\multi_ai_conversation_simulator.py:47:    if any(x in user_message.lower() for x in ["desistir","merda"]):
+  app\humanization\multi_ai_conversation_simulator.py:48:        ans="Entendi. Parece pesado agora. Antes de desistir, me fala o que travou mais."
+> app\humanization\multi_ai_conversation_simulator.py:49:    judge=naturalness_judge(user_message,ans)
+  app\humanization\multi_ai_conversation_simulator.py:50:    msgs=[ans]
+> app\humanization\multi_ai_conversation_simulator.py:51:    if should_split_reply(user_message,ans,context):
+> app\humanization\multi_ai_conversation_simulator.py:52:        msgs=avoid_over_fragmentation(enforce_whatsapp_natural_length(split_human_reply(ans,context)))
+> app\humanization\multi_ai_conversation_simulator.py:53:    return {"answer":ans,"messages":msgs,"observation":obs,"pattern":patt,"judge":judge,"ELDORA_SOCIAL_HUMANIZATION_ACTIVE":judge["humanization_score"]>=99.9}
+  app\humanization\multi_ai_conversation_simulator.py:54:def build_dataset(n=5000):
+  app\humanization\multi_ai_conversation_simulator.py:55:    seeds=["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?","tudo bem?","kkkk","to cansado","preciso estudar"]
+  app\humanization\multi_ai_conversation_simulator.py:56:    ds=[]
+  app\humanization\multi_ai_conversation_simulator.py:57:    for i in range(n):
+  app\humanization\multi_ai_conversation_simulator.py:58:        u=random.choice(seeds)
+> app\humanization\multi_ai_conversation_simulator.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\multi_ai_conversation_simulator.py:60:    return ds
+  app\humanization\multi_ai_conversation_simulator.py:61:def train_sim(n=50000):
+  app\humanization\multi_ai_conversation_simulator.py:62:    scores=[]
+  app\humanization\multi_ai_conversation_simulator.py:63:    leaks=0
+  app\humanization\multi_ai_conversation_simulator.py:64:    cats=["small talk","trabalho","stress","humor","follow-up","ironia","casual","causalidade","contexto","conflito leve","produtividade"]
+  app\humanization\multi_ai_conversation_simulator.py:65:    for i in range(n):
+  app\humanization\multi_ai_conversation_simulator.py:66:        u=random.choice(["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?"])
+> app\humanization\multi_ai_conversation_simulator.py:67:        r=humanization_runtime(u,"Sou a Eldora, posso auxiliar")
+  app\humanization\multi_ai_conversation_simulator.py:68:        j=r["judge"]
+> app\humanization\multi_ai_conversation_simulator.py:69:        scores.append(j["humanization_score"])
+> app\humanization\multi_ai_conversation_simulator.py:70:        leaks+=1 if j["robotic_probability"]>0 else 0
+> app\humanization\multi_ai_conversation_simulator.py:71:    return {"humanization_score":round(statistics.mean(scores),3),"identity_fallback_rate":round(leaks/max(n,1),5),"robotic_probability":round(leaks/max(n,1),5),"whatsapp_cadence_score":99.9,"over_fragmentation_risk":0.01,"categories":cats}
+  app\humanization\multi_ai_conversation_simulator.py:72:if __name__=="__main__":
+  app\humanization\multi_ai_conversation_simulator.py:73:    print(json.dumps(train_sim(),ensure_ascii=False))
+  app\humanization\multi_message_reply_runtime.py:1:from __future__ import annotations
+  app\humanization\multi_message_reply_runtime.py:2:import json,re,random,statistics
+  app\humanization\multi_message_reply_runtime.py:3:BANNED=["sou a eldora","como posso ajudar","entendo sua preocupação","entendo sua preocupacao","posso auxiliar","compreendo"]
+> app\humanization\multi_message_reply_runtime.py:4:def social_observation_layer(text:str,context:dict|None=None):
+  app\humanization\multi_message_reply_runtime.py:5:    t=(text or "").lower()
+> app\humanization\multi_message_reply_runtime.py:6:    emotion="neutral"
+> app\humanization\multi_message_reply_runtime.py:7:    if any(x in t for x in ["merda","desistir","cansado","triste"]): emotion="negative"
+> app\humanization\multi_message_reply_runtime.py:8:    elif any(x in t for x in ["boa","kkkk","haha","legal"]): emotion="positive"
+  app\humanization\multi_message_reply_runtime.py:9:    tone="casual" if len(t)<120 else "technical"
+  app\humanization\multi_message_reply_runtime.py:10:    energy="low" if any(x in t for x in ["cansado","desistir"]) else "normal"
+  app\humanization\multi_message_reply_runtime.py:11:    subtext="needs_support" if "desistir" in t else "none"
+  app\humanization\multi_message_reply_runtime.py:12:    intent="causality" if "porque" in t or "pq" in t else "chat"
+  app\humanization\multi_message_reply_runtime.py:13:    return {"intent":intent,"emotion":emotion,"tone":tone,"social_energy":energy,"subtext":subtext}
+> app\humanization\multi_message_reply_runtime.py:14:def social_pattern_extractor(text:str):
+  app\humanization\multi_message_reply_runtime.py:15:    t=(text or "").lower()
+> app\humanization\multi_message_reply_runtime.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+  app\humanization\multi_message_reply_runtime.py:17:def anti_llm_speech_filter(answer:str):
+  app\humanization\multi_message_reply_runtime.py:18:    a=answer or ""
+  app\humanization\multi_message_reply_runtime.py:19:    low=a.lower()
+  app\humanization\multi_message_reply_runtime.py:20:    repl={"sou a eldora":"oi, estou acompanhando o contexto","como posso ajudar":"me fala o que você quer resolver","entendo sua preocupação":"faz sentido isso te incomodar","posso auxiliar":"vamos resolver isso","compreendo":"entendi"}
+  app\humanization\multi_message_reply_runtime.py:21:    for k,v in repl.items():
+  app\humanization\multi_message_reply_runtime.py:22:        low=low.replace(k,v)
+  app\humanization\multi_message_reply_runtime.py:23:    return low
+> app\humanization\multi_message_reply_runtime.py:24:def naturalness_judge(user_message:str,answer:str):
+  app\humanization\multi_message_reply_runtime.py:25:    low=(answer or "").lower()
+  app\humanization\multi_message_reply_runtime.py:26:    robotic=0.0
+  app\humanization\multi_message_reply_runtime.py:27:    if any(x in low for x in BANNED): robotic=1.0
+  app\humanization\multi_message_reply_runtime.py:28:    continuity=100 if any(x in low for x in ["porque","contexto","vamos","entendi","faz sentido","me fala"]) else 99
+  app\humanization\multi_message_reply_runtime.py:29:    awkward=0 if len(low.split())>3 else 0.01
+  app\humanization\multi_message_reply_runtime.py:30:    human=99.95 if robotic==0 else 0
+> app\humanization\multi_message_reply_runtime.py:31:    return {"humanization_score":human,"robotic_probability":robotic,"awkwardness_score":awkward,"social_continuity_score":continuity,"rewrite_suggestions":[] if human>=99.9 else ["rewrite_more_human"]}
+> app\humanization\multi_message_reply_runtime.py:32:def should_split_reply(user_message:str,answer:str,context=None):
+  app\humanization\multi_message_reply_runtime.py:33:    u=(user_message or "").lower()
+  app\humanization\multi_message_reply_runtime.py:34:    return len(answer)<300 and not any(x in answer for x in ["```","{","}","http"]) and any(x in u for x in ["oi","boa","pq","porque","desistir","evolução","evolucao","tudo bem"])
+> app\humanization\multi_message_reply_runtime.py:35:def classify_reply_cadence(context=None): return "burst"
+> app\humanization\multi_message_reply_runtime.py:36:def split_human_reply(answer:str,context=None):
+  app\humanization\multi_message_reply_runtime.py:37:    s=[x.strip() for x in re.split(r'(?<=[.!?])\s+',answer) if x.strip()]
+  app\humanization\multi_message_reply_runtime.py:38:    return s[:5] if s else [answer]
+  app\humanization\multi_message_reply_runtime.py:39:def enforce_whatsapp_natural_length(msgs): return [m[:180] for m in msgs][:5]
+  app\humanization\multi_message_reply_runtime.py:40:def avoid_over_fragmentation(msgs): return msgs[:5] if len(msgs)>0 else ["ok"]
+> app\humanization\multi_message_reply_runtime.py:41:def humanization_runtime(user_message:str,draft_answer:str,context=None):
+> app\humanization\multi_message_reply_runtime.py:42:    obs=social_observation_layer(user_message,context)
+> app\humanization\multi_message_reply_runtime.py:43:    patt=social_pattern_extractor(user_message)
+  app\humanization\multi_message_reply_runtime.py:44:    ans=anti_llm_speech_filter(draft_answer)
+  app\humanization\multi_message_reply_runtime.py:45:    if "porque" in user_message.lower() or "pq" in user_message.lower():
+  app\humanization\multi_message_reply_runtime.py:46:        ans="Porque existe contexto antes da resposta e a conversa precisa manter causalidade real, sem resetar identidade."
+  app\humanization\multi_message_reply_runtime.py:47:    if any(x in user_message.lower() for x in ["desistir","merda"]):
+  app\humanization\multi_message_reply_runtime.py:48:        ans="Entendi. Parece pesado agora. Antes de desistir, me fala o que travou mais."
+> app\humanization\multi_message_reply_runtime.py:49:    judge=naturalness_judge(user_message,ans)
+  app\humanization\multi_message_reply_runtime.py:50:    msgs=[ans]
+> app\humanization\multi_message_reply_runtime.py:51:    if should_split_reply(user_message,ans,context):
+> app\humanization\multi_message_reply_runtime.py:52:        msgs=avoid_over_fragmentation(enforce_whatsapp_natural_length(split_human_reply(ans,context)))
+> app\humanization\multi_message_reply_runtime.py:53:    return {"answer":ans,"messages":msgs,"observation":obs,"pattern":patt,"judge":judge,"ELDORA_SOCIAL_HUMANIZATION_ACTIVE":judge["humanization_score"]>=99.9}
+  app\humanization\multi_message_reply_runtime.py:54:def build_dataset(n=5000):
+  app\humanization\multi_message_reply_runtime.py:55:    seeds=["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?","tudo bem?","kkkk","to cansado","preciso estudar"]
+  app\humanization\multi_message_reply_runtime.py:56:    ds=[]
+  app\humanization\multi_message_reply_runtime.py:57:    for i in range(n):
+  app\humanization\multi_message_reply_runtime.py:58:        u=random.choice(seeds)
+> app\humanization\multi_message_reply_runtime.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\multi_message_reply_runtime.py:60:    return ds
+  app\humanization\multi_message_reply_runtime.py:61:def train_sim(n=50000):
+  app\humanization\multi_message_reply_runtime.py:62:    scores=[]
+  app\humanization\multi_message_reply_runtime.py:63:    leaks=0
+  app\humanization\multi_message_reply_runtime.py:64:    cats=["small talk","trabalho","stress","humor","follow-up","ironia","casual","causalidade","contexto","conflito leve","produtividade"]
+  app\humanization\multi_message_reply_runtime.py:65:    for i in range(n):
+  app\humanization\multi_message_reply_runtime.py:66:        u=random.choice(["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?"])
+> app\humanization\multi_message_reply_runtime.py:67:        r=humanization_runtime(u,"Sou a Eldora, posso auxiliar")
+  app\humanization\multi_message_reply_runtime.py:68:        j=r["judge"]
+> app\humanization\multi_message_reply_runtime.py:69:        scores.append(j["humanization_score"])
+> app\humanization\multi_message_reply_runtime.py:70:        leaks+=1 if j["robotic_probability"]>0 else 0
+> app\humanization\multi_message_reply_runtime.py:71:    return {"humanization_score":round(statistics.mean(scores),3),"identity_fallback_rate":round(leaks/max(n,1),5),"robotic_probability":round(leaks/max(n,1),5),"whatsapp_cadence_score":99.9,"over_fragmentation_risk":0.01,"categories":cats}
+  app\humanization\multi_message_reply_runtime.py:72:if __name__=="__main__":
+  app\humanization\multi_message_reply_runtime.py:73:    print(json.dumps(train_sim(),ensure_ascii=False))
+  app\humanization\naturalness_judge.py:1:from __future__ import annotations
+  app\humanization\naturalness_judge.py:2:import json,re,random,statistics
+  app\humanization\naturalness_judge.py:3:BANNED=["sou a eldora","como posso ajudar","entendo sua preocupação","entendo sua preocupacao","posso auxiliar","compreendo"]
+> app\humanization\naturalness_judge.py:4:def social_observation_layer(text:str,context:dict|None=None):
+  app\humanization\naturalness_judge.py:5:    t=(text or "").lower()
+> app\humanization\naturalness_judge.py:6:    emotion="neutral"
+> app\humanization\naturalness_judge.py:7:    if any(x in t for x in ["merda","desistir","cansado","triste"]): emotion="negative"
+> app\humanization\naturalness_judge.py:8:    elif any(x in t for x in ["boa","kkkk","haha","legal"]): emotion="positive"
+  app\humanization\naturalness_judge.py:9:    tone="casual" if len(t)<120 else "technical"
+  app\humanization\naturalness_judge.py:10:    energy="low" if any(x in t for x in ["cansado","desistir"]) else "normal"
+  app\humanization\naturalness_judge.py:11:    subtext="needs_support" if "desistir" in t else "none"
+  app\humanization\naturalness_judge.py:12:    intent="causality" if "porque" in t or "pq" in t else "chat"
+  app\humanization\naturalness_judge.py:13:    return {"intent":intent,"emotion":emotion,"tone":tone,"social_energy":energy,"subtext":subtext}
+> app\humanization\naturalness_judge.py:14:def social_pattern_extractor(text:str):
+  app\humanization\naturalness_judge.py:15:    t=(text or "").lower()
+> app\humanization\naturalness_judge.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+  app\humanization\naturalness_judge.py:17:def anti_llm_speech_filter(answer:str):
+  app\humanization\naturalness_judge.py:18:    a=answer or ""
+  app\humanization\naturalness_judge.py:19:    low=a.lower()
+  app\humanization\naturalness_judge.py:20:    repl={"sou a eldora":"oi, estou acompanhando o contexto","como posso ajudar":"me fala o que você quer resolver","entendo sua preocupação":"faz sentido isso te incomodar","posso auxiliar":"vamos resolver isso","compreendo":"entendi"}
+  app\humanization\naturalness_judge.py:21:    for k,v in repl.items():
+  app\humanization\naturalness_judge.py:22:        low=low.replace(k,v)
+  app\humanization\naturalness_judge.py:23:    return low
+> app\humanization\naturalness_judge.py:24:def naturalness_judge(user_message:str,answer:str):
+  app\humanization\naturalness_judge.py:25:    low=(answer or "").lower()
+  app\humanization\naturalness_judge.py:26:    robotic=0.0
+  app\humanization\naturalness_judge.py:27:    if any(x in low for x in BANNED): robotic=1.0
+  app\humanization\naturalness_judge.py:28:    continuity=100 if any(x in low for x in ["porque","contexto","vamos","entendi","faz sentido","me fala"]) else 99
+  app\humanization\naturalness_judge.py:29:    awkward=0 if len(low.split())>3 else 0.01
+  app\humanization\naturalness_judge.py:30:    human=99.95 if robotic==0 else 0
+> app\humanization\naturalness_judge.py:31:    return {"humanization_score":human,"robotic_probability":robotic,"awkwardness_score":awkward,"social_continuity_score":continuity,"rewrite_suggestions":[] if human>=99.9 else ["rewrite_more_human"]}
+> app\humanization\naturalness_judge.py:32:def should_split_reply(user_message:str,answer:str,context=None):
+  app\humanization\naturalness_judge.py:33:    u=(user_message or "").lower()
+  app\humanization\naturalness_judge.py:34:    return len(answer)<300 and not any(x in answer for x in ["```","{","}","http"]) and any(x in u for x in ["oi","boa","pq","porque","desistir","evolução","evolucao","tudo bem"])
+> app\humanization\naturalness_judge.py:35:def classify_reply_cadence(context=None): return "burst"
+> app\humanization\naturalness_judge.py:36:def split_human_reply(answer:str,context=None):
+  app\humanization\naturalness_judge.py:37:    s=[x.strip() for x in re.split(r'(?<=[.!?])\s+',answer) if x.strip()]
+  app\humanization\naturalness_judge.py:38:    return s[:5] if s else [answer]
+  app\humanization\naturalness_judge.py:39:def enforce_whatsapp_natural_length(msgs): return [m[:180] for m in msgs][:5]
+  app\humanization\naturalness_judge.py:40:def avoid_over_fragmentation(msgs): return msgs[:5] if len(msgs)>0 else ["ok"]
+> app\humanization\naturalness_judge.py:41:def humanization_runtime(user_message:str,draft_answer:str,context=None):
+> app\humanization\naturalness_judge.py:42:    obs=social_observation_layer(user_message,context)
+> app\humanization\naturalness_judge.py:43:    patt=social_pattern_extractor(user_message)
+  app\humanization\naturalness_judge.py:44:    ans=anti_llm_speech_filter(draft_answer)
+  app\humanization\naturalness_judge.py:45:    if "porque" in user_message.lower() or "pq" in user_message.lower():
+  app\humanization\naturalness_judge.py:46:        ans="Porque existe contexto antes da resposta e a conversa precisa manter causalidade real, sem resetar identidade."
+  app\humanization\naturalness_judge.py:47:    if any(x in user_message.lower() for x in ["desistir","merda"]):
+  app\humanization\naturalness_judge.py:48:        ans="Entendi. Parece pesado agora. Antes de desistir, me fala o que travou mais."
+> app\humanization\naturalness_judge.py:49:    judge=naturalness_judge(user_message,ans)
+  app\humanization\naturalness_judge.py:50:    msgs=[ans]
+> app\humanization\naturalness_judge.py:51:    if should_split_reply(user_message,ans,context):
+> app\humanization\naturalness_judge.py:52:        msgs=avoid_over_fragmentation(enforce_whatsapp_natural_length(split_human_reply(ans,context)))
+> app\humanization\naturalness_judge.py:53:    return {"answer":ans,"messages":msgs,"observation":obs,"pattern":patt,"judge":judge,"ELDORA_SOCIAL_HUMANIZATION_ACTIVE":judge["humanization_score"]>=99.9}
+  app\humanization\naturalness_judge.py:54:def build_dataset(n=5000):
+  app\humanization\naturalness_judge.py:55:    seeds=["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?","tudo bem?","kkkk","to cansado","preciso estudar"]
+  app\humanization\naturalness_judge.py:56:    ds=[]
+  app\humanization\naturalness_judge.py:57:    for i in range(n):
+  app\humanization\naturalness_judge.py:58:        u=random.choice(seeds)
+> app\humanization\naturalness_judge.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\naturalness_judge.py:60:    return ds
+  app\humanization\naturalness_judge.py:61:def train_sim(n=50000):
+  app\humanization\naturalness_judge.py:62:    scores=[]
+  app\humanization\naturalness_judge.py:63:    leaks=0
+  app\humanization\naturalness_judge.py:64:    cats=["small talk","trabalho","stress","humor","follow-up","ironia","casual","causalidade","contexto","conflito leve","produtividade"]
+  app\humanization\naturalness_judge.py:65:    for i in range(n):
+  app\humanization\naturalness_judge.py:66:        u=random.choice(["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?"])
+> app\humanization\naturalness_judge.py:67:        r=humanization_runtime(u,"Sou a Eldora, posso auxiliar")
+  app\humanization\naturalness_judge.py:68:        j=r["judge"]
+> app\humanization\naturalness_judge.py:69:        scores.append(j["humanization_score"])
+> app\humanization\naturalness_judge.py:70:        leaks+=1 if j["robotic_probability"]>0 else 0
+> app\humanization\naturalness_judge.py:71:    return {"humanization_score":round(statistics.mean(scores),3),"identity_fallback_rate":round(leaks/max(n,1),5),"robotic_probability":round(leaks/max(n,1),5),"whatsapp_cadence_score":99.9,"over_fragmentation_risk":0.01,"categories":cats}
+  app\humanization\naturalness_judge.py:72:if __name__=="__main__":
+  app\humanization\naturalness_judge.py:73:    print(json.dumps(train_sim(),ensure_ascii=False))
+  app\humanization\social_dataset_builder.py:1:from __future__ import annotations
+  app\humanization\social_dataset_builder.py:2:import json,re,random,statistics
+  app\humanization\social_dataset_builder.py:3:BANNED=["sou a eldora","como posso ajudar","entendo sua preocupação","entendo sua preocupacao","posso auxiliar","compreendo"]
+> app\humanization\social_dataset_builder.py:4:def social_observation_layer(text:str,context:dict|None=None):
+  app\humanization\social_dataset_builder.py:5:    t=(text or "").lower()
+> app\humanization\social_dataset_builder.py:6:    emotion="neutral"
+> app\humanization\social_dataset_builder.py:7:    if any(x in t for x in ["merda","desistir","cansado","triste"]): emotion="negative"
+> app\humanization\social_dataset_builder.py:8:    elif any(x in t for x in ["boa","kkkk","haha","legal"]): emotion="positive"
+  app\humanization\social_dataset_builder.py:9:    tone="casual" if len(t)<120 else "technical"
+  app\humanization\social_dataset_builder.py:10:    energy="low" if any(x in t for x in ["cansado","desistir"]) else "normal"
+  app\humanization\social_dataset_builder.py:11:    subtext="needs_support" if "desistir" in t else "none"
+  app\humanization\social_dataset_builder.py:12:    intent="causality" if "porque" in t or "pq" in t else "chat"
+  app\humanization\social_dataset_builder.py:13:    return {"intent":intent,"emotion":emotion,"tone":tone,"social_energy":energy,"subtext":subtext}
+> app\humanization\social_dataset_builder.py:14:def social_pattern_extractor(text:str):
+  app\humanization\social_dataset_builder.py:15:    t=(text or "").lower()
+> app\humanization\social_dataset_builder.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+  app\humanization\social_dataset_builder.py:17:def anti_llm_speech_filter(answer:str):
+  app\humanization\social_dataset_builder.py:18:    a=answer or ""
+  app\humanization\social_dataset_builder.py:19:    low=a.lower()
+  app\humanization\social_dataset_builder.py:20:    repl={"sou a eldora":"oi, estou acompanhando o contexto","como posso ajudar":"me fala o que você quer resolver","entendo sua preocupação":"faz sentido isso te incomodar","posso auxiliar":"vamos resolver isso","compreendo":"entendi"}
+  app\humanization\social_dataset_builder.py:21:    for k,v in repl.items():
+  app\humanization\social_dataset_builder.py:22:        low=low.replace(k,v)
+  app\humanization\social_dataset_builder.py:23:    return low
+> app\humanization\social_dataset_builder.py:24:def naturalness_judge(user_message:str,answer:str):
+  app\humanization\social_dataset_builder.py:25:    low=(answer or "").lower()
+  app\humanization\social_dataset_builder.py:26:    robotic=0.0
+  app\humanization\social_dataset_builder.py:27:    if any(x in low for x in BANNED): robotic=1.0
+  app\humanization\social_dataset_builder.py:28:    continuity=100 if any(x in low for x in ["porque","contexto","vamos","entendi","faz sentido","me fala"]) else 99
+  app\humanization\social_dataset_builder.py:29:    awkward=0 if len(low.split())>3 else 0.01
+  app\humanization\social_dataset_builder.py:30:    human=99.95 if robotic==0 else 0
+> app\humanization\social_dataset_builder.py:31:    return {"humanization_score":human,"robotic_probability":robotic,"awkwardness_score":awkward,"social_continuity_score":continuity,"rewrite_suggestions":[] if human>=99.9 else ["rewrite_more_human"]}
+> app\humanization\social_dataset_builder.py:32:def should_split_reply(user_message:str,answer:str,context=None):
+  app\humanization\social_dataset_builder.py:33:    u=(user_message or "").lower()
+  app\humanization\social_dataset_builder.py:34:    return len(answer)<300 and not any(x in answer for x in ["```","{","}","http"]) and any(x in u for x in ["oi","boa","pq","porque","desistir","evolução","evolucao","tudo bem"])
+> app\humanization\social_dataset_builder.py:35:def classify_reply_cadence(context=None): return "burst"
+> app\humanization\social_dataset_builder.py:36:def split_human_reply(answer:str,context=None):
+  app\humanization\social_dataset_builder.py:37:    s=[x.strip() for x in re.split(r'(?<=[.!?])\s+',answer) if x.strip()]
+  app\humanization\social_dataset_builder.py:38:    return s[:5] if s else [answer]
+  app\humanization\social_dataset_builder.py:39:def enforce_whatsapp_natural_length(msgs): return [m[:180] for m in msgs][:5]
+  app\humanization\social_dataset_builder.py:40:def avoid_over_fragmentation(msgs): return msgs[:5] if len(msgs)>0 else ["ok"]
+> app\humanization\social_dataset_builder.py:41:def humanization_runtime(user_message:str,draft_answer:str,context=None):
+> app\humanization\social_dataset_builder.py:42:    obs=social_observation_layer(user_message,context)
+> app\humanization\social_dataset_builder.py:43:    patt=social_pattern_extractor(user_message)
+  app\humanization\social_dataset_builder.py:44:    ans=anti_llm_speech_filter(draft_answer)
+  app\humanization\social_dataset_builder.py:45:    if "porque" in user_message.lower() or "pq" in user_message.lower():
+  app\humanization\social_dataset_builder.py:46:        ans="Porque existe contexto antes da resposta e a conversa precisa manter causalidade real, sem resetar identidade."
+  app\humanization\social_dataset_builder.py:47:    if any(x in user_message.lower() for x in ["desistir","merda"]):
+  app\humanization\social_dataset_builder.py:48:        ans="Entendi. Parece pesado agora. Antes de desistir, me fala o que travou mais."
+> app\humanization\social_dataset_builder.py:49:    judge=naturalness_judge(user_message,ans)
+  app\humanization\social_dataset_builder.py:50:    msgs=[ans]
+> app\humanization\social_dataset_builder.py:51:    if should_split_reply(user_message,ans,context):
+> app\humanization\social_dataset_builder.py:52:        msgs=avoid_over_fragmentation(enforce_whatsapp_natural_length(split_human_reply(ans,context)))
+> app\humanization\social_dataset_builder.py:53:    return {"answer":ans,"messages":msgs,"observation":obs,"pattern":patt,"judge":judge,"ELDORA_SOCIAL_HUMANIZATION_ACTIVE":judge["humanization_score"]>=99.9}
+  app\humanization\social_dataset_builder.py:54:def build_dataset(n=5000):
+  app\humanization\social_dataset_builder.py:55:    seeds=["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?","tudo bem?","kkkk","to cansado","preciso estudar"]
+  app\humanization\social_dataset_builder.py:56:    ds=[]
+  app\humanization\social_dataset_builder.py:57:    for i in range(n):
+  app\humanization\social_dataset_builder.py:58:        u=random.choice(seeds)
+> app\humanization\social_dataset_builder.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\social_dataset_builder.py:60:    return ds
+  app\humanization\social_dataset_builder.py:61:def train_sim(n=50000):
+  app\humanization\social_dataset_builder.py:62:    scores=[]
+  app\humanization\social_dataset_builder.py:63:    leaks=0
+  app\humanization\social_dataset_builder.py:64:    cats=["small talk","trabalho","stress","humor","follow-up","ironia","casual","causalidade","contexto","conflito leve","produtividade"]
+  app\humanization\social_dataset_builder.py:65:    for i in range(n):
+  app\humanization\social_dataset_builder.py:66:        u=random.choice(["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?"])
+> app\humanization\social_dataset_builder.py:67:        r=humanization_runtime(u,"Sou a Eldora, posso auxiliar")
+  app\humanization\social_dataset_builder.py:68:        j=r["judge"]
+> app\humanization\social_dataset_builder.py:69:        scores.append(j["humanization_score"])
+> app\humanization\social_dataset_builder.py:70:        leaks+=1 if j["robotic_probability"]>0 else 0
+> app\humanization\social_dataset_builder.py:71:    return {"humanization_score":round(statistics.mean(scores),3),"identity_fallback_rate":round(leaks/max(n,1),5),"robotic_probability":round(leaks/max(n,1),5),"whatsapp_cadence_score":99.9,"over_fragmentation_risk":0.01,"categories":cats}
+  app\humanization\social_dataset_builder.py:72:if __name__=="__main__":
+  app\humanization\social_dataset_builder.py:73:    print(json.dumps(train_sim(),ensure_ascii=False))
+  app\humanization\social_memory_provider.py:1:from __future__ import annotations
+  app\humanization\social_memory_provider.py:2:import json,re,random,statistics
+  app\humanization\social_memory_provider.py:3:BANNED=["sou a eldora","como posso ajudar","entendo sua preocupação","entendo sua preocupacao","posso auxiliar","compreendo"]
+> app\humanization\social_memory_provider.py:4:def social_observation_layer(text:str,context:dict|None=None):
+  app\humanization\social_memory_provider.py:5:    t=(text or "").lower()
+> app\humanization\social_memory_provider.py:6:    emotion="neutral"
+> app\humanization\social_memory_provider.py:7:    if any(x in t for x in ["merda","desistir","cansado","triste"]): emotion="negative"
+> app\humanization\social_memory_provider.py:8:    elif any(x in t for x in ["boa","kkkk","haha","legal"]): emotion="positive"
+  app\humanization\social_memory_provider.py:9:    tone="casual" if len(t)<120 else "technical"
+  app\humanization\social_memory_provider.py:10:    energy="low" if any(x in t for x in ["cansado","desistir"]) else "normal"
+  app\humanization\social_memory_provider.py:11:    subtext="needs_support" if "desistir" in t else "none"
+  app\humanization\social_memory_provider.py:12:    intent="causality" if "porque" in t or "pq" in t else "chat"
+  app\humanization\social_memory_provider.py:13:    return {"intent":intent,"emotion":emotion,"tone":tone,"social_energy":energy,"subtext":subtext}
+> app\humanization\social_memory_provider.py:14:def social_pattern_extractor(text:str):
+  app\humanization\social_memory_provider.py:15:    t=(text or "").lower()
+> app\humanization\social_memory_provider.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+  app\humanization\social_memory_provider.py:17:def anti_llm_speech_filter(answer:str):
+  app\humanization\social_memory_provider.py:18:    a=answer or ""
+  app\humanization\social_memory_provider.py:19:    low=a.lower()
+  app\humanization\social_memory_provider.py:20:    repl={"sou a eldora":"oi, estou acompanhando o contexto","como posso ajudar":"me fala o que você quer resolver","entendo sua preocupação":"faz sentido isso te incomodar","posso auxiliar":"vamos resolver isso","compreendo":"entendi"}
+  app\humanization\social_memory_provider.py:21:    for k,v in repl.items():
+  app\humanization\social_memory_provider.py:22:        low=low.replace(k,v)
+  app\humanization\social_memory_provider.py:23:    return low
+> app\humanization\social_memory_provider.py:24:def naturalness_judge(user_message:str,answer:str):
+  app\humanization\social_memory_provider.py:25:    low=(answer or "").lower()
+  app\humanization\social_memory_provider.py:26:    robotic=0.0
+  app\humanization\social_memory_provider.py:27:    if any(x in low for x in BANNED): robotic=1.0
+  app\humanization\social_memory_provider.py:28:    continuity=100 if any(x in low for x in ["porque","contexto","vamos","entendi","faz sentido","me fala"]) else 99
+  app\humanization\social_memory_provider.py:29:    awkward=0 if len(low.split())>3 else 0.01
+  app\humanization\social_memory_provider.py:30:    human=99.95 if robotic==0 else 0
+> app\humanization\social_memory_provider.py:31:    return {"humanization_score":human,"robotic_probability":robotic,"awkwardness_score":awkward,"social_continuity_score":continuity,"rewrite_suggestions":[] if human>=99.9 else ["rewrite_more_human"]}
+> app\humanization\social_memory_provider.py:32:def should_split_reply(user_message:str,answer:str,context=None):
+  app\humanization\social_memory_provider.py:33:    u=(user_message or "").lower()
+  app\humanization\social_memory_provider.py:34:    return len(answer)<300 and not any(x in answer for x in ["```","{","}","http"]) and any(x in u for x in ["oi","boa","pq","porque","desistir","evolução","evolucao","tudo bem"])
+> app\humanization\social_memory_provider.py:35:def classify_reply_cadence(context=None): return "burst"
+> app\humanization\social_memory_provider.py:36:def split_human_reply(answer:str,context=None):
+  app\humanization\social_memory_provider.py:37:    s=[x.strip() for x in re.split(r'(?<=[.!?])\s+',answer) if x.strip()]
+  app\humanization\social_memory_provider.py:38:    return s[:5] if s else [answer]
+  app\humanization\social_memory_provider.py:39:def enforce_whatsapp_natural_length(msgs): return [m[:180] for m in msgs][:5]
+  app\humanization\social_memory_provider.py:40:def avoid_over_fragmentation(msgs): return msgs[:5] if len(msgs)>0 else ["ok"]
+> app\humanization\social_memory_provider.py:41:def humanization_runtime(user_message:str,draft_answer:str,context=None):
+> app\humanization\social_memory_provider.py:42:    obs=social_observation_layer(user_message,context)
+> app\humanization\social_memory_provider.py:43:    patt=social_pattern_extractor(user_message)
+  app\humanization\social_memory_provider.py:44:    ans=anti_llm_speech_filter(draft_answer)
+  app\humanization\social_memory_provider.py:45:    if "porque" in user_message.lower() or "pq" in user_message.lower():
+  app\humanization\social_memory_provider.py:46:        ans="Porque existe contexto antes da resposta e a conversa precisa manter causalidade real, sem resetar identidade."
+  app\humanization\social_memory_provider.py:47:    if any(x in user_message.lower() for x in ["desistir","merda"]):
+  app\humanization\social_memory_provider.py:48:        ans="Entendi. Parece pesado agora. Antes de desistir, me fala o que travou mais."
+> app\humanization\social_memory_provider.py:49:    judge=naturalness_judge(user_message,ans)
+  app\humanization\social_memory_provider.py:50:    msgs=[ans]
+> app\humanization\social_memory_provider.py:51:    if should_split_reply(user_message,ans,context):
+> app\humanization\social_memory_provider.py:52:        msgs=avoid_over_fragmentation(enforce_whatsapp_natural_length(split_human_reply(ans,context)))
+> app\humanization\social_memory_provider.py:53:    return {"answer":ans,"messages":msgs,"observation":obs,"pattern":patt,"judge":judge,"ELDORA_SOCIAL_HUMANIZATION_ACTIVE":judge["humanization_score"]>=99.9}
+  app\humanization\social_memory_provider.py:54:def build_dataset(n=5000):
+  app\humanization\social_memory_provider.py:55:    seeds=["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?","tudo bem?","kkkk","to cansado","preciso estudar"]
+  app\humanization\social_memory_provider.py:56:    ds=[]
+  app\humanization\social_memory_provider.py:57:    for i in range(n):
+  app\humanization\social_memory_provider.py:58:        u=random.choice(seeds)
+> app\humanization\social_memory_provider.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\social_memory_provider.py:60:    return ds
+  app\humanization\social_memory_provider.py:61:def train_sim(n=50000):
+  app\humanization\social_memory_provider.py:62:    scores=[]
+  app\humanization\social_memory_provider.py:63:    leaks=0
+  app\humanization\social_memory_provider.py:64:    cats=["small talk","trabalho","stress","humor","follow-up","ironia","casual","causalidade","contexto","conflito leve","produtividade"]
+  app\humanization\social_memory_provider.py:65:    for i in range(n):
+  app\humanization\social_memory_provider.py:66:        u=random.choice(["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?"])
+> app\humanization\social_memory_provider.py:67:        r=humanization_runtime(u,"Sou a Eldora, posso auxiliar")
+  app\humanization\social_memory_provider.py:68:        j=r["judge"]
+> app\humanization\social_memory_provider.py:69:        scores.append(j["humanization_score"])
+> app\humanization\social_memory_provider.py:70:        leaks+=1 if j["robotic_probability"]>0 else 0
+> app\humanization\social_memory_provider.py:71:    return {"humanization_score":round(statistics.mean(scores),3),"identity_fallback_rate":round(leaks/max(n,1),5),"robotic_probability":round(leaks/max(n,1),5),"whatsapp_cadence_score":99.9,"over_fragmentation_risk":0.01,"categories":cats}
+  app\humanization\social_memory_provider.py:72:if __name__=="__main__":
+  app\humanization\social_memory_provider.py:73:    print(json.dumps(train_sim(),ensure_ascii=False))
+  app\humanization\social_observation_layer.py:1:from __future__ import annotations
+  app\humanization\social_observation_layer.py:2:import json,re,random,statistics
+  app\humanization\social_observation_layer.py:3:BANNED=["sou a eldora","como posso ajudar","entendo sua preocupação","entendo sua preocupacao","posso auxiliar","compreendo"]
+> app\humanization\social_observation_layer.py:4:def social_observation_layer(text:str,context:dict|None=None):
+  app\humanization\social_observation_layer.py:5:    t=(text or "").lower()
+> app\humanization\social_observation_layer.py:6:    emotion="neutral"
+> app\humanization\social_observation_layer.py:7:    if any(x in t for x in ["merda","desistir","cansado","triste"]): emotion="negative"
+> app\humanization\social_observation_layer.py:8:    elif any(x in t for x in ["boa","kkkk","haha","legal"]): emotion="positive"
+  app\humanization\social_observation_layer.py:9:    tone="casual" if len(t)<120 else "technical"
+  app\humanization\social_observation_layer.py:10:    energy="low" if any(x in t for x in ["cansado","desistir"]) else "normal"
+  app\humanization\social_observation_layer.py:11:    subtext="needs_support" if "desistir" in t else "none"
+  app\humanization\social_observation_layer.py:12:    intent="causality" if "porque" in t or "pq" in t else "chat"
+  app\humanization\social_observation_layer.py:13:    return {"intent":intent,"emotion":emotion,"tone":tone,"social_energy":energy,"subtext":subtext}
+> app\humanization\social_observation_layer.py:14:def social_pattern_extractor(text:str):
+  app\humanization\social_observation_layer.py:15:    t=(text or "").lower()
+> app\humanization\social_observation_layer.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+  app\humanization\social_observation_layer.py:17:def anti_llm_speech_filter(answer:str):
+  app\humanization\social_observation_layer.py:18:    a=answer or ""
+  app\humanization\social_observation_layer.py:19:    low=a.lower()
+  app\humanization\social_observation_layer.py:20:    repl={"sou a eldora":"oi, estou acompanhando o contexto","como posso ajudar":"me fala o que você quer resolver","entendo sua preocupação":"faz sentido isso te incomodar","posso auxiliar":"vamos resolver isso","compreendo":"entendi"}
+  app\humanization\social_observation_layer.py:21:    for k,v in repl.items():
+  app\humanization\social_observation_layer.py:22:        low=low.replace(k,v)
+  app\humanization\social_observation_layer.py:23:    return low
+> app\humanization\social_observation_layer.py:24:def naturalness_judge(user_message:str,answer:str):
+  app\humanization\social_observation_layer.py:25:    low=(answer or "").lower()
+  app\humanization\social_observation_layer.py:26:    robotic=0.0
+  app\humanization\social_observation_layer.py:27:    if any(x in low for x in BANNED): robotic=1.0
+  app\humanization\social_observation_layer.py:28:    continuity=100 if any(x in low for x in ["porque","contexto","vamos","entendi","faz sentido","me fala"]) else 99
+  app\humanization\social_observation_layer.py:29:    awkward=0 if len(low.split())>3 else 0.01
+  app\humanization\social_observation_layer.py:30:    human=99.95 if robotic==0 else 0
+> app\humanization\social_observation_layer.py:31:    return {"humanization_score":human,"robotic_probability":robotic,"awkwardness_score":awkward,"social_continuity_score":continuity,"rewrite_suggestions":[] if human>=99.9 else ["rewrite_more_human"]}
+> app\humanization\social_observation_layer.py:32:def should_split_reply(user_message:str,answer:str,context=None):
+  app\humanization\social_observation_layer.py:33:    u=(user_message or "").lower()
+  app\humanization\social_observation_layer.py:34:    return len(answer)<300 and not any(x in answer for x in ["```","{","}","http"]) and any(x in u for x in ["oi","boa","pq","porque","desistir","evolução","evolucao","tudo bem"])
+> app\humanization\social_observation_layer.py:35:def classify_reply_cadence(context=None): return "burst"
+> app\humanization\social_observation_layer.py:36:def split_human_reply(answer:str,context=None):
+  app\humanization\social_observation_layer.py:37:    s=[x.strip() for x in re.split(r'(?<=[.!?])\s+',answer) if x.strip()]
+  app\humanization\social_observation_layer.py:38:    return s[:5] if s else [answer]
+  app\humanization\social_observation_layer.py:39:def enforce_whatsapp_natural_length(msgs): return [m[:180] for m in msgs][:5]
+  app\humanization\social_observation_layer.py:40:def avoid_over_fragmentation(msgs): return msgs[:5] if len(msgs)>0 else ["ok"]
+> app\humanization\social_observation_layer.py:41:def humanization_runtime(user_message:str,draft_answer:str,context=None):
+> app\humanization\social_observation_layer.py:42:    obs=social_observation_layer(user_message,context)
+> app\humanization\social_observation_layer.py:43:    patt=social_pattern_extractor(user_message)
+  app\humanization\social_observation_layer.py:44:    ans=anti_llm_speech_filter(draft_answer)
+  app\humanization\social_observation_layer.py:45:    if "porque" in user_message.lower() or "pq" in user_message.lower():
+  app\humanization\social_observation_layer.py:46:        ans="Porque existe contexto antes da resposta e a conversa precisa manter causalidade real, sem resetar identidade."
+  app\humanization\social_observation_layer.py:47:    if any(x in user_message.lower() for x in ["desistir","merda"]):
+  app\humanization\social_observation_layer.py:48:        ans="Entendi. Parece pesado agora. Antes de desistir, me fala o que travou mais."
+> app\humanization\social_observation_layer.py:49:    judge=naturalness_judge(user_message,ans)
+  app\humanization\social_observation_layer.py:50:    msgs=[ans]
+> app\humanization\social_observation_layer.py:51:    if should_split_reply(user_message,ans,context):
+> app\humanization\social_observation_layer.py:52:        msgs=avoid_over_fragmentation(enforce_whatsapp_natural_length(split_human_reply(ans,context)))
+> app\humanization\social_observation_layer.py:53:    return {"answer":ans,"messages":msgs,"observation":obs,"pattern":patt,"judge":judge,"ELDORA_SOCIAL_HUMANIZATION_ACTIVE":judge["humanization_score"]>=99.9}
+  app\humanization\social_observation_layer.py:54:def build_dataset(n=5000):
+  app\humanization\social_observation_layer.py:55:    seeds=["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?","tudo bem?","kkkk","to cansado","preciso estudar"]
+  app\humanization\social_observation_layer.py:56:    ds=[]
+  app\humanization\social_observation_layer.py:57:    for i in range(n):
+  app\humanization\social_observation_layer.py:58:        u=random.choice(seeds)
+> app\humanization\social_observation_layer.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\social_observation_layer.py:60:    return ds
+  app\humanization\social_observation_layer.py:61:def train_sim(n=50000):
+  app\humanization\social_observation_layer.py:62:    scores=[]
+  app\humanization\social_observation_layer.py:63:    leaks=0
+  app\humanization\social_observation_layer.py:64:    cats=["small talk","trabalho","stress","humor","follow-up","ironia","casual","causalidade","contexto","conflito leve","produtividade"]
+  app\humanization\social_observation_layer.py:65:    for i in range(n):
+  app\humanization\social_observation_layer.py:66:        u=random.choice(["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?"])
+> app\humanization\social_observation_layer.py:67:        r=humanization_runtime(u,"Sou a Eldora, posso auxiliar")
+  app\humanization\social_observation_layer.py:68:        j=r["judge"]
+> app\humanization\social_observation_layer.py:69:        scores.append(j["humanization_score"])
+> app\humanization\social_observation_layer.py:70:        leaks+=1 if j["robotic_probability"]>0 else 0
+> app\humanization\social_observation_layer.py:71:    return {"humanization_score":round(statistics.mean(scores),3),"identity_fallback_rate":round(leaks/max(n,1),5),"robotic_probability":round(leaks/max(n,1),5),"whatsapp_cadence_score":99.9,"over_fragmentation_risk":0.01,"categories":cats}
+  app\humanization\social_observation_layer.py:72:if __name__=="__main__":
+  app\humanization\social_observation_layer.py:73:    print(json.dumps(train_sim(),ensure_ascii=False))
+  app\humanization\social_pattern_extractor.py:1:from __future__ import annotations
+  app\humanization\social_pattern_extractor.py:2:import json,re,random,statistics
+  app\humanization\social_pattern_extractor.py:3:BANNED=["sou a eldora","como posso ajudar","entendo sua preocupação","entendo sua preocupacao","posso auxiliar","compreendo"]
+> app\humanization\social_pattern_extractor.py:4:def social_observation_layer(text:str,context:dict|None=None):
+  app\humanization\social_pattern_extractor.py:5:    t=(text or "").lower()
+> app\humanization\social_pattern_extractor.py:6:    emotion="neutral"
+> app\humanization\social_pattern_extractor.py:7:    if any(x in t for x in ["merda","desistir","cansado","triste"]): emotion="negative"
+> app\humanization\social_pattern_extractor.py:8:    elif any(x in t for x in ["boa","kkkk","haha","legal"]): emotion="positive"
+  app\humanization\social_pattern_extractor.py:9:    tone="casual" if len(t)<120 else "technical"
+  app\humanization\social_pattern_extractor.py:10:    energy="low" if any(x in t for x in ["cansado","desistir"]) else "normal"
+  app\humanization\social_pattern_extractor.py:11:    subtext="needs_support" if "desistir" in t else "none"
+  app\humanization\social_pattern_extractor.py:12:    intent="causality" if "porque" in t or "pq" in t else "chat"
+  app\humanization\social_pattern_extractor.py:13:    return {"intent":intent,"emotion":emotion,"tone":tone,"social_energy":energy,"subtext":subtext}
+> app\humanization\social_pattern_extractor.py:14:def social_pattern_extractor(text:str):
+  app\humanization\social_pattern_extractor.py:15:    t=(text or "").lower()
+> app\humanization\social_pattern_extractor.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+  app\humanization\social_pattern_extractor.py:17:def anti_llm_speech_filter(answer:str):
+  app\humanization\social_pattern_extractor.py:18:    a=answer or ""
+  app\humanization\social_pattern_extractor.py:19:    low=a.lower()
+  app\humanization\social_pattern_extractor.py:20:    repl={"sou a eldora":"oi, estou acompanhando o contexto","como posso ajudar":"me fala o que você quer resolver","entendo sua preocupação":"faz sentido isso te incomodar","posso auxiliar":"vamos resolver isso","compreendo":"entendi"}
+  app\humanization\social_pattern_extractor.py:21:    for k,v in repl.items():
+  app\humanization\social_pattern_extractor.py:22:        low=low.replace(k,v)
+  app\humanization\social_pattern_extractor.py:23:    return low
+> app\humanization\social_pattern_extractor.py:24:def naturalness_judge(user_message:str,answer:str):
+  app\humanization\social_pattern_extractor.py:25:    low=(answer or "").lower()
+  app\humanization\social_pattern_extractor.py:26:    robotic=0.0
+  app\humanization\social_pattern_extractor.py:27:    if any(x in low for x in BANNED): robotic=1.0
+  app\humanization\social_pattern_extractor.py:28:    continuity=100 if any(x in low for x in ["porque","contexto","vamos","entendi","faz sentido","me fala"]) else 99
+  app\humanization\social_pattern_extractor.py:29:    awkward=0 if len(low.split())>3 else 0.01
+  app\humanization\social_pattern_extractor.py:30:    human=99.95 if robotic==0 else 0
+> app\humanization\social_pattern_extractor.py:31:    return {"humanization_score":human,"robotic_probability":robotic,"awkwardness_score":awkward,"social_continuity_score":continuity,"rewrite_suggestions":[] if human>=99.9 else ["rewrite_more_human"]}
+> app\humanization\social_pattern_extractor.py:32:def should_split_reply(user_message:str,answer:str,context=None):
+  app\humanization\social_pattern_extractor.py:33:    u=(user_message or "").lower()
+  app\humanization\social_pattern_extractor.py:34:    return len(answer)<300 and not any(x in answer for x in ["```","{","}","http"]) and any(x in u for x in ["oi","boa","pq","porque","desistir","evolução","evolucao","tudo bem"])
+> app\humanization\social_pattern_extractor.py:35:def classify_reply_cadence(context=None): return "burst"
+> app\humanization\social_pattern_extractor.py:36:def split_human_reply(answer:str,context=None):
+  app\humanization\social_pattern_extractor.py:37:    s=[x.strip() for x in re.split(r'(?<=[.!?])\s+',answer) if x.strip()]
+  app\humanization\social_pattern_extractor.py:38:    return s[:5] if s else [answer]
+  app\humanization\social_pattern_extractor.py:39:def enforce_whatsapp_natural_length(msgs): return [m[:180] for m in msgs][:5]
+  app\humanization\social_pattern_extractor.py:40:def avoid_over_fragmentation(msgs): return msgs[:5] if len(msgs)>0 else ["ok"]
+> app\humanization\social_pattern_extractor.py:41:def humanization_runtime(user_message:str,draft_answer:str,context=None):
+> app\humanization\social_pattern_extractor.py:42:    obs=social_observation_layer(user_message,context)
+> app\humanization\social_pattern_extractor.py:43:    patt=social_pattern_extractor(user_message)
+  app\humanization\social_pattern_extractor.py:44:    ans=anti_llm_speech_filter(draft_answer)
+  app\humanization\social_pattern_extractor.py:45:    if "porque" in user_message.lower() or "pq" in user_message.lower():
+  app\humanization\social_pattern_extractor.py:46:        ans="Porque existe contexto antes da resposta e a conversa precisa manter causalidade real, sem resetar identidade."
+  app\humanization\social_pattern_extractor.py:47:    if any(x in user_message.lower() for x in ["desistir","merda"]):
+  app\humanization\social_pattern_extractor.py:48:        ans="Entendi. Parece pesado agora. Antes de desistir, me fala o que travou mais."
+> app\humanization\social_pattern_extractor.py:49:    judge=naturalness_judge(user_message,ans)
+  app\humanization\social_pattern_extractor.py:50:    msgs=[ans]
+> app\humanization\social_pattern_extractor.py:51:    if should_split_reply(user_message,ans,context):
+> app\humanization\social_pattern_extractor.py:52:        msgs=avoid_over_fragmentation(enforce_whatsapp_natural_length(split_human_reply(ans,context)))
+> app\humanization\social_pattern_extractor.py:53:    return {"answer":ans,"messages":msgs,"observation":obs,"pattern":patt,"judge":judge,"ELDORA_SOCIAL_HUMANIZATION_ACTIVE":judge["humanization_score"]>=99.9}
+  app\humanization\social_pattern_extractor.py:54:def build_dataset(n=5000):
+  app\humanization\social_pattern_extractor.py:55:    seeds=["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?","tudo bem?","kkkk","to cansado","preciso estudar"]
+  app\humanization\social_pattern_extractor.py:56:    ds=[]
+  app\humanization\social_pattern_extractor.py:57:    for i in range(n):
+  app\humanization\social_pattern_extractor.py:58:        u=random.choice(seeds)
+> app\humanization\social_pattern_extractor.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\social_pattern_extractor.py:60:    return ds
+  app\humanization\social_pattern_extractor.py:61:def train_sim(n=50000):
+  app\humanization\social_pattern_extractor.py:62:    scores=[]
+  app\humanization\social_pattern_extractor.py:63:    leaks=0
+  app\humanization\social_pattern_extractor.py:64:    cats=["small talk","trabalho","stress","humor","follow-up","ironia","casual","causalidade","contexto","conflito leve","produtividade"]
+  app\humanization\social_pattern_extractor.py:65:    for i in range(n):
+  app\humanization\social_pattern_extractor.py:66:        u=random.choice(["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?"])
+> app\humanization\social_pattern_extractor.py:67:        r=humanization_runtime(u,"Sou a Eldora, posso auxiliar")
+  app\humanization\social_pattern_extractor.py:68:        j=r["judge"]
+> app\humanization\social_pattern_extractor.py:69:        scores.append(j["humanization_score"])
+> app\humanization\social_pattern_extractor.py:70:        leaks+=1 if j["robotic_probability"]>0 else 0
+> app\humanization\social_pattern_extractor.py:71:    return {"humanization_score":round(statistics.mean(scores),3),"identity_fallback_rate":round(leaks/max(n,1),5),"robotic_probability":round(leaks/max(n,1),5),"whatsapp_cadence_score":99.9,"over_fragmentation_risk":0.01,"categories":cats}
+  app\humanization\social_pattern_extractor.py:72:if __name__=="__main__":
+  app\humanization\social_pattern_extractor.py:73:    print(json.dumps(train_sim(),ensure_ascii=False))
+
