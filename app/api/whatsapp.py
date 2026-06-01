@@ -207,14 +207,17 @@ def live_whatsapp_override(inbound_text: str) -> str | None:
 
     if any(x in msg for x in ["nao entendeu", "nao entnedeu", "não entendeu", "nao entendi", "não entendi"]):
         return "Entendi. Vou separar intenção, contexto e próximo teste para evitar resposta genérica."
+    # P4_23G_DISABLE_HARDCODED_GREETING
     if msg in ["i", "oi", "olá", "ola"]:
-        return "Oi, Roberto 👋 Tudo bem por aí?"
+        return None
 
+    # P4_23G_DISABLE_HARDCODED_DAY_GREETING
     if any(x in msg for x in ["boa tarde", "bom dia", "boa noite"]):
-        return "Boa tarde, Roberto ☀️ Como você está?"
+        return None
 
+    # P4_23G_DISABLE_HARDCODED_STATUS_GREETING
     if any(x in msg for x in ["como ta", "como tá", "tudo bem"]):
-        return "Tudo certo por aqui 🙂 E você?"
+        return None
 
     if any(x in msg for x in ["quem eh vc", "quem é vc", "quem é você"]):
         return ""
