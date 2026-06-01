@@ -383,9 +383,8 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
     ]):
         return "Sou a Eldora 🙂"
 
-    _contract_reply = _eldora_live_override_contract_patch(sender_id, inbound_text)
-    if _contract_reply:
-        return _contract_reply
+    # P4_23G_DISABLE_PRECOGNITIVE_CONTRACT_PATCH
+    _contract_reply = None
     fast = route_fast(sender_id, inbound_text)
     if fast:
         return fast
