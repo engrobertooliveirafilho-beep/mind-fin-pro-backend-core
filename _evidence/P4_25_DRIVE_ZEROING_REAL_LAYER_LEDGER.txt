@@ -1,0 +1,56 @@
+P4.25 — DRIVE ZEROING AND REAL LAYER RECOVERY LEDGER
+
+MISSION:
+Exhaustively sweep Google Drive until every useful capability is classified and either activated, adapted, ignored, or replaced.
+
+CORE_RULE:
+Never copy Drive code blindly.
+Every capability must pass:
+SCAN -> PROOF -> RECOVER -> COMPARE -> ADAPT -> TEST_333 -> COMMIT
+
+CLASSIFICATION:
+REAL_RUNTIME:
+- executable code
+- valid imports or adaptable imports
+- runtime entrypoint
+- evidence of E2E or schema/runtime state
+- maps to launch-critical need
+
+PARTIAL_RUNTIME:
+- executable but outdated
+- useful logic but incompatible imports
+- needs adapter layer
+- can replace current stub/placebo
+
+PLACEBO:
+- report only
+- mock/simulation
+- fake autonomy
+- hardcoded demo
+- no execution path
+
+DEPRECATED:
+- old patch before current greenline
+- duplicate/quarantine/history
+- superseded by current runtime
+
+DOMAINS_TO_ZERO:
+1. friendship/proactive/outbound
+2. semantic memory/pgvector/retrieval
+3. billing/free credits/onboarding
+4. growth/commercial automation
+5. social/content/video/image runtime
+6. agent orchestration/planner/executor
+7. WhatsApp/Twilio delivery
+8. Supabase schemas/providers
+9. multimodal/visual memory
+10. deployment/render/ops
+
+CURRENT_STATUS:
+- WhatsApp baseline green
+- 333 passed / 3 skipped
+- Drive sweep found real high-ROI runtime traces
+- Friendship code recovered but requires adaptation due golden_pipeline dependencies
+
+NEXT_ACTION:
+P4.25A inspect recovered friendship files and build compatibility map.
