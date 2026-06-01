@@ -1,0 +1,52 @@
+P4.25A — REAL INCORPORATION CONTRACT
+
+MISSION:
+Guarantee that every recovered Drive capability becomes real code, tested runtime, or is explicitly rejected.
+
+FUNNEL:
+SCAN
+PROOF
+RECOVER
+COMPARE
+ADAPT
+TEST_333
+FUNCTIONAL_TEST
+RUNTIME_EVIDENCE
+COMMIT
+NEXT
+
+INCORPORATED_ONLY_IF:
+1. code exists inside app/
+2. no blind copy
+3. imports compile
+4. pytest remains green
+5. capability has direct functional test
+6. runtime evidence file proves execution
+7. stub/placebo replaced or bypassed
+8. commit pushed to main
+
+STATUS_LABELS:
+FOUND_ONLY
+PROVED_SOURCE
+RECOVERED_SOURCE
+ADAPTED_TO_APP
+TESTED_GREEN
+FUNCTIONALLY_VALIDATED
+INCORPORATED_REAL
+REJECTED_PLACEBO
+REJECTED_DEPRECATED
+
+CURRENT_FIRST_TARGET:
+Friendship / proactive runtime
+
+ACCEPTANCE_TEST_REQUIRED:
+- local function/route returns deterministic proactive decision
+- respects opt-out/daily limit/window rules
+- can produce outbound-ready WhatsApp payload
+- does not send real Twilio message in test mode
+- stores/loads minimal state if provider available
+- 333 passed / 3 skipped preserved
+
+RULE:
+No capability is considered done just because it was found in Drive.
+Done means running in current greenline with evidence.
