@@ -6,43 +6,6 @@ from enum import Enum
 from typing import Dict, List, Optional, Any
 import ast, operator, re
 
-def _semantic_recall_context(sender_id, msg, top_k=3):
-    try:
-        from app.eldora.core.semantic_memory_engine import semantic_memory_recall
-        data = semantic_memory_recall(sender_id or "default", msg or "", top_k)
-        rows = data.get("results", []) if isinstance(data, dict) else []
-        memories = []
-        for r in rows:
-            m = str(r.get("message") or "").strip()
-            if m and m.lower() != str(msg or "").lower().strip():
-                memories.append(m[:500])
-        return {
-            "ok": True,
-            "backend": "pgvector",
-            "count": len(memories),
-            "memories": memories[:top_k],
-        }
-    except Exception as e:
-        return {"ok": False, "backend": "unavailable", "count": 0, "memories": [], "error": str(e)[:160]}
-
-def _semantic_candidate_reply(msg, semantic_ctx):
-    low = (msg or "").lower()
-    joined = "\n".join(semantic_ctx.get("memories", []))
-    jlow = joined.lower()
-    if not semantic_ctx.get("memories"):
-        return ""
-    if any(x in low for x in ["qual meu nome", "qual é meu nome", "como eu me chamo"]):
-        import re
-        m = re.search(r"meu nome [ée]\s+([A-Za-zÀ-ÿ]+)", jlow, re.I)
-        if m:
-            return f"Seu nome é {m.group(1).capitalize()}."
-    if any(x in low for x in ["o que estou estudando", "o que eu estudo", "estou estudando o que"]):
-        import re
-        m = re.search(r"estudando\s+([A-Za-zÀ-ÿ0-9 ]+)", jlow, re.I)
-        if m:
-            return f"Você está estudando {m.group(1).strip()}."
-    return ""
-
 class ConversationMode(str, Enum):
     SOCIAL="SOCIAL"; TASK="TASK"; FOLLOWUP="FOLLOWUP"; EXECUTION="EXECUTION"; ANALYSIS="ANALYSIS"; CALCULATION="CALCULATION"; VERIFICATION="VERIFICATION"; CLARIFICATION="CLARIFICATION"; EMOTIONAL_SAFE="EMOTIONAL_SAFE"; CLOSURE="CLOSURE"
 
@@ -117,16 +80,10 @@ class UniversalConversationOS:
     @classmethod
     def process(cls,msg,sender_id=None,candidate_reply=""):
         state=SenderStateMemory.load(sender_id)
-        semantic_ctx=_semantic_recall_context(sender_id,msg,3)
-        semantic_reply=_semantic_candidate_reply(msg,semantic_ctx)
-        if semantic_reply and not candidate_reply:
-            candidate_reply=semantic_reply
         mode=cls.classify(msg,state)
         topic=(state.last_task or state.last_topic or state.last_user_message or msg) if mode==ConversationMode.FOLLOWUP else (msg or "").strip()
         calc=SafeCalculator.eval_expr(msg or "")
-        if semantic_reply:
-            reply=semantic_reply
-        elif mode==ConversationMode.SOCIAL: reply="Tudo certo, Roberto. Seguimos firmes."
+        if mode==ConversationMode.SOCIAL: reply="Tudo certo, Roberto. Seguimos firmes."
         elif mode==ConversationMode.CALCULATION: reply=f"Resultado: {int(calc) if calc is not None and calc==int(calc) else calc}." if calc is not None else "Me mande a expressão completa em uma linha."
         elif mode==ConversationMode.FOLLOWUP: reply=f"Vamos aprofundar no mesmo contexto: {topic}. O foco é achar a causa real, separar sintoma de origem e validar o próximo teste sem reiniciar a conversa."
         elif mode==ConversationMode.VERIFICATION: reply="Checklist real: 1) isolar último ponto alterado, 2) rodar teste mínimo, 3) comparar saída esperada vs real, 4) registrar evidência."
@@ -141,7 +98,7 @@ class UniversalConversationOS:
         if mode not in [ConversationMode.SOCIAL,ConversationMode.CLARIFICATION]: state.last_topic=topic
         if mode in [ConversationMode.TASK,ConversationMode.EXECUTION,ConversationMode.VERIFICATION,ConversationMode.ANALYSIS]: state.last_task=topic; state.open_loop=topic
         state.last_action_plan=["classificar","resolver continuidade","arbitrar saída final"]; SenderStateMemory.save(state)
-        return {"reply":reply,"mode":mode.value,"topic":topic,"state":asdict(state),"memory_backend":"pgvector_hybrid" if semantic_ctx.get("ok") else "runtime_memory_partial","semantic_recall":semantic_ctx}
+        return {"reply":reply,"mode":mode.value,"topic":topic,"state":asdict(state),"memory_backend":"runtime_memory_partial"}
 
 def universal_conversation_guard(message:str,sender_id:Optional[str],candidate_reply:str="")->str:
     return UniversalConversationOS.process(message,sender_id,candidate_reply)["reply"]
