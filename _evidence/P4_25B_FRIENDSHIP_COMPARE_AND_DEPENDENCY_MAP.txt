@@ -1,0 +1,799 @@
+P4.25B — FRIENDSHIP COMPARE AND DEPENDENCY MAP
+
+RECOVERED_FILES:
+
+=== agents_scheduler.py ===
+
+> _evidence\_drive_recovered_friendship_runtime\agents_scheduler.py:2:from datetime import datetime, timezone
+> _evidence\_drive_recovered_friendship_runtime\agents_scheduler.py:3:import threading, time
+> _evidence\_drive_recovered_friendship_runtime\agents_scheduler.py:4:from app.meta.agents_unified_runtime import run_agent
+> _evidence\_drive_recovered_friendship_runtime\agents_scheduler.py:5:import json
+  _evidence\_drive_recovered_friendship_runtime\agents_scheduler.py:6:
+> _evidence\_drive_recovered_friendship_runtime\agents_scheduler.py:7:def _run_loop():
+  _evidence\_drive_recovered_friendship_runtime\agents_scheduler.py:8:    while True:
+  _evidence\_drive_recovered_friendship_runtime\agents_scheduler.py:9:        try:
+  _evidence\_drive_recovered_friendship_runtime\agents_scheduler.py:10:            agents = json.load(open('app/meta/agents_registry.json'))['agents']
+  _evidence\_drive_recovered_friendship_runtime\agents_scheduler.py:11:            for ag in agents:
+> _evidence\_drive_recovered_friendship_runtime\agents_scheduler.py:18:def start_scheduler():
+  _evidence\_drive_recovered_friendship_runtime\agents_scheduler.py:19:    th = threading.Thread(target=_run_loop, daemon=True)
+  _evidence\_drive_recovered_friendship_runtime\agents_scheduler.py:20:    th.start()
+
+
+
+=== global_presence_engine.py ===
+
+> _evidence\_drive_recovered_friendship_runtime\global_presence_engine.py:1:from app.globalgrid.global_grid_engine import GlobalGridEngine
+> _evidence\_drive_recovered_friendship_runtime\global_presence_engine.py:2:from app.multiavatar.multi_avatar_engine import MultiAvatarEngine
+> _evidence\_drive_recovered_friendship_runtime\global_presence_engine.py:3:from app.callworld.call_world_engine import CallWorldEngine
+  _evidence\_drive_recovered_friendship_runtime\global_presence_engine.py:4:
+> _evidence\_drive_recovered_friendship_runtime\global_presence_engine.py:5:class GlobalPresenceEngine:
+  _evidence\_drive_recovered_friendship_runtime\global_presence_engine.py:6:    """
+  _evidence\_drive_recovered_friendship_runtime\global_presence_engine.py:7:    Liga GRID GLOBAL → Avatares → CallWorld
+  _evidence\_drive_recovered_friendship_runtime\global_presence_engine.py:8:    Cria presença cognitiva regionalizada.
+  _evidence\_drive_recovered_friendship_runtime\global_presence_engine.py:9:    """
+> _evidence\_drive_recovered_friendship_runtime\global_presence_engine.py:11:    def __init__(self):
+  _evidence\_drive_recovered_friendship_runtime\global_presence_engine.py:12:        self.grid = GlobalGridEngine()
+  _evidence\_drive_recovered_friendship_runtime\global_presence_engine.py:13:        self.avatars = MultiAvatarEngine()
+  _evidence\_drive_recovered_friendship_runtime\global_presence_engine.py:14:        self.worlds = CallWorldEngine()
+  _evidence\_drive_recovered_friendship_runtime\global_presence_engine.py:15:
+> _evidence\_drive_recovered_friendship_runtime\global_presence_engine.py:16:    def _ensure_default_infra(self):
+  _evidence\_drive_recovered_friendship_runtime\global_presence_engine.py:17:        # se não tiver cluster nenhum, cria um default
+  _evidence\_drive_recovered_friendship_runtime\global_presence_engine.py:18:        if not self.grid.list_clusters():
+  _evidence\_drive_recovered_friendship_runtime\global_presence_engine.py:19:            if not self.grid.list_regions():
+  _evidence\_drive_recovered_friendship_runtime\global_presence_engine.py:20:                self.grid.add_region("global-default", "Global Default", latency_ms=80.0)
+> _evidence\_drive_recovered_friendship_runtime\global_presence_engine.py:23:    def provision(self, tenant_id: str):
+  _evidence\_drive_recovered_friendship_runtime\global_presence_engine.py:24:        self._ensure_default_infra()
+  _evidence\_drive_recovered_friendship_runtime\global_presence_engine.py:25:        placement = self.grid.place_tenant(tenant_id)
+  _evidence\_drive_recovered_friendship_runtime\global_presence_engine.py:26:        cluster = placement.cluster_id
+  _evidence\_drive_recovered_friendship_runtime\global_presence_engine.py:27:
+
+
+
+=== routes_golden_proactive.py ===
+
+> _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:1:from fastapi import APIRouter
+> _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:2:from datetime import datetime
+> _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:3:from random import random, choice
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:4:
+> _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:5:from app.golden_pipeline.memory_engine import memory_engine
+> _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:6:from app.golden_pipeline.emotional_engine import emotional_engine
+> _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:7:from app.golden_pipeline.reasoning_engine import reasoning_engine
+> _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:8:from app.golden_pipeline.strategy_engine import strategy_engine
+> _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:9:from app.golden_pipeline.decision_engine import decision_engine
+> _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:10:from app.golden_pipeline.state_machine import state_machine
+> _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:11:from app.golden_pipeline.behavior_engine import behavior_engine
+> _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:12:from app.golden_pipeline.live_call_engine import live_call
+> _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:13:from app.golden_pipeline.voice_director import director, VoiceUnavailable
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:14:
+> _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:15:router = APIRouter(prefix="/mind/golden/proactive", tags=["Golden Proactivity"])
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:16:
+> _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:17:def _ts():
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:18:    return datetime.utcnow().timestamp()
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:19:
+> _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:20:@router.get("/tick")
+> _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:21:def proactive_tick():
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:22:    # probabilidade de iniciar ação espontânea
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:23:    trigger = random()
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:24:
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:25:    # 1. checar memória e emoções (contexto)
+> _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:26:    mem = memory_engine.snapshot()
+> _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:27:    emo = emotional_engine.tick()["emotion"]
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:28:
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:29:    # 2. caso haja gatilho → Golden age sem input externo
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:30:    if trigger > 0.4:
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:31:        reason = reasoning_engine.tick()
+> _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:63:            emotion=expression,
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:64:            intensity=intensity,
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:65:        )
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:66:    except Exception as e:
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:67:        audio = {"status": "voice_error", "detail": str(e)}
+> _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:70:    memory_engine.add_event("proactive_action", {
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:71:        "gesture": gesture,
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:72:        "expression": expression,
+> _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:73:        "emotion": emo,
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:74:    })
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:75:
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:76:    return {
+> _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:77:        "status": "proactive_ok",
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:78:        "timestamp": _ts(),
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:79:        "trigger": trigger,
+> _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:80:        "emotion": emo,
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:81:        "reasoning": reason,
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:82:        "strategy": strat,
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:83:        "decision": dec,
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:84:        "behavior": behavior,
+> _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:87:        "memory_snapshot": mem,
+  _evidence\_drive_recovered_friendship_runtime\routes_golden_proactive.py:88:    }
+
+
+
+=== social_relationship_orchestrator.py ===
+
+> _evidence\_drive_recovered_friendship_runtime\social_relationship_orchestrator.py:1:from __future__ import annotations
+> _evidence\_drive_recovered_friendship_runtime\social_relationship_orchestrator.py:2:import os
+> _evidence\_drive_recovered_friendship_runtime\social_relationship_orchestrator.py:3:from datetime import datetime, timezone
+  _evidence\_drive_recovered_friendship_runtime\social_relationship_orchestrator.py:4:
+> _evidence\_drive_recovered_friendship_runtime\social_relationship_orchestrator.py:5:def run(context: dict) -> dict:
+  _evidence\_drive_recovered_friendship_runtime\social_relationship_orchestrator.py:6:    return {
+> _evidence\_drive_recovered_friendship_runtime\social_relationship_orchestrator.py:7:        "agent_id": "social.relationship_orchestrator",
+  _evidence\_drive_recovered_friendship_runtime\social_relationship_orchestrator.py:8:        "timestamp": datetime.now(timezone.utc).isoformat(),
+  _evidence\_drive_recovered_friendship_runtime\social_relationship_orchestrator.py:9:        "status": "ok",
+  _evidence\_drive_recovered_friendship_runtime\social_relationship_orchestrator.py:10:        "note": "Stub SUPREMOS 6–9 ativo. Lógica real será implementada nos STEPs correspondentes."
+  _evidence\_drive_recovered_friendship_runtime\social_relationship_orchestrator.py:11:    }
+
+
+
+CURRENT_LOCAL_MATCHES:
+
+  app\admin\friendship_outbound_test.py:3:from fastapi import APIRouter
+  app\admin\friendship_outbound_test.py:4:import os, psycopg2
+> app\admin\friendship_outbound_test.py:5:from twilio.rest import Client
+  app\admin\friendship_outbound_test.py:6:
+> app\admin\friendship_outbound_test.py:7:router = APIRouter(prefix="/admin/friendship", tags=["friendship-admin"])
+  app\admin\friendship_outbound_test.py:8:
+> app\admin\friendship_outbound_test.py:9:@router.post("/outbound/test")
+> app\admin\friendship_outbound_test.py:10:async def friendship_outbound_test(payload: dict):
+  app\admin\friendship_outbound_test.py:11:    db=os.getenv("DATABASE_URL")
+> app\admin\friendship_outbound_test.py:12:    sid=os.getenv("TWILIO_ACCOUNT_SID")
+> app\admin\friendship_outbound_test.py:13:    token=os.getenv("TWILIO_AUTH_TOKEN")
+> app\admin\friendship_outbound_test.py:14:    from_number=os.getenv("TWILIO_WHATSAPP_FROM") or "whatsapp:+14155238886"
+  app\admin\friendship_outbound_test.py:15:
+  app\admin\friendship_outbound_test.py:16:    to=payload.get("to")
+  app\admin\friendship_outbound_test.py:17:    name=payload.get("name","Roberto")
+  app\admin\friendship_outbound_test.py:18:    message=payload.get("message") or f"Bom dia, {name}. Quer revisar matemática por 10 min comigo hoje?"
+  app\admin\friendship_outbound_test.py:19:
+  app\admin\friendship_outbound_test.py:20:    if not db:
+  app\admin\friendship_outbound_test.py:21:        return {"sent":False,"reason":"DATABASE_URL_MISSING"}
+  app\admin\friendship_outbound_test.py:22:    if not sid or not token:
+> app\admin\friendship_outbound_test.py:23:        return {"sent":False,"reason":"TWILIO_ENV_MISSING"}
+  app\admin\friendship_outbound_test.py:24:    if not to:
+  app\admin\friendship_outbound_test.py:25:        return {"sent":False,"reason":"TO_MISSING"}
+  app\admin\friendship_outbound_test.py:26:
+  app\admin\friendship_outbound_test.py:27:    with psycopg2.connect(db, sslmode="require") as conn:
+  app\admin\friendship_outbound_test.py:28:        with conn.cursor() as cur:
+  app\admin\friendship_outbound_test.py:29:            cur.execute("SELECT opt_out FROM neura_user_preferences WHERE sender_id=%s", (to,))
+  app\admin\friendship_outbound_test.py:30:            row=cur.fetchone()
+  app\admin\friendship_outbound_test.py:31:            if row and row[0] is True:
+  app\admin\friendship_outbound_test.py:33:
+  app\admin\friendship_outbound_test.py:34:            cur.execute("""
+> app\admin\friendship_outbound_test.py:35:              INSERT INTO neura_proactive_messages(sender_id,message,reason,status)
+  app\admin\friendship_outbound_test.py:36:              VALUES (%s,%s,%s,%s) RETURNING id
+> app\admin\friendship_outbound_test.py:37:            """, (to,message,"outbound_test","planned"))
+  app\admin\friendship_outbound_test.py:38:            msg_id=cur.fetchone()[0]
+  app\admin\friendship_outbound_test.py:39:
+  app\admin\friendship_outbound_test.py:40:    client=Client(sid, token)
+> app\admin\friendship_outbound_test.py:41:    twilio_msg=client.messages.create(from_=from_number, to=to, body=message)
+  app\admin\friendship_outbound_test.py:42:
+  app\admin\friendship_outbound_test.py:43:    with psycopg2.connect(db, sslmode="require") as conn:
+  app\admin\friendship_outbound_test.py:44:        with conn.cursor() as cur:
+> app\admin\friendship_outbound_test.py:45:            cur.execute("UPDATE neura_proactive_messages SET status=%s WHERE id=%s", ("sent", msg_id))
+  app\admin\friendship_outbound_test.py:46:
+> app\admin\friendship_outbound_test.py:47:    return {"sent":True,"reason":"OK","twilio_sid":twilio_msg.sid,"message_id":msg_id,"to":to}
+  app\admin\friendship_outbound_test.py:48:
+  app\admin\friendship_outbound_test.py:49:
+  app\admin\friendship_outbound_test.py:50:# FINAL_IDENTITY_BLOCK
+  app\admin\friendship_outbound_test.py:51:def __identity_guard_last_hop(answer,user_message=""):
+  app\admin\friendship_outbound_test.py:52:    return enforce_no_identity_in_normal_chat(user_message,answer)
+  app\admin\friendship_schema_validation.py:3:import psycopg2
+  app\admin\friendship_schema_validation.py:4:
+> app\admin\friendship_schema_validation.py:5:router = APIRouter(prefix="/admin/friendship", tags=["friendship-admin"])
+  app\admin\friendship_schema_validation.py:6:
+  app\admin\friendship_schema_validation.py:7:@router.post("/schema/validate")
+> app\admin\friendship_schema_validation.py:8:async def friendship_schema_validate():
+  app\admin\friendship_schema_validation.py:9:
+  app\admin\friendship_schema_validation.py:10:    db = os.getenv("DATABASE_URL")
+  app\admin\friendship_schema_validation.py:11:    if not db:
+  app\admin\friendship_schema_validation.py:12:        return {"schema_ok": False, "error": "DATABASE_URL_MISSING"}
+  app\admin\friendship_schema_validation.py:13:
+  app\admin\friendship_schema_validation.py:14:    sql = """
+> app\admin\friendship_schema_validation.py:15:    CREATE TABLE IF NOT EXISTS neura_friendship_profile (
+  app\admin\friendship_schema_validation.py:16:      sender_id TEXT PRIMARY KEY,
+  app\admin\friendship_schema_validation.py:17:      name TEXT,
+> app\admin\friendship_schema_validation.py:18:      relationship_stage TEXT DEFAULT 'new',
+> app\admin\friendship_schema_validation.py:19:      last_proactive_sent_at TIMESTAMPTZ,
+> app\admin\friendship_schema_validation.py:20:      proactive_sent_today INTEGER DEFAULT 0,
+  app\admin\friendship_schema_validation.py:21:      daily_limit INTEGER DEFAULT 1,
+  app\admin\friendship_schema_validation.py:22:      created_at TIMESTAMPTZ DEFAULT NOW(),
+  app\admin\friendship_schema_validation.py:23:      updated_at TIMESTAMPTZ DEFAULT NOW()
+  app\admin\friendship_schema_validation.py:24:    );
+  app\admin\friendship_schema_validation.py:25:
+  app\admin\friendship_schema_validation.py:26:    CREATE TABLE IF NOT EXISTS neura_user_preferences (
+  app\admin\friendship_schema_validation.py:27:      sender_id TEXT PRIMARY KEY,
+  app\admin\friendship_schema_validation.py:28:      opt_out BOOLEAN DEFAULT FALSE,
+  app\admin\friendship_schema_validation.py:33:    );
+  app\admin\friendship_schema_validation.py:34:
+> app\admin\friendship_schema_validation.py:35:    CREATE TABLE IF NOT EXISTS neura_proactive_messages (
+  app\admin\friendship_schema_validation.py:36:      id BIGSERIAL PRIMARY KEY,
+  app\admin\friendship_schema_validation.py:37:      sender_id TEXT,
+  app\admin\friendship_schema_validation.py:38:      message TEXT,
+  app\admin\friendship_schema_validation.py:39:      reason TEXT,
+  app\admin\friendship_schema_validation.py:40:      status TEXT DEFAULT 'planned',
+  app\admin\friendship_schema_validation.py:41:      created_at TIMESTAMPTZ DEFAULT NOW()
+  app\admin\friendship_schema_validation.py:42:    );
+  app\admin\friendship_schema_validation.py:43:    """
+  app\admin\friendship_schema_validation.py:49:            cur.execute("""
+  app\admin\friendship_schema_validation.py:50:            SELECT
+> app\admin\friendship_schema_validation.py:51:              to_regclass('public.neura_friendship_profile'),
+  app\admin\friendship_schema_validation.py:52:              to_regclass('public.neura_user_preferences'),
+> app\admin\friendship_schema_validation.py:53:              to_regclass('public.neura_proactive_messages')
+  app\admin\friendship_schema_validation.py:54:            """)
+  app\admin\friendship_schema_validation.py:55:            tables = cur.fetchone()
+  app\admin\friendship_schema_validation.py:56:
+  app\admin\friendship_schema_validation.py:57:    return {
+  app\admin\friendship_schema_validation.py:58:      "schema_ok": True,
+  app\admin\friendship_schema_validation.py:59:      "tables": {
+> app\admin\friendship_schema_validation.py:60:        "neura_friendship_profile": str(tables[0]),
+  app\admin\friendship_schema_validation.py:61:        "neura_user_preferences": str(tables[1]),
+> app\admin\friendship_schema_validation.py:62:        "neura_proactive_messages": str(tables[2])
+  app\admin\friendship_schema_validation.py:63:      },
+> app\admin\friendship_schema_validation.py:64:      "PROACTIVE_CHECKIN_READY": True,
+  app\admin\friendship_schema_validation.py:65:      "OPT_OUT_RESPECTED": True
+  app\admin\friendship_schema_validation.py:66:    }
+  app\admin\semantic_activation.py:20:        "DATABASE_URL": bool(os.getenv("DATABASE_URL")),
+  app\admin\semantic_activation.py:21:        "OPENAI_API_KEY": bool(os.getenv("OPENAI_API_KEY")),
+> app\admin\semantic_activation.py:22:        "SUPABASE_URL": bool(os.getenv("SUPABASE_URL")),
+> app\admin\semantic_activation.py:23:        "SUPABASE_SERVICE_ROLE_KEY": bool(os.getenv("SUPABASE_SERVICE_ROLE_KEY")),
+  app\admin\semantic_activation.py:24:    }
+  app\admin\semantic_activation.py:25:    if not db:
+  app\admin\semantic_activation.py:26:        return {"status":"FAILED","error":"DATABASE_URL_MISSING","env":env}
+  app\admin\semantic_activation.py:27:
+  app\admin\semantic_activation.py:28:    inserted=0
+  app\admin\semantic_activation.py:29:    embeddings_count=0
+  app\admin\semantic_activation.py:30:    tests=[]
+  app\admin\semantic_activation.py:31:    ep=EmbeddingProvider()
+  app\api\diagnostic_twilio.py:8:router = APIRouter(prefix="/diagnostic", tags=["diagnostic"])
+  app\api\diagnostic_twilio.py:9:
+> app\api\diagnostic_twilio.py:10:@router.post("/twilio-inbound")
+> app\api\diagnostic_twilio.py:11:async def diagnostic_twilio_inbound(request: Request):
+  app\api\diagnostic_twilio.py:12:    form = await request.form()
+  app\api\diagnostic_twilio.py:13:    payload = {
+  app\api\diagnostic_twilio.py:14:        "timestamp": datetime.now(timezone.utc).isoformat(),
+  app\api\diagnostic_twilio.py:15:        "headers": dict(request.headers),
+  app\api\diagnostic_twilio.py:16:        "form": dict(form),
+> app\api\diagnostic_twilio.py:17:        "status": "TWILIO_INBOUND_RECEIVED"
+  app\api\diagnostic_twilio.py:18:    }
+  app\api\diagnostic_twilio.py:19:
+> app\api\diagnostic_twilio.py:20:    Path("diagnostic_twilio_last.json").write_text(
+  app\api\diagnostic_twilio.py:21:        json.dumps(payload, ensure_ascii=False, indent=2),
+  app\api\diagnostic_twilio.py:22:        encoding="utf-8"
+  app\api\diagnostic_twilio.py:23:    )
+  app\api\diagnostic_twilio.py:24:
+  app\api\diagnostic_twilio.py:25:    body = str(form.get("Body", ""))
+  app\api\diagnostic_twilio.py:26:
+  app\api\diagnostic_twilio.py:27:    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+  app\api\diagnostic_twilio.py:28:<Response>
+  app\api\eldora_embodied.py:6:)
+  app\api\eldora_embodied.py:7:
+> app\api\eldora_embodied.py:8:from app.eldora.core.autonomous_digital_presence import (
+> app\api\eldora_embodied.py:9:    digital_presence,
+> app\api\eldora_embodied.py:10:    presence_report
+  app\api\eldora_embodied.py:11:)
+  app\api\eldora_embodied.py:12:
+  app\api\eldora_embodied.py:13:from app.eldora.core.internet_awareness_engine import (
+  app\api\eldora_embodied.py:14:    internet_awareness,
+  app\api\eldora_embodied.py:15:    awareness_report
+  app\api\eldora_embodied.py:16:)
+  app\api\eldora_embodied.py:17:
+  app\api\eldora_embodied.py:18:router = APIRouter(
+  app\api\eldora_embodied.py:29:    return browser_report()
+  app\api\eldora_embodied.py:30:
+> app\api\eldora_embodied.py:31:@router.post("/presence/activate")
+> app\api\eldora_embodied.py:32:async def presence(identity:str, platform:str):
+> app\api\eldora_embodied.py:33:    return digital_presence(identity, platform)
+  app\api\eldora_embodied.py:34:
+> app\api\eldora_embodied.py:35:@router.get("/presence/report")
+> app\api\eldora_embodied.py:36:async def presences():
+> app\api\eldora_embodied.py:37:    return presence_report()
+  app\api\eldora_embodied.py:38:
+  app\api\eldora_embodied.py:39:@router.post("/awareness/signal")
+  app\api\eldora_embodied.py:40:async def awareness(source:str, signal:str):
+  app\api\eldora_embodied.py:41:    return internet_awareness(source, signal)
+  app\api\eldora_embodied.py:42:
+  app\api\eldora_embodied.py:43:@router.get("/awareness/report")
+  app\api\eldora_embodied.py:44:async def awareness_runtime():
+  app\api\eldora_embodied.py:45:    return awareness_report()
+  app\api\eldora_live_voice.py:4:    create_voice_session,
+  app\api\eldora_live_voice.py:5:    stream_cognition_event,
+> app\api\eldora_live_voice.py:6:    update_presence_state,
+  app\api\eldora_live_voice.py:7:    voice_runtime_report
+  app\api\eldora_live_voice.py:8:)
+  app\api\eldora_live_voice.py:9:
+  app\api\eldora_live_voice.py:10:router = APIRouter(
+  app\api\eldora_live_voice.py:11:    prefix="/eldora/live-voice",
+  app\api\eldora_live_voice.py:12:    tags=["eldora-live-voice"]
+  app\api\eldora_live_voice.py:13:)
+  app\api\eldora_live_voice.py:14:
+  app\api\eldora_live_voice.py:35:    )
+  app\api\eldora_live_voice.py:36:
+> app\api\eldora_live_voice.py:37:@router.post("/presence/update")
+> app\api\eldora_live_voice.py:38:async def update_presence(
+  app\api\eldora_live_voice.py:39:    user_id:str,
+  app\api\eldora_live_voice.py:40:    emotion:str="neutral",
+  app\api\eldora_live_voice.py:41:    attention:float=1.0
+  app\api\eldora_live_voice.py:42:):
+> app\api\eldora_live_voice.py:43:    return update_presence_state(
+  app\api\eldora_live_voice.py:44:        user_id,
+  app\api\eldora_live_voice.py:45:        emotion,
+  app\api\eldora_live_voice.py:46:        attention
+  app\api\eldora_live_voice.py:47:    )
+  app\api\eldora_live_voice.py:48:
+  app\api\eldora_live_voice.py:49:@router.get("/report")
+  app\api\eldora_live_voice.py:50:async def report():
+  app\api\eldora_live_voice.py:51:    return voice_runtime_report()
+  app\api\eldora_neura_scale.py:22:    return create_whatsapp_acquisition_campaign(audience, offer)
+  app\api\eldora_neura_scale.py:23:
+> app\api\eldora_neura_scale.py:24:@router.post("/scheduler/cost-aware")
+> app\api\eldora_neura_scale.py:25:async def scheduler(workload:str, max_cost:float=1.0, priority:int=10):
+  app\api\eldora_neura_scale.py:26:    return schedule_cognition_workload(workload, max_cost, priority)
+  app\api\eldora_neura_scale.py:27:
+  app\api\eldora_neura_scale.py:28:@router.post("/launch/public")
+  app\api\eldora_neura_scale.py:29:async def launch(product:str="NEURA", market:str="students"):
+  app\api\eldora_neura_scale.py:30:    return activate_public_launch(product, market)
+  app\api\eldora_neura_scale.py:31:
+  app\api\eldora_neura_scale.py:32:@router.get("/report")
+  app\api\eldora_neura_scale.py:33:async def report():
+  app\api\eldora_runtime_canonical.py:8:        "canonical_render_url": "https://mind-fin-pro-backend-core-1.onrender.com",
+  app\api\eldora_runtime_canonical.py:9:        "deprecated_or_secondary_url": "https://mind-fin-pro-backend-core.onrender.com",
+> app\api\eldora_runtime_canonical.py:10:        "supabase_live_validated": True,
+  app\api\eldora_runtime_canonical.py:11:        "redis_streams_live_validated": True,
+  app\api\eldora_runtime_canonical.py:12:        "rag_live_validated": True,
+  app\api\eldora_runtime_canonical.py:13:        "intelligence_rag_live_validated": True,
+  app\api\eldora_runtime_canonical.py:14:        "llm_real_validated": True,
+  app\api\eldora_runtime_canonical.py:15:        "llm_validation_service": "mind-fin-pro-backend-core-1",
+  app\api\eldora_runtime_canonical.py:16:        "next_focus": "public funnel + whatsapp acquisition + billing trial"
+  app\api\eldora_runtime_canonical.py:17:    }
+  app\api\eldora_social.py:37:    return emotional_report()
+  app\api\eldora_social.py:38:
+> app\api\eldora_social.py:39:@router.post("/relationship/analyze")
+> app\api\eldora_social.py:40:async def relationship(user_id:str, profile:str):
+  app\api\eldora_social.py:41:    return relational_analysis(user_id, profile)
+  app\api\eldora_social.py:42:
+> app\api\eldora_social.py:43:@router.get("/relationship/report")
+> app\api\eldora_social.py:44:async def relationship_runtime():
+  app\api\eldora_social.py:45:    return relational_report()
+  app\api\eldora_supabase_live.py:2:from fastapi import APIRouter, HTTPException, Header
+  app\api\eldora_supabase_live.py:3:
+> app\api\eldora_supabase_live.py:4:router = APIRouter(prefix="/eldora/supabase-live", tags=["eldora-supabase-live"])
+  app\api\eldora_supabase_live.py:5:
+  app\api\eldora_supabase_live.py:6:SCHEMA_SQL = """
+  app\api\eldora_supabase_live.py:7:create table if not exists eldora_events (
+  app\api\eldora_supabase_live.py:8:  id bigserial primary key,
+  app\api\eldora_supabase_live.py:9:  tenant_id text,
+  app\api\eldora_supabase_live.py:10:  user_id text,
+  app\api\eldora_supabase_live.py:11:  event_type text not null,
+  app\api\eldora_supabase_live.py:12:  payload jsonb default '{}'::jsonb,
+  app\api\eldora_swarm.py:28:        "persisted": persisted,
+  app\api\eldora_swarm.py:29:        "failed": failed,
+> app\api\eldora_swarm.py:30:        "storage": "supabase_only",
+  app\api\eldora_swarm.py:31:        "engine": "multi_ai_conversational_swarm_v1"
+  app\api\eldora_swarm.py:32:    }
+  app\api\eldora_swarm.py:33:
+  app\api\eldora_swarm.py:34:@router.get("/admin/eldora/swarm/report")
+  app\api\eldora_swarm.py:35:def swarm_report():
+  app\api\eldora_swarm.py:36:    return fetch_report(5000)
+  app\api\eldora_telemetry.py:22:        r=log_event("simulation",u,a,kind="simulation",score=s)
+  app\api\eldora_telemetry.py:23:        ok+=1 if r.get("ok") else 0
+> app\api\eldora_telemetry.py:24:    return {"ok":ok==total,"requested":total,"persisted":ok,"storage":"supabase_only"}
+  app\api\eldora_telemetry.py:25:
+  app\api\eldora_telemetry.py:26:@router.get("/admin/eldora/telemetry/report")
+  app\api\eldora_telemetry.py:27:def telemetry_report():
+  app\api\eldora_telemetry.py:28:    return fetch_report()
+  app\friendship\boundaries.py:4:        return False, "OPT_OUT"
+  app\friendship\boundaries.py:5:
+> app\friendship\boundaries.py:6:    sent = int(profile.get("proactive_sent_today") or 0)
+  app\friendship\boundaries.py:7:    limit = int(profile.get("daily_limit") or 1)
+  app\friendship\boundaries.py:8:    if sent >= limit:
+  app\friendship\boundaries.py:9:        return False, "DAILY_LIMIT"
+  app\friendship\boundaries.py:10:
+  app\friendship\boundaries.py:11:    return True, "OK"
+> app\friendship\emotional_checkin.py:1:def light_checkin(name="Roberto"):
+  app\friendship\emotional_checkin.py:2:    return f"Como foi seu dia, {name}? Tem algo que você quer tirar da cabeça e jogar pra Neura?"
+  app\friendship\friendship_profile.py:1:def default_profile(sender_id):
+> app\friendship\friendship_profile.py:2:    return {"sender_id":sender_id,"tone_preference":"leve","opt_out":False,"relationship_stage":"beta_friend","preferred_time_window":"08:00-22:00"}
+  app\friendship\friendship_routes.py:1:from fastapi import APIRouter
+> app\friendship\friendship_routes.py:2:from .proactive_scheduler import plan_checkin
+> app\friendship\friendship_routes.py:3:router=APIRouter(prefix="/friendship", tags=["friendship"])
+> app\friendship\friendship_routes.py:4:@router.post("/checkin/plan")
+> app\friendship\friendship_routes.py:5:async def checkin_plan(payload:dict):
+> app\friendship\friendship_routes.py:6:    return plan_checkin(payload.get("profile",{}), payload.get("memory",{}))
+  app\friendship\proactive_scheduler.py:1:from .boundaries import can_send
+  app\friendship\proactive_scheduler.py:2:from .greeting_engine import build_greeting
+> app\friendship\proactive_scheduler.py:3:def plan_checkin(profile, memory=None):
+  app\friendship\proactive_scheduler.py:4:    ok, reason = can_send(profile)
+  app\friendship\proactive_scheduler.py:5:    if not ok: return {"send":False,"reason":reason}
+  app\friendship\proactive_scheduler.py:6:    return {"send":True,"reason":"OK","message":build_greeting(profile.get("name","Roberto"), memory)}
+  app\ingestion\file_downloader.py:22:        path = f"/tmp/{uuid.uuid4()}{ext}"
+  app\ingestion\file_downloader.py:23:
+> app\ingestion\file_downloader.py:24:        sid = os.getenv("TWILIO_ACCOUNT_SID") or os.getenv("ACCOUNT_SID")
+> app\ingestion\file_downloader.py:25:        token = os.getenv("TWILIO_AUTH_TOKEN") or os.getenv("AUTH_TOKEN")
+  app\ingestion\file_downloader.py:26:
+  app\ingestion\file_downloader.py:27:        auth = (sid, token) if sid and token else None
+  app\ingestion\file_downloader.py:28:
+  app\ingestion\file_downloader.py:29:        r = requests.get(media_url, auth=auth, timeout=30)
+  app\ingestion\file_downloader.py:30:
+  app\ingestion\file_downloader.py:31:        if r.status_code >= 300:
+> app\ingestion\file_downloader.py:32:            raise Exception(f"Twilio media download failed: {r.status_code} {r.text[:160]}")
+  app\ingestion\file_downloader.py:33:
+  app\ingestion\file_downloader.py:34:        with open(path, "wb") as f:
+  app\ingestion\file_downloader.py:35:            f.write(r.content)
+  app\ingestion\file_downloader.py:36:
+  app\ingestion\file_downloader.py:37:        return path
+  app\memory\memory_graph.py:8:"""
+  app\memory\memory_graph.py:9:
+> app\memory\memory_graph.py:10:SUPABASE_URL=(os.getenv("SUPABASE_URL") or "").rstrip("/")
+> app\memory\memory_graph.py:11:SUPABASE_KEY=os.getenv("SUPABASE_SERVICE_ROLE") or os.getenv("SUPABASE_SERVICE_ROLE_KEY") or ""
+  app\memory\memory_graph.py:12:
+  app\memory\memory_graph.py:13:def _enabled():
+> app\memory\memory_graph.py:14:    return bool(SUPABASE_URL and SUPABASE_KEY)
+  app\memory\memory_graph.py:15:
+  app\memory\memory_graph.py:16:def _headers(prefer="return=minimal"):
+> app\memory\memory_graph.py:17:    h={"apikey":SUPABASE_KEY,"Authorization":f"Bearer {SUPABASE_KEY}","Content-Type":"application/json"}
+  app\memory\memory_graph.py:18:    if prefer: h["Prefer"]=prefer
+  app\memory\memory_graph.py:19:    return h
+  app\memory\memory_graph.py:20:
+  app\memory\memory_graph.py:21:def _insert_memory(user_id, memory_type, content, confidence=0.85, role="memory_graph"):
+  app\memory\memory_graph.py:22:    if not _enabled():
+> app\memory\memory_graph.py:23:        return {"ok":False,"saved":False,"backend":"local_only","reason":"SUPABASE_ENV_MISSING"}
+  app\memory\memory_graph.py:24:    row={"id":str(uuid.uuid4()),"sender_id":str(user_id or "default")[:180],"memory_type":str(memory_type or "graph")[:80],"content":str(content or "")[:4000],"confidence":confidence,"message":str(content or "")[:4000],"role":role}
+  app\memory\memory_graph.py:25:    try:
+> app\memory\memory_graph.py:26:        req=urllib.request.Request(f"{SUPABASE_URL}/rest/v1/neura_memory",data=json.dumps(row).encode("utf-8"),headers=_headers(),method="POST")
+  app\memory\memory_graph.py:27:        urllib.request.urlopen(req,timeout=8).read()
+> app\memory\memory_graph.py:28:        return {"ok":True,"saved":True,"backend":"supabase_neura_memory","user_id":user_id}
+  app\memory\memory_graph.py:29:    except Exception as e:
+> app\memory\memory_graph.py:30:        return {"ok":False,"saved":False,"backend":"supabase_error","reason":str(e)[:240],"user_id":user_id}
+  app\memory\memory_graph.py:31:
+  app\memory\memory_graph.py:32:def _fetch_memory(user_id, limit=12):
+  app\memory\memory_graph.py:33:    if not _enabled():
+  app\memory\memory_graph.py:34:        return []
+  app\memory\memory_graph.py:35:    try:
+  app\memory\memory_graph.py:36:        sender=urllib.parse.quote(str(user_id or "default")[:180],safe="")
+> app\memory\memory_graph.py:37:        url=f"{SUPABASE_URL}/rest/v1/neura_memory?select=content,memory_type,confidence,created_at&sender_id=eq.{sender}&order=created_at.desc&limit={int(limit)}"
+  app\memory\memory_graph.py:38:        req=urllib.request.Request(url,headers=_headers(prefer=None),method="GET")
+  app\memory\memory_graph.py:39:        return json.loads(urllib.request.urlopen(req,timeout=8).read().decode("utf-8"))
+  app\memory\memory_graph.py:40:    except Exception:
+  app\memory\memory_graph.py:41:        return []
+  app\memory\memory_graph.py:42:
+  app\memory\memory_graph.py:43:def save_message(user_id, role, content):
+  app\memory\memory_graph.py:44:    return _insert_memory(user_id, f"message_{role}", content, 0.9, role="memory_graph_message")
+  app\memory\memory_graph.py:45:
+  app\memory\memory_graph.py:66:    rows=_fetch_memory(user_id)
+  app\memory\memory_graph.py:67:    facts=extract_memory_facts(query)
+> app\memory\memory_graph.py:68:    return {"facts":facts,"query":query,"persistent_rows":rows,"persistent_memory_count":len(rows),"backend":"supabase_neura_memory" if _enabled() else "local_only"}
+  app\memory\memory_graph.py:69:
+  app\memory\memory_graph.py:70:def retrieve_user_profile(user_id):
+  app\memory\memory_graph.py:71:    rows=_fetch_memory(user_id)
+  app\memory\memory_graph.py:72:    content=" ".join([r.get("content","") for r in rows]).lower()
+  app\memory\memory_graph.py:73:    return {"user_id":user_id,"known_name":"Roberto" if "roberto" in content else None,"dominant_project":"MIND" if "mind" in content else None,"persistent_memory_count":len(rows)}
+  app\memory\memory_graph.py:74:
+  app\memory\memory_graph.py:75:def retrieve_project_context(user_id):
+  app\memory\memory_graph.py:76:    rows=_fetch_memory(user_id)
+  app\retrieval\provider.py:1:import os, json, urllib.request, urllib.parse
+  app\retrieval\provider.py:2:
+> app\retrieval\provider.py:3:SUPABASE_URL = (os.getenv("SUPABASE_URL") or "").rstrip("/")
+> app\retrieval\provider.py:4:SUPABASE_KEY = os.getenv("SUPABASE_SERVICE_ROLE") or os.getenv("SUPABASE_SERVICE_ROLE_KEY") or ""
+  app\retrieval\provider.py:5:
+> app\retrieval\provider.py:6:def _supabase_enabled():
+> app\retrieval\provider.py:7:    return bool(SUPABASE_URL and SUPABASE_KEY)
+  app\retrieval\provider.py:8:
+  app\retrieval\provider.py:9:def _headers():
+> app\retrieval\provider.py:10:    return {"apikey": SUPABASE_KEY, "Authorization": f"Bearer {SUPABASE_KEY}"}
+  app\retrieval\provider.py:11:
+  app\retrieval\provider.py:12:def _extract_sender_id(history):
+  app\retrieval\provider.py:13:    for row in history or []:
+  app\retrieval\provider.py:14:        sender = row.get("sender_id") or row.get("from") or row.get("From")
+  app\retrieval\provider.py:15:        if sender:
+  app\retrieval\provider.py:16:            return str(sender)
+  app\retrieval\provider.py:17:    return None
+  app\retrieval\provider.py:18:
+  app\retrieval\provider.py:19:def _fetch_neura_memory(sender_id, limit=8):
+> app\retrieval\provider.py:20:    if not (_supabase_enabled() and sender_id):
+  app\retrieval\provider.py:21:        return []
+  app\retrieval\provider.py:22:    try:
+  app\retrieval\provider.py:23:        sender_q = urllib.parse.quote(str(sender_id), safe="")
+> app\retrieval\provider.py:24:        url = f"{SUPABASE_URL}/rest/v1/neura_memory?select=content,memory_type,created_at&sender_id=eq.{sender_q}&order=created_at.desc&limit={int(limit)}"
+  app\retrieval\provider.py:25:        req = urllib.request.Request(url, headers=_headers(), method="GET")
+  app\retrieval\provider.py:26:        return json.loads(urllib.request.urlopen(req, timeout=8).read().decode("utf-8"))
+  app\retrieval\provider.py:27:    except Exception:
+  app\retrieval\provider.py:28:        return []
+  app\retrieval\provider.py:29:
+  app\retrieval\provider.py:30:class RetrievalProvider:
+  app\retrieval\provider.py:31:    def retrieve(self, message=None, history=None):
+  app\retrieval\provider.py:32:        query = message or ""
+  app\retrieval\provider.py:36:        merged["facts"].update(direct.get("facts", {}))
+  app\retrieval\provider.py:37:        merged["query"] = query
+> app\retrieval\provider.py:38:        merged["source"] = "retrieval_provider_supabase_neura_memory_v1"
+  app\retrieval\provider.py:39:        return merged
+  app\retrieval\provider.py:40:
+  app\retrieval\provider.py:41:    def build_context(self, history=None):
+  app\retrieval\provider.py:42:        facts = {}
+  app\retrieval\provider.py:43:        lines = []
+  app\retrieval\provider.py:44:        sender_id = _extract_sender_id(history or [])
+  app\retrieval\provider.py:45:        persistent_rows = _fetch_neura_memory(sender_id)
+  app\retrieval\provider.py:46:
+  app\runtime\cognitive_pipeline.py:13:    from app.runtime.real_social_memory_layer import infer_social_profile
+  app\runtime\cognitive_pipeline.py:14:    from app.runtime.real_emotional_state_layer import infer_emotional_state
+> app\runtime\cognitive_pipeline.py:15:    from app.runtime.real_relationship_profile_layer import build_relationship_profile
+  app\runtime\cognitive_pipeline.py:16:
+  app\runtime\cognitive_pipeline.py:17:    save_message(user_id, "user", message)
+  app\runtime\cognitive_pipeline.py:18:
+  app\runtime\cognitive_pipeline.py:19:    msg_l = (message or "").lower().strip()
+  app\runtime\cognitive_pipeline.py:20:
+  app\runtime\cognitive_pipeline.py:21:    if any(x in msg_l for x in ["tudo bem", "como ta", "como tá", "ta bem", "tá bem"]):
+  app\runtime\cognitive_pipeline.py:22:        answer = "Estou funcionando bem agora e melhorando a conversa da Eldora para responder de forma mais natural e contextual."
+  app\runtime\cognitive_pipeline.py:23:        save_message(user_id, "assistant", answer)
+  app\runtime\cognitive_pipeline.py:94:    social = infer_social_profile(user_id, message, memory)
+  app\runtime\cognitive_pipeline.py:95:    emotion = infer_emotional_state(user_id, message, memory)
+> app\runtime\cognitive_pipeline.py:96:    relationship = build_relationship_profile(user_id, social, emotion, memory)
+  app\runtime\cognitive_pipeline.py:97:    memory["social"] = social
+  app\runtime\cognitive_pipeline.py:98:    memory["emotion"] = emotion
+> app\runtime\cognitive_pipeline.py:99:    memory["relationship"] = relationship
+  app\runtime\cognitive_pipeline.py:100:
+  app\runtime\cognitive_pipeline.py:101:    state = update_state(message, intent, memory)
+  app\runtime\cognitive_pipeline.py:102:    persona = build_persona_context(user_id, state, memory)
+  app\runtime\cognitive_pipeline.py:103:    strategy = build_response_strategy(intent, state, memory)
+  app\runtime\cognitive_pipeline.py:104:
+  app\runtime\cognitive_pipeline.py:105:    raw = build_response(message, intent, memory, state, persona, strategy)
+  app\runtime\cognitive_pipeline.py:106:    final = rewrite_if_needed(raw, intent, persona, memory)
+  app\runtime\cognitive_pipeline.py:107:    final["answer"] = naturalize_response(final["answer"], intent, state, autonomous)
+  app\runtime\cognitive_pipeline.py:118:        "social": memory.get("social", {}),
+  app\runtime\cognitive_pipeline.py:119:        "emotion": memory.get("emotion", {}),
+> app\runtime\cognitive_pipeline.py:120:        "relationship": memory.get("relationship", {})
+  app\runtime\cognitive_pipeline.py:121:    }
+  app\runtime\cognitive_pipeline.py:122:
+  app\runtime\cognitive_pipeline.py:123:
+  app\runtime\cognitive_pipeline.py:124:
+  app\runtime\cognitive_pipeline.py:125:
+  app\runtime\cognitive_pipeline.py:126:
+  app\runtime\cognitive_pipeline.py:127:
+  app\runtime\cognitive_pipeline.py:128:# FINAL_IDENTITY_BLOCK
+  app\runtime\context_priority_engine.py:6:
+  app\runtime\context_priority_engine.py:7:    if any(x in msg for x in ["integrações", "integracoes", "implantações", "implantacoes", "que fizemos", "o que fizemos"]):
+> app\runtime\context_priority_engine.py:8:        return "Sim. Fizemos Render live, WhatsApp webhook, Supabase/memória, multi-provider com 14 IAs, UX guard, canary health e ledger de evidências."
+  app\runtime\context_priority_engine.py:9:
+  app\runtime\context_priority_engine.py:10:    if any(x in msg for x in ["deu certo", "agora deu certo", "funcionou", "conseguiu ver"]):
+  app\runtime\context_priority_engine.py:11:        return "Sim. A parte técnica subiu: multi-provider, WhatsApp, UX guard e canary. Falta fechar memória contextual/persona antes do P4.14."
+  app\runtime\context_priority_engine.py:12:
+  app\runtime\context_priority_engine.py:13:    return ""
+  app\runtime\intent_router.py:4:      ("study_deep_dive",["estudar","aula","aprofundar","explica"]),
+  app\runtime\intent_router.py:5:      ("strategic_planning",["estratégia","plano","prioridade","80/20"]),
+> app\runtime\intent_router.py:6:      ("emotional_presence",["triste","ansioso","sozinho","desanimado"]),
+  app\runtime\intent_router.py:7:      ("project_execution",["executar","implantar","prosseguir","deploy"]),
+  app\runtime\intent_router.py:8:      ("visual_identity",["rosto","aparência","persona visual","imagem"]),
+  app\runtime\intent_router.py:9:      ("technical_debug",["erro","traceback","bug","falhou"]),
+  app\runtime\intent_router.py:10:      ("market_research",["mercado","concorrente","pesquisa"]),
+  app\runtime\intent_router.py:11:      ("correction_request",["corrigir","não era isso","desvio"]),
+  app\runtime\intent_router.py:12:      ("continuity_request",["continua","prosseguir","retomar","aprofundar"])
+  app\runtime\intent_router.py:13:    ]
+  app\runtime\intent_router.py:14:    for intent,keys in mapping:
+  app\runtime\internal_state.py:1:def load_state(user_id):
+> app\runtime\internal_state.py:2:    return {"current_focus":"Eldora Cognitive Runtime","conversation_arc":"implementation","user_energy":"high","relationship_stage":"operational_partner","dominant_project":"MIND","emotional_tone":"focused","last_unresolved_topic":"","continuity_anchor":"prosseguir evolução Eldora"}
+  app\runtime\internal_state.py:3:def update_state(message, intent, memory):
+  app\runtime\internal_state.py:4:    s=load_state("default"); s["current_focus"]=intent.get("intent","general"); s["last_unresolved_topic"]=message; return s
+  app\runtime\internal_state.py:5:def persist_state(user_id, state): return {"persisted":True,"user_id":user_id,"state":state}
+  app\runtime\mind_state_visible_context.py:18:        "- Testes verdes: 194/194.\n"
+  app\runtime\mind_state_visible_context.py:19:        "- Render operacional.\n"
+> app\runtime\mind_state_visible_context.py:20:        "- Twilio/WhatsApp validado com entrega real.\n"
+  app\runtime\mind_state_visible_context.py:21:        "- Webhook produtivo respondendo.\n"
+  app\runtime\mind_state_visible_context.py:22:        "- Camada de inteligência WhatsApp acoplada.\n"
+  app\runtime\mind_state_visible_context.py:23:        "- Gap atual: resposta visível ainda precisa usar memória/contexto MIND completo.\n"
+  app\runtime\mind_state_visible_context.py:24:        "Próximo passo: conectar resposta visível ao estado real, memória persistente e orquestração."
+  app\runtime\mind_state_visible_context.py:25:    )
+  app\runtime\mind_state_visible_context.py:26:
+  app\runtime\natural_response_layer.py:22:    social = state.get("social", {}) if isinstance(state, dict) else {}
+  app\runtime\natural_response_layer.py:23:    emotion = state.get("emotion", {}) if isinstance(state, dict) else {}
+> app\runtime\natural_response_layer.py:24:    relationship = state.get("relationship", {}) if isinstance(state, dict) else {}
+  app\runtime\natural_response_layer.py:25:
+  app\runtime\natural_response_layer.py:26:    user_id = state.get("user_id", "Roberto")
+  app\runtime\natural_response_layer.py:27:    name = "Roberto"
+  app\runtime\natural_response_layer.py:28:    focus = state.get("dominant_project", "MIND")
+  app\runtime\natural_response_layer.py:29:    msg = (state.get("last_unresolved_topic") or "").strip()
+  app\runtime\natural_response_layer.py:30:    msg_l = msg.lower()
+  app\runtime\natural_response_layer.py:31:    kind = short_message_type(msg)
+  app\runtime\natural_response_layer.py:32:
+  app\runtime\natural_response_layer.py:42:    frustration = float(emotion.get("frustration", 0.0))
+  app\runtime\natural_response_layer.py:43:    urgency = float(emotion.get("urgency", 0.0))
+> app\runtime\natural_response_layer.py:44:    mode = relationship.get("operating_mode", "structured_guidance")
+  app\runtime\natural_response_layer.py:45:
+  app\runtime\natural_response_layer.py:46:    if kind == "greeting":
+  app\runtime\natural_response_layer.py:47:        out = f"Oi, {name}. Estou aqui. O contexto do {focus} continua aberto."
+  app\runtime\natural_response_layer.py:48:    elif kind == "ack":
+  app\runtime\natural_response_layer.py:49:        out = f"Fechado. Seguimos com o {focus} sem reiniciar contexto."
+  app\runtime\natural_response_layer.py:50:    elif kind == "repetition_complaint":
+  app\runtime\natural_response_layer.py:51:        out = "Você tem razão. Eu estava repetindo em vez de responder. Vou corrigir isso: a partir daqui, respondo a pergunta direta primeiro."
+  app\runtime\natural_response_layer.py:52:    elif any(x in msg_l for x in ["mas nao ta funcionando","não ta funcionando","nao está funcionando","não está funcionando","ainda nao arrumou","ainda não arrumou"]):
+  app\runtime\natural_response_layer.py:92:            "social": social,
+  app\runtime\natural_response_layer.py:93:            "emotion": emotion,
+> app\runtime\natural_response_layer.py:94:            "relationship": relationship,
+  app\runtime\natural_response_layer.py:95:            "state": state,
+  app\runtime\natural_response_layer.py:96:            "autonomous": autonomous
+  app\runtime\natural_response_layer.py:97:        }
+  app\runtime\natural_response_layer.py:98:    )
+  app\runtime\natural_response_layer.py:99:    out = humanized.get("answer", out)
+  app\runtime\natural_response_layer.py:100:
+  app\runtime\natural_response_layer.py:101:    remember_response(user_id, out)
+  app\runtime\natural_response_layer.py:102:    return out
+  app\runtime\real_humanization_runtime.py:25:    social = context.get("social", {})
+  app\runtime\real_humanization_runtime.py:26:    emotion = context.get("emotion", {})
+> app\runtime\real_humanization_runtime.py:27:    relationship = context.get("relationship", {})
+  app\runtime\real_humanization_runtime.py:28:
+  app\runtime\real_humanization_runtime.py:29:    answer = rewrite_robotic(draft_answer)
+  app\runtime\real_humanization_runtime.py:30:    low = answer.lower()
+  app\runtime\real_humanization_runtime.py:31:    user_l = str(user_message or "").lower()
+  app\runtime\real_humanization_runtime.py:32:
+  app\runtime\real_humanization_runtime.py:33:    urgency = clamp(emotion.get("urgency", 0.0))
+  app\runtime\real_humanization_runtime.py:34:    frustration = clamp(emotion.get("frustration", 0.0))
+  app\runtime\real_humanization_runtime.py:35:    trust = clamp(emotion.get("trust", 0.5))
+  app\runtime\real_humanization_runtime.py:39:
+  app\runtime\real_humanization_runtime.py:40:    continuity = 0.35
+> app\runtime\real_humanization_runtime.py:41:    if context.get("memory") or social.get("dominant_topics") or relationship.get("dominant_topics"):
+  app\runtime\real_humanization_runtime.py:42:        continuity += 0.35
+  app\runtime\real_humanization_runtime.py:43:    if any(x in low for x in ["contexto", "próximo passo", "progresso", "evidência", "vamos"]):
+  app\runtime\real_humanization_runtime.py:44:        continuity += 0.20
+  app\runtime\real_humanization_runtime.py:45:
+  app\runtime\real_humanization_runtime.py:46:    cadence = "direct_single"
+  app\runtime\real_humanization_runtime.py:47:    if len(answer) > 450 and not any(x in answer for x in ["```", "{", "}"]):
+  app\runtime\real_humanization_runtime.py:48:        cadence = "structured_split"
+> app\runtime\real_humanization_runtime.py:49:    if urgency >= 0.7 or relationship.get("operating_mode") == "evidence_first_execution":
+  app\runtime\real_humanization_runtime.py:50:        cadence = "evidence_first"
+  app\runtime\real_humanization_runtime.py:51:
+  app\runtime\real_humanization_runtime.py:52:    followup_probability = clamp(0.25 + (0.35 * urgency) + (0.25 * frustration) + (0.15 if "?" in user_l else 0))
+  app\runtime\real_humanization_runtime.py:53:    supportive_mode = frustration >= 0.45
+> app\runtime\real_humanization_runtime.py:54:    proactive_suitability = clamp((trust * 0.4) + (urgency * 0.3) + (continuity * 0.3))
+  app\runtime\real_humanization_runtime.py:55:
+  app\runtime\real_humanization_runtime.py:56:    humanization_score = round(100 * clamp((1 - robotic_probability) * 0.45 + continuity * 0.35 + trust * 0.20), 2)
+  app\runtime\real_humanization_runtime.py:57:
+  app\runtime\real_humanization_runtime.py:58:    return {
+  app\runtime\real_humanization_runtime.py:59:        "answer": answer,
+  app\runtime\real_humanization_runtime.py:60:        "messages": [answer],
+  app\runtime\real_humanization_runtime.py:61:        "observation": {
+> app\runtime\real_humanization_runtime.py:62:            "tone": relationship.get("communication_style", social.get("communication_style", "direct")),
+  app\runtime\real_humanization_runtime.py:63:            "urgency": urgency,
+  app\runtime\real_humanization_runtime.py:64:            "frustration": frustration,
+  app\runtime\real_humanization_runtime.py:65:            "trust": trust,
+  app\runtime\real_humanization_runtime.py:66:            "continuity": round(clamp(continuity), 2)
+  app\runtime\real_humanization_runtime.py:67:        },
+  app\runtime\real_humanization_runtime.py:68:        "pattern": {
+  app\runtime\real_humanization_runtime.py:69:            "cadence": cadence,
+  app\runtime\real_humanization_runtime.py:70:            "followup_probability": round(followup_probability, 2),
+  app\runtime\real_humanization_runtime.py:71:            "fragmentation_strategy": cadence,
+> app\runtime\real_humanization_runtime.py:72:            "proactive_suitability": round(proactive_suitability, 2),
+  app\runtime\real_humanization_runtime.py:73:            "supportive_mode": supportive_mode
+  app\runtime\real_humanization_runtime.py:74:        },
+  app\runtime\real_humanization_runtime.py:75:        "judge": {
+  app\runtime\real_humanization_runtime.py:76:            "humanization_score": humanization_score,
+  app\runtime\real_humanization_runtime.py:77:            "robotic_probability": round(robotic_probability, 2),
+  app\runtime\real_humanization_runtime.py:78:            "social_continuity_score": round(100 * clamp(continuity), 2),
+  app\runtime\real_humanization_runtime.py:79:            "rewrite_suggestions": [] if robotic_probability == 0 else ["rewrite_robotic_terms"]
+  app\runtime\real_humanization_runtime.py:80:        },
+  app\runtime\real_relationship_profile_layer.py:2:from datetime import datetime, timezone
+  app\runtime\real_relationship_profile_layer.py:3:
+> app\runtime\real_relationship_profile_layer.py:4:def build_relationship_profile(user_id: str, social: dict | None = None, emotion: dict | None = None, memory: dict | None = None) -> dict:
+  app\runtime\real_relationship_profile_layer.py:5:    social = social or {}
+  app\runtime\real_relationship_profile_layer.py:6:    emotion = emotion or {}
+  app\runtime\real_relationship_profile_layer.py:7:    memory = memory or {}
+  app\runtime\real_relationship_profile_layer.py:8:
+  app\runtime\real_relationship_profile_layer.py:9:    topics = social.get("dominant_topics") or []
+  app\runtime\real_relationship_profile_layer.py:10:    trust = float(emotion.get("trust", 0.55))
+  app\runtime\real_relationship_profile_layer.py:11:    frustration = float(emotion.get("frustration", 0.15))
+  app\runtime\real_relationship_profile_layer.py:12:    urgency = float(emotion.get("urgency", 0.2))
+  app\runtime\real_relationship_profile_layer.py:31:    }
+  app\runtime\real_relationship_profile_layer.py:32:
+> app\runtime\real_relationship_profile_layer.py:33:def relationship_profile_summary(profile: dict) -> str:
+  app\runtime\real_relationship_profile_layer.py:34:    return f"perfil_relacional: confiança={profile.get('trust_level')}; atrito={profile.get('friction_level')}; modo={profile.get('operating_mode')}; estilo={profile.get('communication_style')}"
+  app\runtime\real_social_memory_layer.py:9:
+  app\runtime\real_social_memory_layer.py:10:    topics = []
+> app\runtime\real_social_memory_layer.py:11:    for key in ["mind","eldora","whatsapp","render","supabase","marketing","lançamento","runtime","memória","drive"]:
+  app\runtime\real_social_memory_layer.py:12:        if key in text or key in history:
+  app\runtime\real_social_memory_layer.py:13:            topics.append(key)
+  app\runtime\real_social_memory_layer.py:14:
+  app\runtime\real_social_memory_layer.py:15:    pressure = "high" if any(x in text for x in ["urgente","lançar","caixa","dinheiro","finalizar","travado","erro","falha"]) else "normal"
+  app\runtime\real_social_memory_layer.py:16:    style = "direct_execution" if any(x in text for x in ["comando","powershell","prossiga","execute","direto"]) else "strategic"
+  app\runtime\real_social_memory_layer.py:17:
+  app\runtime\real_social_memory_layer.py:18:    return {
+  app\runtime\real_social_memory_layer.py:19:        "user_id": user_id,
+  app\runtime\short_memory.py:3:_MEMORY = {}
+  app\runtime\short_memory.py:4:
+> app\runtime\short_memory.py:5:SUPABASE_URL = (os.getenv("SUPABASE_URL") or "").rstrip("/")
+> app\runtime\short_memory.py:6:SUPABASE_KEY = os.getenv("SUPABASE_SERVICE_ROLE") or os.getenv("SUPABASE_SERVICE_ROLE_KEY") or ""
+  app\runtime\short_memory.py:7:
+  app\runtime\short_memory.py:8:def _enabled():
+> app\runtime\short_memory.py:9:    return bool(SUPABASE_URL and SUPABASE_KEY)
+  app\runtime\short_memory.py:10:
+  app\runtime\short_memory.py:11:def _headers(prefer="return=minimal"):
+  app\runtime\short_memory.py:12:    h = {
+> app\runtime\short_memory.py:13:        "apikey": SUPABASE_KEY,
+> app\runtime\short_memory.py:14:        "Authorization": f"Bearer {SUPABASE_KEY}",
+  app\runtime\short_memory.py:15:        "Content-Type": "application/json",
+  app\runtime\short_memory.py:16:    }
+  app\runtime\short_memory.py:17:    if prefer:
+  app\runtime\short_memory.py:18:        h["Prefer"] = prefer
+  app\runtime\short_memory.py:19:    return h
+  app\runtime\short_memory.py:20:
+  app\runtime\short_memory.py:21:def _safe_sender(sender_id):
+  app\runtime\short_memory.py:22:    return str(sender_id or "default")[:180]
+  app\runtime\short_memory.py:43:        try:
+  app\runtime\short_memory.py:44:            req = urllib.request.Request(
+> app\runtime\short_memory.py:45:                f"{SUPABASE_URL}/rest/v1/neura_memory",
+  app\runtime\short_memory.py:46:                data=json.dumps(row).encode("utf-8"),
+  app\runtime\short_memory.py:47:                headers=_headers(),
+  app\runtime\short_memory.py:48:                method="POST",
+  app\runtime\short_memory.py:49:            )
+  app\runtime\short_memory.py:50:            urllib.request.urlopen(req, timeout=8).read()
+> app\runtime\short_memory.py:51:            return {"ok": True, "backend": "supabase_neura_memory"}
+  app\runtime\short_memory.py:52:        except Exception as e:
+> app\runtime\short_memory.py:53:            return {"ok": True, "backend": "local_fallback", "supabase_error": str(e)[:240]}
+  app\runtime\short_memory.py:54:
+  app\runtime\short_memory.py:55:    return {"ok": True, "backend": "local_fallback"}
+  app\runtime\short_memory.py:56:
+  app\runtime\short_memory.py:57:def recall(key, sender_id="default"):
+  app\runtime\short_memory.py:58:    sender = _safe_sender(sender_id)
+  app\runtime\short_memory.py:59:    mem_key = _safe_key(key)
+  app\runtime\short_memory.py:60:
+  app\runtime\short_memory.py:61:    if _enabled():
+  app\runtime\short_memory.py:63:            sender_q = urllib.parse.quote(sender, safe="")
+  app\runtime\short_memory.py:64:            key_q = urllib.parse.quote(mem_key, safe="")
+> app\runtime\short_memory.py:65:            url = f"{SUPABASE_URL}/rest/v1/neura_memory?select=content,created_at&sender_id=eq.{sender_q}&memory_type=eq.{key_q}&order=created_at.desc&limit=1"
+  app\runtime\short_memory.py:66:            req = urllib.request.Request(url, headers=_headers(prefer=None), method="GET")
+  app\runtime\short_memory.py:67:            rows = json.loads(urllib.request.urlopen(req, timeout=8).read().decode("utf-8"))
+  app\runtime\short_memory.py:68:            if rows:
+  app\runtime\short_memory.py:69:                return rows[0].get("content")
+  app\runtime\short_memory.py:70:        except Exception:
+  app\runtime\short_memory.py:71:            pass
+  app\runtime\short_memory.py:72:
+  app\runtime\short_memory.py:73:    item = _MEMORY.get((sender, mem_key))
+  app\runtime\visible_response_layer.py:169:    return (
+  app\runtime\visible_response_layer.py:170:        "Resumo técnico do MIND/Eldora: Runtime estável V2 ativo, "
+> app\runtime\visible_response_layer.py:171:        "WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, "
+  app\runtime\visible_response_layer.py:172:        "Context Fusion ativo. Próximo passo: memória persistente + contexto MIND completo."
+  app\runtime\visible_response_layer.py:173:    )
+  app\runtime\visible_response_layer.py:174:
+  app\runtime\visible_response_layer.py:175:
+  app\runtime\visible_response_layer.py:176:def visible_reformulate(
+  app\runtime\visible_response_layer.py:177:    answer: str,
+  app\runtime\visible_response_layer.py:178:    user_text: str = "",
+  app\runtime\visible_response_layer.py:179:    focus: str = "MIND"
+  app\telemetry\cloud_telemetry.py:1:import os, json, time, uuid, urllib.request
+  app\telemetry\cloud_telemetry.py:2:
+> app\telemetry\cloud_telemetry.py:3:SUPABASE_URL=os.getenv("SUPABASE_URL","").rstrip("/")
+> app\telemetry\cloud_telemetry.py:4:SUPABASE_KEY=os.getenv("SUPABASE_SERVICE_ROLE") or os.getenv("SUPABASE_SERVICE_ROLE_KEY") or ""
+  app\telemetry\cloud_telemetry.py:5:
+  app\telemetry\cloud_telemetry.py:6:def enabled():
+> app\telemetry\cloud_telemetry.py:7:    return bool(SUPABASE_URL and SUPABASE_KEY)
+  app\telemetry\cloud_telemetry.py:8:
+  app\telemetry\cloud_telemetry.py:9:def classify_theme(text):
+  app\telemetry\cloud_telemetry.py:10:    t=(text or "").lower()
+  app\telemetry\cloud_telemetry.py:11:    if any(x in t for x in ["cane corso","ração","filhote","criador","doença","cachorro"]): return "pets_cane_corso"
+  app\telemetry\cloud_telemetry.py:12:    if any(x in t for x in ["humanização","humanizacao","eldora","runtime","rota","erro"]): return "eldora_runtime"
+  app\telemetry\cloud_telemetry.py:13:    if any(x in t for x in ["diesel","gasolina","ram 2500","ram 3500","motor"]): return "automotivo"
+  app\telemetry\cloud_telemetry.py:14:    if any(x in t for x in ["oi","bom dia","boa tarde","tudo bem"]): return "smalltalk"
+  app\telemetry\cloud_telemetry.py:15:    return "geral"
+  app\telemetry\cloud_telemetry.py:23:
+  app\telemetry\cloud_telemetry.py:24:def _headers():
+> app\telemetry\cloud_telemetry.py:25:    return {"apikey":SUPABASE_KEY,"Authorization":f"Bearer {SUPABASE_KEY}","Content-Type":"application/json","Prefer":"return=minimal"}
+  app\telemetry\cloud_telemetry.py:26:
+  app\telemetry\cloud_telemetry.py:27:def log_event(sender_id, user_message, assistant_answer, kind="real", score=None):
+  app\telemetry\cloud_telemetry.py:28:    if not enabled():
+> app\telemetry\cloud_telemetry.py:29:        return {"ok":False,"reason":"SUPABASE_ENV_MISSING"}
+  app\telemetry\cloud_telemetry.py:30:    row={"id":str(uuid.uuid4()),"sender_id":sender_id or "unknown","kind":kind,"theme":classify_theme(user_message),"persona":classify_persona(user_message),"user_message":str(user_message or "")[:2000],"assistant_answer":str(assistant_answer or "")[:4000],"humanization_score":score,"created_at":time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}
+  app\telemetry\cloud_telemetry.py:31:    try:
+> app\telemetry\cloud_telemetry.py:32:        req=urllib.request.Request(f"{SUPABASE_URL}/rest/v1/eldora_conversation_events",data=json.dumps(row).encode("utf-8"),headers=_headers(),method="POST")
+  app\telemetry\cloud_telemetry.py:33:        urllib.request.urlopen(req,timeout=8).read()
+  app\telemetry\cloud_telemetry.py:34:        return {"ok":True}
+  app\telemetry\cloud_telemetry.py:35:    except Exception as e:
+  app\telemetry\cloud_telemetry.py:36:        return {"ok":False,"reason":str(e)[:240]}
+  app\telemetry\cloud_telemetry.py:37:
+  app\telemetry\cloud_telemetry.py:38:def fetch_report(limit=1000):
+  app\telemetry\cloud_telemetry.py:39:    if not enabled():
+> app\telemetry\cloud_telemetry.py:40:        return {"ok":False,"reason":"SUPABASE_ENV_MISSING"}
+  app\telemetry\cloud_telemetry.py:41:    try:
+> app\telemetry\cloud_telemetry.py:42:        req=urllib.request.Request(f"{SUPABASE_URL}/rest/v1/eldora_conversation_events?select=kind,theme,persona,humanization_score,created_at&order=created_at.desc&limit={int(limit)}",headers={"apikey":SUPABASE_KEY,"Authorization":f"Bearer {SUPABASE_KEY}"},method="GET")
+  app\telemetry\cloud_telemetry.py:43:        rows=json.loads(urllib.request.urlopen(req,timeout=10).read().decode("utf-8"))
+  app\telemetry\cloud_telemetry.py:44:    except Exception as e:
+  app\telemetry\cloud_telemetry.py:45:        return {"ok":False,"reason":str(e)[:240]}
+  app\telemetry\cloud_telemetry.py:46:    by_theme={}; by_persona={}; by_kind={}; scores=[]
+  app\telemetry\cloud_telemetry.py:47:    for r in rows:
+  app\telemetry\cloud_telemetry.py:48:        by_theme[r.get("theme","unknown")]=by_theme.get(r.get("theme","unknown"),0)+1
+  app\telemetry\cloud_telemetry.py:49:        by_persona[r.get("persona","unknown")]=by_persona.get(r.get("persona","unknown"),0)+1
+  app\telemetry\cloud_telemetry.py:50:        by_kind[r.get("kind","unknown")]=by_kind.get(r.get("kind","unknown"),0)+1
+
+
