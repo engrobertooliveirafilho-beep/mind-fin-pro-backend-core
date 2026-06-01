@@ -1,0 +1,70 @@
+P4.24C — REAL LAUNCH CAPABILITY RECONCILIATION
+
+MISSION:
+Reconcile Drive findings with current runtime.
+
+INSPECT_PRIORITY:
+
+[1] FRIENDSHIP / PROACTIVE
+TARGETS:
+- NEURA_MULTIMODAL_FRIENDSHIP_FINAL_*
+- NEURA_MULTIMODAL_FRIENDSHIP_OPERATIONAL_*
+- NEURA_FRIENDSHIP_RUNTIME_*
+LOOK_FOR:
+- source/runtime proof
+- outbound whatsapp path
+- scheduler/checkin logic
+- twilio integration
+- supabase schema
+CLASSIFY:
+READY / PARTIAL / PLACEBO
+
+[2] SEMANTIC MEMORY
+TARGETS:
+- ELDORA_P2_SEMANTIC_VECTOR_FINAL_*
+- SEMANTIC_RUNTIME_LAYER/*
+- PGVECTOR*
+LOOK_FOR:
+- executable provider
+- embeddings runtime
+- retrieval integration
+- app wiring reuse
+CLASSIFY:
+READY / PARTIAL / PLACEBO
+
+[3] BILLING / FREE PLAN
+TARGETS:
+- BILLING*
+- NEURA_PUBLIC_OPERATIONAL/*
+- NEURA_REAL_BETA_PLATFORM/*
+LOOK_FOR:
+- credits runtime
+- onboarding
+- billing readiness
+- paywall logic
+CLASSIFY:
+READY / PARTIAL / PLACEBO
+
+[4] GROWTH
+TARGETS:
+- AUTONOMOUS_GROWTH*
+- BUSINESS_OPERATION*
+LOOK_FOR:
+- executable endpoints
+- scheduler
+- campaign orchestration
+CLASSIFY:
+READY / PARTIAL / PLACEBO
+
+OUTPUT_FORMAT:
+1. SOURCE_PATH
+2. RUNTIME_PROOF
+3. LOCAL_CODE_MATCH
+4. INTEGRATION_EFFORT (LOW/MED/HIGH)
+5. LAUNCH_ROI (1-10)
+6. ACTION (ACTIVATE / PATCH / IGNORE)
+
+RULE:
+NO THEORY.
+ONLY EXECUTABLE REUSE.
+ONLY LAUNCH CRITICAL.
