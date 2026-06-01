@@ -1,0 +1,40 @@
+P4.25E — FRIENDSHIP PROACTIVE LIVE DRY RUN
+
+MISSION:
+Connect validated proactive planner to current runtime without real Twilio send.
+
+FLOW:
+friendship_profile
+-> plan_checkin()
+-> outbound payload
+-> dry_run route/admin response
+
+GOAL:
+Allow deterministic proactive suggestion generation in runtime.
+
+ACCEPTANCE:
+1. route callable
+2. deterministic payload
+3. no real Twilio send
+4. respects opt_out
+5. respects daily_limit
+6. visible admin/runtime evidence
+7. pytest green preserved
+
+OUTPUT:
+{
+  send: true/false,
+  reason: "...",
+  message: "...",
+  dry_run: true
+}
+
+RULE:
+No production send.
+No cron activation.
+No autonomous loop yet.
+Only runtime proof.
+
+NEXT:
+after dry_run validation:
+Twilio sandbox send test
