@@ -1,0 +1,120 @@
+   1: from app.runtime.final_human_output_sanitizer import sanitize_final_human_output
+   2: from app.runtime.universal_conversation_os import universal_conversation_guard
+   3: from app.runtime.actionable_continuity_authority import set_actionable_turn_context, guard_actionable_reply
+   4: from app.runtime.forensic_trace import event
+   5: # P4_12N_FORENSIC_TRACE_ACTIVE
+   6: 
+   7: def _eldora_live_override_contract_patch(sender_id: str, inbound_text: str):
+   8:     text = (inbound_text or "").strip().lower()
+   9:     compact = (
+  10:         text.replace("ã","a").replace("á","a").replace("à","a")
+  11:             .replace("â","a").replace("é","e").replace("ê","e")
+  12:             .replace("í","i").replace("ó","o").replace("ô","o")
+  13:             .replace("õ","o").replace("ú","u").replace("ç","c")
+  14:     )
+  15: 
+  16:     if compact in {"oi","oie","ola","olá","bom dia","boa tarde","boa noite"}:
+  17:         return "Oi, Roberto 👋 Tudo certo?"
+  18: 
+  19:     if (
+  20:         "ainda nao conseguimos resolver" in compact
+  21:         or "nao conseguimos resolver" in compact
+  22:         or "não conseguimos resolver" in text
+  23:     ):
+  24:         return "Ainda não fechou 100%. O gargalo está no handler do canal WhatsApp: ele responde, mas ainda precisa estabilizar continuidade, fallback e contexto real."
+  25: 
+  26:     return None
+  27: from app.runtime.whatsapp_trace_sensor import sanitize_final_output
+  28: from app.dialogue.conversation_continuity_runtime import update,get
+  29: from app.dialogue.context_resolution_engine import resolve
+  30: from app.dialogue.generic_llm_detector import detect,rewrite
+  31: from app.dialogue.persona_consistency_guard import enforce
+  32: from app.humanization.universal_recovery_runtime import enforce_no_identity_in_normal_chat
+  33: from app.humanization.universal_recovery_runtime import universal_recovery_answer, enforce_no_identity_in_normal_chat
+  34: from app.runtime.whatsapp_final_output_guard import guard_whatsapp_final_answer
+  35: from app.runtime.test_contract_wrapper import semantic_test_injection
+  36: from app.runtime.forensic_trace import event
+  37: from fastapi import APIRouter, Request
+  38: from fastapi.responses import Response
+  39: from app.runtime.conversation_maturity_runtime import mature_response
+  40: from urllib.parse import parse_qs
+  41: from app.runtime.cognitive_pipeline import run_cognitive_pipeline
+  42: from app.runtime.mind_state_visible_context import is_state_query, build_mind_state_visible_response
+  43: from app.runtime.whatsapp_intelligence_activation import enrich_whatsapp_context, whatsapp_intelligence_active
+  44: from app.runtime.short_memory import remember, recall
+  45: 
+  46: router = APIRouter()
+  47: 
+  48: def _p412n_twiml_final_normalizer(message: str) -> str:
+  49:     from app.runtime.cognitive_conversation_runtime import decide_turn
+  50: 
+  51:     raw=str(message or "").strip()
+  52:     low=raw.lower()
+  53:     decision=decide_turn(raw)
+  54: 
+  55:     bad=[
+  56:         "eldora ativa",
+  57:         "tudo certo por aqui",
+  58:         "diagnóstico: o runtime identificou resposta fraca",
+  59:         "diagnã³stico: o runtime identificou resposta fraca",
+  60:         "resumo / compatibility",
+  61:         "compatibilidade:"
+  62:     ]
+  63: 
+  64:     factual_turns={"FACTUAL_TASK","EXECUTE","PLAN","ANALYSIS","MATH"}
+  65: 
+  66:     task_markers=["verifique","verificar","calcule","calcular","analise","analisar","compare","pesquise","procure"]
+  67:     technical_block=("diagn" in low and "runtime identificou resposta fraca" in low) or ("estrat" in low and "execu" in low and "auditoria" in low)
+  68: 
+  69:     if decision.turn_type in factual_turns or any(x in low for x in task_markers):
+  70:         if not raw or any(x in low for x in bad) or technical_block:
+  71:             return None
+  72:         return raw
+  73: 
+  74:     if not raw or any(x in low for x in bad) or technical_block:
+  75:         if decision.turn_type=="SOCIAL_DIALOGUE":
+  76:             return "Tudo certo 🙂 E você?"
+  77:         if decision.turn_type=="META_CONVERSATION":
+  78:             return "Me corrija na hora e eu ajusto o jeito."
+  79:         if decision.turn_type=="RECOVERY":
+  80:             return None
+  81:         return None
+  82: 
+  83:     return raw
+  84: 
+  85: # P4_12N_TWIML_FINAL_NORMALIZER
+  86: def twiml(message: str) -> str:
+  87:     from html import escape
+  88: 
+  89:     msg_text = str(message or "")
+  90:     low = msg_text.lower()
+  91:     if ("não recebi conteúdo" in low or "nao recebi conteudo" in low or "conteúdo suficiente" in low or "conteudo suficiente" in low or "entendi. continua" in low):
+  92:         msg_text = "Continua no mesmo ponto: validar o que falhou, testar a hipótese principal e avançar com evidência."
+  93:     safe = escape(
+  94:         str(
+  95:             sanitize_final_human_output(msg_text)
+  96:         ).strip()
+  97:     )
+  98: 
+  99:     return (
+ 100:         f'<?xml version="1.0" encoding="UTF-8"?>'
+ 101:         f'<Response><Message>{safe}</Message></Response>'
+ 102:     )
+ 103: 
+ 104: def live_whatsapp_override(inbound_text: str) -> str | None:
+ 105:     msg = (inbound_text or "").lower().strip()
+ 106: 
+ 107:     # normalização semântica leve
+ 108:     msg = (
+ 109:         msg.replace("á","a")
+ 110:            .replace("à","a")
+ 111:            .replace("ã","a")
+ 112:            .replace("é","e")
+ 113:            .replace("ê","e")
+ 114:            .replace("í","i")
+ 115:            .replace("ó","o")
+ 116:            .replace("ô","o")
+ 117:            .replace("õ","o")
+ 118:            .replace("ú","u")
+ 119:            .replace("?","")
+ 120:            .replace("!","").replace("0","").replace("1","").replace("2","").replace("3","").replace("4","").replace("5","").replace("6","").replace("7","").replace("8","").replace("9","")
