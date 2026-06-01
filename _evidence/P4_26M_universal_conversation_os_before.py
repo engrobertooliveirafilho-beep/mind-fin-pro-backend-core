@@ -25,32 +25,7 @@ def _semantic_recall_context(sender_id, msg, top_k=3):
     except Exception as e:
         return {"ok": False, "backend": "unavailable", "count": 0, "memories": [], "error": str(e)[:160]}
 
-
-def _persist_semantic_memory(sender_id, user_msg, assistant_reply):
-    try:
-        from app.eldora.core.semantic_memory_engine import insert_embedding
-
-        sender_id = sender_id or "default"
-
-        payload = (
-            f"USER: {str(user_msg or '').strip()}\n"
-            f"ELDORA: {str(assistant_reply or '').strip()}"
-        ).strip()
-
-        if len(payload) > 8:
-            insert_embedding(
-                sender_id=sender_id,
-                text=payload[:4000],
-                metadata={"source":"runtime_auto_ingestion"}
-            )
-
-        return {"ok": True}
-
-    except Exception as e:
-        return {"ok": False, "error": str(e)[:180]}
-
 def _semantic_candidate_reply(msg, semantic_ctx):
-
     low = (msg or "").lower()
     joined = "\n".join(semantic_ctx.get("memories", []))
     jlow = joined.lower()
@@ -166,16 +141,7 @@ class UniversalConversationOS:
         if mode not in [ConversationMode.SOCIAL,ConversationMode.CLARIFICATION]: state.last_topic=topic
         if mode in [ConversationMode.TASK,ConversationMode.EXECUTION,ConversationMode.VERIFICATION,ConversationMode.ANALYSIS]: state.last_task=topic; state.open_loop=topic
         state.last_action_plan=["classificar","resolver continuidade","arbitrar saída final"]; SenderStateMemory.save(state)
-        
-        _persist_semantic_memory(sender_id,msg,reply)
-
-        return {"reply":reply,
-                "mode":mode.value,
-                "topic":topic,
-                "state":asdict(state),
-                "memory_backend":"pgvector_hybrid" if semantic_ctx.get("ok") else "runtime_memory_partial",
-                "semantic_recall":semantic_ctx}
-
+        return {"reply":reply,"mode":mode.value,"topic":topic,"state":asdict(state),"memory_backend":"pgvector_hybrid" if semantic_ctx.get("ok") else "runtime_memory_partial","semantic_recall":semantic_ctx}
 
 def universal_conversation_guard(message:str,sender_id:Optional[str],candidate_reply:str="")->str:
     return UniversalConversationOS.process(message,sender_id,candidate_reply)["reply"]

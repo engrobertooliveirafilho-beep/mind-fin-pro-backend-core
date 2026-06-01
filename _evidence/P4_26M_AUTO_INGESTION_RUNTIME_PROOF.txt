@@ -1,0 +1,25 @@
+P4.26M — LIVE AUTO INGESTION WIRED
+
+CLASSIFICATION:
+REAL_OPERATIONAL / DIAMOND
+
+PROOF:
+- BEFORE_COUNT: 2
+- AFTER_COUNT: 3
+- AUTO_INGESTION_WORKING: True
+- runtime_auto_ingestion persisted into neura_embeddings
+- metadata.source=runtime_auto_ingestion
+- recall + ingestion now operational E2E
+- directed pytest: 12 passed / 3 skipped / 0 failed
+
+ARCHITECTURE:
+message
+-> UniversalConversationOS.process()
+-> semantic recall(pgvector)
+-> runtime reply
+-> insert_embedding()
+-> neura_embeddings
+-> future recall
+
+CONCLUSION:
+Eldora now has persistent longitudinal semantic memory with automatic learning in live runtime.
