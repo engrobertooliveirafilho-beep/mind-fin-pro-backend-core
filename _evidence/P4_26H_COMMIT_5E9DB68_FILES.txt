@@ -1,0 +1,6 @@
+5e9db68 add eldora semantic memory graph and vector retrieval engine
+app/api/eldora_semantic.py
+app/eldora/core/router_registry.py
+app/eldora/core/semantic_memory_engine.py
+evidence/ELDORA_SEMANTIC_MEMORY_GRAPH_VECTOR_RETRIEVAL_REPORT.json
+tests/test_eldora_semantic_memory.py

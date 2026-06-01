@@ -1,0 +1,12 @@
+commit 5e9db688d13550bd9173c509a10acb20034d1fc7
+Author: Chefao <chefao@example.com>
+Date:   Sun May 17 03:11:46 2026 -0300
+
+    add eldora semantic memory graph and vector retrieval engine
+
+ app/api/eldora_semantic.py                         | 20 +++++++
+ app/eldora/core/router_registry.py                 |  5 +-
+ app/eldora/core/semantic_memory_engine.py          | 65 ++++++++++++++++++++++
+ ...ANTIC_MEMORY_GRAPH_VECTOR_RETRIEVAL_REPORT.json |  7 +++
+ tests/test_eldora_semantic_memory.py               | 19 +++++++
+ 5 files changed, 115 insertions(+), 1 deletion(-)

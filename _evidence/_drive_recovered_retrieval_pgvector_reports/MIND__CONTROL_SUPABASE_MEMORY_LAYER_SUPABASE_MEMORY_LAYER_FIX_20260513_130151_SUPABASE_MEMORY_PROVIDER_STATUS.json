@@ -1,0 +1,21 @@
+{
+  "created_at": "2026-05-13T16:01:55.943833+00:00",
+  "source": "gdrive:MIND/_CONTROL/LIVE_RUNTIME_IMPLEMENTATION/LIVE_RUNTIME_IMPLEMENTATION_20260513_111508",
+  "output": "gdrive:MIND/_CONTROL/SUPABASE_MEMORY_LAYER/SUPABASE_MEMORY_LAYER_FIX_20260513_130151",
+  "restrictions_respected": {
+    "no_render_change": true,
+    "no_provider_whatsapp_real": true,
+    "no_frontend": true,
+    "no_billing_auth": true,
+    "no_discovery": true
+  },
+  "status": "SUPABASE_MEMORY_PROVIDER_READY",
+  "methods": [
+    "get_user_context",
+    "append_memory",
+    "get_recent_history",
+    "summarize_context",
+    "save_message",
+    "save_session"
+  ]
+}
