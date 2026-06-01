@@ -1,0 +1,21 @@
+P4.25D — FIRST REAL INCORPORATED CAPABILITY
+
+CAPABILITY:
+Friendship proactive runtime acceptance
+
+STATUS:
+FUNCTIONALLY_VALIDATED
+REGRESSION_LOCKED
+INCORPORATED_REAL_PARTIAL
+
+EVIDENCE:
+- plan_checkin returns outbound-ready payload
+- opt_out respected
+- daily_limit respected
+- no real Twilio send in test mode
+- permanent tests added
+- 335 passed / 3 skipped
+- current HEAD: 04a12d1eb8bf0d57a188124c15c12bde01d8208b
+
+NEXT:
+Connect proactive planner to live route/admin runtime with dry-run first.
