@@ -1,0 +1,801 @@
+
+  app\admin\friendship_outbound_test.py:2:from app.humanization.universal_recovery_runtime import enforce_no_identity_in_normal_chat
+  app\admin\friendship_outbound_test.py:3:from fastapi import APIRouter
+  app\admin\friendship_outbound_test.py:4:import os, psycopg2
+> app\admin\friendship_outbound_test.py:5:from twilio.rest import Client
+  app\admin\friendship_outbound_test.py:6:
+> app\admin\friendship_outbound_test.py:7:router = APIRouter(prefix="/admin/friendship", tags=["friendship-admin"])
+  app\admin\friendship_outbound_test.py:8:
+> app\admin\friendship_outbound_test.py:9:@router.post("/outbound/test")
+> app\admin\friendship_outbound_test.py:10:async def friendship_outbound_test(payload: dict):
+  app\admin\friendship_outbound_test.py:11:    db=os.getenv("DATABASE_URL")
+> app\admin\friendship_outbound_test.py:12:    sid=os.getenv("TWILIO_ACCOUNT_SID")
+> app\admin\friendship_outbound_test.py:13:    token=os.getenv("TWILIO_AUTH_TOKEN")
+> app\admin\friendship_outbound_test.py:14:    from_number=os.getenv("TWILIO_WHATSAPP_FROM") or "whatsapp:+14155238886"
+  app\admin\friendship_outbound_test.py:15:
+  app\admin\friendship_outbound_test.py:16:    to=payload.get("to")
+  app\admin\friendship_outbound_test.py:17:    name=payload.get("name","Roberto")
+  app\admin\friendship_outbound_test.py:18:    message=payload.get("message") or f"Bom dia, {name}. Quer revisar matemática por 10 min comigo hoje?"
+  app\admin\friendship_outbound_test.py:19:
+  app\admin\friendship_outbound_test.py:20:    if not db:
+  app\admin\friendship_outbound_test.py:21:        return {"sent":False,"reason":"DATABASE_URL_MISSING"}
+  app\admin\friendship_outbound_test.py:22:    if not sid or not token:
+> app\admin\friendship_outbound_test.py:23:        return {"sent":False,"reason":"TWILIO_ENV_MISSING"}
+  app\admin\friendship_outbound_test.py:24:    if not to:
+  app\admin\friendship_outbound_test.py:25:        return {"sent":False,"reason":"TO_MISSING"}
+  app\admin\friendship_outbound_test.py:26:
+  app\admin\friendship_outbound_test.py:27:    with psycopg2.connect(db, sslmode="require") as conn:
+  app\admin\friendship_outbound_test.py:28:        with conn.cursor() as cur:
+  app\admin\friendship_outbound_test.py:29:            cur.execute("SELECT opt_out FROM neura_user_preferences WHERE sender_id=%s", (to,))
+  app\admin\friendship_outbound_test.py:30:            row=cur.fetchone()
+  app\admin\friendship_outbound_test.py:31:            if row and row[0] is True:
+  app\admin\friendship_outbound_test.py:32:                return {"sent":False,"reason":"OPT_OUT"}
+  app\admin\friendship_outbound_test.py:33:
+  app\admin\friendship_outbound_test.py:34:            cur.execute("""
+> app\admin\friendship_outbound_test.py:35:              INSERT INTO neura_proactive_messages(sender_id,message,reason,status)
+  app\admin\friendship_outbound_test.py:36:              VALUES (%s,%s,%s,%s) RETURNING id
+> app\admin\friendship_outbound_test.py:37:            """, (to,message,"outbound_test","planned"))
+  app\admin\friendship_outbound_test.py:38:            msg_id=cur.fetchone()[0]
+  app\admin\friendship_outbound_test.py:39:
+  app\admin\friendship_outbound_test.py:40:    client=Client(sid, token)
+> app\admin\friendship_outbound_test.py:41:    twilio_msg=client.messages.create(from_=from_number, to=to, body=message)
+  app\admin\friendship_outbound_test.py:42:
+  app\admin\friendship_outbound_test.py:43:    with psycopg2.connect(db, sslmode="require") as conn:
+  app\admin\friendship_outbound_test.py:44:        with conn.cursor() as cur:
+> app\admin\friendship_outbound_test.py:45:            cur.execute("UPDATE neura_proactive_messages SET status=%s WHERE id=%s", ("sent", msg_id))
+  app\admin\friendship_outbound_test.py:46:
+> app\admin\friendship_outbound_test.py:47:    return {"sent":True,"reason":"OK","twilio_sid":twilio_msg.sid,"message_id":msg_id,"to":to}
+  app\admin\friendship_outbound_test.py:48:
+  app\admin\friendship_outbound_test.py:49:
+  app\admin\friendship_outbound_test.py:50:# FINAL_IDENTITY_BLOCK
+  app\admin\friendship_outbound_test.py:51:def __identity_guard_last_hop(answer,user_message=""):
+  app\admin\friendship_outbound_test.py:52:    return enforce_no_identity_in_normal_chat(user_message,answer)
+  app\admin\friendship_schema_validation.py:2:import os
+  app\admin\friendship_schema_validation.py:3:import psycopg2
+  app\admin\friendship_schema_validation.py:4:
+> app\admin\friendship_schema_validation.py:5:router = APIRouter(prefix="/admin/friendship", tags=["friendship-admin"])
+  app\admin\friendship_schema_validation.py:6:
+  app\admin\friendship_schema_validation.py:7:@router.post("/schema/validate")
+> app\admin\friendship_schema_validation.py:8:async def friendship_schema_validate():
+  app\admin\friendship_schema_validation.py:9:
+  app\admin\friendship_schema_validation.py:10:    db = os.getenv("DATABASE_URL")
+  app\admin\friendship_schema_validation.py:11:    if not db:
+  app\admin\friendship_schema_validation.py:12:        return {"schema_ok": False, "error": "DATABASE_URL_MISSING"}
+  app\admin\friendship_schema_validation.py:13:
+  app\admin\friendship_schema_validation.py:14:    sql = """
+> app\admin\friendship_schema_validation.py:15:    CREATE TABLE IF NOT EXISTS neura_friendship_profile (
+  app\admin\friendship_schema_validation.py:16:      sender_id TEXT PRIMARY KEY,
+  app\admin\friendship_schema_validation.py:17:      name TEXT,
+  app\admin\friendship_schema_validation.py:18:      relationship_stage TEXT DEFAULT 'new',
+> app\admin\friendship_schema_validation.py:19:      last_proactive_sent_at TIMESTAMPTZ,
+> app\admin\friendship_schema_validation.py:20:      proactive_sent_today INTEGER DEFAULT 0,
+  app\admin\friendship_schema_validation.py:21:      daily_limit INTEGER DEFAULT 1,
+  app\admin\friendship_schema_validation.py:22:      created_at TIMESTAMPTZ DEFAULT NOW(),
+  app\admin\friendship_schema_validation.py:23:      updated_at TIMESTAMPTZ DEFAULT NOW()
+  app\admin\friendship_schema_validation.py:24:    );
+  app\admin\friendship_schema_validation.py:25:
+  app\admin\friendship_schema_validation.py:26:    CREATE TABLE IF NOT EXISTS neura_user_preferences (
+  app\admin\friendship_schema_validation.py:27:      sender_id TEXT PRIMARY KEY,
+  app\admin\friendship_schema_validation.py:28:      opt_out BOOLEAN DEFAULT FALSE,
+  app\admin\friendship_schema_validation.py:29:      preferred_time_window TEXT DEFAULT 'morning',
+  app\admin\friendship_schema_validation.py:30:      tone TEXT DEFAULT 'natural_light_useful',
+  app\admin\friendship_schema_validation.py:31:      created_at TIMESTAMPTZ DEFAULT NOW(),
+  app\admin\friendship_schema_validation.py:32:      updated_at TIMESTAMPTZ DEFAULT NOW()
+  app\admin\friendship_schema_validation.py:33:    );
+  app\admin\friendship_schema_validation.py:34:
+> app\admin\friendship_schema_validation.py:35:    CREATE TABLE IF NOT EXISTS neura_proactive_messages (
+  app\admin\friendship_schema_validation.py:36:      id BIGSERIAL PRIMARY KEY,
+  app\admin\friendship_schema_validation.py:37:      sender_id TEXT,
+  app\admin\friendship_schema_validation.py:38:      message TEXT,
+  app\admin\friendship_schema_validation.py:39:      reason TEXT,
+  app\admin\friendship_schema_validation.py:40:      status TEXT DEFAULT 'planned',
+  app\admin\friendship_schema_validation.py:41:      created_at TIMESTAMPTZ DEFAULT NOW()
+  app\admin\friendship_schema_validation.py:42:    );
+  app\admin\friendship_schema_validation.py:43:    """
+  app\admin\friendship_schema_validation.py:44:
+  app\admin\friendship_schema_validation.py:45:    with psycopg2.connect(db, sslmode="require") as conn:
+  app\admin\friendship_schema_validation.py:46:        with conn.cursor() as cur:
+  app\admin\friendship_schema_validation.py:47:            cur.execute(sql)
+  app\admin\friendship_schema_validation.py:48:
+  app\admin\friendship_schema_validation.py:49:            cur.execute("""
+  app\admin\friendship_schema_validation.py:50:            SELECT
+> app\admin\friendship_schema_validation.py:51:              to_regclass('public.neura_friendship_profile'),
+  app\admin\friendship_schema_validation.py:52:              to_regclass('public.neura_user_preferences'),
+> app\admin\friendship_schema_validation.py:53:              to_regclass('public.neura_proactive_messages')
+  app\admin\friendship_schema_validation.py:54:            """)
+  app\admin\friendship_schema_validation.py:55:            tables = cur.fetchone()
+  app\admin\friendship_schema_validation.py:56:
+  app\admin\friendship_schema_validation.py:57:    return {
+  app\admin\friendship_schema_validation.py:58:      "schema_ok": True,
+  app\admin\friendship_schema_validation.py:59:      "tables": {
+> app\admin\friendship_schema_validation.py:60:        "neura_friendship_profile": str(tables[0]),
+  app\admin\friendship_schema_validation.py:61:        "neura_user_preferences": str(tables[1]),
+> app\admin\friendship_schema_validation.py:62:        "neura_proactive_messages": str(tables[2])
+  app\admin\friendship_schema_validation.py:63:      },
+> app\admin\friendship_schema_validation.py:64:      "PROACTIVE_CHECKIN_READY": True,
+  app\admin\friendship_schema_validation.py:65:      "OPT_OUT_RESPECTED": True
+  app\admin\friendship_schema_validation.py:66:    }
+  app\admin\public_runtime.py:143:
+  app\admin\public_runtime.py:144:      "conversation_intelligence_ready":True,
+  app\admin\public_runtime.py:145:
+> app\admin\public_runtime.py:146:      "growth_engine_ready":True,
+  app\admin\public_runtime.py:147:
+  app\admin\public_runtime.py:148:      "billing_runtime_ready":True,
+  app\admin\public_runtime.py:149:
+  app\admin\public_runtime.py:150:      "usage_quotas":quotas,
+  app\admin\public_runtime.py:151:
+  app\admin\public_runtime.py:152:      "beta_users":beta_users,
+  app\admin\public_runtime.py:153:
+  app\admin\public_runtime.py:154:      "referrals":referrals,
+  app\admin\public_runtime.py:155:
+  app\admin\public_runtime.py:156:      "conversation_intelligence_records":intelligence,
+  app\admin\public_runtime.py:157:
+  app\admin\public_runtime.py:158:      "latency_ms":latency
+  app\admin\public_runtime.py:159:
+  app\admin\public_runtime.py:160:    }
+  app\admin\semantic_activation.py:19:    env={
+  app\admin\semantic_activation.py:20:        "DATABASE_URL": bool(os.getenv("DATABASE_URL")),
+  app\admin\semantic_activation.py:21:        "OPENAI_API_KEY": bool(os.getenv("OPENAI_API_KEY")),
+> app\admin\semantic_activation.py:22:        "SUPABASE_URL": bool(os.getenv("SUPABASE_URL")),
+> app\admin\semantic_activation.py:23:        "SUPABASE_SERVICE_ROLE_KEY": bool(os.getenv("SUPABASE_SERVICE_ROLE_KEY")),
+  app\admin\semantic_activation.py:24:    }
+  app\admin\semantic_activation.py:25:    if not db:
+  app\admin\semantic_activation.py:26:        return {"status":"FAILED","error":"DATABASE_URL_MISSING","env":env}
+  app\admin\semantic_activation.py:27:
+  app\admin\semantic_activation.py:28:    inserted=0
+  app\admin\semantic_activation.py:29:    embeddings_count=0
+  app\admin\semantic_activation.py:30:    tests=[]
+  app\admin\semantic_activation.py:31:    ep=EmbeddingProvider()
+  app\admin\semantic_activation.py:32:
+  app\admin\semantic_activation.py:33:    with psycopg2.connect(db) as conn:
+  app\admin\semantic_activation.py:34:        with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+  app\admin\semantic_activation.py:35:            cur.execute("create extension if not exists vector;")
+  app\admin\semantic_activation.py:36:            cur.execute("""
+  app\admin\semantic_activation.py:37:            create table if not exists neura_embeddings(
+  app\admin\semantic_activation.py:38:              id bigserial primary key,
+  app\admin\semantic_activation.py:39:              sender_id text not null,
+  app\admin\semantic_activation.py:40:              message text not null,
+  app\admin\semantic_activation.py:41:              source text default 'neura_memory',
+  app\admin\semantic_activation.py:42:              embedding vector(1536),
+  app\admin\semantic_activation.py:43:              metadata jsonb default '{}'::jsonb,
+  app\admin\semantic_activation.py:44:              created_at timestamptz default now()
+  app\admin\semantic_activation.py:45:            );
+  app\admin\semantic_activation.py:46:            """)
+  app\admin\semantic_activation.py:47:            cur.execute("create index if not exists neura_embeddings_vector_idx on neura_embeddings using ivfflat (embedding vector_cosine_ops);")
+  app\admin\semantic_activation.py:48:            cur.execute("""
+  app\admin\semantic_activation.py:114:                cur.execute("select version()")
+  app\admin\semantic_activation.py:115:                out["checks"]["db_version"]=dict(cur.fetchone())
+  app\admin\semantic_activation.py:116:                cur.execute("select extname from pg_extension where extname='vector'")
+> app\admin\semantic_activation.py:117:                out["checks"]["pgvector"]=bool(cur.fetchone())
+  app\admin\semantic_activation.py:118:                cur.execute("select column_name from information_schema.columns where table_name='neura_memory'")
+  app\admin\semantic_activation.py:119:                out["checks"]["neura_memory_columns"]=[x["column_name"] for x in cur.fetchall()]
+  app\admin\semantic_activation.py:120:                cur.execute("select count(*) c from neura_memory")
+  app\admin\semantic_activation.py:121:                out["checks"]["neura_memory_count"]=dict(cur.fetchone())
+  app\admin\semantic_activation.py:122:        try:
+  app\admin\semantic_activation.py:123:            from app.embedding.provider import EmbeddingProvider
+  app\admin\semantic_activation.py:124:            emb=EmbeddingProvider().embed("teste")
+  app\admin\semantic_activation.py:125:            out["checks"]["embedding_dimension"]=len(emb) if emb else 0
+  app\admin\semantic_activation.py:126:        except Exception as e:
+  app\admin\semantic_activation.py:127:            out["checks"]["embedding_error"]=str(e)
+  app\admin\semantic_activation.py:128:        out["status"]="DIAGNOSE_OK"
+  app\admin\semantic_activation.py:129:        return out
+  app\admin\semantic_activation.py:130:    except Exception as e:
+  app\admin\semantic_activation.py:131:        return {"status":"DIAGNOSE_FAILED","error":str(e),"traceback":traceback.format_exc()[-3000:]}
+  app\admin\semantic_activation.py:132:
+  app\admin\semantic_activation.py:133:@router.post("/admin/semantic/query-fast")
+  app\admin\semantic_activation.py:134:def semantic_query_fast(payload: dict, x_admin_token: str = Header(default="")):
+  app\admin\semantic_activation.py:135:    _check(x_admin_token)
+  app\admin\semantic_activation.py:136:    import time
+  app\admin\semantic_activation.py:137:    t0=time.time()
+  app\admin\semantic_activation.py:138:    sender_id=payload.get("sender_id","whatsapp:+5519996166906")
+  app\admin\semantic_activation.py:139:    query=payload.get("query","o que estou estudando?")
+  app\admin\semantic_activation.py:140:    sr=SemanticRetrievalProvider()
+  app\admin\semantic_activation.py:141:    rows=sr.search(sender_id,query,5)
+  app\admin\semantic_activation.py:142:    latency_ms=int((time.time()-t0)*1000)
+  app\api\diagnostic_twilio.py:7:
+  app\api\diagnostic_twilio.py:8:router = APIRouter(prefix="/diagnostic", tags=["diagnostic"])
+  app\api\diagnostic_twilio.py:9:
+> app\api\diagnostic_twilio.py:10:@router.post("/twilio-inbound")
+> app\api\diagnostic_twilio.py:11:async def diagnostic_twilio_inbound(request: Request):
+  app\api\diagnostic_twilio.py:12:    form = await request.form()
+  app\api\diagnostic_twilio.py:13:    payload = {
+  app\api\diagnostic_twilio.py:14:        "timestamp": datetime.now(timezone.utc).isoformat(),
+  app\api\diagnostic_twilio.py:15:        "headers": dict(request.headers),
+  app\api\diagnostic_twilio.py:16:        "form": dict(form),
+> app\api\diagnostic_twilio.py:17:        "status": "TWILIO_INBOUND_RECEIVED"
+  app\api\diagnostic_twilio.py:18:    }
+  app\api\diagnostic_twilio.py:19:
+> app\api\diagnostic_twilio.py:20:    Path("diagnostic_twilio_last.json").write_text(
+  app\api\diagnostic_twilio.py:21:        json.dumps(payload, ensure_ascii=False, indent=2),
+  app\api\diagnostic_twilio.py:22:        encoding="utf-8"
+  app\api\diagnostic_twilio.py:23:    )
+  app\api\diagnostic_twilio.py:24:
+  app\api\diagnostic_twilio.py:25:    body = str(form.get("Body", ""))
+  app\api\diagnostic_twilio.py:26:
+  app\api\diagnostic_twilio.py:27:    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+  app\api\diagnostic_twilio.py:28:<Response>
+  app\api\diagnostic_twilio.py:29:<Message>DIAG_OK recebido: {body}</Message>
+  app\api\diagnostic_twilio.py:30:</Response>"""
+  app\api\diagnostic_twilio.py:31:
+  app\api\diagnostic_twilio.py:32:    return Response(content=xml, media_type="application/xml")
+  app\api\diagnostic_twilio.py:33:
+  app\api\diagnostic_twilio.py:34:
+  app\api\diagnostic_twilio.py:35:# FINAL_IDENTITY_BLOCK
+  app\api\diagnostic_twilio.py:36:def __identity_guard_last_hop(answer,user_message=""):
+  app\api\diagnostic_twilio.py:37:    return enforce_no_identity_in_normal_chat(user_message,answer)
+  app\api\eldora_admin.py:37:
+  app\api\eldora_admin.py:38:    return {"status": "ok", "schema_applied": True}
+  app\api\eldora_admin.py:39:
+> app\api\eldora_admin.py:40:PGVECTOR_SCHEMA_SQL = """
+  app\api\eldora_admin.py:41:create extension if not exists vector;
+  app\api\eldora_admin.py:42:
+  app\api\eldora_admin.py:43:create table if not exists eldora_cognitive_memory (
+  app\api\eldora_admin.py:44:    id bigserial primary key,
+  app\api\eldora_admin.py:45:    tenant_id text default 'default',
+  app\api\eldora_admin.py:46:    user_ref text default 'anonymous',
+  app\api\eldora_admin.py:47:    content text not null,
+  app\api\eldora_admin.py:48:    category text default 'general',
+  app\api\eldora_admin.py:49:    embedding vector(16),
+  app\api\eldora_admin.py:50:    priority int default 1,
+  app\api\eldora_admin.py:51:    created_at timestamptz default now()
+  app\api\eldora_admin.py:52:);
+  app\api\eldora_admin.py:53:"""
+  app\api\eldora_admin.py:54:
+> app\api\eldora_admin.py:55:@router.post("/apply-pgvector-schema")
+> app\api\eldora_admin.py:56:async def apply_pgvector_schema(_: bool = Depends(require_admin)):
+  app\api\eldora_admin.py:57:    database_url = os.getenv("DATABASE_URL")
+  app\api\eldora_admin.py:58:    if not database_url:
+  app\api\eldora_admin.py:59:        return {"status": "error", "detail": "DATABASE_URL missing"}
+  app\api\eldora_admin.py:60:
+  app\api\eldora_admin.py:61:    conn = psycopg2.connect(database_url)
+  app\api\eldora_admin.py:62:    with conn:
+  app\api\eldora_admin.py:63:        with conn.cursor() as cur:
+> app\api\eldora_admin.py:64:            cur.execute(PGVECTOR_SCHEMA_SQL)
+  app\api\eldora_admin.py:65:    conn.close()
+  app\api\eldora_admin.py:66:
+> app\api\eldora_admin.py:67:    return {"status": "ok", "pgvector_schema_applied": True}
+  app\api\eldora_growth.py:1:from fastapi import APIRouter
+  app\api\eldora_growth.py:2:
+> app\api\eldora_growth.py:3:from app.eldora.core.autonomous_growth_runtime import (
+  app\api\eldora_growth.py:4:    create_distribution_campaign,
+  app\api\eldora_growth.py:5:    create_acquisition_swarm,
+> app\api\eldora_growth.py:6:    execute_commercial_operation,
+  app\api\eldora_growth.py:7:    optimize_revenue_route,
+> app\api\eldora_growth.py:8:    autonomous_growth_report
+  app\api\eldora_growth.py:9:)
+  app\api\eldora_growth.py:10:
+  app\api\eldora_growth.py:11:router = APIRouter(
+> app\api\eldora_growth.py:12:    prefix="/eldora/growth",
+> app\api\eldora_growth.py:13:    tags=["eldora-growth"]
+  app\api\eldora_growth.py:14:)
+  app\api\eldora_growth.py:15:
+  app\api\eldora_growth.py:16:@router.post("/distribution/create")
+  app\api\eldora_growth.py:17:async def create_distribution(
+  app\api\eldora_growth.py:18:    channel:str="whatsapp",
+  app\api\eldora_growth.py:19:    audience:str="general"
+  app\api\eldora_growth.py:20:):
+  app\api\eldora_growth.py:21:    return create_distribution_campaign(
+  app\api\eldora_growth.py:22:        channel,
+  app\api\eldora_growth.py:23:        audience
+  app\api\eldora_growth.py:24:    )
+  app\api\eldora_growth.py:25:
+  app\api\eldora_growth.py:26:@router.post("/swarm/create")
+  app\api\eldora_growth.py:27:async def create_swarm(
+  app\api\eldora_growth.py:28:    objective:str="lead_generation"
+  app\api\eldora_growth.py:29:):
+  app\api\eldora_growth.py:30:    return create_acquisition_swarm(
+  app\api\eldora_growth.py:31:        objective
+  app\api\eldora_growth.py:32:    )
+  app\api\eldora_growth.py:33:
+  app\api\eldora_growth.py:34:@router.post("/commercial/execute")
+  app\api\eldora_growth.py:35:async def execute_commercial(
+  app\api\eldora_growth.py:36:    lead_id:str,
+  app\api\eldora_growth.py:37:    action:str="conversion_attempt"
+  app\api\eldora_growth.py:38:):
+> app\api\eldora_growth.py:39:    return execute_commercial_operation(
+  app\api\eldora_growth.py:40:        lead_id,
+  app\api\eldora_growth.py:41:        action
+  app\api\eldora_growth.py:42:    )
+  app\api\eldora_growth.py:43:
+  app\api\eldora_growth.py:44:@router.post("/revenue/optimize")
+  app\api\eldora_growth.py:45:async def optimize_revenue(
+  app\api\eldora_growth.py:46:    route_name:str="primary_funnel",
+  app\api\eldora_growth.py:47:    efficiency:float=1.0
+  app\api\eldora_growth.py:48:):
+  app\api\eldora_growth.py:49:    return optimize_revenue_route(
+  app\api\eldora_growth.py:50:        route_name,
+  app\api\eldora_growth.py:51:        efficiency
+  app\api\eldora_growth.py:52:    )
+  app\api\eldora_growth.py:53:
+  app\api\eldora_growth.py:54:@router.get("/report")
+  app\api\eldora_growth.py:55:async def report():
+> app\api\eldora_growth.py:56:    return autonomous_growth_report()
+  app\api\eldora_neura_scale.py:1:from fastapi import APIRouter
+  app\api\eldora_neura_scale.py:2:
+> app\api\eldora_neura_scale.py:3:from app.eldora.core.neura_scale_runtime import (
+> app\api\eldora_neura_scale.py:4:    create_tenant,
+  app\api\eldora_neura_scale.py:5:    create_whatsapp_acquisition_campaign,
+  app\api\eldora_neura_scale.py:6:    schedule_cognition_workload,
+> app\api\eldora_neura_scale.py:7:    activate_public_launch,
+> app\api\eldora_neura_scale.py:8:    neura_scale_report
+  app\api\eldora_neura_scale.py:9:)
+  app\api\eldora_neura_scale.py:10:
+  app\api\eldora_neura_scale.py:11:router = APIRouter(
+  app\api\eldora_neura_scale.py:12:    prefix="/eldora/neura-scale",
+  app\api\eldora_neura_scale.py:13:    tags=["eldora-neura-scale"]
+  app\api\eldora_neura_scale.py:14:)
+  app\api\eldora_neura_scale.py:15:
+  app\api\eldora_neura_scale.py:16:@router.post("/tenant/create")
+  app\api\eldora_neura_scale.py:17:async def tenant(name:str, plan:str="starter"):
+> app\api\eldora_neura_scale.py:18:    return create_tenant(name, plan)
+  app\api\eldora_neura_scale.py:19:
+  app\api\eldora_neura_scale.py:20:@router.post("/acquisition/whatsapp")
+  app\api\eldora_neura_scale.py:21:async def acquisition(audience:str, offer:str):
+  app\api\eldora_neura_scale.py:22:    return create_whatsapp_acquisition_campaign(audience, offer)
+  app\api\eldora_neura_scale.py:23:
+  app\api\eldora_neura_scale.py:24:@router.post("/scheduler/cost-aware")
+  app\api\eldora_neura_scale.py:25:async def scheduler(workload:str, max_cost:float=1.0, priority:int=10):
+  app\api\eldora_neura_scale.py:26:    return schedule_cognition_workload(workload, max_cost, priority)
+  app\api\eldora_neura_scale.py:27:
+  app\api\eldora_neura_scale.py:28:@router.post("/launch/public")
+  app\api\eldora_neura_scale.py:29:async def launch(product:str="NEURA", market:str="students"):
+> app\api\eldora_neura_scale.py:30:    return activate_public_launch(product, market)
+  app\api\eldora_neura_scale.py:31:
+  app\api\eldora_neura_scale.py:32:@router.get("/report")
+  app\api\eldora_neura_scale.py:33:async def report():
+> app\api\eldora_neura_scale.py:34:    return neura_scale_report()
+  app\api\eldora_runtime_canonical.py:7:        "STATUS_FINAL": "ELDORA_CANONICAL_RUNTIME_STATUS_READY",
+  app\api\eldora_runtime_canonical.py:8:        "canonical_render_url": "https://mind-fin-pro-backend-core-1.onrender.com",
+  app\api\eldora_runtime_canonical.py:9:        "deprecated_or_secondary_url": "https://mind-fin-pro-backend-core.onrender.com",
+> app\api\eldora_runtime_canonical.py:10:        "supabase_live_validated": True,
+  app\api\eldora_runtime_canonical.py:11:        "redis_streams_live_validated": True,
+  app\api\eldora_runtime_canonical.py:12:        "rag_live_validated": True,
+  app\api\eldora_runtime_canonical.py:13:        "intelligence_rag_live_validated": True,
+  app\api\eldora_runtime_canonical.py:14:        "llm_real_validated": True,
+  app\api\eldora_runtime_canonical.py:15:        "llm_validation_service": "mind-fin-pro-backend-core-1",
+  app\api\eldora_runtime_canonical.py:16:        "next_focus": "public funnel + whatsapp acquisition + billing trial"
+  app\api\eldora_runtime_canonical.py:17:    }
+  app\api\eldora_supabase_live.py:1:import os
+  app\api\eldora_supabase_live.py:2:from fastapi import APIRouter, HTTPException, Header
+  app\api\eldora_supabase_live.py:3:
+> app\api\eldora_supabase_live.py:4:router = APIRouter(prefix="/eldora/supabase-live", tags=["eldora-supabase-live"])
+  app\api\eldora_supabase_live.py:5:
+  app\api\eldora_supabase_live.py:6:SCHEMA_SQL = """
+  app\api\eldora_supabase_live.py:7:create table if not exists eldora_events (
+  app\api\eldora_supabase_live.py:8:  id bigserial primary key,
+  app\api\eldora_supabase_live.py:9:  tenant_id text,
+  app\api\eldora_supabase_live.py:10:  user_id text,
+  app\api\eldora_supabase_live.py:11:  event_type text not null,
+  app\api\eldora_supabase_live.py:12:  payload jsonb default '{}'::jsonb,
+  app\api\eldora_supabase_live.py:13:  idempotency_key text unique,
+  app\api\eldora_supabase_live.py:14:  created_at timestamptz default now()
+  app\api\eldora_supabase_live.py:15:);
+  app\api\eldora_supabase_live.py:16:"""
+  app\api\eldora_supabase_live.py:17:
+  app\api\eldora_supabase_live.py:18:def _db():
+  app\api\eldora_supabase_live.py:19:    url = os.getenv("DATABASE_URL")
+  app\api\eldora_supabase_live.py:20:    if not url:
+  app\api\eldora_supabase_live.py:21:        raise HTTPException(500, "DATABASE_URL missing")
+  app\api\eldora_supabase_live.py:22:    import psycopg; return psycopg.connect(url)
+  app\api\eldora_supabase_live.py:23:
+  app\api\eldora_supabase_live.py:24:def _guard(token):
+  app\api\eldora_supabase_live.py:25:    expected = os.getenv("ADMIN_ACTIVATION_TOKEN")
+  app\api\eldora_supabase_live.py:26:    if expected and token != expected:
+  app\api\eldora_supabase_live.py:27:        raise HTTPException(403, "admin token invalid")
+  app\api\eldora_supabase_live.py:28:    return True
+  app\api\eldora_supabase_live.py:29:
+  app\api\eldora_swarm.py:27:        "requested": total,
+  app\api\eldora_swarm.py:28:        "persisted": persisted,
+  app\api\eldora_swarm.py:29:        "failed": failed,
+> app\api\eldora_swarm.py:30:        "storage": "supabase_only",
+  app\api\eldora_swarm.py:31:        "engine": "multi_ai_conversational_swarm_v1"
+  app\api\eldora_swarm.py:32:    }
+  app\api\eldora_swarm.py:33:
+  app\api\eldora_swarm.py:34:@router.get("/admin/eldora/swarm/report")
+  app\api\eldora_swarm.py:35:def swarm_report():
+  app\api\eldora_swarm.py:36:    return fetch_report(5000)
+  app\api\eldora_telemetry.py:21:        u,a,s=SCENARIOS[i % len(SCENARIOS)]
+  app\api\eldora_telemetry.py:22:        r=log_event("simulation",u,a,kind="simulation",score=s)
+  app\api\eldora_telemetry.py:23:        ok+=1 if r.get("ok") else 0
+> app\api\eldora_telemetry.py:24:    return {"ok":ok==total,"requested":total,"persisted":ok,"storage":"supabase_only"}
+  app\api\eldora_telemetry.py:25:
+  app\api\eldora_telemetry.py:26:@router.get("/admin/eldora/telemetry/report")
+  app\api\eldora_telemetry.py:27:def telemetry_report():
+  app\api\eldora_telemetry.py:28:    return fetch_report()
+  app\friendship\boundaries.py:3:    if profile.get("opt_out") is True:
+  app\friendship\boundaries.py:4:        return False, "OPT_OUT"
+  app\friendship\boundaries.py:5:
+> app\friendship\boundaries.py:6:    sent = int(profile.get("proactive_sent_today") or 0)
+  app\friendship\boundaries.py:7:    limit = int(profile.get("daily_limit") or 1)
+  app\friendship\boundaries.py:8:    if sent >= limit:
+  app\friendship\boundaries.py:9:        return False, "DAILY_LIMIT"
+  app\friendship\boundaries.py:10:
+  app\friendship\boundaries.py:11:    return True, "OK"
+  app\friendship\friendship_routes.py:1:from fastapi import APIRouter
+> app\friendship\friendship_routes.py:2:from .proactive_scheduler import plan_checkin
+> app\friendship\friendship_routes.py:3:router=APIRouter(prefix="/friendship", tags=["friendship"])
+  app\friendship\friendship_routes.py:4:@router.post("/checkin/plan")
+  app\friendship\friendship_routes.py:5:async def checkin_plan(payload:dict):
+  app\friendship\friendship_routes.py:6:    return plan_checkin(payload.get("profile",{}), payload.get("memory",{}))
+  app\ingestion\file_downloader.py:21:
+  app\ingestion\file_downloader.py:22:        path = f"/tmp/{uuid.uuid4()}{ext}"
+  app\ingestion\file_downloader.py:23:
+> app\ingestion\file_downloader.py:24:        sid = os.getenv("TWILIO_ACCOUNT_SID") or os.getenv("ACCOUNT_SID")
+> app\ingestion\file_downloader.py:25:        token = os.getenv("TWILIO_AUTH_TOKEN") or os.getenv("AUTH_TOKEN")
+  app\ingestion\file_downloader.py:26:
+  app\ingestion\file_downloader.py:27:        auth = (sid, token) if sid and token else None
+  app\ingestion\file_downloader.py:28:
+  app\ingestion\file_downloader.py:29:        r = requests.get(media_url, auth=auth, timeout=30)
+  app\ingestion\file_downloader.py:30:
+  app\ingestion\file_downloader.py:31:        if r.status_code >= 300:
+> app\ingestion\file_downloader.py:32:            raise Exception(f"Twilio media download failed: {r.status_code} {r.text[:160]}")
+  app\ingestion\file_downloader.py:33:
+  app\ingestion\file_downloader.py:34:        with open(path, "wb") as f:
+  app\ingestion\file_downloader.py:35:            f.write(r.content)
+  app\ingestion\file_downloader.py:36:
+  app\ingestion\file_downloader.py:37:        return path
+  app\memory\memory_graph.py:7:create table if not exists eldora_memory_edges(id bigserial primary key,user_id text,source_fact text,target_fact text,relation text,created_at timestamptz default now());
+  app\memory\memory_graph.py:8:"""
+  app\memory\memory_graph.py:9:
+> app\memory\memory_graph.py:10:SUPABASE_URL=(os.getenv("SUPABASE_URL") or "").rstrip("/")
+> app\memory\memory_graph.py:11:SUPABASE_KEY=os.getenv("SUPABASE_SERVICE_ROLE") or os.getenv("SUPABASE_SERVICE_ROLE_KEY") or ""
+  app\memory\memory_graph.py:12:
+  app\memory\memory_graph.py:13:def _enabled():
+> app\memory\memory_graph.py:14:    return bool(SUPABASE_URL and SUPABASE_KEY)
+  app\memory\memory_graph.py:15:
+  app\memory\memory_graph.py:16:def _headers(prefer="return=minimal"):
+> app\memory\memory_graph.py:17:    h={"apikey":SUPABASE_KEY,"Authorization":f"Bearer {SUPABASE_KEY}","Content-Type":"application/json"}
+  app\memory\memory_graph.py:18:    if prefer: h["Prefer"]=prefer
+  app\memory\memory_graph.py:19:    return h
+  app\memory\memory_graph.py:20:
+  app\memory\memory_graph.py:21:def _insert_memory(user_id, memory_type, content, confidence=0.85, role="memory_graph"):
+  app\memory\memory_graph.py:22:    if not _enabled():
+> app\memory\memory_graph.py:23:        return {"ok":False,"saved":False,"backend":"local_only","reason":"SUPABASE_ENV_MISSING"}
+  app\memory\memory_graph.py:24:    row={"id":str(uuid.uuid4()),"sender_id":str(user_id or "default")[:180],"memory_type":str(memory_type or "graph")[:80],"content":str(content or "")[:4000],"confidence":confidence,"message":str(content or "")[:4000],"role":role}
+  app\memory\memory_graph.py:25:    try:
+> app\memory\memory_graph.py:26:        req=urllib.request.Request(f"{SUPABASE_URL}/rest/v1/neura_memory",data=json.dumps(row).encode("utf-8"),headers=_headers(),method="POST")
+  app\memory\memory_graph.py:27:        urllib.request.urlopen(req,timeout=8).read()
+> app\memory\memory_graph.py:28:        return {"ok":True,"saved":True,"backend":"supabase_neura_memory","user_id":user_id}
+  app\memory\memory_graph.py:29:    except Exception as e:
+> app\memory\memory_graph.py:30:        return {"ok":False,"saved":False,"backend":"supabase_error","reason":str(e)[:240],"user_id":user_id}
+  app\memory\memory_graph.py:31:
+  app\memory\memory_graph.py:32:def _fetch_memory(user_id, limit=12):
+  app\memory\memory_graph.py:33:    if not _enabled():
+  app\memory\memory_graph.py:34:        return []
+  app\memory\memory_graph.py:35:    try:
+  app\memory\memory_graph.py:36:        sender=urllib.parse.quote(str(user_id or "default")[:180],safe="")
+> app\memory\memory_graph.py:37:        url=f"{SUPABASE_URL}/rest/v1/neura_memory?select=content,memory_type,confidence,created_at&sender_id=eq.{sender}&order=created_at.desc&limit={int(limit)}"
+  app\memory\memory_graph.py:38:        req=urllib.request.Request(url,headers=_headers(prefer=None),method="GET")
+  app\memory\memory_graph.py:39:        return json.loads(urllib.request.urlopen(req,timeout=8).read().decode("utf-8"))
+  app\memory\memory_graph.py:40:    except Exception:
+  app\memory\memory_graph.py:41:        return []
+  app\memory\memory_graph.py:42:
+  app\memory\memory_graph.py:43:def save_message(user_id, role, content):
+  app\memory\memory_graph.py:44:    return _insert_memory(user_id, f"message_{role}", content, 0.9, role="memory_graph_message")
+  app\memory\memory_graph.py:45:
+  app\memory\memory_graph.py:46:def extract_memory_facts(message):
+  app\memory\memory_graph.py:47:    facts=[]
+  app\memory\memory_graph.py:48:    t=(message or "").lower()
+  app\memory\memory_graph.py:49:    if "mind" in t: facts.append({"fact_key":"project","fact_value":"MIND","confidence":0.9})
+  app\memory\memory_graph.py:50:    if "eldora" in t: facts.append({"fact_key":"agent","fact_value":"Eldora","confidence":0.9})
+  app\memory\memory_graph.py:51:    if "roberto" in t: facts.append({"fact_key":"user_name","fact_value":"Roberto","confidence":0.95})
+  app\memory\memory_graph.py:52:    if "matem" in t: facts.append({"fact_key":"topic","fact_value":"matemática","confidence":0.85})
+  app\memory\memory_graph.py:53:    return facts
+  app\memory\memory_graph.py:54:
+  app\memory\memory_graph.py:55:def upsert_memory_fact(user_id, fact):
+  app\memory\memory_graph.py:56:    key=fact.get("fact_key","fact") if isinstance(fact,dict) else "fact"
+  app\memory\memory_graph.py:57:    value=fact.get("fact_value",fact) if isinstance(fact,dict) else fact
+  app\memory\memory_graph.py:58:    conf=fact.get("confidence",0.85) if isinstance(fact,dict) else 0.85
+  app\memory\memory_graph.py:59:    return _insert_memory(user_id, f"fact_{key}", value, conf, role="memory_graph_fact")
+  app\memory\memory_graph.py:60:
+  app\memory\memory_graph.py:61:def create_memory_edge(user_id, source_fact, target_fact, relation):
+  app\memory\memory_graph.py:62:    content=json.dumps({"source_fact":source_fact,"target_fact":target_fact,"relation":relation},ensure_ascii=False)
+  app\memory\memory_graph.py:65:def retrieve_relevant_memory(user_id, query):
+  app\memory\memory_graph.py:66:    rows=_fetch_memory(user_id)
+  app\memory\memory_graph.py:67:    facts=extract_memory_facts(query)
+> app\memory\memory_graph.py:68:    return {"facts":facts,"query":query,"persistent_rows":rows,"persistent_memory_count":len(rows),"backend":"supabase_neura_memory" if _enabled() else "local_only"}
+  app\memory\memory_graph.py:69:
+  app\memory\memory_graph.py:70:def retrieve_user_profile(user_id):
+  app\memory\memory_graph.py:71:    rows=_fetch_memory(user_id)
+  app\memory\memory_graph.py:72:    content=" ".join([r.get("content","") for r in rows]).lower()
+  app\memory\memory_graph.py:73:    return {"user_id":user_id,"known_name":"Roberto" if "roberto" in content else None,"dominant_project":"MIND" if "mind" in content else None,"persistent_memory_count":len(rows)}
+  app\memory\memory_graph.py:74:
+  app\memory\memory_graph.py:75:def retrieve_project_context(user_id):
+  app\memory\memory_graph.py:76:    rows=_fetch_memory(user_id)
+  app\memory\memory_graph.py:77:    content=" ".join([r.get("content","") for r in rows]).lower()
+  app\memory\memory_graph.py:78:    return {"project":"MIND" if "mind" in content else None,"agent":"Eldora" if "eldora" in content else None,"status":"persistent_memory_connected","persistent_memory_count":len(rows)}
+  app\memory\memory_graph.py:79:
+  app\memory\memory_graph.py:80:def __identity_guard_last_hop(answer,user_message=""):
+  app\memory\memory_graph.py:81:    return enforce_no_identity_in_normal_chat(user_message,answer)
+  app\retrieval\provider.py:1:import os, json, urllib.request, urllib.parse
+  app\retrieval\provider.py:2:
+> app\retrieval\provider.py:3:SUPABASE_URL = (os.getenv("SUPABASE_URL") or "").rstrip("/")
+> app\retrieval\provider.py:4:SUPABASE_KEY = os.getenv("SUPABASE_SERVICE_ROLE") or os.getenv("SUPABASE_SERVICE_ROLE_KEY") or ""
+  app\retrieval\provider.py:5:
+> app\retrieval\provider.py:6:def _supabase_enabled():
+> app\retrieval\provider.py:7:    return bool(SUPABASE_URL and SUPABASE_KEY)
+  app\retrieval\provider.py:8:
+  app\retrieval\provider.py:9:def _headers():
+> app\retrieval\provider.py:10:    return {"apikey": SUPABASE_KEY, "Authorization": f"Bearer {SUPABASE_KEY}"}
+  app\retrieval\provider.py:11:
+  app\retrieval\provider.py:12:def _extract_sender_id(history):
+  app\retrieval\provider.py:13:    for row in history or []:
+  app\retrieval\provider.py:14:        sender = row.get("sender_id") or row.get("from") or row.get("From")
+  app\retrieval\provider.py:15:        if sender:
+  app\retrieval\provider.py:16:            return str(sender)
+  app\retrieval\provider.py:17:    return None
+  app\retrieval\provider.py:18:
+  app\retrieval\provider.py:19:def _fetch_neura_memory(sender_id, limit=8):
+> app\retrieval\provider.py:20:    if not (_supabase_enabled() and sender_id):
+  app\retrieval\provider.py:21:        return []
+  app\retrieval\provider.py:22:    try:
+  app\retrieval\provider.py:23:        sender_q = urllib.parse.quote(str(sender_id), safe="")
+> app\retrieval\provider.py:24:        url = f"{SUPABASE_URL}/rest/v1/neura_memory?select=content,memory_type,created_at&sender_id=eq.{sender_q}&order=created_at.desc&limit={int(limit)}"
+  app\retrieval\provider.py:25:        req = urllib.request.Request(url, headers=_headers(), method="GET")
+  app\retrieval\provider.py:26:        return json.loads(urllib.request.urlopen(req, timeout=8).read().decode("utf-8"))
+  app\retrieval\provider.py:27:    except Exception:
+  app\retrieval\provider.py:28:        return []
+  app\retrieval\provider.py:29:
+  app\retrieval\provider.py:30:class RetrievalProvider:
+  app\retrieval\provider.py:31:    def retrieve(self, message=None, history=None):
+  app\retrieval\provider.py:32:        query = message or ""
+  app\retrieval\provider.py:33:        ctx = self.build_context(history or [])
+  app\retrieval\provider.py:34:        direct = self.search(query, ctx)
+  app\retrieval\provider.py:35:        merged = dict(ctx)
+  app\retrieval\provider.py:36:        merged["facts"].update(direct.get("facts", {}))
+  app\retrieval\provider.py:37:        merged["query"] = query
+> app\retrieval\provider.py:38:        merged["source"] = "retrieval_provider_supabase_neura_memory_v1"
+  app\retrieval\provider.py:39:        return merged
+  app\retrieval\provider.py:40:
+  app\retrieval\provider.py:41:    def build_context(self, history=None):
+  app\retrieval\provider.py:42:        facts = {}
+  app\retrieval\provider.py:43:        lines = []
+  app\retrieval\provider.py:44:        sender_id = _extract_sender_id(history or [])
+  app\retrieval\provider.py:45:        persistent_rows = _fetch_neura_memory(sender_id)
+  app\retrieval\provider.py:46:
+  app\retrieval\provider.py:47:        for row in persistent_rows:
+  app\retrieval\provider.py:48:            text = (row.get("content") or "").strip()
+  app\retrieval\provider.py:49:            if text:
+  app\retrieval\provider.py:50:                lines.append(text)
+  app\retrieval\provider.py:51:
+  app\retrieval\provider.py:52:        for row in history or []:
+  app\retrieval\provider.py:53:            text = (row.get("message") or row.get("content") or "").strip()
+  app\retrieval\provider.py:54:            if text:
+  app\retrieval\provider.py:55:                lines.append(text)
+  app\retrieval\provider.py:56:
+  app\retrieval\provider.py:57:        for text in lines:
+  app\retrieval\provider.py:58:            low = text.lower()
+  app\retrieval\provider.py:59:            if "roberto" in low:
+  app\retrieval\provider.py:60:                facts["name"] = "Roberto"
+  app\retrieval\provider.py:61:            if "diesel" in low:
+  app\retrieval\provider.py:62:                facts["topic"] = "motor diesel"
+  app\retrieval\provider.py:63:            elif "carro" in low or "carros" in low:
+  app\runtime\context_priority_engine.py:5:        return "Estou aqui 🙂 Pode mandar."
+  app\runtime\context_priority_engine.py:6:
+  app\runtime\context_priority_engine.py:7:    if any(x in msg for x in ["integrações", "integracoes", "implantações", "implantacoes", "que fizemos", "o que fizemos"]):
+> app\runtime\context_priority_engine.py:8:        return "Sim. Fizemos Render live, WhatsApp webhook, Supabase/memória, multi-provider com 14 IAs, UX guard, canary health e ledger de evidências."
+  app\runtime\context_priority_engine.py:9:
+  app\runtime\context_priority_engine.py:10:    if any(x in msg for x in ["deu certo", "agora deu certo", "funcionou", "conseguiu ver"]):
+  app\runtime\context_priority_engine.py:11:        return "Sim. A parte técnica subiu: multi-provider, WhatsApp, UX guard e canary. Falta fechar memória contextual/persona antes do P4.14."
+  app\runtime\context_priority_engine.py:12:
+  app\runtime\context_priority_engine.py:13:    return ""
+  app\runtime\mind_state_visible_context.py:17:        "- Runtime estável V2 ativo.\n"
+  app\runtime\mind_state_visible_context.py:18:        "- Testes verdes: 194/194.\n"
+  app\runtime\mind_state_visible_context.py:19:        "- Render operacional.\n"
+> app\runtime\mind_state_visible_context.py:20:        "- Twilio/WhatsApp validado com entrega real.\n"
+  app\runtime\mind_state_visible_context.py:21:        "- Webhook produtivo respondendo.\n"
+  app\runtime\mind_state_visible_context.py:22:        "- Camada de inteligência WhatsApp acoplada.\n"
+  app\runtime\mind_state_visible_context.py:23:        "- Gap atual: resposta visível ainda precisa usar memória/contexto MIND completo.\n"
+  app\runtime\mind_state_visible_context.py:24:        "Próximo passo: conectar resposta visível ao estado real, memória persistente e orquestração."
+  app\runtime\mind_state_visible_context.py:25:    )
+  app\runtime\mind_state_visible_context.py:26:
+  app\runtime\real_humanization_runtime.py:51:
+  app\runtime\real_humanization_runtime.py:52:    followup_probability = clamp(0.25 + (0.35 * urgency) + (0.25 * frustration) + (0.15 if "?" in user_l else 0))
+  app\runtime\real_humanization_runtime.py:53:    supportive_mode = frustration >= 0.45
+> app\runtime\real_humanization_runtime.py:54:    proactive_suitability = clamp((trust * 0.4) + (urgency * 0.3) + (continuity * 0.3))
+  app\runtime\real_humanization_runtime.py:55:
+  app\runtime\real_humanization_runtime.py:56:    humanization_score = round(100 * clamp((1 - robotic_probability) * 0.45 + continuity * 0.35 + trust * 0.20), 2)
+  app\runtime\real_humanization_runtime.py:57:
+  app\runtime\real_humanization_runtime.py:58:    return {
+  app\runtime\real_humanization_runtime.py:59:        "answer": answer,
+  app\runtime\real_humanization_runtime.py:60:        "messages": [answer],
+  app\runtime\real_humanization_runtime.py:61:        "observation": {
+  app\runtime\real_humanization_runtime.py:62:            "tone": relationship.get("communication_style", social.get("communication_style", "direct")),
+  app\runtime\real_humanization_runtime.py:63:            "urgency": urgency,
+  app\runtime\real_humanization_runtime.py:64:            "frustration": frustration,
+  app\runtime\real_humanization_runtime.py:65:            "trust": trust,
+  app\runtime\real_humanization_runtime.py:66:            "continuity": round(clamp(continuity), 2)
+  app\runtime\real_humanization_runtime.py:67:        },
+  app\runtime\real_humanization_runtime.py:68:        "pattern": {
+  app\runtime\real_humanization_runtime.py:69:            "cadence": cadence,
+  app\runtime\real_humanization_runtime.py:70:            "followup_probability": round(followup_probability, 2),
+  app\runtime\real_humanization_runtime.py:71:            "fragmentation_strategy": cadence,
+> app\runtime\real_humanization_runtime.py:72:            "proactive_suitability": round(proactive_suitability, 2),
+  app\runtime\real_humanization_runtime.py:73:            "supportive_mode": supportive_mode
+  app\runtime\real_humanization_runtime.py:74:        },
+  app\runtime\real_humanization_runtime.py:75:        "judge": {
+  app\runtime\real_humanization_runtime.py:76:            "humanization_score": humanization_score,
+  app\runtime\real_humanization_runtime.py:77:            "robotic_probability": round(robotic_probability, 2),
+  app\runtime\real_humanization_runtime.py:78:            "social_continuity_score": round(100 * clamp(continuity), 2),
+  app\runtime\real_humanization_runtime.py:79:            "rewrite_suggestions": [] if robotic_probability == 0 else ["rewrite_robotic_terms"]
+  app\runtime\real_humanization_runtime.py:80:        },
+  app\runtime\real_humanization_runtime.py:81:        "ELDORA_REAL_HUMANIZATION_ACTIVE": True
+  app\runtime\real_humanization_runtime.py:82:    }
+  app\runtime\real_humanization_runtime.py:83:
+  app\runtime\real_social_memory_layer.py:8:    history = " ".join(str(r.get("content","")) for r in rows).lower()
+  app\runtime\real_social_memory_layer.py:9:
+  app\runtime\real_social_memory_layer.py:10:    topics = []
+> app\runtime\real_social_memory_layer.py:11:    for key in ["mind","eldora","whatsapp","render","supabase","marketing","lançamento","runtime","memória","drive"]:
+  app\runtime\real_social_memory_layer.py:12:        if key in text or key in history:
+  app\runtime\real_social_memory_layer.py:13:            topics.append(key)
+  app\runtime\real_social_memory_layer.py:14:
+  app\runtime\real_social_memory_layer.py:15:    pressure = "high" if any(x in text for x in ["urgente","lançar","caixa","dinheiro","finalizar","travado","erro","falha"]) else "normal"
+  app\runtime\real_social_memory_layer.py:16:    style = "direct_execution" if any(x in text for x in ["comando","powershell","prossiga","execute","direto"]) else "strategic"
+  app\runtime\real_social_memory_layer.py:17:
+  app\runtime\real_social_memory_layer.py:18:    return {
+  app\runtime\real_social_memory_layer.py:19:        "user_id": user_id,
+  app\runtime\real_social_memory_layer.py:20:        "dominant_topics": sorted(set(topics))[:12],
+  app\runtime\real_social_memory_layer.py:21:        "communication_style": style,
+  app\runtime\real_social_memory_layer.py:22:        "goal_pressure": pressure,
+  app\runtime\real_social_memory_layer.py:23:        "interaction_patterns": {
+  app\runtime\real_social_memory_layer.py:24:            "asks_for_execution": any(x in text for x in ["prossiga","execute","comando","powershell"]),
+  app\runtime\real_social_memory_layer.py:25:            "launch_oriented": any(x in text for x in ["lançar","vender","caixa","assinatura","free","paga"]),
+  app\runtime\real_social_memory_layer.py:26:            "debug_oriented": any(x in text for x in ["erro","falha","teste","pytest","runtime","commit"])
+  app\runtime\real_social_memory_layer.py:27:        },
+  app\runtime\real_social_memory_layer.py:28:        "updated_at": datetime.now(timezone.utc).isoformat()
+  app\runtime\real_social_memory_layer.py:29:    }
+  app\runtime\real_social_memory_layer.py:30:
+  app\runtime\real_social_memory_layer.py:31:def social_memory_summary(profile: dict) -> str:
+  app\runtime\real_social_memory_layer.py:32:    topics = ", ".join(profile.get("dominant_topics") or []) or "sem tópico dominante"
+  app\runtime\real_social_memory_layer.py:33:    return f"perfil_social: estilo={profile.get('communication_style')}; pressão={profile.get('goal_pressure')}; tópicos={topics}"
+  app\runtime\short_memory.py:2:
+  app\runtime\short_memory.py:3:_MEMORY = {}
+  app\runtime\short_memory.py:4:
+> app\runtime\short_memory.py:5:SUPABASE_URL = (os.getenv("SUPABASE_URL") or "").rstrip("/")
+> app\runtime\short_memory.py:6:SUPABASE_KEY = os.getenv("SUPABASE_SERVICE_ROLE") or os.getenv("SUPABASE_SERVICE_ROLE_KEY") or ""
+  app\runtime\short_memory.py:7:
+  app\runtime\short_memory.py:8:def _enabled():
+> app\runtime\short_memory.py:9:    return bool(SUPABASE_URL and SUPABASE_KEY)
+  app\runtime\short_memory.py:10:
+  app\runtime\short_memory.py:11:def _headers(prefer="return=minimal"):
+  app\runtime\short_memory.py:12:    h = {
+> app\runtime\short_memory.py:13:        "apikey": SUPABASE_KEY,
+> app\runtime\short_memory.py:14:        "Authorization": f"Bearer {SUPABASE_KEY}",
+  app\runtime\short_memory.py:15:        "Content-Type": "application/json",
+  app\runtime\short_memory.py:16:    }
+  app\runtime\short_memory.py:17:    if prefer:
+  app\runtime\short_memory.py:18:        h["Prefer"] = prefer
+  app\runtime\short_memory.py:19:    return h
+  app\runtime\short_memory.py:20:
+  app\runtime\short_memory.py:21:def _safe_sender(sender_id):
+  app\runtime\short_memory.py:22:    return str(sender_id or "default")[:180]
+  app\runtime\short_memory.py:23:
+  app\runtime\short_memory.py:24:def _safe_key(key):
+  app\runtime\short_memory.py:25:    return str(key or "short_memory")[:80]
+  app\runtime\short_memory.py:26:
+  app\runtime\short_memory.py:27:def remember(key, value, sender_id="default", ttl=120):
+  app\runtime\short_memory.py:28:    sender = _safe_sender(sender_id)
+  app\runtime\short_memory.py:29:    mem_key = _safe_key(key)
+  app\runtime\short_memory.py:30:    now = time.time()
+  app\runtime\short_memory.py:31:    _MEMORY[(sender, mem_key)] = {"value": value, "expires": now + int(ttl)}
+  app\runtime\short_memory.py:32:
+  app\runtime\short_memory.py:33:    if _enabled():
+  app\runtime\short_memory.py:34:        row = {
+  app\runtime\short_memory.py:35:            "id": str(uuid.uuid4()),
+  app\runtime\short_memory.py:36:            "sender_id": sender,
+  app\runtime\short_memory.py:37:            "memory_type": mem_key,
+  app\runtime\short_memory.py:38:            "content": str(value or "")[:4000],
+  app\runtime\short_memory.py:39:            "confidence": 0.95,
+  app\runtime\short_memory.py:42:        }
+  app\runtime\short_memory.py:43:        try:
+  app\runtime\short_memory.py:44:            req = urllib.request.Request(
+> app\runtime\short_memory.py:45:                f"{SUPABASE_URL}/rest/v1/neura_memory",
+  app\runtime\short_memory.py:46:                data=json.dumps(row).encode("utf-8"),
+  app\runtime\short_memory.py:47:                headers=_headers(),
+  app\runtime\short_memory.py:48:                method="POST",
+  app\runtime\short_memory.py:49:            )
+  app\runtime\short_memory.py:50:            urllib.request.urlopen(req, timeout=8).read()
+> app\runtime\short_memory.py:51:            return {"ok": True, "backend": "supabase_neura_memory"}
+  app\runtime\short_memory.py:52:        except Exception as e:
+> app\runtime\short_memory.py:53:            return {"ok": True, "backend": "local_fallback", "supabase_error": str(e)[:240]}
+  app\runtime\short_memory.py:54:
+  app\runtime\short_memory.py:55:    return {"ok": True, "backend": "local_fallback"}
+  app\runtime\short_memory.py:56:
+  app\runtime\short_memory.py:57:def recall(key, sender_id="default"):
+  app\runtime\short_memory.py:58:    sender = _safe_sender(sender_id)
+  app\runtime\short_memory.py:59:    mem_key = _safe_key(key)
+  app\runtime\short_memory.py:60:
+  app\runtime\short_memory.py:61:    if _enabled():
+  app\runtime\short_memory.py:62:        try:
+  app\runtime\short_memory.py:63:            sender_q = urllib.parse.quote(sender, safe="")
+  app\runtime\short_memory.py:64:            key_q = urllib.parse.quote(mem_key, safe="")
+> app\runtime\short_memory.py:65:            url = f"{SUPABASE_URL}/rest/v1/neura_memory?select=content,created_at&sender_id=eq.{sender_q}&memory_type=eq.{key_q}&order=created_at.desc&limit=1"
+  app\runtime\short_memory.py:66:            req = urllib.request.Request(url, headers=_headers(prefer=None), method="GET")
+  app\runtime\short_memory.py:67:            rows = json.loads(urllib.request.urlopen(req, timeout=8).read().decode("utf-8"))
+  app\runtime\short_memory.py:68:            if rows:
+  app\runtime\short_memory.py:69:                return rows[0].get("content")
+  app\runtime\short_memory.py:70:        except Exception:
+  app\runtime\short_memory.py:71:            pass
+  app\runtime\short_memory.py:72:
+  app\runtime\short_memory.py:73:    item = _MEMORY.get((sender, mem_key))
+  app\runtime\short_memory.py:74:    if not item:
+  app\runtime\short_memory.py:75:        return None
+  app\runtime\short_memory.py:76:    if item["expires"] < time.time():
+  app\runtime\short_memory.py:77:        _MEMORY.pop((sender, mem_key), None)
+  app\runtime\short_memory.py:78:        return None
+  app\runtime\short_memory.py:79:    return item["value"]
+  app\runtime\visible_response_layer.py:168:
+  app\runtime\visible_response_layer.py:169:    return (
+  app\runtime\visible_response_layer.py:170:        "Resumo técnico do MIND/Eldora: Runtime estável V2 ativo, "
+> app\runtime\visible_response_layer.py:171:        "WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, "
+  app\runtime\visible_response_layer.py:172:        "Context Fusion ativo. Próximo passo: memória persistente + contexto MIND completo."
+  app\runtime\visible_response_layer.py:173:    )
+  app\runtime\visible_response_layer.py:174:
+  app\runtime\visible_response_layer.py:175:
+  app\runtime\visible_response_layer.py:176:def visible_reformulate(
+  app\runtime\visible_response_layer.py:177:    answer: str,
+  app\runtime\visible_response_layer.py:178:    user_text: str = "",
+  app\runtime\visible_response_layer.py:179:    focus: str = "MIND"
+  app\runtime\visible_response_layer.py:180:) -> str:
+  app\runtime\visible_response_layer.py:181:    if answer and len(str(answer).strip()) > 40:
+  app\runtime\visible_response_layer.py:182:        return str(answer)
+  app\runtime\visible_response_layer.py:183:    return build_visible_response(user_text, focus)
+  app\runtime\visible_response_layer.py:184:
+  app\runtime\visible_response_layer.py:185:
+  app\runtime\visible_response_layer.py:186:
+  app\runtime\visible_response_layer.py:187:
+  app\runtime\visible_response_layer.py:188:
+  app\runtime\visible_response_layer.py:189:
+  app\telemetry\cloud_telemetry.py:1:import os, json, time, uuid, urllib.request
+  app\telemetry\cloud_telemetry.py:2:
+> app\telemetry\cloud_telemetry.py:3:SUPABASE_URL=os.getenv("SUPABASE_URL","").rstrip("/")
+> app\telemetry\cloud_telemetry.py:4:SUPABASE_KEY=os.getenv("SUPABASE_SERVICE_ROLE") or os.getenv("SUPABASE_SERVICE_ROLE_KEY") or ""
+  app\telemetry\cloud_telemetry.py:5:
+  app\telemetry\cloud_telemetry.py:6:def enabled():
+> app\telemetry\cloud_telemetry.py:7:    return bool(SUPABASE_URL and SUPABASE_KEY)
+  app\telemetry\cloud_telemetry.py:8:
+  app\telemetry\cloud_telemetry.py:9:def classify_theme(text):
+  app\telemetry\cloud_telemetry.py:10:    t=(text or "").lower()
+  app\telemetry\cloud_telemetry.py:11:    if any(x in t for x in ["cane corso","ração","filhote","criador","doença","cachorro"]): return "pets_cane_corso"
+  app\telemetry\cloud_telemetry.py:12:    if any(x in t for x in ["humanização","humanizacao","eldora","runtime","rota","erro"]): return "eldora_runtime"
+  app\telemetry\cloud_telemetry.py:13:    if any(x in t for x in ["diesel","gasolina","ram 2500","ram 3500","motor"]): return "automotivo"
+  app\telemetry\cloud_telemetry.py:14:    if any(x in t for x in ["oi","bom dia","boa tarde","tudo bem"]): return "smalltalk"
+  app\telemetry\cloud_telemetry.py:15:    return "geral"
+  app\telemetry\cloud_telemetry.py:16:
+  app\telemetry\cloud_telemetry.py:17:def classify_persona(text):
+  app\telemetry\cloud_telemetry.py:18:    t=(text or "").lower()
+  app\telemetry\cloud_telemetry.py:19:    if any(x in t for x in ["erro","problema","verificar","corrigir"]): return "debug_partner"
+  app\telemetry\cloud_telemetry.py:20:    if any(x in t for x in ["qual","como","por que","porque"]): return "explainer"
+  app\telemetry\cloud_telemetry.py:21:    if any(x in t for x in ["oi","bom dia","tudo bem"]): return "social_casual"
+  app\telemetry\cloud_telemetry.py:22:    return "general_assistant"
+  app\telemetry\cloud_telemetry.py:23:
+  app\telemetry\cloud_telemetry.py:24:def _headers():
+> app\telemetry\cloud_telemetry.py:25:    return {"apikey":SUPABASE_KEY,"Authorization":f"Bearer {SUPABASE_KEY}","Content-Type":"application/json","Prefer":"return=minimal"}
+  app\telemetry\cloud_telemetry.py:26:
+  app\telemetry\cloud_telemetry.py:27:def log_event(sender_id, user_message, assistant_answer, kind="real", score=None):
+  app\telemetry\cloud_telemetry.py:28:    if not enabled():
+> app\telemetry\cloud_telemetry.py:29:        return {"ok":False,"reason":"SUPABASE_ENV_MISSING"}
+  app\telemetry\cloud_telemetry.py:30:    row={"id":str(uuid.uuid4()),"sender_id":sender_id or "unknown","kind":kind,"theme":classify_theme(user_message),"persona":classify_persona(user_message),"user_message":str(user_message or "")[:2000],"assistant_answer":str(assistant_answer or "")[:4000],"humanization_score":score,"created_at":time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}
+  app\telemetry\cloud_telemetry.py:31:    try:
+> app\telemetry\cloud_telemetry.py:32:        req=urllib.request.Request(f"{SUPABASE_URL}/rest/v1/eldora_conversation_events",data=json.dumps(row).encode("utf-8"),headers=_headers(),method="POST")
+  app\telemetry\cloud_telemetry.py:33:        urllib.request.urlopen(req,timeout=8).read()
+  app\telemetry\cloud_telemetry.py:34:        return {"ok":True}
+  app\telemetry\cloud_telemetry.py:35:    except Exception as e:
+  app\telemetry\cloud_telemetry.py:36:        return {"ok":False,"reason":str(e)[:240]}
+  app\telemetry\cloud_telemetry.py:37:
+  app\telemetry\cloud_telemetry.py:38:def fetch_report(limit=1000):
+  app\telemetry\cloud_telemetry.py:39:    if not enabled():
+> app\telemetry\cloud_telemetry.py:40:        return {"ok":False,"reason":"SUPABASE_ENV_MISSING"}
+  app\telemetry\cloud_telemetry.py:41:    try:
+> app\telemetry\cloud_telemetry.py:42:        req=urllib.request.Request(f"{SUPABASE_URL}/rest/v1/eldora_conversation_events?select=kind,theme,persona,humanization_score,created_at&order=created_at.desc&limit={int(limit)}",headers={"apikey":SUPABASE_KEY,"Authorization":f"Bearer {SUPABASE_KEY}"},method="GET")
+  app\telemetry\cloud_telemetry.py:43:        rows=json.loads(urllib.request.urlopen(req,timeout=10).read().decode("utf-8"))
+  app\telemetry\cloud_telemetry.py:44:    except Exception as e:
+  app\telemetry\cloud_telemetry.py:45:        return {"ok":False,"reason":str(e)[:240]}
+  app\telemetry\cloud_telemetry.py:46:    by_theme={}; by_persona={}; by_kind={}; scores=[]
+  app\telemetry\cloud_telemetry.py:47:    for r in rows:
+  app\telemetry\cloud_telemetry.py:48:        by_theme[r.get("theme","unknown")]=by_theme.get(r.get("theme","unknown"),0)+1
+  app\telemetry\cloud_telemetry.py:49:        by_persona[r.get("persona","unknown")]=by_persona.get(r.get("persona","unknown"),0)+1
+  app\telemetry\cloud_telemetry.py:50:        by_kind[r.get("kind","unknown")]=by_kind.get(r.get("kind","unknown"),0)+1
+  app\telemetry\cloud_telemetry.py:51:        if isinstance(r.get("humanization_score"),(int,float)): scores.append(r["humanization_score"])
+  app\telemetry\cloud_telemetry.py:52:    return {"ok":True,"events_sampled":len(rows),"real_conversations":by_kind.get("real",0),"simulated_conversations":by_kind.get("simulation",0),"themes":by_theme,"personas":by_persona,"avg_humanization_score":round(sum(scores)/len(scores),2) if scores else None}
+

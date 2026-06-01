@@ -1,0 +1,26 @@
+P4.23G — WHATSAPP RUNTIME SURGERY
+
+REMOVE_PRIORITY_1:
+- _eldora_live_override_contract_patch()
+- greeting hardcoded:
+  * Oi, Roberto
+  * Tudo certo
+  * Boa tarde, Roberto
+
+REMOVE_PRIORITY_2:
+- compat_semantics_after_cognition semantic rewriting
+- runtime novo / melhorando / camadas semantic injections
+- semantic_test_injection premature return
+- dead runtime after line 449
+
+KEEP:
+- interfaces
+- whatsapp runtime
+- cognitive pipeline
+- semantic compatibility only for tests
+- 333 tests green
+
+RULE:
+NO hardcoded social response before cognition.
+NO semantic placebo rewrite after cognition.
+ONLY cognition -> guard -> sanitizer -> final response.
