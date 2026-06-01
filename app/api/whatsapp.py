@@ -453,22 +453,6 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
         visible
     )
 
-    # ==========================================
-    # PRIORIDADE 2 — COGNITIVE RUNTIME
-    # ==========================================
-
-    visible = run_cognitive_pipeline(
-        sender_id,
-        inbound_text
-    )
-
-    if whatsapp_intelligence_active() and isinstance(visible, dict):
-        visible["activation_context"] = enrich_whatsapp_context(sender_id, inbound_text, {})
-
-    return semantic_test_injection(
-        inbound_text,
-        visible
-    )
 
 
 
