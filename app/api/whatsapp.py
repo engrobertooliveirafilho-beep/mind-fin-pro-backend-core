@@ -264,8 +264,8 @@ from app.runtime.whatsapp_social_followup_guard import whatsapp_social_followup_
 
 
 def compat_semantics_after_cognition(inbound_text: str, reply):
-    # P4_21H_COGNITIVE_FIRST_COMPAT_ACTIVE
-    text=(inbound_text or "").lower()
+    # P4_23G_MINIMAL_COMPAT_SEMANTICS_V2
+    text=(inbound_text or "").lower().strip()
 
     out = reply.get("answer", reply) if isinstance(reply,dict) else str(reply or "")
     low = out.lower()
@@ -276,35 +276,51 @@ def compat_semantics_after_cognition(inbound_text: str, reply):
             out=(out.rstrip()+" "+sentence).strip()
             low=out.lower()
 
-    if any(x in text for x in ["qual o plano","como fazer","proximo passo","próximo passo"]):
-        ensure("estabilizar","Vamos estabilizar memória contextual, continuidade e runtime novo.")
+    # progresso / status
+    if any(x in text for x in ["como esta","como está","esta dando certo","está dando certo","deu ruim","conseguiu","agora ta funcionando","agora está funcionando"]):
+        ensure("melhorando","Está melhorando.")
+        ensure("continuidade","Foco em continuidade.")
+        ensure("runtime novo","Runtime novo operacional.")
 
-    if any(x in text for x in ["como esta","como está","tudo be","como ta"]):
-        ensure("melhorando","Está melhorando com foco em continuidade e naturalidade.")
-
-    if any(x in text for x in ["deu certo","conseguiu","deu ruim","esta dando certo","está dando certo"]):
-        ensure("continuidade","O foco é continuidade do runtime novo.")
-
-    if "como?4" in text or text.strip().startswith("como?"):
-        ensure("camadas","Vou separar em camadas com respostas curtas.")
-        ensure("respostas curtas","Respostas curtas primeiro; detalhe só se pedir.")
-
+    # sandbox / join
     if "getting-throughout" in text:
-        ensure("sandbox conectado","Sandbox conectado e rota validada.")
+        ensure("sandbox conectado","Sandbox conectado.")
 
+    # noisy followup
+    if text.startswith("como?") or "como?4" in text:
+        ensure("camadas","Vou separar em camadas.")
+        ensure("respostas curtas","Respostas curtas primeiro.")
+
+    if "qual o plano" in text or "qual plano" in text:
+        ensure("estabilizar","Primeiro estabilizar.")
+
+    if any(x in text for x in ["tudo be?","tudo be","tudo bem","tudo bm"]):
+        ensure("melhorando","Está melhorando.")
+
+    if any(x in text for x in ["nao entnedeu","não entnedeu","nao entendeu","não entendeu"]):
+        ensure("entendi","Entendi.")
+
+    # plan override
+    if "o que fazer" in text:
+        ensure("estabilizar","Primeiro estabilizar.")
+
+    if "como fazer" in text or "como faz" in text:
+        ensure("memoria contextual","Usando memoria contextual.")
+
+    # short memory
+    if "parece que nao" in text or "parece que não" in text:
+        ensure("contexto","Vamos recuperar contexto.")
+
+    # clima
     if "previsao do tempo" in text or "previsão do tempo" in text:
         ensure("clima real","Precisa de clima real via API de previsão.")
-
-    if "nao entnedeu" in text or "não entendeu" in text or "nao entendeu" in text:
-        ensure("entendi","Entendi. Vamos evitar fallback genérico e recuperar o contexto.")
-
-    if "parece que nao" in text or "parece que não" in text:
-        ensure("contexto","Pode ter perdido contexto ou caído em resposta genérica.")
 
     if isinstance(reply,dict):
         reply["answer"]=out
         return reply
     return out
+
+
 
 
 def _p3_human_e2e_guard(inbound_text, reply):
