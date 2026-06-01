@@ -1,0 +1,27 @@
+P4.26B — SEMANTIC RUNTIME RECOVER CLASSIFICATION
+
+RECOVERED:
+- memory_provider.py
+- retrieval_provider.py
+- schemas_whatsapp.py
+
+CLASSIFICATION:
+PARTIAL_RUNTIME / GOLD_REFERENCE
+
+WHY_NOT_DIAMOND:
+- memory_provider is in-memory only
+- retrieval_provider returns templated fake context
+- no pgvector
+- no Supabase persistence
+- no semantic search
+- useful only as historical interface/reference
+
+DIAMOND_TARGET_NEXT:
+- ELDORA_P2_SEMANTIC_VECTOR_FINAL_20260520_140456
+- PGVECTOR_LIVE_VALIDATION.json
+- SEMANTIC_SEARCH_E2E.json
+- SEMANTIC_MEMORY_TRUTH_MATRIX.json
+- FULL_P2_SEMANTIC_VECTOR_CERTIFICATION.json
+
+NEXT_ACTION:
+recover P2 semantic vector final evidence/source and compare against current app/retrieval/provider.py + app/memory/memory_graph.py
