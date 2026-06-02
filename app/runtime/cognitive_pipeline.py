@@ -1,3 +1,25 @@
+# P4_28E_RUNTIME_FUSION_IMPORTS
+try:
+    from app.runtime.semantic_answer_engine import answer_semantically as _p428e_semantic_answer
+except Exception:
+    _p428e_semantic_answer = None
+try:
+    from app.runtime.decision_memory import recall_decision_context as _p428e_recall_decision
+except Exception:
+    _p428e_recall_decision = None
+try:
+    from app.runtime.real_humanization_runtime import humanize_response as _p428e_humanize
+except Exception:
+    _p428e_humanize = None
+try:
+    from app.runtime.universal_conversation_os import process_universal_conversation as _p428e_universal
+except Exception:
+    _p428e_universal = None
+try:
+    from app.runtime.live_whatsapp_response import build_live_whatsapp_response as _p428e_whatsapp_live
+except Exception:
+    _p428e_whatsapp_live = None
+# /P4_28E_RUNTIME_FUSION_IMPORTS
 
 from app.humanization.universal_recovery_runtime import enforce_no_identity_in_normal_chat
 def run_cognitive_pipeline(user_id: str, message: str) -> dict:
@@ -128,3 +150,53 @@ def run_cognitive_pipeline(user_id: str, message: str) -> dict:
 # FINAL_IDENTITY_BLOCK
 def __identity_guard_last_hop(answer,user_message=""):
     return enforce_no_identity_in_normal_chat(user_message,answer)
+
+
+# P4_28E_RUNTIME_FUSION_ADAPTER
+def _p428e_runtime_fusion(user_text: str, base_answer: str = "", sender_id: str = "unknown", context: dict | None = None) -> str:
+    context = context or {}
+    answer = base_answer or ""
+
+    try:
+        if _p428e_recall_decision:
+            context["decision_memory"] = _p428e_recall_decision(sender_id=sender_id, text=user_text)
+    except Exception:
+        pass
+
+    try:
+        if _p428e_semantic_answer and (not answer or len(answer.strip()) < 8):
+            semantic = _p428e_semantic_answer(user_text, context=context)
+            if semantic:
+                answer = semantic
+    except Exception:
+        pass
+
+    try:
+        if _p428e_universal:
+            universal = _p428e_universal(user_text, answer=answer, context=context)
+            if isinstance(universal, str) and universal.strip():
+                answer = universal
+            elif isinstance(universal, dict) and universal.get("answer"):
+                answer = universal["answer"]
+    except Exception:
+        pass
+
+    try:
+        if _p428e_humanize and answer:
+            humanized = _p428e_humanize(answer, context=context)
+            if humanized:
+                answer = humanized
+    except Exception:
+        pass
+
+    try:
+        if _p428e_whatsapp_live and answer:
+            live = _p428e_whatsapp_live(answer, context=context)
+            if live:
+                answer = live
+    except Exception:
+        pass
+
+    return answer or base_answer or "Entendi."
+# /P4_28E_RUNTIME_FUSION_ADAPTER
+
