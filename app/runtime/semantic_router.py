@@ -41,7 +41,7 @@ def semantic_route(message, last_context=None):
             return SemanticDecision("CLARIFY","math",.4,ent,"Me mande a conta completa.")
 
     if any(x in t for x in ["oi","bom dia","boa tarde","boa noite","tudo bem","estou bem","to bem","eldora"]):
-        return SemanticDecision("SOCIAL","social",.9,ent,"Estou aqui. Pode mandar.")
+        return SemanticDecision("SOCIAL","social",.9,ent,"")
 
     if any(x in t for x in ["comprar","vale a pena","moto","carro","veiculo","veículo"]) or ent.get("brand") or ent.get("vehicle_model"):
         model = " ".join(x for x in [ent.get("brand"), ent.get("vehicle_model")] if x) or "esse veículo"
@@ -56,16 +56,17 @@ def semantic_route(message, last_context=None):
         return SemanticDecision("RECOMMENDATION","travel",.86,ent,f"Para {loc}, monte um roteiro simples: 1 ponto principal, 1 restaurante, tempo de deslocamento e plano B se chover.")
 
     if any(x in t for x in ["qual","quais","quem","onde","quando","como","me diga","cite","liste","melhores"]):
-        return SemanticDecision("FACTUAL","general",.75,ent,"Vou responder direto: preciso identificar o tema, trazer opções úteis e fechar com próximo passo.")
+        return SemanticDecision("FACTUAL","general",.75,ent,"")
 
     if len(t.split()) <= 3:
         prev = ctx.get("domain")
         if prev == "local_food":
             loc = ctx.get("location","a região")
             return SemanticDecision("FOLLOWUP","local_food",.7,ent,f"Seguindo em comida em {loc}: melhor filtrar por tipo de cozinha, preço e distância.")
-        return SemanticDecision("OPEN_LOOP","general",.55,ent,"Estou aqui. Me diga o tema principal.")
+        return SemanticDecision("OPEN_LOOP","general",.55,ent,"")
 
     return SemanticDecision("OPEN_LOOP","general",.4,ent,"Entendi. Me diga o objetivo em uma frase.")
 
 def route_semantic_whatsapp(message, last_context=None):
     return semantic_route(message,last_context).answer
+
