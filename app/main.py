@@ -41,6 +41,23 @@ from app.humanization.universal_recovery_runtime import enforce_no_identity_in_n
 from app.runtime.single_runtime_dispatcher import dispatch_single_runtime
 from app.runtime.final_conversational_arbiter import final_conversational_arbiter
 
+
+# P4_28S_LIVE_WEBHOOK_TRACE
+def _p428s_trace(stage: str, payload: dict):
+    try:
+        import json, pathlib, datetime
+        d = pathlib.Path("_evidence/P4_28S_LIVE_WEBHOOK_TRACE")
+        d.mkdir(parents=True, exist_ok=True)
+        with (d / "events.jsonl").open("a", encoding="utf-8") as f:
+            f.write(json.dumps({
+                "ts": datetime.datetime.utcnow().isoformat(),
+                "stage": stage,
+                **payload
+            }, ensure_ascii=False) + "\n")
+    except Exception:
+        pass
+
+
 def twiml(message: str) -> str:
     safe = str(message).replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")
     return f"""<?xml version="1.0" encoding="UTF-8"?>
