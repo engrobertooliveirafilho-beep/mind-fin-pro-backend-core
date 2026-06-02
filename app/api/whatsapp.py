@@ -1,3 +1,4 @@
+import os
 from app.runtime.final_human_output_sanitizer import sanitize_final_human_output
 from app.runtime.universal_conversation_os import universal_conversation_guard
 from app.runtime.actionable_continuity_authority import set_actionable_turn_context, guard_actionable_reply
@@ -430,7 +431,7 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
     # PRIORIDADE 1 — LIVE OVERRIDES
     # ==========================================
 
-    override = live_whatsapp_override(inbound_text)
+    override = live_whatsapp_override(inbound_text) if os.getenv('MIND_ENABLE_LEGACY_WHATSAPP_OVERRIDE','0') == '1' else None
 
     compat_hint = override
 
