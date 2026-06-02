@@ -42,18 +42,21 @@ from app.runtime.single_runtime_dispatcher import dispatch_single_runtime
 from app.runtime.final_conversational_arbiter import final_conversational_arbiter
 
 
+# P4_28T_REMOTE_TRACE_BUFFER
+_P428S_TRACE_BUFFER = []
+
 # P4_28S_LIVE_WEBHOOK_TRACE
 def _p428s_trace(stage: str, payload: dict):
     try:
         import json, pathlib, datetime
+        global _P428S_TRACE_BUFFER
+        event = {"ts": datetime.datetime.utcnow().isoformat(), "stage": stage, **payload}
+        _P428S_TRACE_BUFFER.append(event)
+        _P428S_TRACE_BUFFER = _P428S_TRACE_BUFFER[-100:]
         d = pathlib.Path("_evidence/P4_28S_LIVE_WEBHOOK_TRACE")
         d.mkdir(parents=True, exist_ok=True)
         with (d / "events.jsonl").open("a", encoding="utf-8") as f:
-            f.write(json.dumps({
-                "ts": datetime.datetime.utcnow().isoformat(),
-                "stage": stage,
-                **payload
-            }, ensure_ascii=False) + "\n")
+            f.write(json.dumps(event, ensure_ascii=False) + "\n")
     except Exception:
         pass
 
@@ -1161,3 +1164,8 @@ app.include_router(canary_router)
 from app.api.p414_routes import router as p414_router
 app.include_router(p414_router)
 
+
+
+@app.get("/__p428s/trace")
+def __p428s_trace():
+    return {"events": _P428S_TRACE_BUFFER[-50:]}
