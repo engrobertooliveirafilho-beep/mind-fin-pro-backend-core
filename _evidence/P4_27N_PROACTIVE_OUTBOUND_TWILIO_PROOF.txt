@@ -1,0 +1,27 @@
+P4.27N — PROACTIVE OUTBOUND TWILIO WORKER PROOF
+
+CLASSIFICATION:
+REAL_OPERATIONAL / DIAMOND
+
+PROOF:
+- proactive message id=7 planned
+- opt_out=False
+- proactive_sent_today=0
+- daily_limit=1
+- Twilio auth fixed and validated as active
+- outbound worker sent WhatsApp message
+- Twilio SID: SM1100c1eed661da2f15490a0e7eb50dd8
+- Twilio status: queued
+- user confirmed: received the message
+- queue after send: None
+
+ARCHITECTURE:
+neura_proactive_messages(status=planned)
+-> proactive_outbound_worker
+-> opt_out/daily_limit gate
+-> Twilio WhatsApp outbound
+-> status=sent
+-> neura_friendship_profile proactive counter update
+
+CONCLUSION:
+Eldora can now initiate WhatsApp conversation proactively using persistent friendship runtime.
