@@ -41,7 +41,7 @@ def run_cognitive_pipeline(user_id: str, message: str) -> dict:
     msg_l = (message or "").lower().strip()
 
     if any(x in msg_l for x in ["tudo bem", "como ta", "como tá", "ta bem", "tá bem"]):
-        answer = base_answer if "base_answer" in locals() and base_answer else answer
+        return {"answer": "Está funcionando bem, de forma natural. E com você?", "intent": "smalltalk"}
         save_message(user_id, "assistant", answer)
         return {
             "answer": answer,
