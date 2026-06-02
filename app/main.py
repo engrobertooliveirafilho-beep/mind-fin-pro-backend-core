@@ -546,6 +546,13 @@ async def whatsapp_webhook(request: Request):
             payload["_p412n_ignore_factual_state"] = True
         event("REQUEST_IN", route="/webhook/whatsapp", module_name="app.main.whatsapp_webhook", reply_before=message)
 
+        if os.getenv("MIND_WEBHOOK_DIRECT_RUNTIME","1") == "1":
+            try:
+                direct_reply = eldora_primary_runtime_reply(sender_id, message)
+                return Response(content=_p412n_normalize_xml_response(message if "message" in locals() else "", primary_twiml(direct_reply)), media_type="application/xml")
+            except Exception:
+                pass
+
         msg_norm = (message or "").lower().strip()
         if any(x in msg_norm for x in ["quem é vc", "quem e vc", "quem é você", "quem e voce", "qual seu nome", "como vc chama", "como você chama"]):
             return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Sou a Eldora 🙂</Message></Response>', media_type="application/xml")
@@ -1136,14 +1143,4 @@ app.include_router(canary_router)
 
 from app.api.p414_routes import router as p414_router
 app.include_router(p414_router)
-
-
-
-
-
-
-
-
-
-
 
