@@ -443,11 +443,32 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
         "detalhe melhor","explique melhor","ainda mais","passo a passo"
     ])
 
+# P4_28P_REAL_FOLLOWUP_DISPATCH
     if progressive_followup:
-        _followup_reply = universal_conversation_reply(sender_id, inbound_text, []) if os.getenv("MIND_ENABLE_LEGACY_FOLLOWUP","0") == "1" else ""
-        if block_meta_reply(_followup_reply):
-            return "Continua no mesmo ponto: validar o que falhou, testar a hipótese principal e avançar com evidência."
-        return _followup_reply
+        if os.getenv("MIND_ENABLE_LEGACY_FOLLOWUP","0") == "1":
+            _followup_reply = universal_conversation_reply(sender_id, inbound_text, [])
+            if block_meta_reply(_followup_reply):
+                return "Continua no mesmo ponto: validar o que falhou, testar a hipótese principal e avançar com evidência."
+            if _followup_reply:
+                return _followup_reply
+
+        state_context = ""
+        try:
+            from app.runtime.short_memory import recall
+            recalled = recall(sender_id, limit=6)
+            state_context = str(recalled)
+        except Exception:
+            state_context = ""
+
+        expanded_message = (
+            "Continue a conversa anterior usando o contexto recuperado. "
+            "Não responda apenas confirmação. Entregue a continuação útil do assunto. "
+            f"Contexto: {state_context}\n"
+            f"Pedido atual: {inbound_text}"
+        )
+
+        visible = run_cognitive_pipeline(sender_id, expanded_message)
+        return visible.get("answer","") if isinstance(visible, dict) else str(visible)
 
     if is_state_query(inbound_text):
         return build_mind_state_visible_response()
