@@ -200,6 +200,13 @@ class UniversalConversationOS:
         if mode in [ConversationMode.TASK,ConversationMode.EXECUTION,ConversationMode.VERIFICATION,ConversationMode.ANALYSIS]: state.last_task=topic; state.open_loop=topic
         state.last_action_plan=["classificar","resolver continuidade","arbitrar saída final"]; SenderStateMemory.save(state)
         
+        try:
+            from app.runtime.social_observation_runtime import observe_social_reply, social_rewrite_if_needed
+            reply = social_rewrite_if_needed(msg, reply, {"mode": mode.value, "topic": topic})
+            social_observation = observe_social_reply(msg, reply, {"mode": mode.value, "topic": topic})
+        except Exception as _e:
+            social_observation = {"ok": False, "error": str(_e)[:160]}
+
         _persist_semantic_memory(sender_id,msg,reply)
 
         return {"reply":reply,
@@ -207,7 +214,8 @@ class UniversalConversationOS:
                 "topic":topic,
                 "state":asdict(state),
                 "memory_backend":"pgvector_hybrid" if semantic_ctx.get("ok") else "runtime_memory_partial",
-                "semantic_recall":semantic_ctx}
+                "semantic_recall":semantic_ctx,
+                "social_observation":social_observation}
 
 
 def universal_conversation_guard(message:str,sender_id:Optional[str],candidate_reply:str="")->str:
