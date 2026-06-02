@@ -444,7 +444,7 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
     ])
 
     if progressive_followup:
-        _followup_reply = universal_conversation_reply(sender_id, inbound_text, [])
+        _followup_reply = universal_conversation_reply(sender_id, inbound_text, []) if os.getenv("MIND_ENABLE_LEGACY_FOLLOWUP","0") == "1" else ""
         if block_meta_reply(_followup_reply):
             return "Continua no mesmo ponto: validar o que falhou, testar a hipótese principal e avançar com evidência."
         return _followup_reply
@@ -483,30 +483,4 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
             visible
         )
     return _p427u_test_compat(inbound_text, visible)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
