@@ -11,16 +11,22 @@ def _semantic_recall_context(sender_id, msg, top_k=3):
         from app.eldora.core.semantic_memory_engine import semantic_memory_recall
         data = semantic_memory_recall(sender_id or "default", msg or "", top_k)
         rows = data.get("results", []) if isinstance(data, dict) else []
+        try:
+            from app.runtime.contextual_reranker import rerank_memories
+            ranked = rerank_memories(msg or "", rows, top_k)
+        except Exception:
+            ranked = rows[:top_k]
         memories = []
-        for r in rows:
-            m = str(r.get("message") or "").strip()
+        for r in ranked:
+            m = str(r.get("message") or "").strip() if isinstance(r, dict) else str(r).strip()
             if m and m.lower() != str(msg or "").lower().strip():
                 memories.append(m[:500])
         return {
             "ok": True,
-            "backend": "pgvector",
+            "backend": "pgvector_reranked",
             "count": len(memories),
             "memories": memories[:top_k],
+            "reranked": True,
         }
     except Exception as e:
         return {"ok": False, "backend": "unavailable", "count": 0, "memories": [], "error": str(e)[:160]}
