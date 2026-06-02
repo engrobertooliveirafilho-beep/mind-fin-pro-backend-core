@@ -62,16 +62,18 @@ def _semantic_candidate_reply(msg, semantic_ctx):
     jlow = joined.lower()
     if not semantic_ctx.get("memories"):
         return ""
-    if any(x in low for x in ["qual meu nome", "qual é meu nome", "como eu me chamo"]):
-        import re
-        m = re.search(r"meu nome [ée]\s+([A-Za-zÀ-ÿ]+)", jlow, re.I)
+    import re, unicodedata
+    norm = unicodedata.normalize("NFKD", low).encode("ascii","ignore").decode("ascii")
+    jnorm = unicodedata.normalize("NFKD", jlow).encode("ascii","ignore").decode("ascii")
+    if any(x in norm for x in ["qual meu nome", "qual e meu nome", "como eu me chamo"]):
+        m = re.search(r"meu nome (?:e|eh|é)\s+([A-Za-zÀ-ÿ]+)", jnorm, re.I)
         if m:
             return f"Seu nome é {m.group(1).capitalize()}."
-    if any(x in low for x in ["o que estou estudando", "o que eu estudo", "estou estudando o que"]):
-        import re
-        m = re.search(r"estudando\s+([A-Za-zÀ-ÿ0-9 ]+)", jlow, re.I)
+    if any(x in norm for x in ["o que estou estudando", "o que eu estudo", "estou estudando o que"]):
+        m = re.search(r"estudando\s+([A-Za-zÀ-ÿ0-9 ]+)", jnorm, re.I)
         if m:
-            return f"Você está estudando {m.group(1).strip()}."
+            val=m.group(1).strip().split(".")[0].strip()
+            return f"Você está estudando {val}."
     return ""
 
 class ConversationMode(str, Enum):
@@ -122,6 +124,28 @@ class SafeCalculator:
         if isinstance(node,ast.UnaryOp): return cls.OPS[type(node.op)](cls._eval(node.operand))
         raise ValueError("unsafe")
 
+
+def _process_multiline_message(cls, msg, sender_id=None, candidate_reply=""):
+    lines=[x.strip() for x in str(msg or "").splitlines() if x.strip()]
+    if len(lines) <= 1:
+        return None
+    replies=[]
+    for line in lines[:5]:
+        r=cls.process(line,sender_id,candidate_reply="")
+        ans=str(r.get("reply","")).strip() if isinstance(r,dict) else ""
+        if ans and ans not in replies:
+            replies.append(ans)
+    if not replies:
+        return None
+    return {
+        "reply":"\n".join(replies),
+        "mode":"MULTILINE",
+        "topic":msg,
+        "state":{},
+        "memory_backend":"multiline_delegated",
+        "semantic_recall":{"ok":True,"backend":"line_delegation","count":len(replies)}
+    }
+
 class UniversalConversationOS:
     SOCIAL={"oi","oie","ola","olá","fala","salve","bom","boa","dia","tarde","noite","bem","vai","vc","você","ta","tá","esta","está"}
     EXEC={"faça","faz","execute","rode","implante","corrija","crie","gere","salve","commit","push","deploy","busque","procure"}
@@ -147,6 +171,9 @@ class UniversalConversationOS:
 
     @classmethod
     def process(cls,msg,sender_id=None,candidate_reply=""):
+        multiline=_process_multiline_message(cls,msg,sender_id,candidate_reply)
+        if multiline:
+            return multiline
         state=SenderStateMemory.load(sender_id)
         semantic_ctx=_semantic_recall_context(sender_id,msg,3)
         semantic_reply=_semantic_candidate_reply(msg,semantic_ctx)

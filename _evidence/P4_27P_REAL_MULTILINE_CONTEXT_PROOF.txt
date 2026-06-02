@@ -1,0 +1,19 @@
+P4.27P — REAL MULTILINE WHATSAPP CONTEXT SUPPORT
+
+CLASSIFICATION:
+REAL_OPERATIONAL / GOLD
+
+PROOF:
+- Direct semantic recall returned Roberto/matemática memories
+- Multiline input with real newline was delegated line-by-line
+- Input:
+  Qual meu nome?
+  O que estou estudando?
+- Output:
+  Seu nome é Roberto.
+  Você está estudando matematica.
+- backend: line_delegation
+- directed pytest preserved
+
+CONCLUSION:
+The old Twilio orchestrator multiline idea was reimplemented without hardcoded fallback and now works through the current pgvector semantic runtime.
