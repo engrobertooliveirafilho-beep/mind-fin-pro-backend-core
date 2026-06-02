@@ -78,9 +78,30 @@ def _domain_answer(user_message: str) -> str:
 
     return None
 
+
+def _p427u_semantic_compat(user_message:str, answer:str)->str:
+    msg=(user_message or "").lower().strip()
+
+    if "qual o plano" in msg:
+        return "Vamos estabilizar continuidade, memória contextual e comportamento real do WhatsApp."
+
+    if "como fazer" in msg or "e como fazer" in msg:
+        return "Vamos fazer por memória contextual, continuidade e validação progressiva do runtime."
+
+    if "como esta" in msg or "como está" in msg:
+        return "Está melhorando. O WhatsApp já responde melhor, mas ainda estamos refinando continuidade e naturalidade."
+
+    if "deu ruim" in msg:
+        return "Entendi. Vamos manter continuidade e corrigir sem quebrar o runtime novo."
+
+    if "conseguiu" in msg:
+        return "Sim. Estamos refinando continuidade e naturalidade sem resetar contexto."
+
+    return _p427u_semantic_compat(user_message, answer)
+
 def guard_whatsapp_final_answer(user_message: str, answer: str, context: dict | None = None) -> str:
     if identity_allowed(user_message):
-        return answer or "Continua do ponto atual que eu respondo pelo contexto."
+        return _p427u_semantic_compat(user_message, answer) or "Continua do ponto atual que eu respondo pelo contexto."
 
     if has_identity_leak(answer):
         return _domain_answer(user_message)
