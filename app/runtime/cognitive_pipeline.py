@@ -41,7 +41,7 @@ def run_cognitive_pipeline(user_id: str, message: str) -> dict:
     msg_l = (message or "").lower().strip()
 
     if any(x in msg_l for x in ["tudo bem", "como ta", "como tá", "ta bem", "tá bem"]):
-        answer = "Estou funcionando bem agora e melhorando a conversa da Eldora para responder de forma mais natural e contextual."
+        answer = base_answer if "base_answer" in locals() and base_answer else answer
         save_message(user_id, "assistant", answer)
         return {
             "answer": answer,
@@ -164,39 +164,15 @@ def _p428e_runtime_fusion(user_text: str, base_answer: str = "", sender_id: str 
         pass
 
     try:
-        if _p428e_semantic_answer and (not answer or len(answer.strip()) < 8):
-            semantic = _p428e_semantic_answer(user_text, context=context)
-            if semantic:
-                answer = semantic
-    except Exception:
-        pass
-
-    try:
-        if _p428e_universal:
-            universal = _p428e_universal(user_text, answer=answer, context=context)
-            if isinstance(universal, str) and universal.strip():
-                answer = universal
-            elif isinstance(universal, dict) and universal.get("answer"):
-                answer = universal["answer"]
-    except Exception:
-        pass
-
-    try:
         if _p428e_humanize and answer:
-            humanized = _p428e_humanize(answer, context=context)
-            if humanized:
-                answer = humanized
+            h = _p428e_humanize(answer, context=context)
+            if h and isinstance(h,str):
+                answer = h
     except Exception:
         pass
 
-    try:
-        if _p428e_whatsapp_live and answer:
-            live = _p428e_whatsapp_live(answer, context=context)
-            if live:
-                answer = live
-    except Exception:
-        pass
+    return answer or base_answer or ""# /P4_28E_RUNTIME_FUSION_ADAPTER
 
-    return answer or base_answer or "Entendi."
-# /P4_28E_RUNTIME_FUSION_ADAPTER
+
+
 
