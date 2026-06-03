@@ -17,7 +17,8 @@ def extract_subject(message: str) -> str:
     m = re.search(r"(comprar|vale a pena|pontos fortes|pontos fracos)\s+(uma|um|a|o)?\s*(.+)", low)
     if m:
         subject = m.group(3).strip(" ?.!")[:80]
-        if any(x in low for x in ["moto","carro","veículo","veiculo","usada","usado"]):
+        vehicle_terms = ["moto","carro","veículo","veiculo","usada","usado","ram","hilux","ranger","s10","amarok","frontier","corolla","civic","crf","cb500","xre","bmw","k1300"]
+        if any(x in low for x in vehicle_terms):
             return "compra de veículo usado: " + subject
         return subject
 
@@ -25,13 +26,13 @@ def extract_subject(message: str) -> str:
 
 def infer_domain(message: str) -> str:
     low = str(message or "").lower()
-    if any(x in low for x in ["moto","carro","bmw","k1300","fazer 250","usada","usado","comprar","manutenção","consumo"]):
+    if any(x in low for x in ["moto","carro","veículo","veiculo","bmw","k1300","fazer 250","ram","hilux","ranger","s10","amarok","frontier","corolla","civic","crf","cb500","xre","usada","usado","comprar","manutenção","consumo"]):
         return "vehicle_buying"
     return ""
 
 def is_followup(message: str) -> bool:
     low = str(message or "").strip().lower()
-    return low in FOLLOWUP_PATTERNS or (len(low.split()) <= 3 and any(x in low for x in ["isso","ela","ele","manutenção","consumo","fracos"]))
+    return low in FOLLOWUP_PATTERNS or any(x in low for x in ["isso","ela","ele","manutenção","consumo","fracos","vale a pena","quanto","por litro","km/l","faz por litro","e a manutenção"])
 
 def update_topic_context(message: str, ctx: dict, domain: str = "") -> dict:
     subject = extract_subject(message)
@@ -51,3 +52,5 @@ def expand_followup(message: str, ctx: dict) -> str:
             return f"{message}. Contexto obrigatório: continue sobre compra de veículo usado, assunto: {ctx['last_subject']}. Fale de pontos fortes, pontos fracos, manutenção, riscos e checklist."
         return f"{message}. Contexto obrigatório: responder sobre {ctx['last_subject']}."
     return message
+
+
