@@ -28,12 +28,17 @@ def compose_human_style(message:str, answer:str, ctx:dict|None=None)->str:
     core = " ".join(sentences[:1]).strip()
 
     if domain == "vehicle_buying" and subject:
+        label = "esse veículo"
+        raw = str(subject or "").lower()
+        if any(x in raw for x in ["ram", "hilux", "ranger", "s10", "amarok", "frontier"]): label = "essa caminhonete"
+        elif any(x in raw for x in ["corolla", "civic", "onix", "hb20", "carro"]): label = "esse carro"
+        elif any(x in raw for x in ["crf", "cb", "xre", "hornet", "cbr", "r6", "moto"]): label = "essa moto"
         if any(x in msg for x in ["fraco","defeito","problema"]):
-            return "Olha, os pontos fracos dessa moto são idade, manutenção mal feita e peça cansada. Se fosse eu, olharia motor frio, elétrica, suspensão, freios e documento. Se tiver gambiarra ou histórico fraco, eu passaria."
+            return f"Olha, os pontos fracos de {label} são idade, manutenção mal feita e desgaste escondido. Eu olharia histórico, documentação, uso anterior e sinais de gambiarra."
         if "vale a pena" in msg:
-            return "Eu teria coragem, mas só se essa moto estiver inteira. Eu compraria com laudo, teste frio e histórico de revisão. Se o dono não prova manutenção, negocia forte ou deixa passar."
+            return f"Pode valer a pena, mas só se {label} estiver bem cuidado e fizer sentido no preço. Eu validaria histórico, custo de manutenção e estado real antes de fechar."
         if any(x in msg for x in ["prossiga","aprofunde","continue"]):
-            return "Nessa moto, o segredo é não se apaixonar pela aparência. Olha motor frio, elétrica, suspensão e documento. Moto antiga boa existe, mas às vezes parece boa no começo e depois começa a aparecer coisa escondida."
-        return f"Olha, essa moto pode ser uma boa compra se estiver inteira. {core} Antes de animar, se fosse eu, olharia manutenção, elétrica, suspensão e documento."
+            return f"Sobre {label}, o segredo é não decidir só pela aparência. Valide histórico, uso anterior, manutenção, documentação e custo futuro antes de comprar."
+        return f"Olha, {label} pode ser uma boa compra se estiver bem cuidado. {core} Antes de animar, eu validaria histórico, manutenção, documentação e custo futuro."
 
     return core or text
