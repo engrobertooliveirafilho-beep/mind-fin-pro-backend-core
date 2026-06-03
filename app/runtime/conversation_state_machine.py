@@ -16,7 +16,7 @@ def detect_subject(message: str) -> str:
     for pat,sub in patterns:
         if re.search(pat,t): return sub
     cleaned=re.sub(r"[?!.]+$","",t).strip()
-    if len(cleaned.split())>=5 and not is_followup(cleaned):
+    if len(cleaned.split())>=5 and not is_followup(cleaned) and not any(x in cleaned for x in ["explique","explica","etapas","detalhe","detalhar","como fazer","como seria"]):
         return cleaned[:140]
     return ""
 
@@ -29,7 +29,7 @@ def detect_domain(message: str) -> str:
 
 def is_followup(message:str)->bool:
     t=(message or "").lower().strip()
-    return t in FOLLOWUP_WORDS or len(t.split())<=4
+    return t in FOLLOWUP_WORDS or len(t.split())<=4 or any(x in t for x in ["explique","explica","etapas","detalhe","detalhar","como fazer","como seria"])
 
 def detect_followup_intent(message: str) -> str:
     t=(message or "").lower().strip()

@@ -55,6 +55,9 @@ def semantic_route(message, last_context=None):
         loc = ent.get("location") or ctx.get("location") or "o destino"
         return SemanticDecision("RECOMMENDATION","travel",.86,ent,f"Para {loc}, monte um roteiro simples: 1 ponto principal, 1 restaurante, tempo de deslocamento e plano B se chover.")
 
+    if ctx and ctx.get("last_subject") and any(x in t for x in ["como","explique","explica","etapas","detalhe","detalhar","continue","continua","depois","qual","quais"]):
+        return SemanticDecision("FOLLOWUP", ctx.get("last_domain","general"), .92, ent, "")
+
     if any(x in t for x in ["qual","quais","quem","onde","quando","como","me diga","cite","liste","melhores"]):
         return SemanticDecision("FACTUAL","general",.75,ent,"")
 

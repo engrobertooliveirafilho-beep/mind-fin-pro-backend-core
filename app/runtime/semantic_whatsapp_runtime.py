@@ -21,15 +21,29 @@ def semantic_whatsapp_payload(message: str, sender_id: str = "default") -> dict:
     provider_message = build_conversation_payload(message, ctx)
     decision = semantic_route(provider_message, ctx)
 
-    ctx["last_domain"] = getattr(decision, "domain", "general")
+    new_domain = getattr(decision, "domain", None)
+    if new_domain and new_domain not in {"social","general"}:
+        ctx["last_domain"] = new_domain
+    elif not ctx.get("last_domain"):
+        ctx["last_domain"] = new_domain or "general"
     _CONTEXT[sid] = ctx
 
     provider = multi_provider_factual_provider(provider_message, sid, ctx)
     answer = provider["answer"] if provider.get("ok") else getattr(decision, "answer", "Recebi. Reformule em uma frase.")
+    if str(answer or "").strip().lower() in {"claro!","claro","certo!","certo","entendi!","entendi","ok","ok!"} and ctx.get("last_subject"):
+        retry_msg = f"Explique de forma prática e completa sobre: {ctx.get('last_subject')}. Continue o contexto anterior. Responda em PT-BR com etapas concretas."
+        retry = multi_provider_factual_provider(retry_msg, sid, ctx)
+        if retry.get("ok") and len(str(retry.get("answer","")).strip()) > 40:
+            answer = retry["answer"]
     answer = humanized_answer(message, answer, ctx)
     answer = compose_human_style(message, answer, ctx)
     answer = relationalize(message, answer, ctx)
     answer = whatsapp_ux_guard(message, answer)
+    if str(answer or "").strip().lower() in {"claro!","claro","certo!","certo","entendi!","entendi","ok","ok!"} and ctx.get("last_subject"):
+        retry_msg = f"Explique de forma prática e completa sobre: {ctx.get('last_subject')}. Continue o contexto anterior. Responda em PT-BR com etapas concretas."
+        retry = multi_provider_factual_provider(retry_msg, sid, ctx)
+        if retry.get("ok") and len(str(retry.get("answer","")).strip()) > 40:
+            answer = whatsapp_ux_guard(message, retry["answer"])
 
     return {"intent":getattr(decision,"intent","UNKNOWN"),"domain":ctx.get("last_domain","general"),"confidence":getattr(decision,"confidence",0.0),"entities":{},"context":ctx,"provider_ok":provider.get("ok",False),"provider":provider.get("provider"),"model":provider.get("model"),"answer":answer,"errors":provider.get("errors",[])}
 
