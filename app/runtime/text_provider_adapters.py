@@ -1,5 +1,23 @@
 import os, json, urllib.request, urllib.error
 
+def build_context_prompt(message, context=None):
+    ctx=context or {}
+    subject=ctx.get("last_subject","")
+    domain=ctx.get("last_domain","")
+    if not subject and not domain:
+        return message
+    return f"""CONTEXTO_ATUAL:
+ASSUNTO={subject}
+DOMINIO={domain}
+
+INSTRUCAO:
+Use o contexto acima para interpretar referências como:
+ela, ele, isso, vale a pena, manutenção, consumo, explique mais, continue.
+
+MENSAGEM_USUARIO:
+{message}
+"""
+
 def _post_json(url, headers, payload, timeout=35):
     req = urllib.request.Request(
         url,
@@ -29,7 +47,8 @@ def _chat_payload(message, model):
         "max_tokens":350,
     }
 
-def call_provider(name, message, model=None):
+def call_provider(name, message, model=None, context=None):
+    message = build_context_prompt(message, context)
     if name == "openai":
         from openai import OpenAI
         client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))

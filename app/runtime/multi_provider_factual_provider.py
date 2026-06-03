@@ -9,7 +9,7 @@ def multi_provider_factual_provider(message: str, sender_id: str="default", cont
     errors=[]
     for p in providers:
         try:
-            answer = call_provider(p["name"], message, p.get("model"))
+            answer = call_provider(p["name"], message, p.get("model"), context)
             if answer and answer.strip():
                 return {"ok":True,"provider":p["name"],"model":p.get("model"),"answer":answer[:900],"errors":errors}
             errors.append({"provider":p["name"],"error":"empty_answer"})
