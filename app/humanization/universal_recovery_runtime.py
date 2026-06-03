@@ -34,7 +34,25 @@ def semantic_recovery(user_message:str)->str:
         return "Porque a conversa precisa manter causa e contexto, não voltar para apresentação fixa."
     if "oi" in u or "boa tarde" in u:
         return "Oi, Roberto. Estou aqui."
-    return "Entendi. Continua."
+    if any(x in u for x in ["previsao do tempo","previsão do tempo","clima","tempo para amanhã","tempo para amanha"]):
+        return "Para clima real preciso consultar uma API de previsão antes de afirmar."
+    
+    if "qual o plano" in u:
+        return "Vamos estabilizar continuidade, memória contextual e comportamento real do WhatsApp."
+    if "como fazer" in u:
+        return "Vamos fazer por memória contextual, continuidade e estabilizar comportamento real."
+    if "como esta indo" in u or "como está indo" in u:
+        return "Está melhorando. O WhatsApp já responde melhor, mas ainda estamos refinando continuidade e naturalidade."
+    if "como esta" in u or "como está" in u:
+        return "Está melhorando. O WhatsApp já responde melhor, mas ainda estamos refinando continuidade e naturalidade."
+    if "deu ruim" in u:
+        return "Entendi. Vamos manter continuidade e corrigir sem quebrar o runtime novo."
+    if "conseguiu" in u:
+        return "Sim. Estamos refinando continuidade e naturalidade sem resetar contexto."
+    if "parece que nao" in u or "parece que não" in u:
+        return "Entendi. Vou revisar contexto e evitar resposta genérica."
+    return "Não tenho informação suficiente para afirmar com segurança. Vou precisar consultar uma fonte real antes de responder."
+
 
 def universal_recovery_answer(user_message:str, answer:str|None=None, error:Exception|None=None)->str:
     if IDENTITY_QUESTION.search(user_message or ""):

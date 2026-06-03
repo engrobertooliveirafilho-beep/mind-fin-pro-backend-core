@@ -35,31 +35,8 @@ Responda:
 """
 
     def answer(self, message, context=""):
-        msg = self._normalize(message)
-
-        if msg.strip() in ["oi", "ola", "bom dia", "boa tarde", "boa noite"]:
-            return "Oi, Roberto."
-
-        if "como voce funciona" in msg or "como vc funciona" in msg or "o que voce faz" in msg:
-            return "Eu funciono como uma memória de estudo no WhatsApp: guardo seu contexto, recupero o que você já me contou e uso isso para te explicar assuntos, contextos e dúvidas com mais precisão."
-
-        if (
-            "simulacoes" in msg
-            or "outras ias" in msg
-            or "outras inteligencias" in msg
-            or "modelos" in msg
-            or "multi llm" in msg
-            or "multillm" in msg
-        ):
-            return "As simulações MultiLLM estão sendo ativadas agora: OpenAI entra como motor principal, DeepSeek e Mistral entram como fallback cognitivo, e a NEURA escolhe a melhor resposta disponível antes de cair no fallback de emergência."
-
         prompt = self.build_prompt(message, context)
         llm_response = self.llm.generate(prompt)
-
         if llm_response:
             return llm_response
-
         return None
-
-
-

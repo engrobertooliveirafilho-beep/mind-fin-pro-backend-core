@@ -213,9 +213,7 @@ def live_whatsapp_override(inbound_text: str) -> str | None:
         return (
             "Sim. Agora o runtime já mantém melhor continuidade nas respostas curtas do WhatsApp."
         )
-    if any(x in msg for x in ["previsao do tempo", "previsão do tempo", "tempo para amanha", "tempo para amanhã", "clima amanha", "clima amanhã"]):
-        return "Ainda não tenho consulta de clima real conectada no WhatsApp. O próximo passo é ligar uma API de previsão e responder com cidade, data, chuva e temperatura sem inventar."
-
+    # P4_29_CLIMATE_INTERCEPT_DISABLED\n
     if any(x in msg for x in ["nao entendeu", "nao entnedeu", "não entendeu", "nao entendi", "não entendi"]):
         return "Entendi. Vou separar intenção, contexto e próximo teste para evitar resposta genérica."
     # P4_23G_DISABLE_HARDCODED_GREETING
@@ -479,8 +477,7 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
         return "Está melhorando: o runtime novo já está respondendo melhor, mas ainda precisa validação completa."
     if "getting-throughout" in t:
         return "Sandbox conectado."
-    if "previsão do tempo" in t or "previsao do tempo" in t:
-        return "Para clima real preciso consultar uma API de previsão antes de afirmar."
+    # P4_29_CLIMATE_INTERCEPT_482_DISABLED
     if "nao entnedeu" in t or "não entnedeu" in t:
         return "Entendi o erro de digitação. Vou tratar como fallback seguro e pedir reformulação objetiva."
 
@@ -517,5 +514,6 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
             inbound_text,
             visible
         )
-    return _p427u_test_compat(inbound_text, visible)
+    return str(visible.get("answer","")) if isinstance(visible,dict) else str(visible)
+
 

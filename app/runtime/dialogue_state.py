@@ -19,6 +19,6 @@ def short_message_type(message: str) -> str:
     if t in ["oi", "olá", "ola", "bom dia", "boa tarde", "boa noite"]: return "greeting"
     if t in ["ok", "certo", "beleza", "show", "fechado"]: return "ack"
     if "repete" in t or "porque vc repete" in t: return "repetition_complaint"
-    if t.startswith("como") or "como posso" in t: return "how_to"
+    if t.startswith("como fazer") or "como posso" in t: return "how_to"
     if t in ["prosseguir", "continua", "segue"]: return "continue"
     return "normal"

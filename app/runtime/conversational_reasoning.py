@@ -28,7 +28,7 @@ def classify_followup(message: str) -> str:
     if t in ["porque?", "por que?", "pq?", "porque", "por que"]: return "causal"
     if t in ["certeza?", "tem certeza?", "certeza", "confirma?"]: return "confirmation"
     if "qual o melhor" in t or "qual a melhor" in t or t in ["qual?", "qual"]: return "comparison"
-    if t.startswith("como"): return "how_to"
+    if t.startswith("como fazer") or "como posso" in t: return "how_to"
     return "none"
 
 def resolve_followup(user_id: str, message: str) -> dict:
