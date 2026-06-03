@@ -10,4 +10,5 @@ def test_vehicle_provider_core_is_preserved():
 def test_empty_provider_still_has_safe_contextual_reply():
     ctx={"last_domain":"vehicle_buying","last_subject":"RAM 2500 ano 2026"}
     r=compose_human_style("vale a pena?","",ctx)
-    assert "histórico" in r or "historico" in r
+    assert "evidências" in r and "riscos" in r and "custos" in r
+
