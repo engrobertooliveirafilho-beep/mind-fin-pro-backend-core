@@ -186,7 +186,7 @@ class UniversalConversationOS:
             reply=semantic_reply
         elif mode==ConversationMode.SOCIAL: reply="Tudo certo, Roberto. Seguimos firmes."
         elif mode==ConversationMode.CALCULATION: reply=f"Resultado: {int(calc) if calc is not None and calc==int(calc) else calc}." if calc is not None else "Me mande a expressão completa em uma linha."
-        elif mode==ConversationMode.FOLLOWUP: reply=f"Vamos aprofundar no mesmo contexto: {topic}. O foco é achar a causa real, separar sintoma de origem e validar o próximo teste sem reiniciar a conversa."
+        elif mode==ConversationMode.FOLLOWUP: reply=(candidate_reply or "").strip() or f"Continue no contexto: {topic}."
         elif mode==ConversationMode.VERIFICATION: reply="Checklist real: 1) isolar último ponto alterado, 2) rodar teste mínimo, 3) comparar saída esperada vs real, 4) registrar evidência."
         elif mode==ConversationMode.ANALYSIS: reply="Envie o arquivo, imagem ou texto exato para eu analisar sem inferir."
         elif mode==ConversationMode.EXECUTION: reply="Execução: aplicar a ação pedida, validar retorno e bloquear falso positivo."
