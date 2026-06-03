@@ -33,6 +33,15 @@ def semantic_route(message, last_context=None):
     ent = extract_entities(t)
     terms = set(t.split())
 
+    if ctx and ctx.get("last_subject") and any(x in t for x in [
+        "como","explique","explica","etapas","detalhe","detalhar",
+        "continue","continua","depois","qual","quais",
+        "vale a pena","manutencao","manutenção","consumo","por litro",
+        "quanto faz","quanto ela","quanto ele","km/l",
+        "pontos fracos","pontos fortes"
+    ]):
+        return SemanticDecision("FOLLOWUP", ctx.get("last_domain","general"), .92, ent, "")
+
     if re.search(r"\d+\s*[\+\-\*/]\s*\d+", t) or any(x in t for x in ["quanto e", "calcule"]):
         expr = re.sub(r"[^0-9+\-*/(). ]", "", t.replace("quanto e","").replace("calcule",""))
         try:
