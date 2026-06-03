@@ -6,5 +6,5 @@ def route_natural_whatsapp(message):
         return "Aprofundando: vou manter o contexto anterior e avançar com evidência objetiva."
     if msg in ["bom dia","boa tarde","boa noite","oi","olá","ola","eu tô bem","eu to bem"]:
         return "Oi. Estou aqui."
-    return "Recebi sua mensagem e vou responder pelo contexto atual."
+    return None
 

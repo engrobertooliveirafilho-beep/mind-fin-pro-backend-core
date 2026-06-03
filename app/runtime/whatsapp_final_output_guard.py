@@ -97,11 +97,11 @@ def _p427u_semantic_compat(user_message:str, answer:str)->str:
     if "conseguiu" in msg:
         return "Sim. Estamos refinando continuidade e naturalidade sem resetar contexto."
 
-    return _p427u_semantic_compat(user_message, answer)
+    return answer
 
 def guard_whatsapp_final_answer(user_message: str, answer: str, context: dict | None = None) -> str:
     if identity_allowed(user_message):
-        return _p427u_semantic_compat(user_message, answer) or "Continua do ponto atual que eu respondo pelo contexto."
+        return answer or "Continua do ponto atual que eu respondo pelo contexto."
 
     if has_identity_leak(answer):
         return _domain_answer(user_message)
@@ -238,4 +238,5 @@ def p4_12b_factual_execution_lock(answer:str,inbound:str='')->str:
             return 'Ok. Vou verificar isso e te responder com compatibilidade correta, sem chute.'
 
     return raw
+
 
