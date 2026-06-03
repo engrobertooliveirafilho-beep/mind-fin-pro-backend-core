@@ -39,6 +39,8 @@ def compose_human_style(message:str, answer:str, ctx:dict|None=None)->str:
             return f"Pode valer a pena, mas só se {label} estiver bem cuidado e fizer sentido no preço. Eu validaria histórico, custo de manutenção e estado real antes de fechar."
         if any(x in msg for x in ["prossiga","aprofunde","continue"]):
             return f"Sobre {label}, o segredo é não decidir só pela aparência. Valide histórico, uso anterior, manutenção, documentação e custo futuro antes de comprar."
-        return f"Olha, {label} pode ser uma boa compra se estiver bem cuidado. {core} Antes de animar, eu validaria histórico, manutenção, documentação e custo futuro."
+        if core:
+            return f"{core} Se fosse eu, validaria histórico, manutenção, documentação e custo futuro antes de decidir."
+        return f"Sobre {label}, eu validaria histórico, manutenção, documentação e custo futuro antes de decidir."
 
     return core or text
