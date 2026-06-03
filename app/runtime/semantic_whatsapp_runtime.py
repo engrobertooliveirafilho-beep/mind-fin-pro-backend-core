@@ -21,7 +21,7 @@ def semantic_whatsapp_payload(message: str, sender_id: str = "default") -> dict:
     provider_message = build_conversation_payload(message, ctx)
     decision = semantic_route(provider_message, ctx)
 
-    ctx["last_domain"] = ctx.get("last_domain") or getattr(decision, "domain", "general")
+    ctx["last_domain"] = getattr(decision, "domain", "general")
     _CONTEXT[sid] = ctx
 
     provider = multi_provider_factual_provider(provider_message, sid, ctx)
