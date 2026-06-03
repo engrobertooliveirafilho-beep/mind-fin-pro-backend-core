@@ -16,26 +16,26 @@ def detect_subject(message: str) -> str:
     for pat,sub in patterns:
         if re.search(pat,t): return sub
     cleaned=re.sub(r"[?!.]+$","",t).strip()
+    strong_intent = any(x in cleaned for x in ["comprar","montar","criar","fazer","analisar","analise","verificar","verifique","explicar","explique","quero","preciso"])
+    if strong_intent and len(cleaned.split()) >= 3 and not is_followup(cleaned):
+        return cleaned[:180]
     if len(cleaned.split())>=5 and not is_followup(cleaned) and not any(x in cleaned for x in ["explique","explica","etapas","detalhe","detalhar","como fazer","como seria"]):
-        return cleaned[:140]
+        return cleaned[:180]
     return ""
 
 def detect_domain(message: str) -> str:
     t=(message or "").lower()
-    if any(x in t for x in ["moto","cb500","cb 500","fazer","k1300","hornet","xre","mt03","carro","comprar","manutenção","consumo"]): return "vehicle_buying"
+    if any(x in t for x in ["comprar","veículo","veiculo","carro","moto","caminhonete","caminhão","caminhao","manutenção","manutencao","consumo","por litro"]): return "vehicle_buying"
     if any(x in t for x in ["boi","bois","gado","confinamento","pecuaria","pecuária","fazenda","arroba","cocho"]): return "agro_business"
     if any(x in t for x in ["marketing","anuncio","anúncio","campanha","criativo","copy","venda"]): return "marketing"
     return "general"
 
 def is_followup(message:str)->bool:
     t=(message or "").lower().strip()
-    return t in FOLLOWUP_WORDS or len(t.split())<=4 or any(x in t for x in ["explique","explica","etapas","detalhe","detalhar","como fazer","como seria"])
+    return t in FOLLOWUP_WORDS or len(t.split())<=4 or any(x in t for x in ["ela","ele","isso","esse","essa","sobre","quanto","por litro","vale a pena","manutenção","manutencao","consumo","explique","explica","etapas","detalhe","detalhar","como fazer","como seria"])
 
 def detect_followup_intent(message: str) -> str:
-    t=(message or "").lower().strip()
-    if t in FOLLOWUP_WORDS: return "followup"
-    if len(t.split())<=4: return "followup"
-    return ""
+    return "followup" if is_followup(message) else ""
 
 def build_conversation_payload(message: str, ctx: dict) -> str:
     subject=detect_subject(message)
@@ -63,3 +63,4 @@ NOVA MENSAGEM: {message}
 
 Responda como continuação prática do assunto atual, com no máximo 5 blocos curtos."""
     return message
+
