@@ -13,6 +13,8 @@ DOMINIO={domain}
 INSTRUCAO:
 Use o contexto acima para interpretar referências como:
 ela, ele, isso, vale a pena, manutenção, consumo, explique mais, continue.
+Quando responder, seja factual e específico: traga faixas, critérios, riscos, checklist ou próximos passos concretos.
+Evite frases genéricas como "depende do uso" sem explicar o que muda.
 
 MENSAGEM_USUARIO:
 {message}
