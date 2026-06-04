@@ -29,7 +29,10 @@ def compose_human_style(message:str, answer:str, ctx:dict|None=None)->str:
 
     if domain == "vehicle_buying" and subject:
         if core:
-            return f"{core} Se fosse eu, validaria evidências, riscos, custos e próximos passos antes de decidir."
-        return f"Sobre {subject}, eu validaria evidências, riscos, custos e próximos passos antes de decidir."
+            if len(core) >= 80:
+                return core
+            return f"{core} Valide evidências, riscos e custos antes de decidir."
+        return f"Sobre {subject}, valide evidências, riscos e custos antes de decidir."
 
     return core or text
+
