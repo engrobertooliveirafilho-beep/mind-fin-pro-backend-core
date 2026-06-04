@@ -23,8 +23,8 @@ def relationalize(message:str, text:str, ctx:dict|None=None)->str:
 
     replacements={
         "eu olharia":"se fosse eu, olharia",
-        "Vale a pena sim":"Eu teria coragem",
-        "vale a pena sim":"eu teria coragem",
+        "Vale a pena sim":"Eu teria coragem se houver histórico, inspeção e manutenção comprovada",
+        "vale a pena sim":"eu teria coragem se houver histórico, inspeção e manutenção comprovada",
         "melhor fugir":"eu passaria",
         "moto maquiada vira gasto rápido":"às vezes parece boa no começo e depois começa a aparecer coisa escondida"
     }
