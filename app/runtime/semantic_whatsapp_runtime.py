@@ -39,6 +39,18 @@ def semantic_whatsapp_payload(message: str, sender_id: str = "default") -> dict:
     answer = compose_human_style(message, answer, ctx)
     answer = relationalize(message, answer, ctx)
     answer = whatsapp_ux_guard(message, answer)
+
+    if str(answer or "").startswith("Não vou chutar número") and ctx.get("last_subject"):
+        repair_msg = (
+            f"Responda sobre {ctx.get('last_subject')} sem inventar números, preço, km ou datas. "
+            f"Se não houver dado confiável, entregue checklist qualitativo prático com riscos, itens para verificar e decisão segura. "
+            f"Pergunta original: {message}"
+        )
+        repair = multi_provider_factual_provider(repair_msg, sid, ctx)
+        if repair.get("ok"):
+            repaired = whatsapp_ux_guard(message, repair.get("answer",""))
+            if not str(repaired or "").startswith("Não vou chutar número") and len(str(repaired).strip()) > 40:
+                answer = repaired
     if str(answer or "").strip().lower() in {"claro!","claro","certo!","certo","entendi!","entendi","ok","ok!"} and ctx.get("last_subject"):
         retry_msg = f"Explique de forma prática e completa sobre: {ctx.get('last_subject')}. Continue o contexto anterior. Responda em PT-BR com etapas concretas."
         retry = multi_provider_factual_provider(retry_msg, sid, ctx)
