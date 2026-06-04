@@ -1,6 +1,13 @@
 import re
 
+def has_numeric_placeholder(text: str) -> bool:
+    t=str(text or "").lower()
+    bad=["r$ 000","000 km","r$000","xx","xxx","n/a","não informado"]
+    return any(x in t for x in bad)
+
 def whatsapp_ux_guard(message: str, answer: str, max_chars: int = 420) -> str:
+    if has_numeric_placeholder(answer):
+        return "Não vou chutar número. Para decidir com segurança, valide preço, consumo, manutenção e documentação em fonte real antes de avançar."
     msg = str(message or "").strip().lower()
     out = str(answer or "").strip()
 
