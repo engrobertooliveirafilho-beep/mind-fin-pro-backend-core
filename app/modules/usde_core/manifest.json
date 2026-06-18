@@ -1,0 +1,22 @@
+{
+  "mission_id": "P4.46X",
+  "module": "USDE_CORE",
+  "name": "Universal Scientific Discovery Engine",
+  "status": "CRITICAL_CORE_CAPABILITY",
+  "rule": "Toda hipótese nasce falsa até sobreviver a validação, baseline, red team, anti-overfitting e auditoria temporal.",
+  "outputs": [
+    "normalized_dataset.csv",
+    "event_matrix.csv",
+    "frequency_metrics.csv",
+    "interval_metrics.csv",
+    "pair_metrics.csv",
+    "trio_metrics.csv",
+    "markov_matrix.csv",
+    "entropy_report.json",
+    "monte_carlo_report.csv",
+    "walk_forward_report.csv",
+    "red_team_report.json",
+    "hypothesis_decision.json",
+    "final_audit_report.md"
+  ]
+}
