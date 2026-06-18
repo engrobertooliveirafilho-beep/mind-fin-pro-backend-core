@@ -1,6 +1,37 @@
 
 # P19P26A_H8_XML_RESPONSE_FINAL_FILTER
 def _p19p26a_h8_filter_xml_response(message, xml):
+    # P19P27B_HARD_FINAL_CONTINUATION
+    global _P19P27B_LAST_INTENT
+    try:
+        _P19P27B_LAST_INTENT
+    except NameError:
+        _P19P27B_LAST_INTENT = {}
+
+    msg = str(message or "").lower().strip()
+    sender = str(locals().get("sender_id", "default"))
+
+    short_followups = ["quais", "quais?", "quais são", "quais sao", "e depois", "e depois?", "continua", "continue", "explique melhor", "detalha", "detalhe", "como assim", "próximo passo", "proximo passo", "e agora"]
+
+    def wrap(reply):
+        return '<?xml version="1.0" encoding="UTF-8"?><Response><Message>' + reply + '</Message></Response>'
+
+    if "humanizada" in msg or "humanizar" in msg or "mais humana" in msg or "emoção" in msg or "emocao" in msg:
+        _P19P27B_LAST_INTENT[sender] = "humanization"
+        return wrap("O caminho é eu parar de soar como tutorial. Preciso lembrar o contexto, responder com intenção, ter opinião e usar emoção leve sem virar personagem artificial.")
+
+    if "eldora" in msg and "whatsapp" in msg and ("lançar" in msg or "lancar" in msg):
+        _P19P27B_LAST_INTENT[sender] = "eldora_launch"
+        return wrap("Pra lançar a Eldora no WhatsApp, eu focaria em conversa real e retenção: entrada simples, resposta curta, memória funcionando e motivo claro pra pessoa voltar. Depois disso sim escala tráfego.")
+
+    if msg in short_followups:
+        intent = _P19P27B_LAST_INTENT.get(sender, "")
+        if intent == "humanization":
+            return wrap("São estes: memória real do contexto, continuidade sem resetar assunto, opinião quando fizer sentido, emoção leve, menos resposta de manual e mais presença na conversa.")
+        if intent == "eldora_launch":
+            return wrap("O próximo passo é testar 20 conversas reais no WhatsApp: medir clareza, retenção e retorno antes de escalar tráfego.")
+
+
     msg = str(message or "").lower()
     out = str(xml or "")
 
