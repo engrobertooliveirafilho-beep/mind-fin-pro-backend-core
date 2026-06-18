@@ -1,4 +1,55 @@
 
+# P4_73C_READY_INTEGRATION_EXECUTION
+def _p473c_semantic_whatsapp_ready_layer(sender_id, message, current_reply):
+    try:
+        from app.runtime.semantic_whatsapp_runtime import route_semantic_whatsapp
+        out = route_semantic_whatsapp(sender_id, message)
+        if isinstance(out, dict):
+            r = out.get("reply") or out.get("answer") or out.get("text")
+            if r:
+                return str(r)
+        if isinstance(out, str) and out.strip():
+            return out
+    except Exception:
+        pass
+
+    try:
+        from app.runtime.semantic_whatsapp_runtime import humanized_answer
+        r = humanized_answer(str(message or ""), str(current_reply or ""))
+        if r:
+            return str(r)
+    except Exception:
+        pass
+
+    return current_reply
+
+
+def _p473c_social_ready_layer(sender_id, message, current_reply):
+    try:
+        from app.eldora.core.persistent_social_memory import store_social_memory
+        store_social_memory(str(sender_id or "unknown"), str(message or ""))
+    except Exception:
+        pass
+
+    try:
+        from app.eldora.core.emotional_continuity_engine import emotional_continuity
+        r = emotional_continuity(str(sender_id or "unknown"), str(message or ""), str(current_reply or ""))
+        if r:
+            return str(r)
+    except Exception:
+        pass
+
+    return current_reply
+
+
+def _p473c_ready_integrated_reply(sender_id, message, current_reply):
+    reply = current_reply
+    reply = _p473c_semantic_whatsapp_ready_layer(sender_id, message, reply)
+    reply = _p473c_social_ready_layer(sender_id, message, reply)
+    return reply
+# /P4_73C_READY_INTEGRATION_EXECUTION
+
+
 # P19P26A_H8_XML_RESPONSE_FINAL_FILTER
 def _p19p26a_h8_filter_xml_response(message, xml):
     # P19P27B_HARD_FINAL_CONTINUATION
@@ -343,7 +394,7 @@ async def neura_persona_identity_middleware_v2(request: Request, call_next):
             event("MAIN_INTERCEPTOR_RETURN",
                   route="/webhook/whatsapp",
                   module_name="app.main")
-            return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", twiml), media_type="application/xml")
+            return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", _p473c_ready_integrated_reply(sender_id if "sender_id" in locals() else "", message if "message" in locals() else "", twiml), media_type="application/xml")
 
     return await call_next(request)
 
@@ -379,7 +430,7 @@ async def neura_persona_short_followup_middleware(request: Request, call_next):
             )
             twiml = f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>{sanitize_final_human_output(sanitize_final_human_output(reply))}</Message></Response>'
             event("MAIN_INTERCEPTOR_RETURN", route="/webhook/whatsapp", module_name="app.main")
-            return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", _p412n_normalize_xml_response(message if "message" in locals() else "", twiml)), media_type="application/xml")
+            return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", _p412n_normalize_xml_response(message if "message" in locals() else "", twiml))), media_type="application/xml")
     return await call_next(request)
 
 last_media_store_global=LastMediaStore()
