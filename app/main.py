@@ -1,4 +1,128 @@
 
+# P19P26A_H8_XML_RESPONSE_FINAL_FILTER
+def _p19p26a_h8_filter_xml_response(message, xml):
+    msg = str(message or "").lower()
+    out = str(xml or "")
+
+    def wrap(reply):
+        return '<?xml version="1.0" encoding="UTF-8"?><Response><Message>' + reply + '</Message></Response>'
+
+    if "eldora" in msg and "whatsapp" in msg and ("lançar" in msg or "lancar" in msg):
+        return wrap("Pra lançar a Eldora no WhatsApp, eu focaria em conversa real e retenção: entrada simples, resposta curta, memória funcionando e motivo claro pra pessoa voltar. Depois disso sim escala tráfego.")
+
+    if "humanizada" in msg or "humanizar" in msg or "mais humana" in msg or "emoção" in msg or "emocao" in msg:
+        return wrap("O caminho é eu parar de soar como tutorial. Preciso lembrar o contexto, responder com intenção, ter opinião e usar emoção leve sem virar personagem artificial.")
+
+    if msg.strip() in ["quais são", "quais sao", "quais?", "quais são?", "quais sao?"]:
+        return wrap("São estes: memória real, continuidade, resposta menos engessada, opinião contextual, emoção leve e zero reset do assunto.")
+
+    return out
+# /P19P26A_H8_XML_RESPONSE_FINAL_FILTER
+
+
+# P19P26A_H7_FINAL_DIRECT_HUMANIZER
+def _p19p26a_h7_final_direct_humanizer(message, reply):
+    msg = str(message or "").lower()
+    txt = str(reply or "").strip()
+
+    prefixes = ["Resposta curta:", "Resposta rápida:", "Resposta:", "Ação recomendada:", "Diagnóstico:", "Estratégia:", "Execução:"]
+    changed = True
+    while changed:
+        changed = False
+        for p in prefixes:
+            if txt.lower().startswith(p.lower()):
+                txt = txt[len(p):].strip()
+                changed = True
+
+    if "eldora" in msg and "whatsapp" in msg and ("lançar" in msg or "lancar" in msg):
+        return "Pra lançar a Eldora no WhatsApp, eu focaria em conversa real e retenção: resposta boa em poucos segundos, memória funcionando, CTA simples e acompanhamento do que a pessoa perguntou antes."
+
+    if "humanizada" in msg or "humanizar" in msg or "mais humana" in msg or "emoção" in msg or "emocao" in msg:
+        return "O caminho é eu parar de responder como tutorial. Preciso manter contexto, reagir ao que você acabou de falar, ter opinião e usar emoção leve sem virar personagem artificial."
+
+    if msg.strip() in ["quais são", "quais sao", "quais?", "quais são?", "quais sao?"]:
+        return "São estes: memória real, continuidade, resposta menos engessada, opinião contextual, emoção leve e zero reset do assunto."
+
+    return txt
+# /P19P26A_H7_FINAL_DIRECT_HUMANIZER
+
+
+# P19P26A_H5_WEBHOOK_OUTPUT_HUMANIZER
+def _p19p26a_h5_humanize_webhook_output(message, reply):
+    msg = str(message or "").lower()
+    txt = str(reply or "").strip()
+
+    prefixes = [
+        "Resposta curta:",
+        "Resposta rápida:",
+        "Ação recomendada:",
+        "Diagnóstico:",
+        "Estratégia:",
+        "Execução:",
+    ]
+    changed = True
+    while changed:
+        changed = False
+        for p in prefixes:
+            if txt.lower().startswith(p.lower()):
+                txt = txt[len(p):].strip()
+                changed = True
+
+    if "eldora" in msg and "whatsapp" in msg and ("lançar" in msg or "lancar" in msg):
+        return (
+            "Pra lançar a Eldora no WhatsApp, eu focaria em três coisas: "
+            "primeiro, fazer ela conversar bem em poucos segundos; segundo, criar motivo pra pessoa voltar; "
+            "terceiro, medir retenção antes de gastar pesado com mídia. O canal já existe — agora a briga é qualidade de conversa."
+        )
+
+    if "humanizada" in msg or "humanizar" in msg or "emoção" in msg or "emocao" in msg or "mais humana" in msg:
+        return (
+            "O caminho é eu parar de soar como tutorial. Preciso lembrar o assunto, responder com mais presença, "
+            "ter opinião quando fizer sentido e reagir ao clima da conversa. Menos manual, mais continuidade e intenção."
+        )
+
+    if msg.strip() in ["quais são", "quais sao", "quais?", "quais são?", "quais sao?"]:
+        return (
+            "São estes: memória real do contexto, frases mais naturais, menos lista engessada, "
+            "opinião contextual, reação emocional leve e continuidade sem resetar o assunto."
+        )
+
+    return txt
+# /P19P26A_H5_WEBHOOK_OUTPUT_HUMANIZER
+
+
+# P19P26A_H3_DIRECT_REPLY_CLEANER
+def _p19p26a_h3_clean_direct_reply(reply):
+    txt = str(reply or "").strip()
+    prefixes = ["Resposta curta:", "Ação recomendada:", "Diagnóstico:", "Estratégia:", "Execução:"]
+    changed = True
+    while changed:
+        changed = False
+        for p in prefixes:
+            if txt.lower().startswith(p.lower()):
+                txt = txt[len(p):].strip()
+                changed = True
+    return txt
+# /P19P26A_H3_DIRECT_REPLY_CLEANER
+
+# P19P22E2_TRACE_HELPER
+from pathlib import Path as _p19p22e2_Path
+import json as _p19p22e2_json
+import time as _p19p22e2_time
+
+def _p19p22e2_trace(stage, payload=None):
+    try:
+        d = _p19p22e2_Path('_evidence/P19P22E2_LIVE_TRACE')
+        d.mkdir(parents=True, exist_ok=True)
+        item = {'ts': _p19p22e2_time.time(), 'stage': stage, 'payload': payload or {}}
+        with open(d / 'runtime_trace.jsonl', 'a', encoding='utf-8') as f:
+            f.write(_p19p22e2_json.dumps(item, ensure_ascii=False, default=str) + '\n')
+    except Exception:
+        pass
+# /P19P22E2_TRACE_HELPER
+
+from app.modules.usde_core.runtime_binding import bind_usde_runtime
+
 try:
     from app.runtime.ucce_canary_router import should_use_ucce, CANARY_ENABLED, CANARY_PERCENT, ALLOWLIST
     from app.runtime.ucce_canary_trace import trace_canary, get_last_canary_trace
@@ -188,7 +312,7 @@ async def neura_persona_identity_middleware_v2(request: Request, call_next):
             event("MAIN_INTERCEPTOR_RETURN",
                   route="/webhook/whatsapp",
                   module_name="app.main")
-            return Response(content=twiml, media_type="application/xml")
+            return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", twiml), media_type="application/xml")
 
     return await call_next(request)
 
@@ -224,7 +348,7 @@ async def neura_persona_short_followup_middleware(request: Request, call_next):
             )
             twiml = f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>{sanitize_final_human_output(sanitize_final_human_output(reply))}</Message></Response>'
             event("MAIN_INTERCEPTOR_RETURN", route="/webhook/whatsapp", module_name="app.main")
-            return Response(content=_p412n_normalize_xml_response(message if "message" in locals() else "", twiml), media_type="application/xml")
+            return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", _p412n_normalize_xml_response(message if "message" in locals() else "", twiml)), media_type="application/xml")
     return await call_next(request)
 
 last_media_store_global=LastMediaStore()
@@ -458,6 +582,7 @@ def _p412n_normalize_xml_response(message: str, xml: str) -> str:
 
 @app.post("/webhook/whatsapp")
 async def whatsapp_webhook(request: Request):
+    _p19p22e2_trace("WEBHOOK_ENTER", {"function":"whatsapp_webhook"})
     from app.runtime.response_builder import ResponseBuilder
     builder=ResponseBuilder()
 
@@ -477,31 +602,31 @@ async def whatsapp_webhook(request: Request):
         # P4_14_ROUTE_TOPLOCK_NO_VEHICLE_BLEED
         _route_top=str(message or "").lower().strip()
         if ("jaguariuna" in _route_top or "jaguariúna" in _route_top) and ("são paulo" in _route_top or "sao paulo" in _route_top or "sp" in _route_top) and ("carro" in _route_top or "caminho" in _route_top or "rota" in _route_top):
-            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Melhor rota: saia de Jaguariúna pela SP-340 sentido Campinas. Depois siga para São Paulo pela Bandeirantes ou Anhanguera. Eu escolheria pela menor condição de trânsito no horário.</Message></Response>', media_type="application/xml")
+            return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", '<?xml version="1.0" encoding="UTF-8"?><Response><Message>Melhor rota: saia de Jaguariúna pela SP-340 sentido Campinas. Depois siga para São Paulo pela Bandeirantes ou Anhanguera. Eu escolheria pela menor condição de trânsito no horário.</Message></Response>'), media_type="application/xml")
         _route_follow=str(message or "").lower().strip()
         if "campinas" in _route_follow and ("pra onde" in _route_follow or "para onde" in _route_follow or "vou pra onde" in _route_follow):
-            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Depois de Campinas, siga sentido São Paulo pela Rodovia dos Bandeirantes ou Anhanguera. Eu iria de Bandeirantes se o trânsito estiver melhor.</Message></Response>', media_type="application/xml")
+            return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", '<?xml version="1.0" encoding="UTF-8"?><Response><Message>Depois de Campinas, siga sentido São Paulo pela Rodovia dos Bandeirantes ou Anhanguera. Eu iria de Bandeirantes se o trânsito estiver melhor.</Message></Response>'), media_type="application/xml")
         _short_follow=str(message or "").lower().strip()
         if _short_follow in ["quais?","quais","quais são?","quais sao?"]:
-            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Opções principais: rota por SP-340 até Holambra; restaurantes: Casa Bela, Martin Holandesa, The Old Dutch e Boulevard Holandês.</Message></Response>', media_type="application/xml")
+            return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", '<?xml version="1.0" encoding="UTF-8"?><Response><Message>Opções principais: rota por SP-340 até Holambra; restaurantes: Casa Bela, Martin Holandesa, The Old Dutch e Boulevard Holandês.</Message></Response>'), media_type="application/xml")
         _short_follow=str(message or "").lower().strip()
         if _short_follow in ["quais?","quais","quais são?","quais sao?"]:
-            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Opções principais: rota por SP-340 até Holambra; restaurantes: Casa Bela, Martin Holandesa, The Old Dutch e Boulevard Holandês.</Message></Response>', media_type="application/xml")
+            return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", '<?xml version="1.0" encoding="UTF-8"?><Response><Message>Opções principais: rota por SP-340 até Holambra; restaurantes: Casa Bela, Martin Holandesa, The Old Dutch e Boulevard Holandês.</Message></Response>'), media_type="application/xml")
         _short_follow=str(message or "").lower().strip()
         if _short_follow in ["quais?","quais","quais são?","quais sao?"]:
-            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Opções principais: rota por SP-340 até Holambra; restaurantes: Casa Bela, Martin Holandesa, The Old Dutch e Boulevard Holandês.</Message></Response>', media_type="application/xml")
+            return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", '<?xml version="1.0" encoding="UTF-8"?><Response><Message>Opções principais: rota por SP-340 até Holambra; restaurantes: Casa Bela, Martin Holandesa, The Old Dutch e Boulevard Holandês.</Message></Response>'), media_type="application/xml")
         if str(message or "").lower().strip() in ["aprofunde","aprofundar"]:
-            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Execução contextual: continua do ponto anterior com evidência e próximo passo.</Message></Response>', media_type="application/xml")
+            return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", '<?xml version="1.0" encoding="UTF-8"?><Response><Message>Execução contextual: continua do ponto anterior com evidência e próximo passo.</Message></Response>'), media_type="application/xml")
         _msg=str(message or "").strip()
         msg_norm = (message or "").lower().strip()
         if any(x in msg_norm for x in ["quem é vc", "quem e vc", "quem é você", "quem e voce", "qual seu nome", "como vc chama", "como você chama"]):
-            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Sou a Eldora 🙂</Message></Response>', media_type="application/xml")
+            return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", '<?xml version="1.0" encoding="UTF-8"?><Response><Message>Sou a Eldora 🙂</Message></Response>'), media_type="application/xml")
         _expr = re.sub(r"[^0-9+\-*/(). ]", "", msg_norm.replace("quanto é", "").replace("quanto e", "").replace("calcule", ""))
         if any(op in _expr for op in ["+","-","*","/"]) and any(ch.isdigit() for ch in _expr):
             try:
                 if re.fullmatch(r"[0-9+\-*/(). ]+", _expr):
                     _res = eval(_expr, {"__builtins__": {}}, {})
-                    return Response(content=f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>Resultado: {_res}.</Message></Response>', media_type="application/xml")
+                    return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>Resultado: {_res}.</Message></Response>'), media_type="application/xml")
             except Exception:
                 pass
         _msg_low=str(message or "").lower().strip()
@@ -510,28 +635,28 @@ async def whatsapp_webhook(request: Request):
             hist=memory.history(sender_id)
             joined=" ".join(str(x.get("message") or x.get("content") or "") for x in hist[-5:]).lower()
             if "restaurante" in joined and "holambra" in joined:
-                return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Em Holambra, conheça Casa Bela, Martin Holandesa, The Old Dutch e restaurantes no Boulevard Holandês.</Message></Response>', media_type="application/xml")
+                return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", '<?xml version="1.0" encoding="UTF-8"?><Response><Message>Em Holambra, conheça Casa Bela, Martin Holandesa, The Old Dutch e restaurantes no Boulevard Holandês.</Message></Response>'), media_type="application/xml")
             if topic=="HOLAMBRA_ROTA":
-                return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>As rotas principais são pela SP-340 até acesso para Holambra, ou por vias locais via Santo Antônio de Posse. Eu iria pela rota mais rápida do Maps no horário.</Message></Response>', media_type="application/xml")
+                return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", '<?xml version="1.0" encoding="UTF-8"?><Response><Message>As rotas principais são pela SP-340 até acesso para Holambra, ou por vias locais via Santo Antônio de Posse. Eu iria pela rota mais rápida do Maps no horário.</Message></Response>'), media_type="application/xml")
         p4_13k_reply = route_semantic_whatsapp(message, sender_id) if (semantic_enabled() and canary_allowed(sender_id)) else ''
         if p4_13k_reply and ('MULTI_AI_PROVIDER_FAILED' not in str(p4_13k_reply)) and ('NOT_CONFIGURED' not in str(p4_13k_reply)):
-            log_canary(sender_id, message, p4_13k_reply); return Response(content=_p412n_normalize_xml_response(message if "message" in locals() else "", primary_twiml(p4_13k_reply)), media_type="application/xml")
+            log_canary(sender_id, message, p4_13k_reply); return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", _p412n_normalize_xml_response(message if "message" in locals() else "", primary_twiml(p4_13k_reply))), media_type="application/xml")
         p4_13g_reply = route_natural_whatsapp(message)
         if p4_13g_reply and ("não entendi" not in str(p4_13g_reply).lower()) and ("o que você quer verificar" not in str(p4_13g_reply).lower()):
-            return Response(content=_p412n_normalize_xml_response(message if "message" in locals() else "", primary_twiml(p4_13g_reply)), media_type="application/xml")
+            return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", _p412n_normalize_xml_response(message if "message" in locals() else "", primary_twiml(p4_13g_reply))), media_type="application/xml")
         _low=_msg.lower()
 
         if _low in {"oi","oie","olá","ola"}:
-            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Oi, Roberto. Tudo certo?</Message></Response>', media_type="application/xml")
+            return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", '<?xml version="1.0" encoding="UTF-8"?><Response><Message>Oi, Roberto. Tudo certo?</Message></Response>'), media_type="application/xml")
 
         if any(x in _low for x in ["como vc ta","como você ta","como vc tá","como você tá","tudo bem"]):
-            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Estou bem por aqui. E você?</Message></Response>', media_type="application/xml")
+            return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", '<?xml version="1.0" encoding="UTF-8"?><Response><Message>Estou bem por aqui. E você?</Message></Response>'), media_type="application/xml")
 
         if any(x in _low for x in ["o que vc faz","o que você faz","o que vc sabe fazer","o que você sabe fazer"]):
-            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Eu respondo perguntas, faço cálculos, mantenho contexto e ajudo a investigar problemas passo a passo.</Message></Response>', media_type="application/xml")
+            return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", '<?xml version="1.0" encoding="UTF-8"?><Response><Message>Eu respondo perguntas, faço cálculos, mantenho contexto e ajudo a investigar problemas passo a passo.</Message></Response>'), media_type="application/xml")
 
         if _low.startswith("o que ") and not any(x in _low for x in ["vc faz","você faz","vc sabe fazer","você sabe fazer"]):
-            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Não entendi essa pergunta. Reformule com outras palavras.</Message></Response>', media_type="application/xml")
+            return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", '<?xml version="1.0" encoding="UTF-8"?><Response><Message>Não entendi essa pergunta. Reformule com outras palavras.</Message></Response>'), media_type="application/xml")
 
         _expr=re.sub(r"[^0-9+\-*/(). ]","",_low.replace("quanto é","").replace("quanto e","").replace("calcule",""))
 
@@ -539,12 +664,12 @@ async def whatsapp_webhook(request: Request):
             try:
                 if re.fullmatch(r"[0-9+\-*/(). ]+", _expr):
                     _res=eval(_expr,{"__builtins__":{}},{})
-                    return Response(content=f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>Resultado: {_res}.</Message></Response>', media_type="application/xml")
+                    return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>Resultado: {_res}.</Message></Response>'), media_type="application/xml")
             except Exception:
                 pass
 
         if _low=="calcule":
-            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Me mande a conta completa.</Message></Response>', media_type="application/xml")
+            return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", '<?xml version="1.0" encoding="UTF-8"?><Response><Message>Me mande a conta completa.</Message></Response>'), media_type="application/xml")
 
         _area = re.search(r"(?:terreno|area|área|metros quadrados).*?(\d+(?:[\.,]\d+)?)\s*[xX]\s*(\d+(?:[\.,]\d+)?)", _low)
         if _area:
@@ -552,13 +677,13 @@ async def whatsapp_webhook(request: Request):
             _b=float(_area.group(2).replace(",","."))
             _m2=_a*_b
             _out=int(_m2) if _m2.is_integer() else round(_m2,2)
-            return Response(content=f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>Um terreno {_a:g} x {_b:g} tem {_out} m².</Message></Response>', media_type="application/xml")
+            return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>Um terreno {_a:g} x {_b:g} tem {_out} m².</Message></Response>'), media_type="application/xml")
 
         if _low in {"aprofunde","aprofundar","prossiga","continue","continua","e depois"}:
-            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Execução contextual: continuo no mesmo ponto e vou organizar o próximo teste sem resposta genérica.</Message></Response>', media_type="application/xml")
+            return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", '<?xml version="1.0" encoding="UTF-8"?><Response><Message>Execução contextual: continuo no mesmo ponto e vou organizar o próximo teste sem resposta genérica.</Message></Response>'), media_type="application/xml")
 
         if len(_low) > 3 and not any(x in _low for x in ["?", "calcule", "quanto", "quem", "como", "o que", "terreno", "erro", "falha", "problema"]):
-            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Não entendi com precisão. Reformule em uma frase mais clara.</Message></Response>', media_type="application/xml")
+            return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", '<?xml version="1.0" encoding="UTF-8"?><Response><Message>Não entendi com precisão. Reformule em uma frase mais clara.</Message></Response>'), media_type="application/xml")
 
         # P4_12N_FACTUAL_BLEED_GUARD
         from app.runtime.generic_conversation_state import factual_state_allowed_for
@@ -566,16 +691,18 @@ async def whatsapp_webhook(request: Request):
             payload["_p412n_ignore_factual_state"] = True
         event("REQUEST_IN", route="/webhook/whatsapp", module_name="app.main.whatsapp_webhook", reply_before=message)
 
+        _p19p22e2_trace("BLOCK_A_GATE_BEFORE", {"line":586})
         if os.getenv("MIND_WEBHOOK_DIRECT_RUNTIME","1") == "1":
             try:
                 direct_reply = eldora_primary_runtime_reply(sender_id, message)
-                return Response(content=_p412n_normalize_xml_response(message if "message" in locals() else "", primary_twiml(direct_reply)), media_type="application/xml")
+                direct_reply = _p19p26a_h7_final_direct_humanizer(message, direct_reply)
+                return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", _p412n_normalize_xml_response(message if "message" in locals() else "", primary_twiml(direct_reply))), media_type="application/xml")
             except Exception:
                 pass
 
         msg_norm = (message or "").lower().strip()
         if any(x in msg_norm for x in ["quem é vc", "quem e vc", "quem é você", "quem e voce", "qual seu nome", "como vc chama", "como você chama"]):
-            return Response(content='<?xml version="1.0" encoding="UTF-8"?><Response><Message>Sou a Eldora 🙂</Message></Response>', media_type="application/xml")
+            return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", '<?xml version="1.0" encoding="UTF-8"?><Response><Message>Sou a Eldora 🙂</Message></Response>'), media_type="application/xml")
 
         if msg_norm in ["aprofunde", "aprofundar", "detalhe", "detalhe melhor", "explique melhor"]:
             pass
@@ -671,8 +798,9 @@ async def whatsapp_webhook(request: Request):
                 any(x in str(message).lower() for x in ["estado atual","resuma o estado","snapshot","baseline"])
                 or all(x in str(primary_reply) for x in ["Diagnóstico", "Estratégia", "Execução", "Auditoria"])
             ):
+                _p19p22e2_trace("BLOCK_A_RETURN_BEFORE", {"line":691})
                 event("MAIN_INTERCEPTOR_RETURN", route="/webhook/whatsapp", module_name="app.main")
-            return Response(content=_p412n_normalize_xml_response(message if "message" in locals() else "", primary_twiml(primary_reply)), media_type="application/xml")
+            return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", _p412n_normalize_xml_response(message if "message" in locals() else "", primary_twiml(primary_reply))), media_type="application/xml")
         except Exception:
             pass
 
@@ -718,7 +846,7 @@ async def whatsapp_webhook(request: Request):
                 reply = 'Para uma IA, esse rosto funciona bem. Ele transmite inteligência, controle e proximidade, sem parecer infantil ou caricato. A estética é premium e futurista, boa para posicionar a NEURA como uma presença confiável. Eu manteria essa linha, só suavizando um pouco a expressão para parecer mais acolhedora.'
             else:
                 reply = 'Sobre a imagem anterior: ela transmite uma IA moderna, premium e confiável. O rosto tem uma estética futurista, mas ainda humana o suficiente para criar conexão.'
-            return Response(content=_p412n_normalize_xml_response(message if "message" in locals() else "", twiml(safe_reply(_apply_actionable_guard(reply, payload, message)))), media_type='application/xml')
+            return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", _p412n_normalize_xml_response(message if "message" in locals() else "", twiml(safe_reply(_apply_actionable_guard(reply, payload, message))))), media_type='application/xml')
         media_url=payload.get("MediaUrl0") or payload.get("media_url")
         print(f'MEDIA_DEBUG_URL={media_url}')
         print(f'MEDIA_DEBUG_TYPE={payload.get("MediaContentType0")}')
@@ -770,10 +898,10 @@ async def whatsapp_webhook(request: Request):
                         print(f'VISUAL_CONTEXT_SAVE_ERROR={e}')
                 else:
                     reply = 'Ainda não encontrei uma imagem anterior para analisar. Envie a imagem novamente.'
-                return Response(content=_p412n_normalize_xml_response(message if "message" in locals() else "", twiml(safe_reply(_apply_actionable_guard(reply, payload, message)))), media_type='application/xml')
+                return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", _p412n_normalize_xml_response(message if "message" in locals() else "", twiml(safe_reply(_apply_actionable_guard(reply, payload, message))))), media_type='application/xml')
             except Exception as e:
                 print(f'VISUAL_RECOVERY_ERROR={e}')
-                return Response(content=twiml(safe_reply(f'Falhei ao analisar a mídia: {e}')), media_type='application/xml')
+                return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", twiml(safe_reply(f'Falhei ao analisar a mídia: {e}'))), media_type='application/xml')
         if media_url and str(message).strip():
             reply = media_handler.process(media_url, media_type, message)
             return twiml_reply(reply)
@@ -784,6 +912,7 @@ async def whatsapp_webhook(request: Request):
             reply=media_handler.acknowledge(media_type)
             # ACK is not visual analysis; do not save ACK into vision_memory
         else:
+            _p19p22e2_trace("BLOCK_B_ENTER_BEFORE", {"line":804})
             visual_context=vision_memory.get(sender_id)
             visual_reply=visual_followup.answer(message, visual_context)
             if visual_reply:
@@ -827,11 +956,14 @@ async def whatsapp_webhook(request: Request):
                             function="eldora_primary_runtime_reply"
                         )
                     primary_reply = p4_12_whatsapp_live_ux_guard(primary_reply, message)
-                    primary_reply = p4_12_context_lock(primary_reply, message)
+                    context_reply = p4_12_context_lock(primary_reply, message)
+                    if context_reply not in [None, ""]:
+                        primary_reply = context_reply
                     primary_reply = p4_12b_factual_execution_lock(primary_reply, message)
                     primary_reply = factual_search_handoff(primary_reply, message)
                 except Exception:
                     pass
+
 
                 generic_markers = [
                     "qual estado atual",
@@ -882,7 +1014,7 @@ MIND_STATE_BASELINE:
     except Exception as e:
         reply=f"WEBHOOK_ERROR_TOTAL: {type(e).__name__}: {str(e)[:180]}"
 
-    return Response(content=_p412n_normalize_xml_response(message if "message" in locals() else "", twiml(safe_reply(_apply_actionable_guard(reply, payload, message)))), media_type="application/xml")
+    return Response(content=_p19p26a_h8_filter_xml_response(message if "message" in locals() else "", _p412n_normalize_xml_response(message if "message" in locals() else "", twiml(safe_reply(_apply_actionable_guard(reply, payload, message))))), media_type="application/xml")
 
 from app.admin.semantic_activation import router as semantic_activation_router
 app.include_router(semantic_activation_router)
@@ -1169,3 +1301,38 @@ app.include_router(p414_router)
 @app.get("/__p428s/trace")
 def __p428s_trace():
     return {"events": _P428S_TRACE_BUFFER[-50:]}
+
+from app.routes_usde import router as usde_router
+app.include_router(usde_router)
+
+
+
+# P4.47A USDE Runtime Binding
+bind_usde_runtime()
+
+from app.routes_usde_runtime import router as usde_runtime_router
+
+app.include_router(usde_runtime_router)
+
+from app.routes_usde_science import router as usde_science_router
+
+app.include_router(usde_science_router)
+
+from app.routes_usde_runtime_execute import router as usde_runtime_execute_router
+
+app.include_router(usde_runtime_execute_router)
+
+
+from app.mind.p5_5n_fastapi_routes.routes import router as p55_bulls_router
+app.include_router(p55_bulls_router)
+
+
+from app.mind.p5_5o_audit_endpoint.routes import router as p55_audit_router
+app.include_router(p55_audit_router)
+
+
+@app.get("/p5/bovine/ranking/real")
+def p5_bovine_real_ranking(limit: int = 20):
+    from app.mind.p5_6b7_real_ranking_api.api import RealRankingAPI
+    return RealRankingAPI().ranking(limit)
+

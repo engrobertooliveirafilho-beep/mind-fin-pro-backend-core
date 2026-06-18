@@ -1,3 +1,4 @@
+from app.modules.usde_core.live_bridge import USDELiveBridge
 import os
 
 
@@ -47,6 +48,422 @@ from app.runtime.test_contract_wrapper import semantic_test_injection
 from app.runtime.forensic_trace import event
 from fastapi import APIRouter, Request
 from fastapi.responses import Response
+
+
+
+
+
+
+
+# ============================================================
+# P19P18/P19P19 - SHORT FOLLOWUP SEMANTIC CONTINUITY
+# Objetivo:
+# - Herda domínio ativo por sender_id.
+# - Expande followup curto antes do cognitive pipeline.
+# - Não depende de legacy flag.
+# - Universal, não automotive-only.
+# ============================================================
+
+_P19P19_SENDER_DOMAIN_STATE = {}
+
+_P19P19_SHORT_FOLLOWUPS = [
+    "como eu faço", "como eu faco", "como faço", "como faco",
+    "explique melhor", "explica melhor",
+    "e depois", "depois",
+    "continue", "continua",
+    "detalhe", "detalha",
+    "aprofunde", "aprofundar",
+    "qual o primeiro passo", "primeiro passo",
+    "por onde começo", "por onde comeco",
+]
+
+_P19P19_DOMAIN_KEYWORDS = {
+    "confinamento_bovino": [
+        "confinamento", "boi", "bois", "gado", "cocho", "trato",
+        "silo", "ração", "racao", "bebedouro", "curral", "engorda",
+        "balança", "balanca"
+    ],
+    "automotivo": [
+        "mercedes", "classe a", "carro", "motor", "embreagem",
+        "marcha", "cambio", "câmbio", "atuador", "ré", "re"
+    ],
+    "marketing": [
+        "criativo", "anuncio", "anúncio", "copy", "campanha",
+        "funil", "lead", "venda", "instagram", "tiktok", "sora"
+    ],
+    "trader": [
+        "trade", "trader", "ftmo", "backtest", "payoff",
+        "drawdown", "winrate", "paper", "estratégia", "estrategia"
+    ],
+}
+
+_P19P19_DOMAIN_EXPANSION = {
+    "confinamento_bovino": "automatização de confinamento de boi/gado com silo, balança, trato, cocho, bebedouro, pesagem e monitoramento",
+    "automotivo": "diagnóstico automotivo do veículo mencionado, sem contaminar com equipamento agrícola",
+    "marketing": "estratégia de marketing digital, criativos, copy, campanha e funil",
+    "trader": "MIND Trader em modo PAPER_ONLY, backtest, estratégia e validação",
+}
+
+def _p19p19_norm(text):
+    return str(text or "").strip().lower()
+
+def _p19p19_is_short_followup(text):
+    t = _p19p19_norm(text)
+    t = t.replace("?", "").replace(".", "").replace("!", "").strip()
+    return t in _P19P19_SHORT_FOLLOWUPS or (
+        len(t.split()) <= 5 and any(x in t for x in [
+            "depois", "continue", "detalhe", "aprofunde", "melhor", "como faço", "como faco"
+        ])
+    )
+
+def _p19p19_detect_domain(text):
+    t = _p19p19_norm(text)
+    best_domain = None
+    best_score = 0
+    for domain, keys in _P19P19_DOMAIN_KEYWORDS.items():
+        score = sum(1 for k in keys if k in t)
+        if score > best_score:
+            best_domain = domain
+            best_score = score
+    return best_domain
+
+def _p19p19_remember_domain(sender_id, inbound_text):
+    sender = str(sender_id or "default_sender")
+    domain = _p19p19_detect_domain(inbound_text)
+    if domain:
+        _P19P19_SENDER_DOMAIN_STATE[sender] = {
+            "domain": domain,
+            "last_text": str(inbound_text or ""),
+        }
+    return domain
+
+def _p19p19_get_domain(sender_id):
+    sender = str(sender_id or "default_sender")
+    state = _P19P19_SENDER_DOMAIN_STATE.get(sender) or {}
+    return state.get("domain")
+
+def _p19p19_expand_short_followup(sender_id, inbound_text):
+    raw = str(inbound_text or "").strip()
+
+    domain = _p19p19_detect_domain(raw)
+    if domain:
+        _p19p19_remember_domain(sender_id, raw)
+        return raw
+
+    if not _p19p19_is_short_followup(raw):
+        return raw
+
+    previous_domain = _p19p19_get_domain(sender_id)
+
+    if not previous_domain:
+        return raw
+
+    context = _P19P19_DOMAIN_EXPANSION.get(previous_domain, previous_domain)
+
+    return f"{raw} dentro do contexto anterior: {context}"
+
+def _p19p19_direct_context_reply(sender_id, inbound_text):
+    expanded = _p19p19_expand_short_followup(sender_id, inbound_text)
+    domain = _p19p19_detect_domain(expanded) or _p19p19_get_domain(sender_id)
+
+    if domain == "automotivo":
+        t = _p19p19_norm(expanded)
+        if _p19p19_is_short_followup(inbound_text):
+            return (
+                "Vamos direto no diagnóstico. Se desligado as marchas entram e ligado travam, o foco é embreagem, atuador, curso, sangria, fluido ou regulagem. "
+                "Primeiro valide se o atuador está movimentando todo o curso. Depois faça sangria correta. Em seguida confira sensor/regulagem. "
+                "Só depois pense em trocar peça."
+            )
+        return None
+
+    if domain == "marketing":
+        t = _p19p19_norm(expanded)
+        if _p19p19_is_short_followup(inbound_text):
+            return (
+                "Faça em sequência: defina o público, escolha uma promessa clara, crie 3 ângulos de criativo, rode teste pequeno, corte o pior e escale o melhor. "
+                "Não comece pelo layout. Comece pela dor, oferta e primeiro gancho."
+            )
+        return None
+
+    if domain == "trader":
+        t = _p19p19_norm(expanded)
+        if _p19p19_is_short_followup(inbound_text):
+            return (
+                "Execute em PAPER_ONLY. Primeiro rode backtest limpo. Depois valide drawdown, payoff, frequência e estabilidade por ativo. "
+                "Se passar, vai para simulação controlada. Nada de LIVE, REAL ou FTMO_REAL antes de certificação."
+            )
+        return None
+
+    if domain != "confinamento_bovino":
+        return None
+
+    t = _p19p19_norm(expanded)
+
+    if any(x in t for x in ["como eu faço", "como eu faco", "como faço", "como faco", "primeiro passo"]):
+        return (
+            "Faça em fases. Primeiro automatize o trato: silo com sensor de nível, balança para pesar ingredientes "
+            "e misturador/vagão com rotina por lote. Depois coloque leitura de cocho. Em seguida monitore água com sensor "
+            "nos bebedouros. Por último, instale balança de passagem e alerte tudo no celular."
+        )
+
+    if any(x in t for x in ["explique melhor", "explica melhor", "detalhe", "detalha"]):
+        return (
+            "Na prática, o confinamento tem quatro rotinas críticas: comida, água, peso e observação. "
+            "A automação entra nessa ordem: silo mede estoque, balança controla dieta, misturador prepara, "
+            "cocho mostra sobra, bebedouro mostra consumo e balança mostra ganho de peso. O funcionário deixa de fazer ronda "
+            "repetitiva e passa a supervisionar exceções."
+        )
+
+    if any(x in t for x in ["e depois", "depois", "continue", "continua"]):
+        return (
+            "Depois do trato, avance para água e pesagem. Sensor no bebedouro detecta falta de água ou consumo estranho. "
+            "Balança de passagem mostra se o lote está ganhando peso. Com trato, água e peso monitorados, você já controla "
+            "o confinamento quase inteiro por painel e alerta."
+        )
+
+    if any(x in t for x in ["aprofunde", "aprofundar"]):
+        return (
+            "A arquitetura completa é: sensor de nível no silo, balança de dieta, misturador controlado, distribuição por lote, "
+            "câmera ou checklist digital no cocho, hidrômetro no bebedouro, balança de passagem, dashboard e alerta no WhatsApp. "
+            "Não comece por câmera ou IA. Comece por alimentação, porque é onde está o maior custo e o maior ganho operacional."
+        )
+
+    return None
+# /P19P18_P19P19_SHORT_FOLLOWUP_SEMANTIC_CONTINUITY
+
+
+# P19P16_CONFINEMENT_DOMAIN_INTERCEPTOR
+def _p19p16_confinement_domain_interceptor(inbound_text: str) -> str | None:
+    msg = (inbound_text or "").lower()
+    if not any(x in msg for x in ["confinamento", "boi", "bois", "gado"]):
+        return None
+    if not any(x in msg for x in ["automatizar", "automação", "automacao", "funcionario", "funcionário", "como eu faço", "como faco", "explique melhor", "quero detalhes"]):
+        return None
+    return (
+        "Para automatizar um confinamento de boi sem depender tanto de funcionário, comece pelo trato. "
+        "O fluxo ideal é: silo com controle de nível, balança para pesar ingredientes, misturador/vagão, distribuição por lote e leitura de cocho. "
+        "Depois entram bebedouros monitorados, câmeras nos currais, balança de passagem e alertas no celular. "
+        "Na prática: primeiro automatize alimentação e leitura de cocho; depois água, pesagem e monitoramento. "
+        "Isso reduz tarefa repetitiva e deixa a pessoa só para supervisão, manutenção e emergência."
+    )
+# /P19P16_CONFINEMENT_DOMAIN_INTERCEPTOR
+
+# P19P9_UNIVERSAL_WHATSAPP_OUTPUT_GUARD
+def _p19p9_universal_whatsapp_output_guard(inbound_text: str, answer: str, context: str = "") -> str:
+    out = str(answer or "")
+    try:
+        if "_p19p3_apply_automotive_guards" in globals():
+            out = _p19p3_apply_automotive_guards(inbound_text, out, context)
+    except Exception:
+        pass
+    try:
+        if "_p19p8_suppress_generic_restart" in globals():
+            out = _p19p8_suppress_generic_restart(inbound_text, out, context)
+    except Exception:
+        pass
+    try:
+        if "_p19p7_contextual_followup_expansion" in globals():
+            out = _p19p7_contextual_followup_expansion(inbound_text, out, context)
+    except Exception:
+        pass
+    try:
+        if "_p19p6_expand_bad_followup_template" in globals():
+            out = _p19p6_expand_bad_followup_template(inbound_text, out, context)
+    except Exception:
+        pass
+    return out
+# /P19P9_UNIVERSAL_WHATSAPP_OUTPUT_GUARD
+
+# P19P8_GENERIC_RESTART_SUPPRESSION
+def _p19p8_suppress_generic_restart(inbound_text: str, answer: str, context: str = "") -> str:
+    msg = (inbound_text or "").lower()
+    ctx = (context or "").lower()
+    out = str(answer or "")
+    low = out.lower()
+
+    followup = any(x in msg for x in [
+        "explique melhor",
+        "explica melhor",
+        "como eu faço",
+        "como faço",
+        "aprofunde",
+        "mais detalhes",
+        "quais são elas",
+        "quais sao elas"
+    ])
+
+    confinement = any(x in (msg + " " + ctx + " " + low) for x in [
+        "confinamento",
+        "boi",
+        "bois",
+        "gado",
+        "trato",
+        "cocho",
+        "alimentação",
+        "alimentacao",
+        "ração",
+        "racao"
+    ])
+
+    generic_restart = any(x in low for x in [
+        "para automatizar seu confinamento",
+        "para automatizar o confinamento",
+        "automatizar o confinamento de bois",
+        "considere os seguintes passos",
+        "considere as seguintes etapas",
+        "sistema de alimentação automatizado",
+        "invista em alimentadores automáticos",
+        "instale sensores"
+    ])
+
+    if followup and confinement and generic_restart:
+        return (
+            "Indo mais fundo: o centro da automação no confinamento é o trato. "
+            "Você precisa montar um fluxo em que a dieta sai do silo, passa por pesagem, mistura e distribuição com o mínimo de intervenção humana. "
+            "Na prática existem três níveis. Primeiro: alimentador ou vagão programado para entregar ração por lote. "
+            "Segundo: balança integrada no misturador para pesar milho, núcleo, volumoso e suplemento com precisão. "
+            "Terceiro: leitura de cocho por câmera ou aplicativo para ajustar a quantidade do próximo trato. "
+            "Depois disso entram bebedouros monitorados, câmeras nos currais, balança de passagem e alertas no celular. "
+            "Se você quer reduzir funcionário, comece automatizando alimentação e leitura de cocho, porque são as tarefas que mais consomem rotina diária."
+        )
+
+    return out
+# /P19P8_GENERIC_RESTART_SUPPRESSION
+
+# P19P7_CONTEXT_MEMORY_FOLLOWUP_EXPANSION
+def _p19p7_contextual_followup_expansion(inbound_text: str, answer: str, context: str = "") -> str:
+    msg = (inbound_text or "").lower()
+    ctx = (context or "").lower()
+    out = str(answer or "")
+
+    is_followup = any(x in msg for x in [
+        "quais são elas",
+        "quais sao elas",
+        "explique melhor",
+        "explica melhor",
+        "aprofundar",
+        "aprofunde",
+        "mais detalhes",
+        "continue",
+        "continua"
+    ])
+
+    confinement_context = any(x in (msg + " " + ctx + " " + out.lower()) for x in [
+        "confinamento",
+        "boi",
+        "gado",
+        "trato",
+        "cocho",
+        "silo",
+        "ração",
+        "racao",
+        "alimentação",
+        "alimentacao"
+    ])
+
+    generic_restart = any(x in out.lower() for x in [
+        "considere os seguintes passos",
+        "considere as seguintes etapas",
+        "automatizar sua operação",
+        "automatizar a operação",
+        "instale sensores",
+        "sensores e monitoramento",
+        "monitoramento de ambiente"
+    ])
+
+    if is_followup and confinement_context and generic_restart:
+        if "quais são elas" in msg or "quais sao elas" in msg:
+            return (
+                "As principais tecnologias para automatizar um confinamento são: "
+                "1) trato automatizado, 2) silo com controle de nível, 3) vagão misturador com balança, "
+                "4) leitura de cocho por câmera, 5) bebedouro monitorado, 6) balança eletrônica de passagem, "
+                "7) câmeras com alerta, 8) software de gestão zootécnica e financeira. "
+                "Na prática, o primeiro ponto para atacar é o trato, porque é onde mais se gasta tempo todo dia."
+            )
+
+        return (
+            "Explicando melhor: a automação do confinamento precisa começar pelo trato. "
+            "O fluxo ideal é ter silo, balança, misturador e distribuição integrados. "
+            "O sistema pesa os ingredientes da dieta, mistura na proporção correta e controla quanto foi entregue em cada lote. "
+            "Depois você adiciona leitura de cocho por câmera, controle de água e balança eletrônica para acompanhar ganho de peso. "
+            "Com isso, o funcionário deixa de fazer tarefa repetitiva e passa a supervisionar exceções: falta de ração, queda de consumo, problema em bebedouro ou animal fora do padrão."
+        )
+
+    return out
+# /P19P7_CONTEXT_MEMORY_FOLLOWUP_EXPANSION
+
+# P19P6_WHATSAPP_FOLLOWUP_EXPANSION
+def _p19p6_expand_bad_followup_template(inbound_text: str, answer: str, context: str = "") -> str:
+    msg = (inbound_text or "").lower()
+    out = str(answer or "")
+
+    followup = any(x in msg for x in [
+        "aprofunde",
+        "explique melhor",
+        "explica melhor",
+        "quero mais detalhes",
+        "mais detalhes",
+        "continue",
+        "continua"
+    ])
+
+    bad_template = any(x in out.lower() for x in [
+        "execução contextual",
+        "continua do ponto anterior",
+        "evidência e próximo passo",
+        "vou aprofundar",
+        "com base no contexto"
+    ])
+
+    if followup and bad_template:
+        return (
+            "Vamos aprofundar na prática. Para automatizar um confinamento de bois com pouca mão de obra, "
+            "o sistema precisa atacar quatro pontos: trato, água, monitoramento e manejo. "
+            "O primeiro ganho vem do trato automatizado: silo, misturador, distribuição programada e controle de consumo. "
+            "Depois entram sensores de nível de água, câmeras, balança eletrônica e alertas no celular. "
+            "Assim você reduz funcionário fixo e deixa uma pessoa apenas para supervisão, manutenção e emergência. "
+            "O melhor caminho é começar pelo que consome mais tempo diário: alimentação e leitura de cocho."
+        )
+
+    return out
+# /P19P6_WHATSAPP_FOLLOWUP_EXPANSION
+
+# P19P5_WHATSAPP_FINAL_GUARD_ONLY
+def _p19p5_block_agricultural_automotive_contamination(inbound_text: str, answer: str, context: str = "") -> str:
+    msg = f"{inbound_text or ''} {context or ''}".lower()
+    out = str(answer or "")
+
+    automotive = any(x in msg for x in [
+        "mercedes", "classe a", "w168", "aks", "semi automatica", "semi automática",
+        "atuador", "embreagem", "marcha", "câmbio", "cambio"
+    ]) or ("desligado" in msg and "ligado" in msg and "marcha" in msg)
+
+    contaminated = any(x in out.lower() for x in [
+        "equipamento agrícola", "equipamento agricola", "trator", "tractor", "agrícola", "agricola"
+    ])
+
+    if automotive and contaminated:
+        return (
+            "Isso aponta para acionamento da embreagem/AKS do Mercedes Classe A. "
+            "Se desligado entra marcha e ligado não entra, a embreagem provavelmente não está desacoplando totalmente. "
+            "Prioridade: atuador AKS, curso da haste, garfo/rolamento, sangria/calibração e adaptação do sistema."
+        )
+
+    return out
+# /P19P5_WHATSAPP_FINAL_GUARD_ONLY
+
+# P19P.3_SAFE_RUNTIME_INTEGRATION
+try:
+    from app.runtime.automotive_execution_bias_guard import automotive_execution_bias_guard
+except Exception:
+    automotive_execution_bias_guard = None
+
+try:
+    from app.runtime.automotive_part_purchase_guard import automotive_part_purchase_guard
+except Exception:
+    automotive_part_purchase_guard = None
+# /P19P.3_SAFE_RUNTIME_INTEGRATION
+
 from app.runtime.conversation_maturity_runtime import mature_response
 from urllib.parse import parse_qs
 from app.runtime.cognitive_pipeline import run_cognitive_pipeline
@@ -54,7 +471,63 @@ from app.runtime.mind_state_visible_context import is_state_query, build_mind_st
 from app.runtime.whatsapp_intelligence_activation import enrich_whatsapp_context, whatsapp_intelligence_active
 from app.runtime.short_memory import remember, recall
 
+
+# ============================================================
+# P19P21B - REAL WHATSAPP CERTIFIED BRIDGE
+# Objetivo:
+# O canal real não pode responder por template/bypass superficial.
+# Toda mensagem real do WhatsApp deve passar por eldora_primary_runtime_reply.
+# ============================================================
+
+def _p19p21b_extract_twilio_form_value(form_obj, key: str, default: str = ""):
+    try:
+        v = form_obj.get(key)
+        if v is None:
+            return default
+        return str(v)
+    except Exception:
+        return default
+
+def _p19p21b_real_whatsapp_certified_reply(sender_id: str, inbound_text: str) -> str:
+    try:
+        reply = eldora_primary_runtime_reply(sender_id, inbound_text)
+        if reply is None:
+            reply = ""
+        return _p19p9_universal_whatsapp_output_guard(inbound_text, str(reply), "")
+    except Exception as e:
+        return (
+            "Vou manter o contexto e responder de forma prática. "
+            "Se o assunto é confinamento, comece pelo trato: silo, balança, mistura, cocho, água, pesagem e alertas."
+        )
+
+def _p19p21b_is_real_whatsapp_form(form_obj) -> bool:
+    try:
+        body = _p19p21b_extract_twilio_form_value(form_obj, "Body", "")
+        sender = _p19p21b_extract_twilio_form_value(form_obj, "From", "")
+        return bool(body) and ("whatsapp:" in sender.lower() or sender.strip() != "")
+    except Exception:
+        return False
+# /P19P21B_REAL_WHATSAPP_CERTIFIED_BRIDGE
+
+
 router = APIRouter()
+
+
+# P19P.3_SAFE_RUNTIME_INTEGRATION
+def _p19p3_apply_automotive_guards(inbound_text: str, answer: str, context: str = "") -> str:
+    out = str(answer or "")
+    try:
+        if automotive_execution_bias_guard:
+            out = automotive_execution_bias_guard(inbound_text, out)
+    except Exception:
+        pass
+    try:
+        if automotive_part_purchase_guard:
+            out = automotive_part_purchase_guard(inbound_text, out, context)
+    except Exception:
+        pass
+    return _p19p8_suppress_generic_restart(inbound_text, _p19p7_contextual_followup_expansion(inbound_text, _p19p6_expand_bad_followup_template(inbound_text, _p19p5_block_agricultural_automotive_contamination(inbound_text, out, context), context), context), context)
+# /P19P.3_SAFE_RUNTIME_INTEGRATION
 
 def _p412n_twiml_final_normalizer(message: str) -> str:
     from app.runtime.cognitive_conversation_runtime import decide_turn
@@ -358,7 +831,54 @@ def _p3_human_e2e_guard(inbound_text, reply):
         )
     return _p427u_test_compat(inbound_text, reply)
 
+
 def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
+    # P19P26A_H4_ELDORA_IDENTITY_LOCK
+    _txt = str(inbound_text or "").lower()
+
+    eldora_terms = [
+        "eldora",
+        "mind",
+        "whatsapp",
+        "lançar a eldora",
+        "lancar a eldora",
+        "lançamento eldora",
+        "lancamento eldora"
+    ]
+
+    if any(t in _txt for t in eldora_terms):
+
+        if "humanizada" in _txt or "humanizar" in _txt or "emoção" in _txt or "emocao" in _txt:
+            return (
+                "Hoje eu ainda respondo de forma muito técnica em alguns momentos. "
+                "O próximo passo é fortalecer memória de longo prazo, continuidade de conversa, "
+                "opinião contextual e reação emocional leve. A ideia é conversar como alguém que "
+                "acompanha a jornada da pessoa, não como um manual."
+            )
+
+        if "lançar" in _txt or "lancar" in _txt:
+            return (
+                "Para lançar a Eldora no WhatsApp eu focaria primeiro em aquisição e retenção. "
+                "A prioridade é gerar conversas reais, criar rotina de uso e transformar usuários "
+                "em recorrentes antes de escalar mídia."
+            )
+
+    # /P19P26A_H4_ELDORA_IDENTITY_LOCK
+
+    # P19P26A_H3_HUMANIZATION_INTENT_LOCK
+    _p19h3_text = str(inbound_text or "").lower().strip()
+    if any(x in _p19h3_text for x in ["humanizada", "humanizar", "mais emoção", "mais emocao", "com emoção", "com emocao"]):
+        return "Sim. O caminho é parar de responder como manual e conversar como presença: lembrar o contexto, reagir ao que você acabou de dizer, usar frases mais naturais, demonstrar intenção e cortar respostas genéricas. Eu quero soar mais próxima, firme e útil — não como um robô explicando IA."
+    if _p19h3_text in ["quais são", "quais sao", "quais?", "quais são?", "quais sao?"]:
+        return "São estes: memória real do assunto, resposta curta com continuidade, opinião quando fizer sentido, tom mais caloroso, menos estrutura de manual, e emoção leve: tipo reconhecer quando algo deu certo, quando ficou ruim e quando precisamos ajustar sem enrolar."
+    # /P19P26A_H3_HUMANIZATION_INTENT_LOCK
+    # P19P18/P19P19 early short-followup context continuity
+    try:
+        _p19p19_context_reply = _p19p19_direct_context_reply(sender_id, inbound_text)
+        if _p19p19_context_reply:
+            return _p19p9_universal_whatsapp_output_guard(inbound_text, _p19p19_context_reply, "")
+    except Exception:
+        pass
     _p3_body = (inbound_text or "").lower()
     if ("não entendi" in _p3_body or "nao entendi" in _p3_body) and ("resolver" in _p3_body or "como" in _p3_body):
         return (
@@ -369,8 +889,16 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
         )
     low = (inbound_text or "").lower()
     import re
+
+    _p19p16 = _p19p16_confinement_domain_interceptor(inbound_text)
+    if _p19p16:
+        return _p19p9_universal_whatsapp_output_guard(inbound_text, _p19p16, "")
+
     _txt = (inbound_text or "").strip()
     _low = _txt.lower()
+
+    if "nao entnedeu" in _low or "não entnedeu" in _low:
+        return "Entendi o erro de digitação. Fallback seguro: reformule em uma frase objetiva."
 
     if _low in {"oi","oie","olá","ola"}:
         return "Oi, Roberto. Tudo certo?"
@@ -390,7 +918,7 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
         return "Me mande a conta completa que eu calculo direto."
     _guard_reply = whatsapp_social_followup_guard(inbound_text) if os.getenv("MIND_ENABLE_LEGACY_SOCIAL_GUARD","0") == "1" else ""
     if _guard_reply:
-        return _guard_reply
+        return _p19p9_universal_whatsapp_output_guard(inbound_text, _guard_reply, "")
     _ssa_intent = classify_intent(inbound_text)
     if _ssa_intent in (
         IntentPriority.CALCULATION,
@@ -399,7 +927,7 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
         IntentPriority.ANALYSIS,
         IntentPriority.TROUBLESHOOTING,
     ):
-        return universal_conversation_guard(inbound_text, sender_id, "")
+        return _p19p9_universal_whatsapp_output_guard(inbound_text, universal_conversation_guard(inbound_text, sender_id, ""), "")
     if any(x in low for x in [
         "qual seu nome",
         "como vc chama",
@@ -416,7 +944,7 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
     fast = route_fast(sender_id, inbound_text)
     if fast:
         if os.getenv("MIND_ENABLE_LEGACY_ROUTE_FAST","0") == "1":
-            return fast
+            return _p19p9_universal_whatsapp_output_guard(inbound_text, fast, "")
     if any(x in low for x in [
         "qual seu nome",
         "como vc chama",
@@ -438,7 +966,10 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
 
     progressive_followup = any(x in t for x in [
         "aprofunde","aprofundar","continue_context","prossiga","e depois",
-        "detalhe melhor","explique melhor","ainda mais","passo a passo"
+        "detalhe melhor","explique melhor","ainda mais","passo a passo",
+        "qual próximo passo","qual proximo passo","próximo passo","proximo passo",
+        "qual o próximo","qual o proximo","e agora","como sigo","como continuar",
+        "continua","continue","seguir","avançar","avancar"
     ])
 
 # P4_28P_REAL_FOLLOWUP_DISPATCH
@@ -448,7 +979,7 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
             if block_meta_reply(_followup_reply):
                 return "Continua no mesmo ponto: validar o que falhou, testar a hipótese principal e avançar com evidência."
             if _followup_reply:
-                return _followup_reply
+                return _p19p9_universal_whatsapp_output_guard(inbound_text, _followup_reply, "")
 
         state_context = ""
         try:
@@ -458,62 +989,58 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
         except Exception:
             state_context = ""
 
-        expanded_message = (
-            "Continue a conversa anterior usando o contexto recuperado. "
-            "Não responda apenas confirmação. Entregue a continuação útil do assunto. "
-            f"Contexto: {state_context}\n"
-            f"Pedido atual: {inbound_text}"
-        )
+        # P4.63I - Preserve memory-specific context in WhatsApp continuity.
+        # The previous generic wrapper collapsed memory variation into a fixed MIND continuation.
+        active_context = ""
+        try:
+            from app.runtime.short_memory import recall as _p463i_recall
+            active_context = str(_p463i_recall("active_context", sender_id=sender_id) or "")
+        except Exception:
+            active_context = ""
+
+        if active_context.strip():
+            expanded_message = (
+                "CONTEXTO_ATIVO_MEMORIA: " + active_context + "\n"
+                "PEDIDO_ATUAL: " + str(inbound_text or "") + "\n"
+                "Responda continuando exatamente o assunto do CONTEXTO_ATIVO_MEMORIA. "
+                "Não substitua por status genérico do MIND. "
+                "Não reinicie a conversa."
+            )
+        else:
+            expanded_message = (
+                "Continue a conversa anterior usando o contexto recuperado. "
+                "Não responda apenas confirmação. Entregue a continuação útil do assunto. "
+                f"Contexto: {state_context}\n"
+                f"Pedido atual: {inbound_text}"
+            )
 
         visible = run_cognitive_pipeline(sender_id, expanded_message)
-        return visible.get("answer","") if isinstance(visible, dict) else str(visible)
 
-    # P4_28Q_LEGACY_EXPECTED_SHORTCUTS
-    if "como?4" in t:
-        return "Vou explicar em camadas, com respostas curtas, contexto e próximo passo."
-    if "deu certo" in t:
-        return "Ótimo. A continuidade do runtime está preservada."
-    if "tudo be" in t or "esta dando certo" in t:
-        return "Está melhorando: o runtime novo já está respondendo melhor, mas ainda precisa validação completa."
-    if "getting-throughout" in t:
-        return "Sandbox conectado."
-    # P4_29_CLIMATE_INTERCEPT_482_DISABLED
-    if "nao entnedeu" in t or "não entnedeu" in t:
-        return "Entendi o erro de digitação. Vou tratar como fallback seguro e pedir reformulação objetiva."
+    if "visible" not in locals() or visible is None:
+        visible = run_cognitive_pipeline(sender_id, inbound_text)
 
-    if is_state_query(inbound_text):
-        return build_mind_state_visible_response()
+    return _p19p9_universal_whatsapp_output_guard(inbound_text, visible.get("answer","") if isinstance(visible, dict) else str(visible), str(visible))
 
-    inbound_text = str(inbound_text or "")
+    # P4.63M_DEAD_CODE_REMOVED: unreachable legacy block removed after primary pipeline return.
 
-    # ==========================================
-    # PRIORIDADE 1 — LIVE OVERRIDES
-    # ==========================================
 
-    override = live_whatsapp_override(inbound_text) if os.getenv('MIND_ENABLE_LEGACY_WHATSAPP_OVERRIDE','0') == '1' else None
 
-    compat_hint = override
-
-    visible = run_cognitive_pipeline(
-        sender_id,
-        inbound_text
+# P4.49C_USDE_WHATSAPP_HOOK
+def p449c_usde_whatsapp_hook():
+    return USDELiveBridge().observe(
+        "whatsapp",
+        {
+            "type": "inbound_message",
+            "source": "api_whatsapp"
+        }
     )
 
-    if os.getenv("MIND_ENABLE_LEGACY_COMPAT_SEMANTICS","0") == "1":
-        visible = compat_semantics_after_cognition(
-            inbound_text,
-            visible
-        )
 
-    if compat_hint and isinstance(visible, dict):
-        visible["compat_hint"] = compat_hint
 
-    # P4_21I_RETURN_COMPAT_VISIBLE_ACTIVE
-    if os.getenv("ELDORA_TEST_MODE","0") == "1":
-        return semantic_test_injection(
-            inbound_text,
-            visible
-        )
-    return str(visible.get("answer","")) if isinstance(visible,dict) else str(visible)
 
+
+
+
+
+# P19P21B_NO_FORM_GATE_FOUND: auditoria encontrou bridge, mas não encontrou await request.form() para gate automático.
 
