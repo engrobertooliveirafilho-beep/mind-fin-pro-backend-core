@@ -137,6 +137,95 @@ def _p19p26a_h3_clean_direct_reply(reply):
 # /P19P26A_H3_DIRECT_REPLY_CLEANER
 
 # P19P22E2_TRACE_HELPER
+
+# P19P28L_FIX11K_TRACE_SAFE_DEFAULT
+try:
+    _fix11k_trace
+except NameError:
+    _fix11k_trace = []
+# /P19P28L_FIX11K_TRACE_SAFE_DEFAULT
+
+
+# P19P28L_SAFE_MARK_DEFAULT
+try:
+    mark
+except NameError:
+    def mark(trace, stage, value=None):
+        try:
+            trace.append({"stage": stage, "value": str(value)[:500]})
+        except Exception:
+            pass
+# /P19P28L_SAFE_MARK_DEFAULT
+
+
+# P19P28M_MAIN_PRE_ROUTER_FITNESS_LOCK
+try:
+    from starlette.responses import Response
+    from urllib.parse import parse_qs
+    from app.domains.fitness_runtime import is_fitness as _p19p28m_is_fitness
+    from app.domains.fitness_runtime import is_fitness_followup as _p19p28m_is_fitness_followup
+    from app.domains.fitness_runtime import reply as _p19p28m_fitness_reply
+    from app.context_runtime.p19p28_context import bind as _p19p28m_bind
+    from app.context_runtime.p19p28_context import get as _p19p28m_get
+except Exception:
+    Response = None
+    parse_qs = None
+    _p19p28m_is_fitness = None
+    _p19p28m_is_fitness_followup = None
+    _p19p28m_fitness_reply = None
+    _p19p28m_bind = None
+    _p19p28m_get = None
+
+def _p19p28m_twiml(msg: str):
+    return Response(
+        content=f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>{msg}</Message></Response>',
+        media_type="application/xml"
+    )
+
+async def _p19p28m_main_pre_router(request):
+    if request.url.path != "/webhook/whatsapp" or request.method.upper() != "POST":
+        return None
+    if not _p19p28m_is_fitness or not parse_qs or not Response:
+        return None
+
+    raw = await request.body()
+    data = parse_qs(raw.decode("utf-8", errors="ignore"))
+    body = (data.get("Body", [""])[0] or "").strip()
+    sender = (data.get("From", ["unknown"])[0] or "unknown").strip()
+
+    # P19P29B_UNIVERSAL_CONTEXT_INSIDE_P19P28M
+    try:
+        from app.context_runtime.universal_domain_context import resolve as _p19p29_resolve
+        from app.domains.universal_domain_router import route_domain_reply as _p19p29_route_domain_reply
+
+        resolved = _p19p29_resolve(sender, body)
+        mode = resolved.get("mode")
+        ctxu = resolved.get("context") or {}
+
+        if mode == "followup" and not resolved.get("has_context"):
+            return _p19p28m_twiml("Sobre qual assunto? Preciso do tópico exato para continuar sem inventar contexto.")
+
+        if mode in ["followup", "new_domain"] and ctxu.get("active_domain"):
+            reply = _p19p29_route_domain_reply(body, ctxu)
+            if reply:
+                return _p19p28m_twiml(reply)
+    except Exception:
+        pass
+    # /P19P29B_UNIVERSAL_CONTEXT_INSIDE_P19P28M
+
+    if _p19p28m_is_fitness(body):
+        if _p19p28m_bind:
+            _p19p28m_bind(sender, "fitness", body)
+        return _p19p28m_twiml(_p19p28m_fitness_reply(body))
+
+    ctx = _p19p28m_get(sender) if _p19p28m_get else {}
+    if ctx.get("active_domain") == "fitness" and _p19p28m_is_fitness_followup(body):
+        return _p19p28m_twiml(_p19p28m_fitness_reply(body))
+
+    return None
+# /P19P28M_MAIN_PRE_ROUTER_FITNESS_LOCK
+
+
 from pathlib import Path as _p19p22e2_Path
 import json as _p19p22e2_json
 import time as _p19p22e2_time
@@ -254,6 +343,15 @@ app = FastAPI(title="NEURA Cloud Runtime")
 
 @app.middleware("http")
 async def live_contract_middleware_patch(request, call_next):
+
+    # P19P28M_MAIN_PRE_ROUTER_CALL
+    try:
+        _p19p28m_response = await _p19p28m_main_pre_router(request)
+        if _p19p28m_response is not None:
+            return _p19p28m_response
+    except Exception:
+        pass
+
     # LIVE_CONTRACT_MIDDLEWARE_PATCH
     event("MAIN_INTERCEPTOR_CHECK", route="/webhook/whatsapp", module_name="app.main")
     if request.url.path == "/webhook/whatsapp" and request.method.upper() == "POST":
