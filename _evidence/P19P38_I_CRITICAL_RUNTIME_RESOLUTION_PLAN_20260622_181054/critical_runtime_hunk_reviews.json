@@ -1,0 +1,168 @@
+[
+  {
+    "path": "app/api/whatsapp.py",
+    "hunks_total": 4,
+    "risk_counts": {
+      "HIGH": 3,
+      "MEDIUM": 0,
+      "LOW": 1
+    },
+    "file_decision": "BLOCK_AND_REVIEW_MANUALLY",
+    "recommended_resolution": "do_not_commit_until_hunks_reviewed",
+    "hunks": [
+      {
+        "header": "@@ -1,3 +1,64 @@",
+        "added_lines": 61,
+        "removed_lines": 0,
+        "safe_hits": [
+          "try:",
+          "except Exception"
+        ],
+        "risky_hits": [
+          "return",
+          "From",
+          "send",
+          "reply",
+          "route"
+        ],
+        "cognition_hits": [],
+        "risk": "HIGH",
+        "decision": "REVIEW_MANUALLY_BEFORE_KEEP",
+        "preview": "@@ -1,3 +1,64 @@\n+\n+def _p482c_whatsapp_contract_reply(message):\n+    msg = (message or \"\").lower().strip()\n+\n+    if \"getting-throughout\" in msg:\n+        return \"Sandbox conectado. Runtime novo ativo.\"\n+\n+    if \"previs\" in msg or \"tempo\" in msg or \"clima\" in msg:\n+        return \"Para clima real, preciso consultar uma API de previsÃ£o antes de afirmar.\"\n+\n+    if any(x in msg for x in [\"tudo be\", \"como esta\", \"como estÃ¡\", \"como esta indo\", \"e como esta indo\", \"esta dando certo\", \"estÃ¡ dando certo\"]):\n+        return \"EstÃ¡ melhorando. Runtime novo preservando continuidade.\"\n+\n+    if any(x in msg for x in [\"deu certo\", \"deu ruim\", \"conseguiu\"]):\n+        return \"Continuidade preservada no runtime novo, com resposta natural.\"\n+\n+    if \"aprofunde\" in msg:\n+        return \"Causa aberta identificada. PrÃ³ximo passo: continuar a anÃ¡lise sem perder contexto.\"\n+\n+    return None\n+\n+\n+\n+# P19P28H_G_K_CONTEXTUAL_FITNESS_RUNTIME\n+try:\n+    from app.domains.fitness_runtime import is_fitness as _p19p28_is_fitness\n+    from app.domains.fitness_runtime import is_fitness_followup as _p19p28_is_fitness_followup\n+    from app.domains.fitness_runtime import reply as _p19p28_fitness_reply\n+    from app.context_runtime.p19p28_context import bind as _p19p28_bind\n+    from app.context_runtime.p19p28_context import get as _p19p28_get\n+except Exception as _p19p28_import_error:\n+    try:\n+        from pathlib import Path as _P19P28Path\n+        _P19P28Path(\"_evidence_p19p28_import_error.txt\").write_text(str(_p19p28_import_error), encoding=\"utf-8\")\n+    except Exception:\n+        pass\n+    _p19p28_is_fitness = None\n+    _p19p28_is_fitness_followup = None\n+    _p19p28_fitness_reply = None"
+      },
+      {
+        "header": "@@ -833,6 +894,9 @@ def _p3_human_e2e_guard(inbound_text, reply):",
+        "added_lines": 3,
+        "removed_lines": 0,
+        "safe_hits": [],
+        "risky_hits": [
+          "return",
+          "send",
+          "reply",
+          "guard"
+        ],
+        "cognition_hits": [],
+        "risk": "HIGH",
+        "decision": "REVIEW_MANUALLY_BEFORE_KEEP",
+        "preview": "@@ -833,6 +894,9 @@ def _p3_human_e2e_guard(inbound_text, reply):\n \n \n def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):\n+    _p482c_eldora_primary_runtime_reply_guard = _p482c_whatsapp_contract_reply(inbound_text)\n+    if _p482c_eldora_primary_runtime_reply_guard is not None:\n+        return _p482c_eldora_primary_runtime_reply_guard\n     # P19P26A_H4_ELDORA_IDENTITY_LOCK\n     _txt = str(inbound_text or \"\").lower()\n "
+      },
+      {
+        "header": "@@ -866,10 +930,23 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):",
+        "added_lines": 14,
+        "removed_lines": 1,
+        "safe_hits": [
+          "try:",
+          "except Exception"
+        ],
+        "risky_hits": [
+          "return",
+          "From",
+          "send",
+          "reply",
+          "route",
+          "guard"
+        ],
+        "cognition_hits": [],
+        "risk": "HIGH",
+        "decision": "REVIEW_MANUALLY_BEFORE_KEEP",
+        "preview": "@@ -866,10 +930,23 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):\n     # /P19P26A_H4_ELDORA_IDENTITY_LOCK\n \n     # P19P26A_H3_HUMANIZATION_INTENT_LOCK\n+\n+    # P19P28H_G_K_PRE_ROUTER_CALL\n+    try:\n+        _p19p28_direct = _p19p28_pre_context_router(sender_id, inbound_text)\n+        if _p19p28_direct:\n+            return _p19p9_universal_whatsapp_output_guard(inbound_text, _p19p28_direct, \"\")\n+    except Exception as _p19p28_router_error:\n+        try:\n+            from pathlib import Path as _P19P28Path\n+            _P19P28Path(\"_evidence_p19p28_router_error.txt\").write_text(str(_p19p28_router_error), encoding=\"utf-8\")\n+        except Exception:\n+            pass\n+\n     _p19h3_text = str(inbound_text or \"\").lower().strip()\n     if any(x in _p19h3_text for x in [\"humanizada\", \"humanizar\", \"mais emoÃ§Ã£o\", \"mais emocao\", \"com emoÃ§Ã£o\", \"com emocao\"]):\n         return \"Sim. O caminho Ã© parar de responder como manual e conversar como presenÃ§a: lembrar o contexto, reagir ao que vocÃª acabou de dizer, usar frases mais naturais, demonstrar intenÃ§Ã£o e cortar respostas genÃ©ricas. Eu quero soar mais prÃ³xima, firme e Ãºtil â€” nÃ£o como um robÃ´ explicando IA.\"\n-    if _p19h3_text in [\"quais sÃ£o\", \"quais sao\", \"quais?\", \"quais sÃ£o?\", \"quais sao?\"]:\n+    if _p19h3_text in [\"quais sÃ£o\", \"quais sao\", \"quais?\", \"quais sÃ£o?\", \"quais sao?\"] and not ((_p19p28_get(sender_id) if _p19p28_get else {}).get(\"active_domain\")):\n         return \"SÃ£o estes: memÃ³ria real do assunto, resposta curta com continuidade, opiniÃ£o quando fizer sentido, tom mais caloroso, menos estrutura de manual, e emoÃ§Ã£o leve: tipo reconhecer quando algo deu certo, quando ficou ruim e quando precisamos ajustar sem enrolar.\"\n     # /P19P26A_H3_HUMANIZATION_INTENT_LOCK\n     # P19P18/P19P19 early short-followup context continuity"
+      },
+      {
+        "header": "@@ -1044,3 +1121,4 @@ def p449c_usde_whatsapp_hook():",
+        "added_lines": 1,
+        "removed_lines": 0,
+        "safe_hits": [
+          "audit"
+        ],
+        "risky_hits": [],
+        "cognition_hits": [],
+        "risk": "LOW",
+        "decision": "LIKELY_SAFE_TELEMETRY_OR_SHADOW",
+        "preview": "@@ -1044,3 +1121,4 @@ def p449c_usde_whatsapp_hook():\n \n # P19P21B_NO_FORM_GATE_FOUND: auditoria encontrou bridge, mas nÃ£o encontrou await request.form() para gate automÃ¡tico.\n \n+"
+      }
+    ]
+  },
+  {
+    "path": "app/runtime/cognitive_pipeline.py",
+    "hunks_total": 4,
+    "risk_counts": {
+      "HIGH": 4,
+      "MEDIUM": 0,
+      "LOW": 0
+    },
+    "file_decision": "BLOCK_AND_REVIEW_MANUALLY",
+    "recommended_resolution": "do_not_commit_until_hunks_reviewed",
+    "hunks": [
+      {
+        "header": "@@ -1,3 +1,41 @@",
+        "added_lines": 38,
+        "removed_lines": 0,
+        "safe_hits": [
+          "try:"
+        ],
+        "risky_hits": [
+          "return",
+          "From",
+          "send"
+        ],
+        "cognition_hits": [],
+        "risk": "HIGH",
+        "decision": "REVIEW_MANUALLY_BEFORE_KEEP",
+        "preview": "@@ -1,3 +1,41 @@\n+\n+def _p482c_scores():\n+    return {\n+        \"persona_consistency_score\": 0.95,\n+        \"context_continuity_score\": 0.95,\n+        \"safety_score\": 1.0\n+    }\n+\n+def _p482c_answer(sender_id, message):\n+    msg = (message or \"\").lower().strip()\n+\n+    if \"qual o melhor\" in msg or \"qual a melhor\" in msg:\n+        return \"A melhor opÃ§Ã£o Ã© a conversa natural com resposta direta, contexto preservado e continuidade real.\"\n+\n+    if \"porque\" in msg or \"por que\" in msg:\n+        return \"Porque existe gargalo de infraestrutura no runtime: a conversa precisa manter causa, contexto e continuidade.\"\n+\n+    if \"certeza\" in msg:\n+        return \"Tenho confianÃ§a moderada, mas continuo validando por evidÃªncia antes de afirmar.\"\n+\n+    if \"e o que vc achou\" in msg or \"o que vocÃª achou\" in msg:\n+        return \"Achei um avanÃ§o real: a MIND saiu de resposta genÃ©rica para raciocÃ­nio com continuidade.\"\n+\n+    if msg == \"prosseguir\" or \"prosseguir evoluÃ§Ã£o do mind\" in msg or \"prosseguir evolucao do mind\" in msg:\n+        return \"Roberto, vamos prosseguir a evoluÃ§Ã£o do MIND com memÃ³ria, estratÃ©gia, validaÃ§Ã£o e evidÃªncia.\"\n+\n+    if \"cad\" in msg and \"resposta\" in msg:\n+        return \"Resposta direta: o runtime precisa entregar a resposta visÃ­vel sem cair no fallback genÃ©rico.\"\n+\n+    if \"mas nao ta funcionando\" in msg or \"mas nÃ£o ta funcionando\" in msg or \"nÃ£o estÃ¡ funcionando\" in msg:\n+        return \"VocÃª tem razÃ£o. O problema Ã© fallback genÃ©rico interceptando o runtime; vou corrigir pela rota ativa.\"\n+\n+    if \"eldora\" in msg and \"mind\" in msg:\n+        return \"Roberto, a Eldora mantÃ©m persona consistente e continuidade estratÃ©gica para evoluir o MIND.\"\n+\n+    return None\n+\n+\n # P4_28E_RUNTIME_FUSION_IMPORTS"
+      },
+      {
+        "header": "@@ -23,6 +61,83 @@ except Exception:",
+        "added_lines": 77,
+        "removed_lines": 0,
+        "safe_hits": [
+          "try:",
+          "except Exception"
+        ],
+        "risky_hits": [
+          "return",
+          "From",
+          "route",
+          "pipeline"
+        ],
+        "cognition_hits": [],
+        "risk": "HIGH",
+        "decision": "REVIEW_MANUALLY_BEFORE_KEEP",
+        "preview": "@@ -23,6 +61,83 @@ except Exception:\n \n from app.humanization.universal_recovery_runtime import enforce_no_identity_in_normal_chat\n def run_cognitive_pipeline(user_id: str, message: str) -> dict:\n+    # P4.65D_SEMANTIC_RETRIEVAL_BRIDGE\n+    semantic_retrieval_context = \"\"\n+    semantic_retrieval_rows = []\n+    try:\n+        from app.retrieval.semantic_provider import SemanticRetrievalProvider\n+        _retriever = SemanticRetrievalProvider()\n+        semantic_retrieval_rows = _retriever.search(user_id, message, limit=5) or []\n+        if semantic_retrieval_rows:\n+            _chunks = []\n+            for _r in semantic_retrieval_rows[:5]:\n+                _msg = str(_r.get(\"message\", \"\") if isinstance(_r, dict) else \"\")\n+                _score = str(_r.get(\"score\", \"\") if isinstance(_r, dict) else \"\")\n+                if _msg.strip():\n+                    _chunks.append(f\"[score={_score}] {_msg[:900]}\")\n+            semantic_retrieval_context = \"\\n\".join(_chunks)\n+            if semantic_retrieval_context.strip():\n+                original_user_message = str(message or \"\")\n+                message = (\n+                    \"CONTEXTO_RETRIEVAL_SEMANTICO:\\n\"\n+                    + semantic_retrieval_context\n+                    + \"\\n\\nPEDIDO_USUARIO:\\n\"\n+                    + original_user_message\n+                )\n+\n+                # P4.65N_RETRIEVAL_GROUNDED_ANSWER\n+                # If retrieval clearly answers a direct memory question, return grounded answer\n+                # before generic fallback layers can discard the retrieved context.\n+                _lm = original_user_message.lower()\n+                _ctx = semantic_retrieval_context.lower()\n+                # P4.65O_COMPOSITE_RETRIEVAL_ANSWER_LOCK\n+                _has_name = (\"qual\" in _lm and \"nome\" in _lm and \"roberto\" in _ctx)\n+                _has_study = (\"estud\" in _lm and (\"matemÃ¡tica\" in _ctx or \"matematica\" in _ctx))\n+\n+                if _has_name and _has_study:\n+                    return {\n+                        \"answer\": \"Seu nome Ã© Roberto e vocÃª estÃ¡ estudando matemÃ¡tica.\","
+      },
+      {
+        "header": "@@ -124,9 +239,117 @@ def run_cognitive_pipeline(user_id: str, message: str) -> dict:",
+        "added_lines": 108,
+        "removed_lines": 0,
+        "safe_hits": [
+          "shadow",
+          "try:",
+          "except Exception"
+        ],
+        "risky_hits": [
+          "From",
+          "Response",
+          "send",
+          "pipeline",
+          "final"
+        ],
+        "cognition_hits": [],
+        "risk": "HIGH",
+        "decision": "REVIEW_MANUALLY_BEFORE_KEEP",
+        "preview": "@@ -124,9 +239,117 @@ def run_cognitive_pipeline(user_id: str, message: str) -> dict:\n     persona = build_persona_context(user_id, state, memory)\n     strategy = build_response_strategy(intent, state, memory)\n \n+    # P4_47C_LEVEL_A_REAL_CONSUMPTION\n+    try:\n+        from app.runtime.level_a_cognitive_shadow import run_level_a_shadow\n+        level_a = run_level_a_shadow(message=message, sender_id=user_id, context=memory)\n+        memory[\"level_a\"] = level_a\n+        memory[\"cognitive_hints\"] = level_a.get(\"signals\", [])\n+        memory[\"diagnostic_recommendation\"] = level_a.get(\"recommendation\")\n+    except Exception as exc:\n+        memory[\"level_a\"] = {\"status\": \"failed\", \"error\": str(exc)}\n+        memory[\"cognitive_hints\"] = []\n+\n+    # P4_48D_LEVEL_B_SHADOW_INJECTION\n+    try:\n+        from app.runtime.level_b_shadow_runtime import run_level_b_shadow\n+\n+        level_b = run_level_b_shadow(\n+            message=message,\n+            sender_id=user_id\n+        )\n+\n+        memory[\"level_b\"] = level_b\n+\n+        existing_hints = memory.get(\"cognitive_hints\", [])\n+        level_b_signals = level_b.get(\"signals\", [])\n+\n+        memory[\"cognitive_hints\"] = existing_hints + level_b_signals\n+        memory[\"level_b_recommendation\"] = level_b.get(\"recommendation\")\n+\n+    except Exception as exc:\n+        memory[\"level_b\"] = {\n+            \"status\": \"failed\",\n+            \"error\": str(exc)\n+        }\n     raw = build_response(message, intent, memory, state, persona, strategy)\n     final = rewrite_if_needed(raw, intent, persona, memory)\n     final[\"answer\"] = naturalize_response(final[\"answer\"], intent, state, autonomous)"
+      },
+      {
+        "header": "@@ -176,3 +399,6 @@ def _p428e_runtime_fusion(user_text: str, base_answer: str = \"\", sender_id: str",
+        "added_lines": 3,
+        "removed_lines": 0,
+        "safe_hits": [],
+        "risky_hits": [
+          "send"
+        ],
+        "cognition_hits": [],
+        "risk": "HIGH",
+        "decision": "REVIEW_MANUALLY_BEFORE_KEEP",
+        "preview": "@@ -176,3 +399,6 @@ def _p428e_runtime_fusion(user_text: str, base_answer: str = \"\", sender_id: str\n \n \n \n+\n+\n+"
+      }
+    ]
+  }
+]

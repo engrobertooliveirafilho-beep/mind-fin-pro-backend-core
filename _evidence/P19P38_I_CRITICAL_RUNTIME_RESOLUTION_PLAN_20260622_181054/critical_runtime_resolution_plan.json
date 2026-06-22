@@ -1,0 +1,14 @@
+[
+  {
+    "path": "app/api/whatsapp.py",
+    "action": "manual_hunk_review_required",
+    "safe_command": "git diff -- \"app/api/whatsapp.py\"",
+    "do_not_run_automatically": true
+  },
+  {
+    "path": "app/runtime/cognitive_pipeline.py",
+    "action": "manual_hunk_review_required",
+    "safe_command": "git diff -- \"app/runtime/cognitive_pipeline.py\"",
+    "do_not_run_automatically": true
+  }
+]
