@@ -1,0 +1,182 @@
+[
+  {
+    "path": "app/companionship/self_reflection_engine.py",
+    "files": 1,
+    "symbols": 2,
+    "syntax_ok": true,
+    "flags_or_shadow_hits": 1,
+    "test_refs": 1,
+    "status": "PRODUCTION_CANDIDATE",
+    "errors": []
+  },
+  {
+    "path": "app/runtime/capability_orchestrator.py",
+    "files": 1,
+    "symbols": 2,
+    "syntax_ok": true,
+    "flags_or_shadow_hits": 0,
+    "test_refs": 3,
+    "status": "SHADOW_CANDIDATE",
+    "errors": []
+  },
+  {
+    "path": "app/runtime/capability_recovery_bridge.py",
+    "files": 1,
+    "symbols": 3,
+    "syntax_ok": true,
+    "flags_or_shadow_hits": 0,
+    "test_refs": 1,
+    "status": "SHADOW_CANDIDATE",
+    "errors": []
+  },
+  {
+    "path": "app/runtime/capability_usage_ledger.py",
+    "files": 1,
+    "symbols": 1,
+    "syntax_ok": true,
+    "flags_or_shadow_hits": 0,
+    "test_refs": 1,
+    "status": "SHADOW_CANDIDATE",
+    "errors": []
+  },
+  {
+    "path": "app/runtime/drive_capability_absorption.py",
+    "files": 1,
+    "symbols": 3,
+    "syntax_ok": true,
+    "flags_or_shadow_hits": 0,
+    "test_refs": 1,
+    "status": "SHADOW_CANDIDATE",
+    "errors": []
+  },
+  {
+    "path": "app/runtime/followup_unified_resolver.py",
+    "files": 1,
+    "symbols": 2,
+    "syntax_ok": true,
+    "flags_or_shadow_hits": 0,
+    "test_refs": 0,
+    "status": "ARCHIVE_ONLY",
+    "errors": []
+  },
+  {
+    "path": "app/runtime/knowledge_extraction_engine.py",
+    "files": 1,
+    "symbols": 11,
+    "syntax_ok": true,
+    "flags_or_shadow_hits": 0,
+    "test_refs": 2,
+    "status": "SHADOW_CANDIDATE",
+    "errors": []
+  },
+  {
+    "path": "app/runtime/memory_adapter.py",
+    "files": 1,
+    "symbols": 2,
+    "syntax_ok": true,
+    "flags_or_shadow_hits": 0,
+    "test_refs": 2,
+    "status": "SHADOW_CANDIDATE",
+    "errors": []
+  },
+  {
+    "path": "app/runtime/memory_store.py",
+    "files": 1,
+    "symbols": 6,
+    "syntax_ok": true,
+    "flags_or_shadow_hits": 0,
+    "test_refs": 3,
+    "status": "SHADOW_CANDIDATE",
+    "errors": []
+  },
+  {
+    "path": "app/runtime/p19_unified_pipeline.py",
+    "files": 1,
+    "symbols": 1,
+    "syntax_ok": true,
+    "flags_or_shadow_hits": 0,
+    "test_refs": 0,
+    "status": "ARCHIVE_ONLY",
+    "errors": []
+  },
+  {
+    "path": "app/p7_adapters",
+    "files": 5,
+    "symbols": 11,
+    "syntax_ok": true,
+    "flags_or_shadow_hits": 0,
+    "test_refs": 1,
+    "status": "SHADOW_CANDIDATE",
+    "errors": []
+  },
+  {
+    "path": "app/p8_shadow",
+    "files": 9,
+    "symbols": 17,
+    "syntax_ok": true,
+    "flags_or_shadow_hits": 4,
+    "test_refs": 5,
+    "status": "PRODUCTION_CANDIDATE",
+    "errors": []
+  },
+  {
+    "path": "app/p9_runtime_consumption",
+    "files": 6,
+    "symbols": 8,
+    "syntax_ok": true,
+    "flags_or_shadow_hits": 1,
+    "test_refs": 1,
+    "status": "PRODUCTION_CANDIDATE",
+    "errors": []
+  },
+  {
+    "path": "app/p10_activation_stack",
+    "files": 7,
+    "symbols": 9,
+    "syntax_ok": true,
+    "flags_or_shadow_hits": 1,
+    "test_refs": 1,
+    "status": "PRODUCTION_CANDIDATE",
+    "errors": []
+  },
+  {
+    "path": "app/p16_real_use_case",
+    "files": 9,
+    "symbols": 14,
+    "syntax_ok": true,
+    "flags_or_shadow_hits": 3,
+    "test_refs": 8,
+    "status": "PRODUCTION_CANDIDATE",
+    "errors": []
+  },
+  {
+    "path": "app/p17_value_proof",
+    "files": 4,
+    "symbols": 7,
+    "syntax_ok": true,
+    "flags_or_shadow_hits": 2,
+    "test_refs": 3,
+    "status": "PRODUCTION_CANDIDATE",
+    "errors": []
+  },
+  {
+    "path": "app/p18_conversational_execution",
+    "files": 10,
+    "symbols": 13,
+    "syntax_ok": true,
+    "flags_or_shadow_hits": 3,
+    "test_refs": 7,
+    "status": "PRODUCTION_CANDIDATE",
+    "errors": []
+  },
+  {
+    "path": "app/p19_real_world_validation",
+    "files": 2,
+    "symbols": 1,
+    "syntax_ok": true,
+    "flags_or_shadow_hits": 1,
+    "test_refs": 2,
+    "status": "PRODUCTION_CANDIDATE",
+    "errors": []
+  }
+]
