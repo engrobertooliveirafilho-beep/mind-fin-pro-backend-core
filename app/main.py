@@ -25,6 +25,8 @@ def _p19p26a_h8_filter_xml_response(message, xml):
         return wrap("Pra lançar a Eldora no WhatsApp, eu focaria em conversa real e retenção: entrada simples, resposta curta, memória funcionando e motivo claro pra pessoa voltar. Depois disso sim escala tráfego.")
 
     if msg in short_followups:
+        if _p19p30d_has_universal_context(sender):
+            return out
         intent = _P19P27B_LAST_INTENT.get(sender, "")
         if intent == "humanization":
             return wrap("São estes: memória real do contexto, continuidade sem resetar assunto, opinião quando fizer sentido, emoção leve, menos resposta de manual e mais presença na conversa.")
@@ -45,6 +47,8 @@ def _p19p26a_h8_filter_xml_response(message, xml):
         return wrap("O caminho é eu parar de soar como tutorial. Preciso lembrar o contexto, responder com intenção, ter opinião e usar emoção leve sem virar personagem artificial.")
 
     if msg.strip() in ["quais são", "quais sao", "quais?", "quais são?", "quais sao?"]:
+        if _p19p30d_has_universal_context(sender if "sender" in locals() else "unknown"):
+            return out
         return wrap("São estes: memória real, continuidade, resposta menos engessada, opinião contextual, emoção leve e zero reset do assunto.")
 
     return out
@@ -72,6 +76,8 @@ def _p19p26a_h7_final_direct_humanizer(message, reply):
         return "O caminho é eu parar de responder como tutorial. Preciso manter contexto, reagir ao que você acabou de falar, ter opinião e usar emoção leve sem virar personagem artificial."
 
     if msg.strip() in ["quais são", "quais sao", "quais?", "quais são?", "quais sao?"]:
+        if _p19p30d_has_universal_context(locals().get("sender_id", "unknown")):
+            return txt
         return "São estes: memória real, continuidade, resposta menos engessada, opinião contextual, emoção leve e zero reset do assunto."
 
     return txt
@@ -113,6 +119,8 @@ def _p19p26a_h5_humanize_webhook_output(message, reply):
         )
 
     if msg.strip() in ["quais são", "quais sao", "quais?", "quais são?", "quais sao?"]:
+        if _p19p30d_has_universal_context(locals().get("sender_id", "unknown")):
+            return txt
         return (
             "São estes: memória real do contexto, frases mais naturais, menos lista engessada, "
             "opinião contextual, reação emocional leve e continuidade sem resetar o assunto."
@@ -157,6 +165,28 @@ except NameError:
             pass
 # /P19P28L_SAFE_MARK_DEFAULT
 
+
+
+# P19P30D_LEGACY_INTERCEPTOR_CONTAINMENT
+def _p19p30d_has_universal_context(sender_id):
+    try:
+        from app.context_runtime.universal_domain_context import get as _p19p30d_get_ctx
+        ctx = _p19p30d_get_ctx(sender_id or "unknown")
+        return bool(ctx and ctx.get("active_domain"))
+    except Exception:
+        return False
+
+def _p19p30d_is_short_followup_text(text):
+    try:
+        t = str(text or "").lower().strip()
+        return t in {
+            "quais", "quais?", "quais são", "quais sao", "quais são?", "quais sao?",
+            "prossiga", "continue", "continua", "e depois", "e depois?",
+            "explique melhor", "detalhe", "detalha", "próximo passo", "proximo passo"
+        }
+    except Exception:
+        return False
+# /P19P30D_LEGACY_INTERCEPTOR_CONTAINMENT
 
 # P19P28M_MAIN_PRE_ROUTER_FITNESS_LOCK
 try:
@@ -209,6 +239,13 @@ async def _p19p28m_main_pre_router(request):
             reply = _p19p29_route_domain_reply(body, ctxu)
             if reply:
                 return _p19p28m_twiml(reply)
+
+        # P19P30D_CONTEXT_FIRST_SHORT_FOLLOWUP_ARBITER
+        if _p19p30d_is_short_followup_text(body) and ctxu.get("active_domain"):
+            reply = _p19p29_route_domain_reply(body, ctxu)
+            if reply:
+                return _p19p28m_twiml(reply)
+        # /P19P30D_CONTEXT_FIRST_SHORT_FOLLOWUP_ARBITER
     except Exception:
         pass
     # /P19P29B_UNIVERSAL_CONTEXT_INSIDE_P19P28M
