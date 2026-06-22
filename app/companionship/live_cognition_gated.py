@@ -70,3 +70,81 @@ def attach_live_cognition_shadow(ctx: Dict[str, Any] | None = None) -> Dict[str,
     ctx = dict(ctx or {})
     ctx["p19p37f_live_cognition_decision"] = build_live_cognition_decision(ctx)
     return ctx
+
+
+def _rank_items(items):
+    values = list(items or [])
+    ranked = []
+
+    for idx,item in enumerate(values):
+        ranked.append({
+            "rank": idx + 1,
+            "value": item,
+        })
+
+    return ranked
+
+
+def build_p19p46_live_cognition_evolution(
+    *,
+    contexts=None,
+    goals=None,
+    memories=None,
+    reflections=None,
+):
+    """
+    P19P46
+
+    Shadow-only live cognition layer.
+    """
+
+    context_items = list(contexts or [])
+    goal_items = list(goals or [])
+    memory_items = list(memories or [])
+    reflection_items = list(reflections or [])
+
+    context_ranking = _rank_items(context_items)
+    goal_ranking = _rank_items(goal_items)
+    memory_ranking = _rank_items(memory_items)
+    reflection_ranking = _rank_items(reflection_items)
+
+    priority_engine = {
+        "context_priority_count": len(context_ranking),
+        "goal_priority_count": len(goal_ranking),
+        "memory_priority_count": len(memory_ranking),
+        "reflection_priority_count": len(reflection_ranking),
+    }
+
+    decision_engine = {
+        "recommended_focus": (
+            "goal"
+            if len(goal_ranking) >= len(context_ranking)
+            else "context"
+        ),
+        "signal_count": (
+            len(context_items)
+            + len(goal_items)
+            + len(memory_items)
+            + len(reflection_items)
+        ),
+    }
+
+    return {
+        "program": "P19P46",
+        "mode": "SHADOW_ONLY",
+        "live_cognition_evolution": {
+            "decision_engine": decision_engine,
+            "priority_engine": priority_engine,
+            "context_ranking": context_ranking,
+            "goal_ranking": goal_ranking,
+            "memory_ranking": memory_ranking,
+            "reflection_ranking": reflection_ranking,
+        },
+        "safety": {
+            "runtime_mutation": False,
+            "response_mutation": False,
+            "rollbackable": True,
+            "canary_ready": True,
+        },
+    }
+
