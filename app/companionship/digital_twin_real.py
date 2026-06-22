@@ -92,3 +92,60 @@ def attach_digital_twin_shadow(ctx: Dict[str, Any] | None = None, sender: str = 
     ctx = dict(ctx or {})
     ctx["p19p37a_digital_twin_real_shadow"] = build_digital_twin_snapshot(sender, ctx)
     return ctx
+
+
+def build_p19p43_digital_twin_evolution(
+    *,
+    user_profile=None,
+    interests=None,
+    goals=None,
+    relationship_memory=None,
+    behavior_model=None,
+):
+    """
+    P19P43 Digital Twin Evolution.
+
+    Shadow-only evolution layer.
+    Does not mutate runtime.
+    Does not mutate outbound responses.
+    """
+
+    profile = dict(user_profile or {})
+    interest_items = list(interests or [])
+    goal_items = list(goals or [])
+    relationship = dict(relationship_memory or {})
+    behavior = dict(behavior_model or {})
+
+    signals = {
+        "profile_signal_count": len(profile.keys()),
+        "interest_signal_count": len(interest_items),
+        "goal_signal_count": len(goal_items),
+        "relationship_signal_count": len(relationship.keys()),
+        "behavior_signal_count": len(behavior.keys()),
+    }
+
+    total = sum(signals.values())
+    confidence = min(1.0, round(total / 10.0, 4))
+
+    return {
+        "program": "P19P43",
+        "mode": "SHADOW_ONLY",
+        "digital_twin_evolution": {
+            "user_profile_evolution": profile,
+            "interest_evolution": interest_items,
+            "goal_evolution": goal_items,
+            "relationship_evolution": relationship,
+            "behavior_evidence": behavior,
+            "confidence_scoring": {
+                "score": confidence,
+                "basis": signals,
+            },
+        },
+        "safety": {
+            "runtime_mutation": False,
+            "response_mutation": False,
+            "rollbackable": True,
+            "canary_ready": True,
+        },
+    }
+
