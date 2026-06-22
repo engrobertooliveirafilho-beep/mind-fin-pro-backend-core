@@ -23,6 +23,10 @@ def safe_import(module_name: str):
 
 def collect_recovered_context(sender: str, text: str, base_ctx: Dict[str, Any] | None = None) -> Dict[str, Any]:
     ctx = dict(base_ctx or {})
+    try:
+        ctx = collect_memory_shadow(sender, text, ctx)
+    except Exception:
+        pass
     recovered: List[Dict[str, Any]] = []
 
     for module_name in RECOVERED_MODULES:
@@ -81,6 +85,7 @@ def record_shadow_telemetry(sender: str, text: str, ctx: dict, reply: str) -> No
             "active_subject": (ctx or {}).get("active_subject"),
             "recovered_shadow_context_count": len((ctx or {}).get("recovered_shadow_context", [])),
             "recovered_shadow_context": (ctx or {}).get("recovered_shadow_context", []),
+            "memory_shadow": (ctx or {}).get("p19p36k_memory_shadow", {}),
             "reply_preview": (reply or "")[:300],
         }
         with TELEMETRY.open("a", encoding="utf-8") as f:
@@ -88,3 +93,63 @@ def record_shadow_telemetry(sender: str, text: str, ctx: dict, reply: str) -> No
     except Exception:
         pass
 # /P19P36H_SHADOW_TELEMETRY
+
+
+# P19P36K_SAFE_MEMORY_ADAPTER_V2
+def _p19p36k_normalize_memory_item(x):
+    try:
+        if isinstance(x, str):
+            return x.strip()
+        return str(x).strip()
+    except Exception:
+        return ""
+
+def _p19p36k_get_memory_store():
+    try:
+        from app.runtime.memory_store import SimpleMemoryStore
+        return SimpleMemoryStore()
+    except Exception:
+        return None
+
+def remember_user_message(sender: str, text: str) -> bool:
+    try:
+        t = str(text or "").strip()
+        if not t:
+            return False
+        store = _p19p36k_get_memory_store()
+        if not store:
+            return False
+        store.save(sender or "unknown", t)
+        return True
+    except Exception:
+        return False
+
+def recall_user_history(sender: str, limit: int = 8):
+    try:
+        store = _p19p36k_get_memory_store()
+        if not store:
+            return []
+        items = store.recall(sender or "unknown", int(limit))
+        if not isinstance(items, list):
+            return []
+        clean = []
+        for x in items:
+            v = _p19p36k_normalize_memory_item(x)
+            if v:
+                clean.append(v)
+        return clean[-int(limit):]
+    except Exception:
+        return []
+
+def collect_memory_shadow(sender: str, text: str, base_ctx: dict | None = None) -> dict:
+    ctx = dict(base_ctx or {})
+    remembered = remember_user_message(sender, text)
+    history = recall_user_history(sender, 8)
+
+    ctx["p19p36k_memory_shadow"] = {
+        "remembered": remembered,
+        "history_count": len(history),
+        "history": history,
+    }
+    return ctx
+# /P19P36K_SAFE_MEMORY_ADAPTER_V2
