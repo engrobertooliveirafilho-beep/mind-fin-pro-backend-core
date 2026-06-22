@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import importlib
 from typing import Any, Dict, List
+from app.companionship.cognitive_context_builder import attach_cognitive_context_shadow
 
 # P19P36O_B_RELATIONSHIP_MEMORY_SHADOW_WIRING
 try:
@@ -642,4 +643,29 @@ def record_p19p36n_memory_fusion_telemetry(sender: str, text: str, ctx: dict | N
 
 
 
+
+
+
+def attach_p19p40_cognitive_context_shadow(ctx, user_id=None, feature_flags=None):
+    """
+    P19P40 shadow-only cognitive context wiring.
+    Does not mutate production response.
+    Does not enable runtime behavior.
+    """
+    base = dict(ctx or {})
+    result = attach_cognitive_context_shadow(
+        base,
+        user_id=user_id,
+        feature_flags=feature_flags or {"P19P40_COGNITIVE_CONTEXT_SHADOW": False},
+    )
+    result["p19p40_cognitive_context_shadow_telemetry"] = {
+        "program": "P19P40",
+        "mode": "SHADOW_ONLY",
+        "adapter": "safe_recovery_adapter",
+        "context_attached": "cognitive_context" in result,
+        "runtime_mutation": False,
+        "response_mutation": False,
+        "rollbackable": True,
+    }
+    return result
 
