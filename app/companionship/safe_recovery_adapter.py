@@ -5,9 +5,10 @@ from typing import Any, Dict, List
 
 # P19P36O_B_RELATIONSHIP_MEMORY_SHADOW_WIRING
 try:
-    from app.companionship.relationship_memory_store import update_relationship_memory_shadow
+    from app.companionship.relationship_memory_store import update_relationship_memory_shadow, attach_relationship_memory_advisor_shadow
 except Exception:
     update_relationship_memory_shadow = None
+    attach_relationship_memory_advisor_shadow = None
 # /P19P36O_B_RELATIONSHIP_MEMORY_SHADOW_WIRING
 
 # P19P36G_SAFE_RECOVERY_ADAPTER
@@ -72,6 +73,11 @@ def collect_recovered_context(sender: str, text: str, base_ctx: Dict[str, Any] |
             ctx["p19p36o_relationship_memory_shadow"] = update_relationship_memory_shadow(sender, text)
     except Exception:
         pass
+    try:
+        if attach_relationship_memory_advisor_shadow:
+            ctx = attach_relationship_memory_advisor_shadow(ctx, sender=sender, text=text)
+    except Exception:
+        pass
     ctx["recovered_shadow_context"] = recovered
     return ctx
 
@@ -109,6 +115,7 @@ def record_shadow_telemetry(sender: str, text: str, ctx: dict, reply: str) -> No
             "memory_fusion_shadow": (ctx or {}).get("p19p36l_memory_fusion_shadow", {}),
             "memory_fusion_advisor_shadow": (ctx or {}).get("p19p36m_memory_fusion_advisor_shadow", {}),
             "relationship_memory_shadow": (ctx or {}).get("p19p36o_relationship_memory_shadow", {}),
+            "relationship_memory_advisor_shadow": (ctx or {}).get("p19p36o_relationship_memory_advisor_shadow", {}),
             "reply_preview": (reply or "")[:300],
         }
         with TELEMETRY.open("a", encoding="utf-8") as f:
@@ -609,6 +616,7 @@ def record_p19p36n_memory_fusion_telemetry(sender: str, text: str, ctx: dict | N
     except Exception:
         pass
 # /P19P36N_MEMORY_FUSION_LIVE_GATED
+
 
 
 
