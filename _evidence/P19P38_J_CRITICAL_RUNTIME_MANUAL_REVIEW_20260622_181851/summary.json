@@ -1,0 +1,17 @@
+{
+  "mission": "P19P38_J_CRITICAL_RUNTIME_MANUAL_REVIEW",
+  "status": "AUDIT_ONLY_PASS",
+  "runtime_modified": false,
+  "files_moved": false,
+  "files_deleted": false,
+  "generated_at": "2026-06-22T21:18:52.772596+00:00",
+  "hunks_total": 8,
+  "blocking_hunks": 7,
+  "p19p39_allowed": false,
+  "counts": {
+    "REVIEW_LINE_BY_LINE": 4,
+    "KEEP_CANDIDATE_TELEMETRY": 1,
+    "ISOLATE_COGNITION_PATCH": 2,
+    "UNKNOWN_MANUAL_DECISION": 1
+  }
+}
