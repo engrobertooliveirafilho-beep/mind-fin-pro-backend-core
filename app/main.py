@@ -240,6 +240,16 @@ async def _p19p28m_main_pre_router(request):
             if reply:
                 # P19P31_P19P36_COMPANION_RUNTIME_ENRICHMENT
                 try:
+                    from app.companionship.safe_recovery_adapter import collect_recovered_context as _p19p36h_collect_recovered_context
+                    from app.companionship.safe_recovery_adapter import enrich_reply_shadow as _p19p36h_enrich_reply_shadow
+                    from app.companionship.safe_recovery_adapter import record_shadow_telemetry as _p19p36h_record_shadow_telemetry
+                    ctxu = _p19p36h_collect_recovered_context(sender, body, ctxu)
+                    reply = _p19p36h_enrich_reply_shadow(sender, body, ctxu, reply)
+                    _p19p36h_record_shadow_telemetry(sender, body, ctxu, reply)
+                except Exception:
+                    pass
+
+                try:
                     from app.companionship.p19p31_p19p36_companion_runtime import compose_reply as _p19p31_compose_reply
                     reply = _p19p31_compose_reply(sender, body, ctxu, reply)
                 except Exception:
