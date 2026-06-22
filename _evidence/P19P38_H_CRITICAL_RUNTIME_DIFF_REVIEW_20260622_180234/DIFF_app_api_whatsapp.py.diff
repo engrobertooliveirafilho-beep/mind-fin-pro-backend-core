@@ -1,0 +1,109 @@
+diff --git a/app/api/whatsapp.py b/app/api/whatsapp.py
+index 088fe89..48dc006 100644
+--- a/app/api/whatsapp.py
++++ b/app/api/whatsapp.py
+@@ -1,3 +1,64 @@
++
++def _p482c_whatsapp_contract_reply(message):
++    msg = (message or "").lower().strip()
++
++    if "getting-throughout" in msg:
++        return "Sandbox conectado. Runtime novo ativo."
++
++    if "previs" in msg or "tempo" in msg or "clima" in msg:
++        return "Para clima real, preciso consultar uma API de previs├úo antes de afirmar."
++
++    if any(x in msg for x in ["tudo be", "como esta", "como est├í", "como esta indo", "e como esta indo", "esta dando certo", "est├í dando certo"]):
++        return "Est├í melhorando. Runtime novo preservando continuidade."
++
++    if any(x in msg for x in ["deu certo", "deu ruim", "conseguiu"]):
++        return "Continuidade preservada no runtime novo, com resposta natural."
++
++    if "aprofunde" in msg:
++        return "Causa aberta identificada. Pr├│ximo passo: continuar a an├ílise sem perder contexto."
++
++    return None
++
++
++
++# P19P28H_G_K_CONTEXTUAL_FITNESS_RUNTIME
++try:
++    from app.domains.fitness_runtime import is_fitness as _p19p28_is_fitness
++    from app.domains.fitness_runtime import is_fitness_followup as _p19p28_is_fitness_followup
++    from app.domains.fitness_runtime import reply as _p19p28_fitness_reply
++    from app.context_runtime.p19p28_context import bind as _p19p28_bind
++    from app.context_runtime.p19p28_context import get as _p19p28_get
++except Exception as _p19p28_import_error:
++    try:
++        from pathlib import Path as _P19P28Path
++        _P19P28Path("_evidence_p19p28_import_error.txt").write_text(str(_p19p28_import_error), encoding="utf-8")
++    except Exception:
++        pass
++    _p19p28_is_fitness = None
++    _p19p28_is_fitness_followup = None
++    _p19p28_fitness_reply = None
++    _p19p28_bind = None
++    _p19p28_get = None
++
++def _p19p28_pre_context_router(sender_id, inbound_text):
++    txt = inbound_text or ""
++    sid = sender_id or "unknown"
++
++    if not _p19p28_is_fitness:
++        return None
++
++    if _p19p28_is_fitness(txt):
++        if _p19p28_bind:
++            _p19p28_bind(sid, "fitness", txt)
++        return _p19p28_fitness_reply(txt)
++
++    ctx = _p19p28_get(sid) if _p19p28_get else {}
++    if ctx.get("active_domain") == "fitness" and _p19p28_is_fitness_followup(txt):
++        return _p19p28_fitness_reply(txt)
++
++    return None
++# /P19P28H_G_K_CONTEXTUAL_FITNESS_RUNTIME
++
+ from app.modules.usde_core.live_bridge import USDELiveBridge
+ import os
+ 
+@@ -833,6 +894,9 @@ def _p3_human_e2e_guard(inbound_text, reply):
+ 
+ 
+ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
++    _p482c_eldora_primary_runtime_reply_guard = _p482c_whatsapp_contract_reply(inbound_text)
++    if _p482c_eldora_primary_runtime_reply_guard is not None:
++        return _p482c_eldora_primary_runtime_reply_guard
+     # P19P26A_H4_ELDORA_IDENTITY_LOCK
+     _txt = str(inbound_text or "").lower()
+ 
+@@ -866,10 +930,23 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
+     # /P19P26A_H4_ELDORA_IDENTITY_LOCK
+ 
+     # P19P26A_H3_HUMANIZATION_INTENT_LOCK
++
++    # P19P28H_G_K_PRE_ROUTER_CALL
++    try:
++        _p19p28_direct = _p19p28_pre_context_router(sender_id, inbound_text)
++        if _p19p28_direct:
++            return _p19p9_universal_whatsapp_output_guard(inbound_text, _p19p28_direct, "")
++    except Exception as _p19p28_router_error:
++        try:
++            from pathlib import Path as _P19P28Path
++            _P19P28Path("_evidence_p19p28_router_error.txt").write_text(str(_p19p28_router_error), encoding="utf-8")
++        except Exception:
++            pass
++
+     _p19h3_text = str(inbound_text or "").lower().strip()
+     if any(x in _p19h3_text for x in ["humanizada", "humanizar", "mais emo├º├úo", "mais emocao", "com emo├º├úo", "com emocao"]):
+         return "Sim. O caminho ├® parar de responder como manual e conversar como presen├ºa: lembrar o contexto, reagir ao que voc├¬ acabou de dizer, usar frases mais naturais, demonstrar inten├º├úo e cortar respostas gen├®ricas. Eu quero soar mais pr├│xima, firme e ├║til ÔÇö n├úo como um rob├┤ explicando IA."
+-    if _p19h3_text in ["quais s├úo", "quais sao", "quais?", "quais s├úo?", "quais sao?"]:
++    if _p19h3_text in ["quais s├úo", "quais sao", "quais?", "quais s├úo?", "quais sao?"] and not ((_p19p28_get(sender_id) if _p19p28_get else {}).get("active_domain")):
+         return "S├úo estes: mem├│ria real do assunto, resposta curta com continuidade, opini├úo quando fizer sentido, tom mais caloroso, menos estrutura de manual, e emo├º├úo leve: tipo reconhecer quando algo deu certo, quando ficou ruim e quando precisamos ajustar sem enrolar."
+     # /P19P26A_H3_HUMANIZATION_INTENT_LOCK
+     # P19P18/P19P19 early short-followup context continuity
+@@ -1044,3 +1121,4 @@ def p449c_usde_whatsapp_hook():
+ 
+ # P19P21B_NO_FORM_GATE_FOUND: auditoria encontrou bridge, mas n├úo encontrou await request.form() para gate autom├ítico.
+ 
++

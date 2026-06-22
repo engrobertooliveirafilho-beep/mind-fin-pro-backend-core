@@ -1,0 +1,88 @@
+[
+  {
+    "path": "app/api/whatsapp.py",
+    "exists": true,
+    "git_status": [
+      "M"
+    ],
+    "size": 46885,
+    "diff_stats": {
+      "added_lines": 79,
+      "removed_lines": 1,
+      "hunks": 4
+    },
+    "risk_tokens": [
+      "Twilio",
+      "Body",
+      "From",
+      "Response",
+      "TwiML",
+      "cognitive",
+      "pipeline",
+      "memory",
+      "os.getenv",
+      "live",
+      "return",
+      "except Exception"
+    ],
+    "decision": "CRITICAL_DIFF_REVIEW_REQUIRED",
+    "reason": "critical runtime file has uncommitted diff",
+    "p19p39_blocking": true
+  },
+  {
+    "path": "app/runtime/cognitive_pipeline.py",
+    "exists": true,
+    "git_status": [
+      "M"
+    ],
+    "size": 17639,
+    "diff_stats": {
+      "added_lines": 226,
+      "removed_lines": 0,
+      "hunks": 4
+    },
+    "risk_tokens": [
+      "From",
+      "Response",
+      "cognitive",
+      "pipeline",
+      "memory",
+      "live",
+      "shadow",
+      "return",
+      "except Exception"
+    ],
+    "decision": "CRITICAL_DIFF_REVIEW_REQUIRED",
+    "reason": "critical runtime file has uncommitted diff",
+    "p19p39_blocking": true
+  },
+  {
+    "path": "app/api/whatsapp.py.bak_p449c_fix2",
+    "exists": true,
+    "git_status": [
+      "??"
+    ],
+    "size": 20847,
+    "diff_stats": {
+      "added_lines": 0,
+      "removed_lines": 0,
+      "hunks": 0
+    },
+    "risk_tokens": [
+      "Body",
+      "From",
+      "Response",
+      "TwiML",
+      "cognitive",
+      "pipeline",
+      "memory",
+      "os.getenv",
+      "live",
+      "return",
+      "except Exception"
+    ],
+    "decision": "ARCHIVE_CANDIDATE_DO_NOT_LOAD_RUNTIME",
+    "reason": "backup file should not be imported or used by runtime",
+    "p19p39_blocking": false
+  }
+]

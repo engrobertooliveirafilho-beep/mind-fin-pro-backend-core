@@ -1,0 +1,7 @@
+[
+  "P19P39 remains BLOCKED.",
+  "Resolve or explicitly commit/restore critical runtime diffs before adapter wiring.",
+  "Do not touch app/api/whatsapp.py or app/runtime/cognitive_pipeline.py in P19P39.",
+  "Backup file may be archived later, but not automatically.",
+  "Use explicit git add paths only."
+]
