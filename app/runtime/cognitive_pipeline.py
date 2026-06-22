@@ -176,3 +176,42 @@ def _p428e_runtime_fusion(user_text: str, base_answer: str = "", sender_id: str 
 
 
 
+
+
+def attach_p19p41_cognitive_context_shadow(
+    ctx,
+    feature_flags=None,
+):
+    """
+    P19P41
+
+    SHADOW ONLY
+
+    No runtime mutation
+    No response mutation
+    """
+
+    flags = feature_flags or {}
+
+    result = dict(ctx or {})
+
+    enabled = bool(
+        flags.get(
+            "P19P41_COGNITIVE_CONTEXT_ENABLED",
+            False,
+        )
+    )
+
+    result["p19p41_cognitive_pipeline_shadow"] = {
+        "program": "P19P41",
+        "mode": "SHADOW_ONLY",
+        "enabled": enabled,
+        "context_present": "cognitive_context" in result,
+        "runtime_mutation": False,
+        "response_mutation": False,
+        "rollbackable": True,
+        "canary_ready": True,
+    }
+
+    return result
+
