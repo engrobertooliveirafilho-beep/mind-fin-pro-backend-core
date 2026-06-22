@@ -238,12 +238,26 @@ async def _p19p28m_main_pre_router(request):
         if mode in ["followup", "new_domain"] and ctxu.get("active_domain"):
             reply = _p19p29_route_domain_reply(body, ctxu)
             if reply:
+                # P19P31_P19P36_COMPANION_RUNTIME_ENRICHMENT
+                try:
+                    from app.companionship.p19p31_p19p36_companion_runtime import compose_reply as _p19p31_compose_reply
+                    reply = _p19p31_compose_reply(sender, body, ctxu, reply)
+                except Exception:
+                    pass
+                # /P19P31_P19P36_COMPANION_RUNTIME_ENRICHMENT
                 return _p19p28m_twiml(reply)
 
         # P19P30D_CONTEXT_FIRST_SHORT_FOLLOWUP_ARBITER
         if _p19p30d_is_short_followup_text(body) and ctxu.get("active_domain"):
             reply = _p19p29_route_domain_reply(body, ctxu)
             if reply:
+                # P19P31_P19P36_COMPANION_RUNTIME_ENRICHMENT
+                try:
+                    from app.companionship.p19p31_p19p36_companion_runtime import compose_reply as _p19p31_compose_reply
+                    reply = _p19p31_compose_reply(sender, body, ctxu, reply)
+                except Exception:
+                    pass
+                # /P19P31_P19P36_COMPANION_RUNTIME_ENRICHMENT
                 return _p19p28m_twiml(reply)
         # /P19P30D_CONTEXT_FIRST_SHORT_FOLLOWUP_ARBITER
     except Exception:
