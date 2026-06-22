@@ -1044,3 +1044,44 @@ def p449c_usde_whatsapp_hook():
 
 # P19P21B_NO_FORM_GATE_FOUND: auditoria encontrou bridge, mas não encontrou await request.form() para gate automático.
 
+
+
+def attach_p19p42_whatsapp_cognitive_context_shadow(
+    ctx,
+    feature_flags=None,
+):
+    """
+    P19P42 WhatsApp runtime cognitive context shadow bridge.
+
+    READ ONLY.
+    SHADOW ONLY.
+    Disabled by default.
+    Does not mutate outbound response.
+    """
+
+    flags = feature_flags or {}
+    result = dict(ctx or {})
+
+    enabled = bool(
+        flags.get(
+            "P19P42_WHATSAPP_COGNITIVE_CONTEXT_ENABLED",
+            False,
+        )
+    )
+
+    result["p19p42_whatsapp_cognitive_context_shadow"] = {
+        "program": "P19P42",
+        "mode": "SHADOW_ONLY",
+        "read_only": True,
+        "enabled": enabled,
+        "context_present": "cognitive_context" in result,
+        "runtime": "whatsapp",
+        "runtime_mutation": False,
+        "response_mutation": False,
+        "outbound_text_mutation": False,
+        "rollbackable": True,
+        "canary_ready": True,
+    }
+
+    return result
+
