@@ -649,23 +649,40 @@ def record_p19p36n_memory_fusion_telemetry(sender: str, text: str, ctx: dict | N
 def attach_p19p40_cognitive_context_shadow(ctx, user_id=None, feature_flags=None):
     """
     P19P40 shadow-only cognitive context wiring.
+    P19P50C hotfix: preserves existing cognitive_context extension keys.
     Does not mutate production response.
     Does not enable runtime behavior.
     """
     base = dict(ctx or {})
+    previous_cognitive = dict(base.get("cognitive_context") or {})
+
     result = attach_cognitive_context_shadow(
         base,
         user_id=user_id,
         feature_flags=feature_flags or {"P19P40_COGNITIVE_CONTEXT_SHADOW": False},
     )
+
+    rebuilt_cognitive = dict(result.get("cognitive_context") or {})
+    preserved_keys = {}
+
+    for key, value in previous_cognitive.items():
+        if key not in rebuilt_cognitive:
+            rebuilt_cognitive[key] = value
+            preserved_keys[key] = True
+
+    result["cognitive_context"] = rebuilt_cognitive
+
     result["p19p40_cognitive_context_shadow_telemetry"] = {
         "program": "P19P40",
         "mode": "SHADOW_ONLY",
         "adapter": "safe_recovery_adapter",
         "context_attached": "cognitive_context" in result,
+        "preserved_cognitive_context_keys": sorted(list(preserved_keys.keys())),
+        "deep_merge_preservation": True,
         "runtime_mutation": False,
         "response_mutation": False,
         "rollbackable": True,
     }
     return result
+
 
