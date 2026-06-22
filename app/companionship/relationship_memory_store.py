@@ -194,3 +194,78 @@ def get_relationship_memory(sender: str, path: Path = STORE_PATH) -> Dict[str, A
     sender = str(sender or "unknown").strip() or "unknown"
     store = _load_store(path)
     return store.get(sender) or _empty_profile(sender)
+
+# ---------------------------------------------------------------------
+# P19P36O-C RELATIONSHIP MEMORY ADVISOR
+# Shadow-only scoring layer. Does not alter replies.
+# ---------------------------------------------------------------------
+def _p19p36o_tokens(text: str) -> List[str]:
+    raw = str(text or "").lower()
+    return re.findall(r"[a-zA-ZÀ-ÿ0-9_]{3,}", raw)
+
+
+def build_relationship_memory_advisor(sender: str, text: str, path: Path = STORE_PATH) -> Dict[str, Any]:
+    profile = get_relationship_memory(sender, path=path)
+    query_tokens = set(_p19p36o_tokens(text))
+
+    buckets = {
+        "goals": profile.get("goals", []),
+        "projects": profile.get("projects", []),
+        "preferences": profile.get("preferences", []),
+        "facts": profile.get("facts", []),
+        "active_topics": profile.get("active_topics", []),
+    }
+
+    hits = []
+    recommended = []
+
+    for bucket, values in buckets.items():
+        for value in values or []:
+            value_text = str(value or "")
+            value_tokens = set(_p19p36o_tokens(value_text))
+            overlap = sorted(query_tokens.intersection(value_tokens))
+
+            semantic_match = False
+            lower_text = str(text or "").lower()
+            lower_value = value_text.lower()
+
+            if "exerc" in lower_text and ("emagrecer" in lower_value or "fitness" in lower_value or "dor joelho" in lower_value):
+                semantic_match = True
+
+            if "ftmo" in lower_text and ("FTMO".lower() in lower_value or "trader" in lower_value):
+                semantic_match = True
+
+            if overlap or semantic_match:
+                hits.append({
+                    "bucket": bucket,
+                    "value": value_text,
+                    "overlap": overlap,
+                    "semantic_match": semantic_match,
+                })
+                if value_text not in recommended:
+                    recommended.append(value_text)
+
+    score = 0.0
+    if hits:
+        score = min(1.0, 0.35 + (0.15 * len(hits)))
+
+    confidence = "HIGH" if score >= 0.65 else ("MEDIUM" if score >= 0.35 else "LOW")
+
+    return {
+        "sender": sender,
+        "relationship_score": round(score, 4),
+        "relationship_hits": hits[:12],
+        "relationship_confidence": confidence,
+        "recommended_relationship_context": recommended[:8],
+        "profile_version": profile.get("version"),
+        "mode": "SHADOW_ONLY",
+        "version": "P19P36O_C_RELATIONSHIP_MEMORY_ADVISOR",
+    }
+
+
+def attach_relationship_memory_advisor_shadow(ctx: Dict[str, Any] | None = None, sender: str = "", text: str = "") -> Dict[str, Any]:
+    ctx = dict(ctx or {})
+    ctx["p19p36o_relationship_memory_advisor_shadow"] = build_relationship_memory_advisor(sender, text)
+    return ctx
+# /P19P36O_C_RELATIONSHIP_MEMORY_ADVISOR
+
