@@ -103,3 +103,30 @@ def attach_cognitive_context_shadow(
     )
     base.update(built)
     return base
+
+def attach_p19p50_humanized_meta_cognition_to_context(ctx, humanized_meta_cognition=None, feature_flags=None):
+    """
+    P19P50: attach Humanized Meta Cognition into canonical cognitive_context.
+    SHADOW/CANARY only. Production disabled by default.
+    """
+    flags = feature_flags or {}
+    result = dict(ctx or {})
+    cognitive = dict(result.get("cognitive_context") or {})
+
+    cognitive["humanized_meta_cognition"] = humanized_meta_cognition or {}
+    cognitive["p19p50_telemetry"] = {
+        "program": "P19P50",
+        "mode": "SHADOW_CANARY",
+        "humanized_meta_cognition_present": bool(humanized_meta_cognition),
+        "feature_flag": "P19P50_HUMANIZED_META_COGNITION_ENABLED",
+        "enabled": bool(flags.get("P19P50_HUMANIZED_META_COGNITION_ENABLED", False)),
+        "production_enabled": bool(flags.get("P19P50_PRODUCTION_ENABLED", False)),
+        "runtime_mutation": False,
+        "response_mutation": False,
+        "outbound_text_mutation": False,
+        "rollbackable": True,
+        "canary_ready": True,
+    }
+
+    result["cognitive_context"] = cognitive
+    return result
