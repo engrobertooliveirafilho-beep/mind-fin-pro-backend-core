@@ -13,9 +13,10 @@ except Exception:
 
 # P19P36P_B_GOAL_TRACKER_SHADOW_WIRING
 try:
-    from app.companionship.long_term_goal_tracker import update_goal_tracker_from_relationship_profile
+    from app.companionship.long_term_goal_tracker import update_goal_tracker_from_relationship_profile, attach_goal_progress_advisor_shadow
 except Exception:
     update_goal_tracker_from_relationship_profile = None
+    attach_goal_progress_advisor_shadow = None
 # /P19P36P_B_GOAL_TRACKER_SHADOW_WIRING
 
 # P19P36G_SAFE_RECOVERY_ADAPTER
@@ -90,6 +91,8 @@ def collect_recovered_context(sender: str, text: str, base_ctx: Dict[str, Any] |
             rel_shadow = ctx.get("p19p36o_relationship_memory_shadow", {}) or {}
             profile = rel_shadow.get("profile", {}) or {}
             ctx["p19p36p_long_term_goal_shadow"] = update_goal_tracker_from_relationship_profile(sender, profile, text=text)
+            if attach_goal_progress_advisor_shadow:
+                ctx = attach_goal_progress_advisor_shadow(ctx, sender=sender, text=text)
     except Exception:
         pass
     ctx["recovered_shadow_context"] = recovered
@@ -131,6 +134,7 @@ def record_shadow_telemetry(sender: str, text: str, ctx: dict, reply: str) -> No
             "relationship_memory_shadow": (ctx or {}).get("p19p36o_relationship_memory_shadow", {}),
             "relationship_memory_advisor_shadow": (ctx or {}).get("p19p36o_relationship_memory_advisor_shadow", {}),
             "long_term_goal_shadow": (ctx or {}).get("p19p36p_long_term_goal_shadow", {}),
+            "goal_progress_advisor_shadow": (ctx or {}).get("p19p36p_goal_progress_advisor_shadow", {}),
             "reply_preview": (reply or "")[:300],
         }
         with TELEMETRY.open("a", encoding="utf-8") as f:
@@ -631,6 +635,7 @@ def record_p19p36n_memory_fusion_telemetry(sender: str, text: str, ctx: dict | N
     except Exception:
         pass
 # /P19P36N_MEMORY_FUSION_LIVE_GATED
+
 
 
 
