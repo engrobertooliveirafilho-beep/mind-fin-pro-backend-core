@@ -1,0 +1,16 @@
+{
+  "mission": "P19P38_F_PRODUCTION_CANDIDATE_MAP",
+  "status": "AUDIT_ONLY_PASS",
+  "runtime_modified": false,
+  "files_moved": false,
+  "files_deleted": false,
+  "generated_at": "2026-06-22T20:53:40.353478+00:00",
+  "candidates_total": 9,
+  "counts": {
+    "CANARY_READY": 5,
+    "SHADOW_ONLY": 4
+  },
+  "production_ready": 0,
+  "canary_ready": 5,
+  "blocked": 0
+}

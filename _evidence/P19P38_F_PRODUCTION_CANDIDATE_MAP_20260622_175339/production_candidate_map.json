@@ -1,0 +1,269 @@
+[
+  {
+    "candidate": "memory_fusion_live",
+    "path": "app/companionship/safe_recovery_adapter.py",
+    "exists": true,
+    "risk": "HIGH",
+    "tests": [
+      "tests/test_p19p36n_memory_fusion_live_gated.py",
+      "tests/test_p19p36o_relationship_memory_shadow_wiring.py"
+    ],
+    "test_count": 2,
+    "has_feature_flag": true,
+    "has_shadow": true,
+    "has_live_gate": true,
+    "functions": [
+      "safe_import",
+      "collect_recovered_context",
+      "enrich_reply_shadow",
+      "_safe_json_default",
+      "record_shadow_telemetry",
+      "_p19p36k_normalize_memory_item",
+      "_p19p36k_get_memory_store",
+      "remember_user_message",
+      "recall_user_history",
+      "collect_memory_shadow",
+      "_p19p36l_tokens",
+      "score_memory_relevance",
+      "attach_memory_fusion_shadow",
+      "build_memory_fusion_advisor",
+      "attach_memory_fusion_advisor_shadow",
+      "_p19p36m_hotfix_without_current_message",
+      "_p19p36m_h2_domain_semantic_bridge",
+      "score_memory_relevance",
+      "_p19p36m_h4_authoritative_advisor_guard",
+      "_p19p36n_memory_fusion_enabled",
+      "build_memory_fusion_live_context",
+      "attach_memory_fusion_live_gated",
+      "record_p19p36n_memory_fusion_telemetry"
+    ],
+    "promotion_status": "CANARY_READY",
+    "reason": [
+      "shadow_feature_flag_live_gate_present"
+    ],
+    "next_action": "wire_adapter_shadow_only"
+  },
+  {
+    "candidate": "relationship_memory",
+    "path": "app/companionship/relationship_memory_store.py",
+    "exists": true,
+    "risk": "HIGH",
+    "tests": [
+      "tests/test_p19p36o_relationship_advisor_wiring.py",
+      "tests/test_p19p36o_relationship_memory_advisor.py",
+      "tests/test_p19p36o_relationship_memory_shadow_wiring.py",
+      "tests/test_p19p36o_relationship_memory_store.py",
+      "tests/test_p19p36p_goal_tracker_shadow_wiring.py",
+      "tests/test_p19p37a_digital_twin_real.py"
+    ],
+    "test_count": 6,
+    "has_feature_flag": true,
+    "has_shadow": true,
+    "has_live_gate": false,
+    "functions": [
+      "relationship_memory_enabled",
+      "_now",
+      "_empty_profile",
+      "_load_store",
+      "_save_store",
+      "_append_unique",
+      "_telemetry",
+      "extract_relationship_candidates",
+      "update_relationship_memory_shadow",
+      "get_relationship_memory",
+      "_p19p36o_tokens",
+      "build_relationship_memory_advisor",
+      "attach_relationship_memory_advisor_shadow"
+    ],
+    "promotion_status": "CANARY_READY",
+    "reason": [
+      "shadow_and_feature_flag_present"
+    ],
+    "next_action": "wire_adapter_shadow_only"
+  },
+  {
+    "candidate": "long_term_goal_tracker",
+    "path": "app/companionship/long_term_goal_tracker.py",
+    "exists": true,
+    "risk": "HIGH",
+    "tests": [
+      "tests/test_p19p36p_goal_progress_advisor.py",
+      "tests/test_p19p36p_long_term_goal_tracker.py"
+    ],
+    "test_count": 2,
+    "has_feature_flag": true,
+    "has_shadow": true,
+    "has_live_gate": false,
+    "functions": [
+      "goal_tracking_enabled",
+      "_now",
+      "_goal_id",
+      "_load",
+      "_save",
+      "_telemetry",
+      "_empty_goal",
+      "extract_goal_signals_from_relationship_profile",
+      "update_goal_tracker_from_relationship_profile",
+      "get_goals_for_sender",
+      "_p19p36p_lower",
+      "_p19p36p_detect_constraints",
+      "_p19p36p_detect_progress_signal",
+      "build_goal_progress_advisor",
+      "attach_goal_progress_advisor_shadow"
+    ],
+    "promotion_status": "CANARY_READY",
+    "reason": [
+      "shadow_and_feature_flag_present"
+    ],
+    "next_action": "wire_adapter_shadow_only"
+  },
+  {
+    "candidate": "digital_twin_real",
+    "path": "app/companionship/digital_twin_real.py",
+    "exists": true,
+    "risk": "HIGH",
+    "tests": [
+      "tests/test_p19p37a_digital_twin_real.py",
+      "tests/test_p19p37d_long_term_memory_real.py",
+      "tests/test_p19p37e_self_reflection_engine.py",
+      "tests/test_p19p37f_live_cognition_gated.py"
+    ],
+    "test_count": 4,
+    "has_feature_flag": true,
+    "has_shadow": true,
+    "has_live_gate": false,
+    "functions": [
+      "enabled",
+      "_now",
+      "_load",
+      "_save",
+      "_profile",
+      "build_digital_twin_snapshot",
+      "attach_digital_twin_shadow"
+    ],
+    "promotion_status": "CANARY_READY",
+    "reason": [
+      "shadow_and_feature_flag_present"
+    ],
+    "next_action": "wire_adapter_shadow_only"
+  },
+  {
+    "candidate": "behavior_modeling",
+    "path": "app/companionship/behavior_modeling.py",
+    "exists": true,
+    "risk": "MEDIUM",
+    "tests": [
+      "tests/test_p19p37b_behavior_modeling.py"
+    ],
+    "test_count": 1,
+    "has_feature_flag": false,
+    "has_shadow": true,
+    "has_live_gate": false,
+    "functions": [
+      "infer_behavior_model",
+      "attach_behavior_model_shadow"
+    ],
+    "promotion_status": "SHADOW_ONLY",
+    "reason": [
+      "shadow_only_no_feature_flag"
+    ],
+    "next_action": "add_tests_and_feature_flag"
+  },
+  {
+    "candidate": "emotional_continuity_real",
+    "path": "app/companionship/emotional_continuity_real.py",
+    "exists": true,
+    "risk": "MEDIUM",
+    "tests": [
+      "tests/test_p19p37c_emotional_continuity_real.py",
+      "tests/test_p19p37e_self_reflection_engine.py"
+    ],
+    "test_count": 2,
+    "has_feature_flag": false,
+    "has_shadow": true,
+    "has_live_gate": false,
+    "functions": [
+      "_now",
+      "_load",
+      "_save",
+      "detect_emotional_signal",
+      "update_emotional_continuity",
+      "attach_emotional_continuity_shadow"
+    ],
+    "promotion_status": "SHADOW_ONLY",
+    "reason": [
+      "shadow_only_no_feature_flag"
+    ],
+    "next_action": "add_tests_and_feature_flag"
+  },
+  {
+    "candidate": "long_term_memory_real",
+    "path": "app/companionship/long_term_memory_real.py",
+    "exists": true,
+    "risk": "HIGH",
+    "tests": [
+      "tests/test_p19p37d_long_term_memory_real.py",
+      "tests/test_p19p37e_self_reflection_engine.py"
+    ],
+    "test_count": 2,
+    "has_feature_flag": false,
+    "has_shadow": true,
+    "has_live_gate": false,
+    "functions": [
+      "_now",
+      "consolidate_long_term_memory",
+      "attach_long_term_memory_shadow"
+    ],
+    "promotion_status": "SHADOW_ONLY",
+    "reason": [
+      "shadow_only_no_feature_flag"
+    ],
+    "next_action": "add_tests_and_feature_flag"
+  },
+  {
+    "candidate": "self_reflection_engine",
+    "path": "app/companionship/self_reflection_engine.py",
+    "exists": true,
+    "risk": "HIGH",
+    "tests": [
+      "tests/test_p19p37e_self_reflection_engine.py"
+    ],
+    "test_count": 1,
+    "has_feature_flag": false,
+    "has_shadow": true,
+    "has_live_gate": false,
+    "functions": [
+      "build_self_reflection",
+      "attach_self_reflection_shadow"
+    ],
+    "promotion_status": "SHADOW_ONLY",
+    "reason": [
+      "shadow_only_no_feature_flag"
+    ],
+    "next_action": "add_tests_and_feature_flag"
+  },
+  {
+    "candidate": "live_cognition_gated",
+    "path": "app/companionship/live_cognition_gated.py",
+    "exists": true,
+    "risk": "CRITICAL",
+    "tests": [
+      "tests/test_p19p37f_live_cognition_gated.py"
+    ],
+    "test_count": 1,
+    "has_feature_flag": true,
+    "has_shadow": true,
+    "has_live_gate": true,
+    "functions": [
+      "live_cognition_enabled",
+      "build_live_cognition_decision",
+      "attach_live_cognition_shadow"
+    ],
+    "promotion_status": "CANARY_READY",
+    "reason": [
+      "shadow_feature_flag_live_gate_present",
+      "critical_requires_runtime_wiring_audit_before_production"
+    ],
+    "next_action": "wire_adapter_shadow_only"
+  }
+]

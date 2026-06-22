@@ -1,0 +1,10 @@
+candidate,path,exists,risk,test_count,has_feature_flag,has_shadow,has_live_gate,promotion_status,next_action
+memory_fusion_live,app/companionship/safe_recovery_adapter.py,True,HIGH,2,True,True,True,CANARY_READY,wire_adapter_shadow_only
+relationship_memory,app/companionship/relationship_memory_store.py,True,HIGH,6,True,True,False,CANARY_READY,wire_adapter_shadow_only
+long_term_goal_tracker,app/companionship/long_term_goal_tracker.py,True,HIGH,2,True,True,False,CANARY_READY,wire_adapter_shadow_only
+digital_twin_real,app/companionship/digital_twin_real.py,True,HIGH,4,True,True,False,CANARY_READY,wire_adapter_shadow_only
+behavior_modeling,app/companionship/behavior_modeling.py,True,MEDIUM,1,False,True,False,SHADOW_ONLY,add_tests_and_feature_flag
+emotional_continuity_real,app/companionship/emotional_continuity_real.py,True,MEDIUM,2,False,True,False,SHADOW_ONLY,add_tests_and_feature_flag
+long_term_memory_real,app/companionship/long_term_memory_real.py,True,HIGH,2,False,True,False,SHADOW_ONLY,add_tests_and_feature_flag
+self_reflection_engine,app/companionship/self_reflection_engine.py,True,HIGH,1,False,True,False,SHADOW_ONLY,add_tests_and_feature_flag
+live_cognition_gated,app/companionship/live_cognition_gated.py,True,CRITICAL,1,True,True,True,CANARY_READY,wire_adapter_shadow_only
