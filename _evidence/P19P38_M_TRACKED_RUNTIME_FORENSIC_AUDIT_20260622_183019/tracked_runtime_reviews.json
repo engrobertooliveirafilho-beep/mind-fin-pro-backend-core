@@ -1,0 +1,173 @@
+[
+  {
+    "path": "app/api/eldora_core_runtime.py",
+    "added_lines": 12,
+    "removed_lines": 0,
+    "hunks": 2,
+    "risk": "CRITICAL",
+    "decision": "BLOCK_P19P39_UNTIL_RESOLVED",
+    "reason": "critical runtime file modified"
+  },
+  {
+    "path": "app/api/whatsapp.py",
+    "added_lines": 79,
+    "removed_lines": 1,
+    "hunks": 4,
+    "risk": "CRITICAL",
+    "decision": "BLOCK_P19P39_UNTIL_RESOLVED",
+    "reason": "critical runtime file modified"
+  },
+  {
+    "path": "app/eldora/core/agent_orchestrator.py",
+    "added_lines": 3,
+    "removed_lines": 20,
+    "hunks": 1,
+    "risk": "HIGH",
+    "decision": "MANUAL_REVIEW_BEFORE_COMMIT",
+    "reason": "runtime behavior keywords present"
+  },
+  {
+    "path": "app/eldora/core/audit_ledger.py",
+    "added_lines": 10,
+    "removed_lines": 0,
+    "hunks": 1,
+    "risk": "HIGH",
+    "decision": "MANUAL_REVIEW_BEFORE_COMMIT",
+    "reason": "runtime behavior keywords present"
+  },
+  {
+    "path": "app/eldora/core/distributed_runtime.py",
+    "added_lines": 5,
+    "removed_lines": 14,
+    "hunks": 1,
+    "risk": "HIGH",
+    "decision": "MANUAL_REVIEW_BEFORE_COMMIT",
+    "reason": "runtime behavior keywords present"
+  },
+  {
+    "path": "app/eldora/core/distributed_runtime_state.py",
+    "added_lines": 38,
+    "removed_lines": 9,
+    "hunks": 1,
+    "risk": "HIGH",
+    "decision": "MANUAL_REVIEW_BEFORE_COMMIT",
+    "reason": "runtime behavior keywords present"
+  },
+  {
+    "path": "app/eldora/core/event_bus.py",
+    "added_lines": 10,
+    "removed_lines": 0,
+    "hunks": 1,
+    "risk": "HIGH",
+    "decision": "MANUAL_REVIEW_BEFORE_COMMIT",
+    "reason": "runtime behavior keywords present"
+  },
+  {
+    "path": "app/eldora/core/predictive_simulation_engine.py",
+    "added_lines": 176,
+    "removed_lines": 19,
+    "hunks": 1,
+    "risk": "HIGH",
+    "decision": "MANUAL_REVIEW_BEFORE_COMMIT",
+    "reason": "runtime behavior keywords present"
+  },
+  {
+    "path": "app/eldora/core/task_engine.py",
+    "added_lines": 23,
+    "removed_lines": 16,
+    "hunks": 1,
+    "risk": "HIGH",
+    "decision": "MANUAL_REVIEW_BEFORE_COMMIT",
+    "reason": "runtime behavior keywords present"
+  },
+  {
+    "path": "app/embedding/provider.py",
+    "added_lines": 21,
+    "removed_lines": 7,
+    "hunks": 1,
+    "risk": "HIGH",
+    "decision": "MANUAL_REVIEW_BEFORE_COMMIT",
+    "reason": "runtime behavior keywords present"
+  },
+  {
+    "path": "app/humanization/universal_recovery_runtime.py",
+    "added_lines": 24,
+    "removed_lines": 1,
+    "hunks": 3,
+    "risk": "HIGH",
+    "decision": "MANUAL_REVIEW_BEFORE_COMMIT",
+    "reason": "runtime behavior keywords present"
+  },
+  {
+    "path": "app/retrieval/semantic_provider.py",
+    "added_lines": 58,
+    "removed_lines": 15,
+    "hunks": 1,
+    "risk": "HIGH",
+    "decision": "MANUAL_REVIEW_BEFORE_COMMIT",
+    "reason": "runtime behavior keywords present"
+  },
+  {
+    "path": "app/runtime/cognitive_pipeline.py",
+    "added_lines": 226,
+    "removed_lines": 0,
+    "hunks": 4,
+    "risk": "CRITICAL",
+    "decision": "BLOCK_P19P39_UNTIL_RESOLVED",
+    "reason": "critical runtime file modified"
+  },
+  {
+    "path": "app/runtime/fix11k_probe.py",
+    "added_lines": 39,
+    "removed_lines": 21,
+    "hunks": 1,
+    "risk": "HIGH",
+    "decision": "MANUAL_REVIEW_BEFORE_COMMIT",
+    "reason": "runtime behavior keywords present"
+  },
+  {
+    "path": "app/runtime/forensic_bootstrap.py",
+    "added_lines": 30,
+    "removed_lines": 0,
+    "hunks": 3,
+    "risk": "HIGH",
+    "decision": "MANUAL_REVIEW_BEFORE_COMMIT",
+    "reason": "runtime behavior keywords present"
+  },
+  {
+    "path": "app/runtime/forensic_trace.py",
+    "added_lines": 40,
+    "removed_lines": 1,
+    "hunks": 1,
+    "risk": "HIGH",
+    "decision": "MANUAL_REVIEW_BEFORE_COMMIT",
+    "reason": "runtime behavior keywords present"
+  },
+  {
+    "path": "app/runtime/generic_topic_memory_engine.py",
+    "added_lines": 2,
+    "removed_lines": 0,
+    "hunks": 1,
+    "risk": "HIGH",
+    "decision": "MANUAL_REVIEW_BEFORE_COMMIT",
+    "reason": "runtime behavior keywords present"
+  },
+  {
+    "path": "app/runtime/mind_state_visible_context.py",
+    "added_lines": 1,
+    "removed_lines": 0,
+    "hunks": 1,
+    "risk": "LOW",
+    "decision": "KEEP_CANDIDATE_AFTER_TESTS",
+    "reason": "small or telemetry-like tracked diff"
+  },
+  {
+    "path": "app/runtime/whatsapp_final_output_guard.py",
+    "added_lines": 1,
+    "removed_lines": 0,
+    "hunks": 1,
+    "risk": "HIGH",
+    "decision": "MANUAL_REVIEW_BEFORE_COMMIT",
+    "reason": "runtime behavior keywords present"
+  }
+]
