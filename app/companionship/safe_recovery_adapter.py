@@ -525,3 +525,75 @@ def _p19p36m_h4_authoritative_advisor_guard(advisor: dict) -> dict:
         advisor["reason"] = "P19P36M_H4_BLOCKED_NO_POSITIVE_MEMORY_EVIDENCE"
 
     return advisor
+
+# ---------------------------------------------------------------------
+# P19P36N MEMORY FUSION LIVE GATED
+# Controlled live memory usage.
+# Default OFF unless explicit feature flag is enabled.
+# ---------------------------------------------------------------------
+import os as _p19p36n_os
+import json as _p19p36n_json
+from datetime import datetime as _p19p36n_datetime
+from pathlib import Path as _p19p36n_Path
+
+_P19P36N_TELEMETRY = _p19p36n_Path("_runtime_state/p19p36n_memory_fusion_live_gated.jsonl")
+_P19P36N_TELEMETRY.parent.mkdir(parents=True, exist_ok=True)
+
+def _p19p36n_memory_fusion_enabled() -> bool:
+    return str(_p19p36n_os.getenv("P19P36N_MEMORY_FUSION_ENABLED", "false")).lower() in {
+        "1", "true", "yes", "on"
+    }
+
+def build_memory_fusion_live_context(ctx: dict | None = None) -> dict:
+    ctx = dict(ctx or {})
+    advisor = ctx.get("p19p36m_memory_fusion_advisor_shadow", {}) or {}
+
+    enabled = _p19p36n_memory_fusion_enabled()
+    should_use = bool(advisor.get("should_use_memory") is True)
+    score = float(advisor.get("memory_score") or 0.0)
+    recommended = advisor.get("recommended_memories") or []
+
+    live_allowed = bool(enabled and should_use and score > 0.0 and recommended)
+
+    live_context = {
+        "enabled": enabled,
+        "live_allowed": live_allowed,
+        "advisor_should_use_memory": should_use,
+        "advisor_score": score,
+        "recommended_memories": recommended[:5] if isinstance(recommended, list) else [],
+        "mode": "LIVE_GATED" if live_allowed else "SHADOW_ONLY",
+        "version": "P19P36N_MEMORY_FUSION_LIVE_GATED",
+    }
+
+    ctx["p19p36n_memory_fusion_live_context"] = live_context
+    return ctx
+
+def attach_memory_fusion_live_gated(ctx: dict | None = None) -> dict:
+    return build_memory_fusion_live_context(ctx)
+
+def record_p19p36n_memory_fusion_telemetry(sender: str, text: str, ctx: dict | None, reply_before: str = "", reply_after: str = "") -> None:
+    try:
+        ctx = dict(ctx or {})
+        live = ctx.get("p19p36n_memory_fusion_live_context", {}) or {}
+        advisor = ctx.get("p19p36m_memory_fusion_advisor_shadow", {}) or {}
+
+        event = {
+            "timestamp": _p19p36n_datetime.utcnow().isoformat() + "Z",
+            "sender": sender,
+            "text_preview": str(text or "")[:240],
+            "enabled": live.get("enabled", False),
+            "live_allowed": live.get("live_allowed", False),
+            "mode": live.get("mode", "SHADOW_ONLY"),
+            "advisor_score": advisor.get("memory_score", 0.0),
+            "advisor_should_use_memory": advisor.get("should_use_memory", False),
+            "recommended_count": len(live.get("recommended_memories", []) or []),
+            "reply_changed": bool((reply_before or "") != (reply_after or "")),
+            "version": "P19P36N_MEMORY_FUSION_LIVE_GATED",
+        }
+
+        with _P19P36N_TELEMETRY.open("a", encoding="utf-8") as f:
+            f.write(_p19p36n_json.dumps(event, ensure_ascii=False) + "\n")
+    except Exception:
+        pass
+# /P19P36N_MEMORY_FUSION_LIVE_GATED
+
