@@ -1,0 +1,18 @@
+{
+  "mission": "P19P38_K_CRITICAL_DIFF_RESOLUTION_PLAN",
+  "status": "DRY_RUN_PLAN_ONLY",
+  "runtime_modified": false,
+  "files_moved": false,
+  "files_deleted": false,
+  "generated_at": "2026-06-22T21:23:08.002028+00:00",
+  "hunks_total": 8,
+  "blocking_hunks": 7,
+  "p19p39_allowed": false,
+  "decision_counts": {
+    "MANUAL_KEEP_ONLY_AFTER_WEBHOOK_TEST": 2,
+    "REVERT_OR_MANUAL_KEEP": 1,
+    "KEEP_TELEMETRY_CANDIDATE": 1,
+    "UNKNOWN_REVIEW_REQUIRED": 2,
+    "ISOLATE_IN_SEPARATE_COMMIT_AFTER_TESTS": 2
+  }
+}
