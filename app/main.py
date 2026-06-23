@@ -377,7 +377,7 @@ def twiml(message: str) -> str:
 
 from app.runtime.forensic_trace import new_trace,mark,fail,save
 from fastapi import FastAPI
-from app.api.runpod_routes import router as runpod_router, Request
+from app.api.runpod_routes import router as runpod_router
 # disabled missing module neura_viral_router
 from app.medical_curriculum.routes import router as medical_curriculum_router
 from app.auto_ingestion.routes import router as auto_ingestion_router
@@ -1542,4 +1542,5 @@ app.include_router(mind_trader_bulk_capability_router)
 
 # RunPod GPU Cloud routes
 app.include_router(runpod_router)
+
 
