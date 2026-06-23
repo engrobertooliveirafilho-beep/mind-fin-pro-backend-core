@@ -1,3 +1,5 @@
+from app.api.mind_trader_bulk_capability_control import router as mind_trader_bulk_capability_router
+from app.api.mind_trader_institutional_control import router as mind_trader_institutional_router
 
 # P19P26A_H8_XML_RESPONSE_FINAL_FILTER
 def _p19p26a_h8_filter_xml_response(message, xml):
@@ -374,7 +376,8 @@ def twiml(message: str) -> str:
 </Response>"""
 
 from app.runtime.forensic_trace import new_trace,mark,fail,save
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
+from app.api.runpod_routes import router as runpod_router, Request
 # disabled missing module neura_viral_router
 from app.medical_curriculum.routes import router as medical_curriculum_router
 from app.auto_ingestion.routes import router as auto_ingestion_router
@@ -391,6 +394,7 @@ from app.orchestrator.prompt_orchestrator import PromptOrchestrator
 from app.runtime.response_builder import ResponseBuilder
 from app.runtime.cognitive_conversation_runtime import decide_turn
 from fastapi import FastAPI
+from app.api.runpod_routes import router as runpod_router
 from app.api.eldora import router as eldora_router
 import os
 import psycopg2
@@ -1525,4 +1529,17 @@ app.include_router(p55_audit_router)
 def p5_bovine_real_ranking(limit: int = 20):
     from app.mind.p5_6b7_real_ranking_api.api import RealRankingAPI
     return RealRankingAPI().ranking(limit)
+
+
+
+# P2338X10 Mind Trader institutional control router
+app.include_router(mind_trader_institutional_router)
+
+
+# P2338X15 Mind Trader bulk capability router
+app.include_router(mind_trader_bulk_capability_router)
+
+
+# RunPod GPU Cloud routes
+app.include_router(runpod_router)
 
