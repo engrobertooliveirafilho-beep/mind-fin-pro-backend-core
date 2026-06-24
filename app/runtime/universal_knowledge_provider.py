@@ -87,3 +87,30 @@ def universal_provider_answer(domain: str, intent: str, text: str, state: dict) 
         return f"Continuando do ponto anterior: {last[:180]}"
 
     return "Me dá só o objetivo principal: você quer plano, diagnóstico, explicação ou próximo passo?"
+
+# ============================================================
+# P2404 GOAL MANAGER RESPONSE
+# ============================================================
+
+def goal_manager_response(domain: str, intent: str, text: str, state: dict) -> str | None:
+    t = _norm(text)
+
+    if domain == "fitness":
+        state["goal"] = state.get("goal") or "montar dieta personalizada"
+
+        if any(x in t for x in ["dieta especifica", "dieta específica", "minha dieta", "montar dieta", "monte minha dieta"]):
+            state["goal"] = "coletar dados para dieta personalizada"
+            return (
+                "Perfeito. Pra eu montar uma dieta específica pra você, preciso destes dados: "
+                "peso, altura, idade, horário do treino, quantas refeições faz por dia, alimentos que gosta, "
+                "alimentos que evita e objetivo principal: secar, ganhar massa ou recompor."
+            )
+
+        if any(x in t for x in ["aprofunde", "prossiga", "continue", "detalhe"]):
+            if "dieta" in str(state.get("goal","")):
+                return (
+                    "Aprofundando: primeiro eu coleto seus dados, depois calculo proteína, distribuo refeições, "
+                    "ajusto carbo perto do treino e deixo opções simples para repetir sem sofrer."
+                )
+
+    return None

@@ -1099,31 +1099,25 @@ async def whatsapp_webhook(request: Request):
     try:
         form = await request.form()
         inbound_text = _p19p21b_extract_twilio_form_value(form, "Body", "")
-        try:
-            _sovereign_shadow = sovereign_decide("shadow", inbound_text)
-        except Exception:
-            _sovereign_shadow = {"error": "shadow_failed"}
-        # P_SOVEREIGN_ORCHESTRATOR_SHADOW_TRACE
         sender_id = _p19p21b_extract_twilio_form_value(form, "From", "")
 
         if not inbound_text.strip():
-            return Response(
-                content=twiml("Me manda a mensagem de novo, não chegou conteúdo aqui."),
-                media_type="application/xml",
-            )
-
-        try:
+            answer = "Me manda a mensagem de novo, não chegou conteúdo aqui."
+        else:
             decision = sovereign_decide(sender_id, inbound_text)
             answer = decision.get("answer", "")
-            answer = first_person_rewrite(answer)
-        except Exception:
-            answer = "Recebi sua mensagem. Vou manter o contexto e responder de forma prática."
 
         if not str(answer or "").strip():
-            answer = "Recebi sua mensagem. Continua comigo que eu sigo do ponto certo."
+            answer = "Tô aqui. Me fala o objetivo principal que eu sigo do ponto certo."
 
+        answer = first_person_rewrite(answer)
         answer = affective_tone(inbound_text, answer)
-        universal_contextual_open_intent_reply, remember_turn(sender_id, inbound_text, answer)
+
+        try:
+            remember_turn(sender_id, inbound_text, answer)
+        except Exception:
+            pass
+
         return Response(
             content=twiml(answer),
             media_type="application/xml",
@@ -1131,10 +1125,9 @@ async def whatsapp_webhook(request: Request):
 
     except Exception:
         return Response(
-            content=twiml("Recebi sua mensagem. Tive uma falha rápida aqui, mas já mantive o contexto."),
+            content=twiml("Poxa, tive uma falha rápida aqui, mas tô aqui. Me manda de novo que eu sigo contigo."),
             media_type="application/xml",
         )
-
 
 @router.get("/webhook/whatsapp")
 async def whatsapp_webhook_health():
@@ -1192,6 +1185,7 @@ def _p_whatsapp_context_lock_reply(sender_id: str, inbound_text: str):
     return None
 
 # /P_WHATSAPP_FITNESS_CONTEXT_LOCK
+
 
 
 
