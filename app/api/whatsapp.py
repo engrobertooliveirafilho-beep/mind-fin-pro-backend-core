@@ -1113,17 +1113,8 @@ async def whatsapp_webhook(request: Request):
             )
 
         try:
-            locked = _p_whatsapp_context_lock_reply(sender_id, inbound_text)
-            if locked:
-                answer = locked
-            else:
-                answer = universal_contextual_open_intent_reply(sender_id, inbound_text)
-                if not answer:
-                    answer = universal_contextual_reply(sender_id, inbound_text)
-                if not answer:
-                    answer = universal_persona_intent_reply(sender_id, inbound_text, "")
-            if not answer:
-                answer = _p19p21b_real_whatsapp_certified_reply(sender_id, inbound_text)
+            decision = sovereign_decide(sender_id, inbound_text)
+            answer = decision.get("answer", "")
             answer = first_person_rewrite(answer)
         except Exception:
             answer = "Recebi sua mensagem. Vou manter o contexto e responder de forma prática."
@@ -1201,6 +1192,7 @@ def _p_whatsapp_context_lock_reply(sender_id: str, inbound_text: str):
     return None
 
 # /P_WHATSAPP_FITNESS_CONTEXT_LOCK
+
 
 
 

@@ -1,4 +1,5 @@
 import re
+from app.runtime.universal_knowledge_provider import detect_universal_domain, detect_universal_intent, universal_provider_answer
 from dataclasses import dataclass, asdict
 
 _STATE = {}
@@ -143,18 +144,11 @@ def quality_score(answer, text):
 
 def decide(sender_id, inbound_text):
     st = _state(sender_id)
-    domain = detect_domain(inbound_text) or st.get("domain", "")
-    intent = detect_intent(inbound_text, st)
+    domain = detect_universal_domain(inbound_text, st.get("domain", ""))
+    intent = detect_universal_intent(inbound_text)
     goal = update_goal(domain, intent, st)
 
-    if domain == "fitness":
-        answer = answer_fitness(intent, inbound_text, st)
-    elif domain == "sports":
-        answer = answer_sports(intent, inbound_text, st)
-    elif domain == "conversation_training":
-        answer = answer_conversation_training(intent, inbound_text, st)
-    else:
-        answer = answer_general(intent, inbound_text, st)
+    answer = universal_provider_answer(domain, intent, inbound_text, st)
 
     score = quality_score(answer, inbound_text)
     action = "answer" if score >= 0.55 else "ask_clarification"
@@ -178,3 +172,4 @@ def decide(sender_id, inbound_text):
 
 def decide_dict(sender_id, inbound_text):
     return asdict(decide(sender_id, inbound_text))
+
