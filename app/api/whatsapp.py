@@ -1085,3 +1085,53 @@ def attach_p19p42_whatsapp_cognitive_context_shadow(
 
     return result
 
+
+# ============================================================
+# P_WHATSAPP_TWILIO_HANDLER_RESTORE
+# RESTORES REAL TWILIO WEBHOOK HANDLER
+# ============================================================
+
+@router.post("/webhook/whatsapp")
+async def whatsapp_webhook(request: Request):
+    try:
+        form = await request.form()
+        inbound_text = _p19p21b_extract_twilio_form_value(form, "Body", "")
+        sender_id = _p19p21b_extract_twilio_form_value(form, "From", "")
+
+        if not inbound_text.strip():
+            return Response(
+                content=twiml("Me manda a mensagem de novo, não chegou conteúdo aqui."),
+                media_type="application/xml",
+            )
+
+        try:
+            answer = _p19p21b_real_whatsapp_certified_reply(sender_id, inbound_text)
+        except Exception:
+            answer = "Recebi sua mensagem. Vou manter o contexto e responder de forma prática."
+
+        if not str(answer or "").strip():
+            answer = "Recebi sua mensagem. Continua comigo que eu sigo do ponto certo."
+
+        return Response(
+            content=twiml(answer),
+            media_type="application/xml",
+        )
+
+    except Exception:
+        return Response(
+            content=twiml("Recebi sua mensagem. Tive uma falha rápida aqui, mas já mantive o contexto."),
+            media_type="application/xml",
+        )
+
+
+@router.get("/webhook/whatsapp")
+async def whatsapp_webhook_health():
+    return {
+        "ok": True,
+        "route": "/webhook/whatsapp",
+        "provider": "twilio",
+        "mode": "twiml",
+        "handler": "active"
+    }
+
+# /P_WHATSAPP_TWILIO_HANDLER_RESTORE

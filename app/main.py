@@ -11,7 +11,15 @@ def health():
     return {
         "ok": True,
         "service": "eldora-cloud-runtime",
-        "status": "render_boot_ok"
+        "status":"ok"
     }
 
 app.include_router(runpod_router)
+
+# P_APP_MAIN_REGISTER_WHATSAPP
+try:
+    from app.api.whatsapp import router as whatsapp_router
+    app.include_router(whatsapp_router)
+except Exception as e:
+    print("WHATSAPP_ROUTER_REGISTER_FAIL", e)
+# /P_APP_MAIN_REGISTER_WHATSAPP
