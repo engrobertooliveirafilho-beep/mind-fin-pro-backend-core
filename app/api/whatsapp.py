@@ -470,6 +470,7 @@ from app.runtime.cognitive_pipeline import run_cognitive_pipeline
 from app.runtime.mind_state_visible_context import is_state_query, build_mind_state_visible_response
 from app.runtime.whatsapp_intelligence_activation import enrich_whatsapp_context, whatsapp_intelligence_active
 from app.runtime.short_memory import remember, recall
+from app.runtime.universal_persona_intent_os import universal_persona_intent_reply, first_person_rewrite
 
 
 # ============================================================
@@ -1109,7 +1110,10 @@ async def whatsapp_webhook(request: Request):
             if locked:
                 answer = locked
             else:
+                answer = universal_persona_intent_reply(sender_id, inbound_text, "")
+            if not answer:
                 answer = _p19p21b_real_whatsapp_certified_reply(sender_id, inbound_text)
+            answer = first_person_rewrite(answer)
         except Exception:
             answer = "Recebi sua mensagem. Vou manter o contexto e responder de forma prática."
 
@@ -1184,3 +1188,4 @@ def _p_whatsapp_context_lock_reply(sender_id: str, inbound_text: str):
     return None
 
 # /P_WHATSAPP_FITNESS_CONTEXT_LOCK
+
