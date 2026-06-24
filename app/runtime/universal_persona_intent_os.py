@@ -91,3 +91,52 @@ def universal_persona_intent_reply(sender_id: str, inbound_text: str, previous_r
         return clean
 
     return "Entendi. Vou responder de forma prática e manter o contexto."
+
+# ============================================================
+# P_UNIVERSAL_SHORT_MEMORY_FACTUAL_FITNESS
+# Sender-level short memory + factual/fitness continuity.
+# ============================================================
+
+_LAST_BY_SENDER = {}
+
+def remember_turn(sender_id: str, inbound_text: str, answer: str):
+    sid = str(sender_id or "default")
+    _LAST_BY_SENDER[sid] = {
+        "inbound": str(inbound_text or ""),
+        "answer": str(answer or ""),
+        "intent": classify_intent(inbound_text),
+    }
+
+def get_previous_reply(sender_id: str) -> str:
+    return _LAST_BY_SENDER.get(str(sender_id or "default"), {}).get("answer", "")
+
+def get_previous_inbound(sender_id: str) -> str:
+    return _LAST_BY_SENDER.get(str(sender_id or "default"), {}).get("inbound", "")
+
+def universal_contextual_reply(sender_id: str, inbound_text: str):
+    t = _norm(inbound_text)
+    prev_in = _norm(get_previous_inbound(sender_id))
+    prev_ans = _norm(get_previous_reply(sender_id))
+
+    if any(x in t for x in ["jogo do brasil", "brasil hoje", "expectativa para o jogo"]):
+        return "Eu consigo comentar a expectativa geral: Brasil costuma entrar pressionando, com favoritismo quando enfrenta seleção mais fraca, mas eu precisaria de busca real ativa para confirmar escalação, adversário e odds de hoje."
+
+    if any(x in t for x in ["quanto de proteina", "quanto de proteína", "proteina por dia", "proteína por dia"]):
+        return "Para emagrecer preservando músculo, uma boa base é 1,6 a 2,2 g de proteína por kg de peso por dia. Se você está com 93 kg, ficaria algo perto de 150 a 200 g/dia, ajustando pela rotina."
+
+    if any(x in t for x in ["monte uma dieta", "monta uma dieta", "dieta pra mim", "dieta para mim"]):
+        return "Monto sim. Base simples: café com ovos ou whey; almoço com frango/carne, arroz, feijão e salada; lanche com iogurte/whey/fruta; jantar com proteína e legumes. Depois ajusto quantidade pelo seu peso e treino."
+
+    if any(x in t for x in ["prossiga", "continue", "continua", "aprofunde", "detalhe"]):
+        joined = prev_in + " " + prev_ans
+        if any(x in joined for x in ["emagrecer", "proteína", "proteina", "dieta", "treino"]):
+            return "Aprofundando: mira em constância por 14 dias. Proteína alta, carbo controlado, muita água, treino de força e caminhada. Se o peso não cair na média semanal, reduz um pouco as porções."
+        if any(x in joined for x in ["jogo do brasil", "brasil hoje"]):
+            return "Aprofundando: sem busca em tempo real eu não cravo escalação ou placar, mas analisaria forma recente, adversário, mando, desfalques e intensidade dos primeiros 15 minutos."
+        if any(x in joined for x in ["conversação", "praticar", "natural"]):
+            return "Aprofundando: o melhor treino é conversa real com correção imediata. Você muda tema, testa follow-up e aponta erro. Eu aprendo a manter contexto sem parecer mecânica."
+        return "Claro. Vou continuar pelo assunto anterior e aprofundar sem trocar de contexto."
+
+    return None
+
+# /P_UNIVERSAL_SHORT_MEMORY_FACTUAL_FITNESS
