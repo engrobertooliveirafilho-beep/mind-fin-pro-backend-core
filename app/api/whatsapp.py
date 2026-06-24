@@ -471,6 +471,7 @@ from app.runtime.mind_state_visible_context import is_state_query, build_mind_st
 from app.runtime.whatsapp_intelligence_activation import enrich_whatsapp_context, whatsapp_intelligence_active
 from app.runtime.short_memory import remember, recall
 from app.runtime.universal_affective_persona_layer import affective_tone
+from app.runtime.sovereign_conversation_orchestrator import decide_dict as sovereign_decide
 from app.runtime.universal_persona_intent_os import universal_persona_intent_reply, first_person_rewrite, universal_contextual_reply, universal_contextual_open_intent_reply, remember_turn
 
 
@@ -1098,6 +1099,11 @@ async def whatsapp_webhook(request: Request):
     try:
         form = await request.form()
         inbound_text = _p19p21b_extract_twilio_form_value(form, "Body", "")
+        try:
+            _sovereign_shadow = sovereign_decide("shadow", inbound_text)
+        except Exception:
+            _sovereign_shadow = {"error": "shadow_failed"}
+        # P_SOVEREIGN_ORCHESTRATOR_SHADOW_TRACE
         sender_id = _p19p21b_extract_twilio_form_value(form, "From", "")
 
         if not inbound_text.strip():
@@ -1195,6 +1201,7 @@ def _p_whatsapp_context_lock_reply(sender_id: str, inbound_text: str):
     return None
 
 # /P_WHATSAPP_FITNESS_CONTEXT_LOCK
+
 
 
 
