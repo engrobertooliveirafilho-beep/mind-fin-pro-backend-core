@@ -95,6 +95,10 @@ def universal_provider_answer(domain: str, intent: str, text: str, state: dict) 
 def goal_manager_response(domain: str, intent: str, text: str, state: dict) -> str | None:
     t = _norm(text)
 
+    slot_answer = fitness_slot_filling_response(domain, text, state)
+    if slot_answer:
+        return slot_answer
+
     if domain == "fitness":
         state["goal"] = state.get("goal") or "montar dieta personalizada"
 
@@ -112,5 +116,79 @@ def goal_manager_response(domain: str, intent: str, text: str, state: dict) -> s
                     "Aprofundando: primeiro eu coleto seus dados, depois calculo proteína, distribuo refeições, "
                     "ajusto carbo perto do treino e deixo opções simples para repetir sem sofrer."
                 )
+
+    return None
+
+# ============================================================
+# P2405 FITNESS SLOT FILLING + DIET GENERATOR
+# ============================================================
+
+def _extract_fitness_slots(text: str) -> dict:
+    import re
+    t = _norm(text)
+    slots = {}
+
+    kg = re.search(r"(\d{2,3})\s*kg", t)
+    if kg:
+        slots["peso_kg"] = int(kg.group(1))
+
+    h = re.search(r"1[,.]\d{2}", t)
+    if h:
+        slots["altura_m"] = float(h.group(0).replace(",", "."))
+
+    age = re.search(r"(\d{2})\s*anos", t)
+    if age:
+        slots["idade"] = int(age.group(1))
+
+    if "noite" in t:
+        slots["treino"] = "noite"
+    elif "manhã" in t or "manha" in t:
+        slots["treino"] = "manhã"
+    elif "tarde" in t:
+        slots["treino"] = "tarde"
+
+    meals = re.search(r"(\d)\s*refei", t)
+    if meals:
+        slots["refeicoes"] = int(meals.group(1))
+
+    if "secar" in t:
+        slots["objetivo"] = "secar"
+    elif "ganhar massa" in t:
+        slots["objetivo"] = "ganhar massa"
+    elif "recompor" in t:
+        slots["objetivo"] = "recompor"
+
+    return slots
+
+def _fitness_slots_enough(slots: dict) -> bool:
+    required = ["peso_kg", "altura_m", "idade", "treino", "refeicoes", "objetivo"]
+    return all(k in slots for k in required)
+
+def _build_initial_diet(slots: dict) -> str:
+    peso = slots.get("peso_kg", 94)
+    proteina_min = int(round(peso * 1.8))
+    proteina_max = int(round(peso * 2.2))
+
+    return (
+        f"Fechado. Com {peso} kg e objetivo de secar, eu começaria com proteína entre "
+        f"{proteina_min} e {proteina_max} g/dia. Como você treina à noite e faz 5 refeições: "
+        "1) café: ovos + fruta; 2) almoço: frango/carne + arroz + feijão + salada; "
+        "3) lanche: iogurte ou whey + fruta; 4) pré-treino: carbo leve + proteína; "
+        "5) jantar: proteína + legumes. Ajustamos quantidades pela evolução semanal."
+    )
+
+def fitness_slot_filling_response(domain: str, text: str, state: dict) -> str | None:
+    if domain != "fitness":
+        return None
+
+    slots = state.setdefault("fitness_slots", {})
+    new_slots = _extract_fitness_slots(text)
+    if new_slots:
+        slots.update(new_slots)
+        state["fitness_slots"] = slots
+
+    if state.get("goal") == "coletar dados para dieta personalizada" and _fitness_slots_enough(slots):
+        state["goal"] = "dieta inicial gerada"
+        return _build_initial_diet(slots)
 
     return None
