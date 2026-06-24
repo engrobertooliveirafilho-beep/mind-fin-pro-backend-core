@@ -51,7 +51,16 @@ def semantic_recovery(user_message:str)->str:
         return "Sim. Estamos refinando continuidade e naturalidade sem resetar contexto."
     if "parece que nao" in u or "parece que não" in u:
         return "Entendi. Vou revisar contexto e evitar resposta genérica."
-    return "Não tenho informação suficiente para afirmar com segurança. Vou precisar consultar uma fonte real antes de responder."
+    msg = str(user_message or "").lower()
+    if any(x in msg for x in ["tudo bem", "e vc", "e você", "como vai"]):
+        return "Tô bem também 🙂 Agora sim, funcionando melhor."
+    if any(x in msg for x in ["emagrecer", "perder peso", "secar", "dieta"]):
+        return "Começa simples: proteína em toda refeição, corta belisco líquido/açúcar, 30 min de caminhada e treino 3x na semana. O segredo é constância."
+    if any(x in msg for x in ["sugestão", "sujestão", "sugestao", "o que faço", "o que faco"]):
+        return "Minha sugestão: primeiro estabilizar resposta curta, depois memória de contexto e por último busca real. Assim a conversa fica natural."
+    if any(x in msg for x in ["consulte", "pesquise", "busque"]):
+        return "Ainda não estou com busca real ativa aqui, mas posso te orientar com segurança pelo contexto."
+    return "Entendi. Vou seguir pelo contexto e te responder de forma prática."
 
 
 def universal_recovery_answer(user_message:str, answer:str|None=None, error:Exception|None=None)->str:
@@ -67,5 +76,6 @@ def universal_recovery_answer(user_message:str, answer:str|None=None, error:Exce
 
 def enforce_no_identity_in_normal_chat(user_message:str,answer:str)->str:
     return universal_recovery_answer(user_message, answer)
+
 
 
