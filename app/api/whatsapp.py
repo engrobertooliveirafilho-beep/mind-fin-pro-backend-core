@@ -1105,7 +1105,11 @@ async def whatsapp_webhook(request: Request):
             )
 
         try:
-            answer = _p19p21b_real_whatsapp_certified_reply(sender_id, inbound_text)
+            locked = _p_whatsapp_context_lock_reply(sender_id, inbound_text)
+            if locked:
+                answer = locked
+            else:
+                answer = _p19p21b_real_whatsapp_certified_reply(sender_id, inbound_text)
         except Exception:
             answer = "Recebi sua mensagem. Vou manter o contexto e responder de forma prática."
 
@@ -1135,3 +1139,48 @@ async def whatsapp_webhook_health():
     }
 
 # /P_WHATSAPP_TWILIO_HANDLER_RESTORE
+
+# ============================================================
+# P_WHATSAPP_FITNESS_CONTEXT_LOCK
+# Prevents short followups from leaking old automotive context.
+# ============================================================
+
+_P_WHATSAPP_LAST_DOMAIN_BY_SENDER = {}
+
+def _p_whatsapp_detect_runtime_domain(text: str) -> str:
+    t = str(text or "").lower()
+    if any(x in t for x in ["emagrecer", "perder peso", "secar", "dieta", "treino", "proteína", "proteina", "cardio"]):
+        return "fitness"
+    if any(x in t for x in ["carro", "mercedes", "classe a", "marcha", "embreagem", "atuador", "cambio", "câmbio"]):
+        return "automotivo"
+    if any(x in t for x in ["trade", "trader", "ftmo", "backtest", "drawdown"]):
+        return "trader"
+    if any(x in t for x in ["copy", "criativo", "anuncio", "anúncio", "campanha", "funil"]):
+        return "marketing"
+    return ""
+
+def _p_whatsapp_is_short_followup(text: str) -> bool:
+    t = str(text or "").lower().strip()
+    t = t.replace("?", "").replace(".", "").replace("!", "")
+    return t in ["aprofunde", "aprofundar", "detalhe", "detalha", "continue", "continua", "e depois", "depois", "como faço", "como faco"]
+
+def _p_whatsapp_context_lock_reply(sender_id: str, inbound_text: str):
+    domain = _p_whatsapp_detect_runtime_domain(inbound_text)
+    if domain:
+        _P_WHATSAPP_LAST_DOMAIN_BY_SENDER[str(sender_id or "default")] = domain
+        return None
+
+    if _p_whatsapp_is_short_followup(inbound_text):
+        last = _P_WHATSAPP_LAST_DOMAIN_BY_SENDER.get(str(sender_id or "default"), "")
+        if last == "fitness":
+            return "Aprofundando: monte um déficit calórico leve, coma proteína em toda refeição, mantenha arroz/feijão em porção controlada, corte líquidos calóricos e faça musculação 3–5x por semana. Cardio ajuda, mas o que seca é consistência."
+        if last == "marketing":
+            return "Aprofundando: defina promessa, dor principal, prova, oferta e criativo. Depois teste 3 ângulos: benefício direto, história curta e comparação antes/depois."
+        if last == "trader":
+            return "Aprofundando: valide primeiro no paper, com amostra suficiente, controle de drawdown, regra de entrada/saída e bloqueio de overfit."
+        if last == "automotivo":
+            return "Aprofundando: isole sintoma, teste causa provável, valide antes de trocar peça e registre evidência."
+
+    return None
+
+# /P_WHATSAPP_FITNESS_CONTEXT_LOCK
