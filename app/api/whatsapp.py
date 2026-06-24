@@ -471,7 +471,7 @@ from app.runtime.mind_state_visible_context import is_state_query, build_mind_st
 from app.runtime.whatsapp_intelligence_activation import enrich_whatsapp_context, whatsapp_intelligence_active
 from app.runtime.short_memory import remember, recall
 from app.runtime.universal_affective_persona_layer import affective_tone
-from app.runtime.universal_persona_intent_os import universal_persona_intent_reply, first_person_rewrite, universal_contextual_reply, remember_turn
+from app.runtime.universal_persona_intent_os import universal_persona_intent_reply, first_person_rewrite, universal_contextual_reply, universal_contextual_open_intent_reply, remember_turn
 
 
 # ============================================================
@@ -1111,7 +1111,9 @@ async def whatsapp_webhook(request: Request):
             if locked:
                 answer = locked
             else:
-                answer = universal_contextual_reply(sender_id, inbound_text)
+                answer = universal_contextual_open_intent_reply(sender_id, inbound_text)
+                if not answer:
+                    answer = universal_contextual_reply(sender_id, inbound_text)
                 if not answer:
                     answer = universal_persona_intent_reply(sender_id, inbound_text, "")
             if not answer:
@@ -1124,7 +1126,7 @@ async def whatsapp_webhook(request: Request):
             answer = "Recebi sua mensagem. Continua comigo que eu sigo do ponto certo."
 
         answer = affective_tone(inbound_text, answer)
-        remember_turn(sender_id, inbound_text, answer)
+        universal_contextual_open_intent_reply, remember_turn(sender_id, inbound_text, answer)
         return Response(
             content=twiml(answer),
             media_type="application/xml",
@@ -1193,6 +1195,7 @@ def _p_whatsapp_context_lock_reply(sender_id: str, inbound_text: str):
     return None
 
 # /P_WHATSAPP_FITNESS_CONTEXT_LOCK
+
 
 
 

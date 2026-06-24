@@ -140,3 +140,46 @@ def universal_contextual_reply(sender_id: str, inbound_text: str):
     return None
 
 # /P_UNIVERSAL_SHORT_MEMORY_FACTUAL_FITNESS
+
+# ============================================================
+# P_UNIVERSAL_CONTEXTUAL_OPEN_INTENT_FIX
+# Handles open followups by previous sender context.
+# ============================================================
+
+def _is_open_contextual_question(text: str) -> bool:
+    t = _norm(text)
+    markers = [
+        "qual a forma", "forma mais rapida", "forma mais rápida",
+        "mais rapido", "mais rápido", "quanto", "como faço", "como faco",
+        "monta", "monte", "me passa", "me explica", "e agora",
+        "primeiro passo", "melhor jeito", "melhor forma"
+    ]
+    return any(x in t for x in markers)
+
+def universal_contextual_open_intent_reply(sender_id: str, inbound_text: str):
+    t = _norm(inbound_text)
+    prev_in = _norm(get_previous_inbound(sender_id))
+    prev_ans = _norm(get_previous_reply(sender_id))
+    joined = prev_in + " " + prev_ans
+
+    if not _is_open_contextual_question(t):
+        return None
+
+    if any(x in joined for x in ["emagrecer", "perder peso", "secar", "dieta", "proteína", "proteina", "treino"]):
+        if any(x in t for x in ["forma mais rapida", "forma mais rápida", "mais rápido", "mais rapido"]):
+            return "A forma mais rápida sem fazer besteira é: déficit calórico, proteína alta, treino de força e caminhada diária. O atalho real é cortar açúcar/belisco e repetir o básico por 14 dias."
+        if "quanto" in t and ("proteina" in t or "proteína" in t):
+            return "Boa base: 1,6 a 2,2 g de proteína por kg de peso por dia. Se você pesa perto de 93 kg, mira algo entre 150 e 200 g por dia."
+        if any(x in t for x in ["monte", "monta", "dieta"]):
+            return "Monto sim: café com ovos ou whey; almoço com frango/carne, arroz, feijão e salada; lanche com iogurte ou whey; jantar com proteína e legumes. Depois ajusto as quantidades."
+        return "No seu caso, eu começaria pelo simples: proteína alta, menos açúcar, caminhada diária e treino de força. Primeiro consistência, depois ajuste fino."
+
+    if any(x in joined for x in ["jogo do brasil", "brasil hoje", "seleção"]):
+        return "Para esse assunto eu consigo analisar tendência geral, mas para cravar expectativa de hoje preciso de busca real: adversário, escalação, desfalques e momento das equipes."
+
+    if any(x in joined for x in ["conversação", "conversa", "praticar", "natural"]):
+        return "O melhor jeito é me treinar em conversa real: você pergunta, muda o contexto, me corrige e testa follow-ups. A cada erro, eu preciso corrigir sem reiniciar."
+
+    return None
+
+# /P_UNIVERSAL_CONTEXTUAL_OPEN_INTENT_FIX
