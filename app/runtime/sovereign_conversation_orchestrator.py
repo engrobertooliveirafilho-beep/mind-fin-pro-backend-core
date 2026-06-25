@@ -14,7 +14,8 @@ def _trace_state(event: dict):
         pass
 
 # P2406_STATE_TRACE
-from app.runtime.universal_knowledge_provider import detect_universal_domain, detect_universal_intent, universal_provider_answer, goal_manager_response
+from app.runtime.universal_knowledge_provider import detect_universal_domain, detect_universal_intent, universal_provider_answer, goal_manager_response, cognitive_provider_answer
+from app.runtime.sovereign_cognitive_execution_engine import classify_cognitive_frame
 from dataclasses import dataclass, asdict
 
 _STATE = {}
@@ -187,11 +188,14 @@ def quality_score(answer, text):
 def decide(sender_id, inbound_text):
     st = _state(sender_id)
     before_state = dict(st)
-    domain = detect_universal_domain(inbound_text, st.get("domain", ""))
-    intent = detect_universal_intent(inbound_text)
-    goal = update_goal(domain, intent, st)
+    frame = classify_cognitive_frame(inbound_text, st)
+    domain = frame.get("domain") or detect_universal_domain(inbound_text, st.get("domain", ""))
+    intent = frame.get("intent") or detect_universal_intent(inbound_text)
+    goal = frame.get("goal") or update_goal(domain, intent, st)
 
-    answer = goal_manager_response(domain, intent, inbound_text, st)
+    answer = cognitive_provider_answer(frame, inbound_text, st)
+    if not answer:
+        answer = goal_manager_response(domain, intent, inbound_text, st)
     if not answer:
         answer = universal_provider_answer(domain, intent, inbound_text, st)
 
@@ -201,6 +205,11 @@ def decide(sender_id, inbound_text):
     if action == "ask_clarification":
         answer = "Quero te responder melhor. Me diz o objetivo principal: você quer plano, explicação ou próximo passo?"
 
+    st["last_frame"] = frame
+    st["domain"] = domain
+    st["goal"] = goal
+    st["phase"] = frame.get("phase", st.get("phase", "open"))
+    st["target"] = frame.get("target", st.get("target", "user"))
     st["last_user"] = str(inbound_text or "")
     st["last_answer"] = answer
     st["turns"] = int(st.get("turns", 0)) + 1
@@ -233,6 +242,7 @@ def decide(sender_id, inbound_text):
 
 def decide_dict(sender_id, inbound_text):
     return asdict(decide(sender_id, inbound_text))
+
 
 
 

@@ -192,3 +192,47 @@ def fitness_slot_filling_response(domain: str, text: str, state: dict) -> str | 
         return _build_initial_diet(slots)
 
     return None
+
+# ============================================================
+# P2409 CAPABILITY REGISTRY + COGNITIVE PROVIDER
+# ============================================================
+
+CAPABILITY_REGISTRY = {
+    "web_search": False,
+    "realtime_sports": False,
+    "persistent_memory": True,
+    "whatsapp_delivery": True,
+    "goal_tracking": True,
+    "fitness_planning": True,
+    "image_generation": False,
+}
+
+def capability_registry_response(text: str, frame: dict, state: dict) -> str | None:
+    if frame.get("intent") != "capability_question":
+        return None
+
+    return (
+        "Pra eu fazer buscas reais, preciso de uma fonte conectada ao runtime: API de busca, API esportiva ou outro provedor externo. "
+        "Hoje eu consigo conversar, manter contexto e montar planos, mas para jogo de hoje, escalação, placar e notícias eu preciso dessa integração ativa."
+    )
+
+def cognitive_provider_answer(frame: dict, text: str, state: dict) -> str | None:
+    cap = capability_registry_response(text, frame, state)
+    if cap:
+        return cap
+
+    if frame.get("intent") == "slot_fill" and frame.get("domain") == "fitness":
+        ans = fitness_slot_filling_response("fitness", text, state)
+        if ans:
+            return ans
+
+    if frame.get("intent") == "followup":
+        if frame.get("domain") == "fitness":
+            return (
+                "Continuando: se o objetivo é secar, eu organizo em três partes: proteína diária, treino de força e controle de calorias. "
+                "Depois ajusto carbo perto do treino e acompanho o peso semanal."
+            )
+        if frame.get("domain") == "sports":
+            return "Continuando: sem busca real eu não cravo fato atual, mas posso analisar contexto geral e o que observar no jogo."
+
+    return None
