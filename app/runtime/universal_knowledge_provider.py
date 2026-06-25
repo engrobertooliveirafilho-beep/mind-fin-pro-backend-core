@@ -217,27 +217,7 @@ def capability_registry_response(text: str, frame: dict, state: dict) -> str | N
     )
 
 def cognitive_provider_answer(frame: dict, text: str, state: dict) -> str | None:
-    t = _norm(text)
-
-    if any(x in t for x in ["oi", "olá", "ola", "bom dia", "boa tarde", "boa noite"]):
-        return "Oi, Roberto 🙂 Tô aqui. Me fala o que vamos ajustar agora."
-
-    if any(x in t for x in ["quem é vc", "quem é você", "quem e vc", "quem e voce", "quem é voce"]):
-        return "Eu sou a Eldora. Estou aqui pra conversar com você, manter contexto e te ajudar de forma prática."
-
-    if any(x in t for x in ["deu errado", "não funcionou", "nao funcionou", "bugou", "errou"]):
-        return "Poxa, você tem razão. Deu errado. Vou corrigir a rota: primeiro eu entendo sua intenção, depois respondo sem cair nesse fallback genérico."
-t = _norm(text)
-
-    if any(x in t for x in ["oi", "olá", "ola", "bom dia", "boa tarde", "boa noite"]):
-        return "Oi, Roberto 🙂 Tô aqui. Me fala o que vamos ajustar agora."
-
-    if any(x in t for x in ["quem é vc", "quem é você", "quem e vc", "quem e voce", "quem é voce"]):
-        return "Eu sou a Eldora. Estou aqui pra conversar com você, manter contexto e te ajudar de forma prática."
-
-    if any(x in t for x in ["deu errado", "não funcionou", "nao funcionou", "bugou", "errou"]):
-        return "Poxa, você tem razão. Deu errado. Vou corrigir a rota: primeiro eu entendo sua intenção, depois respondo sem cair nesse fallback genérico."
-cap = capability_registry_response(text, frame, state)
+    cap = capability_registry_response(text, frame, state)
     if cap:
         return cap
 
@@ -256,5 +236,3 @@ cap = capability_registry_response(text, frame, state)
             return "Continuando: sem busca real eu não cravo fato atual, mas posso analisar contexto geral e o que observar no jogo."
 
     return None
-
-
