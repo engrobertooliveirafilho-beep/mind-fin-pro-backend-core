@@ -19,6 +19,26 @@ from dataclasses import dataclass, asdict
 
 _STATE = {}
 
+import json
+from pathlib import Path
+_STATE_FILE = Path("_runtime_state/sovereign_state.json")
+_STATE_FILE.parent.mkdir(exist_ok=True)
+
+def _load_all_state():
+    try:
+        if _STATE_FILE.exists():
+            return json.loads(_STATE_FILE.read_text(encoding="utf-8"))
+    except Exception:
+        pass
+    return {}
+
+def _save_all_state(data):
+    try:
+        _STATE_FILE.parent.mkdir(exist_ok=True)
+        _STATE_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    except Exception:
+        pass
+
 @dataclass
 class ConversationDecision:
     intent: str
@@ -36,14 +56,21 @@ def _sid(sender_id):
     return str(sender_id or "default")
 
 def _state(sender_id):
-    return _STATE.setdefault(_sid(sender_id), {
-        "last_user": "",
-        "last_answer": "",
-        "domain": "",
-        "goal": "",
-        "slots": {},
-        "turns": 0,
-    })
+    sid = _sid(sender_id)
+    data = _load_all_state()
+    if sid not in data:
+        data[sid] = {
+            "last_user": "",
+            "last_answer": "",
+            "domain": "",
+            "goal": "",
+            "slots": {},
+            "fitness_slots": {},
+            "turns": 0,
+        }
+        _save_all_state(data)
+    _STATE[sid] = data[sid]
+    return _STATE[sid]
 
 def detect_domain(text):
     t = _norm(text)
@@ -177,6 +204,9 @@ def decide(sender_id, inbound_text):
     st["last_user"] = str(inbound_text or "")
     st["last_answer"] = answer
     st["turns"] = int(st.get("turns", 0)) + 1
+    all_state = _load_all_state()
+    all_state[_sid(sender_id)] = st
+    _save_all_state(all_state)
 
     _trace_state({
         "sender_id": str(sender_id or ""),
@@ -203,6 +233,7 @@ def decide(sender_id, inbound_text):
 
 def decide_dict(sender_id, inbound_text):
     return asdict(decide(sender_id, inbound_text))
+
 
 
 
