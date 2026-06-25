@@ -86,7 +86,7 @@ def universal_provider_answer(domain: str, intent: str, text: str, state: dict) 
         last = state.get("last_answer", "")
         return f"Continuando do ponto anterior: {last[:180]}"
 
-    return "Me dá só o objetivo principal: você quer plano, diagnóstico, explicação ou próximo passo?"
+    return reasoning_provider_answer(domain, intent, text, state)
 
 # ============================================================
 # P2404 GOAL MANAGER RESPONSE
@@ -236,3 +236,37 @@ def cognitive_provider_answer(frame: dict, text: str, state: dict) -> str | None
             return "Continuando: sem busca real eu não cravo fato atual, mas posso analisar contexto geral e o que observar no jogo."
 
     return None
+
+# ============================================================
+# P2411 REASONING PROVIDER FINAL
+# No strong generic fallback. Last provider builds contextual answer.
+# ============================================================
+
+def reasoning_provider_answer(domain: str, intent: str, text: str, state: dict) -> str:
+    t = _norm(text)
+    last_domain = state.get("domain", "")
+    last_goal = state.get("goal", "")
+    last_answer = state.get("last_answer", "")
+
+    if any(x in t for x in ["oi", "olá", "ola"]):
+        return "Oi, Roberto 🙂 Tô aqui. Me fala o que vamos ajustar agora."
+
+    if any(x in t for x in ["quem é vc", "quem é você", "quem e vc", "quem e voce"]):
+        return "Eu sou a Eldora. Estou aqui pra conversar com você, manter contexto e te ajudar de forma prática."
+
+    if any(x in t for x in ["tudo bem", "e vc", "e você"]):
+        return "Tô bem 🙂 Melhorando a cada teste que você faz comigo."
+
+    if any(x in t for x in ["deu errado", "não funcionou", "nao funcionou", "bugou", "errou"]):
+        return "Poxa, você tem razão. Deu errado. Vou corrigir a rota sem repetir fallback genérico."
+
+    if intent == "followup" and last_answer:
+        return "Continuando do ponto certo: " + str(last_answer)[:220]
+
+    if last_domain == "fitness" or "dieta" in str(last_goal):
+        return "Pelo contexto, seguimos no objetivo de dieta/emagrecimento. O próximo passo é coletar dados ou ajustar o plano, sem repetir resposta pronta."
+
+    if domain == "capability":
+        return "Pra eu responder isso melhor, preciso saber qual capacidade você quer ativar: busca real, memória, imagem, calendário ou integração externa."
+
+    return "Não entendi perfeitamente. Reformula em uma frase curta que eu sigo do ponto certo."
