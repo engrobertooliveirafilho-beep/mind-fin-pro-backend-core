@@ -48,6 +48,21 @@ from app.runtime.test_contract_wrapper import semantic_test_injection
 from app.runtime.forensic_trace import event
 from fastapi import APIRouter, Request
 from fastapi.responses import Response
+import json as _p2406_json, time as _p2406_time
+from pathlib import Path as _p2406_Path
+
+def _p2406_webhook_trace(event: dict):
+    try:
+        d = _p2406_Path("_runtime_trace")
+        d.mkdir(exist_ok=True)
+        p = d / "whatsapp_webhook_trace.jsonl"
+        event["ts"] = _p2406_time.time()
+        with p.open("a", encoding="utf-8") as f:
+            f.write(_p2406_json.dumps(event, ensure_ascii=False) + "\n")
+    except Exception:
+        pass
+
+# P2406_WEBHOOK_TRACE
 
 
 
@@ -1100,6 +1115,12 @@ async def whatsapp_webhook(request: Request):
         form = await request.form()
         inbound_text = _p19p21b_extract_twilio_form_value(form, "Body", "")
         sender_id = _p19p21b_extract_twilio_form_value(form, "From", "")
+        _p2406_webhook_trace({
+            "sender_id": sender_id,
+            "inbound_text": inbound_text,
+            "provider": "twilio",
+            "handler": "whatsapp_webhook"
+        })
 
         if not inbound_text.strip():
             answer = "Me manda a mensagem de novo, não chegou conteúdo aqui."
@@ -1185,6 +1206,7 @@ def _p_whatsapp_context_lock_reply(sender_id: str, inbound_text: str):
     return None
 
 # /P_WHATSAPP_FITNESS_CONTEXT_LOCK
+
 
 
 

@@ -1,4 +1,19 @@
 import re
+import json, os, time
+from pathlib import Path
+
+def _trace_state(event: dict):
+    try:
+        d = Path("_runtime_trace")
+        d.mkdir(exist_ok=True)
+        p = d / "sovereign_state_trace.jsonl"
+        event["ts"] = time.time()
+        with p.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(event, ensure_ascii=False) + "\n")
+    except Exception:
+        pass
+
+# P2406_STATE_TRACE
 from app.runtime.universal_knowledge_provider import detect_universal_domain, detect_universal_intent, universal_provider_answer, goal_manager_response
 from dataclasses import dataclass, asdict
 
@@ -144,6 +159,7 @@ def quality_score(answer, text):
 
 def decide(sender_id, inbound_text):
     st = _state(sender_id)
+    before_state = dict(st)
     domain = detect_universal_domain(inbound_text, st.get("domain", ""))
     intent = detect_universal_intent(inbound_text)
     goal = update_goal(domain, intent, st)
@@ -162,6 +178,19 @@ def decide(sender_id, inbound_text):
     st["last_answer"] = answer
     st["turns"] = int(st.get("turns", 0)) + 1
 
+    _trace_state({
+        "sender_id": str(sender_id or ""),
+        "inbound_text": str(inbound_text or ""),
+        "before_state": before_state,
+        "after_state": dict(st),
+        "domain": domain,
+        "intent": intent,
+        "goal": goal,
+        "answer": answer,
+        "confidence": score,
+        "source": "sovereign_decide"
+    })
+
     return ConversationDecision(
         intent=intent,
         domain=domain,
@@ -174,5 +203,6 @@ def decide(sender_id, inbound_text):
 
 def decide_dict(sender_id, inbound_text):
     return asdict(decide(sender_id, inbound_text))
+
 
 
