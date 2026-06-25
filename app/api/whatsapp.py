@@ -1,3 +1,245 @@
+
+def _bope12_build_twin_shadow(sender_id: str, inbound_text: str, answer: str = "") -> dict:
+    if build_cognitive_digital_twin is None or twin_to_instruction is None:
+        return {
+            "ok": False,
+            "instruction": "",
+            "twin": None,
+            "reason": "digital_twin_unavailable",
+        }
+    try:
+        seed = f"{inbound_text}\n{answer}"
+        twin = build_cognitive_digital_twin(str(sender_id or "anonymous"), seed)
+        return {
+            "ok": True,
+            "instruction": twin_to_instruction(twin),
+            "twin": {
+                "user_id_hash": twin.user_id_hash,
+                "behavior_model": [s.__dict__ for s in twin.behavior_model],
+                "communication_model": [s.__dict__ for s in twin.communication_model],
+                "decision_model": [s.__dict__ for s in twin.decision_model],
+                "learning_model": [s.__dict__ for s in twin.learning_model],
+                "goal_model": [s.__dict__ for s in twin.goal_model],
+                "emotional_model": [s.__dict__ for s in twin.emotional_model],
+                "metadata": twin.metadata,
+            },
+            "reason": "digital_twin_ok",
+        }
+    except Exception as exc:
+        return {
+            "ok": False,
+            "instruction": "",
+            "twin": None,
+            "reason": f"digital_twin_error:{type(exc).__name__}",
+        }
+
+
+def _bope12_apply_twin_style(answer: str, twin_shadow: dict) -> str:
+    text = str(answer or "").strip()
+
+    if not isinstance(twin_shadow, dict) or not twin_shadow.get("ok"):
+        return text
+
+    twin = twin_shadow.get("twin") or {}
+    communication = twin.get("communication_model") or []
+    decision = twin.get("decision_model") or []
+    emotional = twin.get("emotional_model") or []
+
+    values = " ".join(str(s.get("value", "")) for s in communication + decision + emotional)
+
+    if "direto_sem_floreio" in values:
+        text = text.replace("Contexto:", "").replace("Objetivo:", "").strip()
+
+    if "executar_proximo_passo" in values and "Próximo passo:" not in text:
+        text = text + " Próximo passo: execute a primeira etapa e valide o resultado."
+
+    if "resposta_generica" in values:
+        banned = ["como posso ajudar", "me diga melhor", "não entendi"]
+        lower = text.lower()
+        if any(b in lower for b in banned):
+            text = "Vou seguir pelo contexto ativo e te dar o próximo passo direto."
+
+    return text
+
+
+
+# BOPE-12 digital twin integration
+try:
+    from app.runtime.digital_twin.builder import build_cognitive_digital_twin
+    from app.runtime.digital_twin.contract import twin_to_instruction
+except Exception:
+    build_cognitive_digital_twin = None
+    twin_to_instruction = None
+
+
+def _bope8_naturalize_whatsapp_answer(final_answer: str, bope5_shadow: dict) -> str:
+    raw = str(final_answer or "").strip()
+
+    if not isinstance(bope5_shadow, dict) or not bope5_shadow.get("ok"):
+        return raw
+
+    packet = bope5_shadow.get("packet") or {}
+    domain = packet.get("domain", "")
+    steps = packet.get("steps") or []
+    priorities = packet.get("priorities") or []
+    constraints = packet.get("constraints") or []
+    warnings = packet.get("warnings") or []
+
+    if domain in ("", "general"):
+        return raw
+
+    if domain == "agro_confinamento":
+        first = "Começa pelo trato."
+        step_text = "; ".join(str(x) for x in steps[:4])
+        tail = "Depois entra água, cocho e pesagem. Câmera e IA vêm depois, não antes."
+        return f"{first} Automatiza {step_text}. {tail}"
+
+    if domain == "automotivo_mercedes_aks":
+        step_text = "; ".join(str(x) for x in steps[:4])
+        warn = warnings[0] if warnings else "não troca peça antes de testar."
+        return f"Isso parece foco no acionamento da embreagem/AKS. Vai na sequência: {step_text}. Atenção: {warn}"
+
+    if domain == "marketing_digital":
+        step_text = "; ".join(str(x) for x in steps[:5])
+        priority = priorities[0] if priorities else "começa pela dor e pela oferta."
+        return f"Começa pelo essencial: {priority} Depois executa assim: {step_text}."
+
+    if domain == "trader":
+        step_text = "; ".join(str(x) for x in steps[:5])
+        cons = "; ".join(str(x) for x in constraints[:2])
+        warn = "; ".join(str(x) for x in warnings[:2])
+        return f"Segue em modo seguro: {cons}. Primeiro: {step_text}. Atenção: {warn}."
+
+    return raw
+
+
+
+def _bope6_build_final_answer(inbound_text: str, legacy_answer: str, bope5_shadow: dict) -> str:
+    """
+    BOPE-6 final authority shim.
+    Mantém segurança operacional: usa conhecimento estruturado quando disponível,
+    mas preserva resposta legada como fallback.
+    """
+    legacy = str(legacy_answer or "").strip()
+
+    if not isinstance(bope5_shadow, dict) or not bope5_shadow.get("ok"):
+        return legacy
+
+    packet = bope5_shadow.get("packet") or {}
+    domain = packet.get("domain", "")
+    intent = packet.get("intent", "")
+    facts = packet.get("facts") or []
+    steps = packet.get("steps") or []
+    priorities = packet.get("priorities") or []
+    constraints = packet.get("constraints") or []
+    warnings = packet.get("warnings") or []
+
+    # Se for general, não força template. Preserva legado.
+    if domain in ("", "general"):
+        return legacy
+
+    parts = []
+
+    if domain:
+        parts.append(f"Contexto: {domain}.")
+    if intent:
+        parts.append(f"Objetivo: {intent}.")
+
+    if facts:
+        parts.append("Pontos importantes: " + "; ".join(str(x) for x in facts[:3]) + ".")
+
+    if priorities:
+        parts.append("Prioridade: " + "; ".join(str(x) for x in priorities[:2]) + ".")
+
+    if steps:
+        parts.append("Próximos passos: " + "; ".join(str(x) for x in steps[:6]) + ".")
+
+    if constraints:
+        parts.append("Restrições: " + "; ".join(str(x) for x in constraints[:3]) + ".")
+
+    if warnings:
+        parts.append("Atenção: " + "; ".join(str(x) for x in warnings[:2]) + ".")
+
+    final = " ".join([p for p in parts if p]).strip()
+
+    if not final:
+        return legacy
+
+    return final
+
+
+
+def _bope5_build_knowledge_shadow(inbound_text: str, domain: str = "") -> dict:
+    if build_domain_knowledge is None or packet_to_context is None:
+        return {
+            "ok": False,
+            "context": "",
+            "packet": None,
+            "reason": "knowledge_provider_unavailable",
+        }
+    try:
+        packet = build_domain_knowledge(inbound_text, domain)
+        return {
+            "ok": True,
+            "context": packet_to_context(packet),
+            "packet": packet.__dict__,
+            "reason": "knowledge_provider_ok",
+        }
+    except Exception as exc:
+        return {
+            "ok": False,
+            "context": "",
+            "packet": None,
+            "reason": f"knowledge_provider_error:{type(exc).__name__}",
+        }
+
+
+
+# BOPE-5 knowledge shadow integration
+try:
+    from app.runtime.knowledge_providers.legacy_domain_provider import build_domain_knowledge
+    from app.runtime.knowledge_providers.contract import packet_to_context
+except Exception:
+    build_domain_knowledge = None
+    packet_to_context = None
+
+
+def _bope_context_signal(label: str, inbound_text: str = "", context: str = "", domain: str = "") -> dict:
+    return {
+        "type": "context_signal",
+        "label": str(label or ""),
+        "inbound_text": str(inbound_text or ""),
+        "context": str(context or ""),
+        "domain": str(domain or ""),
+        "final_answer": False,
+    }
+
+
+def _bope_signal_text(signal) -> str:
+    if isinstance(signal, dict):
+        parts = [
+            signal.get("label", ""),
+            signal.get("domain", ""),
+            signal.get("inbound_text", ""),
+            signal.get("context", ""),
+        ]
+        return " | ".join([str(x).strip() for x in parts if str(x).strip()])
+    return str(signal or "")
+
+
+
+def _bope2_context_signal(label: str, inbound_text: str = "", context: str = "") -> str:
+    base = str(inbound_text or "").strip()
+    ctx = str(context or "").strip()
+    if base and ctx:
+        return f"{base} | contexto ativo: {ctx}"
+    if base:
+        return base
+    if ctx:
+        return f"contexto ativo: {ctx}"
+    return label
+
+
 from app.modules.usde_core.live_bridge import USDELiveBridge
 import os
 
@@ -6,19 +248,19 @@ def _p427u_test_compat(user_message:str, reply)->str:
     msg=(user_message or "").lower().strip()
 
     if "qual o plano" in msg:
-        return "Vamos estabilizar continuidade, memória contextual e comportamento real do WhatsApp."
+        return _bope2_context_signal("continuity_memory_behavior", locals().get("inbound_text", ""), locals().get("context", ""))
 
     if "como fazer" in msg or "e como fazer" in msg:
-        return "Vamos fazer por memória contextual, continuidade e estabilizar comportamento real."
+        return _bope2_context_signal("memory_continuity_behavior", locals().get("inbound_text", ""), locals().get("context", ""))
 
     if "como esta" in msg or "como está" in msg:
-        return "Está melhorando. O WhatsApp já responde melhor, mas ainda estamos refinando continuidade e naturalidade."
+        return _bope2_context_signal("continuity_naturalness_refinement", locals().get("inbound_text", ""), locals().get("context", ""))
 
     if "deu ruim" in msg:
-        return "Entendi. Vamos manter continuidade e corrigir sem quebrar o runtime novo."
+        return _bope2_context_signal("preserve_continuity_runtime", locals().get("inbound_text", ""), locals().get("context", ""))
 
     if "conseguiu" in msg:
-        return "Sim. Estamos refinando continuidade e naturalidade sem resetar contexto."
+        return _bope2_context_signal("continuity_without_reset", locals().get("inbound_text", ""), locals().get("context", ""))
 
     if isinstance(reply, dict):
         return str(reply.get("answer",""))
@@ -886,9 +1128,9 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
     # P19P26A_H3_HUMANIZATION_INTENT_LOCK
     _p19h3_text = str(inbound_text or "").lower().strip()
     if any(x in _p19h3_text for x in ["humanizada", "humanizar", "mais emoção", "mais emocao", "com emoção", "com emocao"]):
-        return "Sim. O caminho é parar de responder como manual e conversar como presença: lembrar o contexto, reagir ao que você acabou de dizer, usar frases mais naturais, demonstrar intenção e cortar respostas genéricas. Eu quero soar mais próxima, firme e útil — não como um robô explicando IA."
+        return _bope_context_signal("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
     if _p19h3_text in ["quais são", "quais sao", "quais?", "quais são?", "quais sao?"]:
-        return "São estes: memória real do assunto, resposta curta com continuidade, opinião quando fizer sentido, tom mais caloroso, menos estrutura de manual, e emoção leve: tipo reconhecer quando algo deu certo, quando ficou ruim e quando precisamos ajustar sem enrolar."
+        return _bope_context_signal("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
     # /P19P26A_H3_HUMANIZATION_INTENT_LOCK
     # P19P18/P19P19 early short-followup context continuity
     try:
@@ -916,24 +1158,24 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
     _low = _txt.lower()
 
     if "nao entnedeu" in _low or "não entnedeu" in _low:
-        return "Entendi o erro de digitação. Fallback seguro: reformule em uma frase objetiva."
+        return _bope_context_signal("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
 
     if _low in {"oi","oie","olá","ola"}:
-        return "Oi, Roberto. Tudo certo?"
+        return _bope_context_signal("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
 
     if "o que vc faz" in _low or "o que você faz" in _low or "o que vc sabe fazer" in _low or "o que você sabe fazer" in _low:
-        return "Eu organizo contexto, respondo perguntas, faço cálculos simples e ajudo a validar próximos passos."
+        return _bope_context_signal("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
 
     _expr = re.sub(r"[^0-9+\-*/(). ]","",_low.replace("quanto é","").replace("quanto e","").replace("calcule",""))
     if any(op in _expr for op in ["+","-","*","/"]) and any(ch.isdigit() for ch in _expr):
         try:
             if re.fullmatch(r"[0-9+\-*/(). ]+", _expr):
-                return f"Resultado: {eval(_expr, {'__builtins__': {}}, {})}."
+                return _bope_context_signal("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
         except Exception:
             pass
 
     if _low == "calcule":
-        return "Me mande a conta completa que eu calculo direto."
+        return _bope_context_signal("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
     _guard_reply = whatsapp_social_followup_guard(inbound_text) if os.getenv("MIND_ENABLE_LEGACY_SOCIAL_GUARD","0") == "1" else ""
     if _guard_reply:
         return _p19p9_universal_whatsapp_output_guard(inbound_text, _guard_reply, "")
@@ -955,7 +1197,7 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
         "quem é você",
         "quem e voce"
     ]):
-        return "Sou a Eldora 🙂"
+        return _bope_context_signal("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
 
     # P4_23G_DISABLE_PRECOGNITIVE_CONTRACT_PATCH
     _contract_reply = None
@@ -970,16 +1212,16 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
         "quem é você",
         "quem e voce"
     ]):
-        return "Sou a Eldora 🙂"
+        return _bope_context_signal("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
 
     t=(inbound_text or "").lower().strip()
 
     # LEGACY TEST COMPATIBILITY
     if "prosseguir evolução do mind" in t or "prosseguir evolucao do mind" in t:
-        return "Diagnóstico\nRoberto, sigo no MIND. Próximo passo: avançar a próxima camada crítica.\n\nEstratégia\nContinuidade cognitiva ativa.\n\nExecução\nRuntime semântico operacional.\n\nAuditoria\nCompatibilidade legada validada."
+        return _bope_context_signal("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
 
     if t in ["nao entendi","não entendi"]:
-        return "Vou explicar em três camadas: memória contextual, cognição profunda e continuidade operacional, evitando frases genéricas."
+        return _bope_context_signal("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
 
 
     progressive_followup = any(x in t for x in [
@@ -995,7 +1237,7 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
         if os.getenv("MIND_ENABLE_LEGACY_FOLLOWUP","0") == "1":
             _followup_reply = universal_conversation_reply(sender_id, inbound_text, [])
             if block_meta_reply(_followup_reply):
-                return "Continua no mesmo ponto: validar o que falhou, testar a hipótese principal e avançar com evidência."
+                return _bope_context_signal("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
             if _followup_reply:
                 return _p19p9_universal_whatsapp_output_guard(inbound_text, _followup_reply, "")
 
@@ -1139,8 +1381,27 @@ async def whatsapp_webhook(request: Request):
         except Exception:
             pass
 
+
+        bope5_shadow = _bope5_build_knowledge_shadow(inbound_text, locals().get("domain", ""))
+        try:
+            result["bope5_knowledge_shadow"] = bope5_shadow
+        except Exception:
+            pass
+
+        final_answer = _bope6_build_final_answer(inbound_text, answer, bope5_shadow)
+        final_answer = _bope8_naturalize_whatsapp_answer(final_answer, bope5_shadow)
+        bope12_twin_shadow = _bope12_build_twin_shadow(sender_id, inbound_text, final_answer)
+        final_answer = _bope12_apply_twin_style(final_answer, bope12_twin_shadow)
+
+        try:
+            result["bope6_final_answer"] = final_answer
+            result["bope8_naturalized"] = True
+            result["bope12_twin_shadow"] = bope12_twin_shadow
+        except Exception:
+            pass
+
         return Response(
-            content=twiml(answer),
+            content=twiml(final_answer),
             media_type="application/xml",
         )
 
