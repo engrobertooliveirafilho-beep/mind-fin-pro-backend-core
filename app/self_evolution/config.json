@@ -1,0 +1,5 @@
+{
+  "mode": "SELF_EVOLVING",
+  "mutation_policy": "SAFE_CONSTRAINED",
+  "evolution_trigger": "performance_degradation | semantic_conflict | missing_capability"
+}

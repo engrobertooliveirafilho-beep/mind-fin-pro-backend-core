@@ -1,0 +1,101 @@
+{
+  "registry": "P4.75_UNIVERSAL_CAPABILITY_REGISTRY",
+  "created_at": "2026-06-21T13:48:54.578671+00:00",
+  "capabilities": {
+    "semantic_retrieval": {
+      "status": "ACTIVE",
+      "domain": "retrieval",
+      "usage": 7,
+      "success": 7,
+      "failed": 0,
+      "success_rate": 1.0,
+      "eligible_for_runtime": true
+    },
+    "social_memory": {
+      "status": "ACTIVE",
+      "domain": "memory",
+      "usage": 0,
+      "success": 0,
+      "failed": 0,
+      "success_rate": 0,
+      "eligible_for_runtime": true
+    },
+    "emotional_report": {
+      "status": "ACTIVE",
+      "domain": "emotion",
+      "usage": 0,
+      "success": 0,
+      "failed": 0,
+      "success_rate": 0,
+      "eligible_for_runtime": true
+    },
+    "relational_report": {
+      "status": "ACTIVE",
+      "domain": "relationship",
+      "usage": 0,
+      "success": 0,
+      "failed": 0,
+      "success_rate": 0,
+      "eligible_for_runtime": true
+    },
+    "semantic_route": {
+      "status": "READY",
+      "domain": "routing",
+      "usage": 0,
+      "success": 0,
+      "failed": 0,
+      "success_rate": 0,
+      "eligible_for_runtime": true
+    },
+    "humanized_answer": {
+      "status": "READY",
+      "domain": "response",
+      "usage": 0,
+      "success": 0,
+      "failed": 0,
+      "success_rate": 0,
+      "eligible_for_runtime": true
+    },
+    "whatsapp_ux_guard": {
+      "status": "READY",
+      "domain": "whatsapp",
+      "usage": 0,
+      "success": 0,
+      "failed": 0,
+      "success_rate": 0,
+      "eligible_for_runtime": true
+    },
+    "relationalize": {
+      "status": "READY",
+      "domain": "relationship",
+      "usage": 0,
+      "success": 0,
+      "failed": 0,
+      "success_rate": 0,
+      "eligible_for_runtime": true
+    },
+    "persistent_cognitive_graph": {
+      "status": "OPTIONAL",
+      "domain": "knowledge_graph",
+      "usage": 0,
+      "success": 0,
+      "failed": 0,
+      "success_rate": 0,
+      "eligible_for_runtime": false
+    },
+    "eldora_semantic": {
+      "status": "OPTIONAL",
+      "domain": "semantic_api",
+      "usage": 0,
+      "success": 0,
+      "failed": 0,
+      "success_rate": 0,
+      "eligible_for_runtime": false
+    }
+  },
+  "summary": {
+    "ACTIVE": 4,
+    "READY": 4,
+    "OPTIONAL": 2
+  }
+}

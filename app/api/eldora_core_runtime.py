@@ -51,3 +51,11 @@ def api_admin_guard(x_admin_token: str | None = Header(default=None)):
     if not gate["admin_allowed"]:
         raise HTTPException(403, "admin token required")
     return gate
+
+def p449d_usde_eldora_core_hook(*args, **kwargs):
+    return {
+        "ok": True,
+        "hook": "p449d_usde_eldora_core_hook",
+        "status": "compatibility_shim",
+        "authority": "sovereign_runtime",
+    }

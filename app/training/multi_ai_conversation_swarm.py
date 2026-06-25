@@ -44,7 +44,7 @@ def simulate_reply(user_text, persona, topic):
         return "o ideal é separar fluxo, drenagem, sombra, água limpa e manejo diário dos animais."
     if topic=="smalltalk":
         return "tudo certo por aqui."
-    return "entendi. vou responder direto pelo contexto atual, sem mudar de assunto."
+    return "Vou seguir pelo contexto atual, sem reiniciar a conversa."
 
 def score(user_text, answer, persona, topic):
     penalty=0
@@ -68,3 +68,4 @@ def generate_episode(i):
         "assistant_answer":answer,
         "humanization_score":score(user,answer,persona,topic)
     }
+

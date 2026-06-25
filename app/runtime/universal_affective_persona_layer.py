@@ -35,7 +35,7 @@ def affective_tone(inbound_text: str, answer: str) -> str:
         return "Claro, Roberto. Tô aqui com você. Me fala o ponto principal e eu te ajudo do jeito mais direto possível."
 
     if any(x in msg for x in ["quero emagrecer", "emagrecer", "perder peso", "secar"]):
-        return "Bora com calma e constância. Pra emagrecer bem: proteína em toda refeição, menos açúcar/belisco, caminhada diária e treino de força. Sem loucura, combinado?"
+        return "Para emagrecer bem: proteína em toda refeição, déficit calórico leve, caminhada diária e treino de força. Sem radicalizar."
 
     if any(x in msg for x in ["qual melhor forma", "sugestão", "sujestão", "sugestao"]):
         return "Minha sugestão é treinar comigo em conversas reais: você pergunta, muda de assunto, me corrige quando eu errar e eu vou ficando mais natural a cada rodada."
@@ -58,3 +58,4 @@ def affective_tone(inbound_text: str, answer: str) -> str:
         out = out
 
     return out
+

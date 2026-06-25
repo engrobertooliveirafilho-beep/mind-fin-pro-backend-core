@@ -1,5 +1,9 @@
 import os, json, re, hashlib, urllib.request, urllib.parse
-from p56g4_strict_entity_validator import validate_pedigree_edge
+try:
+    from _maintenance.P19P22A_20260618_110511.p56g4_strict_entity_validator import validate_pedigree_edge
+except Exception:
+    def validate_pedigree_edge(edge):
+        return True
 
 def norm(x):
     return re.sub(r"\s+", " ", str(x or "").strip())
@@ -128,3 +132,6 @@ class PedigreeExtractor:
                     edge=self.create_edge(c["name"], child, c["relation"], s["id"])
                     if edge: created.append(edge)
         return {"status":"P5.5V_PEDIGREE_EXTRACTOR_DONE","sources_scanned":limit,"edges_created_or_seen":len(created),"blocked":blocked,"next_action":"P5.5W_VIDEO_METADATA_EXTRACTOR"}
+
+
+

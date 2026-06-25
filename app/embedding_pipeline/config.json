@@ -1,0 +1,6 @@
+{
+  "model": "text-embedding-3-large",
+  "dimension": 1536,
+  "batch_size": 64,
+  "store": "pgvector"
+}

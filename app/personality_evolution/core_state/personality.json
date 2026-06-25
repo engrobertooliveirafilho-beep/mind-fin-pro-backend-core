@@ -1,0 +1,11 @@
+{
+  "base_personality": "neutral_cognitive_agent",
+  "adaptive_traits": {
+    "directness": 0.5,
+    "empathy": 0.5,
+    "analytical_depth": 0.5,
+    "verbosity": 0.5,
+    "initiative": 0.5
+  },
+  "stability_constraint": true
+}

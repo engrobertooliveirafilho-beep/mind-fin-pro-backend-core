@@ -80,7 +80,7 @@ def human_reply(text: str, memory: dict | None = None) -> str:
     if "cadê" in t or "cade" in t:
         return "A resposta precisa aparecer direta e útil. O gate novo bloqueia silêncio, frase genérica e fallback fora de contexto, justamente para não quebrar a conversa no WhatsApp."
 
-    return "Entendi. Vou responder usando o contexto da conversa, com resposta direta, natural e sem resetar para apresentação ou frase pronta."
+    return "Vou seguir pelo contexto atual, sem reiniciar a conversa."
 
 def score_response(prompt: str, response: str) -> dict:
     r = clean_text(response)
@@ -105,3 +105,4 @@ def score_response(prompt: str, response: str) -> dict:
         "identity_leak": leak,
         "score": final
     }
+

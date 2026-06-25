@@ -1,0 +1,87 @@
+{
+  "mission": "P4.64C_MEMORY_QUARANTINE_MANIFEST",
+  "policy": {
+    "delete_files": false,
+    "quarantine_type": "logical_manifest_only",
+    "active_modules_may_be_used": [
+      "ACTIVE_IN_PIPELINE",
+      "ACTIVE_IN_WHATSAPP_ADAPTER",
+      "ACTIVE_OUTSIDE_PIPELINE"
+    ],
+    "orphaned_modules_policy": "do_not_integrate_without_explicit_revalidation"
+  },
+  "buckets": {
+    "ACTIVE_IN_PIPELINE": [
+      "app.eldora.core.semantic_memory_engine",
+      "app.memory.memory_graph",
+      "app.retrieval.semantic_provider",
+      "app.runtime.decision_memory",
+      "app.runtime.real_emotional_state_layer",
+      "app.runtime.real_relationship_profile_layer",
+      "app.runtime.real_social_memory_layer",
+      "app.runtime.semantic_answer_engine",
+      "app.runtime.semantic_router",
+      "app.runtime.social_observation_runtime"
+    ],
+    "ACTIVE_IN_WHATSAPP_ADAPTER": [
+      "app.runtime.short_memory",
+      "app.runtime.whatsapp_social_followup_guard"
+    ],
+    "ACTIVE_OUTSIDE_PIPELINE": [
+      "app.admin.semantic_activation",
+      "app.api.eldora_semantic",
+      "app.api.eldora_social",
+      "app.eldora.core.emotional_continuity_engine",
+      "app.eldora.core.long_term_memory",
+      "app.eldora.core.memory_compression_engine",
+      "app.eldora.core.persistent_cognitive_graph",
+      "app.eldora.core.persistent_social_memory",
+      "app.eldora.core.service_health_graph",
+      "app.eldora.core.session_memory",
+      "app.eldora.core.visual_semantic_memory",
+      "app.ingestion.semantic_chunking",
+      "app.memory.provider",
+      "app.modules.usde_core.scientific_knowledge_graph",
+      "app.modules.usde_core.supabase_scientific_memory",
+      "app.persona.adaptive_social_dialogue",
+      "app.persona.emotional_dialogue_layer",
+      "app.persona.persona_continuity_memory",
+      "app.retrieval.provider",
+      "app.runtime.memory_store",
+      "app.runtime.semantic_whatsapp_runtime",
+      "app.vision.vision_memory_store"
+    ],
+    "ORPHANED_OR_UNUSED": [
+      "app.eldora.memory.__init__",
+      "app.eldora.memory.service",
+      "app.eldora.retrieval.__init__",
+      "app.eldora.retrieval.service",
+      "app.friendship.emotional_checkin",
+      "app.humanization.social_dataset_builder",
+      "app.humanization.social_memory_provider",
+      "app.humanization.social_observation_layer",
+      "app.humanization.social_pattern_extractor",
+      "app.memory.longitudinal_memory",
+      "app.mind.p5_5x_genetic_graph_builder.__init__",
+      "app.mind.p5_5x_genetic_graph_builder.graph",
+      "app.modules.usde_core.graph_engine",
+      "app.modules.usde_core.scientific_memory",
+      "app.runtime.emotional_continuity_engine",
+      "app.runtime.generic_topic_memory_engine",
+      "app.runtime.memory_adapter",
+      "app.runtime.persistent_emotional_state",
+      "app.runtime.persistent_social_memory",
+      "app.runtime.semantic_dialogue_memory",
+      "app.runtime.social_cognition_engine",
+      "app.runtime.visual_memory_runtime",
+      "app.student.student_memory_graph",
+      "app.workers.semantic_ingestion_worker"
+    ]
+  },
+  "counts": {
+    "ACTIVE_IN_PIPELINE": 10,
+    "ACTIVE_IN_WHATSAPP_ADAPTER": 2,
+    "ACTIVE_OUTSIDE_PIPELINE": 22,
+    "ORPHANED_OR_UNUSED": 24
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "isolation_mode": "STRICT",
+  "identity_partitioning": true,
+  "cross_tenant_leak_prevention": true
+}

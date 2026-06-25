@@ -1,0 +1,388 @@
+from __future__ import annotations
+
+import argparse
+import csv
+import json
+import math
+from collections import defaultdict
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Dict, List, Optional, Tuple
+
+
+MISSION = "P2368_DE40_CONTEXT_BACKTEST_WITH_2R_TARGETING"
+MODE = "PAPER_ONLY"
+REAL_ORDERS = "FORBIDDEN"
+FTMO_REAL = "FORBIDDEN"
+
+
+@dataclass
+class Candle:
+    index: int
+    time: str
+    open: float
+    high: float
+    low: float
+    close: float
+
+
+def _f(v) -> float:
+    if v is None:
+        return 0.0
+    return float(str(v).replace(",", ".").strip())
+
+
+def detect_columns(fieldnames: List[str]) -> Dict[str, str]:
+    lower = {c.lower().strip(): c for c in fieldnames}
+
+    def pick(*names: str) -> str:
+        for n in names:
+            if n in lower:
+                return lower[n]
+        raise ValueError(f"missing column among {names}; available={fieldnames}")
+
+    return {
+        "time": pick("time", "datetime", "date", "timestamp"),
+        "open": pick("open", "o"),
+        "high": pick("high", "h"),
+        "low": pick("low", "l"),
+        "close": pick("close", "c"),
+    }
+
+
+def sniff_delimiter(path: Path) -> str:
+    sample = path.read_text(encoding="utf-8-sig", errors="ignore")[:4096]
+    first_line = sample.splitlines()[0] if sample.splitlines() else ""
+    candidates = [",", ";", "\t", "|"]
+    counts = {c: first_line.count(c) for c in candidates}
+    return max(counts, key=counts.get) if max(counts.values()) > 0 else ","
+
+
+def load_candles(path: Path, limit: Optional[int] = None) -> List[Candle]:
+    delimiter = sniff_delimiter(path)
+    with path.open("r", encoding="utf-8-sig", newline="") as f:
+        reader = csv.DictReader(f, delimiter=delimiter)
+        if not reader.fieldnames:
+            raise ValueError("csv without header")
+        cols = detect_columns(reader.fieldnames)
+        out: List[Candle] = []
+        for i, row in enumerate(reader):
+            out.append(
+                Candle(
+                    index=i,
+                    time=str(row[cols["time"]]),
+                    open=_f(row[cols["open"]]),
+                    high=_f(row[cols["high"]]),
+                    low=_f(row[cols["low"]]),
+                    close=_f(row[cols["close"]]),
+                )
+            )
+            if limit and len(out) >= limit:
+                break
+    if len(out) < 500:
+        raise ValueError(f"insufficient candles: {len(out)}")
+    return out
+
+
+def sma(values: List[float], end: int, period: int) -> Optional[float]:
+    if end - period + 1 < 0:
+        return None
+    return sum(values[end - period + 1 : end + 1]) / period
+
+
+def atr(candles: List[Candle], end: int, period: int = 14) -> Optional[float]:
+    if end - period < 1:
+        return None
+    trs = []
+    for i in range(end - period + 1, end + 1):
+        prev = candles[i - 1].close
+        c = candles[i]
+        trs.append(max(c.high - c.low, abs(c.high - prev), abs(c.low - prev)))
+    return sum(trs) / len(trs)
+
+
+def session_of(time_text: str) -> str:
+    text = time_text.replace("T", " ")
+    try:
+        hour = int(text.split(" ")[1].split(":")[0])
+    except Exception:
+        return "UNKNOWN"
+    if 7 <= hour < 11:
+        return "EUROPE_OPEN"
+    if 11 <= hour < 15:
+        return "EUROPE_MID"
+    if 15 <= hour < 18:
+        return "US_OVERLAP"
+    return "OFF_SESSION"
+
+
+def regime_context(candles: List[Candle], i: int) -> Optional[Tuple[str, int, float]]:
+    closes = [c.close for c in candles]
+    fast = sma(closes, i, 20)
+    slow = sma(closes, i, 80)
+    a = atr(candles, i, 14)
+    if fast is None or slow is None or a is None or a <= 0:
+        return None
+
+    price = candles[i].close
+    spread = abs(fast - slow)
+    vol_ratio = a / max(price, 1.0)
+
+    if spread > a * 0.75 and fast > slow:
+        regime = "TREND_UP"
+        direction = 1
+    elif spread > a * 0.75 and fast < slow:
+        regime = "TREND_DOWN"
+        direction = -1
+    else:
+        regime = "RANGE"
+        direction = 0
+
+    if vol_ratio >= 0.0018:
+        vol = "HIGH_VOL"
+    elif vol_ratio >= 0.0009:
+        vol = "MID_VOL"
+    else:
+        vol = "LOW_VOL"
+
+    session = session_of(candles[i].time)
+    context = f"DE40_M5::{session}::{regime}::{vol}"
+    return context, direction, a
+
+
+def simulate_trade(
+    candles: List[Candle],
+    entry_i: int,
+    direction: int,
+    risk_points: float,
+    rr: float = 2.0,
+    max_hold: int = 36,
+) -> Optional[Dict]:
+    if direction == 0 or risk_points <= 0:
+        return None
+
+    entry = candles[entry_i].close
+    stop = entry - risk_points if direction > 0 else entry + risk_points
+    target = entry + risk_points * rr if direction > 0 else entry - risk_points * rr
+    partial = entry + risk_points if direction > 0 else entry - risk_points
+
+    mae = 0.0
+    mfe = 0.0
+    partial_hit = False
+    breakeven = False
+    exit_price = candles[min(entry_i + max_hold, len(candles) - 1)].close
+    result_r = 0.0
+    outcome = "TIME_EXIT"
+
+    for j in range(entry_i + 1, min(entry_i + max_hold + 1, len(candles))):
+        c = candles[j]
+
+        favorable = (c.high - entry) if direction > 0 else (entry - c.low)
+        adverse = (entry - c.low) if direction > 0 else (c.high - entry)
+        mfe = max(mfe, favorable)
+        mae = max(mae, adverse)
+
+        if not partial_hit:
+            if (direction > 0 and c.high >= partial) or (direction < 0 and c.low <= partial):
+                partial_hit = True
+                breakeven = True
+
+        active_stop = entry if breakeven else stop
+
+        stop_hit = (direction > 0 and c.low <= active_stop) or (direction < 0 and c.high >= active_stop)
+        target_hit = (direction > 0 and c.high >= target) or (direction < 0 and c.low <= target)
+
+        if stop_hit and target_hit:
+            outcome = "AMBIGUOUS_STOP_FIRST"
+            exit_price = active_stop
+            result_r = 0.5 if partial_hit else -1.0
+            break
+
+        if stop_hit:
+            outcome = "BREAKEVEN_AFTER_PARTIAL" if partial_hit else "LOSS"
+            exit_price = active_stop
+            result_r = 0.5 if partial_hit else -1.0
+            break
+
+        if target_hit:
+            outcome = "TARGET_2R"
+            exit_price = target
+            result_r = 1.5 if partial_hit else rr
+            break
+    else:
+        move = (exit_price - entry) * direction
+        result_r = max(-1.0, min(rr, move / risk_points))
+        if partial_hit and result_r < 0.5:
+            result_r = 0.5
+
+    return {
+        "entry_index": entry_i,
+        "entry_time": candles[entry_i].time,
+        "direction": "BUY" if direction > 0 else "SELL",
+        "entry": round(entry, 5),
+        "stop": round(stop, 5),
+        "target": round(target, 5),
+        "rr": rr,
+        "risk_points": round(risk_points, 5),
+        "outcome": outcome,
+        "result_r": round(result_r, 6),
+        "mae_r": round(mae / risk_points, 6),
+        "mfe_r": round(mfe / risk_points, 6),
+        "partial_hit": partial_hit,
+        "breakeven": breakeven,
+    }
+
+
+def max_drawdown(results: List[float]) -> float:
+    equity = 0.0
+    peak = 0.0
+    dd = 0.0
+    for r in results:
+        equity += r
+        peak = max(peak, equity)
+        dd = min(dd, equity - peak)
+    return abs(dd)
+
+
+def summarize_context(trades: List[Dict], min_samples: int = 30) -> List[Dict]:
+    groups = defaultdict(list)
+    for t in trades:
+        groups[t["context"]].append(t)
+
+    rows = []
+    for ctx, arr in sorted(groups.items()):
+        samples = len(arr)
+        results = [float(x["result_r"]) for x in arr]
+        wins = [r for r in results if r > 0]
+        losses = [r for r in results if r < 0]
+        gross_win = sum(wins)
+        gross_loss = abs(sum(losses))
+        win_rate = len(wins) / samples if samples else 0
+        avg_win = gross_win / len(wins) if wins else 0
+        avg_loss = gross_loss / len(losses) if losses else 0
+        expectancy = sum(results) / samples if samples else 0
+        pf = gross_win / gross_loss if gross_loss > 0 else (999.0 if gross_win > 0 else 0.0)
+        dd = max_drawdown(results)
+        avg_mae = sum(float(x["mae_r"]) for x in arr) / samples
+        avg_mfe = sum(float(x["mfe_r"]) for x in arr) / samples
+
+        if samples >= min_samples and expectancy > 0 and pf >= 1.5 and dd <= max(8.0, samples * 0.35):
+            decision = "PROMOTE_CONTEXT"
+        elif samples >= max(10, min_samples // 2) and expectancy > -0.05 and pf >= 1.1:
+            decision = "OBSERVE"
+        else:
+            decision = "REJECT"
+
+        rows.append({
+            "context": ctx,
+            "samples": samples,
+            "wins": len(wins),
+            "losses": len(losses),
+            "win_rate": round(win_rate, 6),
+            "avg_win_r": round(avg_win, 6),
+            "avg_loss_r": round(avg_loss, 6),
+            "expectancy_r": round(expectancy, 6),
+            "profit_factor": round(pf, 6),
+            "max_drawdown_r_proxy": round(dd, 6),
+            "avg_mae_r_proxy": round(avg_mae, 6),
+            "avg_mfe_r_proxy": round(avg_mfe, 6),
+            "rr_min": 2.0,
+            "decision": decision,
+        })
+    return rows
+
+
+def run_backtest(dataset: Path, outdir: Path, min_samples: int = 30) -> Dict:
+    outdir.mkdir(parents=True, exist_ok=True)
+    candles = load_candles(dataset)
+
+    trades = []
+    for i in range(100, len(candles) - 40, 5):
+        ctx = regime_context(candles, i)
+        if ctx is None:
+            continue
+        context, direction, a = ctx
+        if direction == 0:
+            continue
+
+        risk = max(a * 1.0, candles[i].close * 0.0007)
+        trade = simulate_trade(candles, i, direction, risk_points=risk, rr=2.0, max_hold=36)
+        if trade:
+            trade["context"] = context
+            trades.append(trade)
+
+    summary_rows = summarize_context(trades, min_samples=min_samples)
+    promoted = [r for r in summary_rows if r["decision"] == "PROMOTE_CONTEXT"]
+
+    backtest_csv = outdir / "de40_context_backtest_2r.csv"
+    summary_csv = outdir / "de40_context_backtest_summary.csv"
+    promoted_csv = outdir / "de40_context_promoted_candidates.csv"
+    summary_json = outdir / "summary.json"
+
+    if trades:
+        with backtest_csv.open("w", encoding="utf-8", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=list(trades[0].keys()))
+            w.writeheader()
+            w.writerows(trades)
+    else:
+        backtest_csv.write_text("no_trades\n", encoding="utf-8")
+
+    if summary_rows:
+        with summary_csv.open("w", encoding="utf-8", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=list(summary_rows[0].keys()))
+            w.writeheader()
+            w.writerows(summary_rows)
+    else:
+        summary_csv.write_text("no_contexts\n", encoding="utf-8")
+
+    with promoted_csv.open("w", encoding="utf-8", newline="") as f:
+        fieldnames = list(summary_rows[0].keys()) if summary_rows else ["context"]
+        w = csv.DictWriter(f, fieldnames=fieldnames)
+        w.writeheader()
+        for r in promoted:
+            w.writerow(r)
+
+    payload = {
+        "mission": MISSION,
+        "mode": MODE,
+        "real_orders": REAL_ORDERS,
+        "ftmo_real": FTMO_REAL,
+        "dataset": str(dataset),
+        "candles": len(candles),
+        "timeframe": "M5",
+        "rr_min": 2.0,
+        "min_samples": min_samples,
+        "trades": len(trades),
+        "contexts": len(summary_rows),
+        "promoted_contexts": len(promoted),
+        "observed_contexts": len([r for r in summary_rows if r["decision"] == "OBSERVE"]),
+        "rejected_contexts": len([r for r in summary_rows if r["decision"] == "REJECT"]),
+        "outputs": {
+            "backtest": str(backtest_csv),
+            "summary": str(summary_csv),
+            "promoted": str(promoted_csv),
+            "summary_json": str(summary_json),
+        },
+        "status": "CERTIFIED" if backtest_csv.exists() and summary_csv.exists() and promoted_csv.exists() else "FAILED",
+        "certification": "P2368_DE40_CONTEXT_BACKTEST_WITH_2R_TARGETING_CERTIFIED",
+    }
+
+    summary_json.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    return payload
+
+
+def main() -> int:
+    p = argparse.ArgumentParser()
+    p.add_argument("--dataset", required=True)
+    p.add_argument("--outdir", required=True)
+    p.add_argument("--min-samples", type=int, default=30)
+    args = p.parse_args()
+
+    result = run_backtest(Path(args.dataset), Path(args.outdir), min_samples=args.min_samples)
+    print(json.dumps(result, indent=2))
+    return 0 if result["status"] == "CERTIFIED" else 2
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+

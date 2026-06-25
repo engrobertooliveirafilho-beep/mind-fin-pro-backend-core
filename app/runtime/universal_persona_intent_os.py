@@ -87,10 +87,10 @@ def universal_persona_intent_reply(sender_id: str, inbound_text: str, previous_r
         clean = first_person_rewrite(previous_reply)
         bad = "não tenho informação suficiente"
         if bad in clean.lower():
-            return "Entendi. Vou responder pelo contexto e ser prática."
+            return "Certo. Vou manter o contexto e seguir pelo caminho mais útil."
         return clean
 
-    return "Entendi. Vou responder de forma prática e manter o contexto."
+    return "Certo. Vou manter o contexto e seguir pelo caminho mais útil."
 
 # ============================================================
 # P_UNIVERSAL_SHORT_MEMORY_FACTUAL_FITNESS
@@ -183,3 +183,4 @@ def universal_contextual_open_intent_reply(sender_id: str, inbound_text: str):
     return None
 
 # /P_UNIVERSAL_CONTEXTUAL_OPEN_INTENT_FIX
+
