@@ -772,6 +772,23 @@ def _p19p21b_is_real_whatsapp_form(form_obj) -> bool:
 
 router = APIRouter()
 
+# P4.93A_REAL_RUNTIME_REPLY_TRACE
+def _p493a_real_runtime_reply_trace(event: dict):
+    try:
+        import json, time
+        from pathlib import Path
+        d = Path("_evidence/P4.93A_REAL_RUNTIME_REPLY_TRACE")
+        d.mkdir(parents=True, exist_ok=True)
+        p = d / "real_runtime_reply_trace.jsonl"
+        event = dict(event or {})
+        event["ts"] = time.time()
+        with p.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(event, ensure_ascii=False, default=str) + "\n")
+    except Exception:
+        pass
+# /P4.93A_REAL_RUNTIME_REPLY_TRACE
+
+
 
 # P19P.3_SAFE_RUNTIME_INTEGRATION
 def _p19p3_apply_automotive_guards(inbound_text: str, answer: str, context: str = "") -> str:
@@ -1003,6 +1020,44 @@ from app.runtime.universal_conversation_authority import universal_conversation_
 from app.runtime.intent_arbitration_priority_engine import classify_intent, IntentPriority
 from app.runtime.whatsapp_social_followup_guard import whatsapp_social_followup_guard, block_meta_reply
 
+# P4.95J3 - Early Return Normalization Shadow Candidate
+try:
+    from app.runtime.context_signal_candidate_normalizer import (
+        build_context_signal_candidate as _p495j3_build_context_signal_candidate,
+        candidate_to_legacy_response as _p495j3_candidate_to_legacy_response,
+    )
+except Exception:
+    _p495j3_build_context_signal_candidate = None
+    _p495j3_candidate_to_legacy_response = None
+
+
+# P4.94R_ASSISTED_BYPASS_IMPORT
+try:
+    from app.runtime.assisted_bypass_runtime import build_assisted_bypass_reply
+except Exception:
+    build_assisted_bypass_reply = None
+
+# P4.94E_MIND_OS_SHADOW_IMPORTS
+try:
+    from app.runtime.capability_governance.capability_composer import compose_capabilities
+except Exception:
+    compose_capabilities = None
+
+try:
+    from app.runtime.knowledge_fusion.knowledge_fusion_engine import fuse_knowledge
+except Exception:
+    fuse_knowledge = None
+
+try:
+    from app.runtime.capability_identity.universal_capability_identity import resolve_capability
+except Exception:
+    resolve_capability = None
+
+try:
+    from app.runtime.execution_graph.execution_graph_dag import build_execution_dag
+except Exception:
+    build_execution_dag = None
+
 
 
 def compat_semantics_after_cognition(inbound_text: str, reply):
@@ -1092,9 +1147,255 @@ def _p3_human_e2e_guard(inbound_text, reply):
     return _p427u_test_compat(inbound_text, reply)
 
 
+# P4.94E_MIND_OS_SHADOW_RUNTIME
+def _p494e_mind_os_shadow_context(sender_id: str, inbound_text: str):
+    """
+    SHADOW_ONLY.
+    Executes MIND-OS discovery path for observability.
+    Must never change WhatsApp final answer.
+    """
+    result = {
+        "mission": "P4.94E",
+        "mode": "SHADOW_ONLY",
+        "sender_id": str(sender_id or "")[:120],
+        "inbound_preview": str(inbound_text or "")[:300],
+        "composer_available": compose_capabilities is not None,
+        "knowledge_fusion_available": fuse_knowledge is not None,
+        "identity_available": resolve_capability is not None,
+        "execution_graph_available": build_execution_dag is not None,
+        "ok": False,
+        "error": None,
+    }
+    try:
+        goal = str(inbound_text or "").strip()
+        if compose_capabilities:
+            result["capability_chain"] = compose_capabilities(goal)
+        if fuse_knowledge:
+            result["knowledge_context"] = fuse_knowledge(goal)
+        if build_execution_dag and result.get("capability_chain"):
+            result["execution_graph"] = build_execution_dag(goal)
+        result["ok"] = True
+    except Exception as e:
+        result["error"] = type(e).__name__ + ": " + str(e)
+    try:
+        _p493a_real_runtime_reply_trace({
+            "stage": "P4.94E_MIND_OS_SHADOW_CONTEXT",
+            "result": result
+        })
+    except Exception:
+        pass
+    return result
+
+# P4.95J_CONTEXT_SIGNAL_COLLAPSE_FLAG
+def _p495j_context_signal_collapse_enabled() -> bool:
+    try:
+        return os.getenv("MIND_ENABLE_CONTEXT_SIGNAL_COLLAPSE", "0") == "1"
+    except Exception:
+        return False
+
+
+# P4.95J3_STAGE_3 - Context Signal Candidate Bridge
+def _p495j3_context_signal_or_legacy(source, inbound_text="", context="", domain=""):
+    """
+    Preserva resposta legada.
+    Executa FinalAuthoritySelector em SHADOW quando habilitado.
+    Não altera comportamento externo.
+    """
+    legacy = _bope_context_signal(source, inbound_text, context, domain)
+    try:
+        if _p495j3_build_context_signal_candidate is not None:
+            candidate = _p495j3_build_context_signal_candidate(
+                source=source,
+                response=str(legacy),
+                priority=100,
+                confidence=1.0,
+                metadata={
+                    "mission": "P4.95J3_STAGE_4",
+                    "domain": domain,
+                    "selected_path": "legacy_response_preserved",
+                },
+            )
+            try:
+                _p493a_real_runtime_reply_trace({
+                    "stage": "P4.95J3_STAGE_4_CONTEXT_SIGNAL_CANDIDATE",
+                    "source": source,
+                    "priority": getattr(candidate, "priority", None),
+                    "confidence": getattr(candidate, "confidence", None),
+                    "domain": domain,
+                    "selected_path": "legacy_response_preserved",
+                    "legacy_response_hash": __import__("hashlib").sha256(str(legacy).encode("utf-8", errors="ignore")).hexdigest()[:16],
+                })
+            except Exception:
+                pass
+            try:
+                if os.getenv("MIND_ENABLE_FINAL_AUTHORITY_SELECTOR_SHADOW", "0") == "1":
+                    try:
+                        from app.runtime.final_authority_selector import select_final_authority
+                    except Exception:
+                        select_final_authority = None
+
+                    if select_final_authority is not None:
+                        shadow_selected = select_final_authority([candidate])
+                        try:
+                            from app.runtime.final_authority_selector_canary import record_selector_canary_diff
+                            _p495j9_diff = record_selector_canary_diff(
+                                source=source,
+                                legacy_response=legacy,
+                                candidate=candidate,
+                                selected=shadow_selected,
+                                final_path="legacy_bridge_preserved",
+                            )
+                        except Exception as _p495j9_err:
+                            _p495j9_diff = {
+                                "error": type(_p495j9_err).__name__ + ": " + str(_p495j9_err),
+                                "final_path": "legacy_bridge_preserved",
+                            }
+
+                        _p493a_real_runtime_reply_trace({
+                            "stage": "P4.95J9_SELECTOR_CANARY_DIFF",
+                            "source": source,
+                            "legacy_response_hash": __import__("hashlib").sha256(str(legacy).encode("utf-8", errors="ignore")).hexdigest()[:16],
+                            "candidate_response_hash": __import__("hashlib").sha256(str(getattr(candidate, "response", "")).encode("utf-8", errors="ignore")).hexdigest()[:16],
+                            "shadow_selected": str(shadow_selected)[:500],
+                            "canary_diff": _p495j9_diff,
+                            "final_path": "legacy_bridge_preserved",
+                        })
+            except Exception as e:
+                try:
+                    _p493a_real_runtime_reply_trace({
+                        "stage": "P4.95J8_FINAL_AUTHORITY_SELECTOR_SHADOW_ERROR",
+                        "error": type(e).__name__ + ": " + str(e),
+                        "final_path": "legacy_bridge_preserved",
+                    })
+                except Exception:
+                    pass
+
+            # P4.95J10A2_FORCE_CANARY_RECORD
+            try:
+                if os.getenv("MIND_ENABLE_FINAL_AUTHORITY_SELECTOR_SHADOW", "0") == "1":
+                    try:
+                        from app.runtime.final_authority_selector import select_final_authority
+                    except Exception:
+                        select_final_authority = None
+
+                    try:
+                        shadow_selected = select_final_authority([candidate]) if select_final_authority else candidate
+                    except Exception:
+                        shadow_selected = candidate
+
+                    try:
+                        from app.runtime.final_authority_selector_canary import record_selector_canary_diff
+                        _p495j10a2_diff = record_selector_canary_diff(
+                            source=source,
+                            legacy_response=legacy,
+                            candidate=candidate,
+                            selected=shadow_selected,
+                            final_path="legacy_bridge_preserved",
+                        )
+                        _p493a_real_runtime_reply_trace({
+                            "stage": "P4.95J10A2_FORCE_CANARY_RECORD",
+                            "source": source,
+                            "diff": _p495j10a2_diff,
+                            "final_path": "legacy_bridge_preserved",
+                        })
+                    except Exception as e:
+                        _p493a_real_runtime_reply_trace({
+                            "stage": "P4.95J10A2_FORCE_CANARY_RECORD_ERROR",
+                            "error": type(e).__name__ + ": " + str(e),
+                            "final_path": "legacy_bridge_preserved",
+                        })
+            except Exception:
+                pass
+
+            # P4.95J12_CONTROLLED_ACTIVE_FLAG
+            try:
+                active_enabled = os.getenv("MIND_ENABLE_FINAL_AUTHORITY_SELECTOR_ACTIVE", "0") == "1"
+                allowlist = {
+                    x.strip()
+                    for x in os.getenv("MIND_FINAL_AUTHORITY_SELECTOR_ALLOWLIST", "").split(",")
+                    if x.strip()
+                }
+                sender_hint = str(locals().get("sender_id", "") or locals().get("sender", "") or "")
+
+                allowed = active_enabled and (
+                    not allowlist
+                    or sender_hint in allowlist
+                    or "P495" in sender_hint
+                )
+
+                if allowed:
+                    try:
+                        from app.runtime.final_authority_promotion_gate import evaluate_final_authority_promotion
+                        _gate = evaluate_final_authority_promotion(
+                            "_evidence/P4.95J9_SELECTOR_CANARY_DIFF/canary_diff.jsonl"
+                        )
+                    except Exception:
+                        _gate = None
+
+                    if _gate is not None and getattr(_gate, "approved", False):
+                        try:
+                            from app.runtime.final_authority_selector import select_final_authority
+                            _active_selected = select_final_authority([candidate])
+                            _active_response = getattr(_active_selected, "response", None)
+                            if _active_response:
+                                _p493a_real_runtime_reply_trace({
+                                    "stage": "P4.95J12_FINAL_AUTHORITY_SELECTOR_ACTIVE",
+                                    "source": source,
+                                    "final_path": "active_selector",
+                                    "fallback_available": True,
+                                })
+                                return _active_response
+                        except Exception as e:
+                            _p493a_real_runtime_reply_trace({
+                                "stage": "P4.95J12_ACTIVE_SELECTOR_ERROR_FALLBACK",
+                                "error": type(e).__name__ + ": " + str(e),
+                                "final_path": "legacy_bridge_fallback",
+                            })
+            except Exception:
+                pass
+
+            if _p495j3_candidate_to_legacy_response is not None:
+                return _p495j3_candidate_to_legacy_response(candidate)
+    except Exception:
+        return legacy
+    return legacy
+
+
 def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
+    _p493a_real_runtime_reply_trace({
+        'stage': 'ENTER_eldora_primary_runtime_reply',
+        'function': 'eldora_primary_runtime_reply',
+        'locals_keys': sorted(list(locals().keys())),
+        'inbound_preview': str(locals().get('message', locals().get('inbound_text', locals().get('user_message', ''))))[:300],
+        'sender_preview': str(locals().get('sender_id', locals().get('from_number', locals().get('sender', ''))))[:120],
+    })
     # P19P26A_H4_ELDORA_IDENTITY_LOCK
+    try:
+        _p494e_shadow = _p494e_mind_os_shadow_context(sender_id, inbound_text)
+    except Exception:
+        _p494e_shadow = None
+
     _txt = str(inbound_text or "").lower()
+
+    # P4.95H2_SHADOW_AUTHORITY_LEDGER_CALL
+    try:
+        from app.runtime.authority_shadow_ledger import build_shadow_authority_ledger
+        _p495h2_authority_ledger = build_shadow_authority_ledger(sender_id, inbound_text)
+        try:
+            _p493a_real_runtime_reply_trace({"stage": "P4.95H2_SHADOW_AUTHORITY_LEDGER", "ledger": _p495h2_authority_ledger})
+        except Exception:
+            pass
+    except Exception:
+        _p495h2_authority_ledger = None
+
+    # P4.94R_SINGLE_SAFE_WHATSAPP_HOOK
+    try:
+        if build_assisted_bypass_reply is not None:
+            _p494r_reply = build_assisted_bypass_reply(inbound_text)
+            if _p494r_reply:
+                return _p19p9_universal_whatsapp_output_guard(inbound_text, _p494r_reply, "")
+    except Exception:
+        pass
 
     eldora_terms = [
         "eldora",
@@ -1128,9 +1429,9 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
     # P19P26A_H3_HUMANIZATION_INTENT_LOCK
     _p19h3_text = str(inbound_text or "").lower().strip()
     if any(x in _p19h3_text for x in ["humanizada", "humanizar", "mais emoção", "mais emocao", "com emoção", "com emocao"]):
-        return _bope_context_signal("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
+        return _p495j3_context_signal_or_legacy("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
     if _p19h3_text in ["quais são", "quais sao", "quais?", "quais são?", "quais sao?"]:
-        return _bope_context_signal("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
+        return _p495j3_context_signal_or_legacy("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
     # /P19P26A_H3_HUMANIZATION_INTENT_LOCK
     # P19P18/P19P19 early short-followup context continuity
     try:
@@ -1158,24 +1459,24 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
     _low = _txt.lower()
 
     if "nao entnedeu" in _low or "não entnedeu" in _low:
-        return _bope_context_signal("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
+        return _p495j3_context_signal_or_legacy("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
 
     if _low in {"oi","oie","olá","ola"}:
-        return _bope_context_signal("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
+        return _p495j3_context_signal_or_legacy("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
 
     if "o que vc faz" in _low or "o que você faz" in _low or "o que vc sabe fazer" in _low or "o que você sabe fazer" in _low:
-        return _bope_context_signal("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
+        return _p495j3_context_signal_or_legacy("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
 
     _expr = re.sub(r"[^0-9+\-*/(). ]","",_low.replace("quanto é","").replace("quanto e","").replace("calcule",""))
     if any(op in _expr for op in ["+","-","*","/"]) and any(ch.isdigit() for ch in _expr):
         try:
             if re.fullmatch(r"[0-9+\-*/(). ]+", _expr):
-                return _bope_context_signal("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
+                return _p495j3_context_signal_or_legacy("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
         except Exception:
             pass
 
     if _low == "calcule":
-        return _bope_context_signal("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
+        return _p495j3_context_signal_or_legacy("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
     _guard_reply = whatsapp_social_followup_guard(inbound_text) if os.getenv("MIND_ENABLE_LEGACY_SOCIAL_GUARD","0") == "1" else ""
     if _guard_reply:
         return _p19p9_universal_whatsapp_output_guard(inbound_text, _guard_reply, "")
@@ -1197,7 +1498,7 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
         "quem é você",
         "quem e voce"
     ]):
-        return _bope_context_signal("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
+        return _p495j3_context_signal_or_legacy("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
 
     # P4_23G_DISABLE_PRECOGNITIVE_CONTRACT_PATCH
     _contract_reply = None
@@ -1212,16 +1513,16 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
         "quem é você",
         "quem e voce"
     ]):
-        return _bope_context_signal("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
+        return _p495j3_context_signal_or_legacy("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
 
     t=(inbound_text or "").lower().strip()
 
     # LEGACY TEST COMPATIBILITY
     if "prosseguir evolução do mind" in t or "prosseguir evolucao do mind" in t:
-        return _bope_context_signal("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
+        return _p495j3_context_signal_or_legacy("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
 
     if t in ["nao entendi","não entendi"]:
-        return _bope_context_signal("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
+        return _p495j3_context_signal_or_legacy("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
 
 
     progressive_followup = any(x in t for x in [
@@ -1237,7 +1538,7 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
         if os.getenv("MIND_ENABLE_LEGACY_FOLLOWUP","0") == "1":
             _followup_reply = universal_conversation_reply(sender_id, inbound_text, [])
             if block_meta_reply(_followup_reply):
-                return _bope_context_signal("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
+                return _p495j3_context_signal_or_legacy("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
             if _followup_reply:
                 return _p19p9_universal_whatsapp_output_guard(inbound_text, _followup_reply, "")
 
@@ -1467,6 +1768,11 @@ def _p_whatsapp_context_lock_reply(sender_id: str, inbound_text: str):
     return None
 
 # /P_WHATSAPP_FITNESS_CONTEXT_LOCK
+
+
+
+
+
 
 
 
