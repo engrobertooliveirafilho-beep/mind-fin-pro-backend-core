@@ -1377,6 +1377,48 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
 
     _txt = str(inbound_text or "").lower()
 
+    # P4.95J16B_HOTFIX_B — Early Conversation Recovery Canary
+    try:
+        _p495j16_last_topic = None
+        try:
+            _p495j16_last_topic = _p19p19_get_domain(sender_id)
+        except Exception:
+            _p495j16_last_topic = None
+
+        _p495j16_recovery = _p495j16_apply_recovery_if_enabled(
+            message=inbound_text,
+            sender_id=sender_id,
+            last_topic=_p495j16_last_topic,
+            memory={}
+        )
+
+        if _p495j16_recovery.get("enabled") and _p495j16_recovery.get("signal"):
+            _p495j16_signal = _p495j16_recovery.get("signal") or {}
+            _p495j16_intent = _p495j16_signal.get("intent")
+
+            if _p495j16_intent == "identity":
+                return _p19p9_universal_whatsapp_output_guard(
+                    inbound_text,
+                    "Eu sou a Eldora. Converso com você pelo WhatsApp e te ajudo de forma prática, sem enrolar.",
+                    ""
+                )
+
+            if _p495j16_intent == "capability":
+                return _p19p9_universal_whatsapp_output_guard(
+                    inbound_text,
+                    "Eu ajudo você a estudar, organizar ideias, planejar, resolver dúvidas e transformar conversa em ação prática.",
+                    ""
+                )
+
+            if _p495j16_signal.get("should_preserve_context"):
+                try:
+                    _p19p19_remember_domain(sender_id, inbound_text)
+                except Exception:
+                    pass
+    except Exception:
+        pass
+
+
     # P4.95H2_SHADOW_AUTHORITY_LEDGER_CALL
     try:
         from app.runtime.authority_shadow_ledger import build_shadow_authority_ledger
@@ -1775,6 +1817,62 @@ def _p_whatsapp_context_lock_reply(sender_id: str, inbound_text: str):
 
 
 
+
+
+
+
+
+
+
+# P4.95J15 NOTE:
+# Conversation Recovery Engine available at:
+# from app.runtime.conversation_recovery_engine import analyze_conversation_signal
+# Integration must be applied only after tests pass and current selector path is preserved.
+
+
+# ============================================================
+# P4.95J16_PREP — Conversation Recovery Safe Adapter
+# ============================================================
+def _p495_recovery_signal(message: str, last_topic: str | None = None, memory: dict | None = None) -> dict:
+    try:
+        from app.runtime.conversation_recovery_engine import analyze_conversation_signal as _analyze
+        return _analyze(message=message, last_topic=last_topic, memory=memory)
+    except Exception as exc:
+        return {
+            "intent": "recovery_error",
+            "confidence": 0.0,
+            "normalized_text": str(message or ""),
+            "recovered_topic": last_topic,
+            "should_preserve_context": bool(last_topic),
+            "should_answer_directly": False,
+            "response_hint": f"Recovery adapter failed safely: {exc}",
+            "source": "conversation_recovery_engine_safe_adapter",
+        }
+
+
+
+# ============================================================
+# P4.95J16 — Canary 5% Recovery Guard
+# ============================================================
+def _p495j16_recovery_canary_enabled(sender_id: str | None = None) -> bool:
+    import os, hashlib
+    enabled = os.getenv("MIND_ENABLE_CONVERSATION_RECOVERY_CANARY", "0") == "1"
+    if not enabled:
+        return False
+    allowlist = os.getenv("MIND_CONVERSATION_RECOVERY_ALLOWLIST", "").strip()
+    if allowlist and sender_id:
+        allowed = {x.strip() for x in allowlist.split(",") if x.strip()}
+        if sender_id in allowed:
+            return True
+    basis = str(sender_id or "anonymous")
+    bucket = int(hashlib.sha256(basis.encode("utf-8")).hexdigest(), 16) % 100
+    return bucket < int(os.getenv("MIND_CONVERSATION_RECOVERY_CANARY_PERCENT", "10"))
+
+def _p495j16_apply_recovery_if_enabled(message: str, sender_id: str | None = None, last_topic: str | None = None, memory: dict | None = None) -> dict:
+    if not _p495j16_recovery_canary_enabled(sender_id):
+        return {"enabled": False, "signal": None}
+    signal = _p495_recovery_signal(message=message, last_topic=last_topic, memory=memory)
+    return {"enabled": True, "signal": signal}
 
 
 
