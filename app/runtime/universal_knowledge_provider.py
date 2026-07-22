@@ -62,7 +62,7 @@ def universal_provider_answer(domain: str, intent: str, text: str, state: dict) 
             return "Monto sim. Base inicial: café com ovos ou whey; almoço com proteína, arroz, feijão e salada; lanche com iogurte/whey/fruta; jantar com proteína e legumes. Para fechar quantidades, preciso dos seus dados."
         if "rápido" in t or "rapido" in t:
             return "O jeito mais rápido sem fazer loucura é déficit calórico, proteína alta, treino de força e caminhada diária. Cortar açúcar, bebida calórica e belisco já acelera muito."
-        return "Vamos fazer direito: primeiro eu preciso dos seus dados para montar um plano real, não genérico."
+        return ""
 
     if domain == "sports":
         return "Sobre jogo atual, eu preciso de busca real para confirmar adversário, escalação e momento. Sem isso, eu só consigo te dar uma análise geral."
