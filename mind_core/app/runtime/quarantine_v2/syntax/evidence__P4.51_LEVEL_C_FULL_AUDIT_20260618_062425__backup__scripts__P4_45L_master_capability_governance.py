@@ -1,0 +1,2 @@
+
+python scripts\P4_45L_master_capability_governance.py

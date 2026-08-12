@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_612B88805E645E4B",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\admin\\organization\\groups\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\openai\\types\\admin\\organization\\groups\\__init__.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 95,
+  "imports": [
+    "__future__",
+    "organization_group_user",
+    "role_create_params",
+    "role_create_response",
+    "role_delete_response",
+    "role_list_params",
+    "role_list_response",
+    "user_create_params",
+    "user_create_response",
+    "user_delete_response",
+    "user_list_params"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

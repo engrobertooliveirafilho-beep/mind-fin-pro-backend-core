@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_B5102FCA964C4CC7",
+  "source_file": "_evidence\\P19P38_K_CRITICAL_DIFF_RESOLUTION_PLAN_20260622_182307\\validate.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\_evidence\\P19P38_K_CRITICAL_DIFF_RESOLUTION_PLAN_20260622_182307\\validate.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 85,
+  "imports": [
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

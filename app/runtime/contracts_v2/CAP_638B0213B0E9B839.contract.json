@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_638B0213B0E9B839",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\indexes\\period\\test_formats.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\data\\.venv\\Lib\\site-packages\\pandas\\tests\\indexes\\period\\test_formats.py",
+  "domain": "DATA",
+  "target_layer": "app/runtime",
+  "promotion_score": 88,
+  "imports": [
+    "numpy",
+    "pandas",
+    "pandas._testing",
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

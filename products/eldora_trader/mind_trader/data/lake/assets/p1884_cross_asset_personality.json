@@ -1,0 +1,33 @@
+[
+  {
+    "status": "P1884_CROSS_ASSET_PERSONALITY_COMPLETED",
+    "assets_compared": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "xauusd_personality": {
+      "liquidity_sweep_dependence": 100.0,
+      "trend_dependency": 65.0407,
+      "high_vol_dependency": 17.8862,
+      "low_vol_dependency": 21.1382,
+      "avg_market_energy": 57.646737,
+      "avg_entropy": 0.515276,
+      "execution_sensitivity": "LOW"
+    },
+    "usdjpy_personality": {
+      "liquidity_sweep_dependence": 19.3916,
+      "trend_dependency": 66.5399,
+      "high_vol_dependency": 35.7414,
+      "low_vol_dependency": 19.7719,
+      "avg_market_energy": 69.08414,
+      "avg_entropy": 0.527211,
+      "execution_sensitivity": "MEDIUM_HIGH"
+    },
+    "comparison": {
+      "xauusd_core": "LIQUIDITY_SWEEP_AND_EXECUTION_RESILIENCE",
+      "usdjpy_core": "STATISTICAL_REVERSION_AND_EXECUTION_SENSITIVITY",
+      "shared_strength": "D1_TIMEFRAME_ROBUSTNESS",
+      "risk_difference": "USDJPY weakens under extreme execution stress; XAUUSD survives it"
+    }
+  }
+]

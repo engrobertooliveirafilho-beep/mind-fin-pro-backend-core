@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_7CEB94590163FF08",
+  "source_file": "_evidence\\P16D_RESPONSE_AWARENESS_QUALITY_BENCHMARK_20260616_161008\\run_p16d_quality_benchmark.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P16D_RESPONSE_AWARENESS_QUALITY_BENCHMARK_20260616_161008\\run_p16d_quality_benchmark.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 94,
+  "imports": [
+    "app.p16_real_use_case.response_awareness_quality",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

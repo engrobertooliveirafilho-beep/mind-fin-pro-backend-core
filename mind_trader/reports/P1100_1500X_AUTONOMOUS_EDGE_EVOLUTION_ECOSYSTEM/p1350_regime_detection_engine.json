@@ -1,0 +1,65 @@
+[
+  {
+    "regime": "TREND",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "regime": "RANGE",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "regime": "HIGH_VOLATILITY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "regime": "LOW_VOLATILITY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "regime": "BULL_MARKET",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "regime": "BEAR_MARKET",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "regime": "CRASH",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  }
+]

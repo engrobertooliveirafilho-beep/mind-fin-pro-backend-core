@@ -1,0 +1,26 @@
+{
+  "capability_id": "CAP_C5CD696776AC0688",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_shape_base.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_shape_base.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 116,
+  "imports": [
+    "numpy",
+    "numpy._core",
+    "numpy._core.shape_base",
+    "numpy.exceptions",
+    "numpy.testing",
+    "numpy.testing._private.utils",
+    "operator",
+    "pytest",
+    "sys"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

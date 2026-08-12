@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_D916B636C1AE8B29",
+  "source_file": "_evidence\\P19P5_FIX_INDENT_AND_TEXT_20260617_212825\\fix_p19p5.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\_evidence\\P19P5_FIX_INDENT_AND_TEXT_20260617_212825\\fix_p19p5.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 88,
+  "imports": [
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

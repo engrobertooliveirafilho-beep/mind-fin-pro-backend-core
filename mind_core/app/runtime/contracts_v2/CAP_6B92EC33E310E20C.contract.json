@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_6B92EC33E310E20C",
+  "source_file": ".venv\\Lib\\site-packages\\twilio\\rest\\insights\\v2\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\twilio\\rest\\insights\\v2\\__init__.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 88,
+  "imports": [
+    "twilio.base.domain",
+    "twilio.base.version",
+    "twilio.rest.insights.v2.inbound",
+    "twilio.rest.insights.v2.outbound",
+    "twilio.rest.insights.v2.report",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

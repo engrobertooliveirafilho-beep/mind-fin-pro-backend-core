@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_934B7DA3C7BFD7F7",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\resources\\admin\\organization\\projects\\certificates.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\openai\\resources\\admin\\organization\\projects\\certificates.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 93,
+  "imports": [
+    "__future__",
+    "_base_client",
+    "_compat",
+    "_resource",
+    "_response",
+    "_types",
+    "_utils",
+    "httpx",
+    "pagination",
+    "types.admin.organization.projects",
+    "types.admin.organization.projects.certificate_activate_response",
+    "types.admin.organization.projects.certificate_deactivate_response",
+    "types.admin.organization.projects.certificate_list_response",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,13 @@
+{
+  "strategy_id": "f12f98d0ca9b12af",
+  "parent_strategy_id": "s1",
+  "asset": "WIN",
+  "timeframe": "M1",
+  "mutation": {
+    "fast": 8,
+    "slow": 20
+  },
+  "requires_profit_backtest": true,
+  "live": "FORBIDDEN",
+  "real_orders": "FORBIDDEN"
+}

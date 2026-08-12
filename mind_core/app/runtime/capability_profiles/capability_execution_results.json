@@ -1,0 +1,4545 @@
+[
+  {
+    "id": "000_debug_whatsapp_runtime_trace",
+    "path": "app/api/debug_whatsapp_runtime_trace.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE096926F0>"
+      },
+      {
+        "name": "Form",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "Path",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "Response",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "Response",
+        "output_preview": "<starlette.responses.Response object at 0x000001DE095B69F0>"
+      },
+      {
+        "name": "datetime",
+        "called": true,
+        "ok": false,
+        "requires_input_unresolved": false,
+        "error": "ValueError: no signature found for builtin type <class 'datetime.datetime'>",
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "eldora_primary_runtime_reply",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "str",
+        "output_preview": "Entendi. Vou seguir pelo contexto e te responder de forma prática."
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "timezone",
+        "called": true,
+        "ok": false,
+        "requires_input_unresolved": false,
+        "error": "ValueError: no signature found for builtin type <class 'datetime.timezone'>",
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "twiml",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "str",
+        "output_preview": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>teste shadow</Message></Response>"
+      },
+      {
+        "name": "whatsapp_runtime_trace",
+        "called": true,
+        "ok": false,
+        "requires_input_unresolved": false,
+        "error": "AttributeError: 'Form' object has no attribute 'lower'",
+        "output_type": null,
+        "output_preview": null
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE096926F0>",
+    "elapsed_ms": 5722.73,
+    "error": null
+  },
+  {
+    "id": "001_diagnostic_twilio",
+    "path": "app/api/diagnostic_twilio.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE094D2750>"
+      },
+      {
+        "name": "Path",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "Request",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "Response",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "Response",
+        "output_preview": "<starlette.responses.Response object at 0x000001DE09797980>"
+      },
+      {
+        "name": "datetime",
+        "called": true,
+        "ok": false,
+        "requires_input_unresolved": false,
+        "error": "ValueError: no signature found for builtin type <class 'datetime.datetime'>",
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "diagnostic_twilio_inbound",
+        "called": true,
+        "ok": false,
+        "requires_input_unresolved": false,
+        "error": "AttributeError: 'dict' object has no attribute 'form'",
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "enforce_no_identity_in_normal_chat",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "str",
+        "output_preview": "teste shadow"
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "timezone",
+        "called": true,
+        "ok": false,
+        "requires_input_unresolved": false,
+        "error": "ValueError: no signature found for builtin type <class 'datetime.timezone'>",
+        "output_type": null,
+        "output_preview": null
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE094D2750>",
+    "elapsed_ms": 3.01,
+    "error": null
+  },
+  {
+    "id": "002_eldora_cognition",
+    "path": "app/api/eldora_cognition.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE09796720>"
+      },
+      {
+        "name": "cognitive_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'total_memories': 0, 'memories': []}"
+      },
+      {
+        "name": "cognitive_store",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'stored': True, 'memory': {'memory_id': 'b1920338-8ec1-4d42-b767-01193e5070cf', 'content': 1, 'category': 'general', 'created_at': '2026-06-25T19:28:41.467342+00:00'}, 'total_memories': 1}"
+      },
+      {
+        "name": "compress_memory",
+        "called": true,
+        "ok": false,
+        "requires_input_unresolved": false,
+        "error": "AttributeError: 'int' object has no attribute 'split'",
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "compression",
+        "called": true,
+        "ok": false,
+        "requires_input_unresolved": false,
+        "error": "AttributeError: 'int' object has no attribute 'split'",
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "compression_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'compressed_items': 0, 'items': []}"
+      },
+      {
+        "name": "compression_runtime",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'compressed_items': 0, 'items': []}"
+      },
+      {
+        "name": "learn_tool",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "retrieve_cognitive_memory",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'total_memories': 1, 'memories': [{'memory_id': 'b1920338-8ec1-4d42-b767-01193e5070cf', 'content': 1, 'category': 'general', 'created_at': '2026-06-25T19:28:41.467342+00:00'}]}"
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "store_cognitive_memory",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'stored': True, 'memory': {'memory_id': '19ecb373-2213-4956-83e0-eef085a52442', 'content': 1, 'category': 'general', 'created_at': '2026-06-25T19:28:41.467342+00:00'}, 'total_memories': 2}"
+      },
+      {
+        "name": "tool_learn",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "tool_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'tools_total': 0, 'tools': {}}"
+      },
+      {
+        "name": "tools",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'tools_total': 0, 'tools': {}}"
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE09796720>",
+    "elapsed_ms": 17.98,
+    "error": null
+  },
+  {
+    "id": "003_eldora_persistent_cognition",
+    "path": "app/api/eldora_persistent_cognition.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE0975EAB0>"
+      },
+      {
+        "name": "cognitive_store_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'memory_fallback_items': 0, 'postgres_available': False}"
+      },
+      {
+        "name": "report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'memory_fallback_items': 0, 'postgres_available': False}"
+      },
+      {
+        "name": "retrieve",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "retrieve_persistent_memory",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "store",
+        "called": true,
+        "ok": false,
+        "requires_input_unresolved": false,
+        "error": "AttributeError: 'int' object has no attribute 'encode'",
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "store_persistent_memory",
+        "called": true,
+        "ok": false,
+        "requires_input_unresolved": false,
+        "error": "AttributeError: 'int' object has no attribute 'encode'",
+        "output_type": null,
+        "output_preview": null
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0975EAB0>",
+    "elapsed_ms": 30.35,
+    "error": null
+  },
+  {
+    "id": "004_eldora_world",
+    "path": "app/api/eldora_world.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE09BBEFC0>"
+      },
+      {
+        "name": "causal",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "causal_reasoning",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "causal_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 0, 'events': []}"
+      },
+      {
+        "name": "causal_runtime",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 0, 'events': []}"
+      },
+      {
+        "name": "create_world_state",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'state': {'state_id': 'ddcf675e-647c-40cf-8a0c-8f7c83a05776', 'environment': 1, 'context': 'teste shadow', 'created_at': '2026-06-25T19:28:41.507868+00:00'}, 'states_total': 1}"
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "run_simulation",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "simulation",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "simulation_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'simulations_total': 0, 'simulations': []}"
+      },
+      {
+        "name": "simulation_runtime",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'simulations_total': 0, 'simulations': []}"
+      },
+      {
+        "name": "state",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'state': {'state_id': 'ba4dc52d-c72b-42d0-858f-c83d3476ca32', 'environment': 1, 'context': 'teste shadow', 'created_at': '2026-06-25T19:28:41.512415+00:00'}, 'states_total': 2}"
+      },
+      {
+        "name": "states",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'states_total': 2, 'states': [{'state_id': 'ddcf675e-647c-40cf-8a0c-8f7c83a05776', 'environment': 1, 'context': 'teste shadow', 'created_at': '2026-06-25T19:28:41.507868+00:00'}, {'state_id': 'ba4dc52d-c72b-42d0-858f-c83d3476ca32', 'environment': 1, 'context': 'teste shadow', 'creat"
+      },
+      {
+        "name": "world_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'states_total': 2, 'states': [{'state_id': 'ddcf675e-647c-40cf-8a0c-8f7c83a05776', 'environment': 1, 'context': 'teste shadow', 'created_at': '2026-06-25T19:28:41.507868+00:00'}, {'state_id': 'ba4dc52d-c72b-42d0-858f-c83d3476ca32', 'environment': 1, 'context': 'teste shadow', 'creat"
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE09BBEFC0>",
+    "elapsed_ms": 14.86,
+    "error": null
+  },
+  {
+    "id": "005_context_priority_engine",
+    "path": "app/runtime/context_priority_engine.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "context_priority_reply",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "str",
+        "output_preview": ""
+      }
+    ],
+    "best_output": "",
+    "elapsed_ms": 0.67,
+    "error": null
+  },
+  {
+    "id": "006_eldora_admin",
+    "path": "app/api/eldora_admin.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE09BDDBE0>"
+      },
+      {
+        "name": "Depends",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "Depends",
+        "output_preview": "Depends(dependency=None, use_cache=True, scope=None)"
+      },
+      {
+        "name": "apply_pgvector_schema",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'error', 'detail': 'DATABASE_URL missing'}"
+      },
+      {
+        "name": "apply_schema",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'error', 'detail': 'DATABASE_URL missing'}"
+      },
+      {
+        "name": "require_admin",
+        "called": true,
+        "ok": false,
+        "requires_input_unresolved": false,
+        "error": "HTTPException: 404: not found",
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE09BDDBE0>",
+    "elapsed_ms": 6.27,
+    "error": null
+  },
+  {
+    "id": "007_eldora_async",
+    "path": "app/api/eldora_async.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE09BDF290>"
+      },
+      {
+        "name": "create_task",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "distributed_runtime",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'nodes_total': 1, 'nodes': {'node-primary': {'status': 'online', 'region': 'us-central', 'updated_at': '2026-06-25T19:28:41.525254+00:00'}}}"
+      },
+      {
+        "name": "distributed_runtime_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'nodes_total': 1, 'nodes': {'node-primary': {'status': 'online', 'region': 'us-central', 'updated_at': '2026-06-25T19:28:41.525254+00:00'}}}"
+      },
+      {
+        "name": "get_task",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "orchestrate",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'goal': 'validar capability shadow', 'agents': {'memory_agent': {'status': 'active'}, 'retrieval_agent': {'status': 'active'}, 'reasoning_agent': {'status': 'active'}, 'execution_agent': {'status': 'active'}}, 'tasks_created': 4, 'tasks': [{'task_id': '3036f7d1-ef08-42e7-8a0a-c08652"
+      },
+      {
+        "name": "orchestrator",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'goal': 'default_goal', 'agents': {'memory_agent': {'status': 'active'}, 'retrieval_agent': {'status': 'active'}, 'reasoning_agent': {'status': 'active'}, 'execution_agent': {'status': 'active'}}, 'tasks_created': 4, 'tasks': [{'task_id': 'b9cb6574-e737-4c04-89cf-e4e1eeda2e35', 'tas"
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "task_create",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'task_id': '0a9931ee-e419-4cf9-8e08-26bdaf043ddf', 'task_type': 'generic', 'payload': {'payload': 'ok'}, 'status': 'queued', 'created_at': '2026-06-25T19:28:41.525254+00:00'}"
+      },
+      {
+        "name": "task_get",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "task_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'tasks_total': 9, 'tasks': [{'task_id': '3036f7d1-ef08-42e7-8a0a-c08652dd43d6', 'task_type': 'memory_analysis', 'payload': {'goal': 'validar capability shadow'}, 'status': 'queued', 'created_at': '2026-06-25T19:28:41.525254+00:00'}, {'task_id': 'e010f839-88e9-4cf4-af2b-a34fa4a59e23'"
+      },
+      {
+        "name": "tasks_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'tasks_total': 9, 'tasks': [{'task_id': '3036f7d1-ef08-42e7-8a0a-c08652dd43d6', 'task_type': 'memory_analysis', 'payload': {'goal': 'validar capability shadow'}, 'status': 'queued', 'created_at': '2026-06-25T19:28:41.525254+00:00'}, {'task_id': 'e010f839-88e9-4cf4-af2b-a34fa4a59e23'"
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE09BDF290>",
+    "elapsed_ms": 5.76,
+    "error": null
+  },
+  {
+    "id": "008_eldora_autonomous",
+    "path": "app/api/eldora_autonomous.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE09BBF1A0>"
+      },
+      {
+        "name": "checkpoint",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'checkpoint_id': '27afe182-90c5-4cd7-b172-837cf5cb2e61', 'runtime_state': {'runtime': 'eldora', 'status': 'operational'}, 'created_at': '2026-06-25T19:28:41.538982+00:00'}"
+      },
+      {
+        "name": "checkpoint_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'checkpoints_total': 1, 'checkpoints': [{'checkpoint_id': '27afe182-90c5-4cd7-b172-837cf5cb2e61', 'runtime_state': {'runtime': 'eldora', 'status': 'operational'}, 'created_at': '2026-06-25T19:28:41.538982+00:00'}]}"
+      },
+      {
+        "name": "checkpoints",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'checkpoints_total': 1, 'checkpoints': [{'checkpoint_id': '27afe182-90c5-4cd7-b172-837cf5cb2e61', 'runtime_state': {'runtime': 'eldora', 'status': 'operational'}, 'created_at': '2026-06-25T19:28:41.538982+00:00'}]}"
+      },
+      {
+        "name": "consume_budget",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'allowed': True, 'execution_budget': 99, 'active_loops': 1, 'timestamp': '2026-06-25T19:28:41.538982+00:00'}"
+      },
+      {
+        "name": "create_checkpoint",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'checkpoint_id': '2a83793e-25d2-4538-8a72-810a8678d8c3', 'runtime_state': {}, 'created_at': '2026-06-25T19:28:41.538982+00:00'}"
+      },
+      {
+        "name": "create_plan",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'plan_id': '4c51c39e-16bf-4e3a-871b-3477e8cefc03', 'goal': 'validar capability shadow', 'steps': ['memory_analysis', 'retrieval_execution', 'reasoning_execution', 'execution_runtime'], 'status': 'planned', 'created_at': '2026-06-25T19:28:41.539995+00:00'}"
+      },
+      {
+        "name": "get_plan",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'not_found'}"
+      },
+      {
+        "name": "governor",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'state': {'execution_budget': 99, 'max_loops': 10, 'active_loops': 1}}"
+      },
+      {
+        "name": "governor_check",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'state': {'execution_budget': 99, 'max_loops': 10, 'active_loops': 1}}"
+      },
+      {
+        "name": "governor_consume",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'allowed': True, 'execution_budget': 98, 'active_loops': 2, 'timestamp': '2026-06-25T19:28:41.540525+00:00'}"
+      },
+      {
+        "name": "plan_create",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'plan_id': '4a1a7904-dbb9-47b8-a09a-fd5fca54fb32', 'goal': 'default_goal', 'steps': ['memory_analysis', 'retrieval_execution', 'reasoning_execution', 'execution_runtime'], 'status': 'planned', 'created_at': '2026-06-25T19:28:41.540593+00:00'}"
+      },
+      {
+        "name": "plan_get",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'not_found'}"
+      },
+      {
+        "name": "planner",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'plans_total': 2, 'plans': [{'plan_id': '4c51c39e-16bf-4e3a-871b-3477e8cefc03', 'goal': 'validar capability shadow', 'steps': ['memory_analysis', 'retrieval_execution', 'reasoning_execution', 'execution_runtime'], 'status': 'planned', 'created_at': '2026-06-25T19:28:41.539995+00:00'"
+      },
+      {
+        "name": "planner_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'plans_total': 2, 'plans': [{'plan_id': '4c51c39e-16bf-4e3a-871b-3477e8cefc03', 'goal': 'validar capability shadow', 'steps': ['memory_analysis', 'retrieval_execution', 'reasoning_execution', 'execution_runtime'], 'status': 'planned', 'created_at': '2026-06-25T19:28:41.539995+00:00'"
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE09BBF1A0>",
+    "elapsed_ms": 16.47,
+    "error": null
+  },
+  {
+    "id": "009_eldora_multimodal",
+    "path": "app/api/eldora_multimodal.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE0B326720>"
+      },
+      {
+        "name": "audio_runtime",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'transcripts_total': 0, 'items': []}"
+      },
+      {
+        "name": "extract_text",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "fusion",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "fusion_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 0, 'events': []}"
+      },
+      {
+        "name": "fusion_runtime",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 0, 'events': []}"
+      },
+      {
+        "name": "multimodal_fusion",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "ocr",
+        "called": true,
+        "ok": false,
+        "requires_input_unresolved": false,
+        "error": "TypeError: 'int' object is not subscriptable",
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "ocr_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 0, 'events': []}"
+      },
+      {
+        "name": "ocr_runtime",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 0, 'events': []}"
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "run_ocr_simulation",
+        "called": true,
+        "ok": false,
+        "requires_input_unresolved": false,
+        "error": "TypeError: 'int' object is not subscriptable",
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "store_visual_memory",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'stored': True, 'item': {'description': 1, 'timestamp': '2026-06-25T19:28:41.925687+00:00'}}"
+      },
+      {
+        "name": "transcript",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'transcript': {'transcript': 'teste shadow', 'language': 'pt-BR', 'timestamp': '2026-06-25T19:28:41.925687+00:00'}}"
+      },
+      {
+        "name": "transcript_audio_simulation",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'transcript': {'transcript': 'teste shadow', 'language': 'pt-BR', 'timestamp': '2026-06-25T19:28:41.925687+00:00'}}"
+      },
+      {
+        "name": "transcript_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'transcripts_total': 2, 'items': [{'transcript': 'teste shadow', 'language': 'pt-BR', 'timestamp': '2026-06-25T19:28:41.925687+00:00'}, {'transcript': 'teste shadow', 'language': 'pt-BR', 'timestamp': '2026-06-25T19:28:41.925687+00:00'}]}"
+      },
+      {
+        "name": "upload",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "visual",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'stored': True, 'item': {'description': 1, 'timestamp': '2026-06-25T19:28:41.925687+00:00'}}"
+      },
+      {
+        "name": "visual_memory_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'items_total': 2, 'items': [{'description': 1, 'timestamp': '2026-06-25T19:28:41.925687+00:00'}, {'description': 1, 'timestamp': '2026-06-25T19:28:41.925687+00:00'}]}"
+      },
+      {
+        "name": "visual_runtime",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'items_total': 2, 'items': [{'description': 1, 'timestamp': '2026-06-25T19:28:41.925687+00:00'}, {'description': 1, 'timestamp': '2026-06-25T19:28:41.925687+00:00'}]}"
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B326720>",
+    "elapsed_ms": 384.96,
+    "error": null
+  },
+  {
+    "id": "010_eldora_neura_scale",
+    "path": "app/api/eldora_neura_scale.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE0B3639B0>"
+      },
+      {
+        "name": "acquisition",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "activate_public_launch",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'launch': {'launch_id': 'a44ea56f-6415-43bd-be95-180f160e3b8a', 'product': 'NEURA', 'market': 'students', 'status': 'public_launch_active', 'created_at': '2026-06-25T19:28:41.934302+00:00'}, 'launches_total': 1}"
+      },
+      {
+        "name": "create_tenant",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'tenant': {'tenant_id': '4af04af7-40ea-4f03-aba3-2b58ad82c491', 'name': 1, 'plan': 'starter', 'status': 'active', 'created_at': '2026-06-25T19:28:41.934302+00:00'}, 'tenants_total': 1}"
+      },
+      {
+        "name": "create_whatsapp_acquisition_campaign",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "launch",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'launch': {'launch_id': 'ba62045a-441d-46c3-ae26-3ea1ac44263f', 'product': 'NEURA', 'market': 'students', 'status': 'public_launch_active', 'created_at': '2026-06-25T19:28:41.934302+00:00'}, 'launches_total': 2}"
+      },
+      {
+        "name": "neura_scale_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'tenants_total': 1, 'acquisition_campaigns_total': 0, 'schedules_total': 0, 'launches_total': 2, 'tenants': [{'tenant_id': '4af04af7-40ea-4f03-aba3-2b58ad82c491', 'name': 1, 'plan': 'starter', 'status': 'active', 'created_at': '2026-06-25T19:28:41.934302+00:00'}], 'campaigns': [], '"
+      },
+      {
+        "name": "report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'tenants_total': 1, 'acquisition_campaigns_total': 0, 'schedules_total': 0, 'launches_total': 2, 'tenants': [{'tenant_id': '4af04af7-40ea-4f03-aba3-2b58ad82c491', 'name': 1, 'plan': 'starter', 'status': 'active', 'created_at': '2026-06-25T19:28:41.934302+00:00'}], 'campaigns': [], '"
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "schedule_cognition_workload",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "scheduler",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "tenant",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'tenant': {'tenant_id': '72186a2b-5413-413f-b402-a02ea340987b', 'name': 1, 'plan': 'starter', 'status': 'active', 'created_at': '2026-06-25T19:28:41.934302+00:00'}, 'tenants_total': 2}"
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B3639B0>",
+    "elapsed_ms": 7.62,
+    "error": null
+  },
+  {
+    "id": "011_eldora_semantic",
+    "path": "app/api/eldora_semantic.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE0B363830>"
+      },
+      {
+        "name": "graph",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'unavailable', 'source': 'pgvector', 'nodes_total': 0, 'graph': [], 'reason': 'DATABASE_URL not configured'}"
+      },
+      {
+        "name": "memory_retrieve",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "memory_store",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'unavailable', 'stored': False, 'reason': 'DATABASE_URL not configured', 'source': 'pgvector'}"
+      },
+      {
+        "name": "retrieve_memory",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "semantic_graph_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'unavailable', 'source': 'pgvector', 'nodes_total': 0, 'graph': [], 'reason': 'DATABASE_URL not configured'}"
+      },
+      {
+        "name": "store_memory",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'unavailable', 'stored': False, 'reason': 'DATABASE_URL not configured', 'source': 'pgvector'}"
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B363830>",
+    "elapsed_ms": 15.64,
+    "error": null
+  },
+  {
+    "id": "012_eldora_social",
+    "path": "app/api/eldora_social.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE0B3A3680>"
+      },
+      {
+        "name": "emotion",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'event': {'user_id': 'shadow_user', 'emotion': 1, 'context': 'teste shadow', 'continuity_score': 0.95, 'timestamp': '2026-06-25T19:28:41.953503+00:00'}}"
+      },
+      {
+        "name": "emotion_runtime",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 1, 'events': [{'user_id': 'shadow_user', 'emotion': 1, 'context': 'teste shadow', 'continuity_score': 0.95, 'timestamp': '2026-06-25T19:28:41.953503+00:00'}]}"
+      },
+      {
+        "name": "emotional_continuity",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'event': {'user_id': 'shadow_user', 'emotion': 1, 'context': 'teste shadow', 'continuity_score': 0.95, 'timestamp': '2026-06-25T19:28:41.953503+00:00'}}"
+      },
+      {
+        "name": "emotional_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 2, 'events': [{'user_id': 'shadow_user', 'emotion': 1, 'context': 'teste shadow', 'continuity_score': 0.95, 'timestamp': '2026-06-25T19:28:41.953503+00:00'}, {'user_id': 'shadow_user', 'emotion': 1, 'context': 'teste shadow', 'continuity_score': 0.95, 'timestamp': '2"
+      },
+      {
+        "name": "memory",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'backend': 'supabase_neura_memory', 'memory': {'memory_id': '8e70b085-299d-49f2-aaa9-7b0c31ee93bf', 'user_id': 'shadow_user', 'interaction': 1, 'affinity': 0.9, 'created_at': '2026-06-25T19:28:41.953503+00:00'}, 'total_memories': 1}"
+      },
+      {
+        "name": "memory_runtime",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'backend': 'supabase_neura_memory', 'total_memories': 100, 'memories': [{'sender_id': 'shadow_user', 'content': '1', 'confidence': 0.9, 'created_at': '2026-06-25T19:28:42.177465+00:00'}, {'sender_id': 'p473b_test', 'content': 'teste', 'confidence': 0.9, 'created_at': '2026-06-21T13:"
+      },
+      {
+        "name": "relational_analysis",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "relational_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 0, 'events': []}"
+      },
+      {
+        "name": "relationship",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "relationship_runtime",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 0, 'events': []}"
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "social_memory_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'backend': 'supabase_neura_memory', 'total_memories': 100, 'memories': [{'sender_id': 'shadow_user', 'content': '1', 'confidence': 0.9, 'created_at': '2026-06-25T19:28:42.177465+00:00'}, {'sender_id': 'p473b_test', 'content': 'teste', 'confidence': 0.9, 'created_at': '2026-06-21T13:"
+      },
+      {
+        "name": "store_social_memory",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'backend': 'supabase_neura_memory', 'memory': {'memory_id': '150e21a3-6699-45ee-a867-bc329b9a9277', 'user_id': 'shadow_user', 'interaction': 1, 'affinity': 0.9, 'created_at': '2026-06-25T19:28:42.718834+00:00'}, 'total_memories': 2}"
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B3A3680>",
+    "elapsed_ms": 1007.59,
+    "error": null
+  },
+  {
+    "id": "013_social_memory_provider",
+    "path": "app/humanization/social_memory_provider.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "anti_llm_speech_filter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "str",
+        "output_preview": "teste shadow"
+      },
+      {
+        "name": "avoid_over_fragmentation",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "build_dataset",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "list",
+        "output_preview": "[{'user': 'vc lembra do que falei ontem?', 'reply': 'ok'}, {'user': 'acho q vou desistir', 'reply': 'Entendi. Parece pesado agora. Antes de desistir, me fala o que travou mais.'}, {'user': 'que merda isso', 'reply': 'Entendi. Parece pesado agora. Antes de desistir, me fala o que travou mais.'}, {'us"
+      },
+      {
+        "name": "classify_reply_cadence",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "str",
+        "output_preview": "burst"
+      },
+      {
+        "name": "enforce_whatsapp_natural_length",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "humanization_runtime",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'answer': 'teste shadow', 'messages': ['teste shadow'], 'observation': {'intent': 'chat', 'emotion': 'neutral', 'tone': 'casual', 'social_energy': 'normal', 'subtext': 'none'}, 'pattern': {'micro_humor': False, 'followup_probability': 0.92, 'conversational_repair': False, 'casualness_level': 0.95, "
+      },
+      {
+        "name": "naturalness_judge",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'humanization_score': 99.95, 'robotic_probability': 0.0, 'awkwardness_score': 0.01, 'social_continuity_score': 99, 'rewrite_suggestions': []}"
+      },
+      {
+        "name": "should_split_reply",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "bool",
+        "output_preview": "False"
+      },
+      {
+        "name": "social_observation_layer",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'intent': 'chat', 'emotion': 'neutral', 'tone': 'casual', 'social_energy': 'normal', 'subtext': 'none'}"
+      },
+      {
+        "name": "social_pattern_extractor",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'micro_humor': False, 'followup_probability': 0.92, 'conversational_repair': False, 'casualness_level': 0.95, 'emotional_shift': False, 'anti_robotic_risk': 0.0, 'suggested_reply_shape': 'burst'}"
+      },
+      {
+        "name": "split_human_reply",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "list",
+        "output_preview": "['teste shadow']"
+      },
+      {
+        "name": "train_sim",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'humanization_score': 99.95, 'identity_fallback_rate': 0.0, 'robotic_probability': 0.0, 'whatsapp_cadence_score': 99.9, 'over_fragmentation_risk': 0.01, 'categories': ['small talk', 'trabalho', 'stress', 'humor', 'follow-up', 'ironia', 'casual', 'causalidade', 'contexto', 'conflito leve', 'produtiv"
+      }
+    ],
+    "best_output": "teste shadow",
+    "elapsed_ms": 1727.41,
+    "error": null
+  },
+  {
+    "id": "014_ai_only_review",
+    "path": "app/runtime/cognitive_observatory/ai_only_review.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "ConversationReview",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "ai_only_review_conversation",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "ConversationReview",
+        "output_preview": "ConversationReview(conversation_id_hash=1, domain='runtime_conversational', intent='quality_review', user_goal='melhorar conversa sem humano ler conversa bruta', goal_completion_score=0.86, continuity_score=0.88, naturalness_score=0.82, precision_score=0.84, empathy_score=0.8, mirror_alignment_score"
+      },
+      {
+        "name": "build_user_cognitive_mirror",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "UserCognitiveMirror",
+        "output_preview": "UserCognitiveMirror(tone='direct', detail_level='adaptive', decision_style='practical', vocabulary=[], priorities=[], recurring_goals=[], dislikes=[], reasoning_pattern='goal_first', confidence=0.82)"
+      }
+    ],
+    "best_output": "ConversationReview(conversation_id_hash=1, domain='runtime_conversational', intent='quality_review', user_goal='melhorar conversa sem humano ler conversa bruta', goal_completion_score=0.86, continuity_score=0.88, naturalness_score=0.82, precision_score=0.84, empathy_score=0.8, mirror_alignment_score",
+    "elapsed_ms": 9.34,
+    "error": null
+  },
+  {
+    "id": "015_eldora_auth",
+    "path": "app/api/eldora_auth.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE0B2D5670>"
+      },
+      {
+        "name": "Header",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "check_rate_limit",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "create_token",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "str",
+        "output_preview": "eyJhbGciOiAiSFMyNTYiLCAidHlwIjogIkpXVCJ9.eyJzdWIiOiAic2hhZG93X3VzZXIiLCAidGVuYW50X2lkIjogImRlZmF1bHQiLCAicm9sZSI6ICJ1c2VyIiwgImV4cCI6IDE3ODI0MTkzMjR9.2tcwz-B7KgOCEkh2qHbU2GryeTNdsYScRwSD3ltUNsg"
+      },
+      {
+        "name": "get_session",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'user_id': 'shadow_user', 'tenant_id': 'default', 'data': {}, 'status': 'new'}"
+      },
+      {
+        "name": "rate_limit",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'allowed': True, 'count': 1, 'limit': 60, 'window_seconds': 60}"
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "save_session",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'user_id': 'shadow_user', 'tenant_id': 'default', 'data': {}}"
+      },
+      {
+        "name": "session_get",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'user_id': 'shadow_user', 'tenant_id': 'default', 'data': {}}"
+      },
+      {
+        "name": "session_save",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'user_id': 'shadow_user', 'tenant_id': 'default', 'data': {'last_action': 'ok'}}"
+      },
+      {
+        "name": "token",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'token': 'eyJhbGciOiAiSFMyNTYiLCAidHlwIjogIkpXVCJ9.eyJzdWIiOiAic2hhZG93X3VzZXIiLCAidGVuYW50X2lkIjogImRlZmF1bHQiLCAicm9sZSI6ICJ1c2VyIiwgImV4cCI6IDE3ODI0MTkzMjR9.2tcwz-B7KgOCEkh2qHbU2GryeTNdsYScRwSD3ltUNsg'}"
+      },
+      {
+        "name": "verify",
+        "called": true,
+        "ok": false,
+        "requires_input_unresolved": false,
+        "error": "AttributeError: 'Header' object has no attribute 'replace'",
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "verify_token",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'valid': False, 'reason': \"'int' object has no attribute 'split'\"}"
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B2D5670>",
+    "elapsed_ms": 13.62,
+    "error": null
+  },
+  {
+    "id": "016_eldora_autonomy",
+    "path": "app/api/eldora_autonomy.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE0B3A2ED0>"
+      },
+      {
+        "name": "create_goal",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'goal': {'goal_id': 'eff24a52-f3da-4657-a9b2-81ad73cdda22', 'goal': 'validar capability shadow', 'priority': 10, 'status': 'active', 'created_at': '2026-06-25T19:28:44.719981+00:00'}, 'goals_total': 1}"
+      },
+      {
+        "name": "execute_loop",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'loop': {'mission': 1, 'status': 'running', 'retry_strategy': 'adaptive', 'timestamp': '2026-06-25T19:28:44.719981+00:00'}}"
+      },
+      {
+        "name": "goal",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'goal': {'goal_id': '1a91c75b-2236-4d80-b8d3-2d3fc494ba8b', 'goal': 'validar capability shadow', 'priority': 10, 'status': 'active', 'created_at': '2026-06-25T19:28:44.719981+00:00'}, 'goals_total': 2}"
+      },
+      {
+        "name": "goal_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'goals_total': 2, 'goals': [{'goal_id': 'eff24a52-f3da-4657-a9b2-81ad73cdda22', 'goal': 'validar capability shadow', 'priority': 10, 'status': 'active', 'created_at': '2026-06-25T19:28:44.719981+00:00'}, {'goal_id': '1a91c75b-2236-4d80-b8d3-2d3fc494ba8b', 'goal': 'validar capability"
+      },
+      {
+        "name": "goals",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'goals_total': 2, 'goals': [{'goal_id': 'eff24a52-f3da-4657-a9b2-81ad73cdda22', 'goal': 'validar capability shadow', 'priority': 10, 'status': 'active', 'created_at': '2026-06-25T19:28:44.719981+00:00'}, {'goal_id': '1a91c75b-2236-4d80-b8d3-2d3fc494ba8b', 'goal': 'validar capability"
+      },
+      {
+        "name": "loop",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'loop': {'mission': 1, 'status': 'running', 'retry_strategy': 'adaptive', 'timestamp': '2026-06-25T19:28:44.719981+00:00'}}"
+      },
+      {
+        "name": "loop_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'loops_total': 2, 'loops': [{'mission': 1, 'status': 'running', 'retry_strategy': 'adaptive', 'timestamp': '2026-06-25T19:28:44.719981+00:00'}, {'mission': 1, 'status': 'running', 'retry_strategy': 'adaptive', 'timestamp': '2026-06-25T19:28:44.719981+00:00'}]}"
+      },
+      {
+        "name": "loops",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'loops_total': 2, 'loops': [{'mission': 1, 'status': 'running', 'retry_strategy': 'adaptive', 'timestamp': '2026-06-25T19:28:44.719981+00:00'}, {'mission': 1, 'status': 'running', 'retry_strategy': 'adaptive', 'timestamp': '2026-06-25T19:28:44.719981+00:00'}]}"
+      },
+      {
+        "name": "observation_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 0, 'events': []}"
+      },
+      {
+        "name": "observations",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 0, 'events': []}"
+      },
+      {
+        "name": "observe",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'observation': {'environment': 1, 'signal': {'symbol': 'TEST', 'side': 'BUY'}, 'awareness': 0.95, 'timestamp': '2026-06-25T19:28:44.719981+00:00'}}"
+      },
+      {
+        "name": "observe_environment",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'observation': {'environment': 1, 'signal': {'symbol': 'TEST', 'side': 'BUY'}, 'awareness': 0.95, 'timestamp': '2026-06-25T19:28:44.719981+00:00'}}"
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B3A2ED0>",
+    "elapsed_ms": 12.08,
+    "error": null
+  },
+  {
+    "id": "017_eldora_embodied",
+    "path": "app/api/eldora_embodied.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE0B3B48F0>"
+      },
+      {
+        "name": "activate_browser_agent",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'browser_agent': {'agent': 1, 'objective': 'validar capability shadow', 'status': 'navigating', 'timestamp': '2026-06-25T19:28:44.726655+00:00'}}"
+      },
+      {
+        "name": "awareness",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "awareness_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'signals_total': 0, 'signals': []}"
+      },
+      {
+        "name": "awareness_runtime",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'signals_total': 0, 'signals': []}"
+      },
+      {
+        "name": "browser",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'browser_agent': {'agent': 1, 'objective': 'validar capability shadow', 'status': 'navigating', 'timestamp': '2026-06-25T19:28:44.726655+00:00'}}"
+      },
+      {
+        "name": "browser_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'agents_total': 2, 'agents': [{'agent': 1, 'objective': 'validar capability shadow', 'status': 'navigating', 'timestamp': '2026-06-25T19:28:44.726655+00:00'}, {'agent': 1, 'objective': 'validar capability shadow', 'status': 'navigating', 'timestamp': '2026-06-25T19:28:44.726655+00:0"
+      },
+      {
+        "name": "browsers",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'agents_total': 2, 'agents': [{'agent': 1, 'objective': 'validar capability shadow', 'status': 'navigating', 'timestamp': '2026-06-25T19:28:44.726655+00:00'}, {'agent': 1, 'objective': 'validar capability shadow', 'status': 'navigating', 'timestamp': '2026-06-25T19:28:44.726655+00:0"
+      },
+      {
+        "name": "digital_presence",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "internet_awareness",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "presence",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "presence_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'presence_total': 0, 'presence': []}"
+      },
+      {
+        "name": "presences",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'presence_total': 0, 'presence': []}"
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B3B48F0>",
+    "elapsed_ms": 6.67,
+    "error": null
+  },
+  {
+    "id": "018_eldora_growth",
+    "path": "app/api/eldora_growth.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE0B3B4080>"
+      },
+      {
+        "name": "autonomous_growth_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'campaigns_total': 0, 'swarms_total': 0, 'executions_total': 0, 'optimizations_total': 0, 'campaigns': [], 'swarms': []}"
+      },
+      {
+        "name": "create_acquisition_swarm",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'swarm': {'swarm_id': 'a9168f58-a3de-4ce6-bec9-f4b13746bfbd', 'objective': 'lead_generation', 'status': 'running', 'created_at': '2026-06-25T19:28:44.743738+00:00'}, 'swarms_total': 1}"
+      },
+      {
+        "name": "create_distribution",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'campaign': {'campaign_id': '4b3af8c5-8128-4592-be9a-97794eec8568', 'channel': 'whatsapp', 'audience': 'general', 'status': 'active', 'created_at': '2026-06-25T19:28:44.743738+00:00'}, 'campaigns_total': 1}"
+      },
+      {
+        "name": "create_distribution_campaign",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'campaign': {'campaign_id': 'cc2860e1-caae-4926-a5b8-103e6616b5d1', 'channel': 'whatsapp', 'audience': 'general', 'status': 'active', 'created_at': '2026-06-25T19:28:44.743738+00:00'}, 'campaigns_total': 2}"
+      },
+      {
+        "name": "create_swarm",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'swarm': {'swarm_id': 'be52cf1e-4398-481f-bfe9-ee6649f5a37d', 'objective': 'lead_generation', 'status': 'running', 'created_at': '2026-06-25T19:28:44.743738+00:00'}, 'swarms_total': 2}"
+      },
+      {
+        "name": "execute_commercial",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "execute_commercial_operation",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "optimize_revenue",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'optimization': {'optimization_id': 'fc2ac46c-c66a-4efd-9e8f-a85204def25a', 'route_name': 'primary_funnel', 'efficiency': 1.0, 'timestamp': '2026-06-25T19:28:44.743738+00:00'}}"
+      },
+      {
+        "name": "optimize_revenue_route",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'optimization': {'optimization_id': '6a17530a-00af-4366-bf9e-af79caebd450', 'route_name': 'primary_funnel', 'efficiency': 1.0, 'timestamp': '2026-06-25T19:28:44.743738+00:00'}}"
+      },
+      {
+        "name": "report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'campaigns_total': 2, 'swarms_total': 2, 'executions_total': 0, 'optimizations_total': 2, 'campaigns': [{'campaign_id': '4b3af8c5-8128-4592-be9a-97794eec8568', 'channel': 'whatsapp', 'audience': 'general', 'status': 'active', 'created_at': '2026-06-25T19:28:44.743738+00:00'}, {'camp"
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B3B4080>",
+    "elapsed_ms": 17.08,
+    "error": null
+  },
+  {
+    "id": "019_eldora_liveos",
+    "path": "app/api/eldora_liveos.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE0B3FD340>"
+      },
+      {
+        "name": "orchestrate",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'orchestration': {'agent_group': 1, 'objective': 'validar capability shadow', 'status': 'orchestrated', 'runtime': 'distributed', 'timestamp': '2026-06-25T19:28:44.751738+00:00'}}"
+      },
+      {
+        "name": "orchestrate_agents",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'orchestration': {'agent_group': 1, 'objective': 'validar capability shadow', 'status': 'orchestrated', 'runtime': 'distributed', 'timestamp': '2026-06-25T19:28:44.751738+00:00'}}"
+      },
+      {
+        "name": "orchestration_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'orchestrations_total': 2, 'orchestrations': [{'agent_group': 1, 'objective': 'validar capability shadow', 'status': 'orchestrated', 'runtime': 'distributed', 'timestamp': '2026-06-25T19:28:44.751738+00:00'}, {'agent_group': 1, 'objective': 'validar capability shadow', 'status': 'or"
+      },
+      {
+        "name": "orchestrations",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'orchestrations_total': 2, 'orchestrations': [{'agent_group': 1, 'objective': 'validar capability shadow', 'status': 'orchestrated', 'runtime': 'distributed', 'timestamp': '2026-06-25T19:28:44.751738+00:00'}, {'agent_group': 1, 'objective': 'validar capability shadow', 'status': 'or"
+      },
+      {
+        "name": "publish",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "publish_event",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "runtime",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'runtime': {'environment': 1, 'signal': {'symbol': 'TEST', 'side': 'BUY'}, 'runtime_state': 'active', 'timestamp': '2026-06-25T19:28:44.751738+00:00'}}"
+      },
+      {
+        "name": "runtime_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'runtime_events_total': 1, 'runtime_events': [{'environment': 1, 'signal': {'symbol': 'TEST', 'side': 'BUY'}, 'runtime_state': 'active', 'timestamp': '2026-06-25T19:28:44.751738+00:00'}]}"
+      },
+      {
+        "name": "runtime_signal",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'runtime': {'environment': 1, 'signal': {'symbol': 'TEST', 'side': 'BUY'}, 'runtime_state': 'active', 'timestamp': '2026-06-25T19:28:44.751738+00:00'}}"
+      },
+      {
+        "name": "runtimes",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'runtime_events_total': 2, 'runtime_events': [{'environment': 1, 'signal': {'symbol': 'TEST', 'side': 'BUY'}, 'runtime_state': 'active', 'timestamp': '2026-06-25T19:28:44.751738+00:00'}, {'environment': 1, 'signal': {'symbol': 'TEST', 'side': 'BUY'}, 'runtime_state': 'active', 'time"
+      },
+      {
+        "name": "stream_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 0, 'events': []}"
+      },
+      {
+        "name": "streams",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 0, 'events': []}"
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B3FD340>",
+    "elapsed_ms": 8.0,
+    "error": null
+  },
+  {
+    "id": "020_eldora_mesh",
+    "path": "app/api/eldora_mesh.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE0B3FD340>"
+      },
+      {
+        "name": "activate_agent",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'agent_runtime': {'agent': 1, 'runtime': 1, 'status': 'active', 'distributed': True, 'timestamp': '2026-06-25T19:28:44.763403+00:00'}}"
+      },
+      {
+        "name": "agent",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'agent_runtime': {'agent': 1, 'runtime': 1, 'status': 'active', 'distributed': True, 'timestamp': '2026-06-25T19:28:44.763403+00:00'}}"
+      },
+      {
+        "name": "agent_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'agents_total': 2, 'agents': [{'agent': 1, 'runtime': 1, 'status': 'active', 'distributed': True, 'timestamp': '2026-06-25T19:28:44.763403+00:00'}, {'agent': 1, 'runtime': 1, 'status': 'active', 'distributed': True, 'timestamp': '2026-06-25T19:28:44.763403+00:00'}]}"
+      },
+      {
+        "name": "agents",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'agents_total': 2, 'agents': [{'agent': 1, 'runtime': 1, 'status': 'active', 'distributed': True, 'timestamp': '2026-06-25T19:28:44.763403+00:00'}, {'agent': 1, 'runtime': 1, 'status': 'active', 'distributed': True, 'timestamp': '2026-06-25T19:28:44.763403+00:00'}]}"
+      },
+      {
+        "name": "broker",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'event': {'channel': 1, 'payload': {}, 'status': 'streamed', 'timestamp': '2026-06-25T19:28:44.764402+00:00'}}"
+      },
+      {
+        "name": "broker_event",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'event': {'channel': 1, 'payload': {}, 'status': 'streamed', 'timestamp': '2026-06-25T19:28:44.764402+00:00'}}"
+      },
+      {
+        "name": "broker_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 2, 'events': [{'channel': 1, 'payload': {}, 'status': 'streamed', 'timestamp': '2026-06-25T19:28:44.764402+00:00'}, {'channel': 1, 'payload': {}, 'status': 'streamed', 'timestamp': '2026-06-25T19:28:44.764402+00:00'}]}"
+      },
+      {
+        "name": "brokers",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 2, 'events': [{'channel': 1, 'payload': {}, 'status': 'streamed', 'timestamp': '2026-06-25T19:28:44.764402+00:00'}, {'channel': 1, 'payload': {}, 'status': 'streamed', 'timestamp': '2026-06-25T19:28:44.764402+00:00'}]}"
+      },
+      {
+        "name": "mesh",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'nodes_total': 0, 'nodes': []}"
+      },
+      {
+        "name": "mesh_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'nodes_total': 0, 'nodes': []}"
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "sync",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'mesh': {'node': 1, 'cognition': 1, 'status': 'synchronized', 'timestamp': '2026-06-25T19:28:44.764402+00:00'}}"
+      },
+      {
+        "name": "sync_mesh",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'mesh': {'node': 1, 'cognition': 1, 'status': 'synchronized', 'timestamp': '2026-06-25T19:28:44.764402+00:00'}}"
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B3FD340>",
+    "elapsed_ms": 12.66,
+    "error": null
+  },
+  {
+    "id": "021_eldora_meta",
+    "path": "app/api/eldora_meta.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE0B424AA0>"
+      },
+      {
+        "name": "analyze_internal_state",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'analysis': {'event_id': '10afff2b-d234-43d3-9d4f-d9fa6028c518', 'runtime': 1, 'cognition': 1, 'self_score': 0.97, 'created_at': '2026-06-25T19:28:44.777381+00:00'}}"
+      },
+      {
+        "name": "awareness",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'awareness': {'runtime_state': {}, 'objective': 'validar capability shadow', 'awareness_score': 0.96, 'timestamp': '2026-06-25T19:28:44.777381+00:00'}}"
+      },
+      {
+        "name": "awareness_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 1, 'events': [{'runtime_state': {}, 'objective': 'validar capability shadow', 'awareness_score': 0.96, 'timestamp': '2026-06-25T19:28:44.777381+00:00'}]}"
+      },
+      {
+        "name": "awareness_runtime",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 1, 'events': [{'runtime_state': {}, 'objective': 'validar capability shadow', 'awareness_score': 0.96, 'timestamp': '2026-06-25T19:28:44.777381+00:00'}]}"
+      },
+      {
+        "name": "cognition",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'analysis': {'event_id': '3e7b7732-7736-49a0-bad5-e6d69c1b4003', 'runtime': 1, 'cognition': 1, 'self_score': 0.97, 'created_at': '2026-06-25T19:28:44.777381+00:00'}}"
+      },
+      {
+        "name": "cognition_runtime",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 2, 'events': [{'event_id': '10afff2b-d234-43d3-9d4f-d9fa6028c518', 'runtime': 1, 'cognition': 1, 'self_score': 0.97, 'created_at': '2026-06-25T19:28:44.777381+00:00'}, {'event_id': '3e7b7732-7736-49a0-bad5-e6d69c1b4003', 'runtime': 1, 'cognition': 1, 'self_score': 0."
+      },
+      {
+        "name": "introspection",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "introspection_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 0, 'events': []}"
+      },
+      {
+        "name": "introspection_runtime",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 0, 'events': []}"
+      },
+      {
+        "name": "meta_cognition_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 2, 'events': [{'event_id': '10afff2b-d234-43d3-9d4f-d9fa6028c518', 'runtime': 1, 'cognition': 1, 'self_score': 0.97, 'created_at': '2026-06-25T19:28:44.777381+00:00'}, {'event_id': '3e7b7732-7736-49a0-bad5-e6d69c1b4003', 'runtime': 1, 'cognition': 1, 'self_score': 0."
+      },
+      {
+        "name": "recursive_introspection",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "self_awareness",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'awareness': {'runtime_state': {}, 'objective': 'validar capability shadow', 'awareness_score': 0.96, 'timestamp': '2026-06-25T19:28:44.778006+00:00'}}"
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B424AA0>",
+    "elapsed_ms": 13.6,
+    "error": null
+  },
+  {
+    "id": "022_eldora_runtime_supervisor",
+    "path": "app/api/eldora_runtime_supervisor.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE0B427CB0>"
+      },
+      {
+        "name": "healing_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'runtime_status': 'healthy', 'recoveries_total': 0, 'recoveries': []}"
+      },
+      {
+        "name": "recursive",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'goal': 'runtime_validation', 'depth': 1, 'children': [{'status': 'ok', 'goal': 'runtime_validation', 'depth': 2, 'children': [{'status': 'ok', 'goal': 'runtime_validation', 'depth': 3, 'children': []}]}]}"
+      },
+      {
+        "name": "recursive_execute",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'goal': 'validar capability shadow', 'depth': 1, 'children': [{'status': 'ok', 'goal': 'validar capability shadow', 'depth': 2, 'children': [{'status': 'ok', 'goal': 'validar capability shadow', 'depth': 3, 'children': []}]}]}"
+      },
+      {
+        "name": "recursive_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'executions_total': 6, 'executions': [{'goal': 'runtime_validation', 'depth': 1, 'timestamp': '2026-06-25T19:28:44.782571+00:00'}, {'goal': 'runtime_validation', 'depth': 2, 'timestamp': '2026-06-25T19:28:44.782571+00:00'}, {'goal': 'runtime_validation', 'depth': 3, 'timestamp': '20"
+      },
+      {
+        "name": "recursive_runtime",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'executions_total': 6, 'executions': [{'goal': 'runtime_validation', 'depth': 1, 'timestamp': '2026-06-25T19:28:44.782571+00:00'}, {'goal': 'runtime_validation', 'depth': 2, 'timestamp': '2026-06-25T19:28:44.782571+00:00'}, {'goal': 'runtime_validation', 'depth': 3, 'timestamp': '20"
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "self_heal",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'recovery': {'component': 'runtime', 'status': 'recovered', 'timestamp': '2026-06-25T19:28:44.782571+00:00'}, 'recoveries_total': 1}"
+      },
+      {
+        "name": "self_heal_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'runtime_status': 'healthy', 'recoveries_total': 1, 'recoveries': [{'component': 'runtime', 'status': 'recovered', 'timestamp': '2026-06-25T19:28:44.782571+00:00'}]}"
+      },
+      {
+        "name": "supervisor",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'supervisors_total': 4, 'supervisors': {'runtime_supervisor': 'active', 'memory_supervisor': 'active', 'reasoning_supervisor': 'active', 'execution_supervisor': 'active'}, 'timestamp': '2026-06-25T19:28:44.782571+00:00'}"
+      },
+      {
+        "name": "supervisor_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'supervisors_total': 4, 'supervisors': {'runtime_supervisor': 'active', 'memory_supervisor': 'active', 'reasoning_supervisor': 'active', 'execution_supervisor': 'active'}, 'timestamp': '2026-06-25T19:28:44.782571+00:00'}"
+      },
+      {
+        "name": "trigger_recovery",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'recovery': {'component': 'runtime', 'status': 'recovered', 'timestamp': '2026-06-25T19:28:44.782571+00:00'}, 'recoveries_total': 2}"
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B427CB0>",
+    "elapsed_ms": 4.57,
+    "error": null
+  },
+  {
+    "id": "023_eldora_security",
+    "path": "app/api/eldora_security.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE0B427D70>"
+      },
+      {
+        "name": "auth_context",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'user_id': 'anonymous', 'tenant_id': 'default', 'role': 'guest', 'authenticated': False}"
+      },
+      {
+        "name": "build_auth_context",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'user_id': 'anonymous', 'tenant_id': 'default', 'role': 'guest', 'authenticated': False}"
+      },
+      {
+        "name": "evaluate_policy",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "policy",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'allowed': True, 'role': 'guest', 'action': 'read_public', 'resource': 'eldora'}"
+      },
+      {
+        "name": "resolve_tenant",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'tenant_id': 'default', 'name': 'Default Tenant', 'status': 'active'}"
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "tenant",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'tenant_id': 'default', 'name': 'Default Tenant', 'status': 'active'}"
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B427D70>",
+    "elapsed_ms": 15.61,
+    "error": null
+  },
+  {
+    "id": "024_eldora_true_distributed",
+    "path": "app/api/eldora_true_distributed.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE0B4423F0>"
+      },
+      {
+        "name": "WebSocket",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "WebSocketDisconnect",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "WebSocketDisconnect",
+        "output_preview": ""
+      },
+      {
+        "name": "diagnostics",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'redis_url_present': False, 'redis_url_scheme': None, 'redis_client_created': False, 'ping': False, 'error': 'REDIS_URL missing'}"
+      },
+      {
+        "name": "publish_true_stream",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "redis_diagnostics",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'redis_url_present': False, 'redis_url_scheme': None, 'redis_client_created': False, 'ping': False, 'error': 'REDIS_URL missing'}"
+      },
+      {
+        "name": "redis_publish",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'backend': 'memory_fallback', 'redis_error': 'REDIS_URL missing', 'event': {'event_id': '882bdacf-f77a-4bf5-a856-f6b442687c8c', 'stream': 'eldora.true.events', 'event': 'runtime_tick', 'payload': {}, 'timestamp': '2026-06-25T19:28:44.899813+00:00'}}"
+      },
+      {
+        "name": "redis_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'backend': 'memory_fallback', 'redis_error': 'REDIS_URL missing', 'events_total': 1, 'events': [{'event_id': '882bdacf-f77a-4bf5-a856-f6b442687c8c', 'stream': 'eldora.true.events', 'event': 'runtime_tick', 'payload': {}, 'timestamp': '2026-06-25T19:28:44.899813+00:00'}]}"
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "run_worker_loop",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'worker_name': 1, 'cycles': 1, 'processed': [{'worker_name': 1, 'cycle': 1, 'status': 'processed', 'timestamp': '2026-06-25T19:28:44.899813+00:00'}]}"
+      },
+      {
+        "name": "true_stream_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'backend': 'memory_fallback', 'redis_error': 'REDIS_URL missing', 'events_total': 2, 'events': [{'event_id': '882bdacf-f77a-4bf5-a856-f6b442687c8c', 'stream': 'eldora.true.events', 'event': 'runtime_tick', 'payload': {}, 'timestamp': '2026-06-25T19:28:44.899813+00:00'}, {'event_id':"
+      },
+      {
+        "name": "websocket_cognition_signal",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'signal': {'channel': 1, 'message': 'teste shadow', 'mode': 'websocket_ready', 'timestamp': '2026-06-25T19:28:44.899813+00:00'}}"
+      },
+      {
+        "name": "websocket_endpoint",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "websocket_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'signals_total': 1, 'signals': [{'channel': 1, 'message': 'teste shadow', 'mode': 'websocket_ready', 'timestamp': '2026-06-25T19:28:44.899813+00:00'}]}"
+      },
+      {
+        "name": "worker_loop",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'worker_name': 'worker_alpha', 'cycles': 1, 'processed': [{'worker_name': 'worker_alpha', 'cycle': 1, 'status': 'processed', 'timestamp': '2026-06-25T19:28:44.899813+00:00'}]}"
+      },
+      {
+        "name": "worker_loop_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'loops_total': 2, 'loops': [{'worker_name': 1, 'cycle': 1, 'status': 'processed', 'timestamp': '2026-06-25T19:28:44.899813+00:00'}, {'worker_name': 'worker_alpha', 'cycle': 1, 'status': 'processed', 'timestamp': '2026-06-25T19:28:44.899813+00:00'}]}"
+      },
+      {
+        "name": "workers",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'loops_total': 2, 'loops': [{'worker_name': 1, 'cycle': 1, 'status': 'processed', 'timestamp': '2026-06-25T19:28:44.899813+00:00'}, {'worker_name': 'worker_alpha', 'cycle': 1, 'status': 'processed', 'timestamp': '2026-06-25T19:28:44.899813+00:00'}]}"
+      },
+      {
+        "name": "ws_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'signals_total': 1, 'signals': [{'channel': 1, 'message': 'teste shadow', 'mode': 'websocket_ready', 'timestamp': '2026-06-25T19:28:44.899813+00:00'}]}"
+      },
+      {
+        "name": "ws_signal",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'signal': {'channel': 'runtime', 'message': 'heartbeat', 'mode': 'websocket_ready', 'timestamp': '2026-06-25T19:28:44.899813+00:00'}}"
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B4423F0>",
+    "elapsed_ms": 101.63,
+    "error": null
+  },
+  {
+    "id": "025_canonical_registry",
+    "path": "app/eldora/canonical_registry.py",
+    "status": "FAILED",
+    "entrypoints_tested": [],
+    "best_output": null,
+    "elapsed_ms": 0.0,
+    "error": null
+  },
+  {
+    "id": "026_conversation_maturity_engine",
+    "path": "app/humanization/conversation_maturity_engine.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "anti_llm_speech_filter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "str",
+        "output_preview": "teste shadow"
+      },
+      {
+        "name": "avoid_over_fragmentation",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "build_dataset",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "list",
+        "output_preview": "[{'user': 'acho q vou desistir', 'reply': 'Entendi. Parece pesado agora. Antes de desistir, me fala o que travou mais.'}, {'user': 'o que achou da evolução?', 'reply': 'ok'}, {'user': 'o que achou da evolução?', 'reply': 'ok'}, {'user': 'o que achou da evolução?', 'reply': 'ok'}, {'user': 'kkkk', 'r"
+      },
+      {
+        "name": "classify_reply_cadence",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "str",
+        "output_preview": "burst"
+      },
+      {
+        "name": "enforce_whatsapp_natural_length",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "humanization_runtime",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'answer': 'teste shadow', 'messages': ['teste shadow'], 'observation': {'intent': 'chat', 'emotion': 'neutral', 'tone': 'casual', 'social_energy': 'normal', 'subtext': 'none'}, 'pattern': {'micro_humor': False, 'followup_probability': 0.92, 'conversational_repair': False, 'casualness_level': 0.95, "
+      },
+      {
+        "name": "naturalness_judge",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'humanization_score': 99.95, 'robotic_probability': 0.0, 'awkwardness_score': 0.01, 'social_continuity_score': 99, 'rewrite_suggestions': []}"
+      },
+      {
+        "name": "should_split_reply",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "bool",
+        "output_preview": "False"
+      },
+      {
+        "name": "social_observation_layer",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'intent': 'chat', 'emotion': 'neutral', 'tone': 'casual', 'social_energy': 'normal', 'subtext': 'none'}"
+      },
+      {
+        "name": "social_pattern_extractor",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'micro_humor': False, 'followup_probability': 0.92, 'conversational_repair': False, 'casualness_level': 0.95, 'emotional_shift': False, 'anti_robotic_risk': 0.0, 'suggested_reply_shape': 'burst'}"
+      },
+      {
+        "name": "split_human_reply",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "list",
+        "output_preview": "['teste shadow']"
+      },
+      {
+        "name": "train_sim",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'humanization_score': 99.95, 'identity_fallback_rate': 0.0, 'robotic_probability': 0.0, 'whatsapp_cadence_score': 99.9, 'over_fragmentation_risk': 0.01, 'categories': ['small talk', 'trabalho', 'stress', 'humor', 'follow-up', 'ironia', 'casual', 'causalidade', 'contexto', 'conflito leve', 'produtiv"
+      }
+    ],
+    "best_output": "teste shadow",
+    "elapsed_ms": 1709.93,
+    "error": null
+  },
+  {
+    "id": "027_conversation_training_runtime",
+    "path": "app/humanization/conversation_training_runtime.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "anti_llm_speech_filter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "str",
+        "output_preview": "teste shadow"
+      },
+      {
+        "name": "avoid_over_fragmentation",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "build_dataset",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "list",
+        "output_preview": "[{'user': 'tudo bem?', 'reply': 'ok'}, {'user': 'acho q vou desistir', 'reply': 'Entendi. Parece pesado agora. Antes de desistir, me fala o que travou mais.'}, {'user': 'pq vc acha isso?', 'reply': 'Porque existe contexto antes da resposta e a conversa precisa manter causalidade real, sem resetar id"
+      },
+      {
+        "name": "classify_reply_cadence",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "str",
+        "output_preview": "burst"
+      },
+      {
+        "name": "enforce_whatsapp_natural_length",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "humanization_runtime",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'answer': 'teste shadow', 'messages': ['teste shadow'], 'observation': {'intent': 'chat', 'emotion': 'neutral', 'tone': 'casual', 'social_energy': 'normal', 'subtext': 'none'}, 'pattern': {'micro_humor': False, 'followup_probability': 0.92, 'conversational_repair': False, 'casualness_level': 0.95, "
+      },
+      {
+        "name": "naturalness_judge",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'humanization_score': 99.95, 'robotic_probability': 0.0, 'awkwardness_score': 0.01, 'social_continuity_score': 99, 'rewrite_suggestions': []}"
+      },
+      {
+        "name": "should_split_reply",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "bool",
+        "output_preview": "False"
+      },
+      {
+        "name": "social_observation_layer",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'intent': 'chat', 'emotion': 'neutral', 'tone': 'casual', 'social_energy': 'normal', 'subtext': 'none'}"
+      },
+      {
+        "name": "social_pattern_extractor",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'micro_humor': False, 'followup_probability': 0.92, 'conversational_repair': False, 'casualness_level': 0.95, 'emotional_shift': False, 'anti_robotic_risk': 0.0, 'suggested_reply_shape': 'burst'}"
+      },
+      {
+        "name": "split_human_reply",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "list",
+        "output_preview": "['teste shadow']"
+      },
+      {
+        "name": "train_sim",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'humanization_score': 99.95, 'identity_fallback_rate': 0.0, 'robotic_probability': 0.0, 'whatsapp_cadence_score': 99.9, 'over_fragmentation_risk': 0.01, 'categories': ['small talk', 'trabalho', 'stress', 'humor', 'follow-up', 'ironia', 'casual', 'causalidade', 'contexto', 'conflito leve', 'produtiv"
+      }
+    ],
+    "best_output": "teste shadow",
+    "elapsed_ms": 1443.63,
+    "error": null
+  },
+  {
+    "id": "028_multi_ai_conversation_simulator",
+    "path": "app/humanization/multi_ai_conversation_simulator.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "anti_llm_speech_filter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "str",
+        "output_preview": "teste shadow"
+      },
+      {
+        "name": "avoid_over_fragmentation",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "build_dataset",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "list",
+        "output_preview": "[{'user': 'que merda isso', 'reply': 'Entendi. Parece pesado agora. Antes de desistir, me fala o que travou mais.'}, {'user': 'to cansado', 'reply': 'ok'}, {'user': 'acho q vou desistir', 'reply': 'Entendi. Parece pesado agora. Antes de desistir, me fala o que travou mais.'}, {'user': 'acho q vou de"
+      },
+      {
+        "name": "classify_reply_cadence",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "str",
+        "output_preview": "burst"
+      },
+      {
+        "name": "enforce_whatsapp_natural_length",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "humanization_runtime",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'answer': 'teste shadow', 'messages': ['teste shadow'], 'observation': {'intent': 'chat', 'emotion': 'neutral', 'tone': 'casual', 'social_energy': 'normal', 'subtext': 'none'}, 'pattern': {'micro_humor': False, 'followup_probability': 0.92, 'conversational_repair': False, 'casualness_level': 0.95, "
+      },
+      {
+        "name": "naturalness_judge",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'humanization_score': 99.95, 'robotic_probability': 0.0, 'awkwardness_score': 0.01, 'social_continuity_score': 99, 'rewrite_suggestions': []}"
+      },
+      {
+        "name": "should_split_reply",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "bool",
+        "output_preview": "False"
+      },
+      {
+        "name": "social_observation_layer",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'intent': 'chat', 'emotion': 'neutral', 'tone': 'casual', 'social_energy': 'normal', 'subtext': 'none'}"
+      },
+      {
+        "name": "social_pattern_extractor",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'micro_humor': False, 'followup_probability': 0.92, 'conversational_repair': False, 'casualness_level': 0.95, 'emotional_shift': False, 'anti_robotic_risk': 0.0, 'suggested_reply_shape': 'burst'}"
+      },
+      {
+        "name": "split_human_reply",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "list",
+        "output_preview": "['teste shadow']"
+      },
+      {
+        "name": "train_sim",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'humanization_score': 99.95, 'identity_fallback_rate': 0.0, 'robotic_probability': 0.0, 'whatsapp_cadence_score': 99.9, 'over_fragmentation_risk': 0.01, 'categories': ['small talk', 'trabalho', 'stress', 'humor', 'follow-up', 'ironia', 'casual', 'causalidade', 'contexto', 'conflito leve', 'produtiv"
+      }
+    ],
+    "best_output": "teste shadow",
+    "elapsed_ms": 1594.56,
+    "error": null
+  },
+  {
+    "id": "029_context_guard",
+    "path": "app/p18_conversational_execution/context_guard.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "Any",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "Dict",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "detect_context_contamination",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'contaminated': False, 'hits': [], 'active_topic': '', 'status': 'PASS'}"
+      },
+      {
+        "name": "safe_topic_from_message",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "str",
+        "output_preview": "general"
+      }
+    ],
+    "best_output": "{'contaminated': False, 'hits': [], 'active_topic': '', 'status': 'PASS'}",
+    "elapsed_ms": 0.0,
+    "error": null
+  },
+  {
+    "id": "030_response_executor",
+    "path": "app/p18_conversational_execution/response_executor.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "Any",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "Dict",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "classify_intent",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'intent': 'DIRECT_ANSWER', 'needs_short_reply': True}"
+      },
+      {
+        "name": "execute_conversational_response",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'mission': 'P18_CONVERSATIONAL_EXECUTION_LAYER', 'input': 'teste shadow', 'intent': 'DIRECT_ANSWER', 'answer': 'Entendi. Me diga exatamente o que você quer que eu faça.', 'short_reply': True, 'blocked_patterns': [], 'runtime_modified': False, 'routes_modified': False, 'dispatcher_modified': False, "
+      }
+    ],
+    "best_output": "{'intent': 'DIRECT_ANSWER', 'needs_short_reply': True}",
+    "elapsed_ms": 0.0,
+    "error": null
+  },
+  {
+    "id": "031_user_mirror",
+    "path": "app/runtime/cognitive_observatory/user_mirror.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "UserCognitiveMirror",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "UserCognitiveMirror",
+        "output_preview": "UserCognitiveMirror(tone='direct', detail_level='adaptive', decision_style='practical', vocabulary=[], priorities=[], recurring_goals=[], dislikes=[], reasoning_pattern='goal_first', confidence=0.0)"
+      },
+      {
+        "name": "apply_user_mirror_to_instruction",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "build_user_cognitive_mirror",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "UserCognitiveMirror",
+        "output_preview": "UserCognitiveMirror(tone='direct', detail_level='adaptive', decision_style='practical', vocabulary=[], priorities=[], recurring_goals=[], dislikes=[], reasoning_pattern='goal_first', confidence=0.82)"
+      }
+    ],
+    "best_output": "UserCognitiveMirror(tone='direct', detail_level='adaptive', decision_style='practical', vocabulary=[], priorities=[], recurring_goals=[], dislikes=[], reasoning_pattern='goal_first', confidence=0.0)",
+    "elapsed_ms": 6.53,
+    "error": null
+  },
+  {
+    "id": "032_semantic_whatsapp_runtime",
+    "path": "app/runtime/semantic_whatsapp_runtime.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "build_conversation_payload",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "compose_human_style",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "str",
+        "output_preview": "teste shadow"
+      },
+      {
+        "name": "context_priority_reply",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "str",
+        "output_preview": ""
+      },
+      {
+        "name": "humanized_answer",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "str",
+        "output_preview": "teste shadow"
+      },
+      {
+        "name": "multi_provider_factual_provider",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'ok': True, 'provider': 'mistral', 'model': 'mistral-large-latest', 'answer': 'Tudo certo! O que precisa saber sobre **Shadow**?\\n\\n- **Shadow.tech**: Serviço de PC na nuvem (jogos, apps, etc.).\\n- **Requisitos**: Internet boa (min. 15 Mbps), app no dispositivo.\\n- **Planos**: A partir de ~$30/mês "
+      },
+      {
+        "name": "relationalize",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "str",
+        "output_preview": "teste shadow"
+      },
+      {
+        "name": "route_semantic_whatsapp",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "str",
+        "output_preview": "\"Shadow ban\" no WhatsApp não existe oficialmente."
+      },
+      {
+        "name": "semantic_route",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "SemanticDecision",
+        "output_preview": "SemanticDecision(intent='OPEN_LOOP', domain='general', confidence=0.55, entities={}, answer='')"
+      },
+      {
+        "name": "semantic_whatsapp_payload",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'intent': 'OPEN_LOOP', 'domain': 'general', 'confidence': 0.55, 'entities': {}, 'context': {'last_domain': 'general'}, 'provider_ok': True, 'provider': 'mistral', 'model': 'mistral-large-latest', 'answer': '\"Shadow ban\" no WhatsApp não existe oficialmente.', 'errors': [{'provider': 'openai', 'error"
+      },
+      {
+        "name": "whatsapp_ux_guard",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "str",
+        "output_preview": "teste shadow"
+      }
+    ],
+    "best_output": "teste shadow",
+    "elapsed_ms": 20524.65,
+    "error": null
+  },
+  {
+    "id": "033_eldora_action",
+    "path": "app/api/eldora_action.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE0CEC1730>"
+      },
+      {
+        "name": "action_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'actions_total': 0, 'actions': []}"
+      },
+      {
+        "name": "execute",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "execute_action",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "execute_workflow",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "executions",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'actions_total': 0, 'actions': []}"
+      },
+      {
+        "name": "register_tool",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "tool",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "tool_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'tools_total': 0, 'tools': []}"
+      },
+      {
+        "name": "tools",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'tools_total': 0, 'tools': []}"
+      },
+      {
+        "name": "workflow",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "workflow_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'workflows_total': 0, 'workflows': []}"
+      },
+      {
+        "name": "workflows",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'workflows_total': 0, 'workflows': []}"
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0CEC1730>",
+    "elapsed_ms": 10.29,
+    "error": null
+  },
+  {
+    "id": "034_eldora_browser_fleet",
+    "path": "app/api/eldora_browser_fleet.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE0CE88200>"
+      },
+      {
+        "name": "assign_browser_task",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "assign_task",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "browser_fleet_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'fleet_total': 0, 'tasks_total': 0, 'sessions_total': 0, 'fleet': [], 'sessions': []}"
+      },
+      {
+        "name": "create_agent",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'agent': {'agent_id': '25eefc2e-4391-4c53-b393-edddbc6fade5', 'agent_name': 1, 'capability': 'navigation', 'status': 'idle', 'created_at': '2026-06-25T19:29:10.196785+00:00'}, 'fleet_total': 1}"
+      },
+      {
+        "name": "create_browser_agent",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'agent': {'agent_id': '4dac4597-fde7-431d-9d78-a2c202df6330', 'agent_name': 1, 'capability': 'navigation', 'status': 'idle', 'created_at': '2026-06-25T19:29:10.196785+00:00'}, 'fleet_total': 2}"
+      },
+      {
+        "name": "create_browser_task",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "create_task",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'fleet_total': 2, 'tasks_total': 0, 'sessions_total': 0, 'fleet': [{'agent_id': '25eefc2e-4391-4c53-b393-edddbc6fade5', 'agent_name': 1, 'capability': 'navigation', 'status': 'idle', 'created_at': '2026-06-25T19:29:10.196785+00:00'}, {'agent_id': '4dac4597-fde7-431d-9d78-a2c202df633"
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0CE88200>",
+    "elapsed_ms": 6.64,
+    "error": null
+  },
+  {
+    "id": "035_eldora_business",
+    "path": "app/api/eldora_business.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE0CEC0A40>"
+      },
+      {
+        "name": "business_runtime_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'agents_total': 0, 'leads_total': 0, 'revenue_events': 0, 'total_revenue': 0, 'agents': [], 'leads': []}"
+      },
+      {
+        "name": "create_agent",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'agent': {'agent_id': '5cd9a348-4792-41d0-a129-952b18ca441c', 'agent_name': 1, 'specialization': 'sales', 'status': 'active', 'created_at': '2026-06-25T19:29:10.201211+00:00'}, 'agents_total': 1}"
+      },
+      {
+        "name": "create_business_agent",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'agent': {'agent_id': '784be73e-cb7d-4e2d-be1e-f8cfd62958e9', 'agent_name': 1, 'specialization': 'sales', 'status': 'active', 'created_at': '2026-06-25T19:29:10.201211+00:00'}, 'agents_total': 2}"
+      },
+      {
+        "name": "create_lead",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'lead': {'lead_id': '79ef0cb8-b89d-4946-ac41-8f7de5e60dce', 'name': 1, 'source': 'web', 'status': 'captured', 'created_at': '2026-06-25T19:29:10.201211+00:00'}, 'leads_total': 1}"
+      },
+      {
+        "name": "create_pipeline_lead",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'lead': {'lead_id': '54db1a71-8a68-4b04-b3fd-9e786e2b7407', 'name': 1, 'source': 'web', 'status': 'captured', 'created_at': '2026-06-25T19:29:10.201211+00:00'}, 'leads_total': 2}"
+      },
+      {
+        "name": "register_revenue",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "register_revenue_event",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'agents_total': 2, 'leads_total': 2, 'revenue_events': 0, 'total_revenue': 0, 'agents': [{'agent_id': '5cd9a348-4792-41d0-a129-952b18ca441c', 'agent_name': 1, 'specialization': 'sales', 'status': 'active', 'created_at': '2026-06-25T19:29:10.201211+00:00'}, {'agent_id': '784be73e-cb7"
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0CEC0A40>",
+    "elapsed_ms": 4.43,
+    "error": null
+  },
+  {
+    "id": "036_eldora_distributed",
+    "path": "app/api/eldora_distributed.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE0C6CB470>"
+      },
+      {
+        "name": "publish_stream",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "run_worker",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "runtime_state_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'keys_total': 0, 'state': {}}"
+      },
+      {
+        "name": "set_runtime_state",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "state_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'keys_total': 0, 'state': {}}"
+      },
+      {
+        "name": "state_set",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "stream_publish",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'backend': 'memory', 'event': {'event_id': '2cbab547-029c-45e9-b516-ad3189828e06', 'stream': 'eldora.events', 'event': 'runtime_tick', 'payload': {}, 'timestamp': '2026-06-25T19:29:10.214326+00:00'}}"
+      },
+      {
+        "name": "stream_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'backend': 'memory', 'events_total': 1, 'events': [{'event_id': '2cbab547-029c-45e9-b516-ad3189828e06', 'stream': 'eldora.events', 'event': 'runtime_tick', 'payload': {}, 'timestamp': '2026-06-25T19:29:10.214326+00:00'}]}"
+      },
+      {
+        "name": "streams",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'backend': 'memory', 'events_total': 1, 'events': [{'event_id': '2cbab547-029c-45e9-b516-ad3189828e06', 'stream': 'eldora.events', 'event': 'runtime_tick', 'payload': {}, 'timestamp': '2026-06-25T19:29:10.214326+00:00'}]}"
+      },
+      {
+        "name": "worker",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'worker': {'worker_name': 'worker_alpha', 'task': 'heartbeat', 'status': 'processed', 'timestamp': '2026-06-25T19:29:10.214326+00:00'}}"
+      },
+      {
+        "name": "worker_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 1, 'events': [{'worker_name': 'worker_alpha', 'task': 'heartbeat', 'status': 'processed', 'timestamp': '2026-06-25T19:29:10.214326+00:00'}]}"
+      },
+      {
+        "name": "workers",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 1, 'events': [{'worker_name': 'worker_alpha', 'task': 'heartbeat', 'status': 'processed', 'timestamp': '2026-06-25T19:29:10.214326+00:00'}]}"
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0C6CB470>",
+    "elapsed_ms": 13.11,
+    "error": null
+  },
+  {
+    "id": "037_eldora_economic_market",
+    "path": "app/api/eldora_economic_market.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE0CE6F650>"
+      },
+      {
+        "name": "assign_contract",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "assign_execution_contract",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "create_market_task",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'task': {'task_id': '2eb4ba98-2092-4fe5-9498-ba7055fa8b4a', 'objective': 'validar capability shadow', 'priority': 10, 'budget': 100, 'status': 'open', 'created_at': '2026-06-25T19:29:10.228759+00:00'}, 'market_size': 1}"
+      },
+      {
+        "name": "create_task",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'task': {'task_id': 'f7c0b212-2f81-48fc-b6b4-5b7502984b4b', 'objective': 'validar capability shadow', 'priority': 10, 'budget': 100, 'status': 'open', 'created_at': '2026-06-25T19:29:10.228759+00:00'}, 'market_size': 2}"
+      },
+      {
+        "name": "economic_market_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'tasks_total': 2, 'bids_total': 0, 'contracts_total': 0, 'tasks': [{'task_id': '2eb4ba98-2092-4fe5-9498-ba7055fa8b4a', 'objective': 'validar capability shadow', 'priority': 10, 'budget': 100, 'status': 'open', 'created_at': '2026-06-25T19:29:10.228759+00:00'}, {'task_id': 'f7c0b212-"
+      },
+      {
+        "name": "report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'tasks_total': 2, 'bids_total': 0, 'contracts_total': 0, 'tasks': [{'task_id': '2eb4ba98-2092-4fe5-9498-ba7055fa8b4a', 'objective': 'validar capability shadow', 'priority': 10, 'budget': 100, 'status': 'open', 'created_at': '2026-06-25T19:29:10.228759+00:00'}, {'task_id': 'f7c0b212-"
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "submit_agent_bid",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "submit_bid",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0CE6F650>",
+    "elapsed_ms": 14.43,
+    "error": null
+  },
+  {
+    "id": "038_eldora_evolution",
+    "path": "app/api/eldora_evolution.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE0CED7110>"
+      },
+      {
+        "name": "capability_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'capabilities_total': 0, 'capabilities': []}"
+      },
+      {
+        "name": "capability_runtime",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'capabilities_total': 0, 'capabilities': []}"
+      },
+      {
+        "name": "evolution_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 0, 'events': []}"
+      },
+      {
+        "name": "evolution_runtime",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 0, 'events': []}"
+      },
+      {
+        "name": "evolve",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "evolve_capability",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "generate_skill",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'skill': {'skill_id': 'efe2f2e1-3385-4a50-921d-c31285bebf2e', 'skill_name': 1, 'domain': 1, 'runtime_ready': True, 'created_at': '2026-06-25T19:29:10.240730+00:00'}, 'skills_total': 1}"
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "skill",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'skill': {'skill_id': 'bcda8d4b-25b4-4af5-b92c-416b53f3ac6e', 'skill_name': 1, 'domain': 1, 'runtime_ready': True, 'created_at': '2026-06-25T19:29:10.240730+00:00'}, 'skills_total': 2}"
+      },
+      {
+        "name": "skill_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'skills_total': 2, 'skills': [{'skill_id': 'efe2f2e1-3385-4a50-921d-c31285bebf2e', 'skill_name': 1, 'domain': 1, 'runtime_ready': True, 'created_at': '2026-06-25T19:29:10.240730+00:00'}, {'skill_id': 'bcda8d4b-25b4-4af5-b92c-416b53f3ac6e', 'skill_name': 1, 'domain': 1, 'runtime_read"
+      },
+      {
+        "name": "skill_runtime",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'skills_total': 2, 'skills': [{'skill_id': 'efe2f2e1-3385-4a50-921d-c31285bebf2e', 'skill_name': 1, 'domain': 1, 'runtime_ready': True, 'created_at': '2026-06-25T19:29:10.240730+00:00'}, {'skill_id': 'bcda8d4b-25b4-4af5-b92c-416b53f3ac6e', 'skill_name': 1, 'domain': 1, 'runtime_read"
+      },
+      {
+        "name": "synthesize",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'capability': {'capability_id': '05ffce10-1b5b-4079-828e-cd1bb782b0ee', 'name': 1, 'objective': 'validar capability shadow', 'status': 'generated', 'score': 0.95, 'created_at': '2026-06-25T19:29:10.240730+00:00'}, 'capabilities_total': 1}"
+      },
+      {
+        "name": "synthesize_capability",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'capability': {'capability_id': '2a438613-e808-4cfa-8107-a62b504dda95', 'name': 1, 'objective': 'validar capability shadow', 'status': 'generated', 'score': 0.95, 'created_at': '2026-06-25T19:29:10.240730+00:00'}, 'capabilities_total': 2}"
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0CED7110>",
+    "elapsed_ms": 11.97,
+    "error": null
+  },
+  {
+    "id": "039_eldora_infrastructure",
+    "path": "app/api/eldora_infrastructure.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE0CF65070>"
+      },
+      {
+        "name": "bus",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 0, 'events': []}"
+      },
+      {
+        "name": "bus_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 0, 'events': []}"
+      },
+      {
+        "name": "connector",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "connector_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'connectors_total': 0, 'connectors': []}"
+      },
+      {
+        "name": "connectors",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'connectors_total': 0, 'connectors': []}"
+      },
+      {
+        "name": "event",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'event': {'environment': 1, 'signal': {'symbol': 'TEST', 'side': 'BUY'}, 'priority': 'high', 'timestamp': '2026-06-25T19:29:10.249386+00:00'}}"
+      },
+      {
+        "name": "events",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 1, 'events': [{'environment': 1, 'signal': {'symbol': 'TEST', 'side': 'BUY'}, 'priority': 'high', 'timestamp': '2026-06-25T19:29:10.249386+00:00'}]}"
+      },
+      {
+        "name": "infrastructure_event",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'event': {'environment': 1, 'signal': {'symbol': 'TEST', 'side': 'BUY'}, 'priority': 'high', 'timestamp': '2026-06-25T19:29:10.250384+00:00'}}"
+      },
+      {
+        "name": "infrastructure_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'events_total': 2, 'events': [{'environment': 1, 'signal': {'symbol': 'TEST', 'side': 'BUY'}, 'priority': 'high', 'timestamp': '2026-06-25T19:29:10.249386+00:00'}, {'environment': 1, 'signal': {'symbol': 'TEST', 'side': 'BUY'}, 'priority': 'high', 'timestamp': '2026-06-25T19:29:10.2"
+      },
+      {
+        "name": "register_connector",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "route",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "route_execution",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0CF65070>",
+    "elapsed_ms": 9.65,
+    "error": null
+  },
+  {
+    "id": "040_eldora_live_voice",
+    "path": "app/api/eldora_live_voice.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "APIRouter",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "APIRouter",
+        "output_preview": "<fastapi.routing.APIRouter object at 0x000001DE0CF67BC0>"
+      },
+      {
+        "name": "create_session",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'session': {'session_id': '2ed55864-f030-4b69-a01e-adf79781ae9a', 'user_id': 'shadow_user', 'language': 'pt-BR', 'status': 'active', 'created_at': '2026-06-25T19:29:10.261600+00:00'}, 'sessions_total': 1}"
+      },
+      {
+        "name": "create_voice_session",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'session': {'session_id': '39f34c07-4a26-42bc-a7f7-575a1d22089c', 'user_id': 'shadow_user', 'language': 'pt-BR', 'status': 'active', 'created_at': '2026-06-25T19:29:10.261600+00:00'}, 'sessions_total': 2}"
+      },
+      {
+        "name": "report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'voice_sessions': 2, 'stream_events': 0, 'presence_states': 0, 'sessions': [{'session_id': '2ed55864-f030-4b69-a01e-adf79781ae9a', 'user_id': 'shadow_user', 'language': 'pt-BR', 'status': 'active', 'created_at': '2026-06-25T19:29:10.261600+00:00'}, {'session_id': '39f34c07-4a26-42bc"
+      },
+      {
+        "name": "router",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "stream_cognition_event",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'stream': {'event_id': 'f80225d9-3823-4a74-a390-c7ecad220e40', 'session_id': 1, 'event': {}, 'payload': '', 'timestamp': '2026-06-25T19:29:10.262293+00:00'}, 'events_total': 1}"
+      },
+      {
+        "name": "stream_event",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'stream': {'event_id': 'd6c80471-4a5d-4f52-8829-ab5d64f9e5ba', 'session_id': 1, 'event': {}, 'payload': '', 'timestamp': '2026-06-25T19:29:10.262293+00:00'}, 'events_total': 2}"
+      },
+      {
+        "name": "update_presence",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'presence': {'presence_id': '68d26cd9-4a99-4878-9437-2504a567403d', 'user_id': 'shadow_user', 'emotion': 'neutral', 'attention': 1.0, 'timestamp': '2026-06-25T19:29:10.262293+00:00'}}"
+      },
+      {
+        "name": "update_presence_state",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'presence': {'presence_id': '92808bf5-60c3-45a2-83c2-793b37b688cb', 'user_id': 'shadow_user', 'emotion': 'neutral', 'attention': 1.0, 'timestamp': '2026-06-25T19:29:10.262293+00:00'}}"
+      },
+      {
+        "name": "voice_runtime_report",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'status': 'ok', 'voice_sessions': 2, 'stream_events': 2, 'presence_states': 2, 'sessions': [{'session_id': '2ed55864-f030-4b69-a01e-adf79781ae9a', 'user_id': 'shadow_user', 'language': 'pt-BR', 'status': 'active', 'created_at': '2026-06-25T19:29:10.261600+00:00'}, {'session_id': '39f34c07-4a26-42bc"
+      }
+    ],
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0CF67BC0>",
+    "elapsed_ms": 11.91,
+    "error": null
+  },
+  {
+    "id": "041_cognitive_context_builder",
+    "path": "app/companionship/cognitive_context_builder.py",
+    "status": "IMPORT_FAILED",
+    "entrypoints_tested": [],
+    "best_output": null,
+    "elapsed_ms": 1.31,
+    "error": "AttributeError: 'NoneType' object has no attribute '__dict__'"
+  },
+  {
+    "id": "042_failure_fixes",
+    "path": "app/p18_conversational_execution/failure_fixes.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "Any",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "Dict",
+        "called": false,
+        "ok": false,
+        "requires_input_unresolved": true,
+        "error": null,
+        "output_type": null,
+        "output_preview": null
+      },
+      {
+        "name": "detect_context_contamination",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'contaminated': False, 'hits': [], 'active_topic': '', 'status': 'PASS'}"
+      },
+      {
+        "name": "fix_real_whatsapp_failure",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "dict",
+        "output_preview": "{'mission': 'P19A_3_CONVERSATIONAL_FAILURE_FIXES', 'user_message': 'teste shadow', 'active_topic': '', 'answer': 'Entendi. Vou manter o contexto e responder direto.', 'context_guard': {'contaminated': False, 'hits': [], 'active_topic': '', 'status': 'PASS'}, 'runtime_modified': False, 'production_en"
+      },
+      {
+        "name": "safe_topic_from_message",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "str",
+        "output_preview": "general"
+      }
+    ],
+    "best_output": "{'contaminated': False, 'hits': [], 'active_topic': '', 'status': 'PASS'}",
+    "elapsed_ms": 0.0,
+    "error": null
+  },
+  {
+    "id": "043_conversation_quality_guard",
+    "path": "app/runtime/conversation_quality_guard.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "final_conversation_guard",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "str",
+        "output_preview": "teste shadow"
+      },
+      {
+        "name": "reset_stale_topic",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "str",
+        "output_preview": "teste shadow"
+      },
+      {
+        "name": "strip_repeated_intro",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "str",
+        "output_preview": "teste shadow"
+      }
+    ],
+    "best_output": "teste shadow",
+    "elapsed_ms": 0.0,
+    "error": null
+  },
+  {
+    "id": "044_strategic_conversation_authority",
+    "path": "app/runtime/strategic_conversation_authority.py",
+    "status": "EXECUTED_OK",
+    "entrypoints_tested": [
+      {
+        "name": "strategic_conversation_authority",
+        "called": true,
+        "ok": true,
+        "requires_input_unresolved": false,
+        "error": null,
+        "output_type": "NoneType",
+        "output_preview": "None"
+      }
+    ],
+    "best_output": null,
+    "elapsed_ms": 0.0,
+    "error": null
+  }
+]

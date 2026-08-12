@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_8B28B2D95C3E06B4",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\reshape\\test_qcut.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\pandas\\tests\\reshape\\test_qcut.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 114,
+  "imports": [
+    "numpy",
+    "os",
+    "pandas",
+    "pandas._testing",
+    "pandas.api.types",
+    "pandas.tseries.offsets",
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

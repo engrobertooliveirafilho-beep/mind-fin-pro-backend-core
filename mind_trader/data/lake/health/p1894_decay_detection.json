@@ -1,0 +1,740 @@
+[
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_e22e151504a57648",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 4.848097,
+    "consistency": 0.875,
+    "trades": 29,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_aa12e174aa75b5b2",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 4.848097,
+    "consistency": 0.875,
+    "trades": 29,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_1e538a0d6fedf6dc",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 2.365958,
+    "consistency": 0.833333,
+    "trades": 117,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_c2eee99c5c1c4c61",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 2.365958,
+    "consistency": 0.833333,
+    "trades": 117,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_b363b38c9bf8d051",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 2.365958,
+    "consistency": 0.833333,
+    "trades": 117,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_7fdced0772c3179a",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 2.365958,
+    "consistency": 0.833333,
+    "trades": 117,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_2cfb8703fb0375e8",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 2.365958,
+    "consistency": 0.833333,
+    "trades": 117,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_f55caa4584df31ee",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 2.365958,
+    "consistency": 0.833333,
+    "trades": 117,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_1e065a0e0043f30d",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 2.596368,
+    "consistency": 1.0,
+    "trades": 37,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_889afb67b1412459",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 2.596368,
+    "consistency": 1.0,
+    "trades": 37,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_23d9161ce0f608da",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 2.745055,
+    "consistency": 0.833333,
+    "trades": 26,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_8f80417fbd476053",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 2.745055,
+    "consistency": 0.833333,
+    "trades": 26,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_c47653114bb5eced",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 2.067162,
+    "consistency": 0.875,
+    "trades": 108,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_0e6318b221b2afe9",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 2.067162,
+    "consistency": 0.875,
+    "trades": 108,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_4bc877150e2be425",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 2.117221,
+    "consistency": 0.833333,
+    "trades": 75,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_780770da731391ee",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 2.117221,
+    "consistency": 0.833333,
+    "trades": 75,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_669f2fd24755ee6e",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 2.117221,
+    "consistency": 0.833333,
+    "trades": 75,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_852b3ba8467e673c",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 2.117221,
+    "consistency": 0.833333,
+    "trades": 75,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_b1ec47028d941110",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 2.117221,
+    "consistency": 0.833333,
+    "trades": 75,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_ab1ac702ffa78240",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 2.117221,
+    "consistency": 0.833333,
+    "trades": 75,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_9a0c7d0764b9797c",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 2.166256,
+    "consistency": 1.0,
+    "trades": 40,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_eb53f025c67c3aad",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 2.166256,
+    "consistency": 1.0,
+    "trades": 40,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_fd74b44061d51a89",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.969849,
+    "consistency": 0.833333,
+    "trades": 66,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_cdacfc40a6bb20f4",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.969849,
+    "consistency": 0.833333,
+    "trades": 66,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_51fb17781763fe58",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 1.652377,
+    "consistency": 0.916667,
+    "trades": 123,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_9da1aaa1cf38c087",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 1.652377,
+    "consistency": 0.916667,
+    "trades": 123,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_e18d2bda3a28641d",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 1.652377,
+    "consistency": 0.916667,
+    "trades": 123,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_ea9e9686ddc4312a",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 1.652377,
+    "consistency": 0.916667,
+    "trades": 123,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_6eec786698bbf752",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 1.652377,
+    "consistency": 0.916667,
+    "trades": 123,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_d3ea469341582065",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 1.652377,
+    "consistency": 0.916667,
+    "trades": 123,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_e4377763dd3c38f3",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 1.652377,
+    "consistency": 0.916667,
+    "trades": 123,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_5aa6e1cee45cdc98",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 1.652377,
+    "consistency": 0.916667,
+    "trades": 123,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_ffd6306225a3b186",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 1.652377,
+    "consistency": 0.916667,
+    "trades": 123,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_75585237f28c2f73",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 1.652377,
+    "consistency": 0.916667,
+    "trades": 123,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_5c98f2e48cedebd9",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 1.652377,
+    "consistency": 0.916667,
+    "trades": 123,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_73d98b5ad312c10a",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 1.652377,
+    "consistency": 0.916667,
+    "trades": 123,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_0aee37ee01b07fb9",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 1.652377,
+    "consistency": 0.916667,
+    "trades": 123,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_fd3217db4c6ca527",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 1.652377,
+    "consistency": 0.916667,
+    "trades": 123,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_81d5d52b683962e6",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 1.652377,
+    "consistency": 0.916667,
+    "trades": 123,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_6277fafcceea4b5b",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 1.652377,
+    "consistency": 0.916667,
+    "trades": 123,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_8e8fb1737b3111e2",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 1.652377,
+    "consistency": 0.916667,
+    "trades": 123,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_c66ad18d62e11a8a",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 1.652377,
+    "consistency": 0.916667,
+    "trades": 123,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_87108ce6e0ed5388",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 1.652377,
+    "consistency": 0.916667,
+    "trades": 123,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_cb608dce7794a602",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 1.652377,
+    "consistency": 0.916667,
+    "trades": 123,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_c29a7b3c5254f41a",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 2.027156,
+    "consistency": 0.833333,
+    "trades": 22,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_05b4e0d71dfd8e13",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 2.027156,
+    "consistency": 0.833333,
+    "trades": 22,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_97a2abfa56d49a44",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.567725,
+    "consistency": 0.833333,
+    "trades": 263,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_acb431a8e02c03a9",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.567725,
+    "consistency": 0.833333,
+    "trades": 263,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_0058bf82205a791a",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.567725,
+    "consistency": 0.833333,
+    "trades": 263,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_a0feac7cc6369fa9",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.567725,
+    "consistency": 0.833333,
+    "trades": 263,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_f2792d7f98a9cbc6",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.567725,
+    "consistency": 0.833333,
+    "trades": 263,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_33403d0394ddddf1",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.567725,
+    "consistency": 0.833333,
+    "trades": 263,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_e5b3a6b513346c14",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.567725,
+    "consistency": 0.833333,
+    "trades": 263,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_a65bca6ba5cbaec8",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.567725,
+    "consistency": 0.833333,
+    "trades": 263,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_d1d9bc09c5952893",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.567725,
+    "consistency": 0.833333,
+    "trades": 263,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_551a5250d0a4d2d2",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.567725,
+    "consistency": 0.833333,
+    "trades": 263,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_a57d5b1f52e0dc5c",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.567725,
+    "consistency": 0.833333,
+    "trades": 263,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_2f8f8b73e796dda3",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.567725,
+    "consistency": 0.833333,
+    "trades": 263,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_a8fa7a3c92661891",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.567725,
+    "consistency": 0.833333,
+    "trades": 263,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_3de4ee97606e2b0c",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.567725,
+    "consistency": 0.833333,
+    "trades": 263,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_0717e6538696af05",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.567725,
+    "consistency": 0.833333,
+    "trades": 263,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_900483d390752b21",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.567725,
+    "consistency": 0.833333,
+    "trades": 263,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_756a6ef3b969f671",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.567725,
+    "consistency": 0.833333,
+    "trades": 263,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_d25bca3493b52175",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.567725,
+    "consistency": 0.833333,
+    "trades": 263,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_b563ad4a933a2830",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.567725,
+    "consistency": 0.833333,
+    "trades": 263,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_519c430c11e0face",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.567725,
+    "consistency": 0.833333,
+    "trades": 263,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_1b7b52d77cfeded0",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.567725,
+    "consistency": 0.833333,
+    "trades": 263,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_9ae5aee828de0020",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.567725,
+    "consistency": 0.833333,
+    "trades": 263,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_d65f032ac5460e87",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.567725,
+    "consistency": 0.833333,
+    "trades": 263,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_87519810caf45647",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.567725,
+    "consistency": 0.833333,
+    "trades": 263,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_9e197efbd206f95a",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.567725,
+    "consistency": 0.833333,
+    "trades": 263,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_80eabc002ce839f1",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.78849,
+    "consistency": 1.0,
+    "trades": 29,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_4626263cdd57072f",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.78849,
+    "consistency": 1.0,
+    "trades": 29,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_4b2cc3a4c3af214b",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 2.016821,
+    "consistency": 0.6,
+    "trades": 24,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_ff67db27012ea7e1",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 2.016821,
+    "consistency": 0.6,
+    "trades": 24,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_c4cb8fc1bff48a43",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.614915,
+    "consistency": 0.8,
+    "trades": 67,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_785fbf5a80cab00f",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 1.790344,
+    "consistency": 0.666667,
+    "trades": 25,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_3215c46fa0f31a5a",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 1.790344,
+    "consistency": 0.666667,
+    "trades": 25,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_89acdae9240a6d1c",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.41995,
+    "consistency": 0.857143,
+    "trades": 52,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_f3cd3f32efc88ee5",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "pf": 1.41995,
+    "consistency": 0.857143,
+    "trades": 52,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_6232ecb525501dd5",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 1.496102,
+    "consistency": 0.6,
+    "trades": 43,
+    "decay_state": "HEALTHY"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_75cde6e6b000bcca",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "pf": 1.303268,
+    "consistency": 0.777778,
+    "trades": 43,
+    "decay_state": "HEALTHY"
+  }
+]

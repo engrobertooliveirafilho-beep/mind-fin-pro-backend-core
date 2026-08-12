@@ -1,0 +1,44 @@
+{
+  "STATUS": "P1813_ELITE_MUTATION_ENGINE_BOOTSTRAPPED",
+  "PARENTS": [
+    {
+      "edge_id": "1cc93c6ad88c93e6e784defa",
+      "asset": "USDJPY",
+      "timeframe": "D1",
+      "family": "RSI_REVERSION",
+      "mutation_targets": [
+        "session_filter",
+        "volatility_filter",
+        "trend_filter",
+        "structure_filter",
+        "mtf_filter",
+        "spread_filter",
+        "slippage_filter"
+      ]
+    },
+    {
+      "edge_id": "c03cff0080d40cd61259442e",
+      "asset": "XAUUSD",
+      "timeframe": "D1",
+      "family": "LIQUIDITY_SWEEP_TRIGGER",
+      "mutation_targets": [
+        "session_filter",
+        "volatility_filter",
+        "trend_filter",
+        "structure_filter",
+        "mtf_filter",
+        "spread_filter",
+        "slippage_filter"
+      ]
+    }
+  ],
+  "MUTATIONS_PER_PARENT": 100,
+  "VALIDATION_PIPELINE": [
+    "10Y_BACKTEST",
+    "REAL_WALK_FORWARD",
+    "MONTE_CARLO_10000",
+    "TRADE_DNA",
+    "REGIME_VALIDATION",
+    "PROMOTION_OR_REJECTION"
+  ]
+}

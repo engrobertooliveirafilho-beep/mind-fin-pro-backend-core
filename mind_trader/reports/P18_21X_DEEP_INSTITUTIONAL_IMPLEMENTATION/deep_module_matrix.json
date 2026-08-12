@@ -1,0 +1,378 @@
+[
+  {
+    "module": "P18_01_RESEARCH_PLANNER",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P18_02_RESOURCE_ALLOCATOR",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P18_03_HYPOTHESIS_RANKING",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P18_04_OPPORTUNITY_SCANNER",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P18_05_ASSET_PRIORITIZER",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P18_06_REGIME_PRIORITIZER",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P18_07_RESEARCH_BUDGET_ENGINE",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P18_08_RESEARCH_ROI_ENGINE",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P18_09_AUTONOMOUS_EXPANSION_ENGINE",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P18_10_RESEARCH_CERTIFICATION",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P19_01_RUNTIME_AUDIT",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P19_02_FAILURE_DISCOVERY",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P19_03_SELF_OPTIMIZATION",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P19_04_PARAMETER_EVOLUTION",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P19_05_STRATEGY_EVOLUTION",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P19_06_PORTFOLIO_EVOLUTION",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P19_07_RESEARCH_EVOLUTION",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P19_08_AUTO_REFACTORING",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P19_09_RUNTIME_BENCHMARKING",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P19_10_KNOWLEDGE_COMPRESSION",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P19_11_CONTINUOUS_IMPROVEMENT",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P19_12_EVOLUTION_CERTIFICATION",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P20_01_SYNTHETIC_STRATEGY_GENERATOR",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P20_02_INDICATOR_COMPOSER",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P20_03_STRATEGY_MUTATION",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P20_04_REGIME_MUTATION",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P20_05_CROSS_ASSET_MUTATION",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P20_06_ENSEMBLE_FACTORY",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P20_07_SYNTHETIC_BACKTEST_FACTORY",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P20_08_SYNTHETIC_WALK_FORWARD_FACTORY",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P20_09_SYNTHETIC_MONTE_CARLO_FACTORY",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P20_10_SYNTHETIC_CERTIFICATION",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P21_01_UNIFIED_INTELLIGENCE_GRAPH",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P21_02_PORTFOLIO_BRAIN",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P21_03_RISK_BRAIN",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P21_04_ALLOCATION_BRAIN",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P21_05_RESEARCH_BRAIN",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P21_06_CAUSALITY_BRAIN",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P21_07_EVOLUTION_BRAIN",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P21_08_STRATEGY_BRAIN",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P21_09_ASSET_BRAIN",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P21_10_REGIME_BRAIN",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P21_11_COMPETITION_BRAIN",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P21_12_DECISION_AUTHORITY",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P21_13_INSTITUTIONAL_MEMORY",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P21_14_GOVERNANCE_LAYER",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  },
+  {
+    "module": "P21_15_FINAL_CERTIFICATION",
+    "status": "REQUIRES_DEEP_IMPLEMENTATION",
+    "required_engine": true,
+    "required_test": true,
+    "required_artifact": true,
+    "certification": "NOT_CERTIFIED"
+  }
+]

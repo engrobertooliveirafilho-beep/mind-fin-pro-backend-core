@@ -1,0 +1,194 @@
+{
+  "module": "P72_FTMO_ACCOUNT_SIMULATOR",
+  "days_simulated": 30,
+  "final_total_pnl": 5248.97,
+  "final_profit_pct": 0.05249,
+  "overall_status": "PASS",
+  "days": [
+    {
+      "day": 1,
+      "daily_pnl": -152.19,
+      "total_pnl": -152.19,
+      "status": "PASS"
+    },
+    {
+      "day": 2,
+      "daily_pnl": 662.62,
+      "total_pnl": 510.43,
+      "status": "PASS"
+    },
+    {
+      "day": 3,
+      "daily_pnl": 758.9,
+      "total_pnl": 1269.33,
+      "status": "PASS"
+    },
+    {
+      "day": 4,
+      "daily_pnl": 363.4,
+      "total_pnl": 1632.73,
+      "status": "PASS"
+    },
+    {
+      "day": 5,
+      "daily_pnl": -22.61,
+      "total_pnl": 1610.12,
+      "status": "PASS"
+    },
+    {
+      "day": 6,
+      "daily_pnl": 444.53,
+      "total_pnl": 2054.65,
+      "status": "PASS"
+    },
+    {
+      "day": 7,
+      "daily_pnl": 879.97,
+      "total_pnl": 2934.62,
+      "status": "PASS"
+    },
+    {
+      "day": 8,
+      "daily_pnl": -492.43,
+      "total_pnl": 2442.19,
+      "status": "PASS"
+    },
+    {
+      "day": 9,
+      "daily_pnl": 255.47,
+      "total_pnl": 2697.66,
+      "status": "PASS"
+    },
+    {
+      "day": 10,
+      "daily_pnl": -471.01,
+      "total_pnl": 2226.65,
+      "status": "PASS"
+    },
+    {
+      "day": 11,
+      "daily_pnl": -238.2,
+      "total_pnl": 1988.45,
+      "status": "PASS"
+    },
+    {
+      "day": 12,
+      "daily_pnl": -542.64,
+      "total_pnl": 1445.81,
+      "status": "PASS"
+    },
+    {
+      "day": 13,
+      "daily_pnl": 870.42,
+      "total_pnl": 2316.23,
+      "status": "PASS"
+    },
+    {
+      "day": 14,
+      "daily_pnl": -125.59,
+      "total_pnl": 2190.64,
+      "status": "PASS"
+    },
+    {
+      "day": 15,
+      "daily_pnl": -118.43,
+      "total_pnl": 2072.21,
+      "status": "PASS"
+    },
+    {
+      "day": 16,
+      "daily_pnl": 205.08,
+      "total_pnl": 2277.29,
+      "status": "PASS"
+    },
+    {
+      "day": 17,
+      "daily_pnl": -277.67,
+      "total_pnl": 1999.62,
+      "status": "PASS"
+    },
+    {
+      "day": 18,
+      "daily_pnl": 449.27,
+      "total_pnl": 2448.89,
+      "status": "PASS"
+    },
+    {
+      "day": 19,
+      "daily_pnl": 619.16,
+      "total_pnl": 3068.05,
+      "status": "PASS"
+    },
+    {
+      "day": 20,
+      "daily_pnl": -435.09,
+      "total_pnl": 2632.96,
+      "status": "PASS"
+    },
+    {
+      "day": 21,
+      "daily_pnl": -140.32,
+      "total_pnl": 2492.64,
+      "status": "PASS"
+    },
+    {
+      "day": 22,
+      "daily_pnl": 32.39,
+      "total_pnl": 2525.03,
+      "status": "PASS"
+    },
+    {
+      "day": 23,
+      "daily_pnl": -98.38,
+      "total_pnl": 2426.65,
+      "status": "PASS"
+    },
+    {
+      "day": 24,
+      "daily_pnl": -362.18,
+      "total_pnl": 2064.47,
+      "status": "PASS"
+    },
+    {
+      "day": 25,
+      "daily_pnl": 857.41,
+      "total_pnl": 2921.88,
+      "status": "PASS"
+    },
+    {
+      "day": 26,
+      "daily_pnl": 366.03,
+      "total_pnl": 3287.91,
+      "status": "PASS"
+    },
+    {
+      "day": 27,
+      "daily_pnl": 898.76,
+      "total_pnl": 4186.67,
+      "status": "PASS"
+    },
+    {
+      "day": 28,
+      "daily_pnl": 896.55,
+      "total_pnl": 5083.22,
+      "status": "PASS"
+    },
+    {
+      "day": 29,
+      "daily_pnl": 260.07,
+      "total_pnl": 5343.29,
+      "status": "PASS"
+    },
+    {
+      "day": 30,
+      "daily_pnl": -94.32,
+      "total_pnl": 5248.97,
+      "status": "PASS"
+    }
+  ],
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN"
+}

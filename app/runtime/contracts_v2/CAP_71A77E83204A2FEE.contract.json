@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_71A77E83204A2FEE",
+  "source_file": "mind_trader\\tests\\test_p831_regime_detection.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\mind_trader\\tests\\test_p831_regime_detection.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 102,
+  "imports": [
+    "mind_trader.app.engines.regime_detection",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

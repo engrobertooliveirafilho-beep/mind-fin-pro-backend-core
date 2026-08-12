@@ -1,0 +1,20 @@
+{
+  "status": "P1898_CROSS_ASSET_INTELLIGENCE_COMPLETED",
+  "known_relationships": [
+    {
+      "pair": [
+        "XAUUSD",
+        "USDJPY"
+      ],
+      "relationship": "both D1 robust but different execution sensitivity"
+    },
+    {
+      "pair": [
+        "XAUUSD",
+        "USDJPY"
+      ],
+      "relationship": "XAUUSD liquidity driven; USDJPY statistical reversion driven"
+    }
+  ],
+  "pending_transfer_jobs": "data/lake/experiments/p1885a/p1885a_cross_asset_transfer_queue.json"
+}

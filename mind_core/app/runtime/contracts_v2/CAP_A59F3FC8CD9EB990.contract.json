@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_A59F3FC8CD9EB990",
+  "source_file": "_evidence\\P19P7_CONTEXT_MEMORY_FOLLOWUP_EXPANSION_20260618_044115\\patch_p19p7.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P19P7_CONTEXT_MEMORY_FOLLOWUP_EXPANSION_20260618_044115\\patch_p19p7.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 98,
+  "imports": [
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

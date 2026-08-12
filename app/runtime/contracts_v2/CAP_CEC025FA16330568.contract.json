@@ -1,0 +1,30 @@
+{
+  "capability_id": "CAP_CEC025FA16330568",
+  "source_file": ".venv\\Lib\\site-packages\\uvicorn\\supervisors\\basereload.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\uvicorn\\supervisors\\basereload.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 124,
+  "imports": [
+    "__future__",
+    "click",
+    "collections.abc",
+    "logging",
+    "os",
+    "pathlib",
+    "signal",
+    "socket",
+    "sys",
+    "threading",
+    "types",
+    "uvicorn._subprocess",
+    "uvicorn.config"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

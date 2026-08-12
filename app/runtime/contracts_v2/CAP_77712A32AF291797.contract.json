@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_77712A32AF291797",
+  "source_file": "app\\runtime\\knowledge_providers\\legacy_domain_provider.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\app\\runtime\\knowledge_providers\\legacy_domain_provider.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 109,
+  "imports": [
+    "app.runtime.knowledge_providers.contract"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

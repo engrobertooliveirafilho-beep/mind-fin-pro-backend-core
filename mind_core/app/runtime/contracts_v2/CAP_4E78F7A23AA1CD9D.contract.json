@@ -1,0 +1,16 @@
+{
+  "capability_id": "CAP_4E78F7A23AA1CD9D",
+  "source_file": "_evidence\\P4.50C_SIMULATION_CONSUMPTION_20260618_055838\\predictive_simulation_engine_before_20260618_055838.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P4.50C_SIMULATION_CONSUMPTION_20260618_055838\\predictive_simulation_engine_before_20260618_055838.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 93,
+  "imports": [],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

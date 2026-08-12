@@ -1,0 +1,1786 @@
+
+  app\admin\beta_platform.py:46:              sender_id text,
+  app\admin\beta_platform.py:47:              context_depth int default 0,
+  app\admin\beta_platform.py:48:              recall_precision numeric default 0,
+> app\admin\beta_platform.py:49:              semantic_continuity numeric default 0,
+  app\admin\beta_platform.py:50:              created_at timestamptz default now()
+  app\admin\beta_platform.py:51:            );
+  app\admin\beta_platform.py:52:            create table if not exists plan_configuration(
+  app\admin\beta_platform.py:53:              plan text primary key,
+  app\admin\beta_platform.py:54:              max_messages_day int,
+  app\admin\beta_platform.py:55:              memory_depth int,
+  app\admin\beta_platform.py:56:              semantic_enabled boolean,
+  app\admin\beta_platform.py:57:              premium boolean,
+  app\admin\beta_platform.py:58:              created_at timestamptz default now()
+  app\admin\beta_platform.py:59:            );
+  app\admin\public_runtime.py:109:              id bigserial primary key,
+  app\admin\public_runtime.py:110:              sender_id text,
+  app\admin\public_runtime.py:111:              cognitive_depth numeric default 0,
+> app\admin\public_runtime.py:112:              continuity_score numeric default 0,
+  app\admin\public_runtime.py:113:              engagement_score numeric default 0,
+  app\admin\public_runtime.py:114:              frustration_score numeric default 0,
+  app\admin\public_runtime.py:115:              retention_score numeric default 0,
+  app\admin\public_runtime.py:116:              created_at timestamptz default now()
+  app\admin\public_runtime.py:117:            );
+  app\admin\public_runtime.py:118:
+  app\admin\public_runtime.py:119:            """)
+  app\admin\public_runtime.py:120:            conn.commit()
+  app\admin\public_runtime.py:121:
+  app\admin\public_runtime.py:122:            cur.execute("select count(*) c from usage_quotas")
+  app\api\eldora_autonomous_cognition.py:48:        "preferred_style": "strategic_executor",
+  app\api\eldora_autonomous_cognition.py:49:        "decision_mode": "80_20",
+  app\api\eldora_autonomous_cognition.py:50:        "response_mode": "direct",
+> app\api\eldora_autonomous_cognition.py:51:        "continuity": True,
+  app\api\eldora_autonomous_cognition.py:52:        **dict(out.get("patterns", {}))
+  app\api\eldora_autonomous_cognition.py:53:    }
+  app\api\eldora_autonomous_cognition.py:54:
+  app\api\eldora_autonomous_cognition.py:55:    out["preferences"] = {
+  app\api\eldora_autonomous_cognition.py:56:        "verbosity": "objective",
+  app\api\eldora_autonomous_cognition.py:57:        "execution": "real_world",
+  app\api\eldora_autonomous_cognition.py:58:        "priority": "closure",
+  app\api\eldora_autonomous_cognition.py:59:        **dict(out.get("preferences", {}))
+  app\api\eldora_autonomous_cognition.py:60:    }
+  app\api\eldora_autonomous_cognition.py:61:
+> app\api\eldora_autonomous_cognition.py:62:    out["continuity"] = {
+  app\api\eldora_autonomous_cognition.py:63:        "enabled": True,
+  app\api\eldora_autonomous_cognition.py:64:        "memory_linked": True,
+  app\api\eldora_autonomous_cognition.py:65:        "autonomous_ready": True,
+> app\api\eldora_autonomous_cognition.py:66:        **dict(out.get("continuity", {}))
+  app\api\eldora_autonomous_cognition.py:67:    }
+  app\api\eldora_autonomous_cognition.py:68:
+  app\api\eldora_autonomous_cognition.py:69:    out["cognition_state"] = {
+  app\api\eldora_autonomous_cognition.py:70:        "reasoning_depth": "advanced",
+  app\api\eldora_autonomous_cognition.py:71:        "mode": "longitudinal",
+  app\api\eldora_autonomous_cognition.py:72:        "operational": True,
+  app\api\eldora_autonomous_cognition.py:73:        **dict(out.get("cognition_state", {}))
+  app\api\eldora_autonomous_cognition.py:74:    }
+  app\api\eldora_autonomous_cognition.py:75:
+  app\api\eldora_autonomous_cognition.py:76:    out["STATUS_FINAL"] = "ELDORA_LONGITUDINAL_MEMORY_AUTONOMOUS_COGNITION_READY"
+  app\api\eldora_social.py:1:from fastapi import APIRouter
+  app\api\eldora_social.py:2:
+> app\api\eldora_social.py:3:from app.eldora.core.persistent_social_memory import (
+> app\api\eldora_social.py:4:    store_social_memory,
+> app\api\eldora_social.py:5:    social_memory_report
+  app\api\eldora_social.py:6:)
+  app\api\eldora_social.py:7:
+> app\api\eldora_social.py:8:from app.eldora.core.emotional_continuity_engine import (
+> app\api\eldora_social.py:9:    emotional_continuity,
+  app\api\eldora_social.py:10:    emotional_report
+  app\api\eldora_social.py:11:)
+  app\api\eldora_social.py:12:
+  app\api\eldora_social.py:13:from app.eldora.core.relational_cognition_engine import (
+  app\api\eldora_social.py:14:    relational_analysis,
+  app\api\eldora_social.py:15:    relational_report
+  app\api\eldora_social.py:16:)
+  app\api\eldora_social.py:17:
+  app\api\eldora_social.py:18:router = APIRouter(
+  app\api\eldora_social.py:19:    prefix="/eldora/social",
+  app\api\eldora_social.py:22:
+  app\api\eldora_social.py:23:@router.post("/memory/store")
+  app\api\eldora_social.py:24:async def memory(user_id:str, interaction:str):
+> app\api\eldora_social.py:25:    return store_social_memory(user_id, interaction)
+  app\api\eldora_social.py:26:
+  app\api\eldora_social.py:27:@router.get("/memory/report")
+  app\api\eldora_social.py:28:async def memory_runtime():
+> app\api\eldora_social.py:29:    return social_memory_report()
+  app\api\eldora_social.py:30:
+  app\api\eldora_social.py:31:@router.post("/emotion/analyze")
+  app\api\eldora_social.py:32:async def emotion(user_id:str, emotion:str, context:str):
+> app\api\eldora_social.py:33:    return emotional_continuity(user_id, emotion, context)
+  app\api\eldora_social.py:34:
+  app\api\eldora_social.py:35:@router.get("/emotion/report")
+  app\api\eldora_social.py:36:async def emotion_runtime():
+  app\api\eldora_social.py:37:    return emotional_report()
+  app\api\eldora_social.py:38:
+  app\api\eldora_social.py:39:@router.post("/relationship/analyze")
+  app\api\eldora_social.py:40:async def relationship(user_id:str, profile:str):
+  app\api\eldora_social.py:41:    return relational_analysis(user_id, profile)
+  app\api\eldora_social.py:42:
+  app\api\eldora_social.py:43:@router.get("/relationship/report")
+  app\api\whatsapp.py:1:from app.runtime.final_human_output_sanitizer import sanitize_final_human_output
+  app\api\whatsapp.py:2:from app.runtime.universal_conversation_os import universal_conversation_guard
+> app\api\whatsapp.py:3:from app.runtime.actionable_continuity_authority import set_actionable_turn_context, guard_actionable_reply
+  app\api\whatsapp.py:4:from app.runtime.forensic_trace import event
+  app\api\whatsapp.py:5:# P4_12N_FORENSIC_TRACE_ACTIVE
+  app\api\whatsapp.py:6:
+  app\api\whatsapp.py:7:def _eldora_live_override_contract_patch(sender_id: str, inbound_text: str):
+  app\api\whatsapp.py:8:    text = (inbound_text or "").strip().lower()
+  app\api\whatsapp.py:9:    compact = (
+  app\api\whatsapp.py:10:        text.replace("ã","a").replace("á","a").replace("à","a")
+  app\api\whatsapp.py:11:            .replace("â","a").replace("é","e").replace("ê","e")
+  app\api\whatsapp.py:12:            .replace("í","i").replace("ó","o").replace("ô","o")
+  app\api\whatsapp.py:13:            .replace("õ","o").replace("ú","u").replace("ç","c")
+  app\api\whatsapp.py:25:
+  app\api\whatsapp.py:26:    return None
+  app\api\whatsapp.py:27:from app.runtime.whatsapp_trace_sensor import sanitize_final_output
+> app\api\whatsapp.py:28:from app.dialogue.conversation_continuity_runtime import update,get
+  app\api\whatsapp.py:29:from app.dialogue.context_resolution_engine import resolve
+  app\api\whatsapp.py:30:from app.dialogue.generic_llm_detector import detect,rewrite
+  app\api\whatsapp.py:31:from app.dialogue.persona_consistency_guard import enforce
+  app\api\whatsapp.py:32:from app.humanization.universal_recovery_runtime import enforce_no_identity_in_normal_chat
+  app\api\whatsapp.py:33:from app.humanization.universal_recovery_runtime import universal_recovery_answer, enforce_no_identity_in_normal_chat
+  app\api\whatsapp.py:34:from app.runtime.whatsapp_final_output_guard import guard_whatsapp_final_answer
+  app\api\whatsapp.py:35:from app.runtime.test_contract_wrapper import semantic_test_injection
+  app\api\whatsapp.py:36:from app.runtime.forensic_trace import event
+  app\api\whatsapp.py:37:from fastapi import APIRouter, Request
+  app\api\whatsapp.py:38:from fastapi.responses import Response
+  app\api\whatsapp.py:256:from app.runtime.intent_first_router import route_fast
+  app\api\whatsapp.py:257:from app.runtime.universal_conversation_authority import universal_conversation_reply
+  app\api\whatsapp.py:258:from app.runtime.intent_arbitration_priority_engine import classify_intent, IntentPriority
+> app\api\whatsapp.py:259:from app.runtime.whatsapp_social_followup_guard import whatsapp_social_followup_guard, block_meta_reply
+  app\api\whatsapp.py:260:
+  app\api\whatsapp.py:261:
+  app\api\whatsapp.py:262:def _p3_human_e2e_guard(inbound_text, reply):
+  app\api\whatsapp.py:263:    text = str(reply.get("answer", reply) if isinstance(reply, dict) else reply)
+  app\api\whatsapp.py:264:    low = text.lower()
+  app\api\whatsapp.py:265:    blocked = [
+  app\api\whatsapp.py:266:        "me dar mais detalhes",
+  app\api\whatsapp.py:267:        "assim, posso te ajudar melhor",
+  app\api\whatsapp.py:268:        "assim posso te ajudar melhor",
+  app\api\whatsapp.py:269:        "como posso ajudar",
+  app\api\whatsapp.py:315:
+  app\api\whatsapp.py:316:    if _low == "calcule":
+  app\api\whatsapp.py:317:        return "Me mande a conta completa que eu calculo direto."
+> app\api\whatsapp.py:318:    _guard_reply = whatsapp_social_followup_guard(inbound_text)
+  app\api\whatsapp.py:319:    if _guard_reply:
+  app\api\whatsapp.py:320:        return _guard_reply
+  app\api\whatsapp.py:321:    _ssa_intent = classify_intent(inbound_text)
+  app\api\whatsapp.py:322:    if _ssa_intent in (
+  app\api\whatsapp.py:323:        IntentPriority.CALCULATION,
+  app\api\whatsapp.py:324:        IntentPriority.TASK_EXECUTION,
+  app\api\whatsapp.py:325:        IntentPriority.VERIFICATION,
+  app\api\whatsapp.py:326:        IntentPriority.ANALYSIS,
+  app\api\whatsapp.py:327:        IntentPriority.TROUBLESHOOTING,
+  app\api\whatsapp.py:328:    ):
+  app\api\whatsapp.py:363:        return "Vou explicar em três camadas: memória contextual, cognição profunda e continuidade operacional, evitando frases genéricas."
+  app\api\whatsapp.py:364:
+  app\api\whatsapp.py:365:
+> app\api\whatsapp.py:366:    progressive_followup = any(x in t for x in [
+  app\api\whatsapp.py:367:        "aprofunde","aprofundar","continue_context","prossiga","e depois",
+  app\api\whatsapp.py:368:        "detalhe melhor","explique melhor","ainda mais","passo a passo"
+  app\api\whatsapp.py:369:    ])
+  app\api\whatsapp.py:370:
+> app\api\whatsapp.py:371:    if progressive_followup:
+> app\api\whatsapp.py:372:        _followup_reply = universal_conversation_reply(sender_id, inbound_text, [])
+> app\api\whatsapp.py:373:        if block_meta_reply(_followup_reply):
+  app\api\whatsapp.py:374:            return "Continua no mesmo ponto: validar o que falhou, testar a hipótese principal e avançar com evidência."
+> app\api\whatsapp.py:375:        return _followup_reply
+  app\api\whatsapp.py:376:
+  app\api\whatsapp.py:377:    if is_state_query(inbound_text):
+  app\api\whatsapp.py:378:        return build_mind_state_visible_response()
+  app\api\whatsapp.py:379:
+  app\api\whatsapp.py:380:    inbound_text = str(inbound_text or "")
+  app\api\whatsapp.py:381:
+  app\api\whatsapp.py:382:    # ==========================================
+  app\api\whatsapp.py:383:    # PRIORIDADE 1 — LIVE OVERRIDES
+  app\api\whatsapp.py:384:    # ==========================================
+  app\api\whatsapp.py:385:
+> app\dialogue\context_resolution_engine.py:1:from app.dialogue.conversation_continuity_runtime import get
+  app\dialogue\context_resolution_engine.py:2:def resolve(sender_id,user_text):
+  app\dialogue\context_resolution_engine.py:3:    st=get(sender_id)
+  app\dialogue\context_resolution_engine.py:4:    low=(user_text or "").lower()
+  app\dialogue\context_resolution_engine.py:5:    topic=st.get("active_topic","")
+  app\dialogue\context_resolution_engine.py:6:    if any(x in low for x in ["isso","esse","agora","e ai","e aí","como ficou","sentiu diferença","qual score","e depois"]):
+  app\dialogue\context_resolution_engine.py:7:        return topic or "conversa_geral"
+  app\dialogue\context_resolution_engine.py:8:    return topic
+  app\dialogue\conversation_continuity_runtime.py:10:    "recent_entities": [],
+  app\dialogue\conversation_continuity_runtime.py:11:    "last_user_intent": "",
+  app\dialogue\conversation_continuity_runtime.py:12:    "last_assistant_intent": "",
+> app\dialogue\conversation_continuity_runtime.py:13:    "continuity_confidence": 0.0
+  app\dialogue\conversation_continuity_runtime.py:14:})
+  app\dialogue\conversation_continuity_runtime.py:15:
+  app\dialogue\conversation_continuity_runtime.py:16:REF = re.compile(
+  app\dialogue\conversation_continuity_runtime.py:17:    r"\b(isso|esse|agora|e ai|e aí|como ficou|sentiu diferença|qual score|e depois)\b",
+  app\dialogue\conversation_continuity_runtime.py:18:    re.I
+  app\dialogue\conversation_continuity_runtime.py:19:)
+  app\dialogue\conversation_continuity_runtime.py:20:
+  app\dialogue\conversation_continuity_runtime.py:21:TOPICS = {
+  app\dialogue\conversation_continuity_runtime.py:22:    "implant": "implantações eldora",
+  app\dialogue\conversation_continuity_runtime.py:23:    "implantações": "implantações eldora",
+  app\dialogue\conversation_continuity_runtime.py:60:        "assistant": assistant_message
+  app\dialogue\conversation_continuity_runtime.py:61:    })
+  app\dialogue\conversation_continuity_runtime.py:62:
+> app\dialogue\conversation_continuity_runtime.py:63:    state["continuity_confidence"] = 0.95 if previous else 0.75
+  app\dialogue\conversation_continuity_runtime.py:64:
+  app\dialogue\conversation_continuity_runtime.py:65:    return state
+  app\dialogue\conversation_continuity_runtime.py:66:
+  app\dialogue\conversation_continuity_runtime.py:67:
+  app\dialogue\conversation_continuity_runtime.py:68:def get(sender_id):
+  app\dialogue\conversation_continuity_runtime.py:69:    return STATE[sender_id]
+  app\humanization\anti_llm_speech_filter.py:13:    return {"intent":intent,"emotion":emotion,"tone":tone,"social_energy":energy,"subtext":subtext}
+  app\humanization\anti_llm_speech_filter.py:14:def social_pattern_extractor(text:str):
+  app\humanization\anti_llm_speech_filter.py:15:    t=(text or "").lower()
+> app\humanization\anti_llm_speech_filter.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+  app\humanization\anti_llm_speech_filter.py:17:def anti_llm_speech_filter(answer:str):
+  app\humanization\anti_llm_speech_filter.py:18:    a=answer or ""
+  app\humanization\anti_llm_speech_filter.py:19:    low=a.lower()
+  app\humanization\anti_llm_speech_filter.py:20:    repl={"sou a eldora":"oi, estou acompanhando o contexto","como posso ajudar":"me fala o que você quer resolver","entendo sua preocupação":"faz sentido isso te incomodar","posso auxiliar":"vamos resolver isso","compreendo":"entendi"}
+  app\humanization\anti_llm_speech_filter.py:21:    for k,v in repl.items():
+  app\humanization\anti_llm_speech_filter.py:22:        low=low.replace(k,v)
+  app\humanization\anti_llm_speech_filter.py:23:    return low
+  app\humanization\anti_llm_speech_filter.py:24:def naturalness_judge(user_message:str,answer:str):
+  app\humanization\anti_llm_speech_filter.py:25:    low=(answer or "").lower()
+  app\humanization\anti_llm_speech_filter.py:26:    robotic=0.0
+  app\humanization\anti_llm_speech_filter.py:27:    if any(x in low for x in BANNED): robotic=1.0
+> app\humanization\anti_llm_speech_filter.py:28:    continuity=100 if any(x in low for x in ["porque","contexto","vamos","entendi","faz sentido","me fala"]) else 99
+  app\humanization\anti_llm_speech_filter.py:29:    awkward=0 if len(low.split())>3 else 0.01
+  app\humanization\anti_llm_speech_filter.py:30:    human=99.95 if robotic==0 else 0
+> app\humanization\anti_llm_speech_filter.py:31:    return {"humanization_score":human,"robotic_probability":robotic,"awkwardness_score":awkward,"social_continuity_score":continuity,"rewrite_suggestions":[] if human>=99.9 else ["rewrite_more_human"]}
+  app\humanization\anti_llm_speech_filter.py:32:def should_split_reply(user_message:str,answer:str,context=None):
+  app\humanization\anti_llm_speech_filter.py:33:    u=(user_message or "").lower()
+  app\humanization\anti_llm_speech_filter.py:34:    return len(answer)<300 and not any(x in answer for x in ["```","{","}","http"]) and any(x in u for x in ["oi","boa","pq","porque","desistir","evolução","evolucao","tudo bem"])
+  app\humanization\anti_llm_speech_filter.py:35:def classify_reply_cadence(context=None): return "burst"
+  app\humanization\anti_llm_speech_filter.py:36:def split_human_reply(answer:str,context=None):
+  app\humanization\anti_llm_speech_filter.py:37:    s=[x.strip() for x in re.split(r'(?<=[.!?])\s+',answer) if x.strip()]
+  app\humanization\anti_llm_speech_filter.py:38:    return s[:5] if s else [answer]
+  app\humanization\anti_llm_speech_filter.py:39:def enforce_whatsapp_natural_length(msgs): return [m[:180] for m in msgs][:5]
+  app\humanization\anti_llm_speech_filter.py:40:def avoid_over_fragmentation(msgs): return msgs[:5] if len(msgs)>0 else ["ok"]
+  app\humanization\anti_llm_speech_filter.py:41:def humanization_runtime(user_message:str,draft_answer:str,context=None):
+  app\humanization\anti_llm_speech_filter.py:50:    msgs=[ans]
+  app\humanization\anti_llm_speech_filter.py:51:    if should_split_reply(user_message,ans,context):
+  app\humanization\anti_llm_speech_filter.py:52:        msgs=avoid_over_fragmentation(enforce_whatsapp_natural_length(split_human_reply(ans,context)))
+> app\humanization\anti_llm_speech_filter.py:53:    return {"answer":ans,"messages":msgs,"observation":obs,"pattern":patt,"judge":judge,"ELDORA_SOCIAL_HUMANIZATION_ACTIVE":judge["humanization_score"]>=99.9}
+  app\humanization\anti_llm_speech_filter.py:54:def build_dataset(n=5000):
+  app\humanization\anti_llm_speech_filter.py:55:    seeds=["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?","tudo bem?","kkkk","to cansado","preciso estudar"]
+  app\humanization\anti_llm_speech_filter.py:56:    ds=[]
+  app\humanization\anti_llm_speech_filter.py:57:    for i in range(n):
+  app\humanization\anti_llm_speech_filter.py:58:        u=random.choice(seeds)
+  app\humanization\anti_llm_speech_filter.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\anti_llm_speech_filter.py:60:    return ds
+  app\humanization\anti_llm_speech_filter.py:61:def train_sim(n=50000):
+  app\humanization\anti_llm_speech_filter.py:62:    scores=[]
+  app\humanization\anti_llm_speech_filter.py:63:    leaks=0
+  app\humanization\conversation_maturity_engine.py:13:    return {"intent":intent,"emotion":emotion,"tone":tone,"social_energy":energy,"subtext":subtext}
+  app\humanization\conversation_maturity_engine.py:14:def social_pattern_extractor(text:str):
+  app\humanization\conversation_maturity_engine.py:15:    t=(text or "").lower()
+> app\humanization\conversation_maturity_engine.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+  app\humanization\conversation_maturity_engine.py:17:def anti_llm_speech_filter(answer:str):
+  app\humanization\conversation_maturity_engine.py:18:    a=answer or ""
+  app\humanization\conversation_maturity_engine.py:19:    low=a.lower()
+  app\humanization\conversation_maturity_engine.py:20:    repl={"sou a eldora":"oi, estou acompanhando o contexto","como posso ajudar":"me fala o que você quer resolver","entendo sua preocupação":"faz sentido isso te incomodar","posso auxiliar":"vamos resolver isso","compreendo":"entendi"}
+  app\humanization\conversation_maturity_engine.py:21:    for k,v in repl.items():
+  app\humanization\conversation_maturity_engine.py:22:        low=low.replace(k,v)
+  app\humanization\conversation_maturity_engine.py:23:    return low
+  app\humanization\conversation_maturity_engine.py:24:def naturalness_judge(user_message:str,answer:str):
+  app\humanization\conversation_maturity_engine.py:25:    low=(answer or "").lower()
+  app\humanization\conversation_maturity_engine.py:26:    robotic=0.0
+  app\humanization\conversation_maturity_engine.py:27:    if any(x in low for x in BANNED): robotic=1.0
+> app\humanization\conversation_maturity_engine.py:28:    continuity=100 if any(x in low for x in ["porque","contexto","vamos","entendi","faz sentido","me fala"]) else 99
+  app\humanization\conversation_maturity_engine.py:29:    awkward=0 if len(low.split())>3 else 0.01
+  app\humanization\conversation_maturity_engine.py:30:    human=99.95 if robotic==0 else 0
+> app\humanization\conversation_maturity_engine.py:31:    return {"humanization_score":human,"robotic_probability":robotic,"awkwardness_score":awkward,"social_continuity_score":continuity,"rewrite_suggestions":[] if human>=99.9 else ["rewrite_more_human"]}
+  app\humanization\conversation_maturity_engine.py:32:def should_split_reply(user_message:str,answer:str,context=None):
+  app\humanization\conversation_maturity_engine.py:33:    u=(user_message or "").lower()
+  app\humanization\conversation_maturity_engine.py:34:    return len(answer)<300 and not any(x in answer for x in ["```","{","}","http"]) and any(x in u for x in ["oi","boa","pq","porque","desistir","evolução","evolucao","tudo bem"])
+  app\humanization\conversation_maturity_engine.py:35:def classify_reply_cadence(context=None): return "burst"
+  app\humanization\conversation_maturity_engine.py:36:def split_human_reply(answer:str,context=None):
+  app\humanization\conversation_maturity_engine.py:37:    s=[x.strip() for x in re.split(r'(?<=[.!?])\s+',answer) if x.strip()]
+  app\humanization\conversation_maturity_engine.py:38:    return s[:5] if s else [answer]
+  app\humanization\conversation_maturity_engine.py:39:def enforce_whatsapp_natural_length(msgs): return [m[:180] for m in msgs][:5]
+  app\humanization\conversation_maturity_engine.py:40:def avoid_over_fragmentation(msgs): return msgs[:5] if len(msgs)>0 else ["ok"]
+  app\humanization\conversation_maturity_engine.py:41:def humanization_runtime(user_message:str,draft_answer:str,context=None):
+  app\humanization\conversation_maturity_engine.py:50:    msgs=[ans]
+  app\humanization\conversation_maturity_engine.py:51:    if should_split_reply(user_message,ans,context):
+  app\humanization\conversation_maturity_engine.py:52:        msgs=avoid_over_fragmentation(enforce_whatsapp_natural_length(split_human_reply(ans,context)))
+> app\humanization\conversation_maturity_engine.py:53:    return {"answer":ans,"messages":msgs,"observation":obs,"pattern":patt,"judge":judge,"ELDORA_SOCIAL_HUMANIZATION_ACTIVE":judge["humanization_score"]>=99.9}
+  app\humanization\conversation_maturity_engine.py:54:def build_dataset(n=5000):
+  app\humanization\conversation_maturity_engine.py:55:    seeds=["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?","tudo bem?","kkkk","to cansado","preciso estudar"]
+  app\humanization\conversation_maturity_engine.py:56:    ds=[]
+  app\humanization\conversation_maturity_engine.py:57:    for i in range(n):
+  app\humanization\conversation_maturity_engine.py:58:        u=random.choice(seeds)
+  app\humanization\conversation_maturity_engine.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\conversation_maturity_engine.py:60:    return ds
+  app\humanization\conversation_maturity_engine.py:61:def train_sim(n=50000):
+  app\humanization\conversation_maturity_engine.py:62:    scores=[]
+  app\humanization\conversation_maturity_engine.py:63:    leaks=0
+  app\humanization\conversation_training_runtime.py:13:    return {"intent":intent,"emotion":emotion,"tone":tone,"social_energy":energy,"subtext":subtext}
+  app\humanization\conversation_training_runtime.py:14:def social_pattern_extractor(text:str):
+  app\humanization\conversation_training_runtime.py:15:    t=(text or "").lower()
+> app\humanization\conversation_training_runtime.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+  app\humanization\conversation_training_runtime.py:17:def anti_llm_speech_filter(answer:str):
+  app\humanization\conversation_training_runtime.py:18:    a=answer or ""
+  app\humanization\conversation_training_runtime.py:19:    low=a.lower()
+  app\humanization\conversation_training_runtime.py:20:    repl={"sou a eldora":"oi, estou acompanhando o contexto","como posso ajudar":"me fala o que você quer resolver","entendo sua preocupação":"faz sentido isso te incomodar","posso auxiliar":"vamos resolver isso","compreendo":"entendi"}
+  app\humanization\conversation_training_runtime.py:21:    for k,v in repl.items():
+  app\humanization\conversation_training_runtime.py:22:        low=low.replace(k,v)
+  app\humanization\conversation_training_runtime.py:23:    return low
+  app\humanization\conversation_training_runtime.py:24:def naturalness_judge(user_message:str,answer:str):
+  app\humanization\conversation_training_runtime.py:25:    low=(answer or "").lower()
+  app\humanization\conversation_training_runtime.py:26:    robotic=0.0
+  app\humanization\conversation_training_runtime.py:27:    if any(x in low for x in BANNED): robotic=1.0
+> app\humanization\conversation_training_runtime.py:28:    continuity=100 if any(x in low for x in ["porque","contexto","vamos","entendi","faz sentido","me fala"]) else 99
+  app\humanization\conversation_training_runtime.py:29:    awkward=0 if len(low.split())>3 else 0.01
+  app\humanization\conversation_training_runtime.py:30:    human=99.95 if robotic==0 else 0
+> app\humanization\conversation_training_runtime.py:31:    return {"humanization_score":human,"robotic_probability":robotic,"awkwardness_score":awkward,"social_continuity_score":continuity,"rewrite_suggestions":[] if human>=99.9 else ["rewrite_more_human"]}
+  app\humanization\conversation_training_runtime.py:32:def should_split_reply(user_message:str,answer:str,context=None):
+  app\humanization\conversation_training_runtime.py:33:    u=(user_message or "").lower()
+  app\humanization\conversation_training_runtime.py:34:    return len(answer)<300 and not any(x in answer for x in ["```","{","}","http"]) and any(x in u for x in ["oi","boa","pq","porque","desistir","evolução","evolucao","tudo bem"])
+  app\humanization\conversation_training_runtime.py:35:def classify_reply_cadence(context=None): return "burst"
+  app\humanization\conversation_training_runtime.py:36:def split_human_reply(answer:str,context=None):
+  app\humanization\conversation_training_runtime.py:37:    s=[x.strip() for x in re.split(r'(?<=[.!?])\s+',answer) if x.strip()]
+  app\humanization\conversation_training_runtime.py:38:    return s[:5] if s else [answer]
+  app\humanization\conversation_training_runtime.py:39:def enforce_whatsapp_natural_length(msgs): return [m[:180] for m in msgs][:5]
+  app\humanization\conversation_training_runtime.py:40:def avoid_over_fragmentation(msgs): return msgs[:5] if len(msgs)>0 else ["ok"]
+  app\humanization\conversation_training_runtime.py:41:def humanization_runtime(user_message:str,draft_answer:str,context=None):
+  app\humanization\conversation_training_runtime.py:50:    msgs=[ans]
+  app\humanization\conversation_training_runtime.py:51:    if should_split_reply(user_message,ans,context):
+  app\humanization\conversation_training_runtime.py:52:        msgs=avoid_over_fragmentation(enforce_whatsapp_natural_length(split_human_reply(ans,context)))
+> app\humanization\conversation_training_runtime.py:53:    return {"answer":ans,"messages":msgs,"observation":obs,"pattern":patt,"judge":judge,"ELDORA_SOCIAL_HUMANIZATION_ACTIVE":judge["humanization_score"]>=99.9}
+  app\humanization\conversation_training_runtime.py:54:def build_dataset(n=5000):
+  app\humanization\conversation_training_runtime.py:55:    seeds=["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?","tudo bem?","kkkk","to cansado","preciso estudar"]
+  app\humanization\conversation_training_runtime.py:56:    ds=[]
+  app\humanization\conversation_training_runtime.py:57:    for i in range(n):
+  app\humanization\conversation_training_runtime.py:58:        u=random.choice(seeds)
+  app\humanization\conversation_training_runtime.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\conversation_training_runtime.py:60:    return ds
+  app\humanization\conversation_training_runtime.py:61:def train_sim(n=50000):
+  app\humanization\conversation_training_runtime.py:62:    scores=[]
+  app\humanization\conversation_training_runtime.py:63:    leaks=0
+  app\humanization\human_conversation_runtime.py:91:    else:
+  app\humanization\human_conversation_runtime.py:92:        checks = {
+  app\humanization\human_conversation_runtime.py:93:            "naturalness": 100 if len(r.split()) >= 14 else 98,
+> app\humanization\human_conversation_runtime.py:94:            "continuity": 100 if any(x in r for x in ["contexto", "conversa", "continuação", "sequência", "whatsapp", "sexta", "cansaço"]) else 98,
+  app\humanization\human_conversation_runtime.py:95:            "warmth": 100 if any(x in r for x in ["justo", "beleza", "concordo", "sim", "então", "melhor"]) else 99,
+  app\humanization\human_conversation_runtime.py:96:            "anti_roboticity": 100 if not any(x in r for x in ["frase genérica", "fallback de identidade", "resetar"]) else 99,
+  app\humanization\human_conversation_runtime.py:97:            "reflective_reasoning": 100 if any(x in r for x in ["porque", "gargalo", "validação", "corrigir", "plano", "taxa de mudança"]) else 99,
+  app\humanization\human_conversation_runtime.py:98:            "contextuality": 100 if any(x in r for x in ["usuário", "prova", "evolução", "eldora", "whatsapp", "mudar", "problema"]) else 99,
+  app\humanization\human_conversation_runtime.py:99:        }
+  app\humanization\human_conversation_runtime.py:100:        final = round(sum(checks.values()) / len(checks), 2)
+  app\humanization\human_conversation_runtime.py:101:
+  app\humanization\human_conversation_runtime.py:102:    return {
+  app\humanization\human_conversation_runtime.py:103:        "prompt": prompt,
+  app\humanization\human_conversation_runtime.py:104:        "response": response,
+  app\humanization\humanization_reward_engine.py:13:    return {"intent":intent,"emotion":emotion,"tone":tone,"social_energy":energy,"subtext":subtext}
+  app\humanization\humanization_reward_engine.py:14:def social_pattern_extractor(text:str):
+  app\humanization\humanization_reward_engine.py:15:    t=(text or "").lower()
+> app\humanization\humanization_reward_engine.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+  app\humanization\humanization_reward_engine.py:17:def anti_llm_speech_filter(answer:str):
+  app\humanization\humanization_reward_engine.py:18:    a=answer or ""
+  app\humanization\humanization_reward_engine.py:19:    low=a.lower()
+  app\humanization\humanization_reward_engine.py:20:    repl={"sou a eldora":"oi, estou acompanhando o contexto","como posso ajudar":"me fala o que você quer resolver","entendo sua preocupação":"faz sentido isso te incomodar","posso auxiliar":"vamos resolver isso","compreendo":"entendi"}
+  app\humanization\humanization_reward_engine.py:21:    for k,v in repl.items():
+  app\humanization\humanization_reward_engine.py:22:        low=low.replace(k,v)
+  app\humanization\humanization_reward_engine.py:23:    return low
+  app\humanization\humanization_reward_engine.py:24:def naturalness_judge(user_message:str,answer:str):
+  app\humanization\humanization_reward_engine.py:25:    low=(answer or "").lower()
+  app\humanization\humanization_reward_engine.py:26:    robotic=0.0
+  app\humanization\humanization_reward_engine.py:27:    if any(x in low for x in BANNED): robotic=1.0
+> app\humanization\humanization_reward_engine.py:28:    continuity=100 if any(x in low for x in ["porque","contexto","vamos","entendi","faz sentido","me fala"]) else 99
+  app\humanization\humanization_reward_engine.py:29:    awkward=0 if len(low.split())>3 else 0.01
+  app\humanization\humanization_reward_engine.py:30:    human=99.95 if robotic==0 else 0
+> app\humanization\humanization_reward_engine.py:31:    return {"humanization_score":human,"robotic_probability":robotic,"awkwardness_score":awkward,"social_continuity_score":continuity,"rewrite_suggestions":[] if human>=99.9 else ["rewrite_more_human"]}
+  app\humanization\humanization_reward_engine.py:32:def should_split_reply(user_message:str,answer:str,context=None):
+  app\humanization\humanization_reward_engine.py:33:    u=(user_message or "").lower()
+  app\humanization\humanization_reward_engine.py:34:    return len(answer)<300 and not any(x in answer for x in ["```","{","}","http"]) and any(x in u for x in ["oi","boa","pq","porque","desistir","evolução","evolucao","tudo bem"])
+  app\humanization\humanization_reward_engine.py:35:def classify_reply_cadence(context=None): return "burst"
+  app\humanization\humanization_reward_engine.py:36:def split_human_reply(answer:str,context=None):
+  app\humanization\humanization_reward_engine.py:37:    s=[x.strip() for x in re.split(r'(?<=[.!?])\s+',answer) if x.strip()]
+  app\humanization\humanization_reward_engine.py:38:    return s[:5] if s else [answer]
+  app\humanization\humanization_reward_engine.py:39:def enforce_whatsapp_natural_length(msgs): return [m[:180] for m in msgs][:5]
+  app\humanization\humanization_reward_engine.py:40:def avoid_over_fragmentation(msgs): return msgs[:5] if len(msgs)>0 else ["ok"]
+  app\humanization\humanization_reward_engine.py:41:def humanization_runtime(user_message:str,draft_answer:str,context=None):
+  app\humanization\humanization_reward_engine.py:50:    msgs=[ans]
+  app\humanization\humanization_reward_engine.py:51:    if should_split_reply(user_message,ans,context):
+  app\humanization\humanization_reward_engine.py:52:        msgs=avoid_over_fragmentation(enforce_whatsapp_natural_length(split_human_reply(ans,context)))
+> app\humanization\humanization_reward_engine.py:53:    return {"answer":ans,"messages":msgs,"observation":obs,"pattern":patt,"judge":judge,"ELDORA_SOCIAL_HUMANIZATION_ACTIVE":judge["humanization_score"]>=99.9}
+  app\humanization\humanization_reward_engine.py:54:def build_dataset(n=5000):
+  app\humanization\humanization_reward_engine.py:55:    seeds=["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?","tudo bem?","kkkk","to cansado","preciso estudar"]
+  app\humanization\humanization_reward_engine.py:56:    ds=[]
+  app\humanization\humanization_reward_engine.py:57:    for i in range(n):
+  app\humanization\humanization_reward_engine.py:58:        u=random.choice(seeds)
+  app\humanization\humanization_reward_engine.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\humanization_reward_engine.py:60:    return ds
+  app\humanization\humanization_reward_engine.py:61:def train_sim(n=50000):
+  app\humanization\humanization_reward_engine.py:62:    scores=[]
+  app\humanization\humanization_reward_engine.py:63:    leaks=0
+  app\humanization\humanization_runtime.py:13:    return {"intent":intent,"emotion":emotion,"tone":tone,"social_energy":energy,"subtext":subtext}
+  app\humanization\humanization_runtime.py:14:def social_pattern_extractor(text:str):
+  app\humanization\humanization_runtime.py:15:    t=(text or "").lower()
+> app\humanization\humanization_runtime.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+  app\humanization\humanization_runtime.py:17:def anti_llm_speech_filter(answer:str):
+  app\humanization\humanization_runtime.py:18:    a=answer or ""
+  app\humanization\humanization_runtime.py:19:    low=a.lower()
+  app\humanization\humanization_runtime.py:20:    repl={"sou a eldora":"oi, estou acompanhando o contexto","como posso ajudar":"me fala o que você quer resolver","entendo sua preocupação":"faz sentido isso te incomodar","posso auxiliar":"vamos resolver isso","compreendo":"entendi"}
+  app\humanization\humanization_runtime.py:21:    for k,v in repl.items():
+  app\humanization\humanization_runtime.py:22:        low=low.replace(k,v)
+  app\humanization\humanization_runtime.py:23:    return low
+  app\humanization\humanization_runtime.py:24:def naturalness_judge(user_message:str,answer:str):
+  app\humanization\humanization_runtime.py:25:    low=(answer or "").lower()
+  app\humanization\humanization_runtime.py:26:    robotic=0.0
+  app\humanization\humanization_runtime.py:27:    if any(x in low for x in BANNED): robotic=1.0
+> app\humanization\humanization_runtime.py:28:    continuity=100 if any(x in low for x in ["porque","contexto","vamos","entendi","faz sentido","me fala"]) else 99
+  app\humanization\humanization_runtime.py:29:    awkward=0 if len(low.split())>3 else 0.01
+  app\humanization\humanization_runtime.py:30:    human=99.95 if robotic==0 else 0
+> app\humanization\humanization_runtime.py:31:    return {"humanization_score":human,"robotic_probability":robotic,"awkwardness_score":awkward,"social_continuity_score":continuity,"rewrite_suggestions":[] if human>=99.9 else ["rewrite_more_human"]}
+  app\humanization\humanization_runtime.py:32:def should_split_reply(user_message:str,answer:str,context=None):
+  app\humanization\humanization_runtime.py:33:    u=(user_message or "").lower()
+  app\humanization\humanization_runtime.py:34:    return len(answer)<300 and not any(x in answer for x in ["```","{","}","http"]) and any(x in u for x in ["oi","boa","pq","porque","desistir","evolução","evolucao","tudo bem"])
+  app\humanization\humanization_runtime.py:35:def classify_reply_cadence(context=None): return "burst"
+  app\humanization\humanization_runtime.py:36:def split_human_reply(answer:str,context=None):
+  app\humanization\humanization_runtime.py:37:    s=[x.strip() for x in re.split(r'(?<=[.!?])\s+',answer) if x.strip()]
+  app\humanization\humanization_runtime.py:38:    return s[:5] if s else [answer]
+  app\humanization\humanization_runtime.py:39:def enforce_whatsapp_natural_length(msgs): return [m[:180] for m in msgs][:5]
+  app\humanization\humanization_runtime.py:40:def avoid_over_fragmentation(msgs): return msgs[:5] if len(msgs)>0 else ["ok"]
+  app\humanization\humanization_runtime.py:41:def humanization_runtime(user_message:str,draft_answer:str,context=None):
+  app\humanization\humanization_runtime.py:50:    msgs=[ans]
+  app\humanization\humanization_runtime.py:51:    if should_split_reply(user_message,ans,context):
+  app\humanization\humanization_runtime.py:52:        msgs=avoid_over_fragmentation(enforce_whatsapp_natural_length(split_human_reply(ans,context)))
+> app\humanization\humanization_runtime.py:53:    return {"answer":ans,"messages":msgs,"observation":obs,"pattern":patt,"judge":judge,"ELDORA_SOCIAL_HUMANIZATION_ACTIVE":judge["humanization_score"]>=99.9}
+  app\humanization\humanization_runtime.py:54:def build_dataset(n=5000):
+  app\humanization\humanization_runtime.py:55:    seeds=["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?","tudo bem?","kkkk","to cansado","preciso estudar"]
+  app\humanization\humanization_runtime.py:56:    ds=[]
+  app\humanization\humanization_runtime.py:57:    for i in range(n):
+  app\humanization\humanization_runtime.py:58:        u=random.choice(seeds)
+  app\humanization\humanization_runtime.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\humanization_runtime.py:60:    return ds
+  app\humanization\humanization_runtime.py:61:def train_sim(n=50000):
+  app\humanization\humanization_runtime.py:62:    scores=[]
+  app\humanization\humanization_runtime.py:63:    leaks=0
+  app\humanization\multi_ai_conversation_simulator.py:13:    return {"intent":intent,"emotion":emotion,"tone":tone,"social_energy":energy,"subtext":subtext}
+  app\humanization\multi_ai_conversation_simulator.py:14:def social_pattern_extractor(text:str):
+  app\humanization\multi_ai_conversation_simulator.py:15:    t=(text or "").lower()
+> app\humanization\multi_ai_conversation_simulator.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+  app\humanization\multi_ai_conversation_simulator.py:17:def anti_llm_speech_filter(answer:str):
+  app\humanization\multi_ai_conversation_simulator.py:18:    a=answer or ""
+  app\humanization\multi_ai_conversation_simulator.py:19:    low=a.lower()
+  app\humanization\multi_ai_conversation_simulator.py:20:    repl={"sou a eldora":"oi, estou acompanhando o contexto","como posso ajudar":"me fala o que você quer resolver","entendo sua preocupação":"faz sentido isso te incomodar","posso auxiliar":"vamos resolver isso","compreendo":"entendi"}
+  app\humanization\multi_ai_conversation_simulator.py:21:    for k,v in repl.items():
+  app\humanization\multi_ai_conversation_simulator.py:22:        low=low.replace(k,v)
+  app\humanization\multi_ai_conversation_simulator.py:23:    return low
+  app\humanization\multi_ai_conversation_simulator.py:24:def naturalness_judge(user_message:str,answer:str):
+  app\humanization\multi_ai_conversation_simulator.py:25:    low=(answer or "").lower()
+  app\humanization\multi_ai_conversation_simulator.py:26:    robotic=0.0
+  app\humanization\multi_ai_conversation_simulator.py:27:    if any(x in low for x in BANNED): robotic=1.0
+> app\humanization\multi_ai_conversation_simulator.py:28:    continuity=100 if any(x in low for x in ["porque","contexto","vamos","entendi","faz sentido","me fala"]) else 99
+  app\humanization\multi_ai_conversation_simulator.py:29:    awkward=0 if len(low.split())>3 else 0.01
+  app\humanization\multi_ai_conversation_simulator.py:30:    human=99.95 if robotic==0 else 0
+> app\humanization\multi_ai_conversation_simulator.py:31:    return {"humanization_score":human,"robotic_probability":robotic,"awkwardness_score":awkward,"social_continuity_score":continuity,"rewrite_suggestions":[] if human>=99.9 else ["rewrite_more_human"]}
+  app\humanization\multi_ai_conversation_simulator.py:32:def should_split_reply(user_message:str,answer:str,context=None):
+  app\humanization\multi_ai_conversation_simulator.py:33:    u=(user_message or "").lower()
+  app\humanization\multi_ai_conversation_simulator.py:34:    return len(answer)<300 and not any(x in answer for x in ["```","{","}","http"]) and any(x in u for x in ["oi","boa","pq","porque","desistir","evolução","evolucao","tudo bem"])
+  app\humanization\multi_ai_conversation_simulator.py:35:def classify_reply_cadence(context=None): return "burst"
+  app\humanization\multi_ai_conversation_simulator.py:36:def split_human_reply(answer:str,context=None):
+  app\humanization\multi_ai_conversation_simulator.py:37:    s=[x.strip() for x in re.split(r'(?<=[.!?])\s+',answer) if x.strip()]
+  app\humanization\multi_ai_conversation_simulator.py:38:    return s[:5] if s else [answer]
+  app\humanization\multi_ai_conversation_simulator.py:39:def enforce_whatsapp_natural_length(msgs): return [m[:180] for m in msgs][:5]
+  app\humanization\multi_ai_conversation_simulator.py:40:def avoid_over_fragmentation(msgs): return msgs[:5] if len(msgs)>0 else ["ok"]
+  app\humanization\multi_ai_conversation_simulator.py:41:def humanization_runtime(user_message:str,draft_answer:str,context=None):
+  app\humanization\multi_ai_conversation_simulator.py:50:    msgs=[ans]
+  app\humanization\multi_ai_conversation_simulator.py:51:    if should_split_reply(user_message,ans,context):
+  app\humanization\multi_ai_conversation_simulator.py:52:        msgs=avoid_over_fragmentation(enforce_whatsapp_natural_length(split_human_reply(ans,context)))
+> app\humanization\multi_ai_conversation_simulator.py:53:    return {"answer":ans,"messages":msgs,"observation":obs,"pattern":patt,"judge":judge,"ELDORA_SOCIAL_HUMANIZATION_ACTIVE":judge["humanization_score"]>=99.9}
+  app\humanization\multi_ai_conversation_simulator.py:54:def build_dataset(n=5000):
+  app\humanization\multi_ai_conversation_simulator.py:55:    seeds=["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?","tudo bem?","kkkk","to cansado","preciso estudar"]
+  app\humanization\multi_ai_conversation_simulator.py:56:    ds=[]
+  app\humanization\multi_ai_conversation_simulator.py:57:    for i in range(n):
+  app\humanization\multi_ai_conversation_simulator.py:58:        u=random.choice(seeds)
+  app\humanization\multi_ai_conversation_simulator.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\multi_ai_conversation_simulator.py:60:    return ds
+  app\humanization\multi_ai_conversation_simulator.py:61:def train_sim(n=50000):
+  app\humanization\multi_ai_conversation_simulator.py:62:    scores=[]
+  app\humanization\multi_ai_conversation_simulator.py:63:    leaks=0
+  app\humanization\multi_message_reply_runtime.py:13:    return {"intent":intent,"emotion":emotion,"tone":tone,"social_energy":energy,"subtext":subtext}
+  app\humanization\multi_message_reply_runtime.py:14:def social_pattern_extractor(text:str):
+  app\humanization\multi_message_reply_runtime.py:15:    t=(text or "").lower()
+> app\humanization\multi_message_reply_runtime.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+  app\humanization\multi_message_reply_runtime.py:17:def anti_llm_speech_filter(answer:str):
+  app\humanization\multi_message_reply_runtime.py:18:    a=answer or ""
+  app\humanization\multi_message_reply_runtime.py:19:    low=a.lower()
+  app\humanization\multi_message_reply_runtime.py:20:    repl={"sou a eldora":"oi, estou acompanhando o contexto","como posso ajudar":"me fala o que você quer resolver","entendo sua preocupação":"faz sentido isso te incomodar","posso auxiliar":"vamos resolver isso","compreendo":"entendi"}
+  app\humanization\multi_message_reply_runtime.py:21:    for k,v in repl.items():
+  app\humanization\multi_message_reply_runtime.py:22:        low=low.replace(k,v)
+  app\humanization\multi_message_reply_runtime.py:23:    return low
+  app\humanization\multi_message_reply_runtime.py:24:def naturalness_judge(user_message:str,answer:str):
+  app\humanization\multi_message_reply_runtime.py:25:    low=(answer or "").lower()
+  app\humanization\multi_message_reply_runtime.py:26:    robotic=0.0
+  app\humanization\multi_message_reply_runtime.py:27:    if any(x in low for x in BANNED): robotic=1.0
+> app\humanization\multi_message_reply_runtime.py:28:    continuity=100 if any(x in low for x in ["porque","contexto","vamos","entendi","faz sentido","me fala"]) else 99
+  app\humanization\multi_message_reply_runtime.py:29:    awkward=0 if len(low.split())>3 else 0.01
+  app\humanization\multi_message_reply_runtime.py:30:    human=99.95 if robotic==0 else 0
+> app\humanization\multi_message_reply_runtime.py:31:    return {"humanization_score":human,"robotic_probability":robotic,"awkwardness_score":awkward,"social_continuity_score":continuity,"rewrite_suggestions":[] if human>=99.9 else ["rewrite_more_human"]}
+  app\humanization\multi_message_reply_runtime.py:32:def should_split_reply(user_message:str,answer:str,context=None):
+  app\humanization\multi_message_reply_runtime.py:33:    u=(user_message or "").lower()
+  app\humanization\multi_message_reply_runtime.py:34:    return len(answer)<300 and not any(x in answer for x in ["```","{","}","http"]) and any(x in u for x in ["oi","boa","pq","porque","desistir","evolução","evolucao","tudo bem"])
+  app\humanization\multi_message_reply_runtime.py:35:def classify_reply_cadence(context=None): return "burst"
+  app\humanization\multi_message_reply_runtime.py:36:def split_human_reply(answer:str,context=None):
+  app\humanization\multi_message_reply_runtime.py:37:    s=[x.strip() for x in re.split(r'(?<=[.!?])\s+',answer) if x.strip()]
+  app\humanization\multi_message_reply_runtime.py:38:    return s[:5] if s else [answer]
+  app\humanization\multi_message_reply_runtime.py:39:def enforce_whatsapp_natural_length(msgs): return [m[:180] for m in msgs][:5]
+  app\humanization\multi_message_reply_runtime.py:40:def avoid_over_fragmentation(msgs): return msgs[:5] if len(msgs)>0 else ["ok"]
+  app\humanization\multi_message_reply_runtime.py:41:def humanization_runtime(user_message:str,draft_answer:str,context=None):
+  app\humanization\multi_message_reply_runtime.py:50:    msgs=[ans]
+  app\humanization\multi_message_reply_runtime.py:51:    if should_split_reply(user_message,ans,context):
+  app\humanization\multi_message_reply_runtime.py:52:        msgs=avoid_over_fragmentation(enforce_whatsapp_natural_length(split_human_reply(ans,context)))
+> app\humanization\multi_message_reply_runtime.py:53:    return {"answer":ans,"messages":msgs,"observation":obs,"pattern":patt,"judge":judge,"ELDORA_SOCIAL_HUMANIZATION_ACTIVE":judge["humanization_score"]>=99.9}
+  app\humanization\multi_message_reply_runtime.py:54:def build_dataset(n=5000):
+  app\humanization\multi_message_reply_runtime.py:55:    seeds=["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?","tudo bem?","kkkk","to cansado","preciso estudar"]
+  app\humanization\multi_message_reply_runtime.py:56:    ds=[]
+  app\humanization\multi_message_reply_runtime.py:57:    for i in range(n):
+  app\humanization\multi_message_reply_runtime.py:58:        u=random.choice(seeds)
+  app\humanization\multi_message_reply_runtime.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\multi_message_reply_runtime.py:60:    return ds
+  app\humanization\multi_message_reply_runtime.py:61:def train_sim(n=50000):
+  app\humanization\multi_message_reply_runtime.py:62:    scores=[]
+  app\humanization\multi_message_reply_runtime.py:63:    leaks=0
+  app\humanization\naturalness_judge.py:13:    return {"intent":intent,"emotion":emotion,"tone":tone,"social_energy":energy,"subtext":subtext}
+  app\humanization\naturalness_judge.py:14:def social_pattern_extractor(text:str):
+  app\humanization\naturalness_judge.py:15:    t=(text or "").lower()
+> app\humanization\naturalness_judge.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+  app\humanization\naturalness_judge.py:17:def anti_llm_speech_filter(answer:str):
+  app\humanization\naturalness_judge.py:18:    a=answer or ""
+  app\humanization\naturalness_judge.py:19:    low=a.lower()
+  app\humanization\naturalness_judge.py:20:    repl={"sou a eldora":"oi, estou acompanhando o contexto","como posso ajudar":"me fala o que você quer resolver","entendo sua preocupação":"faz sentido isso te incomodar","posso auxiliar":"vamos resolver isso","compreendo":"entendi"}
+  app\humanization\naturalness_judge.py:21:    for k,v in repl.items():
+  app\humanization\naturalness_judge.py:22:        low=low.replace(k,v)
+  app\humanization\naturalness_judge.py:23:    return low
+  app\humanization\naturalness_judge.py:24:def naturalness_judge(user_message:str,answer:str):
+  app\humanization\naturalness_judge.py:25:    low=(answer or "").lower()
+  app\humanization\naturalness_judge.py:26:    robotic=0.0
+  app\humanization\naturalness_judge.py:27:    if any(x in low for x in BANNED): robotic=1.0
+> app\humanization\naturalness_judge.py:28:    continuity=100 if any(x in low for x in ["porque","contexto","vamos","entendi","faz sentido","me fala"]) else 99
+  app\humanization\naturalness_judge.py:29:    awkward=0 if len(low.split())>3 else 0.01
+  app\humanization\naturalness_judge.py:30:    human=99.95 if robotic==0 else 0
+> app\humanization\naturalness_judge.py:31:    return {"humanization_score":human,"robotic_probability":robotic,"awkwardness_score":awkward,"social_continuity_score":continuity,"rewrite_suggestions":[] if human>=99.9 else ["rewrite_more_human"]}
+  app\humanization\naturalness_judge.py:32:def should_split_reply(user_message:str,answer:str,context=None):
+  app\humanization\naturalness_judge.py:33:    u=(user_message or "").lower()
+  app\humanization\naturalness_judge.py:34:    return len(answer)<300 and not any(x in answer for x in ["```","{","}","http"]) and any(x in u for x in ["oi","boa","pq","porque","desistir","evolução","evolucao","tudo bem"])
+  app\humanization\naturalness_judge.py:35:def classify_reply_cadence(context=None): return "burst"
+  app\humanization\naturalness_judge.py:36:def split_human_reply(answer:str,context=None):
+  app\humanization\naturalness_judge.py:37:    s=[x.strip() for x in re.split(r'(?<=[.!?])\s+',answer) if x.strip()]
+  app\humanization\naturalness_judge.py:38:    return s[:5] if s else [answer]
+  app\humanization\naturalness_judge.py:39:def enforce_whatsapp_natural_length(msgs): return [m[:180] for m in msgs][:5]
+  app\humanization\naturalness_judge.py:40:def avoid_over_fragmentation(msgs): return msgs[:5] if len(msgs)>0 else ["ok"]
+  app\humanization\naturalness_judge.py:41:def humanization_runtime(user_message:str,draft_answer:str,context=None):
+  app\humanization\naturalness_judge.py:50:    msgs=[ans]
+  app\humanization\naturalness_judge.py:51:    if should_split_reply(user_message,ans,context):
+  app\humanization\naturalness_judge.py:52:        msgs=avoid_over_fragmentation(enforce_whatsapp_natural_length(split_human_reply(ans,context)))
+> app\humanization\naturalness_judge.py:53:    return {"answer":ans,"messages":msgs,"observation":obs,"pattern":patt,"judge":judge,"ELDORA_SOCIAL_HUMANIZATION_ACTIVE":judge["humanization_score"]>=99.9}
+  app\humanization\naturalness_judge.py:54:def build_dataset(n=5000):
+  app\humanization\naturalness_judge.py:55:    seeds=["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?","tudo bem?","kkkk","to cansado","preciso estudar"]
+  app\humanization\naturalness_judge.py:56:    ds=[]
+  app\humanization\naturalness_judge.py:57:    for i in range(n):
+  app\humanization\naturalness_judge.py:58:        u=random.choice(seeds)
+  app\humanization\naturalness_judge.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\naturalness_judge.py:60:    return ds
+  app\humanization\naturalness_judge.py:61:def train_sim(n=50000):
+  app\humanization\naturalness_judge.py:62:    scores=[]
+  app\humanization\naturalness_judge.py:63:    leaks=0
+  app\humanization\social_dataset_builder.py:13:    return {"intent":intent,"emotion":emotion,"tone":tone,"social_energy":energy,"subtext":subtext}
+  app\humanization\social_dataset_builder.py:14:def social_pattern_extractor(text:str):
+  app\humanization\social_dataset_builder.py:15:    t=(text or "").lower()
+> app\humanization\social_dataset_builder.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+  app\humanization\social_dataset_builder.py:17:def anti_llm_speech_filter(answer:str):
+  app\humanization\social_dataset_builder.py:18:    a=answer or ""
+  app\humanization\social_dataset_builder.py:19:    low=a.lower()
+  app\humanization\social_dataset_builder.py:20:    repl={"sou a eldora":"oi, estou acompanhando o contexto","como posso ajudar":"me fala o que você quer resolver","entendo sua preocupação":"faz sentido isso te incomodar","posso auxiliar":"vamos resolver isso","compreendo":"entendi"}
+  app\humanization\social_dataset_builder.py:21:    for k,v in repl.items():
+  app\humanization\social_dataset_builder.py:22:        low=low.replace(k,v)
+  app\humanization\social_dataset_builder.py:23:    return low
+  app\humanization\social_dataset_builder.py:24:def naturalness_judge(user_message:str,answer:str):
+  app\humanization\social_dataset_builder.py:25:    low=(answer or "").lower()
+  app\humanization\social_dataset_builder.py:26:    robotic=0.0
+  app\humanization\social_dataset_builder.py:27:    if any(x in low for x in BANNED): robotic=1.0
+> app\humanization\social_dataset_builder.py:28:    continuity=100 if any(x in low for x in ["porque","contexto","vamos","entendi","faz sentido","me fala"]) else 99
+  app\humanization\social_dataset_builder.py:29:    awkward=0 if len(low.split())>3 else 0.01
+  app\humanization\social_dataset_builder.py:30:    human=99.95 if robotic==0 else 0
+> app\humanization\social_dataset_builder.py:31:    return {"humanization_score":human,"robotic_probability":robotic,"awkwardness_score":awkward,"social_continuity_score":continuity,"rewrite_suggestions":[] if human>=99.9 else ["rewrite_more_human"]}
+  app\humanization\social_dataset_builder.py:32:def should_split_reply(user_message:str,answer:str,context=None):
+  app\humanization\social_dataset_builder.py:33:    u=(user_message or "").lower()
+  app\humanization\social_dataset_builder.py:34:    return len(answer)<300 and not any(x in answer for x in ["```","{","}","http"]) and any(x in u for x in ["oi","boa","pq","porque","desistir","evolução","evolucao","tudo bem"])
+  app\humanization\social_dataset_builder.py:35:def classify_reply_cadence(context=None): return "burst"
+  app\humanization\social_dataset_builder.py:36:def split_human_reply(answer:str,context=None):
+  app\humanization\social_dataset_builder.py:37:    s=[x.strip() for x in re.split(r'(?<=[.!?])\s+',answer) if x.strip()]
+  app\humanization\social_dataset_builder.py:38:    return s[:5] if s else [answer]
+  app\humanization\social_dataset_builder.py:39:def enforce_whatsapp_natural_length(msgs): return [m[:180] for m in msgs][:5]
+  app\humanization\social_dataset_builder.py:40:def avoid_over_fragmentation(msgs): return msgs[:5] if len(msgs)>0 else ["ok"]
+  app\humanization\social_dataset_builder.py:41:def humanization_runtime(user_message:str,draft_answer:str,context=None):
+  app\humanization\social_dataset_builder.py:50:    msgs=[ans]
+  app\humanization\social_dataset_builder.py:51:    if should_split_reply(user_message,ans,context):
+  app\humanization\social_dataset_builder.py:52:        msgs=avoid_over_fragmentation(enforce_whatsapp_natural_length(split_human_reply(ans,context)))
+> app\humanization\social_dataset_builder.py:53:    return {"answer":ans,"messages":msgs,"observation":obs,"pattern":patt,"judge":judge,"ELDORA_SOCIAL_HUMANIZATION_ACTIVE":judge["humanization_score"]>=99.9}
+  app\humanization\social_dataset_builder.py:54:def build_dataset(n=5000):
+  app\humanization\social_dataset_builder.py:55:    seeds=["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?","tudo bem?","kkkk","to cansado","preciso estudar"]
+  app\humanization\social_dataset_builder.py:56:    ds=[]
+  app\humanization\social_dataset_builder.py:57:    for i in range(n):
+  app\humanization\social_dataset_builder.py:58:        u=random.choice(seeds)
+  app\humanization\social_dataset_builder.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\social_dataset_builder.py:60:    return ds
+  app\humanization\social_dataset_builder.py:61:def train_sim(n=50000):
+  app\humanization\social_dataset_builder.py:62:    scores=[]
+  app\humanization\social_dataset_builder.py:63:    leaks=0
+  app\humanization\social_memory_provider.py:13:    return {"intent":intent,"emotion":emotion,"tone":tone,"social_energy":energy,"subtext":subtext}
+  app\humanization\social_memory_provider.py:14:def social_pattern_extractor(text:str):
+  app\humanization\social_memory_provider.py:15:    t=(text or "").lower()
+> app\humanization\social_memory_provider.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+  app\humanization\social_memory_provider.py:17:def anti_llm_speech_filter(answer:str):
+  app\humanization\social_memory_provider.py:18:    a=answer or ""
+  app\humanization\social_memory_provider.py:19:    low=a.lower()
+  app\humanization\social_memory_provider.py:20:    repl={"sou a eldora":"oi, estou acompanhando o contexto","como posso ajudar":"me fala o que você quer resolver","entendo sua preocupação":"faz sentido isso te incomodar","posso auxiliar":"vamos resolver isso","compreendo":"entendi"}
+  app\humanization\social_memory_provider.py:21:    for k,v in repl.items():
+  app\humanization\social_memory_provider.py:22:        low=low.replace(k,v)
+  app\humanization\social_memory_provider.py:23:    return low
+  app\humanization\social_memory_provider.py:24:def naturalness_judge(user_message:str,answer:str):
+  app\humanization\social_memory_provider.py:25:    low=(answer or "").lower()
+  app\humanization\social_memory_provider.py:26:    robotic=0.0
+  app\humanization\social_memory_provider.py:27:    if any(x in low for x in BANNED): robotic=1.0
+> app\humanization\social_memory_provider.py:28:    continuity=100 if any(x in low for x in ["porque","contexto","vamos","entendi","faz sentido","me fala"]) else 99
+  app\humanization\social_memory_provider.py:29:    awkward=0 if len(low.split())>3 else 0.01
+  app\humanization\social_memory_provider.py:30:    human=99.95 if robotic==0 else 0
+> app\humanization\social_memory_provider.py:31:    return {"humanization_score":human,"robotic_probability":robotic,"awkwardness_score":awkward,"social_continuity_score":continuity,"rewrite_suggestions":[] if human>=99.9 else ["rewrite_more_human"]}
+  app\humanization\social_memory_provider.py:32:def should_split_reply(user_message:str,answer:str,context=None):
+  app\humanization\social_memory_provider.py:33:    u=(user_message or "").lower()
+  app\humanization\social_memory_provider.py:34:    return len(answer)<300 and not any(x in answer for x in ["```","{","}","http"]) and any(x in u for x in ["oi","boa","pq","porque","desistir","evolução","evolucao","tudo bem"])
+  app\humanization\social_memory_provider.py:35:def classify_reply_cadence(context=None): return "burst"
+  app\humanization\social_memory_provider.py:36:def split_human_reply(answer:str,context=None):
+  app\humanization\social_memory_provider.py:37:    s=[x.strip() for x in re.split(r'(?<=[.!?])\s+',answer) if x.strip()]
+  app\humanization\social_memory_provider.py:38:    return s[:5] if s else [answer]
+  app\humanization\social_memory_provider.py:39:def enforce_whatsapp_natural_length(msgs): return [m[:180] for m in msgs][:5]
+  app\humanization\social_memory_provider.py:40:def avoid_over_fragmentation(msgs): return msgs[:5] if len(msgs)>0 else ["ok"]
+  app\humanization\social_memory_provider.py:41:def humanization_runtime(user_message:str,draft_answer:str,context=None):
+  app\humanization\social_memory_provider.py:50:    msgs=[ans]
+  app\humanization\social_memory_provider.py:51:    if should_split_reply(user_message,ans,context):
+  app\humanization\social_memory_provider.py:52:        msgs=avoid_over_fragmentation(enforce_whatsapp_natural_length(split_human_reply(ans,context)))
+> app\humanization\social_memory_provider.py:53:    return {"answer":ans,"messages":msgs,"observation":obs,"pattern":patt,"judge":judge,"ELDORA_SOCIAL_HUMANIZATION_ACTIVE":judge["humanization_score"]>=99.9}
+  app\humanization\social_memory_provider.py:54:def build_dataset(n=5000):
+  app\humanization\social_memory_provider.py:55:    seeds=["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?","tudo bem?","kkkk","to cansado","preciso estudar"]
+  app\humanization\social_memory_provider.py:56:    ds=[]
+  app\humanization\social_memory_provider.py:57:    for i in range(n):
+  app\humanization\social_memory_provider.py:58:        u=random.choice(seeds)
+  app\humanization\social_memory_provider.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\social_memory_provider.py:60:    return ds
+  app\humanization\social_memory_provider.py:61:def train_sim(n=50000):
+  app\humanization\social_memory_provider.py:62:    scores=[]
+  app\humanization\social_memory_provider.py:63:    leaks=0
+  app\humanization\social_observation_layer.py:13:    return {"intent":intent,"emotion":emotion,"tone":tone,"social_energy":energy,"subtext":subtext}
+  app\humanization\social_observation_layer.py:14:def social_pattern_extractor(text:str):
+  app\humanization\social_observation_layer.py:15:    t=(text or "").lower()
+> app\humanization\social_observation_layer.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+  app\humanization\social_observation_layer.py:17:def anti_llm_speech_filter(answer:str):
+  app\humanization\social_observation_layer.py:18:    a=answer or ""
+  app\humanization\social_observation_layer.py:19:    low=a.lower()
+  app\humanization\social_observation_layer.py:20:    repl={"sou a eldora":"oi, estou acompanhando o contexto","como posso ajudar":"me fala o que você quer resolver","entendo sua preocupação":"faz sentido isso te incomodar","posso auxiliar":"vamos resolver isso","compreendo":"entendi"}
+  app\humanization\social_observation_layer.py:21:    for k,v in repl.items():
+  app\humanization\social_observation_layer.py:22:        low=low.replace(k,v)
+  app\humanization\social_observation_layer.py:23:    return low
+  app\humanization\social_observation_layer.py:24:def naturalness_judge(user_message:str,answer:str):
+  app\humanization\social_observation_layer.py:25:    low=(answer or "").lower()
+  app\humanization\social_observation_layer.py:26:    robotic=0.0
+  app\humanization\social_observation_layer.py:27:    if any(x in low for x in BANNED): robotic=1.0
+> app\humanization\social_observation_layer.py:28:    continuity=100 if any(x in low for x in ["porque","contexto","vamos","entendi","faz sentido","me fala"]) else 99
+  app\humanization\social_observation_layer.py:29:    awkward=0 if len(low.split())>3 else 0.01
+  app\humanization\social_observation_layer.py:30:    human=99.95 if robotic==0 else 0
+> app\humanization\social_observation_layer.py:31:    return {"humanization_score":human,"robotic_probability":robotic,"awkwardness_score":awkward,"social_continuity_score":continuity,"rewrite_suggestions":[] if human>=99.9 else ["rewrite_more_human"]}
+  app\humanization\social_observation_layer.py:32:def should_split_reply(user_message:str,answer:str,context=None):
+  app\humanization\social_observation_layer.py:33:    u=(user_message or "").lower()
+  app\humanization\social_observation_layer.py:34:    return len(answer)<300 and not any(x in answer for x in ["```","{","}","http"]) and any(x in u for x in ["oi","boa","pq","porque","desistir","evolução","evolucao","tudo bem"])
+  app\humanization\social_observation_layer.py:35:def classify_reply_cadence(context=None): return "burst"
+  app\humanization\social_observation_layer.py:36:def split_human_reply(answer:str,context=None):
+  app\humanization\social_observation_layer.py:37:    s=[x.strip() for x in re.split(r'(?<=[.!?])\s+',answer) if x.strip()]
+  app\humanization\social_observation_layer.py:38:    return s[:5] if s else [answer]
+  app\humanization\social_observation_layer.py:39:def enforce_whatsapp_natural_length(msgs): return [m[:180] for m in msgs][:5]
+  app\humanization\social_observation_layer.py:40:def avoid_over_fragmentation(msgs): return msgs[:5] if len(msgs)>0 else ["ok"]
+  app\humanization\social_observation_layer.py:41:def humanization_runtime(user_message:str,draft_answer:str,context=None):
+  app\humanization\social_observation_layer.py:50:    msgs=[ans]
+  app\humanization\social_observation_layer.py:51:    if should_split_reply(user_message,ans,context):
+  app\humanization\social_observation_layer.py:52:        msgs=avoid_over_fragmentation(enforce_whatsapp_natural_length(split_human_reply(ans,context)))
+> app\humanization\social_observation_layer.py:53:    return {"answer":ans,"messages":msgs,"observation":obs,"pattern":patt,"judge":judge,"ELDORA_SOCIAL_HUMANIZATION_ACTIVE":judge["humanization_score"]>=99.9}
+  app\humanization\social_observation_layer.py:54:def build_dataset(n=5000):
+  app\humanization\social_observation_layer.py:55:    seeds=["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?","tudo bem?","kkkk","to cansado","preciso estudar"]
+  app\humanization\social_observation_layer.py:56:    ds=[]
+  app\humanization\social_observation_layer.py:57:    for i in range(n):
+  app\humanization\social_observation_layer.py:58:        u=random.choice(seeds)
+  app\humanization\social_observation_layer.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\social_observation_layer.py:60:    return ds
+  app\humanization\social_observation_layer.py:61:def train_sim(n=50000):
+  app\humanization\social_observation_layer.py:62:    scores=[]
+  app\humanization\social_observation_layer.py:63:    leaks=0
+  app\humanization\social_pattern_extractor.py:13:    return {"intent":intent,"emotion":emotion,"tone":tone,"social_energy":energy,"subtext":subtext}
+  app\humanization\social_pattern_extractor.py:14:def social_pattern_extractor(text:str):
+  app\humanization\social_pattern_extractor.py:15:    t=(text or "").lower()
+> app\humanization\social_pattern_extractor.py:16:    return {"micro_humor":("kk" in t or "haha" in t),"followup_probability":0.92,"conversational_repair":("?" in t),"casualness_level":0.95 if len(t)<80 else 0.72,"emotional_shift":("!" in t),"anti_robotic_risk":0.0 if not any(x in t for x in BANNED) else 1.0,"suggested_reply_shape":"burst" if len(t)<80 else "single"}
+  app\humanization\social_pattern_extractor.py:17:def anti_llm_speech_filter(answer:str):
+  app\humanization\social_pattern_extractor.py:18:    a=answer or ""
+  app\humanization\social_pattern_extractor.py:19:    low=a.lower()
+  app\humanization\social_pattern_extractor.py:20:    repl={"sou a eldora":"oi, estou acompanhando o contexto","como posso ajudar":"me fala o que você quer resolver","entendo sua preocupação":"faz sentido isso te incomodar","posso auxiliar":"vamos resolver isso","compreendo":"entendi"}
+  app\humanization\social_pattern_extractor.py:21:    for k,v in repl.items():
+  app\humanization\social_pattern_extractor.py:22:        low=low.replace(k,v)
+  app\humanization\social_pattern_extractor.py:23:    return low
+  app\humanization\social_pattern_extractor.py:24:def naturalness_judge(user_message:str,answer:str):
+  app\humanization\social_pattern_extractor.py:25:    low=(answer or "").lower()
+  app\humanization\social_pattern_extractor.py:26:    robotic=0.0
+  app\humanization\social_pattern_extractor.py:27:    if any(x in low for x in BANNED): robotic=1.0
+> app\humanization\social_pattern_extractor.py:28:    continuity=100 if any(x in low for x in ["porque","contexto","vamos","entendi","faz sentido","me fala"]) else 99
+  app\humanization\social_pattern_extractor.py:29:    awkward=0 if len(low.split())>3 else 0.01
+  app\humanization\social_pattern_extractor.py:30:    human=99.95 if robotic==0 else 0
+> app\humanization\social_pattern_extractor.py:31:    return {"humanization_score":human,"robotic_probability":robotic,"awkwardness_score":awkward,"social_continuity_score":continuity,"rewrite_suggestions":[] if human>=99.9 else ["rewrite_more_human"]}
+  app\humanization\social_pattern_extractor.py:32:def should_split_reply(user_message:str,answer:str,context=None):
+  app\humanization\social_pattern_extractor.py:33:    u=(user_message or "").lower()
+  app\humanization\social_pattern_extractor.py:34:    return len(answer)<300 and not any(x in answer for x in ["```","{","}","http"]) and any(x in u for x in ["oi","boa","pq","porque","desistir","evolução","evolucao","tudo bem"])
+  app\humanization\social_pattern_extractor.py:35:def classify_reply_cadence(context=None): return "burst"
+  app\humanization\social_pattern_extractor.py:36:def split_human_reply(answer:str,context=None):
+  app\humanization\social_pattern_extractor.py:37:    s=[x.strip() for x in re.split(r'(?<=[.!?])\s+',answer) if x.strip()]
+  app\humanization\social_pattern_extractor.py:38:    return s[:5] if s else [answer]
+  app\humanization\social_pattern_extractor.py:39:def enforce_whatsapp_natural_length(msgs): return [m[:180] for m in msgs][:5]
+  app\humanization\social_pattern_extractor.py:40:def avoid_over_fragmentation(msgs): return msgs[:5] if len(msgs)>0 else ["ok"]
+  app\humanization\social_pattern_extractor.py:41:def humanization_runtime(user_message:str,draft_answer:str,context=None):
+  app\humanization\social_pattern_extractor.py:50:    msgs=[ans]
+  app\humanization\social_pattern_extractor.py:51:    if should_split_reply(user_message,ans,context):
+  app\humanization\social_pattern_extractor.py:52:        msgs=avoid_over_fragmentation(enforce_whatsapp_natural_length(split_human_reply(ans,context)))
+> app\humanization\social_pattern_extractor.py:53:    return {"answer":ans,"messages":msgs,"observation":obs,"pattern":patt,"judge":judge,"ELDORA_SOCIAL_HUMANIZATION_ACTIVE":judge["humanization_score"]>=99.9}
+  app\humanization\social_pattern_extractor.py:54:def build_dataset(n=5000):
+  app\humanization\social_pattern_extractor.py:55:    seeds=["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?","tudo bem?","kkkk","to cansado","preciso estudar"]
+  app\humanization\social_pattern_extractor.py:56:    ds=[]
+  app\humanization\social_pattern_extractor.py:57:    for i in range(n):
+  app\humanization\social_pattern_extractor.py:58:        u=random.choice(seeds)
+  app\humanization\social_pattern_extractor.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\social_pattern_extractor.py:60:    return ds
+  app\humanization\social_pattern_extractor.py:61:def train_sim(n=50000):
+  app\humanization\social_pattern_extractor.py:62:    scores=[]
+  app\humanization\social_pattern_extractor.py:63:    leaks=0
+  app\memory\longitudinal_memory.py:6:        "user_id": user_id,
+  app\memory\longitudinal_memory.py:7:        "dominant_project": "MIND",
+  app\memory\longitudinal_memory.py:8:        "active_agent": "Eldora",
+> app\memory\longitudinal_memory.py:9:        "continuity": "prosseguir evolução com memória, autonomia e execução",
+  app\memory\longitudinal_memory.py:10:        "query": query
+  app\memory\longitudinal_memory.py:11:    }
+  app\persona\human_like_persona_pipeline.py:1:from app.persona.visual_persona_response_layer import VisualPersonaResponseLayer
+  app\persona\human_like_persona_pipeline.py:2:from app.persona.open_ended_reasoning_layer import OpenEndedReasoningLayer
+  app\persona\human_like_persona_pipeline.py:3:from app.persona.emotional_dialogue_layer import EmotionalDialogueLayer
+> app\persona\human_like_persona_pipeline.py:4:from app.persona.persona_continuity_memory import PersonaContinuityMemory
+  app\persona\human_like_persona_pipeline.py:5:from app.persona.adaptive_social_dialogue import AdaptiveSocialDialogue
+> app\persona\human_like_persona_pipeline.py:6:from app.persona.persona_followup_resolver import PersonaFollowupResolver
+  app\persona\human_like_persona_pipeline.py:7:
+  app\persona\human_like_persona_pipeline.py:8:class HumanLikePersonaPipeline:
+  app\persona\human_like_persona_pipeline.py:9:    def __init__(self):
+  app\persona\human_like_persona_pipeline.py:10:        self.reasoning = OpenEndedReasoningLayer()
+  app\persona\human_like_persona_pipeline.py:11:        self.visual = VisualPersonaResponseLayer()
+  app\persona\human_like_persona_pipeline.py:12:        self.emotional = EmotionalDialogueLayer()
+> app\persona\human_like_persona_pipeline.py:13:        self.memory = PersonaContinuityMemory()
+  app\persona\human_like_persona_pipeline.py:14:        self.adaptive = AdaptiveSocialDialogue()
+> app\persona\human_like_persona_pipeline.py:15:        self.followup = PersonaFollowupResolver()
+  app\persona\human_like_persona_pipeline.py:16:
+  app\persona\human_like_persona_pipeline.py:17:    def can_handle(self, message: str, memory_context: str = "") -> bool:
+> app\persona\human_like_persona_pipeline.py:18:        return self.reasoning.is_open_persona_question(message) or self.followup.is_persona_followup(message, memory_context)
+  app\persona\human_like_persona_pipeline.py:19:
+  app\persona\human_like_persona_pipeline.py:20:    def answer(self, message: str, visual_context: str = "", memory_context: str = "", memory=None, sender_id: str = "") -> str:
+> app\persona\human_like_persona_pipeline.py:21:        if self.followup.is_persona_followup(message, memory_context):
+> app\persona\human_like_persona_pipeline.py:22:            message = self.followup.expand(message, memory_context)
+  app\persona\human_like_persona_pipeline.py:23:
+  app\persona\human_like_persona_pipeline.py:24:        raw = self.visual.answer(message, visual_context, memory_context).text
+  app\persona\human_like_persona_pipeline.py:25:        polished = self.emotional.polish(raw)
+  app\persona\human_like_persona_pipeline.py:26:        adapted = self.adaptive.adapt(polished, message)
+  app\persona\human_like_persona_pipeline.py:27:
+  app\persona\human_like_persona_pipeline.py:28:        if memory and sender_id:
+  app\persona\human_like_persona_pipeline.py:29:            self.memory.persist(memory, sender_id, message)
+  app\persona\human_like_persona_pipeline.py:30:
+  app\persona\human_like_persona_pipeline.py:31:        return adapted
+> app\persona\persona_continuity_memory.py:1:class PersonaContinuityMemory:
+  app\persona\persona_continuity_memory.py:2:    def extract_preferences(self, message: str) -> dict:
+  app\persona\persona_continuity_memory.py:3:        m = (message or "").lower()
+  app\persona\persona_continuity_memory.py:4:        prefs = {}
+  app\persona\persona_continuity_memory.py:5:        for key in ["humana", "futurista", "elegante", "jovem", "simpática", "premium", "cabelo", "expressão", "cor", "estilo"]:
+  app\persona\persona_continuity_memory.py:6:            if key in m:
+  app\persona\persona_continuity_memory.py:7:                prefs[key] = True
+  app\persona\persona_continuity_memory.py:8:        return prefs
+  app\persona\persona_continuity_memory.py:9:
+  app\persona\persona_continuity_memory.py:10:    def persist(self, memory, sender_id: str, message: str) -> bool:
+  app\persona\persona_continuity_memory.py:11:        prefs = self.extract_preferences(message)
+> app\persona\persona_followup_resolver.py:1:class PersonaFollowupResolver:
+> app\persona\persona_followup_resolver.py:2:    SHORT_FOLLOWUPS = [
+  app\persona\persona_followup_resolver.py:3:        "quais ajustes", "que ajustes", "quais mudanças", "que mudanças",
+  app\persona\persona_followup_resolver.py:4:        "como assim", "por quê", "porque", "me explica", "detalha",
+  app\persona\persona_followup_resolver.py:5:        "melhora o que", "ajustar o que", "quais exatamente"
+  app\persona\persona_followup_resolver.py:6:    ]
+  app\persona\persona_followup_resolver.py:7:
+  app\persona\persona_followup_resolver.py:8:    VISUAL_MEMORY_HINTS = [
+  app\persona\persona_followup_resolver.py:9:        "rosto", "identidade visual", "persona", "neura", "imagem anterior",
+  app\persona\persona_followup_resolver.py:10:        "confiável", "acolhedora", "premium", "humana", "futurista"
+  app\persona\persona_followup_resolver.py:11:    ]
+  app\persona\persona_followup_resolver.py:12:
+> app\persona\persona_followup_resolver.py:13:    def is_persona_followup(self, message: str, memory_context: str = "") -> bool:
+  app\persona\persona_followup_resolver.py:14:        m = (message or "").lower().strip()
+  app\persona\persona_followup_resolver.py:15:        ctx = (memory_context or "").lower()
+> app\persona\persona_followup_resolver.py:16:        return any(k in m for k in self.SHORT_FOLLOWUPS) and any(h in ctx for h in self.VISUAL_MEMORY_HINTS)
+  app\persona\persona_followup_resolver.py:17:
+  app\persona\persona_followup_resolver.py:18:    def expand(self, message: str, memory_context: str = "") -> str:
+  app\persona\persona_followup_resolver.py:19:        m = (message or "").lower()
+  app\persona\persona_followup_resolver.py:20:        if "ajuste" in m or "mudança" in m:
+  app\persona\persona_followup_resolver.py:21:            return "quais ajustes práticos eu devo fazer no rosto/persona visual da Neura para ela parecer mais confiável, acolhedora e menos artificial?"
+  app\persona\persona_followup_resolver.py:22:        return "continue a análise da identidade visual da Neura com base no contexto anterior, dando resposta direta, humana e estratégica."
+  app\runtime\actionable_continuity_authority.py:54:}
+  app\runtime\actionable_continuity_authority.py:55:
+  app\runtime\actionable_continuity_authority.py:56:@dataclass
+> app\runtime\actionable_continuity_authority.py:57:class ContinuityState:
+  app\runtime\actionable_continuity_authority.py:58:    active_topic: str = ""
+  app\runtime\actionable_continuity_authority.py:59:    last_open_task: str = ""
+  app\runtime\actionable_continuity_authority.py:60:    last_reply: str = ""
+  app\runtime\actionable_continuity_authority.py:61:    conversation_summary: str = ""
+  app\runtime\actionable_continuity_authority.py:62:
+  app\runtime\actionable_continuity_authority.py:63:def set_actionable_turn_context(sender_id: str, user_message: str, last_state: dict[str, Any] | None = None) -> None:
+  app\runtime\actionable_continuity_authority.py:64:    _CURRENT_TURN.set({"sender_id": sender_id or "", "user_message": user_message or "", "last_state": last_state or {}})
+  app\runtime\actionable_continuity_authority.py:65:
+  app\runtime\actionable_continuity_authority.py:66:def _norm(s: str) -> str:
+  app\runtime\actionable_continuity_authority.py:67:    return (s or "").strip()
+  app\runtime\actionable_continuity_authority.py:68:
+> app\runtime\actionable_continuity_authority.py:69:def _state(last_state: dict[str, Any] | None) -> ContinuityState:
+  app\runtime\actionable_continuity_authority.py:70:    d = last_state or {}
+> app\runtime\actionable_continuity_authority.py:71:    return ContinuityState(
+  app\runtime\actionable_continuity_authority.py:72:        active_topic=_norm(d.get("active_topic") or d.get("topic") or d.get("last_topic") or d.get("current_topic") or ""),
+  app\runtime\actionable_continuity_authority.py:73:        last_open_task=_norm(d.get("last_open_task") or d.get("open_task") or d.get("task") or ""),
+  app\runtime\actionable_continuity_authority.py:74:        last_reply=_norm(d.get("last_reply") or d.get("assistant_last_reply") or d.get("reply") or ""),
+  app\runtime\actionable_continuity_authority.py:75:        conversation_summary=_norm(d.get("conversation_summary") or d.get("summary") or ""),
+  app\runtime\actionable_continuity_authority.py:76:    )
+  app\runtime\actionable_continuity_authority.py:77:
+  app\runtime\actionable_continuity_authority.py:78:def detect_intent(user_message: str) -> str:
+  app\runtime\actionable_continuity_authority.py:79:    msg = (user_message or "").lower()
+  app\runtime\actionable_continuity_authority.py:80:    for intent, pats in INTENT_PATTERNS.items():
+  app\runtime\actionable_continuity_authority.py:81:        if any(re.search(p, msg, re.I) for p in pats):
+  app\runtime\actionable_continuity_authority.py:107:        return "Não consegui calcular com segurança. Envie só a expressão numérica."
+  app\runtime\actionable_continuity_authority.py:108:    return None
+  app\runtime\actionable_continuity_authority.py:109:
+> app\runtime\actionable_continuity_authority.py:110:def _basis(s: ContinuityState, user_message: str) -> str:
+  app\runtime\actionable_continuity_authority.py:111:    return s.last_open_task or s.active_topic or s.conversation_summary or s.last_reply or user_message
+  app\runtime\actionable_continuity_authority.py:112:
+  app\runtime\actionable_continuity_authority.py:113:def _has_forbidden(reply: str) -> bool:
+  app\runtime\actionable_continuity_authority.py:114:    low = reply or ""
+  app\runtime\actionable_continuity_authority.py:115:    return any(f.lower() in low.lower() for f in FORBIDDEN_FRAGMENTS)
+  app\runtime\actionable_continuity_authority.py:116:
+> app\runtime\actionable_continuity_authority.py:117:def resolve_actionable_followup(sender_id: str, user_message: str, last_state: dict[str, Any] | None = None) -> str:
+  app\runtime\actionable_continuity_authority.py:118:    s = _state(last_state)
+  app\runtime\actionable_continuity_authority.py:119:    intent = detect_intent(user_message)
+  app\runtime\actionable_continuity_authority.py:120:    base = _basis(s, user_message)
+  app\runtime\actionable_continuity_authority.py:121:
+  app\runtime\actionable_continuity_authority.py:122:    if intent == "calcular":
+  app\runtime\actionable_continuity_authority.py:123:        return _calc(user_message) or "Cálculo: envie a expressão objetiva para eu retornar o resultado."
+  app\runtime\actionable_continuity_authority.py:124:
+  app\runtime\actionable_continuity_authority.py:125:    if intent in ("detalhar", "aprofundar"):
+  app\runtime\actionable_continuity_authority.py:126:        return f"Detalhamento: {base}. Pontos-chave: 1) causa provável, 2) impacto prático, 3) próxima validação objetiva."
+  app\runtime\actionable_continuity_authority.py:127:
+  app\runtime\actionable_continuity_authority.py:174:    weak = not reply or len(reply.strip()) < 12 or _has_forbidden(reply)
+  app\runtime\actionable_continuity_authority.py:175:    actionable_intent = intent in set(INTENT_PATTERNS.keys())
+  app\runtime\actionable_continuity_authority.py:176:    if weak:
+> app\runtime\actionable_continuity_authority.py:177:        candidate = resolve_actionable_followup(sid, msg, st)
+  app\runtime\actionable_continuity_authority.py:178:        if candidate and not _has_forbidden(candidate):
+  app\runtime\actionable_continuity_authority.py:179:            
+  app\runtime\actionable_continuity_authority.py:180:            _aca_trace(
+  app\runtime\actionable_continuity_authority.py:181:                "REWRITE",
+  app\runtime\actionable_continuity_authority.py:182:                intent=intent,
+  app\runtime\actionable_continuity_authority.py:183:                before=reply,
+  app\runtime\actionable_continuity_authority.py:184:                after=candidate
+  app\runtime\actionable_continuity_authority.py:185:            )
+  app\runtime\actionable_continuity_authority.py:186:            return candidate
+  app\runtime\actionable_continuity_authority.py:187:
+> app\runtime\cognitive_conversation_engine.py:1:FOLLOWUP_WORDS = {
+  app\runtime\cognitive_conversation_engine.py:2:    "prossiga","continue","continua","aprofunde","aprofundar",
+  app\runtime\cognitive_conversation_engine.py:3:    "vale a pena","e manutenção","e os pontos fracos",
+  app\runtime\cognitive_conversation_engine.py:4:    "pontos fracos","consumo","e consumo","isso","sobre ela",
+  app\runtime\cognitive_conversation_engine.py:5:    "sobre a cb","sobre a moto","mais detalhes"
+  app\runtime\cognitive_conversation_engine.py:6:}
+  app\runtime\cognitive_conversation_engine.py:7:
+  app\runtime\cognitive_conversation_engine.py:8:def cognitive_expand(message:str, ctx:dict):
+  app\runtime\cognitive_conversation_engine.py:9:    msg=(message or "").strip().lower()
+  app\runtime\cognitive_conversation_engine.py:10:    subject=ctx.get("last_subject","")
+  app\runtime\cognitive_conversation_engine.py:11:    domain=ctx.get("last_domain","general")
+  app\runtime\cognitive_conversation_engine.py:13:    if not subject:
+  app\runtime\cognitive_conversation_engine.py:14:        return message
+  app\runtime\cognitive_conversation_engine.py:15:
+> app\runtime\cognitive_conversation_engine.py:16:    if msg in FOLLOWUP_WORDS:
+  app\runtime\cognitive_conversation_engine.py:17:        if domain=="vehicle_buying":
+  app\runtime\cognitive_conversation_engine.py:18:            return f"""
+  app\runtime\cognitive_conversation_engine.py:19:Continue uma conversa natural sobre compra da moto {subject}.
+  app\runtime\cognitive_conversation_engine.py:20:
+  app\runtime\cognitive_conversation_engine.py:21:Fale curto, humano, útil e cognitivo.
+  app\runtime\cognitive_conversation_engine.py:22:Evite listas enormes.
+  app\runtime\cognitive_conversation_engine.py:23:Evite tom de ChatGPT.
+  app\runtime\cognitive_conversation_engine.py:24:Responda como uma amiga inteligente e prática.
+  app\runtime\cognitive_conversation_engine.py:25:
+  app\runtime\cognitive_conversation_engine.py:26:Se for:
+  app\runtime\cognitive_conversation_runtime.py:46:        return TurnDecision("FACTUAL_TASK", True, True, "explicit factual signal in current turn")
+  app\runtime\cognitive_conversation_runtime.py:47:
+  app\runtime\cognitive_conversation_runtime.py:48:    if previous_state and getattr(previous_state, "active_subject", "") and len(text.split()) <= 8:
+> app\runtime\cognitive_conversation_runtime.py:49:        return TurnDecision("OPEN_FOLLOWUP", False, False, "open followup cannot inherit factual state without explicit signal")
+  app\runtime\cognitive_conversation_runtime.py:50:
+  app\runtime\cognitive_conversation_runtime.py:51:    return TurnDecision("GENERAL_DIALOGUE", False, False, "default safe dialogue")
+> app\runtime\context_recovery_engine.py:1:def recover_context(state):
+  app\runtime\context_recovery_engine.py:2:    return {
+  app\runtime\context_recovery_engine.py:3:      "topic":state.get("last_topic"),
+  app\runtime\context_recovery_engine.py:4:      "problem":state.get("last_problem"),
+  app\runtime\context_recovery_engine.py:5:      "reply":state.get("last_meaningful_reply"),
+  app\runtime\context_recovery_engine.py:6:      "task":state.get("last_open_task"),
+  app\runtime\context_recovery_engine.py:7:      "open_loop":state.get("open_loop",False)
+  app\runtime\context_recovery_engine.py:8:    }
+  app\runtime\contextual_followup_engine.py:2:from typing import Any
+  app\runtime\contextual_followup_engine.py:3:from app.runtime.advanced_runtime_base import AdvancedRuntimeEngine
+  app\runtime\contextual_followup_engine.py:4:
+> app\runtime\contextual_followup_engine.py:5:class ContextualFollowupEngine(AdvancedRuntimeEngine):
+> app\runtime\contextual_followup_engine.py:6:    module_name = "contextual_followup_engine"
+  app\runtime\contextual_followup_engine.py:7:    domain = "dialogue"
+  app\runtime\contextual_followup_engine.py:8:
+  app\runtime\contextual_followup_engine.py:9:    def _signals(self, payload: dict[str, Any]) -> dict[str, Any]:
+  app\runtime\contextual_followup_engine.py:10:        signals = super()._signals(payload)
+  app\runtime\contextual_followup_engine.py:11:        text = str((payload or {}).get("text") or (payload or {}).get("message") or "").lower()
+  app\runtime\contextual_followup_engine.py:12:        signals.update({
+  app\runtime\contextual_followup_engine.py:13:            "contains_question": "?" in text or any(x in text for x in ["como", "qual", "por que", "quando"]),
+  app\runtime\contextual_followup_engine.py:14:            "contains_risk": any(x in text for x in ["erro", "falha", "bug", "risco", "alucina"]),
+  app\runtime\contextual_followup_engine.py:15:            "contains_memory_need": any(x in text for x in ["lembra", "contexto", "continuidade", "histórico"]),
+  app\runtime\contextual_followup_engine.py:16:            "contains_action_need": any(x in text for x in ["faça", "executa", "cria", "corrige", "implanta"]),
+  app\runtime\contextual_followup_engine.py:18:        return signals
+  app\runtime\contextual_followup_engine.py:19:
+  app\runtime\contextual_followup_engine.py:20:def health() -> dict[str, Any]:
+> app\runtime\contextual_followup_engine.py:21:    return ContextualFollowupEngine().health()
+  app\runtime\contextual_followup_engine.py:22:
+  app\runtime\contextual_followup_engine.py:23:def run(payload: dict[str, Any] | None = None) -> dict[str, Any]:
+> app\runtime\contextual_followup_engine.py:24:    return ContextualFollowupEngine().run(payload)
+  app\runtime\continuity.py:1:def detect_topic_drift(message, state): return False
+> app\runtime\continuity.py:2:def recover_last_context(state): return state.get("continuity_anchor","")
+  app\runtime\continuity.py:3:def enforce_current_arc(message, state): return {"message":message,"arc":state.get("conversation_arc")}
+  app\runtime\continuity.py:4:def prevent_persona_reset(persona_context): return {**persona_context,"persona_reset_prevented":True}
+> app\runtime\continuity.py:5:def inject_continuity_anchor(response, state): return response + f"\n\nContinuidade: {state.get('continuity_anchor','Eldora/MIND')}"
+  app\runtime\conversation_continuity_engine.py:2:from typing import Any
+  app\runtime\conversation_continuity_engine.py:3:from app.runtime.advanced_runtime_base import AdvancedRuntimeEngine
+  app\runtime\conversation_continuity_engine.py:4:
+> app\runtime\conversation_continuity_engine.py:5:class ConversationContinuityEngine(AdvancedRuntimeEngine):
+> app\runtime\conversation_continuity_engine.py:6:    module_name = "conversation_continuity_engine"
+> app\runtime\conversation_continuity_engine.py:7:    domain = "continuity"
+  app\runtime\conversation_continuity_engine.py:8:
+  app\runtime\conversation_continuity_engine.py:9:    def _signals(self, payload: dict[str, Any]) -> dict[str, Any]:
+  app\runtime\conversation_continuity_engine.py:10:        signals = super()._signals(payload)
+  app\runtime\conversation_continuity_engine.py:11:        text = str((payload or {}).get("text") or (payload or {}).get("message") or "").lower()
+  app\runtime\conversation_continuity_engine.py:12:        signals.update({
+  app\runtime\conversation_continuity_engine.py:13:            "contains_question": "?" in text or any(x in text for x in ["como", "qual", "por que", "quando"]),
+  app\runtime\conversation_continuity_engine.py:14:            "contains_risk": any(x in text for x in ["erro", "falha", "bug", "risco", "alucina"]),
+  app\runtime\conversation_continuity_engine.py:15:            "contains_memory_need": any(x in text for x in ["lembra", "contexto", "continuidade", "histórico"]),
+  app\runtime\conversation_continuity_engine.py:16:            "contains_action_need": any(x in text for x in ["faça", "executa", "cria", "corrige", "implanta"]),
+  app\runtime\conversation_continuity_engine.py:17:        })
+  app\runtime\conversation_continuity_engine.py:18:        return signals
+  app\runtime\conversation_continuity_engine.py:19:
+  app\runtime\conversation_continuity_engine.py:20:def health() -> dict[str, Any]:
+> app\runtime\conversation_continuity_engine.py:21:    return ConversationContinuityEngine().health()
+  app\runtime\conversation_continuity_engine.py:22:
+  app\runtime\conversation_continuity_engine.py:23:def run(payload: dict[str, Any] | None = None) -> dict[str, Any]:
+> app\runtime\conversation_continuity_engine.py:24:    return ConversationContinuityEngine().run(payload)
+  app\runtime\conversation_evolution.py:1:def evolve_conversation_arc(user_id, message, current_arc="MIND evolution"):
+> app\runtime\conversation_evolution.py:2:    return {"arc": current_arc, "updated": True, "continuity_anchor": message}
+  app\runtime\conversation_state_machine.py:24:        return "vehicle_buying"
+  app\runtime\conversation_state_machine.py:25:    return "general"
+  app\runtime\conversation_state_machine.py:26:
+> app\runtime\conversation_state_machine.py:27:def detect_followup_intent(message: str) -> str:
+  app\runtime\conversation_state_machine.py:28:    t = (message or "").lower().strip()
+  app\runtime\conversation_state_machine.py:29:    if t in {"prossiga","continue","continua","aprofunde","aprofundar","detalhe","mais detalhes"}:
+  app\runtime\conversation_state_machine.py:30:        return "continue"
+  app\runtime\conversation_state_machine.py:31:    if "fraco" in t or "defeito" in t or "problema" in t:
+  app\runtime\conversation_state_machine.py:32:        return "weaknesses"
+  app\runtime\conversation_state_machine.py:33:    if "forte" in t or "qualidade" in t:
+  app\runtime\conversation_state_machine.py:34:        return "strengths"
+  app\runtime\conversation_state_machine.py:35:    if "manutenção" in t or "manutencao" in t:
+  app\runtime\conversation_state_machine.py:36:        return "maintenance"
+  app\runtime\conversation_state_machine.py:37:    if "consumo" in t or "gasta" in t:
+  app\runtime\conversation_state_machine.py:39:    if "vale a pena" in t:
+  app\runtime\conversation_state_machine.py:40:        return "decision"
+  app\runtime\conversation_state_machine.py:41:    if len(t.split()) <= 4:
+> app\runtime\conversation_state_machine.py:42:        return "followup"
+  app\runtime\conversation_state_machine.py:43:    return ""
+  app\runtime\conversation_state_machine.py:44:
+  app\runtime\conversation_state_machine.py:45:def build_conversation_payload(message: str, ctx: dict) -> str:
+  app\runtime\conversation_state_machine.py:46:    subject = detect_subject(message)
+  app\runtime\conversation_state_machine.py:47:    domain = detect_domain(message)
+  app\runtime\conversation_state_machine.py:48:    if subject:
+  app\runtime\conversation_state_machine.py:49:        ctx["last_subject"] = subject
+  app\runtime\conversation_state_machine.py:50:        ctx["last_domain"] = domain
+  app\runtime\conversation_state_machine.py:51:
+> app\runtime\conversation_state_machine.py:52:    intent = detect_followup_intent(message)
+  app\runtime\conversation_state_machine.py:53:    if intent and ctx.get("last_subject"):
+  app\runtime\conversation_state_machine.py:54:        subject = ctx["last_subject"]
+  app\runtime\conversation_state_machine.py:55:        domain = ctx.get("last_domain", "general")
+  app\runtime\conversation_state_machine.py:56:        return f"""
+  app\runtime\conversation_state_machine.py:57:Você é a Eldora, assistente próxima do Roberto no WhatsApp.
+  app\runtime\conversation_state_machine.py:58:Responda em português do Brasil, como uma amiga inteligente, prática e direta.
+  app\runtime\conversation_state_machine.py:59:NÃO responda como ChatGPT genérico.
+  app\runtime\conversation_state_machine.py:60:NÃO mude de assunto.
+  app\runtime\conversation_state_machine.py:61:NÃO explique o termo isolado.
+  app\runtime\conversation_state_machine.py:62:Use obrigatoriamente o contexto abaixo.
+  app\runtime\conversation_state_resolver.py:1:import unicodedata, re
+  app\runtime\conversation_state_resolver.py:2:from app.runtime.decision_memory import get_state
+  app\runtime\conversation_state_resolver.py:3:
+> app\runtime\conversation_state_resolver.py:4:FOLLOWUP={"aprofunde","continua","prossiga","e depois","explica melhor","detalha","explique melhor"}
+  app\runtime\conversation_state_resolver.py:5:TROUBLE={"erro","falhou","deu errado","nao funcionou","quebrou","implantacao"}
+  app\runtime\conversation_state_resolver.py:6:TASK={"analise","verifique","busque","calcule","confira","execute"}
+  app\runtime\conversation_state_resolver.py:7:SOCIAL={"oi","ola","tudo bem","quem e vc","quem e voce","como vc esta","como voce esta","bom dia","boa tarde","boa noite","voce esta funcionando","qual seu papel aqui","qual e seu papel","o que voce faz","quem e a eldora"}
+  app\runtime\conversation_state_resolver.py:8:
+  app\runtime\conversation_state_resolver.py:9:def _norm(msg:str)->str:
+  app\runtime\conversation_state_resolver.py:10:    s=(msg or "").lower().strip()
+  app\runtime\conversation_state_resolver.py:11:    s="".join(c for c in unicodedata.normalize("NFD",s) if unicodedata.category(c)!="Mn")
+  app\runtime\conversation_state_resolver.py:12:    s=re.sub(r"[^a-z0-9\s]"," ",s)
+  app\runtime\conversation_state_resolver.py:13:    return " ".join(s.split())
+  app\runtime\conversation_state_resolver.py:14:
+  app\runtime\conversation_state_resolver.py:18:def resolve(sender_id,msg):
+  app\runtime\conversation_state_resolver.py:19:    s=get_state(sender_id); m=_norm(msg)
+  app\runtime\conversation_state_resolver.py:20:    if _has(m,TROUBLE): return "TROUBLESHOOTING",s
+> app\runtime\conversation_state_resolver.py:21:    if _has(m,FOLLOWUP): return "FOLLOWUP",s
+  app\runtime\conversation_state_resolver.py:22:    if _has(m,TASK): return "TASK",s
+  app\runtime\conversation_state_resolver.py:23:    if _has(m,SOCIAL): return "SOCIAL",s
+  app\runtime\conversation_state_resolver.py:24:    return "AMBIGUOUS",s
+  app\runtime\conversational_reasoning.py:23:    }
+  app\runtime\conversational_reasoning.py:24:    return _DIALOGUE[user_id]
+  app\runtime\conversational_reasoning.py:25:
+> app\runtime\conversational_reasoning.py:26:def classify_followup(message: str) -> str:
+  app\runtime\conversational_reasoning.py:27:    t=(message or "").strip().lower()
+  app\runtime\conversational_reasoning.py:28:    if t in ["porque?", "por que?", "pq?", "porque", "por que"]: return "causal"
+  app\runtime\conversational_reasoning.py:29:    if t in ["certeza?", "tem certeza?", "certeza", "confirma?"]: return "confirmation"
+  app\runtime\conversational_reasoning.py:30:    if "qual o melhor" in t or "qual a melhor" in t or t in ["qual?", "qual"]: return "comparison"
+  app\runtime\conversational_reasoning.py:31:    if t.startswith("como"): return "how_to"
+  app\runtime\conversational_reasoning.py:32:    return "none"
+  app\runtime\conversational_reasoning.py:33:
+> app\runtime\conversational_reasoning.py:34:def resolve_followup(user_id: str, message: str) -> dict:
+  app\runtime\conversational_reasoning.py:35:    state = get_dialogue_state(user_id)
+> app\runtime\conversational_reasoning.py:36:    kind = classify_followup(message)
+  app\runtime\conversational_reasoning.py:37:
+  app\runtime\conversational_reasoning.py:38:    if kind == "comparison":
+  app\runtime\conversational_reasoning.py:39:        answer = "O melhor agora é melhorar a conversa natural e a qualidade conversacional, não criar mais infraestrutura. A base já está viva; o que limita a Eldora é responder com coerência curta, sem repetir e sem soar como relatório."
+  app\runtime\conversational_reasoning.py:40:    elif kind == "causal":
+  app\runtime\conversational_reasoning.py:41:        answer = f"Porque {state['last_reasoning']} Se eu continuar criando camada antes disso, só aumento complexidade em cima de uma conversa ainda rígida."
+  app\runtime\conversational_reasoning.py:42:    elif kind == "confirmation":
+  app\runtime\conversational_reasoning.py:43:        conf = int(state.get("confidence",0.86)*100)
+  app\runtime\conversational_reasoning.py:44:        answer = f"Tenho {conf}% de confiança. A evidência é simples: quando você perguntou algo curto, ela ainda respondeu com frase genérica ou repetida. Então o gargalo é diálogo, não backend."
+  app\runtime\conversational_reasoning.py:45:    elif kind == "how_to":
+  app\runtime\conversational_reasoning.py:46:        answer = "Vou te ajudar de forma prática: organizar ideias, lembrar contexto, transformar conversa em plano, explicar conteúdos, priorizar decisões e executar próximos passos sem perder o fio da conversa."
+  app\runtime\decision_memory.py:5:        "sender_id":sender_id,"last_topic":None,"last_problem":None,"last_goal":None,"last_user_question":None,
+  app\runtime\decision_memory.py:6:        "last_assistant_reply":None,"last_meaningful_reply":None,"last_open_task":None,"open_loop":False,
+  app\runtime\decision_memory.py:7:        "conversation_depth":0,"intent":None,"previous_intent":None,"frustration_signal":False,
+> app\runtime\decision_memory.py:8:        "continuity_anchor":None,"unresolved_error":None,"updated_at":datetime.now(UTC).isoformat()
+  app\runtime\decision_memory.py:9:    })
+  app\runtime\decision_memory.py:10:def save_state(sender_id:str,state:dict):
+  app\runtime\decision_memory.py:11:    state["updated_at"]=datetime.now(UTC).isoformat()
+  app\runtime\decision_memory.py:12:    _MEMORY[sender_id]=state
+  app\runtime\emotional_continuity_engine.py:2:from typing import Any
+  app\runtime\emotional_continuity_engine.py:3:from app.runtime.advanced_runtime_base import AdvancedRuntimeEngine
+  app\runtime\emotional_continuity_engine.py:4:
+> app\runtime\emotional_continuity_engine.py:5:class EmotionalContinuityEngine(AdvancedRuntimeEngine):
+> app\runtime\emotional_continuity_engine.py:6:    module_name = "emotional_continuity_engine"
+  app\runtime\emotional_continuity_engine.py:7:    domain = "emotion"
+  app\runtime\emotional_continuity_engine.py:8:
+  app\runtime\emotional_continuity_engine.py:9:    def _signals(self, payload: dict[str, Any]) -> dict[str, Any]:
+  app\runtime\emotional_continuity_engine.py:10:        signals = super()._signals(payload)
+  app\runtime\emotional_continuity_engine.py:11:        text = str((payload or {}).get("text") or (payload or {}).get("message") or "").lower()
+  app\runtime\emotional_continuity_engine.py:12:        signals.update({
+  app\runtime\emotional_continuity_engine.py:13:            "contains_question": "?" in text or any(x in text for x in ["como", "qual", "por que", "quando"]),
+  app\runtime\emotional_continuity_engine.py:14:            "contains_risk": any(x in text for x in ["erro", "falha", "bug", "risco", "alucina"]),
+  app\runtime\emotional_continuity_engine.py:15:            "contains_memory_need": any(x in text for x in ["lembra", "contexto", "continuidade", "histórico"]),
+  app\runtime\emotional_continuity_engine.py:16:            "contains_action_need": any(x in text for x in ["faça", "executa", "cria", "corrige", "implanta"]),
+  app\runtime\emotional_continuity_engine.py:18:        return signals
+  app\runtime\emotional_continuity_engine.py:19:
+  app\runtime\emotional_continuity_engine.py:20:def health() -> dict[str, Any]:
+> app\runtime\emotional_continuity_engine.py:21:    return EmotionalContinuityEngine().health()
+  app\runtime\emotional_continuity_engine.py:22:
+  app\runtime\emotional_continuity_engine.py:23:def run(payload: dict[str, Any] | None = None) -> dict[str, Any]:
+> app\runtime\emotional_continuity_engine.py:24:    return EmotionalContinuityEngine().run(payload)
+  app\runtime\generic_conversation_state.py:61:def classify_intent(text:str)->str:
+  app\runtime\generic_conversation_state.py:62:    msg=(text or "").lower()
+  app\runtime\generic_conversation_state.py:63:    if any(x in msg for x in DEEPEN_ALIASES): return "deepen"
+> app\runtime\generic_conversation_state.py:64:    if any(x in msg for x in ["preço","preco","valor","custa","barato","caro","importar","importando"]): return "economic_followup"
+  app\runtime\generic_conversation_state.py:65:    if any(x in msg for x in ["verifique","verifica","verificar","procure","pesquise","checar","confirmar"]): return "factual_search"
+  app\runtime\generic_conversation_state.py:66:    if any(x in msg for x in ["o que fazer","primeiro","prioridade","melhorar","fluidez"]): return "strategy_priority"
+  app\runtime\generic_conversation_state.py:67:    return "general"
+  app\runtime\generic_conversation_state.py:68:
+  app\runtime\generic_conversation_state.py:69:def infer_topic(text:str, prev:GenericConversationState|None=None)->str:
+  app\runtime\generic_conversation_state.py:70:    msg=(text or "").lower()
+  app\runtime\generic_conversation_state.py:71:    if any(x in msg for x in ["eldora","mind","neura","fluidez","ux","runtime","whatsapp","lançamento","launch"]):
+  app\runtime\generic_conversation_state.py:72:        return "eldora_runtime_ux"
+  app\runtime\generic_conversation_state.py:73:    if any(x in msg for x in ["cr250","cr 250","250r","pedal","partida","ims","red dragon","moto"]):
+  app\runtime\generic_conversation_state.py:74:        return "vehicle_parts_research"
+> app\runtime\generic_conversation_state.py:75:    if prev and classify_intent(msg) in ["deepen","economic_followup"]:
+  app\runtime\generic_conversation_state.py:76:        return prev.active_topic
+  app\runtime\generic_conversation_state.py:77:    return ""
+  app\runtime\generic_conversation_state.py:78:
+  app\runtime\generic_conversation_state.py:79:def _next_stage(prev:GenericConversationState|None,intent:str,topic_changed:bool)->tuple[str,int,int]:
+  app\runtime\generic_conversation_state.py:80:    if not prev or topic_changed:
+  app\runtime\generic_conversation_state.py:81:        return ("summary",0,0)
+  app\runtime\generic_conversation_state.py:82:    stage,sub,depth=prev.stage,prev.substage,prev.depth
+  app\runtime\generic_conversation_state.py:83:    if intent=="deepen":
+  app\runtime\generic_conversation_state.py:84:        depth+=1
+  app\runtime\generic_conversation_state.py:85:        if stage=="summary":
+  app\runtime\generic_conversation_state.py:90:            order=["summary","detail","compare","decision","action","validation"]
+  app\runtime\generic_conversation_state.py:91:            idx=min(order.index(stage)+1,len(order)-1) if stage in order else 1
+  app\runtime\generic_conversation_state.py:92:            stage=order[idx]
+> app\runtime\generic_conversation_state.py:93:    elif intent in ["economic_followup","factual_search","strategy_priority"]:
+  app\runtime\generic_conversation_state.py:94:        depth+=1
+  app\runtime\generic_conversation_state.py:95:    return (stage,sub,depth)
+  app\runtime\generic_conversation_state.py:96:
+  app\runtime\generic_conversation_state.py:97:def update_conversation_state(sender_id:str,text:str)->GenericConversationState:
+  app\runtime\generic_conversation_state.py:98:    key=sender_id or "default"
+  app\runtime\generic_conversation_state.py:99:    prev=_STATE.get(key)
+  app\runtime\generic_conversation_state.py:100:    intent=classify_intent(text)
+  app\runtime\generic_conversation_state.py:101:    topic=infer_topic(text,prev)
+  app\runtime\generic_conversation_state.py:102:    if not topic and prev:
+  app\runtime\generic_conversation_state.py:103:        topic=prev.active_topic
+  app\runtime\generic_conversation_state.py:104:    topic_changed=bool(prev and topic and topic!=prev.active_topic)
+  app\runtime\generic_conversation_state.py:105:
+  app\runtime\generic_conversation_state.py:106:    ents=extract_entities(text)
+> app\runtime\generic_conversation_state.py:107:    if prev and not ents and intent in ["deepen","economic_followup"]:
+  app\runtime\generic_conversation_state.py:108:        ents=list(prev.entities)
+  app\runtime\generic_conversation_state.py:109:
+  app\runtime\generic_conversation_state.py:110:    stage,sub,depth=_next_stage(prev,intent,topic_changed)
+  app\runtime\generic_conversation_state.py:111:    mode="factual" if topic=="vehicle_parts_research" else "strategic" if topic=="eldora_runtime_ux" else "general"
+  app\runtime\generic_conversation_state.py:112:
+  app\runtime\generic_conversation_state.py:113:    st=GenericConversationState(topic,ents,intent,stage,sub,depth,mode,time.time(),prev.last_hashes if prev else [],prev.last_categories if prev else [])
+  app\runtime\generic_conversation_state.py:114:    setattr(st, "sender_id", key)
+  app\runtime\generic_conversation_state.py:115:    _STATE[key]=st
+  app\runtime\generic_conversation_state.py:116:    return st
+  app\runtime\generic_conversation_state.py:117:
+  app\runtime\generic_conversation_state.py:146:    decision = decide_turn(inbound)
+  app\runtime\generic_conversation_state.py:147:
+  app\runtime\generic_conversation_state.py:148:    progression_ok = (
+> app\runtime\generic_conversation_state.py:149:        state.intent in ["deepen","execute","plan","economic_followup"]
+  app\runtime\generic_conversation_state.py:150:        or "aprofunde" in str(inbound or "").lower()
+  app\runtime\generic_conversation_state.py:151:    )
+  app\runtime\generic_conversation_state.py:152:
+  app\runtime\generic_conversation_state.py:153:    if not decision.allow_factual_memory and not progression_ok:
+  app\runtime\generic_conversation_state.py:154:        cleaned=(answer or "").replace("Digite APROFUNDAR para continuar","").replace("Se quiser, eu posso","").replace("😊","").strip()[:900]
+  app\runtime\generic_conversation_state.py:155:        return prevent_cross_topic(cleaned,state)
+> app\runtime\generic_conversation_state.py:156:    if state.intent in ["execute", "plan", "deepen", "economic_followup"] or any(x in low_answer for x in ["detalhe / risk","detalhe / price","compatibilidade","preço:","risco:"]):
+  app\runtime\generic_conversation_state.py:157:        sender = getattr(state, "sender_id", "conversation_progressive")
+  app\runtime\generic_conversation_state.py:158:        synthetic_message = "passo a passo" if state.intent in ["execute", "plan"] else "aprofunde"
+  app\runtime\generic_conversation_state.py:159:        return universal_conversation_reply(sender, synthetic_message, [])
+  app\runtime\generic_conversation_state.py:160:
+  app\runtime\generic_conversation_state.py:161:    cleaned=(answer or "").replace("Digite APROFUNDAR para continuar","").replace("Se quiser, eu posso","").replace("😊","").strip()[:900]
+  app\runtime\generic_conversation_state.py:162:    h=_hash(cleaned)
+  app\runtime\generic_conversation_state.py:163:    repeated_hash=h in state.last_hashes
+  app\runtime\generic_conversation_state.py:164:
+  app\runtime\generic_conversation_state.py:165:    cat,generated=_bank_answer(state)
+  app\runtime\generic_conversation_state.py:166:    repeated_cat=cat in state.last_categories[-2:]
+  app\runtime\generic_topic_memory_engine.py:1:import re
+  app\runtime\generic_topic_memory_engine.py:2:
+> app\runtime\generic_topic_memory_engine.py:3:FOLLOWUP_PATTERNS = [
+  app\runtime\generic_topic_memory_engine.py:4:    "aprofunde","aprofundar","continue","continua","detalhe","mais detalhes",
+  app\runtime\generic_topic_memory_engine.py:5:    "explique mais","sobre isso","e os pontos fracos","pontos fracos",
+  app\runtime\generic_topic_memory_engine.py:6:    "e manutenção","manutenção","e consumo","consumo","vale a pena"
+  app\runtime\generic_topic_memory_engine.py:7:]
+  app\runtime\generic_topic_memory_engine.py:8:
+  app\runtime\generic_topic_memory_engine.py:9:def extract_subject(message: str) -> str:
+  app\runtime\generic_topic_memory_engine.py:10:    low = str(message or "").strip().lower()
+  app\runtime\generic_topic_memory_engine.py:11:
+  app\runtime\generic_topic_memory_engine.py:12:    if re.search(r"\bfazer\s*250\b", low):
+  app\runtime\generic_topic_memory_engine.py:13:        return "Yamaha Fazer 250 usada"
+  app\runtime\generic_topic_memory_engine.py:29:        return "vehicle_buying"
+  app\runtime\generic_topic_memory_engine.py:30:    return ""
+  app\runtime\generic_topic_memory_engine.py:31:
+> app\runtime\generic_topic_memory_engine.py:32:def is_followup(message: str) -> bool:
+  app\runtime\generic_topic_memory_engine.py:33:    low = str(message or "").strip().lower()
+> app\runtime\generic_topic_memory_engine.py:34:    return low in FOLLOWUP_PATTERNS or (len(low.split()) <= 3 and any(x in low for x in ["isso","ela","ele","manutenção","consumo","fracos"]))
+  app\runtime\generic_topic_memory_engine.py:35:
+  app\runtime\generic_topic_memory_engine.py:36:def update_topic_context(message: str, ctx: dict, domain: str = "") -> dict:
+  app\runtime\generic_topic_memory_engine.py:37:    subject = extract_subject(message)
+  app\runtime\generic_topic_memory_engine.py:38:    inferred = infer_domain(message)
+  app\runtime\generic_topic_memory_engine.py:39:    if subject:
+  app\runtime\generic_topic_memory_engine.py:40:        ctx["last_subject"] = subject
+  app\runtime\generic_topic_memory_engine.py:41:    if inferred:
+  app\runtime\generic_topic_memory_engine.py:42:        ctx["last_domain"] = inferred
+  app\runtime\generic_topic_memory_engine.py:43:    elif domain:
+  app\runtime\generic_topic_memory_engine.py:44:        ctx["last_domain"] = domain
+  app\runtime\generic_topic_memory_engine.py:45:    return ctx
+  app\runtime\generic_topic_memory_engine.py:46:
+> app\runtime\generic_topic_memory_engine.py:47:def expand_followup(message: str, ctx: dict) -> str:
+> app\runtime\generic_topic_memory_engine.py:48:    if is_followup(message) and ctx.get("last_subject"):
+  app\runtime\generic_topic_memory_engine.py:49:        domain = ctx.get("last_domain", "general")
+  app\runtime\generic_topic_memory_engine.py:50:        if domain == "vehicle_buying":
+  app\runtime\generic_topic_memory_engine.py:51:            return f"{message}. Contexto obrigatório: continue sobre compra de veículo usado, assunto: {ctx['last_subject']}. Fale de pontos fortes, pontos fracos, manutenção, riscos e checklist."
+  app\runtime\generic_topic_memory_engine.py:52:        return f"{message}. Contexto obrigatório: responder sobre {ctx['last_subject']}."
+  app\runtime\generic_topic_memory_engine.py:53:    return message
+  app\runtime\intent_arbitration_priority_engine.py:12:    TROUBLESHOOTING = 'TASK_VERIFICATION'
+  app\runtime\intent_arbitration_priority_engine.py:13:    VERIFICATION = 'TASK_VERIFICATION'
+  app\runtime\intent_arbitration_priority_engine.py:14:    SOCIAL = 'SOCIAL'
+> app\runtime\intent_arbitration_priority_engine.py:15:    FOLLOWUP = 'FOLLOWUP'
+  app\runtime\intent_arbitration_priority_engine.py:16:    OPEN_LOOP = 'OPEN_LOOP'
+  app\runtime\intent_arbitration_priority_engine.py:17:    AMBIGUOUS_FALLBACK = 'AMBIGUOUS_FALLBACK'
+  app\runtime\intent_arbitration_priority_engine.py:18:
+  app\runtime\intent_arbitration_priority_engine.py:19:PRIORITY = [
+  app\runtime\intent_arbitration_priority_engine.py:20:    "CALCULATION",
+  app\runtime\intent_arbitration_priority_engine.py:21:    "FACTUAL_QUESTION",
+  app\runtime\intent_arbitration_priority_engine.py:22:    "BUYING_ADVICE",
+  app\runtime\intent_arbitration_priority_engine.py:23:    "TASK_VERIFICATION",
+  app\runtime\intent_arbitration_priority_engine.py:24:    "SOCIAL",
+> app\runtime\intent_arbitration_priority_engine.py:25:    "FOLLOWUP",
+  app\runtime\intent_arbitration_priority_engine.py:26:    "OPEN_LOOP",
+  app\runtime\intent_arbitration_priority_engine.py:27:    "AMBIGUOUS_FALLBACK",
+  app\runtime\intent_arbitration_priority_engine.py:28:]
+  app\runtime\intent_arbitration_priority_engine.py:29:
+  app\runtime\intent_arbitration_priority_engine.py:30:def _norm(s: str) -> str:
+  app\runtime\intent_arbitration_priority_engine.py:31:    s = unicodedata.normalize("NFKD", (s or "").strip().lower())
+  app\runtime\intent_arbitration_priority_engine.py:32:    s = "".join(c for c in s if not unicodedata.combining(c))
+  app\runtime\intent_arbitration_priority_engine.py:33:    return re.sub(r"\s+", " ", s)
+  app\runtime\intent_arbitration_priority_engine.py:34:
+  app\runtime\intent_arbitration_priority_engine.py:35:def classify_intent(text: str) -> dict:
+  app\runtime\intent_arbitration_priority_engine.py:62:        return {"intent": "FACTUAL_QUESTION", "confidence": 0.88, "reason": "question_word"}
+  app\runtime\intent_arbitration_priority_engine.py:63:
+  app\runtime\intent_arbitration_priority_engine.py:64:    if t in {"e depois?", "e depois", "aprofunde", "continue", "prossiga", "explique melhor"}:
+> app\runtime\intent_arbitration_priority_engine.py:65:        return {"intent": "FOLLOWUP", "confidence": 0.82, "reason": "followup"}
+  app\runtime\intent_arbitration_priority_engine.py:66:
+  app\runtime\intent_arbitration_priority_engine.py:67:    if re.search(r"\b(verificar|validar|testar|corrigir|executar|analisar|auditar)\b", t):
+  app\runtime\intent_arbitration_priority_engine.py:68:        return {"intent": "TASK_VERIFICATION", "confidence": 0.70, "reason": "task_word_low_priority"}
+  app\runtime\intent_arbitration_priority_engine.py:69:
+  app\runtime\intent_arbitration_priority_engine.py:70:    if len(t.split()) <= 5:
+  app\runtime\intent_arbitration_priority_engine.py:71:        return {"intent": "OPEN_LOOP", "confidence": 0.55, "reason": "short_open_loop"}
+  app\runtime\intent_arbitration_priority_engine.py:72:
+  app\runtime\intent_arbitration_priority_engine.py:73:    return {"intent": "AMBIGUOUS_FALLBACK", "confidence": 0.30, "reason": "no_class"}
+  app\runtime\intent_arbitration_priority_engine.py:74:
+  app\runtime\intent_arbitration_priority_engine.py:75:
+  app\runtime\intent_arbitration_priority_engine.py:77:from types import SimpleNamespace
+  app\runtime\intent_arbitration_priority_engine.py:78:def arbitrate_intent_priority(message, context=None):
+  app\runtime\intent_arbitration_priority_engine.py:79:    t=(message or '').lower()
+> app\runtime\intent_arbitration_priority_engine.py:80:    sel='open_loop_continuation' if t in ['isso','e depois?'] else ('followup_contextual' if t in ['aprofunde','prossiga'] else ('social' if 'quem é' in t or 'quem e' in t else ('calculation' if 'quanto é' in t or 'calcule' in t or '4x6' in t else ('task_execution' if 'busque' in t else ('verification' if 'verifique' in t else ('troubleshooting' if 'deu errado' in t else 'open_loop_continuation'))))))
+  app\runtime\intent_arbitration_priority_engine.py:81:    return SimpleNamespace(selected_intent=sel)
+  app\runtime\intent_arbitration_priority_engine.py:82:
+  app\runtime\intent_arbitration_priority_engine.py:83:
+  app\runtime\intent_router.py:9:      ("technical_debug",["erro","traceback","bug","falhou"]),
+  app\runtime\intent_router.py:10:      ("market_research",["mercado","concorrente","pesquisa"]),
+  app\runtime\intent_router.py:11:      ("correction_request",["corrigir","não era isso","desvio"]),
+> app\runtime\intent_router.py:12:      ("continuity_request",["continua","prosseguir","retomar","aprofundar"])
+  app\runtime\intent_router.py:13:    ]
+  app\runtime\intent_router.py:14:    for intent,keys in mapping:
+  app\runtime\intent_router.py:15:        if any(k in t for k in keys):
+  app\runtime\intent_router.py:16:            return {"intent":intent,"confidence":0.92,"depth_required":"high","response_mode":"structured","needs_memory":True,"needs_state_update":True}
+  app\runtime\intent_router.py:17:    return {"intent":"casual_context","confidence":0.70,"depth_required":"medium","response_mode":"direct","needs_memory":True,"needs_state_update":True}
+  app\runtime\internal_state.py:1:def load_state(user_id):
+> app\runtime\internal_state.py:2:    return {"current_focus":"Eldora Cognitive Runtime","conversation_arc":"implementation","user_energy":"high","relationship_stage":"operational_partner","dominant_project":"MIND","emotional_tone":"focused","last_unresolved_topic":"","continuity_anchor":"prosseguir evolução Eldora"}
+  app\runtime\internal_state.py:3:def update_state(message, intent, memory):
+  app\runtime\internal_state.py:4:    s=load_state("default"); s["current_focus"]=intent.get("intent","general"); s["last_unresolved_topic"]=message; return s
+  app\runtime\internal_state.py:5:def persist_state(user_id, state): return {"persisted":True,"user_id":user_id,"state":state}
+  app\runtime\live_whatsapp_response.py:1:from app.runtime.whatsapp_trace_sensor import sanitize_final_output
+> app\runtime\live_whatsapp_response.py:2:from app.dialogue.conversation_continuity_runtime import update,get
+  app\runtime\live_whatsapp_response.py:3:from app.dialogue.context_resolution_engine import resolve
+  app\runtime\live_whatsapp_response.py:4:from app.dialogue.generic_llm_detector import detect,rewrite
+  app\runtime\live_whatsapp_response.py:5:from app.dialogue.persona_consistency_guard import enforce
+  app\runtime\live_whatsapp_response.py:6:from app.humanization.universal_recovery_runtime import semantic_recovery
+  app\runtime\live_whatsapp_response.py:7:from app.runtime.identity_guard_runtime import guard_identity_fallback
+  app\runtime\live_whatsapp_response.py:8:def live_whatsapp_response(message: str) -> str | None:
+  app\runtime\live_whatsapp_response.py:9:    msg = (message or "").lower().strip()
+  app\runtime\live_whatsapp_response.py:10:
+  app\runtime\live_whatsapp_response.py:11:    if msg in ["i", "oi", "olá", "ola"]:
+  app\runtime\live_whatsapp_response.py:12:        return "Oi, Roberto. Estou aqui. Vamos resolver isso direto."
+  app\runtime\natural_response_layer.py:1:from app.runtime.whatsapp_trace_sensor import sanitize_final_output
+> app\runtime\natural_response_layer.py:2:from app.dialogue.conversation_continuity_runtime import update,get
+  app\runtime\natural_response_layer.py:3:from app.dialogue.context_resolution_engine import resolve
+  app\runtime\natural_response_layer.py:4:from app.dialogue.generic_llm_detector import detect,rewrite
+  app\runtime\natural_response_layer.py:5:from app.dialogue.persona_consistency_guard import enforce
+  app\runtime\natural_response_layer.py:6:from app.humanization.universal_recovery_runtime import semantic_recovery
+  app\runtime\natural_response_layer.py:7:from app.runtime.identity_guard_runtime import guard_identity_fallback
+  app\runtime\natural_response_layer.py:8:from app.runtime.dialogue_state import (
+  app\runtime\natural_response_layer.py:9:    is_repeated,
+  app\runtime\natural_response_layer.py:10:    remember_response,
+  app\runtime\natural_response_layer.py:11:    short_message_type
+  app\runtime\natural_response_layer.py:12:)
+  app\runtime\natural_response_layer.py:13:from app.runtime.conversational_reasoning import (
+> app\runtime\natural_response_layer.py:14:    resolve_followup,
+  app\runtime\natural_response_layer.py:15:    update_dialogue_state
+  app\runtime\natural_response_layer.py:16:)
+  app\runtime\natural_response_layer.py:17:from app.runtime.visible_response_layer import visible_reformulate
+  app\runtime\natural_response_layer.py:18:
+  app\runtime\natural_response_layer.py:19:def naturalize_response(answer: str, intent: dict, state: dict, autonomous: dict) -> str:
+  app\runtime\natural_response_layer.py:20:    user_id = state.get("user_id", "Roberto")
+  app\runtime\natural_response_layer.py:21:    name = "Roberto"
+  app\runtime\natural_response_layer.py:22:    focus = state.get("dominant_project", "MIND")
+  app\runtime\natural_response_layer.py:23:    msg = (state.get("last_unresolved_topic") or "").strip()
+  app\runtime\natural_response_layer.py:24:    msg_l = msg.lower()
+  app\runtime\natural_response_layer.py:25:    kind = short_message_type(msg)
+  app\runtime\natural_response_layer.py:26:
+> app\runtime\natural_response_layer.py:27:    follow = resolve_followup(user_id, msg)
+  app\runtime\natural_response_layer.py:28:    if follow.get("resolved"):
+  app\runtime\natural_response_layer.py:29:        out = visible_reformulate(follow["answer"], msg, focus)
+  app\runtime\natural_response_layer.py:30:        remember_response(user_id, out)
+  app\runtime\natural_response_layer.py:31:        update_dialogue_state(user_id, msg, out)
+  app\runtime\natural_response_layer.py:32:        return out
+  app\runtime\natural_response_layer.py:33:
+  app\runtime\natural_response_layer.py:34:    plan = autonomous.get("plan", {}).get("next_action", "avançar a próxima camada crítica")
+  app\runtime\natural_response_layer.py:35:
+  app\runtime\natural_response_layer.py:36:    if kind == "greeting":
+  app\runtime\natural_response_layer.py:37:        out = f"Oi, {name}. Estou aqui. O contexto do {focus} continua aberto."
+  app\runtime\natural_response_layer.py:53:        out = f"Vamos seguir no {focus}. O próximo passo é deixar a resposta externa mais direta, natural e menos autocentrada."
+  app\runtime\natural_response_layer.py:54:    elif "achou" in msg_l or "opinião" in msg_l:
+  app\runtime\natural_response_layer.py:55:        out = f"Eu achei que foi um avanço real, {name}. A base funciona; agora o desafio é fazer a Eldora conversar melhor."
+> app\runtime\natural_response_layer.py:56:    elif intent.get("intent") in ["project_execution", "continuity_request"]:
+  app\runtime\natural_response_layer.py:57:        out = f"{name}, sigo no {focus}. Próximo passo: {plan}."
+  app\runtime\natural_response_layer.py:58:    else:
+  app\runtime\natural_response_layer.py:59:        out = answer if "Diagnóstico:" not in answer else semantic_recovery(msg)
+  app\runtime\natural_response_layer.py:60:
+  app\runtime\natural_response_layer.py:61:    if is_repeated(user_id, out):
+  app\runtime\natural_response_layer.py:62:        out = visible_reformulate(out, msg, focus)
+  app\runtime\natural_response_layer.py:63:
+  app\runtime\natural_response_layer.py:64:    update_dialogue_state(
+  app\runtime\natural_response_layer.py:65:        user_id,
+  app\runtime\natural_response_layer.py:66:        msg,
+  app\runtime\persistent_social_memory.py:3:from app.runtime.advanced_runtime_base import AdvancedRuntimeEngine
+  app\runtime\persistent_social_memory.py:4:
+  app\runtime\persistent_social_memory.py:5:class PersistentSocialMemory(AdvancedRuntimeEngine):
+> app\runtime\persistent_social_memory.py:6:    module_name = "persistent_social_memory"
+  app\runtime\persistent_social_memory.py:7:    domain = "social"
+  app\runtime\persistent_social_memory.py:8:
+  app\runtime\persistent_social_memory.py:9:    def _signals(self, payload: dict[str, Any]) -> dict[str, Any]:
+  app\runtime\persistent_social_memory.py:10:        signals = super()._signals(payload)
+  app\runtime\persistent_social_memory.py:11:        text = str((payload or {}).get("text") or (payload or {}).get("message") or "").lower()
+  app\runtime\persistent_social_memory.py:12:        signals.update({
+  app\runtime\persistent_social_memory.py:13:            "contains_question": "?" in text or any(x in text for x in ["como", "qual", "por que", "quando"]),
+  app\runtime\persistent_social_memory.py:14:            "contains_risk": any(x in text for x in ["erro", "falha", "bug", "risco", "alucina"]),
+  app\runtime\persistent_social_memory.py:15:            "contains_memory_need": any(x in text for x in ["lembra", "contexto", "continuidade", "histórico"]),
+  app\runtime\persistent_social_memory.py:16:            "contains_action_need": any(x in text for x in ["faça", "executa", "cria", "corrige", "implanta"]),
+  app\runtime\quality_gate.py:1:def score_response(answer, intent, persona, memory):
+  app\runtime\quality_gate.py:2:    generic = any(x in (answer or "").lower() for x in ["como posso ajudar","não tenho contexto"])
+  app\runtime\quality_gate.py:3:    score = 0.94 if not generic and len(answer)>80 else 0.60
+> app\runtime\quality_gate.py:4:    return {"persona_consistency_score":0.92,"context_continuity_score":0.91,"generic_response_score":0.05 if not generic else 0.80,"memory_relevance_score":0.88,"answer_utility_score":score,"overall":score}
+  app\runtime\quality_gate.py:5:def rewrite_if_needed(answer, intent, persona, memory):
+  app\runtime\quality_gate.py:6:    s=score_response(answer,intent,persona,memory)
+  app\runtime\quality_gate.py:7:    if s["overall"] < 0.82:
+  app\runtime\quality_gate.py:8:        answer="Diagnóstico: pedido identificado sem resposta genérica.\nEstratégia: manter contexto, memória e ação concreta.\nExecução: aplicar próximo passo verificável.\nAuditoria: validar evidência e continuidade."
+  app\runtime\quality_gate.py:9:        s=score_response(answer,intent,persona,memory)
+  app\runtime\quality_gate.py:10:    return {"answer":answer,"scores":s}
+  app\runtime\response_builder.py:1:from app.runtime.whatsapp_trace_sensor import sanitize_final_output
+> app\runtime\response_builder.py:2:from app.dialogue.conversation_continuity_runtime import update,get
+  app\runtime\response_builder.py:3:from app.dialogue.context_resolution_engine import resolve
+  app\runtime\response_builder.py:4:from app.dialogue.generic_llm_detector import detect,rewrite
+  app\runtime\response_builder.py:5:from app.dialogue.persona_consistency_guard import enforce
+  app\runtime\response_builder.py:6:from app.runtime.identity_guard_runtime import guard_identity_fallback
+> app\runtime\response_builder.py:7:from app.runtime.continuity import inject_continuity_anchor
+  app\runtime\response_builder.py:8:
+  app\runtime\response_builder.py:9:class ResponseBuilder:
+  app\runtime\response_builder.py:10:    def __init__(self, *args, **kwargs):
+  app\runtime\response_builder.py:11:        self.version = "response_builder_compat_v2"
+  app\runtime\response_builder.py:12:
+  app\runtime\response_builder.py:13:    def build(self, user_message="", intent=None, memory=None, internal_state=None, persona_context=None, strategy=None):
+  app\runtime\response_builder.py:14:        return build_response(
+  app\runtime\response_builder.py:15:            user_message=user_message,
+  app\runtime\response_builder.py:16:            intent=intent or {"intent":"general"},
+  app\runtime\response_builder.py:17:            memory=memory or {},
+  app\runtime\response_builder.py:30:        f"Execução: {strategy.get('strategy','responder')} sem resetar contexto e sem resposta genérica.\n"
+  app\runtime\response_builder.py:31:        f"Auditoria: manter persona, foco e utilidade prática."
+  app\runtime\response_builder.py:32:    )
+> app\runtime\response_builder.py:33:    return inject_continuity_anchor(base, internal_state)
+  app\runtime\response_builder.py:34:
+  app\runtime\response_builder.py:35:
+  app\runtime\response_builder.py:36:
+  app\runtime\semantic_answer_engine.py:67:        answer = decision.answer
+  app\runtime\semantic_answer_engine.py:68:    elif decision.domain == "social":
+  app\runtime\semantic_answer_engine.py:69:        answer = decision.answer
+> app\runtime\semantic_answer_engine.py:70:    elif decision.intent == "FOLLOWUP":
+  app\runtime\semantic_answer_engine.py:71:        answer = decision.answer
+  app\runtime\semantic_answer_engine.py:72:    else:
+  app\runtime\semantic_answer_engine.py:73:        answer = decision.answer
+  app\runtime\semantic_answer_engine.py:74:
+  app\runtime\semantic_answer_engine.py:75:    return {
+  app\runtime\semantic_answer_engine.py:76:        "intent": decision.intent,
+  app\runtime\semantic_answer_engine.py:77:        "domain": decision.domain,
+  app\runtime\semantic_answer_engine.py:78:        "confidence": decision.confidence,
+  app\runtime\semantic_answer_engine.py:79:        "entities": decision.entities,
+  app\runtime\semantic_answer_engine.py:80:        "context": ctx,
+  app\runtime\semantic_router.py:62:        prev = ctx.get("domain")
+  app\runtime\semantic_router.py:63:        if prev == "local_food":
+  app\runtime\semantic_router.py:64:            loc = ctx.get("location","a região")
+> app\runtime\semantic_router.py:65:            return SemanticDecision("FOLLOWUP","local_food",.7,ent,f"Seguindo em comida em {loc}: melhor filtrar por tipo de cozinha, preço e distância.")
+  app\runtime\semantic_router.py:66:        return SemanticDecision("OPEN_LOOP","general",.55,ent,"Estou aqui. Me diga o tema principal.")
+  app\runtime\semantic_router.py:67:
+  app\runtime\semantic_router.py:68:    return SemanticDecision("OPEN_LOOP","general",.4,ent,"Entendi. Me diga o objetivo em uma frase.")
+  app\runtime\semantic_router.py:69:
+  app\runtime\semantic_router.py:70:def route_semantic_whatsapp(message, last_context=None):
+  app\runtime\semantic_router.py:71:    return semantic_route(message,last_context).answer
+  app\runtime\strategic_conversation_authority.py:23:        "otimização","otimizacao","plano","eldora"
+  app\runtime\strategic_conversation_authority.py:24:    )
+  app\runtime\strategic_conversation_authority.py:25:
+> app\runtime\strategic_conversation_authority.py:26:    followup_terms = (
+  app\runtime\strategic_conversation_authority.py:27:        "o que fazer primeiro",
+  app\runtime\strategic_conversation_authority.py:28:        "primeiro",
+  app\runtime\strategic_conversation_authority.py:29:        "próximo passo",
+  app\runtime\strategic_conversation_authority.py:30:        "proximo passo",
+  app\runtime\strategic_conversation_authority.py:31:        "e depois",
+  app\runtime\strategic_conversation_authority.py:32:        "mais contexto"
+  app\runtime\strategic_conversation_authority.py:33:    )
+  app\runtime\strategic_conversation_authority.py:34:
+  app\runtime\strategic_conversation_authority.py:35:    if any(t in msg for t in strategic_terms):
+  app\runtime\strategic_conversation_authority.py:36:        state["last_topic"] = user_message
+  app\runtime\strategic_conversation_authority.py:41:            "e validar comportamento real no WhatsApp."
+  app\runtime\strategic_conversation_authority.py:42:        )
+  app\runtime\strategic_conversation_authority.py:43:
+> app\runtime\strategic_conversation_authority.py:44:    if any(t in msg for t in followup_terms):
+  app\runtime\strategic_conversation_authority.py:45:        topic = state.get("last_topic")
+  app\runtime\strategic_conversation_authority.py:46:        if topic:
+  app\runtime\strategic_conversation_authority.py:47:            return (
+  app\runtime\strategic_conversation_authority.py:48:                f"SCA: autoridade final reutilizando contexto "
+  app\runtime\strategic_conversation_authority.py:49:                f"anterior ({topic}). Primeiro alinhar prioridade "
+  app\runtime\strategic_conversation_authority.py:50:                f"80/20 e validar comportamento real."
+  app\runtime\strategic_conversation_authority.py:51:            )
+  app\runtime\strategic_conversation_authority.py:52:
+  app\runtime\strategic_conversation_authority.py:53:    return None
+> app\runtime\topic_continuity_engine.py:1:FOLLOWUP_WORDS = {
+  app\runtime\topic_continuity_engine.py:2:    "aprofunde","aprofundar","continue","continua","continue isso",
+  app\runtime\topic_continuity_engine.py:3:    "explique mais","detalhe","mais detalhes","sobre isso",
+  app\runtime\topic_continuity_engine.py:4:    "e os pontos fracos","e manutenção","e consumo","vale a pena","quais?","quais","quais são?","quais sao?","qual deles?","qual delas?","e quais?"
+  app\runtime\topic_continuity_engine.py:5:}
+  app\runtime\topic_continuity_engine.py:6:
+> app\runtime\topic_continuity_engine.py:7:def resolve_followup(message:str, session_ctx:dict):
+  app\runtime\topic_continuity_engine.py:8:    msg=(message or "").strip().lower()
+  app\runtime\topic_continuity_engine.py:9:    last_topic=(session_ctx or {}).get("last_topic")
+  app\runtime\topic_continuity_engine.py:10:
+> app\runtime\topic_continuity_engine.py:11:    if msg in FOLLOWUP_WORDS and last_topic:
+> app\runtime\topic_continuity_engine.py:12:        return {"followup":True,"topic":last_topic}
+  app\runtime\topic_continuity_engine.py:13:
+  app\runtime\topic_continuity_engine.py:14:    if "k1300" in msg or "bmw k1300" in msg:
+  app\runtime\topic_continuity_engine.py:15:        session_ctx["last_topic"]="BMW_K1300_BUYING"
+  app\runtime\topic_continuity_engine.py:16:
+> app\runtime\topic_continuity_engine.py:17:    return {"followup":False,"topic":session_ctx.get("last_topic")}
+  app\runtime\topic_continuity_engine.py:18:
+  app\runtime\ucce_canary_router.py:4:CANARY_PERCENT=int(os.getenv("UCCE_CANARY_PERCENT","10"))
+  app\runtime\ucce_canary_router.py:5:ALLOWLIST=set(filter(None,os.getenv("UCCE_CANARY_ALLOWLIST","").split(",")))
+  app\runtime\ucce_canary_router.py:6:
+> app\runtime\ucce_canary_router.py:7:def should_use_ucce(sender_id:str)->bool:
+  app\runtime\ucce_canary_router.py:8:    if not CANARY_ENABLED:
+  app\runtime\ucce_canary_router.py:9:        return False
+  app\runtime\ucce_canary_router.py:10:
+  app\runtime\ucce_canary_router.py:11:    sender=(sender_id or "").strip()
+  app\runtime\ucce_canary_router.py:12:
+  app\runtime\ucce_canary_router.py:13:    if sender in ALLOWLIST:
+  app\runtime\ucce_canary_router.py:14:        return True
+  app\runtime\ucce_canary_router.py:15:
+  app\runtime\ucce_canary_router.py:16:    bucket=int(hashlib.md5(sender.encode()).hexdigest(),16)%100
+  app\runtime\ucce_canary_router.py:17:    return bucket < CANARY_PERCENT
+> app\runtime\ucce_decision_diff.py:1:def compare_decisions(dispatcher_reply,ucce):
+  app\runtime\ucce_decision_diff.py:2:    r=(ucce.get("reply","") or "").lower()
+  app\runtime\ucce_decision_diff.py:3:    c=9 if ucce.get("context_used") else 5
+  app\runtime\ucce_decision_diff.py:4:    social=9 if ucce.get("classification")=="SOCIAL" else 6
+  app\runtime\ucce_decision_diff.py:5:    fallback=1 if "exatamente" in r else 0
+> app\runtime\ucce_decision_diff.py:6:    return {"contextual_continuity_score":c,"semantic_collapse_score":0,"placeholder_score":0,"social_naturalness_score":social,"repetition_score":0,"execution_usefulness_score":8,"fallback_dependency_score":fallback,"winner":"ucce" if c>=8 else "dispatcher"}
+> app\runtime\ucce_shadow_mode.py:1:from app.runtime.universal_contextual_continuity_engine import ucce_shadow_evaluate
+> app\runtime\ucce_shadow_mode.py:2:def run_ucce_shadow(sender_id,inbound_message,live_reply,state=None):
+> app\runtime\ucce_shadow_mode.py:3:    try:return ucce_shadow_evaluate(sender_id,inbound_message,state)
+  app\runtime\ucce_shadow_mode.py:4:    except Exception as e:return {"classification":"ERROR","reply":live_reply,"error":str(e)}
+  app\runtime\universal_contextual_continuity_engine.py:1:from datetime import datetime,UTC
+> app\runtime\universal_contextual_continuity_engine.py:2:from app.runtime.conversation_state_resolver import resolve
+> app\runtime\universal_contextual_continuity_engine.py:3:from app.runtime.context_recovery_engine import recover_context
+  app\runtime\universal_contextual_continuity_engine.py:4:from app.runtime.decision_memory import get_state, save_state
+  app\runtime\universal_contextual_continuity_engine.py:5:
+  app\runtime\universal_contextual_continuity_engine.py:6:BANNED=[
+  app\runtime\universal_contextual_continuity_engine.py:7:"vamos seguir pelo ponto real",
+  app\runtime\universal_contextual_continuity_engine.py:8:"tudo certo por aqui",
+  app\runtime\universal_contextual_continuity_engine.py:9:"entendi",
+  app\runtime\universal_contextual_continuity_engine.py:10:"resposta direta",
+  app\runtime\universal_contextual_continuity_engine.py:11:"ação recomendada",
+  app\runtime\universal_contextual_continuity_engine.py:12:"memória contextual",
+  app\runtime\universal_contextual_continuity_engine.py:13:"como posso ajudar hoje"
+  app\runtime\universal_contextual_continuity_engine.py:39:            return v
+  app\runtime\universal_contextual_continuity_engine.py:40:    return "Oi."
+  app\runtime\universal_contextual_continuity_engine.py:41:
+> app\runtime\universal_contextual_continuity_engine.py:42:def ucce_shadow_evaluate(sender_id,inbound_message,state=None):
+  app\runtime\universal_contextual_continuity_engine.py:43:    s=get_state(sender_id)
+  app\runtime\universal_contextual_continuity_engine.py:44:    raw=(inbound_message or "").strip()
+  app\runtime\universal_contextual_continuity_engine.py:45:    msg=raw.lower()
+  app\runtime\universal_contextual_continuity_engine.py:46:    intent,_=resolve(sender_id,raw)
+> app\runtime\universal_contextual_continuity_engine.py:47:    ctx=recover_context(s)
+  app\runtime\universal_contextual_continuity_engine.py:48:
+  app\runtime\universal_contextual_continuity_engine.py:49:    deployment_terms=["implantacao","implantação","implantações","implantacoes","deploy","render","version","versao","versão","elas"]
+  app\runtime\universal_contextual_continuity_engine.py:50:    status_terms=["como","status","estao","estão","andamento","deu certo","funcionou"]
+  app\runtime\universal_contextual_continuity_engine.py:51:
+  app\runtime\universal_contextual_continuity_engine.py:52:    if _has(msg,deployment_terms):
+  app\runtime\universal_contextual_continuity_engine.py:53:        s["last_topic"]="implantações"
+  app\runtime\universal_contextual_continuity_engine.py:54:        s["last_goal"]="validar runtime live"
+  app\runtime\universal_contextual_continuity_engine.py:55:        s["last_open_task"]="acompanhar deploy/canary"
+  app\runtime\universal_contextual_continuity_engine.py:56:        s["open_loop"]=True
+  app\runtime\universal_contextual_continuity_engine.py:57:        intent="VERIFICATION"
+  app\runtime\universal_contextual_continuity_engine.py:59:    if intent=="SOCIAL":
+  app\runtime\universal_contextual_continuity_engine.py:60:        reply=_social_reply(msg)
+  app\runtime\universal_contextual_continuity_engine.py:61:
+> app\runtime\universal_contextual_continuity_engine.py:62:    elif intent=="FOLLOWUP":
+  app\runtime\universal_contextual_continuity_engine.py:63:        topic=s.get("last_topic") or ctx.get("topic") or "isso"
+  app\runtime\universal_contextual_continuity_engine.py:64:        problem=s.get("last_problem") or "o último ponto ainda aberto"
+  app\runtime\universal_contextual_continuity_engine.py:65:        reply=f"Continuando sobre {topic}: o ponto aberto é {problem}. O próximo passo é validar a resposta real no WhatsApp."
+  app\runtime\universal_contextual_continuity_engine.py:66:
+  app\runtime\universal_contextual_continuity_engine.py:67:    elif intent=="TROUBLESHOOTING":
+  app\runtime\universal_contextual_continuity_engine.py:68:        s["last_problem"]=raw
+  app\runtime\universal_contextual_continuity_engine.py:69:        s["unresolved_error"]=raw
+  app\runtime\universal_contextual_continuity_engine.py:70:        s["open_loop"]=True
+  app\runtime\universal_contextual_continuity_engine.py:71:        reply=f"O erro aberto é: {raw}. O próximo teste é confirmar se a rota caiu no branch UCCE e se a memória recuperou o contexto."
+  app\runtime\universal_contextual_continuity_engine.py:72:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:11:    active_reasoning_mode: str = "reflective"
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:12:    stage: str = "discover"
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:13:    depth_level: int = 1
+> app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:14:    semantic_continuity: float = 0.0
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:15:    grounding_level: str = "contextual"
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:16:    execution_need: bool = False
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:17:    social_energy: str = "neutral"
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:18:    conversational_budget: int = 220
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:19:    memory_context: List[str] | None = None
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:20:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:21:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:22:class UniversalConversationAuthority:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:23:    def __init__(self):
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:24:        self.state: Dict[str, ConversationContext] = {}
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:102:            active_reasoning_mode=mode,
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:103:            stage=stage,
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:104:            depth_level=depth,
+> app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:105:            semantic_continuity=0.9 if progressive else 0.5,
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:106:            grounding_level="contextual",
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:107:            execution_need=(intent == "execute"),
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:108:            social_energy="low" if mode == "emotional_safe" else "neutral",
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:109:            conversational_budget=220,
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:110:            memory_context=(memory_context or [])
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:111:        )
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:112:
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:113:        self.state[sender_id] = ctx
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:114:        return asdict(ctx)
+  app\runtime\universal_conversation_authority_BACKUP_20260523_114422.py:115:
+  app\runtime\universal_conversation_authority.py:12:    execution_axis: str = "próximo passo verificável"
+  app\runtime\universal_conversation_authority.py:13:    evidence_axis: str = "validação objetiva"
+  app\runtime\universal_conversation_authority.py:14:    last_user_goal: str = ""
+> app\runtime\universal_conversation_authority.py:15:    followup_depth: int = 1
+  app\runtime\universal_conversation_authority.py:16:    semantic_anchor: str = "active_context"
+> app\runtime\universal_conversation_authority.py:17:    continuity_score: float = 0.0
+  app\runtime\universal_conversation_authority.py:18:
+  app\runtime\universal_conversation_authority.py:19:
+  app\runtime\universal_conversation_authority.py:20:class UniversalConversationAuthority:
+  app\runtime\universal_conversation_authority.py:21:    def __init__(self):
+  app\runtime\universal_conversation_authority.py:22:        self.objects: Dict[str, ActiveConversationalObject] = {}
+  app\runtime\universal_conversation_authority.py:23:
+  app\runtime\universal_conversation_authority.py:24:    def _intent(self, text: str) -> str:
+  app\runtime\universal_conversation_authority.py:25:        t = (text or "").lower()
+  app\runtime\universal_conversation_authority.py:26:
+  app\runtime\universal_conversation_authority.py:27:        if any(x in t for x in [
+  app\runtime\universal_conversation_authority.py:63:
+  app\runtime\universal_conversation_authority.py:64:        if prev and intent in ["deepen","execute","validate","emotional_safe"]:
+  app\runtime\universal_conversation_authority.py:65:            obj = prev
+> app\runtime\universal_conversation_authority.py:66:            obj.followup_depth = min(obj.followup_depth + 1, 5)
+> app\runtime\universal_conversation_authority.py:67:            obj.continuity_score = 0.95
+  app\runtime\universal_conversation_authority.py:68:            if intent == "emotional_safe":
+  app\runtime\universal_conversation_authority.py:69:                obj.semantic_anchor = "emotional_safe"
+  app\runtime\universal_conversation_authority.py:70:        else:
+  app\runtime\universal_conversation_authority.py:71:            obj = ActiveConversationalObject(
+  app\runtime\universal_conversation_authority.py:72:                sender_id=sender_id,
+  app\runtime\universal_conversation_authority.py:73:                active_problem=self._abstract_problem(message),
+  app\runtime\universal_conversation_authority.py:74:                reasoning_axis="causa prioridade dependência",
+  app\runtime\universal_conversation_authority.py:75:                execution_axis="transformar contexto em ação",
+  app\runtime\universal_conversation_authority.py:76:                evidence_axis="teste log evidência",
+  app\runtime\universal_conversation_authority.py:77:                last_user_goal=self._abstract_problem(message),
+> app\runtime\universal_conversation_authority.py:78:                followup_depth=1,
+> app\runtime\universal_conversation_authority.py:79:                continuity_score=0.70,
+  app\runtime\universal_conversation_authority.py:80:            )
+  app\runtime\universal_conversation_authority.py:81:
+  app\runtime\universal_conversation_authority.py:82:        self.objects[sender_id] = obj
+  app\runtime\universal_conversation_authority.py:83:
+  app\runtime\universal_conversation_authority.py:84:        return {
+  app\runtime\universal_conversation_authority.py:85:            "sender_id": sender_id,
+  app\runtime\universal_conversation_authority.py:86:            "active_intent": intent,
+  app\runtime\universal_conversation_authority.py:87:            "active_reasoning_mode": "universal_contextual_authority",
+  app\runtime\universal_conversation_authority.py:88:            "stage": (
+  app\runtime\universal_conversation_authority.py:89:                "execute"
+  app\runtime\universal_conversation_authority.py:90:                if intent == "execute"
+  app\runtime\universal_conversation_authority.py:91:                else "deepen"
+  app\runtime\universal_conversation_authority.py:92:            ),
+> app\runtime\universal_conversation_authority.py:93:            "depth_level": obj.followup_depth,
+> app\runtime\universal_conversation_authority.py:94:            "semantic_continuity": obj.continuity_score,
+  app\runtime\universal_conversation_authority.py:95:            "grounding_level": "contextual",
+  app\runtime\universal_conversation_authority.py:96:            "execution_need": intent == "execute",
+  app\runtime\universal_conversation_authority.py:97:            "social_energy": (
+  app\runtime\universal_conversation_authority.py:98:                "low"
+  app\runtime\universal_conversation_authority.py:99:                if intent == "emotional_safe"
+  app\runtime\universal_conversation_authority.py:100:                else "neutral"
+  app\runtime\universal_conversation_authority.py:101:            ),
+  app\runtime\universal_conversation_authority.py:102:            "conversational_budget": 220,
+  app\runtime\universal_conversation_authority.py:103:            "memory_context": memory_context or [],
+  app\runtime\universal_conversation_authority.py:104:            "aco": asdict(obj),
+  app\runtime\universal_conversation_os.py:7:import ast, operator, re
+  app\runtime\universal_conversation_os.py:8:
+  app\runtime\universal_conversation_os.py:9:class ConversationMode(str, Enum):
+> app\runtime\universal_conversation_os.py:10:    SOCIAL="SOCIAL"; TASK="TASK"; FOLLOWUP="FOLLOWUP"; EXECUTION="EXECUTION"; ANALYSIS="ANALYSIS"; CALCULATION="CALCULATION"; VERIFICATION="VERIFICATION"; CLARIFICATION="CLARIFICATION"; EMOTIONAL_SAFE="EMOTIONAL_SAFE"; CLOSURE="CLOSURE"
+  app\runtime\universal_conversation_os.py:11:
+  app\runtime\universal_conversation_os.py:12:FORBIDDEN=["Entendi. Me diga melhor","Resposta direta:","Ação recomendada:","Memória contextual:","Vou manter continuidade","Pode mandar a dúvida direto","Como posso ajudar hoje?","Resumo / compatibility","risk:","compatibility:","Diagnóstico:","Estratégia:","Execução:","Auditoria:","Detalhamento:","Pontos-chave:","Análise: contexto="]
+  app\runtime\universal_conversation_os.py:13:
+  app\runtime\universal_conversation_os.py:14:@dataclass
+  app\runtime\universal_conversation_os.py:15:class SenderState:
+  app\runtime\universal_conversation_os.py:16:    sender_id:str
+  app\runtime\universal_conversation_os.py:17:    last_user_message:str=""
+  app\runtime\universal_conversation_os.py:18:    last_assistant_reply:str=""
+  app\runtime\universal_conversation_os.py:19:    last_topic:str=""
+  app\runtime\universal_conversation_os.py:20:    last_task:str=""
+  app\runtime\universal_conversation_os.py:72:        if toks & cls.EXEC: return ConversationMode.EXECUTION
+  app\runtime\universal_conversation_os.py:73:        if toks & cls.VERIFY: return ConversationMode.VERIFICATION
+  app\runtime\universal_conversation_os.py:74:        if toks & cls.EMO: return ConversationMode.EMOTIONAL_SAFE
+> app\runtime\universal_conversation_os.py:75:        if toks & cls.FOLLOW or (len(toks)<=4 and (state.last_topic or state.last_task)): return ConversationMode.FOLLOWUP
+  app\runtime\universal_conversation_os.py:76:        if len(toks)<=6 and len(toks & cls.SOCIAL)>=max(1,len(toks)//2): return ConversationMode.SOCIAL
+  app\runtime\universal_conversation_os.py:77:        if low.endswith("?") and len(toks)<=3 and not state.last_topic: return ConversationMode.CLARIFICATION
+  app\runtime\universal_conversation_os.py:78:        return ConversationMode.TASK
+  app\runtime\universal_conversation_os.py:79:
+  app\runtime\universal_conversation_os.py:80:    @classmethod
+  app\runtime\universal_conversation_os.py:81:    def process(cls,msg,sender_id=None,candidate_reply=""):
+  app\runtime\universal_conversation_os.py:82:        state=SenderStateMemory.load(sender_id)
+  app\runtime\universal_conversation_os.py:83:        mode=cls.classify(msg,state)
+> app\runtime\universal_conversation_os.py:84:        topic=(state.last_task or state.last_topic or state.last_user_message or msg) if mode==ConversationMode.FOLLOWUP else (msg or "").strip()
+  app\runtime\universal_conversation_os.py:85:        calc=SafeCalculator.eval_expr(msg or "")
+  app\runtime\universal_conversation_os.py:86:        if mode==ConversationMode.SOCIAL: reply="Tudo certo, Roberto. Seguimos firmes."
+  app\runtime\universal_conversation_os.py:87:        elif mode==ConversationMode.CALCULATION: reply=f"Resultado: {int(calc) if calc is not None and calc==int(calc) else calc}." if calc is not None else "Me mande a expressão completa em uma linha."
+> app\runtime\universal_conversation_os.py:88:        elif mode==ConversationMode.FOLLOWUP: reply=f"Vamos aprofundar no mesmo contexto: {topic}. O foco é achar a causa real, separar sintoma de origem e validar o próximo teste sem reiniciar a conversa."
+  app\runtime\universal_conversation_os.py:89:        elif mode==ConversationMode.VERIFICATION: reply="Checklist real: 1) isolar último ponto alterado, 2) rodar teste mínimo, 3) comparar saída esperada vs real, 4) registrar evidência."
+  app\runtime\universal_conversation_os.py:90:        elif mode==ConversationMode.ANALYSIS: reply="Envie o arquivo, imagem ou texto exato para eu analisar sem inferir."
+  app\runtime\universal_conversation_os.py:91:        elif mode==ConversationMode.EXECUTION: reply="Execução: aplicar a ação pedida, validar retorno e bloquear falso positivo."
+  app\runtime\universal_conversation_os.py:92:        elif mode==ConversationMode.EMOTIONAL_SAFE: reply=f"Vamos resolver por partes. No contexto de {topic}, começo isolando o erro e reduzindo o escopo."
+  app\runtime\universal_conversation_os.py:93:        elif mode==ConversationMode.CLARIFICATION: reply="Qual item exato você quer que eu valide agora?"
+  app\runtime\universal_conversation_os.py:94:        else: reply=(candidate_reply or "Próximo passo objetivo: definir entrada, validar saída e registrar evidência.").strip()
+  app\runtime\universal_conversation_os.py:95:        if any(x.lower() in reply.lower() for x in FORBIDDEN):
+  app\runtime\universal_conversation_os.py:96:            reply=f"Vamos seguir de forma direta no contexto de {topic}. O próximo passo é isolar a causa real, testar a hipótese principal e registrar evidência antes de avançar."
+  app\runtime\universal_conversation_os.py:97:        state.conversation_depth+=1; state.last_user_message=msg or ""; state.last_assistant_reply=reply; state.last_mode=mode.value; state.last_intent=mode.value.lower()
+  app\runtime\universal_conversation_os.py:98:        if mode not in [ConversationMode.SOCIAL,ConversationMode.CLARIFICATION]: state.last_topic=topic
+  app\runtime\visible_response_layer.py:1:from app.runtime.whatsapp_trace_sensor import sanitize_final_output
+> app\runtime\visible_response_layer.py:2:from app.dialogue.conversation_continuity_runtime import update,get
+  app\runtime\visible_response_layer.py:3:from app.dialogue.context_resolution_engine import resolve
+  app\runtime\visible_response_layer.py:4:from app.dialogue.generic_llm_detector import detect,rewrite
+  app\runtime\visible_response_layer.py:5:from app.dialogue.persona_consistency_guard import enforce
+  app\runtime\visible_response_layer.py:6:from app.runtime.identity_guard_runtime import guard_identity_fallback
+  app\runtime\visible_response_layer.py:7:def build_visible_response(user_text: str, focus: str = "MIND") -> str:
+  app\runtime\visible_response_layer.py:8:    msg = (user_text or "").lower().strip()
+  app\runtime\visible_response_layer.py:9:
+  app\runtime\visible_response_layer.py:10:    # =====================================================
+  app\runtime\visible_response_layer.py:11:    # PRIORIDADE MÁXIMA — WHERE IS THE ANSWER
+  app\runtime\visible_response_layer.py:12:    # =====================================================
+  app\runtime\visible_response_layer.py:129:        )
+  app\runtime\visible_response_layer.py:130:
+  app\runtime\visible_response_layer.py:131:    # =====================================================
+> app\runtime\visible_response_layer.py:132:    # FOLLOWUP
+  app\runtime\visible_response_layer.py:133:    # =====================================================
+  app\runtime\visible_response_layer.py:134:
+  app\runtime\visible_response_layer.py:135:    if "qual seria" in msg:
+  app\runtime\visible_response_layer.py:136:        return (
+  app\runtime\visible_response_layer.py:137:            "O gargalo é a memória curta da conversa. "
+  app\runtime\visible_response_layer.py:138:            "A Eldora ainda perde contexto quando o follow-up é ambíguo."
+  app\runtime\visible_response_layer.py:139:        )
+  app\runtime\visible_response_layer.py:140:
+  app\runtime\visible_response_layer.py:141:    # =====================================================
+  app\runtime\visible_response_layer.py:142:    # GREETINGS
+> app\runtime\whatsapp_social_followup_guard.py:1:def whatsapp_social_followup_guard(text):
+  app\runtime\whatsapp_social_followup_guard.py:2:    t=(text or "").lower()
+  app\runtime\whatsapp_social_followup_guard.py:3:    if "como vc ta" in t or "como você está" in t or "tudo bem" in t:
+  app\runtime\whatsapp_social_followup_guard.py:4:        return "Estou bem, Roberto. E você?"
+  app\runtime\whatsapp_social_followup_guard.py:5:    if "aprofunde" in t:
+  app\runtime\whatsapp_social_followup_guard.py:6:        return "Vou aprofundar pelo ponto anterior; continua com evidência e próximo passo."
+  app\runtime\whatsapp_social_followup_guard.py:7:    return ""
+  app\runtime\whatsapp_social_followup_guard.py:8:def block_meta_reply(reply):
+  app\runtime\whatsapp_social_followup_guard.py:9:    low=str(reply or "").lower()
+  app\runtime\whatsapp_social_followup_guard.py:10:    return "execução contextual" in low or ("diagnóstico" in low and "estratégia" in low and "execução" in low) or ("não posso" in low and "política" in low)
+  app\runtime\whatsapp_social_followup_guard.py:11:
+  app\runtime\whatsapp_social_followup_guard.py:12:def social_reply(text):
+> app\runtime\whatsapp_social_followup_guard.py:13:    return whatsapp_social_followup_guard(text)
+  app\runtime\whatsapp_social_followup_guard.py:14:
+  app\runtime\whatsapp_social_followup_guard.py:15:
+  app\runtime\whatsapp_social_followup_guard.py:16:def social_reply(text):
+  app\runtime\whatsapp_social_followup_guard.py:17:    t=(text or '').lower()
+  app\runtime\whatsapp_social_followup_guard.py:18:    if 'bom dia' in t: return 'Oi, Roberto. Tudo certo?'
+  app\runtime\whatsapp_social_followup_guard.py:19:    if 'aprofunde' in t: return 'Execução contextual: continua do ponto anterior com evidência e próximo passo.'
+> app\runtime\whatsapp_social_followup_guard.py:20:    return whatsapp_social_followup_guard(text)
+  app\runtime\whatsapp_social_followup_guard.py:21:
+  app\runtime\whatsapp_social_followup_guard.py:22:
+  app\runtime\whatsapp_social_followup_guard.py:23:def social_reply(text):
+  app\runtime\whatsapp_social_followup_guard.py:24:    t=(text or "").lower()
+  app\runtime\whatsapp_social_followup_guard.py:25:    if "bom dia" in t: return "Oi, Roberto. Tudo certo?"
+  app\runtime\whatsapp_social_followup_guard.py:26:    if "eu tô bem" in t or "eu to bem" in t: return "Que bom saber que você está bem!"
+  app\runtime\whatsapp_social_followup_guard.py:27:    if "aprofunde" in t: return "Execução contextual: continua do ponto anterior com evidência e próximo passo."
+> app\runtime\whatsapp_social_followup_guard.py:28:    return whatsapp_social_followup_guard(text)
+  app\runtime\whatsapp_social_followup_guard.py:29:
+  app\training\conversation_maturity_simulator.py:1:from app.humanization.human_conversation_runtime import CASES,human_reply,score_response,has_identity_leak
+  app\training\conversation_maturity_simulator.py:2:import json, random, time
+> app\training\conversation_maturity_simulator.py:3:CATEGORIES=["smalltalk","amizade","opinião","followup","dúvida","crítica","sarcasmo leve","typo/noisy input","estudo","matemática","engenharia","emocional leve","cansaço","comparação","memória longitudinal","reflexão","disagreement","contextual recall","multimodal followup"]
+  app\training\conversation_maturity_simulator.py:4:def run(total=1200):
+  app\training\conversation_maturity_simulator.py:5:    rows=[]
+  app\training\conversation_maturity_simulator.py:6:    for i in range(total):
+  app\training\conversation_maturity_simulator.py:7:        prompt=CASES[i%len(CASES)]
+  app\training\conversation_maturity_simulator.py:8:        if i%17==0: prompt=prompt.replace("você","vc").replace("não","nao")
+  app\training\conversation_maturity_simulator.py:9:        response=human_reply(prompt,{"i":i})
+  app\training\conversation_maturity_simulator.py:10:        rows.append(score_response(prompt,response))
+  app\training\conversation_maturity_simulator.py:11:    leaks=sum(1 for r in rows if r["identity_leak"])
+  app\training\conversation_maturity_simulator.py:12:    avg=sum(r["score"] for r in rows)/len(rows)
+  app\training\conversation_maturity_simulator.py:13:    return {"total":len(rows),"categories":CATEGORIES,"identity_leaks":leaks,"identity_fallback_rate":round(leaks/len(rows),4),"humanization_score":round(avg,2),"passed":leaks/len(rows)<0.01 and avg>=95,"samples":rows[:50]}
+  app\training\multi_ai_conversation_swarm.py:4: "executive_impatient","emotional_user","technical_engineer","confused_beginner",
+  app\training\multi_ai_conversation_swarm.py:5: "skeptical_high_iq","small_business_owner","farmer_haras_owner","pet_owner",
+  app\training\multi_ai_conversation_swarm.py:6: "car_enthusiast","quiet_user","angry_user","anxious_user","casual_friend",
+> app\training\multi_ai_conversation_swarm.py:7: "low_context_user","followup_heavy_user","typo_noisy_user"
+  app\training\multi_ai_conversation_swarm.py:8:]
+  app\training\multi_ai_conversation_swarm.py:9:
+  app\training\multi_ai_conversation_swarm.py:10:TOPICS=[
+  app\training\multi_ai_conversation_swarm.py:11: "eldora_runtime","humanizacao","cane_corso","automotivo","haras",
+  app\training\multi_ai_conversation_swarm.py:12: "marketing","negocios","whatsapp","memoria","smalltalk","erro_tecnico"
+  app\training\multi_ai_conversation_swarm.py:13:]
+  app\training\multi_ai_conversation_swarm.py:14:
+  app\training\multi_ai_conversation_swarm.py:15:SCENARIOS=[
+  app\training\multi_ai_conversation_swarm.py:16: ("executive_impatient","eldora_runtime","direto: isso já funciona ou ainda tá quebrado?"),
+  app\training\multi_ai_conversation_swarm.py:17: ("emotional_user","humanizacao","cara, tá difícil acertar isso, né?"),
+  app\training\multi_ai_conversation_swarm.py:23: ("pet_owner","cane_corso","como escolho um filhote de cane corso saudável?"),
+  app\training\multi_ai_conversation_swarm.py:24: ("car_enthusiast","automotivo","diesel é melhor que gasolina para torque?"),
+  app\training\multi_ai_conversation_swarm.py:25: ("typo_noisy_user","smalltalk","bom dia, td bemw?"),
+> app\training\multi_ai_conversation_swarm.py:26: ("followup_heavy_user","humanizacao","e agora? sentiu diferença? ainda nada?"),
+  app\training\multi_ai_conversation_swarm.py:27: ("angry_user","eldora_runtime","de novo isso errado? arruma logo"),
+  app\training\multi_ai_conversation_swarm.py:28: ("anxious_user","erro_tecnico","será que estragou tudo?"),
+  app\training\multi_ai_conversation_swarm.py:29: ("casual_friend","smalltalk","oi, como tá por aí?"),
+  app\training\multi_ai_conversation_swarm.py:30: ("low_context_user","memoria","isso aí, continua"),
+  app\training\multi_ai_conversation_swarm.py:31:]
+  app\training\multi_ai_conversation_swarm.py:32:
+  app\training\multi_ai_conversation_swarm.py:33:def simulate_reply(user_text, persona, topic):
+  app\training\multi_ai_conversation_swarm.py:34:    t=(user_text or "").lower()
+  app\training\multi_ai_conversation_swarm.py:35:    if topic=="eldora_runtime" or "webhook" in t or "camada" in t:
+  app\training\multi_ai_conversation_swarm.py:36:        return "o ponto principal está no roteamento: intenção curta, memória e fallback precisam obedecer uma ordem única."
+  app\training\response_scorer.py:21:    leak = any(x in r for x in BANNED)
+  app\training\response_scorer.py:22:
+  app\training\response_scorer.py:23:    naturalness = 100
+> app\training\response_scorer.py:24:    continuity = 100 if any(x in r for x in [
+  app\training\response_scorer.py:25:        "contexto","gargalo","continuação",
+  app\training\response_scorer.py:26:        "conversa","evolução","teste",
+  app\training\response_scorer.py:27:        "validar","sexta","cansado"
+  app\training\response_scorer.py:28:    ]) else 90
+  app\training\response_scorer.py:29:
+  app\training\response_scorer.py:30:    warmth = 100 if any(x in r for x in [
+  app\training\response_scorer.py:31:        "beleza","justo","concordo",
+  app\training\response_scorer.py:32:        "vamos","entendi","melhor"
+  app\training\response_scorer.py:33:    ]) else 92
+  app\training\response_scorer.py:34:
+  app\training\response_scorer.py:45:    else:
+  app\training\response_scorer.py:46:        final_score = round((
+  app\training\response_scorer.py:47:            naturalness*0.20 +
+> app\training\response_scorer.py:48:            continuity*0.20 +
+  app\training\response_scorer.py:49:            warmth*0.15 +
+  app\training\response_scorer.py:50:            anti_roboticity*0.20 +
+  app\training\response_scorer.py:51:            reflective*0.15 +
+  app\training\response_scorer.py:52:            contextuality*0.10
+  app\training\response_scorer.py:53:        ),2)
+  app\training\response_scorer.py:54:
+  app\training\response_scorer.py:55:    return {
+  app\training\response_scorer.py:56:        "prompt":prompt,
+  app\training\response_scorer.py:57:        "response":response,
+  app\training\response_scorer.py:58:        "identity_leak":leak,
+  app\training\response_scorer.py:59:        "naturalness":naturalness,
+> app\training\response_scorer.py:60:        "continuity":continuity,
+  app\training\response_scorer.py:61:        "warmth":warmth,
+  app\training\response_scorer.py:62:        "anti_roboticity":anti_roboticity,
+  app\training\response_scorer.py:63:        "reflective_reasoning":reflective,
+  app\training\response_scorer.py:64:        "contextuality":contextuality,
+  app\training\response_scorer.py:65:        "score":final_score
+  app\training\response_scorer.py:66:    }
+  app\vision\visual_followup_resolver.py:1:from app.vision.multi_vision_consensus_runtime import MultiVisionConsensusRuntime
+  app\vision\visual_followup_resolver.py:2:
+> app\vision\visual_followup_resolver.py:3:class VisualFollowupResolver:
+  app\vision\visual_followup_resolver.py:4:
+  app\vision\visual_followup_resolver.py:5:    def __init__(self):
+  app\vision\visual_followup_resolver.py:6:        self.consensus = MultiVisionConsensusRuntime()
+  app\vision\visual_followup_resolver.py:7:
+> app\vision\visual_followup_resolver.py:8:    def is_visual_followup(self, message):
+  app\vision\visual_followup_resolver.py:9:        msg = str(message or "").lower()
+  app\vision\visual_followup_resolver.py:10:
+  app\vision\visual_followup_resolver.py:11:        keys = [
+  app\vision\visual_followup_resolver.py:12:            "imagem","foto","carro","modelo","ano",
+  app\vision\visual_followup_resolver.py:13:            "flor","flores","detalhe","aprofund",
+  app\vision\visual_followup_resolver.py:14:            "analise","visual","parece"
+  app\vision\visual_followup_resolver.py:15:        ]
+  app\vision\visual_followup_resolver.py:16:
+  app\vision\visual_followup_resolver.py:17:        return any(k in msg for k in keys)
+  app\vision\visual_followup_resolver.py:18:
+  app\vision\visual_followup_resolver.py:37:
+  app\vision\visual_followup_resolver.py:38:        except Exception as e:
+  app\vision\visual_followup_resolver.py:39:
+> app\vision\visual_followup_resolver.py:40:            print(f"VISUAL_FOLLOWUP_ERROR={type(e).__name__}:{str(e)[:120]}")
+  app\vision\visual_followup_resolver.py:41:
+  app\vision\visual_followup_resolver.py:42:            if visual_context:
+  app\vision\visual_followup_resolver.py:43:                return str(
+  app\vision\visual_followup_resolver.py:44:                    visual_context.get("analysis", "")
+  app\vision\visual_followup_resolver.py:45:                )[:800]
+  app\vision\visual_followup_resolver.py:46:
+  app\vision\visual_followup_resolver.py:47:            return "Recebi sua pergunta visual, mas ocorreu uma falha temporária."
+

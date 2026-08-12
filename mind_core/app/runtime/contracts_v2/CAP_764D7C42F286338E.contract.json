@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_764D7C42F286338E",
+  "source_file": ".venv\\Lib\\site-packages\\urllib3\\util\\retry.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\urllib3\\util\\retry.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 126,
+  "imports": [
+    "__future__",
+    "connectionpool",
+    "email",
+    "exceptions",
+    "itertools",
+    "logging",
+    "random",
+    "re",
+    "response",
+    "time",
+    "types",
+    "typing",
+    "typing_extensions",
+    "util"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,162 @@
+{
+  "STATUS": "P1605_ADAPTIVE_POSITION_SIZING_ENGINE_COMPLETED",
+  "POLICIES_CREATED": 3,
+  "INITIAL_LOT": 0.01,
+  "SCALING_MODEL": "DOUBLE_EVERY_48H_IF_PERFORMANCE_APPROVED",
+  "ELIGIBLE_TO_SCALE": 3,
+  "POLICIES": [
+    {
+      "edge_id": "7d0ccd5986a18a8a9162e384",
+      "asset": "GBPUSD",
+      "timeframe": "M30",
+      "policy_type": "NO_PARTIAL_HIGH_PAYOFF_RUNNER",
+      "current_lot": 0.01,
+      "next_lot_if_approved": 0.02,
+      "evaluation_window_hours": 48,
+      "scaling_status": "ELIGIBLE_TO_SCALE",
+      "scaling_rules": {
+        "start_lot": 0.01,
+        "double_lot_every_hours": 48,
+        "double_only_if": {
+          "avg_managed_R": ">= 1.0",
+          "delta_R": "> 0",
+          "min_trades": ">= 5",
+          "max_drawdown_pct": "<= 3",
+          "loss_streak": "< 3",
+          "confluence_score": ">= 85"
+        },
+        "reduce_50pct_if": {
+          "max_drawdown_pct": "> 3",
+          "loss_streak": ">= 3",
+          "avg_managed_R": "<= 0"
+        },
+        "reset_to_001_if": {
+          "max_drawdown_pct": "> 5",
+          "daily_loss_pct": "> 2",
+          "runtime_health": "!= GREEN"
+        }
+      },
+      "caps": {
+        "max_lot_demo": 0.16,
+        "max_lot_ftmo_sim": 0.04,
+        "max_total_open_lot_demo": 0.2,
+        "max_edges_scaled_same_time": 3
+      },
+      "performance_snapshot": {
+        "trades": 15,
+        "base_total_R": 22.902299,
+        "managed_total_R_v3": 27.852249,
+        "delta_R_v3": 4.94995,
+        "avg_managed_R_v3": 1.856817
+      },
+      "ORDER_SENT": false,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    },
+    {
+      "edge_id": "6ffc7212b632c0f09f8de2fc",
+      "asset": "XAUUSD",
+      "timeframe": "M5",
+      "policy_type": "NO_PARTIAL_HIGH_PAYOFF_RUNNER",
+      "current_lot": 0.01,
+      "next_lot_if_approved": 0.02,
+      "evaluation_window_hours": 48,
+      "scaling_status": "ELIGIBLE_TO_SCALE",
+      "scaling_rules": {
+        "start_lot": 0.01,
+        "double_lot_every_hours": 48,
+        "double_only_if": {
+          "avg_managed_R": ">= 1.0",
+          "delta_R": "> 0",
+          "min_trades": ">= 5",
+          "max_drawdown_pct": "<= 3",
+          "loss_streak": "< 3",
+          "confluence_score": ">= 85"
+        },
+        "reduce_50pct_if": {
+          "max_drawdown_pct": "> 3",
+          "loss_streak": ">= 3",
+          "avg_managed_R": "<= 0"
+        },
+        "reset_to_001_if": {
+          "max_drawdown_pct": "> 5",
+          "daily_loss_pct": "> 2",
+          "runtime_health": "!= GREEN"
+        }
+      },
+      "caps": {
+        "max_lot_demo": 0.16,
+        "max_lot_ftmo_sim": 0.04,
+        "max_total_open_lot_demo": 0.2,
+        "max_edges_scaled_same_time": 3
+      },
+      "performance_snapshot": {
+        "trades": 17,
+        "base_total_R": 34.482746,
+        "managed_total_R_v3": 41.397511,
+        "delta_R_v3": 6.914765,
+        "avg_managed_R_v3": 2.435148
+      },
+      "ORDER_SENT": false,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    },
+    {
+      "edge_id": "9a53b0630c7b7e29e960eb66",
+      "asset": "USDJPY",
+      "timeframe": "D1",
+      "policy_type": "NO_PARTIAL_HIGH_PAYOFF_RUNNER",
+      "current_lot": 0.01,
+      "next_lot_if_approved": 0.02,
+      "evaluation_window_hours": 48,
+      "scaling_status": "ELIGIBLE_TO_SCALE",
+      "scaling_rules": {
+        "start_lot": 0.01,
+        "double_lot_every_hours": 48,
+        "double_only_if": {
+          "avg_managed_R": ">= 1.0",
+          "delta_R": "> 0",
+          "min_trades": ">= 5",
+          "max_drawdown_pct": "<= 3",
+          "loss_streak": "< 3",
+          "confluence_score": ">= 85"
+        },
+        "reduce_50pct_if": {
+          "max_drawdown_pct": "> 3",
+          "loss_streak": ">= 3",
+          "avg_managed_R": "<= 0"
+        },
+        "reset_to_001_if": {
+          "max_drawdown_pct": "> 5",
+          "daily_loss_pct": "> 2",
+          "runtime_health": "!= GREEN"
+        }
+      },
+      "caps": {
+        "max_lot_demo": 0.16,
+        "max_lot_ftmo_sim": 0.04,
+        "max_total_open_lot_demo": 0.2,
+        "max_edges_scaled_same_time": 3
+      },
+      "performance_snapshot": {
+        "trades": 8,
+        "base_total_R": 90.857485,
+        "managed_total_R_v3": 112.487988,
+        "delta_R_v3": 21.630503,
+        "avg_managed_R_v3": 14.060998
+      },
+      "ORDER_SENT": false,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    }
+  ],
+  "NEXT": "P1606_CONFLUENCE_GATE_AND_SCALING_DECISION_MONITOR",
+  "ORDER_SENT": false,
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN",
+  "generated_at": "2026-06-15T19:12:10.157698+00:00"
+}

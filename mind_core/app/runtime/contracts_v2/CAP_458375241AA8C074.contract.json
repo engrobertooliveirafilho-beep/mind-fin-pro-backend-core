@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_458375241AA8C074",
+  "source_file": "_evidence\\P4.82G_P479_KNOWLEDGE_EXTRACTION_RECOVERY_20260621_114957\\p482g_patch_knowledge_extractor.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\_evidence\\P4.82G_P479_KNOWLEDGE_EXTRACTION_RECOVERY_20260621_114957\\p482g_patch_knowledge_extractor.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 102,
+  "imports": [
+    "pathlib",
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

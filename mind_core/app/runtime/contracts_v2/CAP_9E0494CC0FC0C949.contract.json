@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_9E0494CC0FC0C949",
+  "source_file": "_evidence\\P19P38_H_CRITICAL_RUNTIME_DIFF_REVIEW_20260622_180234\\p19p38h_critical_runtime_diff_review.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P19P38_H_CRITICAL_RUNTIME_DIFF_REVIEW_20260622_180234\\p19p38h_critical_runtime_diff_review.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 112,
+  "imports": [
+    "datetime",
+    "json",
+    "os",
+    "pathlib",
+    "re",
+    "subprocess"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,90 @@
+[
+  {
+    "event_memory_id": "BSMEM_a5a40bfed75ff773",
+    "event": "COVID_2020",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "trades": 33,
+    "win_rate": 0.636364,
+    "profit_factor_proxy": 2.390236,
+    "avg_return": 0.00256437,
+    "status": "BLACK_SWAN_PROXY_MEMORY"
+  },
+  {
+    "event_memory_id": "BSMEM_a8f091734281e89d",
+    "event": "COVID_2020",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "trades": 7,
+    "win_rate": 0.428571,
+    "profit_factor_proxy": 0.883923,
+    "avg_return": -0.00077488,
+    "status": "BLACK_SWAN_PROXY_MEMORY"
+  },
+  {
+    "event_memory_id": "BSMEM_79cc3f455f9401c7",
+    "event": "RATE_HIKE_CYCLE_2022",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "trades": 21,
+    "win_rate": 0.619048,
+    "profit_factor_proxy": 1.810776,
+    "avg_return": 0.00206391,
+    "status": "BLACK_SWAN_PROXY_MEMORY"
+  },
+  {
+    "event_memory_id": "BSMEM_502ecdad4f53d1f9",
+    "event": "RATE_HIKE_CYCLE_2022",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "trades": 18,
+    "win_rate": 0.555556,
+    "profit_factor_proxy": 1.346374,
+    "avg_return": 0.00101148,
+    "status": "BLACK_SWAN_PROXY_MEMORY"
+  },
+  {
+    "event_memory_id": "BSMEM_bdd7db71bc6fc21b",
+    "event": "BANKING_STRESS_2023",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "trades": 21,
+    "win_rate": 0.761905,
+    "profit_factor_proxy": 4.5589,
+    "avg_return": 0.00343435,
+    "status": "BLACK_SWAN_PROXY_MEMORY"
+  },
+  {
+    "event_memory_id": "BSMEM_4ea3518d455b845a",
+    "event": "BANKING_STRESS_2023",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "trades": 20,
+    "win_rate": 0.55,
+    "profit_factor_proxy": 1.121998,
+    "avg_return": 0.0002675,
+    "status": "BLACK_SWAN_PROXY_MEMORY"
+  },
+  {
+    "event_memory_id": "BSMEM_455c3e27f36eb10a",
+    "event": "RECENT_REGIME_2024_2026",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "trades": 52,
+    "win_rate": 0.538462,
+    "profit_factor_proxy": 1.014974,
+    "avg_return": 4.462e-05,
+    "status": "BLACK_SWAN_PROXY_MEMORY"
+  },
+  {
+    "event_memory_id": "BSMEM_1581ffb05e4399bc",
+    "event": "RECENT_REGIME_2024_2026",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "trades": 12,
+    "win_rate": 0.666667,
+    "profit_factor_proxy": 1.559353,
+    "avg_return": 0.00208139,
+    "status": "BLACK_SWAN_PROXY_MEMORY"
+  }
+]

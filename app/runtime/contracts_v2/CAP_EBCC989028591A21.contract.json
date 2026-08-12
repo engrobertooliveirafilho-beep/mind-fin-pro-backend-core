@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_EBCC989028591A21",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\core\\internals\\api.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\.venv\\Lib\\site-packages\\pandas\\core\\internals\\api.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 119,
+  "imports": [
+    "__future__",
+    "numpy",
+    "pandas._libs.internals",
+    "pandas._typing",
+    "pandas.core.arrays",
+    "pandas.core.construction",
+    "pandas.core.dtypes.common",
+    "pandas.core.dtypes.dtypes",
+    "pandas.core.internals.blocks",
+    "pandas.errors",
+    "typing",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

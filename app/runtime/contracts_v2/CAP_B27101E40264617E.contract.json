@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_B27101E40264617E",
+  "source_file": "tests\\test_p19p36l_memory_fusion_shadow_scoring.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\tests\\test_p19p36l_memory_fusion_shadow_scoring.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 95,
+  "imports": [
+    "app.companionship.safe_recovery_adapter"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_96675AF35D8DEA2D",
+  "source_file": ".venv\\Lib\\site-packages\\setuptools\\tests\\integration\\test_pip_install_sdist.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\setuptools\\tests\\integration\\test_pip_install_sdist.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 97,
+  "imports": [
+    "enum",
+    "glob",
+    "hashlib",
+    "helpers",
+    "json",
+    "os",
+    "packaging.requirements",
+    "pytest",
+    "setuptools.compat.py310",
+    "shutil",
+    "sys",
+    "urllib.request"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

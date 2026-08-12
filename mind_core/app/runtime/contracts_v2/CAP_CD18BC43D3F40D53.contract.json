@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_CD18BC43D3F40D53",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\beta\\threads\\runs\\tool_calls_step_details.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\openai\\types\\beta\\threads\\runs\\tool_calls_step_details.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 81,
+  "imports": [
+    "_models",
+    "tool_call",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

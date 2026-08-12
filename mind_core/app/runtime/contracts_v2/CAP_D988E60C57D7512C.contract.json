@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_D988E60C57D7512C",
+  "source_file": ".venv\\Lib\\site-packages\\PIL\\ImageDraw.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\PIL\\ImageDraw.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 128,
+  "imports": [
+    "__future__",
+    "_typing",
+    "collections.abc",
+    "math",
+    "struct",
+    "types",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

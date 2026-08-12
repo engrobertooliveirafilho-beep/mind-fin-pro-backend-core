@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_0D841D31ACA16F0D",
+  "source_file": "app\\eldora_factory\\workers\\audio\\audio_worker.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\app\\eldora_factory\\workers\\audio\\audio_worker.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 85,
+  "imports": [
+    "whisper"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

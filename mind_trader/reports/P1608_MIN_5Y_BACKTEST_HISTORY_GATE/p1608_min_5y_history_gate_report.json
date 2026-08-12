@@ -1,0 +1,174 @@
+{
+  "STATUS": "P1608_MIN_5Y_BACKTEST_HISTORY_GATE_COMPLETED",
+  "DATASETS_AUDITED": 254,
+  "MIN_REQUIRED_YEARS": 5,
+  "PASSED_5Y": 6,
+  "FAILED_5Y": 248,
+  "PASS_RATE": 0.0236,
+  "PASSED_BY_ASSET": [
+    "AUDUSD",
+    "EURUSD",
+    "GBPUSD",
+    "USDCAD",
+    "USDJPY",
+    "XAUUSD"
+  ],
+  "FAILED_SAMPLE": [
+    {
+      "dataset": "data\\normalized\\ABCB4F_D1_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\ABCB4_D1_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\ALPA4_D1_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\ALPA4_H1_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\ARGE11_D1_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\AUPO11_D1_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\BCIC_D1_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\BDIF11_D1_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\BINC11_D1_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\BMKS3_D1_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\BOVAG181_D1_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\BOVAR170_D1_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\BOVAS47_D1_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\BOVV11_D1_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\BPAC11F_D1_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\BPAC11_D1_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\BPAC3F_D1_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\BPAC3_D1_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\BPAC5F_D1_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\BPAC5_D1_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\BPML11_D1_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\BRXC_D1_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\BTCI11Q_D1_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\BTCI11_D1_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\BTCI11_H1_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\BTCI11_M15_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\BTCI11_M20_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\BTCI11_M30_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\BTCLIQBRL_D1_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    },
+    {
+      "dataset": "data\\normalized\\BTCLIQUSD_D1_normalized.csv",
+      "error": "Usecols do not match columns, columns expected but not found: ['time']",
+      "min_5y_pass": false
+    }
+  ],
+  "NEXT": "P1609_REHARVEST_5Y_MT5_HISTORY_AND_REBACKTEST",
+  "ORDER_SENT": false,
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN",
+  "generated_at": "2026-06-15T19:50:05.710976+00:00"
+}

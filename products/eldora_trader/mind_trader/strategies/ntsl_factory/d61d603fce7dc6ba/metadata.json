@@ -1,0 +1,10 @@
+{
+  "strategy_id": "d61d603fce7dc6ba",
+  "template": "macd_trend",
+  "asset": "WIN",
+  "timeframe": "M1",
+  "platform": "Profit/NTSL",
+  "requires_profit_backtest": true,
+  "live": "FORBIDDEN",
+  "real_orders": "FORBIDDEN"
+}

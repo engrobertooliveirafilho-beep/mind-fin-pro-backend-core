@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_903E7502D0082275",
+  "source_file": "mind_trader\\app\\p13_incremental_ingestion\\engine.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\mind_trader\\app\\p13_incremental_ingestion\\engine.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 110,
+  "imports": [
+    "csv",
+    "datetime",
+    "hashlib",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

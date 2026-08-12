@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_9718668641C91C9E",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\plotting\\test_hist_method.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\pandas\\tests\\plotting\\test_hist_method.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 102,
+  "imports": [
+    "numpy",
+    "pandas",
+    "pandas._testing",
+    "pandas.plotting._matplotlib.hist",
+    "pandas.tests.plotting.common",
+    "pytest",
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,83 @@
+{
+  "STATUS": "P1851_FEATURE_STORE_BOOTSTRAPPED",
+  "FEATURE_GROUPS": {
+    "price_action": [
+      "body_pct",
+      "wick_ratio",
+      "range_pct",
+      "gap_pct",
+      "close_position"
+    ],
+    "structure": [
+      "hh",
+      "hl",
+      "lh",
+      "ll",
+      "bos",
+      "choch",
+      "sweep",
+      "breakout",
+      "retest",
+      "fakeout"
+    ],
+    "liquidity": [
+      "prev_high_sweep",
+      "prev_low_sweep",
+      "range_sweep",
+      "stop_hunt_proxy"
+    ],
+    "volatility": [
+      "atr",
+      "atr_slope",
+      "atr_percentile",
+      "vol_expansion",
+      "vol_compression"
+    ],
+    "trend": [
+      "ema20",
+      "ema50",
+      "ema200",
+      "trend_slope",
+      "trend_energy"
+    ],
+    "momentum": [
+      "rsi",
+      "rsi_slope",
+      "macd",
+      "macd_signal",
+      "adx"
+    ],
+    "session": [
+      "asia",
+      "london",
+      "ny",
+      "overlap",
+      "hour",
+      "weekday",
+      "month"
+    ],
+    "regime": [
+      "trend",
+      "range",
+      "expansion",
+      "compression",
+      "risk_on",
+      "risk_off"
+    ],
+    "event": [
+      "fomc_window",
+      "cpi_window",
+      "nfp_window",
+      "news_shock_proxy"
+    ],
+    "cross_market": [
+      "dxy_proxy",
+      "vix_proxy",
+      "us10y_proxy",
+      "spx_proxy",
+      "btc_proxy"
+    ]
+  },
+  "TARGET_FEATURES": 500,
+  "OUTPUT": "data/lake/feature_store"
+}

@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_E21284AD372BBA17",
+  "source_file": "app\\api\\eldora_mesh.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\app\\api\\eldora_mesh.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 87,
+  "imports": [
+    "app.eldora.core.event_broker_fabric",
+    "app.eldora.core.live_agent_cloud",
+    "app.eldora.core.realtime_cognitive_mesh",
+    "fastapi"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

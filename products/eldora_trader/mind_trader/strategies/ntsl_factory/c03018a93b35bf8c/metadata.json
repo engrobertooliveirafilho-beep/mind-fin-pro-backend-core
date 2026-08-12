@@ -1,0 +1,10 @@
+{
+  "strategy_id": "c03018a93b35bf8c",
+  "template": "rsi_reversion",
+  "asset": "PETR4",
+  "timeframe": "M1",
+  "platform": "Profit/NTSL",
+  "requires_profit_backtest": true,
+  "live": "FORBIDDEN",
+  "real_orders": "FORBIDDEN"
+}

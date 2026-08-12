@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_8C1851049DDCFA6D",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\test_optional_dependency.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pandas\\tests\\test_optional_dependency.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 103,
+  "imports": [
+    "pandas._testing",
+    "pandas.compat._optional",
+    "pytest",
+    "sys",
+    "types"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

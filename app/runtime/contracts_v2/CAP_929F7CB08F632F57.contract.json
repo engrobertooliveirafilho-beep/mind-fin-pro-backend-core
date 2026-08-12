@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_929F7CB08F632F57",
+  "source_file": "_evidence\\P4_63D_WHATSAPP_EXECUTION_TRACE_20260618_110356\\runtime_smoke.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P4_63D_WHATSAPP_EXECUTION_TRACE_20260618_110356\\runtime_smoke.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 96,
+  "imports": [
+    "app.api.whatsapp"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

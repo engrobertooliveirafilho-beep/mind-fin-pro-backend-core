@@ -1,0 +1,18 @@
+{
+  "STATUS": "P11_EDGE_EVIDENCE_ENGINE_IMPLEMENTED",
+  "RULES": {
+    "min_datasets": 3,
+    "min_periods": 3,
+    "min_assets": 2,
+    "min_walk_forward_pass_rate": 0.7,
+    "min_monte_carlo_pass_rate": 0.7,
+    "min_robustness_score": 0.75,
+    "min_out_of_sample_score": 0.65
+  },
+  "SAMPLE_STATUS": "PAPER_EDGE_EVIDENCE_CANDIDATE",
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "CAUSALITY": "NOT_PROVEN",
+  "PROMOTION_ALLOWED": false,
+  "EXPORT_READY": true
+}

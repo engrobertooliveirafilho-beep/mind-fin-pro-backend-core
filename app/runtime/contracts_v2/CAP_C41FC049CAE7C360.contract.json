@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_C41FC049CAE7C360",
+  "source_file": "mind_trader\\tests\\test_p868_paper_research_operation.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\mind_trader\\tests\\test_p868_paper_research_operation.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 118,
+  "imports": [
+    "csv",
+    "math",
+    "mind_trader.app.orchestration.paper_research_operation",
+    "mind_trader.app.risk.ftmo_ruleset",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,37 @@
+P4.24F — FRIENDSHIP RUNTIME CODE RECONCILIATION
+
+MISSION:
+Compare executable friendship/proactive runtime with current greenline runtime.
+
+SOURCE_PRIORITY:
+- app/routes/routes_golden_proactive.py
+- app/meta/agents_scheduler.py
+- app/globalpresence/global_presence_engine.py
+- app/agents/social_relationship_orchestrator.py
+
+CURRENT_TARGET:
+- current app/* runtime
+
+FOR EACH SOURCE:
+1. purpose
+2. imports/dependencies
+3. runtime entrypoint
+4. twilio/whatsapp integration
+5. supabase integration
+6. scheduler integration
+7. current local equivalent
+8. integration effort (LOW/MED/HIGH)
+9. launch ROI (1-10)
+10. action:
+   ACTIVATE
+   PATCH
+   COPY
+   IGNORE
+
+RULE:
+ONLY EXECUTABLE CODE.
+NO REPORT THEORY.
+NO OLD PATCH CHAOS.
+
+GOAL:
+Recover proactive friendship runtime safely into green baseline.

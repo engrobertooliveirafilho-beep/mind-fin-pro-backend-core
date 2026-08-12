@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_63B104F74F34745C",
+  "source_file": "_evidence\\P4.91M_ONE_BY_ONE_DEEP_DISSECTION_20260623_175227\\staging\\c43a12863817650a33a7e3f512bff9042d7583a7226c7d5902755dfb38c6fbb4_exec.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P4.91M_ONE_BY_ONE_DEEP_DISSECTION_20260623_175227\\staging\\c43a12863817650a33a7e3f512bff9042d7583a7226c7d5902755dfb38c6fbb4_exec.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 92,
+  "imports": [
+    "datetime",
+    "json",
+    "os"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

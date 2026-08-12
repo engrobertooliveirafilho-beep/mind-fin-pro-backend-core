@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_48823A8F429E0176",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\scalar\\timedelta\\test_constructors.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\pandas\\tests\\scalar\\timedelta\\test_constructors.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 83,
+  "imports": [
+    "datetime",
+    "itertools",
+    "numpy",
+    "pandas",
+    "pandas._libs.tslibs",
+    "pandas._libs.tslibs.dtypes",
+    "pandas._testing",
+    "pandas.compat.numpy",
+    "pandas.errors",
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

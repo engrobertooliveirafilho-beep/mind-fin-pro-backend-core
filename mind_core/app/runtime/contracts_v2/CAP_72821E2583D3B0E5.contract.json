@@ -1,0 +1,26 @@
+{
+  "capability_id": "CAP_72821E2583D3B0E5",
+  "source_file": ".venv\\Lib\\site-packages\\_pytest\\mark\\expression.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\_pytest\\mark\\expression.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 105,
+  "imports": [
+    "__future__",
+    "ast",
+    "collections.abc",
+    "dataclasses",
+    "enum",
+    "keyword",
+    "re",
+    "types",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

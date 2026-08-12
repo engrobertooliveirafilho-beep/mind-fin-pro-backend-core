@@ -1,0 +1,232 @@
+[
+  {
+    "asset": "USDJPY",
+    "experience_id": "USDJPY_EXPERIENCE_V1",
+    "profitable_contexts": [
+      {
+        "context_id": "CTX_0a99c3d0e76eef5d",
+        "asset": "USDJPY",
+        "family": "RSI_REVERSION",
+        "session": "ASIA",
+        "trigger": "RSI_REVERSION",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trades": 29,
+        "win_rate": 0.586207,
+        "profit_factor_proxy": 4.848097,
+        "avg_return": 0.00248396,
+        "context_status": "PROFITABLE_CONTEXT"
+      },
+      {
+        "context_id": "CTX_174500b9d715cc4c",
+        "asset": "USDJPY",
+        "family": "RSI_REVERSION",
+        "session": "ASIA",
+        "trigger": "RSI_REVERSION",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trades": 40,
+        "win_rate": 0.525,
+        "profit_factor_proxy": 2.166256,
+        "avg_return": 0.0025022,
+        "context_status": "PROFITABLE_CONTEXT"
+      },
+      {
+        "context_id": "CTX_22f8a140fac728a8",
+        "asset": "USDJPY",
+        "family": "RSI_REVERSION",
+        "session": "ASIA",
+        "trigger": "RSI_REVERSION",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trades": 22,
+        "win_rate": 0.727273,
+        "profit_factor_proxy": 2.027156,
+        "avg_return": 0.00180049,
+        "context_status": "PROFITABLE_CONTEXT"
+      },
+      {
+        "context_id": "CTX_a4aad73cdad46785",
+        "asset": "USDJPY",
+        "family": "RSI_REVERSION",
+        "session": "ASIA",
+        "trigger": "RSI_REVERSION",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trades": 66,
+        "win_rate": 0.636364,
+        "profit_factor_proxy": 1.969849,
+        "avg_return": 0.00123904,
+        "context_status": "PROFITABLE_CONTEXT"
+      },
+      {
+        "context_id": "CTX_d34d4ea90cf391d9",
+        "asset": "USDJPY",
+        "family": "RSI_REVERSION",
+        "session": "ASIA",
+        "trigger": "RSI_REVERSION",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trades": 2,
+        "win_rate": 0.5,
+        "profit_factor_proxy": 1.870772,
+        "avg_return": 0.00066271,
+        "context_status": "PROFITABLE_CONTEXT"
+      },
+      {
+        "context_id": "CTX_b4c5219c317648d6",
+        "asset": "USDJPY",
+        "family": "RSI_REVERSION",
+        "session": "ASIA",
+        "trigger": "RSI_REVERSION",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trades": 29,
+        "win_rate": 0.551724,
+        "profit_factor_proxy": 1.78849,
+        "avg_return": 0.00104703,
+        "context_status": "PROFITABLE_CONTEXT"
+      }
+    ],
+    "avoid_contexts": [
+      {
+        "context_id": "CTX_2911f194b12d1f30",
+        "asset": "USDJPY",
+        "family": "RSI_REVERSION",
+        "session": "ASIA",
+        "trigger": "RSI_REVERSION",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trades": 37,
+        "win_rate": 0.567568,
+        "profit_factor_proxy": 0.797871,
+        "avg_return": -0.00083467,
+        "context_status": "WEAK_CONTEXT"
+      }
+    ],
+    "total_memories": 263,
+    "status": "MARKET_EXPERIENCE_ACTIVE"
+  },
+  {
+    "asset": "XAUUSD",
+    "experience_id": "XAUUSD_EXPERIENCE_V1",
+    "profitable_contexts": [
+      {
+        "context_id": "CTX_718d498a30aaf346",
+        "asset": "XAUUSD",
+        "family": "LIQUIDITY_SWEEP_TRIGGER",
+        "session": "ASIA",
+        "trigger": "LIQUIDITY_SWEEP",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trades": 4,
+        "win_rate": 0.75,
+        "profit_factor_proxy": 3.134838,
+        "avg_return": 0.00406092,
+        "context_status": "PROFITABLE_CONTEXT"
+      },
+      {
+        "context_id": "CTX_d78d5809419ad4f1",
+        "asset": "XAUUSD",
+        "family": "LIQUIDITY_SWEEP_TRIGGER",
+        "session": "ASIA",
+        "trigger": "LIQUIDITY_SWEEP",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trades": 26,
+        "win_rate": 0.5,
+        "profit_factor_proxy": 2.745055,
+        "avg_return": 0.00282432,
+        "context_status": "PROFITABLE_CONTEXT"
+      },
+      {
+        "context_id": "CTX_f45ccccf9314c7e1",
+        "asset": "XAUUSD",
+        "family": "LIQUIDITY_SWEEP_TRIGGER",
+        "session": "ASIA",
+        "trigger": "LIQUIDITY_SWEEP",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trades": 24,
+        "win_rate": 0.625,
+        "profit_factor_proxy": 2.016821,
+        "avg_return": 0.00196836,
+        "context_status": "PROFITABLE_CONTEXT"
+      },
+      {
+        "context_id": "CTX_83c677b81a5382a0",
+        "asset": "XAUUSD",
+        "family": "LIQUIDITY_SWEEP_TRIGGER",
+        "session": "ASIA",
+        "trigger": "LIQUIDITY_SWEEP",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trades": 25,
+        "win_rate": 0.68,
+        "profit_factor_proxy": 1.790344,
+        "avg_return": 0.00210401,
+        "context_status": "PROFITABLE_CONTEXT"
+      },
+      {
+        "context_id": "CTX_2a206e68e1176f97",
+        "asset": "XAUUSD",
+        "family": "LIQUIDITY_SWEEP_TRIGGER",
+        "session": "ASIA",
+        "trigger": "LIQUIDITY_SWEEP",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trades": 7,
+        "win_rate": 0.571429,
+        "profit_factor_proxy": 1.769672,
+        "avg_return": 0.00137711,
+        "context_status": "PROFITABLE_CONTEXT"
+      },
+      {
+        "context_id": "CTX_fc75ba3add8cee62",
+        "asset": "XAUUSD",
+        "family": "LIQUIDITY_SWEEP_TRIGGER",
+        "session": "ASIA",
+        "trigger": "LIQUIDITY_SWEEP",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trades": 9,
+        "win_rate": 0.666667,
+        "profit_factor_proxy": 1.313433,
+        "avg_return": 0.00069865,
+        "context_status": "PROFITABLE_CONTEXT"
+      },
+      {
+        "context_id": "CTX_594ee2177a15bbc0",
+        "asset": "XAUUSD",
+        "family": "LIQUIDITY_SWEEP_TRIGGER",
+        "session": "ASIA",
+        "trigger": "LIQUIDITY_SWEEP",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trades": 13,
+        "win_rate": 0.461538,
+        "profit_factor_proxy": 1.209047,
+        "avg_return": 0.00036318,
+        "context_status": "PROFITABLE_CONTEXT"
+      }
+    ],
+    "avoid_contexts": [
+      {
+        "context_id": "CTX_75a1532a4573fe36",
+        "asset": "XAUUSD",
+        "family": "LIQUIDITY_SWEEP_TRIGGER",
+        "session": "ASIA",
+        "trigger": "LIQUIDITY_SWEEP",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trades": 5,
+        "win_rate": 0.4,
+        "profit_factor_proxy": 0.250637,
+        "avg_return": -0.00431247,
+        "context_status": "WEAK_CONTEXT"
+      }
+    ],
+    "total_memories": 123,
+    "status": "MARKET_EXPERIENCE_ACTIVE"
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_D168A629D8FD3618",
+  "source_file": ".venv\\Lib\\site-packages\\_pytest\\_io\\terminalwriter.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\_pytest\\_io\\terminalwriter.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 107,
+  "imports": [
+    "__future__",
+    "_pytest.config.exceptions",
+    "collections.abc",
+    "colorama",
+    "compat",
+    "os",
+    "pygments",
+    "pygments.formatters.terminal",
+    "pygments.lexer",
+    "pygments.lexers.diff",
+    "pygments.lexers.python",
+    "shutil",
+    "sys",
+    "typing",
+    "wcwidth"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

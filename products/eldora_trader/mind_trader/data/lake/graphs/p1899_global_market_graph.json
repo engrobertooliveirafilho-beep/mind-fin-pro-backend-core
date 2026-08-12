@@ -1,0 +1,1021 @@
+{
+  "status": "P1899_GLOBAL_MARKET_GRAPH_COMPLETED",
+  "nodes": [
+    {
+      "id": "USDJPY",
+      "type": "ASSET"
+    },
+    {
+      "id": "XAUUSD",
+      "type": "ASSET"
+    },
+    {
+      "id": "EURUSD",
+      "type": "ASSET"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_e22e151504a57648",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_aa12e174aa75b5b2",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_1e538a0d6fedf6dc",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_c2eee99c5c1c4c61",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_b363b38c9bf8d051",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_7fdced0772c3179a",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_2cfb8703fb0375e8",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_f55caa4584df31ee",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_1e065a0e0043f30d",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_889afb67b1412459",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_23d9161ce0f608da",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_8f80417fbd476053",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_c47653114bb5eced",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_0e6318b221b2afe9",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_4bc877150e2be425",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_780770da731391ee",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_669f2fd24755ee6e",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_852b3ba8467e673c",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_b1ec47028d941110",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_ab1ac702ffa78240",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_9a0c7d0764b9797c",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_eb53f025c67c3aad",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_fd74b44061d51a89",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_cdacfc40a6bb20f4",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_51fb17781763fe58",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_9da1aaa1cf38c087",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_e18d2bda3a28641d",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_ea9e9686ddc4312a",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_6eec786698bbf752",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_d3ea469341582065",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_e4377763dd3c38f3",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_5aa6e1cee45cdc98",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_ffd6306225a3b186",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_75585237f28c2f73",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_5c98f2e48cedebd9",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_73d98b5ad312c10a",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_0aee37ee01b07fb9",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_fd3217db4c6ca527",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_81d5d52b683962e6",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_6277fafcceea4b5b",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_8e8fb1737b3111e2",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_c66ad18d62e11a8a",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_87108ce6e0ed5388",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_cb608dce7794a602",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_c29a7b3c5254f41a",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_05b4e0d71dfd8e13",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_97a2abfa56d49a44",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_acb431a8e02c03a9",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_0058bf82205a791a",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_a0feac7cc6369fa9",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_f2792d7f98a9cbc6",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_33403d0394ddddf1",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_e5b3a6b513346c14",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_a65bca6ba5cbaec8",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_d1d9bc09c5952893",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_551a5250d0a4d2d2",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_a57d5b1f52e0dc5c",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_2f8f8b73e796dda3",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_a8fa7a3c92661891",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_3de4ee97606e2b0c",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_0717e6538696af05",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_900483d390752b21",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_756a6ef3b969f671",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_d25bca3493b52175",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_b563ad4a933a2830",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_519c430c11e0face",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_1b7b52d77cfeded0",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_9ae5aee828de0020",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_d65f032ac5460e87",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_87519810caf45647",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_9e197efbd206f95a",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_80eabc002ce839f1",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_4626263cdd57072f",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_4b2cc3a4c3af214b",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_ff67db27012ea7e1",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_c4cb8fc1bff48a43",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_785fbf5a80cab00f",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_3215c46fa0f31a5a",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_89acdae9240a6d1c",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "USDJPY_D1_RSI_REVERSION_MUT_f3cd3f32efc88ee5",
+      "type": "SPECIALIST",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_6232ecb525501dd5",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_75cde6e6b000bcca",
+      "type": "SPECIALIST",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "CTX_2911f194b12d1f30",
+      "type": "CONTEXT",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "CTX_b4c5219c317648d6",
+      "type": "CONTEXT",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "CTX_22f8a140fac728a8",
+      "type": "CONTEXT",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "CTX_174500b9d715cc4c",
+      "type": "CONTEXT",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "CTX_d34d4ea90cf391d9",
+      "type": "CONTEXT",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "CTX_a4aad73cdad46785",
+      "type": "CONTEXT",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "CTX_15818af4d4a66034",
+      "type": "CONTEXT",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "CTX_e3c45289353980de",
+      "type": "CONTEXT",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "CTX_0a99c3d0e76eef5d",
+      "type": "CONTEXT",
+      "asset": "USDJPY"
+    },
+    {
+      "id": "CTX_75a1532a4573fe36",
+      "type": "CONTEXT",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "CTX_594ee2177a15bbc0",
+      "type": "CONTEXT",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "CTX_83c677b81a5382a0",
+      "type": "CONTEXT",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "CTX_2a206e68e1176f97",
+      "type": "CONTEXT",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "CTX_718d498a30aaf346",
+      "type": "CONTEXT",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "CTX_d78d5809419ad4f1",
+      "type": "CONTEXT",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "CTX_5dd8eae56d107567",
+      "type": "CONTEXT",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "CTX_fc75ba3add8cee62",
+      "type": "CONTEXT",
+      "asset": "XAUUSD"
+    },
+    {
+      "id": "CTX_f45ccccf9314c7e1",
+      "type": "CONTEXT",
+      "asset": "XAUUSD"
+    }
+  ],
+  "edges": [
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_e22e151504a57648",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_aa12e174aa75b5b2",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_1e538a0d6fedf6dc",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_c2eee99c5c1c4c61",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_b363b38c9bf8d051",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_7fdced0772c3179a",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_2cfb8703fb0375e8",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_f55caa4584df31ee",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_1e065a0e0043f30d",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_889afb67b1412459",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_23d9161ce0f608da",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_8f80417fbd476053",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_c47653114bb5eced",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_0e6318b221b2afe9",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_4bc877150e2be425",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_780770da731391ee",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_669f2fd24755ee6e",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_852b3ba8467e673c",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_b1ec47028d941110",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_ab1ac702ffa78240",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_9a0c7d0764b9797c",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_eb53f025c67c3aad",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_fd74b44061d51a89",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_cdacfc40a6bb20f4",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_51fb17781763fe58",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_9da1aaa1cf38c087",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_e18d2bda3a28641d",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_ea9e9686ddc4312a",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_6eec786698bbf752",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_d3ea469341582065",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_e4377763dd3c38f3",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_5aa6e1cee45cdc98",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_ffd6306225a3b186",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_75585237f28c2f73",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_5c98f2e48cedebd9",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_73d98b5ad312c10a",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_0aee37ee01b07fb9",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_fd3217db4c6ca527",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_81d5d52b683962e6",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_6277fafcceea4b5b",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_8e8fb1737b3111e2",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_c66ad18d62e11a8a",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_87108ce6e0ed5388",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_cb608dce7794a602",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_c29a7b3c5254f41a",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_05b4e0d71dfd8e13",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_97a2abfa56d49a44",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_acb431a8e02c03a9",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_0058bf82205a791a",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_a0feac7cc6369fa9",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_f2792d7f98a9cbc6",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_33403d0394ddddf1",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_e5b3a6b513346c14",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_a65bca6ba5cbaec8",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_d1d9bc09c5952893",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_551a5250d0a4d2d2",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_a57d5b1f52e0dc5c",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_2f8f8b73e796dda3",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_a8fa7a3c92661891",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_3de4ee97606e2b0c",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_0717e6538696af05",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_900483d390752b21",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_756a6ef3b969f671",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_d25bca3493b52175",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_b563ad4a933a2830",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_519c430c11e0face",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_1b7b52d77cfeded0",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_9ae5aee828de0020",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_d65f032ac5460e87",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_87519810caf45647",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_9e197efbd206f95a",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_80eabc002ce839f1",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_4626263cdd57072f",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_4b2cc3a4c3af214b",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_ff67db27012ea7e1",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_c4cb8fc1bff48a43",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_785fbf5a80cab00f",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_3215c46fa0f31a5a",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_89acdae9240a6d1c",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "USDJPY_D1_RSI_REVERSION_MUT_f3cd3f32efc88ee5",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_6232ecb525501dd5",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_75cde6e6b000bcca",
+      "relation": "HAS_SPECIALIST"
+    },
+    {
+      "source": "USDJPY",
+      "target": "CTX_2911f194b12d1f30",
+      "relation": "HAS_CONTEXT"
+    },
+    {
+      "source": "USDJPY",
+      "target": "CTX_b4c5219c317648d6",
+      "relation": "HAS_CONTEXT"
+    },
+    {
+      "source": "USDJPY",
+      "target": "CTX_22f8a140fac728a8",
+      "relation": "HAS_CONTEXT"
+    },
+    {
+      "source": "USDJPY",
+      "target": "CTX_174500b9d715cc4c",
+      "relation": "HAS_CONTEXT"
+    },
+    {
+      "source": "USDJPY",
+      "target": "CTX_d34d4ea90cf391d9",
+      "relation": "HAS_CONTEXT"
+    },
+    {
+      "source": "USDJPY",
+      "target": "CTX_a4aad73cdad46785",
+      "relation": "HAS_CONTEXT"
+    },
+    {
+      "source": "USDJPY",
+      "target": "CTX_15818af4d4a66034",
+      "relation": "HAS_CONTEXT"
+    },
+    {
+      "source": "USDJPY",
+      "target": "CTX_e3c45289353980de",
+      "relation": "HAS_CONTEXT"
+    },
+    {
+      "source": "USDJPY",
+      "target": "CTX_0a99c3d0e76eef5d",
+      "relation": "HAS_CONTEXT"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "CTX_75a1532a4573fe36",
+      "relation": "HAS_CONTEXT"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "CTX_594ee2177a15bbc0",
+      "relation": "HAS_CONTEXT"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "CTX_83c677b81a5382a0",
+      "relation": "HAS_CONTEXT"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "CTX_2a206e68e1176f97",
+      "relation": "HAS_CONTEXT"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "CTX_718d498a30aaf346",
+      "relation": "HAS_CONTEXT"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "CTX_d78d5809419ad4f1",
+      "relation": "HAS_CONTEXT"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "CTX_5dd8eae56d107567",
+      "relation": "HAS_CONTEXT"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "CTX_fc75ba3add8cee62",
+      "relation": "HAS_CONTEXT"
+    },
+    {
+      "source": "XAUUSD",
+      "target": "CTX_f45ccccf9314c7e1",
+      "relation": "HAS_CONTEXT"
+    }
+  ],
+  "node_count": 103,
+  "edge_count": 100
+}

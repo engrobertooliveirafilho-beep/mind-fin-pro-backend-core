@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_9B280A1132583D6C",
+  "source_file": "_evidence\\P19P28L_FORENSIC_WRAPPER_CONTAINMENT_20260620_210330\\patch_main_trace_guard.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P19P28L_FORENSIC_WRAPPER_CONTAINMENT_20260620_210330\\patch_main_trace_guard.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 93,
+  "imports": [
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

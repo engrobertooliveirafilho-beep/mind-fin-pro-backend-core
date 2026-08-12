@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_19632A47FD0E0DA1",
+  "source_file": ".venv\\Lib\\site-packages\\_pytest\\_code\\source.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\.venv\\Lib\\site-packages\\_pytest\\_code\\source.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 113,
+  "imports": [
+    "__future__",
+    "ast",
+    "bisect",
+    "collections.abc",
+    "inspect",
+    "textwrap",
+    "tokenize",
+    "types",
+    "typing",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

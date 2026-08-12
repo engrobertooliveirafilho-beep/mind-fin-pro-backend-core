@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_53B366B0051B99D7",
+  "source_file": "_quarantine\\P19P38_L_SAFE_JUNK_QUARANTINE_20260622_182732\\yt_video_test.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\_quarantine\\P19P38_L_SAFE_JUNK_QUARANTINE_20260622_182732\\yt_video_test.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 81,
+  "imports": [
+    "os",
+    "urllib.error",
+    "urllib.parse",
+    "urllib.request"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

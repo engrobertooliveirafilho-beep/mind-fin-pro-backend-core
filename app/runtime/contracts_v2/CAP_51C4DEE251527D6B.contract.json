@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_51C4DEE251527D6B",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\tseries\\offsets\\test_common.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\pandas\\tests\\tseries\\offsets\\test_common.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 100,
+  "imports": [
+    "datetime",
+    "dateutil.tz.tz",
+    "pandas._libs.tslibs",
+    "pandas.compat",
+    "pandas.tseries.offsets",
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

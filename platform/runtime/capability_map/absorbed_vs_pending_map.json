@@ -1,0 +1,240 @@
+{
+  "absorbed": [
+    {
+      "capability": "retrieval",
+      "status": "ACTIVE_OR_ABSORBED",
+      "active_files": [
+        "app/retrieval/provider.py",
+        "app/retrieval/semantic_provider.py",
+        "app/eldora/retrieval/service.py",
+        "app/eldora/retrieval/__init__.py",
+        "tools/p465i_validate_retrieval_config.py",
+        "tests/test_p465d_semantic_retrieval_bridge.py",
+        "tests/test_p465g_retrieval_failsafe.py",
+        "tests/test_p465o_composite_retrieval_answer.py"
+      ],
+      "active_count": 8,
+      "archive_count": 99
+    },
+    {
+      "capability": "memory",
+      "status": "ACTIVE_OR_ABSORBED",
+      "active_files": [
+        "app/humanization/social_memory_provider.py",
+        "app/memory/longitudinal_memory.py",
+        "app/memory/memory_graph.py",
+        "app/memory/provider.py",
+        "app/persona/persona_continuity_memory.py",
+        "app/runtime/decision_memory.py",
+        "app/runtime/generic_topic_memory_engine.py",
+        "app/runtime/memory_adapter.py",
+        "app/runtime/memory_quarantine_manifest.json",
+        "app/runtime/memory_store.py",
+        "app/runtime/persistent_social_memory.py",
+        "app/runtime/real_social_memory_layer.py",
+        "app/runtime/semantic_dialogue_memory.py",
+        "app/runtime/short_memory.py",
+        "app/runtime/visual_memory_runtime.py",
+        "app/student/student_memory_graph.py",
+        "app/vision/vision_memory_store.py",
+        "app/eldora/core/long_term_memory.py",
+        "app/eldora/core/memory_compression_engine.py",
+        "app/eldora/core/persistent_social_memory.py",
+        "app/eldora/core/semantic_memory_engine.py",
+        "app/eldora/core/session_memory.py",
+        "app/eldora/core/visual_semantic_memory.py",
+        "app/eldora/memory/service.py",
+        "app/eldora/memory/__init__.py",
+        "app/modules/usde_core/scientific_memory.py",
+        "app/modules/usde_core/supabase_scientific_memory.py",
+        "tests/test_eldora_semantic_memory.py",
+        "tests/test_p19p7_context_memory_followup_expansion.py",
+        "tests/test_p463k_memory_whatsapp_contract.py"
+      ],
+      "active_count": 38,
+      "archive_count": 298
+    },
+    {
+      "capability": "whatsapp",
+      "status": "ACTIVE_OR_ABSORBED",
+      "active_files": [
+        "app/api/debug_whatsapp_runtime_trace.py",
+        "app/api/debug_whatsapp_source.py",
+        "app/api/debug_whatsapp_state.py",
+        "app/api/whatsapp.py",
+        "app/api/whatsapp.py.bak",
+        "app/api/whatsapp.py.bak_p449c_fix2",
+        "app/api/whatsapp.py.p4_12n_c_bak",
+        "app/api/whatsapp.py.p4_12n_c_fix2_bak",
+        "app/api/whatsapp.py.ssa2.bak",
+        "app/p19_real_world_validation/whatsapp_real_traffic_eval.py",
+        "app/runtime/live_whatsapp_response.py",
+        "app/runtime/semantic_whatsapp_runtime.py",
+        "app/runtime/whatsapp_final_output_guard.py",
+        "app/runtime/whatsapp_intelligence_activation.py",
+        "app/runtime/whatsapp_social_followup_guard.py",
+        "app/runtime/whatsapp_trace_sensor.py",
+        "app/runtime/whatsapp_ux_output_guard.py",
+        "tests/test_eldora_whatsapp_cognitive_pipeline.py",
+        "tests/test_eldora_whatsapp_live_regression.py",
+        "tests/test_eldora_whatsapp_primary_runtime.py",
+        "tests/test_eldora_whatsapp_real_observed.py",
+        "tests/test_p19a_whatsapp_real_traffic_eval.py",
+        "tests/test_p19p5_whatsapp_final_guard_only.py",
+        "tests/test_p19p6_whatsapp_followup_expansion.py",
+        "tests/test_p19p9_universal_whatsapp_output_guard.py",
+        "tests/test_p463k_memory_whatsapp_contract.py",
+        "tests/test_whatsapp_final_output_guard.py",
+        "tests/test_whatsapp_intelligence_activation.py",
+        "tests/test_whatsapp_intelligence_wired.py",
+        "tests/test_whatsapp_live_override.py"
+      ],
+      "active_count": 41,
+      "archive_count": 967
+    },
+    {
+      "capability": "cognitive_pipeline",
+      "status": "ACTIVE_OR_ABSORBED",
+      "active_files": [
+        "app/runtime/cognitive_pipeline.py",
+        "tests/test_eldora_whatsapp_cognitive_pipeline.py"
+      ],
+      "active_count": 2,
+      "archive_count": 73
+    },
+    {
+      "capability": "capability",
+      "status": "ACTIVE_OR_ABSORBED",
+      "active_files": [
+        "app/runtime/capability_orchestrator.py",
+        "app/runtime/capability_reconstruction_planner.py",
+        "app/runtime/capability_recovery_bridge.py",
+        "app/runtime/capability_usage_ledger.py",
+        "app/runtime/drive_capability_absorption.py",
+        "app/runtime/ready_capability_bridge.py",
+        "app/runtime/universal_capability_registry.json",
+        "app/eldora/core/autonomous_capability_evolution.py",
+        "app/eldora/core/capability_synthesis_engine.py",
+        "runtime/capability_usage_ledger.jsonl",
+        "runtime/capability_absorption/capability_notes.md.json",
+        "runtime/capability_absorption/doc.txt.json",
+        "runtime/capability_absorption/mind_strategy.txt.json",
+        "runtime/capability_absorption/p476_smoke_doc.json",
+        "runtime/capability_absorption/p476_test.json",
+        "runtime/capability_absorption/p477_smoke_doc.txt.json",
+        "runtime/knowledge_extraction/_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_capability_notes.md.json",
+        "runtime/reconstruction_plans/_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_capability_notes.md.json",
+        "runtime/drive_queue/processed/capability_notes.md",
+        "runtime/drive_queue/review/capability_notes.md",
+        "tools/absorb_capability_document.py",
+        "tools/build_universal_capability_registry.py",
+        "tools/capability_effectiveness_score.py",
+        "tools/capability_usage_report.py",
+        "tools/p473a_full_capability_inventory.py",
+        "tools/run_capability_orchestrator_diagnostic.py",
+        "tests/test_p472b_capability_recovery_bridge.py",
+        "tests/test_p472c_capability_pipeline_aux.disabled",
+        "tests/test_p473b_ready_capability_bridge.py",
+        "tests/test_p474a_capability_orchestrator.py"
+      ],
+      "active_count": 37,
+      "archive_count": 172
+    },
+    {
+      "capability": "knowledge",
+      "status": "ACTIVE_OR_ABSORBED",
+      "active_files": [
+        "app/runtime/knowledge_extraction_engine.py",
+        "app/eldora/knowledge/service.py",
+        "app/eldora/knowledge/__init__.py",
+        "app/modules/usde_core/scientific_knowledge_graph.py",
+        "app/modules/usde_core/scientific_knowledge_sync.py",
+        "runtime/knowledge_extraction/p479_test.json",
+        "runtime/knowledge_extraction/p480_test.json",
+        "runtime/knowledge_extraction/_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_capability_notes.md.json",
+        "runtime/knowledge_extraction/_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_mind_strategy.txt.json",
+        "tools/extract_knowledge_from_document.py",
+        "tests/test_p479_knowledge_extraction_engine.py",
+        "tests/modules/test_usde_scientific_knowledge_graph.py",
+        "tests/modules/test_usde_scientific_knowledge_sync.py"
+      ],
+      "active_count": 13,
+      "archive_count": 28
+    },
+    {
+      "capability": "drive",
+      "status": "ACTIVE_OR_ABSORBED",
+      "active_files": [
+        "app/runtime/drive_batch_processor.py",
+        "app/runtime/drive_capability_absorption.py",
+        "app/runtime/drive_processed_queue.py",
+        "app/eldora/drive_os/service.py",
+        "app/eldora/drive_os/__init__.py",
+        "app/modules/usde_core/drive_live_hook.py",
+        "app/modules/usde_core/drive_scientific_ingestion.py",
+        "runtime/drive_queue/processed_ledger.jsonl",
+        "runtime/knowledge_extraction/_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_capability_notes.md.json",
+        "runtime/knowledge_extraction/_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_mind_strategy.txt.json",
+        "runtime/reconstruction_plans/_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_capability_notes.md.json",
+        "runtime/reconstruction_plans/_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_mind_strategy.txt.json",
+        "runtime/drive_queue/processed/capability_notes.md",
+        "runtime/drive_queue/processed/doc.txt",
+        "runtime/drive_queue/processed/mind_strategy.txt",
+        "runtime/drive_queue/processed/p477_smoke_doc.txt",
+        "runtime/drive_queue/review/capability_notes.md",
+        "runtime/drive_queue/review/doc.txt",
+        "runtime/drive_queue/review/mind_strategy.txt",
+        "runtime/drive_queue/review/p477_smoke_doc.txt",
+        "tools/process_drive_folder.py",
+        "tools/process_drive_queue_file.py",
+        "tools/run_full_drive_deep_absorption.py",
+        "tests/test_p476_drive_capability_absorption.py",
+        "tests/test_p477_drive_processed_queue.py",
+        "tests/test_p478_batch_drive_processor.py",
+        "tests/modules/test_p449f_drive_live_hook.py",
+        "tests/modules/test_usde_drive_scientific_ingestion.py"
+      ],
+      "active_count": 28,
+      "archive_count": 155
+    },
+    {
+      "capability": "observability",
+      "status": "ACTIVE_OR_ABSORBED",
+      "active_files": [
+        "app/observability/quality_metrics.py",
+        "app/p10_activation_stack/observability.py",
+        "app/p9_runtime_consumption/observability.py",
+        "tests/test_eldora_observability_core.py"
+      ],
+      "active_count": 4,
+      "archive_count": 17
+    },
+    {
+      "capability": "governance",
+      "status": "ACTIVE_OR_ABSORBED",
+      "active_files": [
+        "app/p10_activation_stack/risk_governance.py",
+        "app/runtime/p2081_2090_realtime_portfolio_governance.py",
+        "app/runtime/p2161_2220_full_governance_system.py",
+        "app/modules/usde_core/scientific_governance_engine.py",
+        "tests/test_p2081_2090_realtime_portfolio_governance.py",
+        "tests/test_runtime_registry_governance.py",
+        "tests/modules/test_usde_scientific_governance_engine.py"
+      ],
+      "active_count": 7,
+      "archive_count": 26
+    }
+  ],
+  "pending": [
+    {
+      "capability": "orphan",
+      "status": "PENDING_RECOVERY_FROM_ARCHIVE_OR_DRIVE",
+      "active_count": 0,
+      "archive_count": 2,
+      "archive_samples": [
+        "evidence/P4.51_LEVEL_C_FULL_AUDIT_20260618_062425/reports/LEVEL_C_ORPHAN_REPORT.json",
+        "_maintenance/P19P22A_20260618_110511/_fix11k_remove_orphan.py"
+      ]
+    }
+  ]
+}

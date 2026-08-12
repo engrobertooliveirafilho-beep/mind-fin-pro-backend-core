@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_60C97F43351DD3EF",
+  "source_file": "_quarantine\\P19P38_L_SAFE_JUNK_QUARANTINE_20260622_182732\\tools__\\p489j_file_intelligence_expansion_plan.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\_quarantine\\P19P38_L_SAFE_JUNK_QUARANTINE_20260622_182732\\tools__\\p489j_file_intelligence_expansion_plan.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 92,
+  "imports": [
+    "datetime",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

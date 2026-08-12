@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_1FD382E4954F628E",
+  "source_file": "evidence\\P4.51_LEVEL_C_FULL_AUDIT_20260618_062425\\backup\\tests\\test_intent_arbitration_priority_engine.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\evidence\\P4.51_LEVEL_C_FULL_AUDIT_20260618_062425\\backup\\tests\\test_intent_arbitration_priority_engine.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 96,
+  "imports": [
+    "app.runtime.intent_arbitration_priority_engine"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,752 @@
+[
+  {
+    "strategy_id": "0069beaec0134f0b",
+    "file": "profit_import_package\\0069beaec0134f0b.nts",
+    "metadata": {
+      "strategy_id": "0069beaec0134f0b",
+      "family": "ema_cross_grid",
+      "asset": "PETR4",
+      "timeframe": "M15",
+      "fast": 8,
+      "slow": 34,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "023ea1ae421a1484",
+    "file": "profit_import_package\\023ea1ae421a1484.nts",
+    "metadata": {
+      "strategy_id": "023ea1ae421a1484",
+      "family": "ema_cross_grid",
+      "asset": "VALE3",
+      "timeframe": "M15",
+      "fast": 5,
+      "slow": 72,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "02da7ab512e21e25",
+    "file": "profit_import_package\\02da7ab512e21e25.nts",
+    "metadata": {
+      "strategy_id": "02da7ab512e21e25",
+      "family": "ema_cross_grid",
+      "asset": "PETR4",
+      "timeframe": "M1",
+      "fast": 12,
+      "slow": 26,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "02dd9f11ca17ce87",
+    "file": "profit_import_package\\02dd9f11ca17ce87.nts",
+    "metadata": {
+      "strategy_id": "02dd9f11ca17ce87",
+      "family": "ema_cross_grid",
+      "asset": "PETR4",
+      "timeframe": "M1",
+      "fast": 8,
+      "slow": 26,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "02f9caec89b0d37e",
+    "file": "profit_import_package\\02f9caec89b0d37e.nts",
+    "metadata": {
+      "strategy_id": "02f9caec89b0d37e",
+      "family": "ema_cross_grid",
+      "asset": "VALE3",
+      "timeframe": "M15",
+      "fast": 8,
+      "slow": 34,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "031dfbc177a12f68",
+    "file": "profit_import_package\\031dfbc177a12f68.nts",
+    "metadata": {
+      "strategy_id": "031dfbc177a12f68",
+      "family": "ema_cross_grid",
+      "asset": "PETR4",
+      "timeframe": "M5",
+      "fast": 8,
+      "slow": 34,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "038fa367de7827cf",
+    "file": "profit_import_package\\038fa367de7827cf.nts",
+    "metadata": {
+      "strategy_id": "038fa367de7827cf",
+      "family": "ema_cross_grid",
+      "asset": "WIN",
+      "timeframe": "M5",
+      "fast": 14,
+      "slow": 100,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "040e3cccdea91843",
+    "file": "profit_import_package\\040e3cccdea91843.nts",
+    "metadata": {
+      "strategy_id": "040e3cccdea91843",
+      "family": "ema_cross_grid",
+      "asset": "WDO",
+      "timeframe": "M5",
+      "fast": 20,
+      "slow": 50,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "04868dbd5717d3d9",
+    "file": "profit_import_package\\04868dbd5717d3d9.nts",
+    "metadata": {
+      "strategy_id": "04868dbd5717d3d9",
+      "family": "ema_cross_grid",
+      "asset": "PETR4",
+      "timeframe": "M1",
+      "fast": 20,
+      "slow": 72,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "04a26eca09273e86",
+    "file": "profit_import_package\\04a26eca09273e86.nts",
+    "metadata": {
+      "strategy_id": "04a26eca09273e86",
+      "family": "ema_cross_grid",
+      "asset": "VALE3",
+      "timeframe": "M5",
+      "fast": 20,
+      "slow": 34,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "0571c4fa48517bd3",
+    "file": "profit_import_package\\0571c4fa48517bd3.nts",
+    "metadata": {
+      "strategy_id": "0571c4fa48517bd3",
+      "family": "ema_cross_grid",
+      "asset": "PETR4",
+      "timeframe": "M15",
+      "fast": 5,
+      "slow": 34,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "0595b482e2bf26e8",
+    "file": "profit_import_package\\0595b482e2bf26e8.nts",
+    "metadata": {
+      "strategy_id": "0595b482e2bf26e8",
+      "family": "ema_cross_grid",
+      "asset": "VALE3",
+      "timeframe": "M15",
+      "fast": 14,
+      "slow": 21,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "062d88b8abd7ba11",
+    "file": "profit_import_package\\062d88b8abd7ba11.nts",
+    "metadata": {
+      "strategy_id": "062d88b8abd7ba11",
+      "family": "ema_cross_grid",
+      "asset": "VALE3",
+      "timeframe": "M1",
+      "fast": 12,
+      "slow": 26,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "06ebfd2343758518",
+    "file": "profit_import_package\\06ebfd2343758518.nts",
+    "metadata": {
+      "strategy_id": "06ebfd2343758518",
+      "family": "ema_cross_grid",
+      "asset": "WIN",
+      "timeframe": "M5",
+      "fast": 9,
+      "slow": 50,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "0756b77ffffff46e",
+    "file": "profit_import_package\\0756b77ffffff46e.nts",
+    "metadata": {
+      "strategy_id": "0756b77ffffff46e",
+      "family": "ema_cross_grid",
+      "asset": "VALE3",
+      "timeframe": "M1",
+      "fast": 8,
+      "slow": 34,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "07b52870a2cdaf54",
+    "file": "profit_import_package\\07b52870a2cdaf54.nts",
+    "metadata": {
+      "strategy_id": "07b52870a2cdaf54",
+      "family": "ema_cross_grid",
+      "asset": "VALE3",
+      "timeframe": "M15",
+      "fast": 12,
+      "slow": 21,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "07c0a825cab09562",
+    "file": "profit_import_package\\07c0a825cab09562.nts",
+    "metadata": {
+      "strategy_id": "07c0a825cab09562",
+      "family": "ema_cross_grid",
+      "asset": "PETR4",
+      "timeframe": "M5",
+      "fast": 5,
+      "slow": 100,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "080fe7e4e89b167a",
+    "file": "profit_import_package\\080fe7e4e89b167a.nts",
+    "metadata": {
+      "strategy_id": "080fe7e4e89b167a",
+      "family": "ema_cross_grid",
+      "asset": "WDO",
+      "timeframe": "M5",
+      "fast": 14,
+      "slow": 26,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "087f28933adfab2b",
+    "file": "profit_import_package\\087f28933adfab2b.nts",
+    "metadata": {
+      "strategy_id": "087f28933adfab2b",
+      "family": "ema_cross_grid",
+      "asset": "WDO",
+      "timeframe": "M15",
+      "fast": 8,
+      "slow": 100,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "0895904274f11ada",
+    "file": "profit_import_package\\0895904274f11ada.nts",
+    "metadata": {
+      "strategy_id": "0895904274f11ada",
+      "family": "ema_cross_grid",
+      "asset": "WDO",
+      "timeframe": "M15",
+      "fast": 20,
+      "slow": 21,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "0a0092e75d9b3bac",
+    "file": "profit_import_package\\0a0092e75d9b3bac.nts",
+    "metadata": {
+      "strategy_id": "0a0092e75d9b3bac",
+      "family": "ema_cross_grid",
+      "asset": "WDO",
+      "timeframe": "M5",
+      "fast": 14,
+      "slow": 72,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "0a0dde8a395a294d",
+    "file": "profit_import_package\\0a0dde8a395a294d.nts",
+    "metadata": {
+      "strategy_id": "0a0dde8a395a294d",
+      "family": "ema_cross_grid",
+      "asset": "PETR4",
+      "timeframe": "M15",
+      "fast": 9,
+      "slow": 72,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "0a69dfefb3844c8f",
+    "file": "profit_import_package\\0a69dfefb3844c8f.nts",
+    "metadata": {
+      "strategy_id": "0a69dfefb3844c8f",
+      "family": "ema_cross_grid",
+      "asset": "PETR4",
+      "timeframe": "M15",
+      "fast": 8,
+      "slow": 100,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "0a94c9d88ff346a5",
+    "file": "profit_import_package\\0a94c9d88ff346a5.nts",
+    "metadata": {
+      "strategy_id": "0a94c9d88ff346a5",
+      "family": "ema_cross_grid",
+      "asset": "WDO",
+      "timeframe": "M1",
+      "fast": 5,
+      "slow": 72,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "0b33a6c7fbc2b4b3",
+    "file": "profit_import_package\\0b33a6c7fbc2b4b3.nts",
+    "metadata": {
+      "strategy_id": "0b33a6c7fbc2b4b3",
+      "family": "ema_cross_grid",
+      "asset": "WDO",
+      "timeframe": "M15",
+      "fast": 14,
+      "slow": 26,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "0ba55c49377eb496",
+    "file": "profit_import_package\\0ba55c49377eb496.nts",
+    "metadata": {
+      "strategy_id": "0ba55c49377eb496",
+      "family": "ema_cross_grid",
+      "asset": "PETR4",
+      "timeframe": "M1",
+      "fast": 14,
+      "slow": 34,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "0bb46a57c6d64c79",
+    "file": "profit_import_package\\0bb46a57c6d64c79.nts",
+    "metadata": {
+      "strategy_id": "0bb46a57c6d64c79",
+      "family": "ema_cross_grid",
+      "asset": "WDO",
+      "timeframe": "M15",
+      "fast": 5,
+      "slow": 100,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "0e0076caeaf22971",
+    "file": "profit_import_package\\0e0076caeaf22971.nts",
+    "metadata": {
+      "strategy_id": "0e0076caeaf22971",
+      "family": "ema_cross_grid",
+      "asset": "WDO",
+      "timeframe": "M1",
+      "fast": 5,
+      "slow": 34,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "1007f29d0f6ff191",
+    "file": "profit_import_package\\1007f29d0f6ff191.nts",
+    "metadata": {
+      "strategy_id": "1007f29d0f6ff191",
+      "family": "ema_cross_grid",
+      "asset": "WDO",
+      "timeframe": "M5",
+      "fast": 9,
+      "slow": 72,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "1155a83cf4f5431c",
+    "file": "profit_import_package\\1155a83cf4f5431c.nts",
+    "metadata": {
+      "strategy_id": "1155a83cf4f5431c",
+      "family": "ema_cross_grid",
+      "asset": "PETR4",
+      "timeframe": "M15",
+      "fast": 8,
+      "slow": 26,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "11d51bef0ff8e902",
+    "file": "profit_import_package\\11d51bef0ff8e902.nts",
+    "metadata": {
+      "strategy_id": "11d51bef0ff8e902",
+      "family": "ema_cross_grid",
+      "asset": "VALE3",
+      "timeframe": "M5",
+      "fast": 12,
+      "slow": 21,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "122be70e3a74f8be",
+    "file": "profit_import_package\\122be70e3a74f8be.nts",
+    "metadata": {
+      "strategy_id": "122be70e3a74f8be",
+      "family": "ema_cross_grid",
+      "asset": "WDO",
+      "timeframe": "M1",
+      "fast": 5,
+      "slow": 21,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "12e4332595ba0d4c",
+    "file": "profit_import_package\\12e4332595ba0d4c.nts",
+    "metadata": {
+      "strategy_id": "12e4332595ba0d4c",
+      "family": "ema_cross_grid",
+      "asset": "VALE3",
+      "timeframe": "M15",
+      "fast": 14,
+      "slow": 72,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "135de774f91c6a1d",
+    "file": "profit_import_package\\135de774f91c6a1d.nts",
+    "metadata": {
+      "strategy_id": "135de774f91c6a1d",
+      "family": "ema_cross_grid",
+      "asset": "VALE3",
+      "timeframe": "M5",
+      "fast": 8,
+      "slow": 21,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "13e245bf5aad76a2",
+    "file": "profit_import_package\\13e245bf5aad76a2.nts",
+    "metadata": {
+      "strategy_id": "13e245bf5aad76a2",
+      "family": "ema_cross_grid",
+      "asset": "WIN",
+      "timeframe": "M15",
+      "fast": 9,
+      "slow": 26,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "145b32ac8c7b179b",
+    "file": "profit_import_package\\145b32ac8c7b179b.nts",
+    "metadata": {
+      "strategy_id": "145b32ac8c7b179b",
+      "family": "ema_cross_grid",
+      "asset": "WDO",
+      "timeframe": "M1",
+      "fast": 8,
+      "slow": 34,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "154efdddbc05d696",
+    "file": "profit_import_package\\154efdddbc05d696.nts",
+    "metadata": {
+      "strategy_id": "154efdddbc05d696",
+      "family": "ema_cross_grid",
+      "asset": "WDO",
+      "timeframe": "M5",
+      "fast": 14,
+      "slow": 34,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "15ca457b125f027b",
+    "file": "profit_import_package\\15ca457b125f027b.nts",
+    "metadata": {
+      "strategy_id": "15ca457b125f027b",
+      "family": "ema_cross_grid",
+      "asset": "WDO",
+      "timeframe": "M1",
+      "fast": 8,
+      "slow": 50,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "15e1a73a6f99bd23",
+    "file": "profit_import_package\\15e1a73a6f99bd23.nts",
+    "metadata": {
+      "strategy_id": "15e1a73a6f99bd23",
+      "family": "ema_cross_grid",
+      "asset": "PETR4",
+      "timeframe": "M5",
+      "fast": 9,
+      "slow": 26,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "1643cf2b81bc04d4",
+    "file": "profit_import_package\\1643cf2b81bc04d4.nts",
+    "metadata": {
+      "strategy_id": "1643cf2b81bc04d4",
+      "family": "ema_cross_grid",
+      "asset": "WDO",
+      "timeframe": "M1",
+      "fast": 14,
+      "slow": 21,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "1817b7da5c5f9a69",
+    "file": "profit_import_package\\1817b7da5c5f9a69.nts",
+    "metadata": {
+      "strategy_id": "1817b7da5c5f9a69",
+      "family": "ema_cross_grid",
+      "asset": "PETR4",
+      "timeframe": "M5",
+      "fast": 8,
+      "slow": 21,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "187466dbc140cbc3",
+    "file": "profit_import_package\\187466dbc140cbc3.nts",
+    "metadata": {
+      "strategy_id": "187466dbc140cbc3",
+      "family": "ema_cross_grid",
+      "asset": "WIN",
+      "timeframe": "M1",
+      "fast": 20,
+      "slow": 21,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "193fd690c61c475a",
+    "file": "profit_import_package\\193fd690c61c475a.nts",
+    "metadata": {
+      "strategy_id": "193fd690c61c475a",
+      "family": "ema_cross_grid",
+      "asset": "WDO",
+      "timeframe": "M5",
+      "fast": 8,
+      "slow": 72,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "1946082b47193f30",
+    "file": "profit_import_package\\1946082b47193f30.nts",
+    "metadata": {
+      "strategy_id": "1946082b47193f30",
+      "family": "ema_cross_grid",
+      "asset": "WDO",
+      "timeframe": "M5",
+      "fast": 20,
+      "slow": 21,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "19c0d510cf864a7e",
+    "file": "profit_import_package\\19c0d510cf864a7e.nts",
+    "metadata": {
+      "strategy_id": "19c0d510cf864a7e",
+      "family": "ema_cross_grid",
+      "asset": "PETR4",
+      "timeframe": "M1",
+      "fast": 12,
+      "slow": 72,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "19f5c124d04d4d50",
+    "file": "profit_import_package\\19f5c124d04d4d50.nts",
+    "metadata": {
+      "strategy_id": "19f5c124d04d4d50",
+      "family": "ema_cross_grid",
+      "asset": "WDO",
+      "timeframe": "M15",
+      "fast": 9,
+      "slow": 72,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "1a5daa336738eaf5",
+    "file": "profit_import_package\\1a5daa336738eaf5.nts",
+    "metadata": {
+      "strategy_id": "1a5daa336738eaf5",
+      "family": "ema_cross_grid",
+      "asset": "WDO",
+      "timeframe": "M1",
+      "fast": 20,
+      "slow": 21,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "1b6425216f4bb1df",
+    "file": "profit_import_package\\1b6425216f4bb1df.nts",
+    "metadata": {
+      "strategy_id": "1b6425216f4bb1df",
+      "family": "ema_cross_grid",
+      "asset": "VALE3",
+      "timeframe": "M5",
+      "fast": 9,
+      "slow": 21,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "1bcd682c50ea5b7b",
+    "file": "profit_import_package\\1bcd682c50ea5b7b.nts",
+    "metadata": {
+      "strategy_id": "1bcd682c50ea5b7b",
+      "family": "ema_cross_grid",
+      "asset": "WDO",
+      "timeframe": "M15",
+      "fast": 14,
+      "slow": 100,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  },
+  {
+    "strategy_id": "1c10cebbe654ae64",
+    "file": "profit_import_package\\1c10cebbe654ae64.nts",
+    "metadata": {
+      "strategy_id": "1c10cebbe654ae64",
+      "family": "ema_cross_grid",
+      "asset": "PETR4",
+      "timeframe": "M1",
+      "fast": 12,
+      "slow": 21,
+      "requires_profit_backtest": true,
+      "live": "FORBIDDEN",
+      "real_orders": "FORBIDDEN"
+    }
+  }
+]

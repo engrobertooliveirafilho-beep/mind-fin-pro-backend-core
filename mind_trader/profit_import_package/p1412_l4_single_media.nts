@@ -1,0 +1,12 @@
+var
+  ma : Float;
+
+begin
+  ma := Media(9, Close);
+
+  if Close > ma then
+    BuyAtMarket;
+
+  if Close < ma then
+    SellShortAtMarket;
+end;

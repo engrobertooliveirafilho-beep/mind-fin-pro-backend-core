@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_E148686955E18FAD",
+  "source_file": "tests\\test_p17c_review_decision_aggregation.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\tests\\test_p17c_review_decision_aggregation.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 100,
+  "imports": [
+    "app.p17_value_proof.review_decision_aggregation"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

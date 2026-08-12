@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_38727C1A9F8BD881",
+  "source_file": "_evidence\\P19P30_UNIVERSAL_DOMAIN_DISCOVERY_ENGINE_20260621_121346\\02_patch_router.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P19P30_UNIVERSAL_DOMAIN_DISCOVERY_ENGINE_20260621_121346\\02_patch_router.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 95,
+  "imports": [
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

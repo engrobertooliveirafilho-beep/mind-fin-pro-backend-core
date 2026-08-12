@@ -1,0 +1,19 @@
+{
+  "STATUS": "P10.2_DATASET_CERTIFICATION_RUNTIME_IMPLEMENTED",
+  "REQUIRED_CHECKS": [
+    "schema_ok",
+    "min_rows",
+    "timestamp_order",
+    "duplicate_ratio",
+    "missing_ratio",
+    "ohlcv_consistency",
+    "price_variance",
+    "volume_validity"
+  ],
+  "SAMPLE_CERTIFIED": true,
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "EDGE": "NOT_PROVEN",
+  "CAUSALITY": "NOT_PROVEN",
+  "EXPORT_READY": true
+}

@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_E402C0EBFB04C305",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\resources\\conversations\\conversations.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\openai\\resources\\conversations\\conversations.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 125,
+  "imports": [
+    "__future__",
+    "_base_client",
+    "_compat",
+    "_resource",
+    "_response",
+    "_types",
+    "_utils",
+    "httpx",
+    "items",
+    "types.conversations",
+    "types.conversations.conversation",
+    "types.conversations.conversation_deleted_resource",
+    "types.responses.response_input_item_param",
+    "types.shared_params.metadata",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

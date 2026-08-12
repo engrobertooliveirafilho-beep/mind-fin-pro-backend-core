@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_E1FF9E11061A2B03",
+  "source_file": "_evidence\\P4_65O_COMPOSITE_RETRIEVAL_LOCK_20260618_162151\\p465o_patch.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P4_65O_COMPOSITE_RETRIEVAL_LOCK_20260618_162151\\p465o_patch.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 101,
+  "imports": [
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

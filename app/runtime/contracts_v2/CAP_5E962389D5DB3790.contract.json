@@ -1,0 +1,33 @@
+{
+  "capability_id": "CAP_5E962389D5DB3790",
+  "source_file": ".venv\\Lib\\site-packages\\twilio\\rest\\messaging\\v1\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\twilio\\rest\\messaging\\v1\\__init__.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 95,
+  "imports": [
+    "twilio.base.domain",
+    "twilio.base.version",
+    "twilio.rest.messaging.v1.brand_registration",
+    "twilio.rest.messaging.v1.deactivations",
+    "twilio.rest.messaging.v1.domain_certs",
+    "twilio.rest.messaging.v1.domain_config",
+    "twilio.rest.messaging.v1.domain_config_messaging_service",
+    "twilio.rest.messaging.v1.domain_validate_dn",
+    "twilio.rest.messaging.v1.external_campaign",
+    "twilio.rest.messaging.v1.linkshortening_messaging_service",
+    "twilio.rest.messaging.v1.linkshortening_messaging_service_domain_association",
+    "twilio.rest.messaging.v1.request_managed_cert",
+    "twilio.rest.messaging.v1.service",
+    "twilio.rest.messaging.v1.tollfree_verification",
+    "twilio.rest.messaging.v1.usecase",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

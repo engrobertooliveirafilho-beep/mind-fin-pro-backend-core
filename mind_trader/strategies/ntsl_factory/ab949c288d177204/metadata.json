@@ -1,0 +1,10 @@
+{
+  "strategy_id": "ab949c288d177204",
+  "template": "rsi_reversion",
+  "asset": "WIN",
+  "timeframe": "M15",
+  "platform": "Profit/NTSL",
+  "requires_profit_backtest": true,
+  "live": "FORBIDDEN",
+  "real_orders": "FORBIDDEN"
+}

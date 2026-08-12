@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_1937C92E1E86E059",
+  "source_file": "evidence\\P4.51_LEVEL_C_FULL_AUDIT_20260618_062425\\backup\\tests\\test_p55r_claim_to_entity_promoter.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\evidence\\P4.51_LEVEL_C_FULL_AUDIT_20260618_062425\\backup\\tests\\test_p55r_claim_to_entity_promoter.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 98,
+  "imports": [
+    "app.mind.p5_5r_claim_to_entity_promoter",
+    "app.mind.p5_5r_claim_to_entity_promoter.promoter"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

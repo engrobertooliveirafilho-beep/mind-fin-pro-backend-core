@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_561E7A7EA24DAF8A",
+  "source_file": ".venv\\Lib\\site-packages\\charset_normalizer\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\charset_normalizer\\__init__.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 87,
+  "imports": [
+    "__future__",
+    "api",
+    "legacy",
+    "logging",
+    "models",
+    "utils",
+    "version"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

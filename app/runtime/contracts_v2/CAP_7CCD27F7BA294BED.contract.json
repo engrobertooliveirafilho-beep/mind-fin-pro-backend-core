@@ -1,0 +1,26 @@
+{
+  "capability_id": "CAP_7CCD27F7BA294BED",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\plotting\\test_misc.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\data\\.venv\\Lib\\site-packages\\pandas\\tests\\plotting\\test_misc.py",
+  "domain": "DATA",
+  "target_layer": "app/runtime",
+  "promotion_score": 99,
+  "imports": [
+    "numpy",
+    "os",
+    "pandas",
+    "pandas._testing",
+    "pandas.plotting._matplotlib.style",
+    "pandas.tests.plotting.common",
+    "pandas.util._test_decorators",
+    "pytest",
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

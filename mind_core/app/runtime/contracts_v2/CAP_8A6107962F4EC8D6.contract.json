@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_8A6107962F4EC8D6",
+  "source_file": ".venv\\Lib\\site-packages\\httpcore\\_sync\\http11.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\httpcore\\_sync\\http11.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 121,
+  "imports": [
+    "__future__",
+    "_backends.base",
+    "_exceptions",
+    "_models",
+    "_synchronization",
+    "_trace",
+    "enum",
+    "h11",
+    "interfaces",
+    "logging",
+    "ssl",
+    "time",
+    "types",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

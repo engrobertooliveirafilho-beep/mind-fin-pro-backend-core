@@ -1,0 +1,16 @@
+{
+  "capability_id": "CAP_E50352A246D2A9C5",
+  "source_file": "_evidence\\P19P5_FIX_INDENT_AND_TEXT_20260617_212825\\automotive_domain_guard_before_fix.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P19P5_FIX_INDENT_AND_TEXT_20260617_212825\\automotive_domain_guard_before_fix.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 94,
+  "imports": [],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

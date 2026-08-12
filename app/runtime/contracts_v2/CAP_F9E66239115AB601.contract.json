@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_F9E66239115AB601",
+  "source_file": ".venv\\Lib\\site-packages\\fastapi\\utils.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\fastapi\\utils.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 99,
+  "imports": [
+    "_compat",
+    "fastapi",
+    "fastapi._compat",
+    "fastapi.datastructures",
+    "fastapi.exceptions",
+    "pydantic.fields",
+    "re",
+    "routing",
+    "typing",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_A9C6C2A14E5509C2",
+  "source_file": ".venv\\Lib\\site-packages\\pydantic\\config.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\pydantic\\config.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 178,
+  "imports": [
+    "__future__",
+    "_internal._generate_schema",
+    "_internal._utils",
+    "_migration",
+    "aliases",
+    "errors",
+    "fields",
+    "re",
+    "typing",
+    "typing_extensions",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

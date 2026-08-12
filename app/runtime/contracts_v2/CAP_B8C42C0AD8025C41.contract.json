@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_B8C42C0AD8025C41",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\lib\\tests\\test_arraysetops.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\numpy\\lib\\tests\\test_arraysetops.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 95,
+  "imports": [
+    "numpy",
+    "numpy.dtypes",
+    "numpy.exceptions",
+    "numpy.testing",
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

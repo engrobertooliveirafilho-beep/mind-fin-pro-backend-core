@@ -1,0 +1,30 @@
+{
+  "capability_id": "CAP_9AE5502945CC603A",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\resample\\test_base.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\pandas\\tests\\resample\\test_base.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 116,
+  "imports": [
+    "datetime",
+    "numpy",
+    "pandas",
+    "pandas._testing",
+    "pandas.core.dtypes.common",
+    "pandas.core.groupby.groupby",
+    "pandas.core.groupby.grouper",
+    "pandas.core.indexes.datetimes",
+    "pandas.core.indexes.period",
+    "pandas.core.indexes.timedeltas",
+    "pandas.core.resample",
+    "pandas.errors",
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

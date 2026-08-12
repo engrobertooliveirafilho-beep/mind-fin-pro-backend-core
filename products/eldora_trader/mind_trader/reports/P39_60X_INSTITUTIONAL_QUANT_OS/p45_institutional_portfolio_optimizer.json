@@ -1,0 +1,80 @@
+[
+  {
+    "edge_id": "CSAN3_H1_sma_cross_13_55",
+    "weight": 0.155575,
+    "optimizer": [
+      "risk_parity",
+      "half_kelly",
+      "vol_target"
+    ],
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "IFIX_H1_sma_cross_5_55",
+    "weight": 0.259428,
+    "optimizer": [
+      "risk_parity",
+      "half_kelly",
+      "vol_target"
+    ],
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "SHUL4_H1_sma_cross_5_55",
+    "weight": 0.110234,
+    "optimizer": [
+      "risk_parity",
+      "half_kelly",
+      "vol_target"
+    ],
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "VIDEO_8834d6c1b66f26e6ce1d3007",
+    "weight": 0.117543,
+    "optimizer": [
+      "risk_parity",
+      "half_kelly",
+      "vol_target"
+    ],
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "VIDEO_9a075b6ef8d3f0363d232ba8",
+    "weight": 0.247697,
+    "optimizer": [
+      "risk_parity",
+      "half_kelly",
+      "vol_target"
+    ],
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "VIDEO_b237455793f2a763ee436139",
+    "weight": 0.109522,
+    "optimizer": [
+      "risk_parity",
+      "half_kelly",
+      "vol_target"
+    ],
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  }
+]

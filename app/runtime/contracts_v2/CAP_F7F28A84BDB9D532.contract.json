@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_F7F28A84BDB9D532",
+  "source_file": "patch_persona_identity_v2.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\patch_persona_identity_v2.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 86,
+  "imports": [
+    "pathlib",
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_ECD1F20F6AE54159",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\lib\\_polynomial_impl.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\numpy\\lib\\_polynomial_impl.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 110,
+  "imports": [
+    "functools",
+    "numpy._core",
+    "numpy._core.numeric",
+    "numpy._utils",
+    "numpy.exceptions",
+    "numpy.lib._function_base_impl",
+    "numpy.lib._twodim_base_impl",
+    "numpy.lib._type_check_impl",
+    "numpy.linalg",
+    "re",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_5EC4CED492C401B0",
+  "source_file": ".venv\\Lib\\site-packages\\starlette\\middleware\\errors.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\starlette\\middleware\\errors.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 113,
+  "imports": [
+    "__future__",
+    "html",
+    "inspect",
+    "starlette._utils",
+    "starlette.concurrency",
+    "starlette.requests",
+    "starlette.responses",
+    "starlette.types",
+    "sys",
+    "traceback"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

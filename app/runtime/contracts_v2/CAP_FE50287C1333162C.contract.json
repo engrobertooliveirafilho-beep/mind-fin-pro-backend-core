@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_FE50287C1333162C",
+  "source_file": ".venv\\Lib\\site-packages\\aiohttp\\client_ws.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\aiohttp\\client_ws.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 126,
+  "imports": [
+    "_websocket.reader",
+    "async_timeout",
+    "asyncio",
+    "attr",
+    "client_exceptions",
+    "client_reqrep",
+    "helpers",
+    "http",
+    "http_websocket",
+    "streams",
+    "sys",
+    "typedefs",
+    "types",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

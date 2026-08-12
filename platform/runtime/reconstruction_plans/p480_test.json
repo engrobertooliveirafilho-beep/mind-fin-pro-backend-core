@@ -1,0 +1,23 @@
+{
+  "engine": "P4.80_CAPABILITY_RECONSTRUCTION_PLANNER",
+  "created_at": "2026-06-21T13:48:54.726323+00:00",
+  "source_id": "p480_test",
+  "total_missions": 1,
+  "missions": [
+    {
+      "mission_id": "P4.80_AUTO_001",
+      "source_id": "p480_test",
+      "type": "CAPABILITY",
+      "priority": "MEDIUM",
+      "title": "Precisamos criar um engine de memória social.",
+      "evidence_text": "Precisamos criar um engine de memória social.",
+      "recommended_action": "MAP_TO_REGISTRY_OR_CREATE_ADAPTER",
+      "suggested_files": [],
+      "suggested_tests": [],
+      "risk": "medium"
+    }
+  ],
+  "summary": {
+    "MAP_TO_REGISTRY_OR_CREATE_ADAPTER": 1
+  }
+}

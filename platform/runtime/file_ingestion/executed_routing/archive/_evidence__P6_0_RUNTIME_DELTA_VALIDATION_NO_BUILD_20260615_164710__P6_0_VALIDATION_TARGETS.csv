@@ -1,0 +1,3 @@
+"capability","component","current_runtime_status","delta_question","validation_prompts","expected_gain_if_confirmed"
+"HIERARCHICAL_PLANNING","hierarchical_planner_step449","PARCIAL","O runtime atual decompõe objetivos em árvore hierárquica explícita antes do dispatcher?","System.Object[]","HIGH"
+"COGNITIVE_CONTROL","oversight","NÃO","O runtime atual audita decisões antes da execução com decisão ALLOW/REVIEW/BLOCK/REWRITE/ESCALATE?","System.Object[]","MEDIUM_HIGH"

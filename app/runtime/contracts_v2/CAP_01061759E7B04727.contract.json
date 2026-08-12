@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_01061759E7B04727",
+  "source_file": ".venv\\Lib\\site-packages\\setuptools\\tests\\test_virtualenv.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\setuptools\\tests\\test_virtualenv.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 100,
+  "imports": [
+    "os",
+    "pytest",
+    "subprocess",
+    "sys",
+    "urllib.error",
+    "urllib.request"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

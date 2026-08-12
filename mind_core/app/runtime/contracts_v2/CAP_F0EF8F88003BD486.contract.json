@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_F0EF8F88003BD486",
+  "source_file": "tests\\test_p2357_context_edge_walk_forward_validator.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\tests\\test_p2357_context_edge_walk_forward_validator.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 100,
+  "imports": [
+    "app.runtime.p2357_context_edge_walk_forward_validator"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

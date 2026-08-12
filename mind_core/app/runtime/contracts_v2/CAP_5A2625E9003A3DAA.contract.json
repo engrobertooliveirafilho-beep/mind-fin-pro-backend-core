@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_5A2625E9003A3DAA",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\io\\formats\\info.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pandas\\io\\formats\\info.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 117,
+  "imports": [
+    "__future__",
+    "abc",
+    "collections.abc",
+    "pandas",
+    "pandas._config",
+    "pandas._typing",
+    "pandas.core.frame",
+    "pandas.io.formats",
+    "pandas.io.formats.printing",
+    "sys",
+    "textwrap",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

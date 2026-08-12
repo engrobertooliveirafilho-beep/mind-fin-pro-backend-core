@@ -1,0 +1,26 @@
+{
+  "capability_id": "CAP_4E4CD3BE8D450CEA",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\frame\\test_query_eval.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\pandas\\tests\\frame\\test_query_eval.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 108,
+  "imports": [
+    "numpy",
+    "operator",
+    "pandas",
+    "pandas._testing",
+    "pandas.core.computation.check",
+    "pandas.errors",
+    "pandas.util._test_decorators",
+    "pytest",
+    "tokenize"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

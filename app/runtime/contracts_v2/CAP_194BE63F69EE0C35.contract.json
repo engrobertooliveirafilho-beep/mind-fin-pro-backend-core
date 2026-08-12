@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_194BE63F69EE0C35",
+  "source_file": "_evidence\\P2405_FITNESS_SLOT_FILLING_DIET_GENERATOR_20260624_184705\\universal_knowledge_provider_before.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\_evidence\\P2405_FITNESS_SLOT_FILLING_DIET_GENERATOR_20260624_184705\\universal_knowledge_provider_before.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 109,
+  "imports": [
+    "__future__"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

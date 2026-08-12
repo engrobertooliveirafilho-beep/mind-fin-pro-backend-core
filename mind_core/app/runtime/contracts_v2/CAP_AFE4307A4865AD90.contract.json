@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_AFE4307A4865AD90",
+  "source_file": ".venv\\Lib\\site-packages\\redis\\http\\http_client.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\redis\\http\\http_client.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 104,
+  "imports": [
+    "__future__",
+    "base64",
+    "dataclasses",
+    "gzip",
+    "json",
+    "redis.backoff",
+    "redis.retry",
+    "redis.utils",
+    "ssl",
+    "typing",
+    "urllib.error",
+    "urllib.parse",
+    "urllib.request",
+    "zlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,84 @@
+{
+  "STATUS": "P13.9_MT5_HISTORICAL_DATA_PULLER_IMPLEMENTED",
+  "MT5_CONNECTED": true,
+  "DATASETS_CREATED": 42,
+  "ERRORS": [
+    {
+      "symbol": "BTCUSD",
+      "timeframe": "M1",
+      "error": "NO_RATES"
+    },
+    {
+      "symbol": "BTCUSD",
+      "timeframe": "M5",
+      "error": "NO_RATES"
+    },
+    {
+      "symbol": "BTCUSD",
+      "timeframe": "M15",
+      "error": "NO_RATES"
+    },
+    {
+      "symbol": "BTCUSD",
+      "timeframe": "M30",
+      "error": "NO_RATES"
+    },
+    {
+      "symbol": "BTCUSD",
+      "timeframe": "H1",
+      "error": "NO_RATES"
+    },
+    {
+      "symbol": "BTCUSD",
+      "timeframe": "H4",
+      "error": "NO_RATES"
+    },
+    {
+      "symbol": "BTCUSD",
+      "timeframe": "D1",
+      "error": "NO_RATES"
+    },
+    {
+      "symbol": "ETHUSD",
+      "timeframe": "M1",
+      "error": "NO_RATES"
+    },
+    {
+      "symbol": "ETHUSD",
+      "timeframe": "M5",
+      "error": "NO_RATES"
+    },
+    {
+      "symbol": "ETHUSD",
+      "timeframe": "M15",
+      "error": "NO_RATES"
+    },
+    {
+      "symbol": "ETHUSD",
+      "timeframe": "M30",
+      "error": "NO_RATES"
+    },
+    {
+      "symbol": "ETHUSD",
+      "timeframe": "H1",
+      "error": "NO_RATES"
+    },
+    {
+      "symbol": "ETHUSD",
+      "timeframe": "H4",
+      "error": "NO_RATES"
+    },
+    {
+      "symbol": "ETHUSD",
+      "timeframe": "D1",
+      "error": "NO_RATES"
+    }
+  ],
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "EDGE": "NOT_PROVEN",
+  "CAUSALITY": "NOT_PROVEN",
+  "EXPORT_READY": true,
+  "generated_at": "2026-06-14T16:11:28.117702+00:00"
+}

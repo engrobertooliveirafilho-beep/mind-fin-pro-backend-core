@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_CD6372428B715A65",
+  "source_file": "app\\runtime\\universal_contextual_continuity_engine.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\app\\runtime\\universal_contextual_continuity_engine.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 80,
+  "imports": [
+    "app.runtime.context_recovery_engine",
+    "app.runtime.conversation_state_resolver",
+    "app.runtime.decision_memory",
+    "datetime"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

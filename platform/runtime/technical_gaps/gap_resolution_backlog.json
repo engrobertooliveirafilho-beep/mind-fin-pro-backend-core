@@ -1,0 +1,54 @@
+{
+  "milestone": "P4.88 COMPLETE",
+  "backlog": "GAP_RESOLUTION_BACKLOG",
+  "mode": "PLAN_ONLY",
+  "automatic_execution": "FORBIDDEN",
+  "approval_required": true,
+  "items_count": 4,
+  "items": [
+    {
+      "backlog_id": "P4.88-B001",
+      "gap_id": "GAP-FRI-001",
+      "capability": "full_repository_intelligence",
+      "priority": "P0",
+      "approval_status": "PENDING_APPROVAL",
+      "execution_status": "BLOCKED_BY_P4.83_GATE",
+      "mode": "PLAN_ONLY",
+      "recommended_action": "create_or_complete_capability_mission",
+      "required_output": "runtime/repository_intelligence/full_repository_intelligence_report.json"
+    },
+    {
+      "backlog_id": "P4.88-B002",
+      "gap_id": "GAP-SOV-001",
+      "capability": "sovereign_certification",
+      "priority": "P0",
+      "approval_status": "PENDING_APPROVAL",
+      "execution_status": "BLOCKED_BY_P4.83_GATE",
+      "mode": "PLAN_ONLY",
+      "recommended_action": "create_or_complete_capability_mission",
+      "required_output": "runtime/certification/sovereign_technical_capacity_certification.json"
+    },
+    {
+      "backlog_id": "P4.88-B003",
+      "gap_id": "GAP-DRIVE-ABSORPTION",
+      "capability": "drive_absorption",
+      "priority": "P1",
+      "approval_status": "PENDING_APPROVAL",
+      "execution_status": "BLOCKED_BY_P4.83_GATE",
+      "mode": "PLAN_ONLY",
+      "recommended_action": "create_or_complete_capability_mission",
+      "required_output": null
+    },
+    {
+      "backlog_id": "P4.88-B004",
+      "gap_id": "GAP-AUTO-PRIORITIZATION",
+      "capability": "auto_prioritization",
+      "priority": "P1",
+      "approval_status": "PENDING_APPROVAL",
+      "execution_status": "BLOCKED_BY_P4.83_GATE",
+      "mode": "PLAN_ONLY",
+      "recommended_action": "create_or_complete_capability_mission",
+      "required_output": null
+    }
+  ]
+}

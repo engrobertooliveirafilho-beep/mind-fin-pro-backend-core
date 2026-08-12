@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_CD7F68E8328A16C5",
+  "source_file": "tests\\test_eldora_swarm.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\tests\\test_eldora_swarm.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 100,
+  "imports": [
+    "app.eldora.core.cognitive_load_balancer",
+    "app.eldora.core.distributed_swarm_engine",
+    "app.eldora.core.economic_governor"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

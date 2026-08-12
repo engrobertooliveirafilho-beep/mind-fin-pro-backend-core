@@ -1,0 +1,48 @@
+{
+  "engine": "P4.79_KNOWLEDGE_EXTRACTION_ENGINE",
+  "created_at": "2026-06-21T14:59:50.842913+00:00",
+  "source_id": "p479_test",
+  "metadata": {
+    "test": true
+  },
+  "total_items": 2,
+  "items": [
+    {
+      "source_id": "p479_test",
+      "type": "CAPABILITY",
+      "all_types": [
+        "CAPABILITY",
+        "BUG_FIX"
+      ],
+      "priority": "MEDIUM",
+      "text": "Existe bug TypeError no runtime.",
+      "signals": [
+        "CAPABILITY",
+        "BUG_FIX"
+      ],
+      "metadata": {
+        "test": true
+      }
+    },
+    {
+      "source_id": "p479_test",
+      "type": "CAPABILITY",
+      "all_types": [
+        "CAPABILITY",
+        "ARCHITECTURE"
+      ],
+      "priority": "MEDIUM",
+      "text": "A arquitetura deve usar pipeline e retrieval.",
+      "signals": [
+        "CAPABILITY",
+        "ARCHITECTURE"
+      ],
+      "metadata": {
+        "test": true
+      }
+    }
+  ],
+  "summary": {
+    "CAPABILITY": 2
+  }
+}

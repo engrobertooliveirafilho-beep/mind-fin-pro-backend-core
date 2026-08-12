@@ -1,0 +1,72 @@
+[
+  {
+    "from": "whatsapp:+5519996166906",
+    "input": "Bom dia",
+    "answer": "Bom dia! Tudo certo por a├¡?",
+    "fallback": 0,
+    "chars": 28
+  },
+  {
+    "from": "whatsapp:+5519996166906",
+    "input": "Tudo bem?",
+    "answer": "Tudo bem por aqui. E voc├¬?",
+    "fallback": 0,
+    "chars": 27
+  },
+  {
+    "from": "whatsapp:+5519996166906",
+    "input": "Eu tô bem",
+    "answer": "Boa. Vamos em frente.",
+    "fallback": 0,
+    "chars": 21
+  },
+  {
+    "from": "whatsapp:+5519996166906",
+    "input": "Qual seu nome?",
+    "answer": "Resposta factual: vou direto ao ponto com contexto, pontos principais e pr├│ximo passo verific├ível.",
+    "fallback": 0,
+    "chars": 100
+  },
+  {
+    "from": "whatsapp:+5519996166906",
+    "input": "quero comprar uma moto k1300 quais são as melhores qualidades dela?",
+    "answer": "A BMW K1300 se destaca por motor forte, estabilidade e conforto. Antes de comprar: cheque hist├│rico, suspens├úo, el├®trica e manuten├º├úo.",
+    "fallback": 0,
+    "chars": 139
+  },
+  {
+    "from": "whatsapp:+5519996166906",
+    "input": "quais os pontos fortes da BMW K1300?",
+    "answer": "A BMW K1300 se destaca por motor forte, estabilidade e conforto. Antes de comprar: cheque hist├│rico, suspens├úo, el├®trica e manuten├º├úo.",
+    "fallback": 0,
+    "chars": 139
+  },
+  {
+    "from": "whatsapp:+5519996166906",
+    "input": "quanto é 5 / 4",
+    "answer": "Resposta factual: vou direto ao ponto com contexto, pontos principais e pr├│ximo passo verific├ível.",
+    "fallback": 0,
+    "chars": 100
+  },
+  {
+    "from": "whatsapp:+5519996166906",
+    "input": "9+5",
+    "answer": "14",
+    "fallback": 0,
+    "chars": 2
+  },
+  {
+    "from": "whatsapp:+5519996166906",
+    "input": "e depois?",
+    "answer": "Aprofundando: o pr├│ximo passo ├® separar causa, impacto e a├º├úo pr├ítica.",
+    "fallback": 0,
+    "chars": 75
+  },
+  {
+    "from": "whatsapp:+5519996166906",
+    "input": "aprofunde",
+    "answer": "Aprofundando: o pr├│ximo passo ├® separar causa, impacto e a├º├úo pr├ítica.",
+    "fallback": 0,
+    "chars": 75
+  }
+]

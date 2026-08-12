@@ -1,0 +1,15 @@
+{
+  "mission": "P2502_RUNTIME_LAYER_STAGING_V2",
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "staged_capabilities": 5393,
+  "contracts": 5393,
+  "dag_edges": 39604,
+  "quarantined": 8849,
+  "runtime_active_modified": false,
+  "copy_not_move": true,
+  "preserve_tree": true,
+  "real_execution_allowed": false,
+  "next_required": "P2503_STAGED_CONTRACT_TEST_HARNESS_V2"
+}

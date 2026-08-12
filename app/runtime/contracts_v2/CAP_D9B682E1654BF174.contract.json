@@ -1,0 +1,16 @@
+{
+  "capability_id": "CAP_D9B682E1654BF174",
+  "source_file": "gpu_runtime\\orchestrator\\executor.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\gpu_runtime\\orchestrator\\executor.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 86,
+  "imports": [],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

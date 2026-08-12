@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_26539B3DB843F72C",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_scalarmath.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_scalarmath.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 126,
+  "imports": [
+    "contextlib",
+    "hypothesis",
+    "hypothesis.extra",
+    "hypothesis.strategies",
+    "itertools",
+    "numpy",
+    "numpy._core._rational_tests",
+    "numpy._utils",
+    "numpy.exceptions",
+    "numpy.testing",
+    "operator",
+    "platform",
+    "pytest",
+    "sys",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

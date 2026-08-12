@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_01878AE8B2C12749",
+  "source_file": ".venv\\Lib\\site-packages\\twilio\\rest\\supersim\\v1\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\twilio\\rest\\supersim\\v1\\__init__.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 87,
+  "imports": [
+    "twilio.base.domain",
+    "twilio.base.version",
+    "twilio.rest.supersim.v1.esim_profile",
+    "twilio.rest.supersim.v1.fleet",
+    "twilio.rest.supersim.v1.ip_command",
+    "twilio.rest.supersim.v1.network",
+    "twilio.rest.supersim.v1.network_access_profile",
+    "twilio.rest.supersim.v1.settings_update",
+    "twilio.rest.supersim.v1.sim",
+    "twilio.rest.supersim.v1.sms_command",
+    "twilio.rest.supersim.v1.usage_record",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

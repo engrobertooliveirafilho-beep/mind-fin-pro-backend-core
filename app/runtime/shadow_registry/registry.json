@@ -1,0 +1,2356 @@
+{
+  "capabilities": [
+    {
+      "file": "app/api/debug_whatsapp_runtime_trace.py",
+      "action": "PROMOTE_SAFE",
+      "capability_score": 15,
+      "danger": [],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "fastapi",
+        "datetime",
+        "pathlib",
+        "json",
+        "app.api.whatsapp"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "diagnostic",
+        "whatsapp"
+      ],
+      "intents": [
+        "analyze"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "000_debug_whatsapp_runtime_trace",
+      "name": "debug_whatsapp_runtime_trace",
+      "actions": [
+        "analyze"
+      ],
+      "requires": [
+        "Body",
+        "From",
+        "To"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.api.whatsapp"
+      ],
+      "technical_score": 80,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/diagnostic_twilio.py",
+      "action": "SHADOW_ONLY",
+      "capability_score": 13,
+      "danger": [
+        "twilio"
+      ],
+      "route_like": true,
+      "functions": [
+        "__identity_guard_last_hop"
+      ],
+      "imports": [
+        "app.humanization.universal_recovery_runtime",
+        "fastapi",
+        "datetime",
+        "json",
+        "pathlib"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "diagnostic",
+        "governance",
+        "whatsapp"
+      ],
+      "intents": [
+        "generate",
+        "guard"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "001_diagnostic_twilio",
+      "name": "diagnostic_twilio",
+      "actions": [
+        "generate",
+        "guard"
+      ],
+      "requires": [
+        "answer",
+        "request",
+        "user_message"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.humanization.universal_recovery_runtime"
+      ],
+      "technical_score": 78,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/eldora_cognition.py",
+      "action": "SHADOW_ROUTE",
+      "capability_score": 11,
+      "danger": [],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "fastapi",
+        "app.eldora.core.long_term_memory",
+        "app.eldora.core.memory_compression_engine",
+        "app.eldora.core.tool_learning_engine"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "marketing",
+        "memory"
+      ],
+      "intents": [
+        "remember"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "002_eldora_cognition",
+      "name": "eldora_cognition",
+      "actions": [
+        "remember"
+      ],
+      "requires": [
+        "capability",
+        "category",
+        "content",
+        "tool_name"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.eldora.core.long_term_memory",
+        "app.eldora.core.memory_compression_engine",
+        "app.eldora.core.tool_learning_engine"
+      ],
+      "technical_score": 98,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/eldora_persistent_cognition.py",
+      "action": "SHADOW_ROUTE",
+      "capability_score": 11,
+      "danger": [],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "fastapi",
+        "app.eldora.core.persistent_cognitive_graph"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "marketing"
+      ],
+      "intents": [
+        "retrieve"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "003_eldora_persistent_cognition",
+      "name": "eldora_persistent_cognition",
+      "actions": [
+        "retrieve"
+      ],
+      "requires": [
+        "category",
+        "content",
+        "priority",
+        "query",
+        "tenant_id",
+        "top_k",
+        "user_ref"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.eldora.core.persistent_cognitive_graph"
+      ],
+      "technical_score": 76,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/eldora_world.py",
+      "action": "SHADOW_ROUTE",
+      "capability_score": 11,
+      "danger": [],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "fastapi",
+        "app.eldora.core.world_model_engine",
+        "app.eldora.core.causal_reasoning_engine",
+        "app.eldora.core.predictive_simulation_engine"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "memory"
+      ],
+      "intents": [
+        "remember"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "004_eldora_world",
+      "name": "eldora_world",
+      "actions": [
+        "remember"
+      ],
+      "requires": [
+        "cause",
+        "context",
+        "effect",
+        "environment",
+        "goal",
+        "variables"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.eldora.core.causal_reasoning_engine",
+        "app.eldora.core.predictive_simulation_engine",
+        "app.eldora.core.world_model_engine"
+      ],
+      "technical_score": 98,
+      "profile_error": null
+    },
+    {
+      "file": "app/runtime/context_priority_engine.py",
+      "action": "SHADOW_ONLY",
+      "capability_score": 11,
+      "danger": [
+        "supabase"
+      ],
+      "route_like": false,
+      "functions": [
+        "context_priority_reply"
+      ],
+      "imports": [],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "memory",
+        "whatsapp"
+      ],
+      "intents": [
+        "generate",
+        "remember"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "005_context_priority_engine",
+      "name": "context_priority_engine",
+      "actions": [
+        "generate",
+        "remember"
+      ],
+      "requires": [
+        "message",
+        "sender_id"
+      ],
+      "produces": [
+        "str"
+      ],
+      "dependencies": [],
+      "technical_score": 53,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/eldora_admin.py",
+      "action": "SHADOW_ONLY",
+      "capability_score": 10,
+      "danger": [
+        "psycopg2"
+      ],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "os",
+        "psycopg2",
+        "fastapi",
+        "app.eldora.core.admin_guard"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "governance",
+        "retrieval"
+      ],
+      "intents": [
+        "guard"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "006_eldora_admin",
+      "name": "eldora_admin",
+      "actions": [
+        "guard"
+      ],
+      "requires": [
+        "_"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.eldora.core.admin_guard"
+      ],
+      "technical_score": 68,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/eldora_async.py",
+      "action": "SHADOW_ROUTE",
+      "capability_score": 10,
+      "danger": [],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "fastapi",
+        "app.eldora.core.task_engine",
+        "app.eldora.core.agent_orchestrator",
+        "app.eldora.core.distributed_runtime"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "routing"
+      ],
+      "intents": [
+        "generate"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "007_eldora_async",
+      "name": "eldora_async",
+      "actions": [
+        "generate"
+      ],
+      "requires": [
+        "goal",
+        "payload",
+        "task_id",
+        "task_type"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.eldora.core.agent_orchestrator",
+        "app.eldora.core.distributed_runtime",
+        "app.eldora.core.task_engine"
+      ],
+      "technical_score": 90,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/eldora_autonomous.py",
+      "action": "SHADOW_ROUTE",
+      "capability_score": 10,
+      "danger": [],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "fastapi",
+        "app.eldora.core.autonomous_planner",
+        "app.eldora.core.governor_engine",
+        "app.eldora.core.checkpoint_engine"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "general"
+      ],
+      "intents": [
+        "generate"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "008_eldora_autonomous",
+      "name": "eldora_autonomous",
+      "actions": [
+        "generate"
+      ],
+      "requires": [
+        "amount",
+        "goal",
+        "plan_id"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.eldora.core.autonomous_planner",
+        "app.eldora.core.checkpoint_engine",
+        "app.eldora.core.governor_engine"
+      ],
+      "technical_score": 105,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/eldora_multimodal.py",
+      "action": "SHADOW_ROUTE",
+      "capability_score": 10,
+      "danger": [],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "fastapi",
+        "app.eldora.core.multimodal_ingestion",
+        "app.eldora.core.ocr_engine",
+        "app.eldora.core.audio_transcript_engine",
+        "app.eldora.core.visual_semantic_memory",
+        "app.eldora.core.multimodal_fusion_engine"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "marketing",
+        "memory",
+        "multimodal"
+      ],
+      "intents": [
+        "remember",
+        "retrieve"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "009_eldora_multimodal",
+      "name": "eldora_multimodal",
+      "actions": [
+        "remember",
+        "retrieve"
+      ],
+      "requires": [
+        "content",
+        "context",
+        "description",
+        "path",
+        "query",
+        "text"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.eldora.core.audio_transcript_engine",
+        "app.eldora.core.multimodal_fusion_engine",
+        "app.eldora.core.multimodal_ingestion",
+        "app.eldora.core.ocr_engine",
+        "app.eldora.core.visual_semantic_memory"
+      ],
+      "technical_score": 118,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/eldora_neura_scale.py",
+      "action": "SHADOW_ROUTE",
+      "capability_score": 10,
+      "danger": [],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "fastapi",
+        "app.eldora.core.neura_scale_runtime"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "trader"
+      ],
+      "intents": [
+        "assist"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "010_eldora_neura_scale",
+      "name": "eldora_neura_scale",
+      "actions": [
+        "assist"
+      ],
+      "requires": [
+        "audience",
+        "market",
+        "max_cost",
+        "name",
+        "offer",
+        "plan",
+        "priority",
+        "product",
+        "workload"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.eldora.core.neura_scale_runtime"
+      ],
+      "technical_score": 88,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/eldora_semantic.py",
+      "action": "SHADOW_ROUTE",
+      "capability_score": 10,
+      "danger": [],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "fastapi",
+        "app.eldora.core.semantic_memory_engine"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "memory"
+      ],
+      "intents": [
+        "remember",
+        "retrieve"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "011_eldora_semantic",
+      "name": "eldora_semantic",
+      "actions": [
+        "remember",
+        "retrieve"
+      ],
+      "requires": [
+        "node",
+        "query",
+        "text",
+        "top_k"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.eldora.core.semantic_memory_engine"
+      ],
+      "technical_score": 76,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/eldora_social.py",
+      "action": "SHADOW_ROUTE",
+      "capability_score": 10,
+      "danger": [],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "fastapi",
+        "app.eldora.core.persistent_social_memory",
+        "app.eldora.core.emotional_continuity_engine",
+        "app.eldora.core.relational_cognition_engine"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "marketing",
+        "memory"
+      ],
+      "intents": [
+        "remember"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "012_eldora_social",
+      "name": "eldora_social",
+      "actions": [
+        "remember"
+      ],
+      "requires": [
+        "context",
+        "emotion",
+        "interaction",
+        "profile",
+        "user_id"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.eldora.core.emotional_continuity_engine",
+        "app.eldora.core.persistent_social_memory",
+        "app.eldora.core.relational_cognition_engine"
+      ],
+      "technical_score": 98,
+      "profile_error": null
+    },
+    {
+      "file": "app/humanization/social_memory_provider.py",
+      "action": "REVIEW_SHADOW",
+      "capability_score": 10,
+      "danger": [],
+      "route_like": false,
+      "functions": [
+        "social_observation_layer",
+        "social_pattern_extractor",
+        "anti_llm_speech_filter",
+        "naturalness_judge",
+        "should_split_reply",
+        "classify_reply_cadence",
+        "split_human_reply",
+        "enforce_whatsapp_natural_length",
+        "avoid_over_fragmentation",
+        "humanization_runtime",
+        "build_dataset",
+        "train_sim"
+      ],
+      "imports": [
+        "__future__",
+        "json",
+        "re",
+        "random",
+        "statistics"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "marketing",
+        "memory",
+        "whatsapp"
+      ],
+      "intents": [
+        "generate",
+        "remember"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "013_social_memory_provider",
+      "name": "social_memory_provider",
+      "actions": [
+        "generate",
+        "remember"
+      ],
+      "requires": [
+        "answer",
+        "context",
+        "draft_answer",
+        "msgs",
+        "n",
+        "text",
+        "user_message"
+      ],
+      "produces": [],
+      "dependencies": [],
+      "technical_score": 86,
+      "profile_error": null
+    },
+    {
+      "file": "app/runtime/cognitive_observatory/ai_only_review.py",
+      "action": "REVIEW_SHADOW",
+      "capability_score": 10,
+      "danger": [],
+      "route_like": false,
+      "functions": [
+        "ai_only_review_conversation"
+      ],
+      "imports": [
+        "app.runtime.cognitive_observatory.contracts",
+        "app.runtime.cognitive_observatory.user_mirror"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "whatsapp"
+      ],
+      "intents": [
+        "assist"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "014_ai_only_review",
+      "name": "ai_only_review",
+      "actions": [
+        "assist"
+      ],
+      "requires": [
+        "conversation_id_hash",
+        "conversation_text"
+      ],
+      "produces": [
+        "ConversationReview"
+      ],
+      "dependencies": [
+        "app.runtime.cognitive_observatory.contracts",
+        "app.runtime.cognitive_observatory.user_mirror"
+      ],
+      "technical_score": 59,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/eldora_auth.py",
+      "action": "SHADOW_ROUTE",
+      "capability_score": 9,
+      "danger": [],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "fastapi",
+        "app.eldora.core.jwt_auth",
+        "app.eldora.core.session_memory",
+        "app.eldora.core.rate_limit_engine"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "memory"
+      ],
+      "intents": [
+        "remember"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "015_eldora_auth",
+      "name": "eldora_auth",
+      "actions": [
+        "remember"
+      ],
+      "requires": [
+        "authorization",
+        "key",
+        "limit",
+        "role",
+        "tenant_id",
+        "user_id",
+        "value"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.eldora.core.jwt_auth",
+        "app.eldora.core.rate_limit_engine",
+        "app.eldora.core.session_memory"
+      ],
+      "technical_score": 89,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/eldora_autonomy.py",
+      "action": "SHADOW_ROUTE",
+      "capability_score": 9,
+      "danger": [],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "fastapi",
+        "app.eldora.core.persistent_goal_engine",
+        "app.eldora.core.continuous_execution_engine",
+        "app.eldora.core.runtime_observation_engine"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "trader"
+      ],
+      "intents": [
+        "assist"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "016_eldora_autonomy",
+      "name": "eldora_autonomy",
+      "actions": [
+        "assist"
+      ],
+      "requires": [
+        "environment",
+        "goal",
+        "mission",
+        "priority",
+        "signal"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.eldora.core.continuous_execution_engine",
+        "app.eldora.core.persistent_goal_engine",
+        "app.eldora.core.runtime_observation_engine"
+      ],
+      "technical_score": 98,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/eldora_embodied.py",
+      "action": "SHADOW_ROUTE",
+      "capability_score": 9,
+      "danger": [],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "fastapi",
+        "app.eldora.core.live_browser_agents",
+        "app.eldora.core.autonomous_digital_presence",
+        "app.eldora.core.internet_awareness_engine"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "trader"
+      ],
+      "intents": [
+        "assist"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "017_eldora_embodied",
+      "name": "eldora_embodied",
+      "actions": [
+        "assist"
+      ],
+      "requires": [
+        "agent",
+        "identity",
+        "objective",
+        "platform",
+        "signal",
+        "source"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.eldora.core.autonomous_digital_presence",
+        "app.eldora.core.internet_awareness_engine",
+        "app.eldora.core.live_browser_agents"
+      ],
+      "technical_score": 98,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/eldora_growth.py",
+      "action": "SHADOW_ROUTE",
+      "capability_score": 9,
+      "danger": [],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "fastapi",
+        "app.eldora.core.autonomous_growth_runtime"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "routing"
+      ],
+      "intents": [
+        "generate",
+        "route"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "018_eldora_growth",
+      "name": "eldora_growth",
+      "actions": [
+        "generate",
+        "route"
+      ],
+      "requires": [
+        "action",
+        "audience",
+        "channel",
+        "efficiency",
+        "lead_id",
+        "objective",
+        "route_name"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.eldora.core.autonomous_growth_runtime"
+      ],
+      "technical_score": 88,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/eldora_liveos.py",
+      "action": "SHADOW_ROUTE",
+      "capability_score": 9,
+      "danger": [],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "fastapi",
+        "app.eldora.core.realtime_event_stream",
+        "app.eldora.core.universal_orchestration_fabric",
+        "app.eldora.core.live_operating_system_engine"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "trader"
+      ],
+      "intents": [
+        "assist"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "019_eldora_liveos",
+      "name": "eldora_liveos",
+      "actions": [
+        "assist"
+      ],
+      "requires": [
+        "agent_group",
+        "environment",
+        "event",
+        "objective",
+        "signal",
+        "stream"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.eldora.core.live_operating_system_engine",
+        "app.eldora.core.realtime_event_stream",
+        "app.eldora.core.universal_orchestration_fabric"
+      ],
+      "technical_score": 98,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/eldora_mesh.py",
+      "action": "SHADOW_ROUTE",
+      "capability_score": 9,
+      "danger": [],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "fastapi",
+        "app.eldora.core.realtime_cognitive_mesh",
+        "app.eldora.core.event_broker_fabric",
+        "app.eldora.core.live_agent_cloud"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "trader"
+      ],
+      "intents": [
+        "assist"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "020_eldora_mesh",
+      "name": "eldora_mesh",
+      "actions": [
+        "assist"
+      ],
+      "requires": [
+        "agent",
+        "channel",
+        "cognition",
+        "node",
+        "payload",
+        "runtime"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.eldora.core.event_broker_fabric",
+        "app.eldora.core.live_agent_cloud",
+        "app.eldora.core.realtime_cognitive_mesh"
+      ],
+      "technical_score": 98,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/eldora_meta.py",
+      "action": "SHADOW_ROUTE",
+      "capability_score": 9,
+      "danger": [],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "fastapi",
+        "app.eldora.core.meta_cognition_engine",
+        "app.eldora.core.self_awareness_engine",
+        "app.eldora.core.recursive_introspection_engine"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "memory"
+      ],
+      "intents": [
+        "remember"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "021_eldora_meta",
+      "name": "eldora_meta",
+      "actions": [
+        "remember"
+      ],
+      "requires": [
+        "cognition",
+        "layer",
+        "objective",
+        "reflection",
+        "runtime",
+        "runtime_state"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.eldora.core.meta_cognition_engine",
+        "app.eldora.core.recursive_introspection_engine",
+        "app.eldora.core.self_awareness_engine"
+      ],
+      "technical_score": 98,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/eldora_runtime_supervisor.py",
+      "action": "SHADOW_ROUTE",
+      "capability_score": 9,
+      "danger": [],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "fastapi",
+        "app.eldora.core.self_healing_engine",
+        "app.eldora.core.supervisor_swarm",
+        "app.eldora.core.recursive_execution_engine"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "general"
+      ],
+      "intents": [
+        "assist"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "022_eldora_runtime_supervisor",
+      "name": "eldora_runtime_supervisor",
+      "actions": [
+        "assist"
+      ],
+      "requires": [
+        "component",
+        "goal",
+        "max_depth"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.eldora.core.recursive_execution_engine",
+        "app.eldora.core.self_healing_engine",
+        "app.eldora.core.supervisor_swarm"
+      ],
+      "technical_score": 92,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/eldora_security.py",
+      "action": "SHADOW_ROUTE",
+      "capability_score": 9,
+      "danger": [],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "fastapi",
+        "app.eldora.core.tenant_engine",
+        "app.eldora.core.auth_context",
+        "app.eldora.core.policy_engine"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "governance",
+        "memory"
+      ],
+      "intents": [
+        "guard",
+        "remember"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "023_eldora_security",
+      "name": "eldora_security",
+      "actions": [
+        "guard",
+        "remember"
+      ],
+      "requires": [
+        "action",
+        "resource",
+        "role",
+        "tenant_id",
+        "user_id"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.eldora.core.auth_context",
+        "app.eldora.core.policy_engine",
+        "app.eldora.core.tenant_engine"
+      ],
+      "technical_score": 74,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/eldora_true_distributed.py",
+      "action": "SHADOW_ONLY",
+      "capability_score": 9,
+      "danger": [
+        "redis"
+      ],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "fastapi",
+        "app.eldora.core.true_redis_runtime",
+        "app.eldora.core.distributed_worker_loop",
+        "app.eldora.core.websocket_cognition",
+        "app.eldora.core.redis_diagnostics"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "diagnostic",
+        "trader",
+        "whatsapp"
+      ],
+      "intents": [
+        "assist"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "024_eldora_true_distributed",
+      "name": "eldora_true_distributed",
+      "actions": [
+        "assist"
+      ],
+      "requires": [
+        "channel",
+        "cycles",
+        "event",
+        "message",
+        "stream",
+        "websocket",
+        "worker_name"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.eldora.core.distributed_worker_loop",
+        "app.eldora.core.redis_diagnostics",
+        "app.eldora.core.true_redis_runtime",
+        "app.eldora.core.websocket_cognition"
+      ],
+      "technical_score": 113,
+      "profile_error": null
+    },
+    {
+      "file": "app/eldora/canonical_registry.py",
+      "action": "REVIEW_SHADOW",
+      "capability_score": 9,
+      "danger": [],
+      "route_like": false,
+      "functions": [],
+      "imports": [],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "general"
+      ],
+      "intents": [
+        "assist"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "025_canonical_registry",
+      "name": "canonical_registry",
+      "actions": [
+        "assist"
+      ],
+      "requires": [],
+      "produces": [],
+      "dependencies": [],
+      "technical_score": 50,
+      "profile_error": null
+    },
+    {
+      "file": "app/humanization/conversation_maturity_engine.py",
+      "action": "REVIEW_SHADOW",
+      "capability_score": 9,
+      "danger": [],
+      "route_like": false,
+      "functions": [
+        "social_observation_layer",
+        "social_pattern_extractor",
+        "anti_llm_speech_filter",
+        "naturalness_judge",
+        "should_split_reply",
+        "classify_reply_cadence",
+        "split_human_reply",
+        "enforce_whatsapp_natural_length",
+        "avoid_over_fragmentation",
+        "humanization_runtime",
+        "build_dataset",
+        "train_sim"
+      ],
+      "imports": [
+        "__future__",
+        "json",
+        "re",
+        "random",
+        "statistics"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "marketing",
+        "memory",
+        "whatsapp"
+      ],
+      "intents": [
+        "generate",
+        "remember"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "026_conversation_maturity_engine",
+      "name": "conversation_maturity_engine",
+      "actions": [
+        "generate",
+        "remember"
+      ],
+      "requires": [
+        "answer",
+        "context",
+        "draft_answer",
+        "msgs",
+        "n",
+        "text",
+        "user_message"
+      ],
+      "produces": [],
+      "dependencies": [],
+      "technical_score": 86,
+      "profile_error": null
+    },
+    {
+      "file": "app/humanization/conversation_training_runtime.py",
+      "action": "REVIEW_SHADOW",
+      "capability_score": 9,
+      "danger": [],
+      "route_like": false,
+      "functions": [
+        "social_observation_layer",
+        "social_pattern_extractor",
+        "anti_llm_speech_filter",
+        "naturalness_judge",
+        "should_split_reply",
+        "classify_reply_cadence",
+        "split_human_reply",
+        "enforce_whatsapp_natural_length",
+        "avoid_over_fragmentation",
+        "humanization_runtime",
+        "build_dataset",
+        "train_sim"
+      ],
+      "imports": [
+        "__future__",
+        "json",
+        "re",
+        "random",
+        "statistics"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "marketing",
+        "memory",
+        "whatsapp"
+      ],
+      "intents": [
+        "generate",
+        "remember"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "027_conversation_training_runtime",
+      "name": "conversation_training_runtime",
+      "actions": [
+        "generate",
+        "remember"
+      ],
+      "requires": [
+        "answer",
+        "context",
+        "draft_answer",
+        "msgs",
+        "n",
+        "text",
+        "user_message"
+      ],
+      "produces": [],
+      "dependencies": [],
+      "technical_score": 86,
+      "profile_error": null
+    },
+    {
+      "file": "app/humanization/multi_ai_conversation_simulator.py",
+      "action": "REVIEW_SHADOW",
+      "capability_score": 9,
+      "danger": [],
+      "route_like": false,
+      "functions": [
+        "social_observation_layer",
+        "social_pattern_extractor",
+        "anti_llm_speech_filter",
+        "naturalness_judge",
+        "should_split_reply",
+        "classify_reply_cadence",
+        "split_human_reply",
+        "enforce_whatsapp_natural_length",
+        "avoid_over_fragmentation",
+        "humanization_runtime",
+        "build_dataset",
+        "train_sim"
+      ],
+      "imports": [
+        "__future__",
+        "json",
+        "re",
+        "random",
+        "statistics"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "marketing",
+        "memory",
+        "whatsapp"
+      ],
+      "intents": [
+        "generate",
+        "remember"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "028_multi_ai_conversation_simulator",
+      "name": "multi_ai_conversation_simulator",
+      "actions": [
+        "generate",
+        "remember"
+      ],
+      "requires": [
+        "answer",
+        "context",
+        "draft_answer",
+        "msgs",
+        "n",
+        "text",
+        "user_message"
+      ],
+      "produces": [],
+      "dependencies": [],
+      "technical_score": 86,
+      "profile_error": null
+    },
+    {
+      "file": "app/p18_conversational_execution/context_guard.py",
+      "action": "REVIEW_SHADOW",
+      "capability_score": 9,
+      "danger": [],
+      "route_like": false,
+      "functions": [
+        "detect_context_contamination",
+        "safe_topic_from_message"
+      ],
+      "imports": [
+        "typing"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "governance",
+        "memory",
+        "whatsapp"
+      ],
+      "intents": [
+        "generate",
+        "guard",
+        "remember"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "029_context_guard",
+      "name": "context_guard",
+      "actions": [
+        "generate",
+        "guard",
+        "remember"
+      ],
+      "requires": [
+        "active_topic",
+        "answer",
+        "message",
+        "user_message"
+      ],
+      "produces": [
+        "Dict[str, Any]",
+        "str"
+      ],
+      "dependencies": [],
+      "technical_score": 62,
+      "profile_error": null
+    },
+    {
+      "file": "app/p18_conversational_execution/response_executor.py",
+      "action": "REVIEW_SHADOW",
+      "capability_score": 9,
+      "danger": [],
+      "route_like": false,
+      "functions": [
+        "execute_conversational_response"
+      ],
+      "imports": [
+        "typing",
+        "app.p18_conversational_execution.intent_router"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "memory",
+        "routing",
+        "whatsapp"
+      ],
+      "intents": [
+        "generate",
+        "remember",
+        "route"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "030_response_executor",
+      "name": "response_executor",
+      "actions": [
+        "generate",
+        "remember",
+        "route"
+      ],
+      "requires": [
+        "context",
+        "message"
+      ],
+      "produces": [
+        "Dict[str, Any]"
+      ],
+      "dependencies": [
+        "app.p18_conversational_execution.intent_router"
+      ],
+      "technical_score": 62,
+      "profile_error": null
+    },
+    {
+      "file": "app/runtime/cognitive_observatory/user_mirror.py",
+      "action": "REVIEW_SHADOW",
+      "capability_score": 9,
+      "danger": [],
+      "route_like": false,
+      "functions": [
+        "build_user_cognitive_mirror",
+        "apply_user_mirror_to_instruction"
+      ],
+      "imports": [
+        "app.runtime.cognitive_observatory.contracts"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "whatsapp"
+      ],
+      "intents": [
+        "assist"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "031_user_mirror",
+      "name": "user_mirror",
+      "actions": [
+        "assist"
+      ],
+      "requires": [
+        "base_instruction",
+        "conversation_text",
+        "mirror"
+      ],
+      "produces": [
+        "UserCognitiveMirror",
+        "str"
+      ],
+      "dependencies": [
+        "app.runtime.cognitive_observatory.contracts"
+      ],
+      "technical_score": 59,
+      "profile_error": null
+    },
+    {
+      "file": "app/runtime/semantic_whatsapp_runtime.py",
+      "action": "REVIEW_SHADOW",
+      "capability_score": 9,
+      "danger": [],
+      "route_like": false,
+      "functions": [
+        "semantic_whatsapp_payload",
+        "route_semantic_whatsapp"
+      ],
+      "imports": [
+        "app.runtime.semantic_router",
+        "app.runtime.multi_provider_factual_provider",
+        "app.runtime.whatsapp_ux_output_guard",
+        "app.runtime.context_priority_engine",
+        "app.runtime.humanized_answer_composer",
+        "app.runtime.cognitive_style_composer",
+        "app.runtime.relational_conversation_engine",
+        "app.runtime.conversation_state_machine"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "governance",
+        "memory",
+        "routing",
+        "whatsapp"
+      ],
+      "intents": [
+        "generate",
+        "guard",
+        "remember",
+        "route"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "032_semantic_whatsapp_runtime",
+      "name": "semantic_whatsapp_runtime",
+      "actions": [
+        "generate",
+        "guard",
+        "remember",
+        "route"
+      ],
+      "requires": [
+        "message",
+        "sender_id"
+      ],
+      "produces": [
+        "dict",
+        "str"
+      ],
+      "dependencies": [
+        "app.runtime.cognitive_style_composer",
+        "app.runtime.context_priority_engine",
+        "app.runtime.conversation_state_machine",
+        "app.runtime.humanized_answer_composer",
+        "app.runtime.multi_provider_factual_provider",
+        "app.runtime.relational_conversation_engine",
+        "app.runtime.semantic_router",
+        "app.runtime.whatsapp_ux_output_guard"
+      ],
+      "technical_score": 80,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/eldora_action.py",
+      "action": "SHADOW_ROUTE",
+      "capability_score": 8,
+      "danger": [],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "fastapi",
+        "app.eldora.core.real_world_action_engine",
+        "app.eldora.core.universal_tool_controller",
+        "app.eldora.core.environment_execution_engine"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "general"
+      ],
+      "intents": [
+        "assist"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "033_eldora_action",
+      "name": "eldora_action",
+      "actions": [
+        "assist"
+      ],
+      "requires": [
+        "action",
+        "capability",
+        "environment",
+        "tool",
+        "tool_name",
+        "workflow"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.eldora.core.environment_execution_engine",
+        "app.eldora.core.real_world_action_engine",
+        "app.eldora.core.universal_tool_controller"
+      ],
+      "technical_score": 98,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/eldora_browser_fleet.py",
+      "action": "SHADOW_ROUTE",
+      "capability_score": 8,
+      "danger": [],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "fastapi",
+        "app.eldora.core.browser_fleet_runtime"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "general"
+      ],
+      "intents": [
+        "generate"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "034_eldora_browser_fleet",
+      "name": "eldora_browser_fleet",
+      "actions": [
+        "generate"
+      ],
+      "requires": [
+        "agent_id",
+        "agent_name",
+        "capability",
+        "objective",
+        "target_url",
+        "task_id"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.eldora.core.browser_fleet_runtime"
+      ],
+      "technical_score": 82,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/eldora_business.py",
+      "action": "SHADOW_ROUTE",
+      "capability_score": 8,
+      "danger": [],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "fastapi",
+        "app.eldora.core.business_runtime"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "general"
+      ],
+      "intents": [
+        "generate"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "035_eldora_business",
+      "name": "eldora_business",
+      "actions": [
+        "generate"
+      ],
+      "requires": [
+        "agent_name",
+        "event_type",
+        "lead_id",
+        "name",
+        "source",
+        "specialization",
+        "value"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.eldora.core.business_runtime"
+      ],
+      "technical_score": 82,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/eldora_distributed.py",
+      "action": "SHADOW_ONLY",
+      "capability_score": 8,
+      "danger": [
+        "redis"
+      ],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "fastapi",
+        "app.eldora.core.redis_stream_fabric",
+        "app.eldora.core.persistent_agent_worker",
+        "app.eldora.core.distributed_runtime_state"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "memory"
+      ],
+      "intents": [
+        "remember"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "036_eldora_distributed",
+      "name": "eldora_distributed",
+      "actions": [
+        "remember"
+      ],
+      "requires": [
+        "event",
+        "key",
+        "stream",
+        "task",
+        "value",
+        "worker_name"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.eldora.core.distributed_runtime_state",
+        "app.eldora.core.persistent_agent_worker",
+        "app.eldora.core.redis_stream_fabric"
+      ],
+      "technical_score": 98,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/eldora_economic_market.py",
+      "action": "SHADOW_ROUTE",
+      "capability_score": 8,
+      "danger": [],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "fastapi",
+        "app.eldora.core.realtime_task_market"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "trader"
+      ],
+      "intents": [
+        "generate"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "037_eldora_economic_market",
+      "name": "eldora_economic_market",
+      "actions": [
+        "generate"
+      ],
+      "requires": [
+        "agent_id",
+        "budget",
+        "estimated_cost",
+        "estimated_latency",
+        "objective",
+        "priority",
+        "task_id"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.eldora.core.realtime_task_market"
+      ],
+      "technical_score": 82,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/eldora_evolution.py",
+      "action": "SHADOW_ROUTE",
+      "capability_score": 8,
+      "danger": [],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "fastapi",
+        "app.eldora.core.capability_synthesis_engine",
+        "app.eldora.core.dynamic_skill_engine",
+        "app.eldora.core.autonomous_capability_evolution"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "general"
+      ],
+      "intents": [
+        "assist"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "038_eldora_evolution",
+      "name": "eldora_evolution",
+      "actions": [
+        "assist"
+      ],
+      "requires": [
+        "capability",
+        "domain",
+        "improvement",
+        "name",
+        "objective",
+        "skill_name"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.eldora.core.autonomous_capability_evolution",
+        "app.eldora.core.capability_synthesis_engine",
+        "app.eldora.core.dynamic_skill_engine"
+      ],
+      "technical_score": 98,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/eldora_infrastructure.py",
+      "action": "SHADOW_ROUTE",
+      "capability_score": 8,
+      "danger": [],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "fastapi",
+        "app.eldora.core.live_connector_fabric",
+        "app.eldora.core.cross_platform_execution_bus",
+        "app.eldora.core.infrastructure_event_engine"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "routing",
+        "trader"
+      ],
+      "intents": [
+        "route"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "039_eldora_infrastructure",
+      "name": "eldora_infrastructure",
+      "actions": [
+        "route"
+      ],
+      "requires": [
+        "capability",
+        "environment",
+        "platform",
+        "signal",
+        "source",
+        "target",
+        "task"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.eldora.core.cross_platform_execution_bus",
+        "app.eldora.core.infrastructure_event_engine",
+        "app.eldora.core.live_connector_fabric"
+      ],
+      "technical_score": 98,
+      "profile_error": null
+    },
+    {
+      "file": "app/api/eldora_live_voice.py",
+      "action": "SHADOW_ROUTE",
+      "capability_score": 8,
+      "danger": [],
+      "route_like": true,
+      "functions": [],
+      "imports": [
+        "fastapi",
+        "app.eldora.core.live_voice_runtime"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "memory"
+      ],
+      "intents": [
+        "generate"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "040_eldora_live_voice",
+      "name": "eldora_live_voice",
+      "actions": [
+        "generate"
+      ],
+      "requires": [
+        "attention",
+        "emotion",
+        "event",
+        "language",
+        "payload",
+        "session_id",
+        "user_id"
+      ],
+      "produces": [],
+      "dependencies": [
+        "app.eldora.core.live_voice_runtime"
+      ],
+      "technical_score": 82,
+      "profile_error": null
+    },
+    {
+      "file": "app/companionship/cognitive_context_builder.py",
+      "action": "REVIEW_SHADOW",
+      "capability_score": 8,
+      "danger": [],
+      "route_like": false,
+      "functions": [
+        "_safe_layer",
+        "build_cognitive_context",
+        "attach_cognitive_context_shadow",
+        "attach_p19p50_humanized_meta_cognition_to_context"
+      ],
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "datetime",
+        "typing"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "memory"
+      ],
+      "intents": [
+        "remember"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ERROR",
+      "id": "041_cognitive_context_builder",
+      "name": "cognitive_context_builder",
+      "actions": [
+        "remember"
+      ],
+      "requires": [
+        "behavior_modeling",
+        "ctx",
+        "digital_twin",
+        "emotional_continuity",
+        "feature_flags",
+        "goal_tracking",
+        "humanized_meta_cognition",
+        "live_cognition",
+        "long_term_memory",
+        "name",
+        "relationship_memory",
+        "self_reflection",
+        "source_context",
+        "user_id",
+        "value"
+      ],
+      "produces": [
+        "Dict[str, Any]"
+      ],
+      "dependencies": [],
+      "technical_score": 0,
+      "profile_error": "'NoneType' object has no attribute '__dict__'"
+    },
+    {
+      "file": "app/p18_conversational_execution/failure_fixes.py",
+      "action": "REVIEW_SHADOW",
+      "capability_score": 7,
+      "danger": [],
+      "route_like": false,
+      "functions": [
+        "fix_real_whatsapp_failure"
+      ],
+      "imports": [
+        "typing",
+        "app.p18_conversational_execution.context_guard"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "governance",
+        "memory",
+        "whatsapp"
+      ],
+      "intents": [
+        "guard",
+        "remember"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "042_failure_fixes",
+      "name": "failure_fixes",
+      "actions": [
+        "guard",
+        "remember"
+      ],
+      "requires": [
+        "previous_topic",
+        "user_message"
+      ],
+      "produces": [
+        "Dict[str, Any]"
+      ],
+      "dependencies": [
+        "app.p18_conversational_execution.context_guard"
+      ],
+      "technical_score": 65,
+      "profile_error": null
+    },
+    {
+      "file": "app/runtime/conversation_quality_guard.py",
+      "action": "REVIEW_SHADOW",
+      "capability_score": 7,
+      "danger": [],
+      "route_like": false,
+      "functions": [
+        "strip_repeated_intro",
+        "reset_stale_topic",
+        "final_conversation_guard"
+      ],
+      "imports": [
+        "re"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "governance",
+        "marketing",
+        "whatsapp"
+      ],
+      "intents": [
+        "generate",
+        "guard"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "043_conversation_quality_guard",
+      "name": "conversation_quality_guard",
+      "actions": [
+        "generate",
+        "guard"
+      ],
+      "requires": [
+        "answer",
+        "text",
+        "user_message"
+      ],
+      "produces": [
+        "str"
+      ],
+      "dependencies": [],
+      "technical_score": 59,
+      "profile_error": null
+    },
+    {
+      "file": "app/runtime/strategic_conversation_authority.py",
+      "action": "REVIEW_SHADOW",
+      "capability_score": 7,
+      "danger": [],
+      "route_like": false,
+      "functions": [
+        "strategic_conversation_authority"
+      ],
+      "imports": [
+        "__future__"
+      ],
+      "enabled": true,
+      "production_allowed": false,
+      "metadata": {
+        "source": "MIND-GRAPH-4",
+        "promotion_status": "shadow_registered"
+      },
+      "domains": [
+        "governance",
+        "memory",
+        "whatsapp"
+      ],
+      "intents": [
+        "generate",
+        "remember",
+        "simulate"
+      ],
+      "mode": "shadow",
+      "priority": 1,
+      "confidence": 0.25,
+      "health": "ACTIVE_CAPABILITY",
+      "id": "044_strategic_conversation_authority",
+      "name": "strategic_conversation_authority",
+      "actions": [
+        "generate",
+        "remember",
+        "simulate"
+      ],
+      "requires": [
+        "assistant_reply",
+        "sender_id",
+        "user_message"
+      ],
+      "produces": [],
+      "dependencies": [],
+      "technical_score": 53,
+      "profile_error": null
+    }
+  ]
+}

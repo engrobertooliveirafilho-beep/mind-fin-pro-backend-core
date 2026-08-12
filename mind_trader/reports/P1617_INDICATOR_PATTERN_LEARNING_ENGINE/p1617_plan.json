@@ -1,0 +1,19 @@
+{
+  "OBJECTIVE": "Build indicator, Fibonacci, candle trigger, structure and multi-timeframe assistant layer for specialists",
+  "MT5_REAL": "FORBIDDEN",
+  "LIBRARIES": [
+    "trend_indicators",
+    "momentum_indicators",
+    "volatility_indicators",
+    "volume_indicators",
+    "fibonacci_levels",
+    "price_action_triggers",
+    "market_structure_patterns",
+    "multi_timeframe_confirmations"
+  ],
+  "FTMO_REAL": "FORBIDDEN",
+  "RULE": "INDICATORS_ASSIST_SPECIALISTS_NOT_REPLACE_THEM",
+  "NEXT": "IMPLEMENT_INDICATOR_FEATURE_FACTORY_AND_PATTERN_TESTER",
+  "REAL_ORDERS": "FORBIDDEN",
+  "STATUS": "P1617_INDICATOR_PATTERN_LEARNING_ENGINE_PLANNED"
+}

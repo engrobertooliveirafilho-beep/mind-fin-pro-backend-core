@@ -1,0 +1,624 @@
+[
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_f6e9a801924ea886",
+    "mutation_id": "MUT_f6e9a801924ea886",
+    "parent_edge_id": "1cc93c6ad88c93e6e784defa",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "mutation_type": "ADD_VOLATILITY_FILTER",
+    "filters": {
+      "volatility_regime": "HIGH_VOL"
+    },
+    "validation_metrics": {
+      "trades": 94,
+      "wins": 51,
+      "losses": 43,
+      "win_rate": 0.542553,
+      "profit_factor_proxy": 1.231766,
+      "avg_return": 0.00074502,
+      "yearly_consistency_proxy": 0.777778,
+      "positive_years_proxy": 7,
+      "tested_years_proxy": 9,
+      "wf_proxy_pass": true,
+      "mc_proxy_pass": true,
+      "stress_proxy_pass": false,
+      "yearly_proxy": [
+        {
+          "year": 2016,
+          "return": 0.009322242027673696,
+          "positive": true,
+          "trades": 14
+        },
+        {
+          "year": 2017,
+          "return": 0.0179559360264278,
+          "positive": true,
+          "trades": 1
+        },
+        {
+          "year": 2018,
+          "return": -0.0034091985401159004,
+          "positive": false,
+          "trades": 7
+        },
+        {
+          "year": 2019,
+          "return": 0.012451625130051002,
+          "positive": true,
+          "trades": 10
+        },
+        {
+          "year": 2020,
+          "return": 0.0231780540063431,
+          "positive": true,
+          "trades": 7
+        },
+        {
+          "year": 2022,
+          "return": 0.0372288704607568,
+          "positive": true,
+          "trades": 19
+        },
+        {
+          "year": 2023,
+          "return": 0.025655584494745497,
+          "positive": true,
+          "trades": 9
+        },
+        {
+          "year": 2024,
+          "return": -0.052455195977385904,
+          "positive": false,
+          "trades": 19
+        },
+        {
+          "year": 2025,
+          "return": 0.00010383793484229978,
+          "positive": true,
+          "trades": 8
+        }
+      ]
+    },
+    "status": "REJECTED_VALIDATION",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_a1ad3209550fb7fb",
+    "mutation_id": "MUT_a1ad3209550fb7fb",
+    "parent_edge_id": "1cc93c6ad88c93e6e784defa",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "mutation_type": "ADD_SESSION_VOLATILITY_FILTER",
+    "filters": {
+      "session": "ASIA",
+      "volatility_regime": "HIGH_VOL"
+    },
+    "validation_metrics": {
+      "trades": 94,
+      "wins": 51,
+      "losses": 43,
+      "win_rate": 0.542553,
+      "profit_factor_proxy": 1.231766,
+      "avg_return": 0.00074502,
+      "yearly_consistency_proxy": 0.777778,
+      "positive_years_proxy": 7,
+      "tested_years_proxy": 9,
+      "wf_proxy_pass": true,
+      "mc_proxy_pass": true,
+      "stress_proxy_pass": false,
+      "yearly_proxy": [
+        {
+          "year": 2016,
+          "return": 0.009322242027673696,
+          "positive": true,
+          "trades": 14
+        },
+        {
+          "year": 2017,
+          "return": 0.0179559360264278,
+          "positive": true,
+          "trades": 1
+        },
+        {
+          "year": 2018,
+          "return": -0.0034091985401159004,
+          "positive": false,
+          "trades": 7
+        },
+        {
+          "year": 2019,
+          "return": 0.012451625130051002,
+          "positive": true,
+          "trades": 10
+        },
+        {
+          "year": 2020,
+          "return": 0.0231780540063431,
+          "positive": true,
+          "trades": 7
+        },
+        {
+          "year": 2022,
+          "return": 0.0372288704607568,
+          "positive": true,
+          "trades": 19
+        },
+        {
+          "year": 2023,
+          "return": 0.025655584494745497,
+          "positive": true,
+          "trades": 9
+        },
+        {
+          "year": 2024,
+          "return": -0.052455195977385904,
+          "positive": false,
+          "trades": 19
+        },
+        {
+          "year": 2025,
+          "return": 0.00010383793484229978,
+          "positive": true,
+          "trades": 8
+        }
+      ]
+    },
+    "status": "REJECTED_VALIDATION",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_be46e342a4171380",
+    "mutation_id": "MUT_be46e342a4171380",
+    "parent_edge_id": "1cc93c6ad88c93e6e784defa",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "mutation_type": "ADD_TREND_FILTER",
+    "filters": {
+      "trend_regime": "RANGE"
+    },
+    "validation_metrics": {
+      "trades": 88,
+      "wins": 53,
+      "losses": 35,
+      "win_rate": 0.602273,
+      "profit_factor_proxy": 1.170069,
+      "avg_return": 0.00044423,
+      "yearly_consistency_proxy": 0.555556,
+      "positive_years_proxy": 5,
+      "tested_years_proxy": 9,
+      "wf_proxy_pass": false,
+      "mc_proxy_pass": false,
+      "stress_proxy_pass": false,
+      "yearly_proxy": [
+        {
+          "year": 2015,
+          "return": 0.022210216922467003,
+          "positive": true,
+          "trades": 3
+        },
+        {
+          "year": 2017,
+          "return": 0.013441817470468798,
+          "positive": true,
+          "trades": 22
+        },
+        {
+          "year": 2018,
+          "return": -0.0203662341877536,
+          "positive": false,
+          "trades": 10
+        },
+        {
+          "year": 2019,
+          "return": -0.0010664254116816993,
+          "positive": false,
+          "trades": 11
+        },
+        {
+          "year": 2020,
+          "return": -0.020727970718632898,
+          "positive": false,
+          "trades": 3
+        },
+        {
+          "year": 2022,
+          "return": 0.030542940700563702,
+          "positive": true,
+          "trades": 8
+        },
+        {
+          "year": 2023,
+          "return": 0.0272486927863866,
+          "positive": true,
+          "trades": 8
+        },
+        {
+          "year": 2024,
+          "return": -0.028639660870253592,
+          "positive": false,
+          "trades": 14
+        },
+        {
+          "year": 2025,
+          "return": 0.0164485801725288,
+          "positive": true,
+          "trades": 9
+        }
+      ]
+    },
+    "status": "REJECTED_VALIDATION",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_1b09585463fb9b25",
+    "mutation_id": "MUT_1b09585463fb9b25",
+    "parent_edge_id": "1cc93c6ad88c93e6e784defa",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "mutation_type": "ADD_TREND_FILTER",
+    "filters": {
+      "trend_regime": "RANGE"
+    },
+    "validation_metrics": {
+      "trades": 88,
+      "wins": 53,
+      "losses": 35,
+      "win_rate": 0.602273,
+      "profit_factor_proxy": 1.170069,
+      "avg_return": 0.00044423,
+      "yearly_consistency_proxy": 0.555556,
+      "positive_years_proxy": 5,
+      "tested_years_proxy": 9,
+      "wf_proxy_pass": false,
+      "mc_proxy_pass": false,
+      "stress_proxy_pass": false,
+      "yearly_proxy": [
+        {
+          "year": 2015,
+          "return": 0.022210216922467003,
+          "positive": true,
+          "trades": 3
+        },
+        {
+          "year": 2017,
+          "return": 0.013441817470468798,
+          "positive": true,
+          "trades": 22
+        },
+        {
+          "year": 2018,
+          "return": -0.0203662341877536,
+          "positive": false,
+          "trades": 10
+        },
+        {
+          "year": 2019,
+          "return": -0.0010664254116816993,
+          "positive": false,
+          "trades": 11
+        },
+        {
+          "year": 2020,
+          "return": -0.020727970718632898,
+          "positive": false,
+          "trades": 3
+        },
+        {
+          "year": 2022,
+          "return": 0.030542940700563702,
+          "positive": true,
+          "trades": 8
+        },
+        {
+          "year": 2023,
+          "return": 0.0272486927863866,
+          "positive": true,
+          "trades": 8
+        },
+        {
+          "year": 2024,
+          "return": -0.028639660870253592,
+          "positive": false,
+          "trades": 14
+        },
+        {
+          "year": 2025,
+          "return": 0.0164485801725288,
+          "positive": true,
+          "trades": 9
+        }
+      ]
+    },
+    "status": "REJECTED_VALIDATION",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_a0ae35d2fef44ed0",
+    "mutation_id": "MUT_a0ae35d2fef44ed0",
+    "parent_edge_id": "c03cff0080d40cd61259442e",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "mutation_type": "ADD_VOLATILITY_FILTER",
+    "filters": {
+      "volatility_regime": "HIGH_VOL"
+    },
+    "validation_metrics": {
+      "trades": 22,
+      "wins": 12,
+      "losses": 10,
+      "win_rate": 0.545455,
+      "profit_factor_proxy": 0.888827,
+      "avg_return": -0.00044052,
+      "yearly_consistency_proxy": 0.5,
+      "positive_years_proxy": 4,
+      "tested_years_proxy": 8,
+      "wf_proxy_pass": false,
+      "mc_proxy_pass": false,
+      "stress_proxy_pass": false,
+      "yearly_proxy": [
+        {
+          "year": 2016,
+          "return": 0.0074569540658764,
+          "positive": true,
+          "trades": 4
+        },
+        {
+          "year": 2018,
+          "return": 0.0104404845381106,
+          "positive": true,
+          "trades": 3
+        },
+        {
+          "year": 2019,
+          "return": 0.0164312169207673,
+          "positive": true,
+          "trades": 3
+        },
+        {
+          "year": 2020,
+          "return": -0.0185463529486446,
+          "positive": false,
+          "trades": 2
+        },
+        {
+          "year": 2021,
+          "return": -0.0107187375055857,
+          "positive": false,
+          "trades": 1
+        },
+        {
+          "year": 2022,
+          "return": -0.0032696749645089,
+          "positive": false,
+          "trades": 7
+        },
+        {
+          "year": 2025,
+          "return": -0.0119272511760565,
+          "positive": false,
+          "trades": 1
+        },
+        {
+          "year": 2026,
+          "return": 0.0004419238417912,
+          "positive": true,
+          "trades": 1
+        }
+      ]
+    },
+    "status": "REJECTED_VALIDATION",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_cbef1962a06d19b1",
+    "mutation_id": "MUT_cbef1962a06d19b1",
+    "parent_edge_id": "c03cff0080d40cd61259442e",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "mutation_type": "ADD_SESSION_VOLATILITY_FILTER",
+    "filters": {
+      "session": "ASIA",
+      "volatility_regime": "HIGH_VOL"
+    },
+    "validation_metrics": {
+      "trades": 22,
+      "wins": 12,
+      "losses": 10,
+      "win_rate": 0.545455,
+      "profit_factor_proxy": 0.888827,
+      "avg_return": -0.00044052,
+      "yearly_consistency_proxy": 0.5,
+      "positive_years_proxy": 4,
+      "tested_years_proxy": 8,
+      "wf_proxy_pass": false,
+      "mc_proxy_pass": false,
+      "stress_proxy_pass": false,
+      "yearly_proxy": [
+        {
+          "year": 2016,
+          "return": 0.0074569540658764,
+          "positive": true,
+          "trades": 4
+        },
+        {
+          "year": 2018,
+          "return": 0.0104404845381106,
+          "positive": true,
+          "trades": 3
+        },
+        {
+          "year": 2019,
+          "return": 0.0164312169207673,
+          "positive": true,
+          "trades": 3
+        },
+        {
+          "year": 2020,
+          "return": -0.0185463529486446,
+          "positive": false,
+          "trades": 2
+        },
+        {
+          "year": 2021,
+          "return": -0.0107187375055857,
+          "positive": false,
+          "trades": 1
+        },
+        {
+          "year": 2022,
+          "return": -0.0032696749645089,
+          "positive": false,
+          "trades": 7
+        },
+        {
+          "year": 2025,
+          "return": -0.0119272511760565,
+          "positive": false,
+          "trades": 1
+        },
+        {
+          "year": 2026,
+          "return": 0.0004419238417912,
+          "positive": true,
+          "trades": 1
+        }
+      ]
+    },
+    "status": "REJECTED_VALIDATION",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_ef6d5b352d0ea663",
+    "mutation_id": "MUT_ef6d5b352d0ea663",
+    "parent_edge_id": "c03cff0080d40cd61259442e",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "mutation_type": "ADD_TREND_VOLATILITY_FILTER",
+    "filters": {
+      "trend_regime": "TREND_DOWN",
+      "volatility_regime": "HIGH_VOL"
+    },
+    "validation_metrics": {
+      "trades": 7,
+      "wins": 4,
+      "losses": 3,
+      "win_rate": 0.571429,
+      "profit_factor_proxy": 1.769672,
+      "avg_return": 0.00137711,
+      "yearly_consistency_proxy": 0.75,
+      "positive_years_proxy": 3,
+      "tested_years_proxy": 4,
+      "wf_proxy_pass": false,
+      "mc_proxy_pass": true,
+      "stress_proxy_pass": true,
+      "yearly_proxy": [
+        {
+          "year": 2016,
+          "return": 0.0074427743993841,
+          "positive": true,
+          "trades": 2
+        },
+        {
+          "year": 2018,
+          "return": 0.0087228369664289,
+          "positive": true,
+          "trades": 1
+        },
+        {
+          "year": 2021,
+          "return": -0.0107187375055857,
+          "positive": false,
+          "trades": 1
+        },
+        {
+          "year": 2022,
+          "return": 0.0041928780640567,
+          "positive": true,
+          "trades": 3
+        }
+      ]
+    },
+    "status": "REJECTED_VALIDATION",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_979c286c4615ef7d",
+    "mutation_id": "MUT_979c286c4615ef7d",
+    "parent_edge_id": "c03cff0080d40cd61259442e",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "mutation_type": "ADD_FULL_CONTEXT_FILTER",
+    "filters": {
+      "session": "ASIA",
+      "trend_regime": "TREND_DOWN",
+      "volatility_regime": "HIGH_VOL",
+      "trigger": "LIQUIDITY_SWEEP"
+    },
+    "validation_metrics": {
+      "trades": 7,
+      "wins": 4,
+      "losses": 3,
+      "win_rate": 0.571429,
+      "profit_factor_proxy": 1.769672,
+      "avg_return": 0.00137711,
+      "yearly_consistency_proxy": 0.75,
+      "positive_years_proxy": 3,
+      "tested_years_proxy": 4,
+      "wf_proxy_pass": false,
+      "mc_proxy_pass": true,
+      "stress_proxy_pass": true,
+      "yearly_proxy": [
+        {
+          "year": 2016,
+          "return": 0.0074427743993841,
+          "positive": true,
+          "trades": 2
+        },
+        {
+          "year": 2018,
+          "return": 0.0087228369664289,
+          "positive": true,
+          "trades": 1
+        },
+        {
+          "year": 2021,
+          "return": -0.0107187375055857,
+          "positive": false,
+          "trades": 1
+        },
+        {
+          "year": 2022,
+          "return": 0.0041928780640567,
+          "positive": true,
+          "trades": 3
+        }
+      ]
+    },
+    "status": "REJECTED_VALIDATION",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_175C2B290F9851BF",
+  "source_file": "app\\eldora_ai\\bootstrap.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\app\\eldora_ai\\bootstrap.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 93,
+  "imports": [
+    "app.eldora_ai.audio.engine",
+    "app.eldora_ai.image.sdxl",
+    "app.eldora_ai.media_pipeline.ffmpeg",
+    "app.eldora_ai.models.registry",
+    "app.eldora_ai.video.engine"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_FAAA74714F0DFD18",
+  "source_file": "app\\multimodal_runtime\\orchestrator\\orchestrator.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\app\\multimodal_runtime\\orchestrator\\orchestrator.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 96,
+  "imports": [
+    "app.multimodal_runtime.extraction_engine.engine",
+    "app.multimodal_runtime.file_detector.detector",
+    "app.multimodal_runtime.format_analyzer.analyzer",
+    "app.multimodal_runtime.graph_node.node"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

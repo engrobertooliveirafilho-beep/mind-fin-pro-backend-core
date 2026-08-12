@@ -1,0 +1,25 @@
+{
+  "dataset_id": "sample_dataset",
+  "certification": {
+    "checks": {
+      "schema_ok": true,
+      "min_rows": true,
+      "timestamp_order": true,
+      "duplicate_ratio": true,
+      "missing_ratio": true,
+      "ohlcv_consistency": true,
+      "price_variance": true,
+      "volume_validity": true
+    },
+    "certification_score": 1.0,
+    "certified": true,
+    "status": "CERTIFIED",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "certified_at": "2026-06-14T16:11:26.163952+00:00"
+  },
+  "lineage_hash": "e68659452f4c02634b7fdbd8227475ad86c128290780a91dd1bbd4878b47a293",
+  "promotion_allowed": false
+}

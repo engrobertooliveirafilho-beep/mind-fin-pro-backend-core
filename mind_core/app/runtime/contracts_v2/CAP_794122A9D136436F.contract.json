@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_794122A9D136436F",
+  "source_file": "mind_trader\\app\\p10_dataset_certification_runtime\\engine.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\mind_trader\\app\\p10_dataset_certification_runtime\\engine.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 107,
+  "imports": [
+    "datetime",
+    "hashlib",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

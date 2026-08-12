@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_975065A0175589C5",
+  "source_file": "evidence\\P19P18_P19P19_SHORT_FOLLOWUP_CONTEXT_FIX_20260618_063134\\validate_local_flow.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\evidence\\P19P18_P19P19_SHORT_FOLLOWUP_CONTEXT_FIX_20260618_063134\\validate_local_flow.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 102,
+  "imports": [
+    "importlib.util",
+    "json",
+    "pathlib",
+    "sys"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

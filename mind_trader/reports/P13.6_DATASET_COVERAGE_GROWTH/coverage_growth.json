@@ -1,0 +1,39 @@
+{
+  "STATUS": "P13.6_DATASET_COVERAGE_GROWTH_IMPLEMENTED",
+  "SUMMARY": {
+    "datasets": 215,
+    "groups": {
+      "BR": {
+        "assets": 11,
+        "covered": 5,
+        "coverage_ratio": 0.4545
+      },
+      "US": {
+        "assets": 10,
+        "covered": 1,
+        "coverage_ratio": 0.1
+      },
+      "FOREX": {
+        "assets": 5,
+        "covered": 5,
+        "coverage_ratio": 1.0
+      },
+      "COMMODITIES": {
+        "assets": 5,
+        "covered": 1,
+        "coverage_ratio": 0.2
+      },
+      "CRYPTO": {
+        "assets": 4,
+        "covered": 0,
+        "coverage_ratio": 0.0
+      }
+    }
+  },
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "EDGE": "NOT_PROVEN",
+  "CAUSALITY": "NOT_PROVEN",
+  "EXPORT_READY": true,
+  "generated_at": "2026-06-14T16:11:27.591520+00:00"
+}

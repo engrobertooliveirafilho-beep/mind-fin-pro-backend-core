@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_65F2572314976BA5",
+  "source_file": "_evidence\\_drive_recovered_friendship_runtime\\global_presence_engine.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\_evidence\\_drive_recovered_friendship_runtime\\global_presence_engine.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 89,
+  "imports": [
+    "app.callworld.call_world_engine",
+    "app.globalgrid.global_grid_engine",
+    "app.multiavatar.multi_avatar_engine"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,22 @@
+{
+  "STATUS": "P1903_CONFLUENCE_GRAPH_ENGINE_BOOTSTRAPPED",
+  "GRAPH_NODES": [
+    "asset",
+    "session",
+    "regime",
+    "trigger",
+    "structure",
+    "indicator",
+    "mtf_context",
+    "macro_context",
+    "outcome",
+    "payoff"
+  ],
+  "GRAPH_EDGES": [
+    "precedes",
+    "confirms",
+    "contradicts",
+    "amplifies",
+    "invalidates"
+  ]
+}

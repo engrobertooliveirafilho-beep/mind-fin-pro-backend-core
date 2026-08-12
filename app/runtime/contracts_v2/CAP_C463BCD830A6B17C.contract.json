@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_C463BCD830A6B17C",
+  "source_file": ".venv\\Lib\\site-packages\\pydantic\\v1\\color.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\pydantic\\v1\\color.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 105,
+  "imports": [
+    "colorsys",
+    "math",
+    "pydantic.v1.errors",
+    "pydantic.v1.typing",
+    "pydantic.v1.utils",
+    "re",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

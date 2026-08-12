@@ -1,0 +1,17 @@
+{
+  "STATUS": "P9.3_MASSIVE_BACKTEST_GRID_IMPLEMENTED",
+  "GENOMES_EVALUATED": 3000,
+  "TOP_EXPORTED": 300,
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "PROMOTION_ALLOWED": false,
+  "EDGE": "NONE_PROVEN",
+  "CAUSALITY": "NOT_PROVEN",
+  "VALIDATION_REQUIRED": [
+    "walk_forward",
+    "monte_carlo",
+    "robustness_committee",
+    "anti_overfitting"
+  ],
+  "EXPORT_READY": true
+}

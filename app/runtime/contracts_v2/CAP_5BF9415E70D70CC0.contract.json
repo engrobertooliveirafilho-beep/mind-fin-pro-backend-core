@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_5BF9415E70D70CC0",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\core\\nanops.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\pandas\\core\\nanops.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 131,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "functools",
+    "itertools",
+    "numpy",
+    "pandas._config",
+    "pandas._libs",
+    "pandas._typing",
+    "pandas.compat._optional",
+    "pandas.core.dtypes.common",
+    "pandas.core.dtypes.missing",
+    "scipy.stats",
+    "typing",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

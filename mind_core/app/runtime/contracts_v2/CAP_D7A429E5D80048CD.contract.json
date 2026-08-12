@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_D7A429E5D80048CD",
+  "source_file": "_evidence\\P4.50A_RESPONSE_ENRICHMENT_LAYER_20260618_044714\\level_b_dynamic_composer_before_20260618_044714.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P4.50A_RESPONSE_ENRICHMENT_LAYER_20260618_044714\\level_b_dynamic_composer_before_20260618_044714.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 100,
+  "imports": [
+    "app.eldora.core.agent_orchestrator",
+    "app.eldora.core.predictive_simulation_engine",
+    "app.p7_adapters.hierarchical_planner_adapter"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_2D72A22C8AAEFF30",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\resources\\realtime\\client_secrets.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\openai\\resources\\realtime\\client_secrets.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 95,
+  "imports": [
+    "__future__",
+    "_base_client",
+    "_compat",
+    "_resource",
+    "_response",
+    "_types",
+    "_utils",
+    "httpx",
+    "types.realtime",
+    "types.realtime.client_secret_create_response"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

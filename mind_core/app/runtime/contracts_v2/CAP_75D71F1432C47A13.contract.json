@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_75D71F1432C47A13",
+  "source_file": "_evidence\\P19P37_REAL_COGNITION_MASTER_20260622_135806\\02_P19P37B_BEHAVIOR_MODELING\\ROLLBACK_app_companionship_behavior_modeling.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P19P37_REAL_COGNITION_MASTER_20260622_135806\\02_P19P37B_BEHAVIOR_MODELING\\ROLLBACK_app_companionship_behavior_modeling.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 101,
+  "imports": [
+    "datetime",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,94 @@
+{
+  "batch": "P8.60_BATCH_MARKET_DATA_INGESTION",
+  "created_at": "2026-06-14T16:22:47.675699+00:00",
+  "folder": "C:\\Users\\MindFin\\AppData\\Local\\Temp\\pytest-of-MindFin\\pytest-97\\test_cli_runs_after_preflight_0\\data",
+  "files_found": 1,
+  "connected": 1,
+  "blocked": 0,
+  "results": [
+    {
+      "connector": "P8.65_MARKET_DATA_CONNECTOR_WITH_CATALOG_AND_LINEAGE",
+      "source_type": "GENERIC_OHLCV_CSV",
+      "file_path": "C:\\Users\\MindFin\\AppData\\Local\\Temp\\pytest-of-MindFin\\pytest-97\\test_cli_runs_after_preflight_0\\data\\market.csv",
+      "file_checksum": "9d416573404f37e24513b43ab3bc17e06c8308b7e052b7c7cd027389abeca83f",
+      "symbol": "TEST",
+      "timeframe": "1m",
+      "db_path": "C:\\Users\\MindFin\\AppData\\Local\\Temp\\pytest-of-MindFin\\pytest-97\\test_cli_runs_after_preflight_0\\m.sqlite",
+      "catalog_path": "mind_trader/reports/P8.61_data_catalog.json",
+      "lineage_path": "mind_trader/reports/P8.64_dataset_lineage.json",
+      "dataset": {
+        "dataset_id": "0e8e82e85aead749131309a4",
+        "symbol": "TEST",
+        "timeframe": "1m",
+        "source_hash": "9d416573404f37e24513b43ab3bc17e06c8308b7e052b7c7cd027389abeca83f",
+        "rows": 180,
+        "quality_passed": true,
+        "registered_at": "2026-06-14T16:22:47.675699+00:00",
+        "status": "APPROVED_FOR_RESEARCH",
+        "production": "BLOCKED",
+        "edge_claim": "NONE",
+        "lineage_hash": "b04812c94740d5a9365bdedb649c2f5aef690924c140f5da52cfdfe5fde3edfd"
+      },
+      "dataset_id": "0e8e82e85aead749131309a4",
+      "lineage": {
+        "lineage": "P8.64_DATASET_LINEAGE",
+        "created_at": "2026-06-14T16:22:47.675699+00:00",
+        "dataset_id": "0e8e82e85aead749131309a4",
+        "symbol": "TEST",
+        "timeframe": "1m",
+        "source_file": "C:\\Users\\MindFin\\AppData\\Local\\Temp\\pytest-of-MindFin\\pytest-97\\test_cli_runs_after_preflight_0\\data\\market.csv",
+        "source_hash": "9d416573404f37e24513b43ab3bc17e06c8308b7e052b7c7cd027389abeca83f",
+        "db_path": "C:\\Users\\MindFin\\AppData\\Local\\Temp\\pytest-of-MindFin\\pytest-97\\test_cli_runs_after_preflight_0\\m.sqlite",
+        "catalog_status": "APPROVED_FOR_RESEARCH",
+        "quality": {
+          "rows": 180,
+          "duplicates": 0,
+          "bad_ohlc": 0,
+          "ordering_issues": 0,
+          "min_rows": 90,
+          "quality_passed": true,
+          "decision": "ALLOW_BACKTEST"
+        },
+        "production": "BLOCKED",
+        "edge_claim": "NONE",
+        "lineage_hash": "b04812c94740d5a9365bdedb649c2f5aef690924c140f5da52cfdfe5fde3edfd"
+      },
+      "lineage_hash": "b04812c94740d5a9365bdedb649c2f5aef690924c140f5da52cfdfe5fde3edfd",
+      "ingestion_result": {
+        "source": "C:\\Users\\MindFin\\AppData\\Local\\Temp\\pytest-of-MindFin\\pytest-97\\test_cli_runs_after_preflight_0\\data\\market.csv",
+        "raw_checksum": "9d416573404f37e24513b43ab3bc17e06c8308b7e052b7c7cd027389abeca83f",
+        "normalization": {
+          "normalized_path": "mind_trader\\data\\normalized\\TEST_1m_9d416573404f.csv",
+          "rows": 180,
+          "checksum": "9d416573404f37e24513b43ab3bc17e06c8308b7e052b7c7cd027389abeca83f"
+        },
+        "quality": {
+          "rows": 180,
+          "duplicates": 0,
+          "bad_ohlc": 0,
+          "ordering_issues": 0,
+          "min_rows": 90,
+          "quality_passed": true,
+          "decision": "ALLOW_BACKTEST"
+        },
+        "ingestion": {
+          "ingested_rows_seen": 180,
+          "db_path": "C:\\Users\\MindFin\\AppData\\Local\\Temp\\pytest-of-MindFin\\pytest-97\\test_cli_runs_after_preflight_0\\m.sqlite",
+          "symbol": "TEST",
+          "timeframe": "1m"
+        },
+        "ts": "2026-06-14T16:22:47.641623+00:00",
+        "decision": "INGESTED_AND_BACKTEST_ALLOWED"
+      },
+      "created_at": "2026-06-14T16:22:47.675699+00:00",
+      "decision": "DATA_CONNECTED_CATALOGED_LINEAGED",
+      "production": "BLOCKED",
+      "live": "FORBIDDEN",
+      "edge_claim": "NONE"
+    }
+  ],
+  "decision": "BATCH_COMPLETED",
+  "production": "BLOCKED",
+  "live": "FORBIDDEN",
+  "edge_claim": "NONE"
+}

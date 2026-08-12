@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_D25607946EA510F7",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_datetime.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_datetime.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 104,
+  "imports": [
+    "datetime",
+    "numpy",
+    "numpy.testing",
+    "pickle",
+    "pytest",
+    "warnings",
+    "zoneinfo"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

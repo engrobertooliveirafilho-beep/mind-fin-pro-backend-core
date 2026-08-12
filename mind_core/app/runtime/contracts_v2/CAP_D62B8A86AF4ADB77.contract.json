@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_D62B8A86AF4ADB77",
+  "source_file": "_evidence\\P19P36H_SAFE_ADAPTER_WIRING_SHADOW_MODE_20260621_225830\\10_probe_shadow.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\_evidence\\P19P36H_SAFE_ADAPTER_WIRING_SHADOW_MODE_20260621_225830\\10_probe_shadow.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 85,
+  "imports": [
+    "app.main",
+    "fastapi.testclient",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

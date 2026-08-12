@@ -1,0 +1,30 @@
+{
+  "capability_id": "CAP_EB2EAF11954B5F59",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\random\\tests\\test_direct.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\numpy\\random\\tests\\test_direct.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 120,
+  "imports": [
+    "cffi",
+    "ctypes",
+    "gzip",
+    "numpy",
+    "numpy.random",
+    "numpy.random._common",
+    "numpy.random.bit_generator",
+    "numpy.testing",
+    "os",
+    "os.path",
+    "pickle",
+    "pytest",
+    "sys"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

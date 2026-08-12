@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_7565C1AA2B03FCB6",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\_core\\overrides.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\numpy\\_core\\overrides.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 100,
+  "imports": [
+    "collections",
+    "functools",
+    "inspect",
+    "numpy._core._multiarray_umath",
+    "numpy._utils",
+    "numpy._utils._inspect"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

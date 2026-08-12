@@ -1,0 +1,666 @@
+[
+  {
+    "Name": "test_p10_real_data_ingestion.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p10_real_data_ingestion.py"
+  },
+  {
+    "Name": "test_p101_distributed_research_scale.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p101_distributed_research_scale.py"
+  },
+  {
+    "Name": "test_p102_dataset_certification_runtime.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p102_dataset_certification_runtime.py"
+  },
+  {
+    "Name": "test_p103_real_dataset_registry_bridge.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p103_real_dataset_registry_bridge.py"
+  },
+  {
+    "Name": "test_p104_certified_dataset_backtest_router.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p104_certified_dataset_backtest_router.py"
+  },
+  {
+    "Name": "test_p105_real_data_research_orchestrator.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p105_real_data_research_orchestrator.py"
+  },
+  {
+    "Name": "test_p106_real_data_research_certification.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p106_real_data_research_certification.py"
+  },
+  {
+    "Name": "test_p11_edge_evidence_engine.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p11_edge_evidence_engine.py"
+  },
+  {
+    "Name": "test_p111_causality_evidence_firewall.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p111_causality_evidence_firewall.py"
+  },
+  {
+    "Name": "test_p112_evidence_promotion_gate.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p112_evidence_promotion_gate.py"
+  },
+  {
+    "Name": "test_p113_global_market_registry.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p113_global_market_registry.py"
+  },
+  {
+    "Name": "test_p114_data_coverage_engine.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p114_data_coverage_engine.py"
+  },
+  {
+    "Name": "test_p115_multi_market_research_grid.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p115_multi_market_research_grid.py"
+  },
+  {
+    "Name": "test_p116_edge_evidence_at_scale.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p116_edge_evidence_at_scale.py"
+  },
+  {
+    "Name": "test_p117_global_research_certification.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p117_global_research_certification.py"
+  },
+  {
+    "Name": "test_p12_real_data_loading_cloud_export.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p12_real_data_loading_cloud_export.py"
+  },
+  {
+    "Name": "test_p121_cloud_export_command_pack.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p121_cloud_export_command_pack.py"
+  },
+  {
+    "Name": "test_p122_cloud_export_verification_ledger.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p122_cloud_export_verification_ledger.py"
+  },
+  {
+    "Name": "test_p123_final_transfer_snapshot.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p123_final_transfer_snapshot.py"
+  },
+  {
+    "Name": "test_p131_data_source_registry.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p131_data_source_registry.py"
+  },
+  {
+    "Name": "test_p1310_mt5_normalized_dataset_certification.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1310_mt5_normalized_dataset_certification.py"
+  },
+  {
+    "Name": "test_p132_data_acquisition_automation.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p132_data_acquisition_automation.py"
+  },
+  {
+    "Name": "test_p133_incremental_ingestion.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p133_incremental_ingestion.py"
+  },
+  {
+    "Name": "test_p134_dataset_certification_automation.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p134_dataset_certification_automation.py"
+  },
+  {
+    "Name": "test_p135_cloud_sync_automation.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p135_cloud_sync_automation.py"
+  },
+  {
+    "Name": "test_p136_dataset_coverage_growth.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p136_dataset_coverage_growth.py"
+  },
+  {
+    "Name": "test_p137_real_data_requirement_pack.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p137_real_data_requirement_pack.py"
+  },
+  {
+    "Name": "test_p138_platform_connectors.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p138_platform_connectors.py"
+  },
+  {
+    "Name": "test_p139_mt5_historical_data_puller.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p139_mt5_historical_data_puller.py"
+  },
+  {
+    "Name": "test_p141_profit_connector_foundation.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p141_profit_connector_foundation.py"
+  },
+  {
+    "Name": "test_p1410_profit_compile_validation_tracker.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1410_profit_compile_validation_tracker.py"
+  },
+  {
+    "Name": "test_p1411_ntsl_generator_syntax_repair.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1411_ntsl_generator_syntax_repair.py"
+  },
+  {
+    "Name": "test_p1412_ntsl_template_ladder.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1412_ntsl_template_ladder.py"
+  },
+  {
+    "Name": "test_p1413_inline_ntsl_generator_patch.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1413_inline_ntsl_generator_patch.py"
+  },
+  {
+    "Name": "test_p1414_mass_inline_ntsl_export.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1414_mass_inline_ntsl_export.py"
+  },
+  {
+    "Name": "test_p1415_profit_strategy_factory_metrics.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1415_profit_strategy_factory_metrics.py"
+  },
+  {
+    "Name": "test_p1416_import_autorun_reconciliation.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1416_import_autorun_reconciliation.py"
+  },
+  {
+    "Name": "test_p1416a_risk_syntax_ladder.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1416a_risk_syntax_ladder.py"
+  },
+  {
+    "Name": "test_p1416b_profit_ui_automation.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1416b_profit_ui_automation.py"
+  },
+  {
+    "Name": "test_p1416c_risk_factory_50.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1416c_risk_factory_50.py"
+  },
+  {
+    "Name": "test_p1417_ntsl_function_compatibility_matrix.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1417_ntsl_function_compatibility_matrix.py"
+  },
+  {
+    "Name": "test_p1418_profit_compile_evidence_classifier.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1418_profit_compile_evidence_classifier.py"
+  },
+  {
+    "Name": "test_p1419_p1421_final_certification.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1419_p1421_final_certification.py"
+  },
+  {
+    "Name": "test_p142_nelogica_api_connector.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p142_nelogica_api_connector.py"
+  },
+  {
+    "Name": "test_p143_nelogica_api_credential_validator.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p143_nelogica_api_credential_validator.py"
+  },
+  {
+    "Name": "test_p144_ntsl_strategy_factory.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p144_ntsl_strategy_factory.py"
+  },
+  {
+    "Name": "test_p145_profit_backtest_result_intake.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p145_profit_backtest_result_intake.py"
+  },
+  {
+    "Name": "test_p146_strategy_promotion_engine.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p146_strategy_promotion_engine.py"
+  },
+  {
+    "Name": "test_p147_genome_evolution_engine.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p147_genome_evolution_engine.py"
+  },
+  {
+    "Name": "test_p148_massive_ntsl_search_grid.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p148_massive_ntsl_search_grid.py"
+  },
+  {
+    "Name": "test_p149_profit_import_package.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p149_profit_import_package.py"
+  },
+  {
+    "Name": "test_p151_real_edge_discovery_runtime.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p151_real_edge_discovery_runtime.py"
+  },
+  {
+    "Name": "test_p1511_promoted_edge_forensic_audit.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1511_promoted_edge_forensic_audit.py"
+  },
+  {
+    "Name": "test_p1512_edge_promotion_authority.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1512_edge_promotion_authority.py"
+  },
+  {
+    "Name": "test_p1513_p1514_web_strategy_arsenal.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1513_p1514_web_strategy_arsenal.py"
+  },
+  {
+    "Name": "test_p1515_web_research_to_backtest_queue.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1515_web_research_to_backtest_queue.py"
+  },
+  {
+    "Name": "test_p1516_multi_family_combo_backtest_executor.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1516_multi_family_combo_backtest_executor.py"
+  },
+  {
+    "Name": "test_p1517_edge_validation_mega_pack.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1517_edge_validation_mega_pack.py"
+  },
+  {
+    "Name": "test_p1518_paper_research_portfolio_simulator.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1518_paper_research_portfolio_simulator.py"
+  },
+  {
+    "Name": "test_p1519_p1525_institutional_research_certification.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1519_p1525_institutional_research_certification.py"
+  },
+  {
+    "Name": "test_p152_profit_backtest_export_normalizer.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p152_profit_backtest_export_normalizer.py"
+  },
+  {
+    "Name": "test_p1525b_cloud_dataset_reconstruction_fix.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1525b_cloud_dataset_reconstruction_fix.py"
+  },
+  {
+    "Name": "test_p153_p155_profit_market_data_pipeline.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p153_p155_profit_market_data_pipeline.py"
+  },
+  {
+    "Name": "test_p156_p1510_real_edge_research_runtime.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p156_p1510_real_edge_research_runtime.py"
+  },
+  {
+    "Name": "test_p16_autonomous_research_runtime.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p16_autonomous_research_runtime.py"
+  },
+  {
+    "Name": "test_p1621b_youtube_absorption_engine.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1621b_youtube_absorption_engine.py"
+  },
+  {
+    "Name": "test_p1621c_video_transcript_extraction_auto_backtest.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1621c_video_transcript_extraction_auto_backtest.py"
+  },
+  {
+    "Name": "test_p1621d_real_transcript_fetcher_dataset_matcher.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1621d_real_transcript_fetcher_dataset_matcher.py"
+  },
+  {
+    "Name": "test_p1621e_real_video_fetch_loop.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1621e_real_video_fetch_loop.py"
+  },
+  {
+    "Name": "test_p1621f_transcript_download_strategy_extraction.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1621f_transcript_download_strategy_extraction.py"
+  },
+  {
+    "Name": "test_p1621g_rule_normalization_auto_backtest.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1621g_rule_normalization_auto_backtest.py"
+  },
+  {
+    "Name": "test_p1621h_dataset_expansion_video_strategies.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1621h_dataset_expansion_video_strategies.py"
+  },
+  {
+    "Name": "test_p1621k_video_strategy_backtest_executor.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1621k_video_strategy_backtest_executor.py"
+  },
+  {
+    "Name": "test_p1621l_video_strategy_wf_mc.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1621l_video_strategy_wf_mc.py"
+  },
+  {
+    "Name": "test_p1621m_video_edge_memory_merge.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1621m_video_edge_memory_merge.py"
+  },
+  {
+    "Name": "test_p1621n_continuous_youtube_loop_scheduler.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1621n_continuous_youtube_loop_scheduler.py"
+  },
+  {
+    "Name": "test_p1621o_edge_factory_master_certification.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1621o_edge_factory_master_certification.py"
+  },
+  {
+    "Name": "test_p1622_autonomous_daily_research_cron.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1622_autonomous_daily_research_cron.py"
+  },
+  {
+    "Name": "test_p1623_edge_decay_revalidation_auto_archive.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1623_edge_decay_revalidation_auto_archive.py"
+  },
+  {
+    "Name": "test_p1624_asset_regime_edge_allocation.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1624_asset_regime_edge_allocation.py"
+  },
+  {
+    "Name": "test_p1625_paper_portfolio_from_active_edges.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1625_paper_portfolio_from_active_edges.py"
+  },
+  {
+    "Name": "test_p1626x_institutional_portfolio_intelligence.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p1626x_institutional_portfolio_intelligence.py"
+  },
+  {
+    "Name": "test_p17x_causality_research_runtime.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p17x_causality_research_runtime.py"
+  },
+  {
+    "Name": "test_p8100_paper_research_v1_release.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p8100_paper_research_v1_release.py"
+  },
+  {
+    "Name": "test_p826_p827.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p826_p827.py"
+  },
+  {
+    "Name": "test_p828_market_core.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p828_market_core.py"
+  },
+  {
+    "Name": "test_p829_ingestion_adapters.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p829_ingestion_adapters.py"
+  },
+  {
+    "Name": "test_p830_edge_validation.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p830_edge_validation.py"
+  },
+  {
+    "Name": "test_p831_regime_detection.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p831_regime_detection.py"
+  },
+  {
+    "Name": "test_p832_strategy_genome.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p832_strategy_genome.py"
+  },
+  {
+    "Name": "test_p833_adversarial_ai.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p833_adversarial_ai.py"
+  },
+  {
+    "Name": "test_p834_cross_asset_brain.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p834_cross_asset_brain.py"
+  },
+  {
+    "Name": "test_p835_causality_hypothesis.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p835_causality_hypothesis.py"
+  },
+  {
+    "Name": "test_p836_feature_store_edge_discovery.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p836_feature_store_edge_discovery.py"
+  },
+  {
+    "Name": "test_p837_massive_backtest_cluster.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p837_massive_backtest_cluster.py"
+  },
+  {
+    "Name": "test_p838_digital_twin_replay.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p838_digital_twin_replay.py"
+  },
+  {
+    "Name": "test_p839_capital_evolution.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p839_capital_evolution.py"
+  },
+  {
+    "Name": "test_p840_self_evolution.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p840_self_evolution.py"
+  },
+  {
+    "Name": "test_p841_execution_gateway.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p841_execution_gateway.py"
+  },
+  {
+    "Name": "test_p842_validation_protocol_engine.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p842_validation_protocol_engine.py"
+  },
+  {
+    "Name": "test_p843_institutional_audit_ledger.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p843_institutional_audit_ledger.py"
+  },
+  {
+    "Name": "test_p844_research_orchestrator.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p844_research_orchestrator.py"
+  },
+  {
+    "Name": "test_p845_strategy_expansion.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p845_strategy_expansion.py"
+  },
+  {
+    "Name": "test_p846_ftmo_ruleset.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p846_ftmo_ruleset.py"
+  },
+  {
+    "Name": "test_p847_ftmo_gateway_integration.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p847_ftmo_gateway_integration.py"
+  },
+  {
+    "Name": "test_p848_paper_session.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p848_paper_session.py"
+  },
+  {
+    "Name": "test_p849_gateway_paper_session_integration.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p849_gateway_paper_session_integration.py"
+  },
+  {
+    "Name": "test_p850_daily_research_runner.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p850_daily_research_runner.py"
+  },
+  {
+    "Name": "test_p851_cli_runner.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p851_cli_runner.py"
+  },
+  {
+    "Name": "test_p852_runtime_evidence_package.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p852_runtime_evidence_package.py"
+  },
+  {
+    "Name": "test_p853_institutional_healthcheck.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p853_institutional_healthcheck.py"
+  },
+  {
+    "Name": "test_p854_release_audit_gate.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p854_release_audit_gate.py"
+  },
+  {
+    "Name": "test_p855_transfer_snapshot.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p855_transfer_snapshot.py"
+  },
+  {
+    "Name": "test_p856_cloud_export.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p856_cloud_export.py"
+  },
+  {
+    "Name": "test_p857_export_verifier.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p857_export_verifier.py"
+  },
+  {
+    "Name": "test_p858_executive_status.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p858_executive_status.py"
+  },
+  {
+    "Name": "test_p859_market_data_connector.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p859_market_data_connector.py"
+  },
+  {
+    "Name": "test_p860_batch_market_ingestion.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p860_batch_market_ingestion.py"
+  },
+  {
+    "Name": "test_p861_data_catalog.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p861_data_catalog.py"
+  },
+  {
+    "Name": "test_p862_dataset_backtest_gate.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p862_dataset_backtest_gate.py"
+  },
+  {
+    "Name": "test_p863_connector_catalog_integration.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p863_connector_catalog_integration.py"
+  },
+  {
+    "Name": "test_p864_dataset_lineage.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p864_dataset_lineage.py"
+  },
+  {
+    "Name": "test_p865_connector_lineage_integration.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p865_connector_lineage_integration.py"
+  },
+  {
+    "Name": "test_p866_dataset_lineage_backtest_gate.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p866_dataset_lineage_backtest_gate.py"
+  },
+  {
+    "Name": "test_p867_paper_research_readiness.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p867_paper_research_readiness.py"
+  },
+  {
+    "Name": "test_p868_paper_research_operation.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p868_paper_research_operation.py"
+  },
+  {
+    "Name": "test_p869_paper_research_cli.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p869_paper_research_cli.py"
+  },
+  {
+    "Name": "test_p870_operational_readme.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p870_operational_readme.py"
+  },
+  {
+    "Name": "test_p871_preflight_check.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p871_preflight_check.py"
+  },
+  {
+    "Name": "test_p872_cli_preflight_integration.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p872_cli_preflight_integration.py"
+  },
+  {
+    "Name": "test_p873_status_cli.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p873_status_cli.py"
+  },
+  {
+    "Name": "test_p874_final_audit_cli.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p874_final_audit_cli.py"
+  },
+  {
+    "Name": "test_p875_command_index.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p875_command_index.py"
+  },
+  {
+    "Name": "test_p876_correlation_authority.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p876_correlation_authority.py"
+  },
+  {
+    "Name": "test_p877_causality_authority.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p877_causality_authority.py"
+  },
+  {
+    "Name": "test_p878_uncertainty_authority.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p878_uncertainty_authority.py"
+  },
+  {
+    "Name": "test_p879_edge_discovery_authority.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p879_edge_discovery_authority.py"
+  },
+  {
+    "Name": "test_p880_anti_overfitting_authority.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p880_anti_overfitting_authority.py"
+  },
+  {
+    "Name": "test_p881_walk_forward_authority.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p881_walk_forward_authority.py"
+  },
+  {
+    "Name": "test_p882_monte_carlo_authority.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p882_monte_carlo_authority.py"
+  },
+  {
+    "Name": "test_p883_robustness_committee.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p883_robustness_committee.py"
+  },
+  {
+    "Name": "test_p884_validation_protocol_robustness.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p884_validation_protocol_robustness.py"
+  },
+  {
+    "Name": "test_p885_promotion_authority.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p885_promotion_authority.py"
+  },
+  {
+    "Name": "test_p886_trader_dna_authority.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p886_trader_dna_authority.py"
+  },
+  {
+    "Name": "test_p887_knowledge_absorption_authority.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p887_knowledge_absorption_authority.py"
+  },
+  {
+    "Name": "test_p888_knowledge_source_registry.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p888_knowledge_source_registry.py"
+  },
+  {
+    "Name": "test_p889_knowledge_absorption_source_integration.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p889_knowledge_absorption_source_integration.py"
+  },
+  {
+    "Name": "test_p890_final_research_certification.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p890_final_research_certification.py"
+  },
+  {
+    "Name": "test_p891_final_certified_snapshot.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p891_final_certified_snapshot.py"
+  },
+  {
+    "Name": "test_p892_institutional_live_lock.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p892_institutional_live_lock.py"
+  },
+  {
+    "Name": "test_p893_gateway_live_lock_integration.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p893_gateway_live_lock_integration.py"
+  },
+  {
+    "Name": "test_p894_safe_broker_adapter.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p894_safe_broker_adapter.py"
+  },
+  {
+    "Name": "test_p895_paper_broker_adapter.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p895_paper_broker_adapter.py"
+  },
+  {
+    "Name": "test_p896_gateway_paper_broker_integration.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p896_gateway_paper_broker_integration.py"
+  },
+  {
+    "Name": "test_p897_paper_fill_model.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p897_paper_fill_model.py"
+  },
+  {
+    "Name": "test_p898_paper_broker_ftmo_costs.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p898_paper_broker_ftmo_costs.py"
+  },
+  {
+    "Name": "test_p899_gateway_ftmo_cost_integration.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p899_gateway_ftmo_cost_integration.py"
+  },
+  {
+    "Name": "test_p9_edge_discovery_at_scale.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p9_edge_discovery_at_scale.py"
+  },
+  {
+    "Name": "test_p91_data_expansion_engine.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p91_data_expansion_engine.py"
+  },
+  {
+    "Name": "test_p9100_final_certification.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p9100_final_certification.py"
+  },
+  {
+    "Name": "test_p92_genome_explosion_engine.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p92_genome_explosion_engine.py"
+  },
+  {
+    "Name": "test_p93_massive_backtest_grid.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p93_massive_backtest_grid.py"
+  },
+  {
+    "Name": "test_p94_dna_extraction_engine.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p94_dna_extraction_engine.py"
+  },
+  {
+    "Name": "test_p95_edge_discovery_factory.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p95_edge_discovery_factory.py"
+  },
+  {
+    "Name": "test_p96_continuous_research_runtime.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p96_continuous_research_runtime.py"
+  },
+  {
+    "Name": "test_p97_research_command_center.py",
+    "FullName": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\mind_trader\\tests\\test_p97_research_command_center.py"
+  }
+]

@@ -1,0 +1,239 @@
+{
+  "STATUS": "P1804_REAL_MT5_HISTORY_DOWNLOAD_PROBE_COMPLETED",
+  "MT5_MODULE_AVAILABLE": true,
+  "MT5_ERROR": null,
+  "TESTS": 21,
+  "DOWNLOADED": 15,
+  "MEETS_10Y": 15,
+  "MEETS_5Y": 15,
+  "RESULTS": [
+    {
+      "symbol": "XAUUSD",
+      "timeframe": "D1",
+      "status": "DOWNLOADED",
+      "bars": 2835,
+      "start": "2015-06-19 00:00:00+00:00",
+      "end": "2026-06-15 00:00:00+00:00",
+      "history_years": 10.9973,
+      "meets_10y": true,
+      "meets_5y": true,
+      "file": "data\\raw\\mt5_probe\\MT5_PROBE_XAUUSD_D1.csv"
+    },
+    {
+      "symbol": "XAUUSD",
+      "timeframe": "H4",
+      "status": "DOWNLOADED",
+      "bars": 16957,
+      "start": "2015-06-19 00:00:00+00:00",
+      "end": "2026-06-15 20:00:00+00:00",
+      "history_years": 10.9973,
+      "meets_10y": true,
+      "meets_5y": true,
+      "file": "data\\raw\\mt5_probe\\MT5_PROBE_XAUUSD_H4.csv"
+    },
+    {
+      "symbol": "XAUUSD",
+      "timeframe": "H1",
+      "status": "DOWNLOADED",
+      "bars": 64713,
+      "start": "2015-06-19 01:00:00+00:00",
+      "end": "2026-06-15 22:00:00+00:00",
+      "history_years": 10.9973,
+      "meets_10y": true,
+      "meets_5y": true,
+      "file": "data\\raw\\mt5_probe\\MT5_PROBE_XAUUSD_H1.csv"
+    },
+    {
+      "symbol": "USDJPY",
+      "timeframe": "D1",
+      "status": "DOWNLOADED",
+      "bars": 2854,
+      "start": "2015-06-19 00:00:00+00:00",
+      "end": "2026-06-15 00:00:00+00:00",
+      "history_years": 10.9973,
+      "meets_10y": true,
+      "meets_5y": true,
+      "file": "data\\raw\\mt5_probe\\MT5_PROBE_USDJPY_D1.csv"
+    },
+    {
+      "symbol": "USDJPY",
+      "timeframe": "H4",
+      "status": "DOWNLOADED",
+      "bars": 17095,
+      "start": "2015-06-19 00:00:00+00:00",
+      "end": "2026-06-15 20:00:00+00:00",
+      "history_years": 10.9973,
+      "meets_10y": true,
+      "meets_5y": true,
+      "file": "data\\raw\\mt5_probe\\MT5_PROBE_USDJPY_H4.csv"
+    },
+    {
+      "symbol": "USDJPY",
+      "timeframe": "H1",
+      "status": "DOWNLOADED",
+      "bars": 68282,
+      "start": "2015-06-19 00:00:00+00:00",
+      "end": "2026-06-15 23:00:00+00:00",
+      "history_years": 10.9973,
+      "meets_10y": true,
+      "meets_5y": true,
+      "file": "data\\raw\\mt5_probe\\MT5_PROBE_USDJPY_H1.csv"
+    },
+    {
+      "symbol": "GBPUSD",
+      "timeframe": "D1",
+      "status": "DOWNLOADED",
+      "bars": 2853,
+      "start": "2015-06-19 00:00:00+00:00",
+      "end": "2026-06-15 00:00:00+00:00",
+      "history_years": 10.9973,
+      "meets_10y": true,
+      "meets_5y": true,
+      "file": "data\\raw\\mt5_probe\\MT5_PROBE_GBPUSD_D1.csv"
+    },
+    {
+      "symbol": "GBPUSD",
+      "timeframe": "H4",
+      "status": "DOWNLOADED",
+      "bars": 17094,
+      "start": "2015-06-19 00:00:00+00:00",
+      "end": "2026-06-15 20:00:00+00:00",
+      "history_years": 10.9973,
+      "meets_10y": true,
+      "meets_5y": true,
+      "file": "data\\raw\\mt5_probe\\MT5_PROBE_GBPUSD_H4.csv"
+    },
+    {
+      "symbol": "GBPUSD",
+      "timeframe": "H1",
+      "status": "DOWNLOADED",
+      "bars": 68281,
+      "start": "2015-06-19 00:00:00+00:00",
+      "end": "2026-06-15 23:00:00+00:00",
+      "history_years": 10.9973,
+      "meets_10y": true,
+      "meets_5y": true,
+      "file": "data\\raw\\mt5_probe\\MT5_PROBE_GBPUSD_H1.csv"
+    },
+    {
+      "symbol": "EURUSD",
+      "timeframe": "D1",
+      "status": "DOWNLOADED",
+      "bars": 2853,
+      "start": "2015-06-19 00:00:00+00:00",
+      "end": "2026-06-15 00:00:00+00:00",
+      "history_years": 10.9973,
+      "meets_10y": true,
+      "meets_5y": true,
+      "file": "data\\raw\\mt5_probe\\MT5_PROBE_EURUSD_D1.csv"
+    },
+    {
+      "symbol": "EURUSD",
+      "timeframe": "H4",
+      "status": "DOWNLOADED",
+      "bars": 17094,
+      "start": "2015-06-19 00:00:00+00:00",
+      "end": "2026-06-15 20:00:00+00:00",
+      "history_years": 10.9973,
+      "meets_10y": true,
+      "meets_5y": true,
+      "file": "data\\raw\\mt5_probe\\MT5_PROBE_EURUSD_H4.csv"
+    },
+    {
+      "symbol": "EURUSD",
+      "timeframe": "H1",
+      "status": "DOWNLOADED",
+      "bars": 68276,
+      "start": "2015-06-19 00:00:00+00:00",
+      "end": "2026-06-15 23:00:00+00:00",
+      "history_years": 10.9973,
+      "meets_10y": true,
+      "meets_5y": true,
+      "file": "data\\raw\\mt5_probe\\MT5_PROBE_EURUSD_H1.csv"
+    },
+    {
+      "symbol": "USDCAD",
+      "timeframe": "D1",
+      "status": "DOWNLOADED",
+      "bars": 2853,
+      "start": "2015-06-19 00:00:00+00:00",
+      "end": "2026-06-15 00:00:00+00:00",
+      "history_years": 10.9973,
+      "meets_10y": true,
+      "meets_5y": true,
+      "file": "data\\raw\\mt5_probe\\MT5_PROBE_USDCAD_D1.csv"
+    },
+    {
+      "symbol": "USDCAD",
+      "timeframe": "H4",
+      "status": "DOWNLOADED",
+      "bars": 17094,
+      "start": "2015-06-19 00:00:00+00:00",
+      "end": "2026-06-15 20:00:00+00:00",
+      "history_years": 10.9973,
+      "meets_10y": true,
+      "meets_5y": true,
+      "file": "data\\raw\\mt5_probe\\MT5_PROBE_USDCAD_H4.csv"
+    },
+    {
+      "symbol": "USDCAD",
+      "timeframe": "H1",
+      "status": "DOWNLOADED",
+      "bars": 68280,
+      "start": "2015-06-19 00:00:00+00:00",
+      "end": "2026-06-15 23:00:00+00:00",
+      "history_years": 10.9973,
+      "meets_10y": true,
+      "meets_5y": true,
+      "file": "data\\raw\\mt5_probe\\MT5_PROBE_USDCAD_H1.csv"
+    },
+    {
+      "symbol": "BTCUSD",
+      "timeframe": "D1",
+      "status": "NO_DATA",
+      "bars": 0,
+      "error": "(-1, 'Terminal: Call failed')"
+    },
+    {
+      "symbol": "BTCUSD",
+      "timeframe": "H4",
+      "status": "NO_DATA",
+      "bars": 0,
+      "error": "(-1, 'Terminal: Call failed')"
+    },
+    {
+      "symbol": "BTCUSD",
+      "timeframe": "H1",
+      "status": "NO_DATA",
+      "bars": 0,
+      "error": "(-1, 'Terminal: Call failed')"
+    },
+    {
+      "symbol": "NAS100",
+      "timeframe": "D1",
+      "status": "NO_DATA",
+      "bars": 0,
+      "error": "(-1, 'Terminal: Call failed')"
+    },
+    {
+      "symbol": "NAS100",
+      "timeframe": "H4",
+      "status": "NO_DATA",
+      "bars": 0,
+      "error": "(-1, 'Terminal: Call failed')"
+    },
+    {
+      "symbol": "NAS100",
+      "timeframe": "H1",
+      "status": "NO_DATA",
+      "bars": 0,
+      "error": "(-1, 'Terminal: Call failed')"
+    }
+  ],
+  "NEXT": "P1805_DECIDE_MT5_OR_CSV_FALLBACK_FOR_10Y_HISTORY",
+  "ORDER_SENT": false,
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN",
+  "generated_at": "2026-06-15T23:56:39.457601+00:00"
+}

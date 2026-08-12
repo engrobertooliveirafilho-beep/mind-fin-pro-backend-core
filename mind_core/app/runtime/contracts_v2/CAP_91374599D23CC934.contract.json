@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_91374599D23CC934",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\plotting\\_matplotlib\\misc.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\pandas\\plotting\\_matplotlib\\misc.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 138,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "matplotlib",
+    "matplotlib.axes",
+    "matplotlib.figure",
+    "matplotlib.pyplot",
+    "numpy",
+    "pandas",
+    "pandas.core.dtypes.missing",
+    "pandas.io.formats.printing",
+    "pandas.plotting._matplotlib.style",
+    "pandas.plotting._matplotlib.tools",
+    "random",
+    "scipy.stats",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

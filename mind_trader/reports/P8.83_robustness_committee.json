@@ -1,0 +1,65 @@
+{
+  "committee": "P8.83_ROBUSTNESS_COMMITTEE",
+  "created_at": "2026-06-09T14:40:04.156248+00:00",
+  "genome_id": "g1",
+  "walk_forward": {
+    "authority": "P8.81_WALK_FORWARD_AUTHORITY",
+    "windows": 3,
+    "avg_expectancy": 1.0,
+    "min_profit_factor": 1.1,
+    "positive_window_ratio": 1.0,
+    "passed": true,
+    "decision": "WALK_FORWARD_PASS_RESEARCH_ONLY",
+    "production": "BLOCKED",
+    "live": "FORBIDDEN",
+    "edge_claim": "NONE"
+  },
+  "monte_carlo": {
+    "authority": "P8.82_MONTE_CARLO_AUTHORITY",
+    "created_at": "2026-06-09T14:40:04.152251+00:00",
+    "runs": 200,
+    "trades": 80,
+    "p05_net_profit": 104.0,
+    "p50_net_profit": 132.0,
+    "p95_drawdown": 6.0,
+    "max_dd_allowed": 40,
+    "passed": true,
+    "decision": "MONTE_CARLO_PASS_RESEARCH_ONLY",
+    "production": "BLOCKED",
+    "live": "FORBIDDEN",
+    "edge_claim": "NONE"
+  },
+  "anti_overfitting": {
+    "authority": "P8.80_ANTI_OVERFITTING_AUTHORITY",
+    "created_at": "2026-06-09T14:40:04.155252+00:00",
+    "genome_id": "g1",
+    "parameter_sensitivity": {
+      "mean_expectancy": 1.0,
+      "stdev": 0,
+      "stability": 1.0,
+      "passed": true
+    },
+    "randomization": {
+      "real_net": 132.0,
+      "random_p95": 80.0,
+      "passed": true
+    },
+    "decision": "ANTI_OVERFITTING_PASS_RESEARCH_ONLY",
+    "production": "BLOCKED",
+    "live": "FORBIDDEN",
+    "edge_claim": "NONE"
+  },
+  "uncertainty": {
+    "confidence": 0.925,
+    "uncertainty": 0.07499999999999996,
+    "robustness": 1.0,
+    "decision": "UNCERTAINTY_ACCEPT_RESEARCH",
+    "production": "BLOCKED",
+    "edge_claim": "NONE"
+  },
+  "passed": true,
+  "decision": "ROBUSTNESS_PASS_PAPER_CANDIDATE",
+  "production": "BLOCKED",
+  "live": "FORBIDDEN",
+  "edge_claim": "NONE"
+}

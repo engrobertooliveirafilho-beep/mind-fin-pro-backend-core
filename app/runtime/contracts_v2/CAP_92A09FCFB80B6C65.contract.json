@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_92A09FCFB80B6C65",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\realtime\\realtime_tool_choice_config_param.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\openai\\types\\realtime\\realtime_tool_choice_config_param.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 85,
+  "imports": [
+    "__future__",
+    "responses.tool_choice_function_param",
+    "responses.tool_choice_mcp_param",
+    "responses.tool_choice_options",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,11 @@
+{
+  "strategy_id": "0595b482e2bf26e8",
+  "family": "ema_cross_grid",
+  "asset": "VALE3",
+  "timeframe": "M15",
+  "fast": 14,
+  "slow": 21,
+  "requires_profit_backtest": true,
+  "live": "FORBIDDEN",
+  "real_orders": "FORBIDDEN"
+}

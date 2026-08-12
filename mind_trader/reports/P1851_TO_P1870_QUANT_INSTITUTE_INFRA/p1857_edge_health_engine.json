@@ -1,0 +1,18 @@
+{
+  "STATUS": "P1857_EDGE_HEALTH_ENGINE_BOOTSTRAPPED",
+  "SCORE_COMPONENTS": {
+    "walk_forward": 30,
+    "monte_carlo": 25,
+    "yearly_consistency": 20,
+    "drawdown": 10,
+    "execution_stress": 10,
+    "sample_size": 5
+  },
+  "HEALTH_STATES": [
+    "ELITE",
+    "HEALTHY",
+    "WEAKENING",
+    "CRITICAL",
+    "DEAD"
+  ]
+}

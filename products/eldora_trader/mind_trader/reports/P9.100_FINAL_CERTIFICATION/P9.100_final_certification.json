@@ -1,0 +1,35 @@
+{
+  "P9_STATE_SNAPSHOT": {
+    "STATUS": "P9_EDGE_DISCOVERY_AT_SCALE_CERTIFIED",
+    "BASE": "P8.100_PAPER_RESEARCH_V1_CERTIFIED",
+    "TESTS_REQUIRED": "run pytest -q",
+    "REPORTS_PRESENT": {
+      "reports/P9.1_DATA_EXPANSION_ENGINE/P9.1_STATE_SNAPSHOT.json": true,
+      "reports/P9.2_GENOME_EXPLOSION_ENGINE/P9.2_manifest.json": true,
+      "reports/P9.3_MASSIVE_BACKTEST_GRID/P9.3_manifest.json": true,
+      "reports/P9.4_DNA_EXTRACTION_ENGINE/P9.4_manifest.json": true,
+      "reports/P9.5_EDGE_DISCOVERY_FACTORY/P9.5_manifest.json": true,
+      "reports/P9.6_CONTINUOUS_RESEARCH_RUNTIME/P9.6_manifest.json": true,
+      "reports/P9.7_RESEARCH_COMMAND_CENTER/P9.7_manifest.json": true
+    },
+    "MODULES_CERTIFIED": [
+      "P9.1_DATA_EXPANSION_ENGINE",
+      "P9.2_GENOME_EXPLOSION_ENGINE",
+      "P9.3_MASSIVE_BACKTEST_GRID",
+      "P9.4_DNA_EXTRACTION_ENGINE",
+      "P9.5_EDGE_DISCOVERY_FACTORY",
+      "P9.6_CONTINUOUS_RESEARCH_RUNTIME",
+      "P9.7_RESEARCH_COMMAND_CENTER"
+    ],
+    "LIVE": "FORBIDDEN",
+    "PRODUCTION": "BLOCKED",
+    "REAL_BROKER": "DISABLED",
+    "FTMO_REAL": "FORBIDDEN",
+    "EDGE": "NOT_PROVEN",
+    "CAUSALITY": "NOT_PROVEN",
+    "PROMOTION": "PAPER_CANDIDATES_ONLY",
+    "NEXT_PHASE": "P10_REAL_DATA_INGESTION_AND_DISTRIBUTED_SCALE",
+    "EXPORT_READY": true,
+    "generated_at": "2026-06-14T16:22:52.816369+00:00"
+  }
+}

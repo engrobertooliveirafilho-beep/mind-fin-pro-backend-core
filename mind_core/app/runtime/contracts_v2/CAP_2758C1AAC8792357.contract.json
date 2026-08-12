@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_2758C1AAC8792357",
+  "source_file": "app\\companionship\\live_cognition_gated.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\app\\companionship\\live_cognition_gated.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 100,
+  "imports": [
+    "os",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

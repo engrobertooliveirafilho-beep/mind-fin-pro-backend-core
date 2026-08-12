@@ -1,0 +1,26 @@
+{
+  "capability_id": "CAP_5456C760503D7B2A",
+  "source_file": "TRANSFER_PACKAGE\\PTO_20260611T143207Z\\p56e2_master_genetic_expansion.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\TRANSFER_PACKAGE\\PTO_20260611T143207Z\\p56e2_master_genetic_expansion.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 102,
+  "imports": [
+    "app.mind.p5_5u_real_result_claim_extractor.extractor",
+    "app.mind.p5_5v_pedigree_extractor.extractor",
+    "app.mind.p5_5x_genetic_graph_builder.graph",
+    "app.mind.p5_5z_executive_snapshot.snapshot",
+    "app.mind.p5_6b6_real_valuation_binder.binder",
+    "app.mind.p5_6c_pedigree_source_validation.validator",
+    "datetime",
+    "json",
+    "traceback"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "asset": "USDJPY",
+    "specialists": 17,
+    "top_specialists": [
+      "USDJPY_D1_EMA_CROSS_9a53b0630c7b7e29e960eb66",
+      "USDJPY_D1_SMA_CROSS_c20b3f79e90be73438b442d1",
+      "USDJPY_D1_SMA_CROSS_598331ffe1e6047d6a961fb3",
+      "USDJPY_H1_RSI_REVERSION_103d2cfc73e4dbb7ac1697fb",
+      "USDJPY_H1_BOLLINGER_REVERSION_bf2b92643afbd10a243a2f0a"
+    ],
+    "best_elite_score": 147.186382,
+    "best_payoff": 5.388597,
+    "best_pf": 16.165792,
+    "best_expectancy": 0.06085955
+  },
+  {
+    "asset": "XAUUSD",
+    "specialists": 39,
+    "top_specialists": [
+      "XAUUSD_M5_RSI_REVERSION_6ffc7212b632c0f09f8de2fc",
+      "XAUUSD_D1_EMA_CROSS_1d35b1a3343e2da75db035d2",
+      "XAUUSD_D1_EMA_CROSS_444166c3680882e799445fb4",
+      "XAUUSD_M1_ATR_TREND_a044785c82bcd165d9848714",
+      "XAUUSD_D1_ATR_TREND_6acf0720c9a2785ffadc3f98"
+    ],
+    "best_elite_score": 125.383158,
+    "best_payoff": 8.96119,
+    "best_pf": 23.343597,
+    "best_expectancy": 0.08294911
+  },
+  {
+    "asset": "GBPUSD",
+    "specialists": 26,
+    "top_specialists": [
+      "GBPUSD_M30_BOLLINGER_REVERSION_7d0ccd5986a18a8a9162e384",
+      "GBPUSD_M1_BOLLINGER_REVERSION_5aefbb04c2a4913ca649c3fa",
+      "GBPUSD_M1_BOLLINGER_REVERSION_45ecd4d9094ad6334a86ad21",
+      "GBPUSD_M15_RSI_REVERSION_f50aa1c8c0e61317773e1144",
+      "GBPUSD_M1_DONCHIAN_d8ceb70b37cb84019d746754"
+    ],
+    "best_elite_score": 118.370388,
+    "best_payoff": 8.549562,
+    "best_pf": 29.71304,
+    "best_expectancy": 0.00097831
+  },
+  {
+    "asset": "USDCAD",
+    "specialists": 24,
+    "top_specialists": [
+      "USDCAD_M30_RSI_REVERSION_e66b449b7ac4c0f21513e76c",
+      "USDCAD_M5_RSI_REVERSION_73a728872bbd72d8549d9fbb",
+      "USDCAD_M5_BOLLINGER_REVERSION_151b15410031fd12a113e8ed",
+      "USDCAD_M15_ATR_TREND_9ab3c761b382cb63961ac695",
+      "USDCAD_D1_ATR_TREND_36d544d92daf453ce9e08aa1"
+    ],
+    "best_elite_score": 84.659922,
+    "best_payoff": 4.705007,
+    "best_pf": 23.547776,
+    "best_expectancy": 0.0030077
+  }
+]

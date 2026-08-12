@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_7B03878D090953C2",
+  "source_file": ".venv\\Lib\\site-packages\\pptx\\chart\\chart.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\pptx\\chart\\chart.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 95,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "pptx.chart.axis",
+    "pptx.chart.legend",
+    "pptx.chart.plot",
+    "pptx.chart.series",
+    "pptx.chart.xmlwriter",
+    "pptx.dml.chtfmt",
+    "pptx.shared",
+    "pptx.text.text",
+    "pptx.util"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

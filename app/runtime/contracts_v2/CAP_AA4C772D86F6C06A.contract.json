@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_AA4C772D86F6C06A",
+  "source_file": "app\\mind\\p5_5x4_strict_animal_name_normalizer\\normalizer.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\app\\mind\\p5_5x4_strict_animal_name_normalizer\\normalizer.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 100,
+  "imports": [
+    "json",
+    "os",
+    "re",
+    "urllib.parse",
+    "urllib.request"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

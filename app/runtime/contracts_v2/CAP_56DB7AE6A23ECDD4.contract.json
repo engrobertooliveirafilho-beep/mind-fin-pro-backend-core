@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_56DB7AE6A23ECDD4",
+  "source_file": "_evidence\\P4_63M_SURGICAL_DEAD_CODE_CLEANUP_20260618_132525\\p463m_ast_after.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\_evidence\\P4_63M_SURGICAL_DEAD_CODE_CLEANUP_20260618_132525\\p463m_ast_after.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 87,
+  "imports": [
+    "ast",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_BE0B7581B8C382DD",
+  "source_file": "_evidence\\P8_10_GAIN_VALIDATION_20260616_073333\\run_p8_10_gain_validation.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P8_10_GAIN_VALIDATION_20260616_073333\\run_p8_10_gain_validation.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 110,
+  "imports": [
+    "app.p8_shadow.shadow_hooks",
+    "json",
+    "os",
+    "pathlib",
+    "time"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

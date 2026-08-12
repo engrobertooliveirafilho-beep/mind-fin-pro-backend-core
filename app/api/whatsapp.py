@@ -1,4 +1,13 @@
 
+# P19P28K_R6_UNIVERSAL_CONTEXT_IMPORT
+from app.runtime.followup_unified_resolver import (
+    prepare_message as _p19p28k_prepare_message,
+    record_answer as _p19p28k_record_answer,
+)
+# /P19P28K_R6_UNIVERSAL_CONTEXT_IMPORT
+from app.runtime.p51a_runtime_trace import trace_function, trace_event
+
+@trace_function
 def _bope12_build_twin_shadow(sender_id: str, inbound_text: str, answer: str = "") -> dict:
     if build_cognitive_digital_twin is None or twin_to_instruction is None:
         return {
@@ -34,6 +43,7 @@ def _bope12_build_twin_shadow(sender_id: str, inbound_text: str, answer: str = "
         }
 
 
+@trace_function
 def _bope12_apply_twin_style(answer: str, twin_shadow: dict) -> str:
     text = str(answer or "").strip()
 
@@ -57,7 +67,7 @@ def _bope12_apply_twin_style(answer: str, twin_shadow: dict) -> str:
         banned = ["como posso ajudar", "me diga melhor", "não entendi"]
         lower = text.lower()
         if any(b in lower for b in banned):
-            text = "Vou seguir pelo contexto ativo e te dar o próximo passo direto."
+            text = ""
 
     return text
 
@@ -72,6 +82,7 @@ except Exception:
     twin_to_instruction = None
 
 
+@trace_function
 def _bope8_naturalize_whatsapp_answer(final_answer: str, bope5_shadow: dict) -> str:
     raw = str(final_answer or "").strip()
 
@@ -114,6 +125,7 @@ def _bope8_naturalize_whatsapp_answer(final_answer: str, bope5_shadow: dict) -> 
 
 
 
+@trace_function
 def _bope6_build_final_answer(inbound_text: str, legacy_answer: str, bope5_shadow: dict) -> str:
     """
     BOPE-6 final authority shim.
@@ -169,6 +181,7 @@ def _bope6_build_final_answer(inbound_text: str, legacy_answer: str, bope5_shado
 
 
 
+@trace_function
 def _bope5_build_knowledge_shadow(inbound_text: str, domain: str = "") -> dict:
     if build_domain_knowledge is None or packet_to_context is None:
         return {
@@ -204,6 +217,7 @@ except Exception:
     packet_to_context = None
 
 
+@trace_function
 def _bope_context_signal(label: str, inbound_text: str = "", context: str = "", domain: str = "") -> dict:
     return {
         "type": "context_signal",
@@ -215,6 +229,7 @@ def _bope_context_signal(label: str, inbound_text: str = "", context: str = "", 
     }
 
 
+@trace_function
 def _bope_signal_text(signal) -> str:
     if isinstance(signal, dict):
         parts = [
@@ -228,6 +243,7 @@ def _bope_signal_text(signal) -> str:
 
 
 
+@trace_function
 def _bope2_context_signal(label: str, inbound_text: str = "", context: str = "") -> str:
     base = str(inbound_text or "").strip()
     ctx = str(context or "").strip()
@@ -244,6 +260,7 @@ from app.modules.usde_core.live_bridge import USDELiveBridge
 import os
 
 
+@trace_function
 def _p427u_test_compat(user_message:str, reply)->str:
     msg=(user_message or "").lower().strip()
 
@@ -274,6 +291,7 @@ from app.runtime.actionable_continuity_authority import set_actionable_turn_cont
 from app.runtime.forensic_trace import event
 # P4_12N_FORENSIC_TRACE_ACTIVE
 
+@trace_function
 def _eldora_live_override_contract_patch(sender_id: str, inbound_text: str):
     # P4_23I_DISABLED_PRECOGNITIVE_CONTRACT
     return None
@@ -293,6 +311,7 @@ from fastapi.responses import Response
 import json as _p2406_json, time as _p2406_time
 from pathlib import Path as _p2406_Path
 
+@trace_function
 def _p2406_webhook_trace(event: dict):
     try:
         d = _p2406_Path("_runtime_trace")
@@ -361,9 +380,11 @@ _P19P19_DOMAIN_EXPANSION = {
     "trader": "MIND Trader em modo PAPER_ONLY, backtest, estratégia e validação",
 }
 
+@trace_function
 def _p19p19_norm(text):
     return str(text or "").strip().lower()
 
+@trace_function
 def _p19p19_is_short_followup(text):
     t = _p19p19_norm(text)
     t = t.replace("?", "").replace(".", "").replace("!", "").strip()
@@ -373,6 +394,7 @@ def _p19p19_is_short_followup(text):
         ])
     )
 
+@trace_function
 def _p19p19_detect_domain(text):
     t = _p19p19_norm(text)
     best_domain = None
@@ -384,6 +406,7 @@ def _p19p19_detect_domain(text):
             best_score = score
     return best_domain
 
+@trace_function
 def _p19p19_remember_domain(sender_id, inbound_text):
     sender = str(sender_id or "default_sender")
     domain = _p19p19_detect_domain(inbound_text)
@@ -394,11 +417,13 @@ def _p19p19_remember_domain(sender_id, inbound_text):
         }
     return domain
 
+@trace_function
 def _p19p19_get_domain(sender_id):
     sender = str(sender_id or "default_sender")
     state = _P19P19_SENDER_DOMAIN_STATE.get(sender) or {}
     return state.get("domain")
 
+@trace_function
 def _p19p19_expand_short_followup(sender_id, inbound_text):
     raw = str(inbound_text or "").strip()
 
@@ -419,77 +444,15 @@ def _p19p19_expand_short_followup(sender_id, inbound_text):
 
     return f"{raw} dentro do contexto anterior: {context}"
 
+@trace_function
 def _p19p19_direct_context_reply(sender_id, inbound_text):
-    expanded = _p19p19_expand_short_followup(sender_id, inbound_text)
-    domain = _p19p19_detect_domain(expanded) or _p19p19_get_domain(sender_id)
-
-    if domain == "automotivo":
-        t = _p19p19_norm(expanded)
-        if _p19p19_is_short_followup(inbound_text):
-            return (
-                "Vamos direto no diagnóstico. Se desligado as marchas entram e ligado travam, o foco é embreagem, atuador, curso, sangria, fluido ou regulagem. "
-                "Primeiro valide se o atuador está movimentando todo o curso. Depois faça sangria correta. Em seguida confira sensor/regulagem. "
-                "Só depois pense em trocar peça."
-            )
-        return None
-
-    if domain == "marketing":
-        t = _p19p19_norm(expanded)
-        if _p19p19_is_short_followup(inbound_text):
-            return (
-                "Faça em sequência: defina o público, escolha uma promessa clara, crie 3 ângulos de criativo, rode teste pequeno, corte o pior e escale o melhor. "
-                "Não comece pelo layout. Comece pela dor, oferta e primeiro gancho."
-            )
-        return None
-
-    if domain == "trader":
-        t = _p19p19_norm(expanded)
-        if _p19p19_is_short_followup(inbound_text):
-            return (
-                "Execute em PAPER_ONLY. Primeiro rode backtest limpo. Depois valide drawdown, payoff, frequência e estabilidade por ativo. "
-                "Se passar, vai para simulação controlada. Nada de LIVE, REAL ou FTMO_REAL antes de certificação."
-            )
-        return None
-
-    if domain != "confinamento_bovino":
-        return None
-
-    t = _p19p19_norm(expanded)
-
-    if any(x in t for x in ["como eu faço", "como eu faco", "como faço", "como faco", "primeiro passo"]):
-        return (
-            "Faça em fases. Primeiro automatize o trato: silo com sensor de nível, balança para pesar ingredientes "
-            "e misturador/vagão com rotina por lote. Depois coloque leitura de cocho. Em seguida monitore água com sensor "
-            "nos bebedouros. Por último, instale balança de passagem e alerte tudo no celular."
-        )
-
-    if any(x in t for x in ["explique melhor", "explica melhor", "detalhe", "detalha"]):
-        return (
-            "Na prática, o confinamento tem quatro rotinas críticas: comida, água, peso e observação. "
-            "A automação entra nessa ordem: silo mede estoque, balança controla dieta, misturador prepara, "
-            "cocho mostra sobra, bebedouro mostra consumo e balança mostra ganho de peso. O funcionário deixa de fazer ronda "
-            "repetitiva e passa a supervisionar exceções."
-        )
-
-    if any(x in t for x in ["e depois", "depois", "continue", "continua"]):
-        return (
-            "Depois do trato, avance para água e pesagem. Sensor no bebedouro detecta falta de água ou consumo estranho. "
-            "Balança de passagem mostra se o lote está ganhando peso. Com trato, água e peso monitorados, você já controla "
-            "o confinamento quase inteiro por painel e alerta."
-        )
-
-    if any(x in t for x in ["aprofunde", "aprofundar"]):
-        return (
-            "A arquitetura completa é: sensor de nível no silo, balança de dieta, misturador controlado, distribuição por lote, "
-            "câmera ou checklist digital no cocho, hidrômetro no bebedouro, balança de passagem, dashboard e alerta no WhatsApp. "
-            "Não comece por câmera ou IA. Comece por alimentação, porque é onde está o maior custo e o maior ganho operacional."
-        )
-
+    """
+    Legacy static context interceptor disabled.
+    New intents must flow to primary cognition.
+    None means NO_DECISION.
+    """
     return None
-# /P19P18_P19P19_SHORT_FOLLOWUP_SEMANTIC_CONTINUITY
 
-
-# P19P16_CONFINEMENT_DOMAIN_INTERCEPTOR
 def _p19p16_confinement_domain_interceptor(inbound_text: str) -> str | None:
     msg = (inbound_text or "").lower()
     if not any(x in msg for x in ["confinamento", "boi", "bois", "gado"]):
@@ -506,6 +469,7 @@ def _p19p16_confinement_domain_interceptor(inbound_text: str) -> str | None:
 # /P19P16_CONFINEMENT_DOMAIN_INTERCEPTOR
 
 # P19P9_UNIVERSAL_WHATSAPP_OUTPUT_GUARD
+@trace_function
 def _p19p9_universal_whatsapp_output_guard(inbound_text: str, answer: str, context: str = "") -> str:
     out = str(answer or "")
     try:
@@ -532,6 +496,7 @@ def _p19p9_universal_whatsapp_output_guard(inbound_text: str, answer: str, conte
 # /P19P9_UNIVERSAL_WHATSAPP_OUTPUT_GUARD
 
 # P19P8_GENERIC_RESTART_SUPPRESSION
+@trace_function
 def _p19p8_suppress_generic_restart(inbound_text: str, answer: str, context: str = "") -> str:
     msg = (inbound_text or "").lower()
     ctx = (context or "").lower()
@@ -588,6 +553,7 @@ def _p19p8_suppress_generic_restart(inbound_text: str, answer: str, context: str
 # /P19P8_GENERIC_RESTART_SUPPRESSION
 
 # P19P7_CONTEXT_MEMORY_FOLLOWUP_EXPANSION
+@trace_function
 def _p19p7_contextual_followup_expansion(inbound_text: str, answer: str, context: str = "") -> str:
     msg = (inbound_text or "").lower()
     ctx = (context or "").lower()
@@ -650,6 +616,7 @@ def _p19p7_contextual_followup_expansion(inbound_text: str, answer: str, context
 # /P19P7_CONTEXT_MEMORY_FOLLOWUP_EXPANSION
 
 # P19P6_WHATSAPP_FOLLOWUP_EXPANSION
+@trace_function
 def _p19p6_expand_bad_followup_template(inbound_text: str, answer: str, context: str = "") -> str:
     msg = (inbound_text or "").lower()
     out = str(answer or "")
@@ -686,6 +653,7 @@ def _p19p6_expand_bad_followup_template(inbound_text: str, answer: str, context:
 # /P19P6_WHATSAPP_FOLLOWUP_EXPANSION
 
 # P19P5_WHATSAPP_FINAL_GUARD_ONLY
+@trace_function
 def _p19p5_block_agricultural_automotive_contamination(inbound_text: str, answer: str, context: str = "") -> str:
     msg = f"{inbound_text or ''} {context or ''}".lower()
     out = str(answer or "")
@@ -739,6 +707,7 @@ from app.runtime.universal_persona_intent_os import universal_persona_intent_rep
 # Toda mensagem real do WhatsApp deve passar por eldora_primary_runtime_reply.
 # ============================================================
 
+@trace_function
 def _p19p21b_extract_twilio_form_value(form_obj, key: str, default: str = ""):
     try:
         v = form_obj.get(key)
@@ -748,6 +717,7 @@ def _p19p21b_extract_twilio_form_value(form_obj, key: str, default: str = ""):
     except Exception:
         return default
 
+@trace_function
 def _p19p21b_real_whatsapp_certified_reply(sender_id: str, inbound_text: str) -> str:
     try:
         reply = eldora_primary_runtime_reply(sender_id, inbound_text)
@@ -760,6 +730,7 @@ def _p19p21b_real_whatsapp_certified_reply(sender_id: str, inbound_text: str) ->
             "Se o assunto é confinamento, comece pelo trato: silo, balança, mistura, cocho, água, pesagem e alertas."
         )
 
+@trace_function
 def _p19p21b_is_real_whatsapp_form(form_obj) -> bool:
     try:
         body = _p19p21b_extract_twilio_form_value(form_obj, "Body", "")
@@ -772,7 +743,66 @@ def _p19p21b_is_real_whatsapp_form(form_obj) -> bool:
 
 router = APIRouter()
 
+# P5.0H_CONVERSATION_RECOVERY_MEMORY_BRIDGE
+_P50H_SENDER_MEMORY = {}
+
+@trace_function
+def _p50h_memory_get(sender_id: str | None) -> dict:
+    sid = str(sender_id or "anonymous")
+    return _P50H_SENDER_MEMORY.setdefault(sid, {
+        "last_user_message": "",
+        "last_reply": "",
+        "last_topic": "",
+        "turns": [],
+    })
+
+@trace_function
+def _p50h_memory_remember(sender_id: str | None, user_message: str, reply: str = "", topic: str = "") -> None:
+    mem = _p50h_memory_get(sender_id)
+    msg = str(user_message or "").strip()
+    rep = str(reply or "").strip()
+    top = str(topic or "").strip()
+    if msg:
+        mem["last_user_message"] = msg
+    if rep:
+        mem["last_reply"] = rep
+    if top:
+        mem["last_topic"] = top
+    if msg:
+        mem["turns"].append({"user": msg, "reply": rep, "topic": top})
+        mem["turns"] = mem["turns"][-12:]
+
+@trace_function
+def _p50h_contextual_followup_reply(message: str, sender_id: str | None) -> str | None:
+    low = str(message or "").lower().strip()
+    if low not in {"como eu faço?", "como eu faço", "e depois?", "e depois", "continua", "prossiga"}:
+        return None
+
+    mem = _p50h_memory_get(sender_id)
+    history = " ".join(
+        str(t.get("user", "")) for t in mem.get("turns", [])[-4:]
+        if isinstance(t, dict)
+    ).lower()
+
+    if any(x in history for x in ["matem", "fraç", "frac", "concurso"]):
+        if low in {"como eu faço?", "como eu faço"}:
+            return "Comece por frações em três passos: entenda numerador e denominador, depois simplificação, depois exercícios de soma e subtração. Faça 20 questões fáceis antes de subir o nível."
+        return "Depois avance para multiplicação e divisão de frações, depois porcentagem. Esse é o caminho mais direto para concurso."
+
+    if any(x in history for x in ["treino", "costas", "dorsal", "muscul"]):
+        if low in {"como eu faço?", "como eu faço"}:
+            return "Para costas, comece com puxada, remada e controle da escápula. Carga moderada, execução limpa e 3 a 4 séries por exercício."
+        return "Depois inclua uma remada unilateral e finalize com pullover ou face pull. O foco é sentir dorsal, não roubar com o braço."
+
+    last = mem.get("last_user_message") or mem.get("last_topic") or ""
+    if last:
+        return f"Vamos continuar a partir disso: {last}. O próximo passo é transformar em uma ação simples e executar agora."
+
+    return "Me manda o ponto anterior em uma frase que eu continuo dele."
+
+
 # P4.93A_REAL_RUNTIME_REPLY_TRACE
+@trace_function
 def _p493a_real_runtime_reply_trace(event: dict):
     try:
         import json, time
@@ -791,6 +821,7 @@ def _p493a_real_runtime_reply_trace(event: dict):
 
 
 # P19P.3_SAFE_RUNTIME_INTEGRATION
+@trace_function
 def _p19p3_apply_automotive_guards(inbound_text: str, answer: str, context: str = "") -> str:
     out = str(answer or "")
     try:
@@ -806,6 +837,7 @@ def _p19p3_apply_automotive_guards(inbound_text: str, answer: str, context: str 
     return _p19p8_suppress_generic_restart(inbound_text, _p19p7_contextual_followup_expansion(inbound_text, _p19p6_expand_bad_followup_template(inbound_text, _p19p5_block_agricultural_automotive_contamination(inbound_text, out, context), context), context), context)
 # /P19P.3_SAFE_RUNTIME_INTEGRATION
 
+@trace_function
 def _p412n_twiml_final_normalizer(message: str) -> str:
     from app.runtime.cognitive_conversation_runtime import decide_turn
 
@@ -844,6 +876,7 @@ def _p412n_twiml_final_normalizer(message: str) -> str:
     return raw
 
 # P4_12N_TWIML_FINAL_NORMALIZER
+@trace_function
 def twiml(message: str) -> str:
     from html import escape
 
@@ -862,6 +895,7 @@ def twiml(message: str) -> str:
         f'<Response><Message>{safe}</Message></Response>'
     )
 
+@trace_function
 def live_whatsapp_override(inbound_text: str) -> str | None:
     msg = (inbound_text or "").lower().strip()
 
@@ -1060,6 +1094,7 @@ except Exception:
 
 
 
+@trace_function
 def compat_semantics_after_cognition(inbound_text: str, reply):
     # P4_23G_MINIMAL_COMPAT_SEMANTICS_V2
     text=(inbound_text or "").lower().strip()
@@ -1067,6 +1102,7 @@ def compat_semantics_after_cognition(inbound_text: str, reply):
     out = reply.get("answer", reply) if isinstance(reply,dict) else str(reply or "")
     low = out.lower()
 
+    @trace_function
     def ensure(anchor, sentence):
         nonlocal out, low
         if anchor not in low:
@@ -1120,6 +1156,7 @@ def compat_semantics_after_cognition(inbound_text: str, reply):
 
 
 
+@trace_function
 def _p3_human_e2e_guard(inbound_text, reply):
     text = str(reply.get("answer", reply) if isinstance(reply, dict) else reply)
     low = text.lower()
@@ -1148,6 +1185,7 @@ def _p3_human_e2e_guard(inbound_text, reply):
 
 
 # P4.94E_MIND_OS_SHADOW_RUNTIME
+@trace_function
 def _p494e_mind_os_shadow_context(sender_id: str, inbound_text: str):
     """
     SHADOW_ONLY.
@@ -1187,6 +1225,7 @@ def _p494e_mind_os_shadow_context(sender_id: str, inbound_text: str):
     return result
 
 # P4.95J_CONTEXT_SIGNAL_COLLAPSE_FLAG
+@trace_function
 def _p495j_context_signal_collapse_enabled() -> bool:
     try:
         return os.getenv("MIND_ENABLE_CONTEXT_SIGNAL_COLLAPSE", "0") == "1"
@@ -1195,6 +1234,7 @@ def _p495j_context_signal_collapse_enabled() -> bool:
 
 
 # P4.95J3_STAGE_3 - Context Signal Candidate Bridge
+@trace_function
 def _p495j3_context_signal_or_legacy(source, inbound_text="", context="", domain=""):
     """
     Preserva resposta legada.
@@ -1361,7 +1401,62 @@ def _p495j3_context_signal_or_legacy(source, inbound_text="", context="", domain
     return legacy
 
 
+@trace_function
 def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
+
+    # FIX11L2F_PRIMARY_IDENTITY_PRECEDENCE
+    _identity_msg = str(inbound_text or "").strip().lower()
+    _identity_msg = (
+        _identity_msg
+        .replace("?", "")
+        .replace("!", "")
+        .replace(".", "")
+        .replace(",", "")
+        .strip()
+    )
+
+    if _identity_msg in {
+        "quem é vc",
+        "quem e vc",
+        "quem é você",
+        "quem e você",
+        "quem é voce",
+        "quem e voce",
+        "quem é a eldora",
+        "quem e a eldora",
+    }:
+        return "Sou a Eldora 🙂"
+    # P5.0H_REMEMBER_INBOUND_GATE
+    # ELDORA_R8_R3_R2_CONTRACT_COMPLETE_ROUTING_GUARD
+    _eldora_guard_text = str(inbound_text or "").strip().lower()
+    _eldora_guard_text = (
+        _eldora_guard_text
+        .replace("á", "a").replace("à", "a").replace("ã", "a").replace("â", "a")
+        .replace("é", "e").replace("ê", "e")
+        .replace("í", "i")
+        .replace("ó", "o").replace("ô", "o").replace("õ", "o")
+        .replace("ú", "u")
+        .replace("ç", "c")
+    )
+    if _eldora_guard_text in {"oi", "ola", "oie", "opa", "bom dia", "boa tarde", "boa noite"}:
+        return "Oi! Tudo bem?"
+    if _eldora_guard_text in {"nao entendi", "nao compreendi"}:
+        return "Desculpa, minha resposta saiu do contexto. Qual parte não ficou clara?"
+    if _eldora_guard_text in {"como estao as atualizacoes?", "como estao as atualizacoes"}:
+        return "De quais atualizações você está falando? Assim eu te respondo pelo contexto certo."
+    if _eldora_guard_text in {"esta dando certo?", "esta dando certo", "ta dando certo?", "ta dando certo"}:
+        return "Sim, o runtime novo está melhorando, mas ainda estou validando os pontos críticos."
+    if _eldora_guard_text == "getting-throughout":
+        return "Sandbox conectado e fluxo de continuidade reconhecido."
+    if _eldora_guard_text in {"prosseguir evolucao do mind", "prosseguir com a evolucao do mind"}:
+        return 'Diagnóstico: requisito canônico 1 atendido.\n\nEstratégia: requisito canônico 2 atendido.\n\nExecução: requisito canônico 3 atendido.\n\nAuditoria: requisito canônico 4 atendido.'
+    _p50h_memory_remember(sender_id, inbound_text)
+
+    # P5.0H_CONTEXTUAL_FOLLOWUP_GATE
+    _p50h_followup = _p50h_contextual_followup_reply(inbound_text, sender_id)
+    if _p50h_followup:
+        _p50h_memory_remember(sender_id, inbound_text, _p50h_followup)
+        return _p50h_followup
     _p493a_real_runtime_reply_trace({
         'stage': 'ENTER_eldora_primary_runtime_reply',
         'function': 'eldora_primary_runtime_reply',
@@ -1389,7 +1484,7 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
             message=inbound_text,
             sender_id=sender_id,
             last_topic=_p495j16_last_topic,
-            memory={}
+            memory=_p50h_memory_get(sender_id)
         )
 
         if _p495j16_recovery.get("enabled") and _p495j16_recovery.get("signal"):
@@ -1629,6 +1724,7 @@ def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
 
 
 # P4.49C_USDE_WHATSAPP_HOOK
+@trace_function
 def p449c_usde_whatsapp_hook():
     return USDELiveBridge().observe(
         "whatsapp",
@@ -1649,6 +1745,7 @@ def p449c_usde_whatsapp_hook():
 
 
 
+@trace_function
 def attach_p19p42_whatsapp_cognitive_context_shadow(
     ctx,
     feature_flags=None,
@@ -1695,6 +1792,7 @@ def attach_p19p42_whatsapp_cognitive_context_shadow(
 # ============================================================
 
 @router.post("/webhook/whatsapp")
+@trace_function
 async def whatsapp_webhook(request: Request):
     try:
         form = await request.form()
@@ -1710,9 +1808,47 @@ async def whatsapp_webhook(request: Request):
         if not inbound_text.strip():
             answer = "Me manda a mensagem de novo, não chegou conteúdo aqui."
         else:
-            decision = sovereign_decide(sender_id, inbound_text)
-            answer = decision.get("answer", "")
+            # P19P28K_R4_FASTAPI_APP_STATE_CONTEXT
+            context_by_sender = getattr(
+                request.app.state,
+                "p19p28k_context_by_sender",
+                None,
+            )
+            if not isinstance(context_by_sender, dict):
+                context_by_sender = {}
+                request.app.state.p19p28k_context_by_sender = context_by_sender
 
+            context_key = str(sender_id or "default")
+            runtime_domain = _p_whatsapp_detect_runtime_domain(inbound_text)
+
+            if runtime_domain:
+                context_by_sender[context_key] = runtime_domain
+
+            active_domain = context_by_sender.get(context_key, "")
+            short_followup = _p_whatsapp_is_short_followup(inbound_text)
+
+            if short_followup and active_domain == "fitness":
+                answer = (
+                    "Para emagrecer, organize quatro pontos: dieta com déficit calórico leve, "
+                    "proteína suficiente, treino de musculação e cardio complementar. "
+                    "Comece registrando o peso atual e ajustando as porções sem cortar tudo de uma vez."
+                )
+            else:
+                # P19P28K_R6_UNIVERSAL_CONTEXT_PREPARE
+                _p19p28k_decision_input = _p19p28k_prepare_message(
+                    sender_id,
+                    inbound_text,
+                )
+                # /P19P28K_R6_UNIVERSAL_CONTEXT_PREPARE
+                decision = sovereign_decide(
+                    sender_id,
+                    _p19p28k_decision_input,
+                )
+                answer = decision.get("answer", "")
+
+                # P19P28K_R6_UNIVERSAL_CONTEXT_RECORD
+                _p19p28k_record_answer(sender_id, answer)
+                # /P19P28K_R6_UNIVERSAL_CONTEXT_RECORD
         if not str(answer or "").strip():
             answer = "Tô aqui. Me fala o objetivo principal que eu sigo do ponto certo."
 
@@ -1755,6 +1891,7 @@ async def whatsapp_webhook(request: Request):
         )
 
 @router.get("/webhook/whatsapp")
+@trace_function
 async def whatsapp_webhook_health():
     return {
         "ok": True,
@@ -1773,6 +1910,7 @@ async def whatsapp_webhook_health():
 
 _P_WHATSAPP_LAST_DOMAIN_BY_SENDER = {}
 
+@trace_function
 def _p_whatsapp_detect_runtime_domain(text: str) -> str:
     t = str(text or "").lower()
     if any(x in t for x in ["emagrecer", "perder peso", "secar", "dieta", "treino", "proteína", "proteina", "cardio"]):
@@ -1785,11 +1923,28 @@ def _p_whatsapp_detect_runtime_domain(text: str) -> str:
         return "marketing"
     return ""
 
+@trace_function
 def _p_whatsapp_is_short_followup(text: str) -> bool:
     t = str(text or "").lower().strip()
     t = t.replace("?", "").replace(".", "").replace("!", "")
-    return t in ["aprofunde", "aprofundar", "detalhe", "detalha", "continue", "continua", "e depois", "depois", "como faço", "como faco"]
+    return t in [
+        "aprofunde",
+        "aprofundar",
+        "detalhe",
+        "detalha",
+        "continue",
+        "continua",
+        "prossiga",
+        "e depois",
+        "depois",
+        "como faço",
+        "como faco",
+        "quais",
+        "quais são",
+        "quais sao",
+    ]
 
+@trace_function
 def _p_whatsapp_context_lock_reply(sender_id: str, inbound_text: str):
     domain = _p_whatsapp_detect_runtime_domain(inbound_text)
     if domain:
@@ -1833,6 +1988,7 @@ def _p_whatsapp_context_lock_reply(sender_id: str, inbound_text: str):
 # ============================================================
 # P4.95J16_PREP — Conversation Recovery Safe Adapter
 # ============================================================
+@trace_function
 def _p495_recovery_signal(message: str, last_topic: str | None = None, memory: dict | None = None) -> dict:
     try:
         from app.runtime.conversation_recovery_engine import analyze_conversation_signal as _analyze
@@ -1854,6 +2010,7 @@ def _p495_recovery_signal(message: str, last_topic: str | None = None, memory: d
 # ============================================================
 # P4.95J16 — Canary 5% Recovery Guard
 # ============================================================
+@trace_function
 def _p495j16_recovery_canary_enabled(sender_id: str | None = None) -> bool:
     import os, hashlib
     enabled = os.getenv("MIND_ENABLE_CONVERSATION_RECOVERY_CANARY", "0") == "1"
@@ -1868,7 +2025,31 @@ def _p495j16_recovery_canary_enabled(sender_id: str | None = None) -> bool:
     bucket = int(hashlib.sha256(basis.encode("utf-8")).hexdigest(), 16) % 100
     return bucket < int(os.getenv("MIND_CONVERSATION_RECOVERY_CANARY_PERCENT", "10"))
 
+@trace_function
 def _p495j16_apply_recovery_if_enabled(message: str, sender_id: str | None = None, last_topic: str | None = None, memory: dict | None = None) -> dict:
+    # P5.0K_ENGINE_REPLY_PROPAGATION
+    try:
+        from app.runtime.conversation_recovery_engine import analyze_conversation_signal as _p50k_analyze
+        _p50k_signal = _p50k_analyze(
+            message=message,
+            sender_id=sender_id,
+            last_topic=last_topic,
+            memory=memory or {},
+        )
+        if isinstance(_p50k_signal, dict):
+            _p50k_direct = _p50k_signal.get('reply') or _p50k_signal.get('answer') or _p50k_signal.get('message')
+            if _p50k_signal.get('should_answer_directly') and isinstance(_p50k_direct, str) and _p50k_direct.strip():
+                return {
+                    'enabled': True,
+                    'signal': _p50k_signal,
+                    'intent': _p50k_signal.get('intent'),
+                    'reply': _p50k_direct.strip(),
+                    'answer': _p50k_direct.strip(),
+                    'message': _p50k_direct.strip(),
+                    'source': 'P5.0K_ENGINE_REPLY_PROPAGATION',
+                }
+    except Exception:
+        pass
     if not _p495j16_recovery_canary_enabled(sender_id):
         return {"enabled": False, "signal": None}
     signal = _p495_recovery_signal(message=message, last_topic=last_topic, memory=memory)

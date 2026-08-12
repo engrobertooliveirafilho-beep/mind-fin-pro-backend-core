@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_CE621DE790C422A5",
+  "source_file": "app\\cognitive_os_boot.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\app\\cognitive_os_boot.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 94,
+  "imports": [
+    "app.embedding_pipeline",
+    "app.event_sourcing",
+    "app.identity_isolation",
+    "app.runtime.distributed"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

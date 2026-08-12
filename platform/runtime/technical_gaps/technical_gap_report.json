@@ -1,0 +1,87 @@
+{
+  "milestone": "P4.88 COMPLETE",
+  "engine": "TECHNICAL_GAP_DETECTOR",
+  "generated_at": "2026-06-22T00:10:07.124088+00:00",
+  "mode": "PLAN_ONLY",
+  "governance": "P4.83_ENFORCED",
+  "sources": {
+    "runtime/capability_map/absorbed_vs_pending_map.json": true,
+    "runtime/knowledge_graph/drive_knowledge_graph.json": true,
+    "runtime/orphan_recovery/orphan_recovery_plan.json": true,
+    "runtime/orphan_recovery/adapter_recovery_plan.json": true,
+    "runtime/capability_merge/capability_merge_report.json": true,
+    "runtime/reconstruction/capability_reconstruction_plan.json": true
+  },
+  "desired_capabilities": [
+    "retrieval",
+    "memory",
+    "capability_registry",
+    "drive_absorption",
+    "knowledge_extraction",
+    "runtime_review_queue",
+    "auto_prioritization",
+    "safe_code_generation_gate",
+    "capability_reconstruction",
+    "drive_knowledge_graph",
+    "orphan_recovery",
+    "capability_merge",
+    "technical_gap_detector",
+    "full_repository_intelligence",
+    "sovereign_certification"
+  ],
+  "existing_capabilities": [
+    "retrieval",
+    "memory",
+    "capability_registry",
+    "knowledge_extraction",
+    "runtime_review_queue",
+    "safe_code_generation_gate",
+    "capability_reconstruction",
+    "drive_knowledge_graph",
+    "orphan_recovery",
+    "capability_merge",
+    "technical_gap_detector"
+  ],
+  "missing_capabilities": [
+    "drive_absorption",
+    "auto_prioritization",
+    "full_repository_intelligence",
+    "sovereign_certification"
+  ],
+  "gaps_count": 4,
+  "gaps": [
+    {
+      "gap_id": "GAP-FRI-001",
+      "capability": "full_repository_intelligence",
+      "severity": "CRITICAL",
+      "status": "OPEN",
+      "reason": "P4.89 ainda não executado.",
+      "required_output": "runtime/repository_intelligence/full_repository_intelligence_report.json"
+    },
+    {
+      "gap_id": "GAP-SOV-001",
+      "capability": "sovereign_certification",
+      "severity": "CRITICAL",
+      "status": "OPEN",
+      "reason": "P4.90 depende de P4.88 e P4.89 certificados.",
+      "required_output": "runtime/certification/sovereign_technical_capacity_certification.json"
+    },
+    {
+      "gap_id": "GAP-DRIVE-ABSORPTION",
+      "capability": "drive_absorption",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "reason": "Capacidade desejada não encontrada nos artefatos consolidados.",
+      "required_output": null
+    },
+    {
+      "gap_id": "GAP-AUTO-PRIORITIZATION",
+      "capability": "auto_prioritization",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "reason": "Capacidade desejada não encontrada nos artefatos consolidados.",
+      "required_output": null
+    }
+  ],
+  "next": "P4.89 FULL REPOSITORY INTELLIGENCE"
+}

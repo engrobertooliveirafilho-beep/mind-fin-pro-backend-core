@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_0D45D7D58D13CB03",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\lib\\tests\\test_loadtxt.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\numpy\\lib\\tests\\test_loadtxt.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 104,
+  "imports": [
+    "io",
+    "numpy",
+    "numpy.ma.testutils",
+    "numpy.testing",
+    "os",
+    "pytest",
+    "sys",
+    "tempfile"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

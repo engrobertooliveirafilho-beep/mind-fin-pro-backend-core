@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_D6F65141893424DC",
+  "source_file": "_evidence\\P4_65C_RETRIEVAL_PATH_TRACE_20260618_142010\\p465c_retrieval_direct_probe.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P4_65C_RETRIEVAL_PATH_TRACE_20260618_142010\\p465c_retrieval_direct_probe.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 108,
+  "imports": [
+    "app.memory.memory_graph",
+    "app.runtime.cognitive_pipeline",
+    "traceback"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

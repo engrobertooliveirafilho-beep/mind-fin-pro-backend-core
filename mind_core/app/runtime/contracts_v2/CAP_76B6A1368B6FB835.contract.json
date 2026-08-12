@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_76B6A1368B6FB835",
+  "source_file": "mind_trader\\app\\audits\\institutional_healthcheck.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\mind_trader\\app\\audits\\institutional_healthcheck.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 105,
+  "imports": [
+    "json",
+    "mind_trader.app.audits.institutional_audit_ledger",
+    "mind_trader.app.audits.runtime_evidence_package",
+    "pathlib",
+    "subprocess",
+    "sys"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

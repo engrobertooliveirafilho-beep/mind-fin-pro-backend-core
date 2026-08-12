@@ -1,0 +1,13 @@
+{
+  "transitions": [
+    "bull_to_range",
+    "range_to_breakout",
+    "lowvol_to_highvol",
+    "recovery_to_trend"
+  ],
+  "status": "REGIME_TRANSITION_READY",
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN"
+}

@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_372A0FFDA72B76ED",
+  "source_file": ".venv\\Lib\\site-packages\\pydantic\\_internal\\_known_annotated_metadata.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\pydantic\\_internal\\_known_annotated_metadata.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 119,
+  "imports": [
+    "__future__",
+    "_fields",
+    "_import_utils",
+    "_validators",
+    "annotated_types",
+    "collections",
+    "collections.abc",
+    "copy",
+    "functools",
+    "pydantic_core",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

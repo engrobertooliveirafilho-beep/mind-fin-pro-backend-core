@@ -1,0 +1,16 @@
+{
+  "schema": "eldora.media.config.v1",
+  "runtime_root": "runtime/eldora_media",
+  "canon_root": "runtime/eldora_media/canon_cache",
+  "output_root": "runtime/eldora_media/output",
+  "evidence_root": "runtime/evidence/eldora_media",
+  "production_policy": "FAIL_CLOSED",
+  "canonical_identity": "MASTER_CANON_15",
+  "canonical_selection": "BEST_OF_BEST_V1",
+  "notes": [
+    "Não reorganizar o Drive.",
+    "Não alterar os locks existentes.",
+    "Gerar vídeo somente a partir de imagem aprovada.",
+    "Produção exige validador externo configurado."
+  ]
+}

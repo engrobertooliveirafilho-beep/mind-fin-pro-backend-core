@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_0C8059F8FA1EAB90",
+  "source_file": ".venv\\Lib\\site-packages\\openpyxl\\pivot\\cache.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\openpyxl\\pivot\\cache.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 113,
+  "imports": [
+    "fields",
+    "openpyxl.descriptors",
+    "openpyxl.descriptors.excel",
+    "openpyxl.descriptors.nested",
+    "openpyxl.descriptors.sequence",
+    "openpyxl.descriptors.serialisable",
+    "openpyxl.packaging.relationship",
+    "openpyxl.xml.constants",
+    "openpyxl.xml.functions",
+    "table"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

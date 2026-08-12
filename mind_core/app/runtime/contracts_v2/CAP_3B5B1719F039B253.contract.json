@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_3B5B1719F039B253",
+  "source_file": "app\\integrations\\runpod_client.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\app\\integrations\\runpod_client.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 89,
+  "imports": [
+    "os",
+    "requests",
+    "time"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_137FFF58CD967DCE",
+  "source_file": "evidence\\P19_DUPLICATE_EXECUTION_PIPELINE_AUDIT_20260618_082257\\test_double_exec.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\evidence\\P19_DUPLICATE_EXECUTION_PIPELINE_AUDIT_20260618_082257\\test_double_exec.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 88,
+  "imports": [
+    "app.runtime.followup_unified_resolver"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

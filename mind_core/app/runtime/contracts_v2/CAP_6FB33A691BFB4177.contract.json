@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_6FB33A691BFB4177",
+  "source_file": "app\\runtime\\visible_response_layer.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\app\\runtime\\visible_response_layer.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 81,
+  "imports": [
+    "app.dialogue.context_resolution_engine",
+    "app.dialogue.conversation_continuity_runtime",
+    "app.dialogue.generic_llm_detector",
+    "app.dialogue.persona_consistency_guard",
+    "app.runtime.identity_guard_runtime",
+    "app.runtime.whatsapp_trace_sensor"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

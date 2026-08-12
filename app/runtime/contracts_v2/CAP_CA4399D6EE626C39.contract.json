@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_CA4399D6EE626C39",
+  "source_file": "_evidence\\P4_77_PROCESSED_DRIVE_QUEUE_20260619_144008\\process_drive_queue_file.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\_evidence\\P4_77_PROCESSED_DRIVE_QUEUE_20260619_144008\\process_drive_queue_file.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 89,
+  "imports": [
+    "app.runtime.drive_processed_queue",
+    "argparse",
+    "json"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

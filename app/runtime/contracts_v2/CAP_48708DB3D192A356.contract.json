@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_48708DB3D192A356",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\chat\\chat_completion_tool_union_param.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\openai\\types\\chat\\chat_completion_tool_union_param.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 83,
+  "imports": [
+    "__future__",
+    "chat_completion_custom_tool_param",
+    "chat_completion_function_tool_param",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

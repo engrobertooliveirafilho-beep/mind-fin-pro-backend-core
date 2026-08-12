@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_5845575AA1F83287",
+  "source_file": "_evidence\\P19P39_COGNITIVE_CONTEXT_BUILDER_20260622_185402\\rollback\\companionship_before\\safe_recovery_adapter.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\_evidence\\P19P39_COGNITIVE_CONTEXT_BUILDER_20260622_185402\\rollback\\companionship_before\\safe_recovery_adapter.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 132,
+  "imports": [
+    "__future__",
+    "app.companionship.long_term_goal_tracker",
+    "app.companionship.relationship_memory_store",
+    "app.runtime.memory_store",
+    "datetime",
+    "importlib",
+    "json",
+    "os",
+    "pathlib",
+    "re",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

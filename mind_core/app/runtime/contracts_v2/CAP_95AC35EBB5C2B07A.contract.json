@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_95AC35EBB5C2B07A",
+  "source_file": ".venv\\Lib\\site-packages\\redis\\_parsers\\commands.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\redis\\_parsers\\commands.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 103,
+  "imports": [
+    "enum",
+    "redis.asyncio.cluster",
+    "redis.exceptions",
+    "redis.utils",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

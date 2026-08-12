@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_7BAB29C35353AB90",
+  "source_file": "_evidence\\P18_CONVERSATIONAL_EXECUTION_LAYER_20260616_212512\\run_p18.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\_evidence\\P18_CONVERSATIONAL_EXECUTION_LAYER_20260616_212512\\run_p18.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 92,
+  "imports": [
+    "app.p18_conversational_execution.response_executor",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,443 @@
+{
+  "milestone": "P4.84 COMPLETE",
+  "total_tasks": 9,
+  "tasks": [
+    {
+      "task_id": "P4.84-T001",
+      "source_priority_id": "8d1228117620463b",
+      "priority_score": 6.95,
+      "priority_band": "P1_HIGH",
+      "approval_status": "PENDING_APPROVAL",
+      "execution_status": "BLOCKED_BY_P4.83_GATE",
+      "auto_execution_allowed": false,
+      "mission": {
+        "queue_id": "RQ_00001",
+        "source_plan": "runtime\\reconstruction_plans\\p480_test.json",
+        "mission_id": "P4.80_AUTO_001",
+        "source_id": "p480_test",
+        "type": "CAPABILITY",
+        "priority": "MEDIUM",
+        "title": "Precisamos criar um engine de memória social.",
+        "recommended_action": "MAP_TO_REGISTRY_OR_CREATE_ADAPTER",
+        "risk": "medium",
+        "status": "PENDING_REVIEW",
+        "evidence_text": "Precisamos criar um engine de memória social.",
+        "suggested_files": [],
+        "suggested_tests": [],
+        "created_at": "2026-06-21T13:48:54.835056+00:00"
+      },
+      "reconstruction": {
+        "task_type": "IMPLEMENTATION_PLAN_ONLY",
+        "target_files": [
+          "app/api/whatsapp.py",
+          "app/runtime/cognitive_pipeline.py",
+          "app/runtime/universal_capability_registry.json"
+        ],
+        "target_tests": [
+          "tests/test_eldora_whatsapp_cognitive_pipeline.py",
+          "tests/test_p482_runtime_prioritization.py",
+          "tests/test_whatsapp_positive_feedback.py"
+        ],
+        "dependencies": [
+          "runtime/governance/safe_code_generation_gate.json",
+          "runtime/review_queue/runtime_review_queue.json"
+        ],
+        "rollback_required": true,
+        "evidence_required": true,
+        "manual_approval_required": true
+      }
+    },
+    {
+      "task_id": "P4.84-T002",
+      "source_priority_id": "a091f777e30fed2f",
+      "priority_score": 6.95,
+      "priority_band": "P1_HIGH",
+      "approval_status": "PENDING_APPROVAL",
+      "execution_status": "BLOCKED_BY_P4.83_GATE",
+      "auto_execution_allowed": false,
+      "mission": {
+        "queue_id": "RQ_00005",
+        "source_plan": "runtime\\reconstruction_plans\\_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_capability_notes.md.json",
+        "mission_id": "P4.80_AUTO_005",
+        "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/capability_notes.md",
+        "type": "CAPABILITY",
+        "priority": "MEDIUM",
+        "title": "Ideia pendente: transformar knowledge graph em runtime ativo.",
+        "recommended_action": "MAP_TO_REGISTRY_OR_CREATE_ADAPTER",
+        "risk": "medium",
+        "status": "PENDING_REVIEW",
+        "evidence_text": "Ideia pendente: transformar knowledge graph em runtime ativo.",
+        "suggested_files": [],
+        "suggested_tests": [],
+        "created_at": "2026-06-21T13:48:54.850679+00:00"
+      },
+      "reconstruction": {
+        "task_type": "IMPLEMENTATION_PLAN_ONLY",
+        "target_files": [
+          "app/api/whatsapp.py",
+          "app/runtime/cognitive_pipeline.py",
+          "app/runtime/knowledge_extraction_engine.py",
+          "app/runtime/universal_capability_registry.json",
+          "runtime/capability_map/absorbed_vs_pending_map.json"
+        ],
+        "target_tests": [
+          "tests/test_eldora_whatsapp_cognitive_pipeline.py",
+          "tests/test_p479_knowledge_extraction_engine.py",
+          "tests/test_p482_runtime_prioritization.py",
+          "tests/test_whatsapp_positive_feedback.py"
+        ],
+        "dependencies": [
+          "runtime/capacity_audit/project_state_audit.json",
+          "runtime/governance/safe_code_generation_gate.json",
+          "runtime/review_queue/runtime_review_queue.json"
+        ],
+        "rollback_required": true,
+        "evidence_required": true,
+        "manual_approval_required": true
+      }
+    },
+    {
+      "task_id": "P4.84-T003",
+      "source_priority_id": "ffb3ac997c9ec3e5",
+      "priority_score": 6.95,
+      "priority_band": "P1_HIGH",
+      "approval_status": "PENDING_APPROVAL",
+      "execution_status": "BLOCKED_BY_P4.83_GATE",
+      "auto_execution_allowed": false,
+      "mission": {
+        "queue_id": "RQ_00009",
+        "source_plan": "runtime\\reconstruction_plans\\_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_mind_strategy.txt.json",
+        "mission_id": "P4.80_AUTO_004",
+        "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/mind_strategy.txt",
+        "type": "CAPABILITY",
+        "priority": "MEDIUM",
+        "title": "Capability: persistent cognitive graph.",
+        "recommended_action": "MAP_TO_REGISTRY_OR_CREATE_ADAPTER",
+        "risk": "medium",
+        "status": "PENDING_REVIEW",
+        "evidence_text": "Capability: persistent cognitive graph.",
+        "suggested_files": [],
+        "suggested_tests": [],
+        "created_at": "2026-06-21T13:48:54.850679+00:00"
+      },
+      "reconstruction": {
+        "task_type": "IMPLEMENTATION_PLAN_ONLY",
+        "target_files": [
+          "app/api/whatsapp.py",
+          "app/runtime/cognitive_pipeline.py",
+          "app/runtime/knowledge_extraction_engine.py",
+          "app/runtime/universal_capability_registry.json",
+          "runtime/capability_map/absorbed_vs_pending_map.json"
+        ],
+        "target_tests": [
+          "tests/test_eldora_whatsapp_cognitive_pipeline.py",
+          "tests/test_p479_knowledge_extraction_engine.py",
+          "tests/test_p482_runtime_prioritization.py",
+          "tests/test_whatsapp_positive_feedback.py"
+        ],
+        "dependencies": [
+          "runtime/capacity_audit/project_state_audit.json",
+          "runtime/governance/safe_code_generation_gate.json",
+          "runtime/review_queue/runtime_review_queue.json"
+        ],
+        "rollback_required": true,
+        "evidence_required": true,
+        "manual_approval_required": true
+      }
+    },
+    {
+      "task_id": "P4.84-T004",
+      "source_priority_id": "13499e414330e0a4",
+      "priority_score": 6.8,
+      "priority_band": "P1_HIGH",
+      "approval_status": "PENDING_APPROVAL",
+      "execution_status": "BLOCKED_BY_P4.83_GATE",
+      "auto_execution_allowed": false,
+      "mission": {
+        "queue_id": "RQ_00002",
+        "source_plan": "runtime\\reconstruction_plans\\_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_capability_notes.md.json",
+        "mission_id": "P4.80_AUTO_001",
+        "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/capability_notes.md",
+        "type": "CAPABILITY",
+        "priority": "MEDIUM",
+        "title": "Documento de capability",
+        "recommended_action": "MAP_TO_REGISTRY_OR_CREATE_ADAPTER",
+        "risk": "medium",
+        "status": "PENDING_REVIEW",
+        "evidence_text": "Documento de capability",
+        "suggested_files": [],
+        "suggested_tests": [],
+        "created_at": "2026-06-21T13:48:54.850679+00:00"
+      },
+      "reconstruction": {
+        "task_type": "IMPLEMENTATION_PLAN_ONLY",
+        "target_files": [
+          "app/api/whatsapp.py",
+          "app/runtime/cognitive_pipeline.py",
+          "app/runtime/knowledge_extraction_engine.py",
+          "app/runtime/universal_capability_registry.json",
+          "runtime/capability_map/absorbed_vs_pending_map.json"
+        ],
+        "target_tests": [
+          "tests/test_eldora_whatsapp_cognitive_pipeline.py",
+          "tests/test_p479_knowledge_extraction_engine.py",
+          "tests/test_p482_runtime_prioritization.py",
+          "tests/test_whatsapp_positive_feedback.py"
+        ],
+        "dependencies": [
+          "runtime/capacity_audit/project_state_audit.json",
+          "runtime/governance/safe_code_generation_gate.json",
+          "runtime/review_queue/runtime_review_queue.json"
+        ],
+        "rollback_required": true,
+        "evidence_required": true,
+        "manual_approval_required": true
+      }
+    },
+    {
+      "task_id": "P4.84-T005",
+      "source_priority_id": "f9e71d2c93efeed9",
+      "priority_score": 6.8,
+      "priority_band": "P1_HIGH",
+      "approval_status": "PENDING_APPROVAL",
+      "execution_status": "BLOCKED_BY_P4.83_GATE",
+      "auto_execution_allowed": false,
+      "mission": {
+        "queue_id": "RQ_00003",
+        "source_plan": "runtime\\reconstruction_plans\\_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_capability_notes.md.json",
+        "mission_id": "P4.80_AUTO_002",
+        "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/capability_notes.md",
+        "type": "CAPABILITY",
+        "priority": "MEDIUM",
+        "title": "semantic_retrieval usando pgvector e embeddings.",
+        "recommended_action": "MAP_TO_REGISTRY_OR_CREATE_ADAPTER",
+        "risk": "medium",
+        "status": "PENDING_REVIEW",
+        "evidence_text": "semantic_retrieval usando pgvector e embeddings.",
+        "suggested_files": [],
+        "suggested_tests": [],
+        "created_at": "2026-06-21T13:48:54.850679+00:00"
+      },
+      "reconstruction": {
+        "task_type": "IMPLEMENTATION_PLAN_ONLY",
+        "target_files": [
+          "app/api/whatsapp.py",
+          "app/runtime/cognitive_pipeline.py",
+          "app/runtime/knowledge_extraction_engine.py",
+          "app/runtime/universal_capability_registry.json",
+          "runtime/capability_map/absorbed_vs_pending_map.json"
+        ],
+        "target_tests": [
+          "tests/test_eldora_whatsapp_cognitive_pipeline.py",
+          "tests/test_p479_knowledge_extraction_engine.py",
+          "tests/test_p482_runtime_prioritization.py",
+          "tests/test_whatsapp_positive_feedback.py"
+        ],
+        "dependencies": [
+          "runtime/capacity_audit/project_state_audit.json",
+          "runtime/governance/safe_code_generation_gate.json",
+          "runtime/review_queue/runtime_review_queue.json"
+        ],
+        "rollback_required": true,
+        "evidence_required": true,
+        "manual_approval_required": true
+      }
+    },
+    {
+      "task_id": "P4.84-T006",
+      "source_priority_id": "1a0bec64727f836e",
+      "priority_score": 6.8,
+      "priority_band": "P1_HIGH",
+      "approval_status": "PENDING_APPROVAL",
+      "execution_status": "BLOCKED_BY_P4.83_GATE",
+      "auto_execution_allowed": false,
+      "mission": {
+        "queue_id": "RQ_00004",
+        "source_plan": "runtime\\reconstruction_plans\\_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_capability_notes.md.json",
+        "mission_id": "P4.80_AUTO_003",
+        "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/capability_notes.md",
+        "type": "CAPABILITY",
+        "priority": "MEDIUM",
+        "title": "social_memory usando Supabase.",
+        "recommended_action": "MAP_TO_REGISTRY_OR_CREATE_ADAPTER",
+        "risk": "medium",
+        "status": "PENDING_REVIEW",
+        "evidence_text": "social_memory usando Supabase.",
+        "suggested_files": [],
+        "suggested_tests": [],
+        "created_at": "2026-06-21T13:48:54.850679+00:00"
+      },
+      "reconstruction": {
+        "task_type": "IMPLEMENTATION_PLAN_ONLY",
+        "target_files": [
+          "app/api/whatsapp.py",
+          "app/runtime/cognitive_pipeline.py",
+          "app/runtime/knowledge_extraction_engine.py",
+          "app/runtime/universal_capability_registry.json",
+          "runtime/capability_map/absorbed_vs_pending_map.json"
+        ],
+        "target_tests": [
+          "tests/test_eldora_whatsapp_cognitive_pipeline.py",
+          "tests/test_p479_knowledge_extraction_engine.py",
+          "tests/test_p482_runtime_prioritization.py",
+          "tests/test_whatsapp_positive_feedback.py"
+        ],
+        "dependencies": [
+          "runtime/capacity_audit/project_state_audit.json",
+          "runtime/governance/safe_code_generation_gate.json",
+          "runtime/review_queue/runtime_review_queue.json"
+        ],
+        "rollback_required": true,
+        "evidence_required": true,
+        "manual_approval_required": true
+      }
+    },
+    {
+      "task_id": "P4.84-T007",
+      "source_priority_id": "d776f64822bc89dc",
+      "priority_score": 6.8,
+      "priority_band": "P1_HIGH",
+      "approval_status": "PENDING_APPROVAL",
+      "execution_status": "BLOCKED_BY_P4.83_GATE",
+      "auto_execution_allowed": false,
+      "mission": {
+        "queue_id": "RQ_00006",
+        "source_plan": "runtime\\reconstruction_plans\\_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_mind_strategy.txt.json",
+        "mission_id": "P4.80_AUTO_001",
+        "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/mind_strategy.txt",
+        "type": "CAPABILITY",
+        "priority": "MEDIUM",
+        "title": "Existe bug TypeError no semantic_whatsapp_runtime.",
+        "recommended_action": "MAP_TO_REGISTRY_OR_CREATE_ADAPTER",
+        "risk": "medium",
+        "status": "PENDING_REVIEW",
+        "evidence_text": "Existe bug TypeError no semantic_whatsapp_runtime.",
+        "suggested_files": [],
+        "suggested_tests": [],
+        "created_at": "2026-06-21T13:48:54.850679+00:00"
+      },
+      "reconstruction": {
+        "task_type": "IMPLEMENTATION_PLAN_ONLY",
+        "target_files": [
+          "app/api/whatsapp.py",
+          "app/runtime/cognitive_pipeline.py",
+          "app/runtime/knowledge_extraction_engine.py",
+          "app/runtime/universal_capability_registry.json",
+          "runtime/capability_map/absorbed_vs_pending_map.json"
+        ],
+        "target_tests": [
+          "tests/test_eldora_whatsapp_cognitive_pipeline.py",
+          "tests/test_p479_knowledge_extraction_engine.py",
+          "tests/test_p482_runtime_prioritization.py",
+          "tests/test_whatsapp_positive_feedback.py"
+        ],
+        "dependencies": [
+          "runtime/capacity_audit/project_state_audit.json",
+          "runtime/governance/safe_code_generation_gate.json",
+          "runtime/review_queue/runtime_review_queue.json"
+        ],
+        "rollback_required": true,
+        "evidence_required": true,
+        "manual_approval_required": true
+      }
+    },
+    {
+      "task_id": "P4.84-T008",
+      "source_priority_id": "fd983803cda405a8",
+      "priority_score": 6.8,
+      "priority_band": "P1_HIGH",
+      "approval_status": "PENDING_APPROVAL",
+      "execution_status": "BLOCKED_BY_P4.83_GATE",
+      "auto_execution_allowed": false,
+      "mission": {
+        "queue_id": "RQ_00007",
+        "source_plan": "runtime\\reconstruction_plans\\_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_mind_strategy.txt.json",
+        "mission_id": "P4.80_AUTO_002",
+        "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/mind_strategy.txt",
+        "type": "CAPABILITY",
+        "priority": "MEDIUM",
+        "title": "A arquitetura deve usar pipeline, retrieval, registry e orchestrator.",
+        "recommended_action": "MAP_TO_REGISTRY_OR_CREATE_ADAPTER",
+        "risk": "medium",
+        "status": "PENDING_REVIEW",
+        "evidence_text": "A arquitetura deve usar pipeline, retrieval, registry e orchestrator.",
+        "suggested_files": [],
+        "suggested_tests": [],
+        "created_at": "2026-06-21T13:48:54.850679+00:00"
+      },
+      "reconstruction": {
+        "task_type": "IMPLEMENTATION_PLAN_ONLY",
+        "target_files": [
+          "app/api/whatsapp.py",
+          "app/runtime/cognitive_pipeline.py",
+          "app/runtime/knowledge_extraction_engine.py",
+          "app/runtime/universal_capability_registry.json",
+          "runtime/capability_map/absorbed_vs_pending_map.json"
+        ],
+        "target_tests": [
+          "tests/test_eldora_whatsapp_cognitive_pipeline.py",
+          "tests/test_p479_knowledge_extraction_engine.py",
+          "tests/test_p482_runtime_prioritization.py",
+          "tests/test_whatsapp_positive_feedback.py"
+        ],
+        "dependencies": [
+          "runtime/capacity_audit/project_state_audit.json",
+          "runtime/governance/safe_code_generation_gate.json",
+          "runtime/review_queue/runtime_review_queue.json"
+        ],
+        "rollback_required": true,
+        "evidence_required": true,
+        "manual_approval_required": true
+      }
+    },
+    {
+      "task_id": "P4.84-T009",
+      "source_priority_id": "e9347f223ec38471",
+      "priority_score": 6.8,
+      "priority_band": "P1_HIGH",
+      "approval_status": "PENDING_APPROVAL",
+      "execution_status": "BLOCKED_BY_P4.83_GATE",
+      "auto_execution_allowed": false,
+      "mission": {
+        "queue_id": "RQ_00008",
+        "source_plan": "runtime\\reconstruction_plans\\_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_mind_strategy.txt.json",
+        "mission_id": "P4.80_AUTO_003",
+        "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/mind_strategy.txt",
+        "type": "CAPABILITY",
+        "priority": "MEDIUM",
+        "title": "Lição aprendida: não integrar direto no cognitive_pipeline antes de validar bridge isolado",
+        "recommended_action": "MAP_TO_REGISTRY_OR_CREATE_ADAPTER",
+        "risk": "medium",
+        "status": "PENDING_REVIEW",
+        "evidence_text": "Lição aprendida: não integrar direto no cognitive_pipeline antes de validar bridge isolado.",
+        "suggested_files": [],
+        "suggested_tests": [],
+        "created_at": "2026-06-21T13:48:54.850679+00:00"
+      },
+      "reconstruction": {
+        "task_type": "IMPLEMENTATION_PLAN_ONLY",
+        "target_files": [
+          "app/api/whatsapp.py",
+          "app/runtime/cognitive_pipeline.py",
+          "app/runtime/knowledge_extraction_engine.py",
+          "app/runtime/universal_capability_registry.json",
+          "runtime/capability_map/absorbed_vs_pending_map.json"
+        ],
+        "target_tests": [
+          "tests/test_eldora_whatsapp_cognitive_pipeline.py",
+          "tests/test_p479_knowledge_extraction_engine.py",
+          "tests/test_p482_runtime_prioritization.py",
+          "tests/test_whatsapp_positive_feedback.py"
+        ],
+        "dependencies": [
+          "runtime/capacity_audit/project_state_audit.json",
+          "runtime/governance/safe_code_generation_gate.json",
+          "runtime/review_queue/runtime_review_queue.json"
+        ],
+        "rollback_required": true,
+        "evidence_required": true,
+        "manual_approval_required": true
+      }
+    }
+  ]
+}

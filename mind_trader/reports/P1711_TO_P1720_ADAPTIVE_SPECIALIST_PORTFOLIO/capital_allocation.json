@@ -1,0 +1,110 @@
+[
+  {
+    "specialist_id": "USDJPY_D1_EMA_CROSS_9a53b0630c7b7e29e960eb66",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "status": "ACTIVE_ELITE",
+    "edge_health": 100,
+    "capital_weight": 0.148774,
+    "suggested_mode": "DEMO_RESEARCH_ONLY",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_M5_RSI_REVERSION_6ffc7212b632c0f09f8de2fc",
+    "asset": "XAUUSD",
+    "timeframe": "M5",
+    "status": "ACTIVE_ELITE",
+    "edge_health": 87.27601,
+    "capital_weight": 0.129844,
+    "suggested_mode": "DEMO_RESEARCH_ONLY",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "GBPUSD_M1_BOLLINGER_REVERSION_5aefbb04c2a4913ca649c3fa",
+    "asset": "GBPUSD",
+    "timeframe": "M1",
+    "status": "ACTIVE_ELITE",
+    "edge_health": 80.937316,
+    "capital_weight": 0.120414,
+    "suggested_mode": "DEMO_RESEARCH_ONLY",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_EMA_CROSS_1d35b1a3343e2da75db035d2",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "status": "ACTIVE",
+    "edge_health": 73.185191,
+    "capital_weight": 0.108881,
+    "suggested_mode": "DEMO_RESEARCH_ONLY",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "GBPUSD_M30_BOLLINGER_REVERSION_7d0ccd5986a18a8a9162e384",
+    "asset": "GBPUSD",
+    "timeframe": "M30",
+    "status": "ACTIVE",
+    "edge_health": 70.8035,
+    "capital_weight": 0.105337,
+    "suggested_mode": "DEMO_RESEARCH_ONLY",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "GBPUSD_M1_BOLLINGER_REVERSION_45ecd4d9094ad6334a86ad21",
+    "asset": "GBPUSD",
+    "timeframe": "M1",
+    "status": "ACTIVE",
+    "edge_health": 68.830241,
+    "capital_weight": 0.102402,
+    "suggested_mode": "DEMO_RESEARCH_ONLY",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_H1_RSI_REVERSION_103d2cfc73e4dbb7ac1697fb",
+    "asset": "USDJPY",
+    "timeframe": "H1",
+    "status": "ACTIVE",
+    "edge_health": 67.336732,
+    "capital_weight": 0.10018,
+    "suggested_mode": "DEMO_RESEARCH_ONLY",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDCAD_M30_RSI_REVERSION_e66b449b7ac4c0f21513e76c",
+    "asset": "USDCAD",
+    "timeframe": "M30",
+    "status": "ACTIVE",
+    "edge_health": 62.597614,
+    "capital_weight": 0.093129,
+    "suggested_mode": "DEMO_RESEARCH_ONLY",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_EMA_CROSS_444166c3680882e799445fb4",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "status": "ACTIVE",
+    "edge_health": 61.193705,
+    "capital_weight": 0.09104,
+    "suggested_mode": "DEMO_RESEARCH_ONLY",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  }
+]

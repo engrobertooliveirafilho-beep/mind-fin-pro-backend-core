@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_0A6249A7AAE98BFA",
+  "source_file": "tests\\test_hierarchical_planner_contract.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\tests\\test_hierarchical_planner_contract.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 93,
+  "imports": [
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

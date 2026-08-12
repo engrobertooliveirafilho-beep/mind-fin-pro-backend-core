@@ -1,0 +1,3 @@
+"adapter_name","capability","component","mode","position","input","output","responsibilities","forbidden_actions","future_runtime_connection","rollout_mode"
+"hierarchical_planner_adapter","HIERARCHICAL_PLANNING","hierarchical_planner_step449","ADAPTER_FIRST_NO_CORE_MUTATION","before_dispatcher","HierarchicalPlanRequest","HierarchicalPlanResponse","System.Object[]","System.Object[]","System.Object[]","shadow_plan_compare_first"
+"oversight_shadow_adapter","COGNITIVE_CONTROL","oversight","SHADOW_MODE_FIRST","after_decision_before_execution","OversightInput","OversightDecision","System.Object[]","System.Object[]","System.Object[]","shadow_guard_then_gate"

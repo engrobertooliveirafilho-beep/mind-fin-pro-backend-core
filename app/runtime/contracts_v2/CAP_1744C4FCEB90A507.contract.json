@@ -1,0 +1,33 @@
+{
+  "capability_id": "CAP_1744C4FCEB90A507",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\f2py\\tests\\util.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\numpy\\f2py\\tests\\util.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 118,
+  "imports": [
+    "atexit",
+    "concurrent.futures",
+    "contextlib",
+    "glob",
+    "importlib",
+    "numpy",
+    "numpy._utils",
+    "numpy.f2py._backends._meson",
+    "numpy.testing",
+    "os",
+    "pathlib",
+    "pytest",
+    "shutil",
+    "subprocess",
+    "sys",
+    "tempfile"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

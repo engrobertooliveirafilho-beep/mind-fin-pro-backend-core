@@ -1,0 +1,338 @@
+[
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\api\\canary_routes.py",
+    "line": 2,
+    "text": "from app.runtime.canary_gate import canary_health",
+    "context": "from fastapi import APIRouter\nfrom app.runtime.canary_gate import canary_health\n\nrouter = APIRouter()\n\n@router.get(\"/health/canary\")\ndef health_canary():\n    return canary_health()"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\api\\canary_routes.py",
+    "line": 6,
+    "text": "@router.get(\"/health/canary\")",
+    "context": "\nrouter = APIRouter()\n\n@router.get(\"/health/canary\")\ndef health_canary():\n    return canary_health()"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\api\\canary_routes.py",
+    "line": 7,
+    "text": "def health_canary():",
+    "context": "router = APIRouter()\n\n@router.get(\"/health/canary\")\ndef health_canary():\n    return canary_health()"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\api\\canary_routes.py",
+    "line": 8,
+    "text": "    return canary_health()",
+    "context": "\n@router.get(\"/health/canary\")\ndef health_canary():\n    return canary_health()"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\api\\p414_routes.py",
+    "line": 2,
+    "text": "from app.runtime.canary_gate import canary_health",
+    "context": "from fastapi import APIRouter\nfrom app.runtime.canary_gate import canary_health\nrouter = APIRouter()\n\n@router.get(\"/health/p414\")\ndef p414_health():\n    return canary_health()"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\api\\p414_routes.py",
+    "line": 7,
+    "text": "    return canary_health()",
+    "context": "\n@router.get(\"/health/p414\")\ndef p414_health():\n    return canary_health()"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\canary_gate.py",
+    "line": 4,
+    "text": "LEDGER = Path(\"_evidence/CANARY_RUNTIME_LEDGER.jsonl\")",
+    "context": "import json, os, time\nfrom pathlib import Path\n\nLEDGER = Path(\"_evidence/CANARY_RUNTIME_LEDGER.jsonl\")\n\ndef canary_allowed(sender_id: str) -> bool:\n    raw = os.getenv(\"CANARY_ALLOWED_SENDERS\", \"\").strip()\n    if not raw:\n        return True\n    allowed = [x.strip() for x in raw.split(\",\") if x.strip()]\n    return str(sender_id or \"\").strip() in allowed\n"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\canary_gate.py",
+    "line": 6,
+    "text": "def canary_allowed(sender_id: str) -> bool:",
+    "context": "\nLEDGER = Path(\"_evidence/CANARY_RUNTIME_LEDGER.jsonl\")\n\ndef canary_allowed(sender_id: str) -> bool:\n    raw = os.getenv(\"CANARY_ALLOWED_SENDERS\", \"\").strip()\n    if not raw:\n        return True\n    allowed = [x.strip() for x in raw.split(\",\") if x.strip()]\n    return str(sender_id or \"\").strip() in allowed\n\ndef semantic_enabled() -> bool:\n    return os.getenv(\"SEMANTIC_RUNTIME_ENABLED\", \"true\").lower() not in (\"0\",\"false\",\"off\",\"no\")"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\canary_gate.py",
+    "line": 7,
+    "text": "    raw = os.getenv(\"CANARY_ALLOWED_SENDERS\", \"\").strip()",
+    "context": "LEDGER = Path(\"_evidence/CANARY_RUNTIME_LEDGER.jsonl\")\n\ndef canary_allowed(sender_id: str) -> bool:\n    raw = os.getenv(\"CANARY_ALLOWED_SENDERS\", \"\").strip()\n    if not raw:\n        return True\n    allowed = [x.strip() for x in raw.split(\",\") if x.strip()]\n    return str(sender_id or \"\").strip() in allowed\n\ndef semantic_enabled() -> bool:\n    return os.getenv(\"SEMANTIC_RUNTIME_ENABLED\", \"true\").lower() not in (\"0\",\"false\",\"off\",\"no\")\n"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\canary_gate.py",
+    "line": 28,
+    "text": "def log_canary(sender_id: str, message: str, reply: str, provider: str = \"\", extra: dict | None = None):",
+    "context": "        \"score\": max(0, 10 - 3*int(\"não entendi\" in low or \"reformule\" in low) - 2*int(len(r)>650) - 2*int(\"equals\" in low) - 5*int(not r.strip()))\n    }\n\ndef log_canary(sender_id: str, message: str, reply: str, provider: str = \"\", extra: dict | None = None):\n    LEDGER.parent.mkdir(parents=True, exist_ok=True)\n    row = {\n        \"ts\": int(time.time()),\n        \"sender_id\": sender_id,\n        \"message\": str(message or \"\")[:300],\n        \"reply\": str(reply or \"\")[:900],\n        \"provider\": provider,\n        \"score\": score_reply(message, reply),"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\canary_gate.py",
+    "line": 43,
+    "text": "def canary_health():",
+    "context": "        f.write(json.dumps(row, ensure_ascii=False) + \"\\n\")\n    return row\n\ndef canary_health():\n    rows = []\n    if LEDGER.exists():\n        rows = [json.loads(x) for x in LEDGER.read_text(encoding=\"utf-8\", errors=\"ignore\").splitlines()[-200:] if x.strip()]\n    total = len(rows)\n    avg = round(sum(r[\"score\"][\"score\"] for r in rows)/total, 2) if total else None\n    fallback = sum(r[\"score\"][\"fallback\"] for r in rows)\n    return {\n        \"status\": \"CANARY_HEALTH\","
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\canary_gate.py",
+    "line": 51,
+    "text": "        \"status\": \"CANARY_HEALTH\",",
+    "context": "    avg = round(sum(r[\"score\"][\"score\"] for r in rows)/total, 2) if total else None\n    fallback = sum(r[\"score\"][\"fallback\"] for r in rows)\n    return {\n        \"status\": \"CANARY_HEALTH\",\n        \"semantic_enabled\": semantic_enabled(),\n        \"allowlist_configured\": bool(os.getenv(\"CANARY_ALLOWED_SENDERS\", \"\").strip()),\n        \"total_recent\": total,\n        \"avg_score\": avg,\n        \"fallback_count\": fallback,\n        \"fallback_rate\": round(fallback/total, 4) if total else 0,\n        \"ready_for_p414\": bool(total >= 10 and avg and avg >= 8.5 and fallback/total < 0.03),\n    }"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\canary_gate.py",
+    "line": 53,
+    "text": "        \"allowlist_configured\": bool(os.getenv(\"CANARY_ALLOWED_SENDERS\", \"\").strip()),",
+    "context": "    return {\n        \"status\": \"CANARY_HEALTH\",\n        \"semantic_enabled\": semantic_enabled(),\n        \"allowlist_configured\": bool(os.getenv(\"CANARY_ALLOWED_SENDERS\", \"\").strip()),\n        \"total_recent\": total,\n        \"avg_score\": avg,\n        \"fallback_count\": fallback,\n        \"fallback_rate\": round(fallback/total, 4) if total else 0,\n        \"ready_for_p414\": bool(total >= 10 and avg and avg >= 8.5 and fallback/total < 0.03),\n    }"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\context_priority_engine.py",
+    "line": 8,
+    "text": "        return \"Sim. Fizemos Render live, WhatsApp webhook, Supabase/memória, multi-provider com 14 IAs, UX guard, canary health e ledger de evidências.\"",
+    "context": "        return \"Estou aqui 🙂 Pode mandar.\"\n\n    if any(x in msg for x in [\"integrações\", \"integracoes\", \"implantações\", \"implantacoes\", \"que fizemos\", \"o que fizemos\"]):\n        return \"Sim. Fizemos Render live, WhatsApp webhook, Supabase/memória, multi-provider com 14 IAs, UX guard, canary health e ledger de evidências.\"\n\n    if any(x in msg for x in [\"deu certo\", \"agora deu certo\", \"funcionou\", \"conseguiu ver\"]):\n        return \"Sim. A parte técnica subiu: multi-provider, WhatsApp, UX guard e canary. Falta fechar memória contextual/persona antes do P4.14.\"\n\n    return \"\""
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\context_priority_engine.py",
+    "line": 11,
+    "text": "        return \"Sim. A parte técnica subiu: multi-provider, WhatsApp, UX guard e canary. Falta fechar memória contextual/persona antes do P4.14.\"",
+    "context": "        return \"Sim. Fizemos Render live, WhatsApp webhook, Supabase/memória, multi-provider com 14 IAs, UX guard, canary health e ledger de evidências.\"\n\n    if any(x in msg for x in [\"deu certo\", \"agora deu certo\", \"funcionou\", \"conseguiu ver\"]):\n        return \"Sim. A parte técnica subiu: multi-provider, WhatsApp, UX guard e canary. Falta fechar memória contextual/persona antes do P4.14.\"\n\n    return \"\""
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\forensic_bootstrap.py",
+    "line": 12,
+    "text": "    (\"app.api.whatsapp\", [\"twiml\", \"webhook\", \"whatsapp_webhook\"]),",
+    "context": "    (\"app.runtime.whatsapp_final_output_guard\", [\"whatsapp_final_output_guard\", \"apply_whatsapp_final_output_guard\"]),\n    (\"app.runtime.final_conversational_arbiter\", [\"final_conversational_arbiter\", \"apply_final_conversational_arbiter\"]),\n    (\"app.runtime.generic_conversation_state\", [\"get_state\", \"set_state\", \"clear_state\"]),\n    (\"app.api.whatsapp\", [\"twiml\", \"webhook\", \"whatsapp_webhook\"]),\n]\n\ndef install():\n    wrapped = []\n    for mod_name, names in TARGETS:\n        try:\n            mod = importlib.import_module(mod_name)\n        except Exception as e:"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\semantic_whatsapp_runtime.py",
+    "line": 3,
+    "text": "from app.runtime.whatsapp_ux_output_guard import whatsapp_ux_guard",
+    "context": "from app.runtime.semantic_router import semantic_route\nfrom app.runtime.multi_provider_factual_provider import multi_provider_factual_provider\nfrom app.runtime.whatsapp_ux_output_guard import whatsapp_ux_guard\nfrom app.runtime.context_priority_engine import context_priority_reply\nfrom app.runtime.humanized_answer_composer import humanized_answer\nfrom app.runtime.cognitive_style_composer import compose_human_style\nfrom app.runtime.relational_conversation_engine import relationalize\nfrom app.runtime.conversation_state_machine import build_conversation_payload\n\n_CONTEXT = {}\n"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\semantic_whatsapp_runtime.py",
+    "line": 4,
+    "text": "from app.runtime.context_priority_engine import context_priority_reply",
+    "context": "from app.runtime.semantic_router import semantic_route\nfrom app.runtime.multi_provider_factual_provider import multi_provider_factual_provider\nfrom app.runtime.whatsapp_ux_output_guard import whatsapp_ux_guard\nfrom app.runtime.context_priority_engine import context_priority_reply\nfrom app.runtime.humanized_answer_composer import humanized_answer\nfrom app.runtime.cognitive_style_composer import compose_human_style\nfrom app.runtime.relational_conversation_engine import relationalize\nfrom app.runtime.conversation_state_machine import build_conversation_payload\n\n_CONTEXT = {}\n\ndef semantic_whatsapp_payload(message: str, sender_id: str = \"default\") -> dict:"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\semantic_whatsapp_runtime.py",
+    "line": 5,
+    "text": "from app.runtime.humanized_answer_composer import humanized_answer",
+    "context": "from app.runtime.multi_provider_factual_provider import multi_provider_factual_provider\nfrom app.runtime.whatsapp_ux_output_guard import whatsapp_ux_guard\nfrom app.runtime.context_priority_engine import context_priority_reply\nfrom app.runtime.humanized_answer_composer import humanized_answer\nfrom app.runtime.cognitive_style_composer import compose_human_style\nfrom app.runtime.relational_conversation_engine import relationalize\nfrom app.runtime.conversation_state_machine import build_conversation_payload\n\n_CONTEXT = {}\n\ndef semantic_whatsapp_payload(message: str, sender_id: str = \"default\") -> dict:\n    sid = sender_id or \"default\""
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\semantic_whatsapp_runtime.py",
+    "line": 6,
+    "text": "from app.runtime.cognitive_style_composer import compose_human_style",
+    "context": "from app.runtime.whatsapp_ux_output_guard import whatsapp_ux_guard\nfrom app.runtime.context_priority_engine import context_priority_reply\nfrom app.runtime.humanized_answer_composer import humanized_answer\nfrom app.runtime.cognitive_style_composer import compose_human_style\nfrom app.runtime.relational_conversation_engine import relationalize\nfrom app.runtime.conversation_state_machine import build_conversation_payload\n\n_CONTEXT = {}\n\ndef semantic_whatsapp_payload(message: str, sender_id: str = \"default\") -> dict:\n    sid = sender_id or \"default\"\n    ctx = _CONTEXT.get(sid, {})"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\semantic_whatsapp_runtime.py",
+    "line": 7,
+    "text": "from app.runtime.relational_conversation_engine import relationalize",
+    "context": "from app.runtime.context_priority_engine import context_priority_reply\nfrom app.runtime.humanized_answer_composer import humanized_answer\nfrom app.runtime.cognitive_style_composer import compose_human_style\nfrom app.runtime.relational_conversation_engine import relationalize\nfrom app.runtime.conversation_state_machine import build_conversation_payload\n\n_CONTEXT = {}\n\ndef semantic_whatsapp_payload(message: str, sender_id: str = \"default\") -> dict:\n    sid = sender_id or \"default\"\n    ctx = _CONTEXT.get(sid, {})\n"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\semantic_whatsapp_runtime.py",
+    "line": 8,
+    "text": "from app.runtime.conversation_state_machine import build_conversation_payload",
+    "context": "from app.runtime.humanized_answer_composer import humanized_answer\nfrom app.runtime.cognitive_style_composer import compose_human_style\nfrom app.runtime.relational_conversation_engine import relationalize\nfrom app.runtime.conversation_state_machine import build_conversation_payload\n\n_CONTEXT = {}\n\ndef semantic_whatsapp_payload(message: str, sender_id: str = \"default\") -> dict:\n    sid = sender_id or \"default\"\n    ctx = _CONTEXT.get(sid, {})\n\n    priority = context_priority_reply(message, sid)"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\semantic_whatsapp_runtime.py",
+    "line": 19,
+    "text": "        return {\"intent\":\"CONTEXT_PRIORITY\",\"domain\":\"project_context\",\"confidence\":0.99,\"entities\":{},\"context\":ctx,\"provider_ok\":False,\"provider\":\"context_priority_engine\",\"model\":None,\"answer\":answer,\"errors\":[]}",
+    "context": "    priority = context_priority_reply(message, sid)\n    if priority:\n        answer = whatsapp_ux_guard(message, priority)\n        return {\"intent\":\"CONTEXT_PRIORITY\",\"domain\":\"project_context\",\"confidence\":0.99,\"entities\":{},\"context\":ctx,\"provider_ok\":False,\"provider\":\"context_priority_engine\",\"model\":None,\"answer\":answer,\"errors\":[]}\n\n    provider_message = build_conversation_payload(message, ctx)\n    decision = semantic_route(provider_message, ctx)\n\n    ctx[\"last_domain\"] = ctx.get(\"last_domain\") or getattr(decision, \"domain\", \"general\")\n    _CONTEXT[sid] = ctx\n\n    provider = multi_provider_factual_provider(provider_message, sid, ctx)"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\ucce_canary_router.py",
+    "line": 3,
+    "text": "CANARY_ENABLED=os.getenv(\"UCCE_CANARY_ENABLED\",\"false\").lower()==\"true\"",
+    "context": "import os, hashlib\n\nCANARY_ENABLED=os.getenv(\"UCCE_CANARY_ENABLED\",\"false\").lower()==\"true\"\nCANARY_PERCENT=int(os.getenv(\"UCCE_CANARY_PERCENT\",\"10\"))\nALLOWLIST=set(filter(None,os.getenv(\"UCCE_CANARY_ALLOWLIST\",\"\").split(\",\")))\n\ndef should_use_ucce(sender_id:str)->bool:\n    if not CANARY_ENABLED:\n        return False\n\n    sender=(sender_id or \"\").strip()"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\ucce_canary_router.py",
+    "line": 4,
+    "text": "CANARY_PERCENT=int(os.getenv(\"UCCE_CANARY_PERCENT\",\"10\"))",
+    "context": "import os, hashlib\n\nCANARY_ENABLED=os.getenv(\"UCCE_CANARY_ENABLED\",\"false\").lower()==\"true\"\nCANARY_PERCENT=int(os.getenv(\"UCCE_CANARY_PERCENT\",\"10\"))\nALLOWLIST=set(filter(None,os.getenv(\"UCCE_CANARY_ALLOWLIST\",\"\").split(\",\")))\n\ndef should_use_ucce(sender_id:str)->bool:\n    if not CANARY_ENABLED:\n        return False\n\n    sender=(sender_id or \"\").strip()\n"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\ucce_canary_router.py",
+    "line": 5,
+    "text": "ALLOWLIST=set(filter(None,os.getenv(\"UCCE_CANARY_ALLOWLIST\",\"\").split(\",\")))",
+    "context": "\nCANARY_ENABLED=os.getenv(\"UCCE_CANARY_ENABLED\",\"false\").lower()==\"true\"\nCANARY_PERCENT=int(os.getenv(\"UCCE_CANARY_PERCENT\",\"10\"))\nALLOWLIST=set(filter(None,os.getenv(\"UCCE_CANARY_ALLOWLIST\",\"\").split(\",\")))\n\ndef should_use_ucce(sender_id:str)->bool:\n    if not CANARY_ENABLED:\n        return False\n\n    sender=(sender_id or \"\").strip()\n\n    if sender in ALLOWLIST:"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\ucce_canary_router.py",
+    "line": 8,
+    "text": "    if not CANARY_ENABLED:",
+    "context": "ALLOWLIST=set(filter(None,os.getenv(\"UCCE_CANARY_ALLOWLIST\",\"\").split(\",\")))\n\ndef should_use_ucce(sender_id:str)->bool:\n    if not CANARY_ENABLED:\n        return False\n\n    sender=(sender_id or \"\").strip()\n\n    if sender in ALLOWLIST:\n        return True\n\n    bucket=int(hashlib.md5(sender.encode()).hexdigest(),16)%100"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\ucce_canary_router.py",
+    "line": 17,
+    "text": "    return bucket < CANARY_PERCENT",
+    "context": "        return True\n\n    bucket=int(hashlib.md5(sender.encode()).hexdigest(),16)%100\n    return bucket < CANARY_PERCENT"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\ucce_canary_trace.py",
+    "line": 3,
+    "text": "LAST_CANARY_TRACE={}",
+    "context": "\nimport os, json, time\nLAST_CANARY_TRACE={}\n\ndef trace_canary(sender, message, enabled, percent, allowlist, decision, branch):\n    global LAST_CANARY_TRACE\n    LAST_CANARY_TRACE={\n        \"ts\":time.time(),\n        \"sender\":sender,\n        \"message\":message,\n        \"env_enabled\":enabled,"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\ucce_canary_trace.py",
+    "line": 5,
+    "text": "def trace_canary(sender, message, enabled, percent, allowlist, decision, branch):",
+    "context": "import os, json, time\nLAST_CANARY_TRACE={}\n\ndef trace_canary(sender, message, enabled, percent, allowlist, decision, branch):\n    global LAST_CANARY_TRACE\n    LAST_CANARY_TRACE={\n        \"ts\":time.time(),\n        \"sender\":sender,\n        \"message\":message,\n        \"env_enabled\":enabled,\n        \"env_percent\":percent,\n        \"env_allowlist\":allowlist,"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\ucce_canary_trace.py",
+    "line": 6,
+    "text": "    global LAST_CANARY_TRACE",
+    "context": "LAST_CANARY_TRACE={}\n\ndef trace_canary(sender, message, enabled, percent, allowlist, decision, branch):\n    global LAST_CANARY_TRACE\n    LAST_CANARY_TRACE={\n        \"ts\":time.time(),\n        \"sender\":sender,\n        \"message\":message,\n        \"env_enabled\":enabled,\n        \"env_percent\":percent,\n        \"env_allowlist\":allowlist,\n        \"decision\":decision,"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\ucce_canary_trace.py",
+    "line": 7,
+    "text": "    LAST_CANARY_TRACE={",
+    "context": "\ndef trace_canary(sender, message, enabled, percent, allowlist, decision, branch):\n    global LAST_CANARY_TRACE\n    LAST_CANARY_TRACE={\n        \"ts\":time.time(),\n        \"sender\":sender,\n        \"message\":message,\n        \"env_enabled\":enabled,\n        \"env_percent\":percent,\n        \"env_allowlist\":allowlist,\n        \"decision\":decision,\n        \"branch\":branch"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\ucce_canary_trace.py",
+    "line": 17,
+    "text": "    return LAST_CANARY_TRACE",
+    "context": "        \"decision\":decision,\n        \"branch\":branch\n    }\n    return LAST_CANARY_TRACE\n\ndef get_last_canary_trace():\n    return LAST_CANARY_TRACE"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\ucce_canary_trace.py",
+    "line": 19,
+    "text": "def get_last_canary_trace():",
+    "context": "    }\n    return LAST_CANARY_TRACE\n\ndef get_last_canary_trace():\n    return LAST_CANARY_TRACE"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\ucce_canary_trace.py",
+    "line": 20,
+    "text": "    return LAST_CANARY_TRACE",
+    "context": "    return LAST_CANARY_TRACE\n\ndef get_last_canary_trace():\n    return LAST_CANARY_TRACE"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\universal_contextual_continuity_engine.py",
+    "line": 55,
+    "text": "        s[\"last_open_task\"]=\"acompanhar deploy/canary\"",
+    "context": "    if _has(msg,deployment_terms):\n        s[\"last_topic\"]=\"implantações\"\n        s[\"last_goal\"]=\"validar runtime live\"\n        s[\"last_open_task\"]=\"acompanhar deploy/canary\"\n        s[\"open_loop\"]=True\n        intent=\"VERIFICATION\"\n\n    if intent==\"SOCIAL\":\n        reply=_social_reply(msg)\n\n    elif intent==\"FOLLOWUP\":\n        topic=s.get(\"last_topic\") or ctx.get(\"topic\") or \"isso\""
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\universal_contextual_continuity_engine.py",
+    "line": 76,
+    "text": "            reply=\"As implantações estão parcialmente validadas: Render sincronizou e UCCE entrou no canary, mas a memória contextual ainda falhou no WhatsApp.\"",
+    "context": "    elif intent in [\"TASK\",\"VERIFICATION\"] or _has(msg,status_terms):\n        topic=s.get(\"last_topic\") or \"runtime\"\n        if topic==\"implantações\":\n            reply=\"As implantações estão parcialmente validadas: Render sincronizou e UCCE entrou no canary, mas a memória contextual ainda falhou no WhatsApp.\"\n        else:\n            reply=f\"Vou verificar {topic}: preciso comparar versão, branch e último retorno real.\"\n\n    else:\n        if s.get(\"open_loop\") or s.get(\"last_topic\") or s.get(\"last_open_task\"):\n            topic=s.get(\"last_topic\") or \"o contexto anterior\"\n            reply=f\"Continuando sobre {topic}: ainda falta validar se o WhatsApp mantém contexto entre mensagens.\"\n        else:"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "line": 3,
+    "text": "    from app.runtime.ucce_canary_router import should_use_ucce, CANARY_ENABLED, CANARY_PERCENT, ALLOWLIST",
+    "context": "\ntry:\n    from app.runtime.ucce_canary_router import should_use_ucce, CANARY_ENABLED, CANARY_PERCENT, ALLOWLIST\n    from app.runtime.ucce_canary_trace import trace_canary, get_last_canary_trace\n    from app.runtime.ucce_shadow_mode import run_ucce_shadow\nexcept Exception:\n    should_use_ucce=None\n\ntry:\n    from app.runtime.ucce_shadow_mode import run_ucce_shadow\n    from app.runtime.ucce_decision_diff import compare_decisions"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "line": 4,
+    "text": "    from app.runtime.ucce_canary_trace import trace_canary, get_last_canary_trace",
+    "context": "\ntry:\n    from app.runtime.ucce_canary_router import should_use_ucce, CANARY_ENABLED, CANARY_PERCENT, ALLOWLIST\n    from app.runtime.ucce_canary_trace import trace_canary, get_last_canary_trace\n    from app.runtime.ucce_shadow_mode import run_ucce_shadow\nexcept Exception:\n    should_use_ucce=None\n\ntry:\n    from app.runtime.ucce_shadow_mode import run_ucce_shadow\n    from app.runtime.ucce_decision_diff import compare_decisions\nexcept Exception:"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "line": 183,
+    "text": "from app.runtime.semantic_whatsapp_runtime import route_semantic_whatsapp",
+    "context": "from fastapi.responses import Response\nfrom app.api.whatsapp import eldora_primary_runtime_reply, twiml as primary_twiml\nfrom app.runtime.p4_13g_router import route_natural_whatsapp\nfrom app.runtime.semantic_whatsapp_runtime import route_semantic_whatsapp\nfrom app.runtime.canary_gate import canary_allowed, semantic_enabled, log_canary\nfrom app.runtime.factual_search_handoff import factual_search_handoff\nfrom app.runtime.strategic_conversation_authority import strategic_conversation_authority\nfrom app.runtime.whatsapp_final_output_guard import p4_12_whatsapp_live_ux_guard, p4_12_context_lock, p4_12b_factual_execution_lock\n\n@app.middleware(\"http\")\nasync def neura_persona_short_followup_middleware(request: Request, call_next):\n    event(\"MAIN_INTERCEPTOR_CHECK\", route=\"/webhook/whatsapp\", module_name=\"app.main\")"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "line": 184,
+    "text": "from app.runtime.canary_gate import canary_allowed, semantic_enabled, log_canary",
+    "context": "from app.api.whatsapp import eldora_primary_runtime_reply, twiml as primary_twiml\nfrom app.runtime.p4_13g_router import route_natural_whatsapp\nfrom app.runtime.semantic_whatsapp_runtime import route_semantic_whatsapp\nfrom app.runtime.canary_gate import canary_allowed, semantic_enabled, log_canary\nfrom app.runtime.factual_search_handoff import factual_search_handoff\nfrom app.runtime.strategic_conversation_authority import strategic_conversation_authority\nfrom app.runtime.whatsapp_final_output_guard import p4_12_whatsapp_live_ux_guard, p4_12_context_lock, p4_12b_factual_execution_lock\n\n@app.middleware(\"http\")\nasync def neura_persona_short_followup_middleware(request: Request, call_next):\n    event(\"MAIN_INTERCEPTOR_CHECK\", route=\"/webhook/whatsapp\", module_name=\"app.main\")\n    if request.url.path == \"/webhook/whatsapp\" and request.method.upper() == \"POST\":"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "line": 318,
+    "text": "@app.get(\"/ucce/canary-trace\")",
+    "context": "    }\n\n\n@app.get(\"/ucce/canary-trace\")\ndef ucce_canary_trace_route():\n    try:\n        return get_last_canary_trace()\n    except Exception as e:\n        return {\"error\": str(e)}\n        \n@app.get(\"/version\")\ndef version():"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "line": 319,
+    "text": "def ucce_canary_trace_route():",
+    "context": "\n\n@app.get(\"/ucce/canary-trace\")\ndef ucce_canary_trace_route():\n    try:\n        return get_last_canary_trace()\n    except Exception as e:\n        return {\"error\": str(e)}\n        \n@app.get(\"/version\")\ndef version():\n    from app.runtime.version_runtime import runtime_version"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "line": 321,
+    "text": "        return get_last_canary_trace()",
+    "context": "@app.get(\"/ucce/canary-trace\")\ndef ucce_canary_trace_route():\n    try:\n        return get_last_canary_trace()\n    except Exception as e:\n        return {\"error\": str(e)}\n        \n@app.get(\"/version\")\ndef version():\n    from app.runtime.version_runtime import runtime_version\n    return runtime_version()\n"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "line": 439,
+    "text": "async def whatsapp_webhook(request: Request):",
+    "context": "    return f'<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>{sanitize_final_human_output(sanitize_final_human_output(body))}</Message></Response>'\n\n@app.post(\"/webhook/whatsapp\")\nasync def whatsapp_webhook(request: Request):\n    from app.runtime.response_builder import ResponseBuilder\n    builder=ResponseBuilder()\n\n    try:\n        ctype=request.headers.get(\"content-type\",\"\")\n        if \"application/json\" in ctype:\n            payload=await request.json()\n        else:"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "line": 457,
+    "text": "        p4_13k_reply = route_semantic_whatsapp(message, sender_id) if (semantic_enabled() and canary_allowed(sender_id)) else ''",
+    "context": "\n        import re\n        _msg=str(message or \"\").strip()\n        p4_13k_reply = route_semantic_whatsapp(message, sender_id) if (semantic_enabled() and canary_allowed(sender_id)) else ''\n        if p4_13k_reply and ('MULTI_AI_PROVIDER_FAILED' not in str(p4_13k_reply)) and ('NOT_CONFIGURED' not in str(p4_13k_reply)):\n            log_canary(sender_id, message, p4_13k_reply); return Response(content=_p412n_normalize_xml_response(message if \"message\" in locals() else \"\", primary_twiml(p4_13k_reply)), media_type=\"application/xml\")\n        p4_13g_reply = route_natural_whatsapp(message)\n        if p4_13g_reply and (\"não entendi\" not in str(p4_13g_reply).lower()) and (\"o que você quer verificar\" not in str(p4_13g_reply).lower()):\n            return Response(content=_p412n_normalize_xml_response(message if \"message\" in locals() else \"\", primary_twiml(p4_13g_reply)), media_type=\"application/xml\")\n        _low=_msg.lower()\n\n        if _low in {\"oi\",\"oie\",\"olá\",\"ola\"}:"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "line": 459,
+    "text": "            log_canary(sender_id, message, p4_13k_reply); return Response(content=_p412n_normalize_xml_response(message if \"message\" in locals() else \"\", primary_twiml(p4_13k_reply)), media_type=\"application/xml\")",
+    "context": "        _msg=str(message or \"\").strip()\n        p4_13k_reply = route_semantic_whatsapp(message, sender_id) if (semantic_enabled() and canary_allowed(sender_id)) else ''\n        if p4_13k_reply and ('MULTI_AI_PROVIDER_FAILED' not in str(p4_13k_reply)) and ('NOT_CONFIGURED' not in str(p4_13k_reply)):\n            log_canary(sender_id, message, p4_13k_reply); return Response(content=_p412n_normalize_xml_response(message if \"message\" in locals() else \"\", primary_twiml(p4_13k_reply)), media_type=\"application/xml\")\n        p4_13g_reply = route_natural_whatsapp(message)\n        if p4_13g_reply and (\"não entendi\" not in str(p4_13g_reply).lower()) and (\"o que você quer verificar\" not in str(p4_13g_reply).lower()):\n            return Response(content=_p412n_normalize_xml_response(message if \"message\" in locals() else \"\", primary_twiml(p4_13g_reply)), media_type=\"application/xml\")\n        _low=_msg.lower()\n\n        if _low in {\"oi\",\"oie\",\"olá\",\"ola\"}:\n            return Response(content='<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Oi, Roberto. Tudo certo?</Message></Response>', media_type=\"application/xml\")\n"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "line": 508,
+    "text": "        event(\"REQUEST_IN\", route=\"/webhook/whatsapp\", module_name=\"app.main.whatsapp_webhook\", reply_before=message)",
+    "context": "        from app.runtime.generic_conversation_state import factual_state_allowed_for\n        if not factual_state_allowed_for(message):\n            payload[\"_p412n_ignore_factual_state\"] = True\n        event(\"REQUEST_IN\", route=\"/webhook/whatsapp\", module_name=\"app.main.whatsapp_webhook\", reply_before=message)\n\n        msg_norm = (message or \"\").lower().strip()\n        if any(x in msg_norm for x in [\"quem é vc\", \"quem e vc\", \"quem é você\", \"quem e voce\", \"qual seu nome\", \"como vc chama\", \"como você chama\"]):\n            return Response(content='<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Sou a Eldora 🙂</Message></Response>', media_type=\"application/xml\")\n\n        if msg_norm in [\"aprofunde\", \"aprofundar\", \"detalhe\", \"detalhe melhor\", \"explique melhor\"]:\n            pass\n"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "line": 521,
+    "text": "                trace_canary(",
+    "context": "            __ucce_enabled = bool(should_use_ucce and should_use_ucce(sender_id))\n\n            try:\n                trace_canary(\n                    sender_id,\n                    message,\n                    CANARY_ENABLED,\n                    CANARY_PERCENT,\n                    list(ALLOWLIST),\n                    __ucce_enabled,\n                    \"ucce\" if __ucce_enabled else \"legacy\"\n                )"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "line": 524,
+    "text": "                    CANARY_ENABLED,",
+    "context": "                trace_canary(\n                    sender_id,\n                    message,\n                    CANARY_ENABLED,\n                    CANARY_PERCENT,\n                    list(ALLOWLIST),\n                    __ucce_enabled,\n                    \"ucce\" if __ucce_enabled else \"legacy\"\n                )\n            except Exception:\n                pass\n"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "line": 525,
+    "text": "                    CANARY_PERCENT,",
+    "context": "                    sender_id,\n                    message,\n                    CANARY_ENABLED,\n                    CANARY_PERCENT,\n                    list(ALLOWLIST),\n                    __ucce_enabled,\n                    \"ucce\" if __ucce_enabled else \"legacy\"\n                )\n            except Exception:\n                pass\n\n            if __ucce_enabled:"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "line": 732,
+    "text": "                        trace_canary(",
+    "context": "                    __ucce_enabled = bool(should_use_ucce and should_use_ucce(sender_id))\n\n                    try:\n                        trace_canary(\n                            sender_id,\n                            message,\n                            CANARY_ENABLED,\n                            CANARY_PERCENT,\n                            list(ALLOWLIST),\n                            __ucce_enabled,\n                            \"ucce\" if __ucce_enabled else \"legacy\"\n                        )"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "line": 735,
+    "text": "                            CANARY_ENABLED,",
+    "context": "                        trace_canary(\n                            sender_id,\n                            message,\n                            CANARY_ENABLED,\n                            CANARY_PERCENT,\n                            list(ALLOWLIST),\n                            __ucce_enabled,\n                            \"ucce\" if __ucce_enabled else \"legacy\"\n                        )\n                    except Exception:\n                        pass\n"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "line": 736,
+    "text": "                            CANARY_PERCENT,",
+    "context": "                            sender_id,\n                            message,\n                            CANARY_ENABLED,\n                            CANARY_PERCENT,\n                            list(ALLOWLIST),\n                            __ucce_enabled,\n                            \"ucce\" if __ucce_enabled else \"legacy\"\n                        )\n                    except Exception:\n                        pass\n\n                    if __ucce_enabled:"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "line": 1094,
+    "text": "from app.api.canary_routes import router as canary_router",
+    "context": "\n\n\nfrom app.api.canary_routes import router as canary_router\napp.include_router(canary_router)\n\n\nfrom app.api.p414_routes import router as p414_router\napp.include_router(p414_router)\n"
+  },
+  {
+    "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+    "line": 1095,
+    "text": "app.include_router(canary_router)",
+    "context": "\n\nfrom app.api.canary_routes import router as canary_router\napp.include_router(canary_router)\n\n\nfrom app.api.p414_routes import router as p414_router\napp.include_router(p414_router)\n"
+  }
+]

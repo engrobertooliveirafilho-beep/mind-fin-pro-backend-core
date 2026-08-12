@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_505C5F94626E141B",
+  "source_file": "app\\runtime\\cognitive_observatory\\ai_only_review.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\app\\runtime\\cognitive_observatory\\ai_only_review.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 97,
+  "imports": [
+    "app.runtime.cognitive_observatory.contracts",
+    "app.runtime.cognitive_observatory.user_mirror"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

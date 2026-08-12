@@ -1,0 +1,38 @@
+{
+  "authority": "P8.89_KNOWLEDGE_ABSORPTION_WITH_SOURCE_REGISTRY",
+  "created_at": "2026-06-09T14:40:04.301391+00:00",
+  "source_name": "batch",
+  "registered_source_id": "2b61f15178ac36d893642707",
+  "texts_seen": 1,
+  "atoms_created": 1,
+  "atoms": [
+    {
+      "name": "candidate_liquidity_e6d96a23",
+      "category": "liquidity",
+      "context": "liquidity sweep",
+      "trigger": "TO_BE_VALIDATED_FROM_SOURCE",
+      "invalidation": "TO_BE_VALIDATED_FROM_SOURCE",
+      "target": "TO_BE_VALIDATED_FROM_SOURCE",
+      "risk": "TO_BE_VALIDATED_FROM_SOURCE",
+      "success_conditions": [
+        "REQUIRES_BACKTEST",
+        "REQUIRES_OUT_OF_SAMPLE",
+        "REQUIRES_ROBUSTNESS"
+      ],
+      "created_at": "2026-06-09T14:40:04.301391+00:00",
+      "production": "BLOCKED",
+      "edge_claim": "NONE",
+      "missing": [],
+      "valid": true,
+      "atom_id": "c959781c9b980dc5cc8fd914",
+      "source_name": "batch",
+      "source_id": "e6d96a2397e0ecd858fb934b",
+      "registered_source_id": "2b61f15178ac36d893642707",
+      "knowledge_status": "CANDIDATE_NOT_VALIDATED"
+    }
+  ],
+  "decision": "KNOWLEDGE_ABSORBED_AS_REGISTERED_CANDIDATES",
+  "production": "BLOCKED",
+  "live": "FORBIDDEN",
+  "edge_claim": "NONE"
+}

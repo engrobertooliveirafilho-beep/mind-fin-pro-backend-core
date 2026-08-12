@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_51A582F3D10B2CEE",
+  "source_file": "_quarantine\\P19P38_L_SAFE_JUNK_QUARANTINE_20260622_182732\\cleanup_f1_strict.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\_quarantine\\P19P38_L_SAFE_JUNK_QUARANTINE_20260622_182732\\cleanup_f1_strict.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 100,
+  "imports": [
+    "json",
+    "os",
+    "re",
+    "urllib.request"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

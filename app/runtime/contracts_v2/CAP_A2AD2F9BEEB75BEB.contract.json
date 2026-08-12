@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_A2AD2F9BEEB75BEB",
+  "source_file": "_evidence\\P4_73B_READY_CAPABILITY_BRIDGE_20260618_201510\\p473b_smoke.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\_evidence\\P4_73B_READY_CAPABILITY_BRIDGE_20260618_201510\\p473b_smoke.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 90,
+  "imports": [
+    "app.runtime.ready_capability_bridge",
+    "json"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_D0D7B75BC6F083C4",
+  "source_file": "mind_trader\\tests\\test_p828_market_core.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\data\\mind_trader\\tests\\test_p828_market_core.py",
+  "domain": "DATA",
+  "target_layer": "app/runtime",
+  "promotion_score": 90,
+  "imports": [
+    "csv",
+    "math",
+    "mind_trader.app.backtest.market_core",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

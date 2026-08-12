@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_77C3EDD076D62F97",
+  "source_file": "app\\admin\\public_runtime.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\app\\admin\\public_runtime.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 103,
+  "imports": [
+    "fastapi",
+    "os",
+    "psycopg2",
+    "psycopg2.extras",
+    "time",
+    "uuid"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

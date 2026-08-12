@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_0DCB34828327AFEC",
+  "source_file": "_evidence\\P19P38_B_SAFE_ARCHIVE_PLAN_REPAIR_20260622_142520\\p19p38b_repair.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P19P38_B_SAFE_ARCHIVE_PLAN_REPAIR_20260622_142520\\p19p38b_repair.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 104,
+  "imports": [
+    "datetime",
+    "json",
+    "os",
+    "pathlib",
+    "subprocess"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

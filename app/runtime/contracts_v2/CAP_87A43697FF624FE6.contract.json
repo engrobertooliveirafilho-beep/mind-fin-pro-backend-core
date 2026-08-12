@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_87A43697FF624FE6",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\series\\methods\\test_astype.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\pandas\\tests\\series\\methods\\test_astype.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 110,
+  "imports": [
+    "datetime",
+    "importlib",
+    "numpy",
+    "pandas",
+    "pandas._libs.tslibs",
+    "pandas._testing",
+    "pandas.errors",
+    "pandas.util._test_decorators",
+    "pytest",
+    "string",
+    "sys"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

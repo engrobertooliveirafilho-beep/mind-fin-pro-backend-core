@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_2A20C434A2A9414B",
+  "source_file": "app\\p16_real_use_case\\limited_response_awareness.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\app\\p16_real_use_case\\limited_response_awareness.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 95,
+  "imports": [
+    "app.p16_real_use_case.internal_only_consumption",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

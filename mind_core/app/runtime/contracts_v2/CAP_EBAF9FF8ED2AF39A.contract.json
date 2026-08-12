@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_EBAF9FF8ED2AF39A",
+  "source_file": "_evidence\\P4.91F4_RESUMABLE_FULL_DRIVE_WALK_20260622_121115\\p491f4_resumable_full_drive_walk.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P4.91F4_RESUMABLE_FULL_DRIVE_WALK_20260622_121115\\p491f4_resumable_full_drive_walk.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 100,
+  "imports": [
+    "datetime",
+    "hashlib",
+    "json",
+    "os",
+    "pathlib",
+    "subprocess",
+    "sys",
+    "time"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

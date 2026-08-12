@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_13BEB5846F778530",
+  "source_file": "app\\mind\\p5_5t_real_fetcher_search_connector\\connector.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\app\\mind\\p5_5t_real_fetcher_search_connector\\connector.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 96,
+  "imports": [
+    "hashlib",
+    "json",
+    "os",
+    "urllib.parse",
+    "urllib.request"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

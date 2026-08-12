@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_0AFFBEDDCCB7369C",
+  "source_file": "_evidence\\P19P36M_HOTFIX_EXCLUDE_CURRENT_MESSAGE_FROM_SCORING_20260621_232551\\10_probe_hotfix.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\_evidence\\P19P36M_HOTFIX_EXCLUDE_CURRENT_MESSAGE_FROM_SCORING_20260621_232551\\10_probe_hotfix.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 87,
+  "imports": [
+    "app.main",
+    "fastapi.testclient",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

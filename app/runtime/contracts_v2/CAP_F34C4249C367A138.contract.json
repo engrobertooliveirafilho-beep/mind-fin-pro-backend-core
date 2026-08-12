@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_F34C4249C367A138",
+  "source_file": ".venv\\Lib\\site-packages\\fastapi\\exception_handlers.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\fastapi\\exception_handlers.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 92,
+  "imports": [
+    "fastapi.encoders",
+    "fastapi.exceptions",
+    "fastapi.utils",
+    "fastapi.websockets",
+    "starlette.exceptions",
+    "starlette.requests",
+    "starlette.responses",
+    "starlette.status"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

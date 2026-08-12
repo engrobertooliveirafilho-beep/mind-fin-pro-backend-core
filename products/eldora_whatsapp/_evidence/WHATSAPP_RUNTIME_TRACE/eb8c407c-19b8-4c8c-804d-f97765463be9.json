@@ -1,0 +1,35 @@
+{
+  "trace_id": "eb8c407c-19b8-4c8c-804d-f97765463be9",
+  "ts": 1779824828.7786067,
+  "sender_id": "whatsapp:+559999999999",
+  "user_message": "Quanto é 4x6",
+  "events": [
+    {
+      "stage": "input",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "Quanto é 4x6",
+      "output_preview": "Entendi. Continua.",
+      "leaks": [],
+      "extra": {}
+    },
+    {
+      "stage": "humanized",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "Entendi. Continua.",
+      "output_preview": "Entendi. Continua.",
+      "leaks": [],
+      "extra": {}
+    },
+    {
+      "stage": "final_output",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "Entendi. Continua.",
+      "output_preview": "Entendi.\n\nContinua.",
+      "leaks": [],
+      "extra": {}
+    }
+  ]
+}

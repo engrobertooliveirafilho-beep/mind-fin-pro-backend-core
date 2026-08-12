@@ -1,0 +1,1002 @@
+[
+  {
+    "strategy_id": "adf5700ed25ec88382ecb155",
+    "cycle": 1,
+    "components": [
+      "DONCHIAN",
+      "PULLBACK",
+      "VOLATILITY_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "592d44d85dfdccaa7904a135",
+    "cycle": 1,
+    "components": [
+      "PULLBACK",
+      "SMA",
+      "TREND_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "979626e4ec502b226d41d8aa",
+    "cycle": 1,
+    "components": [
+      "REGIME_FILTER",
+      "TREND_FILTER",
+      "DONCHIAN"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "7865ba44645092d0cc22172f",
+    "cycle": 1,
+    "components": [
+      "REGIME_FILTER",
+      "MEAN_REVERSION",
+      "SMA"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "cac9783728b45f1e94263fe1",
+    "cycle": 1,
+    "components": [
+      "MEAN_REVERSION",
+      "RSI",
+      "RISK_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "14800a8f05aeb97b4ebbb1f1",
+    "cycle": 1,
+    "components": [
+      "MOMENTUM",
+      "SESSION_FILTER",
+      "DONCHIAN"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "7192a5f0868bd2141693d854",
+    "cycle": 1,
+    "components": [
+      "SMA",
+      "MEAN_REVERSION",
+      "VWAP_PROXY"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "cbdbdd2bfc1f357c732d43a5",
+    "cycle": 1,
+    "components": [
+      "EMA",
+      "VOLATILITY_FILTER",
+      "REGIME_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "9d32ff01fc0d7adbdd75c025",
+    "cycle": 1,
+    "components": [
+      "RSI",
+      "ATR",
+      "REGIME_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "f5900399c6027ed65b5fd5c5",
+    "cycle": 1,
+    "components": [
+      "MOMENTUM",
+      "TREND_FILTER",
+      "VWAP_PROXY"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "159d093766922b0c3b41a989",
+    "cycle": 1,
+    "components": [
+      "TREND_FILTER",
+      "ATR",
+      "BOLLINGER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "617d996fb26babd606bdea38",
+    "cycle": 1,
+    "components": [
+      "ATR",
+      "TREND_FILTER",
+      "DONCHIAN"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "be198383edddde36e0d00506",
+    "cycle": 1,
+    "components": [
+      "MEAN_REVERSION",
+      "VWAP_PROXY",
+      "RSI"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "6f17d4f08209ae86216db3f9",
+    "cycle": 1,
+    "components": [
+      "DONCHIAN",
+      "SMA",
+      "TREND_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "c55d7613cf5037b6c13e9e8d",
+    "cycle": 1,
+    "components": [
+      "TREND_FILTER",
+      "VWAP_PROXY",
+      "ATR"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "02915e23882a7b21cf8b5d78",
+    "cycle": 1,
+    "components": [
+      "RSI",
+      "REGIME_FILTER",
+      "VOLATILITY_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "724fc9402a96862321340638",
+    "cycle": 1,
+    "components": [
+      "SMA",
+      "REGIME_FILTER",
+      "DONCHIAN"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "4f6a879e5a3a03c2df45aa50",
+    "cycle": 1,
+    "components": [
+      "PULLBACK",
+      "REGIME_FILTER",
+      "SESSION_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "c02d87c3aca7c8ef3397f9cf",
+    "cycle": 1,
+    "components": [
+      "MEAN_REVERSION",
+      "RISK_FILTER",
+      "TREND_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "f059475505e5cc9fabe30388",
+    "cycle": 1,
+    "components": [
+      "PULLBACK",
+      "DONCHIAN",
+      "ATR"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "937c0bc97d86d17fc7d17675",
+    "cycle": 1,
+    "components": [
+      "REGIME_FILTER",
+      "TREND_FILTER",
+      "SMA"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "257b599aa34096f6b4177741",
+    "cycle": 1,
+    "components": [
+      "ATR",
+      "RISK_FILTER",
+      "RSI"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "90d69065a15ae2c5efc7c3fc",
+    "cycle": 1,
+    "components": [
+      "EMA",
+      "MOMENTUM",
+      "ATR"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "3deebf031cbb4cd5021805f9",
+    "cycle": 1,
+    "components": [
+      "VWAP_PROXY",
+      "BOLLINGER",
+      "RISK_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "8fad0abc19ce1825d4c97008",
+    "cycle": 1,
+    "components": [
+      "MEAN_REVERSION",
+      "EMA",
+      "VOLATILITY_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "f61f7f86207fa7003740a3c8",
+    "cycle": 1,
+    "components": [
+      "TREND_FILTER",
+      "VWAP_PROXY",
+      "RSI"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "65de86df639d1ac42925d61f",
+    "cycle": 1,
+    "components": [
+      "PULLBACK",
+      "RISK_FILTER",
+      "SESSION_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "9cfbbdf2d723dc1fb80adbab",
+    "cycle": 1,
+    "components": [
+      "SMA",
+      "EMA",
+      "MOMENTUM"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "d6f9bd7d4dd196103cb1c623",
+    "cycle": 1,
+    "components": [
+      "VOLATILITY_FILTER",
+      "TREND_FILTER",
+      "SESSION_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "fd4bfaa6eb1976b6d0fa8f83",
+    "cycle": 1,
+    "components": [
+      "DONCHIAN",
+      "VWAP_PROXY",
+      "VOLATILITY_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "0160ab35a76d89f05fcbb44c",
+    "cycle": 1,
+    "components": [
+      "BOLLINGER",
+      "PULLBACK",
+      "REGIME_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "a8d98ba82e71a40cb4448305",
+    "cycle": 1,
+    "components": [
+      "PULLBACK",
+      "REGIME_FILTER",
+      "MEAN_REVERSION"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "8ffa1adcdaf707c6f1a29196",
+    "cycle": 1,
+    "components": [
+      "TREND_FILTER",
+      "MEAN_REVERSION",
+      "REGIME_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "cbbb1d80433a9d3f2cf2dbf4",
+    "cycle": 1,
+    "components": [
+      "BOLLINGER",
+      "SMA",
+      "PULLBACK"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "cd7d349af284d8dcd20925bb",
+    "cycle": 1,
+    "components": [
+      "BREAKOUT",
+      "DONCHIAN",
+      "SESSION_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "295eff4bf969c026dfab5344",
+    "cycle": 1,
+    "components": [
+      "EMA",
+      "SESSION_FILTER",
+      "TREND_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "88687d03630b8e529ee13a20",
+    "cycle": 1,
+    "components": [
+      "PULLBACK",
+      "SESSION_FILTER",
+      "VWAP_PROXY"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "0ca56cda7651b335bd977123",
+    "cycle": 1,
+    "components": [
+      "VOLATILITY_FILTER",
+      "PULLBACK",
+      "RISK_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "a08d0893eae695af0530cc4b",
+    "cycle": 1,
+    "components": [
+      "SESSION_FILTER",
+      "DONCHIAN",
+      "BOLLINGER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "94dab0e27ee24ca08e75594a",
+    "cycle": 1,
+    "components": [
+      "VOLATILITY_FILTER",
+      "MOMENTUM",
+      "DONCHIAN"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "1148b8642c2bb627afac9db8",
+    "cycle": 1,
+    "components": [
+      "BREAKOUT",
+      "SMA",
+      "VWAP_PROXY"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "7800ef8bb114bd677636519b",
+    "cycle": 1,
+    "components": [
+      "RSI",
+      "REGIME_FILTER",
+      "BREAKOUT"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "206760c4d3612aadddde12fe",
+    "cycle": 1,
+    "components": [
+      "MOMENTUM",
+      "RSI",
+      "ATR"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "bb2d12efd880dbd9d7e3eecb",
+    "cycle": 1,
+    "components": [
+      "RISK_FILTER",
+      "SESSION_FILTER",
+      "EMA"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "2958879cef9bad66b6d76f49",
+    "cycle": 1,
+    "components": [
+      "PULLBACK",
+      "DONCHIAN",
+      "RISK_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "a0336f5d6fff823574fa9ca9",
+    "cycle": 1,
+    "components": [
+      "SMA",
+      "DONCHIAN",
+      "BOLLINGER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "c0f1674ac21df8dfc52792fc",
+    "cycle": 1,
+    "components": [
+      "VOLATILITY_FILTER",
+      "VWAP_PROXY",
+      "PULLBACK"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "fe781d84910920f779a61c15",
+    "cycle": 1,
+    "components": [
+      "BREAKOUT",
+      "MOMENTUM",
+      "PULLBACK"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "5ec6928fa00b2b6992f0be38",
+    "cycle": 1,
+    "components": [
+      "TREND_FILTER",
+      "BOLLINGER",
+      "EMA"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "504e88f948d35e07c69ceb5b",
+    "cycle": 1,
+    "components": [
+      "TREND_FILTER",
+      "MEAN_REVERSION",
+      "MOMENTUM"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "582636735b9ecc71d44ec89e",
+    "cycle": 1,
+    "components": [
+      "RISK_FILTER",
+      "EMA",
+      "REGIME_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "de2dcb7d3d8f290a22953747",
+    "cycle": 1,
+    "components": [
+      "SESSION_FILTER",
+      "REGIME_FILTER",
+      "TREND_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "995e2fb1d92d9925ad1b0e81",
+    "cycle": 1,
+    "components": [
+      "TREND_FILTER",
+      "EMA",
+      "MOMENTUM"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "ecbf21d29c7f0b8b436b9602",
+    "cycle": 1,
+    "components": [
+      "RSI",
+      "VOLATILITY_FILTER",
+      "REGIME_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "3fc5c8bc75b546ce9936992d",
+    "cycle": 1,
+    "components": [
+      "BOLLINGER",
+      "BREAKOUT",
+      "EMA"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "f78c81dc7cbb81128fb9c53c",
+    "cycle": 1,
+    "components": [
+      "VOLATILITY_FILTER",
+      "SESSION_FILTER",
+      "DONCHIAN"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "84f6d3e01d1deb3a5bcb6bce",
+    "cycle": 1,
+    "components": [
+      "SMA",
+      "BOLLINGER",
+      "RISK_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "acfff674320c13ad0d6ad08d",
+    "cycle": 1,
+    "components": [
+      "SESSION_FILTER",
+      "SMA",
+      "BOLLINGER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "6ba0f92dc9f256f370c76f9d",
+    "cycle": 1,
+    "components": [
+      "ATR",
+      "SESSION_FILTER",
+      "SMA"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "6ff817bbe68a3fd8b663a948",
+    "cycle": 1,
+    "components": [
+      "SESSION_FILTER",
+      "EMA",
+      "BREAKOUT"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "96770692a7d163eb332e9a28",
+    "cycle": 1,
+    "components": [
+      "REGIME_FILTER",
+      "EMA",
+      "SESSION_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "2b386b429c7e3b0bffd4f190",
+    "cycle": 1,
+    "components": [
+      "BREAKOUT",
+      "MOMENTUM",
+      "PULLBACK"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "f4c95e13e409221cd55ceb0f",
+    "cycle": 1,
+    "components": [
+      "MOMENTUM",
+      "MEAN_REVERSION",
+      "REGIME_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "0663a0a4513952b13e41b6fb",
+    "cycle": 1,
+    "components": [
+      "RISK_FILTER",
+      "DONCHIAN",
+      "TREND_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "0ddef7a13a645709c8586d9b",
+    "cycle": 1,
+    "components": [
+      "SESSION_FILTER",
+      "MEAN_REVERSION",
+      "ATR"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "477d5608499b7192c605ba84",
+    "cycle": 1,
+    "components": [
+      "RISK_FILTER",
+      "SESSION_FILTER",
+      "MEAN_REVERSION"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "328e0d0a98dfee6c2b8f4b2a",
+    "cycle": 1,
+    "components": [
+      "BOLLINGER",
+      "SESSION_FILTER",
+      "EMA"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "add46e5154b790e3e160fdf2",
+    "cycle": 1,
+    "components": [
+      "SMA",
+      "REGIME_FILTER",
+      "MEAN_REVERSION"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "7ff2f2f9167b9be7bfdbd73d",
+    "cycle": 1,
+    "components": [
+      "BREAKOUT",
+      "RISK_FILTER",
+      "DONCHIAN"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "5603728ac367244ecf489d70",
+    "cycle": 1,
+    "components": [
+      "VOLATILITY_FILTER",
+      "MOMENTUM",
+      "ATR"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "785cd3d297808a925da7c5b5",
+    "cycle": 1,
+    "components": [
+      "TREND_FILTER",
+      "SESSION_FILTER",
+      "VOLATILITY_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "20f7d3bd1bb836f00f434995",
+    "cycle": 1,
+    "components": [
+      "BOLLINGER",
+      "RISK_FILTER",
+      "ATR"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "87ed4e1e79d13b6ee2f5a227",
+    "cycle": 1,
+    "components": [
+      "RISK_FILTER",
+      "REGIME_FILTER",
+      "VWAP_PROXY"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "2a95a47c972aa9b3e96c728c",
+    "cycle": 1,
+    "components": [
+      "REGIME_FILTER",
+      "BREAKOUT",
+      "SESSION_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "de70b8c7f865790c8c5d45d6",
+    "cycle": 1,
+    "components": [
+      "BREAKOUT",
+      "ATR",
+      "VWAP_PROXY"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "2e760127674620482d5ecb3b",
+    "cycle": 1,
+    "components": [
+      "VOLATILITY_FILTER",
+      "BREAKOUT",
+      "DONCHIAN"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "47cfe43450386230bde3d11f",
+    "cycle": 1,
+    "components": [
+      "REGIME_FILTER",
+      "RSI",
+      "BREAKOUT"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "6fe6ef63614be6aa3f074553",
+    "cycle": 1,
+    "components": [
+      "BREAKOUT",
+      "MOMENTUM",
+      "SMA"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "d5b86654ca289adf2e08bdf2",
+    "cycle": 1,
+    "components": [
+      "RSI",
+      "EMA",
+      "VWAP_PROXY"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "277c55d968392fa8df763552",
+    "cycle": 1,
+    "components": [
+      "MEAN_REVERSION",
+      "MOMENTUM",
+      "PULLBACK"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "200b74b5afed25b36b1dff0a",
+    "cycle": 1,
+    "components": [
+      "SMA",
+      "REGIME_FILTER",
+      "SESSION_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "5a1ebfdccc4296a14d6c01d0",
+    "cycle": 1,
+    "components": [
+      "PULLBACK",
+      "BOLLINGER",
+      "MEAN_REVERSION"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "a9b1a1a11943c06ec79267f6",
+    "cycle": 1,
+    "components": [
+      "ATR",
+      "SESSION_FILTER",
+      "MOMENTUM"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "f5aa68ac28302b2cd1648bf9",
+    "cycle": 1,
+    "components": [
+      "RSI",
+      "VWAP_PROXY",
+      "SESSION_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "3aef6935175e0261566b8d24",
+    "cycle": 1,
+    "components": [
+      "REGIME_FILTER",
+      "BOLLINGER",
+      "BREAKOUT"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "4acf306457f1ea038a1508b1",
+    "cycle": 1,
+    "components": [
+      "VWAP_PROXY",
+      "PULLBACK",
+      "REGIME_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "b81449ec61134ff73d0a5c38",
+    "cycle": 1,
+    "components": [
+      "DONCHIAN",
+      "MOMENTUM",
+      "BOLLINGER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "3b81a1d666edfdc4e407f6ac",
+    "cycle": 1,
+    "components": [
+      "RISK_FILTER",
+      "BREAKOUT",
+      "REGIME_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "7dd85395661ffdf1a645526f",
+    "cycle": 1,
+    "components": [
+      "SESSION_FILTER",
+      "SMA",
+      "TREND_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "53a1122c39c82349ce87a437",
+    "cycle": 1,
+    "components": [
+      "MOMENTUM",
+      "PULLBACK",
+      "BOLLINGER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "bc5e20da0a29cc296f6af609",
+    "cycle": 1,
+    "components": [
+      "VOLATILITY_FILTER",
+      "EMA",
+      "SMA"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "d87fb3e68c3dd996bc72e66a",
+    "cycle": 1,
+    "components": [
+      "TREND_FILTER",
+      "ATR",
+      "MOMENTUM"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "1a9d4b1518f0982392023cc6",
+    "cycle": 1,
+    "components": [
+      "TREND_FILTER",
+      "VWAP_PROXY",
+      "PULLBACK"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "8604453f58ef7e7d7713e30d",
+    "cycle": 1,
+    "components": [
+      "SESSION_FILTER",
+      "TREND_FILTER",
+      "PULLBACK"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "2c2be29c2ef0a9d97df21a68",
+    "cycle": 1,
+    "components": [
+      "DONCHIAN",
+      "SESSION_FILTER",
+      "VWAP_PROXY"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "c118753df462f556b8424007",
+    "cycle": 1,
+    "components": [
+      "SMA",
+      "ATR",
+      "EMA"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "6a0f7f44883253f1ba218aba",
+    "cycle": 1,
+    "components": [
+      "PULLBACK",
+      "MOMENTUM",
+      "SESSION_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "14a59e92dddb286273c1c726",
+    "cycle": 1,
+    "components": [
+      "VOLATILITY_FILTER",
+      "EMA",
+      "BREAKOUT"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "911ea5078c52c940ea2edd3e",
+    "cycle": 1,
+    "components": [
+      "DONCHIAN",
+      "PULLBACK",
+      "VOLATILITY_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  },
+  {
+    "strategy_id": "36570ad783c7341c26ceaa07",
+    "cycle": 1,
+    "components": [
+      "BREAKOUT",
+      "VWAP_PROXY",
+      "REGIME_FILTER"
+    ],
+    "status": "GENERATED_INCREMENTAL"
+  }
+]

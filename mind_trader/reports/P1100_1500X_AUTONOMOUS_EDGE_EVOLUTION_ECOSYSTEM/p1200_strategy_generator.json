@@ -1,0 +1,3752 @@
+[
+  {
+    "strategy_id": "d5edded9a703580af0303c08",
+    "components": [
+      "MOMENTUM",
+      "SMA",
+      "DONCHIAN"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "5550781eb14cb796e807df18",
+    "components": [
+      "PULLBACK",
+      "BREAKOUT",
+      "EMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "cf34e16556c3c25021ffd0ae",
+    "components": [
+      "PULLBACK",
+      "DONCHIAN",
+      "SMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "b8a64ee96e516f81779138fe",
+    "components": [
+      "DONCHIAN",
+      "BREAKOUT",
+      "TREND_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "7fb1a4b553fcfee12eb69a81",
+    "components": [
+      "VOLATILITY_FILTER",
+      "PULLBACK",
+      "TREND_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "4d0e395691cf4f1d33b5c9db",
+    "components": [
+      "BREAKOUT",
+      "TREND_FILTER",
+      "PULLBACK"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "9002b48dd3fed95d04f08489",
+    "components": [
+      "DONCHIAN",
+      "EMA",
+      "SMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "f1804c7d1fb7d995b178dad4",
+    "components": [
+      "ATR",
+      "EMA",
+      "SMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "b01cf8dbc297151249073b1c",
+    "components": [
+      "VOLATILITY_FILTER",
+      "DONCHIAN",
+      "EMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "5b8a62d5ab3598086d6cf057",
+    "components": [
+      "SMA",
+      "PULLBACK",
+      "DONCHIAN"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "fafd08eed47e01afc8431f29",
+    "components": [
+      "PULLBACK",
+      "RSI",
+      "BOLLINGER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "1d6a7fb21da7c36f921c3ec2",
+    "components": [
+      "SESSION_FILTER",
+      "MOMENTUM",
+      "VOLATILITY_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "e493ae9eca6a4fd372f5e308",
+    "components": [
+      "SESSION_FILTER",
+      "PULLBACK",
+      "BOLLINGER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "226ccc31c6ff97d07acc871a",
+    "components": [
+      "BREAKOUT",
+      "DONCHIAN",
+      "PULLBACK"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "9766329f0c710ab48dbd8b66",
+    "components": [
+      "PULLBACK",
+      "BOLLINGER",
+      "EMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "f442cf34364cb0589b1d6b17",
+    "components": [
+      "ATR",
+      "PULLBACK",
+      "BREAKOUT"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "50c5fb50759f34f35b032bc9",
+    "components": [
+      "RSI",
+      "TREND_FILTER",
+      "SESSION_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "15ea6f860700368ce917b1af",
+    "components": [
+      "ATR",
+      "SMA",
+      "DONCHIAN"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "cce0df1fd1367ee3a634c520",
+    "components": [
+      "ATR",
+      "BOLLINGER",
+      "BREAKOUT"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "9578fa0c1dd1d67ee6d4cefa",
+    "components": [
+      "SESSION_FILTER",
+      "TREND_FILTER",
+      "SMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "1bb081e59ab78b27ba3d3429",
+    "components": [
+      "DONCHIAN",
+      "SESSION_FILTER",
+      "TREND_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "483063f071ccf2d9521ad481",
+    "components": [
+      "TREND_FILTER",
+      "EMA",
+      "SESSION_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "efe137de28ca97761d13fc5d",
+    "components": [
+      "SMA",
+      "BOLLINGER",
+      "MOMENTUM"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "bbdcc295f1f31a3ffba33d40",
+    "components": [
+      "VOLATILITY_FILTER",
+      "TREND_FILTER",
+      "EMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "fe6a66e9fca9d2b312a9f28b",
+    "components": [
+      "RSI",
+      "EMA",
+      "BREAKOUT"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "cd6e0f0f8e01dc8d96e356fa",
+    "components": [
+      "BOLLINGER",
+      "TREND_FILTER",
+      "SMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "ce4ae9b017b80075abdc2cdc",
+    "components": [
+      "SESSION_FILTER",
+      "BREAKOUT",
+      "ATR"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "4c38640c011bf7f9eb5d7a95",
+    "components": [
+      "PULLBACK",
+      "VOLATILITY_FILTER",
+      "RSI"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "6dc38c4fb3b70d592c0cd47e",
+    "components": [
+      "SESSION_FILTER",
+      "TREND_FILTER",
+      "ATR"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "d260a660bd9a2ed44efcb78b",
+    "components": [
+      "TREND_FILTER",
+      "VOLATILITY_FILTER",
+      "BOLLINGER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "ad50e792bb582fd4be5a0b73",
+    "components": [
+      "TREND_FILTER",
+      "BOLLINGER",
+      "DONCHIAN"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "b8a98ec61c5c5ceb15e20b1b",
+    "components": [
+      "RSI",
+      "BREAKOUT",
+      "DONCHIAN"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "5de54b7f67c3b9e496a6366f",
+    "components": [
+      "EMA",
+      "BOLLINGER",
+      "SMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "ca0df89980d82bdd2c929af4",
+    "components": [
+      "BOLLINGER",
+      "EMA",
+      "DONCHIAN"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "c19182197f363cfe4115062f",
+    "components": [
+      "ATR",
+      "SESSION_FILTER",
+      "SMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "ba462ff66be78520e1c769c8",
+    "components": [
+      "TREND_FILTER",
+      "VOLATILITY_FILTER",
+      "EMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "7289264e9fadd8189174c3fb",
+    "components": [
+      "PULLBACK",
+      "BOLLINGER",
+      "SESSION_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "5ecf5eea36da979e45a14012",
+    "components": [
+      "SMA",
+      "MOMENTUM",
+      "PULLBACK"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "34e748de52f7a9ccdd38c9e5",
+    "components": [
+      "MOMENTUM",
+      "SMA",
+      "EMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "0355ef215378d7a334329472",
+    "components": [
+      "EMA",
+      "VOLATILITY_FILTER",
+      "MOMENTUM"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "0fc103673907d1e9a6a80d9c",
+    "components": [
+      "VOLATILITY_FILTER",
+      "PULLBACK",
+      "MOMENTUM"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "2f490eae1f222e885dba0191",
+    "components": [
+      "ATR",
+      "DONCHIAN",
+      "TREND_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "a592e50edfd81b1cf1f08f5c",
+    "components": [
+      "MOMENTUM",
+      "RSI",
+      "ATR"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "64d0552769cd79d497670067",
+    "components": [
+      "EMA",
+      "SMA",
+      "RSI"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "c6940dd6eb0e4f3edb1f618f",
+    "components": [
+      "SMA",
+      "ATR",
+      "SESSION_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "0a0c426ab22cf04798abe834",
+    "components": [
+      "BREAKOUT",
+      "ATR",
+      "SMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "b58a0e606d655304cbe7491e",
+    "components": [
+      "TREND_FILTER",
+      "VOLATILITY_FILTER",
+      "PULLBACK"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "5534710297edfb064988f96d",
+    "components": [
+      "DONCHIAN",
+      "RSI",
+      "VOLATILITY_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "3c83895ff09d57280c257455",
+    "components": [
+      "EMA",
+      "RSI",
+      "SMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "d6d5601c8f38b8e2282ff19d",
+    "components": [
+      "BREAKOUT",
+      "PULLBACK",
+      "DONCHIAN"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "bf38abc1814acf792341e643",
+    "components": [
+      "BOLLINGER",
+      "MOMENTUM",
+      "VOLATILITY_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "c5b5df9d5f9cc9db2fc6c634",
+    "components": [
+      "EMA",
+      "RSI",
+      "VOLATILITY_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "392533f11e774decd3ce33ce",
+    "components": [
+      "SMA",
+      "ATR",
+      "VOLATILITY_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "91e8cf379a0620fd6112ef87",
+    "components": [
+      "BOLLINGER",
+      "SESSION_FILTER",
+      "PULLBACK"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "36b0bffa2092f5c0e6c21882",
+    "components": [
+      "BREAKOUT",
+      "MOMENTUM",
+      "TREND_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "96bba6210bf291fa2917b637",
+    "components": [
+      "MOMENTUM",
+      "DONCHIAN",
+      "BREAKOUT"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "a303c067225d5ee174b27803",
+    "components": [
+      "MOMENTUM",
+      "RSI",
+      "BREAKOUT"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "e1fee2a800f86b69a0a1b6d5",
+    "components": [
+      "PULLBACK",
+      "VOLATILITY_FILTER",
+      "SESSION_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "cc4a99076c3c47fb283b1cf2",
+    "components": [
+      "BREAKOUT",
+      "RSI",
+      "ATR"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "ef1bbf596d976b50a266b63f",
+    "components": [
+      "SESSION_FILTER",
+      "DONCHIAN",
+      "PULLBACK"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "d4f88c67d1457b9f9686b6c0",
+    "components": [
+      "DONCHIAN",
+      "RSI",
+      "TREND_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "ba4e4fe60eefae03986ff756",
+    "components": [
+      "BOLLINGER",
+      "PULLBACK",
+      "BREAKOUT"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "24530a3cbab8823a11d9ab23",
+    "components": [
+      "ATR",
+      "BREAKOUT",
+      "VOLATILITY_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "5e567532db335b74eafd1514",
+    "components": [
+      "ATR",
+      "TREND_FILTER",
+      "PULLBACK"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "c08be26a415f974e5c314661",
+    "components": [
+      "SMA",
+      "BOLLINGER",
+      "ATR"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "2d2835226d745f6733dd8215",
+    "components": [
+      "ATR",
+      "VOLATILITY_FILTER",
+      "DONCHIAN"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "f8386a877a2bcafcc236a35d",
+    "components": [
+      "BOLLINGER",
+      "ATR",
+      "EMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "4a9f4837d8e08da78666fc69",
+    "components": [
+      "ATR",
+      "MOMENTUM",
+      "EMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "e11899d23c6661ddd8ec76b8",
+    "components": [
+      "VOLATILITY_FILTER",
+      "MOMENTUM",
+      "RSI"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "7fbbb219dc682cb07d45db84",
+    "components": [
+      "TREND_FILTER",
+      "MOMENTUM",
+      "BOLLINGER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "08b03e802eb7dbe368cbc6fe",
+    "components": [
+      "MOMENTUM",
+      "DONCHIAN",
+      "EMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "765774181b0bf427e31042bc",
+    "components": [
+      "PULLBACK",
+      "BREAKOUT",
+      "ATR"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "a00ac5d983c77c0c334b2d35",
+    "components": [
+      "MOMENTUM",
+      "ATR",
+      "PULLBACK"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "9c1e94e661f9241a616c7913",
+    "components": [
+      "PULLBACK",
+      "BOLLINGER",
+      "TREND_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "3286d6ef27d8eb289c615b17",
+    "components": [
+      "BOLLINGER",
+      "PULLBACK",
+      "RSI"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "93bec6c31185081967ff50dc",
+    "components": [
+      "BREAKOUT",
+      "SESSION_FILTER",
+      "TREND_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "d4df70d2396ee513ace57254",
+    "components": [
+      "EMA",
+      "ATR",
+      "MOMENTUM"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "dc4797797345d931c2b60166",
+    "components": [
+      "EMA",
+      "DONCHIAN",
+      "VOLATILITY_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "dc002ab419ac05fef1711a03",
+    "components": [
+      "RSI",
+      "BOLLINGER",
+      "BREAKOUT"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "9738498606a2a9ae59fb01be",
+    "components": [
+      "BOLLINGER",
+      "TREND_FILTER",
+      "PULLBACK"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "465887d2d1de4b2df37f7841",
+    "components": [
+      "MOMENTUM",
+      "SESSION_FILTER",
+      "EMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "f356fd6d7ff6c658c7649ef7",
+    "components": [
+      "RSI",
+      "DONCHIAN",
+      "SESSION_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "b07a0f9c0fac2e7f80195be4",
+    "components": [
+      "TREND_FILTER",
+      "VOLATILITY_FILTER",
+      "PULLBACK"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "cb2ba605375e940528bf0b1b",
+    "components": [
+      "VOLATILITY_FILTER",
+      "EMA",
+      "RSI"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "130198f3aff9411d2eaa20a6",
+    "components": [
+      "VOLATILITY_FILTER",
+      "SMA",
+      "RSI"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "82d25079c63a5a810ca4608b",
+    "components": [
+      "RSI",
+      "BREAKOUT",
+      "TREND_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "6fadcf2dbf6a5d63110ee0c0",
+    "components": [
+      "DONCHIAN",
+      "BOLLINGER",
+      "PULLBACK"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "b382daeba5857771ae1ebf41",
+    "components": [
+      "TREND_FILTER",
+      "SMA",
+      "DONCHIAN"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "014760c454fca2cdb88d4522",
+    "components": [
+      "MOMENTUM",
+      "BOLLINGER",
+      "DONCHIAN"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "308fbeb3f11986236f2040c2",
+    "components": [
+      "SMA",
+      "SESSION_FILTER",
+      "BOLLINGER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "789684a9ab09fb1551c19b13",
+    "components": [
+      "ATR",
+      "SMA",
+      "EMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "d3558da36bb95ddf5e77a273",
+    "components": [
+      "DONCHIAN",
+      "PULLBACK",
+      "MOMENTUM"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "0cdb41909bbe6927e01e1df8",
+    "components": [
+      "RSI",
+      "SESSION_FILTER",
+      "MOMENTUM"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "87ca3c4bdc72fef35a8cbec9",
+    "components": [
+      "MOMENTUM",
+      "SESSION_FILTER",
+      "EMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "9db19883e5213aad5c860b1b",
+    "components": [
+      "RSI",
+      "VOLATILITY_FILTER",
+      "EMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "f916e2a61d48eabcbbc3f363",
+    "components": [
+      "BREAKOUT",
+      "SESSION_FILTER",
+      "RSI"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "77498c07f72b131c5f95b45c",
+    "components": [
+      "SMA",
+      "VOLATILITY_FILTER",
+      "BOLLINGER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "7168ddb5a42e850356647254",
+    "components": [
+      "ATR",
+      "VOLATILITY_FILTER",
+      "EMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "cccf8f2de575dc7f2ce21cb5",
+    "components": [
+      "SESSION_FILTER",
+      "BOLLINGER",
+      "BREAKOUT"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "a75e9d877d4caf83c2efc786",
+    "components": [
+      "SMA",
+      "TREND_FILTER",
+      "PULLBACK"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "f126ca6bfee61397fc91bfbb",
+    "components": [
+      "BREAKOUT",
+      "EMA",
+      "MOMENTUM"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "2aa5497648550829d49b3bb6",
+    "components": [
+      "EMA",
+      "MOMENTUM",
+      "BOLLINGER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "1f6cbe7856e954cc32afe5fb",
+    "components": [
+      "ATR",
+      "EMA",
+      "RSI"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "9c166f11d35d47be51220b15",
+    "components": [
+      "PULLBACK",
+      "TREND_FILTER",
+      "MOMENTUM"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "8671486659a38119b5a4bc34",
+    "components": [
+      "DONCHIAN",
+      "SESSION_FILTER",
+      "ATR"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "fe76202725b2e6dd1781c217",
+    "components": [
+      "MOMENTUM",
+      "RSI",
+      "DONCHIAN"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "ab08466a40cb0d3adc77123b",
+    "components": [
+      "DONCHIAN",
+      "MOMENTUM",
+      "RSI"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "844c8e9a56a4fd6b7c8ebede",
+    "components": [
+      "ATR",
+      "BOLLINGER",
+      "SMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "ff617467a6378dc97c502d53",
+    "components": [
+      "BOLLINGER",
+      "EMA",
+      "SMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "3c08eee5ccadeeed1ee41e70",
+    "components": [
+      "MOMENTUM",
+      "EMA",
+      "RSI"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "8ed4b0ab4baf491b16f30fe5",
+    "components": [
+      "PULLBACK",
+      "DONCHIAN",
+      "BOLLINGER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "9fb7b5fb2d4fc7465e43f2f8",
+    "components": [
+      "TREND_FILTER",
+      "PULLBACK",
+      "RSI"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "ea291866ca71213b7d301af8",
+    "components": [
+      "BREAKOUT",
+      "SESSION_FILTER",
+      "TREND_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "0911663374fc9ab2bd06111a",
+    "components": [
+      "SESSION_FILTER",
+      "BREAKOUT",
+      "ATR"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "ed065c8459caa5b9fb51d5cb",
+    "components": [
+      "EMA",
+      "RSI",
+      "SMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "ad34620bd7a7f55ca4d73259",
+    "components": [
+      "ATR",
+      "EMA",
+      "TREND_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "bc40b142daba165367c38f03",
+    "components": [
+      "TREND_FILTER",
+      "VOLATILITY_FILTER",
+      "DONCHIAN"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "6c4aa9f1fb7948aa0d712418",
+    "components": [
+      "SMA",
+      "VOLATILITY_FILTER",
+      "PULLBACK"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "e6dc6c0d863cb1f5bf2bdd1d",
+    "components": [
+      "ATR",
+      "DONCHIAN",
+      "SESSION_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "25b5a0e7ed563b937f721e87",
+    "components": [
+      "RSI",
+      "BOLLINGER",
+      "MOMENTUM"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "c7c96288d2fc0e7c8902e379",
+    "components": [
+      "RSI",
+      "ATR",
+      "EMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "f7535e834a6092a606353f95",
+    "components": [
+      "EMA",
+      "RSI",
+      "BOLLINGER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "0a2c86932169bfd7aa17cbf4",
+    "components": [
+      "VOLATILITY_FILTER",
+      "SMA",
+      "RSI"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "1c037af47bda6ee1ff2565c1",
+    "components": [
+      "PULLBACK",
+      "SESSION_FILTER",
+      "RSI"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "d50e6ce78bfbea6338caecf4",
+    "components": [
+      "BOLLINGER",
+      "PULLBACK",
+      "VOLATILITY_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "9ddc2fbc01c0d199c5844193",
+    "components": [
+      "ATR",
+      "MOMENTUM",
+      "PULLBACK"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "97c6adfc74962d69f252ca71",
+    "components": [
+      "DONCHIAN",
+      "SESSION_FILTER",
+      "ATR"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "e04361ac2d4c197440118625",
+    "components": [
+      "EMA",
+      "VOLATILITY_FILTER",
+      "DONCHIAN"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "cb883ab42f509c507cc46e81",
+    "components": [
+      "RSI",
+      "DONCHIAN",
+      "ATR"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "393afd158df3b3e633fa4e4a",
+    "components": [
+      "VOLATILITY_FILTER",
+      "BREAKOUT",
+      "PULLBACK"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "3144a6a7c29019cfc34ffdfc",
+    "components": [
+      "TREND_FILTER",
+      "EMA",
+      "DONCHIAN"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "6600ccb7d1fdacc5629e2116",
+    "components": [
+      "SMA",
+      "ATR",
+      "BREAKOUT"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "2744f4aaeaff8d3faa5973d5",
+    "components": [
+      "DONCHIAN",
+      "BOLLINGER",
+      "BREAKOUT"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "cead7638122cd635f174b83f",
+    "components": [
+      "DONCHIAN",
+      "SMA",
+      "TREND_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "743d061e1ef7349ae439ab33",
+    "components": [
+      "TREND_FILTER",
+      "BREAKOUT",
+      "BOLLINGER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "db6254da8597e51388d19e9f",
+    "components": [
+      "TREND_FILTER",
+      "RSI",
+      "DONCHIAN"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "12f272d79e8cebada9f2642b",
+    "components": [
+      "VOLATILITY_FILTER",
+      "EMA",
+      "BREAKOUT"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "223a5a1d97ee5f87e8d02e29",
+    "components": [
+      "SMA",
+      "EMA",
+      "DONCHIAN"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "6daeebd8310674f3f47d7343",
+    "components": [
+      "BOLLINGER",
+      "MOMENTUM",
+      "SESSION_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "0944d4c580ba118f9984af2f",
+    "components": [
+      "MOMENTUM",
+      "VOLATILITY_FILTER",
+      "SMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "450325bfdb140c75d0d86bd5",
+    "components": [
+      "PULLBACK",
+      "DONCHIAN",
+      "EMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "550a08c753961188695d1529",
+    "components": [
+      "MOMENTUM",
+      "VOLATILITY_FILTER",
+      "BOLLINGER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "a6f74f3467272bf57b298da1",
+    "components": [
+      "BREAKOUT",
+      "MOMENTUM",
+      "BOLLINGER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "899cea61057abbc12c760ee4",
+    "components": [
+      "RSI",
+      "BREAKOUT",
+      "BOLLINGER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "911a87ec44a7c2119ac0bcf9",
+    "components": [
+      "RSI",
+      "SMA",
+      "BREAKOUT"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "219df6ef529ea83ea6e6d483",
+    "components": [
+      "VOLATILITY_FILTER",
+      "TREND_FILTER",
+      "RSI"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "cc0feaa72665d653d2edc188",
+    "components": [
+      "BOLLINGER",
+      "TREND_FILTER",
+      "DONCHIAN"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "8c15c527a4aeb7c1005fd802",
+    "components": [
+      "MOMENTUM",
+      "TREND_FILTER",
+      "SMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "82e53ba3e3e1581b5d92a39c",
+    "components": [
+      "BREAKOUT",
+      "ATR",
+      "MOMENTUM"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "ce2acc48ec3416c970d90316",
+    "components": [
+      "TREND_FILTER",
+      "VOLATILITY_FILTER",
+      "PULLBACK"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "5bc45db0d6e73b5ef237687e",
+    "components": [
+      "TREND_FILTER",
+      "SMA",
+      "SESSION_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "dca2a9ca9f571272cd81ff62",
+    "components": [
+      "TREND_FILTER",
+      "BOLLINGER",
+      "ATR"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "b901cc639fe08d64213f0289",
+    "components": [
+      "SMA",
+      "SESSION_FILTER",
+      "MOMENTUM"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "65af3fb0fdfa1c3f76ebc086",
+    "components": [
+      "DONCHIAN",
+      "ATR",
+      "TREND_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "a1c98e6a41138b078751d763",
+    "components": [
+      "BREAKOUT",
+      "EMA",
+      "VOLATILITY_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "3a838ba376430578b734091f",
+    "components": [
+      "EMA",
+      "BOLLINGER",
+      "TREND_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "9775aa344b8c33093c74744e",
+    "components": [
+      "SMA",
+      "ATR",
+      "EMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "2de84e708eafafdc835225db",
+    "components": [
+      "VOLATILITY_FILTER",
+      "TREND_FILTER",
+      "BREAKOUT"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "f4dcc3ae72c90135200c5f27",
+    "components": [
+      "TREND_FILTER",
+      "RSI",
+      "DONCHIAN"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "546a87f487587b2a0a2af13b",
+    "components": [
+      "VOLATILITY_FILTER",
+      "PULLBACK",
+      "SMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "c2d65a530decfae3e58b7817",
+    "components": [
+      "VOLATILITY_FILTER",
+      "EMA",
+      "BOLLINGER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "2e97dc0e8cf070c0eea1d1e7",
+    "components": [
+      "MOMENTUM",
+      "DONCHIAN",
+      "RSI"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "68f9a2405633b58249de010f",
+    "components": [
+      "VOLATILITY_FILTER",
+      "SESSION_FILTER",
+      "BOLLINGER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "691d1357f9fbe87b97398c1c",
+    "components": [
+      "RSI",
+      "ATR",
+      "MOMENTUM"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "8089fb6cf8113afdd3baaba6",
+    "components": [
+      "BOLLINGER",
+      "SMA",
+      "TREND_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "ed46eeac75b515aaacc266b2",
+    "components": [
+      "BOLLINGER",
+      "SESSION_FILTER",
+      "EMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "30bf924151ae9c8ae8616656",
+    "components": [
+      "SMA",
+      "PULLBACK",
+      "SESSION_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "65dde49c7eef2ac04b05920e",
+    "components": [
+      "ATR",
+      "BREAKOUT",
+      "TREND_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "b54f7bcc8af26fe75ddd6a62",
+    "components": [
+      "VOLATILITY_FILTER",
+      "TREND_FILTER",
+      "ATR"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "4fb5ac5ddaac2e97bdb28e9d",
+    "components": [
+      "BOLLINGER",
+      "DONCHIAN",
+      "TREND_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "037bae43896398800bee6155",
+    "components": [
+      "RSI",
+      "BREAKOUT",
+      "BOLLINGER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "e8fdef2f151372128e0dd3b4",
+    "components": [
+      "ATR",
+      "SMA",
+      "TREND_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "3d3aed354744a84cad402dea",
+    "components": [
+      "TREND_FILTER",
+      "MOMENTUM",
+      "SMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "1a7090fb35f3dcd0fb9b9c0c",
+    "components": [
+      "RSI",
+      "ATR",
+      "BOLLINGER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "546b20909f39c8d74dd44da2",
+    "components": [
+      "MOMENTUM",
+      "ATR",
+      "PULLBACK"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "9901abf934c355f0633712a3",
+    "components": [
+      "VOLATILITY_FILTER",
+      "PULLBACK",
+      "DONCHIAN"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "b5b0c3770062ccb9213822b6",
+    "components": [
+      "SESSION_FILTER",
+      "TREND_FILTER",
+      "PULLBACK"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "90722ce78c9b98cc4dfb38d9",
+    "components": [
+      "VOLATILITY_FILTER",
+      "TREND_FILTER",
+      "EMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "473bc0aae7c820f625d3e731",
+    "components": [
+      "SMA",
+      "RSI",
+      "DONCHIAN"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "888567974ff0ec106f426c67",
+    "components": [
+      "RSI",
+      "TREND_FILTER",
+      "SMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "1d9f6aa7c5dd5de2869ac140",
+    "components": [
+      "TREND_FILTER",
+      "DONCHIAN",
+      "MOMENTUM"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "bb8cd8c2a5b3629701173238",
+    "components": [
+      "BOLLINGER",
+      "EMA",
+      "SESSION_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "1a6214941b6cd7a4d4f3db99",
+    "components": [
+      "TREND_FILTER",
+      "EMA",
+      "BOLLINGER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "6edd243761ab1c5286504b88",
+    "components": [
+      "BOLLINGER",
+      "MOMENTUM",
+      "RSI"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "68972c279a08a9733a85f43b",
+    "components": [
+      "BOLLINGER",
+      "TREND_FILTER",
+      "PULLBACK"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "87937d1f626c68efc83571ba",
+    "components": [
+      "ATR",
+      "SMA",
+      "EMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "8e59686d27ab6e3c62182c23",
+    "components": [
+      "ATR",
+      "DONCHIAN",
+      "PULLBACK"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "2d68332838791e19f34dd8e3",
+    "components": [
+      "EMA",
+      "SMA",
+      "PULLBACK"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "a5470589c54acd4d7f310d38",
+    "components": [
+      "TREND_FILTER",
+      "ATR",
+      "RSI"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "3a1c75cef45c812a36264aed",
+    "components": [
+      "BREAKOUT",
+      "RSI",
+      "TREND_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "87d7fb0aa114b8295538b3a9",
+    "components": [
+      "BOLLINGER",
+      "VOLATILITY_FILTER",
+      "RSI"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "f560b85dc9ef1a306c54fc6a",
+    "components": [
+      "SMA",
+      "TREND_FILTER",
+      "SESSION_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "e9e6f5348c2b9d3e61b259e6",
+    "components": [
+      "TREND_FILTER",
+      "EMA",
+      "VOLATILITY_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "2a1e82dc1f134b1ad8d57d67",
+    "components": [
+      "SESSION_FILTER",
+      "DONCHIAN",
+      "SMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "1c8a5c99293f002e29b21652",
+    "components": [
+      "BREAKOUT",
+      "DONCHIAN",
+      "PULLBACK"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "095dcbf65d6b8c30f93489a1",
+    "components": [
+      "SMA",
+      "SESSION_FILTER",
+      "DONCHIAN"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "54fd1f54d14fafd3ddee3f08",
+    "components": [
+      "BOLLINGER",
+      "RSI",
+      "ATR"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "5f8727ee9fb790b96cde94b2",
+    "components": [
+      "EMA",
+      "MOMENTUM",
+      "ATR"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "fd8a3bf409020fa1f6883d1c",
+    "components": [
+      "TREND_FILTER",
+      "MOMENTUM",
+      "DONCHIAN"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "3d15a7b96d5b692b7c393815",
+    "components": [
+      "ATR",
+      "PULLBACK",
+      "DONCHIAN"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "b987dc137ede330d38368bb0",
+    "components": [
+      "MOMENTUM",
+      "BOLLINGER",
+      "ATR"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "1616d34cd7e40b911313e4f5",
+    "components": [
+      "SMA",
+      "SESSION_FILTER",
+      "DONCHIAN"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "2816711b6a7a1119fdf39714",
+    "components": [
+      "SESSION_FILTER",
+      "TREND_FILTER",
+      "DONCHIAN"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "76128af10b6852c984a612ed",
+    "components": [
+      "ATR",
+      "MOMENTUM",
+      "RSI"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "d8592788b5695742d0f06266",
+    "components": [
+      "SMA",
+      "BOLLINGER",
+      "BREAKOUT"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "c311872d44710618ffd82c9b",
+    "components": [
+      "DONCHIAN",
+      "ATR",
+      "EMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "91c7043ccdb7bbffb8a18c20",
+    "components": [
+      "MOMENTUM",
+      "EMA",
+      "DONCHIAN"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "80f0a1538d0d59b5886097be",
+    "components": [
+      "BOLLINGER",
+      "RSI",
+      "SESSION_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "c6cf9869f3eeb0bb1b6c6a7c",
+    "components": [
+      "EMA",
+      "VOLATILITY_FILTER",
+      "TREND_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "b227a11c27179581f944c7c6",
+    "components": [
+      "ATR",
+      "MOMENTUM",
+      "TREND_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "27e62ca3fd378908bc2e3d97",
+    "components": [
+      "EMA",
+      "TREND_FILTER",
+      "BOLLINGER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "9a7963dbf84e5bbcf710a198",
+    "components": [
+      "EMA",
+      "SESSION_FILTER",
+      "ATR"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "2d4e4e13c135b27d9eb190db",
+    "components": [
+      "BREAKOUT",
+      "ATR",
+      "EMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "aecb17b2687d612947397392",
+    "components": [
+      "SESSION_FILTER",
+      "BREAKOUT",
+      "BOLLINGER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "2536764d4c3e9e49fd32edd5",
+    "components": [
+      "DONCHIAN",
+      "TREND_FILTER",
+      "SMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "e2bc14cf332b8b8b78ca127d",
+    "components": [
+      "SMA",
+      "EMA",
+      "RSI"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "c8d4bba310ccca5d2b26252b",
+    "components": [
+      "RSI",
+      "SESSION_FILTER",
+      "SMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "2b467f8f7518fbc3ba6fbd82",
+    "components": [
+      "PULLBACK",
+      "VOLATILITY_FILTER",
+      "SMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "61e3fce88f0de4d8452c85e2",
+    "components": [
+      "PULLBACK",
+      "RSI",
+      "ATR"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "40422fe3c02f5907341f0078",
+    "components": [
+      "SESSION_FILTER",
+      "TREND_FILTER",
+      "SMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "1117558fe35d0b1896962fc0",
+    "components": [
+      "RSI",
+      "SMA",
+      "VOLATILITY_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "57e7900dfe2359678c27ae81",
+    "components": [
+      "PULLBACK",
+      "DONCHIAN",
+      "SESSION_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "24e3a0aa39c2feb24e3db706",
+    "components": [
+      "PULLBACK",
+      "MOMENTUM",
+      "ATR"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "86d68f670d1702a14a036d04",
+    "components": [
+      "RSI",
+      "EMA",
+      "SMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "f5e3866025f5f76cdaaf03d7",
+    "components": [
+      "RSI",
+      "EMA",
+      "VOLATILITY_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "8c3fb07d2e8872b090628109",
+    "components": [
+      "TREND_FILTER",
+      "DONCHIAN",
+      "EMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "378c7d210e38fdeea93c770a",
+    "components": [
+      "DONCHIAN",
+      "PULLBACK",
+      "BOLLINGER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "b22bc2850636082ff8ff5901",
+    "components": [
+      "BREAKOUT",
+      "ATR",
+      "PULLBACK"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "dcacae7741a439cabf682b7e",
+    "components": [
+      "SESSION_FILTER",
+      "DONCHIAN",
+      "PULLBACK"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "d94a4cfb145d1a3dcb2fb141",
+    "components": [
+      "SMA",
+      "MOMENTUM",
+      "BREAKOUT"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "398a2a97dc8923e664a1852e",
+    "components": [
+      "BREAKOUT",
+      "MOMENTUM",
+      "SMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "b3c734441947daa41e7e1910",
+    "components": [
+      "RSI",
+      "ATR",
+      "BOLLINGER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "b6e8d84e02c515e7dfe58ec3",
+    "components": [
+      "SMA",
+      "BREAKOUT",
+      "MOMENTUM"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "18474db3f30c35d7f8885386",
+    "components": [
+      "MOMENTUM",
+      "EMA",
+      "RSI"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "f293a6b2ab38f1f7e06dd6f3",
+    "components": [
+      "TREND_FILTER",
+      "RSI",
+      "MOMENTUM"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "ff8a1ad265eae9c57bb12a81",
+    "components": [
+      "SMA",
+      "VOLATILITY_FILTER",
+      "BREAKOUT"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "b29cb61ca10dcb6a370e220a",
+    "components": [
+      "DONCHIAN",
+      "SMA",
+      "EMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "77d1c79096cc968f0264b3e2",
+    "components": [
+      "VOLATILITY_FILTER",
+      "BREAKOUT",
+      "DONCHIAN"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "cb5fc31ebdbecdc837ae677d",
+    "components": [
+      "EMA",
+      "BREAKOUT",
+      "PULLBACK"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "ffa03452f71da19f38672526",
+    "components": [
+      "PULLBACK",
+      "DONCHIAN",
+      "BREAKOUT"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "749817880d62a32e58a160aa",
+    "components": [
+      "ATR",
+      "DONCHIAN",
+      "MOMENTUM"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "149b387658c4a9aaa8297a6d",
+    "components": [
+      "MOMENTUM",
+      "DONCHIAN",
+      "BREAKOUT"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "00bc8a5683a224e4f3211095",
+    "components": [
+      "BOLLINGER",
+      "VOLATILITY_FILTER",
+      "RSI"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "6b5861437da5f69a91ed592a",
+    "components": [
+      "RSI",
+      "DONCHIAN",
+      "SMA"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "e4c87d4c1f909b443bee7536",
+    "components": [
+      "PULLBACK",
+      "SMA",
+      "RSI"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "cea37e551dac6cb12fdcf45b",
+    "components": [
+      "SESSION_FILTER",
+      "DONCHIAN",
+      "VOLATILITY_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "8983abfe90b7f0eaf753c35d",
+    "components": [
+      "BOLLINGER",
+      "SESSION_FILTER",
+      "DONCHIAN"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "190d8e98b585f95c71a78241",
+    "components": [
+      "BOLLINGER",
+      "RSI",
+      "TREND_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "91ae1bcbbcf7e4a0fca86a5b",
+    "components": [
+      "MOMENTUM",
+      "RSI",
+      "ATR"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "4b9cd91ce4e3b42ca9440dc8",
+    "components": [
+      "MOMENTUM",
+      "RSI",
+      "VOLATILITY_FILTER"
+    ],
+    "hypothesis_type": "AUTO_GENERATED",
+    "status": "READY_FOR_BACKTEST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  }
+]

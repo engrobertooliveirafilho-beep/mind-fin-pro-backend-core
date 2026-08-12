@@ -1,0 +1,26 @@
+{
+  "capability_id": "CAP_5F6E27ED792F563E",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\io\\parser\\test_textreader.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pandas\\tests\\io\\parser\\test_textreader.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 113,
+  "imports": [
+    "io",
+    "numpy",
+    "pandas",
+    "pandas._libs.parsers",
+    "pandas._testing",
+    "pandas.errors",
+    "pandas.io.parsers",
+    "pandas.io.parsers.c_parser_wrapper",
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

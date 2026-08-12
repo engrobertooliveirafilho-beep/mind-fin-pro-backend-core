@@ -1,0 +1,18 @@
+P4.27S — REAL VISUAL MEMORY RUNTIME
+
+CLASSIFICATION:
+REAL_OPERATIONAL / GOLD
+
+PROOF:
+- visual_memory_runtime.py created
+- neura_visual_memory schema created
+- neura_visual_analysis schema created
+- media persisted: https://example.com/test-image.jpg
+- last media recovered from database
+- visual analysis persisted
+- last visual analysis recovered with media_url/media_type
+- visual_followup_context returned has_media=True and has_analysis=True
+- directed pytest: 24 passed / 3 skipped / 0 failed
+
+CONCLUSION:
+The old visual gate idea from commit 413621d was reimplemented as persistent Supabase/Postgres visual memory runtime.

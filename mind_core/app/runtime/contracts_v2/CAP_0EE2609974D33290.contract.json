@@ -1,0 +1,26 @@
+{
+  "capability_id": "CAP_0EE2609974D33290",
+  "source_file": ".venv\\Lib\\site-packages\\websockets\\proxy.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\websockets\\proxy.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 106,
+  "imports": [
+    "__future__",
+    "dataclasses",
+    "datastructures",
+    "exceptions",
+    "headers",
+    "http11",
+    "uri",
+    "urllib.parse",
+    "urllib.request"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

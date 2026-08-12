@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_B3CA02A6E422E323",
+  "source_file": "mind_trader\\app\\data\\market_data_connector.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\data\\mind_trader\\app\\data\\market_data_connector.py",
+  "domain": "DATA",
+  "target_layer": "app/runtime",
+  "promotion_score": 99,
+  "imports": [
+    "datetime",
+    "json",
+    "mind_trader.app.data.data_catalog",
+    "mind_trader.app.data.dataset_lineage",
+    "mind_trader.app.data.ingestion_adapters",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

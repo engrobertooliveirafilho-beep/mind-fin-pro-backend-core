@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_AAB00D690F16DBD5",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\f2py\\f2py2e.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\.venv\\Lib\\site-packages\\numpy\\f2py\\f2py2e.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 116,
+  "imports": [
+    "argparse",
+    "cfuncs",
+    "numpy.distutils",
+    "numpy.distutils.system_info",
+    "numpy.f2py._backends",
+    "os",
+    "pprint",
+    "re",
+    "sys",
+    "tempfile"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

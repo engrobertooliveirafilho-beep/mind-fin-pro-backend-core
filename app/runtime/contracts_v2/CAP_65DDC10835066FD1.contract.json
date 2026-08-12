@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_65DDC10835066FD1",
+  "source_file": "app\\modules\\usde_core\\experiment_runner.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\app\\modules\\usde_core\\experiment_runner.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 108,
+  "imports": [
+    "__future__",
+    "app.modules.usde_core.ingestors",
+    "app.modules.usde_core.ledger",
+    "app.modules.usde_core.usde_core",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

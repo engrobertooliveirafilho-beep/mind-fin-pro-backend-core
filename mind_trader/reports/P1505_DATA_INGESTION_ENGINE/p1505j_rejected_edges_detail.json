@@ -1,0 +1,7364 @@
+[
+  {
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 32,
+    "profit_factor": 0.994603,
+    "max_drawdown_proxy": 0.097506,
+    "score": 0.90624,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 24,
+    "profit_factor": 1.104394,
+    "max_drawdown_proxy": 0.053419,
+    "score": 1.04839,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 12,
+    "profit_factor": 0.939007,
+    "max_drawdown_proxy": 0.089677,
+    "score": 0.86173,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 30,
+    "profit_factor": 1.016241,
+    "max_drawdown_proxy": 0.074821,
+    "score": 0.945499,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 18,
+    "profit_factor": 1.023828,
+    "max_drawdown_proxy": 0.054401,
+    "score": 0.971005,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 11,
+    "profit_factor": 1.082813,
+    "max_drawdown_proxy": 0.043709,
+    "score": 1.037466,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "params": [
+      14,
+      30,
+      70
+    ],
+    "trades": 14,
+    "profit_factor": 1.023501,
+    "max_drawdown_proxy": 0.042174,
+    "score": 0.982083,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "trades": 84,
+    "profit_factor": 0.721787,
+    "max_drawdown_proxy": 0.059585,
+    "score": 0.681198,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "trades": 58,
+    "profit_factor": 0.617343,
+    "max_drawdown_proxy": 0.047848,
+    "score": 0.589153,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "trades": 84,
+    "profit_factor": 0.721787,
+    "max_drawdown_proxy": 0.059585,
+    "score": 0.681198,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "trades": 64,
+    "profit_factor": 0.593124,
+    "max_drawdown_proxy": 0.061433,
+    "score": 0.558795,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 36,
+    "profit_factor": 1.27274,
+    "max_drawdown_proxy": 0.026616,
+    "score": 1.239744,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 30,
+    "profit_factor": 0.885745,
+    "max_drawdown_proxy": 0.042602,
+    "score": 0.849552,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 92,
+    "profit_factor": 0.991654,
+    "max_drawdown_proxy": 0.181057,
+    "score": 0.839633,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 76,
+    "profit_factor": 1.027467,
+    "max_drawdown_proxy": 0.150148,
+    "score": 0.893335,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 42,
+    "profit_factor": 0.896031,
+    "max_drawdown_proxy": 0.283202,
+    "score": 0.698278,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF",
+      "HIGH_DD"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 80,
+    "profit_factor": 0.956189,
+    "max_drawdown_proxy": 0.184973,
+    "score": 0.806929,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 58,
+    "profit_factor": 0.923547,
+    "max_drawdown_proxy": 0.230448,
+    "score": 0.750578,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 31,
+    "profit_factor": 0.945476,
+    "max_drawdown_proxy": 0.221948,
+    "score": 0.773745,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "params": [
+      14,
+      30,
+      70
+    ],
+    "trades": 70,
+    "profit_factor": 0.952697,
+    "max_drawdown_proxy": 0.09283,
+    "score": 0.87177,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "trades": 204,
+    "profit_factor": 0.787082,
+    "max_drawdown_proxy": 0.116329,
+    "score": 0.705063,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "trades": 136,
+    "profit_factor": 0.761778,
+    "max_drawdown_proxy": 0.091774,
+    "score": 0.697743,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "trades": 204,
+    "profit_factor": 0.787082,
+    "max_drawdown_proxy": 0.116329,
+    "score": 0.705063,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "trades": 142,
+    "profit_factor": 0.736284,
+    "max_drawdown_proxy": 0.101094,
+    "score": 0.668685,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 144,
+    "profit_factor": 0.904093,
+    "max_drawdown_proxy": 0.095987,
+    "score": 0.824913,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 96,
+    "profit_factor": 0.677414,
+    "max_drawdown_proxy": 0.135523,
+    "score": 0.596566,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 27,
+    "profit_factor": 0.859905,
+    "max_drawdown_proxy": 0.017751,
+    "score": 0.844907,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 25,
+    "profit_factor": 0.722436,
+    "max_drawdown_proxy": 0.022189,
+    "score": 0.706754,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 9,
+    "profit_factor": 0.88569,
+    "max_drawdown_proxy": 0.010694,
+    "score": 0.876319,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 27,
+    "profit_factor": 0.791127,
+    "max_drawdown_proxy": 0.018275,
+    "score": 0.776929,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 17,
+    "profit_factor": 0.74705,
+    "max_drawdown_proxy": 0.020818,
+    "score": 0.731816,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 13,
+    "profit_factor": 0.722441,
+    "max_drawdown_proxy": 0.021029,
+    "score": 0.707562,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "RSI_REVERSION",
+    "params": [
+      14,
+      30,
+      70
+    ],
+    "trades": 34,
+    "profit_factor": 1.160209,
+    "max_drawdown_proxy": 0.004914,
+    "score": 1.154535,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "RSI_REVERSION",
+    "params": [
+      10,
+      25,
+      75
+    ],
+    "trades": 46,
+    "profit_factor": 1.183845,
+    "max_drawdown_proxy": 0.007598,
+    "score": 1.174918,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "trades": 48,
+    "profit_factor": 0.680656,
+    "max_drawdown_proxy": 0.01103,
+    "score": 0.67323,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "trades": 16,
+    "profit_factor": 0.594646,
+    "max_drawdown_proxy": 0.003763,
+    "score": 0.592417,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "trades": 48,
+    "profit_factor": 0.680656,
+    "max_drawdown_proxy": 0.01103,
+    "score": 0.67323,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "trades": 18,
+    "profit_factor": 0.598687,
+    "max_drawdown_proxy": 0.003763,
+    "score": 0.596443,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 38,
+    "profit_factor": 0.611342,
+    "max_drawdown_proxy": 0.014994,
+    "score": 0.602312,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 26,
+    "profit_factor": 0.848563,
+    "max_drawdown_proxy": 0.003973,
+    "score": 0.845205,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      20,
+      2
+    ],
+    "trades": 36,
+    "profit_factor": 0.74607,
+    "max_drawdown_proxy": 0.01423,
+    "score": 0.735602,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      30,
+      2
+    ],
+    "trades": 26,
+    "profit_factor": 0.762349,
+    "max_drawdown_proxy": 0.011173,
+    "score": 0.753925,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 283,
+    "profit_factor": 1.104989,
+    "max_drawdown_proxy": 0.033185,
+    "score": 1.069498,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 233,
+    "profit_factor": 1.080875,
+    "max_drawdown_proxy": 0.030318,
+    "score": 1.04907,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 109,
+    "profit_factor": 1.051354,
+    "max_drawdown_proxy": 0.039869,
+    "score": 1.011045,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 231,
+    "profit_factor": 1.02244,
+    "max_drawdown_proxy": 0.048375,
+    "score": 0.975262,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 167,
+    "profit_factor": 1.027967,
+    "max_drawdown_proxy": 0.044207,
+    "score": 0.984447,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 95,
+    "profit_factor": 1.036025,
+    "max_drawdown_proxy": 0.046314,
+    "score": 0.990166,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "RSI_REVERSION",
+    "params": [
+      14,
+      30,
+      70
+    ],
+    "trades": 304,
+    "profit_factor": 1.277116,
+    "max_drawdown_proxy": 0.022703,
+    "score": 1.248765,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "RSI_REVERSION",
+    "params": [
+      10,
+      25,
+      75
+    ],
+    "trades": 360,
+    "profit_factor": 1.373225,
+    "max_drawdown_proxy": 0.017206,
+    "score": 1.349997,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "trades": 688,
+    "profit_factor": 0.940927,
+    "max_drawdown_proxy": 0.028549,
+    "score": 0.91481,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "trades": 416,
+    "profit_factor": 0.934022,
+    "max_drawdown_proxy": 0.01904,
+    "score": 0.916571,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "trades": 688,
+    "profit_factor": 0.940927,
+    "max_drawdown_proxy": 0.028549,
+    "score": 0.91481,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "trades": 444,
+    "profit_factor": 0.968828,
+    "max_drawdown_proxy": 0.020391,
+    "score": 0.949467,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 480,
+    "profit_factor": 0.978647,
+    "max_drawdown_proxy": 0.032461,
+    "score": 0.947878,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 346,
+    "profit_factor": 0.967765,
+    "max_drawdown_proxy": 0.030813,
+    "score": 0.938837,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      20,
+      2
+    ],
+    "trades": 304,
+    "profit_factor": 1.283781,
+    "max_drawdown_proxy": 0.017949,
+    "score": 1.261145,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      30,
+      2
+    ],
+    "trades": 254,
+    "profit_factor": 1.365565,
+    "max_drawdown_proxy": 0.013642,
+    "score": 1.347186,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 33,
+    "profit_factor": 0.981066,
+    "max_drawdown_proxy": 0.025054,
+    "score": 0.957087,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 29,
+    "profit_factor": 0.927221,
+    "max_drawdown_proxy": 0.036401,
+    "score": 0.894655,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 16,
+    "profit_factor": 0.862739,
+    "max_drawdown_proxy": 0.040821,
+    "score": 0.828903,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 33,
+    "profit_factor": 0.872778,
+    "max_drawdown_proxy": 0.04002,
+    "score": 0.839194,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 28,
+    "profit_factor": 0.867057,
+    "max_drawdown_proxy": 0.04284,
+    "score": 0.831439,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 14,
+    "profit_factor": 0.784415,
+    "max_drawdown_proxy": 0.060679,
+    "score": 0.73954,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "RSI_REVERSION",
+    "params": [
+      14,
+      30,
+      70
+    ],
+    "trades": 38,
+    "profit_factor": 1.296644,
+    "max_drawdown_proxy": 0.021453,
+    "score": 1.269411,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "trades": 60,
+    "profit_factor": 1.01524,
+    "max_drawdown_proxy": 0.016863,
+    "score": 0.998404,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "trades": 28,
+    "profit_factor": 0.972804,
+    "max_drawdown_proxy": 0.009569,
+    "score": 0.963583,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "trades": 60,
+    "profit_factor": 1.01524,
+    "max_drawdown_proxy": 0.016863,
+    "score": 0.998404,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "trades": 28,
+    "profit_factor": 0.972804,
+    "max_drawdown_proxy": 0.009569,
+    "score": 0.963583,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 38,
+    "profit_factor": 1.236752,
+    "max_drawdown_proxy": 0.009396,
+    "score": 1.225241,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 32,
+    "profit_factor": 0.654937,
+    "max_drawdown_proxy": 0.017494,
+    "score": 0.643676,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      20,
+      2
+    ],
+    "trades": 28,
+    "profit_factor": 1.282109,
+    "max_drawdown_proxy": 0.008052,
+    "score": 1.271867,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      30,
+      2
+    ],
+    "trades": 20,
+    "profit_factor": 1.31286,
+    "max_drawdown_proxy": 0.012847,
+    "score": 1.296208,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 187,
+    "profit_factor": 1.027217,
+    "max_drawdown_proxy": 0.087346,
+    "score": 0.944701,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 149,
+    "profit_factor": 1.062933,
+    "max_drawdown_proxy": 0.071824,
+    "score": 0.991705,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 74,
+    "profit_factor": 0.975976,
+    "max_drawdown_proxy": 0.107268,
+    "score": 0.881427,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 137,
+    "profit_factor": 1.025424,
+    "max_drawdown_proxy": 0.083072,
+    "score": 0.946774,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 113,
+    "profit_factor": 0.990978,
+    "max_drawdown_proxy": 0.10715,
+    "score": 0.895071,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 62,
+    "profit_factor": 0.975267,
+    "max_drawdown_proxy": 0.107609,
+    "score": 0.880516,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "RSI_REVERSION",
+    "params": [
+      14,
+      30,
+      70
+    ],
+    "trades": 216,
+    "profit_factor": 1.231308,
+    "max_drawdown_proxy": 0.037257,
+    "score": 1.18708,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "trades": 412,
+    "profit_factor": 0.803867,
+    "max_drawdown_proxy": 0.101288,
+    "score": 0.729934,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "trades": 256,
+    "profit_factor": 0.72755,
+    "max_drawdown_proxy": 0.081246,
+    "score": 0.672881,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "trades": 412,
+    "profit_factor": 0.803867,
+    "max_drawdown_proxy": 0.101288,
+    "score": 0.729934,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "trades": 264,
+    "profit_factor": 0.714141,
+    "max_drawdown_proxy": 0.085628,
+    "score": 0.657813,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 272,
+    "profit_factor": 1.033814,
+    "max_drawdown_proxy": 0.067505,
+    "score": 0.968439,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 188,
+    "profit_factor": 0.962026,
+    "max_drawdown_proxy": 0.049426,
+    "score": 0.916717,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      20,
+      2
+    ],
+    "trades": 172,
+    "profit_factor": 1.300149,
+    "max_drawdown_proxy": 0.043254,
+    "score": 1.246245,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      30,
+      2
+    ],
+    "trades": 154,
+    "profit_factor": 1.439321,
+    "max_drawdown_proxy": 0.039779,
+    "score": 1.384257,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 34,
+    "profit_factor": 1.042854,
+    "max_drawdown_proxy": 0.002252,
+    "score": 1.040511,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 28,
+    "profit_factor": 1.03026,
+    "max_drawdown_proxy": 0.002096,
+    "score": 1.028104,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 14,
+    "profit_factor": 0.808849,
+    "max_drawdown_proxy": 0.003119,
+    "score": 0.806334,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 34,
+    "profit_factor": 0.875005,
+    "max_drawdown_proxy": 0.002751,
+    "score": 0.872604,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 26,
+    "profit_factor": 0.782199,
+    "max_drawdown_proxy": 0.004349,
+    "score": 0.778812,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 18,
+    "profit_factor": 0.834019,
+    "max_drawdown_proxy": 0.003529,
+    "score": 0.831086,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "trades": 44,
+    "profit_factor": 1.019675,
+    "max_drawdown_proxy": 0.000922,
+    "score": 1.018735,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "trades": 18,
+    "profit_factor": 0.683311,
+    "max_drawdown_proxy": 0.000936,
+    "score": 0.682672,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "trades": 44,
+    "profit_factor": 1.019675,
+    "max_drawdown_proxy": 0.000922,
+    "score": 1.018735,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "trades": 22,
+    "profit_factor": 0.582635,
+    "max_drawdown_proxy": 0.001248,
+    "score": 0.581909,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 34,
+    "profit_factor": 1.031563,
+    "max_drawdown_proxy": 0.001191,
+    "score": 1.030336,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 26,
+    "profit_factor": 0.6955,
+    "max_drawdown_proxy": 0.001644,
+    "score": 0.694358,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      30,
+      2
+    ],
+    "trades": 20,
+    "profit_factor": 1.196061,
+    "max_drawdown_proxy": 0.000625,
+    "score": 1.195314,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 26,
+    "profit_factor": 0.969941,
+    "max_drawdown_proxy": 0.009172,
+    "score": 0.961126,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 24,
+    "profit_factor": 0.932251,
+    "max_drawdown_proxy": 0.009306,
+    "score": 0.923655,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 11,
+    "profit_factor": 0.956205,
+    "max_drawdown_proxy": 0.008852,
+    "score": 0.947815,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 29,
+    "profit_factor": 0.832443,
+    "max_drawdown_proxy": 0.009762,
+    "score": 0.824395,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 23,
+    "profit_factor": 0.821885,
+    "max_drawdown_proxy": 0.010756,
+    "score": 0.813139,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 11,
+    "profit_factor": 0.873003,
+    "max_drawdown_proxy": 0.00954,
+    "score": 0.864753,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "family": "RSI_REVERSION",
+    "params": [
+      10,
+      25,
+      75
+    ],
+    "trades": 30,
+    "profit_factor": 0.909012,
+    "max_drawdown_proxy": 0.003057,
+    "score": 0.906242,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "trades": 42,
+    "profit_factor": 1.322627,
+    "max_drawdown_proxy": 0.003006,
+    "score": 1.318662,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "trades": 24,
+    "profit_factor": 0.341466,
+    "max_drawdown_proxy": 0.003769,
+    "score": 0.340184,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "trades": 42,
+    "profit_factor": 1.322627,
+    "max_drawdown_proxy": 0.003006,
+    "score": 1.318662,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "trades": 24,
+    "profit_factor": 0.341466,
+    "max_drawdown_proxy": 0.003769,
+    "score": 0.340184,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 34,
+    "profit_factor": 1.204408,
+    "max_drawdown_proxy": 0.004125,
+    "score": 1.19946,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 22,
+    "profit_factor": 0.670768,
+    "max_drawdown_proxy": 0.003956,
+    "score": 0.668125,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      30,
+      2
+    ],
+    "trades": 28,
+    "profit_factor": 1.095341,
+    "max_drawdown_proxy": 0.003057,
+    "score": 1.092002,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 333,
+    "profit_factor": 1.042592,
+    "max_drawdown_proxy": 0.028379,
+    "score": 1.013821,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 257,
+    "profit_factor": 1.05412,
+    "max_drawdown_proxy": 0.016292,
+    "score": 1.037221,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 107,
+    "profit_factor": 1.090945,
+    "max_drawdown_proxy": 0.016798,
+    "score": 1.072923,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 235,
+    "profit_factor": 1.043232,
+    "max_drawdown_proxy": 0.029681,
+    "score": 1.01316,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 183,
+    "profit_factor": 1.052725,
+    "max_drawdown_proxy": 0.022634,
+    "score": 1.029424,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 85,
+    "profit_factor": 1.050561,
+    "max_drawdown_proxy": 0.020114,
+    "score": 1.029846,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "family": "RSI_REVERSION",
+    "params": [
+      10,
+      25,
+      75
+    ],
+    "trades": 360,
+    "profit_factor": 1.129201,
+    "max_drawdown_proxy": 0.011968,
+    "score": 1.115846,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "trades": 578,
+    "profit_factor": 1.129067,
+    "max_drawdown_proxy": 0.012171,
+    "score": 1.11549,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "trades": 360,
+    "profit_factor": 1.216128,
+    "max_drawdown_proxy": 0.010742,
+    "score": 1.203204,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "trades": 578,
+    "profit_factor": 1.129067,
+    "max_drawdown_proxy": 0.012171,
+    "score": 1.11549,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "trades": 378,
+    "profit_factor": 1.204219,
+    "max_drawdown_proxy": 0.010445,
+    "score": 1.191771,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 410,
+    "profit_factor": 1.151725,
+    "max_drawdown_proxy": 0.013887,
+    "score": 1.13595,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 260,
+    "profit_factor": 1.149533,
+    "max_drawdown_proxy": 0.012834,
+    "score": 1.134967,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      30,
+      2
+    ],
+    "trades": 278,
+    "profit_factor": 1.157495,
+    "max_drawdown_proxy": 0.00904,
+    "score": 1.147125,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 316,
+    "profit_factor": 1.057411,
+    "max_drawdown_proxy": 0.007375,
+    "score": 1.049669,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 262,
+    "profit_factor": 1.041043,
+    "max_drawdown_proxy": 0.007458,
+    "score": 1.033337,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 126,
+    "profit_factor": 0.99545,
+    "max_drawdown_proxy": 0.008003,
+    "score": 0.987546,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 260,
+    "profit_factor": 1.00726,
+    "max_drawdown_proxy": 0.006711,
+    "score": 1.000546,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 206,
+    "profit_factor": 0.984529,
+    "max_drawdown_proxy": 0.00748,
+    "score": 0.97722,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 106,
+    "profit_factor": 0.953147,
+    "max_drawdown_proxy": 0.010214,
+    "score": 0.94351,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "trades": 538,
+    "profit_factor": 1.04876,
+    "max_drawdown_proxy": 0.005566,
+    "score": 1.042955,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "trades": 248,
+    "profit_factor": 1.363942,
+    "max_drawdown_proxy": 0.00241,
+    "score": 1.360663,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "trades": 538,
+    "profit_factor": 1.04876,
+    "max_drawdown_proxy": 0.005566,
+    "score": 1.042955,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "trades": 266,
+    "profit_factor": 1.383181,
+    "max_drawdown_proxy": 0.002126,
+    "score": 1.380246,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 428,
+    "profit_factor": 1.042374,
+    "max_drawdown_proxy": 0.007386,
+    "score": 1.034732,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 294,
+    "profit_factor": 1.053432,
+    "max_drawdown_proxy": 0.005455,
+    "score": 1.047717,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      30,
+      2
+    ],
+    "trades": 284,
+    "profit_factor": 1.419691,
+    "max_drawdown_proxy": 0.001823,
+    "score": 1.417108,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 37,
+    "profit_factor": 0.775382,
+    "max_drawdown_proxy": 0.017691,
+    "score": 0.761903,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 33,
+    "profit_factor": 0.801658,
+    "max_drawdown_proxy": 0.016643,
+    "score": 0.788534,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 11,
+    "profit_factor": 0.60857,
+    "max_drawdown_proxy": 0.019725,
+    "score": 0.596798,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 25,
+    "profit_factor": 0.840326,
+    "max_drawdown_proxy": 0.014527,
+    "score": 0.828293,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 15,
+    "profit_factor": 0.839542,
+    "max_drawdown_proxy": 0.014682,
+    "score": 0.827394,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 7,
+    "profit_factor": 0.732848,
+    "max_drawdown_proxy": 0.017706,
+    "score": 0.720098,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "RSI_REVERSION",
+    "params": [
+      14,
+      30,
+      70
+    ],
+    "trades": 42,
+    "profit_factor": 0.802637,
+    "max_drawdown_proxy": 0.012434,
+    "score": 0.79278,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "RSI_REVERSION",
+    "params": [
+      10,
+      25,
+      75
+    ],
+    "trades": 34,
+    "profit_factor": 0.708616,
+    "max_drawdown_proxy": 0.011224,
+    "score": 0.700751,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "trades": 38,
+    "profit_factor": 0.569625,
+    "max_drawdown_proxy": 0.005486,
+    "score": 0.566517,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "trades": 12,
+    "profit_factor": 0.809499,
+    "max_drawdown_proxy": 0.003356,
+    "score": 0.806791,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "trades": 38,
+    "profit_factor": 0.569625,
+    "max_drawdown_proxy": 0.005486,
+    "score": 0.566517,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "trades": 12,
+    "profit_factor": 0.809499,
+    "max_drawdown_proxy": 0.003356,
+    "score": 0.806791,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 28,
+    "profit_factor": 0.861445,
+    "max_drawdown_proxy": 0.006841,
+    "score": 0.855591,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 14,
+    "profit_factor": 1.17631,
+    "max_drawdown_proxy": 0.002653,
+    "score": 1.173197,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      20,
+      2
+    ],
+    "trades": 24,
+    "profit_factor": 0.503275,
+    "max_drawdown_proxy": 0.012573,
+    "score": 0.497026,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      30,
+      2
+    ],
+    "trades": 26,
+    "profit_factor": 0.551654,
+    "max_drawdown_proxy": 0.013511,
+    "score": 0.5443,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 325,
+    "profit_factor": 1.006675,
+    "max_drawdown_proxy": 0.067336,
+    "score": 0.943166,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 269,
+    "profit_factor": 1.025688,
+    "max_drawdown_proxy": 0.06894,
+    "score": 0.959537,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 111,
+    "profit_factor": 1.029689,
+    "max_drawdown_proxy": 0.043481,
+    "score": 0.986783,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 215,
+    "profit_factor": 1.035609,
+    "max_drawdown_proxy": 0.055217,
+    "score": 0.981419,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 173,
+    "profit_factor": 1.043982,
+    "max_drawdown_proxy": 0.050725,
+    "score": 0.993582,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 87,
+    "profit_factor": 1.017879,
+    "max_drawdown_proxy": 0.043381,
+    "score": 0.975558,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "RSI_REVERSION",
+    "params": [
+      14,
+      30,
+      70
+    ],
+    "trades": 344,
+    "profit_factor": 1.274329,
+    "max_drawdown_proxy": 0.022492,
+    "score": 1.246297,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "RSI_REVERSION",
+    "params": [
+      10,
+      25,
+      75
+    ],
+    "trades": 346,
+    "profit_factor": 1.233756,
+    "max_drawdown_proxy": 0.017827,
+    "score": 1.212147,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "trades": 600,
+    "profit_factor": 1.011447,
+    "max_drawdown_proxy": 0.042674,
+    "score": 0.970051,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "trades": 346,
+    "profit_factor": 1.118968,
+    "max_drawdown_proxy": 0.023083,
+    "score": 1.093721,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "trades": 600,
+    "profit_factor": 1.011447,
+    "max_drawdown_proxy": 0.042674,
+    "score": 0.970051,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "trades": 364,
+    "profit_factor": 1.154284,
+    "max_drawdown_proxy": 0.024343,
+    "score": 1.126853,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 426,
+    "profit_factor": 1.008485,
+    "max_drawdown_proxy": 0.036959,
+    "score": 0.972541,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 260,
+    "profit_factor": 1.097367,
+    "max_drawdown_proxy": 0.030626,
+    "score": 1.064757,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      20,
+      2
+    ],
+    "trades": 278,
+    "profit_factor": 1.232245,
+    "max_drawdown_proxy": 0.016953,
+    "score": 1.211703,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      30,
+      2
+    ],
+    "trades": 272,
+    "profit_factor": 1.229488,
+    "max_drawdown_proxy": 0.016505,
+    "score": 1.209525,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M5",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 36,
+    "profit_factor": 0.845155,
+    "max_drawdown_proxy": 0.005752,
+    "score": 0.840322,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M5",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 32,
+    "profit_factor": 0.994406,
+    "max_drawdown_proxy": 0.004529,
+    "score": 0.989922,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M5",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 8,
+    "profit_factor": 1.147531,
+    "max_drawdown_proxy": 0.005001,
+    "score": 1.141821,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M5",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 22,
+    "profit_factor": 1.082267,
+    "max_drawdown_proxy": 0.003472,
+    "score": 1.078522,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M5",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 20,
+    "profit_factor": 0.996138,
+    "max_drawdown_proxy": 0.005791,
+    "score": 0.990403,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M5",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 16,
+    "profit_factor": 0.948008,
+    "max_drawdown_proxy": 0.007091,
+    "score": 0.941333,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M5",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "trades": 58,
+    "profit_factor": 0.812146,
+    "max_drawdown_proxy": 0.00479,
+    "score": 0.808274,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M5",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "trades": 58,
+    "profit_factor": 0.812146,
+    "max_drawdown_proxy": 0.00479,
+    "score": 0.808274,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M5",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 30,
+    "profit_factor": 1.087118,
+    "max_drawdown_proxy": 0.002967,
+    "score": 1.083902,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M5",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 32,
+    "profit_factor": 0.188504,
+    "max_drawdown_proxy": 0.006747,
+    "score": 0.187241,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M5",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      20,
+      2
+    ],
+    "trades": 34,
+    "profit_factor": 1.1097,
+    "max_drawdown_proxy": 0.001401,
+    "score": 1.108147,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M5",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      30,
+      2
+    ],
+    "trades": 36,
+    "profit_factor": 1.426913,
+    "max_drawdown_proxy": 0.00133,
+    "score": 1.425018,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M5",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 324,
+    "profit_factor": 0.962858,
+    "max_drawdown_proxy": 0.012568,
+    "score": 0.950907,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M5",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 276,
+    "profit_factor": 0.960613,
+    "max_drawdown_proxy": 0.017394,
+    "score": 0.94419,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M5",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 131,
+    "profit_factor": 0.964714,
+    "max_drawdown_proxy": 0.018077,
+    "score": 0.947584,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M5",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 226,
+    "profit_factor": 0.973235,
+    "max_drawdown_proxy": 0.016937,
+    "score": 0.957026,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M5",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 190,
+    "profit_factor": 0.935642,
+    "max_drawdown_proxy": 0.022198,
+    "score": 0.915324,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M5",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 111,
+    "profit_factor": 0.934055,
+    "max_drawdown_proxy": 0.02295,
+    "score": 0.913099,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M5",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "trades": 520,
+    "profit_factor": 0.891305,
+    "max_drawdown_proxy": 0.012625,
+    "score": 0.880193,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M5",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "trades": 520,
+    "profit_factor": 0.891305,
+    "max_drawdown_proxy": 0.012625,
+    "score": 0.880193,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M5",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 370,
+    "profit_factor": 0.885479,
+    "max_drawdown_proxy": 0.01581,
+    "score": 0.871698,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M5",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 236,
+    "profit_factor": 0.819746,
+    "max_drawdown_proxy": 0.013472,
+    "score": 0.808849,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M5",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      20,
+      2
+    ],
+    "trades": 342,
+    "profit_factor": 1.174075,
+    "max_drawdown_proxy": 0.008447,
+    "score": 1.164241,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M5",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      30,
+      2
+    ],
+    "trades": 321,
+    "profit_factor": 1.29731,
+    "max_drawdown_proxy": 0.005585,
+    "score": 1.290105,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 30,
+    "profit_factor": 1.125542,
+    "max_drawdown_proxy": 0.053127,
+    "score": 1.068762,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 30,
+    "profit_factor": 1.070867,
+    "max_drawdown_proxy": 0.075024,
+    "score": 0.996134,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 12,
+    "profit_factor": 1.13449,
+    "max_drawdown_proxy": 0.048752,
+    "score": 1.081753,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 18,
+    "profit_factor": 1.169848,
+    "max_drawdown_proxy": 0.041235,
+    "score": 1.12352,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 16,
+    "profit_factor": 1.090717,
+    "max_drawdown_proxy": 0.060094,
+    "score": 1.028887,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 8,
+    "profit_factor": 1.110237,
+    "max_drawdown_proxy": 0.047771,
+    "score": 1.059618,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "params": [
+      14,
+      30,
+      70
+    ],
+    "trades": 24,
+    "profit_factor": 1.172558,
+    "max_drawdown_proxy": 0.033623,
+    "score": 1.134416,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "params": [
+      10,
+      25,
+      75
+    ],
+    "trades": 30,
+    "profit_factor": 0.988741,
+    "max_drawdown_proxy": 0.023594,
+    "score": 0.965951,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "trades": 50,
+    "profit_factor": 1.411187,
+    "max_drawdown_proxy": 0.022109,
+    "score": 1.380661,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "trades": 50,
+    "profit_factor": 1.411187,
+    "max_drawdown_proxy": 0.022109,
+    "score": 1.380661,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "trades": 28,
+    "profit_factor": 1.643981,
+    "max_drawdown_proxy": 0.01471,
+    "score": 1.62015,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 42,
+    "profit_factor": 1.027182,
+    "max_drawdown_proxy": 0.047176,
+    "score": 0.980906,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 26,
+    "profit_factor": 1.237394,
+    "max_drawdown_proxy": 0.02057,
+    "score": 1.212454,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      20,
+      2
+    ],
+    "trades": 30,
+    "profit_factor": 1.609296,
+    "max_drawdown_proxy": 0.01755,
+    "score": 1.58154,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 82,
+    "profit_factor": 1.063307,
+    "max_drawdown_proxy": 0.123698,
+    "score": 0.946257,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 74,
+    "profit_factor": 1.032939,
+    "max_drawdown_proxy": 0.14135,
+    "score": 0.905016,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 34,
+    "profit_factor": 1.072053,
+    "max_drawdown_proxy": 0.079756,
+    "score": 0.992866,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 58,
+    "profit_factor": 1.0762,
+    "max_drawdown_proxy": 0.084456,
+    "score": 0.992387,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 46,
+    "profit_factor": 1.037515,
+    "max_drawdown_proxy": 0.112391,
+    "score": 0.932689,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 24,
+    "profit_factor": 1.024015,
+    "max_drawdown_proxy": 0.077802,
+    "score": 0.950096,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "params": [
+      14,
+      30,
+      70
+    ],
+    "trades": 110,
+    "profit_factor": 1.183323,
+    "max_drawdown_proxy": 0.033623,
+    "score": 1.14483,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "params": [
+      10,
+      25,
+      75
+    ],
+    "trades": 100,
+    "profit_factor": 1.178681,
+    "max_drawdown_proxy": 0.024238,
+    "score": 1.150788,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "trades": 170,
+    "profit_factor": 0.871039,
+    "max_drawdown_proxy": 0.086867,
+    "score": 0.801422,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "trades": 170,
+    "profit_factor": 0.871039,
+    "max_drawdown_proxy": 0.086867,
+    "score": 0.801422,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "trades": 96,
+    "profit_factor": 1.154047,
+    "max_drawdown_proxy": 0.026366,
+    "score": 1.124401,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 138,
+    "profit_factor": 0.819825,
+    "max_drawdown_proxy": 0.122655,
+    "score": 0.730255,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 70,
+    "profit_factor": 1.034356,
+    "max_drawdown_proxy": 0.043789,
+    "score": 0.990963,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      20,
+      2
+    ],
+    "trades": 90,
+    "profit_factor": 0.955131,
+    "max_drawdown_proxy": 0.070883,
+    "score": 0.89191,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 31,
+    "profit_factor": 0.823202,
+    "max_drawdown_proxy": 0.012517,
+    "score": 0.813025,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 25,
+    "profit_factor": 0.689207,
+    "max_drawdown_proxy": 0.020748,
+    "score": 0.675198,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 19,
+    "profit_factor": 0.550259,
+    "max_drawdown_proxy": 0.026263,
+    "score": 0.536177,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 31,
+    "profit_factor": 0.704288,
+    "max_drawdown_proxy": 0.018122,
+    "score": 0.691752,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 27,
+    "profit_factor": 0.666643,
+    "max_drawdown_proxy": 0.020366,
+    "score": 0.653337,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 17,
+    "profit_factor": 0.578567,
+    "max_drawdown_proxy": 0.020728,
+    "score": 0.566818,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "RSI_REVERSION",
+    "params": [
+      14,
+      30,
+      70
+    ],
+    "trades": 36,
+    "profit_factor": 1.33356,
+    "max_drawdown_proxy": 0.005418,
+    "score": 1.326373,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "RSI_REVERSION",
+    "params": [
+      10,
+      25,
+      75
+    ],
+    "trades": 38,
+    "profit_factor": 1.402965,
+    "max_drawdown_proxy": 0.004308,
+    "score": 1.396946,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "trades": 46,
+    "profit_factor": 0.905297,
+    "max_drawdown_proxy": 0.004904,
+    "score": 0.900879,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "trades": 14,
+    "profit_factor": 1.017267,
+    "max_drawdown_proxy": 0.001368,
+    "score": 1.015877,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "trades": 46,
+    "profit_factor": 0.905297,
+    "max_drawdown_proxy": 0.004904,
+    "score": 0.900879,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "trades": 14,
+    "profit_factor": 1.017267,
+    "max_drawdown_proxy": 0.001368,
+    "score": 1.015877,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 42,
+    "profit_factor": 0.619407,
+    "max_drawdown_proxy": 0.006962,
+    "score": 0.615124,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 34,
+    "profit_factor": 0.287529,
+    "max_drawdown_proxy": 0.009401,
+    "score": 0.284851,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      20,
+      2
+    ],
+    "trades": 42,
+    "profit_factor": 1.537053,
+    "max_drawdown_proxy": 0.005913,
+    "score": 1.528018,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      30,
+      2
+    ],
+    "trades": 24,
+    "profit_factor": 0.977601,
+    "max_drawdown_proxy": 0.006172,
+    "score": 0.971605,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 311,
+    "profit_factor": 0.997298,
+    "max_drawdown_proxy": 0.03327,
+    "score": 0.965186,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 255,
+    "profit_factor": 0.998001,
+    "max_drawdown_proxy": 0.032365,
+    "score": 0.966713,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 103,
+    "profit_factor": 0.980477,
+    "max_drawdown_proxy": 0.061612,
+    "score": 0.923573,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 227,
+    "profit_factor": 1.003157,
+    "max_drawdown_proxy": 0.039403,
+    "score": 0.965128,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 167,
+    "profit_factor": 1.025291,
+    "max_drawdown_proxy": 0.036528,
+    "score": 0.989159,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 77,
+    "profit_factor": 1.003282,
+    "max_drawdown_proxy": 0.034616,
+    "score": 0.969715,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "RSI_REVERSION",
+    "params": [
+      14,
+      30,
+      70
+    ],
+    "trades": 376,
+    "profit_factor": 1.177749,
+    "max_drawdown_proxy": 0.01092,
+    "score": 1.165028,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "RSI_REVERSION",
+    "params": [
+      10,
+      25,
+      75
+    ],
+    "trades": 368,
+    "profit_factor": 1.28938,
+    "max_drawdown_proxy": 0.017537,
+    "score": 1.267159,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "trades": 566,
+    "profit_factor": 0.983995,
+    "max_drawdown_proxy": 0.015178,
+    "score": 0.969283,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "trades": 318,
+    "profit_factor": 1.032624,
+    "max_drawdown_proxy": 0.017376,
+    "score": 1.014988,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "trades": 566,
+    "profit_factor": 0.983995,
+    "max_drawdown_proxy": 0.015178,
+    "score": 0.969283,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "trades": 332,
+    "profit_factor": 0.989088,
+    "max_drawdown_proxy": 0.017409,
+    "score": 0.972163,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 426,
+    "profit_factor": 1.081266,
+    "max_drawdown_proxy": 0.01595,
+    "score": 1.064291,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 272,
+    "profit_factor": 1.114589,
+    "max_drawdown_proxy": 0.019721,
+    "score": 1.093034,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      20,
+      2
+    ],
+    "trades": 338,
+    "profit_factor": 1.451456,
+    "max_drawdown_proxy": 0.012074,
+    "score": 1.43414,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      30,
+      2
+    ],
+    "trades": 276,
+    "profit_factor": 1.339922,
+    "max_drawdown_proxy": 0.010962,
+    "score": 1.325393,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 35,
+    "profit_factor": 0.880898,
+    "max_drawdown_proxy": 0.021512,
+    "score": 0.862348,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 27,
+    "profit_factor": 0.873785,
+    "max_drawdown_proxy": 0.023821,
+    "score": 0.853454,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 12,
+    "profit_factor": 0.979645,
+    "max_drawdown_proxy": 0.019065,
+    "score": 0.961318,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 29,
+    "profit_factor": 0.85515,
+    "max_drawdown_proxy": 0.023157,
+    "score": 0.835795,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 21,
+    "profit_factor": 0.856031,
+    "max_drawdown_proxy": 0.021742,
+    "score": 0.837816,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 14,
+    "profit_factor": 0.830631,
+    "max_drawdown_proxy": 0.022023,
+    "score": 0.812732,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "RSI_REVERSION",
+    "params": [
+      14,
+      30,
+      70
+    ],
+    "trades": 38,
+    "profit_factor": 0.949112,
+    "max_drawdown_proxy": 0.015,
+    "score": 0.935086,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "RSI_REVERSION",
+    "params": [
+      10,
+      25,
+      75
+    ],
+    "trades": 54,
+    "profit_factor": 0.980923,
+    "max_drawdown_proxy": 0.011344,
+    "score": 0.96992,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "trades": 48,
+    "profit_factor": 0.704114,
+    "max_drawdown_proxy": 0.014601,
+    "score": 0.693982,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "trades": 28,
+    "profit_factor": 0.334921,
+    "max_drawdown_proxy": 0.013821,
+    "score": 0.330355,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "trades": 48,
+    "profit_factor": 0.704114,
+    "max_drawdown_proxy": 0.014601,
+    "score": 0.693982,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "trades": 30,
+    "profit_factor": 0.347652,
+    "max_drawdown_proxy": 0.015327,
+    "score": 0.342404,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 36,
+    "profit_factor": 0.83753,
+    "max_drawdown_proxy": 0.009699,
+    "score": 0.829485,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 22,
+    "profit_factor": 0.924636,
+    "max_drawdown_proxy": 0.008771,
+    "score": 0.916597,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      30,
+      2
+    ],
+    "trades": 26,
+    "profit_factor": 1.006128,
+    "max_drawdown_proxy": 0.012154,
+    "score": 0.994046,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 179,
+    "profit_factor": 1.043579,
+    "max_drawdown_proxy": 0.058668,
+    "score": 0.985748,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 147,
+    "profit_factor": 1.096188,
+    "max_drawdown_proxy": 0.047037,
+    "score": 1.046943,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 69,
+    "profit_factor": 1.079737,
+    "max_drawdown_proxy": 0.03823,
+    "score": 1.039978,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 135,
+    "profit_factor": 1.088405,
+    "max_drawdown_proxy": 0.046299,
+    "score": 1.040243,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 103,
+    "profit_factor": 1.047794,
+    "max_drawdown_proxy": 0.048376,
+    "score": 0.999445,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 56,
+    "profit_factor": 1.023981,
+    "max_drawdown_proxy": 0.062744,
+    "score": 0.963525,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "RSI_REVERSION",
+    "params": [
+      14,
+      30,
+      70
+    ],
+    "trades": 254,
+    "profit_factor": 1.080689,
+    "max_drawdown_proxy": 0.022011,
+    "score": 1.057414,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "RSI_REVERSION",
+    "params": [
+      10,
+      25,
+      75
+    ],
+    "trades": 256,
+    "profit_factor": 1.180916,
+    "max_drawdown_proxy": 0.022362,
+    "score": 1.155086,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "trades": 332,
+    "profit_factor": 1.159702,
+    "max_drawdown_proxy": 0.051189,
+    "score": 1.103229,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "trades": 204,
+    "profit_factor": 1.201699,
+    "max_drawdown_proxy": 0.03524,
+    "score": 1.160793,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "trades": 332,
+    "profit_factor": 1.159702,
+    "max_drawdown_proxy": 0.051189,
+    "score": 1.103229,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "trades": 212,
+    "profit_factor": 1.162785,
+    "max_drawdown_proxy": 0.040504,
+    "score": 1.117521,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 274,
+    "profit_factor": 1.083782,
+    "max_drawdown_proxy": 0.054675,
+    "score": 1.027598,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 190,
+    "profit_factor": 1.02306,
+    "max_drawdown_proxy": 0.046786,
+    "score": 0.977335,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      30,
+      2
+    ],
+    "trades": 134,
+    "profit_factor": 1.126121,
+    "max_drawdown_proxy": 0.013807,
+    "score": 1.110784,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 34,
+    "profit_factor": 1.022083,
+    "max_drawdown_proxy": 0.001511,
+    "score": 1.020541,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 29,
+    "profit_factor": 0.849998,
+    "max_drawdown_proxy": 0.002262,
+    "score": 0.84808,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 12,
+    "profit_factor": 0.91254,
+    "max_drawdown_proxy": 0.001382,
+    "score": 0.911281,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 24,
+    "profit_factor": 0.82427,
+    "max_drawdown_proxy": 0.002503,
+    "score": 0.822211,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 18,
+    "profit_factor": 0.798096,
+    "max_drawdown_proxy": 0.002684,
+    "score": 0.79596,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 10,
+    "profit_factor": 1.017578,
+    "max_drawdown_proxy": 0.001088,
+    "score": 1.016473,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "family": "RSI_REVERSION",
+    "params": [
+      10,
+      25,
+      75
+    ],
+    "trades": 32,
+    "profit_factor": 1.475367,
+    "max_drawdown_proxy": 0.000536,
+    "score": 1.474577,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "trades": 48,
+    "profit_factor": 0.838504,
+    "max_drawdown_proxy": 0.000812,
+    "score": 0.837823,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "trades": 18,
+    "profit_factor": 0.854743,
+    "max_drawdown_proxy": 0.00019,
+    "score": 0.85458,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "trades": 48,
+    "profit_factor": 0.838504,
+    "max_drawdown_proxy": 0.000812,
+    "score": 0.837823,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "trades": 20,
+    "profit_factor": 0.858918,
+    "max_drawdown_proxy": 0.00032,
+    "score": 0.858644,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 44,
+    "profit_factor": 0.67362,
+    "max_drawdown_proxy": 0.001036,
+    "score": 0.672923,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 24,
+    "profit_factor": 0.603029,
+    "max_drawdown_proxy": 0.000829,
+    "score": 0.602529,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 34,
+    "profit_factor": 0.993365,
+    "max_drawdown_proxy": 0.003991,
+    "score": 0.989416,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 26,
+    "profit_factor": 0.951844,
+    "max_drawdown_proxy": 0.003709,
+    "score": 0.948327,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 16,
+    "profit_factor": 0.900968,
+    "max_drawdown_proxy": 0.005907,
+    "score": 0.895678,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 26,
+    "profit_factor": 0.870608,
+    "max_drawdown_proxy": 0.006303,
+    "score": 0.865155,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 22,
+    "profit_factor": 0.816486,
+    "max_drawdown_proxy": 0.007876,
+    "score": 0.810105,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 13,
+    "profit_factor": 0.930009,
+    "max_drawdown_proxy": 0.005653,
+    "score": 0.924781,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "family": "RSI_REVERSION",
+    "params": [
+      10,
+      25,
+      75
+    ],
+    "trades": 32,
+    "profit_factor": 1.39333,
+    "max_drawdown_proxy": 0.001955,
+    "score": 1.390611,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "trades": 58,
+    "profit_factor": 0.680304,
+    "max_drawdown_proxy": 0.004065,
+    "score": 0.67755,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "trades": 34,
+    "profit_factor": 0.526207,
+    "max_drawdown_proxy": 0.003652,
+    "score": 0.524292,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "trades": 58,
+    "profit_factor": 0.680304,
+    "max_drawdown_proxy": 0.004065,
+    "score": 0.67755,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "trades": 38,
+    "profit_factor": 0.470337,
+    "max_drawdown_proxy": 0.00373,
+    "score": 0.468589,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 42,
+    "profit_factor": 0.776476,
+    "max_drawdown_proxy": 0.00339,
+    "score": 0.773852,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 30,
+    "profit_factor": 0.796503,
+    "max_drawdown_proxy": 0.002963,
+    "score": 0.79415,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      20,
+      2
+    ],
+    "trades": 43,
+    "profit_factor": 1.245835,
+    "max_drawdown_proxy": 0.001332,
+    "score": 1.244177,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 328,
+    "profit_factor": 0.967531,
+    "max_drawdown_proxy": 0.026829,
+    "score": 0.942252,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 284,
+    "profit_factor": 0.941229,
+    "max_drawdown_proxy": 0.030446,
+    "score": 0.913419,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 110,
+    "profit_factor": 1.068992,
+    "max_drawdown_proxy": 0.009327,
+    "score": 1.059113,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 214,
+    "profit_factor": 1.009406,
+    "max_drawdown_proxy": 0.019289,
+    "score": 0.990304,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 158,
+    "profit_factor": 1.019204,
+    "max_drawdown_proxy": 0.017869,
+    "score": 1.001311,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 87,
+    "profit_factor": 1.019556,
+    "max_drawdown_proxy": 0.017668,
+    "score": 1.001855,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "family": "RSI_REVERSION",
+    "params": [
+      10,
+      25,
+      75
+    ],
+    "trades": 370,
+    "profit_factor": 1.159469,
+    "max_drawdown_proxy": 0.00757,
+    "score": 1.150758,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "trades": 584,
+    "profit_factor": 0.935989,
+    "max_drawdown_proxy": 0.015162,
+    "score": 0.92201,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "trades": 362,
+    "profit_factor": 1.006148,
+    "max_drawdown_proxy": 0.011376,
+    "score": 0.994831,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "trades": 584,
+    "profit_factor": 0.935989,
+    "max_drawdown_proxy": 0.015162,
+    "score": 0.92201,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "trades": 386,
+    "profit_factor": 0.953529,
+    "max_drawdown_proxy": 0.014184,
+    "score": 0.940194,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 446,
+    "profit_factor": 0.924202,
+    "max_drawdown_proxy": 0.017877,
+    "score": 0.90797,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 268,
+    "profit_factor": 0.969451,
+    "max_drawdown_proxy": 0.011265,
+    "score": 0.958651,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      20,
+      2
+    ],
+    "trades": 328,
+    "profit_factor": 1.416571,
+    "max_drawdown_proxy": 0.007161,
+    "score": 1.406499,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 302,
+    "profit_factor": 1.099035,
+    "max_drawdown_proxy": 0.003198,
+    "score": 1.095531,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 246,
+    "profit_factor": 1.093751,
+    "max_drawdown_proxy": 0.002554,
+    "score": 1.090964,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 116,
+    "profit_factor": 1.029104,
+    "max_drawdown_proxy": 0.004659,
+    "score": 1.024332,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 236,
+    "profit_factor": 1.047821,
+    "max_drawdown_proxy": 0.00374,
+    "score": 1.043917,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 172,
+    "profit_factor": 1.022004,
+    "max_drawdown_proxy": 0.003157,
+    "score": 1.018788,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 98,
+    "profit_factor": 1.015094,
+    "max_drawdown_proxy": 0.0044,
+    "score": 1.010647,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "family": "RSI_REVERSION",
+    "params": [
+      10,
+      25,
+      75
+    ],
+    "trades": 366,
+    "profit_factor": 1.156746,
+    "max_drawdown_proxy": 0.001559,
+    "score": 1.154946,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "trades": 540,
+    "profit_factor": 1.240289,
+    "max_drawdown_proxy": 0.001393,
+    "score": 1.238564,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "trades": 304,
+    "profit_factor": 1.408256,
+    "max_drawdown_proxy": 0.001079,
+    "score": 1.406738,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "trades": 540,
+    "profit_factor": 1.240289,
+    "max_drawdown_proxy": 0.001393,
+    "score": 1.238564,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "trades": 320,
+    "profit_factor": 1.425162,
+    "max_drawdown_proxy": 0.001084,
+    "score": 1.423618,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 416,
+    "profit_factor": 1.200609,
+    "max_drawdown_proxy": 0.001786,
+    "score": 1.198468,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 268,
+    "profit_factor": 1.256964,
+    "max_drawdown_proxy": 0.001101,
+    "score": 1.255581,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 33,
+    "profit_factor": 0.81361,
+    "max_drawdown_proxy": 0.009413,
+    "score": 0.806022,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 31,
+    "profit_factor": 0.736479,
+    "max_drawdown_proxy": 0.013736,
+    "score": 0.7265,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 15,
+    "profit_factor": 0.684428,
+    "max_drawdown_proxy": 0.014402,
+    "score": 0.674711,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 25,
+    "profit_factor": 0.846123,
+    "max_drawdown_proxy": 0.009207,
+    "score": 0.838404,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 21,
+    "profit_factor": 0.845199,
+    "max_drawdown_proxy": 0.010286,
+    "score": 0.836593,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 15,
+    "profit_factor": 0.670248,
+    "max_drawdown_proxy": 0.016366,
+    "score": 0.659455,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "family": "RSI_REVERSION",
+    "params": [
+      14,
+      30,
+      70
+    ],
+    "trades": 34,
+    "profit_factor": 1.097039,
+    "max_drawdown_proxy": 0.005658,
+    "score": 1.090867,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "family": "RSI_REVERSION",
+    "params": [
+      10,
+      25,
+      75
+    ],
+    "trades": 37,
+    "profit_factor": 0.68583,
+    "max_drawdown_proxy": 0.007918,
+    "score": 0.680442,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "trades": 52,
+    "profit_factor": 1.107388,
+    "max_drawdown_proxy": 0.002794,
+    "score": 1.104303,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "trades": 52,
+    "profit_factor": 1.107388,
+    "max_drawdown_proxy": 0.002794,
+    "score": 1.104303,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 40,
+    "profit_factor": 1.119195,
+    "max_drawdown_proxy": 0.002497,
+    "score": 1.116407,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 24,
+    "profit_factor": 1.267937,
+    "max_drawdown_proxy": 0.001449,
+    "score": 1.266103,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      20,
+      2
+    ],
+    "trades": 24,
+    "profit_factor": 0.637675,
+    "max_drawdown_proxy": 0.006372,
+    "score": 0.633637,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      30,
+      2
+    ],
+    "trades": 24,
+    "profit_factor": 0.728286,
+    "max_drawdown_proxy": 0.005521,
+    "score": 0.724287,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 318,
+    "profit_factor": 0.981328,
+    "max_drawdown_proxy": 0.052868,
+    "score": 0.932052,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 262,
+    "profit_factor": 1.001486,
+    "max_drawdown_proxy": 0.043842,
+    "score": 0.959422,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 113,
+    "profit_factor": 0.982864,
+    "max_drawdown_proxy": 0.037154,
+    "score": 0.947655,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 244,
+    "profit_factor": 0.985239,
+    "max_drawdown_proxy": 0.045832,
+    "score": 0.942063,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 187,
+    "profit_factor": 0.983759,
+    "max_drawdown_proxy": 0.042079,
+    "score": 0.944035,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 91,
+    "profit_factor": 0.983017,
+    "max_drawdown_proxy": 0.038566,
+    "score": 0.946514,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "family": "RSI_REVERSION",
+    "params": [
+      14,
+      30,
+      70
+    ],
+    "trades": 376,
+    "profit_factor": 1.304774,
+    "max_drawdown_proxy": 0.010001,
+    "score": 1.291854,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "family": "RSI_REVERSION",
+    "params": [
+      10,
+      25,
+      75
+    ],
+    "trades": 372,
+    "profit_factor": 1.091726,
+    "max_drawdown_proxy": 0.010015,
+    "score": 1.0809,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "trades": 558,
+    "profit_factor": 1.035999,
+    "max_drawdown_proxy": 0.019497,
+    "score": 1.016187,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "trades": 558,
+    "profit_factor": 1.035999,
+    "max_drawdown_proxy": 0.019497,
+    "score": 1.016187,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 426,
+    "profit_factor": 1.001548,
+    "max_drawdown_proxy": 0.028808,
+    "score": 0.973503,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 278,
+    "profit_factor": 1.054731,
+    "max_drawdown_proxy": 0.022039,
+    "score": 1.031987,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      20,
+      2
+    ],
+    "trades": 362,
+    "profit_factor": 1.25066,
+    "max_drawdown_proxy": 0.010119,
+    "score": 1.238131,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      30,
+      2
+    ],
+    "trades": 302,
+    "profit_factor": 1.197463,
+    "max_drawdown_proxy": 0.00962,
+    "score": 1.186052,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 34,
+    "profit_factor": 0.792886,
+    "max_drawdown_proxy": 0.005842,
+    "score": 0.788281,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 28,
+    "profit_factor": 0.821566,
+    "max_drawdown_proxy": 0.004193,
+    "score": 0.818135,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 12,
+    "profit_factor": 0.90343,
+    "max_drawdown_proxy": 0.002941,
+    "score": 0.900781,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 30,
+    "profit_factor": 0.843676,
+    "max_drawdown_proxy": 0.004737,
+    "score": 0.839699,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 26,
+    "profit_factor": 0.763018,
+    "max_drawdown_proxy": 0.005168,
+    "score": 0.759095,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 14,
+    "profit_factor": 0.847397,
+    "max_drawdown_proxy": 0.003639,
+    "score": 0.844324,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "family": "RSI_REVERSION",
+    "params": [
+      14,
+      30,
+      70
+    ],
+    "trades": 34,
+    "profit_factor": 1.177179,
+    "max_drawdown_proxy": 0.000971,
+    "score": 1.176037,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "family": "RSI_REVERSION",
+    "params": [
+      10,
+      25,
+      75
+    ],
+    "trades": 38,
+    "profit_factor": 1.206855,
+    "max_drawdown_proxy": 0.001395,
+    "score": 1.205174,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "trades": 14,
+    "profit_factor": 1.113088,
+    "max_drawdown_proxy": 0.000923,
+    "score": 1.112061,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "trades": 16,
+    "profit_factor": 1.011575,
+    "max_drawdown_proxy": 0.000923,
+    "score": 1.010641,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 32,
+    "profit_factor": 1.420947,
+    "max_drawdown_proxy": 0.001554,
+    "score": 1.418743,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 26,
+    "profit_factor": 0.24429,
+    "max_drawdown_proxy": 0.003281,
+    "score": 0.243491,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 332,
+    "profit_factor": 0.951135,
+    "max_drawdown_proxy": 0.011918,
+    "score": 0.939933,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 290,
+    "profit_factor": 0.930948,
+    "max_drawdown_proxy": 0.014725,
+    "score": 0.917438,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 110,
+    "profit_factor": 1.000951,
+    "max_drawdown_proxy": 0.005538,
+    "score": 0.995438,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 252,
+    "profit_factor": 0.979381,
+    "max_drawdown_proxy": 0.009353,
+    "score": 0.970306,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 190,
+    "profit_factor": 0.994024,
+    "max_drawdown_proxy": 0.007818,
+    "score": 0.986313,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 88,
+    "profit_factor": 0.958285,
+    "max_drawdown_proxy": 0.008148,
+    "score": 0.95054,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "family": "RSI_REVERSION",
+    "params": [
+      14,
+      30,
+      70
+    ],
+    "trades": 302,
+    "profit_factor": 1.059766,
+    "max_drawdown_proxy": 0.008542,
+    "score": 1.05079,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "family": "RSI_REVERSION",
+    "params": [
+      10,
+      25,
+      75
+    ],
+    "trades": 314,
+    "profit_factor": 0.99999,
+    "max_drawdown_proxy": 0.006954,
+    "score": 0.993084,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "trades": 300,
+    "profit_factor": 1.280367,
+    "max_drawdown_proxy": 0.003141,
+    "score": 1.276357,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "trades": 314,
+    "profit_factor": 1.330282,
+    "max_drawdown_proxy": 0.003115,
+    "score": 1.326152,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 408,
+    "profit_factor": 1.124678,
+    "max_drawdown_proxy": 0.005829,
+    "score": 1.118161,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 268,
+    "profit_factor": 1.084774,
+    "max_drawdown_proxy": 0.003569,
+    "score": 1.080916,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 30,
+    "profit_factor": 0.970973,
+    "max_drawdown_proxy": 0.049186,
+    "score": 0.925453,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 26,
+    "profit_factor": 0.85632,
+    "max_drawdown_proxy": 0.07967,
+    "score": 0.793131,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 12,
+    "profit_factor": 1.068173,
+    "max_drawdown_proxy": 0.048431,
+    "score": 1.01883,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 18,
+    "profit_factor": 1.11622,
+    "max_drawdown_proxy": 0.045574,
+    "score": 1.067566,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 14,
+    "profit_factor": 1.107995,
+    "max_drawdown_proxy": 0.043471,
+    "score": 1.061836,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 12,
+    "profit_factor": 1.01341,
+    "max_drawdown_proxy": 0.065199,
+    "score": 0.951381,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "params": [
+      10,
+      25,
+      75
+    ],
+    "trades": 26,
+    "profit_factor": 1.004084,
+    "max_drawdown_proxy": 0.022113,
+    "score": 0.982361,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "trades": 66,
+    "profit_factor": 1.047467,
+    "max_drawdown_proxy": 0.03511,
+    "score": 1.011939,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "trades": 34,
+    "profit_factor": 0.809693,
+    "max_drawdown_proxy": 0.026326,
+    "score": 0.788924,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "trades": 66,
+    "profit_factor": 1.047467,
+    "max_drawdown_proxy": 0.03511,
+    "score": 1.011939,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "trades": 40,
+    "profit_factor": 0.985391,
+    "max_drawdown_proxy": 0.023919,
+    "score": 0.962372,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 46,
+    "profit_factor": 0.99957,
+    "max_drawdown_proxy": 0.032939,
+    "score": 0.967695,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 40,
+    "profit_factor": 0.732596,
+    "max_drawdown_proxy": 0.04879,
+    "score": 0.698516,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      30,
+      2
+    ],
+    "trades": 22,
+    "profit_factor": 1.184047,
+    "max_drawdown_proxy": 0.013973,
+    "score": 1.16773,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 84,
+    "profit_factor": 1.062741,
+    "max_drawdown_proxy": 0.092192,
+    "score": 0.973035,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 68,
+    "profit_factor": 1.045109,
+    "max_drawdown_proxy": 0.112133,
+    "score": 0.939734,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 34,
+    "profit_factor": 1.11804,
+    "max_drawdown_proxy": 0.087105,
+    "score": 1.028456,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 56,
+    "profit_factor": 1.104442,
+    "max_drawdown_proxy": 0.097975,
+    "score": 1.005889,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 48,
+    "profit_factor": 1.060271,
+    "max_drawdown_proxy": 0.127255,
+    "score": 0.940578,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 20,
+    "profit_factor": 1.090747,
+    "max_drawdown_proxy": 0.065199,
+    "score": 1.023984,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "params": [
+      10,
+      25,
+      75
+    ],
+    "trades": 98,
+    "profit_factor": 1.255645,
+    "max_drawdown_proxy": 0.045852,
+    "score": 1.200594,
+    "approved_backtest": true,
+    "rejection_reasons": [
+      "DIVERSIFICATION_CAP_OR_RANKING"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "trades": 202,
+    "profit_factor": 0.901335,
+    "max_drawdown_proxy": 0.072756,
+    "score": 0.840205,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "trades": 112,
+    "profit_factor": 0.825219,
+    "max_drawdown_proxy": 0.069275,
+    "score": 0.771756,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "trades": 202,
+    "profit_factor": 0.901335,
+    "max_drawdown_proxy": 0.072756,
+    "score": 0.840205,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "trades": 120,
+    "profit_factor": 0.899159,
+    "max_drawdown_proxy": 0.059701,
+    "score": 0.848503,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 146,
+    "profit_factor": 0.737324,
+    "max_drawdown_proxy": 0.123242,
+    "score": 0.656424,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 96,
+    "profit_factor": 0.649319,
+    "max_drawdown_proxy": 0.107114,
+    "score": 0.586497,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      30,
+      2
+    ],
+    "trades": 72,
+    "profit_factor": 1.051351,
+    "max_drawdown_proxy": 0.059388,
+    "score": 0.992413,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "H1",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 35,
+    "profit_factor": 0.9336,
+    "max_drawdown_proxy": 0.016288,
+    "score": 0.918637,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "H1",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 29,
+    "profit_factor": 0.874235,
+    "max_drawdown_proxy": 0.01429,
+    "score": 0.861918,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "H1",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 11,
+    "profit_factor": 0.835145,
+    "max_drawdown_proxy": 0.016277,
+    "score": 0.821769,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "H1",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 25,
+    "profit_factor": 0.853076,
+    "max_drawdown_proxy": 0.013043,
+    "score": 0.842093,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "H1",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "trades": 23,
+    "profit_factor": 0.875545,
+    "max_drawdown_proxy": 0.013035,
+    "score": 0.864279,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "H1",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "trades": 15,
+    "profit_factor": 0.8424,
+    "max_drawdown_proxy": 0.019359,
+    "score": 0.826401,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "H1",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "trades": 32,
+    "profit_factor": 0.616344,
+    "max_drawdown_proxy": 0.003066,
+    "score": 0.61446,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "H1",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "trades": 32,
+    "profit_factor": 0.616344,
+    "max_drawdown_proxy": 0.003066,
+    "score": 0.61446,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "H1",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "trades": 42,
+    "profit_factor": 0.881507,
+    "max_drawdown_proxy": 0.006275,
+    "score": 0.87601,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "H1",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "trades": 28,
+    "profit_factor": 0.589679,
+    "max_drawdown_proxy": 0.00979,
+    "score": 0.583961,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "H1",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      30,
+      2
+    ],
+    "trades": 22,
+    "profit_factor": 1.045182,
+    "max_drawdown_proxy": 0.005175,
+    "score": 1.039801,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "H1",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "trades": 308,
+    "profit_factor": 1.00288,
+    "max_drawdown_proxy": 0.036449,
+    "score": 0.967612,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "H1",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "trades": 264,
+    "profit_factor": 0.971932,
+    "max_drawdown_proxy": 0.035051,
+    "score": 0.939019,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "H1",
+    "family": "SMA_CROSS",
+    "params": [
+      13,
+      55
+    ],
+    "trades": 121,
+    "profit_factor": 0.957081,
+    "max_drawdown_proxy": 0.050723,
+    "score": 0.910878,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "H1",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "trades": 229,
+    "profit_factor": 0.987952,
+    "max_drawdown_proxy": 0.035332,
+    "score": 0.954237,
+    "approved_backtest": false,
+    "rejection_reasons": [
+      "LOW_PF"
+    ]
+  }
+]

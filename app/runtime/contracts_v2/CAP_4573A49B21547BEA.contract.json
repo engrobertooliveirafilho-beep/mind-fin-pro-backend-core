@@ -1,0 +1,33 @@
+{
+  "capability_id": "CAP_4573A49B21547BEA",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\core\\arrays\\numeric.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pandas\\core\\arrays\\numeric.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 127,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "numbers",
+    "numpy",
+    "pandas._config",
+    "pandas._libs",
+    "pandas._typing",
+    "pandas.core.arrays.arrow._arrow_utils",
+    "pandas.core.arrays.masked",
+    "pandas.core.dtypes.common",
+    "pandas.core.dtypes.dtypes",
+    "pandas.core.tools.numeric",
+    "pandas.errors",
+    "pandas.util._decorators",
+    "pyarrow",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

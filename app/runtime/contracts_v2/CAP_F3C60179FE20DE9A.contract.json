@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_F3C60179FE20DE9A",
+  "source_file": "app\\runtime\\single_runtime_dispatcher.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\app\\runtime\\single_runtime_dispatcher.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 87,
+  "imports": [
+    "__future__",
+    "app.humanization.humanization_runtime",
+    "app.humanization.multi_message_reply_runtime",
+    "app.humanization.universal_recovery_runtime",
+    "app.runtime.conversation_quality_guard",
+    "app.runtime.duplicate_response_guard",
+    "app.runtime.whatsapp_trace_sensor",
+    "app.telemetry.cloud_telemetry",
+    "json",
+    "time",
+    "uuid"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

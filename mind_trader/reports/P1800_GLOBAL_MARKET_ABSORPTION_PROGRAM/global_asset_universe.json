@@ -1,0 +1,58 @@
+{
+  "FOREX_MAJOR": [
+    "EURUSD",
+    "GBPUSD",
+    "USDJPY",
+    "AUDUSD",
+    "NZDUSD",
+    "USDCAD",
+    "USDCHF"
+  ],
+  "FOREX_CROSS": [
+    "EURJPY",
+    "GBPJPY",
+    "EURGBP",
+    "AUDJPY",
+    "CADJPY",
+    "CHFJPY",
+    "EURAUD",
+    "GBPAUD"
+  ],
+  "METALS": [
+    "XAUUSD",
+    "XAGUSD",
+    "XPTUSD",
+    "XPDUSD"
+  ],
+  "INDICES": [
+    "US30",
+    "NAS100",
+    "SPX500",
+    "GER40",
+    "UK100",
+    "JPN225"
+  ],
+  "CRYPTO": [
+    "BTCUSD",
+    "ETHUSD",
+    "SOLUSD",
+    "BNBUSD",
+    "XRPUSD"
+  ],
+  "COMMODITIES": [
+    "WTI",
+    "BRENT",
+    "NATGAS",
+    "COPPER"
+  ],
+  "BRAZIL_CORE": [
+    "WINFUT",
+    "WDOFUT",
+    "IBOV",
+    "PETR4",
+    "VALE3",
+    "ITUB4",
+    "BBDC4",
+    "BBAS3"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "trace_id": "790ca715-6171-44d3-a223-92453209afa1",
+  "ts": 1779820333.9592097,
+  "sender_id": "whatsapp:+559999999999",
+  "user_message": "me explique melhor",
+  "events": [
+    {
+      "stage": "input",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "me explique melhor",
+      "output_preview": "Continuidade contextual: manter foco em Aprofunde, sem reset semântico e sem fallback genérico.",
+      "leaks": [],
+      "extra": {}
+    },
+    {
+      "stage": "humanized",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "Continuidade contextual: manter foco em Aprofunde, sem reset semântico e sem fallback genérico.",
+      "output_preview": "Continuidade contextual: manter foco em Aprofunde, sem reset semântico e sem fallback genérico.",
+      "leaks": [],
+      "extra": {}
+    },
+    {
+      "stage": "final_output",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "Continuidade contextual: manter foco em Aprofunde, sem reset semântico e sem fallback genérico.",
+      "output_preview": "Continuidade contextual: manter foco em Aprofunde, sem reset semântico e sem fallback genérico.",
+      "leaks": [],
+      "extra": {}
+    }
+  ]
+}

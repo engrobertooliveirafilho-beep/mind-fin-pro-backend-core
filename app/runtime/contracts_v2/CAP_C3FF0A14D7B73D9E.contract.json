@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_C3FF0A14D7B73D9E",
+  "source_file": "_evidence\\P4_72C_CAPABILITY_BRIDGE_PIPELINE_AUX_20260618_195205\\p472c_smoke.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\_evidence\\P4_72C_CAPABILITY_BRIDGE_PIPELINE_AUX_20260618_195205\\p472c_smoke.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 99,
+  "imports": [
+    "app.runtime.capability_recovery_bridge",
+    "app.runtime.cognitive_pipeline",
+    "json",
+    "os",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

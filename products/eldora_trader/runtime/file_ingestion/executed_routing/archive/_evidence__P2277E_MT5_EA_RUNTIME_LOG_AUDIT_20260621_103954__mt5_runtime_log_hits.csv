@@ -1,0 +1,186 @@
+"log","modified","excerpt"
+"C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075\logs\20260619.log","19/06/2026 20:32:44","MO	2	20:25:12.747	IPC	failed to initialize IPC, with message: 
+NH	0	20:25:12.758	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+FI	0	20:25:12.758	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+EG	0	20:25:18.922	Experts	expert MIND_FileBridge (EURUSD,M1) loaded successfully
+JN	2	20:25:19.468	MQL5 debugger	script 'MIND_OpenCharts_P2271.ex5' is unsupported program type
+CS	2	20:25:19.468	MQL5 debugger	failed to start 'MIND_OpenCharts_P2271.ex5' on history
+IR	0	20:25:22.638	Trades	use MetaTrader VPS Hosting Service to speed up the execution: 0.08 ms via 'VPS Amsterdam 16' instead of 197.08 ms
+GD	0	20:32:02.034	Scripts	script MIND_OpenCharts_P2271 (EURUSD,M1) loaded successfully
+QS	0	20:32:05.143	Scripts	script MIND_OpenCharts_P2271 (EURUSD,M1) removed
+KK	0	20:32:08.231	Scripts	script MIND_ExportCandles_P2264B (GBPUSD,H1) loaded successfully
+IJ	0	20:32:16.252	Scripts	script MIND_ExportCandles_P2264B (GBPUSD,H1) removed
+JO	0	20:32:16.254	Scripts	script MIND_OpenCharts_P2271 (GBPUSD,H1) loaded successfully
+LD	0	20:32:19.068	Scripts	script MIND_OpenCharts_P2271 (GBPUSD,H1) removed
+QN	0	20:32:41.445	Experts	expert MIND_FileBridge (EURUSD,M1) removed"
+"C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075\MQL5\logs\20260619.log","19/06/2026 20:32:44","NN	0	20:32:15.225	MIND_ExportCandles_P2264B (GBPUSD,H1)	[MIND_EXPORT] NO_DATA EURAUD M30 err=4022
+MQ	0	20:32:15.225	MIND_ExportCandles_P2264B (GBPUSD,H1)	[MIND_EXPORT] NO_DATA EURAUD H1 err=4022
+FD	0	20:32:15.225	MIND_ExportCandles_P2264B (GBPUSD,H1)	[MIND_EXPORT] NO_DATA EURAUD H4 err=4022
+QH	0	20:32:15.225	MIND_ExportCandles_P2264B (GBPUSD,H1)	[MIND_EXPORT] NO_DATA EURAUD D1 err=4022
+KM	0	20:32:15.567	MIND_ExportCandles_P2264B (GBPUSD,H1)	[MIND_EXPORT] NO_DATA EURCAD M5 err=4022
+PR	0	20:32:15.567	MIND_ExportCandles_P2264B (GBPUSD,H1)	[MIND_EXPORT] NO_DATA EURCAD M15 err=4022
+CQ	0	20:32:15.567	MIND_ExportCandles_P2264B (GBPUSD,H1)	[MIND_EXPORT] NO_DATA EURCAD M30 err=4022
+LF	0	20:32:15.567	MIND_ExportCandles_P2264B (GBPUSD,H1)	[MIND_EXPORT] NO_DATA EURCAD H1 err=4022
+KJ	0	20:32:15.567	MIND_ExportCandles_P2264B (GBPUSD,H1)	[MIND_EXPORT] NO_DATA EURCAD H4 err=4022
+PO	0	20:32:15.567	MIND_ExportCandles_P2264B (GBPUSD,H1)	[MIND_EXPORT] NO_DATA EURCAD D1 err=4022
+DR	0	20:32:15.886	MIND_ExportCandles_P2264B (GBPUSD,H1)	[MIND_EXPORT] NO_DATA AUDJPY M5 err=4022
+OE	0	20:32:15.886	MIND_ExportCandles_P2264B (GBPUSD,H1)	[MIND_EXPORT] NO_DATA AUDJPY M15 err=4022
+DJ	0	20:32:15.886	MIND_ExportCandles_P2264B (GBPUSD,H1)	[MIND_EXPORT] NO_DATA AUDJPY M30 err=4022
+CM	0	20:32:15.886	MIND_ExportCandles_P2264B (GBPUSD,H1)	[MIND_EXPORT] NO_DATA AUDJPY H1 err=4022
+LQ	0	20:32:15.886	MIND_ExportCandles_P2264B (GBPUSD,H1)	[MIND_EXPORT] NO_DATA AUDJPY H4 err=4022
+GE	0	20:32:15.886	MIND_ExportCandles_P2264B (GBPUSD,H1)	[MIND_EXPORT] NO_DATA AUDJPY D1 err=4022
+LD	2	20:32:16.252	MIND_ExportCandles_P2264B (GBPUSD,H1)	Abnormal termination
+PN	0	20:32:19.068	MIND_OpenCharts_P2271 (GBPUSD,H1)	[MIND_OPEN_CHARTS] OPENED GBPUSD
+EG	0	20:32:19.068	MIND_OpenCharts_P2271 (GBPUSD,H1)	[MIND_OPEN_CHARTS] COMPLETE
+OJ	0	20:32:41.432	MIND_FileBridge (EURUSD,M1)	[MIND_P2260] EA_DEINIT | reason=9"
+"C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075\logs\metaeditor.log","19/06/2026 20:25:40","0	2026.06.18 12:36:24.454	Compile	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075\MQL5\Experts\MIND_FileBridge.mq5 - 0 errors, 0 warnings, 818 ms elapsed, cpu='AVX2 + FMA3'
+0	2026.06.18 12:36:25.494	MQL5 debugger	starting 'MIND_FileBridge.ex5' on history
+0	2026.06.18 12:51:47.565	Compile	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075\MQL5\Experts\MIND_FileBridge.mq5 - 0 errors, 0 warnings, 1187 ms elapsed, cpu='AVX2 + FMA3'
+0	2026.06.18 12:51:48.766	MQL5 debugger	starting 'MIND_FileBridge.ex5' on history
+0	2026.06.18 13:18:01.854	Compile	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075\MQL5\Experts\MIND_FileBridge.mq5 - 0 errors, 0 warnings, 663 ms elapsed, cpu='AVX2 + FMA3'
+0	2026.06.18 13:18:02.617	MQL5 debugger	starting 'MIND_FileBridge.ex5' on history
+0	2026.06.18 14:00:43.028	Compile	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075\MQL5\Experts\MIND_FileBridge.mq5 - 0 errors, 0 warnings, 936 ms elapsed, cpu='AVX2 + FMA3'
+0	2026.06.18 14:00:50.521	MQL5 debugger	starting 'MIND_FileBridge.ex5' on history
+0	2026.06.18 14:18:06.659	Compile	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075\MQL5\Experts\MIND_FileBridge.mq5 - 0 errors, 0 warnings, 939 ms elapsed, cpu='AVX2 + FMA3'
+0	2026.06.18 14:18:07.524	MQL5 debugger	starting 'MIND_FileBridge.ex5' on history
+0	2026.06.18 14:36:02.148	Compile	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075\MQL5\Experts\MIND_FileBridge.mq5 - 0 errors, 0 warnings, 1223 ms elapsed, cpu='AVX2 + FMA3'
+0	2026.06.18 14:36:03.184	MQL5 debugger	starting 'MIND_FileBridge.ex5' on history
+0	2026.06.18 14:44:33.770	Compile	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075\MQL5\Experts\MIND_FileBridge.mq5 - 0 errors, 0 warnings, 1437 ms elapsed, cpu='AVX2 + FMA3'
+0	2026.06.18 14:44:34.772	MQL5 debugger	starting 'MIND_FileBridge.ex5' on history
+0	2026.06.18 19:29:35.095	Compile	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075\MQL5\Scripts\MIND_ExportCandles_P2264B.mq5 - 0 errors, 0 warnings, 425 ms elapsed, cpu='AVX2 + FMA3'
+2	2026.06.18 19:29:42.092	MQL5 debugger	failed to start
+2	2026.06.18 19:29:42.092	MQL5 debugger	failed to start debugging 'MIND_ExportCandles_P2264B.ex5' on history
+0	2026.06.19 20:25:10.250	Compile	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075\MQL5\Scripts\MIND_OpenCharts_P2271.mq5 - 0 errors, 0 warnings, 379 ms elapsed, cpu='AVX2 + FMA3'
+2	2026.06.19 20:25:19.458	MQL5 debugger	failed to start
+2	2026.06.19 20:25:19.458	MQL5 debugger	failed to start debugging 'MIND_OpenCharts_P2271.ex5' on history"
+"C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075\MQL5\logs\20260618.log","19/06/2026 00:00:02","PN	0	23:56:42.973	MIND_FileBridge (EURUSD,H1)	[MIND_P2260] WAITING_SIGNAL | COMMON_FILE_NOT_FOUND | mt5_order.txt
+DL	0	23:56:52.240	MIND_FileBridge (EURUSD,H1)	[MIND_P2260] WAITING_SIGNAL | COMMON_FILE_NOT_FOUND | mt5_order.txt
+EM	0	23:57:02.290	MIND_FileBridge (EURUSD,H1)	[MIND_P2260] WAITING_SIGNAL | COMMON_FILE_NOT_FOUND | mt5_order.txt
+IS	0	23:57:12.110	MIND_FileBridge (EURUSD,H1)	[MIND_P2260] WAITING_SIGNAL | COMMON_FILE_NOT_FOUND | mt5_order.txt
+MP	0	23:57:22.959	MIND_FileBridge (EURUSD,H1)	[MIND_P2260] WAITING_SIGNAL | COMMON_FILE_NOT_FOUND | mt5_order.txt
+LF	0	23:57:32.144	MIND_FileBridge (EURUSD,H1)	[MIND_P2260] WAITING_SIGNAL | COMMON_FILE_NOT_FOUND | mt5_order.txt
+HD	0	23:57:42.099	MIND_FileBridge (EURUSD,H1)	[MIND_P2260] WAITING_SIGNAL | COMMON_FILE_NOT_FOUND | mt5_order.txt
+KE	0	23:57:52.507	MIND_FileBridge (EURUSD,H1)	[MIND_P2260] WAITING_SIGNAL | COMMON_FILE_NOT_FOUND | mt5_order.txt
+RK	0	23:58:02.489	MIND_FileBridge (EURUSD,H1)	[MIND_P2260] WAITING_SIGNAL | COMMON_FILE_NOT_FOUND | mt5_order.txt
+HI	0	23:58:12.976	MIND_FileBridge (EURUSD,H1)	[MIND_P2260] WAITING_SIGNAL | COMMON_FILE_NOT_FOUND | mt5_order.txt
+DN	0	23:58:22.115	MIND_FileBridge (EURUSD,H1)	[MIND_P2260] WAITING_SIGNAL | COMMON_FILE_NOT_FOUND | mt5_order.txt
+HL	0	23:58:32.428	MIND_FileBridge (EURUSD,H1)	[MIND_P2260] WAITING_SIGNAL | COMMON_FILE_NOT_FOUND | mt5_order.txt
+QM	0	23:58:42.888	MIND_FileBridge (EURUSD,H1)	[MIND_P2260] WAITING_SIGNAL | COMMON_FILE_NOT_FOUND | mt5_order.txt
+RS	0	23:58:52.196	MIND_FileBridge (EURUSD,H1)	[MIND_P2260] WAITING_SIGNAL | COMMON_FILE_NOT_FOUND | mt5_order.txt
+IQ	0	23:59:02.977	MIND_FileBridge (EURUSD,H1)	[MIND_P2260] WAITING_SIGNAL | COMMON_FILE_NOT_FOUND | mt5_order.txt
+LF	0	23:59:12.977	MIND_FileBridge (EURUSD,H1)	[MIND_P2260] WAITING_SIGNAL | COMMON_FILE_NOT_FOUND | mt5_order.txt
+RD	0	23:59:22.574	MIND_FileBridge (EURUSD,H1)	[MIND_P2260] WAITING_SIGNAL | COMMON_FILE_NOT_FOUND | mt5_order.txt
+GJ	0	23:59:32.192	MIND_FileBridge (EURUSD,H1)	[MIND_P2260] WAITING_SIGNAL | COMMON_FILE_NOT_FOUND | mt5_order.txt
+JK	0	23:59:42.361	MIND_FileBridge (EURUSD,H1)	[MIND_P2260] WAITING_SIGNAL | COMMON_FILE_NOT_FOUND | mt5_order.txt
+PI	0	23:59:52.111	MIND_FileBridge (EURUSD,H1)	[MIND_P2260] WAITING_SIGNAL | COMMON_FILE_NOT_FOUND | mt5_order.txt"
+"C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075\logs\20260618.log","18/06/2026 23:22:31","GJ	0	14:42:47.560	Trades	'108130848': deal #8802368060 sell 0.01 EURUSD at 1.14655 done (based on order #9164120067)
+OI	0	14:44:33.822	Experts	expert MIND_FileBridge (EURUSD,M1) removed
+CL	0	14:44:33.840	Experts	expert MIND_FileBridge (EURUSD,M1) loaded successfully
+JJ	0	14:44:34.772	MQL5 debugger	testing launched for debugging 'MIND_FileBridge.ex5' on history
+QK	0	14:47:52.722	Trades	'108130848': market sell 0.01 EURUSD sl: 1.14945 tp: 1.14045
+NR	0	14:47:52.927	Trades	'108130848': deal #8802456973 sell 0.01 EURUSD at 1.14646 done (based on order #9164200196)
+QP	0	14:47:52.927	Trades	'108130848': accepted market sell 0.01 EURUSD sl: 1.14945 tp: 1.14045
+JJ	0	14:47:52.928	Trades	'108130848': order #9164200196 sell 0.01 / 0.01 EURUSD at 1.14646 done in 206.020 ms
+GJ	0	14:48:04.259	Experts	expert MIND_FileBridge (EURUSD,M1) removed
+RI	2	19:29:37.435	IPC	failed to initialize IPC, with message: 
+KK	0	19:29:37.446	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+CD	0	19:29:37.446	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+NE	0	19:29:41.826	Experts	expert MIND_FileBridge (EURUSD,M1) loaded successfully
+FS	2	19:29:42.102	MQL5 debugger	script 'MIND_ExportCandles_P2264B.ex5' is unsupported program type
+OF	2	19:29:42.102	MQL5 debugger	failed to start 'MIND_ExportCandles_P2264B.ex5' on history
+EJ	0	19:29:43.994	Trades	use MetaTrader VPS Hosting Service to speed up the execution: 0.12 ms via 'VPS Amsterdam 10' instead of 200.66 ms
+LH	0	19:29:58.445	Scripts	script MIND_ExportCandles_P2264B (EURUSD,H1) loaded successfully
+CI	0	19:30:06.391	Scripts	script MIND_ExportCandles_P2264B (EURUSD,H1) removed
+ES	0	19:30:06.401	Scripts	script MIND_ExportCandles_P2264B (EURUSD,H1) loaded successfully
+OK	0	19:32:50.983	Scripts	script MIND_ExportCandles_P2264B (EURUSD,H1) removed"
+"C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075\Tester\logs\20260618.log","18/06/2026 14:47:47","OL	0	10:56:13.061	Tester	""MIND_FileBridge.ex5"" AVX2
+RN	0	10:56:13.486	Tester	EURUSD,H1 (MetaQuotes-Demo): visual testing of Experts\MIND_FileBridge.ex5 from 2026.01.01 00:00 to 2026.06.17 00:00
+RD	0	12:00:59.188	Tester	""MIND_FileBridge.ex5"" AVX2
+FN	0	12:01:05.711	Tester	EURUSD,H1 (MetaQuotes-Demo): visual testing of Experts\MIND_FileBridge.ex5 from 2026.01.01 00:00 to 2026.06.17 00:00
+QG	0	12:25:02.012	Tester	""MIND_FileBridge.ex5"" AVX2
+PN	0	12:25:04.040	Tester	EURUSD,H1 (MetaQuotes-Demo): visual testing of Experts\MIND_FileBridge.ex5 from 2026.01.01 00:00 to 2026.06.17 00:00
+FJ	0	12:36:24.927	Tester	""MIND_FileBridge.ex5"" AVX2
+CP	0	12:36:25.440	Tester	EURUSD,H1 (MetaQuotes-Demo): visual testing of Experts\MIND_FileBridge.ex5 from 2026.01.01 00:00 to 2026.06.17 00:00
+II	0	12:51:48.082	Tester	""MIND_FileBridge.ex5"" AVX2
+MS	0	12:51:48.697	Tester	EURUSD,H1 (MetaQuotes-Demo): visual testing of Experts\MIND_FileBridge.ex5 from 2026.01.01 00:00 to 2026.06.17 00:00
+JP	0	13:18:02.175	Tester	""MIND_FileBridge.ex5"" AVX2
+PR	0	13:18:04.401	Tester	EURUSD,H1 (MetaQuotes-Demo): visual testing of Experts\MIND_FileBridge.ex5 from 2026.01.01 00:00 to 2026.06.17 00:00
+JQ	0	14:00:50.048	Tester	""MIND_FileBridge.ex5"" AVX2
+GD	0	14:00:52.843	Tester	EURUSD,H1 (MetaQuotes-Demo): visual testing of Experts\MIND_FileBridge.ex5 from 2026.01.01 00:00 to 2026.06.17 00:00
+QQ	0	14:18:07.008	Tester	""MIND_FileBridge.ex5"" AVX2
+JS	0	14:18:08.004	Tester	EURUSD,H1 (MetaQuotes-Demo): visual testing of Experts\MIND_FileBridge.ex5 from 2026.01.01 00:00 to 2026.06.17 00:00
+GQ	0	14:36:02.540	Tester	""MIND_FileBridge.ex5"" AVX2
+RS	0	14:36:05.403	Tester	EURUSD,H1 (MetaQuotes-Demo): visual testing of Experts\MIND_FileBridge.ex5 from 2026.01.01 00:00 to 2026.06.17 00:00
+EP	0	14:44:34.191	Tester	""MIND_FileBridge.ex5"" AVX2
+QS	0	14:44:36.577	Tester	EURUSD,H1 (MetaQuotes-Demo): visual testing of Experts\MIND_FileBridge.ex5 from 2026.01.01 00:00 to 2026.06.17 00:00"
+"C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075\logs\20260617.log","17/06/2026 22:36:46","IO	0	10:18:47.923	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+LH	0	10:18:47.924	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+GO	0	18:35:42.017	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+FH	0	18:35:42.018	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075"
+"C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075\logs\20260615.log","15/06/2026 23:44:06","DO	0	14:44:44.616	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+KH	0	14:44:44.617	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075"
+"C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075\logs\20260614.log","14/06/2026 16:53:49","QI	0	10:58:20.911	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+IF	0	10:58:20.911	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+QH	0	12:21:32.044	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+II	0	12:21:32.044	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+EI	0	15:02:38.033	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+PF	0	15:02:38.034	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075"
+"C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075\logs\20260612.log","12/06/2026 19:04:22","QO	0	12:59:39.980	Trades	'108130848': market buy 0.01 EURUSD sl: 1.15637 tp: 1.15887
+HH	0	12:59:40.199	Trades	'108130848': accepted market buy 0.01 EURUSD sl: 1.15637 tp: 1.15887
+KE	0	12:59:40.201	Trades	'108130848': deal #8699834893 buy 0.01 EURUSD at 1.15737 done (based on order #9067545337)
+LH	0	12:59:40.213	Trades	'108130848': order #9067545337 buy 0.01 / 0.01 EURUSD at 1.15737 done in 235.547 ms
+LQ	0	12:59:40.447	Trades	use MetaTrader VPS Hosting Service to speed up the execution: 0.41 ms via 'VPS Amsterdam 09' instead of 210.57 ms"
+"C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075\logs\20260611.log","11/06/2026 20:59:30","DO	0	09:56:57.279	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+LH	0	09:56:57.279	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+LG	0	10:12:09.629	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+DP	0	10:12:09.629	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+KP	0	10:36:35.858	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+DQ	0	10:36:35.859	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+IQ	0	10:53:37.965	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+QN	0	10:53:37.965	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+RR	0	11:12:50.413	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+CO	0	11:12:50.414	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+JS	0	12:36:54.582	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+RL	0	12:36:54.582	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+JL	0	12:57:29.516	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+RM	0	12:57:29.516	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075"
+"C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075\logs\20260610.log","10/06/2026 22:27:14","DQ	0	14:28:21.376	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+LN	0	14:28:21.376	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+LR	0	14:32:22.763	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+DO	0	14:32:22.763	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+LS	0	15:08:50.906	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+CL	0	15:08:50.907	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+ML	0	15:57:52.370	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+EM	0	15:57:52.370	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+QM	0	16:06:51.141	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+HJ	0	16:06:51.142	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+NN	0	16:21:41.261	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+FK	0	16:21:41.261	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+EO	0	18:41:54.022	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+NH	0	18:41:54.023	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+CH	0	19:04:45.772	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+KI	0	19:04:45.772	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+KI	0	20:52:24.589	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+CF	0	20:52:24.589	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+FH	0	22:25:45.275	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+NI	0	22:25:45.275	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075"
+"C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075\logs\20260609.log","09/06/2026 19:55:40","HQ	0	17:21:15.870	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+PN	0	17:21:15.870	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+HJ	0	18:01:11.055	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+CG	0	18:01:11.058	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+JK	0	18:03:22.077	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+RD	0	18:03:22.077	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+MD	0	18:08:25.706	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+FE	0	18:08:25.707	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+CE	0	18:10:12.134	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+LR	0	18:10:12.135	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+HF	0	18:17:26.636	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+PS	0	18:17:26.636	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+MG	0	18:19:30.252	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+FP	0	18:19:30.253	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+IP	0	18:35:04.716	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+QQ	0	18:35:04.716	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+JQ	0	19:08:40.860	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+PN	0	19:08:40.862	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075
+FR	0	19:20:13.644	Terminal	MetaTrader 5 x64 build 5836 started for MetaQuotes Ltd.
+MO	0	19:20:13.645	Terminal	C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075"

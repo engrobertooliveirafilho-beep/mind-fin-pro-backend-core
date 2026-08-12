@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_9E253AAFAA348147",
+  "source_file": "_evidence\\P19P50B_TRACE_COGNITIVE_CONTEXT_20260622_194543\\trace_p19p50.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\_evidence\\P19P50B_TRACE_COGNITIVE_CONTEXT_20260622_194543\\trace_p19p50.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 98,
+  "imports": [
+    "app.api.whatsapp",
+    "app.companionship.cognitive_context_builder",
+    "app.companionship.humanized_meta_cognition",
+    "app.companionship.safe_recovery_adapter",
+    "app.runtime.cognitive_pipeline",
+    "json"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

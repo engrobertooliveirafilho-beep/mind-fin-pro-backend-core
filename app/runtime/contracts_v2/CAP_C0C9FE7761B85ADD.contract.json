@@ -1,0 +1,33 @@
+{
+  "capability_id": "CAP_C0C9FE7761B85ADD",
+  "source_file": ".venv\\Lib\\site-packages\\_pytest\\reports.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\_pytest\\reports.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 158,
+  "imports": [
+    "__future__",
+    "_pytest._code.code",
+    "_pytest._io",
+    "_pytest.config",
+    "_pytest.nodes",
+    "_pytest.outcomes",
+    "_pytest.runner",
+    "collections.abc",
+    "dataclasses",
+    "exceptiongroup",
+    "io",
+    "os",
+    "pprint",
+    "sys",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

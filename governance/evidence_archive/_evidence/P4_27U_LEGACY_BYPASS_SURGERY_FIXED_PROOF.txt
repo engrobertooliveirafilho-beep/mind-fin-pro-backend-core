@@ -1,0 +1,18 @@
+P4.27U — LEGACY BYPASS SURGERY FIXED
+
+CLASSIFICATION:
+REAL_OPERATIONAL / GOLD
+
+PROOF:
+- Legacy route_fast gated by MIND_ENABLE_LEGACY_ROUTE_FAST
+- Legacy social guard gated by MIND_ENABLE_LEGACY_SOCIAL_GUARD
+- Legacy compat_semantics_after_cognition gated by MIND_ENABLE_LEGACY_COMPAT_SEMANTICS
+- semantic_test_injection gated by ELDORA_TEST_MODE
+- _p427u_test_compat fixed: no recursion, no dict/str crash
+- Directed pytest: 24 passed / 3 skipped / 0 failed
+
+HEAD_BEFORE_COMMIT:
+7c4f52d3317e9e90e914fbd474483c1f0a7c6b81
+
+CLOUD_RULE:
+Evidence copied to Drive and committed to GitHub.

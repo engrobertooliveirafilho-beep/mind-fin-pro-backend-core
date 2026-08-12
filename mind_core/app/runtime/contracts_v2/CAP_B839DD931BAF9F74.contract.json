@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_B839DD931BAF9F74",
+  "source_file": ".venv\\Lib\\site-packages\\aiohttp\\compression_utils.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\aiohttp\\compression_utils.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 110,
+  "imports": [
+    "abc",
+    "asyncio",
+    "backports.zstd",
+    "brotli",
+    "brotlicffi",
+    "collections.abc",
+    "compression.zstd",
+    "concurrent.futures",
+    "sys",
+    "typing",
+    "zlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

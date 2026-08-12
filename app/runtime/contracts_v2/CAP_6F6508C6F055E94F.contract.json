@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_6F6508C6F055E94F",
+  "source_file": ".venv\\Lib\\site-packages\\docx\\enum\\base.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\docx\\enum\\base.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 83,
+  "imports": [
+    "__future__",
+    "enum",
+    "textwrap",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

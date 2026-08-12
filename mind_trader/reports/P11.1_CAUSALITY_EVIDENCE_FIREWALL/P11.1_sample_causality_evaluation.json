@@ -1,0 +1,18 @@
+{
+  "claim_id": "sample",
+  "checks": {
+    "temporal_precedence": true,
+    "placebo_test": true,
+    "regime_invariance": true,
+    "confounder_check": true,
+    "cross_asset_replication": true,
+    "out_of_sample_replication": true
+  },
+  "causality_score": 1.0,
+  "causality_proven": true,
+  "live_allowed": false,
+  "real_broker_allowed": false,
+  "promotion_allowed": false,
+  "status": "CAUSALITY_EVIDENCE_ACCEPTED_PAPER_ONLY",
+  "evaluated_at": "2026-06-14T16:11:26.276561+00:00"
+}

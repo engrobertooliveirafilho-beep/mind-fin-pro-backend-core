@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_89FF795E43D59FD6",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\fine_tuning\\alpha\\grader_validate_response.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\openai\\types\\fine_tuning\\alpha\\grader_validate_response.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 89,
+  "imports": [
+    "_models",
+    "graders.multi_grader",
+    "graders.python_grader",
+    "graders.score_model_grader",
+    "graders.string_check_grader",
+    "graders.text_similarity_grader",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

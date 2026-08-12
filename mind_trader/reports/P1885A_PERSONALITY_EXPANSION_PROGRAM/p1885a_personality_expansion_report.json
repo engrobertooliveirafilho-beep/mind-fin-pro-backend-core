@@ -1,0 +1,1726 @@
+{
+  "STATUS": "P1885A_PERSONALITY_EXPANSION_PROGRAM_COMPLETED",
+  "SURVIVORS_INPUT": 90,
+  "MUTATIONS_VALIDATED": 90,
+  "GEN2_ELITES_PROMOTED": 82,
+  "REJECTED": 8,
+  "EXPANDED_PERSONALITIES": 2,
+  "CROSS_ASSET_TRANSFER_JOBS": 410,
+  "RANKED_GEN2": 82,
+  "TOP20_GEN2": [
+    {
+      "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_e22e151504a57648",
+      "asset": "USDJPY",
+      "family": "RSI_REVERSION",
+      "mutation_type": "ADD_TREND_VOLATILITY_FILTER",
+      "score": 187.773085,
+      "tier": "S+",
+      "metrics": {
+        "trades": 29,
+        "wins": 17,
+        "losses": 12,
+        "win_rate": 0.586207,
+        "profit_factor_proxy": 4.848097,
+        "avg_return": 0.00248396,
+        "yearly_consistency_proxy": 0.875,
+        "positive_years_proxy": 7,
+        "tested_years_proxy": 8,
+        "wf_proxy_pass": true,
+        "mc_proxy_pass": true,
+        "stress_proxy_pass": true,
+        "yearly_proxy": [
+          {
+            "year": 2017,
+            "return": -0.0094277499400693,
+            "positive": false,
+            "trades": 2
+          },
+          {
+            "year": 2018,
+            "return": 0.0019570551704965,
+            "positive": true,
+            "trades": 4
+          },
+          {
+            "year": 2021,
+            "return": 0.0049804617649646995,
+            "positive": true,
+            "trades": 6
+          },
+          {
+            "year": 2022,
+            "return": 0.006113247232847599,
+            "positive": true,
+            "trades": 2
+          },
+          {
+            "year": 2023,
+            "return": 0.0312899100697945,
+            "positive": true,
+            "trades": 6
+          },
+          {
+            "year": 2024,
+            "return": 0.018084543489549278,
+            "positive": true,
+            "trades": 6
+          },
+          {
+            "year": 2025,
+            "return": 3.963456927125186e-05,
+            "positive": true,
+            "trades": 1
+          },
+          {
+            "year": 2026,
+            "return": 0.0189978242673413,
+            "positive": true,
+            "trades": 2
+          }
+        ]
+      },
+      "status": "RANKED_GEN2_ELITE"
+    },
+    {
+      "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_aa12e174aa75b5b2",
+      "asset": "USDJPY",
+      "family": "RSI_REVERSION",
+      "mutation_type": "ADD_FULL_CONTEXT_FILTER",
+      "score": 187.773085,
+      "tier": "S+",
+      "metrics": {
+        "trades": 29,
+        "wins": 17,
+        "losses": 12,
+        "win_rate": 0.586207,
+        "profit_factor_proxy": 4.848097,
+        "avg_return": 0.00248396,
+        "yearly_consistency_proxy": 0.875,
+        "positive_years_proxy": 7,
+        "tested_years_proxy": 8,
+        "wf_proxy_pass": true,
+        "mc_proxy_pass": true,
+        "stress_proxy_pass": true,
+        "yearly_proxy": [
+          {
+            "year": 2017,
+            "return": -0.0094277499400693,
+            "positive": false,
+            "trades": 2
+          },
+          {
+            "year": 2018,
+            "return": 0.0019570551704965,
+            "positive": true,
+            "trades": 4
+          },
+          {
+            "year": 2021,
+            "return": 0.0049804617649646995,
+            "positive": true,
+            "trades": 6
+          },
+          {
+            "year": 2022,
+            "return": 0.006113247232847599,
+            "positive": true,
+            "trades": 2
+          },
+          {
+            "year": 2023,
+            "return": 0.0312899100697945,
+            "positive": true,
+            "trades": 6
+          },
+          {
+            "year": 2024,
+            "return": 0.018084543489549278,
+            "positive": true,
+            "trades": 6
+          },
+          {
+            "year": 2025,
+            "return": 3.963456927125186e-05,
+            "positive": true,
+            "trades": 1
+          },
+          {
+            "year": 2026,
+            "return": 0.0189978242673413,
+            "positive": true,
+            "trades": 2
+          }
+        ]
+      },
+      "status": "RANKED_GEN2_ELITE"
+    },
+    {
+      "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_1e538a0d6fedf6dc",
+      "asset": "USDJPY",
+      "family": "RSI_REVERSION",
+      "mutation_type": "ADD_VOLATILITY_FILTER",
+      "score": 127.837715,
+      "tier": "S+",
+      "metrics": {
+        "trades": 117,
+        "wins": 75,
+        "losses": 42,
+        "win_rate": 0.641026,
+        "profit_factor_proxy": 2.365958,
+        "avg_return": 0.00165318,
+        "yearly_consistency_proxy": 0.833333,
+        "positive_years_proxy": 10,
+        "tested_years_proxy": 12,
+        "wf_proxy_pass": true,
+        "mc_proxy_pass": true,
+        "stress_proxy_pass": true,
+        "yearly_proxy": [
+          {
+            "year": 2015,
+            "return": 0.028043088027486802,
+            "positive": true,
+            "trades": 6
+          },
+          {
+            "year": 2016,
+            "return": 0.024770742551359,
+            "positive": true,
+            "trades": 30
+          },
+          {
+            "year": 2017,
+            "return": -0.0082939939425001,
+            "positive": false,
+            "trades": 3
+          },
+          {
+            "year": 2018,
+            "return": -0.0046736327812801,
+            "positive": false,
+            "trades": 8
+          },
+          {
+            "year": 2019,
+            "return": 0.0080443773663432,
+            "positive": true,
+            "trades": 13
+          },
+          {
+            "year": 2020,
+            "return": 0.0407614726646456,
+            "positive": true,
+            "trades": 20
+          },
+          {
+            "year": 2021,
+            "return": 0.0081446798136644,
+            "positive": true,
+            "trades": 7
+          },
+          {
+            "year": 2022,
+            "return": 0.006113247232847599,
+            "positive": true,
+            "trades": 2
+          },
+          {
+            "year": 2023,
+            "return": 0.0449148129143764,
+            "positive": true,
+            "trades": 9
+          },
+          {
+            "year": 2024,
+            "return": 0.018084543489549278,
+            "positive": true,
+            "trades": 6
+          },
+          {
+            "year": 2025,
+            "return": 0.008514898954973251,
+            "positive": true,
+            "trades": 11
+          },
+          {
+            "year": 2026,
+            "return": 0.0189978242673413,
+            "positive": true,
+            "trades": 2
+          }
+        ]
+      },
+      "status": "RANKED_GEN2_ELITE"
+    },
+    {
+      "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_c2eee99c5c1c4c61",
+      "asset": "USDJPY",
+      "family": "RSI_REVERSION",
+      "mutation_type": "ADD_SESSION_VOLATILITY_FILTER",
+      "score": 127.837715,
+      "tier": "S+",
+      "metrics": {
+        "trades": 117,
+        "wins": 75,
+        "losses": 42,
+        "win_rate": 0.641026,
+        "profit_factor_proxy": 2.365958,
+        "avg_return": 0.00165318,
+        "yearly_consistency_proxy": 0.833333,
+        "positive_years_proxy": 10,
+        "tested_years_proxy": 12,
+        "wf_proxy_pass": true,
+        "mc_proxy_pass": true,
+        "stress_proxy_pass": true,
+        "yearly_proxy": [
+          {
+            "year": 2015,
+            "return": 0.028043088027486802,
+            "positive": true,
+            "trades": 6
+          },
+          {
+            "year": 2016,
+            "return": 0.024770742551359,
+            "positive": true,
+            "trades": 30
+          },
+          {
+            "year": 2017,
+            "return": -0.0082939939425001,
+            "positive": false,
+            "trades": 3
+          },
+          {
+            "year": 2018,
+            "return": -0.0046736327812801,
+            "positive": false,
+            "trades": 8
+          },
+          {
+            "year": 2019,
+            "return": 0.0080443773663432,
+            "positive": true,
+            "trades": 13
+          },
+          {
+            "year": 2020,
+            "return": 0.0407614726646456,
+            "positive": true,
+            "trades": 20
+          },
+          {
+            "year": 2021,
+            "return": 0.0081446798136644,
+            "positive": true,
+            "trades": 7
+          },
+          {
+            "year": 2022,
+            "return": 0.006113247232847599,
+            "positive": true,
+            "trades": 2
+          },
+          {
+            "year": 2023,
+            "return": 0.0449148129143764,
+            "positive": true,
+            "trades": 9
+          },
+          {
+            "year": 2024,
+            "return": 0.018084543489549278,
+            "positive": true,
+            "trades": 6
+          },
+          {
+            "year": 2025,
+            "return": 0.008514898954973251,
+            "positive": true,
+            "trades": 11
+          },
+          {
+            "year": 2026,
+            "return": 0.0189978242673413,
+            "positive": true,
+            "trades": 2
+          }
+        ]
+      },
+      "status": "RANKED_GEN2_ELITE"
+    },
+    {
+      "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_b363b38c9bf8d051",
+      "asset": "USDJPY",
+      "family": "RSI_REVERSION",
+      "mutation_type": "ADD_VOLATILITY_FILTER",
+      "score": 127.837715,
+      "tier": "S+",
+      "metrics": {
+        "trades": 117,
+        "wins": 75,
+        "losses": 42,
+        "win_rate": 0.641026,
+        "profit_factor_proxy": 2.365958,
+        "avg_return": 0.00165318,
+        "yearly_consistency_proxy": 0.833333,
+        "positive_years_proxy": 10,
+        "tested_years_proxy": 12,
+        "wf_proxy_pass": true,
+        "mc_proxy_pass": true,
+        "stress_proxy_pass": true,
+        "yearly_proxy": [
+          {
+            "year": 2015,
+            "return": 0.028043088027486802,
+            "positive": true,
+            "trades": 6
+          },
+          {
+            "year": 2016,
+            "return": 0.024770742551359,
+            "positive": true,
+            "trades": 30
+          },
+          {
+            "year": 2017,
+            "return": -0.0082939939425001,
+            "positive": false,
+            "trades": 3
+          },
+          {
+            "year": 2018,
+            "return": -0.0046736327812801,
+            "positive": false,
+            "trades": 8
+          },
+          {
+            "year": 2019,
+            "return": 0.0080443773663432,
+            "positive": true,
+            "trades": 13
+          },
+          {
+            "year": 2020,
+            "return": 0.0407614726646456,
+            "positive": true,
+            "trades": 20
+          },
+          {
+            "year": 2021,
+            "return": 0.0081446798136644,
+            "positive": true,
+            "trades": 7
+          },
+          {
+            "year": 2022,
+            "return": 0.006113247232847599,
+            "positive": true,
+            "trades": 2
+          },
+          {
+            "year": 2023,
+            "return": 0.0449148129143764,
+            "positive": true,
+            "trades": 9
+          },
+          {
+            "year": 2024,
+            "return": 0.018084543489549278,
+            "positive": true,
+            "trades": 6
+          },
+          {
+            "year": 2025,
+            "return": 0.008514898954973251,
+            "positive": true,
+            "trades": 11
+          },
+          {
+            "year": 2026,
+            "return": 0.0189978242673413,
+            "positive": true,
+            "trades": 2
+          }
+        ]
+      },
+      "status": "RANKED_GEN2_ELITE"
+    },
+    {
+      "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_7fdced0772c3179a",
+      "asset": "USDJPY",
+      "family": "RSI_REVERSION",
+      "mutation_type": "ADD_SESSION_VOLATILITY_FILTER",
+      "score": 127.837715,
+      "tier": "S+",
+      "metrics": {
+        "trades": 117,
+        "wins": 75,
+        "losses": 42,
+        "win_rate": 0.641026,
+        "profit_factor_proxy": 2.365958,
+        "avg_return": 0.00165318,
+        "yearly_consistency_proxy": 0.833333,
+        "positive_years_proxy": 10,
+        "tested_years_proxy": 12,
+        "wf_proxy_pass": true,
+        "mc_proxy_pass": true,
+        "stress_proxy_pass": true,
+        "yearly_proxy": [
+          {
+            "year": 2015,
+            "return": 0.028043088027486802,
+            "positive": true,
+            "trades": 6
+          },
+          {
+            "year": 2016,
+            "return": 0.024770742551359,
+            "positive": true,
+            "trades": 30
+          },
+          {
+            "year": 2017,
+            "return": -0.0082939939425001,
+            "positive": false,
+            "trades": 3
+          },
+          {
+            "year": 2018,
+            "return": -0.0046736327812801,
+            "positive": false,
+            "trades": 8
+          },
+          {
+            "year": 2019,
+            "return": 0.0080443773663432,
+            "positive": true,
+            "trades": 13
+          },
+          {
+            "year": 2020,
+            "return": 0.0407614726646456,
+            "positive": true,
+            "trades": 20
+          },
+          {
+            "year": 2021,
+            "return": 0.0081446798136644,
+            "positive": true,
+            "trades": 7
+          },
+          {
+            "year": 2022,
+            "return": 0.006113247232847599,
+            "positive": true,
+            "trades": 2
+          },
+          {
+            "year": 2023,
+            "return": 0.0449148129143764,
+            "positive": true,
+            "trades": 9
+          },
+          {
+            "year": 2024,
+            "return": 0.018084543489549278,
+            "positive": true,
+            "trades": 6
+          },
+          {
+            "year": 2025,
+            "return": 0.008514898954973251,
+            "positive": true,
+            "trades": 11
+          },
+          {
+            "year": 2026,
+            "return": 0.0189978242673413,
+            "positive": true,
+            "trades": 2
+          }
+        ]
+      },
+      "status": "RANKED_GEN2_ELITE"
+    },
+    {
+      "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_2cfb8703fb0375e8",
+      "asset": "USDJPY",
+      "family": "RSI_REVERSION",
+      "mutation_type": "ADD_VOLATILITY_FILTER",
+      "score": 127.837715,
+      "tier": "S+",
+      "metrics": {
+        "trades": 117,
+        "wins": 75,
+        "losses": 42,
+        "win_rate": 0.641026,
+        "profit_factor_proxy": 2.365958,
+        "avg_return": 0.00165318,
+        "yearly_consistency_proxy": 0.833333,
+        "positive_years_proxy": 10,
+        "tested_years_proxy": 12,
+        "wf_proxy_pass": true,
+        "mc_proxy_pass": true,
+        "stress_proxy_pass": true,
+        "yearly_proxy": [
+          {
+            "year": 2015,
+            "return": 0.028043088027486802,
+            "positive": true,
+            "trades": 6
+          },
+          {
+            "year": 2016,
+            "return": 0.024770742551359,
+            "positive": true,
+            "trades": 30
+          },
+          {
+            "year": 2017,
+            "return": -0.0082939939425001,
+            "positive": false,
+            "trades": 3
+          },
+          {
+            "year": 2018,
+            "return": -0.0046736327812801,
+            "positive": false,
+            "trades": 8
+          },
+          {
+            "year": 2019,
+            "return": 0.0080443773663432,
+            "positive": true,
+            "trades": 13
+          },
+          {
+            "year": 2020,
+            "return": 0.0407614726646456,
+            "positive": true,
+            "trades": 20
+          },
+          {
+            "year": 2021,
+            "return": 0.0081446798136644,
+            "positive": true,
+            "trades": 7
+          },
+          {
+            "year": 2022,
+            "return": 0.006113247232847599,
+            "positive": true,
+            "trades": 2
+          },
+          {
+            "year": 2023,
+            "return": 0.0449148129143764,
+            "positive": true,
+            "trades": 9
+          },
+          {
+            "year": 2024,
+            "return": 0.018084543489549278,
+            "positive": true,
+            "trades": 6
+          },
+          {
+            "year": 2025,
+            "return": 0.008514898954973251,
+            "positive": true,
+            "trades": 11
+          },
+          {
+            "year": 2026,
+            "return": 0.0189978242673413,
+            "positive": true,
+            "trades": 2
+          }
+        ]
+      },
+      "status": "RANKED_GEN2_ELITE"
+    },
+    {
+      "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_f55caa4584df31ee",
+      "asset": "USDJPY",
+      "family": "RSI_REVERSION",
+      "mutation_type": "ADD_SESSION_VOLATILITY_FILTER",
+      "score": 127.837715,
+      "tier": "S+",
+      "metrics": {
+        "trades": 117,
+        "wins": 75,
+        "losses": 42,
+        "win_rate": 0.641026,
+        "profit_factor_proxy": 2.365958,
+        "avg_return": 0.00165318,
+        "yearly_consistency_proxy": 0.833333,
+        "positive_years_proxy": 10,
+        "tested_years_proxy": 12,
+        "wf_proxy_pass": true,
+        "mc_proxy_pass": true,
+        "stress_proxy_pass": true,
+        "yearly_proxy": [
+          {
+            "year": 2015,
+            "return": 0.028043088027486802,
+            "positive": true,
+            "trades": 6
+          },
+          {
+            "year": 2016,
+            "return": 0.024770742551359,
+            "positive": true,
+            "trades": 30
+          },
+          {
+            "year": 2017,
+            "return": -0.0082939939425001,
+            "positive": false,
+            "trades": 3
+          },
+          {
+            "year": 2018,
+            "return": -0.0046736327812801,
+            "positive": false,
+            "trades": 8
+          },
+          {
+            "year": 2019,
+            "return": 0.0080443773663432,
+            "positive": true,
+            "trades": 13
+          },
+          {
+            "year": 2020,
+            "return": 0.0407614726646456,
+            "positive": true,
+            "trades": 20
+          },
+          {
+            "year": 2021,
+            "return": 0.0081446798136644,
+            "positive": true,
+            "trades": 7
+          },
+          {
+            "year": 2022,
+            "return": 0.006113247232847599,
+            "positive": true,
+            "trades": 2
+          },
+          {
+            "year": 2023,
+            "return": 0.0449148129143764,
+            "positive": true,
+            "trades": 9
+          },
+          {
+            "year": 2024,
+            "return": 0.018084543489549278,
+            "positive": true,
+            "trades": 6
+          },
+          {
+            "year": 2025,
+            "return": 0.008514898954973251,
+            "positive": true,
+            "trades": 11
+          },
+          {
+            "year": 2026,
+            "return": 0.0189978242673413,
+            "positive": true,
+            "trades": 2
+          }
+        ]
+      },
+      "status": "RANKED_GEN2_ELITE"
+    },
+    {
+      "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_1e065a0e0043f30d",
+      "asset": "XAUUSD",
+      "family": "LIQUIDITY_SWEEP_TRIGGER",
+      "mutation_type": "ADD_TREND_FILTER",
+      "score": 123.804565,
+      "tier": "S+",
+      "metrics": {
+        "trades": 37,
+        "wins": 20,
+        "losses": 17,
+        "win_rate": 0.540541,
+        "profit_factor_proxy": 2.596368,
+        "avg_return": 0.00268421,
+        "yearly_consistency_proxy": 1.0,
+        "positive_years_proxy": 6,
+        "tested_years_proxy": 6,
+        "wf_proxy_pass": true,
+        "mc_proxy_pass": true,
+        "stress_proxy_pass": true,
+        "yearly_proxy": [
+          {
+            "year": 2015,
+            "return": 0.039962960772602,
+            "positive": true,
+            "trades": 8
+          },
+          {
+            "year": 2016,
+            "return": 0.0114618844019671,
+            "positive": true,
+            "trades": 6
+          },
+          {
+            "year": 2018,
+            "return": 0.007447011073619699,
+            "positive": true,
+            "trades": 7
+          },
+          {
+            "year": 2021,
+            "return": 0.0109159934842623,
+            "positive": true,
+            "trades": 4
+          },
+          {
+            "year": 2022,
+            "return": 0.007045516131162499,
+            "positive": true,
+            "trades": 10
+          },
+          {
+            "year": 2023,
+            "return": 0.0224822715508299,
+            "positive": true,
+            "trades": 2
+          }
+        ]
+      },
+      "status": "RANKED_GEN2_ELITE"
+    },
+    {
+      "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_889afb67b1412459",
+      "asset": "XAUUSD",
+      "family": "LIQUIDITY_SWEEP_TRIGGER",
+      "mutation_type": "ADD_TREND_FILTER",
+      "score": 123.804565,
+      "tier": "S+",
+      "metrics": {
+        "trades": 37,
+        "wins": 20,
+        "losses": 17,
+        "win_rate": 0.540541,
+        "profit_factor_proxy": 2.596368,
+        "avg_return": 0.00268421,
+        "yearly_consistency_proxy": 1.0,
+        "positive_years_proxy": 6,
+        "tested_years_proxy": 6,
+        "wf_proxy_pass": true,
+        "mc_proxy_pass": true,
+        "stress_proxy_pass": true,
+        "yearly_proxy": [
+          {
+            "year": 2015,
+            "return": 0.039962960772602,
+            "positive": true,
+            "trades": 8
+          },
+          {
+            "year": 2016,
+            "return": 0.0114618844019671,
+            "positive": true,
+            "trades": 6
+          },
+          {
+            "year": 2018,
+            "return": 0.007447011073619699,
+            "positive": true,
+            "trades": 7
+          },
+          {
+            "year": 2021,
+            "return": 0.0109159934842623,
+            "positive": true,
+            "trades": 4
+          },
+          {
+            "year": 2022,
+            "return": 0.007045516131162499,
+            "positive": true,
+            "trades": 10
+          },
+          {
+            "year": 2023,
+            "return": 0.0224822715508299,
+            "positive": true,
+            "trades": 2
+          }
+        ]
+      },
+      "status": "RANKED_GEN2_ELITE"
+    },
+    {
+      "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_23d9161ce0f608da",
+      "asset": "XAUUSD",
+      "family": "LIQUIDITY_SWEEP_TRIGGER",
+      "mutation_type": "ADD_TREND_VOLATILITY_FILTER",
+      "score": 120.884975,
+      "tier": "S+",
+      "metrics": {
+        "trades": 26,
+        "wins": 13,
+        "losses": 13,
+        "win_rate": 0.5,
+        "profit_factor_proxy": 2.745055,
+        "avg_return": 0.00282432,
+        "yearly_consistency_proxy": 0.833333,
+        "positive_years_proxy": 5,
+        "tested_years_proxy": 6,
+        "wf_proxy_pass": true,
+        "mc_proxy_pass": true,
+        "stress_proxy_pass": true,
+        "yearly_proxy": [
+          {
+            "year": 2015,
+            "return": 0.039962960772602,
+            "positive": true,
+            "trades": 8
+          },
+          {
+            "year": 2016,
+            "return": 0.004019110002583001,
+            "positive": true,
+            "trades": 4
+          },
+          {
+            "year": 2018,
+            "return": -0.0012758258928092007,
+            "positive": false,
+            "trades": 6
+          },
+          {
+            "year": 2021,
+            "return": 0.0041549974748633,
+            "positive": true,
+            "trades": 1
+          },
+          {
+            "year": 2022,
+            "return": 0.010461490120402296,
+            "positive": true,
+            "trades": 6
+          },
+          {
+            "year": 2023,
+            "return": 0.0161094855445891,
+            "positive": true,
+            "trades": 1
+          }
+        ]
+      },
+      "status": "RANKED_GEN2_ELITE"
+    },
+    {
+      "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_8f80417fbd476053",
+      "asset": "XAUUSD",
+      "family": "LIQUIDITY_SWEEP_TRIGGER",
+      "mutation_type": "ADD_FULL_CONTEXT_FILTER",
+      "score": 120.884975,
+      "tier": "S+",
+      "metrics": {
+        "trades": 26,
+        "wins": 13,
+        "losses": 13,
+        "win_rate": 0.5,
+        "profit_factor_proxy": 2.745055,
+        "avg_return": 0.00282432,
+        "yearly_consistency_proxy": 0.833333,
+        "positive_years_proxy": 5,
+        "tested_years_proxy": 6,
+        "wf_proxy_pass": true,
+        "mc_proxy_pass": true,
+        "stress_proxy_pass": true,
+        "yearly_proxy": [
+          {
+            "year": 2015,
+            "return": 0.039962960772602,
+            "positive": true,
+            "trades": 8
+          },
+          {
+            "year": 2016,
+            "return": 0.004019110002583001,
+            "positive": true,
+            "trades": 4
+          },
+          {
+            "year": 2018,
+            "return": -0.0012758258928092007,
+            "positive": false,
+            "trades": 6
+          },
+          {
+            "year": 2021,
+            "return": 0.0041549974748633,
+            "positive": true,
+            "trades": 1
+          },
+          {
+            "year": 2022,
+            "return": 0.010461490120402296,
+            "positive": true,
+            "trades": 6
+          },
+          {
+            "year": 2023,
+            "return": 0.0161094855445891,
+            "positive": true,
+            "trades": 1
+          }
+        ]
+      },
+      "status": "RANKED_GEN2_ELITE"
+    },
+    {
+      "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_c47653114bb5eced",
+      "asset": "USDJPY",
+      "family": "RSI_REVERSION",
+      "mutation_type": "ADD_TREND_FILTER",
+      "score": 118.704685,
+      "tier": "S",
+      "metrics": {
+        "trades": 108,
+        "wins": 64,
+        "losses": 44,
+        "win_rate": 0.592593,
+        "profit_factor_proxy": 2.067162,
+        "avg_return": 0.0016962,
+        "yearly_consistency_proxy": 0.875,
+        "positive_years_proxy": 7,
+        "tested_years_proxy": 8,
+        "wf_proxy_pass": true,
+        "mc_proxy_pass": true,
+        "stress_proxy_pass": true,
+        "yearly_proxy": [
+          {
+            "year": 2015,
+            "return": 0.0058328711050198,
+            "positive": true,
+            "trades": 3
+          },
+          {
+            "year": 2016,
+            "return": 0.0340929845790327,
+            "positive": true,
+            "trades": 44
+          },
+          {
+            "year": 2018,
+            "return": 0.010773798684558099,
+            "positive": true,
+            "trades": 5
+          },
+          {
+            "year": 2019,
+            "return": 0.0233206496444337,
+            "positive": true,
+            "trades": 13
+          },
+          {
+            "year": 2020,
+            "return": 0.0945583302993993,
+            "positive": true,
+            "trades": 28
+          },
+          {
+            "year": 2021,
+            "return": 0.0031642180486997,
+            "positive": true,
+            "trades": 1
+          },
+          {
+            "year": 2023,
+            "return": 0.0120317945529408,
+            "positive": true,
+            "trades": 4
+          },
+          {
+            "year": 2025,
+            "return": -0.000584777081422001,
+            "positive": false,
+            "trades": 10
+          }
+        ]
+      },
+      "status": "RANKED_GEN2_ELITE"
+    },
+    {
+      "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_0e6318b221b2afe9",
+      "asset": "USDJPY",
+      "family": "RSI_REVERSION",
+      "mutation_type": "ADD_TREND_FILTER",
+      "score": 118.704685,
+      "tier": "S",
+      "metrics": {
+        "trades": 108,
+        "wins": 64,
+        "losses": 44,
+        "win_rate": 0.592593,
+        "profit_factor_proxy": 2.067162,
+        "avg_return": 0.0016962,
+        "yearly_consistency_proxy": 0.875,
+        "positive_years_proxy": 7,
+        "tested_years_proxy": 8,
+        "wf_proxy_pass": true,
+        "mc_proxy_pass": true,
+        "stress_proxy_pass": true,
+        "yearly_proxy": [
+          {
+            "year": 2015,
+            "return": 0.0058328711050198,
+            "positive": true,
+            "trades": 3
+          },
+          {
+            "year": 2016,
+            "return": 0.0340929845790327,
+            "positive": true,
+            "trades": 44
+          },
+          {
+            "year": 2018,
+            "return": 0.010773798684558099,
+            "positive": true,
+            "trades": 5
+          },
+          {
+            "year": 2019,
+            "return": 0.0233206496444337,
+            "positive": true,
+            "trades": 13
+          },
+          {
+            "year": 2020,
+            "return": 0.0945583302993993,
+            "positive": true,
+            "trades": 28
+          },
+          {
+            "year": 2021,
+            "return": 0.0031642180486997,
+            "positive": true,
+            "trades": 1
+          },
+          {
+            "year": 2023,
+            "return": 0.0120317945529408,
+            "positive": true,
+            "trades": 4
+          },
+          {
+            "year": 2025,
+            "return": -0.000584777081422001,
+            "positive": false,
+            "trades": 10
+          }
+        ]
+      },
+      "status": "RANKED_GEN2_ELITE"
+    },
+    {
+      "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_4bc877150e2be425",
+      "asset": "XAUUSD",
+      "family": "LIQUIDITY_SWEEP_TRIGGER",
+      "mutation_type": "ADD_VOLATILITY_FILTER",
+      "score": 114.349955,
+      "tier": "S",
+      "metrics": {
+        "trades": 75,
+        "wins": 45,
+        "losses": 30,
+        "win_rate": 0.6,
+        "profit_factor_proxy": 2.117221,
+        "avg_return": 0.00231031,
+        "yearly_consistency_proxy": 0.833333,
+        "positive_years_proxy": 10,
+        "tested_years_proxy": 12,
+        "wf_proxy_pass": true,
+        "mc_proxy_pass": true,
+        "stress_proxy_pass": true,
+        "yearly_proxy": [
+          {
+            "year": 2015,
+            "return": 0.039962960772602,
+            "positive": true,
+            "trades": 8
+          },
+          {
+            "year": 2016,
+            "return": 0.0285795025597535,
+            "positive": true,
+            "trades": 7
+          },
+          {
+            "year": 2017,
+            "return": -0.0032714884992084,
+            "positive": false,
+            "trades": 7
+          },
+          {
+            "year": 2018,
+            "return": 0.002949602916099201,
+            "positive": true,
+            "trades": 10
+          },
+          {
+            "year": 2019,
+            "return": 0.0148155681295005,
+            "positive": true,
+            "trades": 2
+          },
+          {
+            "year": 2020,
+            "return": 0.013122184164011301,
+            "positive": true,
+            "trades": 5
+          },
+          {
+            "year": 2021,
+            "return": 0.011698226404431002,
+            "positive": true,
+            "trades": 8
+          },
+          {
+            "year": 2022,
+            "return": 0.026126854730387797,
+            "positive": true,
+            "trades": 9
+          },
+          {
+            "year": 2023,
+            "return": 0.002827738371650899,
+            "positive": true,
+            "trades": 9
+          },
+          {
+            "year": 2024,
+            "return": 0.0171382952316251,
+            "positive": true,
+            "trades": 2
+          },
+          {
+            "year": 2025,
+            "return": 0.0193945686688105,
+            "positive": true,
+            "trades": 2
+          },
+          {
+            "year": 2026,
+            "return": -7.088686295990063e-05,
+            "positive": false,
+            "trades": 6
+          }
+        ]
+      },
+      "status": "RANKED_GEN2_ELITE"
+    },
+    {
+      "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_780770da731391ee",
+      "asset": "XAUUSD",
+      "family": "LIQUIDITY_SWEEP_TRIGGER",
+      "mutation_type": "ADD_SESSION_VOLATILITY_FILTER",
+      "score": 114.349955,
+      "tier": "S",
+      "metrics": {
+        "trades": 75,
+        "wins": 45,
+        "losses": 30,
+        "win_rate": 0.6,
+        "profit_factor_proxy": 2.117221,
+        "avg_return": 0.00231031,
+        "yearly_consistency_proxy": 0.833333,
+        "positive_years_proxy": 10,
+        "tested_years_proxy": 12,
+        "wf_proxy_pass": true,
+        "mc_proxy_pass": true,
+        "stress_proxy_pass": true,
+        "yearly_proxy": [
+          {
+            "year": 2015,
+            "return": 0.039962960772602,
+            "positive": true,
+            "trades": 8
+          },
+          {
+            "year": 2016,
+            "return": 0.0285795025597535,
+            "positive": true,
+            "trades": 7
+          },
+          {
+            "year": 2017,
+            "return": -0.0032714884992084,
+            "positive": false,
+            "trades": 7
+          },
+          {
+            "year": 2018,
+            "return": 0.002949602916099201,
+            "positive": true,
+            "trades": 10
+          },
+          {
+            "year": 2019,
+            "return": 0.0148155681295005,
+            "positive": true,
+            "trades": 2
+          },
+          {
+            "year": 2020,
+            "return": 0.013122184164011301,
+            "positive": true,
+            "trades": 5
+          },
+          {
+            "year": 2021,
+            "return": 0.011698226404431002,
+            "positive": true,
+            "trades": 8
+          },
+          {
+            "year": 2022,
+            "return": 0.026126854730387797,
+            "positive": true,
+            "trades": 9
+          },
+          {
+            "year": 2023,
+            "return": 0.002827738371650899,
+            "positive": true,
+            "trades": 9
+          },
+          {
+            "year": 2024,
+            "return": 0.0171382952316251,
+            "positive": true,
+            "trades": 2
+          },
+          {
+            "year": 2025,
+            "return": 0.0193945686688105,
+            "positive": true,
+            "trades": 2
+          },
+          {
+            "year": 2026,
+            "return": -7.088686295990063e-05,
+            "positive": false,
+            "trades": 6
+          }
+        ]
+      },
+      "status": "RANKED_GEN2_ELITE"
+    },
+    {
+      "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_669f2fd24755ee6e",
+      "asset": "XAUUSD",
+      "family": "LIQUIDITY_SWEEP_TRIGGER",
+      "mutation_type": "ADD_VOLATILITY_FILTER",
+      "score": 114.349955,
+      "tier": "S",
+      "metrics": {
+        "trades": 75,
+        "wins": 45,
+        "losses": 30,
+        "win_rate": 0.6,
+        "profit_factor_proxy": 2.117221,
+        "avg_return": 0.00231031,
+        "yearly_consistency_proxy": 0.833333,
+        "positive_years_proxy": 10,
+        "tested_years_proxy": 12,
+        "wf_proxy_pass": true,
+        "mc_proxy_pass": true,
+        "stress_proxy_pass": true,
+        "yearly_proxy": [
+          {
+            "year": 2015,
+            "return": 0.039962960772602,
+            "positive": true,
+            "trades": 8
+          },
+          {
+            "year": 2016,
+            "return": 0.0285795025597535,
+            "positive": true,
+            "trades": 7
+          },
+          {
+            "year": 2017,
+            "return": -0.0032714884992084,
+            "positive": false,
+            "trades": 7
+          },
+          {
+            "year": 2018,
+            "return": 0.002949602916099201,
+            "positive": true,
+            "trades": 10
+          },
+          {
+            "year": 2019,
+            "return": 0.0148155681295005,
+            "positive": true,
+            "trades": 2
+          },
+          {
+            "year": 2020,
+            "return": 0.013122184164011301,
+            "positive": true,
+            "trades": 5
+          },
+          {
+            "year": 2021,
+            "return": 0.011698226404431002,
+            "positive": true,
+            "trades": 8
+          },
+          {
+            "year": 2022,
+            "return": 0.026126854730387797,
+            "positive": true,
+            "trades": 9
+          },
+          {
+            "year": 2023,
+            "return": 0.002827738371650899,
+            "positive": true,
+            "trades": 9
+          },
+          {
+            "year": 2024,
+            "return": 0.0171382952316251,
+            "positive": true,
+            "trades": 2
+          },
+          {
+            "year": 2025,
+            "return": 0.0193945686688105,
+            "positive": true,
+            "trades": 2
+          },
+          {
+            "year": 2026,
+            "return": -7.088686295990063e-05,
+            "positive": false,
+            "trades": 6
+          }
+        ]
+      },
+      "status": "RANKED_GEN2_ELITE"
+    },
+    {
+      "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_852b3ba8467e673c",
+      "asset": "XAUUSD",
+      "family": "LIQUIDITY_SWEEP_TRIGGER",
+      "mutation_type": "ADD_SESSION_VOLATILITY_FILTER",
+      "score": 114.349955,
+      "tier": "S",
+      "metrics": {
+        "trades": 75,
+        "wins": 45,
+        "losses": 30,
+        "win_rate": 0.6,
+        "profit_factor_proxy": 2.117221,
+        "avg_return": 0.00231031,
+        "yearly_consistency_proxy": 0.833333,
+        "positive_years_proxy": 10,
+        "tested_years_proxy": 12,
+        "wf_proxy_pass": true,
+        "mc_proxy_pass": true,
+        "stress_proxy_pass": true,
+        "yearly_proxy": [
+          {
+            "year": 2015,
+            "return": 0.039962960772602,
+            "positive": true,
+            "trades": 8
+          },
+          {
+            "year": 2016,
+            "return": 0.0285795025597535,
+            "positive": true,
+            "trades": 7
+          },
+          {
+            "year": 2017,
+            "return": -0.0032714884992084,
+            "positive": false,
+            "trades": 7
+          },
+          {
+            "year": 2018,
+            "return": 0.002949602916099201,
+            "positive": true,
+            "trades": 10
+          },
+          {
+            "year": 2019,
+            "return": 0.0148155681295005,
+            "positive": true,
+            "trades": 2
+          },
+          {
+            "year": 2020,
+            "return": 0.013122184164011301,
+            "positive": true,
+            "trades": 5
+          },
+          {
+            "year": 2021,
+            "return": 0.011698226404431002,
+            "positive": true,
+            "trades": 8
+          },
+          {
+            "year": 2022,
+            "return": 0.026126854730387797,
+            "positive": true,
+            "trades": 9
+          },
+          {
+            "year": 2023,
+            "return": 0.002827738371650899,
+            "positive": true,
+            "trades": 9
+          },
+          {
+            "year": 2024,
+            "return": 0.0171382952316251,
+            "positive": true,
+            "trades": 2
+          },
+          {
+            "year": 2025,
+            "return": 0.0193945686688105,
+            "positive": true,
+            "trades": 2
+          },
+          {
+            "year": 2026,
+            "return": -7.088686295990063e-05,
+            "positive": false,
+            "trades": 6
+          }
+        ]
+      },
+      "status": "RANKED_GEN2_ELITE"
+    },
+    {
+      "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_b1ec47028d941110",
+      "asset": "XAUUSD",
+      "family": "LIQUIDITY_SWEEP_TRIGGER",
+      "mutation_type": "ADD_VOLATILITY_FILTER",
+      "score": 114.349955,
+      "tier": "S",
+      "metrics": {
+        "trades": 75,
+        "wins": 45,
+        "losses": 30,
+        "win_rate": 0.6,
+        "profit_factor_proxy": 2.117221,
+        "avg_return": 0.00231031,
+        "yearly_consistency_proxy": 0.833333,
+        "positive_years_proxy": 10,
+        "tested_years_proxy": 12,
+        "wf_proxy_pass": true,
+        "mc_proxy_pass": true,
+        "stress_proxy_pass": true,
+        "yearly_proxy": [
+          {
+            "year": 2015,
+            "return": 0.039962960772602,
+            "positive": true,
+            "trades": 8
+          },
+          {
+            "year": 2016,
+            "return": 0.0285795025597535,
+            "positive": true,
+            "trades": 7
+          },
+          {
+            "year": 2017,
+            "return": -0.0032714884992084,
+            "positive": false,
+            "trades": 7
+          },
+          {
+            "year": 2018,
+            "return": 0.002949602916099201,
+            "positive": true,
+            "trades": 10
+          },
+          {
+            "year": 2019,
+            "return": 0.0148155681295005,
+            "positive": true,
+            "trades": 2
+          },
+          {
+            "year": 2020,
+            "return": 0.013122184164011301,
+            "positive": true,
+            "trades": 5
+          },
+          {
+            "year": 2021,
+            "return": 0.011698226404431002,
+            "positive": true,
+            "trades": 8
+          },
+          {
+            "year": 2022,
+            "return": 0.026126854730387797,
+            "positive": true,
+            "trades": 9
+          },
+          {
+            "year": 2023,
+            "return": 0.002827738371650899,
+            "positive": true,
+            "trades": 9
+          },
+          {
+            "year": 2024,
+            "return": 0.0171382952316251,
+            "positive": true,
+            "trades": 2
+          },
+          {
+            "year": 2025,
+            "return": 0.0193945686688105,
+            "positive": true,
+            "trades": 2
+          },
+          {
+            "year": 2026,
+            "return": -7.088686295990063e-05,
+            "positive": false,
+            "trades": 6
+          }
+        ]
+      },
+      "status": "RANKED_GEN2_ELITE"
+    },
+    {
+      "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_ab1ac702ffa78240",
+      "asset": "XAUUSD",
+      "family": "LIQUIDITY_SWEEP_TRIGGER",
+      "mutation_type": "ADD_SESSION_VOLATILITY_FILTER",
+      "score": 114.349955,
+      "tier": "S",
+      "metrics": {
+        "trades": 75,
+        "wins": 45,
+        "losses": 30,
+        "win_rate": 0.6,
+        "profit_factor_proxy": 2.117221,
+        "avg_return": 0.00231031,
+        "yearly_consistency_proxy": 0.833333,
+        "positive_years_proxy": 10,
+        "tested_years_proxy": 12,
+        "wf_proxy_pass": true,
+        "mc_proxy_pass": true,
+        "stress_proxy_pass": true,
+        "yearly_proxy": [
+          {
+            "year": 2015,
+            "return": 0.039962960772602,
+            "positive": true,
+            "trades": 8
+          },
+          {
+            "year": 2016,
+            "return": 0.0285795025597535,
+            "positive": true,
+            "trades": 7
+          },
+          {
+            "year": 2017,
+            "return": -0.0032714884992084,
+            "positive": false,
+            "trades": 7
+          },
+          {
+            "year": 2018,
+            "return": 0.002949602916099201,
+            "positive": true,
+            "trades": 10
+          },
+          {
+            "year": 2019,
+            "return": 0.0148155681295005,
+            "positive": true,
+            "trades": 2
+          },
+          {
+            "year": 2020,
+            "return": 0.013122184164011301,
+            "positive": true,
+            "trades": 5
+          },
+          {
+            "year": 2021,
+            "return": 0.011698226404431002,
+            "positive": true,
+            "trades": 8
+          },
+          {
+            "year": 2022,
+            "return": 0.026126854730387797,
+            "positive": true,
+            "trades": 9
+          },
+          {
+            "year": 2023,
+            "return": 0.002827738371650899,
+            "positive": true,
+            "trades": 9
+          },
+          {
+            "year": 2024,
+            "return": 0.0171382952316251,
+            "positive": true,
+            "trades": 2
+          },
+          {
+            "year": 2025,
+            "return": 0.0193945686688105,
+            "positive": true,
+            "trades": 2
+          },
+          {
+            "year": 2026,
+            "return": -7.088686295990063e-05,
+            "positive": false,
+            "trades": 6
+          }
+        ]
+      },
+      "status": "RANKED_GEN2_ELITE"
+    }
+  ],
+  "OUTPUTS": {
+    "validated": "data\\lake\\experiments\\p1885a\\p1885a_validated_mutations.json",
+    "promoted_gen2": "data\\lake\\specialists\\gen2\\p1885a_gen2_elites.json",
+    "rejected": "data\\lake\\experiments\\p1885a\\p1885a_rejected_mutations.json",
+    "expanded_personalities": "data\\lake\\assets\\expanded\\p1885a_expanded_personality_library.json",
+    "transfer_queue": "data\\lake\\experiments\\p1885a\\p1885a_cross_asset_transfer_queue.json",
+    "ranking": "data\\lake\\specialists\\gen2\\p1885a_gen2_ranking.json"
+  },
+  "NEXT": "P1886_TO_P1890_MARKET_MEMORY_FACTORY",
+  "ORDER_SENT": false,
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN",
+  "generated_at": "2026-06-16T19:02:37.078755+00:00"
+}

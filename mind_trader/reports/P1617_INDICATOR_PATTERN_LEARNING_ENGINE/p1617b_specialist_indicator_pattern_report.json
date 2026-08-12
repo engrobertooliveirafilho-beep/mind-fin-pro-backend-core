@@ -1,0 +1,804 @@
+{
+  "STATUS": "P1617B_SPECIALIST_INDICATOR_PATTERN_TESTER_COMPLETED",
+  "SPECIALISTS_INPUT": 106,
+  "SPECIALISTS_TESTED": 106,
+  "ERRORS": 0,
+  "TOP10_PATTERN_SPECIALISTS": [
+    {
+      "specialist_id": "GBPUSD_M30_BOLLINGER_REVERSION_7d0ccd5986a18a8a9162e384",
+      "edge_id": "7d0ccd5986a18a8a9162e384",
+      "asset": "GBPUSD",
+      "timeframe": "M30",
+      "family": "BOLLINGER_REVERSION",
+      "profile": "DAY_TRADE_SPECIALIST",
+      "base_deployment_score": 69.813175,
+      "payoff_ratio_real": 7.42826,
+      "expectancy_per_trade_real": 0.00037095,
+      "profit_factor_real": 29.71304,
+      "best_patterns": [
+        {
+          "pattern": "EMA_BEAR",
+          "matches": 2521,
+          "coverage": 0.5042,
+          "pattern_score": 67.624665
+        },
+        {
+          "pattern": "TREND_DOWN",
+          "matches": 2521,
+          "coverage": 0.5042,
+          "pattern_score": 67.624665
+        },
+        {
+          "pattern": "MACD_BEAR",
+          "matches": 2510,
+          "coverage": 0.502,
+          "pattern_score": 67.613665
+        },
+        {
+          "pattern": "MACD_BULL",
+          "matches": 2489,
+          "coverage": 0.4978,
+          "pattern_score": 67.592665
+        },
+        {
+          "pattern": "EMA_BULL",
+          "matches": 2478,
+          "coverage": 0.4956,
+          "pattern_score": 67.581665
+        },
+        {
+          "pattern": "TREND_UP",
+          "matches": 2478,
+          "coverage": 0.4956,
+          "pattern_score": 67.581665
+        },
+        {
+          "pattern": "LOW_VOL",
+          "matches": 1252,
+          "coverage": 0.2504,
+          "pattern_score": 66.355665
+        },
+        {
+          "pattern": "HIGH_VOL",
+          "matches": 1202,
+          "coverage": 0.2404,
+          "pattern_score": 66.305665
+        },
+        {
+          "pattern": "DONCHIAN_HIGH_ZONE",
+          "matches": 1094,
+          "coverage": 0.2188,
+          "pattern_score": 66.197665
+        },
+        {
+          "pattern": "BB_LOWER_ZONE",
+          "matches": 1080,
+          "coverage": 0.216,
+          "pattern_score": 66.183665
+        }
+      ],
+      "status": "PATTERN_TESTED",
+      "ORDER_SENT": false,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    },
+    {
+      "specialist_id": "XAUUSD_M5_RSI_REVERSION_6ffc7212b632c0f09f8de2fc",
+      "edge_id": "6ffc7212b632c0f09f8de2fc",
+      "asset": "XAUUSD",
+      "timeframe": "M5",
+      "family": "RSI_REVERSION",
+      "profile": "SCALP_SPECIALIST",
+      "base_deployment_score": 55.51994,
+      "payoff_ratio_real": 5.002199,
+      "expectancy_per_trade_real": 0.00103089,
+      "profit_factor_real": 23.343597,
+      "best_patterns": [
+        {
+          "pattern": "EMA_BEAR",
+          "matches": 2722,
+          "coverage": 0.5444,
+          "pattern_score": 52.545161
+        },
+        {
+          "pattern": "TREND_DOWN",
+          "matches": 2722,
+          "coverage": 0.5444,
+          "pattern_score": 52.545161
+        },
+        {
+          "pattern": "MACD_BEAR",
+          "matches": 2554,
+          "coverage": 0.5108,
+          "pattern_score": 52.377161
+        },
+        {
+          "pattern": "MACD_BULL",
+          "matches": 2445,
+          "coverage": 0.489,
+          "pattern_score": 52.268161
+        },
+        {
+          "pattern": "EMA_BULL",
+          "matches": 2277,
+          "coverage": 0.4554,
+          "pattern_score": 52.100161
+        },
+        {
+          "pattern": "TREND_UP",
+          "matches": 2277,
+          "coverage": 0.4554,
+          "pattern_score": 52.100161
+        },
+        {
+          "pattern": "LOW_VOL",
+          "matches": 1335,
+          "coverage": 0.267,
+          "pattern_score": 51.158161
+        },
+        {
+          "pattern": "HIGH_VOL",
+          "matches": 1270,
+          "coverage": 0.254,
+          "pattern_score": 51.093161
+        },
+        {
+          "pattern": "BB_LOWER_ZONE",
+          "matches": 1106,
+          "coverage": 0.2212,
+          "pattern_score": 50.929161
+        },
+        {
+          "pattern": "DONCHIAN_LOW_ZONE",
+          "matches": 1098,
+          "coverage": 0.2196,
+          "pattern_score": 50.921161
+        }
+      ],
+      "status": "PATTERN_TESTED",
+      "ORDER_SENT": false,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    },
+    {
+      "specialist_id": "USDJPY_D1_EMA_CROSS_9a53b0630c7b7e29e960eb66",
+      "edge_id": "9a53b0630c7b7e29e960eb66",
+      "asset": "USDJPY",
+      "timeframe": "D1",
+      "family": "EMA_CROSS",
+      "profile": "SWING_SPECIALIST",
+      "base_deployment_score": 47.611837,
+      "payoff_ratio_real": 5.388597,
+      "expectancy_per_trade_real": 0.06085955,
+      "profit_factor_real": 16.165792,
+      "best_patterns": [
+        {
+          "pattern": "EMA_BULL",
+          "matches": 1083,
+          "coverage": 0.722,
+          "pattern_score": 51.642228
+        },
+        {
+          "pattern": "TREND_UP",
+          "matches": 1083,
+          "coverage": 0.722,
+          "pattern_score": 51.642228
+        },
+        {
+          "pattern": "MACD_BULL",
+          "matches": 781,
+          "coverage": 0.520667,
+          "pattern_score": 50.635561
+        },
+        {
+          "pattern": "MACD_BEAR",
+          "matches": 718,
+          "coverage": 0.478667,
+          "pattern_score": 50.425561
+        },
+        {
+          "pattern": "DONCHIAN_HIGH_ZONE",
+          "matches": 526,
+          "coverage": 0.350667,
+          "pattern_score": 49.785561
+        },
+        {
+          "pattern": "LOW_VOL",
+          "matches": 456,
+          "coverage": 0.304,
+          "pattern_score": 49.552228
+        },
+        {
+          "pattern": "BB_UPPER_ZONE",
+          "matches": 429,
+          "coverage": 0.286,
+          "pattern_score": 49.462228
+        },
+        {
+          "pattern": "EMA_BEAR",
+          "matches": 416,
+          "coverage": 0.277333,
+          "pattern_score": 49.418894
+        },
+        {
+          "pattern": "TREND_DOWN",
+          "matches": 416,
+          "coverage": 0.277333,
+          "pattern_score": 49.418894
+        },
+        {
+          "pattern": "HIGH_VOL",
+          "matches": 401,
+          "coverage": 0.267333,
+          "pattern_score": 49.368894
+        }
+      ],
+      "status": "PATTERN_TESTED",
+      "ORDER_SENT": false,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    },
+    {
+      "specialist_id": "XAUUSD_D1_EMA_CROSS_1d35b1a3343e2da75db035d2",
+      "edge_id": "1d35b1a3343e2da75db035d2",
+      "asset": "XAUUSD",
+      "timeframe": "D1",
+      "family": "EMA_CROSS",
+      "profile": "SWING_SPECIALIST",
+      "base_deployment_score": 40.905771,
+      "payoff_ratio_real": 8.96119,
+      "expectancy_per_trade_real": 0.08294911,
+      "profit_factor_real": 6.720892,
+      "best_patterns": [
+        {
+          "pattern": "EMA_BULL",
+          "matches": 953,
+          "coverage": 0.635333,
+          "pattern_score": 50.796935
+        },
+        {
+          "pattern": "TREND_UP",
+          "matches": 953,
+          "coverage": 0.635333,
+          "pattern_score": 50.796935
+        },
+        {
+          "pattern": "MACD_BULL",
+          "matches": 790,
+          "coverage": 0.526667,
+          "pattern_score": 50.253602
+        },
+        {
+          "pattern": "MACD_BEAR",
+          "matches": 709,
+          "coverage": 0.472667,
+          "pattern_score": 49.983602
+        },
+        {
+          "pattern": "EMA_BEAR",
+          "matches": 546,
+          "coverage": 0.364,
+          "pattern_score": 49.440268
+        },
+        {
+          "pattern": "TREND_DOWN",
+          "matches": 546,
+          "coverage": 0.364,
+          "pattern_score": 49.440268
+        },
+        {
+          "pattern": "DONCHIAN_HIGH_ZONE",
+          "matches": 427,
+          "coverage": 0.284667,
+          "pattern_score": 49.043602
+        },
+        {
+          "pattern": "LOW_VOL",
+          "matches": 414,
+          "coverage": 0.276,
+          "pattern_score": 49.000268
+        },
+        {
+          "pattern": "BB_UPPER_ZONE",
+          "matches": 408,
+          "coverage": 0.272,
+          "pattern_score": 48.980268
+        },
+        {
+          "pattern": "HIGH_VOL",
+          "matches": 360,
+          "coverage": 0.24,
+          "pattern_score": 48.820268
+        }
+      ],
+      "status": "PATTERN_TESTED",
+      "ORDER_SENT": false,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    },
+    {
+      "specialist_id": "USDCAD_M5_RSI_REVERSION_73a728872bbd72d8549d9fbb",
+      "edge_id": "73a728872bbd72d8549d9fbb",
+      "asset": "USDCAD",
+      "timeframe": "M5",
+      "family": "RSI_REVERSION",
+      "profile": "SCALP_SPECIALIST",
+      "base_deployment_score": 50.205251,
+      "payoff_ratio_real": 2.140707,
+      "expectancy_per_trade_real": 0.00018839,
+      "profit_factor_real": 23.547776,
+      "best_patterns": [
+        {
+          "pattern": "EMA_BULL",
+          "matches": 3120,
+          "coverage": 0.624,
+          "pattern_score": 45.163185
+        },
+        {
+          "pattern": "TREND_UP",
+          "matches": 3120,
+          "coverage": 0.624,
+          "pattern_score": 45.163185
+        },
+        {
+          "pattern": "MACD_BEAR",
+          "matches": 2526,
+          "coverage": 0.5052,
+          "pattern_score": 44.569185
+        },
+        {
+          "pattern": "MACD_BULL",
+          "matches": 2473,
+          "coverage": 0.4946,
+          "pattern_score": 44.516185
+        },
+        {
+          "pattern": "EMA_BEAR",
+          "matches": 1879,
+          "coverage": 0.3758,
+          "pattern_score": 43.922185
+        },
+        {
+          "pattern": "TREND_DOWN",
+          "matches": 1879,
+          "coverage": 0.3758,
+          "pattern_score": 43.922185
+        },
+        {
+          "pattern": "HIGH_VOL",
+          "matches": 1544,
+          "coverage": 0.3088,
+          "pattern_score": 43.587185
+        },
+        {
+          "pattern": "LOW_VOL",
+          "matches": 1538,
+          "coverage": 0.3076,
+          "pattern_score": 43.581185
+        },
+        {
+          "pattern": "DONCHIAN_HIGH_ZONE",
+          "matches": 1395,
+          "coverage": 0.279,
+          "pattern_score": 43.438185
+        },
+        {
+          "pattern": "BB_UPPER_ZONE",
+          "matches": 1206,
+          "coverage": 0.2412,
+          "pattern_score": 43.249185
+        }
+      ],
+      "status": "PATTERN_TESTED",
+      "ORDER_SENT": false,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    },
+    {
+      "specialist_id": "XAUUSD_D1_ATR_TREND_6acf0720c9a2785ffadc3f98",
+      "edge_id": "6acf0720c9a2785ffadc3f98",
+      "asset": "XAUUSD",
+      "timeframe": "D1",
+      "family": "ATR_TREND",
+      "profile": "SWING_SPECIALIST",
+      "base_deployment_score": 39.251973,
+      "payoff_ratio_real": 8.573799,
+      "expectancy_per_trade_real": 0.01993677,
+      "profit_factor_real": 8.573799,
+      "best_patterns": [
+        {
+          "pattern": "EMA_BULL",
+          "matches": 953,
+          "coverage": 0.635333,
+          "pattern_score": 44.44908
+        },
+        {
+          "pattern": "TREND_UP",
+          "matches": 953,
+          "coverage": 0.635333,
+          "pattern_score": 44.44908
+        },
+        {
+          "pattern": "MACD_BULL",
+          "matches": 790,
+          "coverage": 0.526667,
+          "pattern_score": 43.905747
+        },
+        {
+          "pattern": "MACD_BEAR",
+          "matches": 709,
+          "coverage": 0.472667,
+          "pattern_score": 43.635747
+        },
+        {
+          "pattern": "EMA_BEAR",
+          "matches": 546,
+          "coverage": 0.364,
+          "pattern_score": 43.092413
+        },
+        {
+          "pattern": "TREND_DOWN",
+          "matches": 546,
+          "coverage": 0.364,
+          "pattern_score": 43.092413
+        },
+        {
+          "pattern": "DONCHIAN_HIGH_ZONE",
+          "matches": 427,
+          "coverage": 0.284667,
+          "pattern_score": 42.695747
+        },
+        {
+          "pattern": "LOW_VOL",
+          "matches": 414,
+          "coverage": 0.276,
+          "pattern_score": 42.652413
+        },
+        {
+          "pattern": "BB_UPPER_ZONE",
+          "matches": 408,
+          "coverage": 0.272,
+          "pattern_score": 42.632413
+        },
+        {
+          "pattern": "HIGH_VOL",
+          "matches": 360,
+          "coverage": 0.24,
+          "pattern_score": 42.472413
+        }
+      ],
+      "status": "PATTERN_TESTED",
+      "ORDER_SENT": false,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    },
+    {
+      "specialist_id": "XAUUSD_D1_EMA_CROSS_444166c3680882e799445fb4",
+      "edge_id": "444166c3680882e799445fb4",
+      "asset": "XAUUSD",
+      "timeframe": "D1",
+      "family": "EMA_CROSS",
+      "profile": "SWING_SPECIALIST",
+      "base_deployment_score": 35.242733,
+      "payoff_ratio_real": 8.604577,
+      "expectancy_per_trade_real": 0.04930955,
+      "profit_factor_real": 4.916901,
+      "best_patterns": [
+        {
+          "pattern": "EMA_BULL",
+          "matches": 953,
+          "coverage": 0.635333,
+          "pattern_score": 43.101545
+        },
+        {
+          "pattern": "TREND_UP",
+          "matches": 953,
+          "coverage": 0.635333,
+          "pattern_score": 43.101545
+        },
+        {
+          "pattern": "MACD_BULL",
+          "matches": 790,
+          "coverage": 0.526667,
+          "pattern_score": 42.558211
+        },
+        {
+          "pattern": "MACD_BEAR",
+          "matches": 709,
+          "coverage": 0.472667,
+          "pattern_score": 42.288211
+        },
+        {
+          "pattern": "EMA_BEAR",
+          "matches": 546,
+          "coverage": 0.364,
+          "pattern_score": 41.744878
+        },
+        {
+          "pattern": "TREND_DOWN",
+          "matches": 546,
+          "coverage": 0.364,
+          "pattern_score": 41.744878
+        },
+        {
+          "pattern": "DONCHIAN_HIGH_ZONE",
+          "matches": 427,
+          "coverage": 0.284667,
+          "pattern_score": 41.348211
+        },
+        {
+          "pattern": "LOW_VOL",
+          "matches": 414,
+          "coverage": 0.276,
+          "pattern_score": 41.304878
+        },
+        {
+          "pattern": "BB_UPPER_ZONE",
+          "matches": 408,
+          "coverage": 0.272,
+          "pattern_score": 41.284878
+        },
+        {
+          "pattern": "HIGH_VOL",
+          "matches": 360,
+          "coverage": 0.24,
+          "pattern_score": 41.124878
+        }
+      ],
+      "status": "PATTERN_TESTED",
+      "ORDER_SENT": false,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    },
+    {
+      "specialist_id": "GBPUSD_M1_BOLLINGER_REVERSION_5aefbb04c2a4913ca649c3fa",
+      "edge_id": "5aefbb04c2a4913ca649c3fa",
+      "asset": "GBPUSD",
+      "timeframe": "M1",
+      "family": "BOLLINGER_REVERSION",
+      "profile": "SCALP_SPECIALIST",
+      "base_deployment_score": 43.684793,
+      "payoff_ratio_real": 4.774651,
+      "expectancy_per_trade_real": 0.00013018,
+      "profit_factor_real": 16.711278,
+      "best_patterns": [
+        {
+          "pattern": "EMA_BEAR",
+          "matches": 2711,
+          "coverage": 0.5422,
+          "pattern_score": 42.280696
+        },
+        {
+          "pattern": "TREND_DOWN",
+          "matches": 2711,
+          "coverage": 0.5422,
+          "pattern_score": 42.280696
+        },
+        {
+          "pattern": "MACD_BEAR",
+          "matches": 2508,
+          "coverage": 0.5016,
+          "pattern_score": 42.077696
+        },
+        {
+          "pattern": "MACD_BULL",
+          "matches": 2491,
+          "coverage": 0.4982,
+          "pattern_score": 42.060696
+        },
+        {
+          "pattern": "EMA_BULL",
+          "matches": 2288,
+          "coverage": 0.4576,
+          "pattern_score": 41.857696
+        },
+        {
+          "pattern": "TREND_UP",
+          "matches": 2288,
+          "coverage": 0.4576,
+          "pattern_score": 41.857696
+        },
+        {
+          "pattern": "LOW_VOL",
+          "matches": 1609,
+          "coverage": 0.3218,
+          "pattern_score": 41.178696
+        },
+        {
+          "pattern": "HIGH_VOL",
+          "matches": 1317,
+          "coverage": 0.2634,
+          "pattern_score": 40.886696
+        },
+        {
+          "pattern": "DONCHIAN_LOW_ZONE",
+          "matches": 1267,
+          "coverage": 0.2534,
+          "pattern_score": 40.836696
+        },
+        {
+          "pattern": "BB_LOWER_ZONE",
+          "matches": 1181,
+          "coverage": 0.2362,
+          "pattern_score": 40.750696
+        }
+      ],
+      "status": "PATTERN_TESTED",
+      "ORDER_SENT": false,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    },
+    {
+      "specialist_id": "USDCAD_M5_BOLLINGER_REVERSION_151b15410031fd12a113e8ed",
+      "edge_id": "151b15410031fd12a113e8ed",
+      "asset": "USDCAD",
+      "timeframe": "M5",
+      "family": "BOLLINGER_REVERSION",
+      "profile": "SCALP_SPECIALIST",
+      "base_deployment_score": 42.334303,
+      "payoff_ratio_real": 3.489472,
+      "expectancy_per_trade_real": 0.00017653,
+      "profit_factor_real": 17.44736,
+      "best_patterns": [
+        {
+          "pattern": "EMA_BULL",
+          "matches": 3120,
+          "coverage": 0.624,
+          "pattern_score": 40.135838
+        },
+        {
+          "pattern": "TREND_UP",
+          "matches": 3120,
+          "coverage": 0.624,
+          "pattern_score": 40.135838
+        },
+        {
+          "pattern": "MACD_BEAR",
+          "matches": 2526,
+          "coverage": 0.5052,
+          "pattern_score": 39.541838
+        },
+        {
+          "pattern": "MACD_BULL",
+          "matches": 2473,
+          "coverage": 0.4946,
+          "pattern_score": 39.488838
+        },
+        {
+          "pattern": "EMA_BEAR",
+          "matches": 1879,
+          "coverage": 0.3758,
+          "pattern_score": 38.894838
+        },
+        {
+          "pattern": "TREND_DOWN",
+          "matches": 1879,
+          "coverage": 0.3758,
+          "pattern_score": 38.894838
+        },
+        {
+          "pattern": "HIGH_VOL",
+          "matches": 1544,
+          "coverage": 0.3088,
+          "pattern_score": 38.559838
+        },
+        {
+          "pattern": "LOW_VOL",
+          "matches": 1538,
+          "coverage": 0.3076,
+          "pattern_score": 38.553838
+        },
+        {
+          "pattern": "DONCHIAN_HIGH_ZONE",
+          "matches": 1395,
+          "coverage": 0.279,
+          "pattern_score": 38.410838
+        },
+        {
+          "pattern": "BB_UPPER_ZONE",
+          "matches": 1206,
+          "coverage": 0.2412,
+          "pattern_score": 38.221838
+        }
+      ],
+      "status": "PATTERN_TESTED",
+      "ORDER_SENT": false,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    },
+    {
+      "specialist_id": "USDCAD_M30_RSI_REVERSION_e66b449b7ac4c0f21513e76c",
+      "edge_id": "e66b449b7ac4c0f21513e76c",
+      "asset": "USDCAD",
+      "timeframe": "M30",
+      "family": "RSI_REVERSION",
+      "profile": "DAY_TRADE_SPECIALIST",
+      "base_deployment_score": 36.725901,
+      "payoff_ratio_real": 3.006123,
+      "expectancy_per_trade_real": 0.00035961,
+      "profit_factor_real": 13.527553,
+      "best_patterns": [
+        {
+          "pattern": "EMA_BULL",
+          "matches": 2918,
+          "coverage": 0.5836,
+          "pattern_score": 33.802232
+        },
+        {
+          "pattern": "TREND_UP",
+          "matches": 2918,
+          "coverage": 0.5836,
+          "pattern_score": 33.802232
+        },
+        {
+          "pattern": "MACD_BULL",
+          "matches": 2514,
+          "coverage": 0.5028,
+          "pattern_score": 33.398232
+        },
+        {
+          "pattern": "MACD_BEAR",
+          "matches": 2485,
+          "coverage": 0.497,
+          "pattern_score": 33.369232
+        },
+        {
+          "pattern": "EMA_BEAR",
+          "matches": 2081,
+          "coverage": 0.4162,
+          "pattern_score": 32.965232
+        },
+        {
+          "pattern": "TREND_DOWN",
+          "matches": 2081,
+          "coverage": 0.4162,
+          "pattern_score": 32.965232
+        },
+        {
+          "pattern": "LOW_VOL",
+          "matches": 1215,
+          "coverage": 0.243,
+          "pattern_score": 32.099232
+        },
+        {
+          "pattern": "DONCHIAN_HIGH_ZONE",
+          "matches": 1211,
+          "coverage": 0.2422,
+          "pattern_score": 32.095232
+        },
+        {
+          "pattern": "BB_UPPER_ZONE",
+          "matches": 1157,
+          "coverage": 0.2314,
+          "pattern_score": 32.041232
+        },
+        {
+          "pattern": "HIGH_VOL",
+          "matches": 1148,
+          "coverage": 0.2296,
+          "pattern_score": 32.032232
+        }
+      ],
+      "status": "PATTERN_TESTED",
+      "ORDER_SENT": false,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    }
+  ],
+  "NEXT": "P1618_MARKET_STRUCTURE_ENGINE",
+  "ORDER_SENT": false,
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN",
+  "generated_at": "2026-06-15T22:50:49.068605+00:00"
+}

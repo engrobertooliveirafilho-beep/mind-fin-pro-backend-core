@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_10076F492BD8D992",
+  "source_file": ".venv\\Lib\\site-packages\\tqdm\\contrib\\slack.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\tqdm\\contrib\\slack.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 93,
+  "imports": [
+    "auto",
+    "logging",
+    "os",
+    "slack_sdk",
+    "utils_worker"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

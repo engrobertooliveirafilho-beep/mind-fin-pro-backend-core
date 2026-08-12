@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_A2ED903BCD115A93",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\lib\\_twodim_base_impl.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\numpy\\lib\\_twodim_base_impl.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 117,
+  "imports": [
+    "functools",
+    "numpy",
+    "numpy._core",
+    "numpy._core._multiarray_umath",
+    "numpy._core.numeric",
+    "numpy._core.overrides",
+    "numpy.lib._stride_tricks_impl",
+    "operator"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

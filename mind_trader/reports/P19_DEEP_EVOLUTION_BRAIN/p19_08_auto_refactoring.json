@@ -1,0 +1,9 @@
+{
+  "refactor_targets": [
+    "duplicate_modules",
+    "weak_tests",
+    "large_engines",
+    "report_contracts"
+  ],
+  "mode": "AUDIT_ONLY"
+}

@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_FAE98B6BE5BE4B01",
+  "source_file": ".venv\\Lib\\site-packages\\docx\\opc\\pkgreader.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\docx\\opc\\pkgreader.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 103,
+  "imports": [
+    "docx.opc.constants",
+    "docx.opc.oxml",
+    "docx.opc.packuri",
+    "docx.opc.phys_pkg",
+    "docx.opc.shared"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

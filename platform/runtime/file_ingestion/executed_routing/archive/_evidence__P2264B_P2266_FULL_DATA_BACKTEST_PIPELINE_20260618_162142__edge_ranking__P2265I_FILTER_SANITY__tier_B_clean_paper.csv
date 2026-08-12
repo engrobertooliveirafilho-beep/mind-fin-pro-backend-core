@@ -1,0 +1,5 @@
+"symbol","timeframe","strategy","params","filter","filter_params","trades","pf","winrate","payoff","maxdd","netprofit"
+"GBPUSD","M30","EMA_CROSS","fast=9;slow=34","SESSION_FILTER","session=LONDON_NY","86","2,1792","47,67","2,3918","0,2224","10922"
+"GBPUSD","M30","EMA_CROSS","fast=9;slow=34","COMBO_FILTER","adx=14;min=18;session=LONDON_NY","86","2,1792","47,67","2,3918","0,2224","10922"
+"GBPUSD","M30","SMA_CROSS","fast=9;slow=34","SESSION_FILTER","session=LONDON_NY","86","2,1792","47,67","2,3918","0,2224","10922"
+"GBPUSD","M30","SMA_CROSS","fast=9;slow=34","COMBO_FILTER","adx=14;min=18;session=LONDON_NY","86","2,1792","47,67","2,3918","0,2224","10922"

@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_0AE60D9D7C93AE44",
+  "source_file": "_evidence\\P19P49_HUMANIZED_META_COGNITION_EXPANSION_20260622_193029\\rollback\\app_eldora\\core\\predictive_simulation_engine.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P19P49_HUMANIZED_META_COGNITION_EXPANSION_20260622_193029\\rollback\\app_eldora\\core\\predictive_simulation_engine.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 95,
+  "imports": [
+    "datetime",
+    "uuid"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

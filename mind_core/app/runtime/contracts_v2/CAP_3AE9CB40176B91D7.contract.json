@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_3AE9CB40176B91D7",
+  "source_file": "app\\api\\eldora_swarm.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\app\\api\\eldora_swarm.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 85,
+  "imports": [
+    "app.telemetry.cloud_telemetry",
+    "app.training.multi_ai_conversation_swarm",
+    "fastapi"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

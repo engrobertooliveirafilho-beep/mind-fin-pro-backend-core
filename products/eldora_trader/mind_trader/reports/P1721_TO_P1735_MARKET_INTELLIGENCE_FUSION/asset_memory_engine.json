@@ -1,0 +1,86 @@
+[
+  {
+    "asset": "USDJPY",
+    "specialists": 17,
+    "best_execution_score": 82.687276,
+    "best_family": "EMA_CROSS",
+    "best_profile": "SWING_SPECIALIST",
+    "dominant_phases": {
+      "TREND_EXPANSION": 4,
+      "RANGE_MEAN_REVERSION": 10,
+      "BREAKOUT_VOLATILITY": 3
+    },
+    "dominant_timeframes": {
+      "D1": 5,
+      "H1": 2,
+      "M30": 1,
+      "M1": 6,
+      "M15": 1,
+      "H4": 2
+    },
+    "memory_status": "ASSET_MEMORY_REGISTERED"
+  },
+  {
+    "asset": "XAUUSD",
+    "specialists": 39,
+    "best_execution_score": 72.409833,
+    "best_family": "RSI_REVERSION",
+    "best_profile": "SCALP_SPECIALIST",
+    "dominant_phases": {
+      "RANGE_MEAN_REVERSION": 3,
+      "TREND_EXPANSION": 14,
+      "BREAKOUT_VOLATILITY": 22
+    },
+    "dominant_timeframes": {
+      "M5": 8,
+      "D1": 11,
+      "M1": 1,
+      "M15": 1,
+      "H4": 8,
+      "M30": 5,
+      "H1": 5
+    },
+    "memory_status": "ASSET_MEMORY_REGISTERED"
+  },
+  {
+    "asset": "GBPUSD",
+    "specialists": 26,
+    "best_execution_score": 68.620942,
+    "best_family": "BOLLINGER_REVERSION",
+    "best_profile": "SCALP_SPECIALIST",
+    "dominant_phases": {
+      "RANGE_MEAN_REVERSION": 8,
+      "BREAKOUT_VOLATILITY": 15,
+      "TREND_EXPANSION": 3
+    },
+    "dominant_timeframes": {
+      "M1": 4,
+      "M30": 5,
+      "M15": 4,
+      "H4": 2,
+      "M5": 11
+    },
+    "memory_status": "ASSET_MEMORY_REGISTERED"
+  },
+  {
+    "asset": "USDCAD",
+    "specialists": 24,
+    "best_execution_score": 54.280217,
+    "best_family": "RSI_REVERSION",
+    "best_profile": "DAY_TRADE_SPECIALIST",
+    "dominant_phases": {
+      "RANGE_MEAN_REVERSION": 8,
+      "TREND_EXPANSION": 9,
+      "BREAKOUT_VOLATILITY": 7
+    },
+    "dominant_timeframes": {
+      "M30": 8,
+      "D1": 1,
+      "M15": 6,
+      "M5": 6,
+      "H4": 2,
+      "H1": 1
+    },
+    "memory_status": "ASSET_MEMORY_REGISTERED"
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_E2A1782DCDC61855",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_internal\\network\\cache.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pip\\_internal\\network\\cache.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 117,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "contextlib",
+    "datetime",
+    "os",
+    "pip._internal.utils.filesystem",
+    "pip._internal.utils.misc",
+    "pip._vendor.cachecontrol.cache",
+    "pip._vendor.cachecontrol.caches",
+    "pip._vendor.requests.models",
+    "shutil",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

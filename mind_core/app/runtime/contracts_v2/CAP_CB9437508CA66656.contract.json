@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_CB9437508CA66656",
+  "source_file": "evidence\\P19_UNIFIED_RUNTIME_RECOVERY_AND_CERTIFICATION_20260618_075131\\test_runtime.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\evidence\\P19_UNIFIED_RUNTIME_RECOVERY_AND_CERTIFICATION_20260618_075131\\test_runtime.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 100,
+  "imports": [
+    "app.api.whatsapp",
+    "os",
+    "sys"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

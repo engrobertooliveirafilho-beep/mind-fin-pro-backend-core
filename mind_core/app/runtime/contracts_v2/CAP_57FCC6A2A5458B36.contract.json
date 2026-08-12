@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_57FCC6A2A5458B36",
+  "source_file": ".venv\\Lib\\site-packages\\twilio\\http\\async_http_client.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\twilio\\http\\async_http_client.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 107,
+  "imports": [
+    "aiohttp",
+    "aiohttp_retry",
+    "logging",
+    "twilio.http",
+    "twilio.http.request",
+    "twilio.http.response",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

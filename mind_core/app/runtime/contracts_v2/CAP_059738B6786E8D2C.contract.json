@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_059738B6786E8D2C",
+  "source_file": ".venv\\Lib\\site-packages\\watchfiles\\cli.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\watchfiles\\cli.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 89,
+  "imports": [
+    "argparse",
+    "collections.abc",
+    "filters",
+    "logging",
+    "os",
+    "pathlib",
+    "run",
+    "shlex",
+    "sys",
+    "textwrap",
+    "typing",
+    "version"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

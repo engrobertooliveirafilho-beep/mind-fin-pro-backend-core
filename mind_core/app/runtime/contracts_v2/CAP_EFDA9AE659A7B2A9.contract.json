@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_EFDA9AE659A7B2A9",
+  "source_file": "_evidence\\P19P15_LOCAL_WHATSAPP_RUNTIME_CASE_TEST_20260618_055453\\run_case.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P19P15_LOCAL_WHATSAPP_RUNTIME_CASE_TEST_20260618_055453\\run_case.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 90,
+  "imports": [
+    "app.api.whatsapp"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

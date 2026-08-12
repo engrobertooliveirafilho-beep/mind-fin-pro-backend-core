@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_1694F3E61697B04B",
+  "source_file": ".venv\\Lib\\site-packages\\twilio\\rest\\voice\\v1\\archived_call.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\twilio\\rest\\voice\\v1\\archived_call.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 105,
+  "imports": [
+    "datetime",
+    "twilio.base",
+    "twilio.base.api_response",
+    "twilio.base.instance_context",
+    "twilio.base.list_resource",
+    "twilio.base.version"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_09DE3122814A28EA",
+  "source_file": "mind_trader\\app\\audits\\final_certified_snapshot.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\mind_trader\\app\\audits\\final_certified_snapshot.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 114,
+  "imports": [
+    "datetime",
+    "hashlib",
+    "json",
+    "mind_trader.app.audits.command_index",
+    "mind_trader.app.audits.final_research_certification",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

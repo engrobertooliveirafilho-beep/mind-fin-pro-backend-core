@@ -1,0 +1,29 @@
+{
+  "schema": "eldora.content.brain.config.v1",
+  "runtime_root": "runtime/eldora_content_brain",
+  "output_root": "runtime/eldora_content_brain/runs",
+  "market": "Brasil",
+  "locale": "pt-BR",
+  "research_model": "gpt-5",
+  "image_model": "gpt-image-1.5",
+  "max_decisions": 10,
+  "minimum_confidence": 0.72,
+  "source_domains": [
+    "Google Trends",
+    "Pinterest Trends",
+    "TikTok Creative Center",
+    "YouTube Culture & Trends",
+    "Meta Business",
+    "Think with Google",
+    "veículos brasileiros confiáveis de moda, comportamento, negócios, educação e saúde"
+  ],
+  "guardrails": [
+    "preservar identidade visual canônica da Eldora",
+    "não copiar criadores específicos",
+    "não inventar estatísticas",
+    "não usar sexualização gratuita",
+    "não publicar sem revisão humana",
+    "não enviar ao Drive sem aprovação",
+    "não usar fontes privadas sem credenciais oficiais"
+  ]
+}

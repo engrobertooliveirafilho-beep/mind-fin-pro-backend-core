@@ -1,0 +1,15 @@
+{
+  "status": "READY",
+  "critique_targets": [
+    "entry",
+    "exit",
+    "risk",
+    "timing",
+    "regime"
+  ],
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN"
+}

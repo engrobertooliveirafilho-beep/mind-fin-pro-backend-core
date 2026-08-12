@@ -1,0 +1,30 @@
+{
+  "capability_id": "CAP_A051776041A8B29A",
+  "source_file": ".venv\\Lib\\site-packages\\setuptools\\tests\\test_setuptools.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\setuptools\\tests\\test_setuptools.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 118,
+  "imports": [
+    "distutils.cmd",
+    "distutils.core",
+    "distutils.errors",
+    "os",
+    "packaging.version",
+    "pytest",
+    "re",
+    "setuptools",
+    "setuptools.depends",
+    "setuptools.dist",
+    "setuptools.tests",
+    "sys",
+    "zipfile"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

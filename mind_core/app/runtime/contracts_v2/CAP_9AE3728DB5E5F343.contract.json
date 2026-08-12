@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_9AE3728DB5E5F343",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_limited_api.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_limited_api.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 112,
+  "imports": [
+    "Cython.Compiler.Version",
+    "cython",
+    "limited_api1",
+    "limited_api2",
+    "limited_api_latest",
+    "numpy._utils",
+    "numpy.testing",
+    "os",
+    "pytest",
+    "subprocess",
+    "sys",
+    "sysconfig"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

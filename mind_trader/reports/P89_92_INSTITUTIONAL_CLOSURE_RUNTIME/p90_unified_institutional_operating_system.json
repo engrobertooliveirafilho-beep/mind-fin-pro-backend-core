@@ -1,0 +1,21 @@
+{
+  "status": "IMPLEMENTED",
+  "domains": [
+    "market",
+    "learning",
+    "portfolio",
+    "risk",
+    "execution",
+    "edge",
+    "governance",
+    "research"
+  ],
+  "unified_decision_stack": true,
+  "paper_only_operating_system": true,
+  "modules": 12,
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN"
+}

@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_9BB380763AB83B9D",
+  "source_file": ".venv\\Lib\\site-packages\\redis\\asyncio\\multidb\\event.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\redis\\asyncio\\multidb\\event.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 93,
+  "imports": [
+    "redis.asyncio",
+    "redis.asyncio.multidb.database",
+    "redis.asyncio.multidb.failure_detector",
+    "redis.event",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

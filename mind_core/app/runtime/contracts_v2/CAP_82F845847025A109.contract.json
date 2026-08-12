@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_82F845847025A109",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\core\\dtypes\\concat.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\pandas\\core\\dtypes\\concat.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 93,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "numpy",
+    "pandas",
+    "pandas._libs",
+    "pandas._typing",
+    "pandas.core.algorithms",
+    "pandas.core.arrays",
+    "pandas.core.arrays.categorical",
+    "pandas.core.dtypes.astype",
+    "pandas.core.dtypes.cast",
+    "pandas.core.dtypes.dtypes",
+    "pandas.core.dtypes.generic",
+    "pandas.util._decorators",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

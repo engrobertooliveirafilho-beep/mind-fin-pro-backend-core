@@ -1,0 +1,62 @@
+[
+  {
+    "genome_candidate_id": "26fd417c648ec87e47",
+    "dna_id": "628aabe77b5f0a6daf",
+    "family": "trend",
+    "origin": "KNOWLEDGE_DNA",
+    "requires_backtest": true,
+    "requires_walk_forward": true,
+    "requires_monte_carlo": true,
+    "requires_robustness_committee": true,
+    "live_allowed": false,
+    "promotion_allowed": false
+  },
+  {
+    "genome_candidate_id": "25434a981f42c104d7",
+    "dna_id": "6ff3ad452b5dd2762b",
+    "family": "volatility",
+    "origin": "KNOWLEDGE_DNA",
+    "requires_backtest": true,
+    "requires_walk_forward": true,
+    "requires_monte_carlo": true,
+    "requires_robustness_committee": true,
+    "live_allowed": false,
+    "promotion_allowed": false
+  },
+  {
+    "genome_candidate_id": "7f92331b3c75a48191",
+    "dna_id": "95a0a7c5308352c905",
+    "family": "liquidity",
+    "origin": "KNOWLEDGE_DNA",
+    "requires_backtest": true,
+    "requires_walk_forward": true,
+    "requires_monte_carlo": true,
+    "requires_robustness_committee": true,
+    "live_allowed": false,
+    "promotion_allowed": false
+  },
+  {
+    "genome_candidate_id": "713e3f31d8393985ef",
+    "dna_id": "bfb1b8cbf91253b8ff",
+    "family": "risk",
+    "origin": "KNOWLEDGE_DNA",
+    "requires_backtest": true,
+    "requires_walk_forward": true,
+    "requires_monte_carlo": true,
+    "requires_robustness_committee": true,
+    "live_allowed": false,
+    "promotion_allowed": false
+  },
+  {
+    "genome_candidate_id": "4a26128d3b913e25e2",
+    "dna_id": "813302e7293902a101",
+    "family": "regime",
+    "origin": "KNOWLEDGE_DNA",
+    "requires_backtest": true,
+    "requires_walk_forward": true,
+    "requires_monte_carlo": true,
+    "requires_robustness_committee": true,
+    "live_allowed": false,
+    "promotion_allowed": false
+  }
+]

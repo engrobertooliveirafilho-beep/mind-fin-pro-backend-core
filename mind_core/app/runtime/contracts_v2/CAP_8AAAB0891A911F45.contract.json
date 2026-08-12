@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_8AAAB0891A911F45",
+  "source_file": ".venv\\Lib\\site-packages\\openpyxl\\drawing\\colors.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\openpyxl\\drawing\\colors.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 102,
+  "imports": [
+    "openpyxl.descriptors",
+    "openpyxl.descriptors.excel",
+    "openpyxl.descriptors.nested",
+    "openpyxl.descriptors.serialisable",
+    "openpyxl.styles.colors",
+    "openpyxl.xml.constants"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,103 @@
+{
+  "nodes": 45,
+  "edges": 3615,
+  "execution_kinds": {
+    "ROUTE_MODULE": 30,
+    "EXECUTABLE_CAPABILITY": 11,
+    "STRUCTURAL_OR_EMPTY": 2,
+    "FAILED": 1,
+    "IMPORT_FAILED": 1
+  },
+  "top_connected": [
+    {
+      "id": "013_social_memory_provider",
+      "degree": 274,
+      "path": "app/humanization/social_memory_provider.py",
+      "kind": "EXECUTABLE_CAPABILITY"
+    },
+    {
+      "id": "026_conversation_maturity_engine",
+      "degree": 274,
+      "path": "app/humanization/conversation_maturity_engine.py",
+      "kind": "EXECUTABLE_CAPABILITY"
+    },
+    {
+      "id": "027_conversation_training_runtime",
+      "degree": 274,
+      "path": "app/humanization/conversation_training_runtime.py",
+      "kind": "EXECUTABLE_CAPABILITY"
+    },
+    {
+      "id": "028_multi_ai_conversation_simulator",
+      "degree": 274,
+      "path": "app/humanization/multi_ai_conversation_simulator.py",
+      "kind": "EXECUTABLE_CAPABILITY"
+    },
+    {
+      "id": "029_context_guard",
+      "degree": 269,
+      "path": "app/p18_conversational_execution/context_guard.py",
+      "kind": "EXECUTABLE_CAPABILITY"
+    },
+    {
+      "id": "032_semantic_whatsapp_runtime",
+      "degree": 261,
+      "path": "app/runtime/semantic_whatsapp_runtime.py",
+      "kind": "EXECUTABLE_CAPABILITY"
+    },
+    {
+      "id": "030_response_executor",
+      "degree": 238,
+      "path": "app/p18_conversational_execution/response_executor.py",
+      "kind": "EXECUTABLE_CAPABILITY"
+    },
+    {
+      "id": "044_strategic_conversation_authority",
+      "degree": 224,
+      "path": "app/runtime/strategic_conversation_authority.py",
+      "kind": "STRUCTURAL_OR_EMPTY"
+    },
+    {
+      "id": "005_context_priority_engine",
+      "degree": 213,
+      "path": "app/runtime/context_priority_engine.py",
+      "kind": "STRUCTURAL_OR_EMPTY"
+    },
+    {
+      "id": "009_eldora_multimodal",
+      "degree": 210,
+      "path": "app/api/eldora_multimodal.py",
+      "kind": "ROUTE_MODULE"
+    },
+    {
+      "id": "042_failure_fixes",
+      "degree": 203,
+      "path": "app/p18_conversational_execution/failure_fixes.py",
+      "kind": "EXECUTABLE_CAPABILITY"
+    },
+    {
+      "id": "023_eldora_security",
+      "degree": 202,
+      "path": "app/api/eldora_security.py",
+      "kind": "ROUTE_MODULE"
+    },
+    {
+      "id": "012_eldora_social",
+      "degree": 194,
+      "path": "app/api/eldora_social.py",
+      "kind": "ROUTE_MODULE"
+    },
+    {
+      "id": "002_eldora_cognition",
+      "degree": 186,
+      "path": "app/api/eldora_cognition.py",
+      "kind": "ROUTE_MODULE"
+    },
+    {
+      "id": "043_conversation_quality_guard",
+      "degree": 186,
+      "path": "app/runtime/conversation_quality_guard.py",
+      "kind": "EXECUTABLE_CAPABILITY"
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "engine": "P4.79_KNOWLEDGE_EXTRACTION_ENGINE",
+  "created_at": "2026-06-19T18:18:10.944113+00:00",
+  "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/mind_strategy.txt",
+  "metadata": {
+    "file": "_evidence\\P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810\\smoke_drive_docs\\mind_strategy.txt"
+  },
+  "total_items": 5,
+  "items": [
+    {
+      "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/mind_strategy.txt",
+      "type": "CAPABILITY",
+      "all_types": [
+        "CAPABILITY",
+        "BUG_FIX",
+        "DEPENDENCY"
+      ],
+      "priority": "MEDIUM",
+      "text": "Existe bug TypeError no semantic_whatsapp_runtime.",
+      "signals": [
+        "CAPABILITY",
+        "BUG_FIX",
+        "DEPENDENCY"
+      ],
+      "metadata": {
+        "file": "_evidence\\P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810\\smoke_drive_docs\\mind_strategy.txt"
+      }
+    },
+    {
+      "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/mind_strategy.txt",
+      "type": "CAPABILITY",
+      "all_types": [
+        "CAPABILITY",
+        "ARCHITECTURE"
+      ],
+      "priority": "MEDIUM",
+      "text": "A arquitetura deve usar pipeline, retrieval, registry e orchestrator.",
+      "signals": [
+        "CAPABILITY",
+        "ARCHITECTURE"
+      ],
+      "metadata": {
+        "file": "_evidence\\P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810\\smoke_drive_docs\\mind_strategy.txt"
+      }
+    },
+    {
+      "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/mind_strategy.txt",
+      "type": "CAPABILITY",
+      "all_types": [
+        "CAPABILITY",
+        "ARCHITECTURE",
+        "LESSON_LEARNED"
+      ],
+      "priority": "MEDIUM",
+      "text": "Lição aprendida: não integrar direto no cognitive_pipeline antes de validar bridge isolado.",
+      "signals": [
+        "CAPABILITY",
+        "ARCHITECTURE",
+        "LESSON_LEARNED"
+      ],
+      "metadata": {
+        "file": "_evidence\\P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810\\smoke_drive_docs\\mind_strategy.txt"
+      }
+    },
+    {
+      "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/mind_strategy.txt",
+      "type": "CAPABILITY",
+      "all_types": [
+        "CAPABILITY"
+      ],
+      "priority": "MEDIUM",
+      "text": "Capability: persistent cognitive graph.",
+      "signals": [
+        "CAPABILITY"
+      ],
+      "metadata": {
+        "file": "_evidence\\P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810\\smoke_drive_docs\\mind_strategy.txt"
+      }
+    },
+    {
+      "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/mind_strategy.txt",
+      "type": "ALGORITHM",
+      "all_types": [
+        "ALGORITHM",
+        "DEPENDENCY"
+      ],
+      "priority": "MEDIUM",
+      "text": "Dependência: Supabase, PgVector, OpenAI embeddings.",
+      "signals": [
+        "ALGORITHM",
+        "DEPENDENCY"
+      ],
+      "metadata": {
+        "file": "_evidence\\P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810\\smoke_drive_docs\\mind_strategy.txt"
+      }
+    }
+  ],
+  "summary": {
+    "CAPABILITY": 4,
+    "ALGORITHM": 1
+  }
+}

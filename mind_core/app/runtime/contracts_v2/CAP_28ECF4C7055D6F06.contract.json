@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_28ECF4C7055D6F06",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\realtime\\realtime_transcription_session_audio_input.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\openai\\types\\realtime\\realtime_transcription_session_audio_input.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 88,
+  "imports": [
+    "_models",
+    "audio_transcription",
+    "noise_reduction_type",
+    "realtime_audio_formats",
+    "realtime_transcription_session_audio_input_turn_detection",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

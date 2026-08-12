@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_FF472B12105B5E8A",
+  "source_file": ".venv\\Lib\\site-packages\\packaging\\specifiers.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\packaging\\specifiers.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 113,
+  "imports": [
+    "__future__",
+    "abc",
+    "enum",
+    "functools",
+    "itertools",
+    "re",
+    "sys",
+    "typing",
+    "typing_extensions",
+    "utils",
+    "version"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

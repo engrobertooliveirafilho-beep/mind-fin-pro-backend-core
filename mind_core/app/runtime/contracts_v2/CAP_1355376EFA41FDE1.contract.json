@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_1355376EFA41FDE1",
+  "source_file": "app\\mind\\p5_5a_bovine_sports_genetics\\runtime.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\app\\mind\\p5_5a_bovine_sports_genetics\\runtime.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 98,
+  "imports": [
+    "core",
+    "engines"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

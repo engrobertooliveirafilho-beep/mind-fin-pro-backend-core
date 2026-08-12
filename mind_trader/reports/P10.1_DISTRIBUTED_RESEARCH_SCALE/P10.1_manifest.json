@@ -1,0 +1,21 @@
+{
+  "STATUS": "P10.1_DISTRIBUTED_RESEARCH_SCALE_IMPLEMENTED",
+  "QUEUES": [
+    "ingestion",
+    "quality_gate",
+    "genome_generation",
+    "backtest",
+    "walk_forward",
+    "monte_carlo",
+    "robustness",
+    "ranking",
+    "reporting"
+  ],
+  "JOBS": 72,
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "PROMOTION_ALLOWED": false,
+  "EDGE": "NOT_PROVEN",
+  "CAUSALITY": "NOT_PROVEN",
+  "EXPORT_READY": true
+}

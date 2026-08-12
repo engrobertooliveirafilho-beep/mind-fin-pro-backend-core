@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_77BE385F15431616",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\linalg\\_linalg.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\numpy\\linalg\\_linalg.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 117,
+  "imports": [
+    "functools",
+    "numpy",
+    "numpy._core",
+    "numpy._globals",
+    "numpy._typing",
+    "numpy._utils",
+    "numpy.lib._twodim_base_impl",
+    "numpy.lib.array_utils",
+    "numpy.linalg",
+    "operator",
+    "typing",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

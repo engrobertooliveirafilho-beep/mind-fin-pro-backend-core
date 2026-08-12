@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_D086E7C7096A58A4",
+  "source_file": ".venv\\Lib\\site-packages\\psycopg\\_tstrings.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\psycopg\\_tstrings.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 109,
+  "imports": [
+    "__future__",
+    "_compat",
+    "_enums",
+    "_transformer",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

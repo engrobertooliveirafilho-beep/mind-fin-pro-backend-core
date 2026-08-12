@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_D9579DD3A174122A",
+  "source_file": ".venv\\Lib\\site-packages\\setuptools\\_distutils\\tests\\test_util.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\setuptools\\_distutils\\tests\\test_util.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 93,
+  "imports": [
+    "copy",
+    "distutils",
+    "distutils.errors",
+    "distutils.util",
+    "email",
+    "email.generator",
+    "email.policy",
+    "io",
+    "os",
+    "pathlib",
+    "pwd",
+    "pytest",
+    "sys",
+    "sysconfig",
+    "unittest.mock"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

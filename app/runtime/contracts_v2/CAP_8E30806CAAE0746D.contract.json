@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_8E30806CAAE0746D",
+  "source_file": ".venv\\Lib\\site-packages\\websockets\\legacy\\framing.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\websockets\\legacy\\framing.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 96,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "exceptions",
+    "frames",
+    "speedups",
+    "struct",
+    "typing",
+    "utils"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

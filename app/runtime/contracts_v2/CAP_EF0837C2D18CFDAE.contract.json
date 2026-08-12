@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_EF0837C2D18CFDAE",
+  "source_file": "_evidence\\P19P36M_H4_FORENSIC_ADVISOR_AUDIT_RECOVERY_20260622_120329\\ROLLBACK_safe_recovery_adapter.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\_evidence\\P19P36M_H4_FORENSIC_ADVISOR_AUDIT_RECOVERY_20260622_120329\\ROLLBACK_safe_recovery_adapter.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 120,
+  "imports": [
+    "__future__",
+    "app.runtime.memory_store",
+    "datetime",
+    "importlib",
+    "json",
+    "pathlib",
+    "re",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

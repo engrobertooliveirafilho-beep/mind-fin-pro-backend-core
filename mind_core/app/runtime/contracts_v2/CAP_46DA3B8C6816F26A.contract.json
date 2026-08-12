@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_46DA3B8C6816F26A",
+  "source_file": "_evidence\\P4.91L2_STAGING_COPY_AND_TEST_20260623_170841\\staging\\3c793e02f4472d4b597b83e1f424777b9ca038a216d8c8aa794772fbf1e6cf83_router.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P4.91L2_STAGING_COPY_AND_TEST_20260623_170841\\staging\\3c793e02f4472d4b597b83e1f424777b9ca038a216d8c8aa794772fbf1e6cf83_router.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 102,
+  "imports": [
+    "app.modules.multi_agent_cognitive_generalist.engine",
+    "fastapi",
+    "pydantic",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

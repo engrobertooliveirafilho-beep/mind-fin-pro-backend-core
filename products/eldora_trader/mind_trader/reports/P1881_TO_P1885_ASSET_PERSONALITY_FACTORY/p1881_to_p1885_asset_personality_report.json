@@ -1,0 +1,304 @@
+{
+  "STATUS": "P1881_TO_P1885_ASSET_PERSONALITY_FACTORY_COMPLETED",
+  "P1881_XAUUSD_PERSONALITY": "COMPLETED",
+  "P1882_USDJPY_PERSONALITY": "COMPLETED",
+  "P1883_EURUSD_PERSONALITY": "PENDING_REAL_ELITE_DNA",
+  "P1884_CROSS_ASSET_PERSONALITY_ROWS": 1,
+  "P1885_ASSET_GENOMES": 2,
+  "ASSET_PROFILES": [
+    {
+      "asset": "USDJPY",
+      "status": "P1882_USDJPY_PERSONALITY_COMPLETED",
+      "trades": 263,
+      "wins": 152,
+      "losses": 111,
+      "win_rate": 0.577947,
+      "profit_factor_proxy": 1.567725,
+      "avg_return": 0.00112616,
+      "best_session": {
+        "session": "ASIA",
+        "trades": 263,
+        "win_rate": 0.577947,
+        "profit_factor_proxy": 1.567725,
+        "avg_return": 0.00112616
+      },
+      "best_regime": {
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trades": 29,
+        "win_rate": 0.586207,
+        "profit_factor_proxy": 4.848097,
+        "avg_return": 0.00248396
+      },
+      "best_trigger": {
+        "trigger": "RSI_REVERSION",
+        "trades": 263,
+        "win_rate": 0.577947,
+        "profit_factor_proxy": 1.567725,
+        "avg_return": 0.00112616
+      },
+      "traits": {
+        "liquidity_sweep_dependence": 19.3916,
+        "trend_dependency": 66.5399,
+        "high_vol_dependency": 35.7414,
+        "low_vol_dependency": 19.7719,
+        "avg_market_energy": 69.08414,
+        "avg_entropy": 0.527211,
+        "execution_sensitivity": "MEDIUM_HIGH"
+      },
+      "session_stats": [
+        {
+          "session": "ASIA",
+          "trades": 263,
+          "win_rate": 0.577947,
+          "profit_factor_proxy": 1.567725,
+          "avg_return": 0.00112616
+        }
+      ],
+      "regime_stats": [
+        {
+          "trend_regime": "TREND_UP",
+          "volatility_regime": "NORMAL_VOL",
+          "trades": 29,
+          "win_rate": 0.586207,
+          "profit_factor_proxy": 4.848097,
+          "avg_return": 0.00248396
+        },
+        {
+          "trend_regime": "TREND_DOWN",
+          "volatility_regime": "HIGH_VOL",
+          "trades": 40,
+          "win_rate": 0.525,
+          "profit_factor_proxy": 2.166256,
+          "avg_return": 0.0025022
+        },
+        {
+          "trend_regime": "RANGE",
+          "volatility_regime": "NORMAL_VOL",
+          "trades": 22,
+          "win_rate": 0.727273,
+          "profit_factor_proxy": 2.027156,
+          "avg_return": 0.00180049
+        },
+        {
+          "trend_regime": "TREND_DOWN",
+          "volatility_regime": "NORMAL_VOL",
+          "trades": 66,
+          "win_rate": 0.636364,
+          "profit_factor_proxy": 1.969849,
+          "avg_return": 0.00123904
+        },
+        {
+          "trend_regime": "TREND_DOWN",
+          "volatility_regime": "LOW_VOL",
+          "trades": 2,
+          "win_rate": 0.5,
+          "profit_factor_proxy": 1.870772,
+          "avg_return": 0.00066271
+        },
+        {
+          "trend_regime": "RANGE",
+          "volatility_regime": "LOW_VOL",
+          "trades": 29,
+          "win_rate": 0.551724,
+          "profit_factor_proxy": 1.78849,
+          "avg_return": 0.00104703
+        },
+        {
+          "trend_regime": "TREND_UP",
+          "volatility_regime": "LOW_VOL",
+          "trades": 21,
+          "win_rate": 0.428571,
+          "profit_factor_proxy": 1.027382,
+          "avg_return": 4.942e-05
+        },
+        {
+          "trend_regime": "TREND_UP",
+          "volatility_regime": "HIGH_VOL",
+          "trades": 17,
+          "win_rate": 0.529412,
+          "profit_factor_proxy": 1.013001,
+          "avg_return": 4.861e-05
+        },
+        {
+          "trend_regime": "RANGE",
+          "volatility_regime": "HIGH_VOL",
+          "trades": 37,
+          "win_rate": 0.567568,
+          "profit_factor_proxy": 0.797871,
+          "avg_return": -0.00083467
+        }
+      ],
+      "trigger_stats": [
+        {
+          "trigger": "RSI_REVERSION",
+          "trades": 263,
+          "win_rate": 0.577947,
+          "profit_factor_proxy": 1.567725,
+          "avg_return": 0.00112616
+        }
+      ],
+      "pattern_genomes": 9,
+      "dna_clusters": 9,
+      "survivor_mutations": 50,
+      "total_mutations": 90,
+      "ORDER_SENT": false,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    },
+    {
+      "asset": "XAUUSD",
+      "status": "P1881_XAUUSD_PERSONALITY_COMPLETED",
+      "trades": 123,
+      "wins": 72,
+      "losses": 51,
+      "win_rate": 0.585366,
+      "profit_factor_proxy": 1.652377,
+      "avg_return": 0.0015515,
+      "best_session": {
+        "session": "ASIA",
+        "trades": 123,
+        "win_rate": 0.585366,
+        "profit_factor_proxy": 1.652377,
+        "avg_return": 0.0015515
+      },
+      "best_regime": {
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trades": 4,
+        "win_rate": 0.75,
+        "profit_factor_proxy": 3.134838,
+        "avg_return": 0.00406092
+      },
+      "best_trigger": {
+        "trigger": "LIQUIDITY_SWEEP",
+        "trades": 123,
+        "win_rate": 0.585366,
+        "profit_factor_proxy": 1.652377,
+        "avg_return": 0.0015515
+      },
+      "traits": {
+        "liquidity_sweep_dependence": 100.0,
+        "trend_dependency": 65.0407,
+        "high_vol_dependency": 17.8862,
+        "low_vol_dependency": 21.1382,
+        "avg_market_energy": 57.646737,
+        "avg_entropy": 0.515276,
+        "execution_sensitivity": "LOW"
+      },
+      "session_stats": [
+        {
+          "session": "ASIA",
+          "trades": 123,
+          "win_rate": 0.585366,
+          "profit_factor_proxy": 1.652377,
+          "avg_return": 0.0015515
+        }
+      ],
+      "regime_stats": [
+        {
+          "trend_regime": "TREND_DOWN",
+          "volatility_regime": "LOW_VOL",
+          "trades": 4,
+          "win_rate": 0.75,
+          "profit_factor_proxy": 3.134838,
+          "avg_return": 0.00406092
+        },
+        {
+          "trend_regime": "TREND_DOWN",
+          "volatility_regime": "NORMAL_VOL",
+          "trades": 26,
+          "win_rate": 0.5,
+          "profit_factor_proxy": 2.745055,
+          "avg_return": 0.00282432
+        },
+        {
+          "trend_regime": "TREND_UP",
+          "volatility_regime": "NORMAL_VOL",
+          "trades": 24,
+          "win_rate": 0.625,
+          "profit_factor_proxy": 2.016821,
+          "avg_return": 0.00196836
+        },
+        {
+          "trend_regime": "RANGE",
+          "volatility_regime": "NORMAL_VOL",
+          "trades": 25,
+          "win_rate": 0.68,
+          "profit_factor_proxy": 1.790344,
+          "avg_return": 0.00210401
+        },
+        {
+          "trend_regime": "TREND_DOWN",
+          "volatility_regime": "HIGH_VOL",
+          "trades": 7,
+          "win_rate": 0.571429,
+          "profit_factor_proxy": 1.769672,
+          "avg_return": 0.00137711
+        },
+        {
+          "trend_regime": "TREND_UP",
+          "volatility_regime": "LOW_VOL",
+          "trades": 9,
+          "win_rate": 0.666667,
+          "profit_factor_proxy": 1.313433,
+          "avg_return": 0.00069865
+        },
+        {
+          "trend_regime": "RANGE",
+          "volatility_regime": "LOW_VOL",
+          "trades": 13,
+          "win_rate": 0.461538,
+          "profit_factor_proxy": 1.209047,
+          "avg_return": 0.00036318
+        },
+        {
+          "trend_regime": "TREND_UP",
+          "volatility_regime": "HIGH_VOL",
+          "trades": 10,
+          "win_rate": 0.6,
+          "profit_factor_proxy": 1.048636,
+          "avg_return": 0.00022312
+        },
+        {
+          "trend_regime": "RANGE",
+          "volatility_regime": "HIGH_VOL",
+          "trades": 5,
+          "win_rate": 0.4,
+          "profit_factor_proxy": 0.250637,
+          "avg_return": -0.00431247
+        }
+      ],
+      "trigger_stats": [
+        {
+          "trigger": "LIQUIDITY_SWEEP",
+          "trades": 123,
+          "win_rate": 0.585366,
+          "profit_factor_proxy": 1.652377,
+          "avg_return": 0.0015515
+        }
+      ],
+      "pattern_genomes": 9,
+      "dna_clusters": 9,
+      "survivor_mutations": 40,
+      "total_mutations": 90,
+      "ORDER_SENT": false,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    }
+  ],
+  "OUTPUTS": {
+    "asset_personalities": "data\\lake\\assets\\p1881_to_p1883_asset_personalities.json",
+    "cross_asset_personality": "data\\lake\\assets\\p1884_cross_asset_personality.json",
+    "asset_genome_library": "data\\lake\\assets\\p1885_asset_genome_library.json",
+    "market_memory_seed": "data\\lake\\memory\\p1886_market_memory_seed_from_asset_personality.json"
+  },
+  "NEXT": "P1886_TO_P1890_MARKET_MEMORY_FACTORY",
+  "ORDER_SENT": false,
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN",
+  "generated_at": "2026-06-16T18:56:33.563668+00:00"
+}

@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_F35C3427A7365296",
+  "source_file": "backups\\P19P17_P19P21_UNIVERSAL_CONTEXT_RUNTIME_20260618_062646\\tests\\test_p7_integration_guardrails.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\backups\\P19P17_P19P21_UNIVERSAL_CONTEXT_RUNTIME_20260618_062646\\tests\\test_p7_integration_guardrails.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 98,
+  "imports": [
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

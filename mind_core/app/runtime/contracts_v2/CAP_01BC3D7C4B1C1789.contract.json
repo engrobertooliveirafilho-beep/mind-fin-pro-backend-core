@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_01BC3D7C4B1C1789",
+  "source_file": "_evidence\\P19I_SANDBOX_EVALUATION_20260617_134934\\run_p19i.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P19I_SANDBOX_EVALUATION_20260617_134934\\run_p19i.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 92,
+  "imports": [
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

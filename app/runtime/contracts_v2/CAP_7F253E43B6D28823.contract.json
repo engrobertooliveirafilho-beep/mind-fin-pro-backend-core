@@ -1,0 +1,30 @@
+{
+  "capability_id": "CAP_7F253E43B6D28823",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\evals\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\openai\\types\\evals\\__init__.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 99,
+  "imports": [
+    "__future__",
+    "create_eval_completions_run_data_source",
+    "create_eval_completions_run_data_source_param",
+    "create_eval_jsonl_run_data_source",
+    "create_eval_jsonl_run_data_source_param",
+    "eval_api_error",
+    "run_cancel_response",
+    "run_create_params",
+    "run_create_response",
+    "run_delete_response",
+    "run_list_params",
+    "run_list_response",
+    "run_retrieve_response"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

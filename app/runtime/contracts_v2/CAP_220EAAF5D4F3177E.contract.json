@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_220EAAF5D4F3177E",
+  "source_file": ".venv\\Lib\\site-packages\\pydantic\\v1\\networks.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\pydantic\\v1\\networks.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 107,
+  "imports": [
+    "email_validator",
+    "ipaddress",
+    "pydantic.v1",
+    "pydantic.v1.config",
+    "pydantic.v1.fields",
+    "pydantic.v1.typing",
+    "pydantic.v1.utils",
+    "pydantic.v1.validators",
+    "re",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

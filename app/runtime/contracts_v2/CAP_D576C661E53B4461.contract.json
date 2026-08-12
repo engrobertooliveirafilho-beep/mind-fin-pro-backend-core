@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_D576C661E53B4461",
+  "source_file": "_evidence\\P2409_SOVEREIGN_COGNITIVE_EXECUTION_ENGINE_20260624_222829\\sovereign_before.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P2409_SOVEREIGN_COGNITIVE_EXECUTION_ENGINE_20260624_222829\\sovereign_before.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 108,
+  "imports": [
+    "app.runtime.universal_knowledge_provider",
+    "dataclasses",
+    "json",
+    "os",
+    "pathlib",
+    "re",
+    "time"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

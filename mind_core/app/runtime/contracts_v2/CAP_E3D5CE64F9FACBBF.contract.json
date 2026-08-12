@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_E3D5CE64F9FACBBF",
+  "source_file": ".venv\\Lib\\site-packages\\httpcore\\_backends\\base.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\httpcore\\_backends\\base.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 101,
+  "imports": [
+    "__future__",
+    "ssl",
+    "time",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

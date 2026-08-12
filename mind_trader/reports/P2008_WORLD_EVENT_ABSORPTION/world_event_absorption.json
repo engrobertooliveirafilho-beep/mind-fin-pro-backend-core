@@ -1,0 +1,19 @@
+{
+  "STATUS": "P2008_WORLD_EVENT_ABSORPTION_BOOTSTRAPPED",
+  "EVENTS": [
+    "FOMC",
+    "CPI",
+    "NFP",
+    "ECB",
+    "BOE",
+    "BOJ",
+    "WAR",
+    "BANKING_CRISIS",
+    "FLASH_CRASH"
+  ],
+  "OUTPUT": [
+    "event_reaction_profile",
+    "post_event_alpha",
+    "avoidance_window"
+  ]
+}

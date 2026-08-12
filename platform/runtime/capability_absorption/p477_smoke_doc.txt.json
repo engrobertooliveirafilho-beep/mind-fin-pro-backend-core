@@ -1,0 +1,41 @@
+{
+  "engine": "P4.76_DRIVE_CAPABILITY_ABSORPTION_ENGINE",
+  "created_at": "2026-06-19T17:40:08.703408+00:00",
+  "source_id": "p477_smoke_doc.txt",
+  "metadata": {
+    "file": "_evidence\\P4_77_PROCESSED_DRIVE_QUEUE_20260619_144008\\p477_smoke_doc.txt"
+  },
+  "classification": "CAPABILITY_SIGNAL_FOUND",
+  "matched": true,
+  "matches": [
+    {
+      "capability": "semantic_retrieval",
+      "score": 3,
+      "registry_status": "ACTIVE",
+      "eligible_for_runtime": true,
+      "domain": "retrieval"
+    },
+    {
+      "capability": "whatsapp_ux_guard",
+      "score": 3,
+      "registry_status": "READY",
+      "eligible_for_runtime": true,
+      "domain": "whatsapp"
+    },
+    {
+      "capability": "social_memory",
+      "score": 1,
+      "registry_status": "ACTIVE",
+      "eligible_for_runtime": true,
+      "domain": "memory"
+    },
+    {
+      "capability": "semantic_route",
+      "score": 1,
+      "registry_status": "READY",
+      "eligible_for_runtime": true,
+      "domain": "routing"
+    }
+  ],
+  "recommended_action": "QUEUE_FOR_RUNTIME_REVIEW"
+}

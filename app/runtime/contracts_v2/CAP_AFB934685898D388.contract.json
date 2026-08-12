@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_AFB934685898D388",
+  "source_file": "_evidence\\P4_66_71_CONSOLIDATED_MIND_CORE_20260618_183503\\semantic_provider_before.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P4_66_71_CONSOLIDATED_MIND_CORE_20260618_183503\\semantic_provider_before.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 102,
+  "imports": [
+    "app.embedding.provider",
+    "app.runtime.embedding_cache",
+    "os",
+    "psycopg2",
+    "psycopg2.extras"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

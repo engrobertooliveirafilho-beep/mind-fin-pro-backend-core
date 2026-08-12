@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_C41A0422B5A0BED5",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\graders\\grader_inputs_param.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\.venv\\Lib\\site-packages\\openai\\types\\graders\\grader_inputs_param.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 101,
+  "imports": [
+    "__future__",
+    "responses.response_input_audio_param",
+    "responses.response_input_text_param",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

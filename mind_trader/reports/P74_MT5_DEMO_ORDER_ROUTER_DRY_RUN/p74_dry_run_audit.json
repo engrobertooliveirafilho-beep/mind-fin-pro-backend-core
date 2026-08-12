@@ -1,0 +1,27 @@
+{
+  "router": "P74_MT5_DEMO_ORDER_ROUTER_DRY_RUN",
+  "order": {
+    "symbol": "EURUSD",
+    "side": "BUY",
+    "lot": 0.01,
+    "sl_points": 100,
+    "tp_points": 150,
+    "order_mode": "DRY_RUN_DEMO_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  "governor_decision": "ALLOW_DEMO_TRADE",
+  "status": "DRY_RUN_APPROVED_NOT_SENT",
+  "sent_to_mt5": false,
+  "real_order_sent": false,
+  "audit": "NO_ORDER_TRANSMISSION_IN_P74",
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN",
+  "generated_at": "2026-06-14T16:22:34.709280+00:00"
+}

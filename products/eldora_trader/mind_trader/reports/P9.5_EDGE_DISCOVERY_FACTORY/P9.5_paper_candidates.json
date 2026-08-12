@@ -1,0 +1,74 @@
+[
+  {
+    "genome_id": "9a9d0fdfac8ea7fa33",
+    "checks": {
+      "profit_factor": true,
+      "sharpe": true,
+      "sortino": true,
+      "drawdown": true,
+      "risk_of_ruin": true,
+      "stability": true,
+      "regime": true,
+      "cross_asset": true,
+      "cross_period": true,
+      "walk_forward": true,
+      "monte_carlo": true,
+      "robustness_committee": true,
+      "anti_overfitting": true
+    },
+    "evidence_score": 1.0,
+    "paper_candidate": true,
+    "edge_proven": false,
+    "causality_proven": false,
+    "promotion_allowed": false,
+    "reason": "statistical_pattern_candidate_only"
+  },
+  {
+    "genome_id": "a2454d76cb4d799eed",
+    "checks": {
+      "profit_factor": true,
+      "sharpe": true,
+      "sortino": true,
+      "drawdown": true,
+      "risk_of_ruin": true,
+      "stability": true,
+      "regime": false,
+      "cross_asset": true,
+      "cross_period": true,
+      "walk_forward": true,
+      "monte_carlo": true,
+      "robustness_committee": true,
+      "anti_overfitting": true
+    },
+    "evidence_score": 0.923077,
+    "paper_candidate": true,
+    "edge_proven": false,
+    "causality_proven": false,
+    "promotion_allowed": false,
+    "reason": "statistical_pattern_candidate_only"
+  },
+  {
+    "genome_id": "da9a96e3f7696b42cf",
+    "checks": {
+      "profit_factor": true,
+      "sharpe": true,
+      "sortino": false,
+      "drawdown": true,
+      "risk_of_ruin": true,
+      "stability": true,
+      "regime": true,
+      "cross_asset": true,
+      "cross_period": true,
+      "walk_forward": true,
+      "monte_carlo": true,
+      "robustness_committee": true,
+      "anti_overfitting": true
+    },
+    "evidence_score": 0.923077,
+    "paper_candidate": true,
+    "edge_proven": false,
+    "causality_proven": false,
+    "promotion_allowed": false,
+    "reason": "statistical_pattern_candidate_only"
+  }
+]

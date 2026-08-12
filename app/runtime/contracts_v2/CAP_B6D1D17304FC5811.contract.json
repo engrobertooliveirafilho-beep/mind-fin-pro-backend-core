@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_B6D1D17304FC5811",
+  "source_file": "reports\\P5.6G26_REAL_STRUCTURED_SOURCE_ACQUISITION\\20260614_132553\\p56g26c_sources_audit.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\reports\\P5.6G26_REAL_STRUCTURED_SOURCE_ACQUISITION\\20260614_132553\\p56g26c_sources_audit.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 103,
+  "imports": [
+    "collections",
+    "json",
+    "os",
+    "pathlib",
+    "psycopg2",
+    "urllib.parse"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

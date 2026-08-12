@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_051C61AF6A5558EB",
+  "source_file": "runpod-worker\\handler.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\runpod-worker\\handler.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 95,
+  "imports": [
+    "os",
+    "runpod",
+    "time"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

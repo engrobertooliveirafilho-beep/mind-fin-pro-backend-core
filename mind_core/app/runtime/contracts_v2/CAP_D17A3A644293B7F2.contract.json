@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_D17A3A644293B7F2",
+  "source_file": "_evidence\\_drive_recovered_semantic_diamond_runtime_v2\\app_routes_embeddings_internal.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\_evidence\\_drive_recovered_semantic_diamond_runtime_v2\\app_routes_embeddings_internal.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 87,
+  "imports": [
+    "app.embeddings_internal",
+    "fastapi",
+    "pydantic",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

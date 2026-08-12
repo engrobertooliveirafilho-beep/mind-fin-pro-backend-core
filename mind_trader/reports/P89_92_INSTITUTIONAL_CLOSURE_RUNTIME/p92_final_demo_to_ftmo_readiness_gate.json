@@ -1,0 +1,13 @@
+{
+  "status": "IMPLEMENTED",
+  "readiness": "DEMO_OPERATIONAL_READY_NOT_FTMO_REAL",
+  "reason": "Requires extended demo evidence before real FTMO evaluation.",
+  "portfolio_candidates": 100,
+  "positions_monitored": 1,
+  "modules": 8,
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN"
+}

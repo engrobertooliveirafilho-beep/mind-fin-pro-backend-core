@@ -1,0 +1,10 @@
+{
+  "strategy_id": "70c75577264435b6",
+  "template": "bollinger_reversion",
+  "asset": "WIN",
+  "timeframe": "M5",
+  "platform": "Profit/NTSL",
+  "requires_profit_backtest": true,
+  "live": "FORBIDDEN",
+  "real_orders": "FORBIDDEN"
+}

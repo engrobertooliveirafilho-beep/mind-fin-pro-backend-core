@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_90C3F3FCBF23E98A",
+  "source_file": "_evidence\\P16B_INTERNAL_ONLY_RUNTIME_CONSUMPTION_TEST_20260616_160204\\run_p16b_internal_only.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P16B_INTERNAL_ONLY_RUNTIME_CONSUMPTION_TEST_20260616_160204\\run_p16b_internal_only.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 94,
+  "imports": [
+    "app.p16_real_use_case.internal_only_consumption",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

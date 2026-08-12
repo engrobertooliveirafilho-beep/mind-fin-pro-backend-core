@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_3457E30BD7759805",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\realtime\\realtime_response_usage.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\openai\\types\\realtime\\realtime_response_usage.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 101,
+  "imports": [
+    "_models",
+    "realtime_response_usage_input_token_details",
+    "realtime_response_usage_output_token_details",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

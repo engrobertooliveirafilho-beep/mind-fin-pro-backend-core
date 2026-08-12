@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_07CBBA9676888F56",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\fine_tuning\\supervised_hyperparameters_param.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\data\\.venv\\Lib\\site-packages\\openai\\types\\fine_tuning\\supervised_hyperparameters_param.py",
+  "domain": "DATA",
+  "target_layer": "app/runtime",
+  "promotion_score": 84,
+  "imports": [
+    "__future__",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

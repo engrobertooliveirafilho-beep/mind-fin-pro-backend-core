@@ -1,0 +1,10 @@
+{
+  "strategy_id": "db83d923d5678b7d",
+  "template": "rsi_reversion",
+  "asset": "VALE3",
+  "timeframe": "M15",
+  "platform": "Profit/NTSL",
+  "requires_profit_backtest": true,
+  "live": "FORBIDDEN",
+  "real_orders": "FORBIDDEN"
+}

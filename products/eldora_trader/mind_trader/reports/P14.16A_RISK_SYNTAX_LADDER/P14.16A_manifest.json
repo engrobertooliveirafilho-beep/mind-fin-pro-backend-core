@@ -1,0 +1,35 @@
+{
+  "STATUS": "P14.16A_RISK_SYNTAX_LADDER_IMPLEMENTED",
+  "GENERATED_FILES": [
+    "profit_import_package\\p1416a_l1_trend_filter.nts",
+    "profit_import_package\\p1416a_l2_stop_points_probe.nts",
+    "profit_import_package\\p1416a_l3_take_points_probe.nts",
+    "profit_import_package\\p1416a_l4_stop_take_probe.nts"
+  ],
+  "VALIDATION_ORDER": [
+    "p1416a_l1_trend_filter",
+    "p1416a_l2_stop_points_probe",
+    "p1416a_l3_take_points_probe",
+    "p1416a_l4_stop_take_probe"
+  ],
+  "KNOWN_COMPILED_BASE": [
+    "begin/end",
+    "BuyAtMarket",
+    "SellShortAtMarket",
+    "Media() inline"
+  ],
+  "UNPROVEN_RISK_COMMANDS": [
+    "SellToCoverStop",
+    "BuyToCoverStop",
+    "SellToCoverLimit",
+    "BuyToCoverLimit"
+  ],
+  "STOP_RULE": "Compile one level at a time in Profit. Stop on first syntax error.",
+  "REAL_ORDERS": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "LIVE": "FORBIDDEN",
+  "EDGE": "NOT_PROVEN",
+  "CAUSALITY": "NOT_PROVEN",
+  "EXPORT_READY": true,
+  "generated_at": "2026-06-14T16:11:28.630290+00:00"
+}

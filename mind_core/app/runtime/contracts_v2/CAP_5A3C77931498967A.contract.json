@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_5A3C77931498967A",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_internal\\locations\\_sysconfig.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\pip\\_internal\\locations\\_sysconfig.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 93,
+  "imports": [
+    "__future__",
+    "base",
+    "logging",
+    "os",
+    "pip._internal.exceptions",
+    "pip._internal.models.scheme",
+    "pip._internal.utils.virtualenv",
+    "sys",
+    "sysconfig",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

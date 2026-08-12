@@ -1,0 +1,16 @@
+{
+  "STATUS": "P2017_AUTONOMOUS_QUANT_RESEARCH_INSTITUTE_BOOTSTRAPPED",
+  "COMPONENTS": [
+    "asset_library",
+    "specialist_library",
+    "regime_library",
+    "causality_library",
+    "event_library",
+    "pattern_library",
+    "evolution_lab",
+    "research_factory",
+    "portfolio_ai",
+    "digital_twin"
+  ],
+  "RUNTIME_RULE": "RESEARCH_ONLY_UNTIL_EXPLICITLY_UNLOCKED"
+}

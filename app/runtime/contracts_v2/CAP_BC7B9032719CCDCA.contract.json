@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_BC7B9032719CCDCA",
+  "source_file": "_evidence\\P4.91K3C_MATRIX_ID_AUDIT_20260623_163953\\p491k3c_matrix_id_audit.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P4.91K3C_MATRIX_ID_AUDIT_20260623_163953\\p491k3c_matrix_id_audit.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 103,
+  "imports": [
+    "csv",
+    "datetime",
+    "hashlib",
+    "json",
+    "pathlib",
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

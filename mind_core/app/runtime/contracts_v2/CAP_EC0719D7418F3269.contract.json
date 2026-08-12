@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_EC0719D7418F3269",
+  "source_file": ".venv\\Lib\\site-packages\\setuptools\\tests\\test_manifest.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\setuptools\\tests\\test_manifest.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 125,
+  "imports": [
+    "__future__",
+    "contextlib",
+    "distutils",
+    "distutils.errors",
+    "io",
+    "itertools",
+    "logging",
+    "os",
+    "pytest",
+    "setuptools.command.egg_info",
+    "setuptools.dist",
+    "setuptools.tests.textwrap",
+    "shutil",
+    "sys",
+    "tempfile"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_A5916991EBCDF994",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_vendor\\rich\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\data\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\__init__.py",
+  "domain": "DATA",
+  "target_layer": "app/runtime",
+  "promotion_score": 94,
+  "imports": [
+    "_extension",
+    "console",
+    "os",
+    "pip._vendor.rich._inspect",
+    "pip._vendor.rich.console",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

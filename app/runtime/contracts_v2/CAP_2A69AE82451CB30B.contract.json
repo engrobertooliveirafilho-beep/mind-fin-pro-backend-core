@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_2A69AE82451CB30B",
+  "source_file": ".venv\\Lib\\site-packages\\setuptools\\_distutils\\compilers\\C\\tests\\test_unix.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\setuptools\\_distutils\\compilers\\C\\tests\\test_unix.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 105,
+  "imports": [
+    "distutils",
+    "distutils.compat",
+    "distutils.errors",
+    "distutils.tests",
+    "distutils.tests.compat.py39",
+    "distutils.util",
+    "os",
+    "pytest",
+    "sys",
+    "unittest.mock"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

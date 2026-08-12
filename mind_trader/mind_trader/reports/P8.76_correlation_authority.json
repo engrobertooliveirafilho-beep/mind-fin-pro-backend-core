@@ -1,0 +1,32 @@
+{
+  "authority": "P8.76_CORRELATION_AUTHORITY",
+  "created_at": "2026-06-14T16:22:50.736635+00:00",
+  "symbols": [
+    "AAA",
+    "BBB"
+  ],
+  "timeframe": "1m",
+  "pairs": [
+    {
+      "asset_a": "AAA",
+      "asset_b": "BBB",
+      "timeframe": "1m",
+      "sample_size": 159,
+      "confidence": "MEDIUM",
+      "correlation": 0.999999306586985,
+      "rolling_last": 0.9999999419210037,
+      "relation": "STRONG_POSITIVE",
+      "regime": "TREND_DOWN",
+      "divergence": 6.353340187281731e-07,
+      "divergence_flag": false,
+      "decision": "CORRELATION_RESEARCH_ONLY",
+      "production": "BLOCKED",
+      "edge_claim": "NONE",
+      "causality_claim": "NOT_PROVEN"
+    }
+  ],
+  "decision": "CORRELATION_MATRIX_RESEARCH_ONLY",
+  "production": "BLOCKED",
+  "edge_claim": "NONE",
+  "causality_claim": "NOT_PROVEN"
+}

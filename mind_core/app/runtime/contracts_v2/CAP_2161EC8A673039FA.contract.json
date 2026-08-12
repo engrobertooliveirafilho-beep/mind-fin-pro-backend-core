@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_2161EC8A673039FA",
+  "source_file": "_evidence\\P19P29B_INTEGRATE_UNIVERSAL_IN_P19P28M_20260621_114309\\patch_main.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P19P29B_INTEGRATE_UNIVERSAL_IN_P19P28M_20260621_114309\\patch_main.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 100,
+  "imports": [
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

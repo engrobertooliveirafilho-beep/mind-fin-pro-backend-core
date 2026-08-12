@@ -1,0 +1,41 @@
+diff --git a/app/runtime/natural_response_layer.py b/app/runtime/natural_response_layer.py
+index a82f92e..b2c556c 100644
+--- a/app/runtime/natural_response_layer.py
++++ b/app/runtime/natural_response_layer.py
+@@ -17,6 +17,11 @@ from app.runtime.conversational_reasoning import (
+ from app.runtime.visible_response_layer import visible_reformulate
+ 
+ def naturalize_response(answer: str, intent: dict, state: dict, autonomous: dict) -> str:
++    # P4_16F_RELATIONAL_TONE_ACTIVE
++    social = state.get("social", {}) if isinstance(state, dict) else {}
++    emotion = state.get("emotion", {}) if isinstance(state, dict) else {}
++    relationship = state.get("relationship", {}) if isinstance(state, dict) else {}
++
+     user_id = state.get("user_id", "Roberto")
+     name = "Roberto"
+     focus = state.get("dominant_project", "MIND")
+@@ -33,6 +38,10 @@ def naturalize_response(answer: str, intent: dict, state: dict, autonomous: dict
+ 
+     plan = autonomous.get("plan", {}).get("next_action", "avan├ºar a pr├│xima camada cr├¡tica")
+ 
++    frustration = float(emotion.get("frustration", 0.0))
++    urgency = float(emotion.get("urgency", 0.0))
++    mode = relationship.get("operating_mode", "structured_guidance")
++
+     if kind == "greeting":
+         out = f"Oi, {name}. Estou aqui. O contexto do {focus} continua aberto."
+     elif kind == "ack":
+@@ -54,7 +63,12 @@ def naturalize_response(answer: str, intent: dict, state: dict, autonomous: dict
+     elif "achou" in msg_l or "opini├úo" in msg_l:
+         out = f"Eu achei que foi um avan├ºo real, {name}. A base funciona; agora o desafio ├® fazer a Eldora conversar melhor."
+     elif intent.get("intent") in ["project_execution", "continuity_request"]:
+-        out = f"{name}, sigo no {focus}. Pr├│ximo passo: {plan}."
++        if mode == "evidence_first_execution" or urgency >= 0.5:
++            out = f"{name}, sigo no {focus}. Vou direto ao ponto e mostrar progresso real. Pr├│ximo passo: {plan}."
++        elif frustration >= 0.45:
++            out = f"{name}, entendi a frustra├º├úo. Vou reduzir ru├¡do e focar em avan├ºo verific├ível. Pr├│ximo passo: {plan}."
++        else:
++            out = f"{name}, sigo no {focus}. Pr├│ximo passo: {plan}."
+     else:
+         out = answer if "Diagn├│stico:" not in answer else semantic_recovery(msg)
+ 

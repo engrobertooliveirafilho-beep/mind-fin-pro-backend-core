@@ -1,0 +1,14 @@
+{
+  "status": "SELF_HEALING_READY",
+  "checks": [
+    "schema",
+    "missing_reports",
+    "failed_tests",
+    "stale_edges",
+    "broken_artifacts"
+  ],
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN"
+}

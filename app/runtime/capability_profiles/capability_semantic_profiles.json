@@ -1,0 +1,3471 @@
+{
+  "app/api/eldora_multimodal.py": {
+    "id": "009_eldora_multimodal",
+    "path": "app/api/eldora_multimodal.py",
+    "technical_score": 118,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "marketing",
+      "memory",
+      "multimodal"
+    ],
+    "actions": [
+      "remember",
+      "retrieve"
+    ],
+    "input_terms": [
+      "content",
+      "context",
+      "description",
+      "path",
+      "query",
+      "text"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.eldora.core.audio_transcript_engine",
+      "app.eldora.core.multimodal_fusion_engine",
+      "app.eldora.core.multimodal_ingestion",
+      "app.eldora.core.ocr_engine",
+      "app.eldora.core.visual_semantic_memory"
+    ],
+    "functions": [
+      {
+        "name": "upload",
+        "async": true,
+        "args": [
+          "path"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "ocr",
+        "async": true,
+        "args": [
+          "content"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "transcript",
+        "async": true,
+        "args": [
+          "text"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "visual",
+        "async": true,
+        "args": [
+          "description"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "fusion",
+        "async": true,
+        "args": [
+          "query",
+          "context"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "fusion_runtime",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "ocr_runtime",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "audio_runtime",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "visual_runtime",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 6,
+    "constants": []
+  },
+  "app/api/eldora_true_distributed.py": {
+    "id": "024_eldora_true_distributed",
+    "path": "app/api/eldora_true_distributed.py",
+    "technical_score": 113,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "diagnostic",
+      "trader",
+      "whatsapp"
+    ],
+    "actions": [
+      "assist"
+    ],
+    "input_terms": [
+      "channel",
+      "cycles",
+      "event",
+      "message",
+      "stream",
+      "websocket",
+      "worker_name"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.eldora.core.distributed_worker_loop",
+      "app.eldora.core.redis_diagnostics",
+      "app.eldora.core.true_redis_runtime",
+      "app.eldora.core.websocket_cognition"
+    ],
+    "functions": [
+      {
+        "name": "redis_publish",
+        "async": true,
+        "args": [
+          "stream",
+          "event"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "redis_report",
+        "async": true,
+        "args": [
+          "stream"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "diagnostics",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "worker_loop",
+        "async": true,
+        "args": [
+          "worker_name",
+          "cycles"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "workers",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "ws_signal",
+        "async": true,
+        "args": [
+          "channel",
+          "message"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "ws_report",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "websocket_endpoint",
+        "async": true,
+        "args": [
+          "websocket"
+        ],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 5,
+    "constants": []
+  },
+  "app/api/eldora_autonomous.py": {
+    "id": "008_eldora_autonomous",
+    "path": "app/api/eldora_autonomous.py",
+    "technical_score": 105,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "general"
+    ],
+    "actions": [
+      "generate"
+    ],
+    "input_terms": [
+      "amount",
+      "goal",
+      "plan_id"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.eldora.core.autonomous_planner",
+      "app.eldora.core.checkpoint_engine",
+      "app.eldora.core.governor_engine"
+    ],
+    "functions": [
+      {
+        "name": "plan_create",
+        "async": true,
+        "args": [
+          "goal"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "plan_get",
+        "async": true,
+        "args": [
+          "plan_id"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "planner",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "governor",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "governor_consume",
+        "async": true,
+        "args": [
+          "amount"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "checkpoint",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "checkpoints",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 4,
+    "constants": []
+  },
+  "app/api/eldora_cognition.py": {
+    "id": "002_eldora_cognition",
+    "path": "app/api/eldora_cognition.py",
+    "technical_score": 98,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "marketing",
+      "memory"
+    ],
+    "actions": [
+      "remember"
+    ],
+    "input_terms": [
+      "capability",
+      "category",
+      "content",
+      "tool_name"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.eldora.core.long_term_memory",
+      "app.eldora.core.memory_compression_engine",
+      "app.eldora.core.tool_learning_engine"
+    ],
+    "functions": [
+      {
+        "name": "cognitive_store",
+        "async": true,
+        "args": [
+          "content",
+          "category"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "cognitive_report",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "compression",
+        "async": true,
+        "args": [
+          "content"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "compression_runtime",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "tool_learn",
+        "async": true,
+        "args": [
+          "tool_name",
+          "capability"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "tools",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 4,
+    "constants": []
+  },
+  "app/api/eldora_world.py": {
+    "id": "004_eldora_world",
+    "path": "app/api/eldora_world.py",
+    "technical_score": 98,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "memory"
+    ],
+    "actions": [
+      "remember"
+    ],
+    "input_terms": [
+      "cause",
+      "context",
+      "effect",
+      "environment",
+      "goal",
+      "variables"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.eldora.core.causal_reasoning_engine",
+      "app.eldora.core.predictive_simulation_engine",
+      "app.eldora.core.world_model_engine"
+    ],
+    "functions": [
+      {
+        "name": "state",
+        "async": true,
+        "args": [
+          "environment",
+          "context"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "states",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "causal",
+        "async": true,
+        "args": [
+          "cause",
+          "effect"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "causal_runtime",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "simulation",
+        "async": true,
+        "args": [
+          "goal",
+          "variables"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "simulation_runtime",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 4,
+    "constants": []
+  },
+  "app/api/eldora_social.py": {
+    "id": "012_eldora_social",
+    "path": "app/api/eldora_social.py",
+    "technical_score": 98,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "marketing",
+      "memory"
+    ],
+    "actions": [
+      "remember"
+    ],
+    "input_terms": [
+      "context",
+      "emotion",
+      "interaction",
+      "profile",
+      "user_id"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.eldora.core.emotional_continuity_engine",
+      "app.eldora.core.persistent_social_memory",
+      "app.eldora.core.relational_cognition_engine"
+    ],
+    "functions": [
+      {
+        "name": "memory",
+        "async": true,
+        "args": [
+          "user_id",
+          "interaction"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "memory_runtime",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "emotion",
+        "async": true,
+        "args": [
+          "user_id",
+          "emotion",
+          "context"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "emotion_runtime",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "relationship",
+        "async": true,
+        "args": [
+          "user_id",
+          "profile"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "relationship_runtime",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 4,
+    "constants": []
+  },
+  "app/api/eldora_autonomy.py": {
+    "id": "016_eldora_autonomy",
+    "path": "app/api/eldora_autonomy.py",
+    "technical_score": 98,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "trader"
+    ],
+    "actions": [
+      "assist"
+    ],
+    "input_terms": [
+      "environment",
+      "goal",
+      "mission",
+      "priority",
+      "signal"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.eldora.core.continuous_execution_engine",
+      "app.eldora.core.persistent_goal_engine",
+      "app.eldora.core.runtime_observation_engine"
+    ],
+    "functions": [
+      {
+        "name": "goal",
+        "async": true,
+        "args": [
+          "goal",
+          "priority"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "goals",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "loop",
+        "async": true,
+        "args": [
+          "mission"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "loops",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "observe",
+        "async": true,
+        "args": [
+          "environment",
+          "signal"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "observations",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 4,
+    "constants": []
+  },
+  "app/api/eldora_embodied.py": {
+    "id": "017_eldora_embodied",
+    "path": "app/api/eldora_embodied.py",
+    "technical_score": 98,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "trader"
+    ],
+    "actions": [
+      "assist"
+    ],
+    "input_terms": [
+      "agent",
+      "identity",
+      "objective",
+      "platform",
+      "signal",
+      "source"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.eldora.core.autonomous_digital_presence",
+      "app.eldora.core.internet_awareness_engine",
+      "app.eldora.core.live_browser_agents"
+    ],
+    "functions": [
+      {
+        "name": "browser",
+        "async": true,
+        "args": [
+          "agent",
+          "objective"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "browsers",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "presence",
+        "async": true,
+        "args": [
+          "identity",
+          "platform"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "presences",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "awareness",
+        "async": true,
+        "args": [
+          "source",
+          "signal"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "awareness_runtime",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 4,
+    "constants": []
+  },
+  "app/api/eldora_liveos.py": {
+    "id": "019_eldora_liveos",
+    "path": "app/api/eldora_liveos.py",
+    "technical_score": 98,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "trader"
+    ],
+    "actions": [
+      "assist"
+    ],
+    "input_terms": [
+      "agent_group",
+      "environment",
+      "event",
+      "objective",
+      "signal",
+      "stream"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.eldora.core.live_operating_system_engine",
+      "app.eldora.core.realtime_event_stream",
+      "app.eldora.core.universal_orchestration_fabric"
+    ],
+    "functions": [
+      {
+        "name": "publish",
+        "async": true,
+        "args": [
+          "stream",
+          "event"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "streams",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "orchestrate",
+        "async": true,
+        "args": [
+          "agent_group",
+          "objective"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "orchestrations",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "runtime",
+        "async": true,
+        "args": [
+          "environment",
+          "signal"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "runtimes",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 4,
+    "constants": []
+  },
+  "app/api/eldora_mesh.py": {
+    "id": "020_eldora_mesh",
+    "path": "app/api/eldora_mesh.py",
+    "technical_score": 98,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "trader"
+    ],
+    "actions": [
+      "assist"
+    ],
+    "input_terms": [
+      "agent",
+      "channel",
+      "cognition",
+      "node",
+      "payload",
+      "runtime"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.eldora.core.event_broker_fabric",
+      "app.eldora.core.live_agent_cloud",
+      "app.eldora.core.realtime_cognitive_mesh"
+    ],
+    "functions": [
+      {
+        "name": "sync",
+        "async": true,
+        "args": [
+          "node",
+          "cognition"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "mesh",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "broker",
+        "async": true,
+        "args": [
+          "channel",
+          "payload"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "brokers",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "agent",
+        "async": true,
+        "args": [
+          "agent",
+          "runtime"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "agents",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 4,
+    "constants": []
+  },
+  "app/api/eldora_meta.py": {
+    "id": "021_eldora_meta",
+    "path": "app/api/eldora_meta.py",
+    "technical_score": 98,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "memory"
+    ],
+    "actions": [
+      "remember"
+    ],
+    "input_terms": [
+      "cognition",
+      "layer",
+      "objective",
+      "reflection",
+      "runtime",
+      "runtime_state"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.eldora.core.meta_cognition_engine",
+      "app.eldora.core.recursive_introspection_engine",
+      "app.eldora.core.self_awareness_engine"
+    ],
+    "functions": [
+      {
+        "name": "cognition",
+        "async": true,
+        "args": [
+          "runtime",
+          "cognition"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "cognition_runtime",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "awareness",
+        "async": true,
+        "args": [
+          "runtime_state",
+          "objective"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "awareness_runtime",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "introspection",
+        "async": true,
+        "args": [
+          "layer",
+          "reflection"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "introspection_runtime",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 4,
+    "constants": []
+  },
+  "app/api/eldora_action.py": {
+    "id": "033_eldora_action",
+    "path": "app/api/eldora_action.py",
+    "technical_score": 98,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "general"
+    ],
+    "actions": [
+      "assist"
+    ],
+    "input_terms": [
+      "action",
+      "capability",
+      "environment",
+      "tool",
+      "tool_name",
+      "workflow"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.eldora.core.environment_execution_engine",
+      "app.eldora.core.real_world_action_engine",
+      "app.eldora.core.universal_tool_controller"
+    ],
+    "functions": [
+      {
+        "name": "tool",
+        "async": true,
+        "args": [
+          "tool_name",
+          "capability"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "tools",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "execute",
+        "async": true,
+        "args": [
+          "tool",
+          "action"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "executions",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "workflow",
+        "async": true,
+        "args": [
+          "workflow",
+          "environment"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "workflows",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 4,
+    "constants": []
+  },
+  "app/api/eldora_distributed.py": {
+    "id": "036_eldora_distributed",
+    "path": "app/api/eldora_distributed.py",
+    "technical_score": 98,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "memory"
+    ],
+    "actions": [
+      "remember"
+    ],
+    "input_terms": [
+      "event",
+      "key",
+      "stream",
+      "task",
+      "value",
+      "worker_name"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.eldora.core.distributed_runtime_state",
+      "app.eldora.core.persistent_agent_worker",
+      "app.eldora.core.redis_stream_fabric"
+    ],
+    "functions": [
+      {
+        "name": "stream_publish",
+        "async": true,
+        "args": [
+          "stream",
+          "event"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "streams",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "worker",
+        "async": true,
+        "args": [
+          "worker_name",
+          "task"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "workers",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "state_set",
+        "async": true,
+        "args": [
+          "key",
+          "value"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "state_report",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 4,
+    "constants": []
+  },
+  "app/api/eldora_evolution.py": {
+    "id": "038_eldora_evolution",
+    "path": "app/api/eldora_evolution.py",
+    "technical_score": 98,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "general"
+    ],
+    "actions": [
+      "assist"
+    ],
+    "input_terms": [
+      "capability",
+      "domain",
+      "improvement",
+      "name",
+      "objective",
+      "skill_name"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.eldora.core.autonomous_capability_evolution",
+      "app.eldora.core.capability_synthesis_engine",
+      "app.eldora.core.dynamic_skill_engine"
+    ],
+    "functions": [
+      {
+        "name": "synthesize",
+        "async": true,
+        "args": [
+          "name",
+          "objective"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "capability_runtime",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "skill",
+        "async": true,
+        "args": [
+          "skill_name",
+          "domain"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "skill_runtime",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "evolve",
+        "async": true,
+        "args": [
+          "capability",
+          "improvement"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "evolution_runtime",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 4,
+    "constants": []
+  },
+  "app/api/eldora_infrastructure.py": {
+    "id": "039_eldora_infrastructure",
+    "path": "app/api/eldora_infrastructure.py",
+    "technical_score": 98,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "routing",
+      "trader"
+    ],
+    "actions": [
+      "route"
+    ],
+    "input_terms": [
+      "capability",
+      "environment",
+      "platform",
+      "signal",
+      "source",
+      "target",
+      "task"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.eldora.core.cross_platform_execution_bus",
+      "app.eldora.core.infrastructure_event_engine",
+      "app.eldora.core.live_connector_fabric"
+    ],
+    "functions": [
+      {
+        "name": "connector",
+        "async": true,
+        "args": [
+          "platform",
+          "capability"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "connectors",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "route",
+        "async": true,
+        "args": [
+          "source",
+          "target",
+          "task"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "bus",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "event",
+        "async": true,
+        "args": [
+          "environment",
+          "signal"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "events",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 4,
+    "constants": []
+  },
+  "app/api/eldora_runtime_supervisor.py": {
+    "id": "022_eldora_runtime_supervisor",
+    "path": "app/api/eldora_runtime_supervisor.py",
+    "technical_score": 92,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "general"
+    ],
+    "actions": [
+      "assist"
+    ],
+    "input_terms": [
+      "component",
+      "goal",
+      "max_depth"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.eldora.core.recursive_execution_engine",
+      "app.eldora.core.self_healing_engine",
+      "app.eldora.core.supervisor_swarm"
+    ],
+    "functions": [
+      {
+        "name": "self_heal",
+        "async": true,
+        "args": [
+          "component"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "self_heal_report",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "supervisor",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "recursive",
+        "async": true,
+        "args": [
+          "goal",
+          "max_depth"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "recursive_runtime",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 4,
+    "constants": []
+  },
+  "app/api/eldora_async.py": {
+    "id": "007_eldora_async",
+    "path": "app/api/eldora_async.py",
+    "technical_score": 90,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "routing"
+    ],
+    "actions": [
+      "generate"
+    ],
+    "input_terms": [
+      "goal",
+      "payload",
+      "task_id",
+      "task_type"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.eldora.core.agent_orchestrator",
+      "app.eldora.core.distributed_runtime",
+      "app.eldora.core.task_engine"
+    ],
+    "functions": [
+      {
+        "name": "task_create",
+        "async": true,
+        "args": [
+          "task_type",
+          "payload"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "task_get",
+        "async": true,
+        "args": [
+          "task_id"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "tasks_report",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "orchestrator",
+        "async": true,
+        "args": [
+          "goal"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "distributed_runtime",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 4,
+    "constants": []
+  },
+  "app/api/eldora_auth.py": {
+    "id": "015_eldora_auth",
+    "path": "app/api/eldora_auth.py",
+    "technical_score": 89,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "memory"
+    ],
+    "actions": [
+      "remember"
+    ],
+    "input_terms": [
+      "authorization",
+      "key",
+      "limit",
+      "role",
+      "tenant_id",
+      "user_id",
+      "value"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.eldora.core.jwt_auth",
+      "app.eldora.core.rate_limit_engine",
+      "app.eldora.core.session_memory"
+    ],
+    "functions": [
+      {
+        "name": "token",
+        "async": true,
+        "args": [
+          "user_id",
+          "tenant_id",
+          "role"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "verify",
+        "async": true,
+        "args": [
+          "authorization"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "session_save",
+        "async": true,
+        "args": [
+          "user_id",
+          "tenant_id",
+          "key",
+          "value"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "session_get",
+        "async": true,
+        "args": [
+          "user_id",
+          "tenant_id"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "rate_limit",
+        "async": true,
+        "args": [
+          "key",
+          "limit"
+        ],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 4,
+    "constants": []
+  },
+  "app/api/eldora_neura_scale.py": {
+    "id": "010_eldora_neura_scale",
+    "path": "app/api/eldora_neura_scale.py",
+    "technical_score": 88,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "trader"
+    ],
+    "actions": [
+      "assist"
+    ],
+    "input_terms": [
+      "audience",
+      "market",
+      "max_cost",
+      "name",
+      "offer",
+      "plan",
+      "priority",
+      "product",
+      "workload"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.eldora.core.neura_scale_runtime"
+    ],
+    "functions": [
+      {
+        "name": "tenant",
+        "async": true,
+        "args": [
+          "name",
+          "plan"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "acquisition",
+        "async": true,
+        "args": [
+          "audience",
+          "offer"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "scheduler",
+        "async": true,
+        "args": [
+          "workload",
+          "max_cost",
+          "priority"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "launch",
+        "async": true,
+        "args": [
+          "product",
+          "market"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "report",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 2,
+    "constants": []
+  },
+  "app/api/eldora_growth.py": {
+    "id": "018_eldora_growth",
+    "path": "app/api/eldora_growth.py",
+    "technical_score": 88,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "routing"
+    ],
+    "actions": [
+      "generate",
+      "route"
+    ],
+    "input_terms": [
+      "action",
+      "audience",
+      "channel",
+      "efficiency",
+      "lead_id",
+      "objective",
+      "route_name"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.eldora.core.autonomous_growth_runtime"
+    ],
+    "functions": [
+      {
+        "name": "create_distribution",
+        "async": true,
+        "args": [
+          "channel",
+          "audience"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "create_swarm",
+        "async": true,
+        "args": [
+          "objective"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "execute_commercial",
+        "async": true,
+        "args": [
+          "lead_id",
+          "action"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "optimize_revenue",
+        "async": true,
+        "args": [
+          "route_name",
+          "efficiency"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "report",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 2,
+    "constants": []
+  },
+  "app/humanization/social_memory_provider.py": {
+    "id": "013_social_memory_provider",
+    "path": "app/humanization/social_memory_provider.py",
+    "technical_score": 86,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "marketing",
+      "memory",
+      "whatsapp"
+    ],
+    "actions": [
+      "generate",
+      "remember"
+    ],
+    "input_terms": [
+      "answer",
+      "context",
+      "draft_answer",
+      "msgs",
+      "n",
+      "text",
+      "user_message"
+    ],
+    "output_terms": [],
+    "dependencies": [],
+    "functions": [
+      {
+        "name": "social_observation_layer",
+        "async": false,
+        "args": [
+          "text",
+          "context"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "social_pattern_extractor",
+        "async": false,
+        "args": [
+          "text"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "anti_llm_speech_filter",
+        "async": false,
+        "args": [
+          "answer"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "naturalness_judge",
+        "async": false,
+        "args": [
+          "user_message",
+          "answer"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "should_split_reply",
+        "async": false,
+        "args": [
+          "user_message",
+          "answer",
+          "context"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "classify_reply_cadence",
+        "async": false,
+        "args": [
+          "context"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "split_human_reply",
+        "async": false,
+        "args": [
+          "answer",
+          "context"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "enforce_whatsapp_natural_length",
+        "async": false,
+        "args": [
+          "msgs"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "avoid_over_fragmentation",
+        "async": false,
+        "args": [
+          "msgs"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "humanization_runtime",
+        "async": false,
+        "args": [
+          "user_message",
+          "draft_answer",
+          "context"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "build_dataset",
+        "async": false,
+        "args": [
+          "n"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "train_sim",
+        "async": false,
+        "args": [
+          "n"
+        ],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 5,
+    "constants": [
+      "BANNED"
+    ]
+  },
+  "app/humanization/conversation_maturity_engine.py": {
+    "id": "026_conversation_maturity_engine",
+    "path": "app/humanization/conversation_maturity_engine.py",
+    "technical_score": 86,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "marketing",
+      "memory",
+      "whatsapp"
+    ],
+    "actions": [
+      "generate",
+      "remember"
+    ],
+    "input_terms": [
+      "answer",
+      "context",
+      "draft_answer",
+      "msgs",
+      "n",
+      "text",
+      "user_message"
+    ],
+    "output_terms": [],
+    "dependencies": [],
+    "functions": [
+      {
+        "name": "social_observation_layer",
+        "async": false,
+        "args": [
+          "text",
+          "context"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "social_pattern_extractor",
+        "async": false,
+        "args": [
+          "text"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "anti_llm_speech_filter",
+        "async": false,
+        "args": [
+          "answer"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "naturalness_judge",
+        "async": false,
+        "args": [
+          "user_message",
+          "answer"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "should_split_reply",
+        "async": false,
+        "args": [
+          "user_message",
+          "answer",
+          "context"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "classify_reply_cadence",
+        "async": false,
+        "args": [
+          "context"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "split_human_reply",
+        "async": false,
+        "args": [
+          "answer",
+          "context"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "enforce_whatsapp_natural_length",
+        "async": false,
+        "args": [
+          "msgs"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "avoid_over_fragmentation",
+        "async": false,
+        "args": [
+          "msgs"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "humanization_runtime",
+        "async": false,
+        "args": [
+          "user_message",
+          "draft_answer",
+          "context"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "build_dataset",
+        "async": false,
+        "args": [
+          "n"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "train_sim",
+        "async": false,
+        "args": [
+          "n"
+        ],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 5,
+    "constants": [
+      "BANNED"
+    ]
+  },
+  "app/humanization/conversation_training_runtime.py": {
+    "id": "027_conversation_training_runtime",
+    "path": "app/humanization/conversation_training_runtime.py",
+    "technical_score": 86,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "marketing",
+      "memory",
+      "whatsapp"
+    ],
+    "actions": [
+      "generate",
+      "remember"
+    ],
+    "input_terms": [
+      "answer",
+      "context",
+      "draft_answer",
+      "msgs",
+      "n",
+      "text",
+      "user_message"
+    ],
+    "output_terms": [],
+    "dependencies": [],
+    "functions": [
+      {
+        "name": "social_observation_layer",
+        "async": false,
+        "args": [
+          "text",
+          "context"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "social_pattern_extractor",
+        "async": false,
+        "args": [
+          "text"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "anti_llm_speech_filter",
+        "async": false,
+        "args": [
+          "answer"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "naturalness_judge",
+        "async": false,
+        "args": [
+          "user_message",
+          "answer"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "should_split_reply",
+        "async": false,
+        "args": [
+          "user_message",
+          "answer",
+          "context"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "classify_reply_cadence",
+        "async": false,
+        "args": [
+          "context"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "split_human_reply",
+        "async": false,
+        "args": [
+          "answer",
+          "context"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "enforce_whatsapp_natural_length",
+        "async": false,
+        "args": [
+          "msgs"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "avoid_over_fragmentation",
+        "async": false,
+        "args": [
+          "msgs"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "humanization_runtime",
+        "async": false,
+        "args": [
+          "user_message",
+          "draft_answer",
+          "context"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "build_dataset",
+        "async": false,
+        "args": [
+          "n"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "train_sim",
+        "async": false,
+        "args": [
+          "n"
+        ],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 5,
+    "constants": [
+      "BANNED"
+    ]
+  },
+  "app/humanization/multi_ai_conversation_simulator.py": {
+    "id": "028_multi_ai_conversation_simulator",
+    "path": "app/humanization/multi_ai_conversation_simulator.py",
+    "technical_score": 86,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "marketing",
+      "memory",
+      "whatsapp"
+    ],
+    "actions": [
+      "generate",
+      "remember"
+    ],
+    "input_terms": [
+      "answer",
+      "context",
+      "draft_answer",
+      "msgs",
+      "n",
+      "text",
+      "user_message"
+    ],
+    "output_terms": [],
+    "dependencies": [],
+    "functions": [
+      {
+        "name": "social_observation_layer",
+        "async": false,
+        "args": [
+          "text",
+          "context"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "social_pattern_extractor",
+        "async": false,
+        "args": [
+          "text"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "anti_llm_speech_filter",
+        "async": false,
+        "args": [
+          "answer"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "naturalness_judge",
+        "async": false,
+        "args": [
+          "user_message",
+          "answer"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "should_split_reply",
+        "async": false,
+        "args": [
+          "user_message",
+          "answer",
+          "context"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "classify_reply_cadence",
+        "async": false,
+        "args": [
+          "context"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "split_human_reply",
+        "async": false,
+        "args": [
+          "answer",
+          "context"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "enforce_whatsapp_natural_length",
+        "async": false,
+        "args": [
+          "msgs"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "avoid_over_fragmentation",
+        "async": false,
+        "args": [
+          "msgs"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "humanization_runtime",
+        "async": false,
+        "args": [
+          "user_message",
+          "draft_answer",
+          "context"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "build_dataset",
+        "async": false,
+        "args": [
+          "n"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "train_sim",
+        "async": false,
+        "args": [
+          "n"
+        ],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 5,
+    "constants": [
+      "BANNED"
+    ]
+  },
+  "app/api/eldora_browser_fleet.py": {
+    "id": "034_eldora_browser_fleet",
+    "path": "app/api/eldora_browser_fleet.py",
+    "technical_score": 82,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "general"
+    ],
+    "actions": [
+      "generate"
+    ],
+    "input_terms": [
+      "agent_id",
+      "agent_name",
+      "capability",
+      "objective",
+      "target_url",
+      "task_id"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.eldora.core.browser_fleet_runtime"
+    ],
+    "functions": [
+      {
+        "name": "create_agent",
+        "async": true,
+        "args": [
+          "agent_name",
+          "capability"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "create_task",
+        "async": true,
+        "args": [
+          "objective",
+          "target_url"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "assign_task",
+        "async": true,
+        "args": [
+          "task_id",
+          "agent_id"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "report",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 2,
+    "constants": []
+  },
+  "app/api/eldora_business.py": {
+    "id": "035_eldora_business",
+    "path": "app/api/eldora_business.py",
+    "technical_score": 82,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "general"
+    ],
+    "actions": [
+      "generate"
+    ],
+    "input_terms": [
+      "agent_name",
+      "event_type",
+      "lead_id",
+      "name",
+      "source",
+      "specialization",
+      "value"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.eldora.core.business_runtime"
+    ],
+    "functions": [
+      {
+        "name": "create_agent",
+        "async": true,
+        "args": [
+          "agent_name",
+          "specialization"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "create_pipeline_lead",
+        "async": true,
+        "args": [
+          "name",
+          "source"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "register_revenue",
+        "async": true,
+        "args": [
+          "lead_id",
+          "value",
+          "event_type"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "report",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 2,
+    "constants": []
+  },
+  "app/api/eldora_economic_market.py": {
+    "id": "037_eldora_economic_market",
+    "path": "app/api/eldora_economic_market.py",
+    "technical_score": 82,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "trader"
+    ],
+    "actions": [
+      "generate"
+    ],
+    "input_terms": [
+      "agent_id",
+      "budget",
+      "estimated_cost",
+      "estimated_latency",
+      "objective",
+      "priority",
+      "task_id"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.eldora.core.realtime_task_market"
+    ],
+    "functions": [
+      {
+        "name": "create_task",
+        "async": true,
+        "args": [
+          "objective",
+          "priority",
+          "budget"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "submit_bid",
+        "async": true,
+        "args": [
+          "task_id",
+          "agent_id",
+          "estimated_cost",
+          "estimated_latency"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "assign_contract",
+        "async": true,
+        "args": [
+          "task_id"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "report",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 2,
+    "constants": []
+  },
+  "app/api/eldora_live_voice.py": {
+    "id": "040_eldora_live_voice",
+    "path": "app/api/eldora_live_voice.py",
+    "technical_score": 82,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "memory"
+    ],
+    "actions": [
+      "generate"
+    ],
+    "input_terms": [
+      "attention",
+      "emotion",
+      "event",
+      "language",
+      "payload",
+      "session_id",
+      "user_id"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.eldora.core.live_voice_runtime"
+    ],
+    "functions": [
+      {
+        "name": "create_session",
+        "async": true,
+        "args": [
+          "user_id",
+          "language"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "stream_event",
+        "async": true,
+        "args": [
+          "session_id",
+          "event",
+          "payload"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "update_presence",
+        "async": true,
+        "args": [
+          "user_id",
+          "emotion",
+          "attention"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "report",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 2,
+    "constants": []
+  },
+  "app/api/debug_whatsapp_runtime_trace.py": {
+    "id": "000_debug_whatsapp_runtime_trace",
+    "path": "app/api/debug_whatsapp_runtime_trace.py",
+    "technical_score": 80,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "diagnostic",
+      "whatsapp"
+    ],
+    "actions": [
+      "analyze"
+    ],
+    "input_terms": [
+      "Body",
+      "From",
+      "To"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.api.whatsapp"
+    ],
+    "functions": [
+      {
+        "name": "whatsapp_runtime_trace",
+        "async": true,
+        "args": [
+          "From",
+          "To",
+          "Body"
+        ],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 5,
+    "constants": []
+  },
+  "app/runtime/semantic_whatsapp_runtime.py": {
+    "id": "032_semantic_whatsapp_runtime",
+    "path": "app/runtime/semantic_whatsapp_runtime.py",
+    "technical_score": 80,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "governance",
+      "memory",
+      "routing",
+      "whatsapp"
+    ],
+    "actions": [
+      "generate",
+      "guard",
+      "remember",
+      "route"
+    ],
+    "input_terms": [
+      "message",
+      "sender_id"
+    ],
+    "output_terms": [
+      "dict",
+      "str"
+    ],
+    "dependencies": [
+      "app.runtime.cognitive_style_composer",
+      "app.runtime.context_priority_engine",
+      "app.runtime.conversation_state_machine",
+      "app.runtime.humanized_answer_composer",
+      "app.runtime.multi_provider_factual_provider",
+      "app.runtime.relational_conversation_engine",
+      "app.runtime.semantic_router",
+      "app.runtime.whatsapp_ux_output_guard"
+    ],
+    "functions": [
+      {
+        "name": "semantic_whatsapp_payload",
+        "async": false,
+        "args": [
+          "message",
+          "sender_id"
+        ],
+        "doc": "",
+        "returns": "dict"
+      },
+      {
+        "name": "route_semantic_whatsapp",
+        "async": false,
+        "args": [
+          "message",
+          "sender_id"
+        ],
+        "doc": "",
+        "returns": "str"
+      }
+    ],
+    "classes": [],
+    "imports_count": 8,
+    "constants": [
+      "_CONTEXT"
+    ]
+  },
+  "app/api/diagnostic_twilio.py": {
+    "id": "001_diagnostic_twilio",
+    "path": "app/api/diagnostic_twilio.py",
+    "technical_score": 78,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "diagnostic",
+      "governance",
+      "whatsapp"
+    ],
+    "actions": [
+      "generate",
+      "guard"
+    ],
+    "input_terms": [
+      "answer",
+      "request",
+      "user_message"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.humanization.universal_recovery_runtime"
+    ],
+    "functions": [
+      {
+        "name": "diagnostic_twilio_inbound",
+        "async": true,
+        "args": [
+          "request"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "__identity_guard_last_hop",
+        "async": false,
+        "args": [
+          "answer",
+          "user_message"
+        ],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 5,
+    "constants": []
+  },
+  "app/api/eldora_persistent_cognition.py": {
+    "id": "003_eldora_persistent_cognition",
+    "path": "app/api/eldora_persistent_cognition.py",
+    "technical_score": 76,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "marketing"
+    ],
+    "actions": [
+      "retrieve"
+    ],
+    "input_terms": [
+      "category",
+      "content",
+      "priority",
+      "query",
+      "tenant_id",
+      "top_k",
+      "user_ref"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.eldora.core.persistent_cognitive_graph"
+    ],
+    "functions": [
+      {
+        "name": "store",
+        "async": true,
+        "args": [
+          "content",
+          "tenant_id",
+          "user_ref",
+          "category",
+          "priority"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "retrieve",
+        "async": true,
+        "args": [
+          "query",
+          "top_k"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "report",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 2,
+    "constants": []
+  },
+  "app/api/eldora_semantic.py": {
+    "id": "011_eldora_semantic",
+    "path": "app/api/eldora_semantic.py",
+    "technical_score": 76,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "memory"
+    ],
+    "actions": [
+      "remember",
+      "retrieve"
+    ],
+    "input_terms": [
+      "node",
+      "query",
+      "text",
+      "top_k"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.eldora.core.semantic_memory_engine"
+    ],
+    "functions": [
+      {
+        "name": "memory_store",
+        "async": true,
+        "args": [
+          "text",
+          "node"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "memory_retrieve",
+        "async": true,
+        "args": [
+          "query",
+          "top_k"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "graph",
+        "async": true,
+        "args": [],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 2,
+    "constants": []
+  },
+  "app/api/eldora_security.py": {
+    "id": "023_eldora_security",
+    "path": "app/api/eldora_security.py",
+    "technical_score": 74,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "governance",
+      "memory"
+    ],
+    "actions": [
+      "guard",
+      "remember"
+    ],
+    "input_terms": [
+      "action",
+      "resource",
+      "role",
+      "tenant_id",
+      "user_id"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.eldora.core.auth_context",
+      "app.eldora.core.policy_engine",
+      "app.eldora.core.tenant_engine"
+    ],
+    "functions": [
+      {
+        "name": "tenant",
+        "async": true,
+        "args": [
+          "tenant_id"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "auth_context",
+        "async": true,
+        "args": [
+          "user_id",
+          "tenant_id",
+          "role"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "policy",
+        "async": true,
+        "args": [
+          "role",
+          "action",
+          "resource"
+        ],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 4,
+    "constants": []
+  },
+  "app/api/eldora_admin.py": {
+    "id": "006_eldora_admin",
+    "path": "app/api/eldora_admin.py",
+    "technical_score": 68,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "governance",
+      "retrieval"
+    ],
+    "actions": [
+      "guard"
+    ],
+    "input_terms": [
+      "_"
+    ],
+    "output_terms": [],
+    "dependencies": [
+      "app.eldora.core.admin_guard"
+    ],
+    "functions": [
+      {
+        "name": "apply_schema",
+        "async": true,
+        "args": [
+          "_"
+        ],
+        "doc": "",
+        "returns": null
+      },
+      {
+        "name": "apply_pgvector_schema",
+        "async": true,
+        "args": [
+          "_"
+        ],
+        "doc": "",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 4,
+    "constants": [
+      "SCHEMA_SQL",
+      "PGVECTOR_SCHEMA_SQL"
+    ]
+  },
+  "app/p18_conversational_execution/failure_fixes.py": {
+    "id": "042_failure_fixes",
+    "path": "app/p18_conversational_execution/failure_fixes.py",
+    "technical_score": 65,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "governance",
+      "memory",
+      "whatsapp"
+    ],
+    "actions": [
+      "guard",
+      "remember"
+    ],
+    "input_terms": [
+      "previous_topic",
+      "user_message"
+    ],
+    "output_terms": [
+      "Dict[str, Any]"
+    ],
+    "dependencies": [
+      "app.p18_conversational_execution.context_guard"
+    ],
+    "functions": [
+      {
+        "name": "fix_real_whatsapp_failure",
+        "async": false,
+        "args": [
+          "user_message",
+          "previous_topic"
+        ],
+        "doc": "",
+        "returns": "Dict[str, Any]"
+      }
+    ],
+    "classes": [],
+    "imports_count": 2,
+    "constants": []
+  },
+  "app/p18_conversational_execution/context_guard.py": {
+    "id": "029_context_guard",
+    "path": "app/p18_conversational_execution/context_guard.py",
+    "technical_score": 62,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "governance",
+      "memory",
+      "whatsapp"
+    ],
+    "actions": [
+      "generate",
+      "guard",
+      "remember"
+    ],
+    "input_terms": [
+      "active_topic",
+      "answer",
+      "message",
+      "user_message"
+    ],
+    "output_terms": [
+      "Dict[str, Any]",
+      "str"
+    ],
+    "dependencies": [],
+    "functions": [
+      {
+        "name": "detect_context_contamination",
+        "async": false,
+        "args": [
+          "user_message",
+          "answer",
+          "active_topic"
+        ],
+        "doc": "",
+        "returns": "Dict[str, Any]"
+      },
+      {
+        "name": "safe_topic_from_message",
+        "async": false,
+        "args": [
+          "message"
+        ],
+        "doc": "",
+        "returns": "str"
+      }
+    ],
+    "classes": [],
+    "imports_count": 1,
+    "constants": [
+      "BAD_CONTEXT_TERMS"
+    ]
+  },
+  "app/p18_conversational_execution/response_executor.py": {
+    "id": "030_response_executor",
+    "path": "app/p18_conversational_execution/response_executor.py",
+    "technical_score": 62,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "memory",
+      "routing",
+      "whatsapp"
+    ],
+    "actions": [
+      "generate",
+      "remember",
+      "route"
+    ],
+    "input_terms": [
+      "context",
+      "message"
+    ],
+    "output_terms": [
+      "Dict[str, Any]"
+    ],
+    "dependencies": [
+      "app.p18_conversational_execution.intent_router"
+    ],
+    "functions": [
+      {
+        "name": "execute_conversational_response",
+        "async": false,
+        "args": [
+          "message",
+          "context"
+        ],
+        "doc": "",
+        "returns": "Dict[str, Any]"
+      }
+    ],
+    "classes": [],
+    "imports_count": 2,
+    "constants": [
+      "FORBIDDEN_PATTERNS",
+      "ASPECTS"
+    ]
+  },
+  "app/runtime/cognitive_observatory/ai_only_review.py": {
+    "id": "014_ai_only_review",
+    "path": "app/runtime/cognitive_observatory/ai_only_review.py",
+    "technical_score": 59,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "whatsapp"
+    ],
+    "actions": [
+      "assist"
+    ],
+    "input_terms": [
+      "conversation_id_hash",
+      "conversation_text"
+    ],
+    "output_terms": [
+      "ConversationReview"
+    ],
+    "dependencies": [
+      "app.runtime.cognitive_observatory.contracts",
+      "app.runtime.cognitive_observatory.user_mirror"
+    ],
+    "functions": [
+      {
+        "name": "ai_only_review_conversation",
+        "async": false,
+        "args": [
+          "conversation_id_hash",
+          "conversation_text"
+        ],
+        "doc": "A IA pode ler a conversa.\nHumanos não veem texto bruto.\nSaída permitida: métricas, causa raiz, resumo técnico sem trecho literal.",
+        "returns": "ConversationReview"
+      }
+    ],
+    "classes": [],
+    "imports_count": 2,
+    "constants": []
+  },
+  "app/runtime/cognitive_observatory/user_mirror.py": {
+    "id": "031_user_mirror",
+    "path": "app/runtime/cognitive_observatory/user_mirror.py",
+    "technical_score": 59,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "whatsapp"
+    ],
+    "actions": [
+      "assist"
+    ],
+    "input_terms": [
+      "base_instruction",
+      "conversation_text",
+      "mirror"
+    ],
+    "output_terms": [
+      "UserCognitiveMirror",
+      "str"
+    ],
+    "dependencies": [
+      "app.runtime.cognitive_observatory.contracts"
+    ],
+    "functions": [
+      {
+        "name": "build_user_cognitive_mirror",
+        "async": false,
+        "args": [
+          "conversation_text"
+        ],
+        "doc": "",
+        "returns": "UserCognitiveMirror"
+      },
+      {
+        "name": "apply_user_mirror_to_instruction",
+        "async": false,
+        "args": [
+          "base_instruction",
+          "mirror"
+        ],
+        "doc": "",
+        "returns": "str"
+      }
+    ],
+    "classes": [],
+    "imports_count": 1,
+    "constants": []
+  },
+  "app/runtime/conversation_quality_guard.py": {
+    "id": "043_conversation_quality_guard",
+    "path": "app/runtime/conversation_quality_guard.py",
+    "technical_score": 59,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "governance",
+      "marketing",
+      "whatsapp"
+    ],
+    "actions": [
+      "generate",
+      "guard"
+    ],
+    "input_terms": [
+      "answer",
+      "text",
+      "user_message"
+    ],
+    "output_terms": [
+      "str"
+    ],
+    "dependencies": [],
+    "functions": [
+      {
+        "name": "strip_repeated_intro",
+        "async": false,
+        "args": [
+          "text"
+        ],
+        "doc": "",
+        "returns": "str"
+      },
+      {
+        "name": "reset_stale_topic",
+        "async": false,
+        "args": [
+          "user_message",
+          "answer"
+        ],
+        "doc": "",
+        "returns": "str"
+      },
+      {
+        "name": "final_conversation_guard",
+        "async": false,
+        "args": [
+          "user_message",
+          "answer"
+        ],
+        "doc": "",
+        "returns": "str"
+      }
+    ],
+    "classes": [],
+    "imports_count": 1,
+    "constants": [
+      "INTRO_PATTERNS",
+      "TECH_TERMS",
+      "SOCIAL_HINTS"
+    ]
+  },
+  "app/runtime/context_priority_engine.py": {
+    "id": "005_context_priority_engine",
+    "path": "app/runtime/context_priority_engine.py",
+    "technical_score": 53,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "memory",
+      "whatsapp"
+    ],
+    "actions": [
+      "generate",
+      "remember"
+    ],
+    "input_terms": [
+      "message",
+      "sender_id"
+    ],
+    "output_terms": [
+      "str"
+    ],
+    "dependencies": [],
+    "functions": [
+      {
+        "name": "context_priority_reply",
+        "async": false,
+        "args": [
+          "message",
+          "sender_id"
+        ],
+        "doc": "",
+        "returns": "str"
+      }
+    ],
+    "classes": [],
+    "imports_count": 0,
+    "constants": []
+  },
+  "app/runtime/strategic_conversation_authority.py": {
+    "id": "044_strategic_conversation_authority",
+    "path": "app/runtime/strategic_conversation_authority.py",
+    "technical_score": 53,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "governance",
+      "memory",
+      "whatsapp"
+    ],
+    "actions": [
+      "generate",
+      "remember",
+      "simulate"
+    ],
+    "input_terms": [
+      "assistant_reply",
+      "sender_id",
+      "user_message"
+    ],
+    "output_terms": [],
+    "dependencies": [],
+    "functions": [
+      {
+        "name": "strategic_conversation_authority",
+        "async": false,
+        "args": [
+          "assistant_reply",
+          "user_message",
+          "sender_id"
+        ],
+        "doc": "Passive strategic authority.\nMantém compatibilidade dos testes sem sequestrar smalltalk.",
+        "returns": null
+      }
+    ],
+    "classes": [],
+    "imports_count": 1,
+    "constants": [
+      "_STATE"
+    ]
+  },
+  "app/eldora/canonical_registry.py": {
+    "id": "025_canonical_registry",
+    "path": "app/eldora/canonical_registry.py",
+    "technical_score": 50,
+    "import_ok": true,
+    "profile_error": null,
+    "module_doc": "",
+    "domains": [
+      "general"
+    ],
+    "actions": [
+      "assist"
+    ],
+    "input_terms": [],
+    "output_terms": [],
+    "dependencies": [],
+    "functions": [],
+    "classes": [],
+    "imports_count": 0,
+    "constants": [
+      "CANONICAL_FUNCTIONS",
+      "STATUS_FINAL_ADICIONAL"
+    ]
+  },
+  "app/companionship/cognitive_context_builder.py": {
+    "id": "041_cognitive_context_builder",
+    "path": "app/companionship/cognitive_context_builder.py",
+    "technical_score": 0,
+    "import_ok": false,
+    "profile_error": "'NoneType' object has no attribute '__dict__'",
+    "module_doc": "",
+    "domains": [
+      "memory"
+    ],
+    "actions": [
+      "remember"
+    ],
+    "input_terms": [
+      "behavior_modeling",
+      "ctx",
+      "digital_twin",
+      "emotional_continuity",
+      "feature_flags",
+      "goal_tracking",
+      "humanized_meta_cognition",
+      "live_cognition",
+      "long_term_memory",
+      "name",
+      "relationship_memory",
+      "self_reflection",
+      "source_context",
+      "user_id",
+      "value"
+    ],
+    "output_terms": [
+      "Dict[str, Any]"
+    ],
+    "dependencies": [],
+    "functions": [
+      {
+        "name": "_safe_layer",
+        "async": false,
+        "args": [
+          "name",
+          "value"
+        ],
+        "doc": "",
+        "returns": "Dict[str, Any]"
+      },
+      {
+        "name": "build_cognitive_context",
+        "async": false,
+        "args": [
+          "user_id",
+          "relationship_memory",
+          "goal_tracking",
+          "digital_twin",
+          "behavior_modeling",
+          "emotional_continuity",
+          "long_term_memory",
+          "self_reflection",
+          "live_cognition",
+          "source_context",
+          "feature_flags"
+        ],
+        "doc": "",
+        "returns": "Dict[str, Any]"
+      },
+      {
+        "name": "attach_cognitive_context_shadow",
+        "async": false,
+        "args": [
+          "ctx",
+          "user_id",
+          "feature_flags"
+        ],
+        "doc": "",
+        "returns": "Dict[str, Any]"
+      },
+      {
+        "name": "attach_p19p50_humanized_meta_cognition_to_context",
+        "async": false,
+        "args": [
+          "ctx",
+          "humanized_meta_cognition",
+          "feature_flags"
+        ],
+        "doc": "P19P50: attach Humanized Meta Cognition into canonical cognitive_context.\nSHADOW/CANARY only. Production disabled by default.",
+        "returns": null
+      }
+    ],
+    "classes": [
+      {
+        "name": "CognitiveContext",
+        "doc": "",
+        "bases": []
+      }
+    ],
+    "imports_count": 4,
+    "constants": []
+  }
+}

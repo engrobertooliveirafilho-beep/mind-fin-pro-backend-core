@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_C7B4F0D94FB3226E",
+  "source_file": "_evidence\\P9_RUNTIME_CONSUMPTION_COMPLETE_20260616_153302\\run_p9_runtime_consumption.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P9_RUNTIME_CONSUMPTION_COMPLETE_20260616_153302\\run_p9_runtime_consumption.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 105,
+  "imports": [
+    "app.p9_runtime_consumption.observability",
+    "app.p9_runtime_consumption.parity",
+    "app.p9_runtime_consumption.planner_injection",
+    "json",
+    "os",
+    "pathlib",
+    "time"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

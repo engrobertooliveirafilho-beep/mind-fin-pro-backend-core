@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_5879E42D52390A48",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_internal\\cli\\spinners.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pip\\_internal\\cli\\spinners.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 121,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "contextlib",
+    "itertools",
+    "logging",
+    "pip._internal.utils.compat",
+    "pip._internal.utils.logging",
+    "pip._vendor.rich.console",
+    "pip._vendor.rich.live",
+    "pip._vendor.rich.measure",
+    "pip._vendor.rich.text",
+    "sys",
+    "time",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

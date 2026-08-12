@@ -1,0 +1,9 @@
+{
+  "status": "AUTONOMOUS_QUANT_OS_STRUCTURED",
+  "mode": "PAPER_ONLY",
+  "requires_long_horizon_evidence": true,
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN"
+}

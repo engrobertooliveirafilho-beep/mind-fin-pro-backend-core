@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_4EB597A5F309AA18",
+  "source_file": "app\\runtime\\sovereign_conversation_orchestrator.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\app\\runtime\\sovereign_conversation_orchestrator.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 110,
+  "imports": [
+    "app.runtime.sovereign_cognitive_execution_engine",
+    "app.runtime.universal_knowledge_provider",
+    "dataclasses",
+    "json",
+    "os",
+    "pathlib",
+    "re",
+    "time"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

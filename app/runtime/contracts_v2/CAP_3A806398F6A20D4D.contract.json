@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_3A806398F6A20D4D",
+  "source_file": "_evidence\\P4.82C_ACTIVE_RUNTIME_IMPORT_TRACE_AND_SURGICAL_RECOVERY_20260621_111830\\p482c_active_runtime_import_trace.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\_evidence\\P4.82C_ACTIVE_RUNTIME_IMPORT_TRACE_AND_SURGICAL_RECOVERY_20260621_111830\\p482c_active_runtime_import_trace.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 96,
+  "imports": [
+    "datetime",
+    "importlib",
+    "inspect",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

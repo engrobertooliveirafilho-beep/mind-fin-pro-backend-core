@@ -1,0 +1,800 @@
+[
+  {
+    "path": "data\\normalized\\MT5_AUDUSD_D1.csv",
+    "sha256": "5d59eca50cdc77b42b375b719512a1bad453029770865749c0f9cafb0f40c36e",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_AUDUSD_H1.csv",
+    "sha256": "e4e8399f05dd580e2b82abd7e3d553b445fe7a437199804a303f61411b573ce8",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_AUDUSD_H4.csv",
+    "sha256": "80bf33625dba57e31a51f263a9b4451a447acc8ddf601d1332f486b2950d31b3",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_AUDUSD_M1.csv",
+    "sha256": "f20da47d4c0dc55e39eec8fa9ad2ee91f2050db6bf36349d56a86e3392fee88a",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_AUDUSD_M15.csv",
+    "sha256": "00cc0da981d6a98ef0e38cff893612459e9aa791e81a9bb957ab1271314f4e07",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_AUDUSD_M30.csv",
+    "sha256": "e26c4103e1301a3e48189cba817e5f20955660c4ccc3eb135acf29b14dbfcb9e",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_AUDUSD_M5.csv",
+    "sha256": "05b7e46debc945ebe9f57092301e517c5af40124aa37cb96d5c63eb8779d28c6",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_EURUSD_D1.csv",
+    "sha256": "4f960670a8b503540211c760312eb8b2f6ee4e97435202291772c27e972af436",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_EURUSD_H1.csv",
+    "sha256": "7be56e0e21f3c92fade86e572419654ecda4e7a5e0d02aa10d62c9524a317049",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_EURUSD_H4.csv",
+    "sha256": "e07ee84defae2955b17585753858922e1354ed4b5450d30684ce000f0c2900f6",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_EURUSD_M1.csv",
+    "sha256": "a80a3b0634ff979f64a056900c809997d69301dadd7b00e826ab40976463ca36",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_EURUSD_M15.csv",
+    "sha256": "5f1b03dba9b45126f1eebd23f9af3588cbf9240f582b879a6a68ba0cf4f0bbba",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_EURUSD_M30.csv",
+    "sha256": "b8f367024a768d70c7b4ff3ab9d87f0e255e3150bf8c77b9f1414b74f6682266",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_EURUSD_M5.csv",
+    "sha256": "8e23f13492fa561ffc8c1eb93bcf34bb5480d11ba8390e6b21078f4b1905afca",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_GBPUSD_D1.csv",
+    "sha256": "7c325623f7028d785746d0cba36d07694b1fab02520e236a0c8977845655f90f",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_GBPUSD_H1.csv",
+    "sha256": "1a893afae42123ac0e5c8f11dd75723c3ea0940315161d12c60843ceb07f2a1a",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_GBPUSD_H4.csv",
+    "sha256": "62a6b17c239809f2a6c831830bb37de49393ef0cb5e1000f0914a80b75a9dceb",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_GBPUSD_M1.csv",
+    "sha256": "5b897a8c3b0e75ef6e033102a6a9735738d9fbb7f94d6e988d90f266c7935000",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_GBPUSD_M15.csv",
+    "sha256": "bba33c1b26a42062cce1947407c94d471e3fc3898279a3a0841fa3ed81df21c8",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_GBPUSD_M30.csv",
+    "sha256": "3e91199182aaa8395ed9150ed6e5c46e8b9c082fa83cf869924e9fbc11e188a5",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_GBPUSD_M5.csv",
+    "sha256": "91dc7dcc228d87d6e2c905d0ab16f28b9399e5bbfe40fc8d02aa85e4569ec461",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_USDCAD_D1.csv",
+    "sha256": "fcea36c5624c7f42833c03bc71ab3b58b97d279342b50c55efb5d860e5f1bb98",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_USDCAD_H1.csv",
+    "sha256": "4265d786b2cabfdaf558f8c00daa1d2c32599aae40d704bbe83a0b7b8fb8afcc",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_USDCAD_H4.csv",
+    "sha256": "9b6bb0915b88d0ed4ca3145e7886be10c253dd3798144eb1aa75a94ea2f53509",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_USDCAD_M1.csv",
+    "sha256": "66d01902555a01bb18b326b9d8a92424cc6d28a15d4aef768411a76e62a625be",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_USDCAD_M15.csv",
+    "sha256": "8276e889e39d482b575a2dc0f51f7e9a1d2d43430317d777736372399abc2e6f",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_USDCAD_M30.csv",
+    "sha256": "76f30d5c2709bc821bd64c566da6b35aaf2783b4dd9df83aab1f077bc867970e",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_USDCAD_M5.csv",
+    "sha256": "7a2ee9810b3c6d5e478c1ea632afbe139cb435d05bba41992a2fa887fb81f082",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_USDJPY_D1.csv",
+    "sha256": "99f543ff663b6c7293adab0e4e2506075680d9c96d8048bd4091298be85d8e0b",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_USDJPY_H1.csv",
+    "sha256": "d100c3e0e38a95821e2aa0b32aca07e97ddbe7dd1d298c924e5ba921a9f8a30f",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_USDJPY_H4.csv",
+    "sha256": "7cabc81287753213e3c3cd79942e9b2c48c8be12464ce15afe40a66cb0bc7a7b",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_USDJPY_M1.csv",
+    "sha256": "af6026d10cc51b2c7118aee817344382679b493cd7af50fbdcc9d3a5e293c80b",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_USDJPY_M15.csv",
+    "sha256": "02178ec3550cd2da7e7f56139519b3f3d92599990707ceadc170b55dd1c94cf2",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_USDJPY_M30.csv",
+    "sha256": "88a2e6d523f08c13529c1268ee48c0cb186285b17a3744b554a5397aeb92e41d",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_USDJPY_M5.csv",
+    "sha256": "f6bb7725751adbdddd20d6d146159bb2024a93b77622dc0b703454598a9391b1",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_XAUUSD_D1.csv",
+    "sha256": "7dea5f814b15d338d78b589fdcc4933ae470a3b8298ad537d9531403bb47ab03",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_XAUUSD_H1.csv",
+    "sha256": "5ace5cb3f3cff7e67d717d5034ce4c7b27ef8434ff19bc55b9335e4f54735efa",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_XAUUSD_H4.csv",
+    "sha256": "8fe9a8725d8632642057acaea88919a0cdbe3bda2ba91f351acdbe737e99f286",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_XAUUSD_M1.csv",
+    "sha256": "307484bca55730919e2bbe41b5e1b42d1026313fbdf2e035033834002533bd16",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_XAUUSD_M15.csv",
+    "sha256": "cafcbe77b0e4ff41cf8c7bed7c68b912454904a7217a1d727e1841b9f2d5ae5d",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_XAUUSD_M30.csv",
+    "sha256": "9c2d2f760dd0f92ffc3408932d01208c2d933fd5e78daffaa85bf1903839716f",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  },
+  {
+    "path": "data\\normalized\\MT5_XAUUSD_M5.csv",
+    "sha256": "c8ec96f0b297abbe54b38e976aab9b09b2e391a66542424230dbfa9464160dcc",
+    "rows": 500,
+    "columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time"
+    ],
+    "schema_ok": true,
+    "missing": [],
+    "certified": true,
+    "source": "MT5"
+  }
+]

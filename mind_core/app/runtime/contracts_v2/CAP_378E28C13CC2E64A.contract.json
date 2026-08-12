@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_378E28C13CC2E64A",
+  "source_file": "_quarantine\\P19P38_L_SAFE_JUNK_QUARANTINE_20260622_182732\\tools__\\p482a_green_seal_root_cause_patch.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_quarantine\\P19P38_L_SAFE_JUNK_QUARANTINE_20260622_182732\\tools__\\p482a_green_seal_root_cause_patch.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 101,
+  "imports": [
+    "pathlib",
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

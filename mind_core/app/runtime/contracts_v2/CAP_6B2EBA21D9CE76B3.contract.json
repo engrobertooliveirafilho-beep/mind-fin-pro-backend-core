@@ -1,0 +1,33 @@
+{
+  "capability_id": "CAP_6B2EBA21D9CE76B3",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\resample\\test_period_index.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\pandas\\tests\\resample\\test_period_index.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 132,
+  "imports": [
+    "datetime",
+    "dateutil",
+    "numpy",
+    "pandas",
+    "pandas._libs.tslibs.ccalendar",
+    "pandas._libs.tslibs.period",
+    "pandas._testing",
+    "pandas.core.indexes.datetimes",
+    "pandas.core.indexes.period",
+    "pandas.core.resample",
+    "pandas.errors",
+    "pandas.tseries",
+    "pytest",
+    "re",
+    "warnings",
+    "zoneinfo"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

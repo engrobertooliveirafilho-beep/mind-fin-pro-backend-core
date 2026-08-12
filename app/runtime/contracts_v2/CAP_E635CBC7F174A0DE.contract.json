@@ -1,0 +1,30 @@
+{
+  "capability_id": "CAP_E635CBC7F174A0DE",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_vendor\\rich\\segment.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\segment.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 114,
+  "imports": [
+    "cells",
+    "console",
+    "enum",
+    "functools",
+    "itertools",
+    "logging",
+    "operator",
+    "pip._vendor.rich.console",
+    "pip._vendor.rich.syntax",
+    "pip._vendor.rich.text",
+    "repr",
+    "style",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

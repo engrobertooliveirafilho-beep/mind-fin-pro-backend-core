@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_5CD587AEFFD9DEC0",
+  "source_file": "_evidence\\P4_72A_CAPABILITY_RECOVERY_DISCOVERY_20260618_193645\\p472a_capability_discovery.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P4_72A_CAPABILITY_RECOVERY_DISCOVERY_20260618_193645\\p472a_capability_discovery.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 106,
+  "imports": [
+    "importlib",
+    "inspect",
+    "json",
+    "pathlib",
+    "traceback"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

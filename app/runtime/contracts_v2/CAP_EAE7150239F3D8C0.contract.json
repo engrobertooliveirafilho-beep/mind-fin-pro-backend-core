@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_EAE7150239F3D8C0",
+  "source_file": "_evidence\\P4.91L2_STAGING_COPY_AND_TEST_20260623_170841\\staging\\2a0bff0e5fbbc203ddbcc34b4fbc4e168359b7454277fde28fb8a9a4910e7a33_steps_planned_batch_0002.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\_evidence\\P4.91L2_STAGING_COPY_AND_TEST_20260623_170841\\staging\\2a0bff0e5fbbc203ddbcc34b4fbc4e168359b7454277fde28fb8a9a4910e7a33_steps_planned_batch_0002.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 83,
+  "imports": [
+    "datetime",
+    "fastapi"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

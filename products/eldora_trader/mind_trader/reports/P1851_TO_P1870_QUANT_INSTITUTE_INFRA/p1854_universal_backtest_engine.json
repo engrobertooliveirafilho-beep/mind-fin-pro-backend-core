@@ -1,0 +1,20 @@
+{
+  "STATUS": "P1854_UNIVERSAL_BACKTEST_ENGINE_BOOTSTRAPPED",
+  "PIPELINE": [
+    "load_dataset",
+    "generate_features",
+    "run_strategy",
+    "trade_list",
+    "metrics",
+    "walk_forward",
+    "monte_carlo",
+    "dna",
+    "promotion"
+  ],
+  "CERTIFICATION_LEVELS": [
+    "RESEARCH",
+    "CANDIDATE",
+    "INSTITUTIONAL",
+    "ELITE_10Y"
+  ]
+}

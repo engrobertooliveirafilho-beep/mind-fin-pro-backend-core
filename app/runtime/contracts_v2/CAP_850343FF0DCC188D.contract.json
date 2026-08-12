@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_850343FF0DCC188D",
+  "source_file": ".venv\\Lib\\site-packages\\tqdm\\contrib\\discord.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\tqdm\\contrib\\discord.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 104,
+  "imports": [
+    "auto",
+    "os",
+    "requests",
+    "requests.utils",
+    "std",
+    "utils_worker",
+    "version",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

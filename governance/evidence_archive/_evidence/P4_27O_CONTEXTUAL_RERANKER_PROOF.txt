@@ -1,0 +1,19 @@
+P4.27O — CONTEXTUAL RERANKER INTEGRATED
+
+CLASSIFICATION:
+REAL_OPERATIONAL / GOLD
+
+PROOF:
+- contextual_reranker.py created
+- rerank_memories() ranks semantic memories by lexical overlap, density, specificity and base score
+- contextual_rerank() compatibility shim added for legacy semantic_activation import
+- sample ranking prioritized: 'Meu nome é Roberto. Estou estudando matemática.'
+- import errors eliminated
+- directed pytest: 24 passed / 3 skipped / 0 failed
+
+STATUS:
+- semantic recall can now be reranked before memory selection
+- backward compatibility preserved
+
+NEXT:
+Run full pytest, then continue with WhatsApp retrieval orchestrator or social observation real layer.

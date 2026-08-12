@@ -1,0 +1,27 @@
+{
+  "mission": "P19P30E1_REPOSITORY_GOVERNANCE_LOCK",
+  "certified_commits": [
+    "c7c52e0 P19P29 integrate universal domain context scoping",
+    "fe59267 P19P30D contain legacy short followup interceptors"
+  ],
+  "policy": {
+    "git_add_dot": "FORBIDDEN",
+    "commit_a": "FORBIDDEN",
+    "push_all": "FORBIDDEN",
+    "evidence_to_git": "FORBIDDEN"
+  },
+  "runtime_whitelist": [
+    "app/main.py",
+    "app/api/whatsapp.py",
+    "app/context_runtime/universal_domain_context.py",
+    "app/context_runtime/p19p28_context.py",
+    "app/domains/universal_domain_router.py",
+    "app/domains/fitness_runtime.py",
+    "tests/test_p19p28k_contextual_fitness.py",
+    "tests/test_p19p29_universal_domain_context.py",
+    "tests/test_p19p30d_legacy_interceptor_containment.py",
+    "requirements.txt",
+    "render.yaml",
+    ".gitignore"
+  ]
+}

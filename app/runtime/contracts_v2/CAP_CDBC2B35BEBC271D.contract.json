@@ -1,0 +1,30 @@
+{
+  "capability_id": "CAP_CDBC2B35BEBC271D",
+  "source_file": ".venv\\Lib\\site-packages\\pydantic\\v1\\_hypothesis_plugin.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pydantic\\v1\\_hypothesis_plugin.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 119,
+  "imports": [
+    "contextlib",
+    "datetime",
+    "email_validator",
+    "fractions",
+    "hypothesis.strategies",
+    "ipaddress",
+    "json",
+    "math",
+    "pydantic",
+    "pydantic.color",
+    "pydantic.types",
+    "pydantic.v1.utils",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,33 @@
+{
+  "capability_id": "CAP_837620EAAFBD8153",
+  "source_file": ".venv\\Lib\\site-packages\\setuptools\\_vendor\\wheel\\_commands\\convert.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\setuptools\\_vendor\\wheel\\_commands\\convert.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 97,
+  "imports": [
+    "__future__",
+    "_metadata",
+    "abc",
+    "collections",
+    "collections.abc",
+    "email.message",
+    "email.parser",
+    "email.policy",
+    "glob",
+    "os.path",
+    "packaging.tags",
+    "pathlib",
+    "re",
+    "textwrap",
+    "wheelfile",
+    "zipfile"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

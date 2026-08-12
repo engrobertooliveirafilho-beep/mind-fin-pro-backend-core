@@ -1,0 +1,2138 @@
+{
+  "app/api/eldora_multimodal.py": {
+    "id": "009_eldora_multimodal",
+    "path": "app/api/eldora_multimodal.py",
+    "tokens": [
+      "009_eldora_multimodal",
+      "api",
+      "app",
+      "audio_runtime",
+      "audio_transcript_engine",
+      "content",
+      "context",
+      "core",
+      "description",
+      "eldora",
+      "eldora_multimodal",
+      "fusion",
+      "fusion_runtime",
+      "marketing",
+      "memory",
+      "multimodal",
+      "multimodal_fusion_engine",
+      "multimodal_ingestion",
+      "ocr",
+      "ocr_engine",
+      "ocr_runtime",
+      "path",
+      "query",
+      "remember",
+      "retrieve",
+      "text",
+      "transcript",
+      "upload",
+      "visual",
+      "visual_runtime",
+      "visual_semantic_memory"
+    ],
+    "technical_score": 118,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 384.96,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B326720>",
+    "domains": [
+      "marketing",
+      "memory",
+      "multimodal"
+    ],
+    "actions": [
+      "remember",
+      "retrieve"
+    ],
+    "inputs": [
+      "content",
+      "context",
+      "description",
+      "path",
+      "query",
+      "text"
+    ],
+    "outputs": []
+  },
+  "app/api/eldora_true_distributed.py": {
+    "id": "024_eldora_true_distributed",
+    "path": "app/api/eldora_true_distributed.py",
+    "tokens": [
+      "024_eldora_true_distributed",
+      "api",
+      "app",
+      "assist",
+      "channel",
+      "core",
+      "cycles",
+      "diagnostic",
+      "diagnostics",
+      "distributed_worker_loop",
+      "eldora",
+      "eldora_true_distributed",
+      "event",
+      "message",
+      "redis_diagnostics",
+      "redis_publish",
+      "redis_report",
+      "stream",
+      "trader",
+      "true_redis_runtime",
+      "websocket",
+      "websocket_cognition",
+      "websocket_endpoint",
+      "whatsapp",
+      "worker_loop",
+      "worker_name",
+      "workers",
+      "ws_report",
+      "ws_signal"
+    ],
+    "technical_score": 113,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 101.63,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B4423F0>",
+    "domains": [
+      "diagnostic",
+      "trader",
+      "whatsapp"
+    ],
+    "actions": [
+      "assist"
+    ],
+    "inputs": [
+      "channel",
+      "cycles",
+      "event",
+      "message",
+      "stream",
+      "websocket",
+      "worker_name"
+    ],
+    "outputs": []
+  },
+  "app/api/eldora_autonomous.py": {
+    "id": "008_eldora_autonomous",
+    "path": "app/api/eldora_autonomous.py",
+    "tokens": [
+      "008_eldora_autonomous",
+      "amount",
+      "api",
+      "app",
+      "autonomous_planner",
+      "checkpoint",
+      "checkpoint_engine",
+      "checkpoints",
+      "core",
+      "eldora",
+      "eldora_autonomous",
+      "general",
+      "generate",
+      "goal",
+      "governor",
+      "governor_consume",
+      "governor_engine",
+      "plan_create",
+      "plan_get",
+      "plan_id",
+      "planner"
+    ],
+    "technical_score": 105,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 16.47,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE09BBF1A0>",
+    "domains": [
+      "general"
+    ],
+    "actions": [
+      "generate"
+    ],
+    "inputs": [
+      "amount",
+      "goal",
+      "plan_id"
+    ],
+    "outputs": []
+  },
+  "app/api/eldora_cognition.py": {
+    "id": "002_eldora_cognition",
+    "path": "app/api/eldora_cognition.py",
+    "tokens": [
+      "002_eldora_cognition",
+      "api",
+      "app",
+      "capability",
+      "category",
+      "cognitive_report",
+      "cognitive_store",
+      "compression",
+      "compression_runtime",
+      "content",
+      "core",
+      "eldora",
+      "eldora_cognition",
+      "long_term_memory",
+      "marketing",
+      "memory",
+      "memory_compression_engine",
+      "remember",
+      "tool_learn",
+      "tool_learning_engine",
+      "tool_name",
+      "tools"
+    ],
+    "technical_score": 98,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 17.98,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE09796720>",
+    "domains": [
+      "marketing",
+      "memory"
+    ],
+    "actions": [
+      "remember"
+    ],
+    "inputs": [
+      "capability",
+      "category",
+      "content",
+      "tool_name"
+    ],
+    "outputs": []
+  },
+  "app/api/eldora_world.py": {
+    "id": "004_eldora_world",
+    "path": "app/api/eldora_world.py",
+    "tokens": [
+      "004_eldora_world",
+      "api",
+      "app",
+      "causal",
+      "causal_reasoning_engine",
+      "causal_runtime",
+      "cause",
+      "context",
+      "core",
+      "effect",
+      "eldora",
+      "eldora_world",
+      "environment",
+      "goal",
+      "memory",
+      "predictive_simulation_engine",
+      "remember",
+      "simulation",
+      "simulation_runtime",
+      "state",
+      "states",
+      "variables",
+      "world_model_engine"
+    ],
+    "technical_score": 98,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 14.86,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE09BBEFC0>",
+    "domains": [
+      "memory"
+    ],
+    "actions": [
+      "remember"
+    ],
+    "inputs": [
+      "cause",
+      "context",
+      "effect",
+      "environment",
+      "goal",
+      "variables"
+    ],
+    "outputs": []
+  },
+  "app/api/eldora_social.py": {
+    "id": "012_eldora_social",
+    "path": "app/api/eldora_social.py",
+    "tokens": [
+      "012_eldora_social",
+      "api",
+      "app",
+      "context",
+      "core",
+      "eldora",
+      "eldora_social",
+      "emotion",
+      "emotion_runtime",
+      "emotional_continuity_engine",
+      "interaction",
+      "marketing",
+      "memory",
+      "memory_runtime",
+      "persistent_social_memory",
+      "profile",
+      "relational_cognition_engine",
+      "relationship",
+      "relationship_runtime",
+      "remember",
+      "user_id"
+    ],
+    "technical_score": 98,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 1007.59,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B3A3680>",
+    "domains": [
+      "marketing",
+      "memory"
+    ],
+    "actions": [
+      "remember"
+    ],
+    "inputs": [
+      "context",
+      "emotion",
+      "interaction",
+      "profile",
+      "user_id"
+    ],
+    "outputs": []
+  },
+  "app/api/eldora_autonomy.py": {
+    "id": "016_eldora_autonomy",
+    "path": "app/api/eldora_autonomy.py",
+    "tokens": [
+      "016_eldora_autonomy",
+      "api",
+      "app",
+      "assist",
+      "continuous_execution_engine",
+      "core",
+      "eldora",
+      "eldora_autonomy",
+      "environment",
+      "goal",
+      "goals",
+      "loop",
+      "loops",
+      "mission",
+      "observations",
+      "observe",
+      "persistent_goal_engine",
+      "priority",
+      "runtime_observation_engine",
+      "signal",
+      "trader"
+    ],
+    "technical_score": 98,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 12.08,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B3A2ED0>",
+    "domains": [
+      "trader"
+    ],
+    "actions": [
+      "assist"
+    ],
+    "inputs": [
+      "environment",
+      "goal",
+      "mission",
+      "priority",
+      "signal"
+    ],
+    "outputs": []
+  },
+  "app/api/eldora_embodied.py": {
+    "id": "017_eldora_embodied",
+    "path": "app/api/eldora_embodied.py",
+    "tokens": [
+      "017_eldora_embodied",
+      "agent",
+      "api",
+      "app",
+      "assist",
+      "autonomous_digital_presence",
+      "awareness",
+      "awareness_runtime",
+      "browser",
+      "browsers",
+      "core",
+      "eldora",
+      "eldora_embodied",
+      "identity",
+      "internet_awareness_engine",
+      "live_browser_agents",
+      "objective",
+      "platform",
+      "presence",
+      "presences",
+      "signal",
+      "source",
+      "trader"
+    ],
+    "technical_score": 98,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 6.67,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B3B48F0>",
+    "domains": [
+      "trader"
+    ],
+    "actions": [
+      "assist"
+    ],
+    "inputs": [
+      "agent",
+      "identity",
+      "objective",
+      "platform",
+      "signal",
+      "source"
+    ],
+    "outputs": []
+  },
+  "app/api/eldora_liveos.py": {
+    "id": "019_eldora_liveos",
+    "path": "app/api/eldora_liveos.py",
+    "tokens": [
+      "019_eldora_liveos",
+      "agent_group",
+      "api",
+      "app",
+      "assist",
+      "core",
+      "eldora",
+      "eldora_liveos",
+      "environment",
+      "event",
+      "live_operating_system_engine",
+      "objective",
+      "orchestrate",
+      "orchestrations",
+      "publish",
+      "realtime_event_stream",
+      "runtime",
+      "runtimes",
+      "signal",
+      "stream",
+      "streams",
+      "trader",
+      "universal_orchestration_fabric"
+    ],
+    "technical_score": 98,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 8.0,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B3FD340>",
+    "domains": [
+      "trader"
+    ],
+    "actions": [
+      "assist"
+    ],
+    "inputs": [
+      "agent_group",
+      "environment",
+      "event",
+      "objective",
+      "signal",
+      "stream"
+    ],
+    "outputs": []
+  },
+  "app/api/eldora_mesh.py": {
+    "id": "020_eldora_mesh",
+    "path": "app/api/eldora_mesh.py",
+    "tokens": [
+      "020_eldora_mesh",
+      "agent",
+      "agents",
+      "api",
+      "app",
+      "assist",
+      "broker",
+      "brokers",
+      "channel",
+      "cognition",
+      "core",
+      "eldora",
+      "eldora_mesh",
+      "event_broker_fabric",
+      "live_agent_cloud",
+      "mesh",
+      "node",
+      "payload",
+      "realtime_cognitive_mesh",
+      "runtime",
+      "sync",
+      "trader"
+    ],
+    "technical_score": 98,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 12.66,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B3FD340>",
+    "domains": [
+      "trader"
+    ],
+    "actions": [
+      "assist"
+    ],
+    "inputs": [
+      "agent",
+      "channel",
+      "cognition",
+      "node",
+      "payload",
+      "runtime"
+    ],
+    "outputs": []
+  },
+  "app/api/eldora_meta.py": {
+    "id": "021_eldora_meta",
+    "path": "app/api/eldora_meta.py",
+    "tokens": [
+      "021_eldora_meta",
+      "api",
+      "app",
+      "awareness",
+      "awareness_runtime",
+      "cognition",
+      "cognition_runtime",
+      "core",
+      "eldora",
+      "eldora_meta",
+      "introspection",
+      "introspection_runtime",
+      "layer",
+      "memory",
+      "meta_cognition_engine",
+      "objective",
+      "recursive_introspection_engine",
+      "reflection",
+      "remember",
+      "runtime",
+      "runtime_state",
+      "self_awareness_engine"
+    ],
+    "technical_score": 98,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 13.6,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B424AA0>",
+    "domains": [
+      "memory"
+    ],
+    "actions": [
+      "remember"
+    ],
+    "inputs": [
+      "cognition",
+      "layer",
+      "objective",
+      "reflection",
+      "runtime",
+      "runtime_state"
+    ],
+    "outputs": []
+  },
+  "app/api/eldora_action.py": {
+    "id": "033_eldora_action",
+    "path": "app/api/eldora_action.py",
+    "tokens": [
+      "033_eldora_action",
+      "action",
+      "api",
+      "app",
+      "assist",
+      "capability",
+      "core",
+      "eldora",
+      "eldora_action",
+      "environment",
+      "environment_execution_engine",
+      "execute",
+      "executions",
+      "general",
+      "real_world_action_engine",
+      "tool",
+      "tool_name",
+      "tools",
+      "universal_tool_controller",
+      "workflow",
+      "workflows"
+    ],
+    "technical_score": 98,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 10.29,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0CEC1730>",
+    "domains": [
+      "general"
+    ],
+    "actions": [
+      "assist"
+    ],
+    "inputs": [
+      "action",
+      "capability",
+      "environment",
+      "tool",
+      "tool_name",
+      "workflow"
+    ],
+    "outputs": []
+  },
+  "app/api/eldora_distributed.py": {
+    "id": "036_eldora_distributed",
+    "path": "app/api/eldora_distributed.py",
+    "tokens": [
+      "036_eldora_distributed",
+      "api",
+      "app",
+      "core",
+      "distributed_runtime_state",
+      "eldora",
+      "eldora_distributed",
+      "event",
+      "key",
+      "memory",
+      "persistent_agent_worker",
+      "redis_stream_fabric",
+      "remember",
+      "state_report",
+      "state_set",
+      "stream",
+      "stream_publish",
+      "streams",
+      "task",
+      "value",
+      "worker",
+      "worker_name",
+      "workers"
+    ],
+    "technical_score": 98,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 13.11,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0C6CB470>",
+    "domains": [
+      "memory"
+    ],
+    "actions": [
+      "remember"
+    ],
+    "inputs": [
+      "event",
+      "key",
+      "stream",
+      "task",
+      "value",
+      "worker_name"
+    ],
+    "outputs": []
+  },
+  "app/api/eldora_evolution.py": {
+    "id": "038_eldora_evolution",
+    "path": "app/api/eldora_evolution.py",
+    "tokens": [
+      "038_eldora_evolution",
+      "api",
+      "app",
+      "assist",
+      "autonomous_capability_evolution",
+      "capability",
+      "capability_runtime",
+      "capability_synthesis_engine",
+      "core",
+      "domain",
+      "dynamic_skill_engine",
+      "eldora",
+      "eldora_evolution",
+      "evolution_runtime",
+      "evolve",
+      "general",
+      "improvement",
+      "name",
+      "objective",
+      "skill",
+      "skill_name",
+      "skill_runtime",
+      "synthesize"
+    ],
+    "technical_score": 98,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 11.97,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0CED7110>",
+    "domains": [
+      "general"
+    ],
+    "actions": [
+      "assist"
+    ],
+    "inputs": [
+      "capability",
+      "domain",
+      "improvement",
+      "name",
+      "objective",
+      "skill_name"
+    ],
+    "outputs": []
+  },
+  "app/api/eldora_infrastructure.py": {
+    "id": "039_eldora_infrastructure",
+    "path": "app/api/eldora_infrastructure.py",
+    "tokens": [
+      "039_eldora_infrastructure",
+      "api",
+      "app",
+      "bus",
+      "capability",
+      "connector",
+      "connectors",
+      "core",
+      "cross_platform_execution_bus",
+      "eldora",
+      "eldora_infrastructure",
+      "environment",
+      "event",
+      "events",
+      "infrastructure_event_engine",
+      "live_connector_fabric",
+      "platform",
+      "route",
+      "routing",
+      "signal",
+      "source",
+      "target",
+      "task",
+      "trader"
+    ],
+    "technical_score": 98,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 9.65,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0CF65070>",
+    "domains": [
+      "routing",
+      "trader"
+    ],
+    "actions": [
+      "route"
+    ],
+    "inputs": [
+      "capability",
+      "environment",
+      "platform",
+      "signal",
+      "source",
+      "target",
+      "task"
+    ],
+    "outputs": []
+  },
+  "app/api/eldora_runtime_supervisor.py": {
+    "id": "022_eldora_runtime_supervisor",
+    "path": "app/api/eldora_runtime_supervisor.py",
+    "tokens": [
+      "022_eldora_runtime_supervisor",
+      "api",
+      "app",
+      "assist",
+      "component",
+      "core",
+      "eldora",
+      "eldora_runtime_supervisor",
+      "general",
+      "goal",
+      "max_depth",
+      "recursive",
+      "recursive_execution_engine",
+      "recursive_runtime",
+      "self_heal",
+      "self_heal_report",
+      "self_healing_engine",
+      "supervisor",
+      "supervisor_swarm"
+    ],
+    "technical_score": 92,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 4.57,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B427CB0>",
+    "domains": [
+      "general"
+    ],
+    "actions": [
+      "assist"
+    ],
+    "inputs": [
+      "component",
+      "goal",
+      "max_depth"
+    ],
+    "outputs": []
+  },
+  "app/api/eldora_async.py": {
+    "id": "007_eldora_async",
+    "path": "app/api/eldora_async.py",
+    "tokens": [
+      "007_eldora_async",
+      "agent_orchestrator",
+      "api",
+      "app",
+      "core",
+      "distributed_runtime",
+      "eldora",
+      "eldora_async",
+      "generate",
+      "goal",
+      "orchestrator",
+      "payload",
+      "routing",
+      "task_create",
+      "task_engine",
+      "task_get",
+      "task_id",
+      "task_type",
+      "tasks_report"
+    ],
+    "technical_score": 90,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 5.76,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE09BDF290>",
+    "domains": [
+      "routing"
+    ],
+    "actions": [
+      "generate"
+    ],
+    "inputs": [
+      "goal",
+      "payload",
+      "task_id",
+      "task_type"
+    ],
+    "outputs": []
+  },
+  "app/api/eldora_auth.py": {
+    "id": "015_eldora_auth",
+    "path": "app/api/eldora_auth.py",
+    "tokens": [
+      "015_eldora_auth",
+      "api",
+      "app",
+      "authorization",
+      "core",
+      "eldora",
+      "eldora_auth",
+      "jwt_auth",
+      "key",
+      "limit",
+      "memory",
+      "rate_limit",
+      "rate_limit_engine",
+      "remember",
+      "role",
+      "session_get",
+      "session_memory",
+      "session_save",
+      "tenant_id",
+      "token",
+      "user_id",
+      "value",
+      "verify"
+    ],
+    "technical_score": 89,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 13.62,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B2D5670>",
+    "domains": [
+      "memory"
+    ],
+    "actions": [
+      "remember"
+    ],
+    "inputs": [
+      "authorization",
+      "key",
+      "limit",
+      "role",
+      "tenant_id",
+      "user_id",
+      "value"
+    ],
+    "outputs": []
+  },
+  "app/api/eldora_neura_scale.py": {
+    "id": "010_eldora_neura_scale",
+    "path": "app/api/eldora_neura_scale.py",
+    "tokens": [
+      "010_eldora_neura_scale",
+      "acquisition",
+      "api",
+      "app",
+      "assist",
+      "audience",
+      "core",
+      "eldora",
+      "eldora_neura_scale",
+      "launch",
+      "market",
+      "max_cost",
+      "name",
+      "neura_scale_runtime",
+      "offer",
+      "plan",
+      "priority",
+      "product",
+      "report",
+      "scheduler",
+      "tenant",
+      "trader",
+      "workload"
+    ],
+    "technical_score": 88,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 7.62,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B3639B0>",
+    "domains": [
+      "trader"
+    ],
+    "actions": [
+      "assist"
+    ],
+    "inputs": [
+      "audience",
+      "market",
+      "max_cost",
+      "name",
+      "offer",
+      "plan",
+      "priority",
+      "product",
+      "workload"
+    ],
+    "outputs": []
+  },
+  "app/api/eldora_growth.py": {
+    "id": "018_eldora_growth",
+    "path": "app/api/eldora_growth.py",
+    "tokens": [
+      "018_eldora_growth",
+      "action",
+      "api",
+      "app",
+      "audience",
+      "autonomous_growth_runtime",
+      "channel",
+      "core",
+      "create_distribution",
+      "create_swarm",
+      "efficiency",
+      "eldora",
+      "eldora_growth",
+      "execute_commercial",
+      "generate",
+      "lead_id",
+      "objective",
+      "optimize_revenue",
+      "report",
+      "route",
+      "route_name",
+      "routing"
+    ],
+    "technical_score": 88,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 17.08,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B3B4080>",
+    "domains": [
+      "routing"
+    ],
+    "actions": [
+      "generate",
+      "route"
+    ],
+    "inputs": [
+      "action",
+      "audience",
+      "channel",
+      "efficiency",
+      "lead_id",
+      "objective",
+      "route_name"
+    ],
+    "outputs": []
+  },
+  "app/humanization/social_memory_provider.py": {
+    "id": "013_social_memory_provider",
+    "path": "app/humanization/social_memory_provider.py",
+    "tokens": [
+      "013_social_memory_provider",
+      "answer",
+      "anti_llm_speech_filter",
+      "app",
+      "avoid_over_fragmentation",
+      "banned",
+      "build_dataset",
+      "classify_reply_cadence",
+      "context",
+      "draft_answer",
+      "enforce_whatsapp_natural_length",
+      "generate",
+      "humanization",
+      "humanization_runtime",
+      "marketing",
+      "memory",
+      "msgs",
+      "naturalness_judge",
+      "remember",
+      "should_split_reply",
+      "social_memory_provider",
+      "social_observation_layer",
+      "social_pattern_extractor",
+      "split_human_reply",
+      "text",
+      "train_sim",
+      "user_message",
+      "whatsapp"
+    ],
+    "technical_score": 86,
+    "execution_kind": "EXECUTABLE_CAPABILITY",
+    "elapsed_ms": 1727.41,
+    "best_output": "teste shadow",
+    "domains": [
+      "marketing",
+      "memory",
+      "whatsapp"
+    ],
+    "actions": [
+      "generate",
+      "remember"
+    ],
+    "inputs": [
+      "answer",
+      "context",
+      "draft_answer",
+      "msgs",
+      "n",
+      "text",
+      "user_message"
+    ],
+    "outputs": []
+  },
+  "app/humanization/conversation_maturity_engine.py": {
+    "id": "026_conversation_maturity_engine",
+    "path": "app/humanization/conversation_maturity_engine.py",
+    "tokens": [
+      "026_conversation_maturity_engine",
+      "answer",
+      "anti_llm_speech_filter",
+      "app",
+      "avoid_over_fragmentation",
+      "banned",
+      "build_dataset",
+      "classify_reply_cadence",
+      "context",
+      "conversation_maturity_engine",
+      "draft_answer",
+      "enforce_whatsapp_natural_length",
+      "generate",
+      "humanization",
+      "humanization_runtime",
+      "marketing",
+      "memory",
+      "msgs",
+      "naturalness_judge",
+      "remember",
+      "should_split_reply",
+      "social_observation_layer",
+      "social_pattern_extractor",
+      "split_human_reply",
+      "text",
+      "train_sim",
+      "user_message",
+      "whatsapp"
+    ],
+    "technical_score": 86,
+    "execution_kind": "EXECUTABLE_CAPABILITY",
+    "elapsed_ms": 1709.93,
+    "best_output": "teste shadow",
+    "domains": [
+      "marketing",
+      "memory",
+      "whatsapp"
+    ],
+    "actions": [
+      "generate",
+      "remember"
+    ],
+    "inputs": [
+      "answer",
+      "context",
+      "draft_answer",
+      "msgs",
+      "n",
+      "text",
+      "user_message"
+    ],
+    "outputs": []
+  },
+  "app/humanization/conversation_training_runtime.py": {
+    "id": "027_conversation_training_runtime",
+    "path": "app/humanization/conversation_training_runtime.py",
+    "tokens": [
+      "027_conversation_training_runtime",
+      "answer",
+      "anti_llm_speech_filter",
+      "app",
+      "avoid_over_fragmentation",
+      "banned",
+      "build_dataset",
+      "classify_reply_cadence",
+      "context",
+      "conversation_training_runtime",
+      "draft_answer",
+      "enforce_whatsapp_natural_length",
+      "generate",
+      "humanization",
+      "humanization_runtime",
+      "marketing",
+      "memory",
+      "msgs",
+      "naturalness_judge",
+      "remember",
+      "should_split_reply",
+      "social_observation_layer",
+      "social_pattern_extractor",
+      "split_human_reply",
+      "text",
+      "train_sim",
+      "user_message",
+      "whatsapp"
+    ],
+    "technical_score": 86,
+    "execution_kind": "EXECUTABLE_CAPABILITY",
+    "elapsed_ms": 1443.63,
+    "best_output": "teste shadow",
+    "domains": [
+      "marketing",
+      "memory",
+      "whatsapp"
+    ],
+    "actions": [
+      "generate",
+      "remember"
+    ],
+    "inputs": [
+      "answer",
+      "context",
+      "draft_answer",
+      "msgs",
+      "n",
+      "text",
+      "user_message"
+    ],
+    "outputs": []
+  },
+  "app/humanization/multi_ai_conversation_simulator.py": {
+    "id": "028_multi_ai_conversation_simulator",
+    "path": "app/humanization/multi_ai_conversation_simulator.py",
+    "tokens": [
+      "028_multi_ai_conversation_simulator",
+      "answer",
+      "anti_llm_speech_filter",
+      "app",
+      "avoid_over_fragmentation",
+      "banned",
+      "build_dataset",
+      "classify_reply_cadence",
+      "context",
+      "draft_answer",
+      "enforce_whatsapp_natural_length",
+      "generate",
+      "humanization",
+      "humanization_runtime",
+      "marketing",
+      "memory",
+      "msgs",
+      "multi_ai_conversation_simulator",
+      "naturalness_judge",
+      "remember",
+      "should_split_reply",
+      "social_observation_layer",
+      "social_pattern_extractor",
+      "split_human_reply",
+      "text",
+      "train_sim",
+      "user_message",
+      "whatsapp"
+    ],
+    "technical_score": 86,
+    "execution_kind": "EXECUTABLE_CAPABILITY",
+    "elapsed_ms": 1594.56,
+    "best_output": "teste shadow",
+    "domains": [
+      "marketing",
+      "memory",
+      "whatsapp"
+    ],
+    "actions": [
+      "generate",
+      "remember"
+    ],
+    "inputs": [
+      "answer",
+      "context",
+      "draft_answer",
+      "msgs",
+      "n",
+      "text",
+      "user_message"
+    ],
+    "outputs": []
+  },
+  "app/api/eldora_browser_fleet.py": {
+    "id": "034_eldora_browser_fleet",
+    "path": "app/api/eldora_browser_fleet.py",
+    "tokens": [
+      "034_eldora_browser_fleet",
+      "agent_id",
+      "agent_name",
+      "api",
+      "app",
+      "assign_task",
+      "browser_fleet_runtime",
+      "capability",
+      "core",
+      "create_agent",
+      "create_task",
+      "eldora",
+      "eldora_browser_fleet",
+      "general",
+      "generate",
+      "objective",
+      "report",
+      "target_url",
+      "task_id"
+    ],
+    "technical_score": 82,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 6.64,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0CE88200>",
+    "domains": [
+      "general"
+    ],
+    "actions": [
+      "generate"
+    ],
+    "inputs": [
+      "agent_id",
+      "agent_name",
+      "capability",
+      "objective",
+      "target_url",
+      "task_id"
+    ],
+    "outputs": []
+  },
+  "app/api/eldora_business.py": {
+    "id": "035_eldora_business",
+    "path": "app/api/eldora_business.py",
+    "tokens": [
+      "035_eldora_business",
+      "agent_name",
+      "api",
+      "app",
+      "business_runtime",
+      "core",
+      "create_agent",
+      "create_pipeline_lead",
+      "eldora",
+      "eldora_business",
+      "event_type",
+      "general",
+      "generate",
+      "lead_id",
+      "name",
+      "register_revenue",
+      "report",
+      "source",
+      "specialization",
+      "value"
+    ],
+    "technical_score": 82,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 4.43,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0CEC0A40>",
+    "domains": [
+      "general"
+    ],
+    "actions": [
+      "generate"
+    ],
+    "inputs": [
+      "agent_name",
+      "event_type",
+      "lead_id",
+      "name",
+      "source",
+      "specialization",
+      "value"
+    ],
+    "outputs": []
+  },
+  "app/api/eldora_economic_market.py": {
+    "id": "037_eldora_economic_market",
+    "path": "app/api/eldora_economic_market.py",
+    "tokens": [
+      "037_eldora_economic_market",
+      "agent_id",
+      "api",
+      "app",
+      "assign_contract",
+      "budget",
+      "core",
+      "create_task",
+      "eldora",
+      "eldora_economic_market",
+      "estimated_cost",
+      "estimated_latency",
+      "generate",
+      "objective",
+      "priority",
+      "realtime_task_market",
+      "report",
+      "submit_bid",
+      "task_id",
+      "trader"
+    ],
+    "technical_score": 82,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 14.43,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0CE6F650>",
+    "domains": [
+      "trader"
+    ],
+    "actions": [
+      "generate"
+    ],
+    "inputs": [
+      "agent_id",
+      "budget",
+      "estimated_cost",
+      "estimated_latency",
+      "objective",
+      "priority",
+      "task_id"
+    ],
+    "outputs": []
+  },
+  "app/api/eldora_live_voice.py": {
+    "id": "040_eldora_live_voice",
+    "path": "app/api/eldora_live_voice.py",
+    "tokens": [
+      "040_eldora_live_voice",
+      "api",
+      "app",
+      "attention",
+      "core",
+      "create_session",
+      "eldora",
+      "eldora_live_voice",
+      "emotion",
+      "event",
+      "generate",
+      "language",
+      "live_voice_runtime",
+      "memory",
+      "payload",
+      "report",
+      "session_id",
+      "stream_event",
+      "update_presence",
+      "user_id"
+    ],
+    "technical_score": 82,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 11.91,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0CF67BC0>",
+    "domains": [
+      "memory"
+    ],
+    "actions": [
+      "generate"
+    ],
+    "inputs": [
+      "attention",
+      "emotion",
+      "event",
+      "language",
+      "payload",
+      "session_id",
+      "user_id"
+    ],
+    "outputs": []
+  },
+  "app/api/debug_whatsapp_runtime_trace.py": {
+    "id": "000_debug_whatsapp_runtime_trace",
+    "path": "app/api/debug_whatsapp_runtime_trace.py",
+    "tokens": [
+      "000_debug_whatsapp_runtime_trace",
+      "analyze",
+      "api",
+      "app",
+      "body",
+      "debug_whatsapp_runtime_trace",
+      "diagnostic",
+      "from",
+      "whatsapp",
+      "whatsapp_runtime_trace"
+    ],
+    "technical_score": 80,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 5722.73,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE096926F0>",
+    "domains": [
+      "diagnostic",
+      "whatsapp"
+    ],
+    "actions": [
+      "analyze"
+    ],
+    "inputs": [
+      "Body",
+      "From",
+      "To"
+    ],
+    "outputs": []
+  },
+  "app/runtime/semantic_whatsapp_runtime.py": {
+    "id": "032_semantic_whatsapp_runtime",
+    "path": "app/runtime/semantic_whatsapp_runtime.py",
+    "tokens": [
+      "032_semantic_whatsapp_runtime",
+      "_context",
+      "app",
+      "cognitive_style_composer",
+      "context_priority_engine",
+      "conversation_state_machine",
+      "dict",
+      "generate",
+      "governance",
+      "guard",
+      "humanized_answer_composer",
+      "memory",
+      "message",
+      "multi_provider_factual_provider",
+      "relational_conversation_engine",
+      "remember",
+      "route",
+      "route_semantic_whatsapp",
+      "routing",
+      "runtime",
+      "semantic_router",
+      "semantic_whatsapp_payload",
+      "semantic_whatsapp_runtime",
+      "sender_id",
+      "str",
+      "whatsapp",
+      "whatsapp_ux_output_guard"
+    ],
+    "technical_score": 80,
+    "execution_kind": "EXECUTABLE_CAPABILITY",
+    "elapsed_ms": 20524.65,
+    "best_output": "teste shadow",
+    "domains": [
+      "governance",
+      "memory",
+      "routing",
+      "whatsapp"
+    ],
+    "actions": [
+      "generate",
+      "guard",
+      "remember",
+      "route"
+    ],
+    "inputs": [
+      "message",
+      "sender_id"
+    ],
+    "outputs": [
+      "dict",
+      "str"
+    ]
+  },
+  "app/api/diagnostic_twilio.py": {
+    "id": "001_diagnostic_twilio",
+    "path": "app/api/diagnostic_twilio.py",
+    "tokens": [
+      "001_diagnostic_twilio",
+      "__identity_guard_last_hop",
+      "answer",
+      "api",
+      "app",
+      "diagnostic",
+      "diagnostic_twilio",
+      "diagnostic_twilio_inbound",
+      "generate",
+      "governance",
+      "guard",
+      "humanization",
+      "request",
+      "universal_recovery_runtime",
+      "user_message",
+      "whatsapp"
+    ],
+    "technical_score": 78,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 3.01,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE094D2750>",
+    "domains": [
+      "diagnostic",
+      "governance",
+      "whatsapp"
+    ],
+    "actions": [
+      "generate",
+      "guard"
+    ],
+    "inputs": [
+      "answer",
+      "request",
+      "user_message"
+    ],
+    "outputs": []
+  },
+  "app/api/eldora_persistent_cognition.py": {
+    "id": "003_eldora_persistent_cognition",
+    "path": "app/api/eldora_persistent_cognition.py",
+    "tokens": [
+      "003_eldora_persistent_cognition",
+      "api",
+      "app",
+      "category",
+      "content",
+      "core",
+      "eldora",
+      "eldora_persistent_cognition",
+      "marketing",
+      "persistent_cognitive_graph",
+      "priority",
+      "query",
+      "report",
+      "retrieve",
+      "store",
+      "tenant_id",
+      "top_k",
+      "user_ref"
+    ],
+    "technical_score": 76,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 30.35,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0975EAB0>",
+    "domains": [
+      "marketing"
+    ],
+    "actions": [
+      "retrieve"
+    ],
+    "inputs": [
+      "category",
+      "content",
+      "priority",
+      "query",
+      "tenant_id",
+      "top_k",
+      "user_ref"
+    ],
+    "outputs": []
+  },
+  "app/api/eldora_semantic.py": {
+    "id": "011_eldora_semantic",
+    "path": "app/api/eldora_semantic.py",
+    "tokens": [
+      "011_eldora_semantic",
+      "api",
+      "app",
+      "core",
+      "eldora",
+      "eldora_semantic",
+      "graph",
+      "memory",
+      "memory_retrieve",
+      "memory_store",
+      "node",
+      "query",
+      "remember",
+      "retrieve",
+      "semantic_memory_engine",
+      "text",
+      "top_k"
+    ],
+    "technical_score": 76,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 15.64,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B363830>",
+    "domains": [
+      "memory"
+    ],
+    "actions": [
+      "remember",
+      "retrieve"
+    ],
+    "inputs": [
+      "node",
+      "query",
+      "text",
+      "top_k"
+    ],
+    "outputs": []
+  },
+  "app/api/eldora_security.py": {
+    "id": "023_eldora_security",
+    "path": "app/api/eldora_security.py",
+    "tokens": [
+      "023_eldora_security",
+      "action",
+      "api",
+      "app",
+      "auth_context",
+      "core",
+      "eldora",
+      "eldora_security",
+      "governance",
+      "guard",
+      "memory",
+      "policy",
+      "policy_engine",
+      "remember",
+      "resource",
+      "role",
+      "tenant",
+      "tenant_engine",
+      "tenant_id",
+      "user_id"
+    ],
+    "technical_score": 74,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 15.61,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B427D70>",
+    "domains": [
+      "governance",
+      "memory"
+    ],
+    "actions": [
+      "guard",
+      "remember"
+    ],
+    "inputs": [
+      "action",
+      "resource",
+      "role",
+      "tenant_id",
+      "user_id"
+    ],
+    "outputs": []
+  },
+  "app/api/eldora_admin.py": {
+    "id": "006_eldora_admin",
+    "path": "app/api/eldora_admin.py",
+    "tokens": [
+      "006_eldora_admin",
+      "admin_guard",
+      "api",
+      "app",
+      "apply_pgvector_schema",
+      "apply_schema",
+      "core",
+      "eldora",
+      "eldora_admin",
+      "governance",
+      "guard",
+      "pgvector_schema_sql",
+      "retrieval",
+      "schema_sql"
+    ],
+    "technical_score": 68,
+    "execution_kind": "ROUTE_MODULE",
+    "elapsed_ms": 6.27,
+    "best_output": "<fastapi.routing.APIRouter object at 0x000001DE09BDDBE0>",
+    "domains": [
+      "governance",
+      "retrieval"
+    ],
+    "actions": [
+      "guard"
+    ],
+    "inputs": [
+      "_"
+    ],
+    "outputs": []
+  },
+  "app/p18_conversational_execution/failure_fixes.py": {
+    "id": "042_failure_fixes",
+    "path": "app/p18_conversational_execution/failure_fixes.py",
+    "tokens": [
+      "042_failure_fixes",
+      "any",
+      "app",
+      "context_guard",
+      "dict",
+      "failure_fixes",
+      "fix_real_whatsapp_failure",
+      "governance",
+      "guard",
+      "memory",
+      "p18_conversational_execution",
+      "previous_topic",
+      "remember",
+      "str",
+      "user_message",
+      "whatsapp"
+    ],
+    "technical_score": 65,
+    "execution_kind": "EXECUTABLE_CAPABILITY",
+    "elapsed_ms": 0.0,
+    "best_output": "{'contaminated': False, 'hits': [], 'active_topic': '', 'status': 'PASS'}",
+    "domains": [
+      "governance",
+      "memory",
+      "whatsapp"
+    ],
+    "actions": [
+      "guard",
+      "remember"
+    ],
+    "inputs": [
+      "previous_topic",
+      "user_message"
+    ],
+    "outputs": [
+      "Dict[str, Any]"
+    ]
+  },
+  "app/p18_conversational_execution/context_guard.py": {
+    "id": "029_context_guard",
+    "path": "app/p18_conversational_execution/context_guard.py",
+    "tokens": [
+      "029_context_guard",
+      "active_topic",
+      "answer",
+      "any",
+      "app",
+      "bad_context_terms",
+      "context_guard",
+      "detect_context_contamination",
+      "dict",
+      "generate",
+      "governance",
+      "guard",
+      "memory",
+      "message",
+      "p18_conversational_execution",
+      "remember",
+      "safe_topic_from_message",
+      "str",
+      "user_message",
+      "whatsapp"
+    ],
+    "technical_score": 62,
+    "execution_kind": "EXECUTABLE_CAPABILITY",
+    "elapsed_ms": 0.0,
+    "best_output": "{'contaminated': False, 'hits': [], 'active_topic': '', 'status': 'PASS'}",
+    "domains": [
+      "governance",
+      "memory",
+      "whatsapp"
+    ],
+    "actions": [
+      "generate",
+      "guard",
+      "remember"
+    ],
+    "inputs": [
+      "active_topic",
+      "answer",
+      "message",
+      "user_message"
+    ],
+    "outputs": [
+      "Dict[str, Any]",
+      "str"
+    ]
+  },
+  "app/p18_conversational_execution/response_executor.py": {
+    "id": "030_response_executor",
+    "path": "app/p18_conversational_execution/response_executor.py",
+    "tokens": [
+      "030_response_executor",
+      "any",
+      "app",
+      "aspects",
+      "context",
+      "dict",
+      "execute_conversational_response",
+      "forbidden_patterns",
+      "generate",
+      "intent_router",
+      "memory",
+      "message",
+      "p18_conversational_execution",
+      "remember",
+      "response_executor",
+      "route",
+      "routing",
+      "str",
+      "whatsapp"
+    ],
+    "technical_score": 62,
+    "execution_kind": "EXECUTABLE_CAPABILITY",
+    "elapsed_ms": 0.0,
+    "best_output": "{'intent': 'DIRECT_ANSWER', 'needs_short_reply': True}",
+    "domains": [
+      "memory",
+      "routing",
+      "whatsapp"
+    ],
+    "actions": [
+      "generate",
+      "remember",
+      "route"
+    ],
+    "inputs": [
+      "context",
+      "message"
+    ],
+    "outputs": [
+      "Dict[str, Any]"
+    ]
+  },
+  "app/runtime/cognitive_observatory/ai_only_review.py": {
+    "id": "014_ai_only_review",
+    "path": "app/runtime/cognitive_observatory/ai_only_review.py",
+    "tokens": [
+      "014_ai_only_review",
+      "ai_only_review",
+      "ai_only_review_conversation",
+      "app",
+      "assist",
+      "bruto",
+      "causa",
+      "cognitive_observatory",
+      "contracts",
+      "conversa",
+      "conversation_id_hash",
+      "conversation_text",
+      "conversationreview",
+      "humanos",
+      "ler",
+      "literal",
+      "métricas",
+      "não",
+      "permitida",
+      "pode",
+      "raiz",
+      "resumo",
+      "runtime",
+      "saída",
+      "sem",
+      "texto",
+      "trecho",
+      "técnico",
+      "user_mirror",
+      "veem",
+      "whatsapp"
+    ],
+    "technical_score": 59,
+    "execution_kind": "EXECUTABLE_CAPABILITY",
+    "elapsed_ms": 9.34,
+    "best_output": "ConversationReview(conversation_id_hash=1, domain='runtime_conversational', intent='quality_review', user_goal='melhorar conversa sem humano ler conversa bruta', goal_completion_score=0.86, continuity_score=0.88, naturalness_score=0.82, precision_score=0.84, empathy_score=0.8, mirror_alignment_score",
+    "domains": [
+      "whatsapp"
+    ],
+    "actions": [
+      "assist"
+    ],
+    "inputs": [
+      "conversation_id_hash",
+      "conversation_text"
+    ],
+    "outputs": [
+      "ConversationReview"
+    ]
+  },
+  "app/runtime/cognitive_observatory/user_mirror.py": {
+    "id": "031_user_mirror",
+    "path": "app/runtime/cognitive_observatory/user_mirror.py",
+    "tokens": [
+      "031_user_mirror",
+      "app",
+      "apply_user_mirror_to_instruction",
+      "assist",
+      "base_instruction",
+      "build_user_cognitive_mirror",
+      "cognitive_observatory",
+      "contracts",
+      "conversation_text",
+      "mirror",
+      "runtime",
+      "str",
+      "user_mirror",
+      "usercognitivemirror",
+      "whatsapp"
+    ],
+    "technical_score": 59,
+    "execution_kind": "EXECUTABLE_CAPABILITY",
+    "elapsed_ms": 6.53,
+    "best_output": "UserCognitiveMirror(tone='direct', detail_level='adaptive', decision_style='practical', vocabulary=[], priorities=[], recurring_goals=[], dislikes=[], reasoning_pattern='goal_first', confidence=0.0)",
+    "domains": [
+      "whatsapp"
+    ],
+    "actions": [
+      "assist"
+    ],
+    "inputs": [
+      "base_instruction",
+      "conversation_text",
+      "mirror"
+    ],
+    "outputs": [
+      "UserCognitiveMirror",
+      "str"
+    ]
+  },
+  "app/runtime/conversation_quality_guard.py": {
+    "id": "043_conversation_quality_guard",
+    "path": "app/runtime/conversation_quality_guard.py",
+    "tokens": [
+      "043_conversation_quality_guard",
+      "answer",
+      "app",
+      "conversation_quality_guard",
+      "final_conversation_guard",
+      "generate",
+      "governance",
+      "guard",
+      "intro_patterns",
+      "marketing",
+      "reset_stale_topic",
+      "runtime",
+      "social_hints",
+      "str",
+      "strip_repeated_intro",
+      "tech_terms",
+      "text",
+      "user_message",
+      "whatsapp"
+    ],
+    "technical_score": 59,
+    "execution_kind": "EXECUTABLE_CAPABILITY",
+    "elapsed_ms": 0.0,
+    "best_output": "teste shadow",
+    "domains": [
+      "governance",
+      "marketing",
+      "whatsapp"
+    ],
+    "actions": [
+      "generate",
+      "guard"
+    ],
+    "inputs": [
+      "answer",
+      "text",
+      "user_message"
+    ],
+    "outputs": [
+      "str"
+    ]
+  },
+  "app/runtime/context_priority_engine.py": {
+    "id": "005_context_priority_engine",
+    "path": "app/runtime/context_priority_engine.py",
+    "tokens": [
+      "005_context_priority_engine",
+      "app",
+      "context_priority_engine",
+      "context_priority_reply",
+      "generate",
+      "memory",
+      "message",
+      "remember",
+      "runtime",
+      "sender_id",
+      "str",
+      "whatsapp"
+    ],
+    "technical_score": 53,
+    "execution_kind": "STRUCTURAL_OR_EMPTY",
+    "elapsed_ms": 0.67,
+    "best_output": "",
+    "domains": [
+      "memory",
+      "whatsapp"
+    ],
+    "actions": [
+      "generate",
+      "remember"
+    ],
+    "inputs": [
+      "message",
+      "sender_id"
+    ],
+    "outputs": [
+      "str"
+    ]
+  },
+  "app/runtime/strategic_conversation_authority.py": {
+    "id": "044_strategic_conversation_authority",
+    "path": "app/runtime/strategic_conversation_authority.py",
+    "tokens": [
+      "044_strategic_conversation_authority",
+      "_state",
+      "app",
+      "assistant_reply",
+      "authority",
+      "compatibilidade",
+      "dos",
+      "generate",
+      "governance",
+      "mantém",
+      "memory",
+      "passive",
+      "remember",
+      "runtime",
+      "sem",
+      "sender_id",
+      "sequestrar",
+      "simulate",
+      "smalltalk",
+      "strategic",
+      "strategic_conversation_authority",
+      "testes",
+      "user_message",
+      "whatsapp"
+    ],
+    "technical_score": 53,
+    "execution_kind": "STRUCTURAL_OR_EMPTY",
+    "elapsed_ms": 0.0,
+    "best_output": null,
+    "domains": [
+      "governance",
+      "memory",
+      "whatsapp"
+    ],
+    "actions": [
+      "generate",
+      "remember",
+      "simulate"
+    ],
+    "inputs": [
+      "assistant_reply",
+      "sender_id",
+      "user_message"
+    ],
+    "outputs": []
+  },
+  "app/eldora/canonical_registry.py": {
+    "id": "025_canonical_registry",
+    "path": "app/eldora/canonical_registry.py",
+    "tokens": [
+      "025_canonical_registry",
+      "app",
+      "assist",
+      "canonical_functions",
+      "canonical_registry",
+      "eldora",
+      "general",
+      "status_final_adicional"
+    ],
+    "technical_score": 50,
+    "execution_kind": "FAILED",
+    "elapsed_ms": 0.0,
+    "best_output": null,
+    "domains": [
+      "general"
+    ],
+    "actions": [
+      "assist"
+    ],
+    "inputs": [],
+    "outputs": []
+  },
+  "app/companionship/cognitive_context_builder.py": {
+    "id": "041_cognitive_context_builder",
+    "path": "app/companionship/cognitive_context_builder.py",
+    "tokens": [
+      "041_cognitive_context_builder",
+      "_safe_layer",
+      "any",
+      "app",
+      "attach",
+      "attach_cognitive_context_shadow",
+      "attach_p19p50_humanized_meta_cognition_to_context",
+      "behavior_modeling",
+      "build_cognitive_context",
+      "canary",
+      "canonical",
+      "cognition",
+      "cognitive_context",
+      "cognitive_context_builder",
+      "cognitivecontext",
+      "companionship",
+      "ctx",
+      "default",
+      "dict",
+      "digital_twin",
+      "disabled",
+      "emotional_continuity",
+      "feature_flags",
+      "goal_tracking",
+      "humanized",
+      "humanized_meta_cognition",
+      "into",
+      "live_cognition",
+      "long_term_memory",
+      "memory",
+      "meta",
+      "name",
+      "only",
+      "p19p50",
+      "production",
+      "relationship_memory",
+      "remember",
+      "self_reflection",
+      "shadow",
+      "source_context",
+      "str",
+      "user_id",
+      "value"
+    ],
+    "technical_score": 0,
+    "execution_kind": "IMPORT_FAILED",
+    "elapsed_ms": 1.31,
+    "best_output": null,
+    "domains": [
+      "memory"
+    ],
+    "actions": [
+      "remember"
+    ],
+    "inputs": [
+      "behavior_modeling",
+      "ctx",
+      "digital_twin",
+      "emotional_continuity",
+      "feature_flags",
+      "goal_tracking",
+      "humanized_meta_cognition",
+      "live_cognition",
+      "long_term_memory",
+      "name",
+      "relationship_memory",
+      "self_reflection",
+      "source_context",
+      "user_id",
+      "value"
+    ],
+    "outputs": [
+      "Dict[str, Any]"
+    ]
+  }
+}

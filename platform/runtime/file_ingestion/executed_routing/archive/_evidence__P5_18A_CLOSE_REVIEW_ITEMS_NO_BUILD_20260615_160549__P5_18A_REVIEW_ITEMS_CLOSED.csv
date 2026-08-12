@@ -1,0 +1,5 @@
+"capability","runtime_exists","runtime_connectivity","previous_decision","final_review_decision","priority","action","build_allowed","integration_allowed","code_changed"
+"AGENTS","PARCIAL","DESCONECTADA_OU_NAO_COMPROVADA","REVISAR","RECONCILIAR","HIGH","MAPEAR_CONEXÃO_COM_RUNTIME_SEM_BUILD","False","False","False"
+"MULTI_AGENT","PARCIAL","DESCONECTADA_OU_NAO_COMPROVADA","REVISAR","RECONCILIAR","HIGH","MAPEAR_CONEXÃO_COM_RUNTIME_SEM_BUILD","False","False","False"
+"SIMULATION","PARCIAL","DESCONECTADA_OU_NAO_COMPROVADA","REVISAR","REFERÊNCIA","MEDIUM","MANTER_COMO_REFERÊNCIA_ATÉ_AUDITORIA_DE_CÓDIGO","False","False","False"
+"TOOL_SELECTION","NÃO","NÃO","INVESTIGAR","REFERÊNCIA","MEDIUM","MANTER_COMO_REFERÊNCIA_ATÉ_AUDITORIA_DE_CÓDIGO","False","False","False"

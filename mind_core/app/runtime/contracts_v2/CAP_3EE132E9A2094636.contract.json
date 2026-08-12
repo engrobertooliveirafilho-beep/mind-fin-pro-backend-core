@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_3EE132E9A2094636",
+  "source_file": ".venv\\Lib\\site-packages\\pydantic\\v1\\error_wrappers.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\pydantic\\v1\\error_wrappers.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 99,
+  "imports": [
+    "json",
+    "pydantic.v1.config",
+    "pydantic.v1.json",
+    "pydantic.v1.types",
+    "pydantic.v1.typing",
+    "pydantic.v1.utils",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

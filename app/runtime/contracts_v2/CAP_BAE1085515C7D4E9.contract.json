@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_BAE1085515C7D4E9",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\beta\\chatkit\\session_create_params.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\openai\\types\\beta\\chatkit\\session_create_params.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 95,
+  "imports": [
+    "__future__",
+    "chat_session_chatkit_configuration_param",
+    "chat_session_expires_after_param",
+    "chat_session_rate_limits_param",
+    "chat_session_workflow_param",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

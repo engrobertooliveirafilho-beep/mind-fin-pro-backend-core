@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_576046FAC5E72B77",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\core\\array_algos\\masked_reductions.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\pandas\\core\\array_algos\\masked_reductions.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 99,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "numpy",
+    "pandas._libs",
+    "pandas._typing",
+    "pandas.core.nanops",
+    "typing",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

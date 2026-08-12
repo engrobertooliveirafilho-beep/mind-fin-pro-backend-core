@@ -1,0 +1,242 @@
+[
+  {
+    "asset": "WINFUT",
+    "timeframe": "M5",
+    "required_name": "WINFUT_M5_normalized.csv"
+  },
+  {
+    "asset": "WINFUT",
+    "timeframe": "M15",
+    "required_name": "WINFUT_M15_normalized.csv"
+  },
+  {
+    "asset": "WINFUT",
+    "timeframe": "M30",
+    "required_name": "WINFUT_M30_normalized.csv"
+  },
+  {
+    "asset": "WINFUT",
+    "timeframe": "H1",
+    "required_name": "WINFUT_H1_normalized.csv"
+  },
+  {
+    "asset": "WINFUT",
+    "timeframe": "H4",
+    "required_name": "WINFUT_H4_normalized.csv"
+  },
+  {
+    "asset": "WINFUT",
+    "timeframe": "D1",
+    "required_name": "WINFUT_D1_normalized.csv"
+  },
+  {
+    "asset": "WDOFUT",
+    "timeframe": "M5",
+    "required_name": "WDOFUT_M5_normalized.csv"
+  },
+  {
+    "asset": "WDOFUT",
+    "timeframe": "M15",
+    "required_name": "WDOFUT_M15_normalized.csv"
+  },
+  {
+    "asset": "WDOFUT",
+    "timeframe": "M30",
+    "required_name": "WDOFUT_M30_normalized.csv"
+  },
+  {
+    "asset": "WDOFUT",
+    "timeframe": "H1",
+    "required_name": "WDOFUT_H1_normalized.csv"
+  },
+  {
+    "asset": "WDOFUT",
+    "timeframe": "H4",
+    "required_name": "WDOFUT_H4_normalized.csv"
+  },
+  {
+    "asset": "WDOFUT",
+    "timeframe": "D1",
+    "required_name": "WDOFUT_D1_normalized.csv"
+  },
+  {
+    "asset": "IBOV",
+    "timeframe": "M5",
+    "required_name": "IBOV_M5_normalized.csv"
+  },
+  {
+    "asset": "IBOV",
+    "timeframe": "M15",
+    "required_name": "IBOV_M15_normalized.csv"
+  },
+  {
+    "asset": "IBOV",
+    "timeframe": "M30",
+    "required_name": "IBOV_M30_normalized.csv"
+  },
+  {
+    "asset": "IBOV",
+    "timeframe": "H1",
+    "required_name": "IBOV_H1_normalized.csv"
+  },
+  {
+    "asset": "IBOV",
+    "timeframe": "H4",
+    "required_name": "IBOV_H4_normalized.csv"
+  },
+  {
+    "asset": "IBOV",
+    "timeframe": "D1",
+    "required_name": "IBOV_D1_normalized.csv"
+  },
+  {
+    "asset": "PETR4",
+    "timeframe": "M5",
+    "required_name": "PETR4_M5_normalized.csv"
+  },
+  {
+    "asset": "PETR4",
+    "timeframe": "M15",
+    "required_name": "PETR4_M15_normalized.csv"
+  },
+  {
+    "asset": "PETR4",
+    "timeframe": "M30",
+    "required_name": "PETR4_M30_normalized.csv"
+  },
+  {
+    "asset": "PETR4",
+    "timeframe": "H1",
+    "required_name": "PETR4_H1_normalized.csv"
+  },
+  {
+    "asset": "PETR4",
+    "timeframe": "H4",
+    "required_name": "PETR4_H4_normalized.csv"
+  },
+  {
+    "asset": "PETR4",
+    "timeframe": "D1",
+    "required_name": "PETR4_D1_normalized.csv"
+  },
+  {
+    "asset": "VALE3",
+    "timeframe": "M5",
+    "required_name": "VALE3_M5_normalized.csv"
+  },
+  {
+    "asset": "VALE3",
+    "timeframe": "M15",
+    "required_name": "VALE3_M15_normalized.csv"
+  },
+  {
+    "asset": "VALE3",
+    "timeframe": "M30",
+    "required_name": "VALE3_M30_normalized.csv"
+  },
+  {
+    "asset": "VALE3",
+    "timeframe": "H1",
+    "required_name": "VALE3_H1_normalized.csv"
+  },
+  {
+    "asset": "VALE3",
+    "timeframe": "H4",
+    "required_name": "VALE3_H4_normalized.csv"
+  },
+  {
+    "asset": "VALE3",
+    "timeframe": "D1",
+    "required_name": "VALE3_D1_normalized.csv"
+  },
+  {
+    "asset": "IFIX",
+    "timeframe": "M5",
+    "required_name": "IFIX_M5_normalized.csv"
+  },
+  {
+    "asset": "IFIX",
+    "timeframe": "M15",
+    "required_name": "IFIX_M15_normalized.csv"
+  },
+  {
+    "asset": "IFIX",
+    "timeframe": "M30",
+    "required_name": "IFIX_M30_normalized.csv"
+  },
+  {
+    "asset": "IFIX",
+    "timeframe": "H1",
+    "required_name": "IFIX_H1_normalized.csv"
+  },
+  {
+    "asset": "IFIX",
+    "timeframe": "H4",
+    "required_name": "IFIX_H4_normalized.csv"
+  },
+  {
+    "asset": "IFIX",
+    "timeframe": "D1",
+    "required_name": "IFIX_D1_normalized.csv"
+  },
+  {
+    "asset": "CSAN3",
+    "timeframe": "M5",
+    "required_name": "CSAN3_M5_normalized.csv"
+  },
+  {
+    "asset": "CSAN3",
+    "timeframe": "M15",
+    "required_name": "CSAN3_M15_normalized.csv"
+  },
+  {
+    "asset": "CSAN3",
+    "timeframe": "M30",
+    "required_name": "CSAN3_M30_normalized.csv"
+  },
+  {
+    "asset": "CSAN3",
+    "timeframe": "H1",
+    "required_name": "CSAN3_H1_normalized.csv"
+  },
+  {
+    "asset": "CSAN3",
+    "timeframe": "H4",
+    "required_name": "CSAN3_H4_normalized.csv"
+  },
+  {
+    "asset": "CSAN3",
+    "timeframe": "D1",
+    "required_name": "CSAN3_D1_normalized.csv"
+  },
+  {
+    "asset": "BTC",
+    "timeframe": "M5",
+    "required_name": "BTC_M5_normalized.csv"
+  },
+  {
+    "asset": "BTC",
+    "timeframe": "M15",
+    "required_name": "BTC_M15_normalized.csv"
+  },
+  {
+    "asset": "BTC",
+    "timeframe": "M30",
+    "required_name": "BTC_M30_normalized.csv"
+  },
+  {
+    "asset": "BTC",
+    "timeframe": "H1",
+    "required_name": "BTC_H1_normalized.csv"
+  },
+  {
+    "asset": "BTC",
+    "timeframe": "H4",
+    "required_name": "BTC_H4_normalized.csv"
+  },
+  {
+    "asset": "BTC",
+    "timeframe": "D1",
+    "required_name": "BTC_D1_normalized.csv"
+  }
+]

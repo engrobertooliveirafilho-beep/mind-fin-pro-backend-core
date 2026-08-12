@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_C5BBFDA89D37437F",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_vendor\\platformdirs\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\pip\\_vendor\\platformdirs\\__init__.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 111,
+  "imports": [
+    "__future__",
+    "api",
+    "os",
+    "pathlib",
+    "pip._vendor.platformdirs.android",
+    "pip._vendor.platformdirs.macos",
+    "pip._vendor.platformdirs.unix",
+    "pip._vendor.platformdirs.windows",
+    "sys",
+    "typing",
+    "version"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

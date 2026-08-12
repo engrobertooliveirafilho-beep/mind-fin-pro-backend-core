@@ -1,0 +1,7346 @@
+[
+  {
+    "job_id": "fa46ef47ab537d755d",
+    "symbol": "WIN",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.442393+00:00"
+  },
+  {
+    "job_id": "5e1b8e70d785c63b81",
+    "symbol": "WIN",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "456faddb58ab056073",
+    "symbol": "WIN",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "6cd3d3c0cdafe83087",
+    "symbol": "WIN",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "3f99e94400990ab4ab",
+    "symbol": "WIN",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "95fd8e090ff5234dde",
+    "symbol": "WIN",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "f7b2a119d821aec6da",
+    "symbol": "WIN",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "d7dc9c43b9794373fd",
+    "symbol": "WIN",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "ca42873b4ba0b41464",
+    "symbol": "WIN",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "230e189b27de258001",
+    "symbol": "WIN",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "3f3029cc44d08fd90f",
+    "symbol": "WIN",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "fd0a331af2eda512fd",
+    "symbol": "WIN",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "b7a278c55b5f7fea1e",
+    "symbol": "WIN",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "e3aa6a214ea1cb4269",
+    "symbol": "WIN",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "9209d091bc8d33f811",
+    "symbol": "WIN",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "3f0b394f1e373b7a02",
+    "symbol": "WIN",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "652d479b36a00246bc",
+    "symbol": "WIN",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "b60baad4410fb226ba",
+    "symbol": "WIN",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "34d2643d97a7167faf",
+    "symbol": "WIN",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "bc1acc9c3ab5c68a25",
+    "symbol": "WIN",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "fac72cac5b4993baaf",
+    "symbol": "WIN",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "d795a35cce5fd48624",
+    "symbol": "WIN",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "3a88367b99535facda",
+    "symbol": "WIN",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "1c3170280775cf4bc5",
+    "symbol": "WIN",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "a697350ace6853ea14",
+    "symbol": "WDO",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "358eea29570a9025f7",
+    "symbol": "WDO",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "6cfc5e3d49238ebdec",
+    "symbol": "WDO",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "1175cdc2ec238186fa",
+    "symbol": "WDO",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "ac8eb35b5cc555a2a5",
+    "symbol": "WDO",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "db6435899cb680c111",
+    "symbol": "WDO",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "5eef6e9c6ea555f4ed",
+    "symbol": "WDO",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "aa5f6f2ea4722de01d",
+    "symbol": "WDO",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "5c5ca6e7101f7820c0",
+    "symbol": "WDO",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "e7e106f64ab2af9cd5",
+    "symbol": "WDO",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "23482997304a2dc642",
+    "symbol": "WDO",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "31b51037802fd4cc33",
+    "symbol": "WDO",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "58d88367815304cd4f",
+    "symbol": "WDO",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "7691f8c04dfe305449",
+    "symbol": "WDO",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "ecb72daae033b326e1",
+    "symbol": "WDO",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "46969b09b27b1ca6b1",
+    "symbol": "WDO",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "33c0b7c51a2c9953ea",
+    "symbol": "WDO",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "c917bb2dcad75bd2d4",
+    "symbol": "WDO",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "b99044ed57f5e3f985",
+    "symbol": "WDO",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "3af519340eb3774794",
+    "symbol": "WDO",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "c5e7dd9aa049639ae8",
+    "symbol": "WDO",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "fc44909172f626f7d7",
+    "symbol": "WDO",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "1ed8cfe389b95378dc",
+    "symbol": "WDO",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "b8019cdcd256a35b39",
+    "symbol": "WDO",
+    "asset_class": "futures",
+    "country": "BR",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "c81c06df2ad14c1b46",
+    "symbol": "PETR4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "bb6d1f24c0a33b6db6",
+    "symbol": "PETR4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "604f2163d3b1213ece",
+    "symbol": "PETR4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "543b6bc4c465dfbdb2",
+    "symbol": "PETR4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "dd37931d6ae620e275",
+    "symbol": "PETR4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "2c47f8fbf904ed62fa",
+    "symbol": "PETR4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "492d7174bcbfc915b4",
+    "symbol": "PETR4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "9364ae0e64ae90ea60",
+    "symbol": "PETR4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "9fe937e099532cbc7c",
+    "symbol": "PETR4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "e0a0e7bc5048591afc",
+    "symbol": "PETR4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "78f70eca566668033a",
+    "symbol": "PETR4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "e1f98cc29ee72e8788",
+    "symbol": "PETR4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "13289029dc9e6ed509",
+    "symbol": "PETR4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "84380dd4376858481b",
+    "symbol": "PETR4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "6be2b7030c7fd2e3b2",
+    "symbol": "PETR4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "b69c44b9b68d9621d0",
+    "symbol": "PETR4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "ec0ba18469fac6490c",
+    "symbol": "PETR4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "9cd44020ffe1f037bf",
+    "symbol": "PETR4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "7ae896a4b0567290ad",
+    "symbol": "PETR4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "1b0c82ae8b5f96cf89",
+    "symbol": "PETR4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "253ff25fdd09b2d0ec",
+    "symbol": "PETR4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.443391+00:00"
+  },
+  {
+    "job_id": "88d01435d5a23ea0ed",
+    "symbol": "PETR4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "19205c854fe0405ec7",
+    "symbol": "PETR4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "8bb98716fad832616b",
+    "symbol": "PETR4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "766dea3029bb7d91ee",
+    "symbol": "VALE3",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "c1c252486197e3df16",
+    "symbol": "VALE3",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "85122f58bdf4a976f8",
+    "symbol": "VALE3",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "6b98d74cdc8c4f6751",
+    "symbol": "VALE3",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "a81fbed3ba32215238",
+    "symbol": "VALE3",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "87fd8a89b140d34c4c",
+    "symbol": "VALE3",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "1f8b6013d3ad25ca03",
+    "symbol": "VALE3",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "e688fb44eb7a0b1e3a",
+    "symbol": "VALE3",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "e802a59ab7e32037a2",
+    "symbol": "VALE3",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "cb2de890b409943017",
+    "symbol": "VALE3",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "2ce876f95128721425",
+    "symbol": "VALE3",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "a7c956be9e75300ba1",
+    "symbol": "VALE3",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "f263f2d7111146af58",
+    "symbol": "VALE3",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "180b9ce2b6ca5bfccb",
+    "symbol": "VALE3",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "ab30c03eea18362948",
+    "symbol": "VALE3",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "94febeeead664e2106",
+    "symbol": "VALE3",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "9df405be48c36f6ad1",
+    "symbol": "VALE3",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "c839b21ef9a73d9081",
+    "symbol": "VALE3",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "67785d1626b28e3f1c",
+    "symbol": "VALE3",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "55c758ae7640004a49",
+    "symbol": "VALE3",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "f743e936ea1474ce54",
+    "symbol": "VALE3",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "81ce510e3057fecb8a",
+    "symbol": "VALE3",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "be900a7eebf2480cfa",
+    "symbol": "VALE3",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "02da62565caf3f1ebd",
+    "symbol": "VALE3",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "fc4bb853d24d8e23f6",
+    "symbol": "ITUB4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "d26aeb529f82e5d249",
+    "symbol": "ITUB4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "3e5f012797835eb172",
+    "symbol": "ITUB4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "4f6843c95b72cbd817",
+    "symbol": "ITUB4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "38cfa161bc2f7416b7",
+    "symbol": "ITUB4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "22fc9285ebfb33b65a",
+    "symbol": "ITUB4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "b9b9999bb1f16aa20e",
+    "symbol": "ITUB4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "08de088a9ded4adae8",
+    "symbol": "ITUB4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "005e48bff397148e88",
+    "symbol": "ITUB4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "11db11f87a2abaf896",
+    "symbol": "ITUB4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "e5c7c10055835df825",
+    "symbol": "ITUB4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "2281cd1a2a3941f8bd",
+    "symbol": "ITUB4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "0a87ce979420e84a6c",
+    "symbol": "ITUB4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "b24fd80d5b05674f06",
+    "symbol": "ITUB4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "5ec34329702ca6dc84",
+    "symbol": "ITUB4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "35fc5e750d9c86a764",
+    "symbol": "ITUB4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "36ff440b01758c5dda",
+    "symbol": "ITUB4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "0f121603e797f51400",
+    "symbol": "ITUB4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "06eca3264a340bdeeb",
+    "symbol": "ITUB4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "ccd902cd1d5fe6c65c",
+    "symbol": "ITUB4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "28beedce05c196290d",
+    "symbol": "ITUB4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "8c7c76cca14b11b03f",
+    "symbol": "ITUB4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "eb65955c2839172e65",
+    "symbol": "ITUB4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "125d121164a899aaca",
+    "symbol": "ITUB4",
+    "asset_class": "stock",
+    "country": "BR",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "b38078eddf8d48d490",
+    "symbol": "AAPL",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "e15875b9c940036b60",
+    "symbol": "AAPL",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "f0a51e7332f4c79815",
+    "symbol": "AAPL",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "f2352e5c6fba82ffd8",
+    "symbol": "AAPL",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "fca9e4e82efd5fb765",
+    "symbol": "AAPL",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "5dd2c474718fb8d93a",
+    "symbol": "AAPL",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "4c84e6c6968bd5270f",
+    "symbol": "AAPL",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "fb1867e5a7746bee84",
+    "symbol": "AAPL",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "9c05ed24b258028cdd",
+    "symbol": "AAPL",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "0ea289840a4b461105",
+    "symbol": "AAPL",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "4dba55c7d39fdaeb00",
+    "symbol": "AAPL",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "e4731986441dfb71f6",
+    "symbol": "AAPL",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "59da2047cd6dfd52ea",
+    "symbol": "AAPL",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "ab1a5f64588a47b6d3",
+    "symbol": "AAPL",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "31e883da76583a8c2b",
+    "symbol": "AAPL",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "ffd34453af94654b18",
+    "symbol": "AAPL",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "41bd1881b753e27fae",
+    "symbol": "AAPL",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "51d50d71a51fb11124",
+    "symbol": "AAPL",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.444388+00:00"
+  },
+  {
+    "job_id": "87281e34374e1338c8",
+    "symbol": "AAPL",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "1b6fe7858972ce4ba7",
+    "symbol": "AAPL",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "ab8bf25487ff012daa",
+    "symbol": "AAPL",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "faf6c8ef0ff4f9e594",
+    "symbol": "AAPL",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "86917812f6e160aaf3",
+    "symbol": "AAPL",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "bef3c8855ed49418b6",
+    "symbol": "AAPL",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "47be3d381d5a361010",
+    "symbol": "MSFT",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "90aba1c68104b25fa2",
+    "symbol": "MSFT",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "14516d573a405086ac",
+    "symbol": "MSFT",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "4b5a73bb86f0c7d8e2",
+    "symbol": "MSFT",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "372038b16316933604",
+    "symbol": "MSFT",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "4fdcf7f38e6a8d8bdd",
+    "symbol": "MSFT",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "07508a326f28579cd3",
+    "symbol": "MSFT",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "a4b12b811094b46c31",
+    "symbol": "MSFT",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "10a96e5be4e34117ba",
+    "symbol": "MSFT",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "5edeacb75a39ab8c47",
+    "symbol": "MSFT",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "700352edacbfce7732",
+    "symbol": "MSFT",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "167382dfa297ca654d",
+    "symbol": "MSFT",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "5137d90e32f126a3e6",
+    "symbol": "MSFT",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "7584fb13706bce6995",
+    "symbol": "MSFT",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "f2b7ab1d7cd290a50f",
+    "symbol": "MSFT",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "33239f08a17b07ba8b",
+    "symbol": "MSFT",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "eee59c2e330df927cd",
+    "symbol": "MSFT",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "2ff8185a5739edfadf",
+    "symbol": "MSFT",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "ae11fb24a637d00786",
+    "symbol": "MSFT",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "7ccc6ddb411456f66f",
+    "symbol": "MSFT",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "6e8527eebae7933cc7",
+    "symbol": "MSFT",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "1f480a367c15ed84ef",
+    "symbol": "MSFT",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "f25481711ee8934512",
+    "symbol": "MSFT",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "38bbbd3b7ec3500780",
+    "symbol": "MSFT",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "1f43c6bec28fe1932d",
+    "symbol": "NVDA",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "d7b19e0a7db3a3a80c",
+    "symbol": "NVDA",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "f92fdb30ee9d5d2ed3",
+    "symbol": "NVDA",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "6c6063ed199330232a",
+    "symbol": "NVDA",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "2d90aaa5ab4147a30e",
+    "symbol": "NVDA",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "66b569ebce32523c80",
+    "symbol": "NVDA",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "bcf8ec2bc46f7ad7f3",
+    "symbol": "NVDA",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "fd751d54149a819a20",
+    "symbol": "NVDA",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "4701d8ea761fce37d4",
+    "symbol": "NVDA",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "00290af0bc8bb883c3",
+    "symbol": "NVDA",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "fe9682af34384f8c96",
+    "symbol": "NVDA",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "902bf2ca06f7afe69d",
+    "symbol": "NVDA",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "185d7010b58ebf16b0",
+    "symbol": "NVDA",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "42245057c46eb13092",
+    "symbol": "NVDA",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "a56d0a9e7ce6fd114f",
+    "symbol": "NVDA",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "6cc113fcb7e490e7ed",
+    "symbol": "NVDA",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "2470c7b20a56e40878",
+    "symbol": "NVDA",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "f515bc84bab277684b",
+    "symbol": "NVDA",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "02ba6437e164b46ea5",
+    "symbol": "NVDA",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "22989efa151971a75f",
+    "symbol": "NVDA",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "84af9958aed054209f",
+    "symbol": "NVDA",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "8d60e4fc8a8baf7032",
+    "symbol": "NVDA",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "acace362cea2621ad1",
+    "symbol": "NVDA",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "0a383fc14abb57e251",
+    "symbol": "NVDA",
+    "asset_class": "stock",
+    "country": "US",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "c7565c320152b9b23e",
+    "symbol": "SPY",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "34a3fc2e9d3a241631",
+    "symbol": "SPY",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "3d189a8db384877405",
+    "symbol": "SPY",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "c817b9b8016d2df966",
+    "symbol": "SPY",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "2fd5926be1697faf78",
+    "symbol": "SPY",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "749596affa8f469529",
+    "symbol": "SPY",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "d785b60445cb7a51f6",
+    "symbol": "SPY",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "2ec9d4439e6c34019d",
+    "symbol": "SPY",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "b3021e63ed9de736fd",
+    "symbol": "SPY",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "8d6ac106ba3d6854dd",
+    "symbol": "SPY",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "896224e9bf685c92a4",
+    "symbol": "SPY",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "625b45f029c79c97f6",
+    "symbol": "SPY",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "5ec6f3a085aa40e477",
+    "symbol": "SPY",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "6ea426af983f387694",
+    "symbol": "SPY",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "ebe62deb52ec4d5af7",
+    "symbol": "SPY",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "906b6844bf0d57989e",
+    "symbol": "SPY",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.445390+00:00"
+  },
+  {
+    "job_id": "4f4856fe61d5df161e",
+    "symbol": "SPY",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "4be3ec00bcee38cc97",
+    "symbol": "SPY",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "c0a16d4544fffa8c67",
+    "symbol": "SPY",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "df8b0641595357e884",
+    "symbol": "SPY",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "154d436cd6e54303a0",
+    "symbol": "SPY",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "99918f1794965e1e2b",
+    "symbol": "SPY",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "62e12b3e1e20dc7ae4",
+    "symbol": "SPY",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "c8f88514f6b8ccf628",
+    "symbol": "SPY",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "8002d08d9981a9738f",
+    "symbol": "QQQ",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "5931cb868d4f6e9e72",
+    "symbol": "QQQ",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "4aa2e714fa28273e03",
+    "symbol": "QQQ",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "bcf691b2977b37383c",
+    "symbol": "QQQ",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "479250fd9a69738320",
+    "symbol": "QQQ",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "30f48cb919a983c8c4",
+    "symbol": "QQQ",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "1547e4951bd16e2822",
+    "symbol": "QQQ",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "5534c3563b92df64ad",
+    "symbol": "QQQ",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "456ce208d0640b973b",
+    "symbol": "QQQ",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "e39bb321f2a66ca8ab",
+    "symbol": "QQQ",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "fc6dfdac2726906eee",
+    "symbol": "QQQ",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "959fa3a128fa72f17b",
+    "symbol": "QQQ",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "508811ab385569fed4",
+    "symbol": "QQQ",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "488f36c75ac395f241",
+    "symbol": "QQQ",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "273f2273f332e0e4e6",
+    "symbol": "QQQ",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "b7b7fa79f282413172",
+    "symbol": "QQQ",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "2df4f9ba378473b70c",
+    "symbol": "QQQ",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "9ac98ec9dc6ce70c77",
+    "symbol": "QQQ",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "0e710d1614cf9d1f15",
+    "symbol": "QQQ",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "c9f809057a4c72705a",
+    "symbol": "QQQ",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "11820a697bf1ce05e5",
+    "symbol": "QQQ",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "02f37806068df98f28",
+    "symbol": "QQQ",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "abd9e198a95f83953f",
+    "symbol": "QQQ",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "7d2f5920b0d1c30511",
+    "symbol": "QQQ",
+    "asset_class": "etf",
+    "country": "US",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "852a67dce7e64a96f8",
+    "symbol": "EURUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "2cc87b5cfcf05eb522",
+    "symbol": "EURUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "c8dcb1adacfcc283c6",
+    "symbol": "EURUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "2ded81942057ddd94e",
+    "symbol": "EURUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "600c7930042042d640",
+    "symbol": "EURUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "5883a9f9ced64a1de5",
+    "symbol": "EURUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "436b3627a58b65bbc6",
+    "symbol": "EURUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "ad93e0a3c25c77d2c5",
+    "symbol": "EURUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "ee86d9eb6d61f0172f",
+    "symbol": "EURUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "1cb7641908ff6b3fda",
+    "symbol": "EURUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "da132a859f615a0520",
+    "symbol": "EURUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "e0e193123b9942157b",
+    "symbol": "EURUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "5a69cbee4798fa19e9",
+    "symbol": "EURUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "9ff5797bddbce9ef26",
+    "symbol": "EURUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "fa24cb0a2996c9b8d4",
+    "symbol": "EURUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "ac4d3d0be2fa635bb7",
+    "symbol": "EURUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "868ee9f51e79025a6c",
+    "symbol": "EURUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "4c1353e61c2452059a",
+    "symbol": "EURUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "484a03dcea012b96ed",
+    "symbol": "EURUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "5a58348273ad9344f0",
+    "symbol": "EURUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "b84d2b371ad44c77b5",
+    "symbol": "EURUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "e7c04af9e42237c3c2",
+    "symbol": "EURUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "5cc77ed6accdebc2a8",
+    "symbol": "EURUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "f993e09874810d77da",
+    "symbol": "EURUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "7a452acc95b38a7f12",
+    "symbol": "GBPUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "06abbaab7e6fcbe630",
+    "symbol": "GBPUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "629732cc581779ab0c",
+    "symbol": "GBPUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "51950ca8914e730f21",
+    "symbol": "GBPUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "9aa6a49ce00b4233a7",
+    "symbol": "GBPUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "4c08accabb8b99752b",
+    "symbol": "GBPUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "f9f3e9b0e4d1d49589",
+    "symbol": "GBPUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "92c224473c3d82d0dd",
+    "symbol": "GBPUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "791533644a39e0eda3",
+    "symbol": "GBPUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "a7633a58f9d0333d85",
+    "symbol": "GBPUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "bbc2db032cdde373dc",
+    "symbol": "GBPUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "4cbcb5c15be3bab668",
+    "symbol": "GBPUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.446387+00:00"
+  },
+  {
+    "job_id": "bf5b8e824c5ac8b9b8",
+    "symbol": "GBPUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "3580c9d7582ca522d7",
+    "symbol": "GBPUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "7a0d326c54f8a5a6f6",
+    "symbol": "GBPUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "ae025b70481f5b3df5",
+    "symbol": "GBPUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "c3a36299aff85ea313",
+    "symbol": "GBPUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "74b0e5e8e317bf867b",
+    "symbol": "GBPUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "ed908ad949a38881ef",
+    "symbol": "GBPUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "453370c7791656758c",
+    "symbol": "GBPUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "ed885c2aa8f2ef3ef4",
+    "symbol": "GBPUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "bbf64e122294542905",
+    "symbol": "GBPUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "788a26a4ce157a3407",
+    "symbol": "GBPUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "757d79cdaf9689c9a2",
+    "symbol": "GBPUSD",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "2c17da77f1aea0f3fb",
+    "symbol": "USDJPY",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "2e7b78fe5605d34e16",
+    "symbol": "USDJPY",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "756f555ce4fcd0dc8a",
+    "symbol": "USDJPY",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "1f5d189a7546bbd819",
+    "symbol": "USDJPY",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "7f6aca7fb28e163a3f",
+    "symbol": "USDJPY",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "dd857796f87da697a1",
+    "symbol": "USDJPY",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "cd1c6700bd791295bb",
+    "symbol": "USDJPY",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "3bbcc9241409325fc7",
+    "symbol": "USDJPY",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "a0fe1f22b4f8ffe821",
+    "symbol": "USDJPY",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "96961398c4c960859b",
+    "symbol": "USDJPY",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "79834783a8109dedfa",
+    "symbol": "USDJPY",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "63ccdc99e5bd60562c",
+    "symbol": "USDJPY",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "1f09a1788c831e3b92",
+    "symbol": "USDJPY",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "262a96e61dbe5c0fa9",
+    "symbol": "USDJPY",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "8d347ce8154bbf0d10",
+    "symbol": "USDJPY",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "56dc96353055609280",
+    "symbol": "USDJPY",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "7db8fce526b4fc0c4e",
+    "symbol": "USDJPY",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "701f6965f9c52f1649",
+    "symbol": "USDJPY",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "9841a60fd0986a8fbc",
+    "symbol": "USDJPY",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "8fe984dcd01b300544",
+    "symbol": "USDJPY",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "fc71020b74446d763e",
+    "symbol": "USDJPY",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "702dcc33c571bb5bce",
+    "symbol": "USDJPY",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "b7137412692196ca8a",
+    "symbol": "USDJPY",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "a42a152ed7ea5c8faa",
+    "symbol": "USDJPY",
+    "asset_class": "forex",
+    "country": "GLOBAL",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "251de84bc9edbc05a5",
+    "symbol": "XAUUSD",
+    "asset_class": "commodity",
+    "country": "GLOBAL",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "cfd3dffc19fb5a3f6f",
+    "symbol": "XAUUSD",
+    "asset_class": "commodity",
+    "country": "GLOBAL",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "dde1fb6af19c69de0e",
+    "symbol": "XAUUSD",
+    "asset_class": "commodity",
+    "country": "GLOBAL",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "3c35b865176647dd61",
+    "symbol": "XAUUSD",
+    "asset_class": "commodity",
+    "country": "GLOBAL",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "83234eba663620f637",
+    "symbol": "XAUUSD",
+    "asset_class": "commodity",
+    "country": "GLOBAL",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "521563851fb9f04be6",
+    "symbol": "XAUUSD",
+    "asset_class": "commodity",
+    "country": "GLOBAL",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "5933bfe83909b4fc30",
+    "symbol": "XAUUSD",
+    "asset_class": "commodity",
+    "country": "GLOBAL",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "77ae42725c619de56d",
+    "symbol": "XAUUSD",
+    "asset_class": "commodity",
+    "country": "GLOBAL",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "144eadf9dbd80909d9",
+    "symbol": "XAUUSD",
+    "asset_class": "commodity",
+    "country": "GLOBAL",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "bf9c318ff840b8f521",
+    "symbol": "XAUUSD",
+    "asset_class": "commodity",
+    "country": "GLOBAL",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "f36d09dbf07be775ec",
+    "symbol": "XAUUSD",
+    "asset_class": "commodity",
+    "country": "GLOBAL",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "ba23ef69a07fc2b87f",
+    "symbol": "XAUUSD",
+    "asset_class": "commodity",
+    "country": "GLOBAL",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "8d09439f35b53a9a4d",
+    "symbol": "XAUUSD",
+    "asset_class": "commodity",
+    "country": "GLOBAL",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "1b6d2edb0b721f260d",
+    "symbol": "XAUUSD",
+    "asset_class": "commodity",
+    "country": "GLOBAL",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "159581dabf92e8a619",
+    "symbol": "XAUUSD",
+    "asset_class": "commodity",
+    "country": "GLOBAL",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "782a115671b99b9140",
+    "symbol": "XAUUSD",
+    "asset_class": "commodity",
+    "country": "GLOBAL",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "b3d0a35e0840d32b35",
+    "symbol": "XAUUSD",
+    "asset_class": "commodity",
+    "country": "GLOBAL",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "082925ce6024c521a7",
+    "symbol": "XAUUSD",
+    "asset_class": "commodity",
+    "country": "GLOBAL",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "9dff8e39e301ea479a",
+    "symbol": "XAUUSD",
+    "asset_class": "commodity",
+    "country": "GLOBAL",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "2333f7099adf95afbf",
+    "symbol": "XAUUSD",
+    "asset_class": "commodity",
+    "country": "GLOBAL",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "2eef2cec340f26c618",
+    "symbol": "XAUUSD",
+    "asset_class": "commodity",
+    "country": "GLOBAL",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "b8410dd20f4ee4be8e",
+    "symbol": "XAUUSD",
+    "asset_class": "commodity",
+    "country": "GLOBAL",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "82c6ed55fdaafe3bd7",
+    "symbol": "XAUUSD",
+    "asset_class": "commodity",
+    "country": "GLOBAL",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.447388+00:00"
+  },
+  {
+    "job_id": "97a6d434b8bdf9cdb1",
+    "symbol": "XAUUSD",
+    "asset_class": "commodity",
+    "country": "GLOBAL",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "00a49d71c745b3c5a1",
+    "symbol": "WTI",
+    "asset_class": "commodity",
+    "country": "US",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "1e5e41d3cd623f0131",
+    "symbol": "WTI",
+    "asset_class": "commodity",
+    "country": "US",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "cea04f9e44466fe808",
+    "symbol": "WTI",
+    "asset_class": "commodity",
+    "country": "US",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "995a6df92bc8dd2183",
+    "symbol": "WTI",
+    "asset_class": "commodity",
+    "country": "US",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "5f8427c63a3cd90bdb",
+    "symbol": "WTI",
+    "asset_class": "commodity",
+    "country": "US",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "e7a8afee94820d0c0d",
+    "symbol": "WTI",
+    "asset_class": "commodity",
+    "country": "US",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "1d926bf3737b303f26",
+    "symbol": "WTI",
+    "asset_class": "commodity",
+    "country": "US",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "859c59d1e1ef316983",
+    "symbol": "WTI",
+    "asset_class": "commodity",
+    "country": "US",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "f56da523862b121d44",
+    "symbol": "WTI",
+    "asset_class": "commodity",
+    "country": "US",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "41e6c143ead11cb6af",
+    "symbol": "WTI",
+    "asset_class": "commodity",
+    "country": "US",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "b1e1bca46a4559a58c",
+    "symbol": "WTI",
+    "asset_class": "commodity",
+    "country": "US",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "29a14e58e74de76645",
+    "symbol": "WTI",
+    "asset_class": "commodity",
+    "country": "US",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "3ee67b44eb67d043fd",
+    "symbol": "WTI",
+    "asset_class": "commodity",
+    "country": "US",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "17ea33f0fe978dd156",
+    "symbol": "WTI",
+    "asset_class": "commodity",
+    "country": "US",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "f397e13aa9c9e91650",
+    "symbol": "WTI",
+    "asset_class": "commodity",
+    "country": "US",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "0965190c84b8a45d2e",
+    "symbol": "WTI",
+    "asset_class": "commodity",
+    "country": "US",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "e4bdffbe00d62ea3e7",
+    "symbol": "WTI",
+    "asset_class": "commodity",
+    "country": "US",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "8fbdf2839be0dbbfeb",
+    "symbol": "WTI",
+    "asset_class": "commodity",
+    "country": "US",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "b2624d1e049e8365bd",
+    "symbol": "WTI",
+    "asset_class": "commodity",
+    "country": "US",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "1018aa3286966f2fff",
+    "symbol": "WTI",
+    "asset_class": "commodity",
+    "country": "US",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "19f426bc7c11af8f32",
+    "symbol": "WTI",
+    "asset_class": "commodity",
+    "country": "US",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "f8a77e1616131ed8ff",
+    "symbol": "WTI",
+    "asset_class": "commodity",
+    "country": "US",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "9499db7b4423e20dc3",
+    "symbol": "WTI",
+    "asset_class": "commodity",
+    "country": "US",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "3609bcce3bf62ea3ae",
+    "symbol": "WTI",
+    "asset_class": "commodity",
+    "country": "US",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "46f88777e59e84fe0c",
+    "symbol": "BTCUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "8ea57d3e55b6440c19",
+    "symbol": "BTCUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "aeeb2d874d64f23370",
+    "symbol": "BTCUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "d5854040c67e64a638",
+    "symbol": "BTCUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "4c39c5ad8be77dad9e",
+    "symbol": "BTCUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "bc4ecfa76c6b865063",
+    "symbol": "BTCUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "610336ff035b92d523",
+    "symbol": "BTCUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "f1e6e4342fb7f7854a",
+    "symbol": "BTCUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "96e66045a9b3698e29",
+    "symbol": "BTCUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "bb8693164c05c8d045",
+    "symbol": "BTCUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "fb03b3e2281c648f17",
+    "symbol": "BTCUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "f620360a690b68e95a",
+    "symbol": "BTCUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "9b4524f2a1b7d1302e",
+    "symbol": "BTCUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "236ee600ba7c72095e",
+    "symbol": "BTCUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "1bcb81999fb5989efd",
+    "symbol": "BTCUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "628a30d60da7483a44",
+    "symbol": "BTCUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "cb72f955313c16f384",
+    "symbol": "BTCUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "f456f8334477b0f4ce",
+    "symbol": "BTCUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "d6f69cd41029e22128",
+    "symbol": "BTCUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "cbf4fd18dd51b607e7",
+    "symbol": "BTCUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "4a287411444ba9f483",
+    "symbol": "BTCUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "b12e6acb898d5e2b6f",
+    "symbol": "BTCUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "21cf326adc6869d853",
+    "symbol": "BTCUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "1293058e160ba33b69",
+    "symbol": "BTCUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "9cfb5d0717e209a490",
+    "symbol": "ETHUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "ab0d99d4eb12632a94",
+    "symbol": "ETHUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "99ac9dbd9a0493d7de",
+    "symbol": "ETHUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "TICK",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "56b58f6cbe7559a836",
+    "symbol": "ETHUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "0548bdaed5a9c382ea",
+    "symbol": "ETHUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "4c797ed3a8b7edc52b",
+    "symbol": "ETHUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "M1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "06ecbb7c3587cbbab1",
+    "symbol": "ETHUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "dcda0b92a29c73e11c",
+    "symbol": "ETHUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "4b19325fbb0f10d83b",
+    "symbol": "ETHUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "M5",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "d8d74bbd292e161bf1",
+    "symbol": "ETHUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "7d55d75f62484e4a70",
+    "symbol": "ETHUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "b44a532685d20564b5",
+    "symbol": "ETHUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "M15",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "c6fb9b55a69e9028a3",
+    "symbol": "ETHUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "1b093311743a42ac5f",
+    "symbol": "ETHUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "a38db4328606e31ee4",
+    "symbol": "ETHUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "M30",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "c7592415b6d2420a6f",
+    "symbol": "ETHUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "83a7da0872a3d1611a",
+    "symbol": "ETHUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "e805196e2e522827e8",
+    "symbol": "ETHUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "H1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "231d5d7bb00c41378d",
+    "symbol": "ETHUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "ceea1729d3de789de9",
+    "symbol": "ETHUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "0c24399f91ec0fbdb8",
+    "symbol": "ETHUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "H4",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.448389+00:00"
+  },
+  {
+    "job_id": "3999cfa797c39311b2",
+    "symbol": "ETHUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.449387+00:00"
+  },
+  {
+    "job_id": "babe832e6b411dbfa4",
+    "symbol": "ETHUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.449387+00:00"
+  },
+  {
+    "job_id": "792a90d4639ea5517d",
+    "symbol": "ETHUSD",
+    "asset_class": "crypto",
+    "country": "GLOBAL",
+    "timeframe": "D1",
+    "genome_batch": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "BLOCKED_MISSING_CERTIFIED_DATA",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "edge": "NOT_PROVEN",
+    "causality": "NOT_PROVEN",
+    "created_at": "2026-06-14T16:11:26.449387+00:00"
+  }
+]

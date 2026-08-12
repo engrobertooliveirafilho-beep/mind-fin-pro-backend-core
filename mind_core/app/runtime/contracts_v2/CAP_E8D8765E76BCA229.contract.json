@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_E8D8765E76BCA229",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\core\\arraylike.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\.venv\\Lib\\site-packages\\pandas\\core\\arraylike.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 119,
+  "imports": [
+    "__future__",
+    "numpy",
+    "operator",
+    "pandas._libs",
+    "pandas._libs.ops_dispatch",
+    "pandas.core",
+    "pandas.core.construction",
+    "pandas.core.dtypes.cast",
+    "pandas.core.dtypes.generic",
+    "pandas.core.frame",
+    "pandas.core.generic",
+    "pandas.core.internals",
+    "pandas.core.ops.common",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_354FBAD1E6A01B3F",
+  "source_file": ".venv\\Lib\\site-packages\\docx\\text\\hyperlink.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\docx\\text\\hyperlink.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 105,
+  "imports": [
+    "__future__",
+    "docx.oxml.text.hyperlink",
+    "docx.shared",
+    "docx.text.run",
+    "docx.types",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

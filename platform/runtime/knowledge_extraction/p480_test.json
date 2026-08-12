@@ -1,0 +1,29 @@
+{
+  "engine": "P4.79_KNOWLEDGE_EXTRACTION_ENGINE",
+  "created_at": "2026-06-21T13:48:54.726323+00:00",
+  "source_id": "p480_test",
+  "metadata": {
+    "test": true
+  },
+  "total_items": 1,
+  "items": [
+    {
+      "source_id": "p480_test",
+      "type": "CAPABILITY",
+      "all_types": [
+        "CAPABILITY"
+      ],
+      "priority": "MEDIUM",
+      "text": "Precisamos criar um engine de memória social.",
+      "signals": [
+        "CAPABILITY"
+      ],
+      "metadata": {
+        "test": true
+      }
+    }
+  ],
+  "summary": {
+    "CAPABILITY": 1
+  }
+}

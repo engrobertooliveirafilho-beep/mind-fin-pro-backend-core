@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_56264590096B7A2C",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_vendor\\pyproject_hooks\\_in_process\\_in_process.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pip\\_vendor\\pyproject_hooks\\_in_process\\_in_process.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 119,
+  "imports": [
+    "glob",
+    "importlib",
+    "importlib.machinery",
+    "importlib.metadata",
+    "json",
+    "os",
+    "os.path",
+    "re",
+    "shutil",
+    "sys",
+    "traceback",
+    "zipfile"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

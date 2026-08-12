@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_D48F7CE31A4840F5",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\realtime\\realtime_mcp_approval_response.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\openai\\types\\realtime\\realtime_mcp_approval_response.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 94,
+  "imports": [
+    "_models",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

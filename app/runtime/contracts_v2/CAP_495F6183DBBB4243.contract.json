@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_495F6183DBBB4243",
+  "source_file": "evidence\\P4.51_LEVEL_C_FULL_AUDIT_20260618_062425\\backup\\tests\\test_p8_19_planner_sandbox.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\evidence\\P4.51_LEVEL_C_FULL_AUDIT_20260618_062425\\backup\\tests\\test_p8_19_planner_sandbox.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 99,
+  "imports": [
+    "app.p8_shadow.planner_sandbox"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

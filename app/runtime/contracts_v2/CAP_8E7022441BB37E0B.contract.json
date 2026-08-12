@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_8E7022441BB37E0B",
+  "source_file": ".venv\\Lib\\site-packages\\websockets\\legacy\\auth.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\websockets\\legacy\\auth.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 93,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "datastructures",
+    "exceptions",
+    "functools",
+    "headers",
+    "hmac",
+    "http",
+    "server",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

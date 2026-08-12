@@ -1,0 +1,11 @@
+{
+  "strategy_id": "cafb9afba9ed7276",
+  "family": "ema_cross_grid",
+  "asset": "WDO",
+  "timeframe": "M15",
+  "fast": 8,
+  "slow": 26,
+  "requires_profit_backtest": true,
+  "live": "FORBIDDEN",
+  "real_orders": "FORBIDDEN"
+}

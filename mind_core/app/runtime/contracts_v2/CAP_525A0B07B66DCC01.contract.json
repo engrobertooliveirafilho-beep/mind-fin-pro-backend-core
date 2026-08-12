@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_525A0B07B66DCC01",
+  "source_file": "_evidence\\P19P26A_H_HUMANIZATION_LABEL_CLEANER_20260618_140206\\retest_humanization.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\_evidence\\P19P26A_H_HUMANIZATION_LABEL_CLEANER_20260618_140206\\retest_humanization.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 85,
+  "imports": [
+    "app.main",
+    "fastapi.testclient",
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

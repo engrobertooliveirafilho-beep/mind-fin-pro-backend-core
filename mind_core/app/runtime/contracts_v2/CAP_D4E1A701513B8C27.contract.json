@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_D4E1A701513B8C27",
+  "source_file": "app\\routes_usde_science.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\app\\routes_usde_science.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 83,
+  "imports": [
+    "app.modules.usde_core.scientific_runtime_orchestrator",
+    "fastapi"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

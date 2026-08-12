@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_9E84E58C55C9CB64",
+  "source_file": "_evidence\\P19P38_C_ORPHAN_MODULE_CLASSIFICATION_20260622_143129\\p19p38c_orphan_classifier.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P19P38_C_ORPHAN_MODULE_CLASSIFICATION_20260622_143129\\p19p38c_orphan_classifier.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 107,
+  "imports": [
+    "datetime",
+    "json",
+    "os",
+    "pathlib",
+    "subprocess"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

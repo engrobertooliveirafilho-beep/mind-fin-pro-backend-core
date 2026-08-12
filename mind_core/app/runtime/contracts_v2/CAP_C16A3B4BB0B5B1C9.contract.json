@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_C16A3B4BB0B5B1C9",
+  "source_file": "_evidence\\P19P36G_SAFE_ADAPTER_INTEGRATION_DRY_RUN_20260621_225229\\01_safe_adapter_dry_run.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P19P36G_SAFE_ADAPTER_INTEGRATION_DRY_RUN_20260621_225229\\01_safe_adapter_dry_run.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 102,
+  "imports": [
+    "csv",
+    "datetime",
+    "importlib",
+    "inspect",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

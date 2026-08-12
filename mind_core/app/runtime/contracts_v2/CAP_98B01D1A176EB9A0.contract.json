@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_98B01D1A176EB9A0",
+  "source_file": ".venv\\Lib\\site-packages\\httpx\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\httpx\\__init__.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 121,
+  "imports": [
+    "__version__",
+    "_api",
+    "_auth",
+    "_client",
+    "_config",
+    "_content",
+    "_exceptions",
+    "_main",
+    "_models",
+    "_status_codes",
+    "_transports",
+    "_types",
+    "_urls",
+    "sys"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

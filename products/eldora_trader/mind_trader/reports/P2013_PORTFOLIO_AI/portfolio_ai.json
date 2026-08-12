@@ -1,0 +1,12 @@
+{
+  "STATUS": "P2013_PORTFOLIO_AI_BOOTSTRAPPED",
+  "OBJECTIVE": "Choose specialists, not trades",
+  "INPUTS": [
+    "edge_health",
+    "regime_fit",
+    "correlation",
+    "drawdown",
+    "survival_probability",
+    "execution_sensitivity"
+  ]
+}

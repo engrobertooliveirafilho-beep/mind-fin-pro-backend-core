@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_CD1371A93B8C4D9A",
+  "source_file": "app\\runtime\\hallucination_guard.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\app\\runtime\\hallucination_guard.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 107,
+  "imports": [
+    "__future__",
+    "app.runtime.advanced_runtime_base",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

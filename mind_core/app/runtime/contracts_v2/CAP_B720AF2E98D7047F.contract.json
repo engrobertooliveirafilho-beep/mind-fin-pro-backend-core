@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_B720AF2E98D7047F",
+  "source_file": "TRANSFER_PACKAGE\\PTO_20260611T143207Z\\p56e1_snapshot.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\TRANSFER_PACKAGE\\PTO_20260611T143207Z\\p56e1_snapshot.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 96,
+  "imports": [
+    "app.mind.p5_5z_executive_snapshot.snapshot",
+    "json",
+    "os",
+    "requests"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

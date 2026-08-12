@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_A144AB16A29766DD",
+  "source_file": "test_p55c_insert.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\test_p55c_insert.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 90,
+  "imports": [
+    "app.mind.p5_5c_supabase_ingestion_writer.writer"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

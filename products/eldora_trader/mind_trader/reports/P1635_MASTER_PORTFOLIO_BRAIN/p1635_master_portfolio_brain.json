@@ -1,0 +1,21 @@
+{
+  "STATUS": "P1635_MASTER_PORTFOLIO_BRAIN_COMPLETED",
+  "BEST_CURRENT_OPPORTUNITY": {
+    "asset": "GBPUSD",
+    "timeframe": "M1",
+    "specialist_id": "GBPUSD_M1_BOLLINGER_REVERSION_5aefbb04c2a4913ca649c3fa",
+    "family": "BOLLINGER_REVERSION",
+    "profile": "SCALP_SPECIALIST",
+    "deployment_score": 43.684793,
+    "confluence_score": 75,
+    "opportunity_score": 57.776636,
+    "pattern_status": "MINED_CANDIDATE",
+    "decision": "WATCH_ONLY"
+  },
+  "DECISION": "WATCH_ONLY",
+  "REASON": "REAL_ORDERS_FORBIDDEN_AND_CONFLUENCE_THRESHOLD_NOT_MET",
+  "ORDER_SENT": false,
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN"
+}

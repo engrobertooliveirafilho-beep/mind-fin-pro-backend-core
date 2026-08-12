@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_5A1EF69DE7AE9D0A",
+  "source_file": "mind_trader\\tests\\test_p201_daily_demo_evidence_analyzer.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\mind_trader\\tests\\test_p201_daily_demo_evidence_analyzer.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 100,
+  "imports": [
+    "app.p201_daily_demo_evidence_analyzer.engine"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,53 @@
+{
+  "STATUS": "P14.21_MIND_TRADER_CORE_CERTIFIED",
+  "P14_18": {
+    "STATUS": "P14.18_PROFIT_COMPILE_EVIDENCE_CLASSIFIER_IMPLEMENTED",
+    "ROWS_CLASSIFIED": 45,
+    "SUMMARY": {
+      "SYNTAX_PROBE_EVIDENCE": 35,
+      "FUNCTION_PROBE_EVIDENCE": 10
+    },
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "EDGE": "NOT_PROVEN",
+    "CAUSALITY": "NOT_PROVEN",
+    "NEXT": "P14.19_NTSL_COMPILABLE_STRATEGY_PROMOTION_GATE",
+    "EXPORT_READY": true,
+    "generated_at": "2026-06-14T16:11:29.711019+00:00"
+  },
+  "P14_19_PROMOTION_GATE": {
+    "STATUS": "P14.19_NTSL_COMPILABLE_STRATEGY_PROMOTION_GATE_IMPLEMENTED",
+    "PROMOTED": 45,
+    "REJECTED": 0,
+    "RULE": "classification evidence + screenshot exists",
+    "PAPER_ONLY": true
+  },
+  "P14_20_INSTITUTIONAL_SNAPSHOT": {
+    "STATUS": "P14.20_INSTITUTIONAL_SNAPSHOT_IMPLEMENTED",
+    "REPORT_HASHES": [
+      {
+        "path": "reports\\P14.18_PROFIT_COMPILE_EVIDENCE_CLASSIFIER\\classified_profit_evidence.json",
+        "sha256": "aa9b52053b087e2a44b7c38c462a465486796a2bfec798371e1c2ca866f665e2"
+      },
+      {
+        "path": "reports\\P14.18_PROFIT_COMPILE_EVIDENCE_CLASSIFIER\\P14.18_manifest.json",
+        "sha256": "a4bb498e0bb53389bf0efff908adb00fd8453886ea006aa0ec7180d5e643503b"
+      }
+    ]
+  },
+  "CERTIFICATION": {
+    "TEST_TARGET": "python -m pytest -q",
+    "EXPECTED_MIN_TESTS": 476,
+    "MT5_MAY_OPEN": true,
+    "PROFIT_NTSL_PIPELINE": "CERTIFIED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "EDGE": "NOT_PROVEN",
+    "CAUSALITY": "NOT_PROVEN"
+  },
+  "NEXT": "P15_REAL_EDGE_DISCOVERY_RUNTIME",
+  "EXPORT_READY": true,
+  "generated_at": "2026-06-14T16:11:29.767072+00:00"
+}

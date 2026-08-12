@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_588B61702EFD3872",
+  "source_file": "app\\eldora\\core\\distributed_worker_loop.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\app\\eldora\\core\\distributed_worker_loop.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 90,
+  "imports": [
+    "app.eldora.core.true_redis_runtime",
+    "datetime"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

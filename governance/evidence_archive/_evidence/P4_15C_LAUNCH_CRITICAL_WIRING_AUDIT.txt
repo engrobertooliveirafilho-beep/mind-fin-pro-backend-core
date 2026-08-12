@@ -1,0 +1,271 @@
+
+  app\api\eldora_cognition.py:1:from fastapi import APIRouter
+  app\api\eldora_cognition.py:2:
+  app\api\eldora_cognition.py:3:from app.eldora.core.long_term_memory import (
+> app\api\eldora_cognition.py:4:    store_cognitive_memory,
+> app\api\eldora_cognition.py:5:    retrieve_cognitive_memory
+  app\api\eldora_cognition.py:6:)
+  app\api\eldora_cognition.py:7:
+  app\api\eldora_cognition.py:8:from app.eldora.core.memory_compression_engine import (
+  app\api\eldora_cognition.py:9:    compress_memory,
+  app\api\eldora_cognition.py:10:    compression_report
+  app\api\eldora_cognition.py:11:)
+  app\api\eldora_cognition.py:12:
+  app\api\eldora_cognition.py:13:from app.eldora.core.tool_learning_engine import (
+  app\api\eldora_cognition.py:14:    learn_tool,
+  app\api\eldora_cognition.py:15:    tool_report
+  app\api\eldora_cognition.py:16:)
+  app\api\eldora_cognition.py:17:
+  app\api\eldora_cognition.py:19:
+  app\api\eldora_cognition.py:20:@router.post("/memory/store")
+  app\api\eldora_cognition.py:21:async def cognitive_store(content: str, category: str = "general"):
+> app\api\eldora_cognition.py:22:    return store_cognitive_memory(content, category)
+  app\api\eldora_cognition.py:23:
+  app\api\eldora_cognition.py:24:@router.get("/memory/report")
+  app\api\eldora_cognition.py:25:async def cognitive_report():
+> app\api\eldora_cognition.py:26:    return retrieve_cognitive_memory()
+  app\api\eldora_cognition.py:27:
+  app\api\eldora_cognition.py:28:@router.post("/compression/run")
+  app\api\eldora_cognition.py:29:async def compression(content: str):
+  app\api\eldora_cognition.py:30:    return compress_memory(content)
+  app\api\eldora_cognition.py:31:
+  app\api\eldora_cognition.py:32:@router.get("/compression/report")
+  app\api\eldora_cognition.py:33:async def compression_runtime():
+  app\api\eldora_cognition.py:34:    return compression_report()
+  app\api\eldora_cognition.py:35:
+  app\api\eldora_cognition.py:36:@router.post("/tool/learn")
+  app\api\eldora_cognition.py:37:async def tool_learn(tool_name: str, capability: str):
+  app\api\eldora_cognition.py:38:    return learn_tool(tool_name, capability)
+  app\api\eldora_cognitive_runtime.py:3:from fastapi import APIRouter
+  app\api\eldora_cognitive_runtime.py:4:from app.persona.eldora_core import build_persona_context
+  app\api\eldora_cognitive_runtime.py:5:from app.runtime.intent_router import route_intent
+> app\api\eldora_cognitive_runtime.py:6:from app.memory.memory_graph import save_message,retrieve_relevant_memory,retrieve_user_profile,retrieve_project_context,SCHEMA_SQL
+  app\api\eldora_cognitive_runtime.py:7:from app.runtime.internal_state import load_state,update_state,persist_state
+  app\api\eldora_cognitive_runtime.py:8:from app.runtime.response_strategy import build_response_strategy
+  app\api\eldora_cognitive_runtime.py:9:from app.runtime.response_builder import build_response
+  app\api\eldora_cognitive_runtime.py:10:from app.runtime.quality_gate import rewrite_if_needed
+  app\api\eldora_cognitive_runtime.py:11:
+  app\api\eldora_cognitive_runtime.py:12:router=APIRouter(prefix="/eldora/cognitive-runtime", tags=["eldora-cognitive-runtime"])
+  app\api\eldora_cognitive_runtime.py:13:
+  app\api\eldora_cognitive_runtime.py:14:@router.get("/status")
+  app\api\eldora_cognitive_runtime.py:15:def status():
+> app\api\eldora_cognitive_runtime.py:16:    return {"STATUS_FINAL":"ELDORA_COGNITIVE_RUNTIME_IMPLEMENTED","schema_ready":True,"persona_core":True,"quality_gate":True}
+  app\api\eldora_cognitive_runtime.py:17:
+  app\api\eldora_cognitive_runtime.py:18:@router.post("/respond")
+> app\api\eldora_cognitive_runtime.py:19:def respond(payload:dict):
+  app\api\eldora_cognitive_runtime.py:20:    user_id=payload.get("user_id","default")
+  app\api\eldora_cognitive_runtime.py:21:    msg=payload.get("message","")
+  app\api\eldora_cognitive_runtime.py:22:    save_message(user_id,"user",msg)
+  app\api\eldora_cognitive_runtime.py:23:    intent=route_intent(msg)
+> app\api\eldora_cognitive_runtime.py:24:    memory={"relevant":retrieve_relevant_memory(user_id,msg),"profile":retrieve_user_profile(user_id),"project":retrieve_project_context(user_id)}
+  app\api\eldora_cognitive_runtime.py:25:    state=update_state(msg,intent,memory)
+  app\api\eldora_cognitive_runtime.py:26:    persona=build_persona_context(user_id,state,memory)
+  app\api\eldora_cognitive_runtime.py:27:    strategy=build_response_strategy(intent,state,memory)
+  app\api\eldora_cognitive_runtime.py:28:    raw=build_response(msg,intent,memory,state,persona,strategy)
+  app\api\eldora_cognitive_runtime.py:29:    final=rewrite_if_needed(raw,intent,persona,memory)
+  app\api\eldora_cognitive_runtime.py:30:    save_message(user_id,"assistant",final["answer"])
+  app\api\eldora_cognitive_runtime.py:31:    persist_state(user_id,state)
+  app\api\eldora_cognitive_runtime.py:32:    return {"STATUS_FINAL":"ELDORA_COGNITIVE_RESPONSE_READY","intent":intent,"state":state,"strategy":strategy,"answer":final["answer"],"scores":final["scores"]}
+  app\api\eldora_cognitive_runtime.py:33:
+  app\api\eldora_cognitive_runtime.py:34:
+  app\api\eldora_cognitive_runtime.py:35:# FINAL_IDENTITY_BLOCK
+  app\api\eldora_cognitive_runtime.py:36:def __identity_guard_last_hop(answer,user_message=""):
+  app\api\eldora_intelligence.py:4:router = APIRouter(prefix="/eldora/intelligence", tags=["eldora-intelligence"])
+  app\api\eldora_intelligence.py:5:
+  app\api\eldora_intelligence.py:6:@router.post("/respond")
+> app\api\eldora_intelligence.py:7:def intelligence_respond(payload: dict):
+> app\api\eldora_intelligence.py:8:    out = respond(payload)
+  app\api\eldora_intelligence.py:9:    return {"STATUS_FINAL": "ELDORA_INTELLIGENCE_ORCHESTRATOR_READY", **out}
+  app\api\eldora_llm_live.py:8:    return {"STATUS_FINAL": "ELDORA_LLM_LIVE_READY", "model": select_model_by_cost()}
+  app\api\eldora_llm_live.py:9:
+  app\api\eldora_llm_live.py:10:@router.post("/respond")
+> app\api\eldora_llm_live.py:11:def respond(payload: dict):
+  app\api\eldora_llm_live.py:12:    out = generate_llm_response(
+  app\api\eldora_llm_live.py:13:        prompt=payload.get("prompt", ""),
+  app\api\eldora_llm_live.py:14:        context=payload.get("context", ""),
+  app\api\eldora_llm_live.py:15:        intent=payload.get("intent", "general"),
+  app\api\eldora_llm_live.py:16:    )
+  app\api\eldora_llm_live.py:17:    return {"STATUS_FINAL": "ELDORA_LLM_LIVE_READY", **out}
+  app\api\eldora_persistent_cognition.py:1:from fastapi import APIRouter
+> app\api\eldora_persistent_cognition.py:2:from app.eldora.core.persistent_cognitive_graph import store_persistent_memory, retrieve_persistent_memory, cognitive_store_report
+  app\api\eldora_persistent_cognition.py:3:
+  app\api\eldora_persistent_cognition.py:4:router = APIRouter(prefix="/eldora/persistent-cognition", tags=["eldora-persistent-cognition"])
+  app\api\eldora_persistent_cognition.py:5:
+  app\api\eldora_persistent_cognition.py:6:@router.post("/store")
+  app\api\eldora_persistent_cognition.py:7:async def store(content: str, tenant_id: str="default", user_ref: str="anonymous", category: str="general", priority: int=1):
+  app\api\eldora_persistent_cognition.py:8:    return store_persistent_memory(content, tenant_id, user_ref, category, priority)
+  app\api\eldora_persistent_cognition.py:9:
+  app\api\eldora_persistent_cognition.py:10:@router.get("/retrieve")
+  app\api\eldora_persistent_cognition.py:11:async def retrieve(query: str, top_k: int=5):
+> app\api\eldora_persistent_cognition.py:12:    return retrieve_persistent_memory(query, top_k)
+  app\api\eldora_persistent_cognition.py:13:
+  app\api\eldora_persistent_cognition.py:14:@router.get("/report")
+  app\api\eldora_persistent_cognition.py:15:async def report():
+  app\api\eldora_persistent_cognition.py:16:    return cognitive_store_report()
+  app\api\eldora_semantic.py:1:from fastapi import APIRouter
+  app\api\eldora_semantic.py:2:from app.eldora.core.semantic_memory_engine import (
+  app\api\eldora_semantic.py:3:    store_memory,
+> app\api\eldora_semantic.py:4:    retrieve_memory,
+> app\api\eldora_semantic.py:5:    semantic_graph_report
+  app\api\eldora_semantic.py:6:)
+  app\api\eldora_semantic.py:7:
+  app\api\eldora_semantic.py:8:router = APIRouter(prefix="/eldora/semantic", tags=["eldora-semantic"])
+  app\api\eldora_semantic.py:9:
+  app\api\eldora_semantic.py:10:@router.post("/memory/store")
+  app\api\eldora_semantic.py:11:async def memory_store(text: str, node: str = "default"):
+  app\api\eldora_semantic.py:12:    return store_memory(text, {"node": node})
+  app\api\eldora_semantic.py:13:
+  app\api\eldora_semantic.py:14:@router.get("/memory/retrieve")
+  app\api\eldora_semantic.py:15:async def memory_retrieve(query: str, top_k: int = 3):
+> app\api\eldora_semantic.py:16:    return retrieve_memory(query, top_k)
+  app\api\eldora_semantic.py:17:
+  app\api\eldora_semantic.py:18:@router.get("/graph")
+  app\api\eldora_semantic.py:19:async def graph():
+> app\api\eldora_semantic.py:20:    return semantic_graph_report()
+  app\api\eldora_social.py:1:from fastapi import APIRouter
+  app\api\eldora_social.py:2:
+  app\api\eldora_social.py:3:from app.eldora.core.persistent_social_memory import (
+> app\api\eldora_social.py:4:    store_social_memory,
+> app\api\eldora_social.py:5:    social_memory_report
+  app\api\eldora_social.py:6:)
+  app\api\eldora_social.py:7:
+> app\api\eldora_social.py:8:from app.eldora.core.emotional_continuity_engine import (
+> app\api\eldora_social.py:9:    emotional_continuity,
+  app\api\eldora_social.py:10:    emotional_report
+  app\api\eldora_social.py:11:)
+  app\api\eldora_social.py:12:
+  app\api\eldora_social.py:13:from app.eldora.core.relational_cognition_engine import (
+> app\api\eldora_social.py:14:    relational_analysis,
+  app\api\eldora_social.py:15:    relational_report
+  app\api\eldora_social.py:16:)
+  app\api\eldora_social.py:17:
+  app\api\eldora_social.py:18:router = APIRouter(
+  app\api\eldora_social.py:19:    prefix="/eldora/social",
+  app\api\eldora_social.py:20:    tags=["eldora-social"]
+  app\api\eldora_social.py:21:)
+  app\api\eldora_social.py:22:
+  app\api\eldora_social.py:23:@router.post("/memory/store")
+  app\api\eldora_social.py:24:async def memory(user_id:str, interaction:str):
+> app\api\eldora_social.py:25:    return store_social_memory(user_id, interaction)
+  app\api\eldora_social.py:26:
+  app\api\eldora_social.py:27:@router.get("/memory/report")
+  app\api\eldora_social.py:28:async def memory_runtime():
+> app\api\eldora_social.py:29:    return social_memory_report()
+  app\api\eldora_social.py:30:
+  app\api\eldora_social.py:31:@router.post("/emotion/analyze")
+  app\api\eldora_social.py:32:async def emotion(user_id:str, emotion:str, context:str):
+> app\api\eldora_social.py:33:    return emotional_continuity(user_id, emotion, context)
+  app\api\eldora_social.py:34:
+  app\api\eldora_social.py:35:@router.get("/emotion/report")
+  app\api\eldora_social.py:36:async def emotion_runtime():
+  app\api\eldora_social.py:37:    return emotional_report()
+  app\api\eldora_social.py:38:
+  app\api\eldora_social.py:39:@router.post("/relationship/analyze")
+  app\api\eldora_social.py:40:async def relationship(user_id:str, profile:str):
+> app\api\eldora_social.py:41:    return relational_analysis(user_id, profile)
+  app\api\eldora_social.py:42:
+  app\api\eldora_social.py:43:@router.get("/relationship/report")
+  app\api\eldora_social.py:44:async def relationship_runtime():
+  app\api\eldora_social.py:45:    return relational_report()
+  app\memory\memory_graph.py:18:    if prefer: h["Prefer"]=prefer
+  app\memory\memory_graph.py:19:    return h
+  app\memory\memory_graph.py:20:
+> app\memory\memory_graph.py:21:def _insert_memory(user_id, memory_type, content, confidence=0.85, role="memory_graph"):
+  app\memory\memory_graph.py:22:    if not _enabled():
+  app\memory\memory_graph.py:23:        return {"ok":False,"saved":False,"backend":"local_only","reason":"SUPABASE_ENV_MISSING"}
+  app\memory\memory_graph.py:24:    row={"id":str(uuid.uuid4()),"sender_id":str(user_id or "default")[:180],"memory_type":str(memory_type or "graph")[:80],"content":str(content or "")[:4000],"confidence":confidence,"message":str(content or "")[:4000],"role":role}
+  app\memory\memory_graph.py:25:    try:
+  app\memory\memory_graph.py:26:        req=urllib.request.Request(f"{SUPABASE_URL}/rest/v1/neura_memory",data=json.dumps(row).encode("utf-8"),headers=_headers(),method="POST")
+  app\memory\memory_graph.py:27:        urllib.request.urlopen(req,timeout=8).read()
+  app\memory\memory_graph.py:28:        return {"ok":True,"saved":True,"backend":"supabase_neura_memory","user_id":user_id}
+  app\memory\memory_graph.py:29:    except Exception as e:
+  app\memory\memory_graph.py:30:        return {"ok":False,"saved":False,"backend":"supabase_error","reason":str(e)[:240],"user_id":user_id}
+  app\memory\memory_graph.py:31:
+  app\memory\memory_graph.py:32:def _fetch_memory(user_id, limit=12):
+  app\memory\memory_graph.py:33:    if not _enabled():
+  app\memory\memory_graph.py:41:        return []
+  app\memory\memory_graph.py:42:
+  app\memory\memory_graph.py:43:def save_message(user_id, role, content):
+> app\memory\memory_graph.py:44:    return _insert_memory(user_id, f"message_{role}", content, 0.9, role="memory_graph_message")
+  app\memory\memory_graph.py:45:
+  app\memory\memory_graph.py:46:def extract_memory_facts(message):
+  app\memory\memory_graph.py:47:    facts=[]
+  app\memory\memory_graph.py:48:    t=(message or "").lower()
+  app\memory\memory_graph.py:49:    if "mind" in t: facts.append({"fact_key":"project","fact_value":"MIND","confidence":0.9})
+  app\memory\memory_graph.py:50:    if "eldora" in t: facts.append({"fact_key":"agent","fact_value":"Eldora","confidence":0.9})
+  app\memory\memory_graph.py:51:    if "roberto" in t: facts.append({"fact_key":"user_name","fact_value":"Roberto","confidence":0.95})
+  app\memory\memory_graph.py:52:    if "matem" in t: facts.append({"fact_key":"topic","fact_value":"matemática","confidence":0.85})
+  app\memory\memory_graph.py:53:    return facts
+  app\memory\memory_graph.py:54:
+  app\memory\memory_graph.py:55:def upsert_memory_fact(user_id, fact):
+  app\memory\memory_graph.py:56:    key=fact.get("fact_key","fact") if isinstance(fact,dict) else "fact"
+  app\memory\memory_graph.py:57:    value=fact.get("fact_value",fact) if isinstance(fact,dict) else fact
+  app\memory\memory_graph.py:58:    conf=fact.get("confidence",0.85) if isinstance(fact,dict) else 0.85
+> app\memory\memory_graph.py:59:    return _insert_memory(user_id, f"fact_{key}", value, conf, role="memory_graph_fact")
+  app\memory\memory_graph.py:60:
+  app\memory\memory_graph.py:61:def create_memory_edge(user_id, source_fact, target_fact, relation):
+  app\memory\memory_graph.py:62:    content=json.dumps({"source_fact":source_fact,"target_fact":target_fact,"relation":relation},ensure_ascii=False)
+> app\memory\memory_graph.py:63:    return _insert_memory(user_id, "memory_edge", content, 0.8, role="memory_graph_edge")
+  app\memory\memory_graph.py:64:
+> app\memory\memory_graph.py:65:def retrieve_relevant_memory(user_id, query):
+  app\memory\memory_graph.py:66:    rows=_fetch_memory(user_id)
+  app\memory\memory_graph.py:67:    facts=extract_memory_facts(query)
+  app\memory\memory_graph.py:68:    return {"facts":facts,"query":query,"persistent_rows":rows,"persistent_memory_count":len(rows),"backend":"supabase_neura_memory" if _enabled() else "local_only"}
+  app\memory\memory_graph.py:69:
+  app\memory\memory_graph.py:70:def retrieve_user_profile(user_id):
+  app\memory\memory_graph.py:71:    rows=_fetch_memory(user_id)
+  app\memory\memory_graph.py:72:    content=" ".join([r.get("content","") for r in rows]).lower()
+  app\memory\memory_graph.py:73:    return {"user_id":user_id,"known_name":"Roberto" if "roberto" in content else None,"dominant_project":"MIND" if "mind" in content else None,"persistent_memory_count":len(rows)}
+  app\memory\memory_graph.py:74:
+  app\memory\memory_graph.py:75:def retrieve_project_context(user_id):
+  app\memory\memory_graph.py:76:    rows=_fetch_memory(user_id)
+  app\memory\memory_graph.py:77:    content=" ".join([r.get("content","") for r in rows]).lower()
+  app\runtime\cognitive_pipeline.py:3:def run_cognitive_pipeline(user_id: str, message: str) -> dict:
+  app\runtime\cognitive_pipeline.py:4:    from app.persona.eldora_core import build_persona_context
+  app\runtime\cognitive_pipeline.py:5:    from app.runtime.intent_router import route_intent
+> app\runtime\cognitive_pipeline.py:6:    from app.memory.memory_graph import save_message, retrieve_relevant_memory, retrieve_user_profile, retrieve_project_context
+  app\runtime\cognitive_pipeline.py:7:    from app.runtime.internal_state import update_state, persist_state
+  app\runtime\cognitive_pipeline.py:8:    from app.runtime.response_strategy import build_response_strategy
+  app\runtime\cognitive_pipeline.py:9:    from app.runtime.response_builder import build_response
+  app\runtime\cognitive_pipeline.py:10:    from app.runtime.quality_gate import rewrite_if_needed
+  app\runtime\cognitive_pipeline.py:11:    from app.runtime.autonomous_cognition_layer import run_autonomous_cognition_layer
+  app\runtime\cognitive_pipeline.py:12:    from app.runtime.natural_response_layer import naturalize_response
+  app\runtime\cognitive_pipeline.py:13:
+  app\runtime\cognitive_pipeline.py:14:    save_message(user_id, "user", message)
+  app\runtime\cognitive_pipeline.py:15:
+  app\runtime\cognitive_pipeline.py:16:    msg_l = (message or "").lower().strip()
+  app\runtime\cognitive_pipeline.py:17:
+  app\runtime\cognitive_pipeline.py:18:    if any(x in msg_l for x in ["tudo bem", "como ta", "como tá", "ta bem", "tá bem"]):
+  app\runtime\cognitive_pipeline.py:81:    autonomous = run_autonomous_cognition_layer(user_id, message)
+  app\runtime\cognitive_pipeline.py:82:
+  app\runtime\cognitive_pipeline.py:83:    memory = {
+> app\runtime\cognitive_pipeline.py:84:        "relevant": retrieve_relevant_memory(user_id, message),
+  app\runtime\cognitive_pipeline.py:85:        "profile": retrieve_user_profile(user_id),
+  app\runtime\cognitive_pipeline.py:86:        "project": retrieve_project_context(user_id),
+  app\runtime\cognitive_pipeline.py:87:        "autonomous": autonomous
+  app\runtime\cognitive_pipeline.py:88:    }
+  app\runtime\cognitive_pipeline.py:89:
+  app\runtime\cognitive_pipeline.py:90:    state = update_state(message, intent, memory)
+  app\runtime\cognitive_pipeline.py:91:    persona = build_persona_context(user_id, state, memory)
+  app\runtime\cognitive_pipeline.py:92:    strategy = build_response_strategy(intent, state, memory)
+  app\runtime\cognitive_pipeline.py:93:
+  app\runtime\cognitive_pipeline.py:94:    raw = build_response(message, intent, memory, state, persona, strategy)
+  app\runtime\cognitive_pipeline.py:95:    final = rewrite_if_needed(raw, intent, persona, memory)
+  app\runtime\cognitive_pipeline.py:96:    final["answer"] = naturalize_response(final["answer"], intent, state, autonomous)
+  app\runtime\emotional_continuity_engine.py:3:from app.runtime.advanced_runtime_base import AdvancedRuntimeEngine
+  app\runtime\emotional_continuity_engine.py:4:
+  app\runtime\emotional_continuity_engine.py:5:class EmotionalContinuityEngine(AdvancedRuntimeEngine):
+> app\runtime\emotional_continuity_engine.py:6:    module_name = "emotional_continuity_engine"
+  app\runtime\emotional_continuity_engine.py:7:    domain = "emotion"
+  app\runtime\emotional_continuity_engine.py:8:
+  app\runtime\emotional_continuity_engine.py:9:    def _signals(self, payload: dict[str, Any]) -> dict[str, Any]:
+  app\runtime\emotional_continuity_engine.py:10:        signals = super()._signals(payload)
+  app\runtime\emotional_continuity_engine.py:11:        text = str((payload or {}).get("text") or (payload or {}).get("message") or "").lower()
+  app\runtime\emotional_continuity_engine.py:12:        signals.update({
+  app\runtime\emotional_continuity_engine.py:13:            "contains_question": "?" in text or any(x in text for x in ["como", "qual", "por que", "quando"]),
+  app\runtime\emotional_continuity_engine.py:14:            "contains_risk": any(x in text for x in ["erro", "falha", "bug", "risco", "alucina"]),
+  app\runtime\emotional_continuity_engine.py:15:            "contains_memory_need": any(x in text for x in ["lembra", "contexto", "continuidade", "histórico"]),
+  app\runtime\emotional_continuity_engine.py:16:            "contains_action_need": any(x in text for x in ["faça", "executa", "cria", "corrige", "implanta"]),
+  app\runtime\emotional_continuity_engine.py:17:        })
+  app\runtime\emotional_continuity_engine.py:18:        return signals
+

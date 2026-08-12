@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_A363E11C64C11AC5",
+  "source_file": "_evidence\\P4_73A_FIX_GREEN_SEAL_READY_20260618_201110\\print_ready_modules.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P4_73A_FIX_GREEN_SEAL_READY_20260618_201110\\print_ready_modules.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 92,
+  "imports": [
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

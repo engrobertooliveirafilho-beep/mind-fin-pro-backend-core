@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_F35875052EA2608D",
+  "source_file": "_evidence\\P19P26A_H4_ELDORA_IDENTITY_LOCK_20260618_141741\\patch_h4.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P19P26A_H4_ELDORA_IDENTITY_LOCK_20260618_141741\\patch_h4.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 96,
+  "imports": [
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,4 @@
+begin
+  if Close > Open then
+    BuyAtMarket;
+end;

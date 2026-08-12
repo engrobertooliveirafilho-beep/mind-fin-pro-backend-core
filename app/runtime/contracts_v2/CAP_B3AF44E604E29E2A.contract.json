@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_B3AF44E604E29E2A",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\responses\\custom_tool_param.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\openai\\types\\responses\\custom_tool_param.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 99,
+  "imports": [
+    "__future__",
+    "shared_params.custom_tool_input_format",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

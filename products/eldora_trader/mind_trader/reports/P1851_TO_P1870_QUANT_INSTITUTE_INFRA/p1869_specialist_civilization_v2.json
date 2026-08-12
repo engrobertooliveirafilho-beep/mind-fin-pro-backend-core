@@ -1,0 +1,10 @@
+{
+  "STATUS": "P1869_SPECIALIST_CIVILIZATION_V2_BOOTSTRAPPED",
+  "TARGET_SPECIALISTS": 50000,
+  "EVOLUTION_RULES": [
+    "mutate_winners",
+    "quarantine_losers",
+    "reactivate_by_regime",
+    "track_family_tree"
+  ]
+}

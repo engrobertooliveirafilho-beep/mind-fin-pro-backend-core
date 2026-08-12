@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_692E62E2C87AE6F8",
+  "source_file": "_evidence\\P4.91K_CONTENT_EXTRACTION_SCORE_4_5_ONLY_20260623_093905\\p491k_content_extraction_score_4_5.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P4.91K_CONTENT_EXTRACTION_SCORE_4_5_ONLY_20260623_093905\\p491k_content_extraction_score_4_5.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 114,
+  "imports": [
+    "csv",
+    "datetime",
+    "hashlib",
+    "json",
+    "pathlib",
+    "re",
+    "subprocess",
+    "time"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_2EABEDBDFF350C42",
+  "source_file": ".venv\\Lib\\site-packages\\openpyxl\\styles\\fills.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\openpyxl\\styles\\fills.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 110,
+  "imports": [
+    "colors",
+    "openpyxl.compat",
+    "openpyxl.descriptors",
+    "openpyxl.descriptors.serialisable",
+    "openpyxl.xml.constants",
+    "openpyxl.xml.functions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

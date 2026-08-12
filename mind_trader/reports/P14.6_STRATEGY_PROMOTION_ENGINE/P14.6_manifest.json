@@ -1,0 +1,19 @@
+{
+  "STATUS": "P14.6_STRATEGY_PROMOTION_ENGINE_IMPLEMENTED",
+  "RESULTS_TOTAL": 1,
+  "PAPER_PROMOTED": 1,
+  "RULES": {
+    "min_profit_factor": 1.2,
+    "max_drawdown": 5000.0,
+    "min_winrate": 50.0,
+    "min_trades": 100
+  },
+  "PAPER_ONLY": true,
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "EDGE": "NOT_PROVEN",
+  "CAUSALITY": "NOT_PROVEN",
+  "EXPORT_READY": true,
+  "generated_at": "2026-06-14T16:11:30.004209+00:00"
+}

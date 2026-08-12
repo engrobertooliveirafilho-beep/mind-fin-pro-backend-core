@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_71725B4C938D6244",
+  "source_file": "_evidence\\P16G_CONTROLLED_RESPONSE_MODIFICATION_SHADOW_20260616_162323\\run_p16g_response_shadow.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P16G_CONTROLLED_RESPONSE_MODIFICATION_SHADOW_20260616_162323\\run_p16g_response_shadow.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 94,
+  "imports": [
+    "app.p16_real_use_case.controlled_response_shadow",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

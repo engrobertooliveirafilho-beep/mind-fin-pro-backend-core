@@ -1,0 +1,12 @@
+{
+  "response_preview": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Response>\n<Message>Oi! Vamos lá, sobre a ativação da Eldora. Acredito que um estilo mais humano pode ajudar a criar uma conexão melhor com as pessoas, mas também é importante que ela tenha um toque futurista para destacar sua natureza como IA. \n\nPara torná-la mais confiável, você pode focar em expressões faciais que transmitam empatia e segurança. Ajustes como uma voz suave e um olhar acolhedor podem fazer a diferença. \n\nQuanto à aparência, tanto loira quanto morena têm seus encantos, mas talvez uma morena traga uma sensação de proximidade e autenticidade. O que você acha? \n\nEsses detalhes podem, sim, ajudar as pessoas a aceitarem melhor a IA. Se precisar de mais ideias ou ajustes específicos, é só me falar!</Message>\n</Response>",
+  "next_action": "Check Twilio Sandbox join/status and Render env flag",
+  "twiml_valid": true,
+  "timestamp": "20260518_201420",
+  "content_type": [
+    "application/xml"
+  ],
+  "http_status": 200,
+  "endpoint": "https://mind-fin-pro-backend-core-1.onrender.com/webhook/whatsapp",
+  "diagnosis": "WEBHOOK_OK_TWILIO_SHOULD_REPLY"
+}

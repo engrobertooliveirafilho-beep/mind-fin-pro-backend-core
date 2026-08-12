@@ -1,0 +1,33 @@
+{
+  "capability_id": "CAP_82071A867DC686D2",
+  "source_file": ".venv\\Lib\\site-packages\\pydantic\\experimental\\pipeline.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\pydantic\\experimental\\pipeline.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 121,
+  "imports": [
+    "__future__",
+    "annotated_types",
+    "collections",
+    "collections.abc",
+    "dataclasses",
+    "datetime",
+    "decimal",
+    "functools",
+    "operator",
+    "pydantic",
+    "pydantic._internal._internal_dataclass",
+    "pydantic_core",
+    "re",
+    "sys",
+    "types",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

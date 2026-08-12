@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_85CEC5A75CC989E4",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\conversations\\message.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\openai\\types\\conversations\\message.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 90,
+  "imports": [
+    "_models",
+    "_utils",
+    "computer_screenshot_content",
+    "responses.response_input_file",
+    "responses.response_input_image",
+    "responses.response_input_text",
+    "responses.response_output_refusal",
+    "responses.response_output_text",
+    "summary_text_content",
+    "text_content",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_40BED50C6A475B9D",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_numerictypes.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_numerictypes.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 104,
+  "imports": [
+    "itertools",
+    "numpy",
+    "numpy._core._rational_tests",
+    "numpy._core.numerictypes",
+    "numpy.testing",
+    "pytest",
+    "sys"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

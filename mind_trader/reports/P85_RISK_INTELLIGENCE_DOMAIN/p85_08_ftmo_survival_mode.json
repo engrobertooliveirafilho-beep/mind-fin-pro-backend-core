@@ -1,0 +1,10 @@
+{
+  "mode": "NORMAL",
+  "defensive_threshold_pct": 0.02,
+  "lock_threshold_pct": 0.03,
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN"
+}

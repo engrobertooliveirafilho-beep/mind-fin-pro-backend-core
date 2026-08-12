@@ -1,0 +1,104 @@
+{
+  "mission": "P4.82C ACTIVE_RUNTIME_IMPORT_TRACE",
+  "generated_at": "2026-06-21T14:18:30.628654+00:00",
+  "modules": [
+    {
+      "module": "app.runtime.cognitive_pipeline",
+      "imported": true,
+      "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\cognitive_pipeline.py",
+      "functions": [
+        {
+          "name": "run_cognitive_pipeline",
+          "source_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\cognitive_pipeline.py",
+          "line": 25
+        }
+      ]
+    },
+    {
+      "module": "app.runtime.visible_response_layer",
+      "imported": true,
+      "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\visible_response_layer.py",
+      "functions": []
+    },
+    {
+      "module": "app.runtime.response_generation_engine",
+      "imported": true,
+      "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\response_generation_engine.py",
+      "functions": []
+    },
+    {
+      "module": "app.runtime.whatsapp_final_output_guard",
+      "imported": true,
+      "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\whatsapp_final_output_guard.py",
+      "functions": []
+    },
+    {
+      "module": "app.api.whatsapp",
+      "imported": true,
+      "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\api\\whatsapp.py",
+      "functions": [
+        {
+          "name": "eldora_primary_runtime_reply",
+          "source_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\api\\whatsapp.py",
+          "line": 874
+        },
+        {
+          "name": "run_cognitive_pipeline",
+          "source_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\cognitive_pipeline.py",
+          "line": 25
+        }
+      ]
+    },
+    {
+      "module": "app.eldora.core.audit_ledger",
+      "imported": true,
+      "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\eldora\\core\\audit_ledger.py",
+      "functions": [
+        {
+          "name": "audit_event",
+          "source_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\eldora\\core\\audit_ledger.py",
+          "line": 3
+        },
+        {
+          "name": "audit_report",
+          "source_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\eldora\\core\\audit_ledger.py",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "module": "app.eldora.core.event_bus",
+      "imported": true,
+      "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\eldora\\core\\event_bus.py",
+      "functions": [
+        {
+          "name": "event_bus_report",
+          "source_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\eldora\\core\\event_bus.py",
+          "line": 6
+        },
+        {
+          "name": "publish",
+          "source_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\eldora\\core\\event_bus.py",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "module": "app.runtime.knowledge_extraction_engine",
+      "imported": true,
+      "file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\knowledge_extraction_engine.py",
+      "functions": [
+        {
+          "name": "extract_items",
+          "source_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\knowledge_extraction_engine.py",
+          "line": 62
+        }
+      ]
+    },
+    {
+      "module": "app.runtime.p479_knowledge_extraction_engine",
+      "imported": false,
+      "error": "ModuleNotFoundError(\"No module named 'app.runtime.p479_knowledge_extraction_engine'\")"
+    }
+  ]
+}

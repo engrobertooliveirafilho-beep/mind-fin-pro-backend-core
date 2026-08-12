@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_0933545BC537849F",
+  "source_file": "tests\\test_p414_cross_topic_bleed_regression.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\tests\\test_p414_cross_topic_bleed_regression.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 86,
+  "imports": [
+    "app.main",
+    "fastapi.testclient"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

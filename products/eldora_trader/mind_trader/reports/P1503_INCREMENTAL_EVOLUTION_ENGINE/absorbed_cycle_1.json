@@ -1,0 +1,186 @@
+[
+  {
+    "id": "44a61627d6738eacbc7fd300",
+    "cycle": 1,
+    "source": "web_strategy_scan",
+    "component": "BREAKOUT",
+    "status": "ABSORBED",
+    "absorbed_at": "2026-06-15T16:36:12.116946+00:00"
+  },
+  {
+    "id": "2c50be1563448f4ee8a7593d",
+    "cycle": 1,
+    "source": "paper_strategy_scan",
+    "component": "MEAN_REVERSION",
+    "status": "ABSORBED",
+    "absorbed_at": "2026-06-15T16:36:12.116946+00:00"
+  },
+  {
+    "id": "3570f3728c2ac9ea309c58d0",
+    "cycle": 1,
+    "source": "internal_mutation_scan",
+    "component": "TREND_FILTER",
+    "status": "ABSORBED",
+    "absorbed_at": "2026-06-15T16:36:12.116946+00:00"
+  },
+  {
+    "id": "1bb09c1dfdd07714f7c1d3a4",
+    "cycle": 1,
+    "source": "youtube_strategy_scan",
+    "component": "MOMENTUM",
+    "status": "ABSORBED",
+    "absorbed_at": "2026-06-15T16:36:12.116946+00:00"
+  },
+  {
+    "id": "9d0c2c80594f16ff50526cad",
+    "cycle": 1,
+    "source": "youtube_strategy_scan",
+    "component": "VWAP_PROXY",
+    "status": "ABSORBED",
+    "absorbed_at": "2026-06-15T16:36:12.116946+00:00"
+  },
+  {
+    "id": "92ce6a2dbaa1792f2fa224b5",
+    "cycle": 1,
+    "source": "forum_strategy_scan",
+    "component": "SESSION_FILTER",
+    "status": "ABSORBED",
+    "absorbed_at": "2026-06-15T16:36:12.116946+00:00"
+  },
+  {
+    "id": "869136a6e282deb73ddccce1",
+    "cycle": 1,
+    "source": "internal_mutation_scan",
+    "component": "TREND_FILTER",
+    "status": "ABSORBED",
+    "absorbed_at": "2026-06-15T16:36:12.116946+00:00"
+  },
+  {
+    "id": "33bbd06a2443a10baa202d59",
+    "cycle": 1,
+    "source": "youtube_strategy_scan",
+    "component": "RISK_FILTER",
+    "status": "ABSORBED",
+    "absorbed_at": "2026-06-15T16:36:12.116946+00:00"
+  },
+  {
+    "id": "7dd242520eb6095334ec4ecf",
+    "cycle": 1,
+    "source": "paper_strategy_scan",
+    "component": "SMA",
+    "status": "ABSORBED",
+    "absorbed_at": "2026-06-15T16:36:12.116946+00:00"
+  },
+  {
+    "id": "679635ddd05ac1155a1a7976",
+    "cycle": 1,
+    "source": "forum_strategy_scan",
+    "component": "BREAKOUT",
+    "status": "ABSORBED",
+    "absorbed_at": "2026-06-15T16:36:12.116946+00:00"
+  },
+  {
+    "id": "85206001f022fd8072d62c4c",
+    "cycle": 1,
+    "source": "youtube_strategy_scan",
+    "component": "SMA",
+    "status": "ABSORBED",
+    "absorbed_at": "2026-06-15T16:36:12.116946+00:00"
+  },
+  {
+    "id": "50cbc214ef92ec4853062c2d",
+    "cycle": 1,
+    "source": "internal_mutation_scan",
+    "component": "MEAN_REVERSION",
+    "status": "ABSORBED",
+    "absorbed_at": "2026-06-15T16:36:12.116946+00:00"
+  },
+  {
+    "id": "73a4346631d9c228cdfe8110",
+    "cycle": 1,
+    "source": "forum_strategy_scan",
+    "component": "RISK_FILTER",
+    "status": "ABSORBED",
+    "absorbed_at": "2026-06-15T16:36:12.116946+00:00"
+  },
+  {
+    "id": "3b38e7c3a76ab632aaea0599",
+    "cycle": 1,
+    "source": "internal_mutation_scan",
+    "component": "PULLBACK",
+    "status": "ABSORBED",
+    "absorbed_at": "2026-06-15T16:36:12.116946+00:00"
+  },
+  {
+    "id": "bfdc4983b4b82ebf6d5df487",
+    "cycle": 1,
+    "source": "web_strategy_scan",
+    "component": "REGIME_FILTER",
+    "status": "ABSORBED",
+    "absorbed_at": "2026-06-15T16:36:12.116946+00:00"
+  },
+  {
+    "id": "1d1485e69e6b2cf21dab0e44",
+    "cycle": 1,
+    "source": "web_strategy_scan",
+    "component": "RISK_FILTER",
+    "status": "ABSORBED",
+    "absorbed_at": "2026-06-15T16:36:12.116946+00:00"
+  },
+  {
+    "id": "987b62a30199ae3534fba059",
+    "cycle": 1,
+    "source": "web_strategy_scan",
+    "component": "SMA",
+    "status": "ABSORBED",
+    "absorbed_at": "2026-06-15T16:36:12.116946+00:00"
+  },
+  {
+    "id": "b08a6ab87141ed468406cbe4",
+    "cycle": 1,
+    "source": "web_strategy_scan",
+    "component": "ATR",
+    "status": "ABSORBED",
+    "absorbed_at": "2026-06-15T16:36:12.116946+00:00"
+  },
+  {
+    "id": "a1d81a8658502de0b5f821f9",
+    "cycle": 1,
+    "source": "forum_strategy_scan",
+    "component": "ATR",
+    "status": "ABSORBED",
+    "absorbed_at": "2026-06-15T16:36:12.116946+00:00"
+  },
+  {
+    "id": "ba61311505560cc698389362",
+    "cycle": 1,
+    "source": "youtube_strategy_scan",
+    "component": "BREAKOUT",
+    "status": "ABSORBED",
+    "absorbed_at": "2026-06-15T16:36:12.116946+00:00"
+  },
+  {
+    "id": "77f05bbc8555152bcd1195c0",
+    "cycle": 1,
+    "source": "youtube_strategy_scan",
+    "component": "BOLLINGER",
+    "status": "ABSORBED",
+    "absorbed_at": "2026-06-15T16:36:12.116946+00:00"
+  },
+  {
+    "id": "e5c80b32322919f9a40cf8d8",
+    "cycle": 1,
+    "source": "forum_strategy_scan",
+    "component": "EMA",
+    "status": "ABSORBED",
+    "absorbed_at": "2026-06-15T16:36:12.116946+00:00"
+  },
+  {
+    "id": "1d39f91a4a674988d3c0b8ab",
+    "cycle": 1,
+    "source": "forum_strategy_scan",
+    "component": "BREAKOUT",
+    "status": "ABSORBED",
+    "absorbed_at": "2026-06-15T16:36:12.116946+00:00"
+  }
+]

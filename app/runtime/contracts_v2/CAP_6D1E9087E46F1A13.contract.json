@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_6D1E9087E46F1A13",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\responses\\response_computer_tool_call_output_item.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\openai\\types\\responses\\response_computer_tool_call_output_item.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 106,
+  "imports": [
+    "_models",
+    "response_computer_tool_call_output_screenshot",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

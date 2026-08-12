@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_B15B0696D163AB0E",
+  "source_file": ".venv\\Lib\\site-packages\\click\\_compat.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\click\\_compat.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 113,
+  "imports": [
+    "__future__",
+    "_winconsole",
+    "codecs",
+    "collections.abc",
+    "colorama",
+    "errno",
+    "io",
+    "locale",
+    "os",
+    "random",
+    "re",
+    "sys",
+    "types",
+    "typing",
+    "weakref"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

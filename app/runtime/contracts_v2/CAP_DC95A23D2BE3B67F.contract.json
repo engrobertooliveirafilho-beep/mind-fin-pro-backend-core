@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_DC95A23D2BE3B67F",
+  "source_file": "app\\runtime\\universal_conversation_os.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\app\\runtime\\universal_conversation_os.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 124,
+  "imports": [
+    "__future__",
+    "app.eldora.core.semantic_memory_engine",
+    "app.runtime.contextual_reranker",
+    "app.runtime.social_observation_runtime",
+    "ast",
+    "dataclasses",
+    "datetime",
+    "enum",
+    "operator",
+    "re",
+    "typing",
+    "unicodedata"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

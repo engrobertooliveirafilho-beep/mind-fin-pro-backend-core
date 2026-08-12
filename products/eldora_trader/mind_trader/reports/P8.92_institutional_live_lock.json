@@ -1,0 +1,27 @@
+{
+  "lock": "P8.92_INSTITUTIONAL_LIVE_LOCK",
+  "created_at": "2026-06-09T14:40:04.516934+00:00",
+  "action": "LIVE_TRADE",
+  "payload": {
+    "mode": "LIVE",
+    "trade": {
+      "symbol": "WIN",
+      "side": "BUY",
+      "strategy_id": "S1",
+      "entry": 100,
+      "stop": 98,
+      "target": 104,
+      "risk_amount": 500,
+      "open_risk": 0,
+      "daily_pnl": 0,
+      "total_pnl": 0,
+      "daily_trades": 1,
+      "loss_streak": 0
+    }
+  },
+  "blocked": true,
+  "decision": "FORCE_BLOCK_LIVE_OR_PRODUCTION",
+  "production": "BLOCKED",
+  "live": "FORBIDDEN",
+  "edge_claim": "NONE"
+}

@@ -1,0 +1,4 @@
+begin
+  if Media(9) > Media(21) then
+    BuyAtMarket;
+end;

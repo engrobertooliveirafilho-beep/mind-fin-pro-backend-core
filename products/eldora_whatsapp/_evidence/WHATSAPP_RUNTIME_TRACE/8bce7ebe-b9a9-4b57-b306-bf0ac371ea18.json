@@ -1,0 +1,35 @@
+{
+  "trace_id": "8bce7ebe-b9a9-4b57-b306-bf0ac371ea18",
+  "ts": 1779827386.6537268,
+  "sender_id": "whatsapp:+5511999999999",
+  "user_message": "me explique derivadas",
+  "events": [
+    {
+      "stage": "input",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "me explique derivadas",
+      "output_preview": "Entendi. Continua.",
+      "leaks": [],
+      "extra": {}
+    },
+    {
+      "stage": "humanized",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "Entendi. Continua.",
+      "output_preview": "Entendi. Continua.",
+      "leaks": [],
+      "extra": {}
+    },
+    {
+      "stage": "final_output",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "Entendi. Continua.",
+      "output_preview": "Entendi.\n\nContinua.",
+      "leaks": [],
+      "extra": {}
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_5EF95468C21D328C",
+  "source_file": "_evidence\\P19P38_D_COGNITION_INTEGRATION_MAP_20260622_143808\\p19p38d_cognition_integration_map.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P19P38_D_COGNITION_INTEGRATION_MAP_20260622_143808\\p19p38d_cognition_integration_map.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 110,
+  "imports": [
+    "datetime",
+    "json",
+    "os",
+    "pathlib",
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

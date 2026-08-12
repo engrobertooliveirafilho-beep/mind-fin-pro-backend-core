@@ -1,0 +1,24 @@
+{
+  "milestone": "P4.89H COMPLETE",
+  "engine": "UNKNOWN_RECLASSIFICATION_ENGINE",
+  "generated_at": "2026-06-22T00:55:20.101067+00:00",
+  "mode": "CLASSIFY_ONLY",
+  "unknown_input": 1053,
+  "summary": {
+    "PYTHON_OR_CODE_LIKE": 32,
+    "MANUAL_REVIEW_REQUIRED": 1,
+    "TRASH_OR_CACHE": 1015,
+    "TEXT_UNKNOWN_READER": 2,
+    "JSON_OR_STRUCTURED_ARTIFACT": 2,
+    "PYTHON_TEST_OR_CODE": 1
+  },
+  "parser_summary": {
+    "generic_code_parser": 32,
+    "manual_review": 1,
+    "clean_trash_classifier": 1015,
+    "plain_text_fallback_reader": 2,
+    "json_artifact_parser": 2,
+    "python_code_parser": 1
+  },
+  "next": "P4.89I SPECIALIZED PARSER IMPLEMENTATION PLAN"
+}

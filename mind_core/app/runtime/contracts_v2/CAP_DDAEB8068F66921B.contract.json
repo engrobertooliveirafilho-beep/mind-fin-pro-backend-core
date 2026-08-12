@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_DDAEB8068F66921B",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\extension\\test_interval.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\pandas\\tests\\extension\\test_interval.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 106,
+  "imports": [
+    "__future__",
+    "numpy",
+    "pandas",
+    "pandas.core.arrays",
+    "pandas.core.dtypes.dtypes",
+    "pandas.tests.extension",
+    "pytest",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

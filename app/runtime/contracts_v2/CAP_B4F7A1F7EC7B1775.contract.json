@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_B4F7A1F7EC7B1775",
+  "source_file": ".venv\\Lib\\site-packages\\lxml\\cssselect.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\lxml\\cssselect.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 97,
+  "imports": [
+    "cssselect"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

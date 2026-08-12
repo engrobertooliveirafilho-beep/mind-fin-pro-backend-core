@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_5CE24722AD6483A7",
+  "source_file": "app\\runtime\\drive_processed_queue.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\app\\runtime\\drive_processed_queue.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 108,
+  "imports": [
+    "app.runtime.drive_capability_absorption",
+    "datetime",
+    "json",
+    "pathlib",
+    "shutil"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

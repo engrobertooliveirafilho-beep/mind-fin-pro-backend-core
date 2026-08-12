@@ -1,0 +1,3082 @@
+[
+  {
+    "synthetic_id": "4963cdb425863b983f1566c0",
+    "seed_edge": "CSAN3_H1_sma_cross_13_55",
+    "asset": "CSAN3",
+    "timeframe": "H1",
+    "indicator": "SMA",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "9be508299a4b5e403e258741",
+    "seed_edge": "CSAN3_H1_sma_cross_13_55",
+    "asset": "CSAN3",
+    "timeframe": "H1",
+    "indicator": "EMA",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "0b42eb76d1dfbed9b81cf93e",
+    "seed_edge": "CSAN3_H1_sma_cross_13_55",
+    "asset": "CSAN3",
+    "timeframe": "H1",
+    "indicator": "RSI",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "5a1f56f3ea85559b9995ca21",
+    "seed_edge": "CSAN3_H1_sma_cross_13_55",
+    "asset": "CSAN3",
+    "timeframe": "H1",
+    "indicator": "MACD",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "3008eba3234708984c5083d4",
+    "seed_edge": "CSAN3_H1_sma_cross_13_55",
+    "asset": "CSAN3",
+    "timeframe": "H1",
+    "indicator": "VWAP",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "37165c12f063fb2bff5b7957",
+    "seed_edge": "IFIX_H1_sma_cross_5_55",
+    "asset": "IFIX",
+    "timeframe": "H1",
+    "indicator": "SMA",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "e6e0f3bb4f3ca0e1cdace836",
+    "seed_edge": "IFIX_H1_sma_cross_5_55",
+    "asset": "IFIX",
+    "timeframe": "H1",
+    "indicator": "EMA",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "bb98d47ba9f0500342b373ad",
+    "seed_edge": "IFIX_H1_sma_cross_5_55",
+    "asset": "IFIX",
+    "timeframe": "H1",
+    "indicator": "RSI",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "c45d9d5497b1d8b752ffe698",
+    "seed_edge": "IFIX_H1_sma_cross_5_55",
+    "asset": "IFIX",
+    "timeframe": "H1",
+    "indicator": "MACD",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "f06cf9229446d845008f3d20",
+    "seed_edge": "IFIX_H1_sma_cross_5_55",
+    "asset": "IFIX",
+    "timeframe": "H1",
+    "indicator": "VWAP",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "ba212a4ad8dc4feacf398432",
+    "seed_edge": "SHUL4_H1_sma_cross_5_55",
+    "asset": "SHUL4",
+    "timeframe": "H1",
+    "indicator": "SMA",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "ee048e197105ca66a2b9a3bd",
+    "seed_edge": "SHUL4_H1_sma_cross_5_55",
+    "asset": "SHUL4",
+    "timeframe": "H1",
+    "indicator": "EMA",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "876e1d214511a14c7571d0a8",
+    "seed_edge": "SHUL4_H1_sma_cross_5_55",
+    "asset": "SHUL4",
+    "timeframe": "H1",
+    "indicator": "RSI",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "399f348d04649cc466cc3ea2",
+    "seed_edge": "SHUL4_H1_sma_cross_5_55",
+    "asset": "SHUL4",
+    "timeframe": "H1",
+    "indicator": "MACD",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "59cc90eb459bf51cd703bb6a",
+    "seed_edge": "SHUL4_H1_sma_cross_5_55",
+    "asset": "SHUL4",
+    "timeframe": "H1",
+    "indicator": "VWAP",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "6023e4fb59873a26634c1f5f",
+    "seed_edge": "VIDEO_8834d6c1b66f26e6ce1d3007",
+    "asset": "UNRESOLVED",
+    "timeframe": "H1",
+    "indicator": "SMA",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "107e7d263146f94ea5905da5",
+    "seed_edge": "VIDEO_8834d6c1b66f26e6ce1d3007",
+    "asset": "UNRESOLVED",
+    "timeframe": "H1",
+    "indicator": "EMA",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "c5502e8162f1708686d6f98e",
+    "seed_edge": "VIDEO_8834d6c1b66f26e6ce1d3007",
+    "asset": "UNRESOLVED",
+    "timeframe": "H1",
+    "indicator": "RSI",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "f494b616a333c7808e158aef",
+    "seed_edge": "VIDEO_8834d6c1b66f26e6ce1d3007",
+    "asset": "UNRESOLVED",
+    "timeframe": "H1",
+    "indicator": "MACD",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "bf7659c7456708d8185ab8af",
+    "seed_edge": "VIDEO_8834d6c1b66f26e6ce1d3007",
+    "asset": "UNRESOLVED",
+    "timeframe": "H1",
+    "indicator": "VWAP",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "345dcf8fded680767ba699fa",
+    "seed_edge": "VIDEO_9a075b6ef8d3f0363d232ba8",
+    "asset": "UNRESOLVED",
+    "timeframe": "H1",
+    "indicator": "SMA",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "65f46b95379aad06eda3cf77",
+    "seed_edge": "VIDEO_9a075b6ef8d3f0363d232ba8",
+    "asset": "UNRESOLVED",
+    "timeframe": "H1",
+    "indicator": "EMA",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "bd5a558f947019b8b02e1775",
+    "seed_edge": "VIDEO_9a075b6ef8d3f0363d232ba8",
+    "asset": "UNRESOLVED",
+    "timeframe": "H1",
+    "indicator": "RSI",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "31ba1f469dd93dc0ddb8d998",
+    "seed_edge": "VIDEO_9a075b6ef8d3f0363d232ba8",
+    "asset": "UNRESOLVED",
+    "timeframe": "H1",
+    "indicator": "MACD",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "6da7a5e32e7185f887236815",
+    "seed_edge": "VIDEO_9a075b6ef8d3f0363d232ba8",
+    "asset": "UNRESOLVED",
+    "timeframe": "H1",
+    "indicator": "VWAP",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "76a40b78bee5049632c1bdee",
+    "seed_edge": "VIDEO_b237455793f2a763ee436139",
+    "asset": "UNRESOLVED",
+    "timeframe": "H1",
+    "indicator": "SMA",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "8c06912e41fed0e9bf2e0746",
+    "seed_edge": "VIDEO_b237455793f2a763ee436139",
+    "asset": "UNRESOLVED",
+    "timeframe": "H1",
+    "indicator": "EMA",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "dfc3ab26c7e67dc168d5a1ff",
+    "seed_edge": "VIDEO_b237455793f2a763ee436139",
+    "asset": "UNRESOLVED",
+    "timeframe": "H1",
+    "indicator": "RSI",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "4f16e07eadd9aed482097ca5",
+    "seed_edge": "VIDEO_b237455793f2a763ee436139",
+    "asset": "UNRESOLVED",
+    "timeframe": "H1",
+    "indicator": "MACD",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "synthetic_id": "78cd15bbdd799d87879b4630",
+    "seed_edge": "VIDEO_b237455793f2a763ee436139",
+    "asset": "UNRESOLVED",
+    "timeframe": "H1",
+    "indicator": "VWAP",
+    "status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "ad8e7def27abcacbd3a7838e",
+    "members": [
+      "4963cdb425863b983f1566c0",
+      "9be508299a4b5e403e258741"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "9941dceebff14058b1363d40",
+    "members": [
+      "4963cdb425863b983f1566c0",
+      "0b42eb76d1dfbed9b81cf93e"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "1de79b2325e2cd5165f6ba1d",
+    "members": [
+      "4963cdb425863b983f1566c0",
+      "5a1f56f3ea85559b9995ca21"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "a930bbff264832e8c0de2f27",
+    "members": [
+      "4963cdb425863b983f1566c0",
+      "3008eba3234708984c5083d4"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "4ed86af97cceba7f56890af4",
+    "members": [
+      "4963cdb425863b983f1566c0",
+      "37165c12f063fb2bff5b7957"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "1b900b2a0ecb48aea865e6a8",
+    "members": [
+      "4963cdb425863b983f1566c0",
+      "e6e0f3bb4f3ca0e1cdace836"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "f08e6884f2d430c3ddf9da78",
+    "members": [
+      "4963cdb425863b983f1566c0",
+      "bb98d47ba9f0500342b373ad"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "9fe36ea18214c747c7685c75",
+    "members": [
+      "4963cdb425863b983f1566c0",
+      "c45d9d5497b1d8b752ffe698"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "f8140066566f5943562bc050",
+    "members": [
+      "4963cdb425863b983f1566c0",
+      "f06cf9229446d845008f3d20"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "0e4c299c80f2f93c712799cb",
+    "members": [
+      "4963cdb425863b983f1566c0",
+      "ba212a4ad8dc4feacf398432"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "5c12985d9d401d3374779cf2",
+    "members": [
+      "4963cdb425863b983f1566c0",
+      "ee048e197105ca66a2b9a3bd"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "0f74c3619be4ba4e6eba88ad",
+    "members": [
+      "4963cdb425863b983f1566c0",
+      "876e1d214511a14c7571d0a8"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "7719a9d46b9c7591b44c3a38",
+    "members": [
+      "4963cdb425863b983f1566c0",
+      "399f348d04649cc466cc3ea2"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "a903f9fd2773036177d60556",
+    "members": [
+      "4963cdb425863b983f1566c0",
+      "59cc90eb459bf51cd703bb6a"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "54635a76f967cd0ca64927d8",
+    "members": [
+      "4963cdb425863b983f1566c0",
+      "6023e4fb59873a26634c1f5f"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "36cbb69631f494ac2591e09b",
+    "members": [
+      "4963cdb425863b983f1566c0",
+      "107e7d263146f94ea5905da5"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "2571459da197d5d101a8771d",
+    "members": [
+      "4963cdb425863b983f1566c0",
+      "c5502e8162f1708686d6f98e"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "60337b5cffd0199b11483b0e",
+    "members": [
+      "4963cdb425863b983f1566c0",
+      "f494b616a333c7808e158aef"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "74f3137a2a2d9a324352917b",
+    "members": [
+      "4963cdb425863b983f1566c0",
+      "bf7659c7456708d8185ab8af"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "df38490dbc6db879fa1d48b0",
+    "members": [
+      "9be508299a4b5e403e258741",
+      "0b42eb76d1dfbed9b81cf93e"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "da0631a0356f987eb8717a99",
+    "members": [
+      "9be508299a4b5e403e258741",
+      "5a1f56f3ea85559b9995ca21"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "2542aa6e9dc270e118755939",
+    "members": [
+      "9be508299a4b5e403e258741",
+      "3008eba3234708984c5083d4"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "6bb178d577c108fcae10dfb1",
+    "members": [
+      "9be508299a4b5e403e258741",
+      "37165c12f063fb2bff5b7957"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "2e3eb0e51ee737dc8054f422",
+    "members": [
+      "9be508299a4b5e403e258741",
+      "e6e0f3bb4f3ca0e1cdace836"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "0ef2a927996092c0915d3d4c",
+    "members": [
+      "9be508299a4b5e403e258741",
+      "bb98d47ba9f0500342b373ad"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "7d9fb14b83b292cca2a0f9a0",
+    "members": [
+      "9be508299a4b5e403e258741",
+      "c45d9d5497b1d8b752ffe698"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "5ebbdffff4d75f8065032772",
+    "members": [
+      "9be508299a4b5e403e258741",
+      "f06cf9229446d845008f3d20"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "90c484991b2bdd467e8160c9",
+    "members": [
+      "9be508299a4b5e403e258741",
+      "ba212a4ad8dc4feacf398432"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "fe4864e6198841e72fbc0a92",
+    "members": [
+      "9be508299a4b5e403e258741",
+      "ee048e197105ca66a2b9a3bd"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "32e40a90b31c0abf241dda79",
+    "members": [
+      "9be508299a4b5e403e258741",
+      "876e1d214511a14c7571d0a8"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "193add66b9668c1506860dcf",
+    "members": [
+      "9be508299a4b5e403e258741",
+      "399f348d04649cc466cc3ea2"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "7a1e8ceafd12ec766ddbad3c",
+    "members": [
+      "9be508299a4b5e403e258741",
+      "59cc90eb459bf51cd703bb6a"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "118affb411a6b79fbc123f94",
+    "members": [
+      "9be508299a4b5e403e258741",
+      "6023e4fb59873a26634c1f5f"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "4905412ed15a781eaf19d755",
+    "members": [
+      "9be508299a4b5e403e258741",
+      "107e7d263146f94ea5905da5"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "2519523de91382324d5e75b7",
+    "members": [
+      "9be508299a4b5e403e258741",
+      "c5502e8162f1708686d6f98e"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "976f17165f98a0f0de980ba1",
+    "members": [
+      "9be508299a4b5e403e258741",
+      "f494b616a333c7808e158aef"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "af9e9cf3d803ad5e1fc77645",
+    "members": [
+      "9be508299a4b5e403e258741",
+      "bf7659c7456708d8185ab8af"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "c3302bb4f4cf72e429e27774",
+    "members": [
+      "0b42eb76d1dfbed9b81cf93e",
+      "5a1f56f3ea85559b9995ca21"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "28faee69103f857bd298982c",
+    "members": [
+      "0b42eb76d1dfbed9b81cf93e",
+      "3008eba3234708984c5083d4"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "4e64960d6459ce757b8ea46e",
+    "members": [
+      "0b42eb76d1dfbed9b81cf93e",
+      "37165c12f063fb2bff5b7957"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "4d332737424e9043cd0d1962",
+    "members": [
+      "0b42eb76d1dfbed9b81cf93e",
+      "e6e0f3bb4f3ca0e1cdace836"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "8d65ac605ba3d90dd6fe3acc",
+    "members": [
+      "0b42eb76d1dfbed9b81cf93e",
+      "bb98d47ba9f0500342b373ad"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "1dfff62f06d1094affc57af8",
+    "members": [
+      "0b42eb76d1dfbed9b81cf93e",
+      "c45d9d5497b1d8b752ffe698"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "7b7f61adc34f4ea92da2d715",
+    "members": [
+      "0b42eb76d1dfbed9b81cf93e",
+      "f06cf9229446d845008f3d20"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "be004485863995a913892bd1",
+    "members": [
+      "0b42eb76d1dfbed9b81cf93e",
+      "ba212a4ad8dc4feacf398432"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "6fdf5ba383653edb38af4e74",
+    "members": [
+      "0b42eb76d1dfbed9b81cf93e",
+      "ee048e197105ca66a2b9a3bd"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "ae20ff8192b55d608a1d6a1a",
+    "members": [
+      "0b42eb76d1dfbed9b81cf93e",
+      "876e1d214511a14c7571d0a8"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "e67ceb20f845d1c661191ff4",
+    "members": [
+      "0b42eb76d1dfbed9b81cf93e",
+      "399f348d04649cc466cc3ea2"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "eed355223bfe9558ea2ec0af",
+    "members": [
+      "0b42eb76d1dfbed9b81cf93e",
+      "59cc90eb459bf51cd703bb6a"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "452cb89ddbf1d2a72a378093",
+    "members": [
+      "0b42eb76d1dfbed9b81cf93e",
+      "6023e4fb59873a26634c1f5f"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "a8255eff363f69a22f2d7210",
+    "members": [
+      "0b42eb76d1dfbed9b81cf93e",
+      "107e7d263146f94ea5905da5"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "42b5d71ef094ffc334b56fdf",
+    "members": [
+      "0b42eb76d1dfbed9b81cf93e",
+      "c5502e8162f1708686d6f98e"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "bea83faccd8e6a7b19911f35",
+    "members": [
+      "0b42eb76d1dfbed9b81cf93e",
+      "f494b616a333c7808e158aef"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "0bfc1f59d1396c15584e165a",
+    "members": [
+      "0b42eb76d1dfbed9b81cf93e",
+      "bf7659c7456708d8185ab8af"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "643e1522e8457cf4af131314",
+    "members": [
+      "5a1f56f3ea85559b9995ca21",
+      "3008eba3234708984c5083d4"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "55ef94682a395086af0a65af",
+    "members": [
+      "5a1f56f3ea85559b9995ca21",
+      "37165c12f063fb2bff5b7957"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "f982e9a52953d3c013e17a73",
+    "members": [
+      "5a1f56f3ea85559b9995ca21",
+      "e6e0f3bb4f3ca0e1cdace836"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "75bcc45e67108bd1a1edcf74",
+    "members": [
+      "5a1f56f3ea85559b9995ca21",
+      "bb98d47ba9f0500342b373ad"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "5753f3e941b43a37ce935c29",
+    "members": [
+      "5a1f56f3ea85559b9995ca21",
+      "c45d9d5497b1d8b752ffe698"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "c412094721da09323c9e9890",
+    "members": [
+      "5a1f56f3ea85559b9995ca21",
+      "f06cf9229446d845008f3d20"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "0b61c580f2f645fb3adb126d",
+    "members": [
+      "5a1f56f3ea85559b9995ca21",
+      "ba212a4ad8dc4feacf398432"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "76e70c00cb7cb21006a8c3f9",
+    "members": [
+      "5a1f56f3ea85559b9995ca21",
+      "ee048e197105ca66a2b9a3bd"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "08bc370522be4a67e758cc64",
+    "members": [
+      "5a1f56f3ea85559b9995ca21",
+      "876e1d214511a14c7571d0a8"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "6fe6260b0ffc4d1c09469b53",
+    "members": [
+      "5a1f56f3ea85559b9995ca21",
+      "399f348d04649cc466cc3ea2"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "5fe8fc19f4a3bf2f444bd412",
+    "members": [
+      "5a1f56f3ea85559b9995ca21",
+      "59cc90eb459bf51cd703bb6a"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "ac802b60bd2ff3054bb22f8b",
+    "members": [
+      "5a1f56f3ea85559b9995ca21",
+      "6023e4fb59873a26634c1f5f"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "6deac63b96b01cafb2895327",
+    "members": [
+      "5a1f56f3ea85559b9995ca21",
+      "107e7d263146f94ea5905da5"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "9b108e382e1bf9189a5c0efe",
+    "members": [
+      "5a1f56f3ea85559b9995ca21",
+      "c5502e8162f1708686d6f98e"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "1ff0f9863a69461ad26eb557",
+    "members": [
+      "5a1f56f3ea85559b9995ca21",
+      "f494b616a333c7808e158aef"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "3b6254c597b19ae90c546bff",
+    "members": [
+      "5a1f56f3ea85559b9995ca21",
+      "bf7659c7456708d8185ab8af"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "e9a64f862a611c98bef5af45",
+    "members": [
+      "3008eba3234708984c5083d4",
+      "37165c12f063fb2bff5b7957"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "2ca948ad04ce4cd081fa336b",
+    "members": [
+      "3008eba3234708984c5083d4",
+      "e6e0f3bb4f3ca0e1cdace836"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "2f9f3db84875c1ed78b95218",
+    "members": [
+      "3008eba3234708984c5083d4",
+      "bb98d47ba9f0500342b373ad"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "02086fc98ab9024ed1814397",
+    "members": [
+      "3008eba3234708984c5083d4",
+      "c45d9d5497b1d8b752ffe698"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "4c6b6094a8e9c0b5c895b24b",
+    "members": [
+      "3008eba3234708984c5083d4",
+      "f06cf9229446d845008f3d20"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "3b7db14f1ff4a57142dc0d7d",
+    "members": [
+      "3008eba3234708984c5083d4",
+      "ba212a4ad8dc4feacf398432"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "8a07fbaf9c98b232265640e5",
+    "members": [
+      "3008eba3234708984c5083d4",
+      "ee048e197105ca66a2b9a3bd"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "320038829dca608d2d426cc6",
+    "members": [
+      "3008eba3234708984c5083d4",
+      "876e1d214511a14c7571d0a8"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "b6058c6c160dfaf2d0792316",
+    "members": [
+      "3008eba3234708984c5083d4",
+      "399f348d04649cc466cc3ea2"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "b97b083b474260155c66b28f",
+    "members": [
+      "3008eba3234708984c5083d4",
+      "59cc90eb459bf51cd703bb6a"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "b3774fe581d6fb795598dad7",
+    "members": [
+      "3008eba3234708984c5083d4",
+      "6023e4fb59873a26634c1f5f"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "a66ac80ef8ad06ee0545e257",
+    "members": [
+      "3008eba3234708984c5083d4",
+      "107e7d263146f94ea5905da5"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "d9c94400f0a5e7ea46e50f52",
+    "members": [
+      "3008eba3234708984c5083d4",
+      "c5502e8162f1708686d6f98e"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "edf5fa06b85630d894b41849",
+    "members": [
+      "3008eba3234708984c5083d4",
+      "f494b616a333c7808e158aef"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "bf3b9555adb9e789473c2099",
+    "members": [
+      "3008eba3234708984c5083d4",
+      "bf7659c7456708d8185ab8af"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "f41c3ba12fbc14422436d389",
+    "members": [
+      "37165c12f063fb2bff5b7957",
+      "e6e0f3bb4f3ca0e1cdace836"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "f472ffb9f6578352b18e0cc4",
+    "members": [
+      "37165c12f063fb2bff5b7957",
+      "bb98d47ba9f0500342b373ad"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "ca16a36b20d0e28f193d4b1f",
+    "members": [
+      "37165c12f063fb2bff5b7957",
+      "c45d9d5497b1d8b752ffe698"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "6799c40e833f13270855a2ce",
+    "members": [
+      "37165c12f063fb2bff5b7957",
+      "f06cf9229446d845008f3d20"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "d0b137c6ae95f9f0bbea8e32",
+    "members": [
+      "37165c12f063fb2bff5b7957",
+      "ba212a4ad8dc4feacf398432"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "23f8d2210be8dd8bed2a4b2f",
+    "members": [
+      "37165c12f063fb2bff5b7957",
+      "ee048e197105ca66a2b9a3bd"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "9f9d0b3e399ae953edf4e68a",
+    "members": [
+      "37165c12f063fb2bff5b7957",
+      "876e1d214511a14c7571d0a8"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "e29227f2b9c0bbb71b0d0d91",
+    "members": [
+      "37165c12f063fb2bff5b7957",
+      "399f348d04649cc466cc3ea2"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "8ac09b7a450308c34b800245",
+    "members": [
+      "37165c12f063fb2bff5b7957",
+      "59cc90eb459bf51cd703bb6a"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "de25ccf6dc817b8a505325bf",
+    "members": [
+      "37165c12f063fb2bff5b7957",
+      "6023e4fb59873a26634c1f5f"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "fb147afba920ff7cb40067a0",
+    "members": [
+      "37165c12f063fb2bff5b7957",
+      "107e7d263146f94ea5905da5"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "374252424f620f5cbc322b70",
+    "members": [
+      "37165c12f063fb2bff5b7957",
+      "c5502e8162f1708686d6f98e"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "b42c7b6f752bc3be04d777a3",
+    "members": [
+      "37165c12f063fb2bff5b7957",
+      "f494b616a333c7808e158aef"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "80a8c109544aa9aaf19a999c",
+    "members": [
+      "37165c12f063fb2bff5b7957",
+      "bf7659c7456708d8185ab8af"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "851e725f6a556dc68ff139c6",
+    "members": [
+      "e6e0f3bb4f3ca0e1cdace836",
+      "bb98d47ba9f0500342b373ad"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "59a2ca1d9981da166ea1cd1a",
+    "members": [
+      "e6e0f3bb4f3ca0e1cdace836",
+      "c45d9d5497b1d8b752ffe698"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "a0ff940ce405bedeb601462e",
+    "members": [
+      "e6e0f3bb4f3ca0e1cdace836",
+      "f06cf9229446d845008f3d20"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "b2a44571a41cd78ebfb2e1d3",
+    "members": [
+      "e6e0f3bb4f3ca0e1cdace836",
+      "ba212a4ad8dc4feacf398432"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "4d99b3f05e9e25fab9b19e50",
+    "members": [
+      "e6e0f3bb4f3ca0e1cdace836",
+      "ee048e197105ca66a2b9a3bd"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "434cd393390f9639dfbe69c2",
+    "members": [
+      "e6e0f3bb4f3ca0e1cdace836",
+      "876e1d214511a14c7571d0a8"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "5f0c241aa512f6aa044cacc1",
+    "members": [
+      "e6e0f3bb4f3ca0e1cdace836",
+      "399f348d04649cc466cc3ea2"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "9910adb1e33ac6ae5ae90f21",
+    "members": [
+      "e6e0f3bb4f3ca0e1cdace836",
+      "59cc90eb459bf51cd703bb6a"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "516ba9a2ae45203c49046da7",
+    "members": [
+      "e6e0f3bb4f3ca0e1cdace836",
+      "6023e4fb59873a26634c1f5f"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "9c426740176c8296cc9f661e",
+    "members": [
+      "e6e0f3bb4f3ca0e1cdace836",
+      "107e7d263146f94ea5905da5"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "f8335d4dd444a3b5757361e9",
+    "members": [
+      "e6e0f3bb4f3ca0e1cdace836",
+      "c5502e8162f1708686d6f98e"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "3350cfdfd8870ac0288563e2",
+    "members": [
+      "e6e0f3bb4f3ca0e1cdace836",
+      "f494b616a333c7808e158aef"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "abe463535cbf08bf032f6338",
+    "members": [
+      "e6e0f3bb4f3ca0e1cdace836",
+      "bf7659c7456708d8185ab8af"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "f06fca27080755ddd9023477",
+    "members": [
+      "bb98d47ba9f0500342b373ad",
+      "c45d9d5497b1d8b752ffe698"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "34f488d9ba6970969a378562",
+    "members": [
+      "bb98d47ba9f0500342b373ad",
+      "f06cf9229446d845008f3d20"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "a9a79d372cf93541189068d5",
+    "members": [
+      "bb98d47ba9f0500342b373ad",
+      "ba212a4ad8dc4feacf398432"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "3bcb87f7787b7f087c441476",
+    "members": [
+      "bb98d47ba9f0500342b373ad",
+      "ee048e197105ca66a2b9a3bd"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "3d2b311462f51ef60de0c75d",
+    "members": [
+      "bb98d47ba9f0500342b373ad",
+      "876e1d214511a14c7571d0a8"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "99b5da1d8412a1b5b712564c",
+    "members": [
+      "bb98d47ba9f0500342b373ad",
+      "399f348d04649cc466cc3ea2"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "ca65a4ff822475ecb6893748",
+    "members": [
+      "bb98d47ba9f0500342b373ad",
+      "59cc90eb459bf51cd703bb6a"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "1741b1459ca76cedf6ef7f0f",
+    "members": [
+      "bb98d47ba9f0500342b373ad",
+      "6023e4fb59873a26634c1f5f"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "85193989bb944b61a24fa613",
+    "members": [
+      "bb98d47ba9f0500342b373ad",
+      "107e7d263146f94ea5905da5"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "d47ac7b0f75653377cbe1e57",
+    "members": [
+      "bb98d47ba9f0500342b373ad",
+      "c5502e8162f1708686d6f98e"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "c387b836f7e10fad59779814",
+    "members": [
+      "bb98d47ba9f0500342b373ad",
+      "f494b616a333c7808e158aef"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "5d11ef5d6e6bb6adca63b9c3",
+    "members": [
+      "bb98d47ba9f0500342b373ad",
+      "bf7659c7456708d8185ab8af"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "ee7c600caf59ba6bba8768ac",
+    "members": [
+      "c45d9d5497b1d8b752ffe698",
+      "f06cf9229446d845008f3d20"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "d6184e8a20483ddcf86a6fba",
+    "members": [
+      "c45d9d5497b1d8b752ffe698",
+      "ba212a4ad8dc4feacf398432"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "95fb2636903b365781c8eaa1",
+    "members": [
+      "c45d9d5497b1d8b752ffe698",
+      "ee048e197105ca66a2b9a3bd"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "522a26925c5af8192c1373b4",
+    "members": [
+      "c45d9d5497b1d8b752ffe698",
+      "876e1d214511a14c7571d0a8"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "d6eaca044c665fc706f18e15",
+    "members": [
+      "c45d9d5497b1d8b752ffe698",
+      "399f348d04649cc466cc3ea2"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "4dfdaef5946a267906d1941b",
+    "members": [
+      "c45d9d5497b1d8b752ffe698",
+      "59cc90eb459bf51cd703bb6a"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "79a5aa83fd20d54922d39dc7",
+    "members": [
+      "c45d9d5497b1d8b752ffe698",
+      "6023e4fb59873a26634c1f5f"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "ab952aab1311e08ecc2d4657",
+    "members": [
+      "c45d9d5497b1d8b752ffe698",
+      "107e7d263146f94ea5905da5"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "4326f3e538c19dd2b3742a4a",
+    "members": [
+      "c45d9d5497b1d8b752ffe698",
+      "c5502e8162f1708686d6f98e"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "ead2ae790d6cd6fc996394c7",
+    "members": [
+      "c45d9d5497b1d8b752ffe698",
+      "f494b616a333c7808e158aef"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "7924dd254cde4fab43c988d9",
+    "members": [
+      "c45d9d5497b1d8b752ffe698",
+      "bf7659c7456708d8185ab8af"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "d03293778a18408a5a26c1cd",
+    "members": [
+      "f06cf9229446d845008f3d20",
+      "ba212a4ad8dc4feacf398432"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "ddb87cfe037f61d55dcd17d0",
+    "members": [
+      "f06cf9229446d845008f3d20",
+      "ee048e197105ca66a2b9a3bd"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "3cad85f781ed945d8ee83950",
+    "members": [
+      "f06cf9229446d845008f3d20",
+      "876e1d214511a14c7571d0a8"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "7e80fe6c1f2e9c9bb9442ea3",
+    "members": [
+      "f06cf9229446d845008f3d20",
+      "399f348d04649cc466cc3ea2"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "4f6ee91f5eb539c4b429a7b0",
+    "members": [
+      "f06cf9229446d845008f3d20",
+      "59cc90eb459bf51cd703bb6a"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "e9b6bcc77e248ea8768573fe",
+    "members": [
+      "f06cf9229446d845008f3d20",
+      "6023e4fb59873a26634c1f5f"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "22ba95ae2fc385b5bc3e181f",
+    "members": [
+      "f06cf9229446d845008f3d20",
+      "107e7d263146f94ea5905da5"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "5719b0a4825283525c14408e",
+    "members": [
+      "f06cf9229446d845008f3d20",
+      "c5502e8162f1708686d6f98e"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "a18c70adcd7806104c1d5889",
+    "members": [
+      "f06cf9229446d845008f3d20",
+      "f494b616a333c7808e158aef"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "48bf9c55909311499e0dccc6",
+    "members": [
+      "f06cf9229446d845008f3d20",
+      "bf7659c7456708d8185ab8af"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "14f90dcc61afa10c783cca36",
+    "members": [
+      "ba212a4ad8dc4feacf398432",
+      "ee048e197105ca66a2b9a3bd"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "60308b28aa100ef617858ba3",
+    "members": [
+      "ba212a4ad8dc4feacf398432",
+      "876e1d214511a14c7571d0a8"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "0bb4873030b35482613ba711",
+    "members": [
+      "ba212a4ad8dc4feacf398432",
+      "399f348d04649cc466cc3ea2"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "8e411a97989897bf4e8e93d3",
+    "members": [
+      "ba212a4ad8dc4feacf398432",
+      "59cc90eb459bf51cd703bb6a"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "6bf72cab4d29d8a30c99b00a",
+    "members": [
+      "ba212a4ad8dc4feacf398432",
+      "6023e4fb59873a26634c1f5f"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "32cac0804f5a712bc4498cc6",
+    "members": [
+      "ba212a4ad8dc4feacf398432",
+      "107e7d263146f94ea5905da5"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "696d91f52bb8382e7481daa1",
+    "members": [
+      "ba212a4ad8dc4feacf398432",
+      "c5502e8162f1708686d6f98e"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "018864b5c867d8daa8b647c3",
+    "members": [
+      "ba212a4ad8dc4feacf398432",
+      "f494b616a333c7808e158aef"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "8ed950d8591fc7906648727d",
+    "members": [
+      "ba212a4ad8dc4feacf398432",
+      "bf7659c7456708d8185ab8af"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "c75bedc4ffb48845871f2315",
+    "members": [
+      "ee048e197105ca66a2b9a3bd",
+      "876e1d214511a14c7571d0a8"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "e71f63f188e4706f6b550fca",
+    "members": [
+      "ee048e197105ca66a2b9a3bd",
+      "399f348d04649cc466cc3ea2"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "fde47c0ab85b285005dc8224",
+    "members": [
+      "ee048e197105ca66a2b9a3bd",
+      "59cc90eb459bf51cd703bb6a"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "9653b15083fcd23167d27be6",
+    "members": [
+      "ee048e197105ca66a2b9a3bd",
+      "6023e4fb59873a26634c1f5f"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "af0abf748e8db923e54c7358",
+    "members": [
+      "ee048e197105ca66a2b9a3bd",
+      "107e7d263146f94ea5905da5"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "7c327cc82a099ceb6abd5a18",
+    "members": [
+      "ee048e197105ca66a2b9a3bd",
+      "c5502e8162f1708686d6f98e"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "1aaa6b9d3c28500dffcd93a6",
+    "members": [
+      "ee048e197105ca66a2b9a3bd",
+      "f494b616a333c7808e158aef"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "85a2889c44323e47aa16dbe9",
+    "members": [
+      "ee048e197105ca66a2b9a3bd",
+      "bf7659c7456708d8185ab8af"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "6fc02c455361ebf99033bbe5",
+    "members": [
+      "876e1d214511a14c7571d0a8",
+      "399f348d04649cc466cc3ea2"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "543544a8dae1c2a2cd0a6e59",
+    "members": [
+      "876e1d214511a14c7571d0a8",
+      "59cc90eb459bf51cd703bb6a"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "d99100849bcb64d9a7f4ea67",
+    "members": [
+      "876e1d214511a14c7571d0a8",
+      "6023e4fb59873a26634c1f5f"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "9cdc11d95090ccdbc725c963",
+    "members": [
+      "876e1d214511a14c7571d0a8",
+      "107e7d263146f94ea5905da5"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "668ffe403ae9ab64e3466ca9",
+    "members": [
+      "876e1d214511a14c7571d0a8",
+      "c5502e8162f1708686d6f98e"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "ff80d9c91caf02ac5efd4bbd",
+    "members": [
+      "876e1d214511a14c7571d0a8",
+      "f494b616a333c7808e158aef"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "4eadc263e97a46f5ed018523",
+    "members": [
+      "876e1d214511a14c7571d0a8",
+      "bf7659c7456708d8185ab8af"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "6959bd4785e9a9974dcc4f02",
+    "members": [
+      "399f348d04649cc466cc3ea2",
+      "59cc90eb459bf51cd703bb6a"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "284f84f763354aad3cecfab1",
+    "members": [
+      "399f348d04649cc466cc3ea2",
+      "6023e4fb59873a26634c1f5f"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "aa1c533727e94913cd757ff2",
+    "members": [
+      "399f348d04649cc466cc3ea2",
+      "107e7d263146f94ea5905da5"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "9d16467ce412006ecb595706",
+    "members": [
+      "399f348d04649cc466cc3ea2",
+      "c5502e8162f1708686d6f98e"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "1772bbf7de5adfa3baec6fe7",
+    "members": [
+      "399f348d04649cc466cc3ea2",
+      "f494b616a333c7808e158aef"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "da0407309af641acd255ad7c",
+    "members": [
+      "399f348d04649cc466cc3ea2",
+      "bf7659c7456708d8185ab8af"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "b6a02c0632551d295f51c26f",
+    "members": [
+      "59cc90eb459bf51cd703bb6a",
+      "6023e4fb59873a26634c1f5f"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "ab1ba820b8034160d2f1c845",
+    "members": [
+      "59cc90eb459bf51cd703bb6a",
+      "107e7d263146f94ea5905da5"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "15ab36f0fb8e01aa12fde610",
+    "members": [
+      "59cc90eb459bf51cd703bb6a",
+      "c5502e8162f1708686d6f98e"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "cc917921414ef13af783d13d",
+    "members": [
+      "59cc90eb459bf51cd703bb6a",
+      "f494b616a333c7808e158aef"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "4759a3f5a2a2c8ae7ba97f58",
+    "members": [
+      "59cc90eb459bf51cd703bb6a",
+      "bf7659c7456708d8185ab8af"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "1b04cf87e0df49ac661e73d4",
+    "members": [
+      "6023e4fb59873a26634c1f5f",
+      "107e7d263146f94ea5905da5"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "bc979acac93dcfc7a8acaa9e",
+    "members": [
+      "6023e4fb59873a26634c1f5f",
+      "c5502e8162f1708686d6f98e"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "a60f37d78b40531c849fe38a",
+    "members": [
+      "6023e4fb59873a26634c1f5f",
+      "f494b616a333c7808e158aef"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "167f697913ef5a1d44a5a863",
+    "members": [
+      "6023e4fb59873a26634c1f5f",
+      "bf7659c7456708d8185ab8af"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "626e6a7b307ad7e91281e10a",
+    "members": [
+      "107e7d263146f94ea5905da5",
+      "c5502e8162f1708686d6f98e"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "90e792eafd5d6f18c75abc1a",
+    "members": [
+      "107e7d263146f94ea5905da5",
+      "f494b616a333c7808e158aef"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "80867b9c053fb9c851694556",
+    "members": [
+      "107e7d263146f94ea5905da5",
+      "bf7659c7456708d8185ab8af"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "129c54d084c1f997b9224e14",
+    "members": [
+      "c5502e8162f1708686d6f98e",
+      "f494b616a333c7808e158aef"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "6c43303033eb9c31e3dc530b",
+    "members": [
+      "c5502e8162f1708686d6f98e",
+      "bf7659c7456708d8185ab8af"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  },
+  {
+    "ensemble_id": "ad716f29434d722ec94bdfda",
+    "members": [
+      "f494b616a333c7808e158aef",
+      "bf7659c7456708d8185ab8af"
+    ],
+    "status": "ENSEMBLE_HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "backtest_status": "PENDING_REAL_BACKTEST",
+    "edge_status": "NOT_APPROVED"
+  }
+]

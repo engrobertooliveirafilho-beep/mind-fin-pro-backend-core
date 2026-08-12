@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_54E470F1D59C8C01",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\io\\test_compression.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\pandas\\tests\\io\\test_compression.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 121,
+  "imports": [
+    "gzip",
+    "io",
+    "numpy",
+    "os",
+    "pandas",
+    "pandas._testing",
+    "pandas.compat",
+    "pandas.io.common",
+    "pytest",
+    "subprocess",
+    "sys",
+    "tarfile",
+    "textwrap",
+    "zipfile"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

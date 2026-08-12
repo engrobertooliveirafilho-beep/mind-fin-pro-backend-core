@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_19675DA08FC79357",
+  "source_file": ".venv\\Lib\\site-packages\\charset_normalizer\\cli\\__main__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\charset_normalizer\\cli\\__main__.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 87,
+  "imports": [
+    "__future__",
+    "argparse",
+    "charset_normalizer",
+    "charset_normalizer.md",
+    "charset_normalizer.models",
+    "charset_normalizer.version",
+    "json",
+    "os.path",
+    "platform",
+    "sys",
+    "typing",
+    "unicodedata"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

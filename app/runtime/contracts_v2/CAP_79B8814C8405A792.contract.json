@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_79B8814C8405A792",
+  "source_file": ".venv\\Lib\\site-packages\\fastapi\\_compat\\shared.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\fastapi\\_compat\\shared.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 102,
+  "imports": [
+    "collections",
+    "collections.abc",
+    "dataclasses",
+    "fastapi.types",
+    "pydantic",
+    "pydantic.version",
+    "starlette.datastructures",
+    "types",
+    "typing",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

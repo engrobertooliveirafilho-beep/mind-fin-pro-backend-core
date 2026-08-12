@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_CDB8B31C7025E474",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\sphinxext.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\.venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\sphinxext.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 117,
+  "imports": [
+    "docutils",
+    "docutils.parsers.rst",
+    "docutils.statemachine",
+    "inspect",
+    "pathlib",
+    "pip._vendor",
+    "pip._vendor.pygments.filters",
+    "pip._vendor.pygments.formatters",
+    "pip._vendor.pygments.lexers",
+    "pip._vendor.pygments.lexers._mapping",
+    "sphinx.util.nodes",
+    "sys"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

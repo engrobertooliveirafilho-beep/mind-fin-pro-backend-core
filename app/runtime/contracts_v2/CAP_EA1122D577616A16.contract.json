@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_EA1122D577616A16",
+  "source_file": "mind_trader\\app\\audits\\release_audit_gate.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\mind_trader\\app\\audits\\release_audit_gate.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 116,
+  "imports": [
+    "datetime",
+    "json",
+    "mind_trader.app.audits.institutional_audit_ledger",
+    "mind_trader.app.audits.institutional_healthcheck",
+    "mind_trader.app.audits.runtime_evidence_package",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

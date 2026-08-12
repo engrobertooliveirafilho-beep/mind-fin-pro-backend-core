@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_E24BD42B9AC6B1EB",
+  "source_file": "tests\\test_p19p50c_safe_recovery_deep_merge.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\tests\\test_p19p50c_safe_recovery_deep_merge.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 96,
+  "imports": [
+    "app.api.whatsapp",
+    "app.companionship.cognitive_context_builder",
+    "app.companionship.humanized_meta_cognition",
+    "app.companionship.safe_recovery_adapter",
+    "app.runtime.cognitive_pipeline"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

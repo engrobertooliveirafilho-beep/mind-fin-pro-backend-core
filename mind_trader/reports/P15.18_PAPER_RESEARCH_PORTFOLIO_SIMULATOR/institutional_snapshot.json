@@ -1,0 +1,41 @@
+{
+  "STATUS": "P15.18_PAPER_RESEARCH_PORTFOLIO_SIMULATOR_IMPLEMENTED",
+  "INPUT_EDGES": 3,
+  "SINGLE_EDGES": 3,
+  "PORTFOLIOS_TESTED": 4,
+  "BEST_PORTFOLIO": {
+    "allocation": "ifix_heavy",
+    "weights": [
+      0.25,
+      0.5,
+      0.25
+    ],
+    "edges": [
+      "CSAN3_H1_sma_cross_13_55",
+      "IFIX_H1_sma_cross_5_55",
+      "SHUL4_H1_sma_cross_5_55"
+    ],
+    "return": 0.325657,
+    "profit_factor": 2.7172,
+    "trades": 154,
+    "winrate": 40.8725,
+    "max_drawdown_proxy": 0.122007,
+    "recovery_factor_proxy": 2.669163,
+    "sharpe_proxy": 6.905831,
+    "avg_correlation_proxy": 0.766667,
+    "correlation_penalty": 0.9,
+    "institutional_score": 14.810642,
+    "portfolio_approved": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  "LIMITATION": "NO_TRADE_LEVEL_EQUITY_CURVE_AVAILABLE_CORRELATION_IS_PROXY",
+  "EDGE": "PAPER_PORTFOLIO_CANDIDATE_FOUND",
+  "CAUSALITY": "NOT_PROVEN",
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "NEXT": "P15.19_TRADE_LEVEL_EQUITY_CURVE_RECONSTRUCTION",
+  "EXPORT_READY": true,
+  "generated_at": "2026-06-14T16:11:32.624139+00:00"
+}

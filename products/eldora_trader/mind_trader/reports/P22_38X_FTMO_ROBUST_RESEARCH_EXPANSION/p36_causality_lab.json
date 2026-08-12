@@ -1,0 +1,86 @@
+[
+  {
+    "edge_id": "CSAN3_H1_sma_cross_13_55",
+    "causality_methods": [
+      "granger_proxy",
+      "transfer_entropy_proxy",
+      "pcmci_ready",
+      "dag_discovery_ready"
+    ],
+    "target": "CAUSALITY_STRONG",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "IFIX_H1_sma_cross_5_55",
+    "causality_methods": [
+      "granger_proxy",
+      "transfer_entropy_proxy",
+      "pcmci_ready",
+      "dag_discovery_ready"
+    ],
+    "target": "CAUSALITY_STRONG",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "SHUL4_H1_sma_cross_5_55",
+    "causality_methods": [
+      "granger_proxy",
+      "transfer_entropy_proxy",
+      "pcmci_ready",
+      "dag_discovery_ready"
+    ],
+    "target": "CAUSALITY_STRONG",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "VIDEO_8834d6c1b66f26e6ce1d3007",
+    "causality_methods": [
+      "granger_proxy",
+      "transfer_entropy_proxy",
+      "pcmci_ready",
+      "dag_discovery_ready"
+    ],
+    "target": "CAUSALITY_STRONG",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "VIDEO_9a075b6ef8d3f0363d232ba8",
+    "causality_methods": [
+      "granger_proxy",
+      "transfer_entropy_proxy",
+      "pcmci_ready",
+      "dag_discovery_ready"
+    ],
+    "target": "CAUSALITY_STRONG",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "VIDEO_b237455793f2a763ee436139",
+    "causality_methods": [
+      "granger_proxy",
+      "transfer_entropy_proxy",
+      "pcmci_ready",
+      "dag_discovery_ready"
+    ],
+    "target": "CAUSALITY_STRONG",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  }
+]

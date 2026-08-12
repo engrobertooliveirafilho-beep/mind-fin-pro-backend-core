@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_5F9543A481D654EA",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\series\\test_arrow_interface.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\pandas\\tests\\series\\test_arrow_interface.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 83,
+  "imports": [
+    "ctypes",
+    "pandas",
+    "pandas._testing",
+    "pandas.util._test_decorators",
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

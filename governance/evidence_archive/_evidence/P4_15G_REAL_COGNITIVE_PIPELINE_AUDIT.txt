@@ -1,0 +1,118 @@
+
+  app\runtime\cognitive_pipeline.py:1:
+  app\runtime\cognitive_pipeline.py:2:from app.humanization.universal_recovery_runtime import enforce_no_identity_in_normal_chat
+  app\runtime\cognitive_pipeline.py:3:def run_cognitive_pipeline(user_id: str, message: str) -> dict:
+> app\runtime\cognitive_pipeline.py:4:    from app.persona.eldora_core import build_persona_context
+  app\runtime\cognitive_pipeline.py:5:    from app.runtime.intent_router import route_intent
+> app\runtime\cognitive_pipeline.py:6:    from app.memory.memory_graph import save_message, retrieve_relevant_memory, retrieve_user_profile, retrieve_project_context
+  app\runtime\cognitive_pipeline.py:7:    from app.runtime.internal_state import update_state, persist_state
+> app\runtime\cognitive_pipeline.py:8:    from app.runtime.response_strategy import build_response_strategy
+> app\runtime\cognitive_pipeline.py:9:    from app.runtime.response_builder import build_response
+  app\runtime\cognitive_pipeline.py:10:    from app.runtime.quality_gate import rewrite_if_needed
+  app\runtime\cognitive_pipeline.py:11:    from app.runtime.autonomous_cognition_layer import run_autonomous_cognition_layer
+> app\runtime\cognitive_pipeline.py:12:    from app.runtime.natural_response_layer import naturalize_response
+  app\runtime\cognitive_pipeline.py:13:
+> app\runtime\cognitive_pipeline.py:14:    save_message(user_id, "user", message)
+  app\runtime\cognitive_pipeline.py:15:
+  app\runtime\cognitive_pipeline.py:16:    msg_l = (message or "").lower().strip()
+  app\runtime\cognitive_pipeline.py:17:
+  app\runtime\cognitive_pipeline.py:18:    if any(x in msg_l for x in ["tudo bem", "como ta", "como tá", "ta bem", "tá bem"]):
+> app\runtime\cognitive_pipeline.py:19:        answer = "Estou funcionando bem agora e melhorando a conversa da Eldora para responder de forma mais natural e contextual."
+> app\runtime\cognitive_pipeline.py:20:        save_message(user_id, "assistant", answer)
+> app\runtime\cognitive_pipeline.py:21:        return {
+> app\runtime\cognitive_pipeline.py:22:            "answer": answer,
+  app\runtime\cognitive_pipeline.py:23:            "intent": {"intent": "smalltalk"},
+  app\runtime\cognitive_pipeline.py:24:            "scores": {},
+  app\runtime\cognitive_pipeline.py:25:            "state": {},
+  app\runtime\cognitive_pipeline.py:26:            "autonomous": {}
+  app\runtime\cognitive_pipeline.py:27:        }
+  app\runtime\cognitive_pipeline.py:28:
+  app\runtime\cognitive_pipeline.py:29:    # =====================================================
+  app\runtime\cognitive_pipeline.py:30:    # HARD OVERRIDE — GREETINGS
+  app\runtime\cognitive_pipeline.py:31:    # =====================================================
+  app\runtime\cognitive_pipeline.py:32:
+  app\runtime\cognitive_pipeline.py:33:    if "boa tarde" in msg_l:
+> app\runtime\cognitive_pipeline.py:34:        answer = "Boa tarde, Roberto. Estou aqui e acompanhando o contexto da conversa."
+> app\runtime\cognitive_pipeline.py:35:        save_message(user_id, "assistant", answer)
+> app\runtime\cognitive_pipeline.py:36:        return {
+> app\runtime\cognitive_pipeline.py:37:            "answer": answer,
+  app\runtime\cognitive_pipeline.py:38:            "intent": {"intent": "greeting"},
+  app\runtime\cognitive_pipeline.py:39:            "scores": {},
+  app\runtime\cognitive_pipeline.py:40:            "state": {},
+  app\runtime\cognitive_pipeline.py:41:            "autonomous": {}
+  app\runtime\cognitive_pipeline.py:42:        }
+  app\runtime\cognitive_pipeline.py:43:
+  app\runtime\cognitive_pipeline.py:44:    if "bom dia" in msg_l:
+> app\runtime\cognitive_pipeline.py:45:        answer = "Bom dia, Roberto. Estou acompanhando o contexto e pronta para continuar."
+> app\runtime\cognitive_pipeline.py:46:        save_message(user_id, "assistant", answer)
+> app\runtime\cognitive_pipeline.py:47:        return {
+> app\runtime\cognitive_pipeline.py:48:            "answer": answer,
+  app\runtime\cognitive_pipeline.py:49:            "intent": {"intent": "greeting"},
+  app\runtime\cognitive_pipeline.py:50:            "scores": {},
+  app\runtime\cognitive_pipeline.py:51:            "state": {},
+  app\runtime\cognitive_pipeline.py:52:            "autonomous": {}
+  app\runtime\cognitive_pipeline.py:53:        }
+  app\runtime\cognitive_pipeline.py:54:
+  app\runtime\cognitive_pipeline.py:55:    if "boa noite" in msg_l:
+> app\runtime\cognitive_pipeline.py:56:        answer = "Boa noite, Roberto. O contexto do MIND continua ativo."
+> app\runtime\cognitive_pipeline.py:57:        save_message(user_id, "assistant", answer)
+> app\runtime\cognitive_pipeline.py:58:        return {
+> app\runtime\cognitive_pipeline.py:59:            "answer": answer,
+  app\runtime\cognitive_pipeline.py:60:            "intent": {"intent": "greeting"},
+  app\runtime\cognitive_pipeline.py:61:            "scores": {},
+  app\runtime\cognitive_pipeline.py:62:            "state": {},
+  app\runtime\cognitive_pipeline.py:63:            "autonomous": {}
+  app\runtime\cognitive_pipeline.py:64:        }
+  app\runtime\cognitive_pipeline.py:65:    if any(x in msg_l for x in [
+  app\runtime\cognitive_pipeline.py:66:        "cade a resposta",
+  app\runtime\cognitive_pipeline.py:67:        "cadê a resposta",
+  app\runtime\cognitive_pipeline.py:68:        "onde ta a resposta",
+  app\runtime\cognitive_pipeline.py:69:        "onde está a resposta"
+  app\runtime\cognitive_pipeline.py:70:    ]):
+> app\runtime\cognitive_pipeline.py:71:        answer = "Roberto, resposta direta: o problema atual não é infraestrutura. É continuidade conversacional."
+> app\runtime\cognitive_pipeline.py:72:        save_message(user_id, "assistant", answer)
+> app\runtime\cognitive_pipeline.py:73:        return {
+> app\runtime\cognitive_pipeline.py:74:            "answer": answer,
+> app\runtime\cognitive_pipeline.py:75:            "intent": {"intent": "where_answer"},
+  app\runtime\cognitive_pipeline.py:76:            "scores": {},
+  app\runtime\cognitive_pipeline.py:77:            "state": {},
+  app\runtime\cognitive_pipeline.py:78:            "autonomous": {}
+  app\runtime\cognitive_pipeline.py:79:        }
+  app\runtime\cognitive_pipeline.py:80:    intent = route_intent(message)
+  app\runtime\cognitive_pipeline.py:81:    autonomous = run_autonomous_cognition_layer(user_id, message)
+  app\runtime\cognitive_pipeline.py:82:
+> app\runtime\cognitive_pipeline.py:83:    memory = {
+> app\runtime\cognitive_pipeline.py:84:        "relevant": retrieve_relevant_memory(user_id, message),
+> app\runtime\cognitive_pipeline.py:85:        "profile": retrieve_user_profile(user_id),
+> app\runtime\cognitive_pipeline.py:86:        "project": retrieve_project_context(user_id),
+  app\runtime\cognitive_pipeline.py:87:        "autonomous": autonomous
+  app\runtime\cognitive_pipeline.py:88:    }
+  app\runtime\cognitive_pipeline.py:89:
+> app\runtime\cognitive_pipeline.py:90:    state = update_state(message, intent, memory)
+> app\runtime\cognitive_pipeline.py:91:    persona = build_persona_context(user_id, state, memory)
+> app\runtime\cognitive_pipeline.py:92:    strategy = build_response_strategy(intent, state, memory)
+  app\runtime\cognitive_pipeline.py:93:
+> app\runtime\cognitive_pipeline.py:94:    raw = build_response(message, intent, memory, state, persona, strategy)
+> app\runtime\cognitive_pipeline.py:95:    final = rewrite_if_needed(raw, intent, persona, memory)
+> app\runtime\cognitive_pipeline.py:96:    final["answer"] = naturalize_response(final["answer"], intent, state, autonomous)
+  app\runtime\cognitive_pipeline.py:97:
+> app\runtime\cognitive_pipeline.py:98:    save_message(user_id, "assistant", final["answer"])
+  app\runtime\cognitive_pipeline.py:99:    persist_state(user_id, state)
+  app\runtime\cognitive_pipeline.py:100:
+> app\runtime\cognitive_pipeline.py:101:    return {
+> app\runtime\cognitive_pipeline.py:102:        "answer": final["answer"],
+  app\runtime\cognitive_pipeline.py:103:        "intent": intent,
+  app\runtime\cognitive_pipeline.py:104:        "scores": final["scores"],
+  app\runtime\cognitive_pipeline.py:105:        "state": state,
+  app\runtime\cognitive_pipeline.py:106:        "autonomous": autonomous
+  app\runtime\cognitive_pipeline.py:107:    }
+  app\runtime\cognitive_pipeline.py:108:
+  app\runtime\cognitive_pipeline.py:109:
+  app\runtime\cognitive_pipeline.py:110:
+  app\runtime\cognitive_pipeline.py:111:
+  app\runtime\cognitive_pipeline.py:112:
+  app\runtime\cognitive_pipeline.py:113:
+  app\runtime\cognitive_pipeline.py:114:# FINAL_IDENTITY_BLOCK
+> app\runtime\cognitive_pipeline.py:115:def __identity_guard_last_hop(answer,user_message=""):
+> app\runtime\cognitive_pipeline.py:116:    return enforce_no_identity_in_normal_chat(user_message,answer)
+

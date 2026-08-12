@@ -1,0 +1,17 @@
+input
+  fastPeriod(14);
+  slowPeriod(72);
+
+var
+  fastMA, slowMA : Float;
+
+begin
+  fastMA := MediaExp(fastPeriod, Close);
+  slowMA := MediaExp(slowPeriod, Close);
+
+  if (fastMA > slowMA) and (fastMA[1] <= slowMA[1]) then
+    BuyAtMarket;
+
+  if (fastMA < slowMA) and (fastMA[1] >= slowMA[1]) then
+    SellShortAtMarket;
+end;

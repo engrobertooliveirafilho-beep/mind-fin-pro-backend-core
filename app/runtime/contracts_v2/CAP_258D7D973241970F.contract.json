@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_258D7D973241970F",
+  "source_file": "app\\mind\\p5_6c_pedigree_source_validation\\validator.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\app\\mind\\p5_6c_pedigree_source_validation\\validator.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 99,
+  "imports": [
+    "json",
+    "os",
+    "re",
+    "urllib.parse",
+    "urllib.request"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

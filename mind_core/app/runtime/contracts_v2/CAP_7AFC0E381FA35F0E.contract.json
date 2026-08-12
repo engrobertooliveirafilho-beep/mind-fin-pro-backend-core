@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_7AFC0E381FA35F0E",
+  "source_file": "_evidence\\P4_65N_RETRIEVAL_GROUNDED_ANSWER_20260618_152504\\p465n_patch.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P4_65N_RETRIEVAL_GROUNDED_ANSWER_20260618_152504\\p465n_patch.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 104,
+  "imports": [
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

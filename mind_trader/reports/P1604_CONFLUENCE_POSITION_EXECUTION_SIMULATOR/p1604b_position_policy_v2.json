@@ -1,0 +1,131 @@
+{
+  "STATUS": "P1604B_POSITION_POLICY_V2_CREATED",
+  "POLICIES": [
+    {
+      "edge_id": "7d0ccd5986a18a8a9162e384",
+      "asset": "GBPUSD",
+      "timeframe": "M30",
+      "policy_type": "SCALP_RUNNER_LIGHT_PARTIAL",
+      "initial_lot": 0.01,
+      "partial_take_profit": {
+        "enabled": true,
+        "first_partial_at_R": 1.5,
+        "first_partial_close_pct": 25,
+        "runner_pct": 75
+      },
+      "break_even": {
+        "enabled": true,
+        "move_sl_to_entry_after_R": 1.2
+      },
+      "trailing": {
+        "enabled": true,
+        "start_after_R": 2.5,
+        "trail_by_ATR_multiple": 2.0
+      },
+      "position_rebuild": {
+        "enabled": true,
+        "max_rebuilds_per_signal": 1,
+        "rebuild_only_if_confluence_score_above": 90,
+        "rebuild_lot_multiplier": 0.35
+      },
+      "scale_in": {
+        "enabled": false
+      },
+      "previous_base_R": 22.902299,
+      "previous_managed_R": 16.571411,
+      "previous_management_delta_R": -6.330888,
+      "reason": "V1_PARTIAL_TOO_EARLY_REDUCED_HIGH_PAYOFF",
+      "ORDER_SENT": false,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    },
+    {
+      "edge_id": "6ffc7212b632c0f09f8de2fc",
+      "asset": "XAUUSD",
+      "timeframe": "M5",
+      "policy_type": "SCALP_RUNNER_LIGHT_PARTIAL",
+      "initial_lot": 0.01,
+      "partial_take_profit": {
+        "enabled": true,
+        "first_partial_at_R": 1.5,
+        "first_partial_close_pct": 25,
+        "runner_pct": 75
+      },
+      "break_even": {
+        "enabled": true,
+        "move_sl_to_entry_after_R": 1.2
+      },
+      "trailing": {
+        "enabled": true,
+        "start_after_R": 2.5,
+        "trail_by_ATR_multiple": 2.0
+      },
+      "position_rebuild": {
+        "enabled": true,
+        "max_rebuilds_per_signal": 1,
+        "rebuild_only_if_confluence_score_above": 90,
+        "rebuild_lot_multiplier": 0.35
+      },
+      "scale_in": {
+        "enabled": false
+      },
+      "previous_base_R": 34.482746,
+      "previous_managed_R": 21.805125,
+      "previous_management_delta_R": -12.677621,
+      "reason": "V1_PARTIAL_TOO_EARLY_REDUCED_HIGH_PAYOFF",
+      "ORDER_SENT": false,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    },
+    {
+      "edge_id": "9a53b0630c7b7e29e960eb66",
+      "asset": "USDJPY",
+      "timeframe": "D1",
+      "policy_type": "SWING_POSITION_RUNNER",
+      "initial_lot": 0.01,
+      "partial_take_profit": {
+        "enabled": true,
+        "first_partial_at_R": 3.0,
+        "first_partial_close_pct": 20,
+        "runner_pct": 80
+      },
+      "break_even": {
+        "enabled": true,
+        "move_sl_to_entry_after_R": 2.0
+      },
+      "trailing": {
+        "enabled": true,
+        "start_after_R": 4.0,
+        "trail_by_ATR_multiple": 3.0
+      },
+      "position_rebuild": {
+        "enabled": true,
+        "max_rebuilds_per_signal": 1,
+        "rebuild_only_if_confluence_score_above": 92,
+        "rebuild_lot_multiplier": 0.25
+      },
+      "scale_in": {
+        "enabled": true,
+        "max_additions": 1,
+        "add_only_after_profit_R": 2.0,
+        "addition_lot_multiplier": 0.25
+      },
+      "previous_base_R": 90.857485,
+      "previous_managed_R": 41.34868,
+      "previous_management_delta_R": -49.508805,
+      "reason": "V1_PARTIAL_TOO_EARLY_REDUCED_HIGH_PAYOFF",
+      "ORDER_SENT": false,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    }
+  ],
+  "NEXT": "RERUN_P1604_SIMULATOR_WITH_POLICY_V2",
+  "ORDER_SENT": false,
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN",
+  "generated_at": "2026-06-15T19:05:31.451378+00:00"
+}

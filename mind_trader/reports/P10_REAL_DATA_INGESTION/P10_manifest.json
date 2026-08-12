@@ -1,0 +1,22 @@
+{
+  "STATUS": "P10_REAL_DATA_INGESTION_ENGINE_IMPLEMENTED",
+  "SUPPORTED_SOURCES": [
+    "MT5_CSV",
+    "PROFIT_CSV",
+    "GENERIC_OHLCV_CSV",
+    "TICK_CSV"
+  ],
+  "REQUIRED_COLUMNS": [
+    "close",
+    "high",
+    "low",
+    "open",
+    "time"
+  ],
+  "CERTIFICATION_RULE": "rows>=200 and schema_ok",
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "EDGE": "NOT_PROVEN",
+  "CAUSALITY": "NOT_PROVEN",
+  "EXPORT_READY": true
+}

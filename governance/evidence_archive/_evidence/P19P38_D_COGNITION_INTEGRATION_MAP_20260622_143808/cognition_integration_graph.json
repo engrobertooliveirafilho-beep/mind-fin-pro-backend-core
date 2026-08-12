@@ -1,0 +1,644 @@
+{
+  "summary": {
+    "mission": "P19P38_D_COGNITION_INTEGRATION_MAP",
+    "status": "AUDIT_ONLY_PASS",
+    "runtime_modified": false,
+    "files_moved": false,
+    "files_deleted": false,
+    "generated_at": "2026-06-22T17:38:14.956499+00:00",
+    "nodes_total": 11,
+    "nodes_missing": 1,
+    "critical_missing": 1,
+    "edges_total": 17,
+    "edges_evidenced": 5,
+    "edges_expected_not_wired": 6,
+    "promotion_candidates": 5,
+    "blocked_candidates": 1
+  },
+  "nodes": [
+    {
+      "id": "safe_recovery_adapter",
+      "path": "app/companionship/safe_recovery_adapter.py",
+      "role": "central_context_collector",
+      "expected_mode": "shadow_plus_gated_live",
+      "criticality": "HIGH",
+      "exists": true,
+      "size": 24289,
+      "status": "SHADOW_AND_GATED",
+      "references_total": 14,
+      "references": [
+        "app/main.py",
+        "tests/test_p19p36g_safe_recovery_adapter.py",
+        "tests/test_p19p36k_safe_memory_adapter_v2.py",
+        "tests/test_p19p36l_memory_fusion_shadow_scoring.py",
+        "tests/test_p19p36m_h2_domain_semantic_bridge.py",
+        "tests/test_p19p36m_h3_authoritative_scorer.py",
+        "tests/test_p19p36m_h4_authoritative_advisor_guard.py",
+        "tests/test_p19p36m_hotfix_exclude_current_message.py",
+        "tests/test_p19p36m_memory_fusion_advisor_shadow.py",
+        "tests/test_p19p36n_memory_fusion_live_gated.py",
+        "tests/test_p19p36o_relationship_advisor_wiring.py",
+        "tests/test_p19p36o_relationship_memory_shadow_wiring.py",
+        "tests/test_p19p36p_goal_progress_wiring.py",
+        "tests/test_p19p36p_goal_tracker_shadow_wiring.py"
+      ],
+      "feature_flags_or_markers": [
+        "P19P36G_SAFE_RECOVERY_ADAPTER",
+        "P19P36H_SHADOW_TELEMETRY",
+        "P19P36K_SAFE_MEMORY_ADAPTER_V2",
+        "P19P36L_MEMORY_FUSION_SHADOW_SCORING",
+        "P19P36L_STOPWORDS",
+        "P19P36M",
+        "P19P36M_H2_DOMAIN_MEMORY_TERMS",
+        "P19P36M_H2_DOMAIN_SEMANTIC_MEMORY_BRIDGE",
+        "P19P36M_H3_AUTHORITATIVE",
+        "P19P36M_H3_AUTHORITATIVE_MEMORY_SCORER_OVERRIDE",
+        "P19P36M_H4_AUTHORITATIVE",
+        "P19P36M_H4_BLOCKED_NO_POSITIVE_MEMORY_EVIDENCE",
+        "P19P36M_H4_INVALID_ADVISOR_OBJECT",
+        "P19P36M_HOTFIX_EXCLUDE_CURRENT_MESSAGE_FROM_SCORING",
+        "P19P36M_MEMORY_FUSION_ADVISOR_SHADOW",
+        "P19P36N",
+        "P19P36N_MEMORY_FUSION_ENABLED",
+        "P19P36N_MEMORY_FUSION_LIVE_GATED",
+        "P19P36N_TELEMETRY",
+        "P19P36O_B_RELATIONSHIP_MEMORY_SHADOW_WIRING",
+        "P19P36P_B_GOAL_TRACKER_SHADOW_WIRING"
+      ],
+      "context_keys": [
+        "p19p36g_safe_recovery_adapter",
+        "p19p36h_recovery_shadow_telemetry",
+        "p19p36h_shadow_telemetry",
+        "p19p36k_get_memory_store",
+        "p19p36k_memory_shadow",
+        "p19p36k_normalize_memory_item",
+        "p19p36k_safe_memory_adapter_v2",
+        "p19p36l_memory_fusion_shadow",
+        "p19p36l_memory_fusion_shadow_scoring",
+        "p19p36l_stopwords",
+        "p19p36l_tokens",
+        "p19p36m",
+        "p19p36m_h2_domain_memory_terms",
+        "p19p36m_h2_domain_semantic_bridge",
+        "p19p36m_h2_domain_semantic_memory_bridge",
+        "p19p36m_h3_authoritative",
+        "p19p36m_h3_authoritative_memory_scorer_override",
+        "p19p36m_h4_authoritative",
+        "p19p36m_h4_authoritative_advisor_guard",
+        "p19p36m_h4_blocked_no_positive_memory_evidence",
+        "p19p36m_h4_invalid_advisor_object",
+        "p19p36m_hotfix_exclude_current_message_from_scoring",
+        "p19p36m_hotfix_without_current_message",
+        "p19p36m_memory_fusion_advisor_shadow",
+        "p19p36n",
+        "p19p36n_datetime",
+        "p19p36n_json",
+        "p19p36n_memory_fusion_enabled",
+        "p19p36n_memory_fusion_live_context",
+        "p19p36n_memory_fusion_live_gated",
+        "p19p36n_memory_fusion_telemetry",
+        "p19p36n_os",
+        "p19p36n_path",
+        "p19p36n_telemetry",
+        "p19p36o_b_relationship_memory_shadow_wiring",
+        "p19p36o_relationship_memory_advisor_shadow",
+        "p19p36o_relationship_memory_shadow",
+        "p19p36p_b_goal_tracker_shadow_wiring",
+        "p19p36p_goal_progress_advisor_shadow",
+        "p19p36p_long_term_goal_shadow"
+      ]
+    },
+    {
+      "id": "relationship_memory_store",
+      "path": "app/companionship/relationship_memory_store.py",
+      "role": "relationship_memory_writer_reader",
+      "expected_mode": "shadow",
+      "criticality": "HIGH",
+      "exists": true,
+      "size": 8492,
+      "status": "SHADOW_ONLY",
+      "references_total": 4,
+      "references": [
+        "app/companionship/regression_suite_manifest.py",
+        "app/companionship/safe_recovery_adapter.py",
+        "tests/test_p19p36o_relationship_memory_advisor.py",
+        "tests/test_p19p36o_relationship_memory_store.py"
+      ],
+      "feature_flags_or_markers": [
+        "P19P36O",
+        "P19P36O_A_RELATIONSHIP_MEMORY_FOUNDATION",
+        "P19P36O_C_RELATIONSHIP_MEMORY_ADVISOR",
+        "P19P36O_RELATIONSHIP_MEMORY_ENABLED"
+      ],
+      "context_keys": [
+        "p19p36o",
+        "p19p36o_a_relationship_memory_foundation",
+        "p19p36o_c_relationship_memory_advisor",
+        "p19p36o_relationship_memory",
+        "p19p36o_relationship_memory_advisor_shadow",
+        "p19p36o_relationship_memory_enabled",
+        "p19p36o_relationship_memory_telemetry",
+        "p19p36o_tokens"
+      ]
+    },
+    {
+      "id": "long_term_goal_tracker",
+      "path": "app/companionship/long_term_goal_tracker.py",
+      "role": "goal_tracking_writer_reader",
+      "expected_mode": "shadow",
+      "criticality": "HIGH",
+      "exists": true,
+      "size": 8387,
+      "status": "SHADOW_ONLY",
+      "references_total": 4,
+      "references": [
+        "app/companionship/regression_suite_manifest.py",
+        "app/companionship/safe_recovery_adapter.py",
+        "tests/test_p19p36p_goal_progress_advisor.py",
+        "tests/test_p19p36p_long_term_goal_tracker.py"
+      ],
+      "feature_flags_or_markers": [
+        "P19P36P",
+        "P19P36P_A_LONG_TERM_GOAL_TRACKING_FOUNDATION",
+        "P19P36P_C_GOAL_PROGRESS_ADVISOR",
+        "P19P36P_GOAL_TRACKING_ENABLED"
+      ],
+      "context_keys": [
+        "p19p36p",
+        "p19p36p_a_long_term_goal_tracking_foundation",
+        "p19p36p_c_goal_progress_advisor",
+        "p19p36p_detect_constraints",
+        "p19p36p_detect_progress_signal",
+        "p19p36p_goal_progress_advisor_shadow",
+        "p19p36p_goal_tracking_enabled",
+        "p19p36p_long_term_goal_telemetry",
+        "p19p36p_long_term_goals",
+        "p19p36p_lower"
+      ]
+    },
+    {
+      "id": "digital_twin_real",
+      "path": "app/companionship/digital_twin_real.py",
+      "role": "user_model_snapshot_builder",
+      "expected_mode": "shadow",
+      "criticality": "HIGH",
+      "exists": true,
+      "size": 3318,
+      "status": "SHADOW_ONLY",
+      "references_total": 6,
+      "references": [
+        "app/companionship/digital_twin_real.py",
+        "app/companionship/long_term_memory_real.py",
+        "app/companionship/self_reflection_engine.py",
+        "tests/test_p19p37a_digital_twin_real.py",
+        "tests/test_p19p37d_long_term_memory_real.py",
+        "tests/test_p19p37e_self_reflection_engine.py"
+      ],
+      "feature_flags_or_markers": [
+        "P19P37A_DIGITAL_TWIN_REAL",
+        "P19P37_DIGITAL_TWIN_ENABLED"
+      ],
+      "context_keys": [
+        "p19p36o_relationship_memory_shadow",
+        "p19p36p_long_term_goal_shadow",
+        "p19p37_digital_twin_enabled",
+        "p19p37a_digital_twin_real",
+        "p19p37a_digital_twin_real_shadow"
+      ]
+    },
+    {
+      "id": "behavior_modeling",
+      "path": "app/companionship/behavior_modeling.py",
+      "role": "behavior_signal_inference",
+      "expected_mode": "shadow",
+      "criticality": "MEDIUM",
+      "exists": true,
+      "size": 1756,
+      "status": "SHADOW_ONLY",
+      "references_total": 1,
+      "references": [
+        "tests/test_p19p37b_behavior_modeling.py"
+      ],
+      "feature_flags_or_markers": [
+        "P19P37B_BEHAVIOR_MODELING"
+      ],
+      "context_keys": [
+        "p19p37b_behavior_model_shadow",
+        "p19p37b_behavior_modeling"
+      ]
+    },
+    {
+      "id": "emotional_continuity_real",
+      "path": "app/companionship/emotional_continuity_real.py",
+      "role": "emotional_signal_continuity_without_diagnosis",
+      "expected_mode": "shadow",
+      "criticality": "MEDIUM",
+      "exists": true,
+      "size": 2158,
+      "status": "SHADOW_ONLY",
+      "references_total": 4,
+      "references": [
+        "app/companionship/emotional_continuity_real.py",
+        "app/companionship/self_reflection_engine.py",
+        "tests/test_p19p37c_emotional_continuity_real.py",
+        "tests/test_p19p37e_self_reflection_engine.py"
+      ],
+      "feature_flags_or_markers": [
+        "P19P37C_EMOTIONAL_CONTINUITY_REAL"
+      ],
+      "context_keys": [
+        "p19p37c_emotional_continuity",
+        "p19p37c_emotional_continuity_real",
+        "p19p37c_emotional_continuity_real_shadow"
+      ]
+    },
+    {
+      "id": "long_term_memory_real",
+      "path": "app/companionship/long_term_memory_real.py",
+      "role": "stable_memory_consolidation",
+      "expected_mode": "shadow",
+      "criticality": "HIGH",
+      "exists": true,
+      "size": 2076,
+      "status": "SHADOW_ONLY",
+      "references_total": 4,
+      "references": [
+        "app/companionship/long_term_memory_real.py",
+        "app/companionship/self_reflection_engine.py",
+        "tests/test_p19p37d_long_term_memory_real.py",
+        "tests/test_p19p37e_self_reflection_engine.py"
+      ],
+      "feature_flags_or_markers": [
+        "P19P37D_LONG_TERM_MEMORY_REAL"
+      ],
+      "context_keys": [
+        "p19p37a_digital_twin_real_shadow",
+        "p19p37d_long_term_memory_real",
+        "p19p37d_long_term_memory_real_shadow"
+      ]
+    },
+    {
+      "id": "self_reflection_engine",
+      "path": "app/companionship/self_reflection_engine.py",
+      "role": "internal_state_quality_assessment",
+      "expected_mode": "shadow",
+      "criticality": "HIGH",
+      "exists": true,
+      "size": 1179,
+      "status": "SHADOW_ONLY",
+      "references_total": 1,
+      "references": [
+        "tests/test_p19p37e_self_reflection_engine.py"
+      ],
+      "feature_flags_or_markers": [
+        "P19P37E_SELF_REFLECTION"
+      ],
+      "context_keys": [
+        "p19p37a_digital_twin_real_shadow",
+        "p19p37c_emotional_continuity_real_shadow",
+        "p19p37d_long_term_memory_real_shadow",
+        "p19p37e_self_reflection",
+        "p19p37e_self_reflection_shadow"
+      ]
+    },
+    {
+      "id": "live_cognition_gated",
+      "path": "app/companionship/live_cognition_gated.py",
+      "role": "feature_flagged_live_cognition_decision",
+      "expected_mode": "gated_live",
+      "criticality": "CRITICAL",
+      "exists": false,
+      "size": 0,
+      "status": "MISSING",
+      "references_total": 0,
+      "references": [],
+      "feature_flags_or_markers": [],
+      "context_keys": []
+    },
+    {
+      "id": "whatsapp_runtime",
+      "path": "app/api/whatsapp.py",
+      "role": "production_message_entrypoint",
+      "expected_mode": "live",
+      "criticality": "CRITICAL",
+      "exists": true,
+      "size": 46885,
+      "status": "LIVE_OR_RUNTIME",
+      "references_total": 143,
+      "references": [
+        "app/admin/friendship_outbound_test.py",
+        "app/admin/public_runtime.py",
+        "app/admin/semantic_activation.py",
+        "app/api/debug_whatsapp_runtime_trace.py",
+        "app/api/debug_whatsapp_source.py",
+        "app/api/debug_whatsapp_state.py",
+        "app/api/eldora_growth.py",
+        "app/api/eldora_neura_scale.py",
+        "app/api/eldora_runtime_canonical.py",
+        "app/api/whatsapp.py",
+        "app/companionship/p19p31_p19p36_companion_runtime.py",
+        "app/companionship/relationship_memory_store.py",
+        "app/eldora/core/autonomous_growth_runtime.py",
+        "app/eldora/core/neura_scale_runtime.py",
+        "app/eldora/core/predictive_simulation_engine.py",
+        "app/humanization/anti_llm_speech_filter.py",
+        "app/humanization/conversation_maturity_engine.py",
+        "app/humanization/conversation_training_runtime.py",
+        "app/humanization/human_conversation_runtime.py",
+        "app/humanization/humanization_reward_engine.py",
+        "app/humanization/humanization_runtime.py",
+        "app/humanization/multi_ai_conversation_simulator.py",
+        "app/humanization/multi_message_reply_runtime.py",
+        "app/humanization/naturalness_judge.py",
+        "app/humanization/social_dataset_builder.py",
+        "app/humanization/social_memory_provider.py",
+        "app/humanization/social_observation_layer.py",
+        "app/humanization/social_pattern_extractor.py",
+        "app/main.py",
+        "app/main_core.py",
+        "app/modules/usde_core/live_integration_certification.py",
+        "app/modules/usde_core/runtime_integration_binder.py",
+        "app/p10_activation_stack/activation_policy.py",
+        "app/p10_activation_stack/certification.py",
+        "app/p10_activation_stack/controlled_consumption.py",
+        "app/p10_activation_stack/risk_governance.py",
+        "app/p10_activation_stack/rollback.py",
+        "app/p16_real_use_case/controlled_response_shadow.py",
+        "app/p16_real_use_case/internal_only_consumption.py",
+        "app/p16_real_use_case/limited_response_awareness.py"
+      ],
+      "feature_flags_or_markers": [
+        "MIND_ENABLE_LEGACY_FOLLOWUP",
+        "MIND_ENABLE_LEGACY_ROUTE_FAST",
+        "MIND_ENABLE_LEGACY_SOCIAL_GUARD",
+        "P19P16_CONFINEMENT_DOMAIN_INTERCEPTOR",
+        "P19P18",
+        "P19P18_P19P19_SHORT_FOLLOWUP_SEMANTIC_CONTINUITY",
+        "P19P19",
+        "P19P19_DOMAIN_EXPANSION",
+        "P19P19_DOMAIN_KEYWORDS",
+        "P19P19_SENDER_DOMAIN_STATE",
+        "P19P19_SHORT_FOLLOWUPS",
+        "P19P21B",
+        "P19P21B_NO_FORM_GATE_FOUND",
+        "P19P21B_REAL_WHATSAPP_CERTIFIED_BRIDGE",
+        "P19P26A_H3_HUMANIZATION_INTENT_LOCK",
+        "P19P26A_H4_ELDORA_IDENTITY_LOCK",
+        "P19P28H_G_K_CONTEXTUAL_FITNESS_RUNTIME",
+        "P19P28H_G_K_PRE_ROUTER_CALL",
+        "P19P28P",
+        "P19P5_WHATSAPP_FINAL_GUARD_ONLY",
+        "P19P6_WHATSAPP_FOLLOWUP_EXPANSION",
+        "P19P7_CONTEXT_MEMORY_FOLLOWUP_EXPANSION",
+        "P19P8_GENERIC_RESTART_SUPPRESSION",
+        "P19P9_UNIVERSAL_WHATSAPP_OUTPUT_GUARD"
+      ],
+      "context_keys": [
+        "p19p16",
+        "p19p16_confinement_domain_interceptor",
+        "p19p18",
+        "p19p18_p19p19_short_followup_semantic_continuity",
+        "p19p19",
+        "p19p19_context_reply",
+        "p19p19_detect_domain",
+        "p19p19_direct_context_reply",
+        "p19p19_domain_expansion",
+        "p19p19_domain_keywords",
+        "p19p19_expand_short_followup",
+        "p19p19_get_domain",
+        "p19p19_is_short_followup",
+        "p19p19_norm",
+        "p19p19_remember_domain",
+        "p19p19_sender_domain_state",
+        "p19p19_short_followups",
+        "p19p21b",
+        "p19p21b_extract_twilio_form_value",
+        "p19p21b_is_real_whatsapp_form",
+        "p19p21b_no_form_gate_found",
+        "p19p21b_real_whatsapp_certified_bridge",
+        "p19p21b_real_whatsapp_certified_reply",
+        "p19p26a_h3_humanization_intent_lock",
+        "p19p26a_h4_eldora_identity_lock",
+        "p19p28_bind",
+        "p19p28_context",
+        "p19p28_direct",
+        "p19p28_fitness_reply",
+        "p19p28_get",
+        "p19p28_import_error",
+        "p19p28_is_fitness",
+        "p19p28_is_fitness_followup",
+        "p19p28_pre_context_router",
+        "p19p28_router_error",
+        "p19p28h_g_k_contextual_fitness_runtime",
+        "p19p28h_g_k_pre_router_call",
+        "p19p28path",
+        "p19p3_apply_automotive_guards",
+        "p19p5_block_agricultural_automotive_contamination",
+        "p19p5_whatsapp_final_guard_only",
+        "p19p6_expand_bad_followup_template",
+        "p19p6_whatsapp_followup_expansion",
+        "p19p7_context_memory_followup_expansion",
+        "p19p7_contextual_followup_expansion",
+        "p19p8_generic_restart_suppression",
+        "p19p8_suppress_generic_restart",
+        "p19p9_universal_whatsapp_output_guard"
+      ]
+    },
+    {
+      "id": "cognitive_pipeline",
+      "path": "app/runtime/cognitive_pipeline.py",
+      "role": "runtime_cognition_pipeline",
+      "expected_mode": "live",
+      "criticality": "CRITICAL",
+      "exists": true,
+      "size": 17639,
+      "status": "LIVE_OR_RUNTIME",
+      "references_total": 16,
+      "references": [
+        "app/api/whatsapp.py",
+        "app/runtime/cognitive_pipeline.py",
+        "tests/test_eldora_autonomous_pipeline_integration.py",
+        "tests/test_eldora_conversational_reasoning.py",
+        "tests/test_eldora_dynamic_dialogue.py",
+        "tests/test_eldora_global_humanization.py",
+        "tests/test_eldora_human_smalltalk.py",
+        "tests/test_eldora_identity_help.py",
+        "tests/test_eldora_natural_response_layer.py",
+        "tests/test_eldora_visible_response_layer.py",
+        "tests/test_eldora_whatsapp_cognitive_pipeline.py",
+        "tests/test_eldora_whatsapp_live_regression.py",
+        "tests/test_eldora_whatsapp_real_observed.py",
+        "tests/test_p463k_memory_whatsapp_contract.py",
+        "tests/test_p465d_semantic_retrieval_bridge.py",
+        "tests/test_p465o_composite_retrieval_answer.py"
+      ],
+      "feature_flags_or_markers": [],
+      "context_keys": []
+    }
+  ],
+  "edges": [
+    {
+      "source": "safe_recovery_adapter",
+      "target": "relationship_memory_store",
+      "relation": "writes_reads_profile",
+      "status": "EVIDENCED",
+      "evidence": [
+        "source_mentions_target"
+      ]
+    },
+    {
+      "source": "safe_recovery_adapter",
+      "target": "long_term_goal_tracker",
+      "relation": "writes_goal_shadow",
+      "status": "EVIDENCED",
+      "evidence": [
+        "source_mentions_target"
+      ]
+    },
+    {
+      "source": "relationship_memory_store",
+      "target": "long_term_goal_tracker",
+      "relation": "feeds_goals",
+      "status": "EXPECTED_NOT_WIRED",
+      "evidence": []
+    },
+    {
+      "source": "relationship_memory_store",
+      "target": "digital_twin_real",
+      "relation": "feeds_profile",
+      "status": "EXPECTED_NOT_WIRED",
+      "evidence": []
+    },
+    {
+      "source": "long_term_goal_tracker",
+      "target": "digital_twin_real",
+      "relation": "feeds_goal_objects",
+      "status": "EXPECTED_NOT_WIRED",
+      "evidence": []
+    },
+    {
+      "source": "digital_twin_real",
+      "target": "long_term_memory_real",
+      "relation": "feeds_stable_profile",
+      "status": "EVIDENCED",
+      "evidence": [
+        "target_mentions_source"
+      ]
+    },
+    {
+      "source": "behavior_modeling",
+      "target": "digital_twin_real",
+      "relation": "feeds_behavior_signals",
+      "status": "EXPECTED_NOT_WIRED",
+      "evidence": []
+    },
+    {
+      "source": "emotional_continuity_real",
+      "target": "self_reflection_engine",
+      "relation": "feeds_emotional_state",
+      "status": "EVIDENCED",
+      "evidence": [
+        "target_mentions_source"
+      ]
+    },
+    {
+      "source": "long_term_memory_real",
+      "target": "self_reflection_engine",
+      "relation": "feeds_memory_quality",
+      "status": "EVIDENCED",
+      "evidence": [
+        "target_mentions_source"
+      ]
+    },
+    {
+      "source": "self_reflection_engine",
+      "target": "live_cognition_gated",
+      "relation": "feeds_readiness",
+      "status": "MISSING_NODE",
+      "evidence": []
+    },
+    {
+      "source": "digital_twin_real",
+      "target": "live_cognition_gated",
+      "relation": "required_layer",
+      "status": "MISSING_NODE",
+      "evidence": []
+    },
+    {
+      "source": "behavior_modeling",
+      "target": "live_cognition_gated",
+      "relation": "required_layer",
+      "status": "MISSING_NODE",
+      "evidence": []
+    },
+    {
+      "source": "emotional_continuity_real",
+      "target": "live_cognition_gated",
+      "relation": "required_layer",
+      "status": "MISSING_NODE",
+      "evidence": []
+    },
+    {
+      "source": "long_term_memory_real",
+      "target": "live_cognition_gated",
+      "relation": "required_layer",
+      "status": "MISSING_NODE",
+      "evidence": []
+    },
+    {
+      "source": "live_cognition_gated",
+      "target": "safe_recovery_adapter",
+      "relation": "should_be_attached",
+      "status": "MISSING_NODE",
+      "evidence": []
+    },
+    {
+      "source": "safe_recovery_adapter",
+      "target": "whatsapp_runtime",
+      "relation": "runtime_context_candidate",
+      "status": "EXPECTED_NOT_WIRED",
+      "evidence": []
+    },
+    {
+      "source": "safe_recovery_adapter",
+      "target": "cognitive_pipeline",
+      "relation": "runtime_context_candidate",
+      "status": "EXPECTED_NOT_WIRED",
+      "evidence": []
+    }
+  ],
+  "promotion_candidates": [
+    {
+      "id": "relationship_memory_store",
+      "reason": "high-value shadow module present",
+      "next_action": "consider canary wiring after runtime audit"
+    },
+    {
+      "id": "long_term_goal_tracker",
+      "reason": "high-value shadow module present",
+      "next_action": "consider canary wiring after runtime audit"
+    },
+    {
+      "id": "digital_twin_real",
+      "reason": "high-value shadow module present",
+      "next_action": "consider canary wiring after runtime audit"
+    },
+    {
+      "id": "long_term_memory_real",
+      "reason": "high-value shadow module present",
+      "next_action": "consider canary wiring after runtime audit"
+    },
+    {
+      "id": "self_reflection_engine",
+      "reason": "high-value shadow module present",
+      "next_action": "consider canary wiring after runtime audit"
+    }
+  ],
+  "blocked_candidates": [
+    {
+      "id": "live_cognition_gated",
+      "reason": "missing module",
+      "next_action": "create_or_restore_module"
+    }
+  ]
+}

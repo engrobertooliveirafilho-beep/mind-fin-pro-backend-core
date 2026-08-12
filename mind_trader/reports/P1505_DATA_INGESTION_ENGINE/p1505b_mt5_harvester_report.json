@@ -1,0 +1,313 @@
+{
+  "STATUS": "P1505B_MT5_HARVESTER_COMPLETED",
+  "MT5_INITIALIZED": true,
+  "ACCOUNT_LOGIN": 108130848,
+  "ACCOUNT_SERVER": "MetaQuotes-Demo",
+  "TERMINAL_CONNECTED": true,
+  "SYMBOLS": 6,
+  "TIMEFRAMES": 7,
+  "FILES_CREATED": 42,
+  "BARS_TOTAL": 177000,
+  "RESULTS": [
+    {
+      "symbol": "EURUSD",
+      "timeframe": "M1",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_EURUSD_M1_raw.csv"
+    },
+    {
+      "symbol": "EURUSD",
+      "timeframe": "M5",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_EURUSD_M5_raw.csv"
+    },
+    {
+      "symbol": "EURUSD",
+      "timeframe": "M15",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_EURUSD_M15_raw.csv"
+    },
+    {
+      "symbol": "EURUSD",
+      "timeframe": "M30",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_EURUSD_M30_raw.csv"
+    },
+    {
+      "symbol": "EURUSD",
+      "timeframe": "H1",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_EURUSD_H1_raw.csv"
+    },
+    {
+      "symbol": "EURUSD",
+      "timeframe": "H4",
+      "status": "RAW_SAVED",
+      "rows": 3000,
+      "file": "data\\raw\\mt5\\MT5_EURUSD_H4_raw.csv"
+    },
+    {
+      "symbol": "EURUSD",
+      "timeframe": "D1",
+      "status": "RAW_SAVED",
+      "rows": 1500,
+      "file": "data\\raw\\mt5\\MT5_EURUSD_D1_raw.csv"
+    },
+    {
+      "symbol": "GBPUSD",
+      "timeframe": "M1",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_GBPUSD_M1_raw.csv"
+    },
+    {
+      "symbol": "GBPUSD",
+      "timeframe": "M5",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_GBPUSD_M5_raw.csv"
+    },
+    {
+      "symbol": "GBPUSD",
+      "timeframe": "M15",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_GBPUSD_M15_raw.csv"
+    },
+    {
+      "symbol": "GBPUSD",
+      "timeframe": "M30",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_GBPUSD_M30_raw.csv"
+    },
+    {
+      "symbol": "GBPUSD",
+      "timeframe": "H1",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_GBPUSD_H1_raw.csv"
+    },
+    {
+      "symbol": "GBPUSD",
+      "timeframe": "H4",
+      "status": "RAW_SAVED",
+      "rows": 3000,
+      "file": "data\\raw\\mt5\\MT5_GBPUSD_H4_raw.csv"
+    },
+    {
+      "symbol": "GBPUSD",
+      "timeframe": "D1",
+      "status": "RAW_SAVED",
+      "rows": 1500,
+      "file": "data\\raw\\mt5\\MT5_GBPUSD_D1_raw.csv"
+    },
+    {
+      "symbol": "AUDUSD",
+      "timeframe": "M1",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_AUDUSD_M1_raw.csv"
+    },
+    {
+      "symbol": "AUDUSD",
+      "timeframe": "M5",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_AUDUSD_M5_raw.csv"
+    },
+    {
+      "symbol": "AUDUSD",
+      "timeframe": "M15",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_AUDUSD_M15_raw.csv"
+    },
+    {
+      "symbol": "AUDUSD",
+      "timeframe": "M30",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_AUDUSD_M30_raw.csv"
+    },
+    {
+      "symbol": "AUDUSD",
+      "timeframe": "H1",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_AUDUSD_H1_raw.csv"
+    },
+    {
+      "symbol": "AUDUSD",
+      "timeframe": "H4",
+      "status": "RAW_SAVED",
+      "rows": 3000,
+      "file": "data\\raw\\mt5\\MT5_AUDUSD_H4_raw.csv"
+    },
+    {
+      "symbol": "AUDUSD",
+      "timeframe": "D1",
+      "status": "RAW_SAVED",
+      "rows": 1500,
+      "file": "data\\raw\\mt5\\MT5_AUDUSD_D1_raw.csv"
+    },
+    {
+      "symbol": "USDCAD",
+      "timeframe": "M1",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_USDCAD_M1_raw.csv"
+    },
+    {
+      "symbol": "USDCAD",
+      "timeframe": "M5",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_USDCAD_M5_raw.csv"
+    },
+    {
+      "symbol": "USDCAD",
+      "timeframe": "M15",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_USDCAD_M15_raw.csv"
+    },
+    {
+      "symbol": "USDCAD",
+      "timeframe": "M30",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_USDCAD_M30_raw.csv"
+    },
+    {
+      "symbol": "USDCAD",
+      "timeframe": "H1",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_USDCAD_H1_raw.csv"
+    },
+    {
+      "symbol": "USDCAD",
+      "timeframe": "H4",
+      "status": "RAW_SAVED",
+      "rows": 3000,
+      "file": "data\\raw\\mt5\\MT5_USDCAD_H4_raw.csv"
+    },
+    {
+      "symbol": "USDCAD",
+      "timeframe": "D1",
+      "status": "RAW_SAVED",
+      "rows": 1500,
+      "file": "data\\raw\\mt5\\MT5_USDCAD_D1_raw.csv"
+    },
+    {
+      "symbol": "USDJPY",
+      "timeframe": "M1",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_USDJPY_M1_raw.csv"
+    },
+    {
+      "symbol": "USDJPY",
+      "timeframe": "M5",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_USDJPY_M5_raw.csv"
+    },
+    {
+      "symbol": "USDJPY",
+      "timeframe": "M15",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_USDJPY_M15_raw.csv"
+    },
+    {
+      "symbol": "USDJPY",
+      "timeframe": "M30",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_USDJPY_M30_raw.csv"
+    },
+    {
+      "symbol": "USDJPY",
+      "timeframe": "H1",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_USDJPY_H1_raw.csv"
+    },
+    {
+      "symbol": "USDJPY",
+      "timeframe": "H4",
+      "status": "RAW_SAVED",
+      "rows": 3000,
+      "file": "data\\raw\\mt5\\MT5_USDJPY_H4_raw.csv"
+    },
+    {
+      "symbol": "USDJPY",
+      "timeframe": "D1",
+      "status": "RAW_SAVED",
+      "rows": 1500,
+      "file": "data\\raw\\mt5\\MT5_USDJPY_D1_raw.csv"
+    },
+    {
+      "symbol": "XAUUSD",
+      "timeframe": "M1",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_XAUUSD_M1_raw.csv"
+    },
+    {
+      "symbol": "XAUUSD",
+      "timeframe": "M5",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_XAUUSD_M5_raw.csv"
+    },
+    {
+      "symbol": "XAUUSD",
+      "timeframe": "M15",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_XAUUSD_M15_raw.csv"
+    },
+    {
+      "symbol": "XAUUSD",
+      "timeframe": "M30",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_XAUUSD_M30_raw.csv"
+    },
+    {
+      "symbol": "XAUUSD",
+      "timeframe": "H1",
+      "status": "RAW_SAVED",
+      "rows": 5000,
+      "file": "data\\raw\\mt5\\MT5_XAUUSD_H1_raw.csv"
+    },
+    {
+      "symbol": "XAUUSD",
+      "timeframe": "H4",
+      "status": "RAW_SAVED",
+      "rows": 3000,
+      "file": "data\\raw\\mt5\\MT5_XAUUSD_H4_raw.csv"
+    },
+    {
+      "symbol": "XAUUSD",
+      "timeframe": "D1",
+      "status": "RAW_SAVED",
+      "rows": 1500,
+      "file": "data\\raw\\mt5\\MT5_XAUUSD_D1_raw.csv"
+    }
+  ],
+  "NEXT": "P1505C_MT5_RAW_TO_NORMALIZED",
+  "ORDER_SENT": false,
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN",
+  "generated_at": "2026-06-15T17:45:42.948079+00:00"
+}

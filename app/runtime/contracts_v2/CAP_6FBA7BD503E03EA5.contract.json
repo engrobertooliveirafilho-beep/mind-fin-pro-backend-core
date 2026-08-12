@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_6FBA7BD503E03EA5",
+  "source_file": "app\\runtime\\semantic_whatsapp_runtime.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\app\\runtime\\semantic_whatsapp_runtime.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 88,
+  "imports": [
+    "app.runtime.cognitive_style_composer",
+    "app.runtime.context_priority_engine",
+    "app.runtime.conversation_state_machine",
+    "app.runtime.humanized_answer_composer",
+    "app.runtime.multi_provider_factual_provider",
+    "app.runtime.relational_conversation_engine",
+    "app.runtime.semantic_router",
+    "app.runtime.whatsapp_ux_output_guard"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

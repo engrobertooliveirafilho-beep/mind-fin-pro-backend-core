@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_0A004FDF6B525E17",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\typing\\tests\\test_typing.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\numpy\\typing\\tests\\test_typing.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 110,
+  "imports": [
+    "_pytest.mark.structures",
+    "collections",
+    "collections.abc",
+    "importlib.util",
+    "mypy",
+    "os",
+    "pytest",
+    "re",
+    "shutil",
+    "textwrap",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

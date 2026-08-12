@@ -1,0 +1,30 @@
+{
+  "capability_id": "CAP_A902799A6AAF5050",
+  "source_file": ".venv\\Lib\\site-packages\\twilio\\rest\\serverless\\v1\\service\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\twilio\\rest\\serverless\\v1\\service\\__init__.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 122,
+  "imports": [
+    "datetime",
+    "twilio.base",
+    "twilio.base.api_response",
+    "twilio.base.instance_context",
+    "twilio.base.instance_resource",
+    "twilio.base.list_resource",
+    "twilio.base.page",
+    "twilio.base.version",
+    "twilio.rest.serverless.v1.service.asset",
+    "twilio.rest.serverless.v1.service.build",
+    "twilio.rest.serverless.v1.service.environment",
+    "twilio.rest.serverless.v1.service.function",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_D283CBD0C74A678A",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\tests\\test_numpy_config.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\numpy\\tests\\test_numpy_config.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 94,
+  "imports": [
+    "numpy",
+    "pytest",
+    "unittest.mock"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

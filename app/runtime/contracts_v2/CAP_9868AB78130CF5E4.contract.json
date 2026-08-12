@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_9868AB78130CF5E4",
+  "source_file": "_evidence\\P4_76_DRIVE_CAPABILITY_ABSORPTION_20260619_143041\\absorb_capability_document.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\_evidence\\P4_76_DRIVE_CAPABILITY_ABSORPTION_20260619_143041\\absorb_capability_document.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 91,
+  "imports": [
+    "app.runtime.drive_capability_absorption",
+    "argparse",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

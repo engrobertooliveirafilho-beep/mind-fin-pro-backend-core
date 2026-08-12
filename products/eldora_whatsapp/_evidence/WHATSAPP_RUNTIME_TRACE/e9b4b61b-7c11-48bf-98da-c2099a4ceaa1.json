@@ -1,0 +1,35 @@
+{
+  "trace_id": "e9b4b61b-7c11-48bf-98da-c2099a4ceaa1",
+  "ts": 1779816058.1611187,
+  "sender_id": "whatsapp:+559999999999",
+  "user_message": "busque pelo problema",
+  "events": [
+    {
+      "stage": "input",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "busque pelo problema",
+      "output_preview": "Resumo técnico do MIND/Eldora: Runtime estável V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Próximo passo: memória persistente + contexto MIND completo.",
+      "leaks": [],
+      "extra": {}
+    },
+    {
+      "stage": "humanized",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "Resumo técnico do MIND/Eldora: Runtime estável V2 ativo, WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, Context Fusion ativo. Próximo passo: memória persistente + contexto MIND completo.",
+      "output_preview": "Tudo certo por aqui 🙂",
+      "leaks": [],
+      "extra": {}
+    },
+    {
+      "stage": "duplicate_blocked",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "Tudo certo por aqui 🙂",
+      "output_preview": "",
+      "leaks": [],
+      "extra": {}
+    }
+  ]
+}

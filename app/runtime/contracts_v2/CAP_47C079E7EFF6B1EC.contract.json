@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_47C079E7EFF6B1EC",
+  "source_file": "mind_trader\\tests\\test_p887_knowledge_absorption_authority.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\mind_trader\\tests\\test_p887_knowledge_absorption_authority.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 107,
+  "imports": [
+    "mind_trader.app.knowledge.knowledge_absorption_authority",
+    "mind_trader.app.knowledge.knowledge_source_registry",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

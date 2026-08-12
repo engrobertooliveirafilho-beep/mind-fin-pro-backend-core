@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_695C93230F54C9E6",
+  "source_file": ".venv\\Lib\\site-packages\\pypdf\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\pypdf\\__init__.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 122,
+  "imports": [
+    "PIL",
+    "_crypt_providers",
+    "_doc_common",
+    "_encryption",
+    "_page",
+    "_reader",
+    "_text_extraction",
+    "_version",
+    "_writer",
+    "constants",
+    "pagerange",
+    "papersizes"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

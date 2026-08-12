@@ -1,0 +1,85 @@
+{
+  "STATUS": "P13.7_REAL_DATA_REQUIREMENT_PACK_IMPLEMENTED",
+  "REQUIRED_DATASETS": [
+    {
+      "asset": "WIN",
+      "timeframe": "M1",
+      "period": "2024_2026",
+      "target": "data/incoming/profit/WIN_M1_2024_2026.csv",
+      "priority": "CRITICAL"
+    },
+    {
+      "asset": "WDO",
+      "timeframe": "M1",
+      "period": "2024_2026",
+      "target": "data/incoming/profit/WDO_M1_2024_2026.csv",
+      "priority": "CRITICAL"
+    },
+    {
+      "asset": "PETR4",
+      "timeframe": "D1",
+      "period": "2020_2026",
+      "target": "data/incoming/profit/PETR4_D1_2020_2026.csv",
+      "priority": "HIGH"
+    },
+    {
+      "asset": "VALE3",
+      "timeframe": "D1",
+      "period": "2020_2026",
+      "target": "data/incoming/profit/VALE3_D1_2020_2026.csv",
+      "priority": "HIGH"
+    },
+    {
+      "asset": "AAPL",
+      "timeframe": "D1",
+      "period": "2020_2026",
+      "target": "data/incoming/mt5/AAPL_D1_2020_2026.csv",
+      "priority": "HIGH"
+    },
+    {
+      "asset": "NVDA",
+      "timeframe": "D1",
+      "period": "2020_2026",
+      "target": "data/incoming/mt5/NVDA_D1_2020_2026.csv",
+      "priority": "HIGH"
+    },
+    {
+      "asset": "EURUSD",
+      "timeframe": "M15",
+      "period": "2022_2026",
+      "target": "data/incoming/mt5/EURUSD_M15_2022_2026.csv",
+      "priority": "HIGH"
+    },
+    {
+      "asset": "XAUUSD",
+      "timeframe": "M15",
+      "period": "2022_2026",
+      "target": "data/incoming/mt5/XAUUSD_M15_2022_2026.csv",
+      "priority": "HIGH"
+    },
+    {
+      "asset": "BTCUSD",
+      "timeframe": "H1",
+      "period": "2021_2026",
+      "target": "data/incoming/mt5/BTCUSD_H1_2021_2026.csv",
+      "priority": "HIGH"
+    }
+  ],
+  "REQUIRED_COLUMNS": [
+    "time",
+    "open",
+    "high",
+    "low",
+    "close",
+    "volume"
+  ],
+  "MIN_ROWS_PER_DATASET": 200,
+  "FILE_NAMING_RULE": "ASSET_TIMEFRAME_PERIOD.csv",
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "EDGE": "NOT_PROVEN",
+  "CAUSALITY": "NOT_PROVEN",
+  "NEXT": "PLACE_REAL_CSV_FILES_AND_RERUN_P13.3_TO_P13.6",
+  "EXPORT_READY": true,
+  "generated_at": "2026-06-14T16:11:27.608164+00:00"
+}

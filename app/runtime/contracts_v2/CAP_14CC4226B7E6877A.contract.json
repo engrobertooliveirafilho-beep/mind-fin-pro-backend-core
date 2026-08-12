@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_14CC4226B7E6877A",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\fft\\_helper.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\numpy\\fft\\_helper.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 102,
+  "imports": [
+    "numpy._core",
+    "numpy._core.overrides"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,47 @@
+{
+  "P9_STATE_SNAPSHOT": {
+    "STATUS": "P9_EDGE_DISCOVERY_AT_SCALE_STARTED",
+    "BASE": "P8.100_PAPER_RESEARCH_V1_CERTIFIED",
+    "LIVE_LOCK": {
+      "live": "FORBIDDEN",
+      "production": "BLOCKED",
+      "real_broker": "DISABLED",
+      "ftmo_real": "FORBIDDEN",
+      "paper_only": true
+    },
+    "GENOMES_GENERATED": 1000,
+    "ASSETS": [
+      "WIN",
+      "WDO",
+      "IND",
+      "DOL",
+      "EURUSD",
+      "GBPUSD",
+      "USDJPY",
+      "XAUUSD",
+      "SP500",
+      "NASDAQ",
+      "BTCUSD",
+      "ETHUSD"
+    ],
+    "TIMEFRAMES": [
+      "TICK",
+      "M1",
+      "M5",
+      "M15",
+      "M30",
+      "H1",
+      "H4",
+      "D1"
+    ],
+    "EDGE": "NONE_PROVEN",
+    "CAUSALITY": "NOT_PROVEN",
+    "PROMOTION": "PAPER_CANDIDATE_ONLY",
+    "REPORTS": [
+      "P9_genomes.json",
+      "P9_rankings.json",
+      "P9_STATE_SNAPSHOT.json"
+    ],
+    "EXPORT_READY": true
+  }
+}

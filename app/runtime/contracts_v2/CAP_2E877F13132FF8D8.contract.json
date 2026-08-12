@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_2E877F13132FF8D8",
+  "source_file": "_evidence\\P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810\\run_full_drive_deep_absorption.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\_evidence\\P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810\\run_full_drive_deep_absorption.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 112,
+  "imports": [
+    "app.runtime.capability_reconstruction_planner",
+    "app.runtime.drive_batch_processor",
+    "app.runtime.knowledge_extraction_engine",
+    "argparse",
+    "datetime",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

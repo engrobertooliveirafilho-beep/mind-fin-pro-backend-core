@@ -1,0 +1,482 @@
+[
+  {
+    "strategy_id": "245d6a0f52761e0b",
+    "template": "ema_cross",
+    "asset": "WIN",
+    "timeframe": "M1",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "366dfe85ef56ab8f",
+    "template": "ema_cross",
+    "asset": "WIN",
+    "timeframe": "M5",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "f151e8360a585425",
+    "template": "ema_cross",
+    "asset": "WIN",
+    "timeframe": "M15",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "851524184c4ee890",
+    "template": "ema_cross",
+    "asset": "WDO",
+    "timeframe": "M1",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "b9250cb91a9da589",
+    "template": "ema_cross",
+    "asset": "WDO",
+    "timeframe": "M5",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "cfd527a3f0895c7c",
+    "template": "ema_cross",
+    "asset": "WDO",
+    "timeframe": "M15",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "30d56c57e356808e",
+    "template": "ema_cross",
+    "asset": "PETR4",
+    "timeframe": "M1",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "96319438205c8671",
+    "template": "ema_cross",
+    "asset": "PETR4",
+    "timeframe": "M5",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "a0e9d84ada85c612",
+    "template": "ema_cross",
+    "asset": "PETR4",
+    "timeframe": "M15",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "85f2b39626d6e800",
+    "template": "ema_cross",
+    "asset": "VALE3",
+    "timeframe": "M1",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "c4c28e9a60af7817",
+    "template": "ema_cross",
+    "asset": "VALE3",
+    "timeframe": "M5",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "f50343e97bcc0ed4",
+    "template": "ema_cross",
+    "asset": "VALE3",
+    "timeframe": "M15",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "bffe4c53c556fd7c",
+    "template": "rsi_reversion",
+    "asset": "WIN",
+    "timeframe": "M1",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "dd7e5e53f2b944f3",
+    "template": "rsi_reversion",
+    "asset": "WIN",
+    "timeframe": "M5",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "ab949c288d177204",
+    "template": "rsi_reversion",
+    "asset": "WIN",
+    "timeframe": "M15",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "9bb0e5e3900c4908",
+    "template": "rsi_reversion",
+    "asset": "WDO",
+    "timeframe": "M1",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "5c2a50230404a510",
+    "template": "rsi_reversion",
+    "asset": "WDO",
+    "timeframe": "M5",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "eedc8076fd8bc2ad",
+    "template": "rsi_reversion",
+    "asset": "WDO",
+    "timeframe": "M15",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "c03018a93b35bf8c",
+    "template": "rsi_reversion",
+    "asset": "PETR4",
+    "timeframe": "M1",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "2e1858908ca74d09",
+    "template": "rsi_reversion",
+    "asset": "PETR4",
+    "timeframe": "M5",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "be0741ba9240980c",
+    "template": "rsi_reversion",
+    "asset": "PETR4",
+    "timeframe": "M15",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "11c9b389a042ba98",
+    "template": "rsi_reversion",
+    "asset": "VALE3",
+    "timeframe": "M1",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "70350ede324a1d37",
+    "template": "rsi_reversion",
+    "asset": "VALE3",
+    "timeframe": "M5",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "db83d923d5678b7d",
+    "template": "rsi_reversion",
+    "asset": "VALE3",
+    "timeframe": "M15",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "d61d603fce7dc6ba",
+    "template": "macd_trend",
+    "asset": "WIN",
+    "timeframe": "M1",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "ec07a037ae28aab0",
+    "template": "macd_trend",
+    "asset": "WIN",
+    "timeframe": "M5",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "544eaefc6478aa86",
+    "template": "macd_trend",
+    "asset": "WIN",
+    "timeframe": "M15",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "66c019ead7f29832",
+    "template": "macd_trend",
+    "asset": "WDO",
+    "timeframe": "M1",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "1668cf3c32b2532b",
+    "template": "macd_trend",
+    "asset": "WDO",
+    "timeframe": "M5",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "ce21ceda0f010cff",
+    "template": "macd_trend",
+    "asset": "WDO",
+    "timeframe": "M15",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "d1a47bd7bb413238",
+    "template": "macd_trend",
+    "asset": "PETR4",
+    "timeframe": "M1",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "e7cdd0e4284d5259",
+    "template": "macd_trend",
+    "asset": "PETR4",
+    "timeframe": "M5",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "14240c79e014cad9",
+    "template": "macd_trend",
+    "asset": "PETR4",
+    "timeframe": "M15",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "9c47fe8861a62e3d",
+    "template": "macd_trend",
+    "asset": "VALE3",
+    "timeframe": "M1",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "fc5409dc11d31a86",
+    "template": "macd_trend",
+    "asset": "VALE3",
+    "timeframe": "M5",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "82adee2ac7e9abbd",
+    "template": "macd_trend",
+    "asset": "VALE3",
+    "timeframe": "M15",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "6eb7ecf3da6ce50a",
+    "template": "bollinger_reversion",
+    "asset": "WIN",
+    "timeframe": "M1",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "70c75577264435b6",
+    "template": "bollinger_reversion",
+    "asset": "WIN",
+    "timeframe": "M5",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "f02abc3d39d75ab8",
+    "template": "bollinger_reversion",
+    "asset": "WIN",
+    "timeframe": "M15",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "a57deb05cb409644",
+    "template": "bollinger_reversion",
+    "asset": "WDO",
+    "timeframe": "M1",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "76bcda7c084746f6",
+    "template": "bollinger_reversion",
+    "asset": "WDO",
+    "timeframe": "M5",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "e6212af500be75ef",
+    "template": "bollinger_reversion",
+    "asset": "WDO",
+    "timeframe": "M15",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "08fdc8087267e7ae",
+    "template": "bollinger_reversion",
+    "asset": "PETR4",
+    "timeframe": "M1",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "9cf329ef99ca98a8",
+    "template": "bollinger_reversion",
+    "asset": "PETR4",
+    "timeframe": "M5",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "eccebfd9f77dca8d",
+    "template": "bollinger_reversion",
+    "asset": "PETR4",
+    "timeframe": "M15",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "556396ffd4886ffe",
+    "template": "bollinger_reversion",
+    "asset": "VALE3",
+    "timeframe": "M1",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "2bbdcf908e3ce600",
+    "template": "bollinger_reversion",
+    "asset": "VALE3",
+    "timeframe": "M5",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "ebbb397299ff23bd",
+    "template": "bollinger_reversion",
+    "asset": "VALE3",
+    "timeframe": "M15",
+    "platform": "Profit/NTSL",
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  }
+]

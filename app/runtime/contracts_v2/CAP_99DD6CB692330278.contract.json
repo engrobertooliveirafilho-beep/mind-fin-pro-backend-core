@@ -1,0 +1,33 @@
+{
+  "capability_id": "CAP_99DD6CB692330278",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\io\\api.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\data\\.venv\\Lib\\site-packages\\pandas\\io\\api.py",
+  "domain": "DATA",
+  "target_layer": "app/runtime",
+  "promotion_score": 110,
+  "imports": [
+    "pandas.io.clipboards",
+    "pandas.io.excel",
+    "pandas.io.feather_format",
+    "pandas.io.html",
+    "pandas.io.iceberg",
+    "pandas.io.json",
+    "pandas.io.orc",
+    "pandas.io.parquet",
+    "pandas.io.parsers",
+    "pandas.io.pickle",
+    "pandas.io.pytables",
+    "pandas.io.sas",
+    "pandas.io.spss",
+    "pandas.io.sql",
+    "pandas.io.stata",
+    "pandas.io.xml"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

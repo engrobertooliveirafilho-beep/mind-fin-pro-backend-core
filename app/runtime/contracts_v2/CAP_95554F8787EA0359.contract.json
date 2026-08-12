@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_95554F8787EA0359",
+  "source_file": "_evidence\\P19P30A_ROUTING_PRECEDENCE_AUDIT_20260621_210210\\test_p19p30_universal_domain_discovery_failed.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\_evidence\\P19P30A_ROUTING_PRECEDENCE_AUDIT_20260621_210210\\test_p19p30_universal_domain_discovery_failed.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 83,
+  "imports": [
+    "app.main",
+    "fastapi.testclient"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

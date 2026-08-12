@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_3FB17C1181ADCAC5",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\beta\\thread_create_params.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\openai\\types\\beta\\thread_create_params.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 80,
+  "imports": [
+    "__future__",
+    "_types",
+    "code_interpreter_tool_param",
+    "shared_params.metadata",
+    "threads.message_content_part_param",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

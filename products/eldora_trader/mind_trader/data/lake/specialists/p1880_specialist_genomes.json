@@ -1,0 +1,5744 @@
+[
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_97a2abfa56d49a44",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_SESSION_FILTER",
+      "filters": {
+        "session": "ASIA"
+      },
+      "evidence": {
+        "trades": 29,
+        "win_rate": 0.586207,
+        "profit_factor_proxy": 4.848097,
+        "avg_return": 0.00248396
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_1e538a0d6fedf6dc",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_VOLATILITY_FILTER",
+      "filters": {
+        "volatility_regime": "NORMAL_VOL"
+      },
+      "evidence": {
+        "trades": 29,
+        "win_rate": 0.586207,
+        "profit_factor_proxy": 4.848097,
+        "avg_return": 0.00248396
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_c4cb8fc1bff48a43",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_TREND_FILTER",
+      "filters": {
+        "trend_regime": "TREND_UP"
+      },
+      "evidence": {
+        "trades": 29,
+        "win_rate": 0.586207,
+        "profit_factor_proxy": 4.848097,
+        "avg_return": 0.00248396
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_acb431a8e02c03a9",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_TRIGGER_FILTER",
+      "filters": {
+        "trigger": "RSI_REVERSION"
+      },
+      "evidence": {
+        "trades": 29,
+        "win_rate": 0.586207,
+        "profit_factor_proxy": 4.848097,
+        "avg_return": 0.00248396
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_c2eee99c5c1c4c61",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_SESSION_VOLATILITY_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "volatility_regime": "NORMAL_VOL"
+      },
+      "evidence": {
+        "trades": 29,
+        "win_rate": 0.586207,
+        "profit_factor_proxy": 4.848097,
+        "avg_return": 0.00248396
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_e22e151504a57648",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_TREND_VOLATILITY_FILTER",
+      "filters": {
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL"
+      },
+      "evidence": {
+        "trades": 29,
+        "win_rate": 0.586207,
+        "profit_factor_proxy": 4.848097,
+        "avg_return": 0.00248396
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_aa12e174aa75b5b2",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_FULL_CONTEXT_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "evidence": {
+        "trades": 29,
+        "win_rate": 0.586207,
+        "profit_factor_proxy": 4.848097,
+        "avg_return": 0.00248396
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_0058bf82205a791a",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "STRICT_HIGH_PF_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 29,
+        "win_rate": 0.586207,
+        "profit_factor_proxy": 4.848097,
+        "avg_return": 0.00248396
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_a0feac7cc6369fa9",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "STRICT_HIGH_WINRATE_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 29,
+        "win_rate": 0.586207,
+        "profit_factor_proxy": 4.848097,
+        "avg_return": 0.00248396
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_f2792d7f98a9cbc6",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "STRICT_MIN_SAMPLE_FILTER",
+      "filters": {},
+      "evidence": {
+        "trades": 29,
+        "win_rate": 0.586207,
+        "profit_factor_proxy": 4.848097,
+        "avg_return": 0.00248396
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_33403d0394ddddf1",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_SESSION_FILTER",
+      "filters": {
+        "session": "ASIA"
+      },
+      "evidence": {
+        "trades": 40,
+        "win_rate": 0.525,
+        "profit_factor_proxy": 2.166256,
+        "avg_return": 0.0025022
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_f6e9a801924ea886",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_VOLATILITY_FILTER",
+      "filters": {
+        "volatility_regime": "HIGH_VOL"
+      },
+      "evidence": {
+        "trades": 40,
+        "win_rate": 0.525,
+        "profit_factor_proxy": 2.166256,
+        "avg_return": 0.0025022
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_c47653114bb5eced",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_TREND_FILTER",
+      "filters": {
+        "trend_regime": "TREND_DOWN"
+      },
+      "evidence": {
+        "trades": 40,
+        "win_rate": 0.525,
+        "profit_factor_proxy": 2.166256,
+        "avg_return": 0.0025022
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_e5b3a6b513346c14",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_TRIGGER_FILTER",
+      "filters": {
+        "trigger": "RSI_REVERSION"
+      },
+      "evidence": {
+        "trades": 40,
+        "win_rate": 0.525,
+        "profit_factor_proxy": 2.166256,
+        "avg_return": 0.0025022
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_a1ad3209550fb7fb",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_SESSION_VOLATILITY_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "volatility_regime": "HIGH_VOL"
+      },
+      "evidence": {
+        "trades": 40,
+        "win_rate": 0.525,
+        "profit_factor_proxy": 2.166256,
+        "avg_return": 0.0025022
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_9a0c7d0764b9797c",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_TREND_VOLATILITY_FILTER",
+      "filters": {
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL"
+      },
+      "evidence": {
+        "trades": 40,
+        "win_rate": 0.525,
+        "profit_factor_proxy": 2.166256,
+        "avg_return": 0.0025022
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_eb53f025c67c3aad",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_FULL_CONTEXT_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "evidence": {
+        "trades": 40,
+        "win_rate": 0.525,
+        "profit_factor_proxy": 2.166256,
+        "avg_return": 0.0025022
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_a65bca6ba5cbaec8",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "STRICT_HIGH_PF_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 40,
+        "win_rate": 0.525,
+        "profit_factor_proxy": 2.166256,
+        "avg_return": 0.0025022
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_d1d9bc09c5952893",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "STRICT_HIGH_WINRATE_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 40,
+        "win_rate": 0.525,
+        "profit_factor_proxy": 2.166256,
+        "avg_return": 0.0025022
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_551a5250d0a4d2d2",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "STRICT_MIN_SAMPLE_FILTER",
+      "filters": {},
+      "evidence": {
+        "trades": 40,
+        "win_rate": 0.525,
+        "profit_factor_proxy": 2.166256,
+        "avg_return": 0.0025022
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_a57d5b1f52e0dc5c",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_SESSION_FILTER",
+      "filters": {
+        "session": "ASIA"
+      },
+      "evidence": {
+        "trades": 22,
+        "win_rate": 0.727273,
+        "profit_factor_proxy": 2.027156,
+        "avg_return": 0.00180049
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_b363b38c9bf8d051",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_VOLATILITY_FILTER",
+      "filters": {
+        "volatility_regime": "NORMAL_VOL"
+      },
+      "evidence": {
+        "trades": 22,
+        "win_rate": 0.727273,
+        "profit_factor_proxy": 2.027156,
+        "avg_return": 0.00180049
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_be46e342a4171380",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_TREND_FILTER",
+      "filters": {
+        "trend_regime": "RANGE"
+      },
+      "evidence": {
+        "trades": 22,
+        "win_rate": 0.727273,
+        "profit_factor_proxy": 2.027156,
+        "avg_return": 0.00180049
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_2f8f8b73e796dda3",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_TRIGGER_FILTER",
+      "filters": {
+        "trigger": "RSI_REVERSION"
+      },
+      "evidence": {
+        "trades": 22,
+        "win_rate": 0.727273,
+        "profit_factor_proxy": 2.027156,
+        "avg_return": 0.00180049
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_7fdced0772c3179a",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_SESSION_VOLATILITY_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "volatility_regime": "NORMAL_VOL"
+      },
+      "evidence": {
+        "trades": 22,
+        "win_rate": 0.727273,
+        "profit_factor_proxy": 2.027156,
+        "avg_return": 0.00180049
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_c29a7b3c5254f41a",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_TREND_VOLATILITY_FILTER",
+      "filters": {
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL"
+      },
+      "evidence": {
+        "trades": 22,
+        "win_rate": 0.727273,
+        "profit_factor_proxy": 2.027156,
+        "avg_return": 0.00180049
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_05b4e0d71dfd8e13",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_FULL_CONTEXT_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "evidence": {
+        "trades": 22,
+        "win_rate": 0.727273,
+        "profit_factor_proxy": 2.027156,
+        "avg_return": 0.00180049
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_a8fa7a3c92661891",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "STRICT_HIGH_PF_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 22,
+        "win_rate": 0.727273,
+        "profit_factor_proxy": 2.027156,
+        "avg_return": 0.00180049
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_3de4ee97606e2b0c",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "STRICT_HIGH_WINRATE_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 22,
+        "win_rate": 0.727273,
+        "profit_factor_proxy": 2.027156,
+        "avg_return": 0.00180049
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_0717e6538696af05",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "STRICT_MIN_SAMPLE_FILTER",
+      "filters": {},
+      "evidence": {
+        "trades": 22,
+        "win_rate": 0.727273,
+        "profit_factor_proxy": 2.027156,
+        "avg_return": 0.00180049
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_900483d390752b21",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_SESSION_FILTER",
+      "filters": {
+        "session": "ASIA"
+      },
+      "evidence": {
+        "trades": 66,
+        "win_rate": 0.636364,
+        "profit_factor_proxy": 1.969849,
+        "avg_return": 0.00123904
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_2cfb8703fb0375e8",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_VOLATILITY_FILTER",
+      "filters": {
+        "volatility_regime": "NORMAL_VOL"
+      },
+      "evidence": {
+        "trades": 66,
+        "win_rate": 0.636364,
+        "profit_factor_proxy": 1.969849,
+        "avg_return": 0.00123904
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_0e6318b221b2afe9",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_TREND_FILTER",
+      "filters": {
+        "trend_regime": "TREND_DOWN"
+      },
+      "evidence": {
+        "trades": 66,
+        "win_rate": 0.636364,
+        "profit_factor_proxy": 1.969849,
+        "avg_return": 0.00123904
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_756a6ef3b969f671",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_TRIGGER_FILTER",
+      "filters": {
+        "trigger": "RSI_REVERSION"
+      },
+      "evidence": {
+        "trades": 66,
+        "win_rate": 0.636364,
+        "profit_factor_proxy": 1.969849,
+        "avg_return": 0.00123904
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_f55caa4584df31ee",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_SESSION_VOLATILITY_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "volatility_regime": "NORMAL_VOL"
+      },
+      "evidence": {
+        "trades": 66,
+        "win_rate": 0.636364,
+        "profit_factor_proxy": 1.969849,
+        "avg_return": 0.00123904
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_fd74b44061d51a89",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_TREND_VOLATILITY_FILTER",
+      "filters": {
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL"
+      },
+      "evidence": {
+        "trades": 66,
+        "win_rate": 0.636364,
+        "profit_factor_proxy": 1.969849,
+        "avg_return": 0.00123904
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_cdacfc40a6bb20f4",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_FULL_CONTEXT_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "evidence": {
+        "trades": 66,
+        "win_rate": 0.636364,
+        "profit_factor_proxy": 1.969849,
+        "avg_return": 0.00123904
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_d25bca3493b52175",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "STRICT_HIGH_PF_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 66,
+        "win_rate": 0.636364,
+        "profit_factor_proxy": 1.969849,
+        "avg_return": 0.00123904
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_b563ad4a933a2830",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "STRICT_HIGH_WINRATE_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 66,
+        "win_rate": 0.636364,
+        "profit_factor_proxy": 1.969849,
+        "avg_return": 0.00123904
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_519c430c11e0face",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "STRICT_MIN_SAMPLE_FILTER",
+      "filters": {},
+      "evidence": {
+        "trades": 66,
+        "win_rate": 0.636364,
+        "profit_factor_proxy": 1.969849,
+        "avg_return": 0.00123904
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_8b42128ebfd4d9e0",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_SESSION_FILTER",
+      "filters": {
+        "session": "ASIA"
+      },
+      "evidence": {
+        "trades": 2,
+        "win_rate": 0.5,
+        "profit_factor_proxy": 1.870772,
+        "avg_return": 0.00066271
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_f7509fb6f40202c7",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_VOLATILITY_FILTER",
+      "filters": {
+        "volatility_regime": "LOW_VOL"
+      },
+      "evidence": {
+        "trades": 2,
+        "win_rate": 0.5,
+        "profit_factor_proxy": 1.870772,
+        "avg_return": 0.00066271
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_a0591671f6b840e7",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_TREND_FILTER",
+      "filters": {
+        "trend_regime": "TREND_DOWN"
+      },
+      "evidence": {
+        "trades": 2,
+        "win_rate": 0.5,
+        "profit_factor_proxy": 1.870772,
+        "avg_return": 0.00066271
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_ae64752819129002",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_TRIGGER_FILTER",
+      "filters": {
+        "trigger": "RSI_REVERSION"
+      },
+      "evidence": {
+        "trades": 2,
+        "win_rate": 0.5,
+        "profit_factor_proxy": 1.870772,
+        "avg_return": 0.00066271
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_5bdcf398f380ffdc",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_SESSION_VOLATILITY_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "volatility_regime": "LOW_VOL"
+      },
+      "evidence": {
+        "trades": 2,
+        "win_rate": 0.5,
+        "profit_factor_proxy": 1.870772,
+        "avg_return": 0.00066271
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_f5a248458be30e82",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_TREND_VOLATILITY_FILTER",
+      "filters": {
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL"
+      },
+      "evidence": {
+        "trades": 2,
+        "win_rate": 0.5,
+        "profit_factor_proxy": 1.870772,
+        "avg_return": 0.00066271
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_1e51e6a2df030fba",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_FULL_CONTEXT_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "evidence": {
+        "trades": 2,
+        "win_rate": 0.5,
+        "profit_factor_proxy": 1.870772,
+        "avg_return": 0.00066271
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_9c1a510c9da05ecd",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "STRICT_HIGH_PF_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 2,
+        "win_rate": 0.5,
+        "profit_factor_proxy": 1.870772,
+        "avg_return": 0.00066271
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_6a0d9aed0d171e98",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "STRICT_HIGH_WINRATE_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 2,
+        "win_rate": 0.5,
+        "profit_factor_proxy": 1.870772,
+        "avg_return": 0.00066271
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_0c943478868c5270",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "STRICT_MIN_SAMPLE_FILTER",
+      "filters": {},
+      "evidence": {
+        "trades": 2,
+        "win_rate": 0.5,
+        "profit_factor_proxy": 1.870772,
+        "avg_return": 0.00066271
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_1b7b52d77cfeded0",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_SESSION_FILTER",
+      "filters": {
+        "session": "ASIA"
+      },
+      "evidence": {
+        "trades": 29,
+        "win_rate": 0.551724,
+        "profit_factor_proxy": 1.78849,
+        "avg_return": 0.00104703
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_89acdae9240a6d1c",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_VOLATILITY_FILTER",
+      "filters": {
+        "volatility_regime": "LOW_VOL"
+      },
+      "evidence": {
+        "trades": 29,
+        "win_rate": 0.551724,
+        "profit_factor_proxy": 1.78849,
+        "avg_return": 0.00104703
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_1b09585463fb9b25",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_TREND_FILTER",
+      "filters": {
+        "trend_regime": "RANGE"
+      },
+      "evidence": {
+        "trades": 29,
+        "win_rate": 0.551724,
+        "profit_factor_proxy": 1.78849,
+        "avg_return": 0.00104703
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_9ae5aee828de0020",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_TRIGGER_FILTER",
+      "filters": {
+        "trigger": "RSI_REVERSION"
+      },
+      "evidence": {
+        "trades": 29,
+        "win_rate": 0.551724,
+        "profit_factor_proxy": 1.78849,
+        "avg_return": 0.00104703
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_f3cd3f32efc88ee5",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_SESSION_VOLATILITY_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "volatility_regime": "LOW_VOL"
+      },
+      "evidence": {
+        "trades": 29,
+        "win_rate": 0.551724,
+        "profit_factor_proxy": 1.78849,
+        "avg_return": 0.00104703
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_80eabc002ce839f1",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_TREND_VOLATILITY_FILTER",
+      "filters": {
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL"
+      },
+      "evidence": {
+        "trades": 29,
+        "win_rate": 0.551724,
+        "profit_factor_proxy": 1.78849,
+        "avg_return": 0.00104703
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_4626263cdd57072f",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_FULL_CONTEXT_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "evidence": {
+        "trades": 29,
+        "win_rate": 0.551724,
+        "profit_factor_proxy": 1.78849,
+        "avg_return": 0.00104703
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_d65f032ac5460e87",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "STRICT_HIGH_PF_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 29,
+        "win_rate": 0.551724,
+        "profit_factor_proxy": 1.78849,
+        "avg_return": 0.00104703
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_87519810caf45647",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "STRICT_HIGH_WINRATE_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 29,
+        "win_rate": 0.551724,
+        "profit_factor_proxy": 1.78849,
+        "avg_return": 0.00104703
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_9e197efbd206f95a",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "STRICT_MIN_SAMPLE_FILTER",
+      "filters": {},
+      "evidence": {
+        "trades": 29,
+        "win_rate": 0.551724,
+        "profit_factor_proxy": 1.78849,
+        "avg_return": 0.00104703
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_86157c99aab98b8a",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_SESSION_FILTER",
+      "filters": {
+        "session": "ASIA"
+      },
+      "evidence": {
+        "trades": 21,
+        "win_rate": 0.428571,
+        "profit_factor_proxy": 1.027382,
+        "avg_return": 4.942e-05
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_798b7deffa589642",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_VOLATILITY_FILTER",
+      "filters": {
+        "volatility_regime": "LOW_VOL"
+      },
+      "evidence": {
+        "trades": 21,
+        "win_rate": 0.428571,
+        "profit_factor_proxy": 1.027382,
+        "avg_return": 4.942e-05
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_c6e9a093d15a3275",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_TREND_FILTER",
+      "filters": {
+        "trend_regime": "TREND_UP"
+      },
+      "evidence": {
+        "trades": 21,
+        "win_rate": 0.428571,
+        "profit_factor_proxy": 1.027382,
+        "avg_return": 4.942e-05
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_affac82c118843c1",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_TRIGGER_FILTER",
+      "filters": {
+        "trigger": "RSI_REVERSION"
+      },
+      "evidence": {
+        "trades": 21,
+        "win_rate": 0.428571,
+        "profit_factor_proxy": 1.027382,
+        "avg_return": 4.942e-05
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_7d86ad61b6a01fd9",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_SESSION_VOLATILITY_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "volatility_regime": "LOW_VOL"
+      },
+      "evidence": {
+        "trades": 21,
+        "win_rate": 0.428571,
+        "profit_factor_proxy": 1.027382,
+        "avg_return": 4.942e-05
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_4760c5c47188c587",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_TREND_VOLATILITY_FILTER",
+      "filters": {
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL"
+      },
+      "evidence": {
+        "trades": 21,
+        "win_rate": 0.428571,
+        "profit_factor_proxy": 1.027382,
+        "avg_return": 4.942e-05
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_19917d0ac3e4267b",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_FULL_CONTEXT_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "evidence": {
+        "trades": 21,
+        "win_rate": 0.428571,
+        "profit_factor_proxy": 1.027382,
+        "avg_return": 4.942e-05
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_c7b7c1fec4ea0a00",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "STRICT_HIGH_PF_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 21,
+        "win_rate": 0.428571,
+        "profit_factor_proxy": 1.027382,
+        "avg_return": 4.942e-05
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_56c5a7fe53eba5f4",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "STRICT_HIGH_WINRATE_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 21,
+        "win_rate": 0.428571,
+        "profit_factor_proxy": 1.027382,
+        "avg_return": 4.942e-05
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_a7ac3c0c457d0791",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "STRICT_MIN_SAMPLE_FILTER",
+      "filters": {},
+      "evidence": {
+        "trades": 21,
+        "win_rate": 0.428571,
+        "profit_factor_proxy": 1.027382,
+        "avg_return": 4.942e-05
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_39618f08a086ff43",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_SESSION_FILTER",
+      "filters": {
+        "session": "ASIA"
+      },
+      "evidence": {
+        "trades": 17,
+        "win_rate": 0.529412,
+        "profit_factor_proxy": 1.013001,
+        "avg_return": 4.861e-05
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_d90f44ec747eb18a",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_VOLATILITY_FILTER",
+      "filters": {
+        "volatility_regime": "HIGH_VOL"
+      },
+      "evidence": {
+        "trades": 17,
+        "win_rate": 0.529412,
+        "profit_factor_proxy": 1.013001,
+        "avg_return": 4.861e-05
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_068085ac0d060bb6",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_TREND_FILTER",
+      "filters": {
+        "trend_regime": "TREND_UP"
+      },
+      "evidence": {
+        "trades": 17,
+        "win_rate": 0.529412,
+        "profit_factor_proxy": 1.013001,
+        "avg_return": 4.861e-05
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_7df2c792951bc446",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_TRIGGER_FILTER",
+      "filters": {
+        "trigger": "RSI_REVERSION"
+      },
+      "evidence": {
+        "trades": 17,
+        "win_rate": 0.529412,
+        "profit_factor_proxy": 1.013001,
+        "avg_return": 4.861e-05
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_cb1f1817113409f4",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_SESSION_VOLATILITY_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "volatility_regime": "HIGH_VOL"
+      },
+      "evidence": {
+        "trades": 17,
+        "win_rate": 0.529412,
+        "profit_factor_proxy": 1.013001,
+        "avg_return": 4.861e-05
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_b3f833f1f6cd4342",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_TREND_VOLATILITY_FILTER",
+      "filters": {
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL"
+      },
+      "evidence": {
+        "trades": 17,
+        "win_rate": 0.529412,
+        "profit_factor_proxy": 1.013001,
+        "avg_return": 4.861e-05
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_1fccd28c3cd546eb",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_FULL_CONTEXT_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "evidence": {
+        "trades": 17,
+        "win_rate": 0.529412,
+        "profit_factor_proxy": 1.013001,
+        "avg_return": 4.861e-05
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_987a72538de43df9",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "STRICT_HIGH_PF_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 17,
+        "win_rate": 0.529412,
+        "profit_factor_proxy": 1.013001,
+        "avg_return": 4.861e-05
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_43d536ce452d23e2",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "STRICT_HIGH_WINRATE_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 17,
+        "win_rate": 0.529412,
+        "profit_factor_proxy": 1.013001,
+        "avg_return": 4.861e-05
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_251130e93c63e746",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "STRICT_MIN_SAMPLE_FILTER",
+      "filters": {},
+      "evidence": {
+        "trades": 17,
+        "win_rate": 0.529412,
+        "profit_factor_proxy": 1.013001,
+        "avg_return": 4.861e-05
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_fa8116571dbd24f5",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_SESSION_FILTER",
+      "filters": {
+        "session": "ASIA"
+      },
+      "evidence": {
+        "trades": 37,
+        "win_rate": 0.567568,
+        "profit_factor_proxy": 0.797871,
+        "avg_return": -0.00083467
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_df2265821afbc346",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_VOLATILITY_FILTER",
+      "filters": {
+        "volatility_regime": "HIGH_VOL"
+      },
+      "evidence": {
+        "trades": 37,
+        "win_rate": 0.567568,
+        "profit_factor_proxy": 0.797871,
+        "avg_return": -0.00083467
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_803df8b5b882e2cc",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_TREND_FILTER",
+      "filters": {
+        "trend_regime": "RANGE"
+      },
+      "evidence": {
+        "trades": 37,
+        "win_rate": 0.567568,
+        "profit_factor_proxy": 0.797871,
+        "avg_return": -0.00083467
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_aeed754df1ad49ea",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_TRIGGER_FILTER",
+      "filters": {
+        "trigger": "RSI_REVERSION"
+      },
+      "evidence": {
+        "trades": 37,
+        "win_rate": 0.567568,
+        "profit_factor_proxy": 0.797871,
+        "avg_return": -0.00083467
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_2d86f2d53fc8d7ff",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_SESSION_VOLATILITY_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "volatility_regime": "HIGH_VOL"
+      },
+      "evidence": {
+        "trades": 37,
+        "win_rate": 0.567568,
+        "profit_factor_proxy": 0.797871,
+        "avg_return": -0.00083467
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_9fe7cafb245180ff",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_TREND_VOLATILITY_FILTER",
+      "filters": {
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL"
+      },
+      "evidence": {
+        "trades": 37,
+        "win_rate": 0.567568,
+        "profit_factor_proxy": 0.797871,
+        "avg_return": -0.00083467
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_70c6b35bc75f300c",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "ADD_FULL_CONTEXT_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "evidence": {
+        "trades": 37,
+        "win_rate": 0.567568,
+        "profit_factor_proxy": 0.797871,
+        "avg_return": -0.00083467
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_99b1c1c54de2b2a3",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "STRICT_HIGH_PF_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 37,
+        "win_rate": 0.567568,
+        "profit_factor_proxy": 0.797871,
+        "avg_return": -0.00083467
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_ca703258a6358062",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "STRICT_HIGH_WINRATE_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 37,
+        "win_rate": 0.567568,
+        "profit_factor_proxy": 0.797871,
+        "avg_return": -0.00083467
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_8ca76bbdb35bbb4e",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "generation": 1,
+    "genome": {
+      "base_family": "RSI_REVERSION",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      },
+      "mutation": "STRICT_MIN_SAMPLE_FILTER",
+      "filters": {},
+      "evidence": {
+        "trades": 37,
+        "win_rate": 0.567568,
+        "profit_factor_proxy": 0.797871,
+        "avg_return": -0.00083467
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_a92d126fce01103b",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_SESSION_FILTER",
+      "filters": {
+        "session": "ASIA"
+      },
+      "evidence": {
+        "trades": 4,
+        "win_rate": 0.75,
+        "profit_factor_proxy": 3.134838,
+        "avg_return": 0.00406092
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_6da94e19d6adaf84",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_VOLATILITY_FILTER",
+      "filters": {
+        "volatility_regime": "LOW_VOL"
+      },
+      "evidence": {
+        "trades": 4,
+        "win_rate": 0.75,
+        "profit_factor_proxy": 3.134838,
+        "avg_return": 0.00406092
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_8001d3e71067375a",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_TREND_FILTER",
+      "filters": {
+        "trend_regime": "TREND_DOWN"
+      },
+      "evidence": {
+        "trades": 4,
+        "win_rate": 0.75,
+        "profit_factor_proxy": 3.134838,
+        "avg_return": 0.00406092
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_fc97d6717cc3c713",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_TRIGGER_FILTER",
+      "filters": {
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "evidence": {
+        "trades": 4,
+        "win_rate": 0.75,
+        "profit_factor_proxy": 3.134838,
+        "avg_return": 0.00406092
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_123a6e7e5a4baea8",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_SESSION_VOLATILITY_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "volatility_regime": "LOW_VOL"
+      },
+      "evidence": {
+        "trades": 4,
+        "win_rate": 0.75,
+        "profit_factor_proxy": 3.134838,
+        "avg_return": 0.00406092
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_e81ca499cd421d74",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_TREND_VOLATILITY_FILTER",
+      "filters": {
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL"
+      },
+      "evidence": {
+        "trades": 4,
+        "win_rate": 0.75,
+        "profit_factor_proxy": 3.134838,
+        "avg_return": 0.00406092
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_3173a1fc520e98ec",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_FULL_CONTEXT_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "evidence": {
+        "trades": 4,
+        "win_rate": 0.75,
+        "profit_factor_proxy": 3.134838,
+        "avg_return": 0.00406092
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_6de88d07f735f995",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "STRICT_HIGH_PF_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 4,
+        "win_rate": 0.75,
+        "profit_factor_proxy": 3.134838,
+        "avg_return": 0.00406092
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_a5229673f379bed7",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "STRICT_HIGH_WINRATE_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 4,
+        "win_rate": 0.75,
+        "profit_factor_proxy": 3.134838,
+        "avg_return": 0.00406092
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_a533fe5f49dc1ba0",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "STRICT_MIN_SAMPLE_FILTER",
+      "filters": {},
+      "evidence": {
+        "trades": 4,
+        "win_rate": 0.75,
+        "profit_factor_proxy": 3.134838,
+        "avg_return": 0.00406092
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_51fb17781763fe58",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_SESSION_FILTER",
+      "filters": {
+        "session": "ASIA"
+      },
+      "evidence": {
+        "trades": 26,
+        "win_rate": 0.5,
+        "profit_factor_proxy": 2.745055,
+        "avg_return": 0.00282432
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_4bc877150e2be425",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_VOLATILITY_FILTER",
+      "filters": {
+        "volatility_regime": "NORMAL_VOL"
+      },
+      "evidence": {
+        "trades": 26,
+        "win_rate": 0.5,
+        "profit_factor_proxy": 2.745055,
+        "avg_return": 0.00282432
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_1e065a0e0043f30d",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_TREND_FILTER",
+      "filters": {
+        "trend_regime": "TREND_DOWN"
+      },
+      "evidence": {
+        "trades": 26,
+        "win_rate": 0.5,
+        "profit_factor_proxy": 2.745055,
+        "avg_return": 0.00282432
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_9da1aaa1cf38c087",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_TRIGGER_FILTER",
+      "filters": {
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "evidence": {
+        "trades": 26,
+        "win_rate": 0.5,
+        "profit_factor_proxy": 2.745055,
+        "avg_return": 0.00282432
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_780770da731391ee",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_SESSION_VOLATILITY_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "volatility_regime": "NORMAL_VOL"
+      },
+      "evidence": {
+        "trades": 26,
+        "win_rate": 0.5,
+        "profit_factor_proxy": 2.745055,
+        "avg_return": 0.00282432
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_23d9161ce0f608da",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_TREND_VOLATILITY_FILTER",
+      "filters": {
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL"
+      },
+      "evidence": {
+        "trades": 26,
+        "win_rate": 0.5,
+        "profit_factor_proxy": 2.745055,
+        "avg_return": 0.00282432
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_8f80417fbd476053",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_FULL_CONTEXT_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "evidence": {
+        "trades": 26,
+        "win_rate": 0.5,
+        "profit_factor_proxy": 2.745055,
+        "avg_return": 0.00282432
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_e18d2bda3a28641d",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "STRICT_HIGH_PF_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 26,
+        "win_rate": 0.5,
+        "profit_factor_proxy": 2.745055,
+        "avg_return": 0.00282432
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_ea9e9686ddc4312a",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "STRICT_HIGH_WINRATE_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 26,
+        "win_rate": 0.5,
+        "profit_factor_proxy": 2.745055,
+        "avg_return": 0.00282432
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_6eec786698bbf752",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "STRICT_MIN_SAMPLE_FILTER",
+      "filters": {},
+      "evidence": {
+        "trades": 26,
+        "win_rate": 0.5,
+        "profit_factor_proxy": 2.745055,
+        "avg_return": 0.00282432
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_d3ea469341582065",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_SESSION_FILTER",
+      "filters": {
+        "session": "ASIA"
+      },
+      "evidence": {
+        "trades": 24,
+        "win_rate": 0.625,
+        "profit_factor_proxy": 2.016821,
+        "avg_return": 0.00196836
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_669f2fd24755ee6e",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_VOLATILITY_FILTER",
+      "filters": {
+        "volatility_regime": "NORMAL_VOL"
+      },
+      "evidence": {
+        "trades": 24,
+        "win_rate": 0.625,
+        "profit_factor_proxy": 2.016821,
+        "avg_return": 0.00196836
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_6232ecb525501dd5",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_TREND_FILTER",
+      "filters": {
+        "trend_regime": "TREND_UP"
+      },
+      "evidence": {
+        "trades": 24,
+        "win_rate": 0.625,
+        "profit_factor_proxy": 2.016821,
+        "avg_return": 0.00196836
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_e4377763dd3c38f3",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_TRIGGER_FILTER",
+      "filters": {
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "evidence": {
+        "trades": 24,
+        "win_rate": 0.625,
+        "profit_factor_proxy": 2.016821,
+        "avg_return": 0.00196836
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_852b3ba8467e673c",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_SESSION_VOLATILITY_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "volatility_regime": "NORMAL_VOL"
+      },
+      "evidence": {
+        "trades": 24,
+        "win_rate": 0.625,
+        "profit_factor_proxy": 2.016821,
+        "avg_return": 0.00196836
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_4b2cc3a4c3af214b",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_TREND_VOLATILITY_FILTER",
+      "filters": {
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL"
+      },
+      "evidence": {
+        "trades": 24,
+        "win_rate": 0.625,
+        "profit_factor_proxy": 2.016821,
+        "avg_return": 0.00196836
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_ff67db27012ea7e1",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_FULL_CONTEXT_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "evidence": {
+        "trades": 24,
+        "win_rate": 0.625,
+        "profit_factor_proxy": 2.016821,
+        "avg_return": 0.00196836
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_5aa6e1cee45cdc98",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "STRICT_HIGH_PF_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 24,
+        "win_rate": 0.625,
+        "profit_factor_proxy": 2.016821,
+        "avg_return": 0.00196836
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_ffd6306225a3b186",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "STRICT_HIGH_WINRATE_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 24,
+        "win_rate": 0.625,
+        "profit_factor_proxy": 2.016821,
+        "avg_return": 0.00196836
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_75585237f28c2f73",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "STRICT_MIN_SAMPLE_FILTER",
+      "filters": {},
+      "evidence": {
+        "trades": 24,
+        "win_rate": 0.625,
+        "profit_factor_proxy": 2.016821,
+        "avg_return": 0.00196836
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_5c98f2e48cedebd9",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_SESSION_FILTER",
+      "filters": {
+        "session": "ASIA"
+      },
+      "evidence": {
+        "trades": 25,
+        "win_rate": 0.68,
+        "profit_factor_proxy": 1.790344,
+        "avg_return": 0.00210401
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_b1ec47028d941110",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_VOLATILITY_FILTER",
+      "filters": {
+        "volatility_regime": "NORMAL_VOL"
+      },
+      "evidence": {
+        "trades": 25,
+        "win_rate": 0.68,
+        "profit_factor_proxy": 1.790344,
+        "avg_return": 0.00210401
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_75cde6e6b000bcca",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_TREND_FILTER",
+      "filters": {
+        "trend_regime": "RANGE"
+      },
+      "evidence": {
+        "trades": 25,
+        "win_rate": 0.68,
+        "profit_factor_proxy": 1.790344,
+        "avg_return": 0.00210401
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_73d98b5ad312c10a",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_TRIGGER_FILTER",
+      "filters": {
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "evidence": {
+        "trades": 25,
+        "win_rate": 0.68,
+        "profit_factor_proxy": 1.790344,
+        "avg_return": 0.00210401
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_ab1ac702ffa78240",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_SESSION_VOLATILITY_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "volatility_regime": "NORMAL_VOL"
+      },
+      "evidence": {
+        "trades": 25,
+        "win_rate": 0.68,
+        "profit_factor_proxy": 1.790344,
+        "avg_return": 0.00210401
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_785fbf5a80cab00f",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_TREND_VOLATILITY_FILTER",
+      "filters": {
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL"
+      },
+      "evidence": {
+        "trades": 25,
+        "win_rate": 0.68,
+        "profit_factor_proxy": 1.790344,
+        "avg_return": 0.00210401
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_3215c46fa0f31a5a",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_FULL_CONTEXT_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "evidence": {
+        "trades": 25,
+        "win_rate": 0.68,
+        "profit_factor_proxy": 1.790344,
+        "avg_return": 0.00210401
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_0aee37ee01b07fb9",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "STRICT_HIGH_PF_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 25,
+        "win_rate": 0.68,
+        "profit_factor_proxy": 1.790344,
+        "avg_return": 0.00210401
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_fd3217db4c6ca527",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "STRICT_HIGH_WINRATE_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 25,
+        "win_rate": 0.68,
+        "profit_factor_proxy": 1.790344,
+        "avg_return": 0.00210401
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_81d5d52b683962e6",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "STRICT_MIN_SAMPLE_FILTER",
+      "filters": {},
+      "evidence": {
+        "trades": 25,
+        "win_rate": 0.68,
+        "profit_factor_proxy": 1.790344,
+        "avg_return": 0.00210401
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_6277fafcceea4b5b",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_SESSION_FILTER",
+      "filters": {
+        "session": "ASIA"
+      },
+      "evidence": {
+        "trades": 7,
+        "win_rate": 0.571429,
+        "profit_factor_proxy": 1.769672,
+        "avg_return": 0.00137711
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_a0ae35d2fef44ed0",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_VOLATILITY_FILTER",
+      "filters": {
+        "volatility_regime": "HIGH_VOL"
+      },
+      "evidence": {
+        "trades": 7,
+        "win_rate": 0.571429,
+        "profit_factor_proxy": 1.769672,
+        "avg_return": 0.00137711
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_889afb67b1412459",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_TREND_FILTER",
+      "filters": {
+        "trend_regime": "TREND_DOWN"
+      },
+      "evidence": {
+        "trades": 7,
+        "win_rate": 0.571429,
+        "profit_factor_proxy": 1.769672,
+        "avg_return": 0.00137711
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_8e8fb1737b3111e2",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_TRIGGER_FILTER",
+      "filters": {
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "evidence": {
+        "trades": 7,
+        "win_rate": 0.571429,
+        "profit_factor_proxy": 1.769672,
+        "avg_return": 0.00137711
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_cbef1962a06d19b1",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_SESSION_VOLATILITY_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "volatility_regime": "HIGH_VOL"
+      },
+      "evidence": {
+        "trades": 7,
+        "win_rate": 0.571429,
+        "profit_factor_proxy": 1.769672,
+        "avg_return": 0.00137711
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_ef6d5b352d0ea663",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_TREND_VOLATILITY_FILTER",
+      "filters": {
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL"
+      },
+      "evidence": {
+        "trades": 7,
+        "win_rate": 0.571429,
+        "profit_factor_proxy": 1.769672,
+        "avg_return": 0.00137711
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_979c286c4615ef7d",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_FULL_CONTEXT_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "evidence": {
+        "trades": 7,
+        "win_rate": 0.571429,
+        "profit_factor_proxy": 1.769672,
+        "avg_return": 0.00137711
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_c66ad18d62e11a8a",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "STRICT_HIGH_PF_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 7,
+        "win_rate": 0.571429,
+        "profit_factor_proxy": 1.769672,
+        "avg_return": 0.00137711
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_87108ce6e0ed5388",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "STRICT_HIGH_WINRATE_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 7,
+        "win_rate": 0.571429,
+        "profit_factor_proxy": 1.769672,
+        "avg_return": 0.00137711
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_cb608dce7794a602",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "STRICT_MIN_SAMPLE_FILTER",
+      "filters": {},
+      "evidence": {
+        "trades": 7,
+        "win_rate": 0.571429,
+        "profit_factor_proxy": 1.769672,
+        "avg_return": 0.00137711
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_85e879368bfc6e8b",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_SESSION_FILTER",
+      "filters": {
+        "session": "ASIA"
+      },
+      "evidence": {
+        "trades": 9,
+        "win_rate": 0.666667,
+        "profit_factor_proxy": 1.313433,
+        "avg_return": 0.00069865
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_65857e4e3bac969c",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_VOLATILITY_FILTER",
+      "filters": {
+        "volatility_regime": "LOW_VOL"
+      },
+      "evidence": {
+        "trades": 9,
+        "win_rate": 0.666667,
+        "profit_factor_proxy": 1.313433,
+        "avg_return": 0.00069865
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_b2b89ae38308d942",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_TREND_FILTER",
+      "filters": {
+        "trend_regime": "TREND_UP"
+      },
+      "evidence": {
+        "trades": 9,
+        "win_rate": 0.666667,
+        "profit_factor_proxy": 1.313433,
+        "avg_return": 0.00069865
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_aba46e5ddc2d9f23",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_TRIGGER_FILTER",
+      "filters": {
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "evidence": {
+        "trades": 9,
+        "win_rate": 0.666667,
+        "profit_factor_proxy": 1.313433,
+        "avg_return": 0.00069865
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_02d81e8f60e677dc",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_SESSION_VOLATILITY_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "volatility_regime": "LOW_VOL"
+      },
+      "evidence": {
+        "trades": 9,
+        "win_rate": 0.666667,
+        "profit_factor_proxy": 1.313433,
+        "avg_return": 0.00069865
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_dfbdc60d770024e1",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_TREND_VOLATILITY_FILTER",
+      "filters": {
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL"
+      },
+      "evidence": {
+        "trades": 9,
+        "win_rate": 0.666667,
+        "profit_factor_proxy": 1.313433,
+        "avg_return": 0.00069865
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_66da7301b0d2c4cb",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_FULL_CONTEXT_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "evidence": {
+        "trades": 9,
+        "win_rate": 0.666667,
+        "profit_factor_proxy": 1.313433,
+        "avg_return": 0.00069865
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_0e275d7849b28fde",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "STRICT_HIGH_PF_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 9,
+        "win_rate": 0.666667,
+        "profit_factor_proxy": 1.313433,
+        "avg_return": 0.00069865
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_72056e471c0bb4e8",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "STRICT_HIGH_WINRATE_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 9,
+        "win_rate": 0.666667,
+        "profit_factor_proxy": 1.313433,
+        "avg_return": 0.00069865
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_4a719e12828129e8",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "STRICT_MIN_SAMPLE_FILTER",
+      "filters": {},
+      "evidence": {
+        "trades": 9,
+        "win_rate": 0.666667,
+        "profit_factor_proxy": 1.313433,
+        "avg_return": 0.00069865
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_e567cc61f24779af",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_SESSION_FILTER",
+      "filters": {
+        "session": "ASIA"
+      },
+      "evidence": {
+        "trades": 13,
+        "win_rate": 0.461538,
+        "profit_factor_proxy": 1.209047,
+        "avg_return": 0.00036318
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_1051e7b7e7f64274",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_VOLATILITY_FILTER",
+      "filters": {
+        "volatility_regime": "LOW_VOL"
+      },
+      "evidence": {
+        "trades": 13,
+        "win_rate": 0.461538,
+        "profit_factor_proxy": 1.209047,
+        "avg_return": 0.00036318
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_cee5f4c93e015e83",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_TREND_FILTER",
+      "filters": {
+        "trend_regime": "RANGE"
+      },
+      "evidence": {
+        "trades": 13,
+        "win_rate": 0.461538,
+        "profit_factor_proxy": 1.209047,
+        "avg_return": 0.00036318
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_433c2b87c3ea960f",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_TRIGGER_FILTER",
+      "filters": {
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "evidence": {
+        "trades": 13,
+        "win_rate": 0.461538,
+        "profit_factor_proxy": 1.209047,
+        "avg_return": 0.00036318
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_e439d6ab73e85c46",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_SESSION_VOLATILITY_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "volatility_regime": "LOW_VOL"
+      },
+      "evidence": {
+        "trades": 13,
+        "win_rate": 0.461538,
+        "profit_factor_proxy": 1.209047,
+        "avg_return": 0.00036318
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_fcfea3dee71082fe",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_TREND_VOLATILITY_FILTER",
+      "filters": {
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL"
+      },
+      "evidence": {
+        "trades": 13,
+        "win_rate": 0.461538,
+        "profit_factor_proxy": 1.209047,
+        "avg_return": 0.00036318
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_28f45820a7d3caae",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_FULL_CONTEXT_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "evidence": {
+        "trades": 13,
+        "win_rate": 0.461538,
+        "profit_factor_proxy": 1.209047,
+        "avg_return": 0.00036318
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_22f34a0d0019d19c",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "STRICT_HIGH_PF_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 13,
+        "win_rate": 0.461538,
+        "profit_factor_proxy": 1.209047,
+        "avg_return": 0.00036318
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_ed8a43358016e916",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "STRICT_HIGH_WINRATE_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 13,
+        "win_rate": 0.461538,
+        "profit_factor_proxy": 1.209047,
+        "avg_return": 0.00036318
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_60ef5fd76efe90ed",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "STRICT_MIN_SAMPLE_FILTER",
+      "filters": {},
+      "evidence": {
+        "trades": 13,
+        "win_rate": 0.461538,
+        "profit_factor_proxy": 1.209047,
+        "avg_return": 0.00036318
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_9b69d136e450be83",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_SESSION_FILTER",
+      "filters": {
+        "session": "ASIA"
+      },
+      "evidence": {
+        "trades": 10,
+        "win_rate": 0.6,
+        "profit_factor_proxy": 1.048636,
+        "avg_return": 0.00022312
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_b1ff26e83323f9a4",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_VOLATILITY_FILTER",
+      "filters": {
+        "volatility_regime": "HIGH_VOL"
+      },
+      "evidence": {
+        "trades": 10,
+        "win_rate": 0.6,
+        "profit_factor_proxy": 1.048636,
+        "avg_return": 0.00022312
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_1a51f956c00825fc",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_TREND_FILTER",
+      "filters": {
+        "trend_regime": "TREND_UP"
+      },
+      "evidence": {
+        "trades": 10,
+        "win_rate": 0.6,
+        "profit_factor_proxy": 1.048636,
+        "avg_return": 0.00022312
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_5e3af22452b6e41a",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_TRIGGER_FILTER",
+      "filters": {
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "evidence": {
+        "trades": 10,
+        "win_rate": 0.6,
+        "profit_factor_proxy": 1.048636,
+        "avg_return": 0.00022312
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_5b6e603da93bca19",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_SESSION_VOLATILITY_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "volatility_regime": "HIGH_VOL"
+      },
+      "evidence": {
+        "trades": 10,
+        "win_rate": 0.6,
+        "profit_factor_proxy": 1.048636,
+        "avg_return": 0.00022312
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_00ce5211b39477e1",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_TREND_VOLATILITY_FILTER",
+      "filters": {
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL"
+      },
+      "evidence": {
+        "trades": 10,
+        "win_rate": 0.6,
+        "profit_factor_proxy": 1.048636,
+        "avg_return": 0.00022312
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_d4edb4bdb18ffc63",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_FULL_CONTEXT_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "evidence": {
+        "trades": 10,
+        "win_rate": 0.6,
+        "profit_factor_proxy": 1.048636,
+        "avg_return": 0.00022312
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_cb9beacdbacfc7d1",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "STRICT_HIGH_PF_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 10,
+        "win_rate": 0.6,
+        "profit_factor_proxy": 1.048636,
+        "avg_return": 0.00022312
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_f663a77cd7b7bb7a",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "STRICT_HIGH_WINRATE_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 10,
+        "win_rate": 0.6,
+        "profit_factor_proxy": 1.048636,
+        "avg_return": 0.00022312
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_c800292dd0a1551d",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "STRICT_MIN_SAMPLE_FILTER",
+      "filters": {},
+      "evidence": {
+        "trades": 10,
+        "win_rate": 0.6,
+        "profit_factor_proxy": 1.048636,
+        "avg_return": 0.00022312
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_5b513736118a5daa",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_SESSION_FILTER",
+      "filters": {
+        "session": "ASIA"
+      },
+      "evidence": {
+        "trades": 5,
+        "win_rate": 0.4,
+        "profit_factor_proxy": 0.250637,
+        "avg_return": -0.00431247
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_0f64dc9f7974971d",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_VOLATILITY_FILTER",
+      "filters": {
+        "volatility_regime": "HIGH_VOL"
+      },
+      "evidence": {
+        "trades": 5,
+        "win_rate": 0.4,
+        "profit_factor_proxy": 0.250637,
+        "avg_return": -0.00431247
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_b158d451806a2839",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_TREND_FILTER",
+      "filters": {
+        "trend_regime": "RANGE"
+      },
+      "evidence": {
+        "trades": 5,
+        "win_rate": 0.4,
+        "profit_factor_proxy": 0.250637,
+        "avg_return": -0.00431247
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_2cd4276dc2adbf70",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_TRIGGER_FILTER",
+      "filters": {
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "evidence": {
+        "trades": 5,
+        "win_rate": 0.4,
+        "profit_factor_proxy": 0.250637,
+        "avg_return": -0.00431247
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_c35bc00030d74c5d",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_SESSION_VOLATILITY_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "volatility_regime": "HIGH_VOL"
+      },
+      "evidence": {
+        "trades": 5,
+        "win_rate": 0.4,
+        "profit_factor_proxy": 0.250637,
+        "avg_return": -0.00431247
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_551203733d360ffb",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_TREND_VOLATILITY_FILTER",
+      "filters": {
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL"
+      },
+      "evidence": {
+        "trades": 5,
+        "win_rate": 0.4,
+        "profit_factor_proxy": 0.250637,
+        "avg_return": -0.00431247
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_ae6cc82dbd638d46",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "ADD_FULL_CONTEXT_FILTER",
+      "filters": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "evidence": {
+        "trades": 5,
+        "win_rate": 0.4,
+        "profit_factor_proxy": 0.250637,
+        "avg_return": -0.00431247
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_bf362350514af061",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "STRICT_HIGH_PF_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 5,
+        "win_rate": 0.4,
+        "profit_factor_proxy": 0.250637,
+        "avg_return": -0.00431247
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_17ae92e968670187",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "STRICT_HIGH_WINRATE_CLUSTER_ONLY",
+      "filters": {},
+      "evidence": {
+        "trades": 5,
+        "win_rate": 0.4,
+        "profit_factor_proxy": 0.250637,
+        "avg_return": -0.00431247
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_c41a62c148c4b5b9",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "generation": 1,
+    "genome": {
+      "base_family": "LIQUIDITY_SWEEP_TRIGGER",
+      "pattern_genome": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "mutation": "STRICT_MIN_SAMPLE_FILTER",
+      "filters": {},
+      "evidence": {
+        "trades": 5,
+        "win_rate": 0.4,
+        "profit_factor_proxy": 0.250637,
+        "avg_return": -0.00431247
+      }
+    },
+    "status": "PENDING_VALIDATION",
+    "mode": "RESEARCH_ONLY",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  }
+]

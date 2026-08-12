@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_21F9FE9BC3C3940A",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\f2py\\tests\\test_character.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\.venv\\Lib\\site-packages\\numpy\\f2py\\tests\\test_character.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 101,
+  "imports": [
+    "numpy",
+    "numpy.f2py.tests",
+    "numpy.testing",
+    "pytest",
+    "textwrap"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

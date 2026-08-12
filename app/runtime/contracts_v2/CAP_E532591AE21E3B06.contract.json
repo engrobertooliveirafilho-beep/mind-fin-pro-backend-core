@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_E532591AE21E3B06",
+  "source_file": "mind_trader\\app\\validation\\robustness_committee.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\mind_trader\\app\\validation\\robustness_committee.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 118,
+  "imports": [
+    "datetime",
+    "json",
+    "mind_trader.app.engines.uncertainty_authority",
+    "mind_trader.app.validation.anti_overfitting_authority",
+    "mind_trader.app.validation.monte_carlo_authority",
+    "mind_trader.app.validation.walk_forward_authority",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

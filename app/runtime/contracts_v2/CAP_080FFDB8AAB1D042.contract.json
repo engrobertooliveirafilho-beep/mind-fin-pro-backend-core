@@ -1,0 +1,30 @@
+{
+  "capability_id": "CAP_080FFDB8AAB1D042",
+  "source_file": ".venv\\Lib\\site-packages\\docx\\blkcntnr.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\.venv\\Lib\\site-packages\\docx\\blkcntnr.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 127,
+  "imports": [
+    "__future__",
+    "docx.oxml.comments",
+    "docx.oxml.document",
+    "docx.oxml.section",
+    "docx.oxml.table",
+    "docx.oxml.text.paragraph",
+    "docx.shared",
+    "docx.styles.style",
+    "docx.table",
+    "docx.text.paragraph",
+    "docx.types",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

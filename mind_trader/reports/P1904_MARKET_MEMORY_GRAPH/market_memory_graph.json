@@ -1,0 +1,9 @@
+{
+  "STATUS": "P1904_MARKET_MEMORY_GRAPH_BOOTSTRAPPED",
+  "OBJECTIVE": "Store every setup/context/outcome as graph memory",
+  "QUERY_EXAMPLES": [
+    "find similar historical contexts",
+    "find contexts where liquidity sweep failed",
+    "find regimes where USDJPY RSI reversion degraded"
+  ]
+}

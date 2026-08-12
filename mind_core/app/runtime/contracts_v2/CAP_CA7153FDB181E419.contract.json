@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_CA7153FDB181E419",
+  "source_file": "_evidence\\P19P36B_RUNTIME_DEPENDENCY_GRAPH_20260621_222624\\11_dependency_audit.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\_evidence\\P19P36B_RUNTIME_DEPENDENCY_GRAPH_20260621_222624\\11_dependency_audit.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 124,
+  "imports": [
+    "__future__",
+    "ast",
+    "collections",
+    "datetime",
+    "json",
+    "pathlib",
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

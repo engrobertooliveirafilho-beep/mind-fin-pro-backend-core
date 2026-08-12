@@ -1,0 +1,19 @@
+{
+  "status": "IMPLEMENTED",
+  "positions_monitored": 1,
+  "supervision": [
+    "daily_loss",
+    "max_loss",
+    "risk_per_trade",
+    "exposure",
+    "execution_quality",
+    "behavioral_risk"
+  ],
+  "demo_only": true,
+  "modules": 8,
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN"
+}

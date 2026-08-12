@@ -1,0 +1,190 @@
+{
+  "STATUS": "P1505N_TRADE_LEVEL_PAYOFF_BACKTEST_ENGINE_COMPLETED",
+  "EDGES_INPUT": 245,
+  "EDGES_ANALYZED": 245,
+  "TRADES_EXTRACTED": 8482,
+  "ASSETS_WITH_BEST_EDGE": 6,
+  "BEST_EDGE_BY_ASSET": {
+    "AUDUSD": {
+      "edge_id": "031f0a2238340c60e36f6854",
+      "asset": "AUDUSD",
+      "timeframe": "D1",
+      "family": "RSI_REVERSION",
+      "params": [
+        10,
+        25,
+        75
+      ],
+      "trades": 0,
+      "wins": 0,
+      "losses": 0,
+      "win_rate": 0,
+      "avg_win_pct": 0,
+      "avg_loss_pct": 0,
+      "payoff_ratio_real": 0,
+      "expectancy_per_trade_real": 0,
+      "profit_factor_real": 0,
+      "avg_holding_bars": 0,
+      "best_entry_hour": null,
+      "best_entry_hour_stats": null,
+      "institutional_score_v2": 0.0,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    },
+    "EURUSD": {
+      "edge_id": "a280eef1292c331d1c510281",
+      "asset": "EURUSD",
+      "timeframe": "D1",
+      "family": "BREAKOUT",
+      "params": [
+        20
+      ],
+      "trades": 0,
+      "wins": 0,
+      "losses": 0,
+      "win_rate": 0,
+      "avg_win_pct": 0,
+      "avg_loss_pct": 0,
+      "payoff_ratio_real": 0,
+      "expectancy_per_trade_real": 0,
+      "profit_factor_real": 0,
+      "avg_holding_bars": 0,
+      "best_entry_hour": null,
+      "best_entry_hour_stats": null,
+      "institutional_score_v2": 0.0,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    },
+    "GBPUSD": {
+      "edge_id": "7d0ccd5986a18a8a9162e384",
+      "asset": "GBPUSD",
+      "timeframe": "M30",
+      "family": "BOLLINGER_REVERSION",
+      "params": [
+        20,
+        2
+      ],
+      "trades": 15,
+      "wins": 12,
+      "losses": 3,
+      "win_rate": 0.8,
+      "avg_win_pct": 0.00047984,
+      "avg_loss_pct": 6.46e-05,
+      "payoff_ratio_real": 7.42826,
+      "expectancy_per_trade_real": 0.00037095,
+      "profit_factor_real": 29.71304,
+      "avg_holding_bars": 1.4,
+      "best_entry_hour": 12,
+      "best_entry_hour_stats": {
+        "trades": 1,
+        "wins": 1,
+        "pnl": 0.00123965
+      },
+      "institutional_score_v2": 0.08187012,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    },
+    "USDCAD": {
+      "edge_id": "d454498bf3f2a434e438a3b1",
+      "asset": "USDCAD",
+      "timeframe": "H4",
+      "family": "EMA_CROSS",
+      "params": [
+        8,
+        21
+      ],
+      "trades": 7,
+      "wins": 3,
+      "losses": 4,
+      "win_rate": 0.428571,
+      "avg_win_pct": 0.00989825,
+      "avg_loss_pct": 0.00216022,
+      "payoff_ratio_real": 4.582069,
+      "expectancy_per_trade_real": 0.0030077,
+      "profit_factor_real": 3.436551,
+      "avg_holding_bars": 37.86,
+      "best_entry_hour": 16,
+      "best_entry_hour_stats": {
+        "trades": 1,
+        "wins": 1,
+        "pnl": 0.01809829
+      },
+      "institutional_score_v2": 0.0472587,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    },
+    "USDJPY": {
+      "edge_id": "9a53b0630c7b7e29e960eb66",
+      "asset": "USDJPY",
+      "timeframe": "D1",
+      "family": "EMA_CROSS",
+      "params": [
+        21,
+        55
+      ],
+      "trades": 8,
+      "wins": 6,
+      "losses": 2,
+      "win_rate": 0.75,
+      "avg_win_pct": 0.08649666,
+      "avg_loss_pct": 0.0160518,
+      "payoff_ratio_real": 5.388597,
+      "expectancy_per_trade_real": 0.06085955,
+      "profit_factor_real": 16.165792,
+      "avg_holding_bars": 125.88,
+      "best_entry_hour": 0,
+      "best_entry_hour_stats": {
+        "trades": 8,
+        "wins": 6,
+        "pnl": 0.48687638
+      },
+      "institutional_score_v2": 5.21777815,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    },
+    "XAUUSD": {
+      "edge_id": "1d35b1a3343e2da75db035d2",
+      "asset": "XAUUSD",
+      "timeframe": "D1",
+      "family": "EMA_CROSS",
+      "params": [
+        12,
+        26
+      ],
+      "trades": 7,
+      "wins": 3,
+      "losses": 4,
+      "win_rate": 0.428571,
+      "avg_win_pct": 0.2273797,
+      "avg_loss_pct": 0.02537383,
+      "payoff_ratio_real": 8.96119,
+      "expectancy_per_trade_real": 0.08294911,
+      "profit_factor_real": 6.720892,
+      "avg_holding_bars": 55.71,
+      "best_entry_hour": 0,
+      "best_entry_hour_stats": {
+        "trades": 7,
+        "wins": 3,
+        "pnl": 0.58064379
+      },
+      "institutional_score_v2": 4.87216648,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    }
+  },
+  "OUTPUT_TRADES": "reports\\P1505_DATA_INGESTION_ENGINE\\p1505n_trade_level_trades.json",
+  "OUTPUT_EDGE_METRICS": "reports\\P1505_DATA_INGESTION_ENGINE\\p1505n_edge_trade_metrics.json",
+  "OUTPUT_BEST_BY_ASSET": "reports\\P1505_DATA_INGESTION_ENGINE\\p1505n_best_edge_by_asset.json",
+  "NEXT": "P1505O_EDGE_RANKING_V2",
+  "ORDER_SENT": false,
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN",
+  "generated_at": "2026-06-15T18:48:00.163358+00:00"
+}

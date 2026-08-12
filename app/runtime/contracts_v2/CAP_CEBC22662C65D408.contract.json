@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_CEBC22662C65D408",
+  "source_file": ".venv\\Lib\\site-packages\\websockets\\frames.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\websockets\\frames.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 121,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "dataclasses",
+    "enum",
+    "exceptions",
+    "io",
+    "os",
+    "secrets",
+    "speedups",
+    "struct",
+    "typing",
+    "utils"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_FE1A555FB28F23A9",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\window\\test_groupby.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\pandas\\tests\\window\\test_groupby.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 87,
+  "imports": [
+    "numpy",
+    "pandas",
+    "pandas._testing",
+    "pandas.api.indexers",
+    "pandas.core.groupby.groupby",
+    "pandas.errors",
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

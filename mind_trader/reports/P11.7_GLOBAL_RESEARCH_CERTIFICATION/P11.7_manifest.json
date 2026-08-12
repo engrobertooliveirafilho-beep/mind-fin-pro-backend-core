@@ -1,0 +1,27 @@
+{
+  "P11_STATE_SNAPSHOT": {
+    "STATUS": "P11_GLOBAL_RESEARCH_CERTIFIED",
+    "BASE": "P10_REAL_DATA_RESEARCH_CERTIFIED",
+    "REPORTS_PRESENT": {
+      "reports/P11.3_GLOBAL_MARKET_REGISTRY/P11.3_manifest.json": true,
+      "reports/P11.4_DATA_COVERAGE_ENGINE/P11.4_manifest.json": true,
+      "reports/P11.5_MULTI_MARKET_RESEARCH_GRID/P11.5_manifest.json": true,
+      "reports/P11.6_EDGE_EVIDENCE_AT_SCALE/P11.6_manifest.json": true
+    },
+    "MODULES_CERTIFIED": [
+      "P11.3_GLOBAL_MARKET_REGISTRY",
+      "P11.4_DATA_COVERAGE_ENGINE",
+      "P11.5_MULTI_MARKET_RESEARCH_GRID",
+      "P11.6_EDGE_EVIDENCE_AT_SCALE"
+    ],
+    "LIVE": "FORBIDDEN",
+    "PRODUCTION": "BLOCKED",
+    "REAL_BROKER": "DISABLED",
+    "FTMO_REAL": "FORBIDDEN",
+    "EDGE": "NOT_PROVEN",
+    "CAUSALITY": "NOT_PROVEN",
+    "NEXT_PHASE": "P12_REAL_DATA_LOADING_AND_CLOUD_EXPORT",
+    "EXPORT_READY": true,
+    "generated_at": "2026-06-14T16:11:26.466291+00:00"
+  }
+}

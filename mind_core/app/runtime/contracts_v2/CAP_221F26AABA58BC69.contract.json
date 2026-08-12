@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_221F26AABA58BC69",
+  "source_file": "tests\\test_p2381_de40_loss_lesson_auto_patch_and_memory_graph.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\tests\\test_p2381_de40_loss_lesson_auto_patch_and_memory_graph.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 100,
+  "imports": [
+    "app.runtime.p2381_de40_loss_lesson_auto_patch_and_memory_graph"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

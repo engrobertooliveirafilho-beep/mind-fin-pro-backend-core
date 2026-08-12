@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_7BFF9916FB4A953E",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\resources\\batches.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\openai\\resources\\batches.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 123,
+  "imports": [
+    "__future__",
+    "_base_client",
+    "_compat",
+    "_resource",
+    "_response",
+    "_types",
+    "_utils",
+    "httpx",
+    "pagination",
+    "types",
+    "types.batch",
+    "types.shared_params.metadata",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

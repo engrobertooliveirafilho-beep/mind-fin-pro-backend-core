@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_ECB6CD818CDE17F3",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\responses\\response_content_part_added_event.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\openai\\types\\responses\\response_content_part_added_event.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 100,
+  "imports": [
+    "_models",
+    "_utils",
+    "response_output_refusal",
+    "response_output_text",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

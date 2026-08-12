@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_03D8787AB0C42ACE",
+  "source_file": ".venv\\Lib\\site-packages\\httpx\\_auth.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\httpx\\_auth.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 89,
+  "imports": [
+    "__future__",
+    "_exceptions",
+    "_models",
+    "_utils",
+    "base64",
+    "hashlib",
+    "netrc",
+    "os",
+    "re",
+    "time",
+    "typing",
+    "urllib.request"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

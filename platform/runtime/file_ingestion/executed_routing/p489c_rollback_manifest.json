@@ -1,0 +1,103 @@
+{
+  "milestone": "P4.89C2 COMPLETE",
+  "rollback_available": true,
+  "items_count": 24,
+  "items": [
+    {
+      "from": "runtime/file_ingestion/executed_routing/archive/ed72b4260211f491.ps1",
+      "to": "_evidence/P2264B_P2266_FULL_DATA_BACKTEST_PIPELINE_20260618_162142/edge_ranking/P2271_PAPER_SIMULATOR_OPEN_CHARTS_20260619_153314/run_p2271_paper_simulator.ps1"
+    },
+    {
+      "from": "runtime/file_ingestion/executed_routing/archive/9219494096504b17.csv",
+      "to": "_evidence/P2264B_P2266_FULL_DATA_BACKTEST_PIPELINE_20260618_162142/edge_ranking/P2266_P2270_PAPER_PORTFOLIO_EDGE_PACK_20260619_152952/mt5_signal_plan/mt5_signal_plan.csv"
+    },
+    {
+      "from": "runtime/file_ingestion/executed_routing/archive/4ea36c4e67f59acf.csv",
+      "to": "_evidence/P2264B_P2266_FULL_DATA_BACKTEST_PIPELINE_20260618_162142/edge_ranking/P2266_P2270_PAPER_PORTFOLIO_EDGE_PACK_20260619_152952/paper_edges/approved_paper_edges.csv"
+    },
+    {
+      "from": "runtime/file_ingestion/executed_routing/archive/e60d88d83191e4bb.csv",
+      "to": "_evidence/P2264B_P2266_FULL_DATA_BACKTEST_PIPELINE_20260618_162142/edge_ranking/P2266_P2270_PAPER_PORTFOLIO_EDGE_PACK_20260619_152952/risk_allocation/p2269_risk_allocation.csv"
+    },
+    {
+      "from": "runtime/file_ingestion/executed_routing/archive/22c8425ec3207981.csv",
+      "to": "_evidence/P2264B_P2266_FULL_DATA_BACKTEST_PIPELINE_20260618_162142/edge_ranking/P2266_P2270_PAPER_PORTFOLIO_EDGE_PACK_20260619_152952/robustness/p2268_robustness_precheck.csv"
+    },
+    {
+      "from": "runtime/file_ingestion/executed_routing/archive/c516af848ddca5c3.mq5",
+      "to": "_evidence/P2264B_P2266_FULL_DATA_BACKTEST_PIPELINE_20260618_162142/edge_ranking/P2271_PAPER_SIMULATOR_OPEN_CHARTS_20260619_153314/scripts/MIND_OpenCharts_P2271.mq5"
+    },
+    {
+      "from": "runtime/file_ingestion/executed_routing/archive/18ab370cf9823161.csv",
+      "to": "_evidence/P2264_MASS_BACKTEST_RUNNER_20260618_151823/blocked/p2264_blocked_no_data.csv"
+    },
+    {
+      "from": "runtime/file_ingestion/executed_routing/archive/b02341bd6d4e6374.csv",
+      "to": "_evidence/P2264_MASS_BACKTEST_RUNNER_20260618_151823/results/p2264_ready_backtests.csv"
+    },
+    {
+      "from": "runtime/file_ingestion/executed_routing/archive/03a207fbaa2c1e09.csv",
+      "to": "_evidence/P2264_MASS_BACKTEST_RUNNER_20260618_151823/results/p2264_results_placeholder.csv"
+    },
+    {
+      "from": "runtime/file_ingestion/executed_routing/archive/e91fd207877d31d9.jsonl",
+      "to": "_evidence/P4.46X_USDE_CORE/ledger/hypothesis_ledger.jsonl"
+    },
+    {
+      "from": "runtime/file_ingestion/executed_routing/archive/342f6f2711e80565.jsonl",
+      "to": "_evidence/P4.46X_USDE_CORE/test_ledger/hypothesis_ledger.jsonl"
+    },
+    {
+      "from": "runtime/file_ingestion/executed_routing/archive/e7c3772f1b8b31cd.jsonl",
+      "to": "_evidence/P4.46X_USDE_CORE/test_memory/memory.jsonl"
+    },
+    {
+      "from": "runtime/file_ingestion/executed_routing/archive/550f6f876b78cd5b.jsonl",
+      "to": "_evidence/P4.46X_USDE_CORE/test_memory_query/memory.jsonl"
+    },
+    {
+      "from": "runtime/file_ingestion/executed_routing/archive/b4c73adab262a533.csv",
+      "to": "_evidence/P4.46_PERFORMANCE_PROFILING_20260617_114534/reports/largest_python_files.csv"
+    },
+    {
+      "from": "runtime/file_ingestion/executed_routing/archive/9617cdb6fcb073b8.csv",
+      "to": "_evidence/P4.47A_CAPABILITY_ACTIVATION_AUDIT_20260617_174726/reports/P4.47A_CAPABILITY_ACTIVATION_MATRIX.csv"
+    },
+    {
+      "from": "runtime/file_ingestion/executed_routing/archive/945767dab0925b97.csv",
+      "to": "_evidence/P4.48A_MULTI_AGENT_AUDIT_20260617_185801/reports/P4.48A_MULTI_AGENT_AUDIT.csv"
+    },
+    {
+      "from": "runtime/file_ingestion/executed_routing/archive/0537fecdbca1229a.csv",
+      "to": "_evidence/P4.48B_LEVEL_B_CONSUMPTION_AUDIT_20260617_190008/reports/P4.48B_LEVEL_B_CONSUMPTION_AUDIT.csv"
+    },
+    {
+      "from": "runtime/file_ingestion/executed_routing/clean_trash/c1bc9b8920f7112a.pyc",
+      "to": "_evidence/P4_60_FIXED_20260618_085517/__pycache__/memory_adapter.cpython-312.pyc"
+    },
+    {
+      "from": "runtime/file_ingestion/executed_routing/clean_trash/68eec5a5d9b95b1d.pyc",
+      "to": "_evidence/P4_60_FIXED_20260618_085517/__pycache__/pipeline_patch.cpython-312.pyc"
+    },
+    {
+      "from": "runtime/file_ingestion/executed_routing/clean_trash/5480693a078985dc.pyc",
+      "to": "_evidence/P4_61_FIXED_20260618_085804/__pycache__/pipeline_patch.cpython-312.pyc"
+    },
+    {
+      "from": "runtime/file_ingestion/executed_routing/clean_trash/ef52f579bce1f3eb.pyc",
+      "to": "_evidence/P4_61_FIXED_20260618_085804/memory_layer/__pycache__/memory_preprocessor.cpython-312.pyc"
+    },
+    {
+      "from": "runtime/file_ingestion/executed_routing/clean_trash/7a15b987ca08e2f6.pyc",
+      "to": "_evidence/P4_61_REAL_MEMORY_INJECTION_20260618_085716/__pycache__/pipeline_patch.cpython-312.pyc"
+    },
+    {
+      "from": "runtime/file_ingestion/executed_routing/clean_trash/821d2e2f8d90cdb2.pyc",
+      "to": "_evidence/P4_64B_REAL_MEMORY_DEPENDENCY_GRAPH_20260618_135127/__pycache__/whatsapp.py.cpython-312.pyc"
+    },
+    {
+      "from": "runtime/file_ingestion/executed_routing/clean_trash/7a6d5e0866972539.pyc",
+      "to": "_maintenance/P19P22A_20260618_110511/__pycache__/p56g4_strict_entity_validator.cpython-312.pyc"
+    }
+  ]
+}

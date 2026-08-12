@@ -1,0 +1,800 @@
+[
+  {
+    "asset": "XAUUSD",
+    "timeframe": "M5",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "XAUUSD",
+    "timeframe": "M15",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "XAUUSD",
+    "timeframe": "M30",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "XAUUSD",
+    "timeframe": "H1",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "XAUUSD",
+    "timeframe": "H4",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "USDJPY",
+    "timeframe": "M5",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "USDJPY",
+    "timeframe": "M15",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "USDJPY",
+    "timeframe": "M30",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "USDJPY",
+    "timeframe": "H1",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "USDJPY",
+    "timeframe": "H4",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "M15",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "M30",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "H1",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "H4",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "USDCAD",
+    "timeframe": "M5",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "USDCAD",
+    "timeframe": "M15",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "USDCAD",
+    "timeframe": "M30",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "USDCAD",
+    "timeframe": "H1",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "USDCAD",
+    "timeframe": "H4",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "USDCAD",
+    "timeframe": "D1",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "BTCUSD",
+    "timeframe": "M5",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "BTCUSD",
+    "timeframe": "M15",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "BTCUSD",
+    "timeframe": "M30",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "BTCUSD",
+    "timeframe": "H1",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "BTCUSD",
+    "timeframe": "H4",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "BTCUSD",
+    "timeframe": "D1",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "NAS100",
+    "timeframe": "M5",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "NAS100",
+    "timeframe": "M15",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "NAS100",
+    "timeframe": "M30",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "NAS100",
+    "timeframe": "H1",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "NAS100",
+    "timeframe": "H4",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  },
+  {
+    "asset": "NAS100",
+    "timeframe": "D1",
+    "target_years": 10,
+    "minimum_acceptable_years": 5,
+    "preferred_sources": [
+      "MT5",
+      "CSV_IMPORT"
+    ],
+    "probe_status": "PENDING_REAL_DOWNLOAD_TEST",
+    "success_criteria": {
+      "history_years": ">=10 preferred / >=5 acceptable",
+      "ohlc_columns": "open,high,low,close",
+      "time_column": "required",
+      "duplicates": "0 or removable",
+      "timezone": "normalized",
+      "rows": "sufficient for timeframe"
+    }
+  }
+]

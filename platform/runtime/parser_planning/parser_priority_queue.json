@@ -1,0 +1,73 @@
+{
+  "milestone": "P4.89I COMPLETE",
+  "queue_type": "PARSER_PRIORITY_QUEUE",
+  "items_count": 6,
+  "items": [
+    {
+      "parser": "generic_code_parser",
+      "affected_files": 32,
+      "priority": "P0",
+      "purpose": "Ler código sem extensão conhecida",
+      "risk": "LOW",
+      "implementation_mode": "READ_ONLY",
+      "approval_required": true,
+      "physical_move": "FORBIDDEN",
+      "delete": "FORBIDDEN"
+    },
+    {
+      "parser": "json_artifact_parser",
+      "affected_files": 2,
+      "priority": "P0",
+      "purpose": "Ler artefatos estruturados",
+      "risk": "LOW",
+      "implementation_mode": "READ_ONLY",
+      "approval_required": true,
+      "physical_move": "FORBIDDEN",
+      "delete": "FORBIDDEN"
+    },
+    {
+      "parser": "python_code_parser",
+      "affected_files": 1,
+      "priority": "P0",
+      "purpose": "Ler artefatos Python",
+      "risk": "LOW",
+      "implementation_mode": "READ_ONLY",
+      "approval_required": true,
+      "physical_move": "FORBIDDEN",
+      "delete": "FORBIDDEN"
+    },
+    {
+      "parser": "plain_text_fallback_reader",
+      "affected_files": 2,
+      "priority": "P1",
+      "purpose": "Fallback universal",
+      "risk": "LOW",
+      "implementation_mode": "READ_ONLY",
+      "approval_required": true,
+      "physical_move": "FORBIDDEN",
+      "delete": "FORBIDDEN"
+    },
+    {
+      "parser": "clean_trash_classifier",
+      "affected_files": 1015,
+      "priority": "P2",
+      "purpose": "Classificar lixo/cache",
+      "risk": "LOW",
+      "implementation_mode": "CLASSIFICATION_ONLY",
+      "approval_required": true,
+      "physical_move": "FORBIDDEN",
+      "delete": "FORBIDDEN"
+    },
+    {
+      "parser": "manual_review",
+      "affected_files": 1,
+      "priority": "P3",
+      "purpose": "Revisão humana",
+      "risk": "NONE",
+      "implementation_mode": "MANUAL",
+      "approval_required": true,
+      "physical_move": "FORBIDDEN",
+      "delete": "FORBIDDEN"
+    }
+  ]
+}

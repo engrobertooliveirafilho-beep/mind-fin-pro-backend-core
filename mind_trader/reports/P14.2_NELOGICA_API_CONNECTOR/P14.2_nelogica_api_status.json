@@ -1,0 +1,39 @@
+{
+  "STATUS": "P14.2_NELOGICA_API_CONNECTOR_FOUNDATION_IMPLEMENTED",
+  "CONNECTOR": {
+    "platform": "NELOGICA_API",
+    "configured": false,
+    "env": {
+      "NELOGICA_BASE_URL": false,
+      "NELOGICA_API_KEY": false,
+      "NELOGICA_API_SECRET": false,
+      "NELOGICA_ENV": false
+    },
+    "supported_assets": [
+      "WIN",
+      "WDO",
+      "IND",
+      "DOL",
+      "PETR4",
+      "VALE3",
+      "ITUB4",
+      "BBDC4",
+      "BBAS3",
+      "WEGE3",
+      "BOVA11"
+    ],
+    "market_data_enabled": false,
+    "order_routing_enabled": false,
+    "real_orders": "FORBIDDEN",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED"
+  },
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "EDGE": "NOT_PROVEN",
+  "CAUSALITY": "NOT_PROVEN",
+  "NEXT": "OBTAIN_NELOGICA_API_CREDENTIALS_AND_SANDBOX_DOCS",
+  "EXPORT_READY": true,
+  "generated_at": "2026-06-14T16:11:29.789465+00:00"
+}

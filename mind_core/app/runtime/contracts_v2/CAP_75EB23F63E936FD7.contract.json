@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_75EB23F63E936FD7",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\io\\formats\\csvs.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\data\\.venv\\Lib\\site-packages\\pandas\\io\\formats\\csvs.py",
+  "domain": "DATA",
+  "target_layer": "app/runtime",
+  "promotion_score": 108,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "csv",
+    "numpy",
+    "os",
+    "pandas._libs",
+    "pandas._typing",
+    "pandas.core.dtypes.generic",
+    "pandas.core.dtypes.missing",
+    "pandas.core.indexes.api",
+    "pandas.io.common",
+    "pandas.io.formats.format",
+    "pandas.util._decorators",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

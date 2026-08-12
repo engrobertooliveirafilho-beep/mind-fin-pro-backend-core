@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_BF872127CA9AC6FB",
+  "source_file": ".venv\\Lib\\site-packages\\psycopg\\_pipeline.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\psycopg\\_pipeline.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 99,
+  "imports": [
+    "__future__",
+    "_compat",
+    "_pipeline_base",
+    "connection",
+    "logging",
+    "types",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

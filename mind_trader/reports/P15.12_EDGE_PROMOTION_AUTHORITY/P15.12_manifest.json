@@ -1,0 +1,20 @@
+{
+  "STATUS": "P15.12_EDGE_PROMOTION_AUTHORITY_IMPLEMENTED",
+  "INPUT_APPROVED": 28,
+  "AUTHORITY_PROMOTED": 3,
+  "RULES": {
+    "one_per_symbol_timeframe": true,
+    "min_profit_factor": 1.5,
+    "min_trades": 30,
+    "walk_forward_required": true,
+    "monte_carlo_required": true
+  },
+  "EDGE": "STRONG_CANDIDATE_FOUND",
+  "CAUSALITY": "NOT_PROVEN",
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "NEXT": "P15.13_OUT_OF_SAMPLE_RETEST_AND_STRATEGY_DIVERSIFICATION",
+  "EXPORT_READY": true,
+  "generated_at": "2026-06-14T16:11:32.456956+00:00"
+}

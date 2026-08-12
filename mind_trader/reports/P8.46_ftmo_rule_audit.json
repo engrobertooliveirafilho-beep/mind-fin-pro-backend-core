@@ -1,0 +1,36 @@
+{
+  "audit_ts": "2026-06-09T14:40:04.617622+00:00",
+  "config_validation": {
+    "valid": true,
+    "reason": "FTMO_CONFIG_OK",
+    "hash": "8e5c24a09f636828d0c7ff695481eb140e24204365b47aa93d36bee99ee66c5b",
+    "version": "P8.46_FTMO_RULESET_V1"
+  },
+  "config_hash": "8e5c24a09f636828d0c7ff695481eb140e24204365b47aa93d36bee99ee66c5b",
+  "config_version": "P8.46_FTMO_RULESET_V1",
+  "trade": {
+    "symbol": "WIN",
+    "side": "BUY",
+    "strategy_id": "S1",
+    "entry": 100,
+    "stop": 98,
+    "target": 104,
+    "risk_amount": 500,
+    "open_risk": 0,
+    "daily_pnl": 0,
+    "total_pnl": 0,
+    "daily_trades": 1,
+    "loss_streak": 0
+  },
+  "checks": {
+    "symbol_allowed": true,
+    "symbol_not_restricted": true,
+    "daily_trades_ok": true,
+    "risk_inside_daily_limit": true,
+    "risk_inside_total_limit": true,
+    "has_stop": true
+  },
+  "production": "BLOCKED",
+  "edge_claim": "NONE",
+  "decision": "ALLOW_FTMO_SIMULATION"
+}

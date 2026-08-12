@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_BE42F96911649CF8",
+  "source_file": "mind_trader\\tests\\test_p851_cli_runner.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\mind_trader\\tests\\test_p851_cli_runner.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 115,
+  "imports": [
+    "csv",
+    "math",
+    "mind_trader.app.backtest.market_core",
+    "mind_trader.app.cli.mind_trader_cli",
+    "mind_trader.app.risk.ftmo_ruleset"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

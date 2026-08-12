@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_D7B37BECA4ED6FFA",
+  "source_file": "TRANSFER_PACKAGE\\PTO_20260611T143207Z\\p56h_process_only_pending_youtube_media.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\TRANSFER_PACKAGE\\PTO_20260611T143207Z\\p56h_process_only_pending_youtube_media.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 98,
+  "imports": [
+    "app.mind.p5_5z_executive_snapshot.snapshot",
+    "app.mind.p5_6b4_youtube_acquisition_engine.engine",
+    "app.mind.p5_6b5_judge_real_biomechanics_binder.binder",
+    "app.mind.p5_6b6_real_valuation_binder.binder",
+    "datetime",
+    "json",
+    "os",
+    "requests"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

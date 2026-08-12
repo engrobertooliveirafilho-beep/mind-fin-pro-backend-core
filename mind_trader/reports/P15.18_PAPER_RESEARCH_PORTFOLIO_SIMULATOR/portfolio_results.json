@@ -1,0 +1,106 @@
+[
+  {
+    "allocation": "ifix_heavy",
+    "weights": [
+      0.25,
+      0.5,
+      0.25
+    ],
+    "edges": [
+      "CSAN3_H1_sma_cross_13_55",
+      "IFIX_H1_sma_cross_5_55",
+      "SHUL4_H1_sma_cross_5_55"
+    ],
+    "return": 0.325657,
+    "profit_factor": 2.7172,
+    "trades": 154,
+    "winrate": 40.8725,
+    "max_drawdown_proxy": 0.122007,
+    "recovery_factor_proxy": 2.669163,
+    "sharpe_proxy": 6.905831,
+    "avg_correlation_proxy": 0.766667,
+    "correlation_penalty": 0.9,
+    "institutional_score": 14.810642,
+    "portfolio_approved": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "allocation": "equal_33",
+    "weights": [
+      0.3333,
+      0.3333,
+      0.3334
+    ],
+    "edges": [
+      "CSAN3_H1_sma_cross_13_55",
+      "IFIX_H1_sma_cross_5_55",
+      "SHUL4_H1_sma_cross_5_55"
+    ],
+    "return": 0.380821,
+    "profit_factor": 2.42501,
+    "trades": 154,
+    "winrate": 39.9659,
+    "max_drawdown_proxy": 0.143992,
+    "recovery_factor_proxy": 2.644732,
+    "sharpe_proxy": 7.126202,
+    "avg_correlation_proxy": 0.766667,
+    "correlation_penalty": 0.9,
+    "institutional_score": 14.409986,
+    "portfolio_approved": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "allocation": "csan3_heavy",
+    "weights": [
+      0.5,
+      0.25,
+      0.25
+    ],
+    "edges": [
+      "CSAN3_H1_sma_cross_13_55",
+      "IFIX_H1_sma_cross_5_55",
+      "SHUL4_H1_sma_cross_5_55"
+    ],
+    "return": 0.477714,
+    "profit_factor": 2.35755,
+    "trades": 154,
+    "winrate": 40.975,
+    "max_drawdown_proxy": 0.175227,
+    "recovery_factor_proxy": 2.726258,
+    "sharpe_proxy": 7.112348,
+    "avg_correlation_proxy": 0.766667,
+    "correlation_penalty": 0.9,
+    "institutional_score": 14.383502,
+    "portfolio_approved": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "allocation": "shul4_heavy",
+    "weights": [
+      0.25,
+      0.25,
+      0.5
+    ],
+    "edges": [
+      "CSAN3_H1_sma_cross_13_55",
+      "IFIX_H1_sma_cross_5_55",
+      "SHUL4_H1_sma_cross_5_55"
+    ],
+    "return": 0.339142,
+    "profit_factor": 2.20055,
+    "trades": 154,
+    "winrate": 38.0525,
+    "max_drawdown_proxy": 0.134754,
+    "recovery_factor_proxy": 2.516752,
+    "sharpe_proxy": 7.360145,
+    "avg_correlation_proxy": 0.766667,
+    "correlation_penalty": 0.9,
+    "institutional_score": 14.00304,
+    "portfolio_approved": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  }
+]

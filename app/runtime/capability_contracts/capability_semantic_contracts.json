@@ -1,0 +1,1901 @@
+{
+  "app/api/eldora_multimodal.py": {
+    "id": "009_eldora_multimodal",
+    "path": "app/api/eldora_multimodal.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "eldora multimodal | actions: remember, retrieve | inputs: content, context, description, path, query, text | outputs: ",
+    "can_handle": [
+      "audio_runtime",
+      "content",
+      "context",
+      "description",
+      "fusion",
+      "fusion_runtime",
+      "marketing",
+      "memory",
+      "multimodal",
+      "ocr",
+      "ocr_runtime",
+      "path",
+      "query",
+      "remember",
+      "retrieve",
+      "text",
+      "transcript",
+      "upload",
+      "visual",
+      "visual_runtime"
+    ],
+    "requires": [
+      "content",
+      "context",
+      "description",
+      "path",
+      "query",
+      "text"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.eldora.core.audio_transcript_engine",
+      "app.eldora.core.multimodal_fusion_engine",
+      "app.eldora.core.multimodal_ingestion",
+      "app.eldora.core.ocr_engine",
+      "app.eldora.core.visual_semantic_memory"
+    ],
+    "quality": {
+      "technical_score": 118,
+      "elapsed_ms": 384.96,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B326720>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/api/eldora_true_distributed.py": {
+    "id": "024_eldora_true_distributed",
+    "path": "app/api/eldora_true_distributed.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "eldora true distributed | actions: assist | inputs: channel, cycles, event, message, stream, websocket, worker_name | outputs: ",
+    "can_handle": [
+      "assist",
+      "channel",
+      "cycles",
+      "diagnostic",
+      "diagnostics",
+      "event",
+      "message",
+      "redis_publish",
+      "redis_report",
+      "stream",
+      "trader",
+      "websocket",
+      "websocket_endpoint",
+      "whatsapp",
+      "worker_loop",
+      "worker_name",
+      "workers",
+      "ws_report",
+      "ws_signal"
+    ],
+    "requires": [
+      "channel",
+      "cycles",
+      "event",
+      "message",
+      "stream",
+      "websocket",
+      "worker_name"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.eldora.core.distributed_worker_loop",
+      "app.eldora.core.redis_diagnostics",
+      "app.eldora.core.true_redis_runtime",
+      "app.eldora.core.websocket_cognition"
+    ],
+    "quality": {
+      "technical_score": 113,
+      "elapsed_ms": 101.63,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B4423F0>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/api/eldora_autonomous.py": {
+    "id": "008_eldora_autonomous",
+    "path": "app/api/eldora_autonomous.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "eldora autonomous | actions: generate | inputs: amount, goal, plan_id | outputs: ",
+    "can_handle": [
+      "amount",
+      "checkpoint",
+      "checkpoints",
+      "general",
+      "generate",
+      "goal",
+      "governor",
+      "governor_consume",
+      "plan_create",
+      "plan_get",
+      "plan_id",
+      "planner"
+    ],
+    "requires": [
+      "amount",
+      "goal",
+      "plan_id"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.eldora.core.autonomous_planner",
+      "app.eldora.core.checkpoint_engine",
+      "app.eldora.core.governor_engine"
+    ],
+    "quality": {
+      "technical_score": 105,
+      "elapsed_ms": 16.47,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE09BBF1A0>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/api/eldora_cognition.py": {
+    "id": "002_eldora_cognition",
+    "path": "app/api/eldora_cognition.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "eldora cognition | actions: remember | inputs: capability, category, content, tool_name | outputs: ",
+    "can_handle": [
+      "capability",
+      "category",
+      "cognitive_report",
+      "cognitive_store",
+      "compression",
+      "compression_runtime",
+      "content",
+      "marketing",
+      "memory",
+      "remember",
+      "tool_learn",
+      "tool_name",
+      "tools"
+    ],
+    "requires": [
+      "capability",
+      "category",
+      "content",
+      "tool_name"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.eldora.core.long_term_memory",
+      "app.eldora.core.memory_compression_engine",
+      "app.eldora.core.tool_learning_engine"
+    ],
+    "quality": {
+      "technical_score": 98,
+      "elapsed_ms": 17.98,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE09796720>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/api/eldora_world.py": {
+    "id": "004_eldora_world",
+    "path": "app/api/eldora_world.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "eldora world | actions: remember | inputs: cause, context, effect, environment, goal, variables | outputs: ",
+    "can_handle": [
+      "causal",
+      "causal_runtime",
+      "cause",
+      "context",
+      "effect",
+      "environment",
+      "goal",
+      "memory",
+      "remember",
+      "simulation",
+      "simulation_runtime",
+      "state",
+      "states",
+      "variables"
+    ],
+    "requires": [
+      "cause",
+      "context",
+      "effect",
+      "environment",
+      "goal",
+      "variables"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.eldora.core.causal_reasoning_engine",
+      "app.eldora.core.predictive_simulation_engine",
+      "app.eldora.core.world_model_engine"
+    ],
+    "quality": {
+      "technical_score": 98,
+      "elapsed_ms": 14.86,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE09BBEFC0>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/api/eldora_social.py": {
+    "id": "012_eldora_social",
+    "path": "app/api/eldora_social.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "eldora social | actions: remember | inputs: context, emotion, interaction, profile, user_id | outputs: ",
+    "can_handle": [
+      "context",
+      "emotion",
+      "emotion_runtime",
+      "interaction",
+      "marketing",
+      "memory",
+      "memory_runtime",
+      "profile",
+      "relationship",
+      "relationship_runtime",
+      "remember",
+      "user_id"
+    ],
+    "requires": [
+      "context",
+      "emotion",
+      "interaction",
+      "profile",
+      "user_id"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.eldora.core.emotional_continuity_engine",
+      "app.eldora.core.persistent_social_memory",
+      "app.eldora.core.relational_cognition_engine"
+    ],
+    "quality": {
+      "technical_score": 98,
+      "elapsed_ms": 1007.59,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B3A3680>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/api/eldora_autonomy.py": {
+    "id": "016_eldora_autonomy",
+    "path": "app/api/eldora_autonomy.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "eldora autonomy | actions: assist | inputs: environment, goal, mission, priority, signal | outputs: ",
+    "can_handle": [
+      "assist",
+      "environment",
+      "goal",
+      "goals",
+      "loop",
+      "loops",
+      "mission",
+      "observations",
+      "observe",
+      "priority",
+      "signal",
+      "trader"
+    ],
+    "requires": [
+      "environment",
+      "goal",
+      "mission",
+      "priority",
+      "signal"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.eldora.core.continuous_execution_engine",
+      "app.eldora.core.persistent_goal_engine",
+      "app.eldora.core.runtime_observation_engine"
+    ],
+    "quality": {
+      "technical_score": 98,
+      "elapsed_ms": 12.08,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B3A2ED0>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/api/eldora_embodied.py": {
+    "id": "017_eldora_embodied",
+    "path": "app/api/eldora_embodied.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "eldora embodied | actions: assist | inputs: agent, identity, objective, platform, signal, source | outputs: ",
+    "can_handle": [
+      "agent",
+      "assist",
+      "awareness",
+      "awareness_runtime",
+      "browser",
+      "browsers",
+      "identity",
+      "objective",
+      "platform",
+      "presence",
+      "presences",
+      "signal",
+      "source",
+      "trader"
+    ],
+    "requires": [
+      "agent",
+      "identity",
+      "objective",
+      "platform",
+      "signal",
+      "source"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.eldora.core.autonomous_digital_presence",
+      "app.eldora.core.internet_awareness_engine",
+      "app.eldora.core.live_browser_agents"
+    ],
+    "quality": {
+      "technical_score": 98,
+      "elapsed_ms": 6.67,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B3B48F0>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/api/eldora_liveos.py": {
+    "id": "019_eldora_liveos",
+    "path": "app/api/eldora_liveos.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "eldora liveos | actions: assist | inputs: agent_group, environment, event, objective, signal, stream | outputs: ",
+    "can_handle": [
+      "agent_group",
+      "assist",
+      "environment",
+      "event",
+      "objective",
+      "orchestrate",
+      "orchestrations",
+      "publish",
+      "runtime",
+      "runtimes",
+      "signal",
+      "stream",
+      "streams",
+      "trader"
+    ],
+    "requires": [
+      "agent_group",
+      "environment",
+      "event",
+      "objective",
+      "signal",
+      "stream"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.eldora.core.live_operating_system_engine",
+      "app.eldora.core.realtime_event_stream",
+      "app.eldora.core.universal_orchestration_fabric"
+    ],
+    "quality": {
+      "technical_score": 98,
+      "elapsed_ms": 8.0,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B3FD340>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/api/eldora_mesh.py": {
+    "id": "020_eldora_mesh",
+    "path": "app/api/eldora_mesh.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "eldora mesh | actions: assist | inputs: agent, channel, cognition, node, payload, runtime | outputs: ",
+    "can_handle": [
+      "agent",
+      "agents",
+      "assist",
+      "broker",
+      "brokers",
+      "channel",
+      "cognition",
+      "mesh",
+      "node",
+      "payload",
+      "runtime",
+      "sync",
+      "trader"
+    ],
+    "requires": [
+      "agent",
+      "channel",
+      "cognition",
+      "node",
+      "payload",
+      "runtime"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.eldora.core.event_broker_fabric",
+      "app.eldora.core.live_agent_cloud",
+      "app.eldora.core.realtime_cognitive_mesh"
+    ],
+    "quality": {
+      "technical_score": 98,
+      "elapsed_ms": 12.66,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B3FD340>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/api/eldora_meta.py": {
+    "id": "021_eldora_meta",
+    "path": "app/api/eldora_meta.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "eldora meta | actions: remember | inputs: cognition, layer, objective, reflection, runtime, runtime_state | outputs: ",
+    "can_handle": [
+      "awareness",
+      "awareness_runtime",
+      "cognition",
+      "cognition_runtime",
+      "introspection",
+      "introspection_runtime",
+      "layer",
+      "memory",
+      "objective",
+      "reflection",
+      "remember",
+      "runtime",
+      "runtime_state"
+    ],
+    "requires": [
+      "cognition",
+      "layer",
+      "objective",
+      "reflection",
+      "runtime",
+      "runtime_state"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.eldora.core.meta_cognition_engine",
+      "app.eldora.core.recursive_introspection_engine",
+      "app.eldora.core.self_awareness_engine"
+    ],
+    "quality": {
+      "technical_score": 98,
+      "elapsed_ms": 13.6,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B424AA0>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/api/eldora_action.py": {
+    "id": "033_eldora_action",
+    "path": "app/api/eldora_action.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "eldora action | actions: assist | inputs: action, capability, environment, tool, tool_name, workflow | outputs: ",
+    "can_handle": [
+      "action",
+      "assist",
+      "capability",
+      "environment",
+      "execute",
+      "executions",
+      "general",
+      "tool",
+      "tool_name",
+      "tools",
+      "workflow",
+      "workflows"
+    ],
+    "requires": [
+      "action",
+      "capability",
+      "environment",
+      "tool",
+      "tool_name",
+      "workflow"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.eldora.core.environment_execution_engine",
+      "app.eldora.core.real_world_action_engine",
+      "app.eldora.core.universal_tool_controller"
+    ],
+    "quality": {
+      "technical_score": 98,
+      "elapsed_ms": 10.29,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0CEC1730>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/api/eldora_distributed.py": {
+    "id": "036_eldora_distributed",
+    "path": "app/api/eldora_distributed.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "eldora distributed | actions: remember | inputs: event, key, stream, task, value, worker_name | outputs: ",
+    "can_handle": [
+      "event",
+      "key",
+      "memory",
+      "remember",
+      "state_report",
+      "state_set",
+      "stream",
+      "stream_publish",
+      "streams",
+      "task",
+      "value",
+      "worker",
+      "worker_name",
+      "workers"
+    ],
+    "requires": [
+      "event",
+      "key",
+      "stream",
+      "task",
+      "value",
+      "worker_name"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.eldora.core.distributed_runtime_state",
+      "app.eldora.core.persistent_agent_worker",
+      "app.eldora.core.redis_stream_fabric"
+    ],
+    "quality": {
+      "technical_score": 98,
+      "elapsed_ms": 13.11,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0C6CB470>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/api/eldora_evolution.py": {
+    "id": "038_eldora_evolution",
+    "path": "app/api/eldora_evolution.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "eldora evolution | actions: assist | inputs: capability, domain, improvement, name, objective, skill_name | outputs: ",
+    "can_handle": [
+      "assist",
+      "capability",
+      "capability_runtime",
+      "domain",
+      "evolution_runtime",
+      "evolve",
+      "general",
+      "improvement",
+      "name",
+      "objective",
+      "skill",
+      "skill_name",
+      "skill_runtime",
+      "synthesize"
+    ],
+    "requires": [
+      "capability",
+      "domain",
+      "improvement",
+      "name",
+      "objective",
+      "skill_name"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.eldora.core.autonomous_capability_evolution",
+      "app.eldora.core.capability_synthesis_engine",
+      "app.eldora.core.dynamic_skill_engine"
+    ],
+    "quality": {
+      "technical_score": 98,
+      "elapsed_ms": 11.97,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0CED7110>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/api/eldora_infrastructure.py": {
+    "id": "039_eldora_infrastructure",
+    "path": "app/api/eldora_infrastructure.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "eldora infrastructure | actions: route | inputs: capability, environment, platform, signal, source, target, task | outputs: ",
+    "can_handle": [
+      "bus",
+      "capability",
+      "connector",
+      "connectors",
+      "environment",
+      "event",
+      "events",
+      "platform",
+      "route",
+      "routing",
+      "signal",
+      "source",
+      "target",
+      "task",
+      "trader"
+    ],
+    "requires": [
+      "capability",
+      "environment",
+      "platform",
+      "signal",
+      "source",
+      "target",
+      "task"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.eldora.core.cross_platform_execution_bus",
+      "app.eldora.core.infrastructure_event_engine",
+      "app.eldora.core.live_connector_fabric"
+    ],
+    "quality": {
+      "technical_score": 98,
+      "elapsed_ms": 9.65,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0CF65070>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/api/eldora_runtime_supervisor.py": {
+    "id": "022_eldora_runtime_supervisor",
+    "path": "app/api/eldora_runtime_supervisor.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "eldora runtime supervisor | actions: assist | inputs: component, goal, max_depth | outputs: ",
+    "can_handle": [
+      "assist",
+      "component",
+      "general",
+      "goal",
+      "max_depth",
+      "recursive",
+      "recursive_runtime",
+      "self_heal",
+      "self_heal_report",
+      "supervisor"
+    ],
+    "requires": [
+      "component",
+      "goal",
+      "max_depth"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.eldora.core.recursive_execution_engine",
+      "app.eldora.core.self_healing_engine",
+      "app.eldora.core.supervisor_swarm"
+    ],
+    "quality": {
+      "technical_score": 92,
+      "elapsed_ms": 4.57,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B427CB0>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/api/eldora_async.py": {
+    "id": "007_eldora_async",
+    "path": "app/api/eldora_async.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "eldora async | actions: generate | inputs: goal, payload, task_id, task_type | outputs: ",
+    "can_handle": [
+      "distributed_runtime",
+      "generate",
+      "goal",
+      "orchestrator",
+      "payload",
+      "routing",
+      "task_create",
+      "task_get",
+      "task_id",
+      "task_type",
+      "tasks_report"
+    ],
+    "requires": [
+      "goal",
+      "payload",
+      "task_id",
+      "task_type"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.eldora.core.agent_orchestrator",
+      "app.eldora.core.distributed_runtime",
+      "app.eldora.core.task_engine"
+    ],
+    "quality": {
+      "technical_score": 90,
+      "elapsed_ms": 5.76,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE09BDF290>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/api/eldora_auth.py": {
+    "id": "015_eldora_auth",
+    "path": "app/api/eldora_auth.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "eldora auth | actions: remember | inputs: authorization, key, limit, role, tenant_id, user_id, value | outputs: ",
+    "can_handle": [
+      "authorization",
+      "key",
+      "limit",
+      "memory",
+      "rate_limit",
+      "remember",
+      "role",
+      "session_get",
+      "session_save",
+      "tenant_id",
+      "token",
+      "user_id",
+      "value",
+      "verify"
+    ],
+    "requires": [
+      "authorization",
+      "key",
+      "limit",
+      "role",
+      "tenant_id",
+      "user_id",
+      "value"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.eldora.core.jwt_auth",
+      "app.eldora.core.rate_limit_engine",
+      "app.eldora.core.session_memory"
+    ],
+    "quality": {
+      "technical_score": 89,
+      "elapsed_ms": 13.62,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B2D5670>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/api/eldora_neura_scale.py": {
+    "id": "010_eldora_neura_scale",
+    "path": "app/api/eldora_neura_scale.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "eldora neura scale | actions: assist | inputs: audience, market, max_cost, name, offer, plan, priority, product, workload | outputs: ",
+    "can_handle": [
+      "acquisition",
+      "assist",
+      "audience",
+      "launch",
+      "market",
+      "max_cost",
+      "name",
+      "offer",
+      "plan",
+      "priority",
+      "product",
+      "report",
+      "scheduler",
+      "tenant",
+      "trader",
+      "workload"
+    ],
+    "requires": [
+      "audience",
+      "market",
+      "max_cost",
+      "name",
+      "offer",
+      "plan",
+      "priority",
+      "product",
+      "workload"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.eldora.core.neura_scale_runtime"
+    ],
+    "quality": {
+      "technical_score": 88,
+      "elapsed_ms": 7.62,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B3639B0>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/api/eldora_growth.py": {
+    "id": "018_eldora_growth",
+    "path": "app/api/eldora_growth.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "eldora growth | actions: generate, route | inputs: action, audience, channel, efficiency, lead_id, objective, route_name | outputs: ",
+    "can_handle": [
+      "action",
+      "audience",
+      "channel",
+      "create_distribution",
+      "create_swarm",
+      "efficiency",
+      "execute_commercial",
+      "generate",
+      "lead_id",
+      "objective",
+      "optimize_revenue",
+      "report",
+      "route",
+      "route_name",
+      "routing"
+    ],
+    "requires": [
+      "action",
+      "audience",
+      "channel",
+      "efficiency",
+      "lead_id",
+      "objective",
+      "route_name"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.eldora.core.autonomous_growth_runtime"
+    ],
+    "quality": {
+      "technical_score": 88,
+      "elapsed_ms": 17.08,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B3B4080>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/humanization/social_memory_provider.py": {
+    "id": "013_social_memory_provider",
+    "path": "app/humanization/social_memory_provider.py",
+    "execution_kind": "EXECUTABLE_CAPABILITY",
+    "purpose": "social memory provider | actions: generate, remember | inputs: answer, context, draft_answer, msgs, n, text, user_message | outputs: ",
+    "can_handle": [
+      "answer",
+      "anti_llm_speech_filter",
+      "avoid_over_fragmentation",
+      "build_dataset",
+      "classify_reply_cadence",
+      "context",
+      "draft_answer",
+      "enforce_whatsapp_natural_length",
+      "generate",
+      "humanization_runtime",
+      "marketing",
+      "memory",
+      "msgs",
+      "n",
+      "naturalness_judge",
+      "remember",
+      "should_split_reply",
+      "social_observation_layer",
+      "social_pattern_extractor",
+      "split_human_reply",
+      "text",
+      "train_sim",
+      "user_message",
+      "whatsapp"
+    ],
+    "requires": [
+      "answer",
+      "context",
+      "draft_answer",
+      "msgs",
+      "n",
+      "text",
+      "user_message"
+    ],
+    "produces": [],
+    "dependencies": [],
+    "quality": {
+      "technical_score": 86,
+      "elapsed_ms": 1727.41,
+      "status": "EXECUTED_OK",
+      "execution_kind": "EXECUTABLE_CAPABILITY",
+      "best_output": "teste shadow"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": false
+  },
+  "app/humanization/conversation_maturity_engine.py": {
+    "id": "026_conversation_maturity_engine",
+    "path": "app/humanization/conversation_maturity_engine.py",
+    "execution_kind": "EXECUTABLE_CAPABILITY",
+    "purpose": "conversation maturity engine | actions: generate, remember | inputs: answer, context, draft_answer, msgs, n, text, user_message | outputs: ",
+    "can_handle": [
+      "answer",
+      "anti_llm_speech_filter",
+      "avoid_over_fragmentation",
+      "build_dataset",
+      "classify_reply_cadence",
+      "context",
+      "draft_answer",
+      "enforce_whatsapp_natural_length",
+      "generate",
+      "humanization_runtime",
+      "marketing",
+      "memory",
+      "msgs",
+      "n",
+      "naturalness_judge",
+      "remember",
+      "should_split_reply",
+      "social_observation_layer",
+      "social_pattern_extractor",
+      "split_human_reply",
+      "text",
+      "train_sim",
+      "user_message",
+      "whatsapp"
+    ],
+    "requires": [
+      "answer",
+      "context",
+      "draft_answer",
+      "msgs",
+      "n",
+      "text",
+      "user_message"
+    ],
+    "produces": [],
+    "dependencies": [],
+    "quality": {
+      "technical_score": 86,
+      "elapsed_ms": 1709.93,
+      "status": "EXECUTED_OK",
+      "execution_kind": "EXECUTABLE_CAPABILITY",
+      "best_output": "teste shadow"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": false
+  },
+  "app/humanization/conversation_training_runtime.py": {
+    "id": "027_conversation_training_runtime",
+    "path": "app/humanization/conversation_training_runtime.py",
+    "execution_kind": "EXECUTABLE_CAPABILITY",
+    "purpose": "conversation training runtime | actions: generate, remember | inputs: answer, context, draft_answer, msgs, n, text, user_message | outputs: ",
+    "can_handle": [
+      "answer",
+      "anti_llm_speech_filter",
+      "avoid_over_fragmentation",
+      "build_dataset",
+      "classify_reply_cadence",
+      "context",
+      "draft_answer",
+      "enforce_whatsapp_natural_length",
+      "generate",
+      "humanization_runtime",
+      "marketing",
+      "memory",
+      "msgs",
+      "n",
+      "naturalness_judge",
+      "remember",
+      "should_split_reply",
+      "social_observation_layer",
+      "social_pattern_extractor",
+      "split_human_reply",
+      "text",
+      "train_sim",
+      "user_message",
+      "whatsapp"
+    ],
+    "requires": [
+      "answer",
+      "context",
+      "draft_answer",
+      "msgs",
+      "n",
+      "text",
+      "user_message"
+    ],
+    "produces": [],
+    "dependencies": [],
+    "quality": {
+      "technical_score": 86,
+      "elapsed_ms": 1443.63,
+      "status": "EXECUTED_OK",
+      "execution_kind": "EXECUTABLE_CAPABILITY",
+      "best_output": "teste shadow"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": false
+  },
+  "app/humanization/multi_ai_conversation_simulator.py": {
+    "id": "028_multi_ai_conversation_simulator",
+    "path": "app/humanization/multi_ai_conversation_simulator.py",
+    "execution_kind": "EXECUTABLE_CAPABILITY",
+    "purpose": "multi ai conversation simulator | actions: generate, remember | inputs: answer, context, draft_answer, msgs, n, text, user_message | outputs: ",
+    "can_handle": [
+      "answer",
+      "anti_llm_speech_filter",
+      "avoid_over_fragmentation",
+      "build_dataset",
+      "classify_reply_cadence",
+      "context",
+      "draft_answer",
+      "enforce_whatsapp_natural_length",
+      "generate",
+      "humanization_runtime",
+      "marketing",
+      "memory",
+      "msgs",
+      "n",
+      "naturalness_judge",
+      "remember",
+      "should_split_reply",
+      "social_observation_layer",
+      "social_pattern_extractor",
+      "split_human_reply",
+      "text",
+      "train_sim",
+      "user_message",
+      "whatsapp"
+    ],
+    "requires": [
+      "answer",
+      "context",
+      "draft_answer",
+      "msgs",
+      "n",
+      "text",
+      "user_message"
+    ],
+    "produces": [],
+    "dependencies": [],
+    "quality": {
+      "technical_score": 86,
+      "elapsed_ms": 1594.56,
+      "status": "EXECUTED_OK",
+      "execution_kind": "EXECUTABLE_CAPABILITY",
+      "best_output": "teste shadow"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": false
+  },
+  "app/api/eldora_browser_fleet.py": {
+    "id": "034_eldora_browser_fleet",
+    "path": "app/api/eldora_browser_fleet.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "eldora browser fleet | actions: generate | inputs: agent_id, agent_name, capability, objective, target_url, task_id | outputs: ",
+    "can_handle": [
+      "agent_id",
+      "agent_name",
+      "assign_task",
+      "capability",
+      "create_agent",
+      "create_task",
+      "general",
+      "generate",
+      "objective",
+      "report",
+      "target_url",
+      "task_id"
+    ],
+    "requires": [
+      "agent_id",
+      "agent_name",
+      "capability",
+      "objective",
+      "target_url",
+      "task_id"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.eldora.core.browser_fleet_runtime"
+    ],
+    "quality": {
+      "technical_score": 82,
+      "elapsed_ms": 6.64,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0CE88200>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/api/eldora_business.py": {
+    "id": "035_eldora_business",
+    "path": "app/api/eldora_business.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "eldora business | actions: generate | inputs: agent_name, event_type, lead_id, name, source, specialization, value | outputs: ",
+    "can_handle": [
+      "agent_name",
+      "create_agent",
+      "create_pipeline_lead",
+      "event_type",
+      "general",
+      "generate",
+      "lead_id",
+      "name",
+      "register_revenue",
+      "report",
+      "source",
+      "specialization",
+      "value"
+    ],
+    "requires": [
+      "agent_name",
+      "event_type",
+      "lead_id",
+      "name",
+      "source",
+      "specialization",
+      "value"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.eldora.core.business_runtime"
+    ],
+    "quality": {
+      "technical_score": 82,
+      "elapsed_ms": 4.43,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0CEC0A40>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/api/eldora_economic_market.py": {
+    "id": "037_eldora_economic_market",
+    "path": "app/api/eldora_economic_market.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "eldora economic market | actions: generate | inputs: agent_id, budget, estimated_cost, estimated_latency, objective, priority, task_id | outputs: ",
+    "can_handle": [
+      "agent_id",
+      "assign_contract",
+      "budget",
+      "create_task",
+      "estimated_cost",
+      "estimated_latency",
+      "generate",
+      "objective",
+      "priority",
+      "report",
+      "submit_bid",
+      "task_id",
+      "trader"
+    ],
+    "requires": [
+      "agent_id",
+      "budget",
+      "estimated_cost",
+      "estimated_latency",
+      "objective",
+      "priority",
+      "task_id"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.eldora.core.realtime_task_market"
+    ],
+    "quality": {
+      "technical_score": 82,
+      "elapsed_ms": 14.43,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0CE6F650>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/api/eldora_live_voice.py": {
+    "id": "040_eldora_live_voice",
+    "path": "app/api/eldora_live_voice.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "eldora live voice | actions: generate | inputs: attention, emotion, event, language, payload, session_id, user_id | outputs: ",
+    "can_handle": [
+      "attention",
+      "create_session",
+      "emotion",
+      "event",
+      "generate",
+      "language",
+      "memory",
+      "payload",
+      "report",
+      "session_id",
+      "stream_event",
+      "update_presence",
+      "user_id"
+    ],
+    "requires": [
+      "attention",
+      "emotion",
+      "event",
+      "language",
+      "payload",
+      "session_id",
+      "user_id"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.eldora.core.live_voice_runtime"
+    ],
+    "quality": {
+      "technical_score": 82,
+      "elapsed_ms": 11.91,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0CF67BC0>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/api/debug_whatsapp_runtime_trace.py": {
+    "id": "000_debug_whatsapp_runtime_trace",
+    "path": "app/api/debug_whatsapp_runtime_trace.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "debug whatsapp runtime trace | actions: analyze | inputs: Body, From, To | outputs: ",
+    "can_handle": [
+      "Body",
+      "From",
+      "To",
+      "analyze",
+      "diagnostic",
+      "whatsapp",
+      "whatsapp_runtime_trace"
+    ],
+    "requires": [
+      "Body",
+      "From",
+      "To"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.api.whatsapp"
+    ],
+    "quality": {
+      "technical_score": 80,
+      "elapsed_ms": 5722.73,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE096926F0>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/runtime/semantic_whatsapp_runtime.py": {
+    "id": "032_semantic_whatsapp_runtime",
+    "path": "app/runtime/semantic_whatsapp_runtime.py",
+    "execution_kind": "EXECUTABLE_CAPABILITY",
+    "purpose": "semantic whatsapp runtime | actions: generate, guard, remember, route | inputs: message, sender_id | outputs: dict, str",
+    "can_handle": [
+      "generate",
+      "governance",
+      "guard",
+      "memory",
+      "message",
+      "remember",
+      "route",
+      "route_semantic_whatsapp",
+      "routing",
+      "semantic_whatsapp_payload",
+      "sender_id",
+      "whatsapp"
+    ],
+    "requires": [
+      "message",
+      "sender_id"
+    ],
+    "produces": [
+      "dict",
+      "str"
+    ],
+    "dependencies": [
+      "app.runtime.cognitive_style_composer",
+      "app.runtime.context_priority_engine",
+      "app.runtime.conversation_state_machine",
+      "app.runtime.humanized_answer_composer",
+      "app.runtime.multi_provider_factual_provider",
+      "app.runtime.relational_conversation_engine",
+      "app.runtime.semantic_router",
+      "app.runtime.whatsapp_ux_output_guard"
+    ],
+    "quality": {
+      "technical_score": 80,
+      "elapsed_ms": 20524.65,
+      "status": "EXECUTED_OK",
+      "execution_kind": "EXECUTABLE_CAPABILITY",
+      "best_output": "teste shadow"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": false
+  },
+  "app/api/diagnostic_twilio.py": {
+    "id": "001_diagnostic_twilio",
+    "path": "app/api/diagnostic_twilio.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "diagnostic twilio | actions: generate, guard | inputs: answer, request, user_message | outputs: ",
+    "can_handle": [
+      "__identity_guard_last_hop",
+      "answer",
+      "diagnostic",
+      "diagnostic_twilio_inbound",
+      "generate",
+      "governance",
+      "guard",
+      "request",
+      "user_message",
+      "whatsapp"
+    ],
+    "requires": [
+      "answer",
+      "request",
+      "user_message"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.humanization.universal_recovery_runtime"
+    ],
+    "quality": {
+      "technical_score": 78,
+      "elapsed_ms": 3.01,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE094D2750>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/api/eldora_persistent_cognition.py": {
+    "id": "003_eldora_persistent_cognition",
+    "path": "app/api/eldora_persistent_cognition.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "eldora persistent cognition | actions: retrieve | inputs: category, content, priority, query, tenant_id, top_k, user_ref | outputs: ",
+    "can_handle": [
+      "category",
+      "content",
+      "marketing",
+      "priority",
+      "query",
+      "report",
+      "retrieve",
+      "store",
+      "tenant_id",
+      "top_k",
+      "user_ref"
+    ],
+    "requires": [
+      "category",
+      "content",
+      "priority",
+      "query",
+      "tenant_id",
+      "top_k",
+      "user_ref"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.eldora.core.persistent_cognitive_graph"
+    ],
+    "quality": {
+      "technical_score": 76,
+      "elapsed_ms": 30.35,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0975EAB0>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/api/eldora_semantic.py": {
+    "id": "011_eldora_semantic",
+    "path": "app/api/eldora_semantic.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "eldora semantic | actions: remember, retrieve | inputs: node, query, text, top_k | outputs: ",
+    "can_handle": [
+      "graph",
+      "memory",
+      "memory_retrieve",
+      "memory_store",
+      "node",
+      "query",
+      "remember",
+      "retrieve",
+      "text",
+      "top_k"
+    ],
+    "requires": [
+      "node",
+      "query",
+      "text",
+      "top_k"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.eldora.core.semantic_memory_engine"
+    ],
+    "quality": {
+      "technical_score": 76,
+      "elapsed_ms": 15.64,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B363830>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/api/eldora_security.py": {
+    "id": "023_eldora_security",
+    "path": "app/api/eldora_security.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "eldora security | actions: guard, remember | inputs: action, resource, role, tenant_id, user_id | outputs: ",
+    "can_handle": [
+      "action",
+      "auth_context",
+      "governance",
+      "guard",
+      "memory",
+      "policy",
+      "remember",
+      "resource",
+      "role",
+      "tenant",
+      "tenant_id",
+      "user_id"
+    ],
+    "requires": [
+      "action",
+      "resource",
+      "role",
+      "tenant_id",
+      "user_id"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.eldora.core.auth_context",
+      "app.eldora.core.policy_engine",
+      "app.eldora.core.tenant_engine"
+    ],
+    "quality": {
+      "technical_score": 74,
+      "elapsed_ms": 15.61,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE0B427D70>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/api/eldora_admin.py": {
+    "id": "006_eldora_admin",
+    "path": "app/api/eldora_admin.py",
+    "execution_kind": "ROUTE_MODULE",
+    "purpose": "eldora admin | actions: guard | inputs: _ | outputs: ",
+    "can_handle": [
+      "_",
+      "apply_pgvector_schema",
+      "apply_schema",
+      "governance",
+      "guard",
+      "retrieval"
+    ],
+    "requires": [
+      "_"
+    ],
+    "produces": [],
+    "dependencies": [
+      "app.eldora.core.admin_guard"
+    ],
+    "quality": {
+      "technical_score": 68,
+      "elapsed_ms": 6.27,
+      "status": "EXECUTED_OK",
+      "execution_kind": "ROUTE_MODULE",
+      "best_output": "<fastapi.routing.APIRouter object at 0x000001DE09BDDBE0>"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/p18_conversational_execution/failure_fixes.py": {
+    "id": "042_failure_fixes",
+    "path": "app/p18_conversational_execution/failure_fixes.py",
+    "execution_kind": "EXECUTABLE_CAPABILITY",
+    "purpose": "failure fixes | actions: guard, remember | inputs: previous_topic, user_message | outputs: Dict[str, Any]",
+    "can_handle": [
+      "fix_real_whatsapp_failure",
+      "governance",
+      "guard",
+      "memory",
+      "previous_topic",
+      "remember",
+      "user_message",
+      "whatsapp"
+    ],
+    "requires": [
+      "previous_topic",
+      "user_message"
+    ],
+    "produces": [
+      "Dict[str, Any]"
+    ],
+    "dependencies": [
+      "app.p18_conversational_execution.context_guard"
+    ],
+    "quality": {
+      "technical_score": 65,
+      "elapsed_ms": 0.0,
+      "status": "EXECUTED_OK",
+      "execution_kind": "EXECUTABLE_CAPABILITY",
+      "best_output": "{'contaminated': False, 'hits': [], 'active_topic': '', 'status': 'PASS'}"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": false
+  },
+  "app/p18_conversational_execution/context_guard.py": {
+    "id": "029_context_guard",
+    "path": "app/p18_conversational_execution/context_guard.py",
+    "execution_kind": "EXECUTABLE_CAPABILITY",
+    "purpose": "context guard | actions: generate, guard, remember | inputs: active_topic, answer, message, user_message | outputs: Dict[str, Any], str",
+    "can_handle": [
+      "active_topic",
+      "answer",
+      "detect_context_contamination",
+      "generate",
+      "governance",
+      "guard",
+      "memory",
+      "message",
+      "remember",
+      "safe_topic_from_message",
+      "user_message",
+      "whatsapp"
+    ],
+    "requires": [
+      "active_topic",
+      "answer",
+      "message",
+      "user_message"
+    ],
+    "produces": [
+      "Dict[str, Any]",
+      "str"
+    ],
+    "dependencies": [],
+    "quality": {
+      "technical_score": 62,
+      "elapsed_ms": 0.0,
+      "status": "EXECUTED_OK",
+      "execution_kind": "EXECUTABLE_CAPABILITY",
+      "best_output": "{'contaminated': False, 'hits': [], 'active_topic': '', 'status': 'PASS'}"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": false
+  },
+  "app/p18_conversational_execution/response_executor.py": {
+    "id": "030_response_executor",
+    "path": "app/p18_conversational_execution/response_executor.py",
+    "execution_kind": "EXECUTABLE_CAPABILITY",
+    "purpose": "response executor | actions: generate, remember, route | inputs: context, message | outputs: Dict[str, Any]",
+    "can_handle": [
+      "context",
+      "execute_conversational_response",
+      "generate",
+      "memory",
+      "message",
+      "remember",
+      "route",
+      "routing",
+      "whatsapp"
+    ],
+    "requires": [
+      "context",
+      "message"
+    ],
+    "produces": [
+      "Dict[str, Any]"
+    ],
+    "dependencies": [
+      "app.p18_conversational_execution.intent_router"
+    ],
+    "quality": {
+      "technical_score": 62,
+      "elapsed_ms": 0.0,
+      "status": "EXECUTED_OK",
+      "execution_kind": "EXECUTABLE_CAPABILITY",
+      "best_output": "{'intent': 'DIRECT_ANSWER', 'needs_short_reply': True}"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": false
+  },
+  "app/runtime/cognitive_observatory/ai_only_review.py": {
+    "id": "014_ai_only_review",
+    "path": "app/runtime/cognitive_observatory/ai_only_review.py",
+    "execution_kind": "EXECUTABLE_CAPABILITY",
+    "purpose": "ai only review | actions: assist | inputs: conversation_id_hash, conversation_text | outputs: ConversationReview",
+    "can_handle": [
+      "ai_only_review_conversation",
+      "assist",
+      "conversation_id_hash",
+      "conversation_text",
+      "whatsapp"
+    ],
+    "requires": [
+      "conversation_id_hash",
+      "conversation_text"
+    ],
+    "produces": [
+      "ConversationReview"
+    ],
+    "dependencies": [
+      "app.runtime.cognitive_observatory.contracts",
+      "app.runtime.cognitive_observatory.user_mirror"
+    ],
+    "quality": {
+      "technical_score": 59,
+      "elapsed_ms": 9.34,
+      "status": "EXECUTED_OK",
+      "execution_kind": "EXECUTABLE_CAPABILITY",
+      "best_output": "ConversationReview(conversation_id_hash=1, domain='runtime_conversational', intent='quality_review', user_goal='melhorar conversa sem humano ler conversa bruta', goal_completion_score=0.86, continuity_score=0.88, naturalness_score=0.82, precision_score=0.84, empathy_score=0.8, mirror_alignment_score"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": false
+  },
+  "app/runtime/cognitive_observatory/user_mirror.py": {
+    "id": "031_user_mirror",
+    "path": "app/runtime/cognitive_observatory/user_mirror.py",
+    "execution_kind": "EXECUTABLE_CAPABILITY",
+    "purpose": "user mirror | actions: assist | inputs: base_instruction, conversation_text, mirror | outputs: UserCognitiveMirror, str",
+    "can_handle": [
+      "apply_user_mirror_to_instruction",
+      "assist",
+      "base_instruction",
+      "build_user_cognitive_mirror",
+      "conversation_text",
+      "mirror",
+      "whatsapp"
+    ],
+    "requires": [
+      "base_instruction",
+      "conversation_text",
+      "mirror"
+    ],
+    "produces": [
+      "UserCognitiveMirror",
+      "str"
+    ],
+    "dependencies": [
+      "app.runtime.cognitive_observatory.contracts"
+    ],
+    "quality": {
+      "technical_score": 59,
+      "elapsed_ms": 6.53,
+      "status": "EXECUTED_OK",
+      "execution_kind": "EXECUTABLE_CAPABILITY",
+      "best_output": "UserCognitiveMirror(tone='direct', detail_level='adaptive', decision_style='practical', vocabulary=[], priorities=[], recurring_goals=[], dislikes=[], reasoning_pattern='goal_first', confidence=0.0)"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": false
+  },
+  "app/runtime/conversation_quality_guard.py": {
+    "id": "043_conversation_quality_guard",
+    "path": "app/runtime/conversation_quality_guard.py",
+    "execution_kind": "EXECUTABLE_CAPABILITY",
+    "purpose": "conversation quality guard | actions: generate, guard | inputs: answer, text, user_message | outputs: str",
+    "can_handle": [
+      "answer",
+      "final_conversation_guard",
+      "generate",
+      "governance",
+      "guard",
+      "marketing",
+      "reset_stale_topic",
+      "strip_repeated_intro",
+      "text",
+      "user_message",
+      "whatsapp"
+    ],
+    "requires": [
+      "answer",
+      "text",
+      "user_message"
+    ],
+    "produces": [
+      "str"
+    ],
+    "dependencies": [],
+    "quality": {
+      "technical_score": 59,
+      "elapsed_ms": 0.0,
+      "status": "EXECUTED_OK",
+      "execution_kind": "EXECUTABLE_CAPABILITY",
+      "best_output": "teste shadow"
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": false
+  },
+  "app/runtime/context_priority_engine.py": {
+    "id": "005_context_priority_engine",
+    "path": "app/runtime/context_priority_engine.py",
+    "execution_kind": "STRUCTURAL_OR_EMPTY",
+    "purpose": "context priority engine | actions: generate, remember | inputs: message, sender_id | outputs: str",
+    "can_handle": [
+      "context_priority_reply",
+      "generate",
+      "memory",
+      "message",
+      "remember",
+      "sender_id",
+      "whatsapp"
+    ],
+    "requires": [
+      "message",
+      "sender_id"
+    ],
+    "produces": [
+      "str"
+    ],
+    "dependencies": [],
+    "quality": {
+      "technical_score": 53,
+      "elapsed_ms": 0.67,
+      "status": "EXECUTED_OK",
+      "execution_kind": "STRUCTURAL_OR_EMPTY",
+      "best_output": ""
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/runtime/strategic_conversation_authority.py": {
+    "id": "044_strategic_conversation_authority",
+    "path": "app/runtime/strategic_conversation_authority.py",
+    "execution_kind": "STRUCTURAL_OR_EMPTY",
+    "purpose": "strategic conversation authority | actions: generate, remember, simulate | inputs: assistant_reply, sender_id, user_message | outputs: ",
+    "can_handle": [
+      "assistant_reply",
+      "generate",
+      "governance",
+      "memory",
+      "remember",
+      "sender_id",
+      "simulate",
+      "strategic_conversation_authority",
+      "user_message",
+      "whatsapp"
+    ],
+    "requires": [
+      "assistant_reply",
+      "sender_id",
+      "user_message"
+    ],
+    "produces": [],
+    "dependencies": [],
+    "quality": {
+      "technical_score": 53,
+      "elapsed_ms": 0.0,
+      "status": "EXECUTED_OK",
+      "execution_kind": "STRUCTURAL_OR_EMPTY",
+      "best_output": null
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/eldora/canonical_registry.py": {
+    "id": "025_canonical_registry",
+    "path": "app/eldora/canonical_registry.py",
+    "execution_kind": "FAILED",
+    "purpose": "canonical registry | actions: assist | inputs:  | outputs: ",
+    "can_handle": [
+      "assist",
+      "general"
+    ],
+    "requires": [],
+    "produces": [],
+    "dependencies": [],
+    "quality": {
+      "technical_score": 50,
+      "elapsed_ms": 0.0,
+      "status": "FAILED",
+      "execution_kind": "FAILED",
+      "best_output": null
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  },
+  "app/companionship/cognitive_context_builder.py": {
+    "id": "041_cognitive_context_builder",
+    "path": "app/companionship/cognitive_context_builder.py",
+    "execution_kind": "IMPORT_FAILED",
+    "purpose": "cognitive context builder | actions: remember | inputs: behavior_modeling, ctx, digital_twin, emotional_continuity, feature_flags, goal_tracking, humanized_meta_cognition, live_cognition, long_term_memory, name | outputs: Dict[str, Any]",
+    "can_handle": [
+      "_safe_layer",
+      "attach_cognitive_context_shadow",
+      "attach_p19p50_humanized_meta_cognition_to_context",
+      "behavior_modeling",
+      "build_cognitive_context",
+      "ctx",
+      "digital_twin",
+      "emotional_continuity",
+      "feature_flags",
+      "goal_tracking",
+      "humanized_meta_cognition",
+      "live_cognition",
+      "long_term_memory",
+      "memory",
+      "name",
+      "relationship_memory",
+      "remember",
+      "self_reflection",
+      "source_context",
+      "user_id",
+      "value"
+    ],
+    "requires": [
+      "behavior_modeling",
+      "ctx",
+      "digital_twin",
+      "emotional_continuity",
+      "feature_flags",
+      "goal_tracking",
+      "humanized_meta_cognition",
+      "live_cognition",
+      "long_term_memory",
+      "name",
+      "relationship_memory",
+      "self_reflection",
+      "source_context",
+      "user_id",
+      "value"
+    ],
+    "produces": [
+      "Dict[str, Any]"
+    ],
+    "dependencies": [],
+    "quality": {
+      "technical_score": 0,
+      "elapsed_ms": 1.31,
+      "status": "IMPORT_FAILED",
+      "execution_kind": "IMPORT_FAILED",
+      "best_output": null
+    },
+    "promotion_status": "shadow_only",
+    "unsafe_for_direct_user_response": true
+  }
+}

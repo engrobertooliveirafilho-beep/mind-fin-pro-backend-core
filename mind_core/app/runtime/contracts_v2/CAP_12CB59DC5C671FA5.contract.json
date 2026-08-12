@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_12CB59DC5C671FA5",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\errors\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\data\\.venv\\Lib\\site-packages\\pandas\\errors\\__init__.py",
+  "domain": "DATA",
+  "target_layer": "app/runtime",
+  "promotion_score": 96,
+  "imports": [
+    "__future__",
+    "abc",
+    "ctypes",
+    "pandas._config.config",
+    "pandas._libs.tslibs",
+    "pandas.util.version"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

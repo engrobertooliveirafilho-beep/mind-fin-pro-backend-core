@@ -1,0 +1,30 @@
+{
+  "capability_id": "CAP_E65EF8BE7B101FA5",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_vendor\\rich\\tree.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\tree.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 114,
+  "imports": [
+    "_loop",
+    "console",
+    "jupyter",
+    "measure",
+    "pip._vendor.rich.console",
+    "pip._vendor.rich.markdown",
+    "pip._vendor.rich.panel",
+    "pip._vendor.rich.syntax",
+    "pip._vendor.rich.table",
+    "segment",
+    "style",
+    "styled",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

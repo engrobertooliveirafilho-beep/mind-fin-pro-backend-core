@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_AA33DBDE91DA647C",
+  "source_file": "app\\rsigc\\bootstrap.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\app\\rsigc\\bootstrap.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 102,
+  "imports": [
+    "app.rsigc.architecture_validator.validator",
+    "app.rsigc.conflict_resolver.resolver",
+    "app.rsigc.improvement_loop.loop",
+    "app.rsigc.self_audit.audit"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

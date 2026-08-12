@@ -1,0 +1,43 @@
+{
+  "gate": "P8.54_RELEASE_AUDIT_GATE",
+  "created_at": "2026-06-14T16:22:50.330922+00:00",
+  "target": "PAPER_RESEARCH",
+  "snapshot": {
+    "system": "MIND_TRADER_PRIVATE_ADAPTIVE_MARKET_INTELLIGENCE_SYSTEM",
+    "snapshot_ts": "2026-06-14T16:22:50.330922+00:00",
+    "modules": {
+      "P8.26": "OK_RESEARCH_LAYER",
+      "P8.27": "OK_FTMO_SIMULATION",
+      "P8.28": "OK_MARKET_DATA_CORE",
+      "P8.29": "OK_DATA_QUALITY_GATE",
+      "P8.30": "OK_EDGE_VALIDATION",
+      "P8.31": "OK_REGIME_DETECTION",
+      "P8.32": "OK_STRATEGY_GENOME",
+      "P8.33": "OK_ADVERSARIAL_VALIDATION",
+      "P8.34": "OK_CROSS_ASSET_BRAIN",
+      "P8.35": "OK_CAUSALITY_HYPOTHESIS",
+      "P8.36": "OK_FEATURE_STORE",
+      "P8.37": "OK_MASSIVE_BACKTEST_CLUSTER",
+      "P8.38": "OK_DIGITAL_TWIN_REPLAY",
+      "P8.39": "OK_CAPITAL_EVOLUTION",
+      "P8.40": "OK_SELF_EVOLUTION",
+      "P8.41": "OK_EXECUTION_GATEWAY_SIM",
+      "P8.42": "OK_VALIDATION_PROTOCOL"
+    },
+    "tests_passed": 205,
+    "production": "BLOCKED",
+    "live": "FORBIDDEN",
+    "max_approval_scope": "PAPER_TRADING_APPROVED",
+    "edge_claim": "NONE",
+    "causality_claim": "NOT_PROVEN"
+  },
+  "evidence_package_hash": "d0dde5cea214fe0159af9513330840d66f79442b720ab39b85eea2fa2481da6a",
+  "health_decision": "SYSTEM_HEALTH_OK",
+  "decision": "RELEASE_AUDIT_PACKAGE_READY",
+  "allowed_scope": "PAPER_RESEARCH_ONLY",
+  "production": "BLOCKED",
+  "live": "FORBIDDEN",
+  "edge_claim": "NONE",
+  "release_hash": "ec4af938e35a3f9e9bb0747e812ce957b82e5e09ad4982be47982c119f959c5f",
+  "ledger_hash": "fec3e3c414bf27e97278b6e80a5a708468a15cfcad4002e12a5e1c8dcee42f92"
+}

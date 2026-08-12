@@ -1,0 +1,2371 @@
+{
+  "engine": "P4.81_RUNTIME_REVIEW_QUEUE",
+  "status": "operational",
+  "mode": "REVIEW_ONLY",
+  "generated_at": "2026-07-21T22:21:08.522713+00:00",
+  "total": 236,
+  "items": [
+    {
+      "module": "app.runtime.actionable_continuity_authority",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.advanced_runtime_base",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.ai_provider_registry",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.anti_repetition_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.assisted_bypass_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.authority_shadow_ledger",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.automotive_domain_guard",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.automotive_execution_bias_guard",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.automotive_part_purchase_guard",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.autonomous_cognition_layer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.autonomous_planner",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.background_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.behavioral_patterns",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.canary_gate",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.capability_orchestrator",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.capability_reconstruction_planner",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.capability_recovery_bridge",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.capability_usage_ledger",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.cognitive_collision_registry",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.cognitive_conversation_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.cognitive_conversation_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.cognitive_pipeline",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.cognitive_style_composer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.context_priority_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.context_recovery_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.context_signal_candidate_normalizer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.contextual_followup_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.contextual_reranker",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.continuity",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.conversation_authority_contract",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.conversation_authority_hard_guard",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.conversation_continuity_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.conversation_evolution",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.conversation_maturity_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.conversation_quality_guard",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.conversation_recovery_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.conversation_state_machine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.conversation_state_resolver",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.conversational_reasoning",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.decision_memory",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.dialogue_state",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.drive_batch_processor",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.drive_capability_absorption",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.drive_processed_queue",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.duplicate_response_guard",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.embedding_cache",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.emotional_continuity_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.execution_governor_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.factual_conversation_policy",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.factual_search_handoff",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.factual_session_state",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.final_authority_divergence_analyzer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.final_authority_promotion_gate",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.final_authority_selector",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.final_authority_selector_canary",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.final_conversational_arbiter",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.final_human_output_sanitizer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.fix11k_probe",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.followup_unified_resolver",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.forensic_bootstrap",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.forensic_trace",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.friendship_proactive_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.generic_conversation_state",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.generic_topic_memory_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.global_switchboard",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.global_topic_authority",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.hallucination_guard",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.human_reflection_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.humanized_answer_composer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.identity_guard_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.intent_arbitration_priority_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.intent_first_router",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.intent_router",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.internal_state",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.knowledge_extraction_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.level_a_cognitive_shadow",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.level_b_dynamic_composer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.level_b_shadow_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.live_whatsapp_response",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.memory_adapter",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.memory_store",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.mind_state_visible_context",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.mind_trader_bulk_capability_gate",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.mind_trader_bulk_capability_wiring",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.mind_trader_institutional_gate",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.mind_trader_institutional_wiring",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.multi_provider_factual_provider",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.natural_response_layer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.natural_transition_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p19_governance_layer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p19_unified_pipeline",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p19p3_safe_runtime_hook",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2071_2080_realtime_paper_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2081_2090_realtime_portfolio_governance",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2091_2100_realtime_intelligence_layer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2101_2110_autonomous_paper_operations",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2111_2120_maximum_technical_capacity",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2121_plus_continuous_max_capacity_audit",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2131_2150_ftmo_paper_compliance_assurance",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2151_plus_readiness_dossier_gate_review",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2161_2220_full_governance_system",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2223_broker_emulator",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2224_2226_institutional_core",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2227_2229_advanced_layer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2342_multi_timeframe_revalidation",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2343_post_loss_governance_gate",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2351_regime_detection_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2352_early_move_trade_management",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2353_signal_precheck_institutional_score",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2354_signal_emission_blocker",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2355_multi_year_multi_asset_backtest_optimizer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2356_context_regime_edge_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2357_context_edge_walk_forward_validator",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2358_anti_overfit_context_edge_validator",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2359_real_correlation_exposure_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2360_mae_mfe_real_capture_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2361_dynamic_position_sizing_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2362_full_signal_decision_pipeline",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2364_de40_context_training",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2366_institutional_targeting_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2368_de40_context_backtest_with_2r_targeting",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2369_de40_multitimeframe_edge_discovery_loop",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2370_institutional_strategy_family_expansion",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2371_de40_catalog_backtest_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2372_de40_parametric_strategy_variation_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2373_de40_parametric_batch_backtest_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2374_de40_observed_candidate_deep_walk_forward",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2375_de40_failure_analysis_and_reverse_engineering",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2376_de40_big_player_context_xray_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2377_de40_regime_first_signal_router_with_xray_lifecycle",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2378_de40_router_backtest_sequence_playbook_promotion_gate",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2379_de40_forward_paper_emission_from_promoted_playbooks",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2380_de40_forward_paper_feedback_loop_and_pnl_tracking",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2381_de40_loss_lesson_auto_patch_and_memory_graph",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2382_de40_replay_after_loss_patch",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2395_context_router_v2",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2396_edge_ensemble",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2397_meta_learning_offline",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2400_research_space_expansion",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2402_context_diversity_clustering",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2403b_real_replay_series_builder",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2403e_de40_replay_series_builder",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2404_correlation_analyzer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2405_edge_pool_optimizer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2405b_edge_pool_optimizer_repair",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2405c_portfolio_risk_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2405e3_intelligent_edge_factory",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2405e_targeted_edge_discovery",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2406_edge_ensemble_optimizer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2407_dynamic_context_router",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2408_paper_runtime_integration_gated",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2610_continuous_research_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p4_13g_router",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p51a_runtime_trace",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p52c_final_followup_context_authority",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p52d_supabase_storage_memory",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p53b_human_response_authority",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p53e_human_response_quality_validator",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p53f_relationship_ingress_middleware",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p53f_relationship_state_memory",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p53g_user_preference_memory",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p53h_self_correction_memory",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p53i_feedback_effectiveness_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p53i_feedback_effectiveness_middleware",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p53i_runtime_feedback_bridge",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p53j_rule_conflict_resolution",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.persistent_dialogue_state",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.persistent_emotional_state",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.persistent_social_memory",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.persona_leak_scanner",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.proactive_outbound_worker",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.provider_cost_router",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.provider_failover",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.provider_fallback_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.provider_health_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.provider_runtime_matrix",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.quality_gate",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.ready_capability_bridge",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.real_emotional_state_layer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.real_factual_provider",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.real_humanization_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.real_relationship_profile_layer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.real_social_memory_layer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.realtime_tool_router",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.relational_conversation_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.response_builder",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.response_critic",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.response_generation_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.response_naturalness_score",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.response_scorer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.response_strategy",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.rewrite_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.robotic_detector",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.runtime_registry",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.safe_external_search",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.self_reflection",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.semantic_answer_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.semantic_dialogue_memory",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.semantic_router",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.semantic_whatsapp_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.short_memory",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.single_runtime_dispatcher",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.social_cognition_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.social_observation_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.sovereign_cognitive_execution_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.sovereign_conversation_orchestrator",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.strategic_conversation_authority",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.subject_alias_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.system_memory_contract",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.test_contract_wrapper",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.text_provider_adapters",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.topic_continuity_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.trusted_sources_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.ucce_canary_router",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.ucce_canary_trace",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.ucce_decision_diff",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.ucce_shadow_mode",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.universal_affective_persona_layer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.universal_authority_renderer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.universal_contextual_continuity_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.universal_conversation_authority",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.universal_conversation_authority_BACKUP_20260523_114422",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.universal_conversation_os",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.universal_knowledge_provider",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.universal_persona_intent_os",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.universal_subject_continuity",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.user_goal_tracker",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.ux_scoreboard",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.version_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.visible_response_layer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.visual_memory_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.whatsapp_final_output_guard",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.whatsapp_intelligence_activation",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.whatsapp_social_followup_guard",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.whatsapp_trace_sensor",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.whatsapp_ux_output_guard",
+      "status": "pending_review",
+      "priority": 1
+    }
+  ],
+  "queue": [
+    {
+      "module": "app.runtime.actionable_continuity_authority",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.advanced_runtime_base",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.ai_provider_registry",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.anti_repetition_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.assisted_bypass_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.authority_shadow_ledger",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.automotive_domain_guard",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.automotive_execution_bias_guard",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.automotive_part_purchase_guard",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.autonomous_cognition_layer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.autonomous_planner",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.background_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.behavioral_patterns",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.canary_gate",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.capability_orchestrator",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.capability_reconstruction_planner",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.capability_recovery_bridge",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.capability_usage_ledger",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.cognitive_collision_registry",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.cognitive_conversation_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.cognitive_conversation_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.cognitive_pipeline",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.cognitive_style_composer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.context_priority_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.context_recovery_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.context_signal_candidate_normalizer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.contextual_followup_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.contextual_reranker",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.continuity",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.conversation_authority_contract",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.conversation_authority_hard_guard",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.conversation_continuity_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.conversation_evolution",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.conversation_maturity_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.conversation_quality_guard",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.conversation_recovery_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.conversation_state_machine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.conversation_state_resolver",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.conversational_reasoning",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.decision_memory",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.dialogue_state",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.drive_batch_processor",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.drive_capability_absorption",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.drive_processed_queue",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.duplicate_response_guard",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.embedding_cache",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.emotional_continuity_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.execution_governor_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.factual_conversation_policy",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.factual_search_handoff",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.factual_session_state",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.final_authority_divergence_analyzer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.final_authority_promotion_gate",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.final_authority_selector",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.final_authority_selector_canary",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.final_conversational_arbiter",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.final_human_output_sanitizer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.fix11k_probe",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.followup_unified_resolver",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.forensic_bootstrap",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.forensic_trace",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.friendship_proactive_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.generic_conversation_state",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.generic_topic_memory_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.global_switchboard",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.global_topic_authority",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.hallucination_guard",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.human_reflection_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.humanized_answer_composer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.identity_guard_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.intent_arbitration_priority_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.intent_first_router",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.intent_router",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.internal_state",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.knowledge_extraction_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.level_a_cognitive_shadow",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.level_b_dynamic_composer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.level_b_shadow_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.live_whatsapp_response",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.memory_adapter",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.memory_store",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.mind_state_visible_context",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.mind_trader_bulk_capability_gate",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.mind_trader_bulk_capability_wiring",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.mind_trader_institutional_gate",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.mind_trader_institutional_wiring",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.multi_provider_factual_provider",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.natural_response_layer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.natural_transition_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p19_governance_layer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p19_unified_pipeline",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p19p3_safe_runtime_hook",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2071_2080_realtime_paper_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2081_2090_realtime_portfolio_governance",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2091_2100_realtime_intelligence_layer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2101_2110_autonomous_paper_operations",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2111_2120_maximum_technical_capacity",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2121_plus_continuous_max_capacity_audit",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2131_2150_ftmo_paper_compliance_assurance",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2151_plus_readiness_dossier_gate_review",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2161_2220_full_governance_system",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2223_broker_emulator",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2224_2226_institutional_core",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2227_2229_advanced_layer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2342_multi_timeframe_revalidation",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2343_post_loss_governance_gate",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2351_regime_detection_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2352_early_move_trade_management",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2353_signal_precheck_institutional_score",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2354_signal_emission_blocker",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2355_multi_year_multi_asset_backtest_optimizer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2356_context_regime_edge_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2357_context_edge_walk_forward_validator",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2358_anti_overfit_context_edge_validator",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2359_real_correlation_exposure_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2360_mae_mfe_real_capture_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2361_dynamic_position_sizing_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2362_full_signal_decision_pipeline",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2364_de40_context_training",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2366_institutional_targeting_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2368_de40_context_backtest_with_2r_targeting",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2369_de40_multitimeframe_edge_discovery_loop",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2370_institutional_strategy_family_expansion",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2371_de40_catalog_backtest_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2372_de40_parametric_strategy_variation_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2373_de40_parametric_batch_backtest_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2374_de40_observed_candidate_deep_walk_forward",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2375_de40_failure_analysis_and_reverse_engineering",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2376_de40_big_player_context_xray_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2377_de40_regime_first_signal_router_with_xray_lifecycle",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2378_de40_router_backtest_sequence_playbook_promotion_gate",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2379_de40_forward_paper_emission_from_promoted_playbooks",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2380_de40_forward_paper_feedback_loop_and_pnl_tracking",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2381_de40_loss_lesson_auto_patch_and_memory_graph",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2382_de40_replay_after_loss_patch",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2395_context_router_v2",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2396_edge_ensemble",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2397_meta_learning_offline",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2400_research_space_expansion",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2402_context_diversity_clustering",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2403b_real_replay_series_builder",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2403e_de40_replay_series_builder",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2404_correlation_analyzer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2405_edge_pool_optimizer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2405b_edge_pool_optimizer_repair",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2405c_portfolio_risk_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2405e3_intelligent_edge_factory",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2405e_targeted_edge_discovery",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2406_edge_ensemble_optimizer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2407_dynamic_context_router",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2408_paper_runtime_integration_gated",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p2610_continuous_research_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p4_13g_router",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p51a_runtime_trace",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p52c_final_followup_context_authority",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p52d_supabase_storage_memory",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p53b_human_response_authority",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p53e_human_response_quality_validator",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p53f_relationship_ingress_middleware",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p53f_relationship_state_memory",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p53g_user_preference_memory",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p53h_self_correction_memory",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p53i_feedback_effectiveness_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p53i_feedback_effectiveness_middleware",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p53i_runtime_feedback_bridge",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.p53j_rule_conflict_resolution",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.persistent_dialogue_state",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.persistent_emotional_state",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.persistent_social_memory",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.persona_leak_scanner",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.proactive_outbound_worker",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.provider_cost_router",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.provider_failover",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.provider_fallback_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.provider_health_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.provider_runtime_matrix",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.quality_gate",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.ready_capability_bridge",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.real_emotional_state_layer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.real_factual_provider",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.real_humanization_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.real_relationship_profile_layer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.real_social_memory_layer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.realtime_tool_router",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.relational_conversation_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.response_builder",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.response_critic",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.response_generation_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.response_naturalness_score",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.response_scorer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.response_strategy",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.rewrite_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.robotic_detector",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.runtime_registry",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.safe_external_search",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.self_reflection",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.semantic_answer_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.semantic_dialogue_memory",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.semantic_router",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.semantic_whatsapp_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.short_memory",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.single_runtime_dispatcher",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.social_cognition_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.social_observation_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.sovereign_cognitive_execution_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.sovereign_conversation_orchestrator",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.strategic_conversation_authority",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.subject_alias_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.system_memory_contract",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.test_contract_wrapper",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.text_provider_adapters",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.topic_continuity_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.trusted_sources_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.ucce_canary_router",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.ucce_canary_trace",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.ucce_decision_diff",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.ucce_shadow_mode",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.universal_affective_persona_layer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.universal_authority_renderer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.universal_contextual_continuity_engine",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.universal_conversation_authority",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.universal_conversation_authority_BACKUP_20260523_114422",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.universal_conversation_os",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.universal_knowledge_provider",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.universal_persona_intent_os",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.universal_subject_continuity",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.user_goal_tracker",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.ux_scoreboard",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.version_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.visible_response_layer",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.visual_memory_runtime",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.whatsapp_final_output_guard",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.whatsapp_intelligence_activation",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.whatsapp_social_followup_guard",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.whatsapp_trace_sensor",
+      "status": "pending_review",
+      "priority": 1
+    },
+    {
+      "module": "app.runtime.whatsapp_ux_output_guard",
+      "status": "pending_review",
+      "priority": 1
+    }
+  ]
+}

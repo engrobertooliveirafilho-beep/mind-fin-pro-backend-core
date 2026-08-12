@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_409953B4FE83FD19",
+  "source_file": "app\\cognitive_relational\\bootstrap.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\app\\cognitive_relational\\bootstrap.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 92,
+  "imports": [
+    "app.cognitive_relational.question_engine.engine",
+    "app.cognitive_relational.user_model.profile"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

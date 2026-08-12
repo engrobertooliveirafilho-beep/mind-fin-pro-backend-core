@@ -1,0 +1,20 @@
+{
+  "authority": "P8.80_ANTI_OVERFITTING_AUTHORITY",
+  "created_at": "2026-06-14T16:22:51.835787+00:00",
+  "genome_id": "g1",
+  "parameter_sensitivity": {
+    "mean_expectancy": 1.0,
+    "stdev": 0,
+    "stability": 1.0,
+    "passed": true
+  },
+  "randomization": {
+    "real_net": 132.0,
+    "random_p95": 80.0,
+    "passed": true
+  },
+  "decision": "ANTI_OVERFITTING_PASS_RESEARCH_ONLY",
+  "production": "BLOCKED",
+  "live": "FORBIDDEN",
+  "edge_claim": "NONE"
+}

@@ -1,0 +1,12 @@
+{
+  "STATUS": "P1910_AUTONOMOUS_RESEARCH_DIVISION_BOOTSTRAPPED",
+  "RESEARCH_LOOP": [
+    "generate_hypothesis",
+    "create_test",
+    "run_backtest",
+    "run_walk_forward",
+    "run_monte_carlo",
+    "extract_dna",
+    "accept_or_reject"
+  ]
+}

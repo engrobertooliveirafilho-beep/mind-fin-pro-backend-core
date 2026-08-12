@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_AF6D5C9EB3781904",
+  "source_file": "tests\\test_eldora_identity_help.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\tests\\test_eldora_identity_help.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 93,
+  "imports": [
+    "app.runtime.cognitive_pipeline"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

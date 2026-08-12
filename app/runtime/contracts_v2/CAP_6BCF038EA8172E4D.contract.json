@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_6BCF038EA8172E4D",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\plotting\\test_datetimelike.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\pandas\\tests\\plotting\\test_datetimelike.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 116,
+  "imports": [
+    "datetime",
+    "numpy",
+    "pandas",
+    "pandas._libs.tslibs",
+    "pandas._testing",
+    "pandas.core.dtypes.dtypes",
+    "pandas.core.indexes.datetimes",
+    "pandas.core.indexes.period",
+    "pandas.core.indexes.timedeltas",
+    "pandas.plotting._matplotlib.converter",
+    "pandas.tests.plotting.common",
+    "pandas.tseries.offsets",
+    "pickle",
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

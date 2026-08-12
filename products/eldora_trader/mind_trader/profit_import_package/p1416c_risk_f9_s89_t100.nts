@@ -1,0 +1,7 @@
+begin
+  if (Media(9, Close) > Media(89, Close)) and (Close > Media(100, Close)) then
+    BuyAtMarket;
+
+  if (Media(9, Close) < Media(89, Close)) and (Close < Media(100, Close)) then
+    SellShortAtMarket;
+end;

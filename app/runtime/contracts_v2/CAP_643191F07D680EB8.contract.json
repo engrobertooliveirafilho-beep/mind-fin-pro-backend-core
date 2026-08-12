@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_643191F07D680EB8",
+  "source_file": "_evidence\\P4_63F_RERUN_ROOT_OK_20260618_121857\\p463f_trace.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P4_63F_RERUN_ROOT_OK_20260618_121857\\p463f_trace.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 95,
+  "imports": [
+    "inspect",
+    "traceback"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

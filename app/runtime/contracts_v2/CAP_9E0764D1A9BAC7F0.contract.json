@@ -1,0 +1,30 @@
+{
+  "capability_id": "CAP_9E0764D1A9BAC7F0",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\evals\\run_create_params.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\openai\\types\\evals\\run_create_params.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 119,
+  "imports": [
+    "__future__",
+    "_types",
+    "create_eval_completions_run_data_source_param",
+    "create_eval_jsonl_run_data_source_param",
+    "graders.grader_inputs_param",
+    "responses.response_format_text_config_param",
+    "responses.response_input_audio_param",
+    "responses.response_input_text_param",
+    "responses.tool_param",
+    "shared.reasoning_effort",
+    "shared_params.metadata",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

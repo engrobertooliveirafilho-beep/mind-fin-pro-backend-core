@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_091B7C8ACEA72339",
+  "source_file": "mind_trader\\tests\\test_p123_final_transfer_snapshot.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\mind_trader\\tests\\test_p123_final_transfer_snapshot.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 105,
+  "imports": [
+    "app.p12_final_transfer_snapshot.engine",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

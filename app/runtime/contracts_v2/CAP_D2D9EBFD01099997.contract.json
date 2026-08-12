@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_D2D9EBFD01099997",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\test_col.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\pandas\\tests\\test_col.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 87,
+  "imports": [
+    "collections.abc",
+    "copy",
+    "datetime",
+    "numpy",
+    "operator",
+    "pandas",
+    "pandas._libs.properties",
+    "pandas._testing",
+    "pandas.api.typing",
+    "pandas.tests.test_register_accessor",
+    "pytest",
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

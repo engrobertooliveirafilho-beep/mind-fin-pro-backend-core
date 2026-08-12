@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_3C2B2873B66B0B4D",
+  "source_file": "_evidence\\P19A_WHATSAPP_REAL_TRAFFIC_EVALUATION_20260617_095724\\run_p19a.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P19A_WHATSAPP_REAL_TRAFFIC_EVALUATION_20260617_095724\\run_p19a.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 94,
+  "imports": [
+    "app.p19_real_world_validation.whatsapp_real_traffic_eval",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_87085B5C42B90C59",
+  "source_file": ".venv\\Lib\\site-packages\\pydantic\\_internal\\_validators.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pydantic\\_internal\\_validators.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 129,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "decimal",
+    "fractions",
+    "importlib",
+    "ipaddress",
+    "math",
+    "pydantic._internal._import_utils",
+    "pydantic.errors",
+    "pydantic_core",
+    "re",
+    "typing",
+    "typing_extensions",
+    "typing_inspection",
+    "zoneinfo"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,14 @@
+{
+  "STATUS": "P1815_SELF_EVOLVING_SPECIALISTS_BOOTSTRAPPED",
+  "LOOP": [
+    "select_parent",
+    "mutate",
+    "backtest_10y",
+    "walk_forward",
+    "monte_carlo",
+    "dna_cluster",
+    "promote",
+    "quarantine"
+  ],
+  "REAL_ORDERS": "FORBIDDEN"
+}

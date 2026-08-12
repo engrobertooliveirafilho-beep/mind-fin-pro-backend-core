@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_C8FD327DA8C0F88A",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\responses\\response_prompt.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\openai\\types\\responses\\response_prompt.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 85,
+  "imports": [
+    "_models",
+    "response_input_file",
+    "response_input_image",
+    "response_input_text",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

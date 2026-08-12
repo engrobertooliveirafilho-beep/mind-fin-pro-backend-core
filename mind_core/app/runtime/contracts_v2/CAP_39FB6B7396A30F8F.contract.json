@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_39FB6B7396A30F8F",
+  "source_file": "_evidence\\P4_65I_RETRIEVAL_CONFIG_REQUIREMENTS_20260618_145135\\p465i_validate_retrieval_config.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P4_65I_RETRIEVAL_CONFIG_REQUIREMENTS_20260618_145135\\p465i_validate_retrieval_config.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 110,
+  "imports": [
+    "app.embedding.provider",
+    "os",
+    "pathlib",
+    "psycopg2",
+    "psycopg2.extras",
+    "sys",
+    "traceback"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

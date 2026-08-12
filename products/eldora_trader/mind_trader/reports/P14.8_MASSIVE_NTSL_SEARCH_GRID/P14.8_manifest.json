@@ -1,0 +1,24 @@
+{
+  "STATUS": "P14.8_MASSIVE_NTSL_SEARCH_GRID_IMPLEMENTED",
+  "STRATEGIES_CREATED": 432,
+  "ASSETS": [
+    "WIN",
+    "WDO",
+    "PETR4",
+    "VALE3"
+  ],
+  "TIMEFRAMES": [
+    "M1",
+    "M5",
+    "M15"
+  ],
+  "FAMILY": "ema_cross_grid",
+  "PAPER_ONLY": true,
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "EDGE": "NOT_PROVEN",
+  "CAUSALITY": "NOT_PROVEN",
+  "EXPORT_READY": true,
+  "generated_at": "2026-06-14T16:11:31.778051+00:00"
+}

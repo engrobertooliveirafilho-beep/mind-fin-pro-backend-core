@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_0DEE94D60D338AD6",
+  "source_file": "_evidence\\P4.91K2_READ_FAILED_DIAGNOSTICS_WITH_MONITOR_20260623_125318\\p491k2_read_failed_diagnostics_monitor.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P4.91K2_READ_FAILED_DIAGNOSTICS_WITH_MONITOR_20260623_125318\\p491k2_read_failed_diagnostics_monitor.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 103,
+  "imports": [
+    "csv",
+    "datetime",
+    "hashlib",
+    "json",
+    "pathlib",
+    "subprocess",
+    "threading",
+    "time"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

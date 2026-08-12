@@ -1,0 +1,434 @@
+[
+  {
+    "pattern_id": "cf55443f421a0662",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "genome": {
+      "session": "ASIA",
+      "trend_regime": "TREND_UP",
+      "volatility_regime": "NORMAL_VOL",
+      "trigger": "RSI_REVERSION"
+    },
+    "evidence": {
+      "trades": 29,
+      "win_rate": 0.586207,
+      "profit_factor_proxy": 4.848097,
+      "avg_return": 0.00248396
+    },
+    "mutation_seeds": [
+      "add_session_filter",
+      "add_volatility_filter",
+      "add_trend_filter",
+      "add_mtf_filter",
+      "add_structure_filter"
+    ]
+  },
+  {
+    "pattern_id": "f2bd49b3a8b9fb39",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "genome": {
+      "session": "ASIA",
+      "trend_regime": "TREND_DOWN",
+      "volatility_regime": "LOW_VOL",
+      "trigger": "LIQUIDITY_SWEEP"
+    },
+    "evidence": {
+      "trades": 4,
+      "win_rate": 0.75,
+      "profit_factor_proxy": 3.134838,
+      "avg_return": 0.00406092
+    },
+    "mutation_seeds": [
+      "add_session_filter",
+      "add_volatility_filter",
+      "add_trend_filter",
+      "add_mtf_filter",
+      "add_structure_filter"
+    ]
+  },
+  {
+    "pattern_id": "13b803cab65532ea",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "genome": {
+      "session": "ASIA",
+      "trend_regime": "TREND_DOWN",
+      "volatility_regime": "NORMAL_VOL",
+      "trigger": "LIQUIDITY_SWEEP"
+    },
+    "evidence": {
+      "trades": 26,
+      "win_rate": 0.5,
+      "profit_factor_proxy": 2.745055,
+      "avg_return": 0.00282432
+    },
+    "mutation_seeds": [
+      "add_session_filter",
+      "add_volatility_filter",
+      "add_trend_filter",
+      "add_mtf_filter",
+      "add_structure_filter"
+    ]
+  },
+  {
+    "pattern_id": "12699344a8726f29",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "genome": {
+      "session": "ASIA",
+      "trend_regime": "TREND_DOWN",
+      "volatility_regime": "HIGH_VOL",
+      "trigger": "RSI_REVERSION"
+    },
+    "evidence": {
+      "trades": 40,
+      "win_rate": 0.525,
+      "profit_factor_proxy": 2.166256,
+      "avg_return": 0.0025022
+    },
+    "mutation_seeds": [
+      "add_session_filter",
+      "add_volatility_filter",
+      "add_trend_filter",
+      "add_mtf_filter",
+      "add_structure_filter"
+    ]
+  },
+  {
+    "pattern_id": "18b35083704934ee",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "genome": {
+      "session": "ASIA",
+      "trend_regime": "RANGE",
+      "volatility_regime": "NORMAL_VOL",
+      "trigger": "RSI_REVERSION"
+    },
+    "evidence": {
+      "trades": 22,
+      "win_rate": 0.727273,
+      "profit_factor_proxy": 2.027156,
+      "avg_return": 0.00180049
+    },
+    "mutation_seeds": [
+      "add_session_filter",
+      "add_volatility_filter",
+      "add_trend_filter",
+      "add_mtf_filter",
+      "add_structure_filter"
+    ]
+  },
+  {
+    "pattern_id": "82a90628d82a7df7",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "genome": {
+      "session": "ASIA",
+      "trend_regime": "TREND_UP",
+      "volatility_regime": "NORMAL_VOL",
+      "trigger": "LIQUIDITY_SWEEP"
+    },
+    "evidence": {
+      "trades": 24,
+      "win_rate": 0.625,
+      "profit_factor_proxy": 2.016821,
+      "avg_return": 0.00196836
+    },
+    "mutation_seeds": [
+      "add_session_filter",
+      "add_volatility_filter",
+      "add_trend_filter",
+      "add_mtf_filter",
+      "add_structure_filter"
+    ]
+  },
+  {
+    "pattern_id": "436fb144a4c1f856",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "genome": {
+      "session": "ASIA",
+      "trend_regime": "TREND_DOWN",
+      "volatility_regime": "NORMAL_VOL",
+      "trigger": "RSI_REVERSION"
+    },
+    "evidence": {
+      "trades": 66,
+      "win_rate": 0.636364,
+      "profit_factor_proxy": 1.969849,
+      "avg_return": 0.00123904
+    },
+    "mutation_seeds": [
+      "add_session_filter",
+      "add_volatility_filter",
+      "add_trend_filter",
+      "add_mtf_filter",
+      "add_structure_filter"
+    ]
+  },
+  {
+    "pattern_id": "b3f1816bc49c7c06",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "genome": {
+      "session": "ASIA",
+      "trend_regime": "TREND_DOWN",
+      "volatility_regime": "LOW_VOL",
+      "trigger": "RSI_REVERSION"
+    },
+    "evidence": {
+      "trades": 2,
+      "win_rate": 0.5,
+      "profit_factor_proxy": 1.870772,
+      "avg_return": 0.00066271
+    },
+    "mutation_seeds": [
+      "add_session_filter",
+      "add_volatility_filter",
+      "add_trend_filter",
+      "add_mtf_filter",
+      "add_structure_filter"
+    ]
+  },
+  {
+    "pattern_id": "e4563505f876b4a0",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "genome": {
+      "session": "ASIA",
+      "trend_regime": "RANGE",
+      "volatility_regime": "NORMAL_VOL",
+      "trigger": "LIQUIDITY_SWEEP"
+    },
+    "evidence": {
+      "trades": 25,
+      "win_rate": 0.68,
+      "profit_factor_proxy": 1.790344,
+      "avg_return": 0.00210401
+    },
+    "mutation_seeds": [
+      "add_session_filter",
+      "add_volatility_filter",
+      "add_trend_filter",
+      "add_mtf_filter",
+      "add_structure_filter"
+    ]
+  },
+  {
+    "pattern_id": "72f9065f52adc376",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "genome": {
+      "session": "ASIA",
+      "trend_regime": "RANGE",
+      "volatility_regime": "LOW_VOL",
+      "trigger": "RSI_REVERSION"
+    },
+    "evidence": {
+      "trades": 29,
+      "win_rate": 0.551724,
+      "profit_factor_proxy": 1.78849,
+      "avg_return": 0.00104703
+    },
+    "mutation_seeds": [
+      "add_session_filter",
+      "add_volatility_filter",
+      "add_trend_filter",
+      "add_mtf_filter",
+      "add_structure_filter"
+    ]
+  },
+  {
+    "pattern_id": "6fb8258ab3be1296",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "genome": {
+      "session": "ASIA",
+      "trend_regime": "TREND_DOWN",
+      "volatility_regime": "HIGH_VOL",
+      "trigger": "LIQUIDITY_SWEEP"
+    },
+    "evidence": {
+      "trades": 7,
+      "win_rate": 0.571429,
+      "profit_factor_proxy": 1.769672,
+      "avg_return": 0.00137711
+    },
+    "mutation_seeds": [
+      "add_session_filter",
+      "add_volatility_filter",
+      "add_trend_filter",
+      "add_mtf_filter",
+      "add_structure_filter"
+    ]
+  },
+  {
+    "pattern_id": "b51e139ad59c8f56",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "genome": {
+      "session": "ASIA",
+      "trend_regime": "TREND_UP",
+      "volatility_regime": "LOW_VOL",
+      "trigger": "LIQUIDITY_SWEEP"
+    },
+    "evidence": {
+      "trades": 9,
+      "win_rate": 0.666667,
+      "profit_factor_proxy": 1.313433,
+      "avg_return": 0.00069865
+    },
+    "mutation_seeds": [
+      "add_session_filter",
+      "add_volatility_filter",
+      "add_trend_filter",
+      "add_mtf_filter",
+      "add_structure_filter"
+    ]
+  },
+  {
+    "pattern_id": "f1fc26fcc331c033",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "genome": {
+      "session": "ASIA",
+      "trend_regime": "RANGE",
+      "volatility_regime": "LOW_VOL",
+      "trigger": "LIQUIDITY_SWEEP"
+    },
+    "evidence": {
+      "trades": 13,
+      "win_rate": 0.461538,
+      "profit_factor_proxy": 1.209047,
+      "avg_return": 0.00036318
+    },
+    "mutation_seeds": [
+      "add_session_filter",
+      "add_volatility_filter",
+      "add_trend_filter",
+      "add_mtf_filter",
+      "add_structure_filter"
+    ]
+  },
+  {
+    "pattern_id": "c6ecfec58240c13f",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "genome": {
+      "session": "ASIA",
+      "trend_regime": "TREND_UP",
+      "volatility_regime": "HIGH_VOL",
+      "trigger": "LIQUIDITY_SWEEP"
+    },
+    "evidence": {
+      "trades": 10,
+      "win_rate": 0.6,
+      "profit_factor_proxy": 1.048636,
+      "avg_return": 0.00022312
+    },
+    "mutation_seeds": [
+      "add_session_filter",
+      "add_volatility_filter",
+      "add_trend_filter",
+      "add_mtf_filter",
+      "add_structure_filter"
+    ]
+  },
+  {
+    "pattern_id": "d4b29d7525fbe6e2",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "genome": {
+      "session": "ASIA",
+      "trend_regime": "TREND_UP",
+      "volatility_regime": "LOW_VOL",
+      "trigger": "RSI_REVERSION"
+    },
+    "evidence": {
+      "trades": 21,
+      "win_rate": 0.428571,
+      "profit_factor_proxy": 1.027382,
+      "avg_return": 4.942e-05
+    },
+    "mutation_seeds": [
+      "add_session_filter",
+      "add_volatility_filter",
+      "add_trend_filter",
+      "add_mtf_filter",
+      "add_structure_filter"
+    ]
+  },
+  {
+    "pattern_id": "0a13a7c42df65a69",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "genome": {
+      "session": "ASIA",
+      "trend_regime": "TREND_UP",
+      "volatility_regime": "HIGH_VOL",
+      "trigger": "RSI_REVERSION"
+    },
+    "evidence": {
+      "trades": 17,
+      "win_rate": 0.529412,
+      "profit_factor_proxy": 1.013001,
+      "avg_return": 4.861e-05
+    },
+    "mutation_seeds": [
+      "add_session_filter",
+      "add_volatility_filter",
+      "add_trend_filter",
+      "add_mtf_filter",
+      "add_structure_filter"
+    ]
+  },
+  {
+    "pattern_id": "fddf5c6f079968d9",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "genome": {
+      "session": "ASIA",
+      "trend_regime": "RANGE",
+      "volatility_regime": "HIGH_VOL",
+      "trigger": "RSI_REVERSION"
+    },
+    "evidence": {
+      "trades": 37,
+      "win_rate": 0.567568,
+      "profit_factor_proxy": 0.797871,
+      "avg_return": -0.00083467
+    },
+    "mutation_seeds": [
+      "add_session_filter",
+      "add_volatility_filter",
+      "add_trend_filter",
+      "add_mtf_filter",
+      "add_structure_filter"
+    ]
+  },
+  {
+    "pattern_id": "d8a47fa4648bb8bc",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "genome": {
+      "session": "ASIA",
+      "trend_regime": "RANGE",
+      "volatility_regime": "HIGH_VOL",
+      "trigger": "LIQUIDITY_SWEEP"
+    },
+    "evidence": {
+      "trades": 5,
+      "win_rate": 0.4,
+      "profit_factor_proxy": 0.250637,
+      "avg_return": -0.00431247
+    },
+    "mutation_seeds": [
+      "add_session_filter",
+      "add_volatility_filter",
+      "add_trend_filter",
+      "add_mtf_filter",
+      "add_structure_filter"
+    ]
+  }
+]

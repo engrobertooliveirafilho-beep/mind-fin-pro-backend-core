@@ -1,0 +1,26 @@
+{
+  "capability_id": "CAP_2FFB1F6D6B950FBA",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_internal\\distributions\\sdist.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\pip\\_internal\\distributions\\sdist.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 83,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "logging",
+    "pip._internal.build_env",
+    "pip._internal.distributions.base",
+    "pip._internal.exceptions",
+    "pip._internal.metadata",
+    "pip._internal.utils.subprocess",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

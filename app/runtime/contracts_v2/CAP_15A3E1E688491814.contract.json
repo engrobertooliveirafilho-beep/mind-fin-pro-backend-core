@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_15A3E1E688491814",
+  "source_file": "backups\\P19P17_P19P21_UNIVERSAL_CONTEXT_RUNTIME_20260618_062646\\app\\api\\eldora_admin.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\backups\\P19P17_P19P21_UNIVERSAL_CONTEXT_RUNTIME_20260618_062646\\app\\api\\eldora_admin.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 110,
+  "imports": [
+    "app.eldora.core.admin_guard",
+    "fastapi",
+    "os",
+    "psycopg2"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

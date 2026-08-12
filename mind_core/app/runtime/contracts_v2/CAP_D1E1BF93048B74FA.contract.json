@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_D1E1BF93048B74FA",
+  "source_file": "_evidence\\P4_66_71_CONSOLIDATED_MIND_CORE_20260618_183503\\p466_retrieval_smoke.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P4_66_71_CONSOLIDATED_MIND_CORE_20260618_183503\\p466_retrieval_smoke.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 97,
+  "imports": [
+    "app.runtime.cognitive_pipeline",
+    "os",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

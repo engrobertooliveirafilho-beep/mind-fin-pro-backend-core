@@ -1,0 +1,15 @@
+{
+  "authority": "P8.82_MONTE_CARLO_AUTHORITY",
+  "created_at": "2026-06-14T16:22:51.831410+00:00",
+  "runs": 200,
+  "trades": 80,
+  "p05_net_profit": 104.0,
+  "p50_net_profit": 132.0,
+  "p95_drawdown": 6.0,
+  "max_dd_allowed": 40,
+  "passed": true,
+  "decision": "MONTE_CARLO_PASS_RESEARCH_ONLY",
+  "production": "BLOCKED",
+  "live": "FORBIDDEN",
+  "edge_claim": "NONE"
+}

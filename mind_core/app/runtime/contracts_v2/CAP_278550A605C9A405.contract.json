@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_278550A605C9A405",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\fft\\_pocketfft.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\numpy\\fft\\_pocketfft.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 108,
+  "imports": [
+    "functools",
+    "numpy._core",
+    "numpy.lib.array_utils",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

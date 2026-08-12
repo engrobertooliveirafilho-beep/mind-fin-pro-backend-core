@@ -1,0 +1,16 @@
+{
+  "STATUS": "P11.1_CAUSALITY_EVIDENCE_FIREWALL_IMPLEMENTED",
+  "REQUIRED_TESTS": [
+    "temporal_precedence",
+    "placebo_test",
+    "regime_invariance",
+    "confounder_check",
+    "cross_asset_replication",
+    "out_of_sample_replication"
+  ],
+  "SAMPLE_STATUS": "CAUSALITY_EVIDENCE_ACCEPTED_PAPER_ONLY",
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "PROMOTION_ALLOWED": false,
+  "EXPORT_READY": true
+}

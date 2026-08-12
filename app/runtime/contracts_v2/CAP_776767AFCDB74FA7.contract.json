@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_776767AFCDB74FA7",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\f2py\\crackfortran.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\numpy\\f2py\\crackfortran.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 122,
+  "imports": [
+    "auxfuncs",
+    "charset_normalizer",
+    "codecs",
+    "copy",
+    "fileinput",
+    "os",
+    "pathlib",
+    "platform",
+    "re",
+    "string",
+    "sys"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

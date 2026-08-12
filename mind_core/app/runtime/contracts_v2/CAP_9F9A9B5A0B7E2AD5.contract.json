@@ -1,0 +1,26 @@
+{
+  "capability_id": "CAP_9F9A9B5A0B7E2AD5",
+  "source_file": ".venv\\Lib\\site-packages\\psycopg\\_queries.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\psycopg\\_queries.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 87,
+  "imports": [
+    "__future__",
+    "_compat",
+    "_enums",
+    "_tstrings",
+    "abc",
+    "collections.abc",
+    "functools",
+    "re",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

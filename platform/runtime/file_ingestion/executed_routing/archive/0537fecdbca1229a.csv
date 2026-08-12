@@ -1,0 +1,11 @@
+"Capability","Exists","Hits","RuntimeHits","ConsumedByRuntime","FirstRuntimeFile","FirstRuntimeLine"
+"agent_orchestrator","True","1","0","False",,
+"distributed_runtime","True","7","3","True","C:\Users\MindFin\Desktop\mind-fin-pro-backend-core\app\eldora\core\distributed_runtime_state.py","41"
+"distributed_runtime_state","True","2","1","True","C:\Users\MindFin\Desktop\mind-fin-pro-backend-core\app\eldora\core\distributed_runtime.py","1"
+"eldora_swarm","True","7","4","True","C:\Users\MindFin\Desktop\mind-fin-pro-backend-core\app\main.py","1114"
+"swarm","True","61","20","True","C:\Users\MindFin\Desktop\mind-fin-pro-backend-core\app\api\eldora_runtime_supervisor.py","8"
+"predictive_simulation_engine","True","2","0","False",,
+"run_simulation","True","4","0","False",,
+"simulation_report","True","5","0","False",,
+"hierarchical_planner","True","8","2","True","C:\Users\MindFin\Desktop\mind-fin-pro-backend-core\app\runtime\level_a_cognitive_shadow.py","16"
+"plan_hierarchy","True","2","0","False",,

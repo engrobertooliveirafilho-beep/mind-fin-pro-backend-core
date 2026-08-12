@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_340FB6B301A74829",
+  "source_file": "_quarantine\\P19P38_L_SAFE_JUNK_QUARANTINE_20260622_182732\\tools__\\p491_idea_comprehension_depth_match.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_quarantine\\P19P38_L_SAFE_JUNK_QUARANTINE_20260622_182732\\tools__\\p491_idea_comprehension_depth_match.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 114,
+  "imports": [
+    "datetime",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,16 @@
+{
+  "capability_id": "CAP_6B939946BE3E1B3D",
+  "source_file": "app\\eldora_ai\\gpu_runtime\\config.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\app\\eldora_ai\\gpu_runtime\\config.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 83,
+  "imports": [],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

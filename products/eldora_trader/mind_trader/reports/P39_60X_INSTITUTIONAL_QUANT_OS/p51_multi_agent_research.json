@@ -1,0 +1,14 @@
+{
+  "agents": [
+    "strategy_agent",
+    "risk_agent",
+    "causality_agent",
+    "portfolio_agent",
+    "data_agent"
+  ],
+  "coordination": "CONSENSUS_REQUIRED",
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN"
+}

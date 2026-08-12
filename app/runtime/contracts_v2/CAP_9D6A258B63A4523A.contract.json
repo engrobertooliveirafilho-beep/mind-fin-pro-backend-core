@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_9D6A258B63A4523A",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\testing\\print_coercion_tables.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\numpy\\testing\\print_coercion_tables.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 81,
+  "imports": [
+    "collections",
+    "numpy",
+    "numpy._core._multiarray_tests",
+    "numpy._core.numerictypes"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

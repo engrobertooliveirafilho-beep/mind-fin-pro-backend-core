@@ -1,0 +1,17 @@
+[
+  {
+    "file": "data\\incoming\\profit_backtests\\sample_backtest.csv",
+    "rows": 1,
+    "columns": [
+      "asset",
+      "drawdown",
+      "profit_factor",
+      "strategy_id",
+      "timeframe",
+      "trades",
+      "winrate"
+    ],
+    "missing": [],
+    "valid": true
+  }
+]

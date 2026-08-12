@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_AAD7521B90F55EC0",
+  "source_file": "_evidence\\P19P38_Q_CAPABILITY_PROMOTION_AUDIT_20260622_184800\\promotion_audit.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\_evidence\\P19P38_Q_CAPABILITY_PROMOTION_AUDIT_20260622_184800\\promotion_audit.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 95,
+  "imports": [
+    "ast",
+    "datetime",
+    "json",
+    "os",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

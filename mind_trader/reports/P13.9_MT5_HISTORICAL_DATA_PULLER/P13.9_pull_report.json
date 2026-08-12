@@ -1,0 +1,543 @@
+{
+  "connected": true,
+  "datasets": [
+    {
+      "dataset_id": "38ab5af76400b2ba3c",
+      "source": "MT5",
+      "symbol": "EURUSD",
+      "timeframe": "M1",
+      "rows": 500,
+      "path": "data/normalized/MT5_EURUSD_M1.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "33cc50405f3bfe87e7",
+      "source": "MT5",
+      "symbol": "EURUSD",
+      "timeframe": "M5",
+      "rows": 500,
+      "path": "data/normalized/MT5_EURUSD_M5.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "8cfae3e45e8bbe8e3f",
+      "source": "MT5",
+      "symbol": "EURUSD",
+      "timeframe": "M15",
+      "rows": 500,
+      "path": "data/normalized/MT5_EURUSD_M15.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "a41001924d9054c31c",
+      "source": "MT5",
+      "symbol": "EURUSD",
+      "timeframe": "M30",
+      "rows": 500,
+      "path": "data/normalized/MT5_EURUSD_M30.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "511d6fb2ca44354bf3",
+      "source": "MT5",
+      "symbol": "EURUSD",
+      "timeframe": "H1",
+      "rows": 500,
+      "path": "data/normalized/MT5_EURUSD_H1.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "0aff17ee5297c0b3fd",
+      "source": "MT5",
+      "symbol": "EURUSD",
+      "timeframe": "H4",
+      "rows": 500,
+      "path": "data/normalized/MT5_EURUSD_H4.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "d09514df2b7b4c9b33",
+      "source": "MT5",
+      "symbol": "EURUSD",
+      "timeframe": "D1",
+      "rows": 500,
+      "path": "data/normalized/MT5_EURUSD_D1.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "9b75cddd7fdd10d367",
+      "source": "MT5",
+      "symbol": "GBPUSD",
+      "timeframe": "M1",
+      "rows": 500,
+      "path": "data/normalized/MT5_GBPUSD_M1.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "06f2ccea694b7cc5d4",
+      "source": "MT5",
+      "symbol": "GBPUSD",
+      "timeframe": "M5",
+      "rows": 500,
+      "path": "data/normalized/MT5_GBPUSD_M5.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "46d109490168640d29",
+      "source": "MT5",
+      "symbol": "GBPUSD",
+      "timeframe": "M15",
+      "rows": 500,
+      "path": "data/normalized/MT5_GBPUSD_M15.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "24917cc5fab29e4028",
+      "source": "MT5",
+      "symbol": "GBPUSD",
+      "timeframe": "M30",
+      "rows": 500,
+      "path": "data/normalized/MT5_GBPUSD_M30.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "d27bfbe162e42b42aa",
+      "source": "MT5",
+      "symbol": "GBPUSD",
+      "timeframe": "H1",
+      "rows": 500,
+      "path": "data/normalized/MT5_GBPUSD_H1.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "e4e4a983f4b1b86823",
+      "source": "MT5",
+      "symbol": "GBPUSD",
+      "timeframe": "H4",
+      "rows": 500,
+      "path": "data/normalized/MT5_GBPUSD_H4.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "0d3cd07c694e172886",
+      "source": "MT5",
+      "symbol": "GBPUSD",
+      "timeframe": "D1",
+      "rows": 500,
+      "path": "data/normalized/MT5_GBPUSD_D1.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "f4e98d9e1de7229856",
+      "source": "MT5",
+      "symbol": "USDJPY",
+      "timeframe": "M1",
+      "rows": 500,
+      "path": "data/normalized/MT5_USDJPY_M1.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "9d6a64b85cf57aa781",
+      "source": "MT5",
+      "symbol": "USDJPY",
+      "timeframe": "M5",
+      "rows": 500,
+      "path": "data/normalized/MT5_USDJPY_M5.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "fc3938c5c1347d6f02",
+      "source": "MT5",
+      "symbol": "USDJPY",
+      "timeframe": "M15",
+      "rows": 500,
+      "path": "data/normalized/MT5_USDJPY_M15.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "8deeb7906fb9e190ad",
+      "source": "MT5",
+      "symbol": "USDJPY",
+      "timeframe": "M30",
+      "rows": 500,
+      "path": "data/normalized/MT5_USDJPY_M30.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "fb47fc56c4c990e053",
+      "source": "MT5",
+      "symbol": "USDJPY",
+      "timeframe": "H1",
+      "rows": 500,
+      "path": "data/normalized/MT5_USDJPY_H1.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "3bb82dd9b3a79810bf",
+      "source": "MT5",
+      "symbol": "USDJPY",
+      "timeframe": "H4",
+      "rows": 500,
+      "path": "data/normalized/MT5_USDJPY_H4.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "2399f63bc1e3910a22",
+      "source": "MT5",
+      "symbol": "USDJPY",
+      "timeframe": "D1",
+      "rows": 500,
+      "path": "data/normalized/MT5_USDJPY_D1.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "bf1e52bfa687976b97",
+      "source": "MT5",
+      "symbol": "AUDUSD",
+      "timeframe": "M1",
+      "rows": 500,
+      "path": "data/normalized/MT5_AUDUSD_M1.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "a89cfeddbdc2d6a703",
+      "source": "MT5",
+      "symbol": "AUDUSD",
+      "timeframe": "M5",
+      "rows": 500,
+      "path": "data/normalized/MT5_AUDUSD_M5.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "ecec1cab61f0fcea5b",
+      "source": "MT5",
+      "symbol": "AUDUSD",
+      "timeframe": "M15",
+      "rows": 500,
+      "path": "data/normalized/MT5_AUDUSD_M15.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "adf40123c479aa64d3",
+      "source": "MT5",
+      "symbol": "AUDUSD",
+      "timeframe": "M30",
+      "rows": 500,
+      "path": "data/normalized/MT5_AUDUSD_M30.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "25d0c01d6e9b3db67e",
+      "source": "MT5",
+      "symbol": "AUDUSD",
+      "timeframe": "H1",
+      "rows": 500,
+      "path": "data/normalized/MT5_AUDUSD_H1.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "f771e438160f4d7304",
+      "source": "MT5",
+      "symbol": "AUDUSD",
+      "timeframe": "H4",
+      "rows": 500,
+      "path": "data/normalized/MT5_AUDUSD_H4.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "fbe98ab85e4d9e8cf3",
+      "source": "MT5",
+      "symbol": "AUDUSD",
+      "timeframe": "D1",
+      "rows": 500,
+      "path": "data/normalized/MT5_AUDUSD_D1.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "6dc68d4a6ccebe3367",
+      "source": "MT5",
+      "symbol": "USDCAD",
+      "timeframe": "M1",
+      "rows": 500,
+      "path": "data/normalized/MT5_USDCAD_M1.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "7652671ae77e3c9d18",
+      "source": "MT5",
+      "symbol": "USDCAD",
+      "timeframe": "M5",
+      "rows": 500,
+      "path": "data/normalized/MT5_USDCAD_M5.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "06097141c4466bbd74",
+      "source": "MT5",
+      "symbol": "USDCAD",
+      "timeframe": "M15",
+      "rows": 500,
+      "path": "data/normalized/MT5_USDCAD_M15.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "53da9832148725298f",
+      "source": "MT5",
+      "symbol": "USDCAD",
+      "timeframe": "M30",
+      "rows": 500,
+      "path": "data/normalized/MT5_USDCAD_M30.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "c47951e06f28f865cc",
+      "source": "MT5",
+      "symbol": "USDCAD",
+      "timeframe": "H1",
+      "rows": 500,
+      "path": "data/normalized/MT5_USDCAD_H1.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "7f97fcc2c36d61acb7",
+      "source": "MT5",
+      "symbol": "USDCAD",
+      "timeframe": "H4",
+      "rows": 500,
+      "path": "data/normalized/MT5_USDCAD_H4.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "dec2e58008ab7e5c7e",
+      "source": "MT5",
+      "symbol": "USDCAD",
+      "timeframe": "D1",
+      "rows": 500,
+      "path": "data/normalized/MT5_USDCAD_D1.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "03499b966d57661caa",
+      "source": "MT5",
+      "symbol": "XAUUSD",
+      "timeframe": "M1",
+      "rows": 500,
+      "path": "data/normalized/MT5_XAUUSD_M1.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "457c234303e8fdca5e",
+      "source": "MT5",
+      "symbol": "XAUUSD",
+      "timeframe": "M5",
+      "rows": 500,
+      "path": "data/normalized/MT5_XAUUSD_M5.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "9588688868423a2980",
+      "source": "MT5",
+      "symbol": "XAUUSD",
+      "timeframe": "M15",
+      "rows": 500,
+      "path": "data/normalized/MT5_XAUUSD_M15.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "dc0dedb7533090f127",
+      "source": "MT5",
+      "symbol": "XAUUSD",
+      "timeframe": "M30",
+      "rows": 500,
+      "path": "data/normalized/MT5_XAUUSD_M30.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "e3eb79569772657718",
+      "source": "MT5",
+      "symbol": "XAUUSD",
+      "timeframe": "H1",
+      "rows": 500,
+      "path": "data/normalized/MT5_XAUUSD_H1.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "13e7dad71d52c56222",
+      "source": "MT5",
+      "symbol": "XAUUSD",
+      "timeframe": "H4",
+      "rows": 500,
+      "path": "data/normalized/MT5_XAUUSD_H4.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    },
+    {
+      "dataset_id": "809c0d3ab3d7120db0",
+      "source": "MT5",
+      "symbol": "XAUUSD",
+      "timeframe": "D1",
+      "rows": 500,
+      "path": "data/normalized/MT5_XAUUSD_D1.csv",
+      "certification_required": true,
+      "live": "FORBIDDEN",
+      "real_broker": "DISABLED"
+    }
+  ],
+  "errors": [
+    {
+      "symbol": "BTCUSD",
+      "timeframe": "M1",
+      "error": "NO_RATES"
+    },
+    {
+      "symbol": "BTCUSD",
+      "timeframe": "M5",
+      "error": "NO_RATES"
+    },
+    {
+      "symbol": "BTCUSD",
+      "timeframe": "M15",
+      "error": "NO_RATES"
+    },
+    {
+      "symbol": "BTCUSD",
+      "timeframe": "M30",
+      "error": "NO_RATES"
+    },
+    {
+      "symbol": "BTCUSD",
+      "timeframe": "H1",
+      "error": "NO_RATES"
+    },
+    {
+      "symbol": "BTCUSD",
+      "timeframe": "H4",
+      "error": "NO_RATES"
+    },
+    {
+      "symbol": "BTCUSD",
+      "timeframe": "D1",
+      "error": "NO_RATES"
+    },
+    {
+      "symbol": "ETHUSD",
+      "timeframe": "M1",
+      "error": "NO_RATES"
+    },
+    {
+      "symbol": "ETHUSD",
+      "timeframe": "M5",
+      "error": "NO_RATES"
+    },
+    {
+      "symbol": "ETHUSD",
+      "timeframe": "M15",
+      "error": "NO_RATES"
+    },
+    {
+      "symbol": "ETHUSD",
+      "timeframe": "M30",
+      "error": "NO_RATES"
+    },
+    {
+      "symbol": "ETHUSD",
+      "timeframe": "H1",
+      "error": "NO_RATES"
+    },
+    {
+      "symbol": "ETHUSD",
+      "timeframe": "H4",
+      "error": "NO_RATES"
+    },
+    {
+      "symbol": "ETHUSD",
+      "timeframe": "D1",
+      "error": "NO_RATES"
+    }
+  ],
+  "last_error": [
+    1,
+    "Success"
+  ]
+}

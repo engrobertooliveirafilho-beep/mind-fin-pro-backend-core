@@ -1,0 +1,6 @@
+event_time,event_type,edge_id,symbol,timeframe,signal,details
+"2026-06-20T21:02:32","SIGNAL_GENERATED","EDGE_GBPUSD_M30_EMA_CROSS_SESSION_FILTER","GBPUSD","M30","SELL","order_file=C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\Common\Files\mt5_order.txt"
+"2026-06-20T21:02:34","MT5_PENDING_CONSUMPTION","EDGE_GBPUSD_M30_EMA_CROSS_SESSION_FILTER","GBPUSD","M30","SELL","mt5_order.txt still exists"
+"2026-06-20T21:02:34","BLOCKED_PENDING_ORDER_FILE","EDGE_GBPUSD_M30_EMA_CROSS_COMBO_FILTER","GBPUSD","M30","SELL","C:\Users\MindFin\AppData\Roaming\MetaQuotes\Terminal\Common\Files\mt5_order.txt"
+"2026-06-20T21:02:35","NO_SIGNAL","EDGE_GBPUSD_M30_SMA_CROSS_SESSION_FILTER","GBPUSD","M30","","Sem cruzamento confirmado"
+"2026-06-20T21:02:36","NO_SIGNAL","EDGE_GBPUSD_M30_SMA_CROSS_COMBO_FILTER","GBPUSD","M30","","Sem cruzamento confirmado"

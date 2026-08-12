@@ -60,7 +60,7 @@ def semantic_recovery(user_message:str)->str:
         return "Minha sugestão: primeiro estabilizar resposta curta, depois memória de contexto e por último busca real. Assim a conversa fica natural."
     if any(x in msg for x in ["consulte", "pesquise", "busque"]):
         return "Ainda não estou com busca real ativa aqui, mas posso te orientar com segurança pelo contexto."
-    return "Entendi. Vou seguir pelo contexto e te responder de forma prática."
+    return None
 
 
 def universal_recovery_answer(user_message:str, answer:str|None=None, error:Exception|None=None)->str:

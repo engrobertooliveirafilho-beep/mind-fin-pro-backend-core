@@ -1,0 +1,20 @@
+P4.26J — SEMANTIC RETRIEVAL RUNTIME PROOF
+
+CLASSIFICATION:
+REAL_OPERATIONAL / DIAMOND
+
+PROOF:
+- OPENAI embeddings working: EMBED_LEN 1536
+- DATABASE_URL PostgreSQL working
+- neura_embeddings count: 28
+- SemanticRetrievalProvider.search returned live pgvector results
+- Returned fields: message, metadata, score
+- Sample source: render_semantic_activation
+- Query tested: eldora memoria persistente
+- Sender tested: whatsapp:+5519996166906
+
+CONCLUSION:
+Persistent semantic retrieval via OpenAI embeddings + pgvector + neura_embeddings is real, operational, and connected to Supabase/Postgres.
+
+NEXT:
+Map where SemanticRetrievalProvider is currently used in WhatsApp/cognitive runtime and wire it if not already active.

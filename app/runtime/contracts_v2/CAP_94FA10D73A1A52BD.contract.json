@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_94FA10D73A1A52BD",
+  "source_file": ".venv\\Lib\\site-packages\\psycopg\\pq\\pq_ctypes.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\psycopg\\pq\\pq_ctypes.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 112,
+  "imports": [
+    "__future__",
+    "_encodings",
+    "_enums",
+    "collections.abc",
+    "ctypes",
+    "logging",
+    "misc",
+    "os",
+    "ssl",
+    "sys",
+    "typing",
+    "weakref"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

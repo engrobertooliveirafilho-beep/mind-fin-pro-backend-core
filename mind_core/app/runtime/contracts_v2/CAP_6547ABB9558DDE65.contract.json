@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_6547ABB9558DDE65",
+  "source_file": "mind_trader\\tests\\test_p843_institutional_audit_ledger.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\mind_trader\\tests\\test_p843_institutional_audit_ledger.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 107,
+  "imports": [
+    "json",
+    "mind_trader.app.audits.institutional_audit_ledger",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

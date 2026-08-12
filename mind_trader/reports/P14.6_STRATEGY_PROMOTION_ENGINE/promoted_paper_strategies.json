@@ -1,0 +1,16 @@
+[
+  {
+    "strategy_id": "s1",
+    "asset": "WIN",
+    "timeframe": "M1",
+    "profit_factor": 1.8,
+    "drawdown": 1000.0,
+    "winrate": 57.0,
+    "trades": 300,
+    "source_file": "data\\incoming\\profit_backtests\\sample_backtest.csv",
+    "score": 102.5,
+    "paper_promoted": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  }
+]

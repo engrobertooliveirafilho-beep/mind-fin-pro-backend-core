@@ -1,0 +1,41 @@
+{
+  "STATUS": "DAILY_DEMO_EVIDENCE_COLLECTED",
+  "ACCOUNT_LOGIN": 108130848,
+  "ACCOUNT_SERVER": "MetaQuotes-Demo",
+  "BALANCE": 100000.0,
+  "EQUITY": 99999.22,
+  "TERMINAL_CONNECTED": true,
+  "POSITIONS_TOTAL": 1,
+  "FLOATING_PNL": -0.77,
+  "POSITIONS": [
+    {
+      "ticket": 9067545337,
+      "time": 1781290780,
+      "time_msc": 1781290780128,
+      "time_update": 1781290780,
+      "time_update_msc": 1781290780128,
+      "type": 0,
+      "magic": 780078,
+      "identifier": 9067545337,
+      "reason": 3,
+      "volume": 0.01,
+      "price_open": 1.15737,
+      "sl": 1.15637,
+      "tp": 1.15887,
+      "price_current": 1.1566,
+      "swap": -0.01,
+      "profit": -0.77,
+      "symbol": "EURUSD",
+      "comment": "MIND_P78_DEMO_ON",
+      "external_id": ""
+    }
+  ],
+  "NEW_ORDER_SENT": false,
+  "POSITION_CLOSE_SENT": false,
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN",
+  "generated_at": "2026-06-14T18:09:34.822184+00:00"
+}

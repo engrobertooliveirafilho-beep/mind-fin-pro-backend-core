@@ -1,0 +1,10 @@
+{
+  "strategy_id": "f50343e97bcc0ed4",
+  "template": "ema_cross",
+  "asset": "VALE3",
+  "timeframe": "M15",
+  "platform": "Profit/NTSL",
+  "requires_profit_backtest": true,
+  "live": "FORBIDDEN",
+  "real_orders": "FORBIDDEN"
+}

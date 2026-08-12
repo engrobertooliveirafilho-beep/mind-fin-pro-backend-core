@@ -1,0 +1,78 @@
+[
+  {
+    "asset": "USDJPY",
+    "memory_type": "ASSET_PERSONALITY",
+    "memory_payload": {
+      "best_session": {
+        "session": "ASIA",
+        "trades": 263,
+        "win_rate": 0.577947,
+        "profit_factor_proxy": 1.567725,
+        "avg_return": 0.00112616
+      },
+      "best_regime": {
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trades": 29,
+        "win_rate": 0.586207,
+        "profit_factor_proxy": 4.848097,
+        "avg_return": 0.00248396
+      },
+      "best_trigger": {
+        "trigger": "RSI_REVERSION",
+        "trades": 263,
+        "win_rate": 0.577947,
+        "profit_factor_proxy": 1.567725,
+        "avg_return": 0.00112616
+      },
+      "traits": {
+        "liquidity_sweep_dependence": 19.3916,
+        "trend_dependency": 66.5399,
+        "high_vol_dependency": 35.7414,
+        "low_vol_dependency": 19.7719,
+        "avg_market_energy": 69.08414,
+        "avg_entropy": 0.527211,
+        "execution_sensitivity": "MEDIUM_HIGH"
+      }
+    },
+    "created_at": "2026-06-16T18:56:33.525210+00:00"
+  },
+  {
+    "asset": "XAUUSD",
+    "memory_type": "ASSET_PERSONALITY",
+    "memory_payload": {
+      "best_session": {
+        "session": "ASIA",
+        "trades": 123,
+        "win_rate": 0.585366,
+        "profit_factor_proxy": 1.652377,
+        "avg_return": 0.0015515
+      },
+      "best_regime": {
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trades": 4,
+        "win_rate": 0.75,
+        "profit_factor_proxy": 3.134838,
+        "avg_return": 0.00406092
+      },
+      "best_trigger": {
+        "trigger": "LIQUIDITY_SWEEP",
+        "trades": 123,
+        "win_rate": 0.585366,
+        "profit_factor_proxy": 1.652377,
+        "avg_return": 0.0015515
+      },
+      "traits": {
+        "liquidity_sweep_dependence": 100.0,
+        "trend_dependency": 65.0407,
+        "high_vol_dependency": 17.8862,
+        "low_vol_dependency": 21.1382,
+        "avg_market_energy": 57.646737,
+        "avg_entropy": 0.515276,
+        "execution_sensitivity": "LOW"
+      }
+    },
+    "created_at": "2026-06-16T18:56:33.541006+00:00"
+  }
+]

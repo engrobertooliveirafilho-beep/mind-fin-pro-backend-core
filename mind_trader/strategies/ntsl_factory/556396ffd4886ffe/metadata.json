@@ -1,0 +1,10 @@
+{
+  "strategy_id": "556396ffd4886ffe",
+  "template": "bollinger_reversion",
+  "asset": "VALE3",
+  "timeframe": "M1",
+  "platform": "Profit/NTSL",
+  "requires_profit_backtest": true,
+  "live": "FORBIDDEN",
+  "real_orders": "FORBIDDEN"
+}

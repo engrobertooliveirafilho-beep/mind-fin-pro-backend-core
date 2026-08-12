@@ -1,0 +1,16 @@
+{
+  "capability_id": "CAP_9828301564CD3E81",
+  "source_file": "backups\\ATOMIC_SNAPSHOT_20260618_074551\\app\\eldora\\core\\agent_orchestrator.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\backups\\ATOMIC_SNAPSHOT_20260618_074551\\app\\eldora\\core\\agent_orchestrator.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 91,
+  "imports": [],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

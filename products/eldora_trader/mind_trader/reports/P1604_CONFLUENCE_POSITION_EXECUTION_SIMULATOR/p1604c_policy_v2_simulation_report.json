@@ -1,0 +1,49 @@
+{
+  "STATUS": "P1604C_POLICY_V2_SIMULATION_COMPLETED",
+  "POLICIES_TESTED": 3,
+  "TRADES_SIMULATED": 40,
+  "SUMMARY_BY_EDGE": {
+    "7d0ccd5986a18a8a9162e384": {
+      "asset": "GBPUSD",
+      "timeframe": "M30",
+      "policy_type": "SCALP_RUNNER_LIGHT_PARTIAL",
+      "trades": 15,
+      "base_total_R": 22.902299,
+      "managed_total_R_v2": 19.827349,
+      "delta_R_v2": -3.07495,
+      "v1_delta_R": -6.330888,
+      "improved_vs_v1": 3.255938,
+      "avg_managed_R_v2": 1.321823
+    },
+    "6ffc7212b632c0f09f8de2fc": {
+      "asset": "XAUUSD",
+      "timeframe": "M5",
+      "policy_type": "SCALP_RUNNER_LIGHT_PARTIAL",
+      "trades": 17,
+      "base_total_R": 34.482746,
+      "managed_total_R_v2": 28.522677,
+      "delta_R_v2": -5.960069,
+      "v1_delta_R": -12.677621,
+      "improved_vs_v1": 6.717552,
+      "avg_managed_R_v2": 1.677805
+    },
+    "9a53b0630c7b7e29e960eb66": {
+      "asset": "USDJPY",
+      "timeframe": "D1",
+      "policy_type": "SWING_POSITION_RUNNER",
+      "trades": 8,
+      "base_total_R": 90.857485,
+      "managed_total_R_v2": 75.953083,
+      "delta_R_v2": -14.904402,
+      "v1_delta_R": -49.508805,
+      "improved_vs_v1": 34.604403,
+      "avg_managed_R_v2": 9.494135
+    }
+  },
+  "NEXT": "P1605_ADAPTIVE_POSITION_SIZING_ENGINE",
+  "ORDER_SENT": false,
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN",
+  "generated_at": "2026-06-15T19:07:22.417945+00:00"
+}

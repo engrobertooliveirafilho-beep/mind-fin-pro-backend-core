@@ -1,0 +1,10 @@
+{
+  "STATUS": "P1860_REACTIVATION_ENGINE_BOOTSTRAPPED",
+  "RULE": "QUARANTINED_EDGES_CAN_REACTIVATE_WHEN_REGIME_RETURNS",
+  "TRIGGERS": [
+    "regime_match",
+    "volatility_match",
+    "session_match",
+    "recent_pf_recovery"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_78FF20CE90C1DE0E",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\reshape\\concat\\test_invalid.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\data\\.venv\\Lib\\site-packages\\pandas\\tests\\reshape\\concat\\test_invalid.py",
+  "domain": "DATA",
+  "target_layer": "app/runtime",
+  "promotion_score": 88,
+  "imports": [
+    "io",
+    "numpy",
+    "pandas",
+    "pandas._testing",
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

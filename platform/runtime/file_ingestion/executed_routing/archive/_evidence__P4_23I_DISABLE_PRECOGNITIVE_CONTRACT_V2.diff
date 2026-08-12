@@ -1,0 +1,32 @@
+diff --git a/app/api/whatsapp.py b/app/api/whatsapp.py
+index 0b38a9a..d00e034 100644
+--- a/app/api/whatsapp.py
++++ b/app/api/whatsapp.py
+@@ -5,25 +5,9 @@ from app.runtime.forensic_trace import event
+ # P4_12N_FORENSIC_TRACE_ACTIVE
+ 
+ def _eldora_live_override_contract_patch(sender_id: str, inbound_text: str):
+-    text = (inbound_text or "").strip().lower()
+-    compact = (
+-        text.replace("├ú","a").replace("├í","a").replace("├á","a")
+-            .replace("├ó","a").replace("├®","e").replace("├¬","e")
+-            .replace("├¡","i").replace("├│","o").replace("├┤","o")
+-            .replace("├Á","o").replace("├║","u").replace("├º","c")
+-    )
+-
+-    if compact in {"oi","oie","ola","ol├í","bom dia","boa tarde","boa noite"}:
+-        return "Oi, Roberto ­ƒæï Tudo certo?"
+-
+-    if (
+-        "ainda nao conseguimos resolver" in compact
+-        or "nao conseguimos resolver" in compact
+-        or "n├úo conseguimos resolver" in text
+-    ):
+-        return "Ainda n├úo fechou 100%. O gargalo est├í no handler do canal WhatsApp: ele responde, mas ainda precisa estabilizar continuidade, fallback e contexto real."
+-
++    # P4_23I_DISABLED_PRECOGNITIVE_CONTRACT
+     return None
++
+ from app.runtime.whatsapp_trace_sensor import sanitize_final_output
+ from app.dialogue.conversation_continuity_runtime import update,get
+ from app.dialogue.context_resolution_engine import resolve

@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_A66038CC76EFAA31",
+  "source_file": "_evidence\\P19O_RUNTIME_EXECUTION_BIAS_ANALYSIS_20260617_175835\\run_p19o.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P19O_RUNTIME_EXECUTION_BIAS_ANALYSIS_20260617_175835\\run_p19o.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 94,
+  "imports": [
+    "app.api.whatsapp",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

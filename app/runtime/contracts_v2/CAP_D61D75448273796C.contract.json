@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_D61D75448273796C",
+  "source_file": "_evidence\\P19P36M_H2_DOMAIN_SEMANTIC_MEMORY_BRIDGE_20260621_233252\\01_patch_domain_bridge.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\_evidence\\P19P36M_H2_DOMAIN_SEMANTIC_MEMORY_BRIDGE_20260621_233252\\01_patch_domain_bridge.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 103,
+  "imports": [
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_95DEDA2CBD9B131D",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\resources\\admin\\organization\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\.venv\\Lib\\site-packages\\openai\\resources\\admin\\organization\\__init__.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 111,
+  "imports": [
+    "admin_api_keys",
+    "audit_logs",
+    "certificates",
+    "groups",
+    "invites",
+    "organization",
+    "projects",
+    "roles",
+    "usage",
+    "users"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

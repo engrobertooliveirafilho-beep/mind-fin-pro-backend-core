@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_15AA07580C446A34",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\reductions\\test_reductions.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pandas\\tests\\reductions\\test_reductions.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 111,
+  "imports": [
+    "datetime",
+    "decimal",
+    "numpy",
+    "pandas",
+    "pandas._testing",
+    "pandas.core",
+    "pandas.core.arrays.string_arrow",
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

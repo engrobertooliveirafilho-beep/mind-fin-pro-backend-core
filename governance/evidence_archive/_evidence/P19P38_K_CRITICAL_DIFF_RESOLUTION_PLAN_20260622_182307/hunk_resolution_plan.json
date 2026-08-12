@@ -1,0 +1,82 @@
+[
+  {
+    "path": "app/api/whatsapp.py",
+    "hunk_index": 1,
+    "hunk_file": "HUNK_app__api__whatsapp.py_1.diff",
+    "added_lines": 61,
+    "removed_lines": 0,
+    "decision": "MANUAL_KEEP_ONLY_AFTER_WEBHOOK_TEST",
+    "risk": "HIGH",
+    "reason": "WhatsApp runtime path modified"
+  },
+  {
+    "path": "app/api/whatsapp.py",
+    "hunk_index": 2,
+    "hunk_file": "HUNK_app__api__whatsapp.py_2.diff",
+    "added_lines": 3,
+    "removed_lines": 0,
+    "decision": "MANUAL_KEEP_ONLY_AFTER_WEBHOOK_TEST",
+    "risk": "HIGH",
+    "reason": "WhatsApp runtime path modified"
+  },
+  {
+    "path": "app/api/whatsapp.py",
+    "hunk_index": 3,
+    "hunk_file": "HUNK_app__api__whatsapp.py_3.diff",
+    "added_lines": 14,
+    "removed_lines": 1,
+    "decision": "REVERT_OR_MANUAL_KEEP",
+    "risk": "HIGH",
+    "reason": "hunk removes existing runtime behavior"
+  },
+  {
+    "path": "app/api/whatsapp.py",
+    "hunk_index": 4,
+    "hunk_file": "HUNK_app__api__whatsapp.py_4.diff",
+    "added_lines": 1,
+    "removed_lines": 0,
+    "decision": "KEEP_TELEMETRY_CANDIDATE",
+    "risk": "LOW",
+    "reason": "telemetry-only additive candidate"
+  },
+  {
+    "path": "app/runtime/cognitive_pipeline.py",
+    "hunk_index": 1,
+    "hunk_file": "HUNK_app__runtime__cognitive_pipeline.py_1.diff",
+    "added_lines": 38,
+    "removed_lines": 0,
+    "decision": "UNKNOWN_REVIEW_REQUIRED",
+    "risk": "HIGH",
+    "reason": "insufficient confidence"
+  },
+  {
+    "path": "app/runtime/cognitive_pipeline.py",
+    "hunk_index": 2,
+    "hunk_file": "HUNK_app__runtime__cognitive_pipeline.py_2.diff",
+    "added_lines": 77,
+    "removed_lines": 0,
+    "decision": "ISOLATE_IN_SEPARATE_COMMIT_AFTER_TESTS",
+    "risk": "MEDIUM",
+    "reason": "cognition additive inside pipeline"
+  },
+  {
+    "path": "app/runtime/cognitive_pipeline.py",
+    "hunk_index": 3,
+    "hunk_file": "HUNK_app__runtime__cognitive_pipeline.py_3.diff",
+    "added_lines": 108,
+    "removed_lines": 0,
+    "decision": "ISOLATE_IN_SEPARATE_COMMIT_AFTER_TESTS",
+    "risk": "MEDIUM",
+    "reason": "cognition additive inside pipeline"
+  },
+  {
+    "path": "app/runtime/cognitive_pipeline.py",
+    "hunk_index": 4,
+    "hunk_file": "HUNK_app__runtime__cognitive_pipeline.py_4.diff",
+    "added_lines": 3,
+    "removed_lines": 0,
+    "decision": "UNKNOWN_REVIEW_REQUIRED",
+    "risk": "HIGH",
+    "reason": "insufficient confidence"
+  }
+]

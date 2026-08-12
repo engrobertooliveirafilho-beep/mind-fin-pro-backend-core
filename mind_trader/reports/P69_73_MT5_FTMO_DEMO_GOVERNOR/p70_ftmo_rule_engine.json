@@ -1,0 +1,31 @@
+{
+  "module": "P70_FTMO_RULE_ENGINE",
+  "balance": 100000,
+  "equity": 100000,
+  "daily_pnl": 0,
+  "total_pnl": 0,
+  "trading_days": 0,
+  "daily_loss_pct": 0.0,
+  "total_loss_pct": 0.0,
+  "profit_pct": 0.0,
+  "daily_loss_pass": true,
+  "total_loss_pass": true,
+  "profit_target_pass": false,
+  "min_trading_days_pass": false,
+  "rules": {
+    "account_size": 100000,
+    "profit_target_pct": 0.1,
+    "max_daily_loss_pct": 0.05,
+    "max_total_loss_pct": 0.1,
+    "min_trading_days": 4,
+    "internal_daily_loss_guard_pct": 0.03,
+    "internal_total_loss_guard_pct": 0.06,
+    "max_risk_per_trade_pct": 0.0025,
+    "max_lot_initial": 0.01
+  },
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN"
+}

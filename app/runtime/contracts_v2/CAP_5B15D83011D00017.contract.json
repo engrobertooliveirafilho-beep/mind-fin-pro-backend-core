@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_5B15D83011D00017",
+  "source_file": "_evidence\\P19P38_P_UNTRACKED_MODULE_INVENTORY_20260622_184140\\p19p38p_untracked_inventory.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\_evidence\\P19P38_P_UNTRACKED_MODULE_INVENTORY_20260622_184140\\p19p38p_untracked_inventory.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 110,
+  "imports": [
+    "datetime",
+    "json",
+    "os",
+    "pathlib",
+    "subprocess"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

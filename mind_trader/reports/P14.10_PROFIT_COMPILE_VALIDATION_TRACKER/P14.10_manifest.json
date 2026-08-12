@@ -1,0 +1,20 @@
+{
+  "STATUS": "P14.10_PROFIT_COMPILE_VALIDATION_TRACKER_IMPLEMENTED",
+  "FILES_FOUND": 1,
+  "COMPILED_TOTAL": 1,
+  "FAILED_TOTAL": 0,
+  "WATCH_DIR": "data\\incoming\\profit_compile_results",
+  "REQUIRED_COLUMNS": [
+    "compiled",
+    "error",
+    "file",
+    "strategy_id"
+  ],
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "EDGE": "NOT_PROVEN",
+  "CAUSALITY": "NOT_PROVEN",
+  "EXPORT_READY": true,
+  "generated_at": "2026-06-14T16:11:28.143194+00:00"
+}

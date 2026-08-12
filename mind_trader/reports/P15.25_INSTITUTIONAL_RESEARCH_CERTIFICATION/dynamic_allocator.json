@@ -1,0 +1,17 @@
+{
+  "trend": {
+    "CSAN3": 0.45,
+    "IFIX": 0.4,
+    "SHUL4": 0.15
+  },
+  "asymmetric_payoff": {
+    "CSAN3": 0.3,
+    "IFIX": 0.35,
+    "SHUL4": 0.35
+  },
+  "defensive": {
+    "CSAN3": 0.2,
+    "IFIX": 0.6,
+    "SHUL4": 0.2
+  }
+}

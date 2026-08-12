@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_9A064DBD8964B856",
+  "source_file": ".venv\\Lib\\site-packages\\packaging\\dependency_groups.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\packaging\\dependency_groups.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 98,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "errors",
+    "re",
+    "requirements"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

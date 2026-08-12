@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_5FA6CEF69DD663CF",
+  "source_file": ".venv\\Lib\\site-packages\\twilio\\base\\version.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\twilio\\base\\version.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 80,
+  "imports": [
+    "json",
+    "twilio.base",
+    "twilio.base.domain",
+    "twilio.base.exceptions",
+    "twilio.base.page",
+    "twilio.http.response",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

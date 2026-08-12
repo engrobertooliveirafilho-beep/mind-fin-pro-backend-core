@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_859A69A93355B755",
+  "source_file": "_evidence\\P19P36K_SAFE_MEMORY_ADAPTER_V2_20260621_231110\\10_probe_memory_shadow.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\_evidence\\P19P36K_SAFE_MEMORY_ADAPTER_V2_20260621_231110\\10_probe_memory_shadow.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 89,
+  "imports": [
+    "app.companionship.safe_recovery_adapter",
+    "app.main",
+    "fastapi.testclient",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

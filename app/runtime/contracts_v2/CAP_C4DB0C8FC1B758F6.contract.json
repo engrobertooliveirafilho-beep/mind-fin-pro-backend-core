@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_C4DB0C8FC1B758F6",
+  "source_file": "tests\\test_p55w_video_metadata_extractor.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\tests\\test_p55w_video_metadata_extractor.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 102,
+  "imports": [
+    "app.mind.p5_5w_video_metadata_extractor",
+    "app.mind.p5_5w_video_metadata_extractor.extractor"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

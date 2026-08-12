@@ -1,111 +1,103 @@
-from app.runtime.whatsapp_trace_sensor import sanitize_final_output
-from app.dialogue.conversation_continuity_runtime import update,get
-from app.dialogue.context_resolution_engine import resolve
-from app.dialogue.generic_llm_detector import detect,rewrite
-from app.dialogue.persona_consistency_guard import enforce
-from app.humanization.universal_recovery_runtime import semantic_recovery
-from app.runtime.identity_guard_runtime import guard_identity_fallback
 from app.runtime.dialogue_state import (
     is_repeated,
     remember_response,
-    short_message_type
 )
+
 from app.runtime.conversational_reasoning import (
-    resolve_followup,
-    update_dialogue_state
+    update_dialogue_state,
 )
+
 from app.runtime.visible_response_layer import visible_reformulate
 from app.runtime.real_humanization_runtime import real_humanization_runtime
 
-def naturalize_response(answer: str, intent: dict, state: dict, autonomous: dict) -> str:
-    # P4_16F_RELATIONAL_TONE_ACTIVE
-    social = state.get("social", {}) if isinstance(state, dict) else {}
-    emotion = state.get("emotion", {}) if isinstance(state, dict) else {}
-    relationship = state.get("relationship", {}) if isinstance(state, dict) else {}
 
-    user_id = state.get("user_id", "Roberto")
-    name = "Roberto"
-    focus = state.get("dominant_project", "MIND")
-    msg = (state.get("last_unresolved_topic") or "").strip()
-    msg_l = msg.lower()
-    kind = short_message_type(msg)
+def naturalize_response(
+    answer: str,
+    intent: dict,
+    state: dict,
+    autonomous: dict,
+) -> str:
 
-    follow = resolve_followup(user_id, msg)
-    if follow.get("resolved"):
-        out = visible_reformulate(follow["answer"], msg, focus)
-        remember_response(user_id, out)
-        update_dialogue_state(user_id, msg, out)
-        return out
+    text = str(answer or "").strip()
 
-    plan = autonomous.get("plan", {}).get("next_action", "avançar a próxima camada crítica")
+    if not text:
+        return ""
 
-    frustration = float(emotion.get("frustration", 0.0))
-    urgency = float(emotion.get("urgency", 0.0))
-    mode = relationship.get("operating_mode", "structured_guidance")
+    state = state if isinstance(state, dict) else {}
+    autonomous = autonomous if isinstance(autonomous, dict) else {}
 
-    if kind == "greeting":
-        out = f"Oi, {name}. Estou aqui. O contexto do {focus} continua aberto."
-    elif kind == "ack":
-        out = f"Fechado. Seguimos com o {focus} sem reiniciar contexto."
-    elif kind == "repetition_complaint":
-        out = "Você tem razão. Eu estava repetindo em vez de responder. Vou corrigir isso: a partir daqui, respondo a pergunta direta primeiro."
-    elif any(x in msg_l for x in ["mas nao ta funcionando","não ta funcionando","nao está funcionando","não está funcionando","ainda nao arrumou","ainda não arrumou"]):
-        out = "Você tem razão. O problema é que ela voltou para frase genérica em vez de continuar o contexto. O conserto é continuidade conversacional e bloqueio de repetição."
-    elif "qual seria" in msg_l:
-        out = "O gargalo é a memória curta da conversa. Ela precisa lembrar o contexto anterior e responder o follow-up sem voltar para frase genérica."
-    elif any(x in msg_l for x in ["quem eh vc","quem é vc","quem é você","quem e voce","quem é voce"]):
-        out = "Sou a Eldora do MIND. Converso com contexto e continuidade, sem resetar a conversa."
-    elif any(x in msg_l for x in ["como vai me ajudar","como vc vai me ajudar","como você vai me ajudar","me ajuda em que"]):
-        out = "Vou te ajudar de forma prática: organizar suas ideias, lembrar contexto, transformar conversa em plano, explicar conteúdos, priorizar decisões e executar próximos passos sem perder o fio da conversa."
-    elif kind == "how_to":
-        out = "Faça em três passos: preserve a última pergunta, gere uma resposta visível direta e só use detalhes técnicos quando o usuário pedir."
-    elif kind == "continue":
-        out = f"Vamos seguir no {focus}. O próximo passo é deixar a resposta externa mais direta, natural e menos autocentrada."
-    elif "achou" in msg_l or "opinião" in msg_l:
-        out = f"Eu achei que foi um avanço real, {name}. A base funciona; agora o desafio é fazer a Eldora conversar melhor."
-    elif intent.get("intent") in ["project_execution", "continuity_request"]:
-        if mode == "evidence_first_execution" or urgency >= 0.5:
-            out = f"{name}, sigo no {focus}. Vou direto ao ponto e mostrar progresso real. Próximo passo: {plan}."
-        elif frustration >= 0.45:
-            out = f"{name}, entendi a frustração. Vou reduzir ruído e focar em avanço verificável. Próximo passo: {plan}."
-        else:
-            out = f"{name}, sigo no {focus}. Próximo passo: {plan}."
-    else:
-        out = answer if "Diagnóstico:" not in answer else semantic_recovery(msg)
+    user_id = state.get("user_id", "anonymous")
 
-    if is_repeated(user_id, out):
-        out = visible_reformulate(out, msg, focus)
+    message = str(
+        state.get("last_unresolved_topic")
+        or ""
+    ).strip()
 
-    update_dialogue_state(
-        user_id,
-        msg,
-        out,
-        claim="melhorar resposta visível antes de novas camadas",
-        reasoning=None,
-        confidence=0.90
-    )
-    # P4_17F_REAL_HUMANIZATION_ACTIVE
-    humanized = real_humanization_runtime(
-        msg,
-        out,
-        {
-            "social": social,
-            "emotion": emotion,
-            "relationship": relationship,
-            "state": state,
-            "autonomous": autonomous
-        }
-    )
-    out = humanized.get("answer", out)
+    context = {
+        "social": state.get("social", {}),
+        "emotion": state.get("emotion", {}),
+        "relationship": state.get("relationship", {}),
+        "state": state,
+        "autonomous": autonomous,
+    }
 
-    remember_response(user_id, out)
-    return out
+    try:
 
+        humanized = real_humanization_runtime(
+            message,
+            text,
+            context,
+        )
 
+        if isinstance(humanized, dict):
 
+            candidate = str(
+                humanized.get("answer")
+                or ""
+            ).strip()
 
+            if candidate:
+                text = candidate
 
+    except Exception:
+        pass
 
+    if text and is_repeated(user_id, text):
 
+        try:
 
+            candidate = visible_reformulate(
+                text,
+                message,
+                state.get("dominant_project", ""),
+            )
 
+            if candidate:
+                text = str(candidate).strip()
+
+        except Exception:
+            pass
+
+    if not text:
+        return ""
+
+    try:
+
+        update_dialogue_state(
+            user_id,
+            message,
+            text,
+            claim=None,
+            reasoning=None,
+            confidence=0.90,
+        )
+
+    except Exception:
+        pass
+
+    try:
+        remember_response(user_id, text)
+    except Exception:
+        pass
+
+    return text

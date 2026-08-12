@@ -1,0 +1,26 @@
+{
+  "capability_id": "CAP_EDD3D8F9023EFA4B",
+  "source_file": "_evidence\\P4.91M3_PRIORITY_SCHEDULER_ACTIVE_CAPABILITY_ONLY_20260623_191137\\p491m3_active_capability_scheduler.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P4.91M3_PRIORITY_SCHEDULER_ACTIVE_CAPABILITY_ONLY_20260623_191137\\p491m3_active_capability_scheduler.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 114,
+  "imports": [
+    "ast",
+    "csv",
+    "datetime",
+    "hashlib",
+    "json",
+    "pathlib",
+    "re",
+    "subprocess",
+    "time"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

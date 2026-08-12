@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_F139AB8A62B0B1D1",
+  "source_file": "_runtime_split_backup\\P19P38_N_RUNTIME_CLEAN_SPLIT_EXECUTOR_20260622_183445\\app__eldora__core__event_bus.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\_runtime_split_backup\\P19P38_N_RUNTIME_CLEAN_SPLIT_EXECUTOR_20260622_183445\\app__eldora__core__event_bus.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 88,
+  "imports": [
+    "app.eldora.core.persistent_event_store"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_23E9059143654E51",
+  "source_file": "app\\api\\eldora_liveos.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\app\\api\\eldora_liveos.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 87,
+  "imports": [
+    "app.eldora.core.live_operating_system_engine",
+    "app.eldora.core.realtime_event_stream",
+    "app.eldora.core.universal_orchestration_fabric",
+    "fastapi"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

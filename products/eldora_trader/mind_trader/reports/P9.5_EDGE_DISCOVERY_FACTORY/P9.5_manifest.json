@@ -1,0 +1,22 @@
+{
+  "STATUS": "P9.5_EDGE_DISCOVERY_FACTORY_IMPLEMENTED",
+  "CANDIDATES_ANALYZED": 300,
+  "PAPER_CANDIDATES": 3,
+  "EDGE": "NOT_PROVEN",
+  "CAUSALITY": "NOT_PROVEN",
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "PROMOTION_ALLOWED": false,
+  "MIN_RULES": {
+    "profit_factor": 1.25,
+    "sharpe": 0.5,
+    "sortino": 0.75,
+    "max_drawdown": 0.25,
+    "risk_of_ruin": 0.3,
+    "stability": 0.6,
+    "regime_robustness": 0.5,
+    "cross_asset_robustness": 0.5,
+    "cross_period_robustness": 0.5
+  },
+  "EXPORT_READY": true
+}

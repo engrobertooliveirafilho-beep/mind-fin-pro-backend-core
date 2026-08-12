@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_C8CA630603665FDB",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\graders\\score_model_grader_param.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\openai\\types\\graders\\score_model_grader_param.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 102,
+  "imports": [
+    "__future__",
+    "grader_inputs_param",
+    "responses.response_input_audio_param",
+    "responses.response_input_text_param",
+    "shared.reasoning_effort",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

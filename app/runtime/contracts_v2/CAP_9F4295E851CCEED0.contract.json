@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_9F4295E851CCEED0",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\io\\sas\\sas7bdat.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\.venv\\Lib\\site-packages\\pandas\\io\\sas\\sas7bdat.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 123,
+  "imports": [
+    "__future__",
+    "datetime",
+    "numpy",
+    "pandas",
+    "pandas._config",
+    "pandas._libs.byteswap",
+    "pandas._libs.sas",
+    "pandas._libs.tslibs.conversion",
+    "pandas._typing",
+    "pandas.errors",
+    "pandas.io.common",
+    "pandas.io.sas.sas_constants",
+    "pandas.io.sas.sasreader",
+    "sys",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

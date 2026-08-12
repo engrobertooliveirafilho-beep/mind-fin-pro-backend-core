@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_9B8853D1430B6EC1",
+  "source_file": "_evidence\\P4.91K2_FAST_READ_FAILED_METADATA_DIAGNOSTICS_20260623_134059\\p491k2_fast_metadata_diag.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P4.91K2_FAST_READ_FAILED_METADATA_DIAGNOSTICS_20260623_134059\\p491k2_fast_metadata_diag.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 111,
+  "imports": [
+    "csv",
+    "datetime",
+    "hashlib",
+    "json",
+    "pathlib",
+    "threading",
+    "time"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

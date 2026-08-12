@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_358B8E5200D3724A",
+  "source_file": "_evidence\\P_APP_MAIN_REGISTER_WHATSAPP_20260624_135921\\main_before.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\_evidence\\P_APP_MAIN_REGISTER_WHATSAPP_20260624_135921\\main_before.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 83,
+  "imports": [
+    "app.api.runpod_routes",
+    "fastapi"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

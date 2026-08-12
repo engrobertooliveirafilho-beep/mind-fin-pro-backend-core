@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_8149B3F97F57A68D",
+  "source_file": "_evidence\\P18B_RUNTIME_HOOK_DESIGN_20260616_213031\\run_p18b.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P18B_RUNTIME_HOOK_DESIGN_20260616_213031\\run_p18b.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 94,
+  "imports": [
+    "app.p18_conversational_execution.runtime_hook",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

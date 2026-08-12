@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_1320FFEA8E7746A0",
+  "source_file": "_evidence\\P19P31_P19P36_COMPANION_COGNITION_STACK_20260621_220841\\patch_main_companion.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P19P31_P19P36_COMPANION_COGNITION_STACK_20260621_220841\\patch_main_companion.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 98,
+  "imports": [
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_4BDF16C1F8A84425",
+  "source_file": "_evidence\\P5_12_DRIVE_SCAN_VS_MIND_BRAIN_MAP_20260612_080651\\p5_12.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P5_12_DRIVE_SCAN_VS_MIND_BRAIN_MAP_20260612_080651\\p5_12.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 111,
+  "imports": [
+    "collections",
+    "datetime",
+    "hashlib",
+    "json",
+    "os",
+    "pathlib",
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

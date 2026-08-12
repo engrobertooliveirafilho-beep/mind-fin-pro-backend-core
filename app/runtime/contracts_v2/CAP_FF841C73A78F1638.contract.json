@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_FF841C73A78F1638",
+  "source_file": ".venv\\Lib\\site-packages\\redis\\asyncio\\http\\http_client.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\redis\\asyncio\\http\\http_client.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 96,
+  "imports": [
+    "abc",
+    "asyncio",
+    "concurrent.futures",
+    "redis.http.http_client",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

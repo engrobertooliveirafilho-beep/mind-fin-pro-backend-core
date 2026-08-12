@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_6E0BF3CA54F77796",
+  "source_file": "_evidence\\_drive_recovered_friendship_runtime\\routes_golden_proactive.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\_evidence\\_drive_recovered_friendship_runtime\\routes_golden_proactive.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 103,
+  "imports": [
+    "app.golden_pipeline.behavior_engine",
+    "app.golden_pipeline.decision_engine",
+    "app.golden_pipeline.emotional_engine",
+    "app.golden_pipeline.live_call_engine",
+    "app.golden_pipeline.memory_engine",
+    "app.golden_pipeline.reasoning_engine",
+    "app.golden_pipeline.state_machine",
+    "app.golden_pipeline.strategy_engine",
+    "app.golden_pipeline.voice_director",
+    "datetime",
+    "fastapi",
+    "random"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_0C0254E4D9D601D6",
+  "source_file": "app\\runtime\\drive_batch_processor.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\app\\runtime\\drive_batch_processor.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 91,
+  "imports": [
+    "app.runtime.drive_processed_queue",
+    "datetime",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

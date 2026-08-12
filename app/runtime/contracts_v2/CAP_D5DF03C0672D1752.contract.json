@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_D5DF03C0672D1752",
+  "source_file": "app\\uncertainty_reasoning\\bootstrap.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\app\\uncertainty_reasoning\\bootstrap.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 99,
+  "imports": [
+    "app.uncertainty_reasoning.hypothesis_engine.engine",
+    "app.uncertainty_reasoning.resolver.resolver",
+    "app.uncertainty_reasoning.scoring_engine.scorer"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

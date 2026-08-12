@@ -1,0 +1,19 @@
+{
+  "STATUS": "P14.16B_PROFIT_UI_AUTOMATION_HARNESS_IMPLEMENTED",
+  "SCRIPT": "tools\\profit_compile_clipboard_runner.ps1",
+  "FILES": [
+    "profit_import_package/p1416a_l1_trend_filter.nts",
+    "profit_import_package/p1416a_l2_stop_points_probe.nts",
+    "profit_import_package/p1416a_l3_take_points_probe.nts",
+    "profit_import_package/p1416a_l4_stop_take_probe.nts"
+  ],
+  "MODE": "UI automation via clipboard + F9 + screenshot capture",
+  "LIMITATION": "Requires Profit editor focused manually before run. Does not place real orders.",
+  "REAL_ORDERS": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "LIVE": "FORBIDDEN",
+  "EDGE": "NOT_PROVEN",
+  "CAUSALITY": "NOT_PROVEN",
+  "EXPORT_READY": true,
+  "generated_at": "2026-06-14T16:11:28.654285+00:00"
+}

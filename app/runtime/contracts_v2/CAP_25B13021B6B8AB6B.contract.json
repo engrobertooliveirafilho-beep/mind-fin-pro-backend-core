@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_25B13021B6B8AB6B",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\generic\\test_finalize.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\pandas\\tests\\generic\\test_finalize.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 104,
+  "imports": [
+    "copy",
+    "datetime",
+    "numpy",
+    "operator",
+    "pandas",
+    "pandas._typing",
+    "pytest",
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_381591C31D9A358B",
+  "source_file": "_evidence\\P4.89_FULL_REPOSITORY_INTELLIGENCE_20260621_211453\\test_p489_full_repository_intelligence.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P4.89_FULL_REPOSITORY_INTELLIGENCE_20260621_211453\\test_p489_full_repository_intelligence.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 101,
+  "imports": [
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

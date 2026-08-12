@@ -1,0 +1,23 @@
+{
+  "STATUS": "P14.5_PROFIT_BACKTEST_RESULT_INTAKE_IMPLEMENTED",
+  "WATCH_DIR": "data\\incoming\\profit_backtests",
+  "FILES_FOUND": 1,
+  "FILES_VALID": 1,
+  "REQUIRED_COLUMNS": [
+    "asset",
+    "drawdown",
+    "profit_factor",
+    "strategy_id",
+    "timeframe",
+    "trades",
+    "winrate"
+  ],
+  "PAPER_ONLY": true,
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "EDGE": "NOT_PROVEN",
+  "CAUSALITY": "NOT_PROVEN",
+  "EXPORT_READY": true,
+  "generated_at": "2026-06-14T16:11:29.992493+00:00"
+}

@@ -1,0 +1,362 @@
+{
+  "app/api/eldora_multimodal.py": {
+    "id": "009_eldora_multimodal",
+    "technical_score": 118,
+    "import_ok": true,
+    "entrypoints": 20,
+    "requires_input": 12,
+    "error": null
+  },
+  "app/api/eldora_true_distributed.py": {
+    "id": "024_eldora_true_distributed",
+    "technical_score": 113,
+    "import_ok": true,
+    "entrypoints": 19,
+    "requires_input": 13,
+    "error": null
+  },
+  "app/api/eldora_autonomous.py": {
+    "id": "008_eldora_autonomous",
+    "technical_score": 105,
+    "import_ok": true,
+    "entrypoints": 16,
+    "requires_input": 9,
+    "error": null
+  },
+  "app/api/eldora_cognition.py": {
+    "id": "002_eldora_cognition",
+    "technical_score": 98,
+    "import_ok": true,
+    "entrypoints": 14,
+    "requires_input": 8,
+    "error": null
+  },
+  "app/api/eldora_world.py": {
+    "id": "004_eldora_world",
+    "technical_score": 98,
+    "import_ok": true,
+    "entrypoints": 14,
+    "requires_input": 8,
+    "error": null
+  },
+  "app/api/eldora_social.py": {
+    "id": "012_eldora_social",
+    "technical_score": 98,
+    "import_ok": true,
+    "entrypoints": 14,
+    "requires_input": 8,
+    "error": null
+  },
+  "app/api/eldora_autonomy.py": {
+    "id": "016_eldora_autonomy",
+    "technical_score": 98,
+    "import_ok": true,
+    "entrypoints": 14,
+    "requires_input": 8,
+    "error": null
+  },
+  "app/api/eldora_embodied.py": {
+    "id": "017_eldora_embodied",
+    "technical_score": 98,
+    "import_ok": true,
+    "entrypoints": 14,
+    "requires_input": 8,
+    "error": null
+  },
+  "app/api/eldora_liveos.py": {
+    "id": "019_eldora_liveos",
+    "technical_score": 98,
+    "import_ok": true,
+    "entrypoints": 14,
+    "requires_input": 8,
+    "error": null
+  },
+  "app/api/eldora_mesh.py": {
+    "id": "020_eldora_mesh",
+    "technical_score": 98,
+    "import_ok": true,
+    "entrypoints": 14,
+    "requires_input": 8,
+    "error": null
+  },
+  "app/api/eldora_meta.py": {
+    "id": "021_eldora_meta",
+    "technical_score": 98,
+    "import_ok": true,
+    "entrypoints": 14,
+    "requires_input": 8,
+    "error": null
+  },
+  "app/api/eldora_action.py": {
+    "id": "033_eldora_action",
+    "technical_score": 98,
+    "import_ok": true,
+    "entrypoints": 14,
+    "requires_input": 8,
+    "error": null
+  },
+  "app/api/eldora_distributed.py": {
+    "id": "036_eldora_distributed",
+    "technical_score": 98,
+    "import_ok": true,
+    "entrypoints": 14,
+    "requires_input": 8,
+    "error": null
+  },
+  "app/api/eldora_evolution.py": {
+    "id": "038_eldora_evolution",
+    "technical_score": 98,
+    "import_ok": true,
+    "entrypoints": 14,
+    "requires_input": 8,
+    "error": null
+  },
+  "app/api/eldora_infrastructure.py": {
+    "id": "039_eldora_infrastructure",
+    "technical_score": 98,
+    "import_ok": true,
+    "entrypoints": 14,
+    "requires_input": 8,
+    "error": null
+  },
+  "app/api/eldora_runtime_supervisor.py": {
+    "id": "022_eldora_runtime_supervisor",
+    "technical_score": 92,
+    "import_ok": true,
+    "entrypoints": 12,
+    "requires_input": 6,
+    "error": null
+  },
+  "app/api/eldora_async.py": {
+    "id": "007_eldora_async",
+    "technical_score": 90,
+    "import_ok": true,
+    "entrypoints": 12,
+    "requires_input": 8,
+    "error": null
+  },
+  "app/api/eldora_auth.py": {
+    "id": "015_eldora_auth",
+    "technical_score": 89,
+    "import_ok": true,
+    "entrypoints": 13,
+    "requires_input": 13,
+    "error": null
+  },
+  "app/api/eldora_neura_scale.py": {
+    "id": "010_eldora_neura_scale",
+    "technical_score": 88,
+    "import_ok": true,
+    "entrypoints": 12,
+    "requires_input": 10,
+    "error": null
+  },
+  "app/api/eldora_growth.py": {
+    "id": "018_eldora_growth",
+    "technical_score": 88,
+    "import_ok": true,
+    "entrypoints": 12,
+    "requires_input": 10,
+    "error": null
+  },
+  "app/humanization/social_memory_provider.py": {
+    "id": "013_social_memory_provider",
+    "technical_score": 86,
+    "import_ok": true,
+    "entrypoints": 12,
+    "requires_input": 12,
+    "error": null
+  },
+  "app/humanization/conversation_maturity_engine.py": {
+    "id": "026_conversation_maturity_engine",
+    "technical_score": 86,
+    "import_ok": true,
+    "entrypoints": 12,
+    "requires_input": 12,
+    "error": null
+  },
+  "app/humanization/conversation_training_runtime.py": {
+    "id": "027_conversation_training_runtime",
+    "technical_score": 86,
+    "import_ok": true,
+    "entrypoints": 12,
+    "requires_input": 12,
+    "error": null
+  },
+  "app/humanization/multi_ai_conversation_simulator.py": {
+    "id": "028_multi_ai_conversation_simulator",
+    "technical_score": 86,
+    "import_ok": true,
+    "entrypoints": 12,
+    "requires_input": 12,
+    "error": null
+  },
+  "app/api/eldora_browser_fleet.py": {
+    "id": "034_eldora_browser_fleet",
+    "technical_score": 82,
+    "import_ok": true,
+    "entrypoints": 10,
+    "requires_input": 8,
+    "error": null
+  },
+  "app/api/eldora_business.py": {
+    "id": "035_eldora_business",
+    "technical_score": 82,
+    "import_ok": true,
+    "entrypoints": 10,
+    "requires_input": 8,
+    "error": null
+  },
+  "app/api/eldora_economic_market.py": {
+    "id": "037_eldora_economic_market",
+    "technical_score": 82,
+    "import_ok": true,
+    "entrypoints": 10,
+    "requires_input": 8,
+    "error": null
+  },
+  "app/api/eldora_live_voice.py": {
+    "id": "040_eldora_live_voice",
+    "technical_score": 82,
+    "import_ok": true,
+    "entrypoints": 10,
+    "requires_input": 8,
+    "error": null
+  },
+  "app/api/debug_whatsapp_runtime_trace.py": {
+    "id": "000_debug_whatsapp_runtime_trace",
+    "technical_score": 80,
+    "import_ok": true,
+    "entrypoints": 10,
+    "requires_input": 10,
+    "error": null
+  },
+  "app/runtime/semantic_whatsapp_runtime.py": {
+    "id": "032_semantic_whatsapp_runtime",
+    "technical_score": 80,
+    "import_ok": true,
+    "entrypoints": 10,
+    "requires_input": 10,
+    "error": null
+  },
+  "app/api/diagnostic_twilio.py": {
+    "id": "001_diagnostic_twilio",
+    "technical_score": 78,
+    "import_ok": true,
+    "entrypoints": 9,
+    "requires_input": 9,
+    "error": null
+  },
+  "app/api/eldora_persistent_cognition.py": {
+    "id": "003_eldora_persistent_cognition",
+    "technical_score": 76,
+    "import_ok": true,
+    "entrypoints": 8,
+    "requires_input": 6,
+    "error": null
+  },
+  "app/api/eldora_semantic.py": {
+    "id": "011_eldora_semantic",
+    "technical_score": 76,
+    "import_ok": true,
+    "entrypoints": 8,
+    "requires_input": 6,
+    "error": null
+  },
+  "app/api/eldora_security.py": {
+    "id": "023_eldora_security",
+    "technical_score": 74,
+    "import_ok": true,
+    "entrypoints": 8,
+    "requires_input": 8,
+    "error": null
+  },
+  "app/api/eldora_admin.py": {
+    "id": "006_eldora_admin",
+    "technical_score": 68,
+    "import_ok": true,
+    "entrypoints": 6,
+    "requires_input": 6,
+    "error": null
+  },
+  "app/p18_conversational_execution/failure_fixes.py": {
+    "id": "042_failure_fixes",
+    "technical_score": 65,
+    "import_ok": true,
+    "entrypoints": 5,
+    "requires_input": 5,
+    "error": null
+  },
+  "app/p18_conversational_execution/context_guard.py": {
+    "id": "029_context_guard",
+    "technical_score": 62,
+    "import_ok": true,
+    "entrypoints": 4,
+    "requires_input": 4,
+    "error": null
+  },
+  "app/p18_conversational_execution/response_executor.py": {
+    "id": "030_response_executor",
+    "technical_score": 62,
+    "import_ok": true,
+    "entrypoints": 4,
+    "requires_input": 4,
+    "error": null
+  },
+  "app/runtime/cognitive_observatory/ai_only_review.py": {
+    "id": "014_ai_only_review",
+    "technical_score": 59,
+    "import_ok": true,
+    "entrypoints": 3,
+    "requires_input": 3,
+    "error": null
+  },
+  "app/runtime/cognitive_observatory/user_mirror.py": {
+    "id": "031_user_mirror",
+    "technical_score": 59,
+    "import_ok": true,
+    "entrypoints": 3,
+    "requires_input": 3,
+    "error": null
+  },
+  "app/runtime/conversation_quality_guard.py": {
+    "id": "043_conversation_quality_guard",
+    "technical_score": 59,
+    "import_ok": true,
+    "entrypoints": 3,
+    "requires_input": 3,
+    "error": null
+  },
+  "app/runtime/context_priority_engine.py": {
+    "id": "005_context_priority_engine",
+    "technical_score": 53,
+    "import_ok": true,
+    "entrypoints": 1,
+    "requires_input": 1,
+    "error": null
+  },
+  "app/runtime/strategic_conversation_authority.py": {
+    "id": "044_strategic_conversation_authority",
+    "technical_score": 53,
+    "import_ok": true,
+    "entrypoints": 1,
+    "requires_input": 1,
+    "error": null
+  },
+  "app/eldora/canonical_registry.py": {
+    "id": "025_canonical_registry",
+    "technical_score": 50,
+    "import_ok": true,
+    "entrypoints": 0,
+    "requires_input": 0,
+    "error": null
+  },
+  "app/companionship/cognitive_context_builder.py": {
+    "id": "041_cognitive_context_builder",
+    "technical_score": 0,
+    "import_ok": false,
+    "entrypoints": 0,
+    "requires_input": 0,
+    "error": "'NoneType' object has no attribute '__dict__'"
+  }
+}

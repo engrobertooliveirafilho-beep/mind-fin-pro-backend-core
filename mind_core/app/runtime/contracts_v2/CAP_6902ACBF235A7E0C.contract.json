@@ -1,0 +1,26 @@
+{
+  "capability_id": "CAP_6902ACBF235A7E0C",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\internals\\test_api.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\.venv\\Lib\\site-packages\\pandas\\tests\\internals\\test_api.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 109,
+  "imports": [
+    "datetime",
+    "numpy",
+    "pandas",
+    "pandas._testing",
+    "pandas.api.internals",
+    "pandas.core",
+    "pandas.core.internals",
+    "pandas.errors",
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

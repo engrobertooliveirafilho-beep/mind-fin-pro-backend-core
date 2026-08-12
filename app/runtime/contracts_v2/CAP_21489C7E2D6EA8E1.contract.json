@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_21489C7E2D6EA8E1",
+  "source_file": "temp_router_test.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\temp_router_test.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 87,
+  "imports": [
+    "app.runtime.intent_arbitration_priority_engine",
+    "app.runtime.p4_13g_router"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

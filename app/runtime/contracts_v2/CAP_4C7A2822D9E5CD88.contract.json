@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_4C7A2822D9E5CD88",
+  "source_file": ".venv\\Lib\\site-packages\\redis\\observability\\recorder.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\redis\\observability\\recorder.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 102,
+  "imports": [
+    "datetime",
+    "opentelemetry.metrics",
+    "redis.connection",
+    "redis.multidb.database",
+    "redis.observability.attributes",
+    "redis.observability.config",
+    "redis.observability.metrics",
+    "redis.observability.providers",
+    "redis.observability.registry",
+    "redis.utils",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

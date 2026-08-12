@@ -1,0 +1,18 @@
+{
+  "STATUS": "P1858_DECAY_DETECTOR_BOOTSTRAPPED",
+  "WINDOWS": [
+    "30D",
+    "90D",
+    "180D",
+    "365D",
+    "3Y",
+    "10Y"
+  ],
+  "OUTPUT": [
+    "improving",
+    "stable",
+    "weakening",
+    "critical",
+    "dead"
+  ]
+}

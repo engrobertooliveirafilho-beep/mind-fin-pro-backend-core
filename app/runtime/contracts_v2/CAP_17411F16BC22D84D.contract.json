@@ -1,0 +1,26 @@
+{
+  "capability_id": "CAP_17411F16BC22D84D",
+  "source_file": "_evidence\\P4.91K3D_RECOVER_REAL_DRIVE_FILES_ONLY_20260623_164505\\p491k3d_recover_real_drive_files.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P4.91K3D_RECOVER_REAL_DRIVE_FILES_ONLY_20260623_164505\\p491k3d_recover_real_drive_files.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 114,
+  "imports": [
+    "csv",
+    "datetime",
+    "hashlib",
+    "json",
+    "pathlib",
+    "re",
+    "subprocess",
+    "threading",
+    "time"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

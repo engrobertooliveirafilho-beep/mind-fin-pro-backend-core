@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_5B031A94D8F23576",
+  "source_file": "app\\runtime\\p2342_multi_timeframe_revalidation.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\app\\runtime\\p2342_multi_timeframe_revalidation.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 95,
+  "imports": [
+    "dataclasses"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

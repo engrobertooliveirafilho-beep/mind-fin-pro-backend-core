@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_DB5692C507D86572",
+  "source_file": "_evidence\\P17C_REVIEW_DECISION_AGGREGATION_20260616_210653\\run_p17c_aggregation.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P17C_REVIEW_DECISION_AGGREGATION_20260616_210653\\run_p17c_aggregation.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 94,
+  "imports": [
+    "app.p17_value_proof.review_decision_aggregation",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

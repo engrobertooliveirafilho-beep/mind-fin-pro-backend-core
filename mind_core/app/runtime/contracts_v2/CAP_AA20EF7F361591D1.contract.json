@@ -1,0 +1,30 @@
+{
+  "capability_id": "CAP_AA20EF7F361591D1",
+  "source_file": ".venv\\Lib\\site-packages\\twilio\\rest\\trusthub\\v1\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\twilio\\rest\\trusthub\\v1\\__init__.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 89,
+  "imports": [
+    "twilio.base.domain",
+    "twilio.base.version",
+    "twilio.rest.trusthub.v1.compliance_inquiries",
+    "twilio.rest.trusthub.v1.compliance_registration_inquiries",
+    "twilio.rest.trusthub.v1.compliance_tollfree_inquiries",
+    "twilio.rest.trusthub.v1.customer_profiles",
+    "twilio.rest.trusthub.v1.end_user",
+    "twilio.rest.trusthub.v1.end_user_type",
+    "twilio.rest.trusthub.v1.policies",
+    "twilio.rest.trusthub.v1.supporting_document",
+    "twilio.rest.trusthub.v1.supporting_document_type",
+    "twilio.rest.trusthub.v1.trust_products",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

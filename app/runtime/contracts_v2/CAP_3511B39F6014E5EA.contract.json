@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_3511B39F6014E5EA",
+  "source_file": ".venv\\Lib\\site-packages\\twilio\\rest\\accounts\\v1\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\twilio\\rest\\accounts\\v1\\__init__.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 83,
+  "imports": [
+    "twilio.base.domain",
+    "twilio.base.version",
+    "twilio.rest.accounts.v1.auth_token_promotion",
+    "twilio.rest.accounts.v1.bulk_consents",
+    "twilio.rest.accounts.v1.bulk_contacts",
+    "twilio.rest.accounts.v1.credential",
+    "twilio.rest.accounts.v1.messaging_geopermissions",
+    "twilio.rest.accounts.v1.safelist",
+    "twilio.rest.accounts.v1.secondary_auth_token",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_E8B16B2C4A71CF8F",
+  "source_file": "app\\runtime\\level_b_dynamic_composer.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\app\\runtime\\level_b_dynamic_composer.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 113,
+  "imports": [
+    "app.eldora.core.agent_orchestrator",
+    "app.eldora.core.predictive_simulation_engine",
+    "app.p7_adapters.hierarchical_planner_adapter"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

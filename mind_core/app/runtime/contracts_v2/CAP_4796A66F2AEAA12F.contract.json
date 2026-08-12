@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_4796A66F2AEAA12F",
+  "source_file": "_evidence\\P19P28L_FORENSIC_WRAPPER_CONTAINMENT_20260620_210330\\patch_forensic_trace.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\_evidence\\P19P28L_FORENSIC_WRAPPER_CONTAINMENT_20260620_210330\\patch_forensic_trace.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 85,
+  "imports": [
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

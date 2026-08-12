@@ -1,0 +1,14 @@
+{
+  "STATUS": "P1853_MARKET_DATA_LAKE_BOOTSTRAPPED",
+  "LAYERS": {
+    "raw": "data/lake/raw",
+    "normalized": "data/lake/normalized",
+    "features": "data/lake/features",
+    "dna": "data/lake/dna",
+    "regimes": "data/lake/regimes",
+    "events": "data/lake/events",
+    "specialists": "data/lake/specialists",
+    "quarantine": "data/lake/quarantine",
+    "experiments": "data/lake/experiments"
+  }
+}

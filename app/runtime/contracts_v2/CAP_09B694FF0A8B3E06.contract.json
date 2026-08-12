@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_09B694FF0A8B3E06",
+  "source_file": ".venv\\Lib\\site-packages\\tqdm\\cli.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\tqdm\\cli.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 83,
+  "imports": [
+    "ast",
+    "importlib",
+    "importlib_resources",
+    "logging",
+    "pathlib",
+    "re",
+    "std",
+    "sys",
+    "textwrap",
+    "version"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

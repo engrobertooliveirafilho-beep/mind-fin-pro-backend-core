@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_06563F8AFFA1A4F9",
+  "source_file": "tests\\test_eldora_infrastructure.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\tests\\test_eldora_infrastructure.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 104,
+  "imports": [
+    "app.eldora.core.cross_platform_execution_bus",
+    "app.eldora.core.infrastructure_event_engine",
+    "app.eldora.core.live_connector_fabric"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,1968 @@
+[
+  {
+    "dataset": "data\\normalized\\ABCB4F_D1_normalized.csv",
+    "asset": "ABCB4F",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\ABCB4F_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\ABCB4_D1_normalized.csv",
+    "asset": "ABCB4",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\ABCB4_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\ALPA4_D1_normalized.csv",
+    "asset": "ALPA4",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\ALPA4_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\ALPA4_H1_normalized.csv",
+    "asset": "ALPA4",
+    "timeframe": "H1",
+    "rows": 1581,
+    "features_file": "data\\features\\ALPA4_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\ARGE11_D1_normalized.csv",
+    "status": "SKIPPED",
+    "reason": "TOO_FEW_ROWS",
+    "rows": 81
+  },
+  {
+    "dataset": "data\\normalized\\AUPO11_D1_normalized.csv",
+    "status": "SKIPPED",
+    "reason": "TOO_FEW_ROWS",
+    "rows": 45
+  },
+  {
+    "dataset": "data\\normalized\\BCIC_D1_normalized.csv",
+    "asset": "BCIC",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\BCIC_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\BDIF11_D1_normalized.csv",
+    "asset": "BDIF11",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\BDIF11_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\BINC11_D1_normalized.csv",
+    "asset": "BINC11",
+    "timeframe": "D1",
+    "rows": 161,
+    "features_file": "data\\features\\BINC11_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\BMKS3_D1_normalized.csv",
+    "asset": "BMKS3",
+    "timeframe": "D1",
+    "rows": 196,
+    "features_file": "data\\features\\BMKS3_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\BOVAG181_D1_normalized.csv",
+    "status": "SKIPPED",
+    "reason": "TOO_FEW_ROWS",
+    "rows": 10
+  },
+  {
+    "dataset": "data\\normalized\\BOVAR170_D1_normalized.csv",
+    "status": "SKIPPED",
+    "reason": "TOO_FEW_ROWS",
+    "rows": 43
+  },
+  {
+    "dataset": "data\\normalized\\BOVAS47_D1_normalized.csv",
+    "status": "SKIPPED",
+    "reason": "TOO_FEW_ROWS",
+    "rows": 7
+  },
+  {
+    "dataset": "data\\normalized\\BOVV11_D1_normalized.csv",
+    "asset": "BOVV11",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\BOVV11_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\BPAC11F_D1_normalized.csv",
+    "asset": "BPAC11F",
+    "timeframe": "D1",
+    "rows": 199,
+    "features_file": "data\\features\\BPAC11F_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\BPAC11_D1_normalized.csv",
+    "asset": "BPAC11",
+    "timeframe": "D1",
+    "rows": 199,
+    "features_file": "data\\features\\BPAC11_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\BPAC3F_D1_normalized.csv",
+    "asset": "BPAC3F",
+    "timeframe": "D1",
+    "rows": 199,
+    "features_file": "data\\features\\BPAC3F_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\BPAC3_D1_normalized.csv",
+    "asset": "BPAC3",
+    "timeframe": "D1",
+    "rows": 199,
+    "features_file": "data\\features\\BPAC3_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\BPAC5F_D1_normalized.csv",
+    "asset": "BPAC5F",
+    "timeframe": "D1",
+    "rows": 199,
+    "features_file": "data\\features\\BPAC5F_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\BPAC5_D1_normalized.csv",
+    "asset": "BPAC5",
+    "timeframe": "D1",
+    "rows": 199,
+    "features_file": "data\\features\\BPAC5_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\BPML11_D1_normalized.csv",
+    "asset": "BPML11",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\BPML11_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\BRXC_D1_normalized.csv",
+    "asset": "BRXC",
+    "timeframe": "D1",
+    "rows": 124,
+    "features_file": "data\\features\\BRXC_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\BTCI11Q_D1_normalized.csv",
+    "status": "SKIPPED",
+    "reason": "TOO_FEW_ROWS",
+    "rows": 4
+  },
+  {
+    "dataset": "data\\normalized\\BTCI11_D1_normalized.csv",
+    "asset": "BTCI11",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\BTCI11_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\BTCI11_H1_normalized.csv",
+    "asset": "BTCI11",
+    "timeframe": "H1",
+    "rows": 1604,
+    "features_file": "data\\features\\BTCI11_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\BTCI11_M15_normalized.csv",
+    "asset": "BTCI11",
+    "timeframe": "M15",
+    "rows": 3871,
+    "features_file": "data\\features\\BTCI11_M15_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\BTCI11_M20_normalized.csv",
+    "asset": "BTCI11",
+    "timeframe": "M20",
+    "rows": 3875,
+    "features_file": "data\\features\\BTCI11_M20_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\BTCI11_M30_normalized.csv",
+    "asset": "BTCI11",
+    "timeframe": "M30",
+    "rows": 3069,
+    "features_file": "data\\features\\BTCI11_M30_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\BTCLIQBRL_D1_normalized.csv",
+    "asset": "BTCLIQBRL",
+    "timeframe": "D1",
+    "rows": 199,
+    "features_file": "data\\features\\BTCLIQBRL_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\BTCLIQUSD_D1_normalized.csv",
+    "status": "SKIPPED",
+    "reason": "TOO_FEW_ROWS",
+    "rows": 13
+  },
+  {
+    "dataset": "data\\normalized\\BTCV39_D1_normalized.csv",
+    "status": "SKIPPED",
+    "reason": "TOO_FEW_ROWS",
+    "rows": 1
+  },
+  {
+    "dataset": "data\\normalized\\BTHF11_D1_normalized.csv",
+    "asset": "BTHF11",
+    "timeframe": "D1",
+    "rows": 144,
+    "features_file": "data\\features\\BTHF11_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\BTHI11_D1_normalized.csv",
+    "asset": "BTHI11",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\BTHI11_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\BTLG11_D1_normalized.csv",
+    "asset": "BTLG11",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\BTLG11_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\BTRA11_D1_normalized.csv",
+    "asset": "BTRA11",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\BTRA11_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\CADFUT_D1_normalized.csv",
+    "status": "SKIPPED",
+    "reason": "TOO_FEW_ROWS",
+    "rows": 27
+  },
+  {
+    "dataset": "data\\normalized\\CADFUT_H1_normalized.csv",
+    "status": "SKIPPED",
+    "reason": "TOO_FEW_ROWS",
+    "rows": 27
+  },
+  {
+    "dataset": "data\\normalized\\CGAS3F_D1_normalized.csv",
+    "asset": "CGAS3F",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\CGAS3F_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\CGAS3F_H1_normalized.csv",
+    "asset": "CGAS3F",
+    "timeframe": "H1",
+    "rows": 1129,
+    "features_file": "data\\features\\CGAS3F_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\CMDB11_D1_normalized.csv",
+    "asset": "CMDB11",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\CMDB11_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\CMDB_D1_normalized.csv",
+    "asset": "CMDB",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\CMDB_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\CMIG4F_D1_normalized.csv",
+    "asset": "CMIG4F",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\CMIG4F_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\CMIG4F_H1_normalized.csv",
+    "asset": "CMIG4F",
+    "timeframe": "H1",
+    "rows": 1604,
+    "features_file": "data\\features\\CMIG4F_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\CMIG4_D1_normalized.csv",
+    "asset": "CMIG4",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\CMIG4_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\CMIG4_H1_normalized.csv",
+    "asset": "CMIG4",
+    "timeframe": "H1",
+    "rows": 1604,
+    "features_file": "data\\features\\CMIG4_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\CRAA11_D1_normalized.csv",
+    "asset": "CRAA11",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\CRAA11_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\CRAA11_H1_normalized.csv",
+    "asset": "CRAA11",
+    "timeframe": "H1",
+    "rows": 1561,
+    "features_file": "data\\features\\CRAA11_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\CSAN3_D1_normalized.csv",
+    "asset": "CSAN3",
+    "timeframe": "D1",
+    "rows": 199,
+    "features_file": "data\\features\\CSAN3_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\CSAN3_H1_normalized.csv",
+    "asset": "CSAN3",
+    "timeframe": "H1",
+    "rows": 1601,
+    "features_file": "data\\features\\CSAN3_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\CTKA3_D1_normalized.csv",
+    "status": "SKIPPED",
+    "reason": "TOO_FEW_ROWS",
+    "rows": 57
+  },
+  {
+    "dataset": "data\\normalized\\CTKA3_H1_normalized.csv",
+    "status": "SKIPPED",
+    "reason": "TOO_FEW_ROWS",
+    "rows": 73
+  },
+  {
+    "dataset": "data\\normalized\\DEBB11_D1_normalized.csv",
+    "asset": "DEBB11",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\DEBB11_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\DI1F29_D1_normalized.csv",
+    "asset": "DI1F29",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\DI1F29_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\DI1F29_H1_normalized.csv",
+    "asset": "DI1F29",
+    "timeframe": "H1",
+    "rows": 1797,
+    "features_file": "data\\features\\DI1F29_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\DI1F34_D1_normalized.csv",
+    "asset": "DI1F34",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\DI1F34_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\DI1F34_H1_normalized.csv",
+    "asset": "DI1F34",
+    "timeframe": "H1",
+    "rows": 1488,
+    "features_file": "data\\features\\DI1F34_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\DI1F35_D1_normalized.csv",
+    "asset": "DI1F35",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\DI1F35_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\DI1F35_H1_normalized.csv",
+    "asset": "DI1F35",
+    "timeframe": "H1",
+    "rows": 1796,
+    "features_file": "data\\features\\DI1F35_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\DI1F38_D1_normalized.csv",
+    "status": "SKIPPED",
+    "reason": "TOO_FEW_ROWS",
+    "rows": 73
+  },
+  {
+    "dataset": "data\\normalized\\DI1F38_H1_normalized.csv",
+    "asset": "DI1F38",
+    "timeframe": "H1",
+    "rows": 263,
+    "features_file": "data\\features\\DI1F38_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\DI1N30_D1_normalized.csv",
+    "asset": "DI1N30",
+    "timeframe": "D1",
+    "rows": 142,
+    "features_file": "data\\features\\DI1N30_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\DI1N30_H1_normalized.csv",
+    "asset": "DI1N30",
+    "timeframe": "H1",
+    "rows": 899,
+    "features_file": "data\\features\\DI1N30_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\DI1X29_D1_normalized.csv",
+    "status": "SKIPPED",
+    "reason": "TOO_FEW_ROWS",
+    "rows": 16
+  },
+  {
+    "dataset": "data\\normalized\\DI1X29_H1_normalized.csv",
+    "status": "SKIPPED",
+    "reason": "TOO_FEW_ROWS",
+    "rows": 38
+  },
+  {
+    "dataset": "data\\normalized\\DIIV26F27_D1_normalized.csv",
+    "asset": "DIIV26F27",
+    "timeframe": "D1",
+    "rows": 191,
+    "features_file": "data\\features\\DIIV26F27_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\DIIV26F27_H1_normalized.csv",
+    "asset": "DIIV26F27",
+    "timeframe": "H1",
+    "rows": 1263,
+    "features_file": "data\\features\\DIIV26F27_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\DOLB11_D1_normalized.csv",
+    "asset": "DOLB11",
+    "timeframe": "D1",
+    "rows": 114,
+    "features_file": "data\\features\\DOLB11_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\DOLCC_D1_normalized.csv",
+    "asset": "DOLCC",
+    "timeframe": "D1",
+    "rows": 201,
+    "features_file": "data\\features\\DOLCC_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\DOLCV_D1_normalized.csv",
+    "asset": "DOLCV",
+    "timeframe": "D1",
+    "rows": 201,
+    "features_file": "data\\features\\DOLCV_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\DOLPT_D1_normalized.csv",
+    "asset": "DOLPT",
+    "timeframe": "D1",
+    "rows": 201,
+    "features_file": "data\\features\\DOLPT_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\ENEV3_D1_normalized.csv",
+    "asset": "ENEV3",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\ENEV3_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\ENEV3_H1_normalized.csv",
+    "asset": "ENEV3",
+    "timeframe": "H1",
+    "rows": 1589,
+    "features_file": "data\\features\\ENEV3_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\ESGB_D1_normalized.csv",
+    "asset": "ESGB",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\ESGB_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\GBTC11_D1_normalized.csv",
+    "status": "SKIPPED",
+    "reason": "TOO_FEW_ROWS",
+    "rows": 89
+  },
+  {
+    "dataset": "data\\normalized\\GENB_D1_normalized.csv",
+    "asset": "GENB",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\GENB_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\HBOR3_D1_normalized.csv",
+    "asset": "HBOR3",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\HBOR3_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\HBOR3_H1_normalized.csv",
+    "asset": "HBOR3",
+    "timeframe": "H1",
+    "rows": 1584,
+    "features_file": "data\\features\\HBOR3_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\IBBC_D1_normalized.csv",
+    "asset": "IBBC",
+    "timeframe": "D1",
+    "rows": 108,
+    "features_file": "data\\features\\IBBC_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\IBBR_D1_normalized.csv",
+    "asset": "IBBR",
+    "timeframe": "D1",
+    "rows": 180,
+    "features_file": "data\\features\\IBBR_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\IBBR_H1_normalized.csv",
+    "asset": "IBBR",
+    "timeframe": "H1",
+    "rows": 1347,
+    "features_file": "data\\features\\IBBR_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\IBEP_D1_normalized.csv",
+    "asset": "IBEP",
+    "timeframe": "D1",
+    "rows": 166,
+    "features_file": "data\\features\\IBEP_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\IBEP_H1_normalized.csv",
+    "asset": "IBEP",
+    "timeframe": "H1",
+    "rows": 1235,
+    "features_file": "data\\features\\IBEP_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\IBOV_D1_normalized.csv",
+    "asset": "IBOV",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\IBOV_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\IBOV_H1_normalized.csv",
+    "asset": "IBOV",
+    "timeframe": "H1",
+    "rows": 1507,
+    "features_file": "data\\features\\IBOV_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\IBOV_M15_normalized.csv",
+    "asset": "IBOV",
+    "timeframe": "M15",
+    "rows": 4011,
+    "features_file": "data\\features\\IBOV_M15_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\IBOV_M20_normalized.csv",
+    "asset": "IBOV",
+    "timeframe": "M20",
+    "rows": 3978,
+    "features_file": "data\\features\\IBOV_M20_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\IBOV_M30_normalized.csv",
+    "asset": "IBOV",
+    "timeframe": "M30",
+    "rows": 2974,
+    "features_file": "data\\features\\IBOV_M30_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\IBRA_D1_normalized.csv",
+    "asset": "IBRA",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\IBRA_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\IBRA_H1_normalized.csv",
+    "asset": "IBRA",
+    "timeframe": "H1",
+    "rows": 1507,
+    "features_file": "data\\features\\IBRA_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\IFIX_D1_normalized.csv",
+    "asset": "IFIX",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\IFIX_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\IFIX_H1_normalized.csv",
+    "asset": "IFIX",
+    "timeframe": "H1",
+    "rows": 1507,
+    "features_file": "data\\features\\IFIX_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\IGCT_D1_normalized.csv",
+    "asset": "IGCT",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\IGCT_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\IGCT_H1_normalized.csv",
+    "asset": "IGCT",
+    "timeframe": "H1",
+    "rows": 1507,
+    "features_file": "data\\features\\IGCT_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\IGCX_D1_normalized.csv",
+    "asset": "IGCX",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\IGCX_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\IGCX_H1_normalized.csv",
+    "asset": "IGCX",
+    "timeframe": "H1",
+    "rows": 1507,
+    "features_file": "data\\features\\IGCX_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\IGTI3F_D1_normalized.csv",
+    "asset": "IGTI3F",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\IGTI3F_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\IGTI3F_H1_normalized.csv",
+    "asset": "IGTI3F",
+    "timeframe": "H1",
+    "rows": 1475,
+    "features_file": "data\\features\\IGTI3F_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\IMOB_D1_normalized.csv",
+    "asset": "IMOB",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\IMOB_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\IMOB_H1_normalized.csv",
+    "asset": "IMOB",
+    "timeframe": "H1",
+    "rows": 1507,
+    "features_file": "data\\features\\IMOB_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\INBR32_D1_normalized.csv",
+    "asset": "INBR32",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\INBR32_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\INBR32_H1_normalized.csv",
+    "asset": "INBR32",
+    "timeframe": "H1",
+    "rows": 1608,
+    "features_file": "data\\features\\INBR32_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\IPCA_D1_normalized.csv",
+    "status": "SKIPPED",
+    "reason": "TOO_FEW_ROWS",
+    "rows": 22
+  },
+  {
+    "dataset": "data\\normalized\\ITUBPFUT_D1_normalized.csv",
+    "asset": "ITUBPFUT",
+    "timeframe": "D1",
+    "rows": 199,
+    "features_file": "data\\features\\ITUBPFUT_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\ITUBPFUT_H1_normalized.csv",
+    "asset": "ITUBPFUT",
+    "timeframe": "H1",
+    "rows": 1224,
+    "features_file": "data\\features\\ITUBPFUT_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\LFTS11_D1_normalized.csv",
+    "asset": "LFTS11",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\LFTS11_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\LFTS11_H1_normalized.csv",
+    "asset": "LFTS11",
+    "timeframe": "H1",
+    "rows": 1604,
+    "features_file": "data\\features\\LFTS11_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\LLFT11_D1_normalized.csv",
+    "status": "SKIPPED",
+    "reason": "TOO_FEW_ROWS",
+    "rows": 98
+  },
+  {
+    "dataset": "data\\normalized\\M2RV34_D1_normalized.csv",
+    "asset": "M2RV34",
+    "timeframe": "D1",
+    "rows": 193,
+    "features_file": "data\\features\\M2RV34_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MARG11_D1_normalized.csv",
+    "asset": "MARG11",
+    "timeframe": "D1",
+    "rows": 123,
+    "features_file": "data\\features\\MARG11_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MDIA3_D1_normalized.csv",
+    "asset": "MDIA3",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\MDIA3_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MDIA3_H1_normalized.csv",
+    "asset": "MDIA3",
+    "timeframe": "H1",
+    "rows": 1572,
+    "features_file": "data\\features\\MDIA3_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_AUDUSD_D1.csv",
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "rows": 500,
+    "features_file": "data\\features\\AUDUSD_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_AUDUSD_D1_normalized.csv",
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "rows": 1500,
+    "features_file": "data\\features\\AUDUSD_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_AUDUSD_H1.csv",
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "rows": 500,
+    "features_file": "data\\features\\AUDUSD_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_AUDUSD_H1_normalized.csv",
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "rows": 5000,
+    "features_file": "data\\features\\AUDUSD_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_AUDUSD_H4.csv",
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "rows": 500,
+    "features_file": "data\\features\\AUDUSD_H4_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_AUDUSD_H4_normalized.csv",
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "rows": 3000,
+    "features_file": "data\\features\\AUDUSD_H4_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_AUDUSD_M1.csv",
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "rows": 500,
+    "features_file": "data\\features\\AUDUSD_M1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_AUDUSD_M15.csv",
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "rows": 500,
+    "features_file": "data\\features\\AUDUSD_M15_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_AUDUSD_M15_normalized.csv",
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "rows": 5000,
+    "features_file": "data\\features\\AUDUSD_M15_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_AUDUSD_M1_normalized.csv",
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "rows": 5000,
+    "features_file": "data\\features\\AUDUSD_M1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_AUDUSD_M30.csv",
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "rows": 500,
+    "features_file": "data\\features\\AUDUSD_M30_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_AUDUSD_M30_normalized.csv",
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "rows": 5000,
+    "features_file": "data\\features\\AUDUSD_M30_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_AUDUSD_M5.csv",
+    "asset": "AUDUSD",
+    "timeframe": "M5",
+    "rows": 500,
+    "features_file": "data\\features\\AUDUSD_M5_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_AUDUSD_M5_normalized.csv",
+    "asset": "AUDUSD",
+    "timeframe": "M5",
+    "rows": 5000,
+    "features_file": "data\\features\\AUDUSD_M5_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_EURUSD_D1.csv",
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "rows": 500,
+    "features_file": "data\\features\\EURUSD_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_EURUSD_D1_normalized.csv",
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "rows": 1500,
+    "features_file": "data\\features\\EURUSD_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_EURUSD_H1.csv",
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "rows": 500,
+    "features_file": "data\\features\\EURUSD_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_EURUSD_H1_normalized.csv",
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "rows": 5000,
+    "features_file": "data\\features\\EURUSD_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_EURUSD_H4.csv",
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "rows": 500,
+    "features_file": "data\\features\\EURUSD_H4_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_EURUSD_H4_normalized.csv",
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "rows": 3000,
+    "features_file": "data\\features\\EURUSD_H4_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_EURUSD_M1.csv",
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "rows": 500,
+    "features_file": "data\\features\\EURUSD_M1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_EURUSD_M15.csv",
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "rows": 500,
+    "features_file": "data\\features\\EURUSD_M15_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_EURUSD_M15_normalized.csv",
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "rows": 5000,
+    "features_file": "data\\features\\EURUSD_M15_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_EURUSD_M1_normalized.csv",
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "rows": 5000,
+    "features_file": "data\\features\\EURUSD_M1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_EURUSD_M30.csv",
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "rows": 500,
+    "features_file": "data\\features\\EURUSD_M30_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_EURUSD_M30_normalized.csv",
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "rows": 5000,
+    "features_file": "data\\features\\EURUSD_M30_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_EURUSD_M5.csv",
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "rows": 500,
+    "features_file": "data\\features\\EURUSD_M5_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_EURUSD_M5_normalized.csv",
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "rows": 5000,
+    "features_file": "data\\features\\EURUSD_M5_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_GBPUSD_D1.csv",
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "rows": 500,
+    "features_file": "data\\features\\GBPUSD_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_GBPUSD_D1_normalized.csv",
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "rows": 1500,
+    "features_file": "data\\features\\GBPUSD_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_GBPUSD_H1.csv",
+    "asset": "GBPUSD",
+    "timeframe": "H1",
+    "rows": 500,
+    "features_file": "data\\features\\GBPUSD_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_GBPUSD_H1_normalized.csv",
+    "asset": "GBPUSD",
+    "timeframe": "H1",
+    "rows": 5000,
+    "features_file": "data\\features\\GBPUSD_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_GBPUSD_H4.csv",
+    "asset": "GBPUSD",
+    "timeframe": "H4",
+    "rows": 500,
+    "features_file": "data\\features\\GBPUSD_H4_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_GBPUSD_H4_normalized.csv",
+    "asset": "GBPUSD",
+    "timeframe": "H4",
+    "rows": 3000,
+    "features_file": "data\\features\\GBPUSD_H4_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_GBPUSD_M1.csv",
+    "asset": "GBPUSD",
+    "timeframe": "M1",
+    "rows": 500,
+    "features_file": "data\\features\\GBPUSD_M1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_GBPUSD_M15.csv",
+    "asset": "GBPUSD",
+    "timeframe": "M15",
+    "rows": 500,
+    "features_file": "data\\features\\GBPUSD_M15_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_GBPUSD_M15_normalized.csv",
+    "asset": "GBPUSD",
+    "timeframe": "M15",
+    "rows": 5000,
+    "features_file": "data\\features\\GBPUSD_M15_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_GBPUSD_M1_normalized.csv",
+    "asset": "GBPUSD",
+    "timeframe": "M1",
+    "rows": 5000,
+    "features_file": "data\\features\\GBPUSD_M1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_GBPUSD_M30.csv",
+    "asset": "GBPUSD",
+    "timeframe": "M30",
+    "rows": 500,
+    "features_file": "data\\features\\GBPUSD_M30_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_GBPUSD_M30_normalized.csv",
+    "asset": "GBPUSD",
+    "timeframe": "M30",
+    "rows": 5000,
+    "features_file": "data\\features\\GBPUSD_M30_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_GBPUSD_M5.csv",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "rows": 500,
+    "features_file": "data\\features\\GBPUSD_M5_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_GBPUSD_M5_normalized.csv",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "rows": 5000,
+    "features_file": "data\\features\\GBPUSD_M5_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_USDCAD_D1.csv",
+    "asset": "USDCAD",
+    "timeframe": "D1",
+    "rows": 500,
+    "features_file": "data\\features\\USDCAD_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_USDCAD_D1_normalized.csv",
+    "asset": "USDCAD",
+    "timeframe": "D1",
+    "rows": 1500,
+    "features_file": "data\\features\\USDCAD_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_USDCAD_H1.csv",
+    "asset": "USDCAD",
+    "timeframe": "H1",
+    "rows": 500,
+    "features_file": "data\\features\\USDCAD_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_USDCAD_H1_normalized.csv",
+    "asset": "USDCAD",
+    "timeframe": "H1",
+    "rows": 5000,
+    "features_file": "data\\features\\USDCAD_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_USDCAD_H4.csv",
+    "asset": "USDCAD",
+    "timeframe": "H4",
+    "rows": 500,
+    "features_file": "data\\features\\USDCAD_H4_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_USDCAD_H4_normalized.csv",
+    "asset": "USDCAD",
+    "timeframe": "H4",
+    "rows": 3000,
+    "features_file": "data\\features\\USDCAD_H4_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_USDCAD_M1.csv",
+    "asset": "USDCAD",
+    "timeframe": "M1",
+    "rows": 500,
+    "features_file": "data\\features\\USDCAD_M1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_USDCAD_M15.csv",
+    "asset": "USDCAD",
+    "timeframe": "M15",
+    "rows": 500,
+    "features_file": "data\\features\\USDCAD_M15_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_USDCAD_M15_normalized.csv",
+    "asset": "USDCAD",
+    "timeframe": "M15",
+    "rows": 5000,
+    "features_file": "data\\features\\USDCAD_M15_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_USDCAD_M1_normalized.csv",
+    "asset": "USDCAD",
+    "timeframe": "M1",
+    "rows": 5000,
+    "features_file": "data\\features\\USDCAD_M1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_USDCAD_M30.csv",
+    "asset": "USDCAD",
+    "timeframe": "M30",
+    "rows": 500,
+    "features_file": "data\\features\\USDCAD_M30_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_USDCAD_M30_normalized.csv",
+    "asset": "USDCAD",
+    "timeframe": "M30",
+    "rows": 5000,
+    "features_file": "data\\features\\USDCAD_M30_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_USDCAD_M5.csv",
+    "asset": "USDCAD",
+    "timeframe": "M5",
+    "rows": 500,
+    "features_file": "data\\features\\USDCAD_M5_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_USDCAD_M5_normalized.csv",
+    "asset": "USDCAD",
+    "timeframe": "M5",
+    "rows": 5000,
+    "features_file": "data\\features\\USDCAD_M5_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_USDJPY_D1.csv",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "rows": 500,
+    "features_file": "data\\features\\USDJPY_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_USDJPY_D1_normalized.csv",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "rows": 1500,
+    "features_file": "data\\features\\USDJPY_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_USDJPY_H1.csv",
+    "asset": "USDJPY",
+    "timeframe": "H1",
+    "rows": 500,
+    "features_file": "data\\features\\USDJPY_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_USDJPY_H1_normalized.csv",
+    "asset": "USDJPY",
+    "timeframe": "H1",
+    "rows": 5000,
+    "features_file": "data\\features\\USDJPY_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_USDJPY_H4.csv",
+    "asset": "USDJPY",
+    "timeframe": "H4",
+    "rows": 500,
+    "features_file": "data\\features\\USDJPY_H4_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_USDJPY_H4_normalized.csv",
+    "asset": "USDJPY",
+    "timeframe": "H4",
+    "rows": 3000,
+    "features_file": "data\\features\\USDJPY_H4_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_USDJPY_M1.csv",
+    "asset": "USDJPY",
+    "timeframe": "M1",
+    "rows": 500,
+    "features_file": "data\\features\\USDJPY_M1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_USDJPY_M15.csv",
+    "asset": "USDJPY",
+    "timeframe": "M15",
+    "rows": 500,
+    "features_file": "data\\features\\USDJPY_M15_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_USDJPY_M15_normalized.csv",
+    "asset": "USDJPY",
+    "timeframe": "M15",
+    "rows": 5000,
+    "features_file": "data\\features\\USDJPY_M15_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_USDJPY_M1_normalized.csv",
+    "asset": "USDJPY",
+    "timeframe": "M1",
+    "rows": 5000,
+    "features_file": "data\\features\\USDJPY_M1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_USDJPY_M30.csv",
+    "asset": "USDJPY",
+    "timeframe": "M30",
+    "rows": 500,
+    "features_file": "data\\features\\USDJPY_M30_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_USDJPY_M30_normalized.csv",
+    "asset": "USDJPY",
+    "timeframe": "M30",
+    "rows": 5000,
+    "features_file": "data\\features\\USDJPY_M30_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_USDJPY_M5.csv",
+    "asset": "USDJPY",
+    "timeframe": "M5",
+    "rows": 500,
+    "features_file": "data\\features\\USDJPY_M5_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_USDJPY_M5_normalized.csv",
+    "asset": "USDJPY",
+    "timeframe": "M5",
+    "rows": 5000,
+    "features_file": "data\\features\\USDJPY_M5_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_XAUUSD_D1.csv",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "rows": 500,
+    "features_file": "data\\features\\XAUUSD_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_XAUUSD_D1_normalized.csv",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "rows": 1500,
+    "features_file": "data\\features\\XAUUSD_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_XAUUSD_H1.csv",
+    "asset": "XAUUSD",
+    "timeframe": "H1",
+    "rows": 500,
+    "features_file": "data\\features\\XAUUSD_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_XAUUSD_H1_normalized.csv",
+    "asset": "XAUUSD",
+    "timeframe": "H1",
+    "rows": 5000,
+    "features_file": "data\\features\\XAUUSD_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_XAUUSD_H4.csv",
+    "asset": "XAUUSD",
+    "timeframe": "H4",
+    "rows": 500,
+    "features_file": "data\\features\\XAUUSD_H4_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_XAUUSD_H4_normalized.csv",
+    "asset": "XAUUSD",
+    "timeframe": "H4",
+    "rows": 3000,
+    "features_file": "data\\features\\XAUUSD_H4_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_XAUUSD_M1.csv",
+    "asset": "XAUUSD",
+    "timeframe": "M1",
+    "rows": 500,
+    "features_file": "data\\features\\XAUUSD_M1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_XAUUSD_M15.csv",
+    "asset": "XAUUSD",
+    "timeframe": "M15",
+    "rows": 500,
+    "features_file": "data\\features\\XAUUSD_M15_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_XAUUSD_M15_normalized.csv",
+    "asset": "XAUUSD",
+    "timeframe": "M15",
+    "rows": 5000,
+    "features_file": "data\\features\\XAUUSD_M15_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_XAUUSD_M1_normalized.csv",
+    "asset": "XAUUSD",
+    "timeframe": "M1",
+    "rows": 5000,
+    "features_file": "data\\features\\XAUUSD_M1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_XAUUSD_M30.csv",
+    "asset": "XAUUSD",
+    "timeframe": "M30",
+    "rows": 500,
+    "features_file": "data\\features\\XAUUSD_M30_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_XAUUSD_M30_normalized.csv",
+    "asset": "XAUUSD",
+    "timeframe": "M30",
+    "rows": 5000,
+    "features_file": "data\\features\\XAUUSD_M30_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_XAUUSD_M5.csv",
+    "asset": "XAUUSD",
+    "timeframe": "M5",
+    "rows": 500,
+    "features_file": "data\\features\\XAUUSD_M5_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\MT5_XAUUSD_M5_normalized.csv",
+    "asset": "XAUUSD",
+    "timeframe": "M5",
+    "rows": 5000,
+    "features_file": "data\\features\\XAUUSD_M5_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\NBIT11_D1_normalized.csv",
+    "status": "SKIPPED",
+    "reason": "TOO_FEW_ROWS",
+    "rows": 81
+  },
+  {
+    "dataset": "data\\normalized\\NBIT11_H1_normalized.csv",
+    "asset": "NBIT11",
+    "timeframe": "H1",
+    "rows": 600,
+    "features_file": "data\\features\\NBIT11_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\NZLFUT_D1_normalized.csv",
+    "asset": "NZLFUT",
+    "timeframe": "D1",
+    "rows": 103,
+    "features_file": "data\\features\\NZLFUT_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\NZLFUT_H1_normalized.csv",
+    "asset": "NZLFUT",
+    "timeframe": "H1",
+    "rows": 149,
+    "features_file": "data\\features\\NZLFUT_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\OBTC3F_D1_normalized.csv",
+    "status": "SKIPPED",
+    "reason": "TOO_FEW_ROWS",
+    "rows": 67
+  },
+  {
+    "dataset": "data\\normalized\\OBTC3_D1_normalized.csv",
+    "status": "SKIPPED",
+    "reason": "TOO_FEW_ROWS",
+    "rows": 67
+  },
+  {
+    "dataset": "data\\normalized\\PACB11_D1_normalized.csv",
+    "asset": "PACB11",
+    "timeframe": "D1",
+    "rows": 188,
+    "features_file": "data\\features\\PACB11_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\PETR4_H1_normalized.csv",
+    "asset": "PETR4",
+    "timeframe": "H1",
+    "rows": 1601,
+    "features_file": "data\\features\\PETR4_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\PETR4_M15_normalized.csv",
+    "asset": "PETR4",
+    "timeframe": "M15",
+    "rows": 3858,
+    "features_file": "data\\features\\PETR4_M15_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\PETR4_M20_normalized.csv",
+    "asset": "PETR4",
+    "timeframe": "M20",
+    "rows": 3864,
+    "features_file": "data\\features\\PETR4_M20_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\PETR4_M30_normalized.csv",
+    "asset": "PETR4",
+    "timeframe": "M30",
+    "rows": 3078,
+    "features_file": "data\\features\\PETR4_M30_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\POSI3F_D1_normalized.csv",
+    "asset": "POSI3F",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\POSI3F_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\POSI3_D1_normalized.csv",
+    "asset": "POSI3",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\POSI3_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\QBTC11_D1_normalized.csv",
+    "asset": "QBTC11",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\QBTC11_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\SBSP3F_D1_normalized.csv",
+    "asset": "SBSP3F",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\SBSP3F_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\SBSP3F_H1_normalized.csv",
+    "asset": "SBSP3F",
+    "timeframe": "H1",
+    "rows": 1608,
+    "features_file": "data\\features\\SBSP3F_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\SELIC_D1_normalized.csv",
+    "status": "SKIPPED",
+    "reason": "TOO_FEW_ROWS",
+    "rows": 24
+  },
+  {
+    "dataset": "data\\normalized\\SHUL4_D1_normalized.csv",
+    "asset": "SHUL4",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\SHUL4_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\SHUL4_H1_normalized.csv",
+    "asset": "SHUL4",
+    "timeframe": "H1",
+    "rows": 1569,
+    "features_file": "data\\features\\SHUL4_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\SMAB11_D1_normalized.csv",
+    "asset": "SMAB11",
+    "timeframe": "D1",
+    "rows": 199,
+    "features_file": "data\\features\\SMAB11_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\SMAB_D1_normalized.csv",
+    "asset": "SMAB",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\SMAB_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\SPXB11_D1_normalized.csv",
+    "asset": "SPXB11",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\SPXB11_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\SYNE3F_D1_normalized.csv",
+    "asset": "SYNE3F",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\SYNE3F_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\SYNE3_D1_normalized.csv",
+    "asset": "SYNE3",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\SYNE3_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\TAEE11_D1_normalized.csv",
+    "asset": "TAEE11",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\TAEE11_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\TAEE11_H1_normalized.csv",
+    "asset": "TAEE11",
+    "timeframe": "H1",
+    "rows": 1601,
+    "features_file": "data\\features\\TAEE11_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\TEST_1m_21dd63dfb9f3.csv",
+    "status": "SKIPPED",
+    "reason": "MISSING_TIME_OR_OHLC"
+  },
+  {
+    "dataset": "data\\normalized\\TEST_1m_5862881949e3.csv",
+    "status": "ERROR",
+    "error": "No columns to parse from file"
+  },
+  {
+    "dataset": "data\\normalized\\TEST_1m_9d416573404f.csv",
+    "status": "SKIPPED",
+    "reason": "MISSING_TIME_OR_OHLC"
+  },
+  {
+    "dataset": "data\\normalized\\TEST_1m_a936139f4287.csv",
+    "status": "SKIPPED",
+    "reason": "MISSING_TIME_OR_OHLC"
+  },
+  {
+    "dataset": "data\\normalized\\TIRB11_D1_normalized.csv",
+    "asset": "TIRB11",
+    "timeframe": "D1",
+    "rows": 161,
+    "features_file": "data\\features\\TIRB11_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\TIRB_D1_normalized.csv",
+    "asset": "TIRB",
+    "timeframe": "D1",
+    "rows": 161,
+    "features_file": "data\\features\\TIRB_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\VALE3_D1_normalized.csv",
+    "asset": "VALE3",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\VALE3_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\VALE3_H1_normalized.csv",
+    "asset": "VALE3",
+    "timeframe": "H1",
+    "rows": 1601,
+    "features_file": "data\\features\\VALE3_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\VALE3_M15_normalized.csv",
+    "asset": "VALE3",
+    "timeframe": "M15",
+    "rows": 3863,
+    "features_file": "data\\features\\VALE3_M15_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\VALE3_M20_normalized.csv",
+    "asset": "VALE3",
+    "timeframe": "M20",
+    "rows": 3865,
+    "features_file": "data\\features\\VALE3_M20_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\VALE3_M30_normalized.csv",
+    "asset": "VALE3",
+    "timeframe": "M30",
+    "rows": 3063,
+    "features_file": "data\\features\\VALE3_M30_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\VCJR11_D1_normalized.csv",
+    "asset": "VCJR11",
+    "timeframe": "D1",
+    "rows": 199,
+    "features_file": "data\\features\\VCJR11_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\VCJR11_H1_normalized.csv",
+    "asset": "VCJR11",
+    "timeframe": "H1",
+    "rows": 1580,
+    "features_file": "data\\features\\VCJR11_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\WDOFUT_H1_normalized.csv",
+    "asset": "WDOFUT",
+    "timeframe": "H1",
+    "rows": 1996,
+    "features_file": "data\\features\\WDOFUT_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\WDOFUT_M15_normalized.csv",
+    "asset": "WDOFUT",
+    "timeframe": "M15",
+    "rows": 4066,
+    "features_file": "data\\features\\WDOFUT_M15_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\WDOFUT_M20_normalized.csv",
+    "asset": "WDOFUT",
+    "timeframe": "M20",
+    "rows": 3961,
+    "features_file": "data\\features\\WDOFUT_M20_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\WDOFUT_M30_normalized.csv",
+    "asset": "WDOFUT",
+    "timeframe": "M30",
+    "rows": 3792,
+    "features_file": "data\\features\\WDOFUT_M30_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\WINFUTV_D1_normalized.csv",
+    "asset": "WINFUTV",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\WINFUTV_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\WINFUTV_H1_normalized.csv",
+    "asset": "WINFUTV",
+    "timeframe": "H1",
+    "rows": 1996,
+    "features_file": "data\\features\\WINFUTV_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\WINFUT_D1_normalized.csv",
+    "asset": "WINFUT",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\WINFUT_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\WINFUT_H1_normalized.csv",
+    "asset": "WINFUT",
+    "timeframe": "H1",
+    "rows": 1996,
+    "features_file": "data\\features\\WINFUT_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\WINFUT_M15_normalized.csv",
+    "asset": "WINFUT",
+    "timeframe": "M15",
+    "rows": 4064,
+    "features_file": "data\\features\\WINFUT_M15_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\WINFUT_M20_normalized.csv",
+    "asset": "WINFUT",
+    "timeframe": "M20",
+    "rows": 3960,
+    "features_file": "data\\features\\WINFUT_M20_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\WINFUT_M30_normalized.csv",
+    "asset": "WINFUT",
+    "timeframe": "M30",
+    "rows": 3792,
+    "features_file": "data\\features\\WINFUT_M30_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\WINM26_D1_normalized.csv",
+    "status": "SKIPPED",
+    "reason": "TOO_FEW_ROWS",
+    "rows": 50
+  },
+  {
+    "dataset": "data\\normalized\\WINM26_H1_normalized.csv",
+    "asset": "WINM26",
+    "timeframe": "H1",
+    "rows": 435,
+    "features_file": "data\\features\\WINM26_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\WSPFUT_D1_normalized.csv",
+    "asset": "WSPFUT",
+    "timeframe": "D1",
+    "rows": 200,
+    "features_file": "data\\features\\WSPFUT_D1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\WSPFUT_H1_normalized.csv",
+    "asset": "WSPFUT",
+    "timeframe": "H1",
+    "rows": 1796,
+    "features_file": "data\\features\\WSPFUT_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\WSPM26_D1_normalized.csv",
+    "status": "SKIPPED",
+    "reason": "TOO_FEW_ROWS",
+    "rows": 35
+  },
+  {
+    "dataset": "data\\normalized\\WSPM26_H1_normalized.csv",
+    "asset": "WSPM26",
+    "timeframe": "H1",
+    "rows": 217,
+    "features_file": "data\\features\\WSPM26_H1_features.csv",
+    "status": "FEATURES_CREATED"
+  },
+  {
+    "dataset": "data\\normalized\\XBIT11_D1_normalized.csv",
+    "status": "SKIPPED",
+    "reason": "TOO_FEW_ROWS",
+    "rows": 46
+  },
+  {
+    "dataset": "data\\normalized\\ZARFUT_D1_normalized.csv",
+    "status": "SKIPPED",
+    "reason": "TOO_FEW_ROWS",
+    "rows": 1
+  },
+  {
+    "dataset": "data\\normalized\\ZARFUT_H1_normalized.csv",
+    "status": "SKIPPED",
+    "reason": "TOO_FEW_ROWS",
+    "rows": 1
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "strategy_id": "76bcda7c084746f6",
+  "template": "bollinger_reversion",
+  "asset": "WDO",
+  "timeframe": "M5",
+  "platform": "Profit/NTSL",
+  "requires_profit_backtest": true,
+  "live": "FORBIDDEN",
+  "real_orders": "FORBIDDEN"
+}

@@ -1,0 +1,938 @@
+[
+  {
+    "asset": "ABCB4",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 1,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "ABCB4F",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 2,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "ALPA4",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 3,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "ARGE11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 4,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "AUPO11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 5,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "BCIC",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 6,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "BDIF11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 7,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "BINC11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 8,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "BMKS3",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 9,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "BOVAG181",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 10,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "BOVAR170",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 11,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "BOVAS47",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 12,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "BOVV11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 13,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "BPAC11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 14,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "BPAC11F",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 15,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "BPAC3",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 16,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "BPAC3F",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 17,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "BPAC5",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 18,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "BPAC5F",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 19,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "BPML11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 20,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "BRXC",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 21,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "BTCI11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 22,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "BTCI11Q",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 23,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "BTCLIQBRL",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 24,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "BTCLIQUSD",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 25,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "BTCV39",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 26,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "BTHF11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 27,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "BTHI11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 28,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "BTLG11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 29,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "BTRA11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 30,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "CADFUT",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 31,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "CGAS3F",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 32,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "CMDB",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 33,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "CMDB11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 34,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "CMIG4",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 35,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "CMIG4F",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 36,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "CRAA11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 37,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "CSAN3",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 38,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "CTKA3",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 39,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "DEBB11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 40,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "DI1F29",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 41,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "DI1F34",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 42,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "DI1F35",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 43,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "DI1F38",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 44,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "DI1N30",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 45,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "DI1X29",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 46,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "DIIV26F27",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 47,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "DOLB11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 48,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "DOLCC",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 49,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "DOLCV",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 50,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "DOLPT",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 51,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "ENEV3",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 52,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "ESGB",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 53,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "GBTC11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 54,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "GENB",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 55,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "HBOR3",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 56,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "IBBC",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 57,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "IBBR",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 58,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "IBEP",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 59,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "IBOV",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 60,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "IBRA",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 61,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "IFIX",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 62,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "IGCT",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 63,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "IGCX",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 64,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "IGTI3F",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 65,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "IMOB",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 66,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "INBR32",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 67,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "IPCA",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 68,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "ITUBPFUT",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 69,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "LFTS11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 70,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "LLFT11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 71,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "M2RV34",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 72,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "MARG11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 73,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "MDIA3",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 74,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "NBIT11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 75,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "NZLFUT",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 76,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "OBTC3",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 77,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "OBTC3F",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 78,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "PACB11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 79,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "PETR4",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 80,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "POSI3",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 81,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "POSI3F",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 82,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "QBTC11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 83,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "SBSP3F",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 84,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "SELIC",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 85,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "SHUL4",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 86,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "SMAB",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 87,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "SMAB11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 88,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "SPXB11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 89,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "SYNE3",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 90,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "SYNE3F",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 91,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "TAEE11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 92,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "TIRB",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 93,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "TIRB11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 94,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "VALE3",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 95,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "VCJR11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 96,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "WDOFUT",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 97,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "WINFUT",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 98,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "WINFUTV",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 99,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "WINM26",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 100,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "WSPFUT",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 101,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "WSPM26",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 102,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "XBIT11",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 103,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "ZARFUT",
+    "cross_asset_role": "CANDIDATE",
+    "priority": 104,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  }
+]

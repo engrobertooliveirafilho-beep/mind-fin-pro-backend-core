@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_2A328A9C0EDE76F0",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\resources\\fine_tuning\\checkpoints\\permissions.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\openai\\resources\\fine_tuning\\checkpoints\\permissions.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 97,
+  "imports": [
+    "__future__",
+    "_base_client",
+    "_compat",
+    "_resource",
+    "_response",
+    "_types",
+    "_utils",
+    "httpx",
+    "pagination",
+    "types.fine_tuning.checkpoints",
+    "types.fine_tuning.checkpoints.permission_create_response",
+    "types.fine_tuning.checkpoints.permission_delete_response",
+    "types.fine_tuning.checkpoints.permission_list_response",
+    "types.fine_tuning.checkpoints.permission_retrieve_response",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

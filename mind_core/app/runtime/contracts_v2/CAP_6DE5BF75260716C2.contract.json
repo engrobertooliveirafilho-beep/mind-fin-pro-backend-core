@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_6DE5BF75260716C2",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\core\\interchange\\column.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\pandas\\core\\interchange\\column.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 105,
+  "imports": [
+    "__future__",
+    "numpy",
+    "pandas",
+    "pandas._config",
+    "pandas._libs.lib",
+    "pandas._libs.tslibs",
+    "pandas.api.types",
+    "pandas.core.dtypes.dtypes",
+    "pandas.core.interchange.buffer",
+    "pandas.core.interchange.dataframe_protocol",
+    "pandas.core.interchange.utils",
+    "pandas.errors",
+    "pandas.util._decorators",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

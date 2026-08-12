@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_523306999BE2CD0E",
+  "source_file": "tools\\bope\\bope13_full_pipeline_persona_simulator.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\tools\\bope\\bope13_full_pipeline_persona_simulator.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 117,
+  "imports": [
+    "app.runtime.digital_twin.builder",
+    "app.runtime.knowledge_providers.contract",
+    "app.runtime.knowledge_providers.legacy_domain_provider",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_5324AD2FB07DFD20",
+  "source_file": ".venv\\Lib\\site-packages\\docx\\text\\tabstops.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\docx\\text\\tabstops.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 102,
+  "imports": [
+    "docx.enum.text",
+    "docx.shared"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

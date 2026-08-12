@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_489FC3F134D0B21F",
+  "source_file": ".venv\\Lib\\site-packages\\dateutil\\rrule.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\dateutil\\rrule.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 129,
+  "imports": [
+    "_common",
+    "calendar",
+    "datetime",
+    "dateutil",
+    "fractions",
+    "functools",
+    "heapq",
+    "itertools",
+    "math",
+    "re",
+    "six",
+    "six.moves",
+    "sys",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

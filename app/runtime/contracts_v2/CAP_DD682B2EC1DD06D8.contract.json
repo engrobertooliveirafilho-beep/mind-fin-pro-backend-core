@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_DD682B2EC1DD06D8",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_overrides.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_overrides.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 107,
+  "imports": [
+    "inspect",
+    "io",
+    "numpy",
+    "numpy._core.overrides",
+    "numpy.testing",
+    "numpy.testing.overrides",
+    "os",
+    "pickle",
+    "pytest",
+    "sys",
+    "tempfile",
+    "unittest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

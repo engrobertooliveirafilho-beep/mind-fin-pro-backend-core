@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_0B5981AE34665337",
+  "source_file": ".venv\\Lib\\site-packages\\pptx\\shapes\\graphfrm.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\pptx\\shapes\\graphfrm.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 101,
+  "imports": [
+    "__future__",
+    "pptx.chart.chart",
+    "pptx.dml.effect",
+    "pptx.enum.shapes",
+    "pptx.oxml.shapes.graphfrm",
+    "pptx.parts.chart",
+    "pptx.parts.slide",
+    "pptx.shapes.base",
+    "pptx.shared",
+    "pptx.spec",
+    "pptx.table",
+    "pptx.types",
+    "pptx.util",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

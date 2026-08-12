@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_378E4554FDEEF314",
+  "source_file": ".venv\\Lib\\site-packages\\setuptools\\_vendor\\more_itertools\\recipes.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\setuptools\\_vendor\\more_itertools\\recipes.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 128,
+  "imports": [
+    "bisect",
+    "collections",
+    "contextlib",
+    "functools",
+    "heapq",
+    "itertools",
+    "math",
+    "operator",
+    "random",
+    "sys"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

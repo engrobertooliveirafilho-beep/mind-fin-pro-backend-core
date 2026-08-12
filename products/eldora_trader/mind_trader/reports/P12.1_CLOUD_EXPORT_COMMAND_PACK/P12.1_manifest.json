@@ -1,0 +1,19 @@
+{
+  "STATUS": "P12.1_CLOUD_EXPORT_COMMAND_PACK_IMPLEMENTED",
+  "COMMANDS": {
+    "rclone_drive": "rclone copy \"reports/P12_REAL_DATA_LOADING_CLOUD_EXPORT/export_package\" \"gdrive:mind-workspace/MIND_TRADER/P12_EXPORT_PACKAGE\" --create-empty-src-dirs --progress",
+    "supabase_note": "Upload package files to bucket mind-workspace/MIND_TRADER/P12_EXPORT_PACKAGE using existing project credentials.",
+    "source_dir": "reports/P12_REAL_DATA_LOADING_CLOUD_EXPORT/export_package"
+  },
+  "CLOUD_TARGETS": [
+    "Google Drive via rclone",
+    "Supabase bucket mind-workspace"
+  ],
+  "LOCAL_PACKAGE_IS_TEMPORARY": true,
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "EDGE": "NOT_PROVEN",
+  "CAUSALITY": "NOT_PROVEN",
+  "EXPORT_READY": true,
+  "generated_at": "2026-06-14T16:11:26.506245+00:00"
+}

@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_360A54EC23B0F2C8",
+  "source_file": ".venv\\Lib\\site-packages\\twilio\\rest\\assistants\\v1\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\twilio\\rest\\assistants\\v1\\__init__.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 114,
+  "imports": [
+    "twilio.base.domain",
+    "twilio.base.version",
+    "twilio.rest.assistants.v1.assistant",
+    "twilio.rest.assistants.v1.knowledge",
+    "twilio.rest.assistants.v1.policy",
+    "twilio.rest.assistants.v1.session",
+    "twilio.rest.assistants.v1.tool",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

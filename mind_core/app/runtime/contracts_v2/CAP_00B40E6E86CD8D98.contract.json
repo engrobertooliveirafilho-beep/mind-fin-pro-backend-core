@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_00B40E6E86CD8D98",
+  "source_file": "tests\\test_p482_runtime_prioritization.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\tests\\test_p482_runtime_prioritization.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 106,
+  "imports": [
+    "json",
+    "pathlib",
+    "subprocess",
+    "sys"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

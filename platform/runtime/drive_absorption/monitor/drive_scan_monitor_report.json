@@ -1,0 +1,25 @@
+{
+  "milestone": "P4.91F3 COMPLETE",
+  "monitor": "DRIVE_SCAN_MONITOR_ASCII_SAFE",
+  "generated_at": "2026-06-22T02:38:32.444147+00:00",
+  "status": "COMPLETE",
+  "remote": "gdrive",
+  "drive_folder_id": "1tVbi6243j7QFSdjAd6oIZ7IqEgLvYE-A",
+  "mode": "PRINT_SCAN_PROGRESS_ASCII_SAFE",
+  "delete": "FORBIDDEN",
+  "move_original": "FORBIDDEN",
+  "folders_walked": 500,
+  "items_total": 2907,
+  "files_total": 1360,
+  "folders_total": 1547,
+  "zip_files": 26,
+  "errors_count": 1,
+  "elapsed_seconds": 1515.64,
+  "errors": [
+    {
+      "folder": "CONTROL/P4_12N_C_FIX8_LEAK_ELIMINATION_20260525_180536",
+      "returncode": 124,
+      "error": "TIMEOUT"
+    }
+  ]
+}

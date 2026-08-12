@@ -1,0 +1,1388 @@
+[
+  {
+    "asset": "WINFUT",
+    "family": "trend_following",
+    "pattern": "sma_cross",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WINFUT",
+    "family": "trend_following",
+    "pattern": "ema_cross",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WINFUT",
+    "family": "trend_following",
+    "pattern": "adx_trend",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WINFUT",
+    "family": "trend_following",
+    "pattern": "donchian_trend",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WINFUT",
+    "family": "mean_reversion",
+    "pattern": "rsi_reversion",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WINFUT",
+    "family": "mean_reversion",
+    "pattern": "bollinger_reversion",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WINFUT",
+    "family": "mean_reversion",
+    "pattern": "vwap_reversion",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WINFUT",
+    "family": "breakout",
+    "pattern": "range_breakout",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WINFUT",
+    "family": "breakout",
+    "pattern": "opening_range_breakout",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WINFUT",
+    "family": "breakout",
+    "pattern": "volatility_breakout",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WINFUT",
+    "family": "volatility",
+    "pattern": "atr_expansion",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WINFUT",
+    "family": "volatility",
+    "pattern": "bollinger_squeeze",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WINFUT",
+    "family": "volume",
+    "pattern": "volume_spike",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WINFUT",
+    "family": "volume",
+    "pattern": "obv_confirmation",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WINFUT",
+    "family": "market_regime",
+    "pattern": "trend_regime",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WINFUT",
+    "family": "market_regime",
+    "pattern": "sideways_regime",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WINFUT",
+    "family": "market_regime",
+    "pattern": "volatility_regime",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WINFUT",
+    "family": "multi_timeframe",
+    "pattern": "h1_trend_m15_entry",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WINFUT",
+    "family": "multi_timeframe",
+    "pattern": "d1_bias_h1_entry",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WINFUT",
+    "family": "risk_management",
+    "pattern": "atr_stop",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WINFUT",
+    "family": "risk_management",
+    "pattern": "fixed_stop_take",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WINFUT",
+    "family": "risk_management",
+    "pattern": "trailing_stop",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WDOFUT",
+    "family": "trend_following",
+    "pattern": "sma_cross",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WDOFUT",
+    "family": "trend_following",
+    "pattern": "ema_cross",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WDOFUT",
+    "family": "trend_following",
+    "pattern": "adx_trend",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WDOFUT",
+    "family": "trend_following",
+    "pattern": "donchian_trend",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WDOFUT",
+    "family": "mean_reversion",
+    "pattern": "rsi_reversion",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WDOFUT",
+    "family": "mean_reversion",
+    "pattern": "bollinger_reversion",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WDOFUT",
+    "family": "mean_reversion",
+    "pattern": "vwap_reversion",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WDOFUT",
+    "family": "breakout",
+    "pattern": "range_breakout",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WDOFUT",
+    "family": "breakout",
+    "pattern": "opening_range_breakout",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WDOFUT",
+    "family": "breakout",
+    "pattern": "volatility_breakout",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WDOFUT",
+    "family": "volatility",
+    "pattern": "atr_expansion",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WDOFUT",
+    "family": "volatility",
+    "pattern": "bollinger_squeeze",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WDOFUT",
+    "family": "volume",
+    "pattern": "volume_spike",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WDOFUT",
+    "family": "volume",
+    "pattern": "obv_confirmation",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WDOFUT",
+    "family": "market_regime",
+    "pattern": "trend_regime",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WDOFUT",
+    "family": "market_regime",
+    "pattern": "sideways_regime",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WDOFUT",
+    "family": "market_regime",
+    "pattern": "volatility_regime",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WDOFUT",
+    "family": "multi_timeframe",
+    "pattern": "h1_trend_m15_entry",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WDOFUT",
+    "family": "multi_timeframe",
+    "pattern": "d1_bias_h1_entry",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WDOFUT",
+    "family": "risk_management",
+    "pattern": "atr_stop",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WDOFUT",
+    "family": "risk_management",
+    "pattern": "fixed_stop_take",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "WDOFUT",
+    "family": "risk_management",
+    "pattern": "trailing_stop",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IBOV",
+    "family": "trend_following",
+    "pattern": "sma_cross",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IBOV",
+    "family": "trend_following",
+    "pattern": "ema_cross",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IBOV",
+    "family": "trend_following",
+    "pattern": "adx_trend",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IBOV",
+    "family": "trend_following",
+    "pattern": "donchian_trend",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IBOV",
+    "family": "mean_reversion",
+    "pattern": "rsi_reversion",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IBOV",
+    "family": "mean_reversion",
+    "pattern": "bollinger_reversion",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IBOV",
+    "family": "mean_reversion",
+    "pattern": "vwap_reversion",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IBOV",
+    "family": "breakout",
+    "pattern": "range_breakout",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IBOV",
+    "family": "breakout",
+    "pattern": "opening_range_breakout",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IBOV",
+    "family": "breakout",
+    "pattern": "volatility_breakout",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IBOV",
+    "family": "volatility",
+    "pattern": "atr_expansion",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IBOV",
+    "family": "volatility",
+    "pattern": "bollinger_squeeze",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IBOV",
+    "family": "volume",
+    "pattern": "volume_spike",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IBOV",
+    "family": "volume",
+    "pattern": "obv_confirmation",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IBOV",
+    "family": "market_regime",
+    "pattern": "trend_regime",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IBOV",
+    "family": "market_regime",
+    "pattern": "sideways_regime",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IBOV",
+    "family": "market_regime",
+    "pattern": "volatility_regime",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IBOV",
+    "family": "multi_timeframe",
+    "pattern": "h1_trend_m15_entry",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IBOV",
+    "family": "multi_timeframe",
+    "pattern": "d1_bias_h1_entry",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IBOV",
+    "family": "risk_management",
+    "pattern": "atr_stop",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IBOV",
+    "family": "risk_management",
+    "pattern": "fixed_stop_take",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IBOV",
+    "family": "risk_management",
+    "pattern": "trailing_stop",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "PETR4",
+    "family": "trend_following",
+    "pattern": "sma_cross",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "PETR4",
+    "family": "trend_following",
+    "pattern": "ema_cross",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "PETR4",
+    "family": "trend_following",
+    "pattern": "adx_trend",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "PETR4",
+    "family": "trend_following",
+    "pattern": "donchian_trend",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "PETR4",
+    "family": "mean_reversion",
+    "pattern": "rsi_reversion",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "PETR4",
+    "family": "mean_reversion",
+    "pattern": "bollinger_reversion",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "PETR4",
+    "family": "mean_reversion",
+    "pattern": "vwap_reversion",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "PETR4",
+    "family": "breakout",
+    "pattern": "range_breakout",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "PETR4",
+    "family": "breakout",
+    "pattern": "opening_range_breakout",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "PETR4",
+    "family": "breakout",
+    "pattern": "volatility_breakout",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "PETR4",
+    "family": "volatility",
+    "pattern": "atr_expansion",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "PETR4",
+    "family": "volatility",
+    "pattern": "bollinger_squeeze",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "PETR4",
+    "family": "volume",
+    "pattern": "volume_spike",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "PETR4",
+    "family": "volume",
+    "pattern": "obv_confirmation",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "PETR4",
+    "family": "market_regime",
+    "pattern": "trend_regime",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "PETR4",
+    "family": "market_regime",
+    "pattern": "sideways_regime",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "PETR4",
+    "family": "market_regime",
+    "pattern": "volatility_regime",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "PETR4",
+    "family": "multi_timeframe",
+    "pattern": "h1_trend_m15_entry",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "PETR4",
+    "family": "multi_timeframe",
+    "pattern": "d1_bias_h1_entry",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "PETR4",
+    "family": "risk_management",
+    "pattern": "atr_stop",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "PETR4",
+    "family": "risk_management",
+    "pattern": "fixed_stop_take",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "PETR4",
+    "family": "risk_management",
+    "pattern": "trailing_stop",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "VALE3",
+    "family": "trend_following",
+    "pattern": "sma_cross",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "VALE3",
+    "family": "trend_following",
+    "pattern": "ema_cross",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "VALE3",
+    "family": "trend_following",
+    "pattern": "adx_trend",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "VALE3",
+    "family": "trend_following",
+    "pattern": "donchian_trend",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "VALE3",
+    "family": "mean_reversion",
+    "pattern": "rsi_reversion",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "VALE3",
+    "family": "mean_reversion",
+    "pattern": "bollinger_reversion",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "VALE3",
+    "family": "mean_reversion",
+    "pattern": "vwap_reversion",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "VALE3",
+    "family": "breakout",
+    "pattern": "range_breakout",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "VALE3",
+    "family": "breakout",
+    "pattern": "opening_range_breakout",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "VALE3",
+    "family": "breakout",
+    "pattern": "volatility_breakout",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "VALE3",
+    "family": "volatility",
+    "pattern": "atr_expansion",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "VALE3",
+    "family": "volatility",
+    "pattern": "bollinger_squeeze",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "VALE3",
+    "family": "volume",
+    "pattern": "volume_spike",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "VALE3",
+    "family": "volume",
+    "pattern": "obv_confirmation",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "VALE3",
+    "family": "market_regime",
+    "pattern": "trend_regime",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "VALE3",
+    "family": "market_regime",
+    "pattern": "sideways_regime",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "VALE3",
+    "family": "market_regime",
+    "pattern": "volatility_regime",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "VALE3",
+    "family": "multi_timeframe",
+    "pattern": "h1_trend_m15_entry",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "VALE3",
+    "family": "multi_timeframe",
+    "pattern": "d1_bias_h1_entry",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "VALE3",
+    "family": "risk_management",
+    "pattern": "atr_stop",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "VALE3",
+    "family": "risk_management",
+    "pattern": "fixed_stop_take",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "VALE3",
+    "family": "risk_management",
+    "pattern": "trailing_stop",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IFIX",
+    "family": "trend_following",
+    "pattern": "sma_cross",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IFIX",
+    "family": "trend_following",
+    "pattern": "ema_cross",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IFIX",
+    "family": "trend_following",
+    "pattern": "adx_trend",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IFIX",
+    "family": "trend_following",
+    "pattern": "donchian_trend",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IFIX",
+    "family": "mean_reversion",
+    "pattern": "rsi_reversion",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IFIX",
+    "family": "mean_reversion",
+    "pattern": "bollinger_reversion",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IFIX",
+    "family": "mean_reversion",
+    "pattern": "vwap_reversion",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IFIX",
+    "family": "breakout",
+    "pattern": "range_breakout",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IFIX",
+    "family": "breakout",
+    "pattern": "opening_range_breakout",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IFIX",
+    "family": "breakout",
+    "pattern": "volatility_breakout",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IFIX",
+    "family": "volatility",
+    "pattern": "atr_expansion",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IFIX",
+    "family": "volatility",
+    "pattern": "bollinger_squeeze",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IFIX",
+    "family": "volume",
+    "pattern": "volume_spike",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IFIX",
+    "family": "volume",
+    "pattern": "obv_confirmation",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IFIX",
+    "family": "market_regime",
+    "pattern": "trend_regime",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IFIX",
+    "family": "market_regime",
+    "pattern": "sideways_regime",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IFIX",
+    "family": "market_regime",
+    "pattern": "volatility_regime",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IFIX",
+    "family": "multi_timeframe",
+    "pattern": "h1_trend_m15_entry",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IFIX",
+    "family": "multi_timeframe",
+    "pattern": "d1_bias_h1_entry",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IFIX",
+    "family": "risk_management",
+    "pattern": "atr_stop",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IFIX",
+    "family": "risk_management",
+    "pattern": "fixed_stop_take",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "IFIX",
+    "family": "risk_management",
+    "pattern": "trailing_stop",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "CSAN3",
+    "family": "trend_following",
+    "pattern": "sma_cross",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "CSAN3",
+    "family": "trend_following",
+    "pattern": "ema_cross",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "CSAN3",
+    "family": "trend_following",
+    "pattern": "adx_trend",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "CSAN3",
+    "family": "trend_following",
+    "pattern": "donchian_trend",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "CSAN3",
+    "family": "mean_reversion",
+    "pattern": "rsi_reversion",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "CSAN3",
+    "family": "mean_reversion",
+    "pattern": "bollinger_reversion",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "CSAN3",
+    "family": "mean_reversion",
+    "pattern": "vwap_reversion",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "CSAN3",
+    "family": "breakout",
+    "pattern": "range_breakout",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "CSAN3",
+    "family": "breakout",
+    "pattern": "opening_range_breakout",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "CSAN3",
+    "family": "breakout",
+    "pattern": "volatility_breakout",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "CSAN3",
+    "family": "volatility",
+    "pattern": "atr_expansion",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "CSAN3",
+    "family": "volatility",
+    "pattern": "bollinger_squeeze",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "CSAN3",
+    "family": "volume",
+    "pattern": "volume_spike",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "CSAN3",
+    "family": "volume",
+    "pattern": "obv_confirmation",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "CSAN3",
+    "family": "market_regime",
+    "pattern": "trend_regime",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "CSAN3",
+    "family": "market_regime",
+    "pattern": "sideways_regime",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "CSAN3",
+    "family": "market_regime",
+    "pattern": "volatility_regime",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "CSAN3",
+    "family": "multi_timeframe",
+    "pattern": "h1_trend_m15_entry",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "CSAN3",
+    "family": "multi_timeframe",
+    "pattern": "d1_bias_h1_entry",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "CSAN3",
+    "family": "risk_management",
+    "pattern": "atr_stop",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "CSAN3",
+    "family": "risk_management",
+    "pattern": "fixed_stop_take",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "asset": "CSAN3",
+    "family": "risk_management",
+    "pattern": "trailing_stop",
+    "status": "HYPOTHESIS_ONLY",
+    "promotion_required": "P15_BACKTEST_WF_MC_AUTHORITY",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  }
+]

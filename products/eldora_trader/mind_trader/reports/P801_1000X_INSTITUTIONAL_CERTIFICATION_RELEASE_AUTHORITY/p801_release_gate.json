@@ -1,0 +1,14 @@
+{
+  "demo_operation_ready": true,
+  "extended_evidence_required": true,
+  "minimum_days_required": 30,
+  "preferred_days_required": 90,
+  "minimum_trades_required": 100,
+  "real_ftmo_release_allowed": false,
+  "human_release_required": true,
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN"
+}

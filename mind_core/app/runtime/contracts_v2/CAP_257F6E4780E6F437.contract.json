@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_257F6E4780E6F437",
+  "source_file": ".venv\\Lib\\site-packages\\twilio\\rest\\intelligence\\v3\\version.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\twilio\\rest\\intelligence\\v3\\version.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 116,
+  "imports": [
+    "__future__",
+    "datetime",
+    "twilio.base",
+    "twilio.base.api_response",
+    "twilio.base.instance_context",
+    "twilio.base.instance_resource",
+    "twilio.base.list_resource",
+    "twilio.base.token_pagination",
+    "twilio.base.version",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

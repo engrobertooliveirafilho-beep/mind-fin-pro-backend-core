@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_B24AAC7A29A38AFF",
+  "source_file": "tests\\test_p481_runtime_review_queue.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\tests\\test_p481_runtime_review_queue.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 91,
+  "imports": [
+    "json",
+    "pathlib",
+    "subprocess",
+    "sys"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

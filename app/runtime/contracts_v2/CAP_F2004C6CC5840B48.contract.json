@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_F2004C6CC5840B48",
+  "source_file": "tests\\test_eldora_observability_core.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\tests\\test_eldora_observability_core.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 110,
+  "imports": [
+    "app.eldora.core.audit_ledger",
+    "app.eldora.core.dependency_container",
+    "app.eldora.core.event_bus",
+    "app.eldora.core.runtime_metrics",
+    "app.eldora.core.structured_logger",
+    "app.eldora.core.telemetry_runtime"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

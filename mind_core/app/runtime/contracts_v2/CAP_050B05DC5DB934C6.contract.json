@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_050B05DC5DB934C6",
+  "source_file": "tests\\test_p19p50_humanized_meta_cognition_full_wiring.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\tests\\test_p19p50_humanized_meta_cognition_full_wiring.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 98,
+  "imports": [
+    "app.api.whatsapp",
+    "app.companionship.cognitive_context_builder",
+    "app.companionship.humanized_meta_cognition",
+    "app.companionship.humanized_meta_cognition_telemetry",
+    "app.companionship.safe_recovery_adapter",
+    "app.runtime.cognitive_pipeline"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

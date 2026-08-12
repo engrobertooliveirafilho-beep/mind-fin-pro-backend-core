@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_554E8DD6B3B2602F",
+  "source_file": ".venv\\Lib\\site-packages\\twilio\\rest\\taskrouter\\v1\\workspace\\worker\\workers_real_time_statistics.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\twilio\\rest\\taskrouter\\v1\\workspace\\worker\\workers_real_time_statistics.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 90,
+  "imports": [
+    "twilio.base",
+    "twilio.base.api_response",
+    "twilio.base.instance_context",
+    "twilio.base.instance_resource",
+    "twilio.base.list_resource",
+    "twilio.base.version",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

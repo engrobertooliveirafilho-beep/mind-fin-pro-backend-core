@@ -1,0 +1,33 @@
+{
+  "capability_id": "CAP_F76FF96AA2571C80",
+  "source_file": ".venv\\Lib\\site-packages\\redis\\ocsp.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\redis\\ocsp.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 107,
+  "imports": [
+    "base64",
+    "cryptography",
+    "cryptography.exceptions",
+    "cryptography.hazmat",
+    "cryptography.hazmat.primitives.asymmetric.dsa",
+    "cryptography.hazmat.primitives.asymmetric.ec",
+    "cryptography.hazmat.primitives.asymmetric.padding",
+    "cryptography.hazmat.primitives.asymmetric.rsa",
+    "cryptography.hazmat.primitives.hashes",
+    "cryptography.hazmat.primitives.serialization",
+    "cryptography.x509",
+    "datetime",
+    "redis.exceptions",
+    "requests",
+    "ssl",
+    "urllib.parse"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

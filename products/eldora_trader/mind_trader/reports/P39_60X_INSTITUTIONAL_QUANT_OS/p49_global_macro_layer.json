@@ -1,0 +1,15 @@
+{
+  "macro_inputs": [
+    "rates",
+    "dollar",
+    "vix",
+    "commodities",
+    "calendar",
+    "news_proxy"
+  ],
+  "status": "MACRO_CONTEXT_READY",
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN"
+}

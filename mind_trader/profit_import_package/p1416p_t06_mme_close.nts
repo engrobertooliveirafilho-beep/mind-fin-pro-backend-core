@@ -1,0 +1,4 @@
+﻿begin
+  if MME(9, Close) > MME(21, Close) then
+    BuyAtMarket;
+end;

@@ -1,0 +1,1450 @@
+[
+  {
+    "asset": "ABCB4F",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "ABCB4",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "ALPA4",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 35.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "ALPA4",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 40.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 40.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H1",
+    "session": "POST_NY",
+    "confluence_score": 10.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "H4",
+    "session": "POST_NY",
+    "confluence_score": 40.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M15",
+    "session": "POST_NY",
+    "confluence_score": 45.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M1",
+    "session": "POST_NY",
+    "confluence_score": 65.0,
+    "detected_regime": "NORMAL_CONFLUENCE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M30",
+    "session": "POST_NY",
+    "confluence_score": 10.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "AUDUSD",
+    "timeframe": "M5",
+    "session": "POST_NY",
+    "confluence_score": 60.0,
+    "detected_regime": "NORMAL_CONFLUENCE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "BCIC",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 10.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "BDIF11",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 10.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "BINC11",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 10.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "BMKS3",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 10.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "BOVV11",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "BPAC11F",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "BPAC11",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "BPAC3F",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 40.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "BPAC3",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 40.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "BPAC5F",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 25.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "BPAC5",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 25.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "BPML11",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 25.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "BRXC",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "BTCI11",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 10.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "BTCI11",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "BTCI11",
+    "timeframe": "M15",
+    "session": "ASIA",
+    "confluence_score": 25.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "BTCI11",
+    "timeframe": "M20",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "BTCI11",
+    "timeframe": "M30",
+    "session": "ASIA",
+    "confluence_score": 25.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "BTCLIQBRL",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "BTHF11",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 10.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "BTHI11",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 40.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "BTLG11",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 10.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "BTRA11",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 25.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "CGAS3F",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "CGAS3F",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 55.0,
+    "detected_regime": "NORMAL_CONFLUENCE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "CMDB11",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 25.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "CMDB",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 25.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "CMIG4F",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "CMIG4F",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "CMIG4",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "CMIG4",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "CRAA11",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 10.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "CRAA11",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "CSAN3",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "CSAN3",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "DEBB11",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 25.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "DI1F29",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 65.0,
+    "detected_regime": "NORMAL_CONFLUENCE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "DI1F29",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 70.0,
+    "detected_regime": "NORMAL_CONFLUENCE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "DI1F34",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 40.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "DI1F34",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 65.0,
+    "detected_regime": "NORMAL_CONFLUENCE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "DI1F35",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 40.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "DI1F35",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 45.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "DI1F38",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 60.0,
+    "detected_regime": "NORMAL_CONFLUENCE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "DI1N30",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 40.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "DI1N30",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 40.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "DIIV26F27",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 65.0,
+    "detected_regime": "NORMAL_CONFLUENCE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "DIIV26F27",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 40.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "DOLB11",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "DOLCC",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "DOLCV",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "DOLPT",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "ENEV3",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 10.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "ENEV3",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 60.0,
+    "detected_regime": "NORMAL_CONFLUENCE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "ESGB",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 10.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "session": "POST_NY",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "session": "POST_NY",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "session": "POST_NY",
+    "confluence_score": 75.0,
+    "detected_regime": "HIGH_CONFLUENCE_EXPANSION",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "session": "POST_NY",
+    "confluence_score": 35.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "session": "POST_NY",
+    "confluence_score": 35.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "session": "POST_NY",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "H1",
+    "session": "POST_NY",
+    "confluence_score": 35.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "H4",
+    "session": "POST_NY",
+    "confluence_score": 40.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "M15",
+    "session": "POST_NY",
+    "confluence_score": 50.0,
+    "detected_regime": "NORMAL_CONFLUENCE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "M1",
+    "session": "POST_NY",
+    "confluence_score": 75.0,
+    "detected_regime": "HIGH_CONFLUENCE_EXPANSION",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "M30",
+    "session": "POST_NY",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "session": "POST_NY",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "GENB",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "HBOR3",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 35.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "HBOR3",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 50.0,
+    "detected_regime": "NORMAL_CONFLUENCE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "IBBC",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 10.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "IBBR",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "IBBR",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "IBEP",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "IBEP",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 50.0,
+    "detected_regime": "NORMAL_CONFLUENCE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "IBOV",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "IBOV",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "IBOV",
+    "timeframe": "M15",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "IBOV",
+    "timeframe": "M20",
+    "session": "ASIA",
+    "confluence_score": 40.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "IBOV",
+    "timeframe": "M30",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "IBRA",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "IBRA",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "IFIX",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 35.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "IFIX",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 80.0,
+    "detected_regime": "HIGH_CONFLUENCE_EXPANSION",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "IGCT",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "IGCT",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "IGCX",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "IGCX",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "IGTI3F",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 10.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "IGTI3F",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "IMOB",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 25.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "IMOB",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 35.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "INBR32",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "INBR32",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "ITUBPFUT",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "ITUBPFUT",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "LFTS11",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "LFTS11",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "M2RV34",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 35.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "MARG11",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 45.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "MDIA3",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 10.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "MDIA3",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "NBIT11",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 85.0,
+    "detected_regime": "HIGH_CONFLUENCE_EXPANSION",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "NZLFUT",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "NZLFUT",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "PACB11",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 45.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "PETR4",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 45.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "PETR4",
+    "timeframe": "M15",
+    "session": "ASIA",
+    "confluence_score": 10.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "PETR4",
+    "timeframe": "M20",
+    "session": "ASIA",
+    "confluence_score": 25.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "PETR4",
+    "timeframe": "M30",
+    "session": "ASIA",
+    "confluence_score": 10.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "POSI3F",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 45.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "POSI3",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "QBTC11",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "SBSP3F",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 10.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "SBSP3F",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 65.0,
+    "detected_regime": "NORMAL_CONFLUENCE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "SHUL4",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 25.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "SHUL4",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "SMAB11",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 25.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "SMAB",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 10.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "SPXB11",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 10.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "SYNE3F",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 40.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "SYNE3",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 40.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "TAEE11",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "TAEE11",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "TIRB11",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 10.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "TIRB",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 10.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "USDCAD",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 70.0,
+    "detected_regime": "NORMAL_CONFLUENCE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "USDCAD",
+    "timeframe": "H1",
+    "session": "POST_NY",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "USDCAD",
+    "timeframe": "H4",
+    "session": "POST_NY",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "USDCAD",
+    "timeframe": "M15",
+    "session": "POST_NY",
+    "confluence_score": 60.0,
+    "detected_regime": "NORMAL_CONFLUENCE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "USDCAD",
+    "timeframe": "M1",
+    "session": "POST_NY",
+    "confluence_score": 50.0,
+    "detected_regime": "NORMAL_CONFLUENCE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "USDCAD",
+    "timeframe": "M30",
+    "session": "POST_NY",
+    "confluence_score": 50.0,
+    "detected_regime": "NORMAL_CONFLUENCE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "USDCAD",
+    "timeframe": "M5",
+    "session": "POST_NY",
+    "confluence_score": 10.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 50.0,
+    "detected_regime": "NORMAL_CONFLUENCE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "USDJPY",
+    "timeframe": "H1",
+    "session": "POST_NY",
+    "confluence_score": 60.0,
+    "detected_regime": "NORMAL_CONFLUENCE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "USDJPY",
+    "timeframe": "H4",
+    "session": "POST_NY",
+    "confluence_score": 35.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "USDJPY",
+    "timeframe": "M15",
+    "session": "POST_NY",
+    "confluence_score": 50.0,
+    "detected_regime": "NORMAL_CONFLUENCE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "USDJPY",
+    "timeframe": "M1",
+    "session": "POST_NY",
+    "confluence_score": 45.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "USDJPY",
+    "timeframe": "M30",
+    "session": "POST_NY",
+    "confluence_score": 50.0,
+    "detected_regime": "NORMAL_CONFLUENCE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "USDJPY",
+    "timeframe": "M5",
+    "session": "POST_NY",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "VALE3",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 10.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "VALE3",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 40.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "VALE3",
+    "timeframe": "M15",
+    "session": "ASIA",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "VALE3",
+    "timeframe": "M20",
+    "session": "ASIA",
+    "confluence_score": 40.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "VALE3",
+    "timeframe": "M30",
+    "session": "ASIA",
+    "confluence_score": 50.0,
+    "detected_regime": "NORMAL_CONFLUENCE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "VCJR11",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 10.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "VCJR11",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "WDOFUT",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "WDOFUT",
+    "timeframe": "M15",
+    "session": "ASIA",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "WDOFUT",
+    "timeframe": "M20",
+    "session": "ASIA",
+    "confluence_score": 40.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "WDOFUT",
+    "timeframe": "M30",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "WINFUTV",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 10.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "WINFUTV",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 50.0,
+    "detected_regime": "NORMAL_CONFLUENCE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "WINFUT",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 10.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "WINFUT",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 50.0,
+    "detected_regime": "NORMAL_CONFLUENCE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "WINFUT",
+    "timeframe": "M15",
+    "session": "ASIA",
+    "confluence_score": 40.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "WINFUT",
+    "timeframe": "M20",
+    "session": "ASIA",
+    "confluence_score": 60.0,
+    "detected_regime": "NORMAL_CONFLUENCE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "WINFUT",
+    "timeframe": "M30",
+    "session": "ASIA",
+    "confluence_score": 45.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "WINM26",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 35.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "WSPFUT",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 45.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "WSPFUT",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "WSPM26",
+    "timeframe": "H1",
+    "session": "ASIA",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "session": "ASIA",
+    "confluence_score": 10.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "XAUUSD",
+    "timeframe": "H1",
+    "session": "POST_NY",
+    "confluence_score": 20.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "XAUUSD",
+    "timeframe": "H4",
+    "session": "POST_NY",
+    "confluence_score": 30.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "XAUUSD",
+    "timeframe": "M15",
+    "session": "POST_NY",
+    "confluence_score": 60.0,
+    "detected_regime": "NORMAL_CONFLUENCE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "XAUUSD",
+    "timeframe": "M1",
+    "session": "POST_NY",
+    "confluence_score": 60.0,
+    "detected_regime": "NORMAL_CONFLUENCE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "XAUUSD",
+    "timeframe": "M30",
+    "session": "POST_NY",
+    "confluence_score": 25.0,
+    "detected_regime": "LOW_CONFLUENCE_RANGE",
+    "status": "REGIME_CLASSIFIED"
+  },
+  {
+    "asset": "XAUUSD",
+    "timeframe": "M5",
+    "session": "POST_NY",
+    "confluence_score": 60.0,
+    "detected_regime": "NORMAL_CONFLUENCE",
+    "status": "REGIME_CLASSIFIED"
+  }
+]

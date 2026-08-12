@@ -1,0 +1,125 @@
+
+  app\runtime\intent_first_router.py:8:
+  app\runtime\intent_first_router.py:9:    if not t:
+> app\runtime\intent_first_router.py:10:        return "te ouvi aqui, mas veio vazio."
+  app\runtime\intent_first_router.py:11:
+  app\runtime\intent_first_router.py:12:    if t in greetings:
+> app\runtime\intent_first_router.py:13:        return "Oi, Roberto."
+  app\runtime\intent_first_router.py:14:
+  app\runtime\intent_first_router.py:15:    if any(x in t for x in [
+  app\runtime\intent_first_router.py:16:        "tudo bem","tudo certo","como ta","como tá",
+  app\runtime\intent_first_router.py:17:        "como vc ta","como você está","e vc","e você"
+  app\runtime\intent_first_router.py:18:    ]):
+> app\runtime\intent_first_router.py:19:        return "Tudo certo por aqui 🙂 E você?"
+  app\runtime\intent_first_router.py:20:
+  app\runtime\intent_first_router.py:21:    if any(x in t for x in [
+  app\runtime\intent_first_router.py:22:        "qual seu nome","como vc chama",
+  app\runtime\intent_first_router.py:23:        "como você chama","quem é você",
+  app\runtime\intent_first_router.py:24:        "quem e voce"
+  app\runtime\intent_first_router.py:25:    ]):
+> app\runtime\intent_first_router.py:26:        return "Sou a Eldora 🙂 O que você quer saber?"
+  app\runtime\intent_first_router.py:27:
+  app\runtime\intent_first_router.py:28:    if any(x in t for x in [
+  app\runtime\intent_first_router.py:29:        "sentiu diferença","sentiu diferenca",
+  app\runtime\intent_first_router.py:30:        "deu certo","ou ainda nada",
+  app\runtime\intent_first_router.py:31:        "ainda nada","ainda não","ainda nao"
+  app\runtime\intent_first_router.py:32:    ]):
+> app\runtime\intent_first_router.py:33:        return "melhorou um pouco, mas ainda tem problema de continuidade e respostas genéricas."
+  app\runtime\intent_first_router.py:34:
+  app\runtime\intent_first_router.py:35:    if any(x in t for x in [
+  app\runtime\intent_first_router.py:36:        "verificar onde esta o problema",
+  app\runtime\intent_first_router.py:37:        "onde esta o problema",
+  app\runtime\intent_first_router.py:38:        "consegue verificar",
+  app\runtime\intent_first_router.py:39:        "procura por ai",
+  app\runtime\intent_first_router.py:40:        "procura por aí"
+  app\runtime\intent_first_router.py:41:    ]):
+> app\runtime\intent_first_router.py:42:        return "consigo. O principal problema parece estar no roteamento: intenção curta, fallback genérico e memória contaminada."
+  app\runtime\intent_first_router.py:43:
+  app\runtime\intent_first_router.py:44:    if any(x in t for x in [
+  app\runtime\intent_first_router.py:45:        "rota só","rota so","uma rota",
+  app\runtime\intent_first_router.py:46:        "mais rotas","é uma rota","rota"
+  app\runtime\intent_first_router.py:47:    ]):
+> app\runtime\intent_first_router.py:48:        return "parece mais de uma camada interferindo: runtime principal, memória/contexto e fallback."
+  app\runtime\intent_first_router.py:49:
+  app\runtime\intent_first_router.py:50:    return None
+  app\runtime\live_whatsapp_response.py:10:
+  app\runtime\live_whatsapp_response.py:11:    if msg in ["i", "oi", "olá", "ola"]:
+> app\runtime\live_whatsapp_response.py:12:        return "Oi, Roberto. Estou aqui. Vamos resolver isso direto."
+  app\runtime\live_whatsapp_response.py:13:
+  app\runtime\live_whatsapp_response.py:14:    if any(x in msg for x in ["ainda nao conseguimos resolver", "ainda não conseguimos resolver", "nao esta funcionando", "não está funcionando", "não funciona"]):
+> app\runtime\live_whatsapp_response.py:15:        return "Ainda não ficou bom no WhatsApp real. O próximo passo é corrigir o handler do canal, não criar mais camada."
+  app\runtime\live_whatsapp_response.py:16:
+  app\runtime\live_whatsapp_response.py:17:    if any(x in msg for x in ["o que fazer", "oque fazer", "como resolver", "como arrumar"]):
+> app\runtime\live_whatsapp_response.py:18:        return "Agora é simples: colocar uma resposta viva antes do pipeline cognitivo, testar no WhatsApp e só depois religar a cognição completa."
+  app\runtime\live_whatsapp_response.py:19:
+  app\runtime\live_whatsapp_response.py:20:    if any(x in msg for x in ["como ta", "como tá", "tudo bem", "boa tarde", "bom dia", "boa noite"]):
+> app\runtime\live_whatsapp_response.py:21:        return "Estou funcionando, mas o WhatsApp ainda precisa desse ajuste de resposta viva para não cair em frase genérica."
+  app\runtime\live_whatsapp_response.py:22:
+  app\runtime\live_whatsapp_response.py:23:    if any(x in msg for x in ["quem eh vc", "quem é vc", "quem é você"]):
+  app\runtime\live_whatsapp_response.py:24:        return semantic_recovery(msg if "msg" in locals() else user_text if "user_text" in locals() else inbound_text if "inbound_text" in locals() else "")
+  app\runtime\live_whatsapp_response.py:25:
+  app\runtime\live_whatsapp_response.py:26:    return None
+  app\runtime\live_whatsapp_response.py:27:
+  app\runtime\live_whatsapp_response.py:28:
+  app\runtime\live_whatsapp_response.py:29:
+  app\runtime\p4_13g_router.py:3:
+  app\runtime\p4_13g_router.py:4:    if any(x in msg for x in ["qual seu nome","quem é vc","quem e vc","quem é você","quem e voce","como vc chama","como você chama"]):
+> app\runtime\p4_13g_router.py:5:        return "Sou sua assistente 🙂"
+  app\runtime\p4_13g_router.py:6:
+  app\runtime\p4_13g_router.py:7:    if msg in ["aprofunde","aprofundar"]:
+> app\runtime\p4_13g_router.py:8:        return "Execução contextual: continua do ponto anterior com evidência e próximo passo."
+  app\runtime\p4_13g_router.py:9:
+  app\runtime\p4_13g_router.py:10:    if msg in ["bom dia","boa tarde","boa noite","oi","olá","ola","eu tô bem","eu to bem"]:
+> app\runtime\p4_13g_router.py:11:        return "Oi, Roberto. Tudo certo?"
+  app\runtime\p4_13g_router.py:12:
+> app\runtime\p4_13g_router.py:13:    return "Resposta direta registrada."
+  app\runtime\identity_guard_runtime.py:28:    if leaked:
+  app\runtime\identity_guard_runtime.py:29:        if any(x in u for x in ["oi","olá","ola","eai","e aí"]):
+> app\runtime\identity_guard_runtime.py:30:            return "Oi, Roberto. Como você está? O que vamos resolver agora?"
+  app\runtime\identity_guard_runtime.py:31:
+  app\runtime\identity_guard_runtime.py:32:        if "tudo bem" in u:
+> app\runtime\identity_guard_runtime.py:33:            return "Tudo certo por aqui. E você, como está?"
+  app\runtime\identity_guard_runtime.py:34:
+  app\runtime\identity_guard_runtime.py:35:        if u in ["sim","aham","ok","blz","beleza","isso"]:
+> app\runtime\identity_guard_runtime.py:36:            return "Perfeito. Me fala o próximo passo ou o que você quer testar."
+  app\runtime\identity_guard_runtime.py:37:
+  app\runtime\identity_guard_runtime.py:38:        if "simulador" in u:
+> app\runtime\identity_guard_runtime.py:39:            return "Boa. Isso pode ajudar bastante a amadurecer conversa, continuidade e respostas menos robóticas. Como você imagina esse simulador?"
+  app\runtime\identity_guard_runtime.py:40:
+> app\runtime\identity_guard_runtime.py:41:        return "Entendi. Continua — estou acompanhando o contexto."
+  app\runtime\identity_guard_runtime.py:42:
+  app\runtime\identity_guard_runtime.py:43:    return r
+  app\runtime\actionable_continuity_authority.py:81:        if any(re.search(p, msg, re.I) for p in pats):
+  app\runtime\actionable_continuity_authority.py:82:            return intent
+> app\runtime\actionable_continuity_authority.py:83:    return "responder_agora" if len(msg.split()) <= 4 else "analisar"
+  app\runtime\actionable_continuity_authority.py:84:
+  app\runtime\actionable_continuity_authority.py:85:def _safe_eval_expr(expr: str) -> float | int | None:
+  app\runtime\actionable_continuity_authority.py:86:    expr = expr.lower().replace("mais", "+").replace("menos", "-").replace("vezes", "*").replace("x", "*").replace(",", ".")
+  app\runtime\actionable_continuity_authority.py:87:    expr = re.sub(r"[^0-9\.\+\-\*/\(\)% ]", "", expr).strip()
+  app\runtime\actionable_continuity_authority.py:88:    if not expr:
+  app\runtime\actionable_continuity_authority.py:89:        return None
+  app\runtime\actionable_continuity_authority.py:90:    expr = expr.replace("%", "/100")
+  app\runtime\actionable_continuity_authority.py:91:    node = ast.parse(expr, mode="eval")
+  app\runtime\actionable_continuity_authority.py:105:            return f"Resultado: {result}."
+  app\runtime\actionable_continuity_authority.py:106:    except Exception:
+> app\runtime\actionable_continuity_authority.py:107:        return "Não consegui calcular com segurança. Envie só a expressão numérica."
+  app\runtime\actionable_continuity_authority.py:108:    return None
+  app\runtime\actionable_continuity_authority.py:109:
+  app\runtime\actionable_continuity_authority.py:110:def _basis(s: ContinuityState, user_message: str) -> str:
+  app\runtime\actionable_continuity_authority.py:111:    return s.last_open_task or s.active_topic or s.conversation_summary or s.last_reply or user_message
+  app\runtime\actionable_continuity_authority.py:112:
+  app\runtime\actionable_continuity_authority.py:113:def _has_forbidden(reply: str) -> bool:
+  app\runtime\actionable_continuity_authority.py:114:    low = reply or ""
+  app\runtime\actionable_continuity_authority.py:115:    return any(f.lower() in low.lower() for f in FORBIDDEN_FRAGMENTS)
+  app\runtime\actionable_continuity_authority.py:209:
+  app\runtime\actionable_continuity_authority.py:210:    if "bom dia" in m:
+> app\runtime\actionable_continuity_authority.py:211:        return "Bom dia! Tudo certo por aí?"
+  app\runtime\actionable_continuity_authority.py:212:    if "boa tarde" in m:
+> app\runtime\actionable_continuity_authority.py:213:        return "Boa tarde! Como você está?"
+  app\runtime\actionable_continuity_authority.py:214:    if "boa noite" in m:
+> app\runtime\actionable_continuity_authority.py:215:        return "Boa noite! Como foi seu dia?"
+  app\runtime\actionable_continuity_authority.py:216:    if "tudo bem" in m:
+> app\runtime\actionable_continuity_authority.py:217:        return "Tudo certo por aqui. E com você?"
+> app\runtime\actionable_continuity_authority.py:218:    return "Oi! O que você precisa?"
+  app\runtime\actionable_continuity_authority.py:219:
+

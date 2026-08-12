@@ -1,0 +1,10 @@
+{
+  "strategy_id": "5c2a50230404a510",
+  "template": "rsi_reversion",
+  "asset": "WDO",
+  "timeframe": "M5",
+  "platform": "Profit/NTSL",
+  "requires_profit_backtest": true,
+  "live": "FORBIDDEN",
+  "real_orders": "FORBIDDEN"
+}

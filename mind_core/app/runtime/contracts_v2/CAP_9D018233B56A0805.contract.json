@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_9D018233B56A0805",
+  "source_file": "app\\mind\\p5_5z_executive_snapshot\\snapshot.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\app\\mind\\p5_5z_executive_snapshot\\snapshot.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 85,
+  "imports": [
+    "datetime",
+    "json",
+    "os",
+    "urllib.request"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

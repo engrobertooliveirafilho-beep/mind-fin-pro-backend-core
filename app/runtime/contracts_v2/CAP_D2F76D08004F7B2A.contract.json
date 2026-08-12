@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_D2F76D08004F7B2A",
+  "source_file": "_evidence\\P19P28M_MAIN_PRE_ROUTER_FITNESS_LOCK_20260621_103742\\patch_main_pre_router.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\_evidence\\P19P28M_MAIN_PRE_ROUTER_FITNESS_LOCK_20260621_103742\\patch_main_pre_router.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 84,
+  "imports": [
+    "pathlib",
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

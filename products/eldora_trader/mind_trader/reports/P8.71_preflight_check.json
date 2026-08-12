@@ -1,0 +1,52 @@
+{
+  "report": "P8.71_PREFLIGHT_CHECK",
+  "created_at": "2026-06-09T14:40:01.642978+00:00",
+  "checks": {
+    "data_folder_exists": true,
+    "csv_files_present": true,
+    "ftmo_config_valid": true,
+    "paper_research_ready": true,
+    "production_blocked": true,
+    "live_forbidden": true,
+    "edge_none": true
+  },
+  "csv_count": 1,
+  "ftmo_validation": {
+    "valid": true,
+    "reason": "FTMO_CONFIG_OK",
+    "hash": "37f501efd2369b95f31f8d7a72bcc8248bc243e2dcb70cfc5d369b3f492ffb59",
+    "version": "P8.46_FTMO_RULESET_V1"
+  },
+  "readiness": {
+    "report": "P8.67_PAPER_RESEARCH_READINESS",
+    "created_at": "2026-06-09T14:40:01.642978+00:00",
+    "tests_passed": 201,
+    "required": [
+      "data_connector",
+      "data_quality",
+      "data_catalog",
+      "dataset_lineage",
+      "dataset_lineage_gate",
+      "backtest_cluster",
+      "edge_validation",
+      "regime_detection",
+      "ftmo_simulation",
+      "paper_session",
+      "execution_gateway",
+      "audit_ledger",
+      "healthcheck"
+    ],
+    "missing": [],
+    "failed": [],
+    "decision": "PAPER_RESEARCH_READY",
+    "allowed_scope": "PAPER_RESEARCH_ONLY",
+    "production": "BLOCKED",
+    "live": "FORBIDDEN",
+    "edge_claim": "NONE",
+    "causality_claim": "NOT_PROVEN"
+  },
+  "decision": "PREFLIGHT_OK",
+  "production": "BLOCKED",
+  "live": "FORBIDDEN",
+  "edge_claim": "NONE"
+}

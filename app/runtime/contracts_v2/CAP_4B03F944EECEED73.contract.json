@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_4B03F944EECEED73",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\resources\\audio\\audio.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\openai\\resources\\audio\\audio.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 85,
+  "imports": [
+    "__future__",
+    "_compat",
+    "_resource",
+    "speech",
+    "transcriptions",
+    "translations"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

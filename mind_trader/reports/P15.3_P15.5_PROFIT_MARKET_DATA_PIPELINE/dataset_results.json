@@ -1,0 +1,2950 @@
+[
+  {
+    "source": "ABCB4F_B_0_Diário.csv",
+    "normalized": "ABCB4F_D1_normalized.csv",
+    "sha256": "4f8b2da357bba3b0e8d81ad409f4f9538cb53dec4fdd1fa13d01ccd22cd8eed3",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00043347,
+      "volatility": 0.01485812,
+      "last_close": 18.64
+    }
+  },
+  {
+    "source": "ABCB4_B_0_Diário.csv",
+    "normalized": "ABCB4_D1_normalized.csv",
+    "sha256": "2704027a7dd66a5eac782b4b642e94a05129c05ff3aa19fbe4b0409377e93da0",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00042807,
+      "volatility": 0.01471018,
+      "last_close": 18.62
+    }
+  },
+  {
+    "source": "ALPA4_B_0_60min.csv",
+    "normalized": "ALPA4_H1_normalized.csv",
+    "sha256": "d592000ca2e65edcbd57ae16939de807725623dfd2718e26b679a5bedbfd3892",
+    "dataset": {
+      "rows": 3962,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 3962,
+      "avg_return": -7.402e-05,
+      "volatility": 0.00869547,
+      "last_close": 8.06
+    }
+  },
+  {
+    "source": "ALPA4_B_0_Diário.csv",
+    "normalized": "ALPA4_D1_normalized.csv",
+    "sha256": "65de947163d3f2246b814e18cbc70da517cad4d1c359c2819ecf386da62989bf",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00061973,
+      "volatility": 0.02414254,
+      "last_close": 7.98
+    }
+  },
+  {
+    "source": "ARGE11_B_0_Diário.csv",
+    "normalized": "ARGE11_D1_normalized.csv",
+    "sha256": "e166e55b2128614a71570d16e0ef097ddc8d6c8133657e83e512a645b493dcd0",
+    "dataset": {
+      "rows": 194,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 194,
+      "avg_return": -0.00123568,
+      "volatility": 0.03162228,
+      "last_close": 9.7
+    }
+  },
+  {
+    "source": "AUPO11_B_0_Diário.csv",
+    "normalized": "AUPO11_D1_normalized.csv",
+    "sha256": "d9fc9cb33bcae3bfecc4fefc0a1d4770d5e535efec66b3484208f4ee57af9644",
+    "dataset": {
+      "rows": 116,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 116,
+      "avg_return": -0.00034856,
+      "volatility": 0.00189387,
+      "last_close": 101.9
+    }
+  },
+  {
+    "source": "BCIC_B_0_Diário.csv",
+    "normalized": "BCIC_D1_normalized.csv",
+    "sha256": "dde5c69043404fafd6f1833132b89bb28b4f8ad242e157feb203d51dddcc7174",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00026067,
+      "volatility": 0.01199259,
+      "last_close": 110.88
+    }
+  },
+  {
+    "source": "BDIF11_B_0_Diário.csv",
+    "normalized": "BDIF11_D1_normalized.csv",
+    "sha256": "dc0ade9bf377024208bc6302fcf76f4a11da38c6e1c500c4fc86460c4cca1bd1",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -2.65e-06,
+      "volatility": 0.00915292,
+      "last_close": 71.64
+    }
+  },
+  {
+    "source": "BINC11_B_0_Diário.csv",
+    "normalized": "BINC11_D1_normalized.csv",
+    "sha256": "a8d292a8efbf0c8ee7b460fe07614df80ad10798cd3055bad81240cffd3208ac",
+    "dataset": {
+      "rows": 408,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 408,
+      "avg_return": -0.00047131,
+      "volatility": 0.01095766,
+      "last_close": 82.64
+    }
+  },
+  {
+    "source": "BMKS3_B_0_Diário.csv",
+    "normalized": "BMKS3_D1_normalized.csv",
+    "sha256": "1309ffc340871d3a64941457b14884d5102dd2deb84e5a1d23c41a7adb6637cc",
+    "dataset": {
+      "rows": 485,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 485,
+      "avg_return": -0.00076981,
+      "volatility": 0.02349045,
+      "last_close": 228.45
+    }
+  },
+  {
+    "source": "BOVAG181_B_0_Diário.csv",
+    "normalized": "BOVAG181_D1_normalized.csv",
+    "sha256": "d76774cd45c282adff8336976ada24375af24fc8a8c3f3ce49754b09563c0513",
+    "dataset": {
+      "rows": 25,
+      "schema_ok": true,
+      "enough_rows": false,
+      "certified": false
+    },
+    "baseline": {
+      "tested": false
+    }
+  },
+  {
+    "source": "BOVAR170_B_0_Diário.csv",
+    "normalized": "BOVAR170_D1_normalized.csv",
+    "sha256": "a864ecb6a15d112858852430ad732a499024cc768b0c123c1e8cea712623b834",
+    "dataset": {
+      "rows": 122,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 122,
+      "avg_return": 0.06003874,
+      "volatility": 0.31191886,
+      "last_close": 40.99
+    }
+  },
+  {
+    "source": "BOVAS47_B_0_Diário.csv",
+    "normalized": "BOVAS47_D1_normalized.csv",
+    "sha256": "29f49f8787fb0b0e4b08062d1ccd6fb5e7219906a86ab0bc8d44915cff0897b0",
+    "dataset": {
+      "rows": 20,
+      "schema_ok": true,
+      "enough_rows": false,
+      "certified": false
+    },
+    "baseline": {
+      "tested": false
+    }
+  },
+  {
+    "source": "BOVV11_B_0_Diário.csv",
+    "normalized": "BOVV11_D1_normalized.csv",
+    "sha256": "2b9c0b386716210092eb2027e87dfdb6bc9abd1997e856be9c366408d58dc3c7",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00066029,
+      "volatility": 0.01010182,
+      "last_close": 122.9
+    }
+  },
+  {
+    "source": "BPAC11F_B_0_Diário.csv",
+    "normalized": "BPAC11F_D1_normalized.csv",
+    "sha256": "f1b8f197120dfc0d4795ac8be468ca57605c564d8cdba6b121539b5013ac6f5c",
+    "dataset": {
+      "rows": 498,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 498,
+      "avg_return": -0.00083309,
+      "volatility": 0.01975896,
+      "last_close": 30.4
+    }
+  },
+  {
+    "source": "BPAC11_B_0_Diário.csv",
+    "normalized": "BPAC11_D1_normalized.csv",
+    "sha256": "a939f696522de011aa38cc47a0a4cd85662782b799cae799b51940664e44301c",
+    "dataset": {
+      "rows": 498,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 498,
+      "avg_return": -0.00085343,
+      "volatility": 0.01893465,
+      "last_close": 30.44
+    }
+  },
+  {
+    "source": "BPAC3F_B_0_Diário.csv",
+    "normalized": "BPAC3F_D1_normalized.csv",
+    "sha256": "c5464f91612ebd33b2c12c46bdcdf790c81283ce042d34acbfbe69e6dd347057",
+    "dataset": {
+      "rows": 498,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 498,
+      "avg_return": -0.00021824,
+      "volatility": 0.02649175,
+      "last_close": 16.9
+    }
+  },
+  {
+    "source": "BPAC3_B_0_Diário.csv",
+    "normalized": "BPAC3_D1_normalized.csv",
+    "sha256": "faf6b9010977bc5f519858d7be2eb058975601e3d77708a26614b37c1a88ddf2",
+    "dataset": {
+      "rows": 498,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 498,
+      "avg_return": -0.00020964,
+      "volatility": 0.02605015,
+      "last_close": 16.77
+    }
+  },
+  {
+    "source": "BPAC5F_B_0_Diário.csv",
+    "normalized": "BPAC5F_D1_normalized.csv",
+    "sha256": "ac5dbeea5bb61dabfe15325610d3b6d1253a3a1e3a65fc978c625bee96d8cb0e",
+    "dataset": {
+      "rows": 498,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 498,
+      "avg_return": -0.00114165,
+      "volatility": 0.02742599,
+      "last_close": 7.87
+    }
+  },
+  {
+    "source": "BPAC5_B_0_Diário.csv",
+    "normalized": "BPAC5_D1_normalized.csv",
+    "sha256": "b1adca2c91f986b299c8beb39054b96961640cebad51780553c1eaa29fd1e281",
+    "dataset": {
+      "rows": 498,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 498,
+      "avg_return": -0.00118606,
+      "volatility": 0.02819706,
+      "last_close": 7.75
+    }
+  },
+  {
+    "source": "BPML11_B_0_Diário.csv",
+    "normalized": "BPML11_D1_normalized.csv",
+    "sha256": "6874e29a53f10b6ae4b878a0fba16fda5b492ced59c1cbc1ce02825023d9a279",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00051311,
+      "volatility": 0.01113526,
+      "last_close": 67.58
+    }
+  },
+  {
+    "source": "BRXC_B_0_Diário.csv",
+    "normalized": "BRXC_D1_normalized.csv",
+    "sha256": "06b796855bf50e2d673a93045a397f33179e4f345596b0342167ab78a99998c2",
+    "dataset": {
+      "rows": 310,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 310,
+      "avg_return": -0.00067999,
+      "volatility": 0.01198338,
+      "last_close": 100.16
+    }
+  },
+  {
+    "source": "BTCI11Q_B_0_Diário.csv",
+    "normalized": "BTCI11Q_D1_normalized.csv",
+    "sha256": "44e62195d1ba75ec7ea2f31995c2b5bfe0625f990ea7c23bba5431ff2f6a5a03",
+    "dataset": {
+      "rows": 5,
+      "schema_ok": true,
+      "enough_rows": false,
+      "certified": false
+    },
+    "baseline": {
+      "tested": false
+    }
+  },
+  {
+    "source": "BTCI11_B_0_15min.csv",
+    "normalized": "BTCI11_M15_normalized.csv",
+    "sha256": "039ab57ec5cf05f79044903516999b452d671ec20c91f80d690780c8af4b021c",
+    "dataset": {
+      "rows": 9783,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 9783,
+      "avg_return": -2.87e-05,
+      "volatility": 0.00168108,
+      "last_close": 6.83
+    }
+  },
+  {
+    "source": "BTCI11_B_0_20min.csv",
+    "normalized": "BTCI11_M20_normalized.csv",
+    "sha256": "88614657a090e02205aef8bca11f6c673ff2890927d28dd3a27aa1f4acb56541",
+    "dataset": {
+      "rows": 9729,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 9729,
+      "avg_return": -1.194e-05,
+      "volatility": 0.00228255,
+      "last_close": 7.96
+    }
+  },
+  {
+    "source": "BTCI11_B_0_30min.csv",
+    "normalized": "BTCI11_M30_normalized.csv",
+    "sha256": "95d6e67e9047b8b2bb4a03cbf89255583f215140957473a852512c35d2d468dc",
+    "dataset": {
+      "rows": 7663,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 7663,
+      "avg_return": -1.808e-05,
+      "volatility": 0.00253126,
+      "last_close": 7.79
+    }
+  },
+  {
+    "source": "BTCI11_B_0_60min.csv",
+    "normalized": "BTCI11_H1_normalized.csv",
+    "sha256": "ac6f3433caaefd35ce31dcb56cc328720290379817000cd3d64e61dad07de895",
+    "dataset": {
+      "rows": 4016,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 4016,
+      "avg_return": -3.609e-05,
+      "volatility": 0.00321684,
+      "last_close": 7.77
+    }
+  },
+  {
+    "source": "BTCI11_B_0_Diário.csv",
+    "normalized": "BTCI11_D1_normalized.csv",
+    "sha256": "5aad5739f3c3905369e0b42b09bcfd31c1459785e4f7cd61b4441dd57b94712e",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00029806,
+      "volatility": 0.00800215,
+      "last_close": 7.78
+    }
+  },
+  {
+    "source": "BTCLIQBRL_F_0_Diário.csv",
+    "normalized": "BTCLIQBRL_D1_normalized.csv",
+    "sha256": "91845e2e13ef1a8ef499026822a462d9857dda350334c7a268ffad8e91347ad8",
+    "dataset": {
+      "rows": 497,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 497,
+      "avg_return": 0.00072558,
+      "volatility": 0.02924826,
+      "last_close": 371916.83
+    }
+  },
+  {
+    "source": "BTCLIQUSD_F_0_Diário.csv",
+    "normalized": "BTCLIQUSD_D1_normalized.csv",
+    "sha256": "facabfc3ba9e90519fa6755a3061e5b2f51a75a07b69fe29ad6bb031c9e8dc88",
+    "dataset": {
+      "rows": 30,
+      "schema_ok": true,
+      "enough_rows": false,
+      "certified": false
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 30,
+      "avg_return": 0.00782246,
+      "volatility": 0.02794832,
+      "last_close": 76831.91
+    }
+  },
+  {
+    "source": "BTCV39_B_0_Diário.csv",
+    "normalized": "BTCV39_D1_normalized.csv",
+    "sha256": "c2e05197fbe9394b44b720dd9acf6ecebf231b4001cee06a16d2b0092811a298",
+    "dataset": {
+      "rows": 1,
+      "schema_ok": true,
+      "enough_rows": false,
+      "certified": false
+    },
+    "baseline": {
+      "tested": false
+    }
+  },
+  {
+    "source": "BTHF11_B_0_Diário.csv",
+    "normalized": "BTHF11_D1_normalized.csv",
+    "sha256": "3d4fc0d0cb77d4d8fa4dc2f884bedcaa2ebbd6ec20d750d92783c62722e83e32",
+    "dataset": {
+      "rows": 366,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 366,
+      "avg_return": -0.0006916,
+      "volatility": 0.00889999,
+      "last_close": 6.86
+    }
+  },
+  {
+    "source": "BTHI11_B_0_Diário.csv",
+    "normalized": "BTHI11_D1_normalized.csv",
+    "sha256": "b4b5cdf9e1e1adbd0212a1c0a85a61a9e5eb046505412af953a83d53e7b0f977",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00025566,
+      "volatility": 0.02112178,
+      "last_close": 34.94
+    }
+  },
+  {
+    "source": "BTLG11_B_0_Diário.csv",
+    "normalized": "BTLG11_D1_normalized.csv",
+    "sha256": "caab5fd955bfb1cb1a17f45376995967312c06766fa58446cc1d8c63ab7741a5",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00039889,
+      "volatility": 0.00693984,
+      "last_close": 82.9
+    }
+  },
+  {
+    "source": "BTRA11_B_0_Diário.csv",
+    "normalized": "BTRA11_D1_normalized.csv",
+    "sha256": "97127fba3016a46f8d1bb1c71c97e302d8f3a05704ea33b52e9adacc3359225f",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00063108,
+      "volatility": 0.01640701,
+      "last_close": 41.12
+    }
+  },
+  {
+    "source": "CADFUT_F_0_60min.csv",
+    "normalized": "CADFUT_H1_normalized.csv",
+    "sha256": "dfb5c51c9235c2bf5aab2be63713c34121288a3142e6937fbdc308adc85940bf",
+    "dataset": {
+      "rows": 27,
+      "schema_ok": true,
+      "enough_rows": false,
+      "certified": false
+    },
+    "baseline": {
+      "tested": false
+    }
+  },
+  {
+    "source": "CADFUT_F_0_Diário.csv",
+    "normalized": "CADFUT_D1_normalized.csv",
+    "sha256": "8fd35c42363bb9b08290273c90d4fc5d371ec06fa2947ae58d50d354095f2178",
+    "dataset": {
+      "rows": 27,
+      "schema_ok": true,
+      "enough_rows": false,
+      "certified": false
+    },
+    "baseline": {
+      "tested": false
+    }
+  },
+  {
+    "source": "CGAS3F_B_0_60min.csv",
+    "normalized": "CGAS3F_H1_normalized.csv",
+    "sha256": "824f31f99cee7486d48708cda70fd23897ad72cb33ac90f4a1263ddeb034f39d",
+    "dataset": {
+      "rows": 2832,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 2832,
+      "avg_return": 9.369e-05,
+      "volatility": 0.01913506,
+      "last_close": 97.52
+    }
+  },
+  {
+    "source": "CGAS3F_B_0_Diário.csv",
+    "normalized": "CGAS3F_D1_normalized.csv",
+    "sha256": "71e7020ffa4faee34bd45e8305495f9115e7eecefe46181ccd6700a3e4d6ef52",
+    "dataset": {
+      "rows": 498,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 498,
+      "avg_return": -0.00022056,
+      "volatility": 0.02298274,
+      "last_close": 98.66
+    }
+  },
+  {
+    "source": "CMDB11_B_0_Diário.csv",
+    "normalized": "CMDB11_D1_normalized.csv",
+    "sha256": "5b1500afcd9277b0810f7521b9919c459184318783e7f6722b99a3128915d973",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00046427,
+      "volatility": 0.01054093,
+      "last_close": 12.82
+    }
+  },
+  {
+    "source": "CMDB_B_0_Diário.csv",
+    "normalized": "CMDB_D1_normalized.csv",
+    "sha256": "32471c02c7b849235a668898f204295549626f57821d33d076ed7a271738b91d",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.0004789,
+      "volatility": 0.01007598,
+      "last_close": 12.75
+    }
+  },
+  {
+    "source": "CMIG4F_B_0_60min.csv",
+    "normalized": "CMIG4F_H1_normalized.csv",
+    "sha256": "f88469079cb32acb1b9ce7d3c3ae47e2e770d67609aa3e4dab79eaeb8f8c32b5",
+    "dataset": {
+      "rows": 4016,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 4016,
+      "avg_return": -6.143e-05,
+      "volatility": 0.00560644,
+      "last_close": 7.96
+    }
+  },
+  {
+    "source": "CMIG4F_B_0_Diário.csv",
+    "normalized": "CMIG4F_D1_normalized.csv",
+    "sha256": "8cd1996526daa383f8a6e9f7195269cdebdbf653a0fb3ab73b70b7198f4cc9a7",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00051553,
+      "volatility": 0.01463206,
+      "last_close": 7.97
+    }
+  },
+  {
+    "source": "CMIG4_B_0_60min.csv",
+    "normalized": "CMIG4_H1_normalized.csv",
+    "sha256": "b5521f1a04ae531a761b1175de71b5beba042bb277871b1c72706b21d4b3b717",
+    "dataset": {
+      "rows": 4015,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 4015,
+      "avg_return": -6.109e-05,
+      "volatility": 0.00556173,
+      "last_close": 7.95
+    }
+  },
+  {
+    "source": "CMIG4_B_0_Diário.csv",
+    "normalized": "CMIG4_D1_normalized.csv",
+    "sha256": "f0ad197b330ae2b3113f874938ef8bf23c4a3bafc7488cb3b0eb8991dd55429f",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00050108,
+      "volatility": 0.01487503,
+      "last_close": 7.97
+    }
+  },
+  {
+    "source": "CRAA11_B_0_60min.csv",
+    "normalized": "CRAA11_H1_normalized.csv",
+    "sha256": "6b5621072969be47eda16bbf8063a17979a9058b383fbd40c07d1385846f7a31",
+    "dataset": {
+      "rows": 3893,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 3893,
+      "avg_return": -4.115e-05,
+      "volatility": 0.00379645,
+      "last_close": 82.09
+    }
+  },
+  {
+    "source": "CRAA11_B_0_Diário.csv",
+    "normalized": "CRAA11_D1_normalized.csv",
+    "sha256": "f785e24a22eba9ee0510d64ca91ec599f94d28e9d89b58614e2a8a4adf1473ba",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.0003352,
+      "volatility": 0.00833766,
+      "last_close": 82.42
+    }
+  },
+  {
+    "source": "CSAN3_B_0_60min.csv",
+    "normalized": "CSAN3_H1_normalized.csv",
+    "sha256": "3be2b2cf40e71a0dc5ff320510d4e07bf60d9a3cce7aba763c39bce263fb63cc",
+    "dataset": {
+      "rows": 4013,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 4013,
+      "avg_return": 0.00038016,
+      "volatility": 0.0101144,
+      "last_close": 12.78
+    }
+  },
+  {
+    "source": "CSAN3_B_0_Diário.csv",
+    "normalized": "CSAN3_D1_normalized.csv",
+    "sha256": "bdcef76ac1bf50d46701e3ab94e6a20246c66c5946f2220eb5bd6dfaa3e740cc",
+    "dataset": {
+      "rows": 498,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 498,
+      "avg_return": 0.00307724,
+      "volatility": 0.02924787,
+      "last_close": 12.72
+    }
+  },
+  {
+    "source": "CTKA3_B_0_60min.csv",
+    "normalized": "CTKA3_H1_normalized.csv",
+    "sha256": "81760283118d492420534808f7a8777f7fd003cf803ecfcdbb3e6c7e8c281dba",
+    "dataset": {
+      "rows": 73,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 73,
+      "avg_return": -0.00923817,
+      "volatility": 0.07647258,
+      "last_close": 19.32
+    }
+  },
+  {
+    "source": "CTKA3_B_0_Diário.csv",
+    "normalized": "CTKA3_D1_normalized.csv",
+    "sha256": "b99f3390c84a43d031c0f3afefeba1be8b1bfcdfaf1c73779661715ae05332c5",
+    "dataset": {
+      "rows": 57,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 57,
+      "avg_return": -0.01261583,
+      "volatility": 0.07616815,
+      "last_close": 19.32
+    }
+  },
+  {
+    "source": "DEBB11_B_0_Diário.csv",
+    "normalized": "DEBB11_D1_normalized.csv",
+    "sha256": "7863c6a6eb52b672beeb3a863a637c3f459fd030a1dbab5c2cac244b35dd4394",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00051024,
+      "volatility": 0.00156784,
+      "last_close": 12.82
+    }
+  },
+  {
+    "source": "DI1F29_F_0_60min.csv",
+    "normalized": "DI1F29_H1_normalized.csv",
+    "sha256": "63debb83f68b68cc3839e54d679dac1047b208eb19520b9585e0e911e64d1600",
+    "dataset": {
+      "rows": 4477,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 4477,
+      "avg_return": -4.268e-05,
+      "volatility": 0.00353798,
+      "last_close": 11.985
+    }
+  },
+  {
+    "source": "DI1F29_F_0_Diário.csv",
+    "normalized": "DI1F29_D1_normalized.csv",
+    "sha256": "c49adb6c0a2a70bf36e42a46e1301a5f5c4c74b8fb6ed38a12a4d1df7c4b2fd6",
+    "dataset": {
+      "rows": 498,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 498,
+      "avg_return": -0.00039236,
+      "volatility": 0.01055564,
+      "last_close": 11.94
+    }
+  },
+  {
+    "source": "DI1F34_F_0_60min.csv",
+    "normalized": "DI1F34_H1_normalized.csv",
+    "sha256": "b05e512f19d993c869fa73f62c2507dcae00f9cbfba40b46f62a649c9d4af8f9",
+    "dataset": {
+      "rows": 3762,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 3762,
+      "avg_return": -4.462e-05,
+      "volatility": 0.00387751,
+      "last_close": 12.07
+    }
+  },
+  {
+    "source": "DI1F34_F_0_Diário.csv",
+    "normalized": "DI1F34_D1_normalized.csv",
+    "sha256": "862e35d9a94a124188dc01809fd25670e0f190305feb8d72b4f037b7299b5411",
+    "dataset": {
+      "rows": 498,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 498,
+      "avg_return": -0.00034671,
+      "volatility": 0.01009906,
+      "last_close": 12.05
+    }
+  },
+  {
+    "source": "DI1F35_F_0_60min.csv",
+    "normalized": "DI1F35_H1_normalized.csv",
+    "sha256": "9671ad7ba390bebd63378e06eb843b758dec580db556465b5aec883dec7170b6",
+    "dataset": {
+      "rows": 4474,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 4474,
+      "avg_return": -3.611e-05,
+      "volatility": 0.00351187,
+      "last_close": 12.13
+    }
+  },
+  {
+    "source": "DI1F35_F_0_Diário.csv",
+    "normalized": "DI1F35_D1_normalized.csv",
+    "sha256": "9531b7247f9cff347e74900ae32265ad8b4558b1627dccf9bf1c8e3d79f74f0f",
+    "dataset": {
+      "rows": 498,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 498,
+      "avg_return": -0.00034111,
+      "volatility": 0.01008278,
+      "last_close": 12.06
+    }
+  },
+  {
+    "source": "DI1F38_F_0_60min.csv",
+    "normalized": "DI1F38_H1_normalized.csv",
+    "sha256": "494115ae15c7b2d24e3e1e6c81e5ac807f9106897db45ea8b6d173c7d07db932",
+    "dataset": {
+      "rows": 703,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 703,
+      "avg_return": -0.00026069,
+      "volatility": 0.00763808,
+      "last_close": 11.92
+    }
+  },
+  {
+    "source": "DI1F38_F_0_Diário.csv",
+    "normalized": "DI1F38_D1_normalized.csv",
+    "sha256": "fbfa1aaef15f72e9114ee08e0de360244124b4e54c4610e25463900e318bb574",
+    "dataset": {
+      "rows": 208,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 208,
+      "avg_return": -0.00088889,
+      "volatility": 0.01367413,
+      "last_close": 11.92
+    }
+  },
+  {
+    "source": "DI1N30_F_0_60min.csv",
+    "normalized": "DI1N30_H1_normalized.csv",
+    "sha256": "f3fc41778f4209acdb64801d48c947d5b1d048510bddc2d21aac9cf79bc4c032",
+    "dataset": {
+      "rows": 2312,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 2312,
+      "avg_return": 1.998e-05,
+      "volatility": 0.00367515,
+      "last_close": 15.27
+    }
+  },
+  {
+    "source": "DI1N30_F_0_Diário.csv",
+    "normalized": "DI1N30_D1_normalized.csv",
+    "sha256": "4765cd4435478fecfc45a18d81c9a49650109c9a951e9724edd39d383edac42a",
+    "dataset": {
+      "rows": 355,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 355,
+      "avg_return": 0.00011893,
+      "volatility": 0.00913319,
+      "last_close": 15.22
+    }
+  },
+  {
+    "source": "DI1X29_F_0_60min.csv",
+    "normalized": "DI1X29_H1_normalized.csv",
+    "sha256": "e7c16a6138e1888c8d33c824e2a8377377c751c34d27fb4956df8360f19ff24f",
+    "dataset": {
+      "rows": 77,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 77,
+      "avg_return": -0.00192591,
+      "volatility": 0.00970506,
+      "last_close": 12.81
+    }
+  },
+  {
+    "source": "DI1X29_F_0_Diário.csv",
+    "normalized": "DI1X29_D1_normalized.csv",
+    "sha256": "f4bac2f5de0bc2a1b9f3fb6920d7bfc15e34351a2e8f15272c714449862b8909",
+    "dataset": {
+      "rows": 39,
+      "schema_ok": true,
+      "enough_rows": false,
+      "certified": false
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 39,
+      "avg_return": -0.00385098,
+      "volatility": 0.01349118,
+      "last_close": 12.81
+    }
+  },
+  {
+    "source": "DIIV26F27_F_0_60min.csv",
+    "normalized": "DIIV26F27_H1_normalized.csv",
+    "sha256": "d577ced34ed632183fc5b333fa51909c04ffed2807a009fccae1d2d26e679b3b",
+    "dataset": {
+      "rows": 3240,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 193,
+      "avg_return": 0.07506482,
+      "volatility": 0.58035208,
+      "last_close": 0.05
+    }
+  },
+  {
+    "source": "DIIV26F27_F_0_Diário.csv",
+    "normalized": "DIIV26F27_D1_normalized.csv",
+    "sha256": "dd6a2dce5c0819c75a1108d01b9a393b857140f6aa869e2f8019d12718502dc4",
+    "dataset": {
+      "rows": 485,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 51,
+      "avg_return": 0.09815909,
+      "volatility": 0.65615675,
+      "last_close": 0.045
+    }
+  },
+  {
+    "source": "DOLB11_B_0_Diário.csv",
+    "normalized": "DOLB11_D1_normalized.csv",
+    "sha256": "d1888a842e8184973a2b93a799228e8da48f6d6f2bb0e16dbcbfddc9d6a46e39",
+    "dataset": {
+      "rows": 278,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 278,
+      "avg_return": 0.0001382,
+      "volatility": 0.00684773,
+      "last_close": 99.77
+    }
+  },
+  {
+    "source": "DOLCC_E_0_Diário.csv",
+    "normalized": "DOLCC_D1_normalized.csv",
+    "sha256": "6bd155dc08cd9453632f4256b14416aec44c4fdee4778b38a483fa8234a95873",
+    "dataset": {
+      "rows": 504,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 504,
+      "avg_return": 9.6e-05,
+      "volatility": 0.00695542,
+      "last_close": 5.366
+    }
+  },
+  {
+    "source": "DOLCV_E_0_Diário.csv",
+    "normalized": "DOLCV_D1_normalized.csv",
+    "sha256": "e5f181a792c4fbd394eb7e277b4b8bb605992ea7ea8f6437366689dd79db5eda",
+    "dataset": {
+      "rows": 504,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 504,
+      "avg_return": 9.599e-05,
+      "volatility": 0.00695479,
+      "last_close": 5.3666
+    }
+  },
+  {
+    "source": "DOLPT_E_0_Diário.csv",
+    "normalized": "DOLPT_D1_normalized.csv",
+    "sha256": "cff35804c9af1e3a5b8d3a01a4dcd7bc672f8fec216ac029346f3075bcc22072",
+    "dataset": {
+      "rows": 504,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 504,
+      "avg_return": 9.6e-05,
+      "volatility": 0.00695542,
+      "last_close": 5.366
+    }
+  },
+  {
+    "source": "ENEV3_B_0_60min.csv",
+    "normalized": "ENEV3_H1_normalized.csv",
+    "sha256": "e018607d08b5e2829bb13068966d9d5d19f4096bce34b8b9fa4c42c8a2a9450d",
+    "dataset": {
+      "rows": 3971,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 3971,
+      "avg_return": -0.00013707,
+      "volatility": 0.00799016,
+      "last_close": 12.66
+    }
+  },
+  {
+    "source": "ENEV3_B_0_Diário.csv",
+    "normalized": "ENEV3_D1_normalized.csv",
+    "sha256": "e91a7d1bd459266573b3c24107595aa358262c22a3ace70ba5085f7462ac7838",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00117307,
+      "volatility": 0.01942518,
+      "last_close": 12.46
+    }
+  },
+  {
+    "source": "ESGB_B_0_Diário.csv",
+    "normalized": "ESGB_D1_normalized.csv",
+    "sha256": "fb866b45696cbbdcb103d75cbc312f49f598d14d865ff857880b60956dc877e9",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.0002745,
+      "volatility": 0.01232294,
+      "last_close": 96.46
+    }
+  },
+  {
+    "source": "GBTC11_B_0_Diário.csv",
+    "normalized": "GBTC11_D1_normalized.csv",
+    "sha256": "fedc7b5fe80201122bb510500e8a69931e57f687325d05c687968221d693a242",
+    "dataset": {
+      "rows": 214,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 214,
+      "avg_return": 0.00062873,
+      "volatility": 0.01673894,
+      "last_close": 28.8
+    }
+  },
+  {
+    "source": "GENB_B_0_Diário.csv",
+    "normalized": "GENB_D1_normalized.csv",
+    "sha256": "0c2b3c4af16d3b03dc82104bf007340f8f74fe1a11550e7289ef26bfd1c8f7d0",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00031914,
+      "volatility": 0.01484482,
+      "last_close": 14.76
+    }
+  },
+  {
+    "source": "HBOR3_B_0_60min.csv",
+    "normalized": "HBOR3_H1_normalized.csv",
+    "sha256": "3a6a50d999b7629d0e1e587ce075de68a82a0331c0c1438a0ca41b45bf0df04f",
+    "dataset": {
+      "rows": 3964,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 3964,
+      "avg_return": 7.249e-05,
+      "volatility": 0.01397166,
+      "last_close": 2.0
+    }
+  },
+  {
+    "source": "HBOR3_B_0_Diário.csv",
+    "normalized": "HBOR3_D1_normalized.csv",
+    "sha256": "91b500522ca1ef3146d5eafaf23164d69128f1c110ef9b26e38b675e3953ccfd",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": 0.00052417,
+      "volatility": 0.03960813,
+      "last_close": 1.95
+    }
+  },
+  {
+    "source": "IBBC_B_0_Diário.csv",
+    "normalized": "IBBC_D1_normalized.csv",
+    "sha256": "83e9ed47a4aed560de6ffe225053f13da27efc1a56843ef6670bd1952dce4aac",
+    "dataset": {
+      "rows": 270,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 270,
+      "avg_return": -0.00040238,
+      "volatility": 0.01077689,
+      "last_close": 1240.32
+    }
+  },
+  {
+    "source": "IBBR_B_0_60min.csv",
+    "normalized": "IBBR_H1_normalized.csv",
+    "sha256": "4e9dfb1a45ff50e48a45f9fc33ec61dc2b67b84a7d1dcf43cb8ff81739b9435f",
+    "dataset": {
+      "rows": 3394,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 3394,
+      "avg_return": -3.691e-05,
+      "volatility": 0.00359878,
+      "last_close": 1134.07
+    }
+  },
+  {
+    "source": "IBBR_B_0_Diário.csv",
+    "normalized": "IBBR_D1_normalized.csv",
+    "sha256": "724f33f61de18fdc6436a56aa78c94f421829057c1fa29dd23ad94f66f8bcfd5",
+    "dataset": {
+      "rows": 454,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 454,
+      "avg_return": -0.0002717,
+      "volatility": 0.01029872,
+      "last_close": 1134.18
+    }
+  },
+  {
+    "source": "IBEP_B_0_60min.csv",
+    "normalized": "IBEP_H1_normalized.csv",
+    "sha256": "d23b4a83cb80b9026129c55e532c5957a94fa02ea9de1307bb1db86391d89791",
+    "dataset": {
+      "rows": 3074,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 3074,
+      "avg_return": -7.504e-05,
+      "volatility": 0.0040225,
+      "last_close": 1318.19
+    }
+  },
+  {
+    "source": "IBEP_B_0_Diário.csv",
+    "normalized": "IBEP_D1_normalized.csv",
+    "sha256": "1ff5ccc306d7240d3a25479e4bc0ebb84ce50b76accfb5b648a1015d3d22139d",
+    "dataset": {
+      "rows": 414,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 414,
+      "avg_return": -0.00056565,
+      "volatility": 0.01146217,
+      "last_close": 1311.2
+    }
+  },
+  {
+    "source": "IBOV_B_0_15min.csv",
+    "normalized": "IBOV_M15_normalized.csv",
+    "sha256": "499c4f6323c221e3ed1fc87163fc8ff445315d7ee38dca0b1b698a00b2721362",
+    "dataset": {
+      "rows": 10000,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 10000,
+      "avg_return": -3.016e-05,
+      "volatility": 0.00191856,
+      "last_close": 123306.23
+    }
+  },
+  {
+    "source": "IBOV_B_0_20min.csv",
+    "normalized": "IBOV_M20_normalized.csv",
+    "sha256": "b5e31db7f1acf416b565de10601249dcd0881e5c7de8f1b5888708732f2a4afa",
+    "dataset": {
+      "rows": 10000,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 10000,
+      "avg_return": -2.165e-05,
+      "volatility": 0.00211126,
+      "last_close": 133742.41
+    }
+  },
+  {
+    "source": "IBOV_B_0_30min.csv",
+    "normalized": "IBOV_M30_normalized.csv",
+    "sha256": "b3cef9f084225246878087312b43a2f68da8b1b08d3a9989b22a836e83bad51f",
+    "dataset": {
+      "rows": 7403,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 7403,
+      "avg_return": -4.292e-05,
+      "volatility": 0.00252316,
+      "last_close": 120713.95
+    }
+  },
+  {
+    "source": "IBOV_B_0_60min.csv",
+    "normalized": "IBOV_H1_normalized.csv",
+    "sha256": "3a36265830fdcf3997a1625e704d510cc14a3a7811a8d19cc1df4c304282c9f8",
+    "dataset": {
+      "rows": 3754,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 3754,
+      "avg_return": -8.396e-05,
+      "volatility": 0.00352556,
+      "last_close": 121055.49
+    }
+  },
+  {
+    "source": "IBOV_B_0_Diário.csv",
+    "normalized": "IBOV_D1_normalized.csv",
+    "sha256": "60b1a2f08aaa4268defe47e0f281fccfd284c97632af0edc4c4d6c5a546e8150",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00063415,
+      "volatility": 0.01002012,
+      "last_close": 120759.51
+    }
+  },
+  {
+    "source": "IBRA_B_0_60min.csv",
+    "normalized": "IBRA_H1_normalized.csv",
+    "sha256": "58a5950f357598d3ce82f92c04f12188cbe488a677edb23faff9eeaf9c4fdf49",
+    "dataset": {
+      "rows": 3754,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 3754,
+      "avg_return": -8.26e-05,
+      "volatility": 0.00352105,
+      "last_close": 4784.18
+    }
+  },
+  {
+    "source": "IBRA_B_0_Diário.csv",
+    "normalized": "IBRA_D1_normalized.csv",
+    "sha256": "f1339a4fc6a033c3ab0a685af5f0fecd319dfd71df7eed8bbad376768967c6e4",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00062489,
+      "volatility": 0.0100295,
+      "last_close": 4769.64
+    }
+  },
+  {
+    "source": "IFIX_B_0_60min.csv",
+    "normalized": "IFIX_H1_normalized.csv",
+    "sha256": "ab7c16831d75ab27de43f3c7755c087884ac4de39c75c79efbe619fbb6ed2b26",
+    "dataset": {
+      "rows": 3754,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 3754,
+      "avg_return": -3.34e-05,
+      "volatility": 0.00119754,
+      "last_close": 3353.73
+    }
+  },
+  {
+    "source": "IFIX_B_0_Diário.csv",
+    "normalized": "IFIX_D1_normalized.csv",
+    "sha256": "c55154f6c46e41f387eb3affb1dcf5013bc486ef628cfd70d67a3b38686c486f",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00025311,
+      "volatility": 0.00425253,
+      "last_close": 3345.21
+    }
+  },
+  {
+    "source": "IGCT_B_0_60min.csv",
+    "normalized": "IGCT_H1_normalized.csv",
+    "sha256": "bd461f6ca21a44aeed09ddaaf2cee31a9054ce75d355001f9e2d34d11220356e",
+    "dataset": {
+      "rows": 3754,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 3754,
+      "avg_return": -8.201e-05,
+      "volatility": 0.00354539,
+      "last_close": 5440.84
+    }
+  },
+  {
+    "source": "IGCT_B_0_Diário.csv",
+    "normalized": "IGCT_D1_normalized.csv",
+    "sha256": "713bbc00d31fc966e1b164c7b9b5213e64f3cd0bef4140def36170ef968f5e98",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00062031,
+      "volatility": 0.01011021,
+      "last_close": 5424.23
+    }
+  },
+  {
+    "source": "IGCX_B_0_60min.csv",
+    "normalized": "IGCX_H1_normalized.csv",
+    "sha256": "c3ace34ceccc5e713ba9b792433194290ca25e8f9a7e54c755f40096aa5912b5",
+    "dataset": {
+      "rows": 3754,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 3754,
+      "avg_return": -8.166e-05,
+      "volatility": 0.0035437,
+      "last_close": 19022.58
+    }
+  },
+  {
+    "source": "IGCX_B_0_Diário.csv",
+    "normalized": "IGCX_D1_normalized.csv",
+    "sha256": "c642ca00a853e6cc2ae8c4c84d6fe2fe128e26a4274a36488b5289f49bde7af6",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00061776,
+      "volatility": 0.01010131,
+      "last_close": 18964.11
+    }
+  },
+  {
+    "source": "IGTI3F_B_0_60min.csv",
+    "normalized": "IGTI3F_H1_normalized.csv",
+    "sha256": "9cedd72c2b9f0f25861926e9611d9068389c2a2d2e8dd96f0dcbbad545332058",
+    "dataset": {
+      "rows": 3649,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 3649,
+      "avg_return": -6.24e-06,
+      "volatility": 0.01101678,
+      "last_close": 2.71
+    }
+  },
+  {
+    "source": "IGTI3F_B_0_Diário.csv",
+    "normalized": "IGTI3F_D1_normalized.csv",
+    "sha256": "ab95f48f809878cebbe0e94f6263720fe932febeeb5c18044d06705691a80c5b",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00034334,
+      "volatility": 0.02073707,
+      "last_close": 2.62
+    }
+  },
+  {
+    "source": "IMOB_B_0_60min.csv",
+    "normalized": "IMOB_H1_normalized.csv",
+    "sha256": "7e6743d5dbcc0d3cb8d25b9afb3fb76c3b83b7809c72da8f2adbc7f337845b70",
+    "dataset": {
+      "rows": 3754,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 3754,
+      "avg_return": -9.663e-05,
+      "volatility": 0.00586398,
+      "last_close": 839.09
+    }
+  },
+  {
+    "source": "IMOB_B_0_Diário.csv",
+    "normalized": "IMOB_D1_normalized.csv",
+    "sha256": "1c857a6fc9cc998660e4159e6c9b0367bd14d3b8ab269ac2e1f95b8c814f33a0",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00074248,
+      "volatility": 0.0165733,
+      "last_close": 830.13
+    }
+  },
+  {
+    "source": "INBR32_B_0_60min.csv",
+    "normalized": "INBR32_H1_normalized.csv",
+    "sha256": "cade3accbed75332281ba56c08cf7d73863ce3d13cc6c35a158bed9e253237fd",
+    "dataset": {
+      "rows": 4017,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 4017,
+      "avg_return": 5.497e-05,
+      "volatility": 0.00904847,
+      "last_close": 31.11
+    }
+  },
+  {
+    "source": "INBR32_B_0_Diário.csv",
+    "normalized": "INBR32_D1_normalized.csv",
+    "sha256": "ea64ceb45555431e02af914313139dd3d10dfc6733559201361c425aac622b9e",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": 0.0004643,
+      "volatility": 0.02726844,
+      "last_close": 30.72
+    }
+  },
+  {
+    "source": "IPCA_E_0_Diário.csv",
+    "normalized": "IPCA_D1_normalized.csv",
+    "sha256": "e85f18c4cb525096a6cc19eb6f1979f7cf5969d0c469d6e460eec6abbd740c9a",
+    "dataset": {
+      "rows": 22,
+      "schema_ok": true,
+      "enough_rows": false,
+      "certified": false
+    },
+    "baseline": {
+      "tested": false
+    }
+  },
+  {
+    "source": "ITUBPFUT_F_0_60min.csv",
+    "normalized": "ITUBPFUT_H1_normalized.csv",
+    "sha256": "af5819eee2198fff0a27bea0ecc20c2666c8e751a0a5b8b50759ac391e154707",
+    "dataset": {
+      "rows": 2849,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 2849,
+      "avg_return": 1.919e-05,
+      "volatility": 0.00627613,
+      "last_close": 39.14
+    }
+  },
+  {
+    "source": "ITUBPFUT_F_0_Diário.csv",
+    "normalized": "ITUBPFUT_D1_normalized.csv",
+    "sha256": "a703711441424c5d91b17ee74e2e1cea5232f0e778d2dbfc13a5b003ad1f3f29",
+    "dataset": {
+      "rows": 483,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 483,
+      "avg_return": 0.0001055,
+      "volatility": 0.01516214,
+      "last_close": 39.01
+    }
+  },
+  {
+    "source": "LFTS11_B_0_60min.csv",
+    "normalized": "LFTS11_H1_normalized.csv",
+    "sha256": "2c187490414534760af95a202e45311cee1c02906295bb373b715613e2421254",
+    "dataset": {
+      "rows": 4015,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 4015,
+      "avg_return": -6.2e-05,
+      "volatility": 0.00023491,
+      "last_close": 120.22
+    }
+  },
+  {
+    "source": "LFTS11_B_0_Diário.csv",
+    "normalized": "LFTS11_D1_normalized.csv",
+    "sha256": "fa9b1983bd3ce999aeb3b0d9706f7e491cb6a6a8e380156202eba8a2843cbd7e",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00049948,
+      "volatility": 0.00029308,
+      "last_close": 120.24
+    }
+  },
+  {
+    "source": "LLFT11_B_0_Diário.csv",
+    "normalized": "LLFT11_D1_normalized.csv",
+    "sha256": "0dac0223c865860e515ca1292a5cb30fd94c3abb38fbbd837259f830809b8ae3",
+    "dataset": {
+      "rows": 245,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 245,
+      "avg_return": -0.00055791,
+      "volatility": 0.00094113,
+      "last_close": 100.07
+    }
+  },
+  {
+    "source": "M2RV34_B_0_Diário.csv",
+    "normalized": "M2RV34_D1_normalized.csv",
+    "sha256": "64bbc1c63677522cdbf74280129268021004dd4219eb250a43c8518e27d5179d",
+    "dataset": {
+      "rows": 477,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 477,
+      "avg_return": -0.00182837,
+      "volatility": 0.04399134,
+      "last_close": 37.15
+    }
+  },
+  {
+    "source": "MARG11_B_0_Diário.csv",
+    "normalized": "MARG11_D1_normalized.csv",
+    "sha256": "963a58fe06460c4caef94e0494fa55587a47a74ac929aa6be71efa539bceacb8",
+    "dataset": {
+      "rows": 302,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 302,
+      "avg_return": -0.00056492,
+      "volatility": 0.00110496,
+      "last_close": 100.2
+    }
+  },
+  {
+    "source": "MDIA3_B_0_60min.csv",
+    "normalized": "MDIA3_H1_normalized.csv",
+    "sha256": "bdb63a2fa4694ae175d112c811790cbec04a8b394f4470983fc1148ff1739205",
+    "dataset": {
+      "rows": 3916,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 3916,
+      "avg_return": 0.00015709,
+      "volatility": 0.00860004,
+      "last_close": 30.11
+    }
+  },
+  {
+    "source": "MDIA3_B_0_Diário.csv",
+    "normalized": "MDIA3_D1_normalized.csv",
+    "sha256": "1b10a2d3baef04c68914d39424cd99943e05527abd59928cda18b5799fe30608",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": 0.00119911,
+      "volatility": 0.02286532,
+      "last_close": 29.97
+    }
+  },
+  {
+    "source": "NBIT11_B_0_60min.csv",
+    "normalized": "NBIT11_H1_normalized.csv",
+    "sha256": "51843460959e49c2e05d40681b5dc6d305d2a43decbd6ddecdd21d9af3592c5d",
+    "dataset": {
+      "rows": 1462,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 1462,
+      "avg_return": 0.00053392,
+      "volatility": 0.01232496,
+      "last_close": 49.56
+    }
+  },
+  {
+    "source": "NBIT11_B_0_Diário.csv",
+    "normalized": "NBIT11_D1_normalized.csv",
+    "sha256": "8ccac981e8f376c77ae8b9d450c75bab9260af963e90b14ca764636e6c01b04c",
+    "dataset": {
+      "rows": 199,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 199,
+      "avg_return": 0.00415555,
+      "volatility": 0.03053937,
+      "last_close": 52.7
+    }
+  },
+  {
+    "source": "NZLFUT_F_0_60min.csv",
+    "normalized": "NZLFUT_H1_normalized.csv",
+    "sha256": "d9d5f62f95c6d2eab6febb93b643390945fa9baaecf8bd8858421b205fca090a",
+    "dataset": {
+      "rows": 372,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 372,
+      "avg_return": 0.00018047,
+      "volatility": 0.00683334,
+      "last_close": 614.89
+    }
+  },
+  {
+    "source": "NZLFUT_F_0_Diário.csv",
+    "normalized": "NZLFUT_D1_normalized.csv",
+    "sha256": "c7512675cb4e66bc3e7076ce3283f080ab69b51d4bd1bd303f46a09cab3cd306",
+    "dataset": {
+      "rows": 253,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 253,
+      "avg_return": 0.00026615,
+      "volatility": 0.00834493,
+      "last_close": 614.89
+    }
+  },
+  {
+    "source": "OBTC3F_B_0_Diário.csv",
+    "normalized": "OBTC3F_D1_normalized.csv",
+    "sha256": "b8927c5f8da30b404cff7bc76c4369107bc4db84cabde3c9f8b18f0f80f41ad7",
+    "dataset": {
+      "rows": 165,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 165,
+      "avg_return": 0.00891679,
+      "volatility": 0.03910593,
+      "last_close": 23.15
+    }
+  },
+  {
+    "source": "OBTC3_B_0_Diário.csv",
+    "normalized": "OBTC3_D1_normalized.csv",
+    "sha256": "08fac7ed86dc751c9499fc63fc32d9f28d1649fbac8003a62096f695ef830aed",
+    "dataset": {
+      "rows": 165,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 165,
+      "avg_return": 0.00926306,
+      "volatility": 0.03823527,
+      "last_close": 24.0
+    }
+  },
+  {
+    "source": "PACB11_B_0_Diário.csv",
+    "normalized": "PACB11_D1_normalized.csv",
+    "sha256": "6261436da512a4c8dcfb32e76e33b42e35f4b88113495f1b6264fe214fa45f82",
+    "dataset": {
+      "rows": 474,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 474,
+      "avg_return": -4.756e-05,
+      "volatility": 0.00729197,
+      "last_close": 10.09
+    }
+  },
+  {
+    "source": "PETR4_B_0_15min.csv",
+    "normalized": "PETR4_M15_normalized.csv",
+    "sha256": "ca0bfdc0c5792a0707f9eb9e9ecea1e1d79e9415659a558b66ec63ddaa85c435",
+    "dataset": {
+      "rows": 9770,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 9770,
+      "avg_return": -1.786e-05,
+      "volatility": 0.00319578,
+      "last_close": 32.9
+    }
+  },
+  {
+    "source": "PETR4_B_0_20min.csv",
+    "normalized": "PETR4_M20_normalized.csv",
+    "sha256": "8705d52ff6641d5ca188cd82e8f8c612199c78fbebdeec1bb008f688b235071e",
+    "dataset": {
+      "rows": 9712,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 9712,
+      "avg_return": -2.514e-05,
+      "volatility": 0.00343799,
+      "last_close": 30.46
+    }
+  },
+  {
+    "source": "PETR4_B_0_30min.csv",
+    "normalized": "PETR4_M30_normalized.csv",
+    "sha256": "83331d9758d41215b97661d3054b354b2cfe5474e0b714cd634f3d28ae537bed",
+    "dataset": {
+      "rows": 7672,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 7672,
+      "avg_return": -3.404e-05,
+      "volatility": 0.00411372,
+      "last_close": 29.72
+    }
+  },
+  {
+    "source": "PETR4_B_0_60min.csv",
+    "normalized": "PETR4_H1_normalized.csv",
+    "sha256": "f50bf93a5e02baafc5732127ce4eda0ba776513e8bdc4044fc8bd9bed842a77c",
+    "dataset": {
+      "rows": 4013,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 4013,
+      "avg_return": -6.259e-05,
+      "volatility": 0.0057128,
+      "last_close": 30.0
+    }
+  },
+  {
+    "source": "POSI3F_B_0_Diário.csv",
+    "normalized": "POSI3F_D1_normalized.csv",
+    "sha256": "1764628d20b33f8739ee37fb331e65aeebfcd084b9b7f3f7d18fc99334239db9",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": 0.00205787,
+      "volatility": 0.02682015,
+      "last_close": 8.09
+    }
+  },
+  {
+    "source": "POSI3_B_0_Diário.csv",
+    "normalized": "POSI3_D1_normalized.csv",
+    "sha256": "1b97f888d044b3435a6c262d1b5fece5336132962844a728e05577ba5e57014d",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": 0.00209698,
+      "volatility": 0.02760636,
+      "last_close": 8.07
+    }
+  },
+  {
+    "source": "QBTC11_B_0_Diário.csv",
+    "normalized": "QBTC11_D1_normalized.csv",
+    "sha256": "099be0c339e13a04c1cb2b5324876f8fcfb723ca4cf9b67447811e5340dd0e6d",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": 0.00075682,
+      "volatility": 0.02862792,
+      "last_close": 23.32
+    }
+  },
+  {
+    "source": "SBSP3F_B_0_60min.csv",
+    "normalized": "SBSP3F_H1_normalized.csv",
+    "sha256": "ed7b0f958b099bc37ce0e66563aebac4ec25980cb5aad4eee6a9929c475c3e86",
+    "dataset": {
+      "rows": 4016,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 4016,
+      "avg_return": -0.0001556,
+      "volatility": 0.00597859,
+      "last_close": 13.77
+    }
+  },
+  {
+    "source": "SBSP3F_B_0_Diário.csv",
+    "normalized": "SBSP3F_D1_normalized.csv",
+    "sha256": "acd9f2d66149602d195b0cefcdf5b3e58e6ff9043bf414b900df2b332b90a45a",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00126926,
+      "volatility": 0.01689517,
+      "last_close": 13.79
+    }
+  },
+  {
+    "source": "SELIC_E_0_Diário.csv",
+    "normalized": "SELIC_D1_normalized.csv",
+    "sha256": "fe3136e1a09ad3760c8dfb6ef792d708479cb563211d7e3544983b7fb9ad6e58",
+    "dataset": {
+      "rows": 24,
+      "schema_ok": true,
+      "enough_rows": false,
+      "certified": false
+    },
+    "baseline": {
+      "tested": false
+    }
+  },
+  {
+    "source": "SHUL4_B_0_60min.csv",
+    "normalized": "SHUL4_H1_normalized.csv",
+    "sha256": "034660b0d1f8370456b0eceb55d55582153221449331e0e6815370400664cceb",
+    "dataset": {
+      "rows": 3927,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 3927,
+      "avg_return": 3.008e-05,
+      "volatility": 0.00601816,
+      "last_close": 5.01
+    }
+  },
+  {
+    "source": "SHUL4_B_0_Diário.csv",
+    "normalized": "SHUL4_D1_normalized.csv",
+    "sha256": "934f2917cc3da6e7d8c8335cf86b90b17714d0cd63c06fc5b0701717d25f4be0",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": 0.0001917,
+      "volatility": 0.01450006,
+      "last_close": 4.98
+    }
+  },
+  {
+    "source": "SMAB11_B_0_Diário.csv",
+    "normalized": "SMAB11_D1_normalized.csv",
+    "sha256": "7a67acff2ee2ee319a998cc3e959366eced9477df68be0273cad2a1d35ac57e1",
+    "dataset": {
+      "rows": 496,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 496,
+      "avg_return": -0.00012202,
+      "volatility": 0.01346845,
+      "last_close": 7.12
+    }
+  },
+  {
+    "source": "SMAB_B_0_Diário.csv",
+    "normalized": "SMAB_D1_normalized.csv",
+    "sha256": "920841a772a97f573ff15655eafd15347884d939dcaa83a62369687544a854a2",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00012366,
+      "volatility": 0.01346026,
+      "last_close": 7.11
+    }
+  },
+  {
+    "source": "SPXB11_B_0_Diário.csv",
+    "normalized": "SPXB11_D1_normalized.csv",
+    "sha256": "cfa791db4ceb80311d4313c26cc742452aa00ee75fed739ef69ef48a598ded94",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00053073,
+      "volatility": 0.01038523,
+      "last_close": 12.57
+    }
+  },
+  {
+    "source": "SYNE3F_B_0_Diário.csv",
+    "normalized": "SYNE3F_D1_normalized.csv",
+    "sha256": "0af100c2313f92de97e3ac4ad95bb510436ac43abe4718a0141ecfff1cba2992",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00077901,
+      "volatility": 0.02567782,
+      "last_close": 2.09
+    }
+  },
+  {
+    "source": "SYNE3_B_0_Diário.csv",
+    "normalized": "SYNE3_D1_normalized.csv",
+    "sha256": "6886b45840d4abedf487c0a015adfb8d3bf08a6d633bd65a23a9d74a4e55a39d",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00076456,
+      "volatility": 0.02580609,
+      "last_close": 2.09
+    }
+  },
+  {
+    "source": "TAEE11_B_0_60min.csv",
+    "normalized": "TAEE11_H1_normalized.csv",
+    "sha256": "de9afb627ec4362d1b7457d51abbfc8470f2ed2a41d8dce04a21ac2af628895c",
+    "dataset": {
+      "rows": 4011,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 4011,
+      "avg_return": -5.237e-05,
+      "volatility": 0.00425928,
+      "last_close": 30.67
+    }
+  },
+  {
+    "source": "TAEE11_B_0_Diário.csv",
+    "normalized": "TAEE11_D1_normalized.csv",
+    "sha256": "8c54b46dc1d2796bc45facbc26be0d1fcce51bf2e6f684b1301755ea3a5add0e",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00043444,
+      "volatility": 0.01147558,
+      "last_close": 30.49
+    }
+  },
+  {
+    "source": "TIRB11_B_0_Diário.csv",
+    "normalized": "TIRB11_D1_normalized.csv",
+    "sha256": "97ca1aaa5990d8d93895896bd22222113c52ca98ac6a776dff870ccd24d234b5",
+    "dataset": {
+      "rows": 407,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 407,
+      "avg_return": -0.0008184,
+      "volatility": 0.0121617,
+      "last_close": 9.34
+    }
+  },
+  {
+    "source": "TIRB_B_0_Diário.csv",
+    "normalized": "TIRB_D1_normalized.csv",
+    "sha256": "334dbb5a026a85744ff05923c5ba7cc509d87a1f47919b0a18eb4821f840c216",
+    "dataset": {
+      "rows": 406,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 406,
+      "avg_return": -0.00065989,
+      "volatility": 0.01172484,
+      "last_close": 9.99
+    }
+  },
+  {
+    "source": "VALE3_B_0_15min.csv",
+    "normalized": "VALE3_M15_normalized.csv",
+    "sha256": "c112111025fb2c884fa357b43abaf0ac948ac63ef72eaea1b58b17da92a67f85",
+    "dataset": {
+      "rows": 9772,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 9772,
+      "avg_return": -4.649e-05,
+      "volatility": 0.0028869,
+      "last_close": 47.85
+    }
+  },
+  {
+    "source": "VALE3_B_0_20min.csv",
+    "normalized": "VALE3_M20_normalized.csv",
+    "sha256": "7bc0e07f1a05d2839ef92199cd0bdf7f3e347980de09096645ca71a718f0766d",
+    "dataset": {
+      "rows": 9713,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 9713,
+      "avg_return": -4.096e-05,
+      "volatility": 0.0032469,
+      "last_close": 50.1
+    }
+  },
+  {
+    "source": "VALE3_B_0_30min.csv",
+    "normalized": "VALE3_M30_normalized.csv",
+    "sha256": "c6ada1d441b55ac5c6643c24bbc2322721144f169abf142ac4445ca8e288d499",
+    "dataset": {
+      "rows": 7654,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 7654,
+      "avg_return": -4.995e-05,
+      "volatility": 0.00383922,
+      "last_close": 50.62
+    }
+  },
+  {
+    "source": "VALE3_B_0_60min.csv",
+    "normalized": "VALE3_H1_normalized.csv",
+    "sha256": "4cfc59aa9e8100fb5c8de94a8714ee8e72807f46a2324bdc6af370a33e52e1d8",
+    "dataset": {
+      "rows": 4012,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 4012,
+      "avg_return": -9.489e-05,
+      "volatility": 0.00547202,
+      "last_close": 50.52
+    }
+  },
+  {
+    "source": "VALE3_B_0_Diário.csv",
+    "normalized": "VALE3_D1_normalized.csv",
+    "sha256": "d5767f2f1dce1558c115ea47a7709294f4e66b2410a881c6aeaa5d4070a14b08",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00073879,
+      "volatility": 0.01579415,
+      "last_close": 51.0
+    }
+  },
+  {
+    "source": "VCJR11_B_0_60min.csv",
+    "normalized": "VCJR11_H1_normalized.csv",
+    "sha256": "4771cc82b2f85130858e339a2876205eac7fa78fa5eba435b2bd1f10a94babf9",
+    "dataset": {
+      "rows": 3963,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 3963,
+      "avg_return": -1.4e-05,
+      "volatility": 0.00400553,
+      "last_close": 70.2
+    }
+  },
+  {
+    "source": "VCJR11_B_0_Diário.csv",
+    "normalized": "VCJR11_D1_normalized.csv",
+    "sha256": "b299bd6b33f1c40a5cd5cf996ca45505c4a163c3d1563e203b0baf2bfe3d1f9a",
+    "dataset": {
+      "rows": 498,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 498,
+      "avg_return": -0.00012512,
+      "volatility": 0.00939068,
+      "last_close": 70.26
+    }
+  },
+  {
+    "source": "WDOFUT_F_0_15min.csv",
+    "normalized": "WDOFUT_M15_normalized.csv",
+    "sha256": "cf17e286dcb6b49b194abc879ffbf6dd6dd08fe67c23ce2e81bc18c3e79c77b0",
+    "dataset": {
+      "rows": 10000,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 10000,
+      "avg_return": 1.871e-05,
+      "volatility": 0.00116059,
+      "last_close": 6232.713
+    }
+  },
+  {
+    "source": "WDOFUT_F_0_20min.csv",
+    "normalized": "WDOFUT_M20_normalized.csv",
+    "sha256": "e2d154d7a67e384a40523bf7acc408132462636eb7b2525aa7798122e569bbce",
+    "dataset": {
+      "rows": 10000,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 10000,
+      "avg_return": 2.767e-05,
+      "volatility": 0.00136089,
+      "last_close": 6799.34
+    }
+  },
+  {
+    "source": "WDOFUT_F_0_30min.csv",
+    "normalized": "WDOFUT_M30_normalized.csv",
+    "sha256": "d666d311b19f69c30d2693dad671f0a4d20730b12ec64fdfcc1b842b3852a744",
+    "dataset": {
+      "rows": 9445,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 9445,
+      "avg_return": 1.941e-05,
+      "volatility": 0.00179832,
+      "last_close": 6156.193
+    }
+  },
+  {
+    "source": "WDOFUT_F_0_60min.csv",
+    "normalized": "WDOFUT_H1_normalized.csv",
+    "sha256": "f2469317147898833e04d9e94a01fd0a92fa196dd6d17dc4630da0760278c569",
+    "dataset": {
+      "rows": 4971,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 4971,
+      "avg_return": 3.815e-05,
+      "volatility": 0.00246747,
+      "last_close": 6195.981
+    }
+  },
+  {
+    "source": "WINFUTV_F_0_60min.csv",
+    "normalized": "WINFUTV_H1_normalized.csv",
+    "sha256": "50ee24401200618c46c45cca023eb6182b87c522659d7642f28ab7d9363a60ee",
+    "dataset": {
+      "rows": 4982,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 4982,
+      "avg_return": -1.734e-05,
+      "volatility": 0.00322018,
+      "last_close": 152011.0
+    }
+  },
+  {
+    "source": "WINFUTV_F_0_Diário.csv",
+    "normalized": "WINFUTV_D1_normalized.csv",
+    "sha256": "252a779129e5abc6d54b209f6bd63e38db45dbfcd2e85de1f86775b6157d047f",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00016816,
+      "volatility": 0.01056576,
+      "last_close": 152118.0
+    }
+  },
+  {
+    "source": "WINFUT_F_0_15min.csv",
+    "normalized": "WINFUT_M15_normalized.csv",
+    "sha256": "7062f5b3c8ee6ff61e9cb3699773574428e60ec5b739a8f21d8c0bea7cf0d7ae",
+    "dataset": {
+      "rows": 10000,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 10000,
+      "avg_return": -4.85e-06,
+      "volatility": 0.00173337,
+      "last_close": 159592.0
+    }
+  },
+  {
+    "source": "WINFUT_F_0_20min.csv",
+    "normalized": "WINFUT_M20_normalized.csv",
+    "sha256": "1fe4338f2cd6989e618a03b4d511431996c2126a47108349adfc1806e6190ac3",
+    "dataset": {
+      "rows": 10000,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 10000,
+      "avg_return": -1.464e-05,
+      "volatility": 0.00197208,
+      "last_close": 144075.0
+    }
+  },
+  {
+    "source": "WINFUT_F_0_30min.csv",
+    "normalized": "WINFUT_M30_normalized.csv",
+    "sha256": "0246a98157668fe5f029a0e409624190486f3b78621c7c10f02718ccfc6fdb25",
+    "dataset": {
+      "rows": 9464,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 9464,
+      "avg_return": -9.03e-06,
+      "volatility": 0.00231726,
+      "last_close": 152218.0
+    }
+  },
+  {
+    "source": "WINFUT_F_0_60min.csv",
+    "normalized": "WINFUT_H1_normalized.csv",
+    "sha256": "f35dc262e4d4ce42d3e76c1f129d6f741c74ae527ebca7907cda5d01b10341dc",
+    "dataset": {
+      "rows": 4982,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 4982,
+      "avg_return": -1.734e-05,
+      "volatility": 0.00322018,
+      "last_close": 152011.0
+    }
+  },
+  {
+    "source": "WINFUT_F_0_Diário.csv",
+    "normalized": "WINFUT_D1_normalized.csv",
+    "sha256": "85248b088b1805aac578e7cb4d24cf7523250e38d8e99b8d8f74090e3a701a2b",
+    "dataset": {
+      "rows": 499,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 499,
+      "avg_return": -0.00016816,
+      "volatility": 0.01056576,
+      "last_close": 152118.0
+    }
+  },
+  {
+    "source": "WINM26_F_0_60min.csv",
+    "normalized": "WINM26_H1_normalized.csv",
+    "sha256": "4d1e37fd117560f623292980de75a9692f49edbe37cc22c3df774052af4a0414",
+    "dataset": {
+      "rows": 1085,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 1085,
+      "avg_return": -7.21e-06,
+      "volatility": 0.00420129,
+      "last_close": 167130.0
+    }
+  },
+  {
+    "source": "WINM26_F_0_Diário.csv",
+    "normalized": "WINM26_D1_normalized.csv",
+    "sha256": "eb01a17cddd0603eace00f66cc78319cf4363bba1312d6e5db18c46baf380466",
+    "dataset": {
+      "rows": 122,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 122,
+      "avg_return": -1.062e-05,
+      "volatility": 0.01264721,
+      "last_close": 168210.0
+    }
+  },
+  {
+    "source": "WSPFUT_F_0_60min.csv",
+    "normalized": "WSPFUT_H1_normalized.csv",
+    "sha256": "3b568f63ee8f2ef5e2b3cbd9606f928b0545dca8bc894d3b9211086591c577be",
+    "dataset": {
+      "rows": 4474,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 4474,
+      "avg_return": -4.821e-05,
+      "volatility": 0.00338107,
+      "last_close": 5805.93
+    }
+  },
+  {
+    "source": "WSPFUT_F_0_Diário.csv",
+    "normalized": "WSPFUT_D1_normalized.csv",
+    "sha256": "c3f5073df83194f81ec8b3708645c1c33df762b552e057d8a6db2afd0c5323ae",
+    "dataset": {
+      "rows": 498,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 498,
+      "avg_return": -0.00042597,
+      "volatility": 0.01012803,
+      "last_close": 5828.47
+    }
+  },
+  {
+    "source": "WSPM26_F_0_60min.csv",
+    "normalized": "WSPM26_H1_normalized.csv",
+    "sha256": "545c464420c6acc7a58905ec65b9fb6c51097ddf48990ca7d51d8913dae8f157",
+    "dataset": {
+      "rows": 595,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 595,
+      "avg_return": -7.071e-05,
+      "volatility": 0.00384105,
+      "last_close": 7055.0
+    }
+  },
+  {
+    "source": "WSPM26_F_0_Diário.csv",
+    "normalized": "WSPM26_D1_normalized.csv",
+    "sha256": "821637abb57faa6202fb2fb62e2d9e2c035d6fb0615fcbdfe99db9923b381253",
+    "dataset": {
+      "rows": 88,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 88,
+      "avg_return": -0.00046613,
+      "volatility": 0.00957237,
+      "last_close": 7068.0
+    }
+  },
+  {
+    "source": "XBIT11_B_0_Diário.csv",
+    "normalized": "XBIT11_D1_normalized.csv",
+    "sha256": "ac324960855bf0f521d91e6b90c2e3967de7647821809c7e11f6efafd5663ff5",
+    "dataset": {
+      "rows": 118,
+      "schema_ok": true,
+      "enough_rows": true,
+      "certified": true
+    },
+    "baseline": {
+      "tested": true,
+      "bars": 118,
+      "avg_return": 0.00433474,
+      "volatility": 0.03195326,
+      "last_close": 48.93
+    }
+  },
+  {
+    "source": "ZARFUT_F_0_60min.csv",
+    "normalized": "ZARFUT_H1_normalized.csv",
+    "sha256": "7db9911d89bdacc8e041f09ed0775966d9fbeba3952d1ea43574aa8cbc35ad67",
+    "dataset": {
+      "rows": 1,
+      "schema_ok": true,
+      "enough_rows": false,
+      "certified": false
+    },
+    "baseline": {
+      "tested": false
+    }
+  },
+  {
+    "source": "ZARFUT_F_0_Diário.csv",
+    "normalized": "ZARFUT_D1_normalized.csv",
+    "sha256": "fb656d29a057015b3be9b6d0678806ee4ca0d0b5f1dba81320caeaa05494fa9b",
+    "dataset": {
+      "rows": 1,
+      "schema_ok": true,
+      "enough_rows": false,
+      "certified": false
+    },
+    "baseline": {
+      "tested": false
+    }
+  }
+]

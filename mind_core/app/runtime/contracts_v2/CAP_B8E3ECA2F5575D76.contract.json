@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_B8E3ECA2F5575D76",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\scalar\\timedelta\\test_arithmetic.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pandas\\tests\\scalar\\timedelta\\test_arithmetic.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 111,
+  "imports": [
+    "datetime",
+    "numpy",
+    "operator",
+    "pandas",
+    "pandas._testing",
+    "pandas.core",
+    "pandas.errors",
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

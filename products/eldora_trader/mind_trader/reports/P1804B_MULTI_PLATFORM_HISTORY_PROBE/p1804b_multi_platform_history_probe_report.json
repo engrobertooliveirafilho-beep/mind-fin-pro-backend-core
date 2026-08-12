@@ -1,0 +1,58 @@
+{
+  "STATUS": "P1804B_MULTI_PLATFORM_HISTORY_PROBE_COMPLETED",
+  "OBJECTIVE": "Testar capacidade real de histórico por MT5, Profit/Nelogica e BlackArrow ActiveTrader via API/CSV",
+  "PLATFORM_SUMMARY": {
+    "MT5": {
+      "files_checked": 0,
+      "csv_audited": 0,
+      "meets_10y": 0,
+      "meets_5y": 0,
+      "no_files": 1
+    },
+    "PROFIT_NELOGICA": {
+      "files_checked": 0,
+      "csv_audited": 0,
+      "meets_10y": 0,
+      "meets_5y": 0,
+      "no_files": 1
+    },
+    "BLACKARROW_ACTIVETRADER": {
+      "files_checked": 0,
+      "csv_audited": 0,
+      "meets_10y": 0,
+      "meets_5y": 0,
+      "no_files": 1
+    }
+  },
+  "RESULTS": [
+    {
+      "platform": "MT5",
+      "status": "NO_CSV_FILES_FOUND",
+      "path": "data\\raw\\platform_probe\\mt5",
+      "instruction": "Exportar CSV histórico da plataforma para esta pasta e rodar novamente."
+    },
+    {
+      "platform": "PROFIT_NELOGICA",
+      "status": "NO_CSV_FILES_FOUND",
+      "path": "data\\raw\\platform_probe\\profit",
+      "instruction": "Exportar CSV histórico da plataforma para esta pasta e rodar novamente."
+    },
+    {
+      "platform": "BLACKARROW_ACTIVETRADER",
+      "status": "NO_CSV_FILES_FOUND",
+      "path": "data\\raw\\platform_probe\\blackarrow",
+      "instruction": "Exportar CSV histórico da plataforma para esta pasta e rodar novamente."
+    }
+  ],
+  "EXPORT_FOLDERS": {
+    "MT5": "data/raw/platform_probe/mt5",
+    "PROFIT_NELOGICA": "data/raw/platform_probe/profit",
+    "BLACKARROW_ACTIVETRADER": "data/raw/platform_probe/blackarrow"
+  },
+  "NEXT": "EXPORT_REAL_CSV_FROM_PROFIT_AND_BLACKARROW_THEN_RERUN_PROBE",
+  "ORDER_SENT": false,
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN",
+  "generated_at": "2026-06-16T00:02:08.238109+00:00"
+}

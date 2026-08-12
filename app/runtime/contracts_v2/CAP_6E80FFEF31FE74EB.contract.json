@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_6E80FFEF31FE74EB",
+  "source_file": "_evidence\\P19P36O_D_RELATIONSHIP_ADVISOR_TELEMETRY_WIRING_20260622_131523\\ROLLBACK_safe_recovery_adapter.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\_evidence\\P19P36O_D_RELATIONSHIP_ADVISOR_TELEMETRY_WIRING_20260622_131523\\ROLLBACK_safe_recovery_adapter.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 130,
+  "imports": [
+    "__future__",
+    "app.companionship.relationship_memory_store",
+    "app.runtime.memory_store",
+    "datetime",
+    "importlib",
+    "json",
+    "os",
+    "pathlib",
+    "re",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

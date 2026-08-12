@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_D5C6F9ED99500EE5",
+  "source_file": ".venv\\Lib\\site-packages\\xlsxwriter\\contenttypes.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\data\\.venv\\Lib\\site-packages\\xlsxwriter\\contenttypes.py",
+  "domain": "DATA",
+  "target_layer": "app/runtime",
+  "promotion_score": 84,
+  "imports": [
+    "copy",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_258B2642BF652943",
+  "source_file": "_evidence\\P4.50B_PLANNER_CONSUMPTION_20260618_052216\\hierarchical_planner_adapter_before_20260618_052216.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P4.50B_PLANNER_CONSUMPTION_20260618_052216\\hierarchical_planner_adapter_before_20260618_052216.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 96,
+  "imports": [
+    "app.p7_adapters.hierarchical_contracts"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

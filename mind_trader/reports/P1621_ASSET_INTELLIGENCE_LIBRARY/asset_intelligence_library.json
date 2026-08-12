@@ -1,0 +1,114 @@
+[
+  {
+    "asset": "GBPUSD",
+    "specialists": 26,
+    "best_score": 69.813175,
+    "best_payoff": 8.549562,
+    "profiles": {
+      "DAY_TRADE_SPECIALIST": 9,
+      "SCALP_SPECIALIST": 15,
+      "SWING_SPECIALIST": 2
+    },
+    "families": {
+      "BOLLINGER_REVERSION": 4,
+      "BREAKOUT": 8,
+      "DONCHIAN": 7,
+      "RSI_REVERSION": 4,
+      "ATR_TREND": 3
+    },
+    "timeframes": {
+      "M30": 5,
+      "M1": 4,
+      "M5": 11,
+      "M15": 4,
+      "H4": 2
+    },
+    "asset_status": "ASSET_INTELLIGENCE_READY"
+  },
+  {
+    "asset": "XAUUSD",
+    "specialists": 39,
+    "best_score": 55.51994,
+    "best_payoff": 8.96119,
+    "profiles": {
+      "SCALP_SPECIALIST": 9,
+      "SWING_SPECIALIST": 19,
+      "DAY_TRADE_SPECIALIST": 11
+    },
+    "families": {
+      "RSI_REVERSION": 2,
+      "EMA_CROSS": 4,
+      "ATR_TREND": 10,
+      "DONCHIAN": 12,
+      "BREAKOUT": 10,
+      "BOLLINGER_REVERSION": 1
+    },
+    "timeframes": {
+      "M5": 8,
+      "D1": 11,
+      "M30": 5,
+      "H4": 8,
+      "M1": 1,
+      "M15": 1,
+      "H1": 5
+    },
+    "asset_status": "ASSET_INTELLIGENCE_READY"
+  },
+  {
+    "asset": "USDCAD",
+    "specialists": 24,
+    "best_score": 50.205251,
+    "best_payoff": 4.705007,
+    "profiles": {
+      "SCALP_SPECIALIST": 6,
+      "DAY_TRADE_SPECIALIST": 15,
+      "SWING_SPECIALIST": 3
+    },
+    "families": {
+      "RSI_REVERSION": 4,
+      "BOLLINGER_REVERSION": 4,
+      "ATR_TREND": 6,
+      "EMA_CROSS": 2,
+      "BREAKOUT": 3,
+      "SMA_CROSS": 1,
+      "DONCHIAN": 4
+    },
+    "timeframes": {
+      "M5": 6,
+      "M30": 8,
+      "H1": 1,
+      "H4": 2,
+      "M15": 6,
+      "D1": 1
+    },
+    "asset_status": "ASSET_INTELLIGENCE_READY"
+  },
+  {
+    "asset": "USDJPY",
+    "specialists": 17,
+    "best_score": 47.611837,
+    "best_payoff": 5.388597,
+    "profiles": {
+      "SWING_SPECIALIST": 7,
+      "SCALP_SPECIALIST": 6,
+      "DAY_TRADE_SPECIALIST": 4
+    },
+    "families": {
+      "EMA_CROSS": 2,
+      "BOLLINGER_REVERSION": 5,
+      "SMA_CROSS": 2,
+      "RSI_REVERSION": 5,
+      "DONCHIAN": 2,
+      "BREAKOUT": 1
+    },
+    "timeframes": {
+      "D1": 5,
+      "M1": 6,
+      "H4": 2,
+      "M15": 1,
+      "M30": 1,
+      "H1": 2
+    },
+    "asset_status": "ASSET_INTELLIGENCE_READY"
+  }
+]

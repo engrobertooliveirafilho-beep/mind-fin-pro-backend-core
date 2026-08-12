@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_C7A2CB7833CD1947",
+  "source_file": "tests\\test_p19p36h_safe_adapter_shadow_wiring.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\tests\\test_p19p36h_safe_adapter_shadow_wiring.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 85,
+  "imports": [
+    "app.main",
+    "fastapi.testclient",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

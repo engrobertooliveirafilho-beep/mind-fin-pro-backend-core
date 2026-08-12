@@ -1,0 +1,15 @@
+{
+  "marketplace": [
+    "youtube",
+    "google_custom_search",
+    "gemini",
+    "github",
+    "papers",
+    "blogs"
+  ],
+  "rule": "HYPOTHESIS_ONLY",
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN"
+}

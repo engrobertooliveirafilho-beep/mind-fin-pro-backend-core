@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_6F813032EC4EB1A9",
+  "source_file": ".venv\\Lib\\site-packages\\redis\\commands\\cluster.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\redis\\commands\\cluster.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 108,
+  "imports": [
+    "asyncio",
+    "core",
+    "helpers",
+    "redis.asyncio.cluster",
+    "redis.crc",
+    "redis.exceptions",
+    "redis.typing",
+    "redis.utils",
+    "redismodules",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

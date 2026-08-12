@@ -1,0 +1,39 @@
+[
+  {
+    "dataset_id": "WIN_M1_SAMPLE",
+    "asset": "WIN",
+    "timeframe": "M1",
+    "source": "MT5_CSV",
+    "registry_status": "REGISTERED_CERTIFIED",
+    "certification": {
+      "dataset_id": "WIN_M1_SAMPLE",
+      "certification": {
+        "checks": {
+          "schema_ok": true,
+          "min_rows": true,
+          "timestamp_order": true,
+          "duplicate_ratio": true,
+          "missing_ratio": true,
+          "ohlcv_consistency": true,
+          "price_variance": true,
+          "volume_validity": true
+        },
+        "certification_score": 1.0,
+        "certified": true,
+        "status": "CERTIFIED",
+        "live": "FORBIDDEN",
+        "real_broker": "DISABLED",
+        "edge": "NOT_PROVEN",
+        "causality": "NOT_PROVEN",
+        "certified_at": "2026-06-14T16:11:26.173352+00:00"
+      },
+      "lineage_hash": "e8a3c5ae319e9fde13db18a35b0042a6310f5df9edc4c339e1761434f90a7a83",
+      "promotion_allowed": false
+    },
+    "backtest_allowed": true,
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "registered_at": "2026-06-14T16:11:26.174347+00:00"
+  }
+]

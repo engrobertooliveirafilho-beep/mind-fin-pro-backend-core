@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_5E904A94BE682005",
+  "source_file": ".venv\\Lib\\site-packages\\setuptools\\_distutils\\cmd.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\setuptools\\_distutils\\cmd.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 120,
+  "imports": [
+    "__future__",
+    "_log",
+    "abc",
+    "collections.abc",
+    "distutils.debug",
+    "distutils.dist",
+    "distutils.fancy_getopt",
+    "distutils.spawn",
+    "errors",
+    "logging",
+    "os",
+    "re",
+    "sys",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_869DF3BA33FFCA67",
+  "source_file": ".venv\\Lib\\site-packages\\psycopg\\_conninfo_utils.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\psycopg\\_conninfo_utils.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 89,
+  "imports": [
+    "__future__",
+    "abc",
+    "dataclasses",
+    "functools",
+    "ipaddress",
+    "os"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

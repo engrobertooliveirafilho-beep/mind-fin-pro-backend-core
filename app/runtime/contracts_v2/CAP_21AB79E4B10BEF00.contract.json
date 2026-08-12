@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_21AB79E4B10BEF00",
+  "source_file": "_evidence\\P19P38_L_SAFE_JUNK_QUARANTINE_20260622_182732\\p19p38l_safe_junk_quarantine.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P19P38_L_SAFE_JUNK_QUARANTINE_20260622_182732\\p19p38l_safe_junk_quarantine.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 106,
+  "imports": [
+    "datetime",
+    "json",
+    "os",
+    "pathlib",
+    "shutil",
+    "subprocess"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

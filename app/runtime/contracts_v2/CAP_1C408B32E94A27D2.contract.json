@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_1C408B32E94A27D2",
+  "source_file": "tests\\test_p19p36p_goal_tracker_shadow_wiring.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\tests\\test_p19p36p_goal_tracker_shadow_wiring.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 103,
+  "imports": [
+    "app.companionship.safe_recovery_adapter"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

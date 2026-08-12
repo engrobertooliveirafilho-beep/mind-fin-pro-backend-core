@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_B285EBB89D306FC9",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\resources\\fine_tuning\\alpha\\graders.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\data\\.venv\\Lib\\site-packages\\openai\\resources\\fine_tuning\\alpha\\graders.py",
+  "domain": "DATA",
+  "target_layer": "app/runtime",
+  "promotion_score": 102,
+  "imports": [
+    "__future__",
+    "_base_client",
+    "_compat",
+    "_resource",
+    "_response",
+    "_types",
+    "_utils",
+    "httpx",
+    "types.fine_tuning.alpha",
+    "types.fine_tuning.alpha.grader_run_response",
+    "types.fine_tuning.alpha.grader_validate_response"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

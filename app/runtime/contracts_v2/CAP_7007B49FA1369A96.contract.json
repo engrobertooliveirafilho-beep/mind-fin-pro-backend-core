@@ -1,0 +1,16 @@
+{
+  "capability_id": "CAP_7007B49FA1369A96",
+  "source_file": "app\\cognitive_agent_kernel\\dispatcher\\dispatcher.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\app\\cognitive_agent_kernel\\dispatcher\\dispatcher.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 91,
+  "imports": [],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

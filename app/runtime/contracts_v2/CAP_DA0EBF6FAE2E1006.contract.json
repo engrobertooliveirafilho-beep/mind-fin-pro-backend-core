@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_DA0EBF6FAE2E1006",
+  "source_file": "_evidence\\P4_60_MEMORY_INJECTION_20260618_085231\\memory_adapter.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P4_60_MEMORY_INJECTION_20260618_085231\\memory_adapter.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 100,
+  "imports": [
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

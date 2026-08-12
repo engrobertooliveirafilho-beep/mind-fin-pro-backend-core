@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_6AE5CA37C9DD9C19",
+  "source_file": "_evidence\\P4_65M_REAL_PGVECTOR_RETRIEVAL_20260618_151923\\p465m_real_retrieval.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P4_65M_REAL_PGVECTOR_RETRIEVAL_20260618_151923\\p465m_real_retrieval.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 104,
+  "imports": [
+    "app.retrieval.semantic_provider",
+    "app.runtime.cognitive_pipeline",
+    "os",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

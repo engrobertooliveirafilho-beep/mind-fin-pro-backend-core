@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_DB9A7F8A11113465",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\resources\\beta\\beta.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\openai\\resources\\beta\\beta.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 89,
+  "imports": [
+    "__future__",
+    "_compat",
+    "_resource",
+    "assistants",
+    "chatkit.chatkit",
+    "realtime.realtime",
+    "resources.chat",
+    "threads.threads"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_E593FC18C3970B2B",
+  "source_file": ".venv\\Lib\\site-packages\\pygments\\lexers\\php.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\pygments\\lexers\\php.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 83,
+  "imports": [
+    "pygments.lexer",
+    "pygments.lexers._php_builtins",
+    "pygments.token",
+    "pygments.util",
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

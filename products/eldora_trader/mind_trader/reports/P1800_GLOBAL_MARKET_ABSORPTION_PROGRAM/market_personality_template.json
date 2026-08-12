@@ -1,0 +1,590 @@
+[
+  {
+    "asset": "EURUSD",
+    "market": "FOREX_MAJOR",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "market": "FOREX_MAJOR",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "USDJPY",
+    "market": "FOREX_MAJOR",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "AUDUSD",
+    "market": "FOREX_MAJOR",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "NZDUSD",
+    "market": "FOREX_MAJOR",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "USDCAD",
+    "market": "FOREX_MAJOR",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "USDCHF",
+    "market": "FOREX_MAJOR",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "EURJPY",
+    "market": "FOREX_CROSS",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "GBPJPY",
+    "market": "FOREX_CROSS",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "EURGBP",
+    "market": "FOREX_CROSS",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "AUDJPY",
+    "market": "FOREX_CROSS",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "CADJPY",
+    "market": "FOREX_CROSS",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "CHFJPY",
+    "market": "FOREX_CROSS",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "EURAUD",
+    "market": "FOREX_CROSS",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "GBPAUD",
+    "market": "FOREX_CROSS",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "XAUUSD",
+    "market": "METALS",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "XAGUSD",
+    "market": "METALS",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "XPTUSD",
+    "market": "METALS",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "XPDUSD",
+    "market": "METALS",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "US30",
+    "market": "INDICES",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "NAS100",
+    "market": "INDICES",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "SPX500",
+    "market": "INDICES",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "GER40",
+    "market": "INDICES",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "UK100",
+    "market": "INDICES",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "JPN225",
+    "market": "INDICES",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "BTCUSD",
+    "market": "CRYPTO",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "ETHUSD",
+    "market": "CRYPTO",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "SOLUSD",
+    "market": "CRYPTO",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "BNBUSD",
+    "market": "CRYPTO",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "XRPUSD",
+    "market": "CRYPTO",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "WTI",
+    "market": "COMMODITIES",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "BRENT",
+    "market": "COMMODITIES",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "NATGAS",
+    "market": "COMMODITIES",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "COPPER",
+    "market": "COMMODITIES",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "WINFUT",
+    "market": "BRAZIL_CORE",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "WDOFUT",
+    "market": "BRAZIL_CORE",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "IBOV",
+    "market": "BRAZIL_CORE",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "PETR4",
+    "market": "BRAZIL_CORE",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "VALE3",
+    "market": "BRAZIL_CORE",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "ITUB4",
+    "market": "BRAZIL_CORE",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "BBDC4",
+    "market": "BRAZIL_CORE",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  },
+  {
+    "asset": "BBAS3",
+    "market": "BRAZIL_CORE",
+    "personality_status": "PENDING_LEARNING",
+    "traits_to_learn": [
+      "trendiness",
+      "mean_reversion_bias",
+      "volatility_profile",
+      "news_sensitivity",
+      "session_preference",
+      "tail_payoff_potential",
+      "liquidity_behavior"
+    ]
+  }
+]

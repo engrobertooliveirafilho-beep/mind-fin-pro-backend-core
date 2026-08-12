@@ -1,0 +1,18 @@
+{
+  "STATUS": "P11.4_DATA_COVERAGE_ENGINE_IMPLEMENTED",
+  "SUMMARY": {
+    "total_slots": 136,
+    "dataset_present": 0,
+    "certified": 0,
+    "missing": 136,
+    "coverage_ratio": 0.0,
+    "certification_ratio": 0.0
+  },
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "EDGE": "NOT_PROVEN",
+  "CAUSALITY": "NOT_PROVEN",
+  "NEXT": "INGEST_REAL_DATA_TO_IMPROVE_COVERAGE",
+  "EXPORT_READY": true,
+  "generated_at": "2026-06-14T16:11:26.310559+00:00"
+}

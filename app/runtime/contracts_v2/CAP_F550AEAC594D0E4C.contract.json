@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_F550AEAC594D0E4C",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_internal\\vcs\\subversion.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\pip\\_internal\\vcs\\subversion.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 89,
+  "imports": [
+    "__future__",
+    "logging",
+    "os",
+    "pip._internal.exceptions",
+    "pip._internal.utils.misc",
+    "pip._internal.utils.subprocess",
+    "pip._internal.vcs.versioncontrol",
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

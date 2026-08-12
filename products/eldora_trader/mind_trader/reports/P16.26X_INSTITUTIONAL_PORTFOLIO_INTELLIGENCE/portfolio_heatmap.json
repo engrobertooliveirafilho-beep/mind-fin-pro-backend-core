@@ -1,0 +1,28 @@
+[
+  {
+    "edge_id": "IFIX_H1_sma_cross_5_55",
+    "asset": "IFIX",
+    "regime": "strong_trend",
+    "risk_score": 0.226167,
+    "weight": 0.570821,
+    "status": "ACTIVE",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "CAUSALITY": "NOT_PROVEN"
+  },
+  {
+    "edge_id": "VIDEO_9a075b6ef8d3f0363d232ba8",
+    "asset": "UNRESOLVED",
+    "regime": "UNSPECIFIED",
+    "risk_score": 0.354512,
+    "weight": 0.429179,
+    "status": "WATCHLIST",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "CAUSALITY": "NOT_PROVEN"
+  }
+]

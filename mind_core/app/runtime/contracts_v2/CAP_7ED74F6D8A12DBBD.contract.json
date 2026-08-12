@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_7ED74F6D8A12DBBD",
+  "source_file": "_evidence\\P4_74C_ORCHESTRATOR_DIAGNOSTIC_RUNNER_20260618_215349\\run_capability_orchestrator_diagnostic.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\_evidence\\P4_74C_ORCHESTRATOR_DIAGNOSTIC_RUNNER_20260618_215349\\run_capability_orchestrator_diagnostic.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 81,
+  "imports": [
+    "app.runtime.capability_orchestrator",
+    "argparse",
+    "datetime",
+    "json",
+    "os",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

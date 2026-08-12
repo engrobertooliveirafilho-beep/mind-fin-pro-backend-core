@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_7D1B2A10FA878F1F",
+  "source_file": "app\\runtime\\autonomous_cognition_layer.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\app\\runtime\\autonomous_cognition_layer.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 104,
+  "imports": [
+    "__future__",
+    "app.runtime.advanced_runtime_base",
+    "app.runtime.autonomous_planner",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

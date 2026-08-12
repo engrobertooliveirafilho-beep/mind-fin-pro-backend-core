@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_FA4097315588444D",
+  "source_file": ".venv\\Lib\\site-packages\\setuptools\\command\\install.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\setuptools\\command\\install.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 103,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "dist",
+    "distutils.command.install",
+    "distutils.errors",
+    "easy_install",
+    "inspect",
+    "platform",
+    "typing",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

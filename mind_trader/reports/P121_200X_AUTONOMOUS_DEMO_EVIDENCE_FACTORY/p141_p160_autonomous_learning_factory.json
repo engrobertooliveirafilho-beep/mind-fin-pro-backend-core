@@ -1,0 +1,102 @@
+[
+  {
+    "module": "trade_outcome_learning",
+    "layer": "P141_P160_AUTONOMOUS_LEARNING_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "module": "failure_learning",
+    "layer": "P141_P160_AUTONOMOUS_LEARNING_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "module": "behavior_learning",
+    "layer": "P141_P160_AUTONOMOUS_LEARNING_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "module": "edge_learning",
+    "layer": "P141_P160_AUTONOMOUS_LEARNING_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "module": "execution_learning",
+    "layer": "P141_P160_AUTONOMOUS_LEARNING_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "module": "risk_learning",
+    "layer": "P141_P160_AUTONOMOUS_LEARNING_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "module": "market_learning",
+    "layer": "P141_P160_AUTONOMOUS_LEARNING_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "module": "regime_learning",
+    "layer": "P141_P160_AUTONOMOUS_LEARNING_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "module": "portfolio_learning",
+    "layer": "P141_P160_AUTONOMOUS_LEARNING_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "module": "self_critique_learning",
+    "layer": "P141_P160_AUTONOMOUS_LEARNING_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  }
+]

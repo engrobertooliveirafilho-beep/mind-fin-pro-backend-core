@@ -1,0 +1,1933 @@
+{
+  "milestone": "P4.85 COMPLETE",
+  "graph": "DRIVE_KNOWLEDGE_GRAPH",
+  "generated_at": "2026-06-21T15:13:39.672358+00:00",
+  "mode": "LOCAL_ARTIFACT_GRAPH",
+  "drive_live_access": "NOT_REQUIRED_FOR_THIS_STAGE",
+  "nodes_count": 42,
+  "edges_count": 156,
+  "node_types": [
+    "CAPABILITY",
+    "DEPENDENCY",
+    "DOCUMENT",
+    "MODULE",
+    "PENDING_CAPABILITY",
+    "PROJECT",
+    "TASK",
+    "TECHNICAL_GAP",
+    "TEST"
+  ],
+  "edge_types": [
+    "CONTAINS",
+    "DEPENDS_ON",
+    "DESCRIBES",
+    "GENERATES",
+    "HAS_CAPABILITY",
+    "HAS_DOCUMENT",
+    "HAS_GAP",
+    "HAS_PENDING_CAPABILITY",
+    "HAS_TASK",
+    "IDENTIFIES",
+    "TARGETS_FILE",
+    "VALIDATED_BY"
+  ],
+  "nodes": [
+    {
+      "id": "PROJECT:MIND",
+      "type": "PROJECT",
+      "label": "MIND Platform",
+      "meta": {}
+    },
+    {
+      "id": "PROJECT:ELDORA",
+      "type": "PROJECT",
+      "label": "Eldora Runtime",
+      "meta": {}
+    },
+    {
+      "id": "DOC:runtime/capacity_audit/project_state_audit.json",
+      "type": "DOCUMENT",
+      "label": "runtime/capacity_audit/project_state_audit.json",
+      "meta": {
+        "path": "runtime/capacity_audit/project_state_audit.json"
+      }
+    },
+    {
+      "id": "GAP:Runtime response fallback dominance",
+      "type": "TECHNICAL_GAP",
+      "label": "Runtime response fallback dominance",
+      "meta": {
+        "gap": "Runtime response fallback dominance",
+        "severity": "CRITICAL",
+        "evidence": "Falhas anteriores indicam respostas genéricas sobrescrevendo contratos conversacionais.",
+        "recommended_next": "P4.82C mapear imports reais e funções ativas antes de patch."
+      }
+    },
+    {
+      "id": "GAP:Observability state not accumulating events",
+      "type": "TECHNICAL_GAP",
+      "label": "Observability state not accumulating events",
+      "meta": {
+        "gap": "Observability state not accumulating events",
+        "severity": "HIGH",
+        "evidence": "audit_report/event_bus_report retornaram 0 após publish/audit_event.",
+        "recommended_next": "Localizar app/eldora/core/audit_ledger.py e app/eldora/core/event_bus.py ativos."
+      }
+    },
+    {
+      "id": "GAP:Knowledge extraction under-detecting items",
+      "type": "TECHNICAL_GAP",
+      "label": "Knowledge extraction under-detecting items",
+      "meta": {
+        "gap": "Knowledge extraction under-detecting items",
+        "severity": "MEDIUM",
+        "evidence": "P479 retornou 2 itens quando o contrato espera >=3.",
+        "recommended_next": "Corrigir extractor real, não teste."
+      }
+    },
+    {
+      "id": "GAP:Capability evidence scattered",
+      "type": "TECHNICAL_GAP",
+      "label": "Capability evidence scattered",
+      "meta": {
+        "gap": "Capability evidence scattered",
+        "severity": "HIGH",
+        "evidence": "Muitos snapshots em _evidence/backups sem índice único absorvido vs pendente.",
+        "recommended_next": "Gerar ledger consolidado e fila de recovery."
+      }
+    },
+    {
+      "id": "DOC:runtime/capability_map/absorbed_vs_pending_map.json",
+      "type": "DOCUMENT",
+      "label": "runtime/capability_map/absorbed_vs_pending_map.json",
+      "meta": {
+        "path": "runtime/capability_map/absorbed_vs_pending_map.json"
+      }
+    },
+    {
+      "id": "CAPABILITY:retrieval",
+      "type": "CAPABILITY",
+      "label": "retrieval",
+      "meta": {
+        "capability": "retrieval",
+        "status": "ACTIVE_OR_ABSORBED",
+        "active_files": [
+          "app/retrieval/provider.py",
+          "app/retrieval/semantic_provider.py",
+          "app/eldora/retrieval/service.py",
+          "app/eldora/retrieval/__init__.py",
+          "tools/p465i_validate_retrieval_config.py",
+          "tests/test_p465d_semantic_retrieval_bridge.py",
+          "tests/test_p465g_retrieval_failsafe.py",
+          "tests/test_p465o_composite_retrieval_answer.py"
+        ],
+        "active_count": 8,
+        "archive_count": 99
+      }
+    },
+    {
+      "id": "CAPABILITY:memory",
+      "type": "CAPABILITY",
+      "label": "memory",
+      "meta": {
+        "capability": "memory",
+        "status": "ACTIVE_OR_ABSORBED",
+        "active_files": [
+          "app/humanization/social_memory_provider.py",
+          "app/memory/longitudinal_memory.py",
+          "app/memory/memory_graph.py",
+          "app/memory/provider.py",
+          "app/persona/persona_continuity_memory.py",
+          "app/runtime/decision_memory.py",
+          "app/runtime/generic_topic_memory_engine.py",
+          "app/runtime/memory_adapter.py",
+          "app/runtime/memory_quarantine_manifest.json",
+          "app/runtime/memory_store.py",
+          "app/runtime/persistent_social_memory.py",
+          "app/runtime/real_social_memory_layer.py",
+          "app/runtime/semantic_dialogue_memory.py",
+          "app/runtime/short_memory.py",
+          "app/runtime/visual_memory_runtime.py",
+          "app/student/student_memory_graph.py",
+          "app/vision/vision_memory_store.py",
+          "app/eldora/core/long_term_memory.py",
+          "app/eldora/core/memory_compression_engine.py",
+          "app/eldora/core/persistent_social_memory.py",
+          "app/eldora/core/semantic_memory_engine.py",
+          "app/eldora/core/session_memory.py",
+          "app/eldora/core/visual_semantic_memory.py",
+          "app/eldora/memory/service.py",
+          "app/eldora/memory/__init__.py",
+          "app/modules/usde_core/scientific_memory.py",
+          "app/modules/usde_core/supabase_scientific_memory.py",
+          "tests/test_eldora_semantic_memory.py",
+          "tests/test_p19p7_context_memory_followup_expansion.py",
+          "tests/test_p463k_memory_whatsapp_contract.py"
+        ],
+        "active_count": 38,
+        "archive_count": 298
+      }
+    },
+    {
+      "id": "CAPABILITY:whatsapp",
+      "type": "CAPABILITY",
+      "label": "whatsapp",
+      "meta": {
+        "capability": "whatsapp",
+        "status": "ACTIVE_OR_ABSORBED",
+        "active_files": [
+          "app/api/debug_whatsapp_runtime_trace.py",
+          "app/api/debug_whatsapp_source.py",
+          "app/api/debug_whatsapp_state.py",
+          "app/api/whatsapp.py",
+          "app/api/whatsapp.py.bak",
+          "app/api/whatsapp.py.bak_p449c_fix2",
+          "app/api/whatsapp.py.p4_12n_c_bak",
+          "app/api/whatsapp.py.p4_12n_c_fix2_bak",
+          "app/api/whatsapp.py.ssa2.bak",
+          "app/p19_real_world_validation/whatsapp_real_traffic_eval.py",
+          "app/runtime/live_whatsapp_response.py",
+          "app/runtime/semantic_whatsapp_runtime.py",
+          "app/runtime/whatsapp_final_output_guard.py",
+          "app/runtime/whatsapp_intelligence_activation.py",
+          "app/runtime/whatsapp_social_followup_guard.py",
+          "app/runtime/whatsapp_trace_sensor.py",
+          "app/runtime/whatsapp_ux_output_guard.py",
+          "tests/test_eldora_whatsapp_cognitive_pipeline.py",
+          "tests/test_eldora_whatsapp_live_regression.py",
+          "tests/test_eldora_whatsapp_primary_runtime.py",
+          "tests/test_eldora_whatsapp_real_observed.py",
+          "tests/test_p19a_whatsapp_real_traffic_eval.py",
+          "tests/test_p19p5_whatsapp_final_guard_only.py",
+          "tests/test_p19p6_whatsapp_followup_expansion.py",
+          "tests/test_p19p9_universal_whatsapp_output_guard.py",
+          "tests/test_p463k_memory_whatsapp_contract.py",
+          "tests/test_whatsapp_final_output_guard.py",
+          "tests/test_whatsapp_intelligence_activation.py",
+          "tests/test_whatsapp_intelligence_wired.py",
+          "tests/test_whatsapp_live_override.py"
+        ],
+        "active_count": 41,
+        "archive_count": 967
+      }
+    },
+    {
+      "id": "CAPABILITY:cognitive_pipeline",
+      "type": "CAPABILITY",
+      "label": "cognitive_pipeline",
+      "meta": {
+        "capability": "cognitive_pipeline",
+        "status": "ACTIVE_OR_ABSORBED",
+        "active_files": [
+          "app/runtime/cognitive_pipeline.py",
+          "tests/test_eldora_whatsapp_cognitive_pipeline.py"
+        ],
+        "active_count": 2,
+        "archive_count": 73
+      }
+    },
+    {
+      "id": "CAPABILITY:capability",
+      "type": "CAPABILITY",
+      "label": "capability",
+      "meta": {
+        "capability": "capability",
+        "status": "ACTIVE_OR_ABSORBED",
+        "active_files": [
+          "app/runtime/capability_orchestrator.py",
+          "app/runtime/capability_reconstruction_planner.py",
+          "app/runtime/capability_recovery_bridge.py",
+          "app/runtime/capability_usage_ledger.py",
+          "app/runtime/drive_capability_absorption.py",
+          "app/runtime/ready_capability_bridge.py",
+          "app/runtime/universal_capability_registry.json",
+          "app/eldora/core/autonomous_capability_evolution.py",
+          "app/eldora/core/capability_synthesis_engine.py",
+          "runtime/capability_usage_ledger.jsonl",
+          "runtime/capability_absorption/capability_notes.md.json",
+          "runtime/capability_absorption/doc.txt.json",
+          "runtime/capability_absorption/mind_strategy.txt.json",
+          "runtime/capability_absorption/p476_smoke_doc.json",
+          "runtime/capability_absorption/p476_test.json",
+          "runtime/capability_absorption/p477_smoke_doc.txt.json",
+          "runtime/knowledge_extraction/_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_capability_notes.md.json",
+          "runtime/reconstruction_plans/_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_capability_notes.md.json",
+          "runtime/drive_queue/processed/capability_notes.md",
+          "runtime/drive_queue/review/capability_notes.md",
+          "tools/absorb_capability_document.py",
+          "tools/build_universal_capability_registry.py",
+          "tools/capability_effectiveness_score.py",
+          "tools/capability_usage_report.py",
+          "tools/p473a_full_capability_inventory.py",
+          "tools/run_capability_orchestrator_diagnostic.py",
+          "tests/test_p472b_capability_recovery_bridge.py",
+          "tests/test_p472c_capability_pipeline_aux.disabled",
+          "tests/test_p473b_ready_capability_bridge.py",
+          "tests/test_p474a_capability_orchestrator.py"
+        ],
+        "active_count": 37,
+        "archive_count": 172
+      }
+    },
+    {
+      "id": "CAPABILITY:knowledge",
+      "type": "CAPABILITY",
+      "label": "knowledge",
+      "meta": {
+        "capability": "knowledge",
+        "status": "ACTIVE_OR_ABSORBED",
+        "active_files": [
+          "app/runtime/knowledge_extraction_engine.py",
+          "app/eldora/knowledge/service.py",
+          "app/eldora/knowledge/__init__.py",
+          "app/modules/usde_core/scientific_knowledge_graph.py",
+          "app/modules/usde_core/scientific_knowledge_sync.py",
+          "runtime/knowledge_extraction/p479_test.json",
+          "runtime/knowledge_extraction/p480_test.json",
+          "runtime/knowledge_extraction/_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_capability_notes.md.json",
+          "runtime/knowledge_extraction/_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_mind_strategy.txt.json",
+          "tools/extract_knowledge_from_document.py",
+          "tests/test_p479_knowledge_extraction_engine.py",
+          "tests/modules/test_usde_scientific_knowledge_graph.py",
+          "tests/modules/test_usde_scientific_knowledge_sync.py"
+        ],
+        "active_count": 13,
+        "archive_count": 28
+      }
+    },
+    {
+      "id": "CAPABILITY:drive",
+      "type": "CAPABILITY",
+      "label": "drive",
+      "meta": {
+        "capability": "drive",
+        "status": "ACTIVE_OR_ABSORBED",
+        "active_files": [
+          "app/runtime/drive_batch_processor.py",
+          "app/runtime/drive_capability_absorption.py",
+          "app/runtime/drive_processed_queue.py",
+          "app/eldora/drive_os/service.py",
+          "app/eldora/drive_os/__init__.py",
+          "app/modules/usde_core/drive_live_hook.py",
+          "app/modules/usde_core/drive_scientific_ingestion.py",
+          "runtime/drive_queue/processed_ledger.jsonl",
+          "runtime/knowledge_extraction/_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_capability_notes.md.json",
+          "runtime/knowledge_extraction/_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_mind_strategy.txt.json",
+          "runtime/reconstruction_plans/_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_capability_notes.md.json",
+          "runtime/reconstruction_plans/_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_mind_strategy.txt.json",
+          "runtime/drive_queue/processed/capability_notes.md",
+          "runtime/drive_queue/processed/doc.txt",
+          "runtime/drive_queue/processed/mind_strategy.txt",
+          "runtime/drive_queue/processed/p477_smoke_doc.txt",
+          "runtime/drive_queue/review/capability_notes.md",
+          "runtime/drive_queue/review/doc.txt",
+          "runtime/drive_queue/review/mind_strategy.txt",
+          "runtime/drive_queue/review/p477_smoke_doc.txt",
+          "tools/process_drive_folder.py",
+          "tools/process_drive_queue_file.py",
+          "tools/run_full_drive_deep_absorption.py",
+          "tests/test_p476_drive_capability_absorption.py",
+          "tests/test_p477_drive_processed_queue.py",
+          "tests/test_p478_batch_drive_processor.py",
+          "tests/modules/test_p449f_drive_live_hook.py",
+          "tests/modules/test_usde_drive_scientific_ingestion.py"
+        ],
+        "active_count": 28,
+        "archive_count": 155
+      }
+    },
+    {
+      "id": "CAPABILITY:observability",
+      "type": "CAPABILITY",
+      "label": "observability",
+      "meta": {
+        "capability": "observability",
+        "status": "ACTIVE_OR_ABSORBED",
+        "active_files": [
+          "app/observability/quality_metrics.py",
+          "app/p10_activation_stack/observability.py",
+          "app/p9_runtime_consumption/observability.py",
+          "tests/test_eldora_observability_core.py"
+        ],
+        "active_count": 4,
+        "archive_count": 17
+      }
+    },
+    {
+      "id": "CAPABILITY:governance",
+      "type": "CAPABILITY",
+      "label": "governance",
+      "meta": {
+        "capability": "governance",
+        "status": "ACTIVE_OR_ABSORBED",
+        "active_files": [
+          "app/p10_activation_stack/risk_governance.py",
+          "app/runtime/p2081_2090_realtime_portfolio_governance.py",
+          "app/runtime/p2161_2220_full_governance_system.py",
+          "app/modules/usde_core/scientific_governance_engine.py",
+          "tests/test_p2081_2090_realtime_portfolio_governance.py",
+          "tests/test_runtime_registry_governance.py",
+          "tests/modules/test_usde_scientific_governance_engine.py"
+        ],
+        "active_count": 7,
+        "archive_count": 26
+      }
+    },
+    {
+      "id": "PENDING:orphan",
+      "type": "PENDING_CAPABILITY",
+      "label": "orphan",
+      "meta": {
+        "capability": "orphan",
+        "status": "PENDING_RECOVERY_FROM_ARCHIVE_OR_DRIVE",
+        "active_count": 0,
+        "archive_count": 2,
+        "archive_samples": [
+          "evidence/P4.51_LEVEL_C_FULL_AUDIT_20260618_062425/reports/LEVEL_C_ORPHAN_REPORT.json",
+          "_maintenance/P19P22A_20260618_110511/_fix11k_remove_orphan.py"
+        ]
+      }
+    },
+    {
+      "id": "DOC:runtime/reconstruction/capability_reconstruction_plan.json",
+      "type": "DOCUMENT",
+      "label": "runtime/reconstruction/capability_reconstruction_plan.json",
+      "meta": {
+        "path": "runtime/reconstruction/capability_reconstruction_plan.json"
+      }
+    },
+    {
+      "id": "TASK:P4.84-T001",
+      "type": "TASK",
+      "label": "P4.84-T001",
+      "meta": {
+        "task_id": "P4.84-T001",
+        "source_priority_id": "8d1228117620463b",
+        "priority_score": 6.95,
+        "priority_band": "P1_HIGH",
+        "approval_status": "PENDING_APPROVAL",
+        "execution_status": "BLOCKED_BY_P4.83_GATE",
+        "auto_execution_allowed": false,
+        "mission": {
+          "queue_id": "RQ_00001",
+          "source_plan": "runtime\\reconstruction_plans\\p480_test.json",
+          "mission_id": "P4.80_AUTO_001",
+          "source_id": "p480_test",
+          "type": "CAPABILITY",
+          "priority": "MEDIUM",
+          "title": "Precisamos criar um engine de memória social.",
+          "recommended_action": "MAP_TO_REGISTRY_OR_CREATE_ADAPTER",
+          "risk": "medium",
+          "status": "PENDING_REVIEW",
+          "evidence_text": "Precisamos criar um engine de memória social.",
+          "suggested_files": [],
+          "suggested_tests": [],
+          "created_at": "2026-06-21T13:48:54.835056+00:00"
+        },
+        "reconstruction": {
+          "task_type": "IMPLEMENTATION_PLAN_ONLY",
+          "target_files": [
+            "app/api/whatsapp.py",
+            "app/runtime/cognitive_pipeline.py",
+            "app/runtime/universal_capability_registry.json"
+          ],
+          "target_tests": [
+            "tests/test_eldora_whatsapp_cognitive_pipeline.py",
+            "tests/test_p482_runtime_prioritization.py",
+            "tests/test_whatsapp_positive_feedback.py"
+          ],
+          "dependencies": [
+            "runtime/governance/safe_code_generation_gate.json",
+            "runtime/review_queue/runtime_review_queue.json"
+          ],
+          "rollback_required": true,
+          "evidence_required": true,
+          "manual_approval_required": true
+        }
+      }
+    },
+    {
+      "id": "MODULE:app/api/whatsapp.py",
+      "type": "MODULE",
+      "label": "app/api/whatsapp.py",
+      "meta": {
+        "path": "app/api/whatsapp.py"
+      }
+    },
+    {
+      "id": "MODULE:app/runtime/cognitive_pipeline.py",
+      "type": "MODULE",
+      "label": "app/runtime/cognitive_pipeline.py",
+      "meta": {
+        "path": "app/runtime/cognitive_pipeline.py"
+      }
+    },
+    {
+      "id": "MODULE:app/runtime/universal_capability_registry.json",
+      "type": "MODULE",
+      "label": "app/runtime/universal_capability_registry.json",
+      "meta": {
+        "path": "app/runtime/universal_capability_registry.json"
+      }
+    },
+    {
+      "id": "TEST:tests/test_eldora_whatsapp_cognitive_pipeline.py",
+      "type": "TEST",
+      "label": "tests/test_eldora_whatsapp_cognitive_pipeline.py",
+      "meta": {
+        "path": "tests/test_eldora_whatsapp_cognitive_pipeline.py"
+      }
+    },
+    {
+      "id": "TEST:tests/test_p482_runtime_prioritization.py",
+      "type": "TEST",
+      "label": "tests/test_p482_runtime_prioritization.py",
+      "meta": {
+        "path": "tests/test_p482_runtime_prioritization.py"
+      }
+    },
+    {
+      "id": "TEST:tests/test_whatsapp_positive_feedback.py",
+      "type": "TEST",
+      "label": "tests/test_whatsapp_positive_feedback.py",
+      "meta": {
+        "path": "tests/test_whatsapp_positive_feedback.py"
+      }
+    },
+    {
+      "id": "DEPENDENCY:runtime/governance/safe_code_generation_gate.json",
+      "type": "DEPENDENCY",
+      "label": "runtime/governance/safe_code_generation_gate.json",
+      "meta": {
+        "path": "runtime/governance/safe_code_generation_gate.json"
+      }
+    },
+    {
+      "id": "DEPENDENCY:runtime/review_queue/runtime_review_queue.json",
+      "type": "DEPENDENCY",
+      "label": "runtime/review_queue/runtime_review_queue.json",
+      "meta": {
+        "path": "runtime/review_queue/runtime_review_queue.json"
+      }
+    },
+    {
+      "id": "TASK:P4.84-T002",
+      "type": "TASK",
+      "label": "P4.84-T002",
+      "meta": {
+        "task_id": "P4.84-T002",
+        "source_priority_id": "a091f777e30fed2f",
+        "priority_score": 6.95,
+        "priority_band": "P1_HIGH",
+        "approval_status": "PENDING_APPROVAL",
+        "execution_status": "BLOCKED_BY_P4.83_GATE",
+        "auto_execution_allowed": false,
+        "mission": {
+          "queue_id": "RQ_00005",
+          "source_plan": "runtime\\reconstruction_plans\\_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_capability_notes.md.json",
+          "mission_id": "P4.80_AUTO_005",
+          "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/capability_notes.md",
+          "type": "CAPABILITY",
+          "priority": "MEDIUM",
+          "title": "Ideia pendente: transformar knowledge graph em runtime ativo.",
+          "recommended_action": "MAP_TO_REGISTRY_OR_CREATE_ADAPTER",
+          "risk": "medium",
+          "status": "PENDING_REVIEW",
+          "evidence_text": "Ideia pendente: transformar knowledge graph em runtime ativo.",
+          "suggested_files": [],
+          "suggested_tests": [],
+          "created_at": "2026-06-21T13:48:54.850679+00:00"
+        },
+        "reconstruction": {
+          "task_type": "IMPLEMENTATION_PLAN_ONLY",
+          "target_files": [
+            "app/api/whatsapp.py",
+            "app/runtime/cognitive_pipeline.py",
+            "app/runtime/knowledge_extraction_engine.py",
+            "app/runtime/universal_capability_registry.json",
+            "runtime/capability_map/absorbed_vs_pending_map.json"
+          ],
+          "target_tests": [
+            "tests/test_eldora_whatsapp_cognitive_pipeline.py",
+            "tests/test_p479_knowledge_extraction_engine.py",
+            "tests/test_p482_runtime_prioritization.py",
+            "tests/test_whatsapp_positive_feedback.py"
+          ],
+          "dependencies": [
+            "runtime/capacity_audit/project_state_audit.json",
+            "runtime/governance/safe_code_generation_gate.json",
+            "runtime/review_queue/runtime_review_queue.json"
+          ],
+          "rollback_required": true,
+          "evidence_required": true,
+          "manual_approval_required": true
+        }
+      }
+    },
+    {
+      "id": "MODULE:app/runtime/knowledge_extraction_engine.py",
+      "type": "MODULE",
+      "label": "app/runtime/knowledge_extraction_engine.py",
+      "meta": {
+        "path": "app/runtime/knowledge_extraction_engine.py"
+      }
+    },
+    {
+      "id": "MODULE:runtime/capability_map/absorbed_vs_pending_map.json",
+      "type": "MODULE",
+      "label": "runtime/capability_map/absorbed_vs_pending_map.json",
+      "meta": {
+        "path": "runtime/capability_map/absorbed_vs_pending_map.json"
+      }
+    },
+    {
+      "id": "TEST:tests/test_p479_knowledge_extraction_engine.py",
+      "type": "TEST",
+      "label": "tests/test_p479_knowledge_extraction_engine.py",
+      "meta": {
+        "path": "tests/test_p479_knowledge_extraction_engine.py"
+      }
+    },
+    {
+      "id": "DEPENDENCY:runtime/capacity_audit/project_state_audit.json",
+      "type": "DEPENDENCY",
+      "label": "runtime/capacity_audit/project_state_audit.json",
+      "meta": {
+        "path": "runtime/capacity_audit/project_state_audit.json"
+      }
+    },
+    {
+      "id": "TASK:P4.84-T003",
+      "type": "TASK",
+      "label": "P4.84-T003",
+      "meta": {
+        "task_id": "P4.84-T003",
+        "source_priority_id": "ffb3ac997c9ec3e5",
+        "priority_score": 6.95,
+        "priority_band": "P1_HIGH",
+        "approval_status": "PENDING_APPROVAL",
+        "execution_status": "BLOCKED_BY_P4.83_GATE",
+        "auto_execution_allowed": false,
+        "mission": {
+          "queue_id": "RQ_00009",
+          "source_plan": "runtime\\reconstruction_plans\\_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_mind_strategy.txt.json",
+          "mission_id": "P4.80_AUTO_004",
+          "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/mind_strategy.txt",
+          "type": "CAPABILITY",
+          "priority": "MEDIUM",
+          "title": "Capability: persistent cognitive graph.",
+          "recommended_action": "MAP_TO_REGISTRY_OR_CREATE_ADAPTER",
+          "risk": "medium",
+          "status": "PENDING_REVIEW",
+          "evidence_text": "Capability: persistent cognitive graph.",
+          "suggested_files": [],
+          "suggested_tests": [],
+          "created_at": "2026-06-21T13:48:54.850679+00:00"
+        },
+        "reconstruction": {
+          "task_type": "IMPLEMENTATION_PLAN_ONLY",
+          "target_files": [
+            "app/api/whatsapp.py",
+            "app/runtime/cognitive_pipeline.py",
+            "app/runtime/knowledge_extraction_engine.py",
+            "app/runtime/universal_capability_registry.json",
+            "runtime/capability_map/absorbed_vs_pending_map.json"
+          ],
+          "target_tests": [
+            "tests/test_eldora_whatsapp_cognitive_pipeline.py",
+            "tests/test_p479_knowledge_extraction_engine.py",
+            "tests/test_p482_runtime_prioritization.py",
+            "tests/test_whatsapp_positive_feedback.py"
+          ],
+          "dependencies": [
+            "runtime/capacity_audit/project_state_audit.json",
+            "runtime/governance/safe_code_generation_gate.json",
+            "runtime/review_queue/runtime_review_queue.json"
+          ],
+          "rollback_required": true,
+          "evidence_required": true,
+          "manual_approval_required": true
+        }
+      }
+    },
+    {
+      "id": "TASK:P4.84-T004",
+      "type": "TASK",
+      "label": "P4.84-T004",
+      "meta": {
+        "task_id": "P4.84-T004",
+        "source_priority_id": "13499e414330e0a4",
+        "priority_score": 6.8,
+        "priority_band": "P1_HIGH",
+        "approval_status": "PENDING_APPROVAL",
+        "execution_status": "BLOCKED_BY_P4.83_GATE",
+        "auto_execution_allowed": false,
+        "mission": {
+          "queue_id": "RQ_00002",
+          "source_plan": "runtime\\reconstruction_plans\\_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_capability_notes.md.json",
+          "mission_id": "P4.80_AUTO_001",
+          "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/capability_notes.md",
+          "type": "CAPABILITY",
+          "priority": "MEDIUM",
+          "title": "Documento de capability",
+          "recommended_action": "MAP_TO_REGISTRY_OR_CREATE_ADAPTER",
+          "risk": "medium",
+          "status": "PENDING_REVIEW",
+          "evidence_text": "Documento de capability",
+          "suggested_files": [],
+          "suggested_tests": [],
+          "created_at": "2026-06-21T13:48:54.850679+00:00"
+        },
+        "reconstruction": {
+          "task_type": "IMPLEMENTATION_PLAN_ONLY",
+          "target_files": [
+            "app/api/whatsapp.py",
+            "app/runtime/cognitive_pipeline.py",
+            "app/runtime/knowledge_extraction_engine.py",
+            "app/runtime/universal_capability_registry.json",
+            "runtime/capability_map/absorbed_vs_pending_map.json"
+          ],
+          "target_tests": [
+            "tests/test_eldora_whatsapp_cognitive_pipeline.py",
+            "tests/test_p479_knowledge_extraction_engine.py",
+            "tests/test_p482_runtime_prioritization.py",
+            "tests/test_whatsapp_positive_feedback.py"
+          ],
+          "dependencies": [
+            "runtime/capacity_audit/project_state_audit.json",
+            "runtime/governance/safe_code_generation_gate.json",
+            "runtime/review_queue/runtime_review_queue.json"
+          ],
+          "rollback_required": true,
+          "evidence_required": true,
+          "manual_approval_required": true
+        }
+      }
+    },
+    {
+      "id": "TASK:P4.84-T005",
+      "type": "TASK",
+      "label": "P4.84-T005",
+      "meta": {
+        "task_id": "P4.84-T005",
+        "source_priority_id": "f9e71d2c93efeed9",
+        "priority_score": 6.8,
+        "priority_band": "P1_HIGH",
+        "approval_status": "PENDING_APPROVAL",
+        "execution_status": "BLOCKED_BY_P4.83_GATE",
+        "auto_execution_allowed": false,
+        "mission": {
+          "queue_id": "RQ_00003",
+          "source_plan": "runtime\\reconstruction_plans\\_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_capability_notes.md.json",
+          "mission_id": "P4.80_AUTO_002",
+          "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/capability_notes.md",
+          "type": "CAPABILITY",
+          "priority": "MEDIUM",
+          "title": "semantic_retrieval usando pgvector e embeddings.",
+          "recommended_action": "MAP_TO_REGISTRY_OR_CREATE_ADAPTER",
+          "risk": "medium",
+          "status": "PENDING_REVIEW",
+          "evidence_text": "semantic_retrieval usando pgvector e embeddings.",
+          "suggested_files": [],
+          "suggested_tests": [],
+          "created_at": "2026-06-21T13:48:54.850679+00:00"
+        },
+        "reconstruction": {
+          "task_type": "IMPLEMENTATION_PLAN_ONLY",
+          "target_files": [
+            "app/api/whatsapp.py",
+            "app/runtime/cognitive_pipeline.py",
+            "app/runtime/knowledge_extraction_engine.py",
+            "app/runtime/universal_capability_registry.json",
+            "runtime/capability_map/absorbed_vs_pending_map.json"
+          ],
+          "target_tests": [
+            "tests/test_eldora_whatsapp_cognitive_pipeline.py",
+            "tests/test_p479_knowledge_extraction_engine.py",
+            "tests/test_p482_runtime_prioritization.py",
+            "tests/test_whatsapp_positive_feedback.py"
+          ],
+          "dependencies": [
+            "runtime/capacity_audit/project_state_audit.json",
+            "runtime/governance/safe_code_generation_gate.json",
+            "runtime/review_queue/runtime_review_queue.json"
+          ],
+          "rollback_required": true,
+          "evidence_required": true,
+          "manual_approval_required": true
+        }
+      }
+    },
+    {
+      "id": "TASK:P4.84-T006",
+      "type": "TASK",
+      "label": "P4.84-T006",
+      "meta": {
+        "task_id": "P4.84-T006",
+        "source_priority_id": "1a0bec64727f836e",
+        "priority_score": 6.8,
+        "priority_band": "P1_HIGH",
+        "approval_status": "PENDING_APPROVAL",
+        "execution_status": "BLOCKED_BY_P4.83_GATE",
+        "auto_execution_allowed": false,
+        "mission": {
+          "queue_id": "RQ_00004",
+          "source_plan": "runtime\\reconstruction_plans\\_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_capability_notes.md.json",
+          "mission_id": "P4.80_AUTO_003",
+          "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/capability_notes.md",
+          "type": "CAPABILITY",
+          "priority": "MEDIUM",
+          "title": "social_memory usando Supabase.",
+          "recommended_action": "MAP_TO_REGISTRY_OR_CREATE_ADAPTER",
+          "risk": "medium",
+          "status": "PENDING_REVIEW",
+          "evidence_text": "social_memory usando Supabase.",
+          "suggested_files": [],
+          "suggested_tests": [],
+          "created_at": "2026-06-21T13:48:54.850679+00:00"
+        },
+        "reconstruction": {
+          "task_type": "IMPLEMENTATION_PLAN_ONLY",
+          "target_files": [
+            "app/api/whatsapp.py",
+            "app/runtime/cognitive_pipeline.py",
+            "app/runtime/knowledge_extraction_engine.py",
+            "app/runtime/universal_capability_registry.json",
+            "runtime/capability_map/absorbed_vs_pending_map.json"
+          ],
+          "target_tests": [
+            "tests/test_eldora_whatsapp_cognitive_pipeline.py",
+            "tests/test_p479_knowledge_extraction_engine.py",
+            "tests/test_p482_runtime_prioritization.py",
+            "tests/test_whatsapp_positive_feedback.py"
+          ],
+          "dependencies": [
+            "runtime/capacity_audit/project_state_audit.json",
+            "runtime/governance/safe_code_generation_gate.json",
+            "runtime/review_queue/runtime_review_queue.json"
+          ],
+          "rollback_required": true,
+          "evidence_required": true,
+          "manual_approval_required": true
+        }
+      }
+    },
+    {
+      "id": "TASK:P4.84-T007",
+      "type": "TASK",
+      "label": "P4.84-T007",
+      "meta": {
+        "task_id": "P4.84-T007",
+        "source_priority_id": "d776f64822bc89dc",
+        "priority_score": 6.8,
+        "priority_band": "P1_HIGH",
+        "approval_status": "PENDING_APPROVAL",
+        "execution_status": "BLOCKED_BY_P4.83_GATE",
+        "auto_execution_allowed": false,
+        "mission": {
+          "queue_id": "RQ_00006",
+          "source_plan": "runtime\\reconstruction_plans\\_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_mind_strategy.txt.json",
+          "mission_id": "P4.80_AUTO_001",
+          "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/mind_strategy.txt",
+          "type": "CAPABILITY",
+          "priority": "MEDIUM",
+          "title": "Existe bug TypeError no semantic_whatsapp_runtime.",
+          "recommended_action": "MAP_TO_REGISTRY_OR_CREATE_ADAPTER",
+          "risk": "medium",
+          "status": "PENDING_REVIEW",
+          "evidence_text": "Existe bug TypeError no semantic_whatsapp_runtime.",
+          "suggested_files": [],
+          "suggested_tests": [],
+          "created_at": "2026-06-21T13:48:54.850679+00:00"
+        },
+        "reconstruction": {
+          "task_type": "IMPLEMENTATION_PLAN_ONLY",
+          "target_files": [
+            "app/api/whatsapp.py",
+            "app/runtime/cognitive_pipeline.py",
+            "app/runtime/knowledge_extraction_engine.py",
+            "app/runtime/universal_capability_registry.json",
+            "runtime/capability_map/absorbed_vs_pending_map.json"
+          ],
+          "target_tests": [
+            "tests/test_eldora_whatsapp_cognitive_pipeline.py",
+            "tests/test_p479_knowledge_extraction_engine.py",
+            "tests/test_p482_runtime_prioritization.py",
+            "tests/test_whatsapp_positive_feedback.py"
+          ],
+          "dependencies": [
+            "runtime/capacity_audit/project_state_audit.json",
+            "runtime/governance/safe_code_generation_gate.json",
+            "runtime/review_queue/runtime_review_queue.json"
+          ],
+          "rollback_required": true,
+          "evidence_required": true,
+          "manual_approval_required": true
+        }
+      }
+    },
+    {
+      "id": "TASK:P4.84-T008",
+      "type": "TASK",
+      "label": "P4.84-T008",
+      "meta": {
+        "task_id": "P4.84-T008",
+        "source_priority_id": "fd983803cda405a8",
+        "priority_score": 6.8,
+        "priority_band": "P1_HIGH",
+        "approval_status": "PENDING_APPROVAL",
+        "execution_status": "BLOCKED_BY_P4.83_GATE",
+        "auto_execution_allowed": false,
+        "mission": {
+          "queue_id": "RQ_00007",
+          "source_plan": "runtime\\reconstruction_plans\\_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_mind_strategy.txt.json",
+          "mission_id": "P4.80_AUTO_002",
+          "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/mind_strategy.txt",
+          "type": "CAPABILITY",
+          "priority": "MEDIUM",
+          "title": "A arquitetura deve usar pipeline, retrieval, registry e orchestrator.",
+          "recommended_action": "MAP_TO_REGISTRY_OR_CREATE_ADAPTER",
+          "risk": "medium",
+          "status": "PENDING_REVIEW",
+          "evidence_text": "A arquitetura deve usar pipeline, retrieval, registry e orchestrator.",
+          "suggested_files": [],
+          "suggested_tests": [],
+          "created_at": "2026-06-21T13:48:54.850679+00:00"
+        },
+        "reconstruction": {
+          "task_type": "IMPLEMENTATION_PLAN_ONLY",
+          "target_files": [
+            "app/api/whatsapp.py",
+            "app/runtime/cognitive_pipeline.py",
+            "app/runtime/knowledge_extraction_engine.py",
+            "app/runtime/universal_capability_registry.json",
+            "runtime/capability_map/absorbed_vs_pending_map.json"
+          ],
+          "target_tests": [
+            "tests/test_eldora_whatsapp_cognitive_pipeline.py",
+            "tests/test_p479_knowledge_extraction_engine.py",
+            "tests/test_p482_runtime_prioritization.py",
+            "tests/test_whatsapp_positive_feedback.py"
+          ],
+          "dependencies": [
+            "runtime/capacity_audit/project_state_audit.json",
+            "runtime/governance/safe_code_generation_gate.json",
+            "runtime/review_queue/runtime_review_queue.json"
+          ],
+          "rollback_required": true,
+          "evidence_required": true,
+          "manual_approval_required": true
+        }
+      }
+    },
+    {
+      "id": "TASK:P4.84-T009",
+      "type": "TASK",
+      "label": "P4.84-T009",
+      "meta": {
+        "task_id": "P4.84-T009",
+        "source_priority_id": "e9347f223ec38471",
+        "priority_score": 6.8,
+        "priority_band": "P1_HIGH",
+        "approval_status": "PENDING_APPROVAL",
+        "execution_status": "BLOCKED_BY_P4.83_GATE",
+        "auto_execution_allowed": false,
+        "mission": {
+          "queue_id": "RQ_00008",
+          "source_plan": "runtime\\reconstruction_plans\\_evidence_P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810_smoke_drive_docs_mind_strategy.txt.json",
+          "mission_id": "P4.80_AUTO_003",
+          "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/mind_strategy.txt",
+          "type": "CAPABILITY",
+          "priority": "MEDIUM",
+          "title": "Lição aprendida: não integrar direto no cognitive_pipeline antes de validar bridge isolado",
+          "recommended_action": "MAP_TO_REGISTRY_OR_CREATE_ADAPTER",
+          "risk": "medium",
+          "status": "PENDING_REVIEW",
+          "evidence_text": "Lição aprendida: não integrar direto no cognitive_pipeline antes de validar bridge isolado.",
+          "suggested_files": [],
+          "suggested_tests": [],
+          "created_at": "2026-06-21T13:48:54.850679+00:00"
+        },
+        "reconstruction": {
+          "task_type": "IMPLEMENTATION_PLAN_ONLY",
+          "target_files": [
+            "app/api/whatsapp.py",
+            "app/runtime/cognitive_pipeline.py",
+            "app/runtime/knowledge_extraction_engine.py",
+            "app/runtime/universal_capability_registry.json",
+            "runtime/capability_map/absorbed_vs_pending_map.json"
+          ],
+          "target_tests": [
+            "tests/test_eldora_whatsapp_cognitive_pipeline.py",
+            "tests/test_p479_knowledge_extraction_engine.py",
+            "tests/test_p482_runtime_prioritization.py",
+            "tests/test_whatsapp_positive_feedback.py"
+          ],
+          "dependencies": [
+            "runtime/capacity_audit/project_state_audit.json",
+            "runtime/governance/safe_code_generation_gate.json",
+            "runtime/review_queue/runtime_review_queue.json"
+          ],
+          "rollback_required": true,
+          "evidence_required": true,
+          "manual_approval_required": true
+        }
+      }
+    },
+    {
+      "id": "DOC:runtime/prioritization/runtime_prioritized_queue.json",
+      "type": "DOCUMENT",
+      "label": "runtime/prioritization/runtime_prioritized_queue.json",
+      "meta": {
+        "path": "runtime/prioritization/runtime_prioritized_queue.json"
+      }
+    },
+    {
+      "id": "DOC:app/runtime/universal_capability_registry.json",
+      "type": "DOCUMENT",
+      "label": "app/runtime/universal_capability_registry.json",
+      "meta": {
+        "path": "app/runtime/universal_capability_registry.json"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "PROJECT:MIND",
+      "target": "PROJECT:ELDORA",
+      "relationship": "CONTAINS",
+      "meta": {}
+    },
+    {
+      "source": "PROJECT:MIND",
+      "target": "DOC:runtime/capacity_audit/project_state_audit.json",
+      "relationship": "HAS_DOCUMENT",
+      "meta": {}
+    },
+    {
+      "source": "DOC:runtime/capacity_audit/project_state_audit.json",
+      "target": "GAP:Runtime response fallback dominance",
+      "relationship": "IDENTIFIES",
+      "meta": {}
+    },
+    {
+      "source": "PROJECT:MIND",
+      "target": "GAP:Runtime response fallback dominance",
+      "relationship": "HAS_GAP",
+      "meta": {}
+    },
+    {
+      "source": "DOC:runtime/capacity_audit/project_state_audit.json",
+      "target": "GAP:Observability state not accumulating events",
+      "relationship": "IDENTIFIES",
+      "meta": {}
+    },
+    {
+      "source": "PROJECT:MIND",
+      "target": "GAP:Observability state not accumulating events",
+      "relationship": "HAS_GAP",
+      "meta": {}
+    },
+    {
+      "source": "DOC:runtime/capacity_audit/project_state_audit.json",
+      "target": "GAP:Knowledge extraction under-detecting items",
+      "relationship": "IDENTIFIES",
+      "meta": {}
+    },
+    {
+      "source": "PROJECT:MIND",
+      "target": "GAP:Knowledge extraction under-detecting items",
+      "relationship": "HAS_GAP",
+      "meta": {}
+    },
+    {
+      "source": "DOC:runtime/capacity_audit/project_state_audit.json",
+      "target": "GAP:Capability evidence scattered",
+      "relationship": "IDENTIFIES",
+      "meta": {}
+    },
+    {
+      "source": "PROJECT:MIND",
+      "target": "GAP:Capability evidence scattered",
+      "relationship": "HAS_GAP",
+      "meta": {}
+    },
+    {
+      "source": "PROJECT:MIND",
+      "target": "DOC:runtime/capability_map/absorbed_vs_pending_map.json",
+      "relationship": "HAS_DOCUMENT",
+      "meta": {}
+    },
+    {
+      "source": "DOC:runtime/capability_map/absorbed_vs_pending_map.json",
+      "target": "CAPABILITY:retrieval",
+      "relationship": "DESCRIBES",
+      "meta": {}
+    },
+    {
+      "source": "PROJECT:MIND",
+      "target": "CAPABILITY:retrieval",
+      "relationship": "HAS_CAPABILITY",
+      "meta": {}
+    },
+    {
+      "source": "DOC:runtime/capability_map/absorbed_vs_pending_map.json",
+      "target": "CAPABILITY:memory",
+      "relationship": "DESCRIBES",
+      "meta": {}
+    },
+    {
+      "source": "PROJECT:MIND",
+      "target": "CAPABILITY:memory",
+      "relationship": "HAS_CAPABILITY",
+      "meta": {}
+    },
+    {
+      "source": "DOC:runtime/capability_map/absorbed_vs_pending_map.json",
+      "target": "CAPABILITY:whatsapp",
+      "relationship": "DESCRIBES",
+      "meta": {}
+    },
+    {
+      "source": "PROJECT:MIND",
+      "target": "CAPABILITY:whatsapp",
+      "relationship": "HAS_CAPABILITY",
+      "meta": {}
+    },
+    {
+      "source": "DOC:runtime/capability_map/absorbed_vs_pending_map.json",
+      "target": "CAPABILITY:cognitive_pipeline",
+      "relationship": "DESCRIBES",
+      "meta": {}
+    },
+    {
+      "source": "PROJECT:MIND",
+      "target": "CAPABILITY:cognitive_pipeline",
+      "relationship": "HAS_CAPABILITY",
+      "meta": {}
+    },
+    {
+      "source": "DOC:runtime/capability_map/absorbed_vs_pending_map.json",
+      "target": "CAPABILITY:capability",
+      "relationship": "DESCRIBES",
+      "meta": {}
+    },
+    {
+      "source": "PROJECT:MIND",
+      "target": "CAPABILITY:capability",
+      "relationship": "HAS_CAPABILITY",
+      "meta": {}
+    },
+    {
+      "source": "DOC:runtime/capability_map/absorbed_vs_pending_map.json",
+      "target": "CAPABILITY:knowledge",
+      "relationship": "DESCRIBES",
+      "meta": {}
+    },
+    {
+      "source": "PROJECT:MIND",
+      "target": "CAPABILITY:knowledge",
+      "relationship": "HAS_CAPABILITY",
+      "meta": {}
+    },
+    {
+      "source": "DOC:runtime/capability_map/absorbed_vs_pending_map.json",
+      "target": "CAPABILITY:drive",
+      "relationship": "DESCRIBES",
+      "meta": {}
+    },
+    {
+      "source": "PROJECT:MIND",
+      "target": "CAPABILITY:drive",
+      "relationship": "HAS_CAPABILITY",
+      "meta": {}
+    },
+    {
+      "source": "DOC:runtime/capability_map/absorbed_vs_pending_map.json",
+      "target": "CAPABILITY:observability",
+      "relationship": "DESCRIBES",
+      "meta": {}
+    },
+    {
+      "source": "PROJECT:MIND",
+      "target": "CAPABILITY:observability",
+      "relationship": "HAS_CAPABILITY",
+      "meta": {}
+    },
+    {
+      "source": "DOC:runtime/capability_map/absorbed_vs_pending_map.json",
+      "target": "CAPABILITY:governance",
+      "relationship": "DESCRIBES",
+      "meta": {}
+    },
+    {
+      "source": "PROJECT:MIND",
+      "target": "CAPABILITY:governance",
+      "relationship": "HAS_CAPABILITY",
+      "meta": {}
+    },
+    {
+      "source": "DOC:runtime/capability_map/absorbed_vs_pending_map.json",
+      "target": "PENDING:orphan",
+      "relationship": "DESCRIBES",
+      "meta": {}
+    },
+    {
+      "source": "PROJECT:MIND",
+      "target": "PENDING:orphan",
+      "relationship": "HAS_PENDING_CAPABILITY",
+      "meta": {}
+    },
+    {
+      "source": "PROJECT:MIND",
+      "target": "DOC:runtime/reconstruction/capability_reconstruction_plan.json",
+      "relationship": "HAS_DOCUMENT",
+      "meta": {}
+    },
+    {
+      "source": "DOC:runtime/reconstruction/capability_reconstruction_plan.json",
+      "target": "TASK:P4.84-T001",
+      "relationship": "GENERATES",
+      "meta": {}
+    },
+    {
+      "source": "PROJECT:MIND",
+      "target": "TASK:P4.84-T001",
+      "relationship": "HAS_TASK",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T001",
+      "target": "MODULE:app/api/whatsapp.py",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T001",
+      "target": "MODULE:app/runtime/cognitive_pipeline.py",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T001",
+      "target": "MODULE:app/runtime/universal_capability_registry.json",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T001",
+      "target": "TEST:tests/test_eldora_whatsapp_cognitive_pipeline.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T001",
+      "target": "TEST:tests/test_p482_runtime_prioritization.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T001",
+      "target": "TEST:tests/test_whatsapp_positive_feedback.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T001",
+      "target": "DEPENDENCY:runtime/governance/safe_code_generation_gate.json",
+      "relationship": "DEPENDS_ON",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T001",
+      "target": "DEPENDENCY:runtime/review_queue/runtime_review_queue.json",
+      "relationship": "DEPENDS_ON",
+      "meta": {}
+    },
+    {
+      "source": "DOC:runtime/reconstruction/capability_reconstruction_plan.json",
+      "target": "TASK:P4.84-T002",
+      "relationship": "GENERATES",
+      "meta": {}
+    },
+    {
+      "source": "PROJECT:MIND",
+      "target": "TASK:P4.84-T002",
+      "relationship": "HAS_TASK",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T002",
+      "target": "MODULE:app/api/whatsapp.py",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T002",
+      "target": "MODULE:app/runtime/cognitive_pipeline.py",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T002",
+      "target": "MODULE:app/runtime/knowledge_extraction_engine.py",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T002",
+      "target": "MODULE:app/runtime/universal_capability_registry.json",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T002",
+      "target": "MODULE:runtime/capability_map/absorbed_vs_pending_map.json",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T002",
+      "target": "TEST:tests/test_eldora_whatsapp_cognitive_pipeline.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T002",
+      "target": "TEST:tests/test_p479_knowledge_extraction_engine.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T002",
+      "target": "TEST:tests/test_p482_runtime_prioritization.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T002",
+      "target": "TEST:tests/test_whatsapp_positive_feedback.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T002",
+      "target": "DEPENDENCY:runtime/capacity_audit/project_state_audit.json",
+      "relationship": "DEPENDS_ON",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T002",
+      "target": "DEPENDENCY:runtime/governance/safe_code_generation_gate.json",
+      "relationship": "DEPENDS_ON",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T002",
+      "target": "DEPENDENCY:runtime/review_queue/runtime_review_queue.json",
+      "relationship": "DEPENDS_ON",
+      "meta": {}
+    },
+    {
+      "source": "DOC:runtime/reconstruction/capability_reconstruction_plan.json",
+      "target": "TASK:P4.84-T003",
+      "relationship": "GENERATES",
+      "meta": {}
+    },
+    {
+      "source": "PROJECT:MIND",
+      "target": "TASK:P4.84-T003",
+      "relationship": "HAS_TASK",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T003",
+      "target": "MODULE:app/api/whatsapp.py",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T003",
+      "target": "MODULE:app/runtime/cognitive_pipeline.py",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T003",
+      "target": "MODULE:app/runtime/knowledge_extraction_engine.py",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T003",
+      "target": "MODULE:app/runtime/universal_capability_registry.json",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T003",
+      "target": "MODULE:runtime/capability_map/absorbed_vs_pending_map.json",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T003",
+      "target": "TEST:tests/test_eldora_whatsapp_cognitive_pipeline.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T003",
+      "target": "TEST:tests/test_p479_knowledge_extraction_engine.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T003",
+      "target": "TEST:tests/test_p482_runtime_prioritization.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T003",
+      "target": "TEST:tests/test_whatsapp_positive_feedback.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T003",
+      "target": "DEPENDENCY:runtime/capacity_audit/project_state_audit.json",
+      "relationship": "DEPENDS_ON",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T003",
+      "target": "DEPENDENCY:runtime/governance/safe_code_generation_gate.json",
+      "relationship": "DEPENDS_ON",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T003",
+      "target": "DEPENDENCY:runtime/review_queue/runtime_review_queue.json",
+      "relationship": "DEPENDS_ON",
+      "meta": {}
+    },
+    {
+      "source": "DOC:runtime/reconstruction/capability_reconstruction_plan.json",
+      "target": "TASK:P4.84-T004",
+      "relationship": "GENERATES",
+      "meta": {}
+    },
+    {
+      "source": "PROJECT:MIND",
+      "target": "TASK:P4.84-T004",
+      "relationship": "HAS_TASK",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T004",
+      "target": "MODULE:app/api/whatsapp.py",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T004",
+      "target": "MODULE:app/runtime/cognitive_pipeline.py",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T004",
+      "target": "MODULE:app/runtime/knowledge_extraction_engine.py",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T004",
+      "target": "MODULE:app/runtime/universal_capability_registry.json",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T004",
+      "target": "MODULE:runtime/capability_map/absorbed_vs_pending_map.json",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T004",
+      "target": "TEST:tests/test_eldora_whatsapp_cognitive_pipeline.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T004",
+      "target": "TEST:tests/test_p479_knowledge_extraction_engine.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T004",
+      "target": "TEST:tests/test_p482_runtime_prioritization.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T004",
+      "target": "TEST:tests/test_whatsapp_positive_feedback.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T004",
+      "target": "DEPENDENCY:runtime/capacity_audit/project_state_audit.json",
+      "relationship": "DEPENDS_ON",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T004",
+      "target": "DEPENDENCY:runtime/governance/safe_code_generation_gate.json",
+      "relationship": "DEPENDS_ON",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T004",
+      "target": "DEPENDENCY:runtime/review_queue/runtime_review_queue.json",
+      "relationship": "DEPENDS_ON",
+      "meta": {}
+    },
+    {
+      "source": "DOC:runtime/reconstruction/capability_reconstruction_plan.json",
+      "target": "TASK:P4.84-T005",
+      "relationship": "GENERATES",
+      "meta": {}
+    },
+    {
+      "source": "PROJECT:MIND",
+      "target": "TASK:P4.84-T005",
+      "relationship": "HAS_TASK",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T005",
+      "target": "MODULE:app/api/whatsapp.py",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T005",
+      "target": "MODULE:app/runtime/cognitive_pipeline.py",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T005",
+      "target": "MODULE:app/runtime/knowledge_extraction_engine.py",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T005",
+      "target": "MODULE:app/runtime/universal_capability_registry.json",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T005",
+      "target": "MODULE:runtime/capability_map/absorbed_vs_pending_map.json",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T005",
+      "target": "TEST:tests/test_eldora_whatsapp_cognitive_pipeline.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T005",
+      "target": "TEST:tests/test_p479_knowledge_extraction_engine.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T005",
+      "target": "TEST:tests/test_p482_runtime_prioritization.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T005",
+      "target": "TEST:tests/test_whatsapp_positive_feedback.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T005",
+      "target": "DEPENDENCY:runtime/capacity_audit/project_state_audit.json",
+      "relationship": "DEPENDS_ON",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T005",
+      "target": "DEPENDENCY:runtime/governance/safe_code_generation_gate.json",
+      "relationship": "DEPENDS_ON",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T005",
+      "target": "DEPENDENCY:runtime/review_queue/runtime_review_queue.json",
+      "relationship": "DEPENDS_ON",
+      "meta": {}
+    },
+    {
+      "source": "DOC:runtime/reconstruction/capability_reconstruction_plan.json",
+      "target": "TASK:P4.84-T006",
+      "relationship": "GENERATES",
+      "meta": {}
+    },
+    {
+      "source": "PROJECT:MIND",
+      "target": "TASK:P4.84-T006",
+      "relationship": "HAS_TASK",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T006",
+      "target": "MODULE:app/api/whatsapp.py",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T006",
+      "target": "MODULE:app/runtime/cognitive_pipeline.py",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T006",
+      "target": "MODULE:app/runtime/knowledge_extraction_engine.py",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T006",
+      "target": "MODULE:app/runtime/universal_capability_registry.json",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T006",
+      "target": "MODULE:runtime/capability_map/absorbed_vs_pending_map.json",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T006",
+      "target": "TEST:tests/test_eldora_whatsapp_cognitive_pipeline.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T006",
+      "target": "TEST:tests/test_p479_knowledge_extraction_engine.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T006",
+      "target": "TEST:tests/test_p482_runtime_prioritization.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T006",
+      "target": "TEST:tests/test_whatsapp_positive_feedback.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T006",
+      "target": "DEPENDENCY:runtime/capacity_audit/project_state_audit.json",
+      "relationship": "DEPENDS_ON",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T006",
+      "target": "DEPENDENCY:runtime/governance/safe_code_generation_gate.json",
+      "relationship": "DEPENDS_ON",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T006",
+      "target": "DEPENDENCY:runtime/review_queue/runtime_review_queue.json",
+      "relationship": "DEPENDS_ON",
+      "meta": {}
+    },
+    {
+      "source": "DOC:runtime/reconstruction/capability_reconstruction_plan.json",
+      "target": "TASK:P4.84-T007",
+      "relationship": "GENERATES",
+      "meta": {}
+    },
+    {
+      "source": "PROJECT:MIND",
+      "target": "TASK:P4.84-T007",
+      "relationship": "HAS_TASK",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T007",
+      "target": "MODULE:app/api/whatsapp.py",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T007",
+      "target": "MODULE:app/runtime/cognitive_pipeline.py",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T007",
+      "target": "MODULE:app/runtime/knowledge_extraction_engine.py",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T007",
+      "target": "MODULE:app/runtime/universal_capability_registry.json",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T007",
+      "target": "MODULE:runtime/capability_map/absorbed_vs_pending_map.json",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T007",
+      "target": "TEST:tests/test_eldora_whatsapp_cognitive_pipeline.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T007",
+      "target": "TEST:tests/test_p479_knowledge_extraction_engine.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T007",
+      "target": "TEST:tests/test_p482_runtime_prioritization.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T007",
+      "target": "TEST:tests/test_whatsapp_positive_feedback.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T007",
+      "target": "DEPENDENCY:runtime/capacity_audit/project_state_audit.json",
+      "relationship": "DEPENDS_ON",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T007",
+      "target": "DEPENDENCY:runtime/governance/safe_code_generation_gate.json",
+      "relationship": "DEPENDS_ON",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T007",
+      "target": "DEPENDENCY:runtime/review_queue/runtime_review_queue.json",
+      "relationship": "DEPENDS_ON",
+      "meta": {}
+    },
+    {
+      "source": "DOC:runtime/reconstruction/capability_reconstruction_plan.json",
+      "target": "TASK:P4.84-T008",
+      "relationship": "GENERATES",
+      "meta": {}
+    },
+    {
+      "source": "PROJECT:MIND",
+      "target": "TASK:P4.84-T008",
+      "relationship": "HAS_TASK",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T008",
+      "target": "MODULE:app/api/whatsapp.py",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T008",
+      "target": "MODULE:app/runtime/cognitive_pipeline.py",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T008",
+      "target": "MODULE:app/runtime/knowledge_extraction_engine.py",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T008",
+      "target": "MODULE:app/runtime/universal_capability_registry.json",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T008",
+      "target": "MODULE:runtime/capability_map/absorbed_vs_pending_map.json",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T008",
+      "target": "TEST:tests/test_eldora_whatsapp_cognitive_pipeline.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T008",
+      "target": "TEST:tests/test_p479_knowledge_extraction_engine.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T008",
+      "target": "TEST:tests/test_p482_runtime_prioritization.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T008",
+      "target": "TEST:tests/test_whatsapp_positive_feedback.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T008",
+      "target": "DEPENDENCY:runtime/capacity_audit/project_state_audit.json",
+      "relationship": "DEPENDS_ON",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T008",
+      "target": "DEPENDENCY:runtime/governance/safe_code_generation_gate.json",
+      "relationship": "DEPENDS_ON",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T008",
+      "target": "DEPENDENCY:runtime/review_queue/runtime_review_queue.json",
+      "relationship": "DEPENDS_ON",
+      "meta": {}
+    },
+    {
+      "source": "DOC:runtime/reconstruction/capability_reconstruction_plan.json",
+      "target": "TASK:P4.84-T009",
+      "relationship": "GENERATES",
+      "meta": {}
+    },
+    {
+      "source": "PROJECT:MIND",
+      "target": "TASK:P4.84-T009",
+      "relationship": "HAS_TASK",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T009",
+      "target": "MODULE:app/api/whatsapp.py",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T009",
+      "target": "MODULE:app/runtime/cognitive_pipeline.py",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T009",
+      "target": "MODULE:app/runtime/knowledge_extraction_engine.py",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T009",
+      "target": "MODULE:app/runtime/universal_capability_registry.json",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T009",
+      "target": "MODULE:runtime/capability_map/absorbed_vs_pending_map.json",
+      "relationship": "TARGETS_FILE",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T009",
+      "target": "TEST:tests/test_eldora_whatsapp_cognitive_pipeline.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T009",
+      "target": "TEST:tests/test_p479_knowledge_extraction_engine.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T009",
+      "target": "TEST:tests/test_p482_runtime_prioritization.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T009",
+      "target": "TEST:tests/test_whatsapp_positive_feedback.py",
+      "relationship": "VALIDATED_BY",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T009",
+      "target": "DEPENDENCY:runtime/capacity_audit/project_state_audit.json",
+      "relationship": "DEPENDS_ON",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T009",
+      "target": "DEPENDENCY:runtime/governance/safe_code_generation_gate.json",
+      "relationship": "DEPENDS_ON",
+      "meta": {}
+    },
+    {
+      "source": "TASK:P4.84-T009",
+      "target": "DEPENDENCY:runtime/review_queue/runtime_review_queue.json",
+      "relationship": "DEPENDS_ON",
+      "meta": {}
+    },
+    {
+      "source": "PROJECT:MIND",
+      "target": "DOC:runtime/prioritization/runtime_prioritized_queue.json",
+      "relationship": "HAS_DOCUMENT",
+      "meta": {}
+    },
+    {
+      "source": "PROJECT:MIND",
+      "target": "DOC:app/runtime/universal_capability_registry.json",
+      "relationship": "HAS_DOCUMENT",
+      "meta": {}
+    }
+  ],
+  "next": "P4.86 ORPHAN RECOVERY ENGINE"
+}

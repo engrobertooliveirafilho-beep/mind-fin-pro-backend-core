@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_EBBBDD44021BAD84",
+  "source_file": "tests\\test_p425_friendship_proactive_runtime.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\tests\\test_p425_friendship_proactive_runtime.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 90,
+  "imports": [
+    "app.friendship.friendship_profile",
+    "app.friendship.proactive_scheduler"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,54 @@
+{
+  "STATUS": "P1505_PAYOFF_METRICS_PATCH_COMPLETED",
+  "EDGES_ANALYZED": 272,
+  "ASSET_SUMMARY": {
+    "AUDUSD": {
+      "edges": 47,
+      "avg_payoff_ratio_proxy": 1.465362,
+      "avg_expectancy_per_trade_proxy": 0.01097552,
+      "best_payoff_ratio_proxy": 2.217846,
+      "best_expectancy_per_trade_proxy": 0.0513714
+    },
+    "EURUSD": {
+      "edges": 54,
+      "avg_payoff_ratio_proxy": 1.783443,
+      "avg_expectancy_per_trade_proxy": 0.02487018,
+      "best_payoff_ratio_proxy": 10.272527,
+      "best_expectancy_per_trade_proxy": 0.42147395
+    },
+    "GBPUSD": {
+      "edges": 45,
+      "avg_payoff_ratio_proxy": 1.659863,
+      "avg_expectancy_per_trade_proxy": 0.02086172,
+      "best_payoff_ratio_proxy": 4.273326,
+      "best_expectancy_per_trade_proxy": 0.18187722
+    },
+    "USDCAD": {
+      "edges": 39,
+      "avg_payoff_ratio_proxy": 1.879714,
+      "avg_expectancy_per_trade_proxy": 0.05113135,
+      "best_payoff_ratio_proxy": 10.8512,
+      "best_expectancy_per_trade_proxy": 0.61573406
+    },
+    "USDJPY": {
+      "edges": 26,
+      "avg_payoff_ratio_proxy": 1.612432,
+      "avg_expectancy_per_trade_proxy": 0.03026159,
+      "best_payoff_ratio_proxy": 3.417818,
+      "best_expectancy_per_trade_proxy": 0.141723
+    },
+    "XAUUSD": {
+      "edges": 61,
+      "avg_payoff_ratio_proxy": 1.39129,
+      "avg_expectancy_per_trade_proxy": 0.01062936,
+      "best_payoff_ratio_proxy": 2.239816,
+      "best_expectancy_per_trade_proxy": 0.1239822
+    }
+  },
+  "NOTE": "Proxy calculado a partir de profit_factor, drawdown e trades. Para payoff real, o backtest precisa salvar lista de trades individuais.",
+  "NEXT": "PATCH_BACKTEST_ENGINE_TO_SAVE_TRADE_LEVEL_PAYOFF",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN",
+  "generated_at": "2026-06-15T18:39:39.201450+00:00"
+}

@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_3DF96119EC94CCB7",
+  "source_file": "tests\\test_p8_shadow_implementation.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\tests\\test_p8_shadow_implementation.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 101,
+  "imports": [
+    "app.p8_shadow.diff_engine",
+    "app.p8_shadow.feature_flags",
+    "app.p8_shadow.shadow_hooks",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

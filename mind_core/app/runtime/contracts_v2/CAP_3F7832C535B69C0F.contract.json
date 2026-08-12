@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_3F7832C535B69C0F",
+  "source_file": "app\\mind\\p5_5q_worker_fetch_parse\\worker.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\app\\mind\\p5_5q_worker_fetch_parse\\worker.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 88,
+  "imports": [
+    "json",
+    "os",
+    "re",
+    "urllib.parse",
+    "urllib.request"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

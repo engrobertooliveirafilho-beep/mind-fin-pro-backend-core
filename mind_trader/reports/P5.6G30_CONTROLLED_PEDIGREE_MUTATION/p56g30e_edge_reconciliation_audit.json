@@ -1,0 +1,98 @@
+{
+  "STATUS": "P56G30E_EDGE_RECONCILIATION_AUDIT_COMPLETED",
+  "mode": "READ_ONLY_NO_MUTATION",
+  "bushwacker_id": "fc55d337-491f-458f-b962-d8cc6372a0fb",
+  "expected_parent_ids": {
+    "sire": "5a87cfa3-c33e-463c-9b5c-30b997d1b962",
+    "dam": "d64d1a1f-01dd-4587-bf18-bf8e3c968cfc"
+  },
+  "nodes_found": [
+    {
+      "id": "d64d1a1f-01dd-4587-bf18-bf8e3c968cfc",
+      "official_name": "110",
+      "registry_number": "10007793",
+      "confidence_score": 85.0,
+      "validation_status": "provisional"
+    },
+    {
+      "id": "fc55d337-491f-458f-b962-d8cc6372a0fb",
+      "official_name": "Bushwacker",
+      "registry_number": "13/6",
+      "confidence_score": 80.0,
+      "validation_status": "reliable"
+    },
+    {
+      "id": "5a87cfa3-c33e-463c-9b5c-30b997d1b962",
+      "official_name": "REINDEER MO",
+      "registry_number": "10010628",
+      "confidence_score": 85.0,
+      "validation_status": "provisional"
+    }
+  ],
+  "source_found": [
+    {
+      "id": "df645e3f-d3c9-4eed-a876-d79d052a6f99",
+      "source_url": "http://members.americanbuckingbull.com/bulls.aspx?id=10058008",
+      "confidence_score": 65.0,
+      "validation_status": "provisional"
+    }
+  ],
+  "current_edges": [
+    {
+      "id": "7abc6f49-3106-4bf4-9d24-0dfea1d71df6",
+      "parent_id": "d64d1a1f-01dd-4587-bf18-bf8e3c968cfc",
+      "child_id": "fc55d337-491f-458f-b962-d8cc6372a0fb",
+      "relation": "dam",
+      "generation_distance": 1,
+      "validation_status": "provisional",
+      "confidence_score": 85.0,
+      "evidence_source_id": "df645e3f-d3c9-4eed-a876-d79d052a6f99",
+      "parent": "110",
+      "child": "Bushwacker"
+    },
+    {
+      "id": "c54b1c9f-900a-4cb6-a9f9-ade68ea68adb",
+      "parent_id": "f49e72fa-e242-4bc0-afbe-5399171c21e7",
+      "child_id": "fc55d337-491f-458f-b962-d8cc6372a0fb",
+      "relation": "dam",
+      "generation_distance": 1,
+      "validation_status": "quarantined",
+      "confidence_score": 60.0,
+      "evidence_source_id": null,
+      "parent": "Lady Luck",
+      "child": "Bushwacker"
+    },
+    {
+      "id": "1d6bdfbb-cb14-4763-87cc-f8a679559fbc",
+      "parent_id": "5a87cfa3-c33e-463c-9b5c-30b997d1b962",
+      "child_id": "fc55d337-491f-458f-b962-d8cc6372a0fb",
+      "relation": "sire",
+      "generation_distance": 1,
+      "validation_status": "provisional",
+      "confidence_score": 85.0,
+      "evidence_source_id": "df645e3f-d3c9-4eed-a876-d79d052a6f99",
+      "parent": "REINDEER MO",
+      "child": "Bushwacker"
+    },
+    {
+      "id": "b9fdadb8-b7d0-4d46-8889-9184f53d572f",
+      "parent_id": "b15c7bb4-ba7f-4f05-9525-bb968e4b8906",
+      "child_id": "fc55d337-491f-458f-b962-d8cc6372a0fb",
+      "relation": "sire",
+      "generation_distance": 1,
+      "validation_status": "quarantined",
+      "confidence_score": 60.0,
+      "evidence_source_id": null,
+      "parent": "Whitewater Skoal",
+      "child": "Bushwacker"
+    }
+  ],
+  "expected_edges_found": {
+    "sire": true,
+    "dam": true
+  },
+  "missing_expected_edges": [],
+  "mutation_required": false,
+  "next": "MISSION_COMPLETE_NO_MUTATION_REQUIRED",
+  "generated_at": "2026-06-14T19:03:54.865752+00:00"
+}

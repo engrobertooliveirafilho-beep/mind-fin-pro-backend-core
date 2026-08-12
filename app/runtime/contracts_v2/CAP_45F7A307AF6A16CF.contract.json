@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_45F7A307AF6A16CF",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\beta\\chatkit\\chatkit_thread.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\openai\\types\\beta\\chatkit\\chatkit_thread.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 96,
+  "imports": [
+    "_models",
+    "_utils",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

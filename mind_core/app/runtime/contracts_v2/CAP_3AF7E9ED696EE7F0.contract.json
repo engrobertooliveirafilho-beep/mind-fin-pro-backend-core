@@ -1,0 +1,26 @@
+{
+  "capability_id": "CAP_3AF7E9ED696EE7F0",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\core\\indexers\\objects.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\pandas\\core\\indexers\\objects.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 106,
+  "imports": [
+    "__future__",
+    "datetime",
+    "numpy",
+    "pandas._libs.tslibs",
+    "pandas._libs.window.indexers",
+    "pandas.core.dtypes.common",
+    "pandas.core.indexes.datetimes",
+    "pandas.tseries.offsets",
+    "pandas.util._decorators"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_C78289436C0FA47A",
+  "source_file": "_evidence\\_drive_recovered_friendship_runtime\\social_relationship_orchestrator.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\_drive_recovered_friendship_runtime\\social_relationship_orchestrator.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 97,
+  "imports": [
+    "__future__",
+    "datetime",
+    "os"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_1175847940E63464",
+  "source_file": "_evidence\\P4_DAEMON_20260618_082412\\daemon.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\_evidence\\P4_DAEMON_20260618_082412\\daemon.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 90,
+  "imports": [
+    "app.runtime.cognitive_pipeline",
+    "time"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

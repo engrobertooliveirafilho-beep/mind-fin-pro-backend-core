@@ -1,0 +1,30 @@
+{
+  "capability_id": "CAP_79D7E0F6B1F4C25D",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_vendor\\cachecontrol\\adapter.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\pip\\_vendor\\cachecontrol\\adapter.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 101,
+  "imports": [
+    "__future__",
+    "functools",
+    "pip._vendor.cachecontrol.cache",
+    "pip._vendor.cachecontrol.controller",
+    "pip._vendor.cachecontrol.filewrapper",
+    "pip._vendor.cachecontrol.heuristics",
+    "pip._vendor.cachecontrol.serialize",
+    "pip._vendor.requests",
+    "pip._vendor.requests.adapters",
+    "pip._vendor.urllib3",
+    "typing",
+    "weakref",
+    "zlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

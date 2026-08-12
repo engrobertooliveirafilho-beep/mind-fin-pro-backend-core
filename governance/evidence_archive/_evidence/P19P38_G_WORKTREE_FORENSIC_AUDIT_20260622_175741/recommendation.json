@@ -1,0 +1,7 @@
+[
+  "BLOCK P19P39 until critical runtime modifications are reviewed.",
+  "Do not patch safe_recovery_adapter while app/api/whatsapp.py or app/runtime/cognitive_pipeline.py are dirty.",
+  "Commit only explicit files.",
+  "Do not run git add .",
+  "Do not clean untracked files automatically."
+]

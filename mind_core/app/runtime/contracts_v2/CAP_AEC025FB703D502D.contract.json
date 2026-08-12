@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_AEC025FB703D502D",
+  "source_file": ".venv\\Lib\\site-packages\\twilio\\rest\\wireless\\v1\\sim\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\twilio\\rest\\wireless\\v1\\sim\\__init__.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 118,
+  "imports": [
+    "datetime",
+    "twilio.base",
+    "twilio.base.api_response",
+    "twilio.base.instance_context",
+    "twilio.base.instance_resource",
+    "twilio.base.list_resource",
+    "twilio.base.page",
+    "twilio.base.version",
+    "twilio.rest.wireless.v1.sim.data_session",
+    "twilio.rest.wireless.v1.sim.usage_record",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

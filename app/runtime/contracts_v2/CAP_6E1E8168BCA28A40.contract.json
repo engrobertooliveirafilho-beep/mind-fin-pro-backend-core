@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_6E1E8168BCA28A40",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\beta\\realtime\\realtime_client_event.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\openai\\types\\beta\\realtime\\realtime_client_event.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 93,
+  "imports": [
+    "_models",
+    "_utils",
+    "conversation_item_create_event",
+    "conversation_item_delete_event",
+    "conversation_item_retrieve_event",
+    "conversation_item_truncate_event",
+    "input_audio_buffer_append_event",
+    "input_audio_buffer_clear_event",
+    "input_audio_buffer_commit_event",
+    "response_cancel_event",
+    "response_create_event",
+    "session_update_event",
+    "transcription_session_update",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

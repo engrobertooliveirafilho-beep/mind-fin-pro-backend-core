@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_CABFC994CD3ACC0A",
+  "source_file": ".venv\\Lib\\site-packages\\python_multipart\\multipart.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\python_multipart\\multipart.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 128,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "decoders",
+    "email.message",
+    "enum",
+    "exceptions",
+    "io",
+    "logging",
+    "numbers",
+    "os",
+    "shutil",
+    "sys",
+    "tempfile",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

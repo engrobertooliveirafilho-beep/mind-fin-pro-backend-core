@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_90A3BA67E2088917",
+  "source_file": "TRANSFER_PACKAGE\\PTO_20260611T143207Z\\p56_master_discovery_expansion_audit_only.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\TRANSFER_PACKAGE\\PTO_20260611T143207Z\\p56_master_discovery_expansion_audit_only.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 98,
+  "imports": [
+    "app.mind.p5_5s_source_expansion_autopilot.autopilot",
+    "app.mind.p5_5t_real_fetcher_search_connector.connector",
+    "app.mind.p5_5z_executive_snapshot.snapshot",
+    "app.mind.p5_6f1_animal_discovery_engine.engine",
+    "datetime",
+    "json",
+    "os",
+    "requests",
+    "time",
+    "traceback"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

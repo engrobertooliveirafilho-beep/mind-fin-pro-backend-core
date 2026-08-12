@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_87E01510F2DA99EC",
+  "source_file": "app\\companionship\\humanized_meta_cognition_telemetry.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\app\\companionship\\humanized_meta_cognition_telemetry.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 90,
+  "imports": [
+    "__future__",
+    "datetime"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

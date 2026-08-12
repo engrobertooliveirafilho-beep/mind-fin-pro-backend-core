@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_B60FF19EAFA94642",
+  "source_file": ".venv\\Lib\\site-packages\\click\\shell_completion.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\click\\shell_completion.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 127,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "core",
+    "gettext",
+    "os",
+    "re",
+    "shlex",
+    "shutil",
+    "subprocess",
+    "typing",
+    "utils"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

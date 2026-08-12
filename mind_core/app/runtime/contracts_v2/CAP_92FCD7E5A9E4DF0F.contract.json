@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_92FCD7E5A9E4DF0F",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\realtime\\client_secret_create_response.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\openai\\types\\realtime\\client_secret_create_response.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 85,
+  "imports": [
+    "_models",
+    "_utils",
+    "realtime_session_create_response",
+    "realtime_transcription_session_create_response",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

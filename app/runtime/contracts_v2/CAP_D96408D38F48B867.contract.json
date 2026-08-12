@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_D96408D38F48B867",
+  "source_file": "TRANSFER_PACKAGE\\PTO_20260611T143207Z\\p56e4_cursor_deep_fetch_small.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\TRANSFER_PACKAGE\\PTO_20260611T143207Z\\p56e4_cursor_deep_fetch_small.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 96,
+  "imports": [
+    "datetime",
+    "hashlib",
+    "json",
+    "os",
+    "requests",
+    "time",
+    "urllib.parse",
+    "urllib.request"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

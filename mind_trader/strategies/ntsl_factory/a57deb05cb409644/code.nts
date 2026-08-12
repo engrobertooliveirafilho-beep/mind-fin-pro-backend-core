@@ -1,0 +1,15 @@
+input
+  period(20);
+
+var
+  mid : Float;
+
+begin
+  mid := Media(period, Close);
+
+  if Close < mid then
+    BuyAtMarket;
+
+  if Close > mid then
+    SellShortAtMarket;
+end;

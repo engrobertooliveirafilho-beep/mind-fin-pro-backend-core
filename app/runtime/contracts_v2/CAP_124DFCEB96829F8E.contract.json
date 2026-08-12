@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_124DFCEB96829F8E",
+  "source_file": "_evidence\\P4_72C_CAPABILITY_BRIDGE_PIPELINE_AUX_20260618_195205\\p472c_patch_pipeline.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P4_72C_CAPABILITY_BRIDGE_PIPELINE_AUX_20260618_195205\\p472c_patch_pipeline.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 105,
+  "imports": [
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

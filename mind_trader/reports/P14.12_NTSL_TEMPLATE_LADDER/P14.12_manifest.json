@@ -1,0 +1,27 @@
+{
+  "STATUS": "P14.12_NTSL_TEMPLATE_LADDER_IMPLEMENTED",
+  "PURPOSE": "Generate Profit NTSL templates by syntax-complexity ladder",
+  "NTSL_COMPAT_TARGET": "Profit 5.0.3.254",
+  "GENERATED_FILES": [
+    "profit_import_package\\p1412_l1_empty.nts",
+    "profit_import_package\\p1412_l2_close_open_logic.nts",
+    "profit_import_package\\p1412_l3_directional_if_only.nts",
+    "profit_import_package\\p1412_l4_single_media.nts",
+    "profit_import_package\\p1412_l5_dual_media.nts"
+  ],
+  "VALIDATION_ORDER": [
+    "p1412_l1_empty",
+    "p1412_l2_close_open_logic",
+    "p1412_l3_directional_if_only",
+    "p1412_l4_single_media",
+    "p1412_l5_dual_media"
+  ],
+  "STOP_RULE": "If one level fails in Profit, do not validate higher levels until syntax is repaired.",
+  "REAL_ORDERS": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "LIVE": "FORBIDDEN",
+  "EDGE": "NOT_PROVEN",
+  "CAUSALITY": "NOT_PROVEN",
+  "EXPORT_READY": true,
+  "generated_at": "2026-06-14T16:11:28.178753+00:00"
+}

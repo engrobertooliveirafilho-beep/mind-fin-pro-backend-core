@@ -1,0 +1,26 @@
+{
+  "capability_id": "CAP_FEC0B81D2B41834E",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\io\\parser\\test_read_fwf.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pandas\\tests\\io\\parser\\test_read_fwf.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 116,
+  "imports": [
+    "io",
+    "numpy",
+    "pandas",
+    "pandas._testing",
+    "pandas.arrays",
+    "pandas.errors",
+    "pandas.io.common",
+    "pandas.io.parsers",
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

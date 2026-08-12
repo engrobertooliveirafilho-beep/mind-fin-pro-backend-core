@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_1BA4BEE8EED6B219",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_internal\\resolution\\resolvelib\\requirements.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\pip\\_internal\\resolution\\resolvelib\\requirements.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 115,
+  "imports": [
+    "__future__",
+    "base",
+    "pip._internal.req.constructors",
+    "pip._internal.req.req_install",
+    "pip._vendor.packaging.specifiers",
+    "pip._vendor.packaging.utils",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

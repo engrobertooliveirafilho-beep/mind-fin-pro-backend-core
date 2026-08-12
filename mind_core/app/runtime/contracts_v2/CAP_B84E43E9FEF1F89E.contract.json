@@ -1,0 +1,26 @@
+{
+  "capability_id": "CAP_B84E43E9FEF1F89E",
+  "source_file": "_evidence\\P10_TO_P15_CONTROLLED_CONSUMPTION_ACTIVATION_STACK_20260616_153902\\run_p10_to_p15_stack.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P10_TO_P15_CONTROLLED_CONSUMPTION_ACTIVATION_STACK_20260616_153902\\run_p10_to_p15_stack.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 118,
+  "imports": [
+    "app.p10_activation_stack.certification",
+    "app.p10_activation_stack.controlled_consumption",
+    "app.p10_activation_stack.observability",
+    "app.p10_activation_stack.risk_governance",
+    "app.p10_activation_stack.rollback",
+    "json",
+    "os",
+    "pathlib",
+    "time"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

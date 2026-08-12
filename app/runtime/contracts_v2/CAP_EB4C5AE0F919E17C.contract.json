@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_EB4C5AE0F919E17C",
+  "source_file": ".venv\\Lib\\site-packages\\setuptools\\_distutils\\tests\\support.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\setuptools\\_distutils\\tests\\support.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 113,
+  "imports": [
+    "distutils.core",
+    "itertools",
+    "more_itertools",
+    "os",
+    "pathlib",
+    "pytest",
+    "shutil",
+    "sys",
+    "sysconfig",
+    "tempfile"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

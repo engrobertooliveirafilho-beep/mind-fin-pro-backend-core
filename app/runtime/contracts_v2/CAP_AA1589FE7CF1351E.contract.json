@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_AA1589FE7CF1351E",
+  "source_file": "backups\\ATOMIC_SNAPSHOT_20260618_074551\\tests\\modules\\test_usde_scheduler_runtime.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\backups\\ATOMIC_SNAPSHOT_20260618_074551\\tests\\modules\\test_usde_scheduler_runtime.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 88,
+  "imports": [
+    "app.modules.usde_core.scientific_scheduler_runtime"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

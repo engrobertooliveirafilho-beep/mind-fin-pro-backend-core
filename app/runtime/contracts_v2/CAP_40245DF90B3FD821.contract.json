@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_40245DF90B3FD821",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\frame\\methods\\test_cov_corr.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\pandas\\tests\\frame\\methods\\test_cov_corr.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 95,
+  "imports": [
+    "numpy",
+    "pandas",
+    "pandas._testing",
+    "pandas.util._test_decorators",
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

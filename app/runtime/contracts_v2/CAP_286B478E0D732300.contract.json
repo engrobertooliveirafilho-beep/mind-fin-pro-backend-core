@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_286B478E0D732300",
+  "source_file": "_evidence\\P19P36L_MEMORY_FUSION_SHADOW_SCORING_20260621_231653\\01_patch_memory_fusion_scoring.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P19P36L_MEMORY_FUSION_SHADOW_SCORING_20260621_231653\\01_patch_memory_fusion_scoring.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 98,
+  "imports": [
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

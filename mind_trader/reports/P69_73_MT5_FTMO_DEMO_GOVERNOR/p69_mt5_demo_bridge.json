@@ -1,0 +1,13 @@
+{
+  "module": "P69_MT5_DEMO_BRIDGE",
+  "account_mode": "DEMO",
+  "demo_required": true,
+  "demo_validated": true,
+  "trade_transport": "MT5_DEMO_ONLY",
+  "order_permission": "DEMO_ONLY",
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN"
+}

@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_91E7A579C3628869",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\resources\\skills\\versions\\content.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\openai\\resources\\skills\\versions\\content.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 91,
+  "imports": [
+    "__future__",
+    "_base_client",
+    "_compat",
+    "_resource",
+    "_response",
+    "_types",
+    "_utils",
+    "httpx"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

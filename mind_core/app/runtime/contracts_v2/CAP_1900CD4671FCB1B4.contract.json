@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_1900CD4671FCB1B4",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_vendor\\rich\\__main__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\__main__.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 128,
+  "imports": [
+    "colorsys",
+    "io",
+    "pip._vendor.rich",
+    "pip._vendor.rich.color",
+    "pip._vendor.rich.console",
+    "pip._vendor.rich.markdown",
+    "pip._vendor.rich.measure",
+    "pip._vendor.rich.panel",
+    "pip._vendor.rich.pretty",
+    "pip._vendor.rich.segment",
+    "pip._vendor.rich.style",
+    "pip._vendor.rich.syntax",
+    "pip._vendor.rich.table",
+    "pip._vendor.rich.text",
+    "time"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

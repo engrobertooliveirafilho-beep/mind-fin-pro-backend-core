@@ -1,0 +1,33 @@
+{
+  "capability_id": "CAP_E2419634F3D063F2",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\resources\\fine_tuning\\jobs\\jobs.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\data\\.venv\\Lib\\site-packages\\openai\\resources\\fine_tuning\\jobs\\jobs.py",
+  "domain": "DATA",
+  "target_layer": "app/runtime",
+  "promotion_score": 112,
+  "imports": [
+    "__future__",
+    "_base_client",
+    "_compat",
+    "_resource",
+    "_response",
+    "_types",
+    "_utils",
+    "checkpoints",
+    "httpx",
+    "pagination",
+    "types.fine_tuning",
+    "types.fine_tuning.fine_tuning_job",
+    "types.fine_tuning.fine_tuning_job_event",
+    "types.shared_params.metadata",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

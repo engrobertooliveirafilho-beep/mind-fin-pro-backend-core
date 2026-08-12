@@ -1,0 +1,26 @@
+{
+  "capability_id": "CAP_DF203EE1366B5FB6",
+  "source_file": ".venv\\Lib\\site-packages\\starlette\\middleware\\exceptions.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\starlette\\middleware\\exceptions.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 106,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "starlette._exception_handler",
+    "starlette.exceptions",
+    "starlette.requests",
+    "starlette.responses",
+    "starlette.types",
+    "starlette.websockets",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,4 @@
+begin
+  if MediaExp(9) > MediaExp(21) then
+    BuyAtMarket;
+end;

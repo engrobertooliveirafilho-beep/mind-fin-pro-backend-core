@@ -1,0 +1,4 @@
+{
+  "reports_to_drive": "rclone copy \"reports\" \"gdrive:mind-workspace/MIND_TRADER/P13_DATA_FOUNDATION/reports\" --create-empty-src-dirs --progress",
+  "data_to_drive": "rclone copy \"data\" \"gdrive:mind-workspace/MIND_TRADER/P13_DATA_FOUNDATION/data\" --create-empty-src-dirs --progress"
+}

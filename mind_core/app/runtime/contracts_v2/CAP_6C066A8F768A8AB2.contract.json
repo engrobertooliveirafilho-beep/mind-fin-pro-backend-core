@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_6C066A8F768A8AB2",
+  "source_file": ".venv\\Lib\\site-packages\\dateutil\\tz\\win.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\dateutil\\tz\\win.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 102,
+  "imports": [
+    "_common",
+    "ctypes",
+    "datetime",
+    "six",
+    "six.moves",
+    "struct"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

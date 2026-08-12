@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_BE5DCC935CC30429",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\beta\\threads\\annotation.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\openai\\types\\beta\\threads\\annotation.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 83,
+  "imports": [
+    "_utils",
+    "file_citation_annotation",
+    "file_path_annotation",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

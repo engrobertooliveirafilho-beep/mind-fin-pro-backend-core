@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_E30868FB9334ECE8",
+  "source_file": ".venv\\Lib\\site-packages\\openpyxl\\worksheet\\table.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\openpyxl\\worksheet\\table.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 93,
+  "imports": [
+    "filters",
+    "openpyxl.descriptors",
+    "openpyxl.descriptors.excel",
+    "openpyxl.descriptors.sequence",
+    "openpyxl.descriptors.serialisable",
+    "openpyxl.utils",
+    "openpyxl.utils.escape",
+    "openpyxl.xml.constants",
+    "openpyxl.xml.functions",
+    "related"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

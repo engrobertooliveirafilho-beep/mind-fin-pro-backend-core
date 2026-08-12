@@ -1,0 +1,50 @@
+[
+  {
+    "module": "app.p1621b_youtube_absorption_engine.engine",
+    "returncode": 0,
+    "stdout": "{\n  \"STATUS\": \"P16.21B_YOUTUBE_ABSORPTION_ENGINE_IMPLEMENTED\",\n  \"MODE\": \"CONTINUOUS_DISCOVERY_LOOP_READY\",\n  \"DISCOVERY_SOURCES\": 9,\n  \"KEYWORDS\": 27,\n  \"HYPOTHESES_CREATED\": 243,\n  \"QUEUE_ITEMS\": 243,\n  \"RULE\": \"YOUTUBE_AND_GOOGLE_ARE_HYPOTHESIS_ONLY\",\n  \"NEXT\": \"P16.21C_VIDEO_TRANSCRIPT_EXTRACTION_AND_AUTO_BACKTEST\",\n  \"LIVE\": \"FORBIDDEN\",\n  \"REAL_BROKER\": \"DISABLED\",\n  \"REAL_ORDERS\": \"FORBIDDEN\",\n  \"FTMO_REAL\": \"FORBIDDEN\",\n  \"CAUSALITY\": \"NOT_PROVEN\",\n  \"generated_at\": \"2026-06-14T16:21:29.581673+00:00\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "module": "app.p1621e_real_video_fetch_loop.engine",
+    "returncode": 0,
+    "stdout": "{\n  \"STATUS\": \"P16.21E_REAL_VIDEO_FETCH_LOOP_IMPLEMENTED\",\n  \"SOURCES_SCANNED\": 9,\n  \"VIDEOS_FETCHED\": 53,\n  \"ACTIONABLE_VIDEO_HYPOTHESES\": 12,\n  \"ERRORS\": 0,\n  \"NEXT\": \"P16.21F_TRANSCRIPT_DOWNLOAD_AND_STRATEGY_EXTRACTION\",\n  \"LIVE\": \"FORBIDDEN\",\n  \"REAL_BROKER\": \"DISABLED\",\n  \"REAL_ORDERS\": \"FORBIDDEN\",\n  \"FTMO_REAL\": \"FORBIDDEN\",\n  \"CAUSALITY\": \"NOT_PROVEN\",\n  \"generated_at\": \"2026-06-14T16:21:51.377642+00:00\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "module": "app.p1621f_transcript_download_strategy_extraction.engine",
+    "returncode": 0,
+    "stdout": "{\n  \"STATUS\": \"P16.21F_TRANSCRIPT_DOWNLOAD_STRATEGY_EXTRACTION_IMPLEMENTED\",\n  \"INPUT_VIDEOS\": 12,\n  \"STRUCTURED_STRATEGY_HYPOTHESES\": 1,\n  \"UNSTRUCTURED\": 11,\n  \"NEXT\": \"P16.21G_RULE_NORMALIZATION_AND_AUTO_BACKTEST\",\n  \"LIVE\": \"FORBIDDEN\",\n  \"REAL_BROKER\": \"DISABLED\",\n  \"REAL_ORDERS\": \"FORBIDDEN\",\n  \"FTMO_REAL\": \"FORBIDDEN\",\n  \"CAUSALITY\": \"NOT_PROVEN\",\n  \"generated_at\": \"2026-06-14T16:22:20.919765+00:00\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "module": "app.p1621g_rule_normalization_auto_backtest.engine",
+    "returncode": 0,
+    "stdout": "{\n  \"STATUS\": \"P16.21G_RULE_NORMALIZATION_AUTO_BACKTEST_IMPLEMENTED\",\n  \"INPUT_STRUCTURED_HYPOTHESES\": 1,\n  \"BACKTEST_QUEUE_ITEMS\": 1,\n  \"APPROVED_EDGES\": 0,\n  \"NEXT\": \"P16.21H_DATASET_EXPANSION_FOR_VIDEO_STRATEGIES\",\n  \"LIVE\": \"FORBIDDEN\",\n  \"REAL_BROKER\": \"DISABLED\",\n  \"REAL_ORDERS\": \"FORBIDDEN\",\n  \"FTMO_REAL\": \"FORBIDDEN\",\n  \"CAUSALITY\": \"NOT_PROVEN\",\n  \"generated_at\": \"2026-06-14T16:22:21.003097+00:00\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "module": "app.p1621k_video_strategy_backtest_executor.engine",
+    "returncode": 0,
+    "stdout": "{\n  \"STATUS\": \"P16.21K_VIDEO_STRATEGY_BACKTEST_EXECUTOR_IMPLEMENTED\",\n  \"INPUT_VIDEO_STRATEGIES\": 1,\n  \"DATASETS_TESTED\": 166,\n  \"BACKTESTS_RUN\": 149,\n  \"PAPER_CANDIDATES\": 6,\n  \"NEXT\": \"P16.21L_VIDEO_STRATEGY_WALK_FORWARD_MONTE_CARLO\",\n  \"LIVE\": \"FORBIDDEN\",\n  \"REAL_BROKER\": \"DISABLED\",\n  \"REAL_ORDERS\": \"FORBIDDEN\",\n  \"FTMO_REAL\": \"FORBIDDEN\",\n  \"CAUSALITY\": \"NOT_PROVEN\",\n  \"generated_at\": \"2026-06-14T16:22:23.314902+00:00\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "module": "app.p1621l_video_strategy_wf_mc.engine",
+    "returncode": 0,
+    "stdout": "{\n  \"STATUS\": \"P16.21L_VIDEO_STRATEGY_WALK_FORWARD_MONTE_CARLO_IMPLEMENTED\",\n  \"INPUT_CANDIDATES\": 6,\n  \"APPROVED_VIDEO_EDGES\": 3,\n  \"NEXT\": \"P16.21M_VIDEO_EDGE_MEMORY_MERGE\",\n  \"LIVE\": \"FORBIDDEN\",\n  \"REAL_BROKER\": \"DISABLED\",\n  \"REAL_ORDERS\": \"FORBIDDEN\",\n  \"FTMO_REAL\": \"FORBIDDEN\",\n  \"CAUSALITY\": \"NOT_PROVEN\",\n  \"generated_at\": \"2026-06-14T16:22:23.471763+00:00\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "module": "app.p1621m_video_edge_memory_merge.engine",
+    "returncode": 0,
+    "stdout": "{\n  \"STATUS\": \"P16.21M_VIDEO_EDGE_MEMORY_MERGE_IMPLEMENTED\",\n  \"BASE_EDGES\": 3,\n  \"VIDEO_EDGES_APPROVED\": 3,\n  \"MERGED_EDGE_MEMORY\": 6,\n  \"CERTIFICATION\": \"PAPER_RESEARCH_CERTIFIED\",\n  \"NEXT\": \"P16.21N_CONTINUOUS_YOUTUBE_LOOP_SCHEDULER\",\n  \"LIVE\": \"FORBIDDEN\",\n  \"REAL_BROKER\": \"DISABLED\",\n  \"REAL_ORDERS\": \"FORBIDDEN\",\n  \"FTMO_REAL\": \"FORBIDDEN\",\n  \"CAUSALITY\": \"NOT_PROVEN\",\n  \"generated_at\": \"2026-06-14T16:22:23.577644+00:00\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "module": "app.p1621o_edge_factory_master_certification.engine",
+    "returncode": 0,
+    "stdout": "{\n  \"STATUS\": \"P16.21O_EDGE_FACTORY_MASTER_CERTIFIED\",\n  \"MISSING_EVIDENCE\": [],\n  \"TOTAL_TESTS_EXPECTED_MIN\": 545,\n  \"EDGE_MEMORY_TOTAL\": 6,\n  \"BASE_EDGES\": 3,\n  \"VIDEO_EDGES_APPROVED\": 3,\n  \"YOUTUBE_LOOP\": \"IMPLEMENTED\",\n  \"VIDEO_TO_EDGE_PIPELINE\": \"IMPLEMENTED\",\n  \"CERTIFICATION\": \"PAPER_RESEARCH_CERTIFIED\",\n  \"NEXT\": \"P16.22_AUTONOMOUS_DAILY_RESEARCH_CRON_AND_EDGE_DECAY_REVALIDATION\",\n  \"LIVE\": \"FORBIDDEN\",\n  \"REAL_BROKER\": \"DISABLED\",\n  \"REAL_ORDERS\": \"FORBIDDEN\",\n  \"FTMO_REAL\": \"FORBIDDEN\",\n  \"CAUSALITY\": \"NOT_PROVEN\",\n  \"generated_at\": \"2026-06-14T16:22:23.716344+00:00\"\n}\n",
+    "stderr": ""
+  }
+]

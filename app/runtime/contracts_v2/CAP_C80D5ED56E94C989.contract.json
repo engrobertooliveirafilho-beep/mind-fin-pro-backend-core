@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_C80D5ED56E94C989",
+  "source_file": "_evidence\\P19P30D_LEGACY_INTERCEPTOR_CONTAINMENT_20260621_213539\\03_patch_legacy_quais.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P19P30D_LEGACY_INTERCEPTOR_CONTAINMENT_20260621_213539\\03_patch_legacy_quais.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 95,
+  "imports": [
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

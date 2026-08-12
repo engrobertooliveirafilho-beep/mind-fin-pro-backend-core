@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_ED5FF510E1518976",
+  "source_file": "_evidence\\P4.91H_TO_O_PARALLEL_CAPABILITY_MATRIX_20260623_092058\\p491h_to_o_capability_matrix.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P4.91H_TO_O_PARALLEL_CAPABILITY_MATRIX_20260623_092058\\p491h_to_o_capability_matrix.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 114,
+  "imports": [
+    "csv",
+    "datetime",
+    "hashlib",
+    "json",
+    "pathlib",
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

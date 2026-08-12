@@ -1,0 +1,4 @@
+﻿begin
+  if Average(Close, 9) > Average(Close, 21) then
+    BuyAtMarket;
+end;

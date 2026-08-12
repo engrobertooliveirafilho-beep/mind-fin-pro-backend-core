@@ -1,0 +1,33 @@
+P4.26E — EMBEDDINGS RECOVER CLASSIFICATION
+
+RECOVERED:
+- memory_graph_long.py
+- embeddings_real.py
+- embeddings_provider.py
+
+CLASSIFICATION:
+
+DIAMOND:
+- embeddings_real.py
+WHY:
+- real embedding architecture
+- provider abstraction
+- deterministic fallback
+- launch reusable
+
+GOLD_PARTIAL:
+- memory_graph_long.py
+- embeddings_provider.py
+
+WHY_NOT_FINAL:
+- no pgvector
+- no supabase persistence
+- no semantic reranking
+- no vector retrieval orchestration
+
+NEXT_TARGET:
+- semantic retrieval runtime
+- pgvector schema
+- vector persistence
+- retrieval ranking
+- semantic recall orchestration

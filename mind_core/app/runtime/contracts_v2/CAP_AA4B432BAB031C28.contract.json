@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_AA4B432BAB031C28",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\resources\\responses\\input_tokens.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\openai\\resources\\responses\\input_tokens.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 98,
+  "imports": [
+    "__future__",
+    "_base_client",
+    "_compat",
+    "_resource",
+    "_response",
+    "_types",
+    "_utils",
+    "httpx",
+    "types.responses",
+    "types.responses.input_token_count_response",
+    "types.responses.response_input_item_param",
+    "types.responses.tool_param",
+    "types.shared_params.reasoning",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

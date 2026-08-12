@@ -1,0 +1,206 @@
+{
+  "milestone": "P4.86 COMPLETE",
+  "engine": "ORPHAN_RECOVERY_ENGINE",
+  "generated_at": "2026-06-21T15:16:53.805397+00:00",
+  "mode": "PLAN_ONLY",
+  "governance": "P4.83_ENFORCED",
+  "total_orphans": 15,
+  "orphans": [
+    {
+      "recovery_id": "ORPHAN-001",
+      "status": "PENDING_ANALYSIS",
+      "integration_mode": "PLAN_ONLY",
+      "approval_required": true,
+      "execution_blocked_by": "P4.83_GATE",
+      "recommended_actions": [
+        "discover_source",
+        "map_dependencies",
+        "identify_target_runtime",
+        "generate_integration_plan"
+      ]
+    },
+    {
+      "recovery_id": "ORPHAN-002",
+      "status": "PENDING_ANALYSIS",
+      "integration_mode": "PLAN_ONLY",
+      "approval_required": true,
+      "execution_blocked_by": "P4.83_GATE",
+      "recommended_actions": [
+        "discover_source",
+        "map_dependencies",
+        "identify_target_runtime",
+        "generate_integration_plan"
+      ]
+    },
+    {
+      "recovery_id": "ORPHAN-003",
+      "status": "PENDING_ANALYSIS",
+      "integration_mode": "PLAN_ONLY",
+      "approval_required": true,
+      "execution_blocked_by": "P4.83_GATE",
+      "recommended_actions": [
+        "discover_source",
+        "map_dependencies",
+        "identify_target_runtime",
+        "generate_integration_plan"
+      ]
+    },
+    {
+      "recovery_id": "ORPHAN-004",
+      "status": "PENDING_ANALYSIS",
+      "integration_mode": "PLAN_ONLY",
+      "approval_required": true,
+      "execution_blocked_by": "P4.83_GATE",
+      "recommended_actions": [
+        "discover_source",
+        "map_dependencies",
+        "identify_target_runtime",
+        "generate_integration_plan"
+      ]
+    },
+    {
+      "recovery_id": "ORPHAN-005",
+      "status": "PENDING_ANALYSIS",
+      "integration_mode": "PLAN_ONLY",
+      "approval_required": true,
+      "execution_blocked_by": "P4.83_GATE",
+      "recommended_actions": [
+        "discover_source",
+        "map_dependencies",
+        "identify_target_runtime",
+        "generate_integration_plan"
+      ]
+    },
+    {
+      "recovery_id": "ORPHAN-006",
+      "status": "PENDING_ANALYSIS",
+      "integration_mode": "PLAN_ONLY",
+      "approval_required": true,
+      "execution_blocked_by": "P4.83_GATE",
+      "recommended_actions": [
+        "discover_source",
+        "map_dependencies",
+        "identify_target_runtime",
+        "generate_integration_plan"
+      ]
+    },
+    {
+      "recovery_id": "ORPHAN-007",
+      "status": "PENDING_ANALYSIS",
+      "integration_mode": "PLAN_ONLY",
+      "approval_required": true,
+      "execution_blocked_by": "P4.83_GATE",
+      "recommended_actions": [
+        "discover_source",
+        "map_dependencies",
+        "identify_target_runtime",
+        "generate_integration_plan"
+      ]
+    },
+    {
+      "recovery_id": "ORPHAN-008",
+      "status": "PENDING_ANALYSIS",
+      "integration_mode": "PLAN_ONLY",
+      "approval_required": true,
+      "execution_blocked_by": "P4.83_GATE",
+      "recommended_actions": [
+        "discover_source",
+        "map_dependencies",
+        "identify_target_runtime",
+        "generate_integration_plan"
+      ]
+    },
+    {
+      "recovery_id": "ORPHAN-009",
+      "status": "PENDING_ANALYSIS",
+      "integration_mode": "PLAN_ONLY",
+      "approval_required": true,
+      "execution_blocked_by": "P4.83_GATE",
+      "recommended_actions": [
+        "discover_source",
+        "map_dependencies",
+        "identify_target_runtime",
+        "generate_integration_plan"
+      ]
+    },
+    {
+      "recovery_id": "ORPHAN-010",
+      "status": "PENDING_ANALYSIS",
+      "integration_mode": "PLAN_ONLY",
+      "approval_required": true,
+      "execution_blocked_by": "P4.83_GATE",
+      "recommended_actions": [
+        "discover_source",
+        "map_dependencies",
+        "identify_target_runtime",
+        "generate_integration_plan"
+      ]
+    },
+    {
+      "recovery_id": "ORPHAN-011",
+      "status": "PENDING_ANALYSIS",
+      "integration_mode": "PLAN_ONLY",
+      "approval_required": true,
+      "execution_blocked_by": "P4.83_GATE",
+      "recommended_actions": [
+        "discover_source",
+        "map_dependencies",
+        "identify_target_runtime",
+        "generate_integration_plan"
+      ]
+    },
+    {
+      "recovery_id": "ORPHAN-012",
+      "status": "PENDING_ANALYSIS",
+      "integration_mode": "PLAN_ONLY",
+      "approval_required": true,
+      "execution_blocked_by": "P4.83_GATE",
+      "recommended_actions": [
+        "discover_source",
+        "map_dependencies",
+        "identify_target_runtime",
+        "generate_integration_plan"
+      ]
+    },
+    {
+      "recovery_id": "ORPHAN-013",
+      "status": "PENDING_ANALYSIS",
+      "integration_mode": "PLAN_ONLY",
+      "approval_required": true,
+      "execution_blocked_by": "P4.83_GATE",
+      "recommended_actions": [
+        "discover_source",
+        "map_dependencies",
+        "identify_target_runtime",
+        "generate_integration_plan"
+      ]
+    },
+    {
+      "recovery_id": "ORPHAN-014",
+      "status": "PENDING_ANALYSIS",
+      "integration_mode": "PLAN_ONLY",
+      "approval_required": true,
+      "execution_blocked_by": "P4.83_GATE",
+      "recommended_actions": [
+        "discover_source",
+        "map_dependencies",
+        "identify_target_runtime",
+        "generate_integration_plan"
+      ]
+    },
+    {
+      "recovery_id": "ORPHAN-015",
+      "status": "PENDING_ANALYSIS",
+      "integration_mode": "PLAN_ONLY",
+      "approval_required": true,
+      "execution_blocked_by": "P4.83_GATE",
+      "recommended_actions": [
+        "discover_source",
+        "map_dependencies",
+        "identify_target_runtime",
+        "generate_integration_plan"
+      ]
+    }
+  ],
+  "next": "P4.87 CAPABILITY MERGE ENGINE"
+}

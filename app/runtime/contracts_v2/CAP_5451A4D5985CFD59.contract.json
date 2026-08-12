@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_5451A4D5985CFD59",
+  "source_file": "app\\api\\eldora_security.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\app\\api\\eldora_security.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 87,
+  "imports": [
+    "app.eldora.core.auth_context",
+    "app.eldora.core.policy_engine",
+    "app.eldora.core.tenant_engine",
+    "fastapi"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

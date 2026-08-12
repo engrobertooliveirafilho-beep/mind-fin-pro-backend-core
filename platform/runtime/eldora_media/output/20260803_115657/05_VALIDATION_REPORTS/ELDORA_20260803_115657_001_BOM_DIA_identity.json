@@ -1,0 +1,52 @@
+{
+  "schema": "eldora.identity.validation.v1",
+  "status": "PASS",
+  "candidate": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\runtime\\eldora_media\\output\\20260803_115657\\02_GENERATED_RAW\\ELDORA_20260803_115657_001_BOM_DIA\\ELDORA_20260803_115657_001_BOM_DIA.png",
+  "threshold": 0.42,
+  "aggregate_top5_mean": 0.8102541089057922,
+  "best_score": 0.842749297618866,
+  "valid_references": 22,
+  "invalid_references": 0,
+  "top_matches": [
+    {
+      "reference": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\runtime\\eldora_media\\canon_cache\\00_CANON_MASTER\\FACE_LOCK_V1\\Gen-4 Turbo - Same EXACT woman from reference_ HARD IDENTITY LOCK_Preserve EXACTLY same face_ age_ f _1_.png",
+      "score": 0.842749297618866
+    },
+    {
+      "reference": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\runtime\\eldora_media\\canon_cache\\00_CANON_MASTER\\FACE_LOCK_V1\\Gen-4 Turbo - Same EXACT woman from reference_ HARD IDENTITY LOCK_Preserve EXACTLY same age_ facial _2_.png",
+      "score": 0.8374547362327576
+    },
+    {
+      "reference": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\runtime\\eldora_media\\canon_cache\\00_CANON_MASTER\\FACE_LOCK_V1\\Gen-4 Turbo - Same EXACT woman from reference_ HARD IDENTITY LOCK_Preserve EXACTLY same face_ age_ f _3_.png",
+      "score": 0.8168079853057861
+    },
+    {
+      "reference": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\runtime\\eldora_media\\canon_cache\\00_CANON_MASTER\\FACE_LOCK_V1\\Gen-4 Turbo - Same EXACT woman from reference_ HARD IDENTITY LOCK_Preserve EXACTLY same age_ facial.png",
+      "score": 0.813755989074707
+    },
+    {
+      "reference": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\runtime\\eldora_media\\canon_cache\\00_CANON_MASTER\\FACE_LOCK_V1\\Gen-4 Turbo - Modify uploaded image minimally_Preserve face identity EXACTLY_Do NOT redesign face_Do.png",
+      "score": 0.7405025362968445
+    },
+    {
+      "reference": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\runtime\\eldora_media\\canon_cache\\00_CANON_MASTER\\MASTER_CANON_10\\86.png",
+      "score": 0.7012279629707336
+    },
+    {
+      "reference": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\runtime\\eldora_media\\canon_cache\\00_CANON_MASTER\\MASTER_CANON_10\\Gen-4 Turbo - SAME EXACT WOMAN FROM REFERENCE IMAGES_ REFERENCE IMAGES ARE ABSOLUTE GROUND TRUTH_ ZE _19_.png",
+      "score": 0.664080023765564
+    },
+    {
+      "reference": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\runtime\\eldora_media\\canon_cache\\00_CANON_MASTER\\MASTER_CANON_10\\ChatGPT Image 26 de mai. de 2026, 12_21_27.png",
+      "score": 0.6504376530647278
+    },
+    {
+      "reference": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\runtime\\eldora_media\\canon_cache\\00_CANON_MASTER\\MASTER_CANON_10\\Gen-4 Turbo - Create ONE photorealistic image of the SAME EXACT WOMAN from the reference images_ Ref (14).png",
+      "score": 0.6175570487976074
+    },
+    {
+      "reference": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\runtime\\eldora_media\\canon_cache\\00_CANON_MASTER\\MASTER_CANON_10\\Gen-4 Turbo - Create ONE photorealistic image of the SAME EXACT WOMAN from the reference images_ Ref (21).png",
+      "score": 0.6075388789176941
+    }
+  ]
+}

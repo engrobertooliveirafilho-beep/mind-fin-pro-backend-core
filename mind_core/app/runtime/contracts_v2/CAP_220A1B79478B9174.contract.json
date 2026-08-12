@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_220A1B79478B9174",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\io\\excel\\_openpyxl.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\.venv\\Lib\\site-packages\\pandas\\io\\excel\\_openpyxl.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 141,
+  "imports": [
+    "__future__",
+    "mmap",
+    "numpy",
+    "openpyxl",
+    "openpyxl.cell.cell",
+    "openpyxl.descriptors.serialisable",
+    "openpyxl.styles",
+    "openpyxl.workbook",
+    "pandas._typing",
+    "pandas.compat._optional",
+    "pandas.core.shared_docs",
+    "pandas.io.excel._base",
+    "pandas.io.excel._util",
+    "pandas.util._decorators",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

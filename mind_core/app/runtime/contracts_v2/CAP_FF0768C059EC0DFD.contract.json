@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_FF0768C059EC0DFD",
+  "source_file": "app\\mcl\\bootstrap.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\app\\mcl\\bootstrap.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 103,
+  "imports": [
+    "app.mcl.branching.branches",
+    "app.mcl.governance.rewriter",
+    "app.mcl.meta_memory.memory",
+    "app.mcl.self_model.model",
+    "app.mcl.simulation.future"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

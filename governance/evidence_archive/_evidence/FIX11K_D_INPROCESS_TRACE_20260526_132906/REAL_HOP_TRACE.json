@@ -1,0 +1,47 @@
+[
+  {
+    "message": "Oi",
+    "status": 200,
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vamos seguir pelo ponto real e validar o próximo passo.</Message></Response>"
+  },
+  {
+    "message": "Tudo bem?",
+    "status": 200,
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vamos seguir pelo ponto real e validar o próximo passo.</Message></Response>"
+  },
+  {
+    "message": "Quem é você?",
+    "status": 200,
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Response>\n<Message>Vamos aprofundar sem reiniciar a conversa: primeiro isolamos a causa real, depois testamos a hipótese principal e só avançamos com evidência.</Message>\n</Response>"
+  },
+  {
+    "message": "Como você está?",
+    "status": 200,
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Response>\n<Message>Vamos aprofundar sem reiniciar a conversa: primeiro isolamos a causa real, depois testamos a hipótese principal e só avançamos com evidência.</Message>\n</Response>"
+  },
+  {
+    "message": "Por que está dando erro?",
+    "status": 200,
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Response>\n<Message>Vamos aprofundar sem reiniciar a conversa: primeiro isolamos a causa real, depois testamos a hipótese principal e só avançamos com evidência.</Message>\n</Response>"
+  },
+  {
+    "message": "Aprofunde",
+    "status": 200,
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Response>\n<Message>Vamos aprofundar sem reiniciar a conversa: primeiro isolamos a causa real, depois testamos a hipótese principal e só avançamos com evidência.</Message>\n</Response>"
+  },
+  {
+    "message": "E depois?",
+    "status": 200,
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Vamos seguir pelo ponto real e validar o próximo passo.</Message></Response>"
+  },
+  {
+    "message": "Procure o erro principal",
+    "status": 200,
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Response>\n<Message>Vamos aprofundar sem reiniciar a conversa: primeiro isolamos a causa real, depois testamos a hipótese principal e só avançamos com evidência.</Message>\n</Response>"
+  },
+  {
+    "message": "Quanto é 4x6",
+    "status": 200,
+    "response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Response>\n<Message>Resultado: 24.</Message>\n</Response>"
+  }
+]

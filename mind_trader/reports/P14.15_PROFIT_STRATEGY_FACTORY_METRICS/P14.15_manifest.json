@@ -1,0 +1,58 @@
+{
+  "STATUS": "P14.15_PROFIT_STRATEGY_FACTORY_METRICS_TRACKER_IMPLEMENTED",
+  "METRICS_CSV": "data\\incoming\\profit_backtest_results\\backtest_results.csv",
+  "REQUIRED_COLUMNS": [
+    "drawdown",
+    "file",
+    "net_profit",
+    "profit_factor",
+    "strategy_id",
+    "trades",
+    "win_rate"
+  ],
+  "RESULT": {
+    "valid": true,
+    "reason": "OK",
+    "rows": 2,
+    "ranked": [
+      {
+        "strategy_id": "a",
+        "file": "a.nts",
+        "net_profit": 1000.0,
+        "profit_factor": 2.0,
+        "drawdown": 100.0,
+        "win_rate": 55.0,
+        "trades": 100,
+        "score": 3550.0
+      },
+      {
+        "strategy_id": "b",
+        "file": "b.nts",
+        "net_profit": 500.0,
+        "profit_factor": 1.2,
+        "drawdown": 50.0,
+        "win_rate": 45.0,
+        "trades": 80,
+        "score": 2210.0
+      }
+    ],
+    "best": {
+      "strategy_id": "a",
+      "file": "a.nts",
+      "net_profit": 1000.0,
+      "profit_factor": 2.0,
+      "drawdown": 100.0,
+      "win_rate": 55.0,
+      "trades": 100,
+      "score": 3550.0
+    }
+  },
+  "RANKING_POLICY": "net_profit + profit_factor*1000 + win_rate*10 - drawdown*2 + capped_trades*2",
+  "REAL_ORDERS": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "LIVE": "FORBIDDEN",
+  "EDGE": "NOT_PROVEN",
+  "CAUSALITY": "NOT_PROVEN",
+  "EXPORT_READY": true,
+  "generated_at": "2026-06-14T16:11:28.496927+00:00"
+}

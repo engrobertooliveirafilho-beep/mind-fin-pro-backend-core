@@ -1,0 +1,9 @@
+Documento estratégico MIND
+
+Precisamos criar memória emocional persistente.
+Isso ainda não foi implementado.
+Existe bug TypeError no semantic_whatsapp_runtime.
+A arquitetura deve usar pipeline, retrieval, registry e orchestrator.
+Lição aprendida: não integrar direto no cognitive_pipeline antes de validar bridge isolado.
+Capability: persistent cognitive graph.
+Dependência: Supabase, PgVector, OpenAI embeddings.

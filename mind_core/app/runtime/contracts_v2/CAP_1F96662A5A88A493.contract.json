@@ -1,0 +1,16 @@
+{
+  "capability_id": "CAP_1F96662A5A88A493",
+  "source_file": "app\\maf\\orchestrator\\router.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\app\\maf\\orchestrator\\router.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 88,
+  "imports": [],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

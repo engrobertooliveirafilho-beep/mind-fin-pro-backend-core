@@ -1,0 +1,15 @@
+{
+  "STATUS": "P1811_LOSER_DNA_ENGINE_BOOTSTRAPPED",
+  "OBJECTIVE": "Learn why losing trades lose and create no-trade filters",
+  "FIELDS": [
+    "loss_cluster",
+    "bad_session",
+    "bad_regime",
+    "bad_volatility",
+    "bad_structure",
+    "bad_trigger",
+    "bad_mtf_context",
+    "loss_streak_behavior",
+    "avoidance_rule"
+  ]
+}

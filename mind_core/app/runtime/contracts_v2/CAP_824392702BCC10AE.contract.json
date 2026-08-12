@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_824392702BCC10AE",
+  "source_file": "evidence\\P19_BACKUP_RECONSTRUCTION_ATOMIC_SNAPSHOT_20260618_074551\\test_snapshot.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\evidence\\P19_BACKUP_RECONSTRUCTION_ATOMIC_SNAPSHOT_20260618_074551\\test_snapshot.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 85,
+  "imports": [
+    "app.api.whatsapp"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

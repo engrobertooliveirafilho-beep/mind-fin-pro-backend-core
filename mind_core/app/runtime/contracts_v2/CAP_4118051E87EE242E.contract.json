@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_4118051E87EE242E",
+  "source_file": "_evidence\\P19P48_PRODUCTION_READINESS_AUDIT_20260622_192418\\p19p48_production_readiness_audit.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P19P48_PRODUCTION_READINESS_AUDIT_20260622_192418\\p19p48_production_readiness_audit.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 97,
+  "imports": [
+    "datetime",
+    "json",
+    "os"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

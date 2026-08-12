@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_B8AD545740B5A128",
+  "source_file": "_evidence\\P8_13_PLANNER_LIMITED_ACTIVE_DRY_RUN_TEST_20260616_125923\\run_p8_13_dry_run.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P8_13_PLANNER_LIMITED_ACTIVE_DRY_RUN_TEST_20260616_125923\\run_p8_13_dry_run.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 105,
+  "imports": [
+    "app.p8_shadow.planner_active_policy",
+    "app.p8_shadow.shadow_hooks",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

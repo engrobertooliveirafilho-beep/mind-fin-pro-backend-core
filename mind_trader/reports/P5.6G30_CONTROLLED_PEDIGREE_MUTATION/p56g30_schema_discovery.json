@@ -1,0 +1,5633 @@
+{
+  "STATUS": "P5.6G30_SCHEMA_DISCOVERY_COMPLETED",
+  "TABLES": [
+    {
+      "schema": "auth",
+      "table": "audit_log_entries"
+    },
+    {
+      "schema": "auth",
+      "table": "custom_oauth_providers"
+    },
+    {
+      "schema": "auth",
+      "table": "flow_state"
+    },
+    {
+      "schema": "auth",
+      "table": "identities"
+    },
+    {
+      "schema": "auth",
+      "table": "instances"
+    },
+    {
+      "schema": "auth",
+      "table": "mfa_amr_claims"
+    },
+    {
+      "schema": "auth",
+      "table": "mfa_challenges"
+    },
+    {
+      "schema": "auth",
+      "table": "mfa_factors"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_authorizations"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_client_states"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_clients"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_consents"
+    },
+    {
+      "schema": "auth",
+      "table": "one_time_tokens"
+    },
+    {
+      "schema": "auth",
+      "table": "refresh_tokens"
+    },
+    {
+      "schema": "auth",
+      "table": "saml_providers"
+    },
+    {
+      "schema": "auth",
+      "table": "saml_relay_states"
+    },
+    {
+      "schema": "auth",
+      "table": "schema_migrations"
+    },
+    {
+      "schema": "auth",
+      "table": "sessions"
+    },
+    {
+      "schema": "auth",
+      "table": "sso_domains"
+    },
+    {
+      "schema": "auth",
+      "table": "sso_providers"
+    },
+    {
+      "schema": "auth",
+      "table": "users"
+    },
+    {
+      "schema": "auth",
+      "table": "webauthn_challenges"
+    },
+    {
+      "schema": "auth",
+      "table": "webauthn_credentials"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements_info"
+    },
+    {
+      "schema": "public",
+      "table": "beta_users"
+    },
+    {
+      "schema": "public",
+      "table": "conversation_intelligence"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_audit_events"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_behavior_memory"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_cognitive_memory"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_conversation_events"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_event_store"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_events"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_learning_events"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_rag_chunks"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_reward_history"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_runtime_policies"
+    },
+    {
+      "schema": "public",
+      "table": "events"
+    },
+    {
+      "schema": "public",
+      "table": "invite_waitlist"
+    },
+    {
+      "schema": "public",
+      "table": "memory_quality_metrics"
+    },
+    {
+      "schema": "public",
+      "table": "memory_vectors"
+    },
+    {
+      "schema": "public",
+      "table": "messages"
+    },
+    {
+      "schema": "public",
+      "table": "mind_knowledge"
+    },
+    {
+      "schema": "public",
+      "table": "mind_steps"
+    },
+    {
+      "schema": "public",
+      "table": "mind_steps_latest"
+    },
+    {
+      "schema": "public",
+      "table": "neura_embeddings"
+    },
+    {
+      "schema": "public",
+      "table": "neura_events"
+    },
+    {
+      "schema": "public",
+      "table": "neura_execution_checkpoints"
+    },
+    {
+      "schema": "public",
+      "table": "neura_execution_plans"
+    },
+    {
+      "schema": "public",
+      "table": "neura_friendship_profile"
+    },
+    {
+      "schema": "public",
+      "table": "neura_governor_events"
+    },
+    {
+      "schema": "public",
+      "table": "neura_memory"
+    },
+    {
+      "schema": "public",
+      "table": "neura_messages"
+    },
+    {
+      "schema": "public",
+      "table": "neura_proactive_messages"
+    },
+    {
+      "schema": "public",
+      "table": "neura_retrieval_logs"
+    },
+    {
+      "schema": "public",
+      "table": "neura_sessions"
+    },
+    {
+      "schema": "public",
+      "table": "neura_user_preferences"
+    },
+    {
+      "schema": "public",
+      "table": "neura_users"
+    },
+    {
+      "schema": "public",
+      "table": "neura_visual_analysis"
+    },
+    {
+      "schema": "public",
+      "table": "neura_visual_memory"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_animal_sources"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_animals"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_audit_logs"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_country_rankings"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_judge_scores"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_media"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_pedigree_edges"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_reproduction_records"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_sources"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_valuation_events"
+    },
+    {
+      "schema": "public",
+      "table": "plan_configuration"
+    },
+    {
+      "schema": "public",
+      "table": "posts"
+    },
+    {
+      "schema": "public",
+      "table": "premium_feature_flags"
+    },
+    {
+      "schema": "public",
+      "table": "premium_runtime"
+    },
+    {
+      "schema": "public",
+      "table": "projects"
+    },
+    {
+      "schema": "public",
+      "table": "referrals"
+    },
+    {
+      "schema": "public",
+      "table": "revenue_metrics"
+    },
+    {
+      "schema": "public",
+      "table": "runtime_metrics"
+    },
+    {
+      "schema": "public",
+      "table": "tasks"
+    },
+    {
+      "schema": "public",
+      "table": "usage_quotas"
+    },
+    {
+      "schema": "public",
+      "table": "usage_tracking"
+    },
+    {
+      "schema": "public",
+      "table": "user_feedback_log"
+    },
+    {
+      "schema": "public",
+      "table": "user_sessions"
+    },
+    {
+      "schema": "public",
+      "table": "users"
+    },
+    {
+      "schema": "public",
+      "table": "xp"
+    },
+    {
+      "schema": "realtime",
+      "table": "messages"
+    },
+    {
+      "schema": "realtime",
+      "table": "schema_migrations"
+    },
+    {
+      "schema": "realtime",
+      "table": "subscription"
+    },
+    {
+      "schema": "storage",
+      "table": "buckets"
+    },
+    {
+      "schema": "storage",
+      "table": "buckets_analytics"
+    },
+    {
+      "schema": "storage",
+      "table": "buckets_vectors"
+    },
+    {
+      "schema": "storage",
+      "table": "migrations"
+    },
+    {
+      "schema": "storage",
+      "table": "objects"
+    },
+    {
+      "schema": "storage",
+      "table": "s3_multipart_uploads"
+    },
+    {
+      "schema": "storage",
+      "table": "s3_multipart_uploads_parts"
+    },
+    {
+      "schema": "storage",
+      "table": "vector_indexes"
+    },
+    {
+      "schema": "supabase_migrations",
+      "table": "schema_migrations"
+    },
+    {
+      "schema": "supabase_migrations",
+      "table": "seed_files"
+    },
+    {
+      "schema": "vault",
+      "table": "decrypted_secrets"
+    },
+    {
+      "schema": "vault",
+      "table": "secrets"
+    }
+  ],
+  "COLUMNS": [
+    {
+      "schema": "auth",
+      "table": "audit_log_entries",
+      "column": "instance_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "audit_log_entries",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "audit_log_entries",
+      "column": "payload",
+      "type": "json"
+    },
+    {
+      "schema": "auth",
+      "table": "audit_log_entries",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "audit_log_entries",
+      "column": "ip_address",
+      "type": "character varying"
+    },
+    {
+      "schema": "auth",
+      "table": "custom_oauth_providers",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "custom_oauth_providers",
+      "column": "provider_type",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "custom_oauth_providers",
+      "column": "identifier",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "custom_oauth_providers",
+      "column": "name",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "custom_oauth_providers",
+      "column": "client_id",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "custom_oauth_providers",
+      "column": "client_secret",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "custom_oauth_providers",
+      "column": "acceptable_client_ids",
+      "type": "ARRAY"
+    },
+    {
+      "schema": "auth",
+      "table": "custom_oauth_providers",
+      "column": "scopes",
+      "type": "ARRAY"
+    },
+    {
+      "schema": "auth",
+      "table": "custom_oauth_providers",
+      "column": "pkce_enabled",
+      "type": "boolean"
+    },
+    {
+      "schema": "auth",
+      "table": "custom_oauth_providers",
+      "column": "attribute_mapping",
+      "type": "jsonb"
+    },
+    {
+      "schema": "auth",
+      "table": "custom_oauth_providers",
+      "column": "authorization_params",
+      "type": "jsonb"
+    },
+    {
+      "schema": "auth",
+      "table": "custom_oauth_providers",
+      "column": "enabled",
+      "type": "boolean"
+    },
+    {
+      "schema": "auth",
+      "table": "custom_oauth_providers",
+      "column": "email_optional",
+      "type": "boolean"
+    },
+    {
+      "schema": "auth",
+      "table": "custom_oauth_providers",
+      "column": "issuer",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "custom_oauth_providers",
+      "column": "discovery_url",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "custom_oauth_providers",
+      "column": "skip_nonce_check",
+      "type": "boolean"
+    },
+    {
+      "schema": "auth",
+      "table": "custom_oauth_providers",
+      "column": "cached_discovery",
+      "type": "jsonb"
+    },
+    {
+      "schema": "auth",
+      "table": "custom_oauth_providers",
+      "column": "discovery_cached_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "custom_oauth_providers",
+      "column": "authorization_url",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "custom_oauth_providers",
+      "column": "token_url",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "custom_oauth_providers",
+      "column": "userinfo_url",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "custom_oauth_providers",
+      "column": "jwks_uri",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "custom_oauth_providers",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "custom_oauth_providers",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "flow_state",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "flow_state",
+      "column": "user_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "flow_state",
+      "column": "auth_code",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "flow_state",
+      "column": "code_challenge_method",
+      "type": "USER-DEFINED"
+    },
+    {
+      "schema": "auth",
+      "table": "flow_state",
+      "column": "code_challenge",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "flow_state",
+      "column": "provider_type",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "flow_state",
+      "column": "provider_access_token",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "flow_state",
+      "column": "provider_refresh_token",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "flow_state",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "flow_state",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "flow_state",
+      "column": "authentication_method",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "flow_state",
+      "column": "auth_code_issued_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "flow_state",
+      "column": "invite_token",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "flow_state",
+      "column": "referrer",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "flow_state",
+      "column": "oauth_client_state_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "flow_state",
+      "column": "linking_target_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "flow_state",
+      "column": "email_optional",
+      "type": "boolean"
+    },
+    {
+      "schema": "auth",
+      "table": "identities",
+      "column": "provider_id",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "identities",
+      "column": "user_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "identities",
+      "column": "identity_data",
+      "type": "jsonb"
+    },
+    {
+      "schema": "auth",
+      "table": "identities",
+      "column": "provider",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "identities",
+      "column": "last_sign_in_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "identities",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "identities",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "identities",
+      "column": "email",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "identities",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "instances",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "instances",
+      "column": "uuid",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "instances",
+      "column": "raw_base_config",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "instances",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "instances",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "mfa_amr_claims",
+      "column": "session_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "mfa_amr_claims",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "mfa_amr_claims",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "mfa_amr_claims",
+      "column": "authentication_method",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "mfa_amr_claims",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "mfa_challenges",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "mfa_challenges",
+      "column": "factor_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "mfa_challenges",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "mfa_challenges",
+      "column": "verified_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "mfa_challenges",
+      "column": "ip_address",
+      "type": "inet"
+    },
+    {
+      "schema": "auth",
+      "table": "mfa_challenges",
+      "column": "otp_code",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "mfa_challenges",
+      "column": "web_authn_session_data",
+      "type": "jsonb"
+    },
+    {
+      "schema": "auth",
+      "table": "mfa_factors",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "mfa_factors",
+      "column": "user_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "mfa_factors",
+      "column": "friendly_name",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "mfa_factors",
+      "column": "factor_type",
+      "type": "USER-DEFINED"
+    },
+    {
+      "schema": "auth",
+      "table": "mfa_factors",
+      "column": "status",
+      "type": "USER-DEFINED"
+    },
+    {
+      "schema": "auth",
+      "table": "mfa_factors",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "mfa_factors",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "mfa_factors",
+      "column": "secret",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "mfa_factors",
+      "column": "phone",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "mfa_factors",
+      "column": "last_challenged_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "mfa_factors",
+      "column": "web_authn_credential",
+      "type": "jsonb"
+    },
+    {
+      "schema": "auth",
+      "table": "mfa_factors",
+      "column": "web_authn_aaguid",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "mfa_factors",
+      "column": "last_webauthn_challenge_data",
+      "type": "jsonb"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_authorizations",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_authorizations",
+      "column": "authorization_id",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_authorizations",
+      "column": "client_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_authorizations",
+      "column": "user_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_authorizations",
+      "column": "redirect_uri",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_authorizations",
+      "column": "scope",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_authorizations",
+      "column": "state",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_authorizations",
+      "column": "resource",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_authorizations",
+      "column": "code_challenge",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_authorizations",
+      "column": "code_challenge_method",
+      "type": "USER-DEFINED"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_authorizations",
+      "column": "response_type",
+      "type": "USER-DEFINED"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_authorizations",
+      "column": "status",
+      "type": "USER-DEFINED"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_authorizations",
+      "column": "authorization_code",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_authorizations",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_authorizations",
+      "column": "expires_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_authorizations",
+      "column": "approved_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_authorizations",
+      "column": "nonce",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_client_states",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_client_states",
+      "column": "provider_type",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_client_states",
+      "column": "code_verifier",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_client_states",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_clients",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_clients",
+      "column": "client_secret_hash",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_clients",
+      "column": "registration_type",
+      "type": "USER-DEFINED"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_clients",
+      "column": "redirect_uris",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_clients",
+      "column": "grant_types",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_clients",
+      "column": "client_name",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_clients",
+      "column": "client_uri",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_clients",
+      "column": "logo_uri",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_clients",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_clients",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_clients",
+      "column": "deleted_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_clients",
+      "column": "client_type",
+      "type": "USER-DEFINED"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_clients",
+      "column": "token_endpoint_auth_method",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_consents",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_consents",
+      "column": "user_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_consents",
+      "column": "client_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_consents",
+      "column": "scopes",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_consents",
+      "column": "granted_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "oauth_consents",
+      "column": "revoked_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "one_time_tokens",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "one_time_tokens",
+      "column": "user_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "one_time_tokens",
+      "column": "token_type",
+      "type": "USER-DEFINED"
+    },
+    {
+      "schema": "auth",
+      "table": "one_time_tokens",
+      "column": "token_hash",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "one_time_tokens",
+      "column": "relates_to",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "one_time_tokens",
+      "column": "created_at",
+      "type": "timestamp without time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "one_time_tokens",
+      "column": "updated_at",
+      "type": "timestamp without time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "refresh_tokens",
+      "column": "instance_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "refresh_tokens",
+      "column": "id",
+      "type": "bigint"
+    },
+    {
+      "schema": "auth",
+      "table": "refresh_tokens",
+      "column": "token",
+      "type": "character varying"
+    },
+    {
+      "schema": "auth",
+      "table": "refresh_tokens",
+      "column": "user_id",
+      "type": "character varying"
+    },
+    {
+      "schema": "auth",
+      "table": "refresh_tokens",
+      "column": "revoked",
+      "type": "boolean"
+    },
+    {
+      "schema": "auth",
+      "table": "refresh_tokens",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "refresh_tokens",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "refresh_tokens",
+      "column": "parent",
+      "type": "character varying"
+    },
+    {
+      "schema": "auth",
+      "table": "refresh_tokens",
+      "column": "session_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "saml_providers",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "saml_providers",
+      "column": "sso_provider_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "saml_providers",
+      "column": "entity_id",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "saml_providers",
+      "column": "metadata_xml",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "saml_providers",
+      "column": "metadata_url",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "saml_providers",
+      "column": "attribute_mapping",
+      "type": "jsonb"
+    },
+    {
+      "schema": "auth",
+      "table": "saml_providers",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "saml_providers",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "saml_providers",
+      "column": "name_id_format",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "saml_relay_states",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "saml_relay_states",
+      "column": "sso_provider_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "saml_relay_states",
+      "column": "request_id",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "saml_relay_states",
+      "column": "for_email",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "saml_relay_states",
+      "column": "redirect_to",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "saml_relay_states",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "saml_relay_states",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "saml_relay_states",
+      "column": "flow_state_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "schema_migrations",
+      "column": "version",
+      "type": "character varying"
+    },
+    {
+      "schema": "auth",
+      "table": "sessions",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "sessions",
+      "column": "user_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "sessions",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "sessions",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "sessions",
+      "column": "factor_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "sessions",
+      "column": "aal",
+      "type": "USER-DEFINED"
+    },
+    {
+      "schema": "auth",
+      "table": "sessions",
+      "column": "not_after",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "sessions",
+      "column": "refreshed_at",
+      "type": "timestamp without time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "sessions",
+      "column": "user_agent",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "sessions",
+      "column": "ip",
+      "type": "inet"
+    },
+    {
+      "schema": "auth",
+      "table": "sessions",
+      "column": "tag",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "sessions",
+      "column": "oauth_client_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "sessions",
+      "column": "refresh_token_hmac_key",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "sessions",
+      "column": "refresh_token_counter",
+      "type": "bigint"
+    },
+    {
+      "schema": "auth",
+      "table": "sessions",
+      "column": "scopes",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "sso_domains",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "sso_domains",
+      "column": "sso_provider_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "sso_domains",
+      "column": "domain",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "sso_domains",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "sso_domains",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "sso_providers",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "sso_providers",
+      "column": "resource_id",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "sso_providers",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "sso_providers",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "sso_providers",
+      "column": "disabled",
+      "type": "boolean"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "instance_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "aud",
+      "type": "character varying"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "role",
+      "type": "character varying"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "email",
+      "type": "character varying"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "encrypted_password",
+      "type": "character varying"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "email_confirmed_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "invited_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "confirmation_token",
+      "type": "character varying"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "confirmation_sent_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "recovery_token",
+      "type": "character varying"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "recovery_sent_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "email_change_token_new",
+      "type": "character varying"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "email_change",
+      "type": "character varying"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "email_change_sent_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "last_sign_in_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "raw_app_meta_data",
+      "type": "jsonb"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "raw_user_meta_data",
+      "type": "jsonb"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "is_super_admin",
+      "type": "boolean"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "phone",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "phone_confirmed_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "phone_change",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "phone_change_token",
+      "type": "character varying"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "phone_change_sent_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "confirmed_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "email_change_token_current",
+      "type": "character varying"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "email_change_confirm_status",
+      "type": "smallint"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "banned_until",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "reauthentication_token",
+      "type": "character varying"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "reauthentication_sent_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "is_sso_user",
+      "type": "boolean"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "deleted_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "users",
+      "column": "is_anonymous",
+      "type": "boolean"
+    },
+    {
+      "schema": "auth",
+      "table": "webauthn_challenges",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "webauthn_challenges",
+      "column": "user_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "webauthn_challenges",
+      "column": "challenge_type",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "webauthn_challenges",
+      "column": "session_data",
+      "type": "jsonb"
+    },
+    {
+      "schema": "auth",
+      "table": "webauthn_challenges",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "webauthn_challenges",
+      "column": "expires_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "webauthn_credentials",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "webauthn_credentials",
+      "column": "user_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "webauthn_credentials",
+      "column": "credential_id",
+      "type": "bytea"
+    },
+    {
+      "schema": "auth",
+      "table": "webauthn_credentials",
+      "column": "public_key",
+      "type": "bytea"
+    },
+    {
+      "schema": "auth",
+      "table": "webauthn_credentials",
+      "column": "attestation_type",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "webauthn_credentials",
+      "column": "aaguid",
+      "type": "uuid"
+    },
+    {
+      "schema": "auth",
+      "table": "webauthn_credentials",
+      "column": "sign_count",
+      "type": "bigint"
+    },
+    {
+      "schema": "auth",
+      "table": "webauthn_credentials",
+      "column": "transports",
+      "type": "jsonb"
+    },
+    {
+      "schema": "auth",
+      "table": "webauthn_credentials",
+      "column": "backup_eligible",
+      "type": "boolean"
+    },
+    {
+      "schema": "auth",
+      "table": "webauthn_credentials",
+      "column": "backed_up",
+      "type": "boolean"
+    },
+    {
+      "schema": "auth",
+      "table": "webauthn_credentials",
+      "column": "friendly_name",
+      "type": "text"
+    },
+    {
+      "schema": "auth",
+      "table": "webauthn_credentials",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "webauthn_credentials",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "auth",
+      "table": "webauthn_credentials",
+      "column": "last_used_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "userid",
+      "type": "oid"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "dbid",
+      "type": "oid"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "toplevel",
+      "type": "boolean"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "queryid",
+      "type": "bigint"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "query",
+      "type": "text"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "plans",
+      "type": "bigint"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "total_plan_time",
+      "type": "double precision"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "min_plan_time",
+      "type": "double precision"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "max_plan_time",
+      "type": "double precision"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "mean_plan_time",
+      "type": "double precision"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "stddev_plan_time",
+      "type": "double precision"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "calls",
+      "type": "bigint"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "total_exec_time",
+      "type": "double precision"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "min_exec_time",
+      "type": "double precision"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "max_exec_time",
+      "type": "double precision"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "mean_exec_time",
+      "type": "double precision"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "stddev_exec_time",
+      "type": "double precision"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "rows",
+      "type": "bigint"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "shared_blks_hit",
+      "type": "bigint"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "shared_blks_read",
+      "type": "bigint"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "shared_blks_dirtied",
+      "type": "bigint"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "shared_blks_written",
+      "type": "bigint"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "local_blks_hit",
+      "type": "bigint"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "local_blks_read",
+      "type": "bigint"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "local_blks_dirtied",
+      "type": "bigint"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "local_blks_written",
+      "type": "bigint"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "temp_blks_read",
+      "type": "bigint"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "temp_blks_written",
+      "type": "bigint"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "shared_blk_read_time",
+      "type": "double precision"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "shared_blk_write_time",
+      "type": "double precision"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "local_blk_read_time",
+      "type": "double precision"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "local_blk_write_time",
+      "type": "double precision"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "temp_blk_read_time",
+      "type": "double precision"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "temp_blk_write_time",
+      "type": "double precision"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "wal_records",
+      "type": "bigint"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "wal_fpi",
+      "type": "bigint"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "wal_bytes",
+      "type": "numeric"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "jit_functions",
+      "type": "bigint"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "jit_generation_time",
+      "type": "double precision"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "jit_inlining_count",
+      "type": "bigint"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "jit_inlining_time",
+      "type": "double precision"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "jit_optimization_count",
+      "type": "bigint"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "jit_optimization_time",
+      "type": "double precision"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "jit_emission_count",
+      "type": "bigint"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "jit_emission_time",
+      "type": "double precision"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "jit_deform_count",
+      "type": "bigint"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "jit_deform_time",
+      "type": "double precision"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "stats_since",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements",
+      "column": "minmax_stats_since",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements_info",
+      "column": "dealloc",
+      "type": "bigint"
+    },
+    {
+      "schema": "extensions",
+      "table": "pg_stat_statements_info",
+      "column": "stats_reset",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "beta_users",
+      "column": "phone",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "beta_users",
+      "column": "name",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "beta_users",
+      "column": "tier",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "beta_users",
+      "column": "enabled",
+      "type": "boolean"
+    },
+    {
+      "schema": "public",
+      "table": "beta_users",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "conversation_intelligence",
+      "column": "id",
+      "type": "bigint"
+    },
+    {
+      "schema": "public",
+      "table": "conversation_intelligence",
+      "column": "sender_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "conversation_intelligence",
+      "column": "cognitive_depth",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "conversation_intelligence",
+      "column": "continuity_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "conversation_intelligence",
+      "column": "engagement_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "conversation_intelligence",
+      "column": "frustration_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "conversation_intelligence",
+      "column": "retention_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "conversation_intelligence",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_audit_events",
+      "column": "id",
+      "type": "bigint"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_audit_events",
+      "column": "event_type",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_audit_events",
+      "column": "actor",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_audit_events",
+      "column": "payload",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_audit_events",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_behavior_memory",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_behavior_memory",
+      "column": "sender_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_behavior_memory",
+      "column": "preferred_style",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_behavior_memory",
+      "column": "recurring_topics",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_behavior_memory",
+      "column": "personality_profile",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_behavior_memory",
+      "column": "learned_preferences",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_behavior_memory",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_cognitive_memory",
+      "column": "id",
+      "type": "bigint"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_cognitive_memory",
+      "column": "tenant_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_cognitive_memory",
+      "column": "user_ref",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_cognitive_memory",
+      "column": "content",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_cognitive_memory",
+      "column": "category",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_cognitive_memory",
+      "column": "embedding",
+      "type": "USER-DEFINED"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_cognitive_memory",
+      "column": "priority",
+      "type": "integer"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_cognitive_memory",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_conversation_events",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_conversation_events",
+      "column": "sender_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_conversation_events",
+      "column": "kind",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_conversation_events",
+      "column": "theme",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_conversation_events",
+      "column": "persona",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_conversation_events",
+      "column": "user_message",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_conversation_events",
+      "column": "assistant_answer",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_conversation_events",
+      "column": "humanization_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_conversation_events",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_event_store",
+      "column": "id",
+      "type": "bigint"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_event_store",
+      "column": "topic",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_event_store",
+      "column": "payload",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_event_store",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_events",
+      "column": "id",
+      "type": "bigint"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_events",
+      "column": "tenant_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_events",
+      "column": "user_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_events",
+      "column": "event_type",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_events",
+      "column": "payload",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_events",
+      "column": "idempotency_key",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_events",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_learning_events",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_learning_events",
+      "column": "sender_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_learning_events",
+      "column": "topic",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_learning_events",
+      "column": "persona",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_learning_events",
+      "column": "intent",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_learning_events",
+      "column": "emotional_state",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_learning_events",
+      "column": "continuity_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_learning_events",
+      "column": "humanization_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_learning_events",
+      "column": "generic_probability",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_learning_events",
+      "column": "robotic_probability",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_learning_events",
+      "column": "persona_leak",
+      "type": "boolean"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_learning_events",
+      "column": "conversation_quality",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_learning_events",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_rag_chunks",
+      "column": "id",
+      "type": "bigint"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_rag_chunks",
+      "column": "source_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_rag_chunks",
+      "column": "title",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_rag_chunks",
+      "column": "content",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_rag_chunks",
+      "column": "metadata",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_rag_chunks",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_reward_history",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_reward_history",
+      "column": "sender_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_reward_history",
+      "column": "reward",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_reward_history",
+      "column": "penalty",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_reward_history",
+      "column": "cause",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_reward_history",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_runtime_policies",
+      "column": "key",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_runtime_policies",
+      "column": "value",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "eldora_runtime_policies",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "events",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "events",
+      "column": "source",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "events",
+      "column": "payload",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "events",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "invite_waitlist",
+      "column": "phone",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "invite_waitlist",
+      "column": "source",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "invite_waitlist",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "memory_quality_metrics",
+      "column": "id",
+      "type": "bigint"
+    },
+    {
+      "schema": "public",
+      "table": "memory_quality_metrics",
+      "column": "sender_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "memory_quality_metrics",
+      "column": "context_depth",
+      "type": "integer"
+    },
+    {
+      "schema": "public",
+      "table": "memory_quality_metrics",
+      "column": "recall_precision",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "memory_quality_metrics",
+      "column": "semantic_continuity",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "memory_quality_metrics",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "memory_vectors",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "memory_vectors",
+      "column": "doc",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "memory_vectors",
+      "column": "vector",
+      "type": "USER-DEFINED"
+    },
+    {
+      "schema": "public",
+      "table": "memory_vectors",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "messages",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "messages",
+      "column": "user_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "messages",
+      "column": "role",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "messages",
+      "column": "content",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "messages",
+      "column": "meta",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "messages",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "mind_knowledge",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "mind_knowledge",
+      "column": "title",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "mind_knowledge",
+      "column": "source",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "mind_knowledge",
+      "column": "content",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "mind_knowledge",
+      "column": "meta",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "mind_knowledge",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "mind_steps",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "mind_steps",
+      "column": "step_name",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "mind_steps",
+      "column": "impl_status",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "mind_steps",
+      "column": "precisa_ajuste",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "mind_steps",
+      "column": "status_supabase_hint",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "mind_steps",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "mind_steps_latest",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "mind_steps_latest",
+      "column": "step_name",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "mind_steps_latest",
+      "column": "impl_status",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "mind_steps_latest",
+      "column": "precisa_ajuste",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "mind_steps_latest",
+      "column": "status_supabase_hint",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "mind_steps_latest",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "neura_embeddings",
+      "column": "id",
+      "type": "bigint"
+    },
+    {
+      "schema": "public",
+      "table": "neura_embeddings",
+      "column": "sender_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_embeddings",
+      "column": "message",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_embeddings",
+      "column": "source",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_embeddings",
+      "column": "embedding",
+      "type": "USER-DEFINED"
+    },
+    {
+      "schema": "public",
+      "table": "neura_embeddings",
+      "column": "metadata",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "neura_embeddings",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "neura_events",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "neura_events",
+      "column": "sender_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_events",
+      "column": "event_type",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_events",
+      "column": "payload",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "neura_events",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "neura_execution_checkpoints",
+      "column": "checkpoint_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_execution_checkpoints",
+      "column": "sender_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_execution_checkpoints",
+      "column": "plan_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_execution_checkpoints",
+      "column": "runtime_state",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "neura_execution_checkpoints",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "neura_execution_plans",
+      "column": "plan_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_execution_plans",
+      "column": "sender_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_execution_plans",
+      "column": "goal",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_execution_plans",
+      "column": "steps",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "neura_execution_plans",
+      "column": "status",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_execution_plans",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "neura_execution_plans",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "neura_friendship_profile",
+      "column": "sender_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_friendship_profile",
+      "column": "name",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_friendship_profile",
+      "column": "relationship_stage",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_friendship_profile",
+      "column": "last_proactive_sent_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "neura_friendship_profile",
+      "column": "proactive_sent_today",
+      "type": "integer"
+    },
+    {
+      "schema": "public",
+      "table": "neura_friendship_profile",
+      "column": "daily_limit",
+      "type": "integer"
+    },
+    {
+      "schema": "public",
+      "table": "neura_friendship_profile",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "neura_friendship_profile",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "neura_governor_events",
+      "column": "id",
+      "type": "bigint"
+    },
+    {
+      "schema": "public",
+      "table": "neura_governor_events",
+      "column": "sender_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_governor_events",
+      "column": "event_type",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_governor_events",
+      "column": "amount",
+      "type": "integer"
+    },
+    {
+      "schema": "public",
+      "table": "neura_governor_events",
+      "column": "allowed",
+      "type": "boolean"
+    },
+    {
+      "schema": "public",
+      "table": "neura_governor_events",
+      "column": "reason",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_governor_events",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "neura_memory",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "neura_memory",
+      "column": "sender_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_memory",
+      "column": "memory_type",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_memory",
+      "column": "content",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_memory",
+      "column": "confidence",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "neura_memory",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "neura_memory",
+      "column": "message",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_memory",
+      "column": "role",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_messages",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "neura_messages",
+      "column": "sender_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_messages",
+      "column": "direction",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_messages",
+      "column": "content",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_messages",
+      "column": "metadata",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "neura_messages",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "neura_proactive_messages",
+      "column": "id",
+      "type": "bigint"
+    },
+    {
+      "schema": "public",
+      "table": "neura_proactive_messages",
+      "column": "sender_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_proactive_messages",
+      "column": "message",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_proactive_messages",
+      "column": "reason",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_proactive_messages",
+      "column": "status",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_proactive_messages",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "neura_retrieval_logs",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "neura_retrieval_logs",
+      "column": "sender_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_retrieval_logs",
+      "column": "query",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_retrieval_logs",
+      "column": "results",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "neura_retrieval_logs",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "neura_sessions",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "neura_sessions",
+      "column": "sender_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_sessions",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "neura_sessions",
+      "column": "last_seen_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "neura_user_preferences",
+      "column": "sender_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_user_preferences",
+      "column": "opt_out",
+      "type": "boolean"
+    },
+    {
+      "schema": "public",
+      "table": "neura_user_preferences",
+      "column": "preferred_time_window",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_user_preferences",
+      "column": "tone",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_user_preferences",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "neura_user_preferences",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "neura_users",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "neura_users",
+      "column": "sender_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_users",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "neura_visual_analysis",
+      "column": "id",
+      "type": "bigint"
+    },
+    {
+      "schema": "public",
+      "table": "neura_visual_analysis",
+      "column": "sender_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_visual_analysis",
+      "column": "media_id",
+      "type": "bigint"
+    },
+    {
+      "schema": "public",
+      "table": "neura_visual_analysis",
+      "column": "analysis",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_visual_analysis",
+      "column": "labels",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "neura_visual_analysis",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "neura_visual_memory",
+      "column": "id",
+      "type": "bigint"
+    },
+    {
+      "schema": "public",
+      "table": "neura_visual_memory",
+      "column": "sender_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_visual_memory",
+      "column": "media_url",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_visual_memory",
+      "column": "media_type",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_visual_memory",
+      "column": "source",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "neura_visual_memory",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_animal_sources",
+      "column": "animal_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_animal_sources",
+      "column": "source_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_animal_sources",
+      "column": "claim_type",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_animal_sources",
+      "column": "claim_payload",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_animal_sources",
+      "column": "confidence_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_animals",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_animals",
+      "column": "official_name",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_animals",
+      "column": "aliases",
+      "type": "ARRAY"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_animals",
+      "column": "registry_number",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_animals",
+      "column": "animal_type",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_animals",
+      "column": "sex",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_animals",
+      "column": "country",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_animals",
+      "column": "state",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_animals",
+      "column": "city",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_animals",
+      "column": "breeder",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_animals",
+      "column": "owner",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_animals",
+      "column": "company",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_animals",
+      "column": "birth_year",
+      "type": "integer"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_animals",
+      "column": "death_year",
+      "type": "integer"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_animals",
+      "column": "life_status",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_animals",
+      "column": "notes",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_animals",
+      "column": "identity_key",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_animals",
+      "column": "confidence_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_animals",
+      "column": "validation_status",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_animals",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_animals",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_audit_logs",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_audit_logs",
+      "column": "entity_type",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_audit_logs",
+      "column": "entity_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_audit_logs",
+      "column": "audit_type",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_audit_logs",
+      "column": "confidence_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_audit_logs",
+      "column": "evidence_count",
+      "type": "integer"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_audit_logs",
+      "column": "source_count",
+      "type": "integer"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_audit_logs",
+      "column": "conflict_count",
+      "type": "integer"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_audit_logs",
+      "column": "missing_fields",
+      "type": "ARRAY"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_audit_logs",
+      "column": "contradictions",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_audit_logs",
+      "column": "audit_status",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_audit_logs",
+      "column": "last_verified_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_audit_logs",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "media_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "animal_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "jump_height",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "jump_length",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "horizontal_velocity",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "vertical_velocity",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "acceleration",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "initial_explosion",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "air_time",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "kick_frequency",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "kick_amplitude",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "direction_changes",
+      "type": "integer"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "angular_velocity",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "estimated_torque",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "estimated_kinetic_energy",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "estimated_power",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "unpredictability",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "sporting_aggressiveness",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "consistency",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "difficulty",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "biomechanics_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "buckoff_pressure_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "explosiveness_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "spin_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "kick_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "difficulty_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "consistency_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "model_version",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "confidence_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_biomechanics",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_country_rankings",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_country_rankings",
+      "column": "country",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_country_rankings",
+      "column": "ranking_date",
+      "type": "date"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_country_rankings",
+      "column": "strength",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_country_rankings",
+      "column": "spin",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_country_rankings",
+      "column": "explosion",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_country_rankings",
+      "column": "kick",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_country_rankings",
+      "column": "difficulty",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_country_rankings",
+      "column": "consistency",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_country_rankings",
+      "column": "buckoff_capacity",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_country_rankings",
+      "column": "genetic_production",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_country_rankings",
+      "column": "commercial_value",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_country_rankings",
+      "column": "pedigree_depth",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_country_rankings",
+      "column": "documented_volume",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_country_rankings",
+      "column": "global_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_country_rankings",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_judge_scores",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_judge_scores",
+      "column": "media_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_judge_scores",
+      "column": "animal_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_judge_scores",
+      "column": "official_bull_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_judge_scores",
+      "column": "mind_bull_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_judge_scores",
+      "column": "absolute_error",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_judge_scores",
+      "column": "percentage_error",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_judge_scores",
+      "column": "event_bias",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_judge_scores",
+      "column": "country_bias",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_judge_scores",
+      "column": "judge_bias",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_judge_scores",
+      "column": "style_bias",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_judge_scores",
+      "column": "explanation",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_judge_scores",
+      "column": "model_version",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_judge_scores",
+      "column": "confidence_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_judge_scores",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_media",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_media",
+      "column": "animal_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_media",
+      "column": "source_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_media",
+      "column": "url",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_media",
+      "column": "platform",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_media",
+      "column": "title",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_media",
+      "column": "channel_profile",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_media",
+      "column": "published_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_media",
+      "column": "duration_seconds",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_media",
+      "column": "event_name",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_media",
+      "column": "event_date",
+      "type": "date"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_media",
+      "column": "event_location",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_media",
+      "column": "rider_name",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_media",
+      "column": "result",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_media",
+      "column": "bull_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_media",
+      "column": "rider_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_media",
+      "column": "ride_time_seconds",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_media",
+      "column": "buckoff",
+      "type": "boolean"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_media",
+      "column": "metadata",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_media",
+      "column": "confidence_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_media",
+      "column": "validation_status",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_media",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_pedigree_edges",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_pedigree_edges",
+      "column": "parent_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_pedigree_edges",
+      "column": "child_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_pedigree_edges",
+      "column": "relation",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_pedigree_edges",
+      "column": "generation_distance",
+      "type": "integer"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_pedigree_edges",
+      "column": "evidence_source_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_pedigree_edges",
+      "column": "confidence_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_pedigree_edges",
+      "column": "validation_status",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_pedigree_edges",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_reproduction_records",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_reproduction_records",
+      "column": "animal_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_reproduction_records",
+      "column": "sire_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_reproduction_records",
+      "column": "dam_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_reproduction_records",
+      "column": "offspring_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_reproduction_records",
+      "column": "semen_available",
+      "type": "boolean"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_reproduction_records",
+      "column": "embryo_available",
+      "type": "boolean"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_reproduction_records",
+      "column": "pregnancy_available",
+      "type": "boolean"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_reproduction_records",
+      "column": "dna_available",
+      "type": "boolean"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_reproduction_records",
+      "column": "genomic_payload",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_reproduction_records",
+      "column": "reproductive_payload",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_reproduction_records",
+      "column": "confidence_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_reproduction_records",
+      "column": "validation_status",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_reproduction_records",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_sources",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_sources",
+      "column": "source_url",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_sources",
+      "column": "source_type",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_sources",
+      "column": "title",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_sources",
+      "column": "publisher",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_sources",
+      "column": "platform",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_sources",
+      "column": "captured_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_sources",
+      "column": "evidence_hash",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_sources",
+      "column": "raw_payload",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_sources",
+      "column": "confidence_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_sources",
+      "column": "validation_status",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_sources",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_valuation_events",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_valuation_events",
+      "column": "animal_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_valuation_events",
+      "column": "event_type",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_valuation_events",
+      "column": "event_date",
+      "type": "date"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_valuation_events",
+      "column": "currency",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_valuation_events",
+      "column": "amount",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_valuation_events",
+      "column": "semen_price",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_valuation_events",
+      "column": "embryo_price",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_valuation_events",
+      "column": "pregnancy_price",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_valuation_events",
+      "column": "breeding_fee",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_valuation_events",
+      "column": "shares_sold",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_valuation_events",
+      "column": "buyer",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_valuation_events",
+      "column": "seller",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_valuation_events",
+      "column": "auction_name",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_valuation_events",
+      "column": "source_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_valuation_events",
+      "column": "raw_payload",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_valuation_events",
+      "column": "confidence_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_valuation_events",
+      "column": "validation_status",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "p55a_valuation_events",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "plan_configuration",
+      "column": "plan",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "plan_configuration",
+      "column": "max_messages_day",
+      "type": "integer"
+    },
+    {
+      "schema": "public",
+      "table": "plan_configuration",
+      "column": "memory_depth",
+      "type": "integer"
+    },
+    {
+      "schema": "public",
+      "table": "plan_configuration",
+      "column": "semantic_enabled",
+      "type": "boolean"
+    },
+    {
+      "schema": "public",
+      "table": "plan_configuration",
+      "column": "premium",
+      "type": "boolean"
+    },
+    {
+      "schema": "public",
+      "table": "plan_configuration",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "posts",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "posts",
+      "column": "user_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "posts",
+      "column": "body",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "posts",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "premium_feature_flags",
+      "column": "flag",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "premium_feature_flags",
+      "column": "enabled",
+      "type": "boolean"
+    },
+    {
+      "schema": "public",
+      "table": "premium_feature_flags",
+      "column": "plans",
+      "type": "ARRAY"
+    },
+    {
+      "schema": "public",
+      "table": "premium_feature_flags",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "premium_runtime",
+      "column": "sender_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "premium_runtime",
+      "column": "plan",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "premium_runtime",
+      "column": "active",
+      "type": "boolean"
+    },
+    {
+      "schema": "public",
+      "table": "premium_runtime",
+      "column": "started_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "projects",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "projects",
+      "column": "name",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "projects",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "referrals",
+      "column": "id",
+      "type": "bigint"
+    },
+    {
+      "schema": "public",
+      "table": "referrals",
+      "column": "referrer_phone",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "referrals",
+      "column": "invited_phone",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "referrals",
+      "column": "referral_code",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "referrals",
+      "column": "status",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "referrals",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "revenue_metrics",
+      "column": "id",
+      "type": "bigint"
+    },
+    {
+      "schema": "public",
+      "table": "revenue_metrics",
+      "column": "sender_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "revenue_metrics",
+      "column": "plan",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "revenue_metrics",
+      "column": "estimated_cost",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "revenue_metrics",
+      "column": "estimated_revenue",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "revenue_metrics",
+      "column": "embedding_cost",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "revenue_metrics",
+      "column": "retrieval_cost",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "revenue_metrics",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "runtime_metrics",
+      "column": "id",
+      "type": "bigint"
+    },
+    {
+      "schema": "public",
+      "table": "runtime_metrics",
+      "column": "sender_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "runtime_metrics",
+      "column": "route",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "runtime_metrics",
+      "column": "latency_ms",
+      "type": "integer"
+    },
+    {
+      "schema": "public",
+      "table": "runtime_metrics",
+      "column": "semantic_hit",
+      "type": "boolean"
+    },
+    {
+      "schema": "public",
+      "table": "runtime_metrics",
+      "column": "memory_recall",
+      "type": "boolean"
+    },
+    {
+      "schema": "public",
+      "table": "runtime_metrics",
+      "column": "tokens",
+      "type": "integer"
+    },
+    {
+      "schema": "public",
+      "table": "runtime_metrics",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "tasks",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "tasks",
+      "column": "agent",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "tasks",
+      "column": "payload",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "tasks",
+      "column": "status",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "tasks",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "usage_quotas",
+      "column": "plan",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "usage_quotas",
+      "column": "daily_messages",
+      "type": "integer"
+    },
+    {
+      "schema": "public",
+      "table": "usage_quotas",
+      "column": "max_context_depth",
+      "type": "integer"
+    },
+    {
+      "schema": "public",
+      "table": "usage_quotas",
+      "column": "embeddings_per_day",
+      "type": "integer"
+    },
+    {
+      "schema": "public",
+      "table": "usage_quotas",
+      "column": "retrievals_per_day",
+      "type": "integer"
+    },
+    {
+      "schema": "public",
+      "table": "usage_quotas",
+      "column": "premium",
+      "type": "boolean"
+    },
+    {
+      "schema": "public",
+      "table": "usage_tracking",
+      "column": "id",
+      "type": "bigint"
+    },
+    {
+      "schema": "public",
+      "table": "usage_tracking",
+      "column": "sender_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "usage_tracking",
+      "column": "plan",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "usage_tracking",
+      "column": "messages_count",
+      "type": "integer"
+    },
+    {
+      "schema": "public",
+      "table": "usage_tracking",
+      "column": "embedding_calls",
+      "type": "integer"
+    },
+    {
+      "schema": "public",
+      "table": "usage_tracking",
+      "column": "retrieval_calls",
+      "type": "integer"
+    },
+    {
+      "schema": "public",
+      "table": "usage_tracking",
+      "column": "estimated_cost",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "usage_tracking",
+      "column": "period",
+      "type": "date"
+    },
+    {
+      "schema": "public",
+      "table": "usage_tracking",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "user_feedback_log",
+      "column": "id",
+      "type": "bigint"
+    },
+    {
+      "schema": "public",
+      "table": "user_feedback_log",
+      "column": "sender_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "user_feedback_log",
+      "column": "rating",
+      "type": "integer"
+    },
+    {
+      "schema": "public",
+      "table": "user_feedback_log",
+      "column": "feedback",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "user_feedback_log",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "user_sessions",
+      "column": "id",
+      "type": "bigint"
+    },
+    {
+      "schema": "public",
+      "table": "user_sessions",
+      "column": "sender_id",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "user_sessions",
+      "column": "session_depth",
+      "type": "integer"
+    },
+    {
+      "schema": "public",
+      "table": "user_sessions",
+      "column": "avg_latency_ms",
+      "type": "integer"
+    },
+    {
+      "schema": "public",
+      "table": "user_sessions",
+      "column": "semantic_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "user_sessions",
+      "column": "satisfaction_score",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "user_sessions",
+      "column": "abandonment_risk",
+      "type": "numeric"
+    },
+    {
+      "schema": "public",
+      "table": "user_sessions",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "column": "email",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "column": "display_name",
+      "type": "text"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "column": "profile",
+      "type": "jsonb"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "public",
+      "table": "xp",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "xp",
+      "column": "user_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "public",
+      "table": "xp",
+      "column": "amount",
+      "type": "integer"
+    },
+    {
+      "schema": "public",
+      "table": "xp",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "realtime",
+      "table": "messages",
+      "column": "topic",
+      "type": "text"
+    },
+    {
+      "schema": "realtime",
+      "table": "messages",
+      "column": "extension",
+      "type": "text"
+    },
+    {
+      "schema": "realtime",
+      "table": "messages",
+      "column": "payload",
+      "type": "jsonb"
+    },
+    {
+      "schema": "realtime",
+      "table": "messages",
+      "column": "event",
+      "type": "text"
+    },
+    {
+      "schema": "realtime",
+      "table": "messages",
+      "column": "private",
+      "type": "boolean"
+    },
+    {
+      "schema": "realtime",
+      "table": "messages",
+      "column": "updated_at",
+      "type": "timestamp without time zone"
+    },
+    {
+      "schema": "realtime",
+      "table": "messages",
+      "column": "inserted_at",
+      "type": "timestamp without time zone"
+    },
+    {
+      "schema": "realtime",
+      "table": "messages",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "realtime",
+      "table": "schema_migrations",
+      "column": "version",
+      "type": "bigint"
+    },
+    {
+      "schema": "realtime",
+      "table": "schema_migrations",
+      "column": "inserted_at",
+      "type": "timestamp without time zone"
+    },
+    {
+      "schema": "realtime",
+      "table": "subscription",
+      "column": "id",
+      "type": "bigint"
+    },
+    {
+      "schema": "realtime",
+      "table": "subscription",
+      "column": "subscription_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "realtime",
+      "table": "subscription",
+      "column": "entity",
+      "type": "regclass"
+    },
+    {
+      "schema": "realtime",
+      "table": "subscription",
+      "column": "filters",
+      "type": "ARRAY"
+    },
+    {
+      "schema": "realtime",
+      "table": "subscription",
+      "column": "claims",
+      "type": "jsonb"
+    },
+    {
+      "schema": "realtime",
+      "table": "subscription",
+      "column": "claims_role",
+      "type": "regrole"
+    },
+    {
+      "schema": "realtime",
+      "table": "subscription",
+      "column": "created_at",
+      "type": "timestamp without time zone"
+    },
+    {
+      "schema": "realtime",
+      "table": "subscription",
+      "column": "action_filter",
+      "type": "text"
+    },
+    {
+      "schema": "storage",
+      "table": "buckets",
+      "column": "id",
+      "type": "text"
+    },
+    {
+      "schema": "storage",
+      "table": "buckets",
+      "column": "name",
+      "type": "text"
+    },
+    {
+      "schema": "storage",
+      "table": "buckets",
+      "column": "owner",
+      "type": "uuid"
+    },
+    {
+      "schema": "storage",
+      "table": "buckets",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "storage",
+      "table": "buckets",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "storage",
+      "table": "buckets",
+      "column": "public",
+      "type": "boolean"
+    },
+    {
+      "schema": "storage",
+      "table": "buckets",
+      "column": "avif_autodetection",
+      "type": "boolean"
+    },
+    {
+      "schema": "storage",
+      "table": "buckets",
+      "column": "file_size_limit",
+      "type": "bigint"
+    },
+    {
+      "schema": "storage",
+      "table": "buckets",
+      "column": "allowed_mime_types",
+      "type": "ARRAY"
+    },
+    {
+      "schema": "storage",
+      "table": "buckets",
+      "column": "owner_id",
+      "type": "text"
+    },
+    {
+      "schema": "storage",
+      "table": "buckets",
+      "column": "type",
+      "type": "USER-DEFINED"
+    },
+    {
+      "schema": "storage",
+      "table": "buckets_analytics",
+      "column": "name",
+      "type": "text"
+    },
+    {
+      "schema": "storage",
+      "table": "buckets_analytics",
+      "column": "type",
+      "type": "USER-DEFINED"
+    },
+    {
+      "schema": "storage",
+      "table": "buckets_analytics",
+      "column": "format",
+      "type": "text"
+    },
+    {
+      "schema": "storage",
+      "table": "buckets_analytics",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "storage",
+      "table": "buckets_analytics",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "storage",
+      "table": "buckets_analytics",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "storage",
+      "table": "buckets_analytics",
+      "column": "deleted_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "storage",
+      "table": "buckets_vectors",
+      "column": "id",
+      "type": "text"
+    },
+    {
+      "schema": "storage",
+      "table": "buckets_vectors",
+      "column": "type",
+      "type": "USER-DEFINED"
+    },
+    {
+      "schema": "storage",
+      "table": "buckets_vectors",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "storage",
+      "table": "buckets_vectors",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "storage",
+      "table": "migrations",
+      "column": "id",
+      "type": "integer"
+    },
+    {
+      "schema": "storage",
+      "table": "migrations",
+      "column": "name",
+      "type": "character varying"
+    },
+    {
+      "schema": "storage",
+      "table": "migrations",
+      "column": "hash",
+      "type": "character varying"
+    },
+    {
+      "schema": "storage",
+      "table": "migrations",
+      "column": "executed_at",
+      "type": "timestamp without time zone"
+    },
+    {
+      "schema": "storage",
+      "table": "objects",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "storage",
+      "table": "objects",
+      "column": "bucket_id",
+      "type": "text"
+    },
+    {
+      "schema": "storage",
+      "table": "objects",
+      "column": "name",
+      "type": "text"
+    },
+    {
+      "schema": "storage",
+      "table": "objects",
+      "column": "owner",
+      "type": "uuid"
+    },
+    {
+      "schema": "storage",
+      "table": "objects",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "storage",
+      "table": "objects",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "storage",
+      "table": "objects",
+      "column": "last_accessed_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "storage",
+      "table": "objects",
+      "column": "metadata",
+      "type": "jsonb"
+    },
+    {
+      "schema": "storage",
+      "table": "objects",
+      "column": "path_tokens",
+      "type": "ARRAY"
+    },
+    {
+      "schema": "storage",
+      "table": "objects",
+      "column": "version",
+      "type": "text"
+    },
+    {
+      "schema": "storage",
+      "table": "objects",
+      "column": "owner_id",
+      "type": "text"
+    },
+    {
+      "schema": "storage",
+      "table": "objects",
+      "column": "user_metadata",
+      "type": "jsonb"
+    },
+    {
+      "schema": "storage",
+      "table": "s3_multipart_uploads",
+      "column": "id",
+      "type": "text"
+    },
+    {
+      "schema": "storage",
+      "table": "s3_multipart_uploads",
+      "column": "in_progress_size",
+      "type": "bigint"
+    },
+    {
+      "schema": "storage",
+      "table": "s3_multipart_uploads",
+      "column": "upload_signature",
+      "type": "text"
+    },
+    {
+      "schema": "storage",
+      "table": "s3_multipart_uploads",
+      "column": "bucket_id",
+      "type": "text"
+    },
+    {
+      "schema": "storage",
+      "table": "s3_multipart_uploads",
+      "column": "key",
+      "type": "text"
+    },
+    {
+      "schema": "storage",
+      "table": "s3_multipart_uploads",
+      "column": "version",
+      "type": "text"
+    },
+    {
+      "schema": "storage",
+      "table": "s3_multipart_uploads",
+      "column": "owner_id",
+      "type": "text"
+    },
+    {
+      "schema": "storage",
+      "table": "s3_multipart_uploads",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "storage",
+      "table": "s3_multipart_uploads",
+      "column": "user_metadata",
+      "type": "jsonb"
+    },
+    {
+      "schema": "storage",
+      "table": "s3_multipart_uploads",
+      "column": "metadata",
+      "type": "jsonb"
+    },
+    {
+      "schema": "storage",
+      "table": "s3_multipart_uploads_parts",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "storage",
+      "table": "s3_multipart_uploads_parts",
+      "column": "upload_id",
+      "type": "text"
+    },
+    {
+      "schema": "storage",
+      "table": "s3_multipart_uploads_parts",
+      "column": "size",
+      "type": "bigint"
+    },
+    {
+      "schema": "storage",
+      "table": "s3_multipart_uploads_parts",
+      "column": "part_number",
+      "type": "integer"
+    },
+    {
+      "schema": "storage",
+      "table": "s3_multipart_uploads_parts",
+      "column": "bucket_id",
+      "type": "text"
+    },
+    {
+      "schema": "storage",
+      "table": "s3_multipart_uploads_parts",
+      "column": "key",
+      "type": "text"
+    },
+    {
+      "schema": "storage",
+      "table": "s3_multipart_uploads_parts",
+      "column": "etag",
+      "type": "text"
+    },
+    {
+      "schema": "storage",
+      "table": "s3_multipart_uploads_parts",
+      "column": "owner_id",
+      "type": "text"
+    },
+    {
+      "schema": "storage",
+      "table": "s3_multipart_uploads_parts",
+      "column": "version",
+      "type": "text"
+    },
+    {
+      "schema": "storage",
+      "table": "s3_multipart_uploads_parts",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "storage",
+      "table": "vector_indexes",
+      "column": "id",
+      "type": "text"
+    },
+    {
+      "schema": "storage",
+      "table": "vector_indexes",
+      "column": "name",
+      "type": "text"
+    },
+    {
+      "schema": "storage",
+      "table": "vector_indexes",
+      "column": "bucket_id",
+      "type": "text"
+    },
+    {
+      "schema": "storage",
+      "table": "vector_indexes",
+      "column": "data_type",
+      "type": "text"
+    },
+    {
+      "schema": "storage",
+      "table": "vector_indexes",
+      "column": "dimension",
+      "type": "integer"
+    },
+    {
+      "schema": "storage",
+      "table": "vector_indexes",
+      "column": "distance_metric",
+      "type": "text"
+    },
+    {
+      "schema": "storage",
+      "table": "vector_indexes",
+      "column": "metadata_configuration",
+      "type": "jsonb"
+    },
+    {
+      "schema": "storage",
+      "table": "vector_indexes",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "storage",
+      "table": "vector_indexes",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "supabase_migrations",
+      "table": "schema_migrations",
+      "column": "version",
+      "type": "text"
+    },
+    {
+      "schema": "supabase_migrations",
+      "table": "schema_migrations",
+      "column": "statements",
+      "type": "ARRAY"
+    },
+    {
+      "schema": "supabase_migrations",
+      "table": "schema_migrations",
+      "column": "name",
+      "type": "text"
+    },
+    {
+      "schema": "supabase_migrations",
+      "table": "seed_files",
+      "column": "path",
+      "type": "text"
+    },
+    {
+      "schema": "supabase_migrations",
+      "table": "seed_files",
+      "column": "hash",
+      "type": "text"
+    },
+    {
+      "schema": "vault",
+      "table": "decrypted_secrets",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "vault",
+      "table": "decrypted_secrets",
+      "column": "name",
+      "type": "text"
+    },
+    {
+      "schema": "vault",
+      "table": "decrypted_secrets",
+      "column": "description",
+      "type": "text"
+    },
+    {
+      "schema": "vault",
+      "table": "decrypted_secrets",
+      "column": "secret",
+      "type": "text"
+    },
+    {
+      "schema": "vault",
+      "table": "decrypted_secrets",
+      "column": "decrypted_secret",
+      "type": "text"
+    },
+    {
+      "schema": "vault",
+      "table": "decrypted_secrets",
+      "column": "key_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "vault",
+      "table": "decrypted_secrets",
+      "column": "nonce",
+      "type": "bytea"
+    },
+    {
+      "schema": "vault",
+      "table": "decrypted_secrets",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "vault",
+      "table": "decrypted_secrets",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "vault",
+      "table": "secrets",
+      "column": "id",
+      "type": "uuid"
+    },
+    {
+      "schema": "vault",
+      "table": "secrets",
+      "column": "name",
+      "type": "text"
+    },
+    {
+      "schema": "vault",
+      "table": "secrets",
+      "column": "description",
+      "type": "text"
+    },
+    {
+      "schema": "vault",
+      "table": "secrets",
+      "column": "secret",
+      "type": "text"
+    },
+    {
+      "schema": "vault",
+      "table": "secrets",
+      "column": "key_id",
+      "type": "uuid"
+    },
+    {
+      "schema": "vault",
+      "table": "secrets",
+      "column": "nonce",
+      "type": "bytea"
+    },
+    {
+      "schema": "vault",
+      "table": "secrets",
+      "column": "created_at",
+      "type": "timestamp with time zone"
+    },
+    {
+      "schema": "vault",
+      "table": "secrets",
+      "column": "updated_at",
+      "type": "timestamp with time zone"
+    }
+  ],
+  "NEXT": "IDENTIFY_ANIMAL_AND_RELATIONSHIP_TABLES",
+  "generated_at": "2026-06-14T18:54:51.297207+00:00"
+}

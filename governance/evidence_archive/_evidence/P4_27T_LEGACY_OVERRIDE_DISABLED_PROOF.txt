@@ -1,0 +1,18 @@
+P4.27T — WHATSAPP LEGACY OVERRIDE DISABLED BY DEFAULT
+
+CLASSIFICATION:
+REAL_OPERATIONAL / GOLD
+
+PROOF:
+- app/api/whatsapp.py patched
+- live_whatsapp_override() still exists for rollback
+- runtime call now gated by MIND_ENABLE_LEGACY_WHATSAPP_OVERRIDE=1
+- default env is None, so legacy override is disabled
+- direct legacy function still returns old hardcoded response when called manually
+- directed pytest: 24 passed / 3 skipped / 0 failed
+
+REASON:
+The legacy override was intercepting inbound WhatsApp before cognitive pipeline and competing against P4.27M-S runtime layers.
+
+CLOUD_RULE:
+Evidence must be committed to GitHub and copied to Drive.

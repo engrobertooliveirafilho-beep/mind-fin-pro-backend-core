@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_DFA17056D1A8A65E",
+  "source_file": "_evidence\\P4.91K_CONTENT_EXTRACTION_SMART_BATCH_V2_20260623_115036\\p491k_smart_batch_v2.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P4.91K_CONTENT_EXTRACTION_SMART_BATCH_V2_20260623_115036\\p491k_smart_batch_v2.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 114,
+  "imports": [
+    "csv",
+    "datetime",
+    "hashlib",
+    "json",
+    "pathlib",
+    "re",
+    "subprocess"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

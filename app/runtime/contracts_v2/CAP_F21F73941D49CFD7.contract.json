@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_F21F73941D49CFD7",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\apply\\test_frame_transform.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\pandas\\tests\\apply\\test_frame_transform.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 100,
+  "imports": [
+    "numpy",
+    "pandas",
+    "pandas._testing",
+    "pandas.tests.apply.common",
+    "pandas.tests.frame.common",
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

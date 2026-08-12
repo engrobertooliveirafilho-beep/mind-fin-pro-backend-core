@@ -1,0 +1,165 @@
+{
+  "STATUS": "P1603_POSITION_MANAGEMENT_ENGINE_COMPLETED",
+  "INPUT_EDGES": 106,
+  "POLICIES_CREATED": 3,
+  "FEATURES": [
+    "PARTIAL_TAKE_PROFIT",
+    "BREAK_EVEN",
+    "TRAILING_STOP",
+    "POSITION_REBUILD",
+    "SCALE_IN",
+    "RISK_LOCK"
+  ],
+  "POLICIES": [
+    {
+      "edge_id": "7d0ccd5986a18a8a9162e384",
+      "asset": "GBPUSD",
+      "timeframe": "M30",
+      "family": "BOLLINGER_REVERSION",
+      "mode": "SIMULATED_POSITION_MANAGEMENT",
+      "initial_lot": 0.01,
+      "partial_take_profit": {
+        "enabled": true,
+        "first_partial_at_R": 1.0,
+        "first_partial_close_pct": 50,
+        "second_partial_at_R": 2.0,
+        "second_partial_close_pct": 25,
+        "runner_pct": 25
+      },
+      "break_even": {
+        "enabled": true,
+        "move_sl_to_entry_after_R": 1.0
+      },
+      "trailing": {
+        "enabled": true,
+        "start_after_R": 2.0,
+        "trail_by_ATR_multiple": 1.5
+      },
+      "position_rebuild": {
+        "enabled": true,
+        "allow_reentry_after_partial": true,
+        "max_rebuilds_per_signal": 2,
+        "rebuild_only_if_confluence_score_above": 85,
+        "rebuild_lot_multiplier": 0.5
+      },
+      "scale_in": {
+        "enabled": true,
+        "max_additions": 2,
+        "add_only_after_profit_R": 1.0,
+        "addition_lot_multiplier": 0.5
+      },
+      "risk_lock": {
+        "max_total_lot_demo": 0.04,
+        "max_daily_loss_pct": 1.0,
+        "max_edge_loss_streak": 3,
+        "on_loss_streak": "FREEZE_EDGE_48H"
+      },
+      "ORDER_SENT": false,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    },
+    {
+      "edge_id": "6ffc7212b632c0f09f8de2fc",
+      "asset": "XAUUSD",
+      "timeframe": "M5",
+      "family": "RSI_REVERSION",
+      "mode": "SIMULATED_POSITION_MANAGEMENT",
+      "initial_lot": 0.01,
+      "partial_take_profit": {
+        "enabled": true,
+        "first_partial_at_R": 1.0,
+        "first_partial_close_pct": 50,
+        "second_partial_at_R": 2.0,
+        "second_partial_close_pct": 25,
+        "runner_pct": 25
+      },
+      "break_even": {
+        "enabled": true,
+        "move_sl_to_entry_after_R": 1.0
+      },
+      "trailing": {
+        "enabled": true,
+        "start_after_R": 2.0,
+        "trail_by_ATR_multiple": 1.5
+      },
+      "position_rebuild": {
+        "enabled": true,
+        "allow_reentry_after_partial": true,
+        "max_rebuilds_per_signal": 2,
+        "rebuild_only_if_confluence_score_above": 85,
+        "rebuild_lot_multiplier": 0.5
+      },
+      "scale_in": {
+        "enabled": true,
+        "max_additions": 2,
+        "add_only_after_profit_R": 1.0,
+        "addition_lot_multiplier": 0.5
+      },
+      "risk_lock": {
+        "max_total_lot_demo": 0.04,
+        "max_daily_loss_pct": 1.0,
+        "max_edge_loss_streak": 3,
+        "on_loss_streak": "FREEZE_EDGE_48H"
+      },
+      "ORDER_SENT": false,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    },
+    {
+      "edge_id": "9a53b0630c7b7e29e960eb66",
+      "asset": "USDJPY",
+      "timeframe": "D1",
+      "family": "EMA_CROSS",
+      "mode": "SIMULATED_POSITION_MANAGEMENT",
+      "initial_lot": 0.01,
+      "partial_take_profit": {
+        "enabled": true,
+        "first_partial_at_R": 1.0,
+        "first_partial_close_pct": 50,
+        "second_partial_at_R": 2.0,
+        "second_partial_close_pct": 25,
+        "runner_pct": 25
+      },
+      "break_even": {
+        "enabled": true,
+        "move_sl_to_entry_after_R": 1.0
+      },
+      "trailing": {
+        "enabled": true,
+        "start_after_R": 2.0,
+        "trail_by_ATR_multiple": 1.5
+      },
+      "position_rebuild": {
+        "enabled": true,
+        "allow_reentry_after_partial": true,
+        "max_rebuilds_per_signal": 2,
+        "rebuild_only_if_confluence_score_above": 85,
+        "rebuild_lot_multiplier": 0.5
+      },
+      "scale_in": {
+        "enabled": true,
+        "max_additions": 2,
+        "add_only_after_profit_R": 1.0,
+        "addition_lot_multiplier": 0.5
+      },
+      "risk_lock": {
+        "max_total_lot_demo": 0.04,
+        "max_daily_loss_pct": 1.0,
+        "max_edge_loss_streak": 3,
+        "on_loss_streak": "FREEZE_EDGE_48H"
+      },
+      "ORDER_SENT": false,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    }
+  ],
+  "NEXT": "P1604_CONFLUENCE_POSITION_EXECUTION_SIMULATOR",
+  "ORDER_SENT": false,
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN",
+  "generated_at": "2026-06-15T19:01:24.962445+00:00"
+}

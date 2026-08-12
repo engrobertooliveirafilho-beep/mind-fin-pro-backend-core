@@ -1,0 +1,97 @@
+diff --git a/app/runtime/intent_first_router.py b/app/runtime/intent_first_router.py
+index ae174ba..f7ed787 100644
+--- a/app/runtime/intent_first_router.py
++++ b/app/runtime/intent_first_router.py
+@@ -10,27 +10,27 @@ def route_fast(sender_id: str, text: str) -> str | None:
+         return "te ouvi aqui, mas veio vazio."
+ 
+     if t in greetings:
+-        return "Oi, Roberto."
++        return None
+ 
+     if any(x in t for x in [
+         "tudo bem","tudo certo","como ta","como t├í",
+         "como vc ta","como voc├¬ est├í","e vc","e voc├¬"
+     ]):
+-        return "Tudo certo por aqui ­ƒÖé E voc├¬?"
++        return None
+ 
+     if any(x in t for x in [
+         "qual seu nome","como vc chama",
+         "como voc├¬ chama","quem ├® voc├¬",
+         "quem e voce"
+     ]):
+-        return "Sou a Eldora ­ƒÖé O que voc├¬ quer saber?"
++        return None
+ 
+     if any(x in t for x in [
+         "sentiu diferen├ºa","sentiu diferenca",
+         "deu certo","ou ainda nada",
+         "ainda nada","ainda n├úo","ainda nao"
+     ]):
+-        return "melhorou um pouco, mas ainda tem problema de continuidade e respostas gen├®ricas."
++        return None
+ 
+     if any(x in t for x in [
+         "verificar onde esta o problema",
+@@ -39,12 +39,12 @@ def route_fast(sender_id: str, text: str) -> str | None:
+         "procura por ai",
+         "procura por a├¡"
+     ]):
+-        return "consigo. O principal problema parece estar no roteamento: inten├º├úo curta, fallback gen├®rico e mem├│ria contaminada."
++        return None
+ 
+     if any(x in t for x in [
+         "rota s├│","rota so","uma rota",
+         "mais rotas","├® uma rota","rota"
+     ]):
+-        return "parece mais de uma camada interferindo: runtime principal, mem├│ria/contexto e fallback."
++        return None
+ 
+     return None
+diff --git a/app/runtime/live_whatsapp_response.py b/app/runtime/live_whatsapp_response.py
+index 3954167..c5a1d60 100644
+--- a/app/runtime/live_whatsapp_response.py
++++ b/app/runtime/live_whatsapp_response.py
+@@ -9,16 +9,16 @@ def live_whatsapp_response(message: str) -> str | None:
+     msg = (message or "").lower().strip()
+ 
+     if msg in ["i", "oi", "ol├í", "ola"]:
+-        return "Oi, Roberto. Estou aqui. Vamos resolver isso direto."
++        return None
+ 
+     if any(x in msg for x in ["ainda nao conseguimos resolver", "ainda n├úo conseguimos resolver", "nao esta funcionando", "n├úo est├í funcionando", "n├úo funciona"]):
+-        return "Ainda n├úo ficou bom no WhatsApp real. O pr├│ximo passo ├® corrigir o handler do canal, n├úo criar mais camada."
++        return None
+ 
+     if any(x in msg for x in ["o que fazer", "oque fazer", "como resolver", "como arrumar"]):
+-        return "Agora ├® simples: colocar uma resposta viva antes do pipeline cognitivo, testar no WhatsApp e s├│ depois religar a cogni├º├úo completa."
++        return None
+ 
+     if any(x in msg for x in ["como ta", "como t├í", "tudo bem", "boa tarde", "bom dia", "boa noite"]):
+-        return "Estou funcionando, mas o WhatsApp ainda precisa desse ajuste de resposta viva para n├úo cair em frase gen├®rica."
++        return None
+ 
+     if any(x in msg for x in ["quem eh vc", "quem ├® vc", "quem ├® voc├¬"]):
+         return semantic_recovery(msg if "msg" in locals() else user_text if "user_text" in locals() else inbound_text if "inbound_text" in locals() else "")
+diff --git a/app/runtime/p4_13g_router.py b/app/runtime/p4_13g_router.py
+index 4289727..5f892d9 100644
+--- a/app/runtime/p4_13g_router.py
++++ b/app/runtime/p4_13g_router.py
+@@ -2,12 +2,12 @@ def route_natural_whatsapp(message):
+     msg=(message or "").lower().strip()
+ 
+     if any(x in msg for x in ["qual seu nome","quem ├® vc","quem e vc","quem ├® voc├¬","quem e voce","como vc chama","como voc├¬ chama"]):
+-        return "Sou sua assistente ­ƒÖé"
++        return None
+ 
+     if msg in ["aprofunde","aprofundar"]:
+-        return "Execu├º├úo contextual: continua do ponto anterior com evid├¬ncia e pr├│ximo passo."
++        return None
+ 
+     if msg in ["bom dia","boa tarde","boa noite","oi","ol├í","ola","eu t├┤ bem","eu to bem"]:
+-        return "Oi, Roberto. Tudo certo?"
++        return None
+ 
+-    return "Resposta direta registrada."
++    return None

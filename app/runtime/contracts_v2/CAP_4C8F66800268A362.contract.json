@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_4C8F66800268A362",
+  "source_file": "evidence\\P4.51_LEVEL_C_FULL_AUDIT_20260618_062425\\backup\\scripts\\P4_45P_fix_agent_orchestrator_contract.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\evidence\\P4.51_LEVEL_C_FULL_AUDIT_20260618_062425\\backup\\scripts\\P4_45P_fix_agent_orchestrator_contract.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 95,
+  "imports": [
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

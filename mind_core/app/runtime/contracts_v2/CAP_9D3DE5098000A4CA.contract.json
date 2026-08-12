@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_9D3DE5098000A4CA",
+  "source_file": ".venv\\Lib\\site-packages\\pptx\\oxml\\shapes\\picture.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\.venv\\Lib\\site-packages\\pptx\\oxml\\shapes\\picture.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 109,
+  "imports": [
+    "__future__",
+    "pptx.oxml",
+    "pptx.oxml.ns",
+    "pptx.oxml.shapes.shared",
+    "pptx.oxml.xmlchemy",
+    "pptx.util",
+    "typing",
+    "xml.sax.saxutils"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

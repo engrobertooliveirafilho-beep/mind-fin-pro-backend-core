@@ -1,0 +1,20 @@
+{
+  "STATUS": "P12_REAL_DATA_LOADING_CLOUD_EXPORT_IMPLEMENTED",
+  "PACKAGE_DIR": "reports\\P12_REAL_DATA_LOADING_CLOUD_EXPORT\\export_package",
+  "FILES_PRESENT": {
+    "reports/P11.7_GLOBAL_RESEARCH_CERTIFICATION/P11_STATE_SNAPSHOT.json": true,
+    "reports/P11.3_GLOBAL_MARKET_REGISTRY/global_market_registry.json": true,
+    "reports/P11.4_DATA_COVERAGE_ENGINE/coverage_matrix.json": true,
+    "reports/P11.5_MULTI_MARKET_RESEARCH_GRID/research_grid_summary.json": true,
+    "reports/P11.6_EDGE_EVIDENCE_AT_SCALE/scale_readiness.json": true
+  },
+  "CLOUD_UPLOAD_REQUIRED": true,
+  "LOCAL_ONLY_UNTIL_USER_RUNS_RCLONE_OR_SUPABASE_UPLOAD": true,
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "FTMO_REAL": "FORBIDDEN",
+  "EDGE": "NOT_PROVEN",
+  "CAUSALITY": "NOT_PROVEN",
+  "EXPORT_READY": true,
+  "generated_at": "2026-06-14T16:11:26.562385+00:00"
+}

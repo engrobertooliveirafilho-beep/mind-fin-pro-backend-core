@@ -1,0 +1,11 @@
+{
+  "strategy_id": "15e1a73a6f99bd23",
+  "family": "ema_cross_grid",
+  "asset": "PETR4",
+  "timeframe": "M5",
+  "fast": 9,
+  "slow": 26,
+  "requires_profit_backtest": true,
+  "live": "FORBIDDEN",
+  "real_orders": "FORBIDDEN"
+}

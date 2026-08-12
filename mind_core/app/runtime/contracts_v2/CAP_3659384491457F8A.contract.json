@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_3659384491457F8A",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_internal\\pyproject.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\pip\\_internal\\pyproject.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 104,
+  "imports": [
+    "__future__",
+    "collections",
+    "os",
+    "pip._internal.exceptions",
+    "pip._internal.utils.compat",
+    "pip._internal.utils.packaging",
+    "pip._vendor.packaging.requirements",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_AB2E310C0554A0CB",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\helpers\\local_audio_player.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\openai\\helpers\\local_audio_player.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 116,
+  "imports": [
+    "__future__",
+    "_extras",
+    "_response",
+    "asyncio",
+    "numpy.typing",
+    "queue",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

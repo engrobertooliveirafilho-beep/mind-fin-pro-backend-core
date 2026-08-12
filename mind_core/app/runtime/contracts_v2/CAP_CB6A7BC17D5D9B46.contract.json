@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_CB6A7BC17D5D9B46",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\lexer.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\lexer.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 109,
+  "imports": [
+    "pip._vendor.pygments.filter",
+    "pip._vendor.pygments.filters",
+    "pip._vendor.pygments.regexopt",
+    "pip._vendor.pygments.token",
+    "pip._vendor.pygments.util",
+    "re",
+    "sys",
+    "time"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

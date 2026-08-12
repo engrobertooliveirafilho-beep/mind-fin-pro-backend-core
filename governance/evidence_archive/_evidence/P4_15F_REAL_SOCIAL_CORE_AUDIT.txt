@@ -1,0 +1,1968 @@
+
+  app\eldora\core\admin_guard.py:1:import os
+  app\eldora\core\admin_guard.py:2:from fastapi import Header, HTTPException
+  app\eldora\core\admin_guard.py:3:
+  app\eldora\core\admin_guard.py:4:def admin_routes_enabled() -> bool:
+> app\eldora\core\admin_guard.py:5:    return os.getenv("ELDORA_ADMIN_ROUTES_ENABLED", "false").lower() == "true"
+  app\eldora\core\admin_guard.py:6:
+  app\eldora\core\admin_guard.py:7:def require_admin(x_admin_token: str = Header(default="")):
+  app\eldora\core\admin_guard.py:8:    if not admin_routes_enabled():
+  app\eldora\core\admin_guard.py:9:        raise HTTPException(status_code=404, detail="not found")
+  app\eldora\core\admin_guard.py:10:
+  app\eldora\core\admin_guard.py:11:    expected = os.getenv("ELDORA_ADMIN_TOKEN", "")
+  app\eldora\core\admin_guard.py:12:    if not expected or x_admin_token != expected:
+  app\eldora\core\admin_guard.py:13:        raise HTTPException(status_code=403, detail="forbidden")
+  app\eldora\core\admin_guard.py:14:
+> app\eldora\core\admin_guard.py:15:    return True
+  app\eldora\core\agent_orchestrator.py:1:from app.eldora.core.task_engine import create_task
+  app\eldora\core\agent_orchestrator.py:2:
+  app\eldora\core\agent_orchestrator.py:3:AGENTS = {
+> app\eldora\core\agent_orchestrator.py:4:    "memory_agent": {"status": "active"},
+  app\eldora\core\agent_orchestrator.py:5:    "retrieval_agent": {"status": "active"},
+  app\eldora\core\agent_orchestrator.py:6:    "reasoning_agent": {"status": "active"},
+  app\eldora\core\agent_orchestrator.py:7:    "execution_agent": {"status": "active"}
+  app\eldora\core\agent_orchestrator.py:8:}
+  app\eldora\core\agent_orchestrator.py:9:
+  app\eldora\core\agent_orchestrator.py:10:def orchestrate(goal: str, payload: dict | None = None):
+  app\eldora\core\agent_orchestrator.py:11:    tasks = [
+> app\eldora\core\agent_orchestrator.py:12:        create_task("memory_analysis", {"goal": goal}),
+  app\eldora\core\agent_orchestrator.py:13:        create_task("retrieval_execution", {"goal": goal}),
+  app\eldora\core\agent_orchestrator.py:14:        create_task("reasoning_execution", {"goal": goal}),
+  app\eldora\core\agent_orchestrator.py:15:        create_task("execution_runtime", {"goal": goal})
+  app\eldora\core\agent_orchestrator.py:16:    ]
+  app\eldora\core\agent_orchestrator.py:17:
+> app\eldora\core\agent_orchestrator.py:18:    return {
+  app\eldora\core\agent_orchestrator.py:19:        "status": "ok",
+  app\eldora\core\agent_orchestrator.py:20:        "goal": goal,
+  app\eldora\core\agent_orchestrator.py:21:        "agents": AGENTS,
+  app\eldora\core\agent_orchestrator.py:22:        "tasks_created": len(tasks),
+  app\eldora\core\agent_orchestrator.py:23:        "tasks": tasks
+  app\eldora\core\agent_orchestrator.py:24:    }
+  app\eldora\core\audio_transcript_engine.py:10:    }
+  app\eldora\core\audio_transcript_engine.py:11:
+  app\eldora\core\audio_transcript_engine.py:12:    AUDIO_TRANSCRIPTS.append(item)
+  app\eldora\core\audio_transcript_engine.py:13:
+> app\eldora\core\audio_transcript_engine.py:14:    return {
+  app\eldora\core\audio_transcript_engine.py:15:        "status":"ok",
+  app\eldora\core\audio_transcript_engine.py:16:        "transcript":item
+  app\eldora\core\audio_transcript_engine.py:17:    }
+  app\eldora\core\audio_transcript_engine.py:18:
+  app\eldora\core\audio_transcript_engine.py:19:def transcript_report():
+> app\eldora\core\audio_transcript_engine.py:20:    return {
+  app\eldora\core\audio_transcript_engine.py:21:        "status":"ok",
+  app\eldora\core\audio_transcript_engine.py:22:        "transcripts_total":len(AUDIO_TRANSCRIPTS),
+  app\eldora\core\audio_transcript_engine.py:23:        "items":AUDIO_TRANSCRIPTS[-20:]
+  app\eldora\core\audio_transcript_engine.py:24:    }
+  app\eldora\core\audit_ledger.py:1:from app.eldora.core.persistent_event_store import save_audit_event, audit_store_report
+  app\eldora\core\audit_ledger.py:2:
+  app\eldora\core\audit_ledger.py:3:def audit_event(event_type: str, actor: str = "system", payload: dict | None = None):
+> app\eldora\core\audit_ledger.py:4:    return save_audit_event(event_type, actor, payload)
+  app\eldora\core\audit_ledger.py:5:
+  app\eldora\core\audit_ledger.py:6:def audit_report():
+> app\eldora\core\audit_ledger.py:7:    return audit_store_report()
+> app\eldora\core\auth_context.py:1:def build_auth_context(user_id: str = "anonymous", tenant_id: str = "default", role: str = "guest"):
+> app\eldora\core\auth_context.py:2:    return {
+  app\eldora\core\auth_context.py:3:        "user_id": user_id,
+  app\eldora\core\auth_context.py:4:        "tenant_id": tenant_id,
+  app\eldora\core\auth_context.py:5:        "role": role,
+  app\eldora\core\auth_context.py:6:        "authenticated": user_id != "anonymous"
+  app\eldora\core\auth_context.py:7:    }
+  app\eldora\core\autonomous_capability_evolution.py:5:def evolve_capability(capability:str, improvement:str):
+  app\eldora\core\autonomous_capability_evolution.py:6:    item = {
+  app\eldora\core\autonomous_capability_evolution.py:7:        "capability":capability,
+  app\eldora\core\autonomous_capability_evolution.py:8:        "improvement":improvement,
+> app\eldora\core\autonomous_capability_evolution.py:9:        "evolution_score":0.98,
+  app\eldora\core\autonomous_capability_evolution.py:10:        "timestamp":datetime.now(timezone.utc).isoformat()
+  app\eldora\core\autonomous_capability_evolution.py:11:    }
+  app\eldora\core\autonomous_capability_evolution.py:12:
+  app\eldora\core\autonomous_capability_evolution.py:13:    EVOLUTION_LOG.append(item)
+  app\eldora\core\autonomous_capability_evolution.py:14:
+> app\eldora\core\autonomous_capability_evolution.py:15:    return {
+  app\eldora\core\autonomous_capability_evolution.py:16:        "status":"ok",
+  app\eldora\core\autonomous_capability_evolution.py:17:        "evolution":item
+  app\eldora\core\autonomous_capability_evolution.py:18:    }
+  app\eldora\core\autonomous_capability_evolution.py:19:
+  app\eldora\core\autonomous_capability_evolution.py:20:def evolution_report():
+> app\eldora\core\autonomous_capability_evolution.py:21:    return {
+  app\eldora\core\autonomous_capability_evolution.py:22:        "status":"ok",
+  app\eldora\core\autonomous_capability_evolution.py:23:        "events_total":len(EVOLUTION_LOG),
+  app\eldora\core\autonomous_capability_evolution.py:24:        "events":EVOLUTION_LOG[-50:]
+  app\eldora\core\autonomous_capability_evolution.py:25:    }
+  app\eldora\core\autonomous_digital_presence.py:12:    }
+  app\eldora\core\autonomous_digital_presence.py:13:
+  app\eldora\core\autonomous_digital_presence.py:14:    DIGITAL_PRESENCE.append(item)
+  app\eldora\core\autonomous_digital_presence.py:15:
+> app\eldora\core\autonomous_digital_presence.py:16:    return {
+  app\eldora\core\autonomous_digital_presence.py:17:        "status":"ok",
+  app\eldora\core\autonomous_digital_presence.py:18:        "presence":item
+  app\eldora\core\autonomous_digital_presence.py:19:    }
+  app\eldora\core\autonomous_digital_presence.py:20:
+  app\eldora\core\autonomous_digital_presence.py:21:def presence_report():
+> app\eldora\core\autonomous_digital_presence.py:22:    return {
+  app\eldora\core\autonomous_digital_presence.py:23:        "status":"ok",
+  app\eldora\core\autonomous_digital_presence.py:24:        "presence_total":len(DIGITAL_PRESENCE),
+  app\eldora\core\autonomous_digital_presence.py:25:        "presence":DIGITAL_PRESENCE[-100:]
+  app\eldora\core\autonomous_digital_presence.py:26:    }
+  app\eldora\core\autonomous_growth_runtime.py:21:    }
+  app\eldora\core\autonomous_growth_runtime.py:22:
+  app\eldora\core\autonomous_growth_runtime.py:23:    DISTRIBUTION_CAMPAIGNS.append(campaign)
+  app\eldora\core\autonomous_growth_runtime.py:24:
+> app\eldora\core\autonomous_growth_runtime.py:25:    return {
+  app\eldora\core\autonomous_growth_runtime.py:26:        "status":"ok",
+  app\eldora\core\autonomous_growth_runtime.py:27:        "campaign":campaign,
+  app\eldora\core\autonomous_growth_runtime.py:28:        "campaigns_total":len(DISTRIBUTION_CAMPAIGNS)
+  app\eldora\core\autonomous_growth_runtime.py:29:    }
+  app\eldora\core\autonomous_growth_runtime.py:30:
+  app\eldora\core\autonomous_growth_runtime.py:31:def create_acquisition_swarm(
+  app\eldora\core\autonomous_growth_runtime.py:32:    objective:str="lead_generation"
+  app\eldora\core\autonomous_growth_runtime.py:33:):
+  app\eldora\core\autonomous_growth_runtime.py:34:
+  app\eldora\core\autonomous_growth_runtime.py:35:    swarm = {
+  app\eldora\core\autonomous_growth_runtime.py:36:        "swarm_id": str(uuid.uuid4()),
+  app\eldora\core\autonomous_growth_runtime.py:37:        "objective": objective,
+  app\eldora\core\autonomous_growth_runtime.py:38:        "status": "running",
+  app\eldora\core\autonomous_growth_runtime.py:39:        "created_at": datetime.now(timezone.utc).isoformat()
+  app\eldora\core\autonomous_growth_runtime.py:40:    }
+  app\eldora\core\autonomous_growth_runtime.py:41:
+  app\eldora\core\autonomous_growth_runtime.py:42:    ACQUISITION_SWARMS.append(swarm)
+  app\eldora\core\autonomous_growth_runtime.py:43:
+> app\eldora\core\autonomous_growth_runtime.py:44:    return {
+  app\eldora\core\autonomous_growth_runtime.py:45:        "status":"ok",
+  app\eldora\core\autonomous_growth_runtime.py:46:        "swarm":swarm,
+  app\eldora\core\autonomous_growth_runtime.py:47:        "swarms_total":len(ACQUISITION_SWARMS)
+  app\eldora\core\autonomous_growth_runtime.py:48:    }
+  app\eldora\core\autonomous_growth_runtime.py:49:
+  app\eldora\core\autonomous_growth_runtime.py:50:def execute_commercial_operation(
+  app\eldora\core\autonomous_growth_runtime.py:51:    lead_id:str,
+  app\eldora\core\autonomous_growth_runtime.py:52:    action:str="conversion_attempt"
+  app\eldora\core\autonomous_growth_runtime.py:53:):
+  app\eldora\core\autonomous_growth_runtime.py:54:
+  app\eldora\core\autonomous_growth_runtime.py:55:    execution = {
+  app\eldora\core\autonomous_growth_runtime.py:56:        "execution_id": str(uuid.uuid4()),
+  app\eldora\core\autonomous_growth_runtime.py:57:        "lead_id": lead_id,
+  app\eldora\core\autonomous_growth_runtime.py:58:        "action": action,
+  app\eldora\core\autonomous_growth_runtime.py:59:        "status": "executed",
+  app\eldora\core\autonomous_growth_runtime.py:60:        "created_at": datetime.now(timezone.utc).isoformat()
+  app\eldora\core\autonomous_growth_runtime.py:61:    }
+  app\eldora\core\autonomous_growth_runtime.py:62:
+  app\eldora\core\autonomous_growth_runtime.py:63:    COMMERCIAL_EXECUTIONS.append(execution)
+  app\eldora\core\autonomous_growth_runtime.py:64:
+> app\eldora\core\autonomous_growth_runtime.py:65:    return {
+  app\eldora\core\autonomous_growth_runtime.py:66:        "status":"ok",
+  app\eldora\core\autonomous_growth_runtime.py:67:        "execution":execution
+  app\eldora\core\autonomous_growth_runtime.py:68:    }
+  app\eldora\core\autonomous_growth_runtime.py:69:
+  app\eldora\core\autonomous_growth_runtime.py:70:def optimize_revenue_route(
+  app\eldora\core\autonomous_growth_runtime.py:71:    route_name:str="primary_funnel",
+  app\eldora\core\autonomous_growth_runtime.py:72:    efficiency:float=1.0
+  app\eldora\core\autonomous_growth_runtime.py:73:):
+  app\eldora\core\autonomous_growth_runtime.py:74:
+  app\eldora\core\autonomous_growth_runtime.py:75:    optimization = {
+  app\eldora\core\autonomous_growth_runtime.py:76:        "optimization_id": str(uuid.uuid4()),
+  app\eldora\core\autonomous_growth_runtime.py:77:        "route_name": route_name,
+  app\eldora\core\autonomous_growth_runtime.py:78:        "efficiency": efficiency,
+  app\eldora\core\autonomous_growth_runtime.py:79:        "timestamp": datetime.now(timezone.utc).isoformat()
+  app\eldora\core\autonomous_growth_runtime.py:80:    }
+  app\eldora\core\autonomous_growth_runtime.py:81:
+  app\eldora\core\autonomous_growth_runtime.py:82:    REVENUE_OPTIMIZATIONS.append(optimization)
+  app\eldora\core\autonomous_growth_runtime.py:83:
+> app\eldora\core\autonomous_growth_runtime.py:84:    return {
+  app\eldora\core\autonomous_growth_runtime.py:85:        "status":"ok",
+  app\eldora\core\autonomous_growth_runtime.py:86:        "optimization":optimization
+  app\eldora\core\autonomous_growth_runtime.py:87:    }
+  app\eldora\core\autonomous_growth_runtime.py:88:
+  app\eldora\core\autonomous_growth_runtime.py:89:def autonomous_growth_report():
+  app\eldora\core\autonomous_growth_runtime.py:90:
+> app\eldora\core\autonomous_growth_runtime.py:91:    return {
+  app\eldora\core\autonomous_growth_runtime.py:92:        "status":"ok",
+  app\eldora\core\autonomous_growth_runtime.py:93:        "campaigns_total":len(DISTRIBUTION_CAMPAIGNS),
+  app\eldora\core\autonomous_growth_runtime.py:94:        "swarms_total":len(ACQUISITION_SWARMS),
+  app\eldora\core\autonomous_growth_runtime.py:95:        "executions_total":len(COMMERCIAL_EXECUTIONS),
+  app\eldora\core\autonomous_growth_runtime.py:96:        "optimizations_total":len(REVENUE_OPTIMIZATIONS),
+  app\eldora\core\autonomous_growth_runtime.py:97:        "campaigns":DISTRIBUTION_CAMPAIGNS[-20:],
+  app\eldora\core\autonomous_growth_runtime.py:98:        "swarms":ACQUISITION_SWARMS[-20:]
+  app\eldora\core\autonomous_growth_runtime.py:99:    }
+  app\eldora\core\autonomous_planner.py:9:    plan = {
+  app\eldora\core\autonomous_planner.py:10:        "plan_id": plan_id,
+  app\eldora\core\autonomous_planner.py:11:        "goal": goal,
+  app\eldora\core\autonomous_planner.py:12:        "steps": [
+> app\eldora\core\autonomous_planner.py:13:            "memory_analysis",
+  app\eldora\core\autonomous_planner.py:14:            "retrieval_execution",
+  app\eldora\core\autonomous_planner.py:15:            "reasoning_execution",
+  app\eldora\core\autonomous_planner.py:16:            "execution_runtime"
+  app\eldora\core\autonomous_planner.py:17:        ],
+  app\eldora\core\autonomous_planner.py:18:        "status": "planned",
+  app\eldora\core\autonomous_planner.py:19:        "created_at": datetime.now(timezone.utc).isoformat()
+  app\eldora\core\autonomous_planner.py:20:    }
+  app\eldora\core\autonomous_planner.py:21:
+  app\eldora\core\autonomous_planner.py:22:    PLANS[plan_id] = plan
+> app\eldora\core\autonomous_planner.py:23:    return plan
+  app\eldora\core\autonomous_planner.py:24:
+  app\eldora\core\autonomous_planner.py:25:def get_plan(plan_id: str):
+> app\eldora\core\autonomous_planner.py:26:    return PLANS.get(plan_id, {"status": "not_found"})
+  app\eldora\core\autonomous_planner.py:27:
+  app\eldora\core\autonomous_planner.py:28:def planner_report():
+> app\eldora\core\autonomous_planner.py:29:    return {
+  app\eldora\core\autonomous_planner.py:30:        "status": "ok",
+  app\eldora\core\autonomous_planner.py:31:        "plans_total": len(PLANS),
+  app\eldora\core\autonomous_planner.py:32:        "plans": list(PLANS.values())[-20:]
+  app\eldora\core\autonomous_planner.py:33:    }
+  app\eldora\core\browser_fleet_runtime.py:20:    }
+  app\eldora\core\browser_fleet_runtime.py:21:
+  app\eldora\core\browser_fleet_runtime.py:22:    BROWSER_FLEET.append(agent)
+  app\eldora\core\browser_fleet_runtime.py:23:
+> app\eldora\core\browser_fleet_runtime.py:24:    return {
+  app\eldora\core\browser_fleet_runtime.py:25:        "status":"ok",
+  app\eldora\core\browser_fleet_runtime.py:26:        "agent":agent,
+  app\eldora\core\browser_fleet_runtime.py:27:        "fleet_total":len(BROWSER_FLEET)
+  app\eldora\core\browser_fleet_runtime.py:28:    }
+  app\eldora\core\browser_fleet_runtime.py:29:
+  app\eldora\core\browser_fleet_runtime.py:30:def create_browser_task(
+  app\eldora\core\browser_fleet_runtime.py:31:    objective:str,
+  app\eldora\core\browser_fleet_runtime.py:32:    target_url:str
+  app\eldora\core\browser_fleet_runtime.py:33:):
+  app\eldora\core\browser_fleet_runtime.py:34:
+  app\eldora\core\browser_fleet_runtime.py:35:    task = {
+  app\eldora\core\browser_fleet_runtime.py:36:        "task_id": str(uuid.uuid4()),
+  app\eldora\core\browser_fleet_runtime.py:37:        "objective": objective,
+  app\eldora\core\browser_fleet_runtime.py:38:        "target_url": target_url,
+  app\eldora\core\browser_fleet_runtime.py:39:        "status": "queued",
+  app\eldora\core\browser_fleet_runtime.py:40:        "created_at": datetime.now(timezone.utc).isoformat()
+  app\eldora\core\browser_fleet_runtime.py:41:    }
+  app\eldora\core\browser_fleet_runtime.py:42:
+  app\eldora\core\browser_fleet_runtime.py:43:    BROWSER_TASKS.append(task)
+  app\eldora\core\browser_fleet_runtime.py:44:
+> app\eldora\core\browser_fleet_runtime.py:45:    return {
+  app\eldora\core\browser_fleet_runtime.py:46:        "status":"ok",
+  app\eldora\core\browser_fleet_runtime.py:47:        "task":task,
+  app\eldora\core\browser_fleet_runtime.py:48:        "tasks_total":len(BROWSER_TASKS)
+  app\eldora\core\browser_fleet_runtime.py:49:    }
+  app\eldora\core\browser_fleet_runtime.py:50:
+  app\eldora\core\browser_fleet_runtime.py:51:def assign_browser_task(
+  app\eldora\core\browser_fleet_runtime.py:52:    task_id:str,
+  app\eldora\core\browser_fleet_runtime.py:53:    agent_id:str
+  app\eldora\core\browser_fleet_runtime.py:54:):
+  app\eldora\core\browser_fleet_runtime.py:55:
+  app\eldora\core\browser_fleet_runtime.py:56:    session = {
+  app\eldora\core\browser_fleet_runtime.py:57:        "session_id": str(uuid.uuid4()),
+  app\eldora\core\browser_fleet_runtime.py:58:        "task_id": task_id,
+  app\eldora\core\browser_fleet_runtime.py:59:        "agent_id": agent_id,
+  app\eldora\core\browser_fleet_runtime.py:60:        "status": "running",
+  app\eldora\core\browser_fleet_runtime.py:61:        "created_at": datetime.now(timezone.utc).isoformat()
+  app\eldora\core\browser_fleet_runtime.py:62:    }
+  app\eldora\core\browser_fleet_runtime.py:63:
+  app\eldora\core\browser_fleet_runtime.py:64:    BROWSER_SESSIONS.append(session)
+  app\eldora\core\browser_fleet_runtime.py:65:
+> app\eldora\core\browser_fleet_runtime.py:66:    return {
+  app\eldora\core\browser_fleet_runtime.py:67:        "status":"ok",
+  app\eldora\core\browser_fleet_runtime.py:68:        "session":session,
+  app\eldora\core\browser_fleet_runtime.py:69:        "sessions_total":len(BROWSER_SESSIONS)
+  app\eldora\core\browser_fleet_runtime.py:70:    }
+  app\eldora\core\browser_fleet_runtime.py:71:
+  app\eldora\core\browser_fleet_runtime.py:72:def browser_fleet_report():
+  app\eldora\core\browser_fleet_runtime.py:73:
+> app\eldora\core\browser_fleet_runtime.py:74:    return {
+  app\eldora\core\browser_fleet_runtime.py:75:        "status":"ok",
+  app\eldora\core\browser_fleet_runtime.py:76:        "fleet_total":len(BROWSER_FLEET),
+  app\eldora\core\browser_fleet_runtime.py:77:        "tasks_total":len(BROWSER_TASKS),
+  app\eldora\core\browser_fleet_runtime.py:78:        "sessions_total":len(BROWSER_SESSIONS),
+  app\eldora\core\browser_fleet_runtime.py:79:        "fleet":BROWSER_FLEET[-20:],
+  app\eldora\core\browser_fleet_runtime.py:80:        "sessions":BROWSER_SESSIONS[-20:]
+  app\eldora\core\browser_fleet_runtime.py:81:    }
+  app\eldora\core\business_runtime.py:20:    }
+  app\eldora\core\business_runtime.py:21:
+  app\eldora\core\business_runtime.py:22:    BUSINESS_AGENTS.append(agent)
+  app\eldora\core\business_runtime.py:23:
+> app\eldora\core\business_runtime.py:24:    return {
+  app\eldora\core\business_runtime.py:25:        "status":"ok",
+  app\eldora\core\business_runtime.py:26:        "agent":agent,
+  app\eldora\core\business_runtime.py:27:        "agents_total":len(BUSINESS_AGENTS)
+  app\eldora\core\business_runtime.py:28:    }
+  app\eldora\core\business_runtime.py:29:
+  app\eldora\core\business_runtime.py:30:def create_lead(
+  app\eldora\core\business_runtime.py:31:    name:str,
+  app\eldora\core\business_runtime.py:32:    source:str="web"
+  app\eldora\core\business_runtime.py:33:):
+  app\eldora\core\business_runtime.py:34:
+  app\eldora\core\business_runtime.py:35:    lead = {
+  app\eldora\core\business_runtime.py:36:        "lead_id": str(uuid.uuid4()),
+  app\eldora\core\business_runtime.py:37:        "name": name,
+  app\eldora\core\business_runtime.py:38:        "source": source,
+  app\eldora\core\business_runtime.py:39:        "status": "captured",
+  app\eldora\core\business_runtime.py:40:        "created_at": datetime.now(timezone.utc).isoformat()
+  app\eldora\core\business_runtime.py:41:    }
+  app\eldora\core\business_runtime.py:42:
+  app\eldora\core\business_runtime.py:43:    LEAD_PIPELINE.append(lead)
+  app\eldora\core\business_runtime.py:44:
+> app\eldora\core\business_runtime.py:45:    return {
+  app\eldora\core\business_runtime.py:46:        "status":"ok",
+  app\eldora\core\business_runtime.py:47:        "lead":lead,
+  app\eldora\core\business_runtime.py:48:        "leads_total":len(LEAD_PIPELINE)
+  app\eldora\core\business_runtime.py:49:    }
+  app\eldora\core\business_runtime.py:50:
+  app\eldora\core\business_runtime.py:51:def register_revenue_event(
+  app\eldora\core\business_runtime.py:52:    lead_id:str,
+  app\eldora\core\business_runtime.py:53:    value:float,
+  app\eldora\core\business_runtime.py:54:    event_type:str="conversion"
+  app\eldora\core\business_runtime.py:55:):
+  app\eldora\core\business_runtime.py:56:
+  app\eldora\core\business_runtime.py:57:    event = {
+  app\eldora\core\business_runtime.py:58:        "event_id": str(uuid.uuid4()),
+  app\eldora\core\business_runtime.py:59:        "lead_id": lead_id,
+  app\eldora\core\business_runtime.py:60:        "value": value,
+  app\eldora\core\business_runtime.py:61:        "event_type": event_type,
+  app\eldora\core\business_runtime.py:62:        "timestamp": datetime.now(timezone.utc).isoformat()
+  app\eldora\core\business_runtime.py:63:    }
+  app\eldora\core\business_runtime.py:64:
+  app\eldora\core\business_runtime.py:65:    REVENUE_EVENTS.append(event)
+  app\eldora\core\business_runtime.py:66:
+> app\eldora\core\business_runtime.py:67:    return {
+  app\eldora\core\business_runtime.py:68:        "status":"ok",
+  app\eldora\core\business_runtime.py:69:        "event":event,
+  app\eldora\core\business_runtime.py:70:        "revenue_events":len(REVENUE_EVENTS)
+  app\eldora\core\business_runtime.py:71:    }
+  app\eldora\core\business_runtime.py:72:
+  app\eldora\core\business_runtime.py:73:def business_runtime_report():
+  app\eldora\core\business_runtime.py:74:
+  app\eldora\core\business_runtime.py:75:    total_revenue = sum(
+  app\eldora\core\business_runtime.py:76:        x["value"] for x in REVENUE_EVENTS
+  app\eldora\core\business_runtime.py:77:    )
+  app\eldora\core\business_runtime.py:78:
+> app\eldora\core\business_runtime.py:79:    return {
+  app\eldora\core\business_runtime.py:80:        "status":"ok",
+  app\eldora\core\business_runtime.py:81:        "agents_total":len(BUSINESS_AGENTS),
+  app\eldora\core\business_runtime.py:82:        "leads_total":len(LEAD_PIPELINE),
+  app\eldora\core\business_runtime.py:83:        "revenue_events":len(REVENUE_EVENTS),
+  app\eldora\core\business_runtime.py:84:        "total_revenue":total_revenue,
+  app\eldora\core\business_runtime.py:85:        "agents":BUSINESS_AGENTS[-20:],
+  app\eldora\core\business_runtime.py:86:        "leads":LEAD_PIPELINE[-20:]
+  app\eldora\core\business_runtime.py:87:    }
+  app\eldora\core\capability_synthesis_engine.py:10:        "capability_id": capability_id,
+  app\eldora\core\capability_synthesis_engine.py:11:        "name": name,
+  app\eldora\core\capability_synthesis_engine.py:12:        "objective": objective,
+  app\eldora\core\capability_synthesis_engine.py:13:        "status": "generated",
+> app\eldora\core\capability_synthesis_engine.py:14:        "score": 0.95,
+  app\eldora\core\capability_synthesis_engine.py:15:        "created_at": datetime.now(timezone.utc).isoformat()
+  app\eldora\core\capability_synthesis_engine.py:16:    }
+  app\eldora\core\capability_synthesis_engine.py:17:
+  app\eldora\core\capability_synthesis_engine.py:18:    CAPABILITY_REGISTRY[capability_id] = capability
+  app\eldora\core\capability_synthesis_engine.py:19:
+> app\eldora\core\capability_synthesis_engine.py:20:    return {
+  app\eldora\core\capability_synthesis_engine.py:21:        "status":"ok",
+  app\eldora\core\capability_synthesis_engine.py:22:        "capability":capability,
+  app\eldora\core\capability_synthesis_engine.py:23:        "capabilities_total":len(CAPABILITY_REGISTRY)
+  app\eldora\core\capability_synthesis_engine.py:24:    }
+  app\eldora\core\capability_synthesis_engine.py:25:
+  app\eldora\core\capability_synthesis_engine.py:26:def capability_report():
+> app\eldora\core\capability_synthesis_engine.py:27:    return {
+  app\eldora\core\capability_synthesis_engine.py:28:        "status":"ok",
+  app\eldora\core\capability_synthesis_engine.py:29:        "capabilities_total":len(CAPABILITY_REGISTRY),
+  app\eldora\core\capability_synthesis_engine.py:30:        "capabilities":list(CAPABILITY_REGISTRY.values())[-50:]
+  app\eldora\core\capability_synthesis_engine.py:31:    }
+  app\eldora\core\causal_reasoning_engine.py:11:    }
+  app\eldora\core\causal_reasoning_engine.py:12:
+  app\eldora\core\causal_reasoning_engine.py:13:    CAUSAL_EVENTS.append(item)
+  app\eldora\core\causal_reasoning_engine.py:14:
+> app\eldora\core\causal_reasoning_engine.py:15:    return {
+  app\eldora\core\causal_reasoning_engine.py:16:        "status":"ok",
+  app\eldora\core\causal_reasoning_engine.py:17:        "causal_relation":item
+  app\eldora\core\causal_reasoning_engine.py:18:    }
+  app\eldora\core\causal_reasoning_engine.py:19:
+  app\eldora\core\causal_reasoning_engine.py:20:def causal_report():
+> app\eldora\core\causal_reasoning_engine.py:21:    return {
+  app\eldora\core\causal_reasoning_engine.py:22:        "status":"ok",
+  app\eldora\core\causal_reasoning_engine.py:23:        "events_total":len(CAUSAL_EVENTS),
+  app\eldora\core\causal_reasoning_engine.py:24:        "events":CAUSAL_EVENTS[-100:]
+  app\eldora\core\causal_reasoning_engine.py:25:    }
+  app\eldora\core\checkpoint_engine.py:12:        "created_at": datetime.now(timezone.utc).isoformat()
+  app\eldora\core\checkpoint_engine.py:13:    }
+  app\eldora\core\checkpoint_engine.py:14:
+  app\eldora\core\checkpoint_engine.py:15:    CHECKPOINTS[checkpoint_id] = checkpoint
+> app\eldora\core\checkpoint_engine.py:16:    return checkpoint
+  app\eldora\core\checkpoint_engine.py:17:
+  app\eldora\core\checkpoint_engine.py:18:def checkpoint_report():
+> app\eldora\core\checkpoint_engine.py:19:    return {
+  app\eldora\core\checkpoint_engine.py:20:        "status": "ok",
+  app\eldora\core\checkpoint_engine.py:21:        "checkpoints_total": len(CHECKPOINTS),
+  app\eldora\core\checkpoint_engine.py:22:        "checkpoints": list(CHECKPOINTS.values())[-20:]
+  app\eldora\core\checkpoint_engine.py:23:    }
+  app\eldora\core\cognitive_load_balancer.py:11:    }
+  app\eldora\core\cognitive_load_balancer.py:12:
+  app\eldora\core\cognitive_load_balancer.py:13:    LOAD_EVENTS.append(item)
+  app\eldora\core\cognitive_load_balancer.py:14:
+> app\eldora\core\cognitive_load_balancer.py:15:    return {
+  app\eldora\core\cognitive_load_balancer.py:16:        "status":"ok",
+  app\eldora\core\cognitive_load_balancer.py:17:        "event":item
+  app\eldora\core\cognitive_load_balancer.py:18:    }
+  app\eldora\core\cognitive_load_balancer.py:19:
+  app\eldora\core\cognitive_load_balancer.py:20:def load_report():
+> app\eldora\core\cognitive_load_balancer.py:21:    return {
+  app\eldora\core\cognitive_load_balancer.py:22:        "status":"ok",
+  app\eldora\core\cognitive_load_balancer.py:23:        "events_total":len(LOAD_EVENTS),
+  app\eldora\core\cognitive_load_balancer.py:24:        "events":LOAD_EVENTS[-100:]
+  app\eldora\core\cognitive_load_balancer.py:25:    }
+  app\eldora\core\continuous_execution_engine.py:11:    }
+  app\eldora\core\continuous_execution_engine.py:12:
+  app\eldora\core\continuous_execution_engine.py:13:    EXECUTION_LOOPS.append(item)
+  app\eldora\core\continuous_execution_engine.py:14:
+> app\eldora\core\continuous_execution_engine.py:15:    return {
+  app\eldora\core\continuous_execution_engine.py:16:        "status":"ok",
+  app\eldora\core\continuous_execution_engine.py:17:        "loop":item
+  app\eldora\core\continuous_execution_engine.py:18:    }
+  app\eldora\core\continuous_execution_engine.py:19:
+  app\eldora\core\continuous_execution_engine.py:20:def loop_report():
+> app\eldora\core\continuous_execution_engine.py:21:    return {
+  app\eldora\core\continuous_execution_engine.py:22:        "status":"ok",
+  app\eldora\core\continuous_execution_engine.py:23:        "loops_total":len(EXECUTION_LOOPS),
+  app\eldora\core\continuous_execution_engine.py:24:        "loops":EXECUTION_LOOPS[-100:]
+  app\eldora\core\continuous_execution_engine.py:25:    }
+  app\eldora\core\cross_platform_execution_bus.py:12:    }
+  app\eldora\core\cross_platform_execution_bus.py:13:
+  app\eldora\core\cross_platform_execution_bus.py:14:    BUS_EVENTS.append(item)
+  app\eldora\core\cross_platform_execution_bus.py:15:
+> app\eldora\core\cross_platform_execution_bus.py:16:    return {
+  app\eldora\core\cross_platform_execution_bus.py:17:        "status":"ok",
+  app\eldora\core\cross_platform_execution_bus.py:18:        "event":item
+  app\eldora\core\cross_platform_execution_bus.py:19:    }
+  app\eldora\core\cross_platform_execution_bus.py:20:
+  app\eldora\core\cross_platform_execution_bus.py:21:def bus_report():
+> app\eldora\core\cross_platform_execution_bus.py:22:    return {
+  app\eldora\core\cross_platform_execution_bus.py:23:        "status":"ok",
+  app\eldora\core\cross_platform_execution_bus.py:24:        "events_total":len(BUS_EVENTS),
+  app\eldora\core\cross_platform_execution_bus.py:25:        "events":BUS_EVENTS[-100:]
+  app\eldora\core\cross_platform_execution_bus.py:26:    }
+  app\eldora\core\dependency_container.py:3:        self.services = {}
+  app\eldora\core\dependency_container.py:4:
+  app\eldora\core\dependency_container.py:5:    def register(self, name: str, service):
+  app\eldora\core\dependency_container.py:6:        self.services[name] = service
+> app\eldora\core\dependency_container.py:7:        return True
+  app\eldora\core\dependency_container.py:8:
+  app\eldora\core\dependency_container.py:9:    def get(self, name: str, default=None):
+> app\eldora\core\dependency_container.py:10:        return self.services.get(name, default)
+  app\eldora\core\dependency_container.py:11:
+  app\eldora\core\dependency_container.py:12:container = DependencyContainer()
+  app\eldora\core\distributed_runtime_state.py:6:    RUNTIME_STATE[key]={
+  app\eldora\core\distributed_runtime_state.py:7:        "value":value,
+  app\eldora\core\distributed_runtime_state.py:8:        "updated_at":datetime.now(timezone.utc).isoformat()
+  app\eldora\core\distributed_runtime_state.py:9:    }
+> app\eldora\core\distributed_runtime_state.py:10:    return {"status":"ok","key":key,"state":RUNTIME_STATE[key]}
+  app\eldora\core\distributed_runtime_state.py:11:
+  app\eldora\core\distributed_runtime_state.py:12:def runtime_state_report():
+> app\eldora\core\distributed_runtime_state.py:13:    return {"status":"ok","keys_total":len(RUNTIME_STATE),"state":RUNTIME_STATE}
+  app\eldora\core\distributed_runtime.py:8:    }
+  app\eldora\core\distributed_runtime.py:9:}
+  app\eldora\core\distributed_runtime.py:10:
+  app\eldora\core\distributed_runtime.py:11:def distributed_runtime_report():
+> app\eldora\core\distributed_runtime.py:12:    return {
+  app\eldora\core\distributed_runtime.py:13:        "status": "ok",
+  app\eldora\core\distributed_runtime.py:14:        "nodes_total": len(RUNTIME_NODES),
+  app\eldora\core\distributed_runtime.py:15:        "nodes": RUNTIME_NODES
+  app\eldora\core\distributed_runtime.py:16:    }
+  app\eldora\core\distributed_swarm_engine.py:16:    }
+  app\eldora\core\distributed_swarm_engine.py:17:
+  app\eldora\core\distributed_swarm_engine.py:18:    SWARM_AGENTS[agent_id] = agent
+  app\eldora\core\distributed_swarm_engine.py:19:
+> app\eldora\core\distributed_swarm_engine.py:20:    return {
+  app\eldora\core\distributed_swarm_engine.py:21:        "status":"ok",
+  app\eldora\core\distributed_swarm_engine.py:22:        "agent":agent,
+  app\eldora\core\distributed_swarm_engine.py:23:        "agents_total":len(SWARM_AGENTS)
+  app\eldora\core\distributed_swarm_engine.py:24:    }
+  app\eldora\core\distributed_swarm_engine.py:25:
+  app\eldora\core\distributed_swarm_engine.py:26:def swarm_report():
+> app\eldora\core\distributed_swarm_engine.py:27:    return {
+  app\eldora\core\distributed_swarm_engine.py:28:        "status":"ok",
+  app\eldora\core\distributed_swarm_engine.py:29:        "agents_total":len(SWARM_AGENTS),
+  app\eldora\core\distributed_swarm_engine.py:30:        "agents":list(SWARM_AGENTS.values())[-100:]
+  app\eldora\core\distributed_swarm_engine.py:31:    }
+  app\eldora\core\distributed_worker_loop.py:14:        }
+  app\eldora\core\distributed_worker_loop.py:15:        WORKER_LOOPS.append(event)
+  app\eldora\core\distributed_worker_loop.py:16:        publish_true_stream("eldora.worker.loop","cycle_processed",event)
+  app\eldora\core\distributed_worker_loop.py:17:        processed.append(event)
+> app\eldora\core\distributed_worker_loop.py:18:    return {"status":"ok","worker_name":worker_name,"cycles":len(processed),"processed":processed}
+  app\eldora\core\distributed_worker_loop.py:19:
+  app\eldora\core\distributed_worker_loop.py:20:def worker_loop_report():
+> app\eldora\core\distributed_worker_loop.py:21:    return {"status":"ok","loops_total":len(WORKER_LOOPS),"loops":WORKER_LOOPS[-100:]}
+  app\eldora\core\dynamic_skill_engine.py:15:    }
+  app\eldora\core\dynamic_skill_engine.py:16:
+  app\eldora\core\dynamic_skill_engine.py:17:    DYNAMIC_SKILLS[skill_id] = skill
+  app\eldora\core\dynamic_skill_engine.py:18:
+> app\eldora\core\dynamic_skill_engine.py:19:    return {
+  app\eldora\core\dynamic_skill_engine.py:20:        "status":"ok",
+  app\eldora\core\dynamic_skill_engine.py:21:        "skill":skill,
+  app\eldora\core\dynamic_skill_engine.py:22:        "skills_total":len(DYNAMIC_SKILLS)
+  app\eldora\core\dynamic_skill_engine.py:23:    }
+  app\eldora\core\dynamic_skill_engine.py:24:
+  app\eldora\core\dynamic_skill_engine.py:25:def skill_report():
+> app\eldora\core\dynamic_skill_engine.py:26:    return {
+  app\eldora\core\dynamic_skill_engine.py:27:        "status":"ok",
+  app\eldora\core\dynamic_skill_engine.py:28:        "skills_total":len(DYNAMIC_SKILLS),
+  app\eldora\core\dynamic_skill_engine.py:29:        "skills":list(DYNAMIC_SKILLS.values())[-50:]
+  app\eldora\core\dynamic_skill_engine.py:30:    }
+  app\eldora\core\economic_governor.py:9:def consume_budget(amount:int):
+  app\eldora\core\economic_governor.py:10:    EXECUTION_BUDGET["used_budget"] += amount
+  app\eldora\core\economic_governor.py:11:    EXECUTION_BUDGET["remaining_budget"] -= amount
+  app\eldora\core\economic_governor.py:12:
+> app\eldora\core\economic_governor.py:13:    return {
+  app\eldora\core\economic_governor.py:14:        "status":"ok",
+  app\eldora\core\economic_governor.py:15:        "budget":EXECUTION_BUDGET,
+  app\eldora\core\economic_governor.py:16:        "timestamp":datetime.now(timezone.utc).isoformat()
+  app\eldora\core\economic_governor.py:17:    }
+  app\eldora\core\economic_governor.py:18:
+  app\eldora\core\economic_governor.py:19:def governor_report():
+> app\eldora\core\economic_governor.py:20:    return {
+  app\eldora\core\economic_governor.py:21:        "status":"ok",
+  app\eldora\core\economic_governor.py:22:        "budget":EXECUTION_BUDGET
+  app\eldora\core\economic_governor.py:23:    }
+  app\eldora\core\emotional_continuity_engine.py:1:from datetime import datetime, timezone
+  app\eldora\core\emotional_continuity_engine.py:2:
+> app\eldora\core\emotional_continuity_engine.py:3:EMOTIONAL_EVENTS=[]
+  app\eldora\core\emotional_continuity_engine.py:4:
+> app\eldora\core\emotional_continuity_engine.py:5:def emotional_continuity(user_id:str, emotion:str, context:str):
+  app\eldora\core\emotional_continuity_engine.py:6:    item = {
+  app\eldora\core\emotional_continuity_engine.py:7:        "user_id":user_id,
+> app\eldora\core\emotional_continuity_engine.py:8:        "emotion":emotion,
+> app\eldora\core\emotional_continuity_engine.py:9:        "context":context,
+> app\eldora\core\emotional_continuity_engine.py:10:        "continuity_score":0.95,
+  app\eldora\core\emotional_continuity_engine.py:11:        "timestamp":datetime.now(timezone.utc).isoformat()
+  app\eldora\core\emotional_continuity_engine.py:12:    }
+  app\eldora\core\emotional_continuity_engine.py:13:
+> app\eldora\core\emotional_continuity_engine.py:14:    EMOTIONAL_EVENTS.append(item)
+  app\eldora\core\emotional_continuity_engine.py:15:
+> app\eldora\core\emotional_continuity_engine.py:16:    return {
+  app\eldora\core\emotional_continuity_engine.py:17:        "status":"ok",
+  app\eldora\core\emotional_continuity_engine.py:18:        "event":item
+  app\eldora\core\emotional_continuity_engine.py:19:    }
+  app\eldora\core\emotional_continuity_engine.py:20:
+> app\eldora\core\emotional_continuity_engine.py:21:def emotional_report():
+> app\eldora\core\emotional_continuity_engine.py:22:    return {
+  app\eldora\core\emotional_continuity_engine.py:23:        "status":"ok",
+> app\eldora\core\emotional_continuity_engine.py:24:        "events_total":len(EMOTIONAL_EVENTS),
+> app\eldora\core\emotional_continuity_engine.py:25:        "events":EMOTIONAL_EVENTS[-100:]
+  app\eldora\core\emotional_continuity_engine.py:26:    }
+  app\eldora\core\environment_execution_engine.py:12:    }
+  app\eldora\core\environment_execution_engine.py:13:
+  app\eldora\core\environment_execution_engine.py:14:    WORKFLOWS.append(item)
+  app\eldora\core\environment_execution_engine.py:15:
+> app\eldora\core\environment_execution_engine.py:16:    return {
+  app\eldora\core\environment_execution_engine.py:17:        "status":"ok",
+  app\eldora\core\environment_execution_engine.py:18:        "workflow_runtime":item
+  app\eldora\core\environment_execution_engine.py:19:    }
+  app\eldora\core\environment_execution_engine.py:20:
+  app\eldora\core\environment_execution_engine.py:21:def workflow_report():
+> app\eldora\core\environment_execution_engine.py:22:    return {
+  app\eldora\core\environment_execution_engine.py:23:        "status":"ok",
+  app\eldora\core\environment_execution_engine.py:24:        "workflows_total":len(WORKFLOWS),
+  app\eldora\core\environment_execution_engine.py:25:        "workflows":WORKFLOWS[-100:]
+  app\eldora\core\environment_execution_engine.py:26:    }
+  app\eldora\core\event_broker_fabric.py:11:    }
+  app\eldora\core\event_broker_fabric.py:12:
+  app\eldora\core\event_broker_fabric.py:13:    BROKER_EVENTS.append(item)
+  app\eldora\core\event_broker_fabric.py:14:
+> app\eldora\core\event_broker_fabric.py:15:    return {
+  app\eldora\core\event_broker_fabric.py:16:        "status":"ok",
+  app\eldora\core\event_broker_fabric.py:17:        "event":item
+  app\eldora\core\event_broker_fabric.py:18:    }
+  app\eldora\core\event_broker_fabric.py:19:
+  app\eldora\core\event_broker_fabric.py:20:def broker_report():
+> app\eldora\core\event_broker_fabric.py:21:    return {
+  app\eldora\core\event_broker_fabric.py:22:        "status":"ok",
+  app\eldora\core\event_broker_fabric.py:23:        "events_total":len(BROKER_EVENTS),
+  app\eldora\core\event_broker_fabric.py:24:        "events":BROKER_EVENTS[-100:]
+  app\eldora\core\event_broker_fabric.py:25:    }
+  app\eldora\core\event_bus.py:1:from app.eldora.core.persistent_event_store import save_event, audit_store_report
+  app\eldora\core\event_bus.py:2:
+  app\eldora\core\event_bus.py:3:def publish(topic: str, payload: dict):
+> app\eldora\core\event_bus.py:4:    return save_event(topic, payload)
+  app\eldora\core\event_bus.py:5:
+  app\eldora\core\event_bus.py:6:def event_bus_report():
+> app\eldora\core\event_bus.py:7:    return audit_store_report()
+  app\eldora\core\feature_flags.py:6:    "eldora_legacy_main_safe_mode": True
+  app\eldora\core\feature_flags.py:7:}
+  app\eldora\core\feature_flags.py:8:
+  app\eldora\core\feature_flags.py:9:def is_enabled(flag: str) -> bool:
+> app\eldora\core\feature_flags.py:10:    return bool(FEATURE_FLAGS.get(flag, False))
+  app\eldora\core\governor_engine.py:6:    "active_loops": 0
+  app\eldora\core\governor_engine.py:7:}
+  app\eldora\core\governor_engine.py:8:
+  app\eldora\core\governor_engine.py:9:def governor_check():
+> app\eldora\core\governor_engine.py:10:    return {
+  app\eldora\core\governor_engine.py:11:        "status": "ok",
+  app\eldora\core\governor_engine.py:12:        "state": GOVERNOR_STATE
+  app\eldora\core\governor_engine.py:13:    }
+  app\eldora\core\governor_engine.py:14:
+  app\eldora\core\governor_engine.py:15:def consume_budget(amount: int = 1):
+  app\eldora\core\governor_engine.py:16:    GOVERNOR_STATE["execution_budget"] -= amount
+  app\eldora\core\governor_engine.py:17:    GOVERNOR_STATE["active_loops"] += 1
+  app\eldora\core\governor_engine.py:18:
+  app\eldora\core\governor_engine.py:19:    allowed = (
+  app\eldora\core\governor_engine.py:20:        GOVERNOR_STATE["execution_budget"] > 0 and
+  app\eldora\core\governor_engine.py:21:        GOVERNOR_STATE["active_loops"] <= GOVERNOR_STATE["max_loops"]
+  app\eldora\core\governor_engine.py:22:    )
+  app\eldora\core\governor_engine.py:23:
+> app\eldora\core\governor_engine.py:24:    return {
+  app\eldora\core\governor_engine.py:25:        "status": "ok",
+  app\eldora\core\governor_engine.py:26:        "allowed": allowed,
+  app\eldora\core\governor_engine.py:27:        "execution_budget": GOVERNOR_STATE["execution_budget"],
+  app\eldora\core\governor_engine.py:28:        "active_loops": GOVERNOR_STATE["active_loops"],
+  app\eldora\core\governor_engine.py:29:        "timestamp": datetime.now(timezone.utc).isoformat()
+  app\eldora\core\governor_engine.py:30:    }
+  app\eldora\core\infrastructure_event_engine.py:11:    }
+  app\eldora\core\infrastructure_event_engine.py:12:
+  app\eldora\core\infrastructure_event_engine.py:13:    INFRA_EVENTS.append(item)
+  app\eldora\core\infrastructure_event_engine.py:14:
+> app\eldora\core\infrastructure_event_engine.py:15:    return {
+  app\eldora\core\infrastructure_event_engine.py:16:        "status":"ok",
+  app\eldora\core\infrastructure_event_engine.py:17:        "event":item
+  app\eldora\core\infrastructure_event_engine.py:18:    }
+  app\eldora\core\infrastructure_event_engine.py:19:
+  app\eldora\core\infrastructure_event_engine.py:20:def infrastructure_report():
+> app\eldora\core\infrastructure_event_engine.py:21:    return {
+  app\eldora\core\infrastructure_event_engine.py:22:        "status":"ok",
+  app\eldora\core\infrastructure_event_engine.py:23:        "events_total":len(INFRA_EVENTS),
+  app\eldora\core\infrastructure_event_engine.py:24:        "events":INFRA_EVENTS[-100:]
+  app\eldora\core\infrastructure_event_engine.py:25:    }
+  app\eldora\core\internet_awareness_engine.py:11:    }
+  app\eldora\core\internet_awareness_engine.py:12:
+  app\eldora\core\internet_awareness_engine.py:13:    INTERNET_SIGNALS.append(item)
+  app\eldora\core\internet_awareness_engine.py:14:
+> app\eldora\core\internet_awareness_engine.py:15:    return {
+  app\eldora\core\internet_awareness_engine.py:16:        "status":"ok",
+  app\eldora\core\internet_awareness_engine.py:17:        "signal":item
+  app\eldora\core\internet_awareness_engine.py:18:    }
+  app\eldora\core\internet_awareness_engine.py:19:
+  app\eldora\core\internet_awareness_engine.py:20:def awareness_report():
+> app\eldora\core\internet_awareness_engine.py:21:    return {
+  app\eldora\core\internet_awareness_engine.py:22:        "status":"ok",
+  app\eldora\core\internet_awareness_engine.py:23:        "signals_total":len(INTERNET_SIGNALS),
+  app\eldora\core\internet_awareness_engine.py:24:        "signals":INTERNET_SIGNALS[-100:]
+  app\eldora\core\internet_awareness_engine.py:25:    }
+  app\eldora\core\jwt_auth.py:1:import os, base64, json, hmac, hashlib, time
+> app\eldora\core\jwt_auth.py:2:def _secret(): return os.getenv("ELDORA_JWT_SECRET", "dev-only-change-me")
+> app\eldora\core\jwt_auth.py:3:def _b64(data: bytes): return base64.urlsafe_b64encode(data).rstrip(b"=").decode()
+> app\eldora\core\jwt_auth.py:4:def _unb64(data: str): return base64.urlsafe_b64decode((data + "=" * (-len(data) % 4)).encode())
+  app\eldora\core\jwt_auth.py:5:def create_token(user_id: str, tenant_id: str="default", role: str="user", ttl_seconds: int=3600):
+  app\eldora\core\jwt_auth.py:6:    h=_b64(json.dumps({"alg":"HS256","typ":"JWT"}).encode()); p=_b64(json.dumps({"sub":user_id,"tenant_id":tenant_id,"role":role,"exp":int(time.time())+ttl_seconds}).encode())
+> app\eldora\core\jwt_auth.py:7:    s=_b64(hmac.new(_secret().encode(), f"{h}.{p}".encode(), hashlib.sha256).digest()); return f"{h}.{p}.{s}"
+  app\eldora\core\jwt_auth.py:8:def verify_token(token: str):
+  app\eldora\core\jwt_auth.py:9:    try:
+  app\eldora\core\jwt_auth.py:10:        h,p,s=token.split("."); e=_b64(hmac.new(_secret().encode(), f"{h}.{p}".encode(), hashlib.sha256).digest())
+> app\eldora\core\jwt_auth.py:11:        if not hmac.compare_digest(s,e): return {"valid":False,"reason":"bad_signature"}
+> app\eldora\core\jwt_auth.py:12:        payload=json.loads(_unb64(p)); return {"valid": payload.get("exp",0) >= int(time.time()), "payload": payload}
+> app\eldora\core\jwt_auth.py:13:    except Exception as e: return {"valid":False,"reason":str(e)}
+  app\eldora\core\live_agent_cloud.py:12:    }
+  app\eldora\core\live_agent_cloud.py:13:
+  app\eldora\core\live_agent_cloud.py:14:    LIVE_AGENTS.append(item)
+  app\eldora\core\live_agent_cloud.py:15:
+> app\eldora\core\live_agent_cloud.py:16:    return {
+  app\eldora\core\live_agent_cloud.py:17:        "status":"ok",
+  app\eldora\core\live_agent_cloud.py:18:        "agent_runtime":item
+  app\eldora\core\live_agent_cloud.py:19:    }
+  app\eldora\core\live_agent_cloud.py:20:
+  app\eldora\core\live_agent_cloud.py:21:def agent_report():
+> app\eldora\core\live_agent_cloud.py:22:    return {
+  app\eldora\core\live_agent_cloud.py:23:        "status":"ok",
+  app\eldora\core\live_agent_cloud.py:24:        "agents_total":len(LIVE_AGENTS),
+  app\eldora\core\live_agent_cloud.py:25:        "agents":LIVE_AGENTS[-100:]
+  app\eldora\core\live_agent_cloud.py:26:    }
+  app\eldora\core\live_browser_agents.py:11:    }
+  app\eldora\core\live_browser_agents.py:12:
+  app\eldora\core\live_browser_agents.py:13:    BROWSER_AGENTS.append(item)
+  app\eldora\core\live_browser_agents.py:14:
+> app\eldora\core\live_browser_agents.py:15:    return {
+  app\eldora\core\live_browser_agents.py:16:        "status":"ok",
+  app\eldora\core\live_browser_agents.py:17:        "browser_agent":item
+  app\eldora\core\live_browser_agents.py:18:    }
+  app\eldora\core\live_browser_agents.py:19:
+  app\eldora\core\live_browser_agents.py:20:def browser_report():
+> app\eldora\core\live_browser_agents.py:21:    return {
+  app\eldora\core\live_browser_agents.py:22:        "status":"ok",
+  app\eldora\core\live_browser_agents.py:23:        "agents_total":len(BROWSER_AGENTS),
+  app\eldora\core\live_browser_agents.py:24:        "agents":BROWSER_AGENTS[-100:]
+  app\eldora\core\live_browser_agents.py:25:    }
+  app\eldora\core\live_connector_fabric.py:11:    }
+  app\eldora\core\live_connector_fabric.py:12:
+  app\eldora\core\live_connector_fabric.py:13:    CONNECTORS.append(item)
+  app\eldora\core\live_connector_fabric.py:14:
+> app\eldora\core\live_connector_fabric.py:15:    return {
+  app\eldora\core\live_connector_fabric.py:16:        "status":"ok",
+  app\eldora\core\live_connector_fabric.py:17:        "connector":item
+  app\eldora\core\live_connector_fabric.py:18:    }
+  app\eldora\core\live_connector_fabric.py:19:
+  app\eldora\core\live_connector_fabric.py:20:def connector_report():
+> app\eldora\core\live_connector_fabric.py:21:    return {
+  app\eldora\core\live_connector_fabric.py:22:        "status":"ok",
+  app\eldora\core\live_connector_fabric.py:23:        "connectors_total":len(CONNECTORS),
+  app\eldora\core\live_connector_fabric.py:24:        "connectors":CONNECTORS[-100:]
+  app\eldora\core\live_connector_fabric.py:25:    }
+  app\eldora\core\live_operating_system_engine.py:11:    }
+  app\eldora\core\live_operating_system_engine.py:12:
+  app\eldora\core\live_operating_system_engine.py:13:    OS_RUNTIME.append(item)
+  app\eldora\core\live_operating_system_engine.py:14:
+> app\eldora\core\live_operating_system_engine.py:15:    return {
+  app\eldora\core\live_operating_system_engine.py:16:        "status":"ok",
+  app\eldora\core\live_operating_system_engine.py:17:        "runtime":item
+  app\eldora\core\live_operating_system_engine.py:18:    }
+  app\eldora\core\live_operating_system_engine.py:19:
+  app\eldora\core\live_operating_system_engine.py:20:def runtime_report():
+> app\eldora\core\live_operating_system_engine.py:21:    return {
+  app\eldora\core\live_operating_system_engine.py:22:        "status":"ok",
+  app\eldora\core\live_operating_system_engine.py:23:        "runtime_events_total":len(OS_RUNTIME),
+  app\eldora\core\live_operating_system_engine.py:24:        "runtime_events":OS_RUNTIME[-100:]
+  app\eldora\core\live_operating_system_engine.py:25:    }
+  app\eldora\core\live_voice_runtime.py:20:    }
+  app\eldora\core\live_voice_runtime.py:21:
+  app\eldora\core\live_voice_runtime.py:22:    VOICE_SESSIONS.append(session)
+  app\eldora\core\live_voice_runtime.py:23:
+> app\eldora\core\live_voice_runtime.py:24:    return {
+  app\eldora\core\live_voice_runtime.py:25:        "status":"ok",
+  app\eldora\core\live_voice_runtime.py:26:        "session":session,
+  app\eldora\core\live_voice_runtime.py:27:        "sessions_total":len(VOICE_SESSIONS)
+  app\eldora\core\live_voice_runtime.py:28:    }
+  app\eldora\core\live_voice_runtime.py:29:
+  app\eldora\core\live_voice_runtime.py:30:def stream_cognition_event(
+  app\eldora\core\live_voice_runtime.py:31:    session_id:str,
+  app\eldora\core\live_voice_runtime.py:32:    event:str,
+  app\eldora\core\live_voice_runtime.py:33:    payload:str=""
+  app\eldora\core\live_voice_runtime.py:34:):
+  app\eldora\core\live_voice_runtime.py:35:
+  app\eldora\core\live_voice_runtime.py:36:    stream = {
+  app\eldora\core\live_voice_runtime.py:37:        "event_id": str(uuid.uuid4()),
+  app\eldora\core\live_voice_runtime.py:38:        "session_id": session_id,
+  app\eldora\core\live_voice_runtime.py:39:        "event": event,
+  app\eldora\core\live_voice_runtime.py:40:        "payload": payload,
+  app\eldora\core\live_voice_runtime.py:41:        "timestamp": datetime.now(timezone.utc).isoformat()
+  app\eldora\core\live_voice_runtime.py:42:    }
+  app\eldora\core\live_voice_runtime.py:43:
+  app\eldora\core\live_voice_runtime.py:44:    STREAM_EVENTS.append(stream)
+  app\eldora\core\live_voice_runtime.py:45:
+> app\eldora\core\live_voice_runtime.py:46:    return {
+  app\eldora\core\live_voice_runtime.py:47:        "status":"ok",
+  app\eldora\core\live_voice_runtime.py:48:        "stream":stream,
+  app\eldora\core\live_voice_runtime.py:49:        "events_total":len(STREAM_EVENTS)
+  app\eldora\core\live_voice_runtime.py:50:    }
+  app\eldora\core\live_voice_runtime.py:51:
+  app\eldora\core\live_voice_runtime.py:52:def update_presence_state(
+  app\eldora\core\live_voice_runtime.py:53:    user_id:str,
+> app\eldora\core\live_voice_runtime.py:54:    emotion:str="neutral",
+  app\eldora\core\live_voice_runtime.py:55:    attention:float=1.0
+  app\eldora\core\live_voice_runtime.py:56:):
+  app\eldora\core\live_voice_runtime.py:57:
+  app\eldora\core\live_voice_runtime.py:58:    presence = {
+  app\eldora\core\live_voice_runtime.py:59:        "presence_id": str(uuid.uuid4()),
+  app\eldora\core\live_voice_runtime.py:60:        "user_id": user_id,
+> app\eldora\core\live_voice_runtime.py:61:        "emotion": emotion,
+  app\eldora\core\live_voice_runtime.py:62:        "attention": attention,
+  app\eldora\core\live_voice_runtime.py:63:        "timestamp": datetime.now(timezone.utc).isoformat()
+  app\eldora\core\live_voice_runtime.py:64:    }
+  app\eldora\core\live_voice_runtime.py:65:
+  app\eldora\core\live_voice_runtime.py:66:    PRESENCE_STATE.append(presence)
+  app\eldora\core\live_voice_runtime.py:67:
+> app\eldora\core\live_voice_runtime.py:68:    return {
+  app\eldora\core\live_voice_runtime.py:69:        "status":"ok",
+  app\eldora\core\live_voice_runtime.py:70:        "presence":presence
+  app\eldora\core\live_voice_runtime.py:71:    }
+  app\eldora\core\live_voice_runtime.py:72:
+  app\eldora\core\live_voice_runtime.py:73:def voice_runtime_report():
+  app\eldora\core\live_voice_runtime.py:74:
+> app\eldora\core\live_voice_runtime.py:75:    return {
+  app\eldora\core\live_voice_runtime.py:76:        "status":"ok",
+  app\eldora\core\live_voice_runtime.py:77:        "voice_sessions":len(VOICE_SESSIONS),
+  app\eldora\core\live_voice_runtime.py:78:        "stream_events":len(STREAM_EVENTS),
+  app\eldora\core\live_voice_runtime.py:79:        "presence_states":len(PRESENCE_STATE),
+  app\eldora\core\live_voice_runtime.py:80:        "sessions":VOICE_SESSIONS[-20:],
+  app\eldora\core\live_voice_runtime.py:81:        "presence":PRESENCE_STATE[-20:]
+  app\eldora\core\live_voice_runtime.py:82:    }
+  app\eldora\core\long_term_memory.py:1:from datetime import datetime, timezone
+  app\eldora\core\long_term_memory.py:2:import uuid
+  app\eldora\core\long_term_memory.py:3:
+> app\eldora\core\long_term_memory.py:4:LONG_TERM_MEMORY = {}
+  app\eldora\core\long_term_memory.py:5:
+> app\eldora\core\long_term_memory.py:6:def store_cognitive_memory(content: str, category: str = "general"):
+> app\eldora\core\long_term_memory.py:7:    memory_id = str(uuid.uuid4())
+  app\eldora\core\long_term_memory.py:8:
+> app\eldora\core\long_term_memory.py:9:    memory = {
+> app\eldora\core\long_term_memory.py:10:        "memory_id": memory_id,
+  app\eldora\core\long_term_memory.py:11:        "content": content,
+  app\eldora\core\long_term_memory.py:12:        "category": category,
+  app\eldora\core\long_term_memory.py:13:        "created_at": datetime.now(timezone.utc).isoformat()
+  app\eldora\core\long_term_memory.py:14:    }
+  app\eldora\core\long_term_memory.py:15:
+> app\eldora\core\long_term_memory.py:16:    LONG_TERM_MEMORY[memory_id] = memory
+  app\eldora\core\long_term_memory.py:17:
+> app\eldora\core\long_term_memory.py:18:    return {
+  app\eldora\core\long_term_memory.py:19:        "status": "ok",
+  app\eldora\core\long_term_memory.py:20:        "stored": True,
+> app\eldora\core\long_term_memory.py:21:        "memory": memory,
+> app\eldora\core\long_term_memory.py:22:        "total_memories": len(LONG_TERM_MEMORY)
+  app\eldora\core\long_term_memory.py:23:    }
+  app\eldora\core\long_term_memory.py:24:
+> app\eldora\core\long_term_memory.py:25:def retrieve_cognitive_memory():
+> app\eldora\core\long_term_memory.py:26:    return {
+  app\eldora\core\long_term_memory.py:27:        "status": "ok",
+> app\eldora\core\long_term_memory.py:28:        "total_memories": len(LONG_TERM_MEMORY),
+> app\eldora\core\long_term_memory.py:29:        "memories": list(LONG_TERM_MEMORY.values())[-20:]
+  app\eldora\core\long_term_memory.py:30:    }
+> app\eldora\core\memory_compression_engine.py:1:COMPRESSED_MEMORY = []
+  app\eldora\core\memory_compression_engine.py:2:
+> app\eldora\core\memory_compression_engine.py:3:def compress_memory(content: str):
+  app\eldora\core\memory_compression_engine.py:4:    compressed = " ".join(content.split()[:10])
+  app\eldora\core\memory_compression_engine.py:5:
+  app\eldora\core\memory_compression_engine.py:6:    item = {
+  app\eldora\core\memory_compression_engine.py:7:        "original_size": len(content),
+  app\eldora\core\memory_compression_engine.py:8:        "compressed_size": len(compressed),
+  app\eldora\core\memory_compression_engine.py:9:        "compressed": compressed
+  app\eldora\core\memory_compression_engine.py:10:    }
+  app\eldora\core\memory_compression_engine.py:11:
+> app\eldora\core\memory_compression_engine.py:12:    COMPRESSED_MEMORY.append(item)
+  app\eldora\core\memory_compression_engine.py:13:
+> app\eldora\core\memory_compression_engine.py:14:    return {
+  app\eldora\core\memory_compression_engine.py:15:        "status": "ok",
+  app\eldora\core\memory_compression_engine.py:16:        "compression_ratio": round(
+  app\eldora\core\memory_compression_engine.py:17:            len(compressed) / max(len(content),1), 2
+  app\eldora\core\memory_compression_engine.py:18:        ),
+  app\eldora\core\memory_compression_engine.py:19:        "item": item
+  app\eldora\core\memory_compression_engine.py:20:    }
+  app\eldora\core\memory_compression_engine.py:21:
+  app\eldora\core\memory_compression_engine.py:22:def compression_report():
+> app\eldora\core\memory_compression_engine.py:23:    return {
+  app\eldora\core\memory_compression_engine.py:24:        "status": "ok",
+> app\eldora\core\memory_compression_engine.py:25:        "compressed_items": len(COMPRESSED_MEMORY),
+> app\eldora\core\memory_compression_engine.py:26:        "items": COMPRESSED_MEMORY[-20:]
+  app\eldora\core\memory_compression_engine.py:27:    }
+  app\eldora\core\meta_cognition_engine.py:7:    event = {
+  app\eldora\core\meta_cognition_engine.py:8:        "event_id":str(uuid.uuid4()),
+  app\eldora\core\meta_cognition_engine.py:9:        "runtime":runtime,
+  app\eldora\core\meta_cognition_engine.py:10:        "cognition":cognition,
+> app\eldora\core\meta_cognition_engine.py:11:        "self_score":0.97,
+  app\eldora\core\meta_cognition_engine.py:12:        "created_at":datetime.now(timezone.utc).isoformat()
+  app\eldora\core\meta_cognition_engine.py:13:    }
+  app\eldora\core\meta_cognition_engine.py:14:
+  app\eldora\core\meta_cognition_engine.py:15:    META_COGNITION_EVENTS.append(event)
+  app\eldora\core\meta_cognition_engine.py:16:
+> app\eldora\core\meta_cognition_engine.py:17:    return {
+  app\eldora\core\meta_cognition_engine.py:18:        "status":"ok",
+  app\eldora\core\meta_cognition_engine.py:19:        "analysis":event
+  app\eldora\core\meta_cognition_engine.py:20:    }
+  app\eldora\core\meta_cognition_engine.py:21:
+  app\eldora\core\meta_cognition_engine.py:22:def meta_cognition_report():
+> app\eldora\core\meta_cognition_engine.py:23:    return {
+  app\eldora\core\meta_cognition_engine.py:24:        "status":"ok",
+  app\eldora\core\meta_cognition_engine.py:25:        "events_total":len(META_COGNITION_EVENTS),
+  app\eldora\core\meta_cognition_engine.py:26:        "events":META_COGNITION_EVENTS[-100:]
+  app\eldora\core\meta_cognition_engine.py:27:    }
+  app\eldora\core\middleware_registry.py:3:REGISTERED_MIDDLEWARES = []
+  app\eldora\core\middleware_registry.py:4:
+  app\eldora\core\middleware_registry.py:5:def register_middlewares(app):
+  app\eldora\core\middleware_registry.py:6:    if not is_enabled("eldora_middleware_registry_enabled"):
+> app\eldora\core\middleware_registry.py:7:        return {"enabled": False, "registered": 0}
+> app\eldora\core\middleware_registry.py:8:    return {"enabled": True, "registered": len(REGISTERED_MIDDLEWARES)}
+  app\eldora\core\module_registry.py:1:MODULE_REGISTRY = {
+  app\eldora\core\module_registry.py:2:    "eldora": True,
+  app\eldora\core\module_registry.py:3:    "friendship": True,
+  app\eldora\core\module_registry.py:4:    "persona": True,
+> app\eldora\core\module_registry.py:5:    "memory": True,
+  app\eldora\core\module_registry.py:6:    "safety": True,
+  app\eldora\core\module_registry.py:7:    "commerce": True
+  app\eldora\core\module_registry.py:8:}
+  app\eldora\core\multimodal_fusion_engine.py:1:from datetime import datetime, timezone
+  app\eldora\core\multimodal_fusion_engine.py:2:
+  app\eldora\core\multimodal_fusion_engine.py:3:FUSION_EVENTS=[]
+  app\eldora\core\multimodal_fusion_engine.py:4:
+> app\eldora\core\multimodal_fusion_engine.py:5:def multimodal_fusion(query:str, context:str):
+  app\eldora\core\multimodal_fusion_engine.py:6:    item={
+  app\eldora\core\multimodal_fusion_engine.py:7:        "query":query,
+> app\eldora\core\multimodal_fusion_engine.py:8:        "context":context[:1000],
+> app\eldora\core\multimodal_fusion_engine.py:9:        "fusion_score":0.97,
+  app\eldora\core\multimodal_fusion_engine.py:10:        "timestamp":datetime.now(timezone.utc).isoformat()
+  app\eldora\core\multimodal_fusion_engine.py:11:    }
+  app\eldora\core\multimodal_fusion_engine.py:12:
+  app\eldora\core\multimodal_fusion_engine.py:13:    FUSION_EVENTS.append(item)
+  app\eldora\core\multimodal_fusion_engine.py:14:
+> app\eldora\core\multimodal_fusion_engine.py:15:    return {
+  app\eldora\core\multimodal_fusion_engine.py:16:        "status":"ok",
+  app\eldora\core\multimodal_fusion_engine.py:17:        "fusion":item
+  app\eldora\core\multimodal_fusion_engine.py:18:    }
+  app\eldora\core\multimodal_fusion_engine.py:19:
+  app\eldora\core\multimodal_fusion_engine.py:20:def fusion_report():
+> app\eldora\core\multimodal_fusion_engine.py:21:    return {
+  app\eldora\core\multimodal_fusion_engine.py:22:        "status":"ok",
+  app\eldora\core\multimodal_fusion_engine.py:23:        "events_total":len(FUSION_EVENTS),
+  app\eldora\core\multimodal_fusion_engine.py:24:        "events":FUSION_EVENTS[-20:]
+  app\eldora\core\multimodal_fusion_engine.py:25:    }
+  app\eldora\core\multimodal_ingestion.py:9:def extract_text(path: str):
+  app\eldora\core\multimodal_ingestion.py:10:    p = Path(path)
+  app\eldora\core\multimodal_ingestion.py:11:
+  app\eldora\core\multimodal_ingestion.py:12:    if not p.exists():
+> app\eldora\core\multimodal_ingestion.py:13:        return {
+  app\eldora\core\multimodal_ingestion.py:14:            "status":"error",
+  app\eldora\core\multimodal_ingestion.py:15:            "detail":"file_not_found"
+  app\eldora\core\multimodal_ingestion.py:16:        }
+  app\eldora\core\multimodal_ingestion.py:17:
+  app\eldora\core\multimodal_ingestion.py:18:    ext = p.suffix.lower()
+  app\eldora\core\multimodal_ingestion.py:19:
+  app\eldora\core\multimodal_ingestion.py:20:    if ext not in SUPPORTED_EXTENSIONS:
+> app\eldora\core\multimodal_ingestion.py:21:        return {
+  app\eldora\core\multimodal_ingestion.py:22:            "status":"error",
+  app\eldora\core\multimodal_ingestion.py:23:            "detail":"unsupported_extension"
+  app\eldora\core\multimodal_ingestion.py:24:        }
+  app\eldora\core\multimodal_ingestion.py:25:
+  app\eldora\core\multimodal_ingestion.py:26:    try:
+  app\eldora\core\multimodal_ingestion.py:27:        if ext == ".txt" or ext == ".md":
+  app\eldora\core\multimodal_ingestion.py:28:            content = p.read_text(encoding="utf-8", errors="ignore")
+  app\eldora\core\multimodal_ingestion.py:29:
+  app\eldora\core\multimodal_ingestion.py:30:        elif ext == ".pdf":
+  app\eldora\core\multimodal_ingestion.py:31:            reader = PdfReader(path)
+  app\eldora\core\multimodal_ingestion.py:32:            pages=[]
+  app\eldora\core\multimodal_ingestion.py:33:            for page in reader.pages:
+  app\eldora\core\multimodal_ingestion.py:34:                pages.append(page.extract_text() or "")
+  app\eldora\core\multimodal_ingestion.py:35:            content="\n".join(pages)
+  app\eldora\core\multimodal_ingestion.py:36:
+  app\eldora\core\multimodal_ingestion.py:37:        elif ext == ".docx":
+  app\eldora\core\multimodal_ingestion.py:38:            doc=Document(path)
+  app\eldora\core\multimodal_ingestion.py:39:            content="\n".join([x.text for x in doc.paragraphs])
+  app\eldora\core\multimodal_ingestion.py:40:
+  app\eldora\core\multimodal_ingestion.py:41:        else:
+  app\eldora\core\multimodal_ingestion.py:42:            content=""
+  app\eldora\core\multimodal_ingestion.py:43:
+> app\eldora\core\multimodal_ingestion.py:44:        return {
+  app\eldora\core\multimodal_ingestion.py:45:            "status":"ok",
+  app\eldora\core\multimodal_ingestion.py:46:            "path":str(p),
+  app\eldora\core\multimodal_ingestion.py:47:            "extension":ext,
+  app\eldora\core\multimodal_ingestion.py:48:            "characters":len(content),
+  app\eldora\core\multimodal_ingestion.py:49:            "content":content[:5000]
+  app\eldora\core\multimodal_ingestion.py:50:        }
+  app\eldora\core\multimodal_ingestion.py:51:
+  app\eldora\core\multimodal_ingestion.py:52:    except Exception as e:
+> app\eldora\core\multimodal_ingestion.py:53:        return {
+  app\eldora\core\multimodal_ingestion.py:54:            "status":"error",
+  app\eldora\core\multimodal_ingestion.py:55:            "detail":str(e)
+  app\eldora\core\multimodal_ingestion.py:56:        }
+  app\eldora\core\neura_scale_runtime.py:14:        "status":"active",
+  app\eldora\core\neura_scale_runtime.py:15:        "created_at":datetime.now(timezone.utc).isoformat()
+  app\eldora\core\neura_scale_runtime.py:16:    }
+  app\eldora\core\neura_scale_runtime.py:17:    TENANTS.append(item)
+> app\eldora\core\neura_scale_runtime.py:18:    return {"status":"ok","tenant":item,"tenants_total":len(TENANTS)}
+  app\eldora\core\neura_scale_runtime.py:19:
+  app\eldora\core\neura_scale_runtime.py:20:def create_whatsapp_acquisition_campaign(audience:str, offer:str):
+  app\eldora\core\neura_scale_runtime.py:21:    item={
+  app\eldora\core\neura_scale_runtime.py:22:        "campaign_id":str(uuid.uuid4()),
+  app\eldora\core\neura_scale_runtime.py:23:        "channel":"whatsapp",
+  app\eldora\core\neura_scale_runtime.py:24:        "audience":audience,
+  app\eldora\core\neura_scale_runtime.py:25:        "offer":offer,
+  app\eldora\core\neura_scale_runtime.py:26:        "status":"running",
+  app\eldora\core\neura_scale_runtime.py:27:        "created_at":datetime.now(timezone.utc).isoformat()
+  app\eldora\core\neura_scale_runtime.py:28:    }
+  app\eldora\core\neura_scale_runtime.py:29:    ACQUISITION.append(item)
+> app\eldora\core\neura_scale_runtime.py:30:    return {"status":"ok","campaign":item,"campaigns_total":len(ACQUISITION)}
+  app\eldora\core\neura_scale_runtime.py:31:
+  app\eldora\core\neura_scale_runtime.py:32:def schedule_cognition_workload(workload:str, max_cost:float=1.0, priority:int=10):
+  app\eldora\core\neura_scale_runtime.py:33:    item={
+  app\eldora\core\neura_scale_runtime.py:34:        "schedule_id":str(uuid.uuid4()),
+  app\eldora\core\neura_scale_runtime.py:35:        "workload":workload,
+  app\eldora\core\neura_scale_runtime.py:36:        "max_cost":max_cost,
+  app\eldora\core\neura_scale_runtime.py:37:        "priority":priority,
+  app\eldora\core\neura_scale_runtime.py:38:        "routing":"cost_aware",
+  app\eldora\core\neura_scale_runtime.py:39:        "status":"scheduled",
+  app\eldora\core\neura_scale_runtime.py:40:        "created_at":datetime.now(timezone.utc).isoformat()
+  app\eldora\core\neura_scale_runtime.py:41:    }
+  app\eldora\core\neura_scale_runtime.py:42:    SCHEDULING.append(item)
+> app\eldora\core\neura_scale_runtime.py:43:    return {"status":"ok","schedule":item,"schedules_total":len(SCHEDULING)}
+  app\eldora\core\neura_scale_runtime.py:44:
+  app\eldora\core\neura_scale_runtime.py:45:def activate_public_launch(product:str="NEURA", market:str="students"):
+  app\eldora\core\neura_scale_runtime.py:46:    item={
+  app\eldora\core\neura_scale_runtime.py:47:        "launch_id":str(uuid.uuid4()),
+  app\eldora\core\neura_scale_runtime.py:48:        "product":product,
+  app\eldora\core\neura_scale_runtime.py:49:        "market":market,
+  app\eldora\core\neura_scale_runtime.py:50:        "status":"public_launch_active",
+  app\eldora\core\neura_scale_runtime.py:51:        "created_at":datetime.now(timezone.utc).isoformat()
+  app\eldora\core\neura_scale_runtime.py:52:    }
+  app\eldora\core\neura_scale_runtime.py:53:    LAUNCH.append(item)
+> app\eldora\core\neura_scale_runtime.py:54:    return {"status":"ok","launch":item,"launches_total":len(LAUNCH)}
+  app\eldora\core\neura_scale_runtime.py:55:
+  app\eldora\core\neura_scale_runtime.py:56:def neura_scale_report():
+> app\eldora\core\neura_scale_runtime.py:57:    return {
+  app\eldora\core\neura_scale_runtime.py:58:        "status":"ok",
+  app\eldora\core\neura_scale_runtime.py:59:        "tenants_total":len(TENANTS),
+  app\eldora\core\neura_scale_runtime.py:60:        "acquisition_campaigns_total":len(ACQUISITION),
+  app\eldora\core\neura_scale_runtime.py:61:        "schedules_total":len(SCHEDULING),
+  app\eldora\core\neura_scale_runtime.py:62:        "launches_total":len(LAUNCH),
+  app\eldora\core\neura_scale_runtime.py:63:        "tenants":TENANTS[-20:],
+  app\eldora\core\neura_scale_runtime.py:64:        "campaigns":ACQUISITION[-20:],
+  app\eldora\core\neura_scale_runtime.py:65:        "launches":LAUNCH[-20:]
+  app\eldora\core\neura_scale_runtime.py:66:    }
+  app\eldora\core\ocr_engine.py:10:    }
+  app\eldora\core\ocr_engine.py:11:
+  app\eldora\core\ocr_engine.py:12:    OCR_EVENTS.append(item)
+  app\eldora\core\ocr_engine.py:13:
+> app\eldora\core\ocr_engine.py:14:    return {
+  app\eldora\core\ocr_engine.py:15:        "status":"ok",
+  app\eldora\core\ocr_engine.py:16:        "ocr":item
+  app\eldora\core\ocr_engine.py:17:    }
+  app\eldora\core\ocr_engine.py:18:
+  app\eldora\core\ocr_engine.py:19:def ocr_report():
+> app\eldora\core\ocr_engine.py:20:    return {
+  app\eldora\core\ocr_engine.py:21:        "status":"ok",
+  app\eldora\core\ocr_engine.py:22:        "events_total":len(OCR_EVENTS),
+  app\eldora\core\ocr_engine.py:23:        "events":OCR_EVENTS[-20:]
+  app\eldora\core\ocr_engine.py:24:    }
+  app\eldora\core\persistent_agent_worker.py:11:        "timestamp":datetime.now(timezone.utc).isoformat()
+  app\eldora\core\persistent_agent_worker.py:12:    }
+  app\eldora\core\persistent_agent_worker.py:13:    WORKER_EVENTS.append(event)
+  app\eldora\core\persistent_agent_worker.py:14:    publish_stream("eldora.worker.events","task_processed",event)
+> app\eldora\core\persistent_agent_worker.py:15:    return {"status":"ok","worker":event}
+  app\eldora\core\persistent_agent_worker.py:16:
+  app\eldora\core\persistent_agent_worker.py:17:def worker_report():
+> app\eldora\core\persistent_agent_worker.py:18:    return {"status":"ok","events_total":len(WORKER_EVENTS),"events":WORKER_EVENTS[-100:]}
+  app\eldora\core\persistent_cognitive_graph.py:5:    import psycopg2
+  app\eldora\core\persistent_cognitive_graph.py:6:except Exception:
+  app\eldora\core\persistent_cognitive_graph.py:7:    psycopg2 = None
+  app\eldora\core\persistent_cognitive_graph.py:8:
+> app\eldora\core\persistent_cognitive_graph.py:9:MEMORY = []
+  app\eldora\core\persistent_cognitive_graph.py:10:
+  app\eldora\core\persistent_cognitive_graph.py:11:def embed(text: str, dims: int = 16):
+  app\eldora\core\persistent_cognitive_graph.py:12:    h = hashlib.sha256(text.encode()).digest()
+> app\eldora\core\persistent_cognitive_graph.py:13:    return [round(((h[i] / 255.0) * 2 - 1), 6) for i in range(dims)]
+  app\eldora\core\persistent_cognitive_graph.py:14:
+  app\eldora\core\persistent_cognitive_graph.py:15:def cosine(a, b):
+  app\eldora\core\persistent_cognitive_graph.py:16:    dot=sum(x*y for x,y in zip(a,b)); na=math.sqrt(sum(x*x for x in a)); nb=math.sqrt(sum(x*x for x in b))
+> app\eldora\core\persistent_cognitive_graph.py:17:    return 0.0 if na == 0 or nb == 0 else dot/(na*nb)
+  app\eldora\core\persistent_cognitive_graph.py:18:
+  app\eldora\core\persistent_cognitive_graph.py:19:def _conn():
+  app\eldora\core\persistent_cognitive_graph.py:20:    url=os.getenv("DATABASE_URL")
+  app\eldora\core\persistent_cognitive_graph.py:21:    if not url or psycopg2 is None:
+> app\eldora\core\persistent_cognitive_graph.py:22:        return None
+> app\eldora\core\persistent_cognitive_graph.py:23:    return psycopg2.connect(url)
+  app\eldora\core\persistent_cognitive_graph.py:24:
+> app\eldora\core\persistent_cognitive_graph.py:25:def store_persistent_memory(content: str, tenant_id: str="default", user_ref: str="anonymous", category: str="general", priority: int=1):
+  app\eldora\core\persistent_cognitive_graph.py:26:    vec = embed(content)
+  app\eldora\core\persistent_cognitive_graph.py:27:    item = {"content":content,"tenant_id":tenant_id,"user_ref":user_ref,"category":category,"embedding":vec,"priority":priority,"created_at":datetime.now(timezone.utc).isoformat()}
+  app\eldora\core\persistent_cognitive_graph.py:28:    conn=_conn()
+  app\eldora\core\persistent_cognitive_graph.py:29:    if not conn:
+> app\eldora\core\persistent_cognitive_graph.py:30:        MEMORY.append(item); return {"status":"ok","stored":True,"backend":"memory","item":item}
+  app\eldora\core\persistent_cognitive_graph.py:31:    try:
+  app\eldora\core\persistent_cognitive_graph.py:32:        with conn:
+  app\eldora\core\persistent_cognitive_graph.py:33:            with conn.cursor() as cur:
+  app\eldora\core\persistent_cognitive_graph.py:34:                cur.execute(
+> app\eldora\core\persistent_cognitive_graph.py:35:                    "insert into eldora_cognitive_memory(tenant_id,user_ref,content,category,embedding,priority) values (%s,%s,%s,%s,%s,%s)",
+  app\eldora\core\persistent_cognitive_graph.py:36:                    (tenant_id,user_ref,content,category,"[" + ",".join(map(str, vec)) + "]",priority)
+  app\eldora\core\persistent_cognitive_graph.py:37:                )
+  app\eldora\core\persistent_cognitive_graph.py:38:        conn.close()
+> app\eldora\core\persistent_cognitive_graph.py:39:        return {"status":"ok","stored":True,"backend":"postgres_pgvector"}
+  app\eldora\core\persistent_cognitive_graph.py:40:    except Exception as e:
+  app\eldora\core\persistent_cognitive_graph.py:41:        try: conn.close()
+  app\eldora\core\persistent_cognitive_graph.py:42:        except Exception: pass
+  app\eldora\core\persistent_cognitive_graph.py:43:        item["postgres_error"]=str(e)
+> app\eldora\core\persistent_cognitive_graph.py:44:        MEMORY.append(item)
+> app\eldora\core\persistent_cognitive_graph.py:45:        return {"status":"ok","stored":True,"backend":"memory_fallback","item":item}
+  app\eldora\core\persistent_cognitive_graph.py:46:
+> app\eldora\core\persistent_cognitive_graph.py:47:def retrieve_persistent_memory(query: str, top_k: int=5):
+  app\eldora\core\persistent_cognitive_graph.py:48:    q=embed(query)
+  app\eldora\core\persistent_cognitive_graph.py:49:    conn=_conn()
+  app\eldora\core\persistent_cognitive_graph.py:50:    results=[]
+  app\eldora\core\persistent_cognitive_graph.py:51:    if conn:
+  app\eldora\core\persistent_cognitive_graph.py:52:        try:
+  app\eldora\core\persistent_cognitive_graph.py:53:            with conn:
+  app\eldora\core\persistent_cognitive_graph.py:54:                with conn.cursor() as cur:
+> app\eldora\core\persistent_cognitive_graph.py:55:                    cur.execute("select content, category, priority, created_at from eldora_cognitive_memory order by embedding <=> %s::vector limit %s", ("[" + ",".join(map(str, q)) + "]", top_k))
+  app\eldora\core\persistent_cognitive_graph.py:56:                    for content, category, priority, created_at in cur.fetchall():
+  app\eldora\core\persistent_cognitive_graph.py:57:                        results.append({"content":content,"category":category,"priority":priority,"created_at":str(created_at),"backend":"postgres_pgvector"})
+  app\eldora\core\persistent_cognitive_graph.py:58:            conn.close()
+> app\eldora\core\persistent_cognitive_graph.py:59:            return {"status":"ok","query":query,"results":results}
+  app\eldora\core\persistent_cognitive_graph.py:60:        except Exception as e:
+  app\eldora\core\persistent_cognitive_graph.py:61:            try: conn.close()
+  app\eldora\core\persistent_cognitive_graph.py:62:            except Exception: pass
+> app\eldora\core\persistent_cognitive_graph.py:63:    scored=[]
+> app\eldora\core\persistent_cognitive_graph.py:64:    for item in MEMORY:
+> app\eldora\core\persistent_cognitive_graph.py:65:        score=cosine(q,item["embedding"]) + (item.get("priority",1)*0.01)
+> app\eldora\core\persistent_cognitive_graph.py:66:        scored.append({"score":score, **{k:v for k,v in item.items() if k!="embedding"}})
+> app\eldora\core\persistent_cognitive_graph.py:67:    scored.sort(key=lambda x:x["score"], reverse=True)
+> app\eldora\core\persistent_cognitive_graph.py:68:    return {"status":"ok","query":query,"results":scored[:top_k]}
+  app\eldora\core\persistent_cognitive_graph.py:69:
+  app\eldora\core\persistent_cognitive_graph.py:70:def cognitive_store_report():
+> app\eldora\core\persistent_cognitive_graph.py:71:    return {"status":"ok","memory_fallback_items":len(MEMORY),"postgres_available":bool(os.getenv("DATABASE_URL") and psycopg2)}
+  app\eldora\core\persistent_event_store.py:5:    import psycopg2
+  app\eldora\core\persistent_event_store.py:6:except Exception:
+  app\eldora\core\persistent_event_store.py:7:    psycopg2 = None
+  app\eldora\core\persistent_event_store.py:8:
+> app\eldora\core\persistent_event_store.py:9:MEMORY_AUDIT_EVENTS = []
+> app\eldora\core\persistent_event_store.py:10:MEMORY_EVENT_STORE = []
+  app\eldora\core\persistent_event_store.py:11:
+  app\eldora\core\persistent_event_store.py:12:def _conn():
+  app\eldora\core\persistent_event_store.py:13:    url = os.getenv("DATABASE_URL")
+  app\eldora\core\persistent_event_store.py:14:    if not url or psycopg2 is None:
+> app\eldora\core\persistent_event_store.py:15:        return None
+> app\eldora\core\persistent_event_store.py:16:    return psycopg2.connect(url)
+  app\eldora\core\persistent_event_store.py:17:
+  app\eldora\core\persistent_event_store.py:18:def save_audit_event(event_type: str, actor: str = "system", payload: dict | None = None):
+  app\eldora\core\persistent_event_store.py:19:    payload = payload or {}
+  app\eldora\core\persistent_event_store.py:20:    event = {
+  app\eldora\core\persistent_event_store.py:21:        "event_type": event_type,
+  app\eldora\core\persistent_event_store.py:22:        "actor": actor,
+  app\eldora\core\persistent_event_store.py:23:        "payload": payload,
+  app\eldora\core\persistent_event_store.py:24:        "timestamp": datetime.now(timezone.utc).isoformat()
+  app\eldora\core\persistent_event_store.py:25:    }
+  app\eldora\core\persistent_event_store.py:26:    conn = _conn()
+  app\eldora\core\persistent_event_store.py:27:    if not conn:
+> app\eldora\core\persistent_event_store.py:28:        MEMORY_AUDIT_EVENTS.append(event)
+> app\eldora\core\persistent_event_store.py:29:        return {"saved": True, "backend": "memory", "event": event}
+  app\eldora\core\persistent_event_store.py:30:    try:
+  app\eldora\core\persistent_event_store.py:31:        with conn:
+  app\eldora\core\persistent_event_store.py:32:            with conn.cursor() as cur:
+  app\eldora\core\persistent_event_store.py:33:                cur.execute(
+  app\eldora\core\persistent_event_store.py:34:                    "insert into eldora_audit_events(event_type, actor, payload) values (%s,%s,%s::jsonb)",
+  app\eldora\core\persistent_event_store.py:35:                    (event_type, actor, json.dumps(payload))
+  app\eldora\core\persistent_event_store.py:36:                )
+  app\eldora\core\persistent_event_store.py:37:        conn.close()
+> app\eldora\core\persistent_event_store.py:38:        return {"saved": True, "backend": "postgres", "event": event}
+  app\eldora\core\persistent_event_store.py:39:    except Exception as e:
+  app\eldora\core\persistent_event_store.py:40:        try:
+  app\eldora\core\persistent_event_store.py:41:            conn.close()
+  app\eldora\core\persistent_event_store.py:42:        except Exception:
+  app\eldora\core\persistent_event_store.py:43:            pass
+  app\eldora\core\persistent_event_store.py:44:        event["postgres_error"] = str(e)
+> app\eldora\core\persistent_event_store.py:45:        MEMORY_AUDIT_EVENTS.append(event)
+> app\eldora\core\persistent_event_store.py:46:        return {"saved": True, "backend": "memory_fallback", "event": event}
+  app\eldora\core\persistent_event_store.py:47:
+  app\eldora\core\persistent_event_store.py:48:def save_event(topic: str, payload: dict | None = None):
+  app\eldora\core\persistent_event_store.py:49:    payload = payload or {}
+  app\eldora\core\persistent_event_store.py:50:    event = {"topic": topic, "payload": payload, "timestamp": datetime.now(timezone.utc).isoformat()}
+  app\eldora\core\persistent_event_store.py:51:    conn = _conn()
+  app\eldora\core\persistent_event_store.py:52:    if not conn:
+> app\eldora\core\persistent_event_store.py:53:        MEMORY_EVENT_STORE.append(event)
+> app\eldora\core\persistent_event_store.py:54:        return {"saved": True, "backend": "memory", "event": event}
+  app\eldora\core\persistent_event_store.py:55:    with conn:
+  app\eldora\core\persistent_event_store.py:56:        with conn.cursor() as cur:
+  app\eldora\core\persistent_event_store.py:57:            cur.execute(
+  app\eldora\core\persistent_event_store.py:58:                "insert into eldora_event_store(topic, payload) values (%s,%s::jsonb)",
+  app\eldora\core\persistent_event_store.py:59:                (topic, json.dumps(payload))
+  app\eldora\core\persistent_event_store.py:60:            )
+  app\eldora\core\persistent_event_store.py:61:    conn.close()
+> app\eldora\core\persistent_event_store.py:62:    return {"saved": True, "backend": "postgres", "event": event}
+  app\eldora\core\persistent_event_store.py:63:
+  app\eldora\core\persistent_event_store.py:64:def audit_store_report():
+> app\eldora\core\persistent_event_store.py:65:    total = len(MEMORY_AUDIT_EVENTS) + len(MEMORY_EVENT_STORE)
+> app\eldora\core\persistent_event_store.py:66:    return {
+  app\eldora\core\persistent_event_store.py:67:        "status": "ok",
+  app\eldora\core\persistent_event_store.py:68:        "events_count": total,
+> app\eldora\core\persistent_event_store.py:69:        "memory_audit_events": len(MEMORY_AUDIT_EVENTS),
+> app\eldora\core\persistent_event_store.py:70:        "memory_events": len(MEMORY_EVENT_STORE),
+> app\eldora\core\persistent_event_store.py:71:        "events": (MEMORY_AUDIT_EVENTS + MEMORY_EVENT_STORE)[-20:],
+  app\eldora\core\persistent_event_store.py:72:        "postgres_available": bool(os.getenv("DATABASE_URL") and psycopg2)
+  app\eldora\core\persistent_event_store.py:73:    }
+  app\eldora\core\persistent_event_store.py:74:
+  app\eldora\core\persistent_goal_engine.py:13:    }
+  app\eldora\core\persistent_goal_engine.py:14:
+  app\eldora\core\persistent_goal_engine.py:15:    GOALS.append(item)
+  app\eldora\core\persistent_goal_engine.py:16:
+> app\eldora\core\persistent_goal_engine.py:17:    return {
+  app\eldora\core\persistent_goal_engine.py:18:        "status":"ok",
+  app\eldora\core\persistent_goal_engine.py:19:        "goal":item,
+  app\eldora\core\persistent_goal_engine.py:20:        "goals_total":len(GOALS)
+  app\eldora\core\persistent_goal_engine.py:21:    }
+  app\eldora\core\persistent_goal_engine.py:22:
+  app\eldora\core\persistent_goal_engine.py:23:def goal_report():
+> app\eldora\core\persistent_goal_engine.py:24:    return {
+  app\eldora\core\persistent_goal_engine.py:25:        "status":"ok",
+  app\eldora\core\persistent_goal_engine.py:26:        "goals_total":len(GOALS),
+  app\eldora\core\persistent_goal_engine.py:27:        "goals":GOALS[-100:]
+  app\eldora\core\persistent_goal_engine.py:28:    }
+  app\eldora\core\persistent_social_memory.py:1:from datetime import datetime, timezone
+  app\eldora\core\persistent_social_memory.py:2:import os, json, uuid, urllib.request
+  app\eldora\core\persistent_social_memory.py:3:
+> app\eldora\core\persistent_social_memory.py:4:SOCIAL_MEMORY=[]
+  app\eldora\core\persistent_social_memory.py:5:
+  app\eldora\core\persistent_social_memory.py:6:SUPABASE_URL=(os.getenv("SUPABASE_URL") or "").rstrip("/")
+  app\eldora\core\persistent_social_memory.py:7:SUPABASE_KEY=os.getenv("SUPABASE_SERVICE_ROLE") or os.getenv("SUPABASE_SERVICE_ROLE_KEY") or ""
+  app\eldora\core\persistent_social_memory.py:8:
+  app\eldora\core\persistent_social_memory.py:9:def _enabled():
+> app\eldora\core\persistent_social_memory.py:10:    return bool(SUPABASE_URL and SUPABASE_KEY)
+  app\eldora\core\persistent_social_memory.py:11:
+> app\eldora\core\persistent_social_memory.py:12:def _headers(prefer="return=minimal"):
+  app\eldora\core\persistent_social_memory.py:13:    h={"apikey":SUPABASE_KEY,"Authorization":f"Bearer {SUPABASE_KEY}","Content-Type":"application/json"}
+  app\eldora\core\persistent_social_memory.py:14:    if prefer: h["Prefer"]=prefer
+> app\eldora\core\persistent_social_memory.py:15:    return h
+  app\eldora\core\persistent_social_memory.py:16:
+> app\eldora\core\persistent_social_memory.py:17:def store_social_memory(user_id:str, interaction:str, affinity:float=0.9):
+> app\eldora\core\persistent_social_memory.py:18:    item={"memory_id":str(uuid.uuid4()),"user_id":user_id,"interaction":interaction,"affinity":affinity,"created_at":datetime.now(timezone.utc).isoformat()}
+> app\eldora\core\persistent_social_memory.py:19:    SOCIAL_MEMORY.append(item)
+  app\eldora\core\persistent_social_memory.py:20:
+  app\eldora\core\persistent_social_memory.py:21:    if _enabled():
+> app\eldora\core\persistent_social_memory.py:22:        row={"id":item["memory_id"],"sender_id":str(user_id or "default")[:180],"memory_type":"social_memory","content":str(interaction or "")[:4000],"confidence":float(affinity),"message":str(interaction or "")[:4000],"role":"social_memory"}
+  app\eldora\core\persistent_social_memory.py:23:        try:
+> app\eldora\core\persistent_social_memory.py:24:            req=urllib.request.Request(f"{SUPABASE_URL}/rest/v1/neura_memory",data=json.dumps(row).encode("utf-8"),headers=_headers(),method="POST")
+  app\eldora\core\persistent_social_memory.py:25:            urllib.request.urlopen(req,timeout=8).read()
+> app\eldora\core\persistent_social_memory.py:26:            return {"status":"ok","backend":"supabase_neura_memory","memory":item,"total_memories":len(SOCIAL_MEMORY)}
+  app\eldora\core\persistent_social_memory.py:27:        except Exception as e:
+> app\eldora\core\persistent_social_memory.py:28:            return {"status":"ok","backend":"local_fallback","supabase_error":str(e)[:240],"memory":item,"total_memories":len(SOCIAL_MEMORY)}
+  app\eldora\core\persistent_social_memory.py:29:
+> app\eldora\core\persistent_social_memory.py:30:    return {"status":"ok","backend":"local_fallback","memory":item,"total_memories":len(SOCIAL_MEMORY)}
+  app\eldora\core\persistent_social_memory.py:31:
+> app\eldora\core\persistent_social_memory.py:32:def social_memory_report():
+  app\eldora\core\persistent_social_memory.py:33:    if _enabled():
+  app\eldora\core\persistent_social_memory.py:34:        try:
+> app\eldora\core\persistent_social_memory.py:35:            req=urllib.request.Request(f"{SUPABASE_URL}/rest/v1/neura_memory?select=sender_id,content,confidence,created_at&memory_type=eq.social_memory&order=created_at.desc&limit=100",headers=_headers(prefer=None),method="GET")
+  app\eldora\core\persistent_social_memory.py:36:            rows=json.loads(urllib.request.urlopen(req,timeout=8).read().decode("utf-8"))
+> app\eldora\core\persistent_social_memory.py:37:            return {"status":"ok","backend":"supabase_neura_memory","total_memories":len(rows),"memories":rows}
+  app\eldora\core\persistent_social_memory.py:38:        except Exception as e:
+> app\eldora\core\persistent_social_memory.py:39:            return {"status":"partial","backend":"local_fallback","supabase_error":str(e)[:240],"total_memories":len(SOCIAL_MEMORY),"memories":SOCIAL_MEMORY[-100:]}
+  app\eldora\core\persistent_social_memory.py:40:
+> app\eldora\core\persistent_social_memory.py:41:    return {"status":"ok","backend":"local_fallback","total_memories":len(SOCIAL_MEMORY),"memories":SOCIAL_MEMORY[-100:]}
+  app\eldora\core\policy_engine.py:1:from app.eldora.core.rbac import has_permission
+  app\eldora\core\policy_engine.py:2:
+  app\eldora\core\policy_engine.py:3:def evaluate_policy(role: str, action: str, resource: str = "eldora"):
+  app\eldora\core\policy_engine.py:4:    allowed = has_permission(role, action)
+> app\eldora\core\policy_engine.py:5:    return {
+  app\eldora\core\policy_engine.py:6:        "status": "ok",
+  app\eldora\core\policy_engine.py:7:        "allowed": allowed,
+  app\eldora\core\policy_engine.py:8:        "role": role,
+  app\eldora\core\policy_engine.py:9:        "action": action,
+  app\eldora\core\policy_engine.py:10:        "resource": resource
+  app\eldora\core\policy_engine.py:11:    }
+  app\eldora\core\predictive_simulation_engine.py:14:    }
+  app\eldora\core\predictive_simulation_engine.py:15:
+  app\eldora\core\predictive_simulation_engine.py:16:    SIMULATIONS.append(simulation)
+  app\eldora\core\predictive_simulation_engine.py:17:
+> app\eldora\core\predictive_simulation_engine.py:18:    return {
+  app\eldora\core\predictive_simulation_engine.py:19:        "status":"ok",
+  app\eldora\core\predictive_simulation_engine.py:20:        "simulation":simulation
+  app\eldora\core\predictive_simulation_engine.py:21:    }
+  app\eldora\core\predictive_simulation_engine.py:22:
+  app\eldora\core\predictive_simulation_engine.py:23:def simulation_report():
+> app\eldora\core\predictive_simulation_engine.py:24:    return {
+  app\eldora\core\predictive_simulation_engine.py:25:        "status":"ok",
+  app\eldora\core\predictive_simulation_engine.py:26:        "simulations_total":len(SIMULATIONS),
+  app\eldora\core\predictive_simulation_engine.py:27:        "simulations":SIMULATIONS[-100:]
+  app\eldora\core\predictive_simulation_engine.py:28:    }
+  app\eldora\core\rate_limit_engine.py:2:WINDOWS={}
+  app\eldora\core\rate_limit_engine.py:3:def check_rate_limit(key: str, limit: int=60, window_seconds: int=60):
+  app\eldora\core\rate_limit_engine.py:4:    now=int(time.time()); bucket=[t for t in WINDOWS.get(key,[]) if now-t<window_seconds]; allowed=len(bucket)<limit
+  app\eldora\core\rate_limit_engine.py:5:    if allowed: bucket.append(now)
+> app\eldora\core\rate_limit_engine.py:6:    WINDOWS[key]=bucket; return {"allowed":allowed,"count":len(bucket),"limit":limit,"window_seconds":window_seconds}
+  app\eldora\core\rbac.py:1:ROLE_PERMISSIONS = {
+  app\eldora\core\rbac.py:2:    "guest": ["read_public"],
+> app\eldora\core\rbac.py:3:    "user": ["read_public", "use_runtime", "memory_write"],
+> app\eldora\core\rbac.py:4:    "admin": ["read_public", "use_runtime", "memory_write", "manage_tenant", "apply_schema"]
+  app\eldora\core\rbac.py:5:}
+  app\eldora\core\rbac.py:6:
+  app\eldora\core\rbac.py:7:def has_permission(role: str, permission: str):
+> app\eldora\core\rbac.py:8:    return permission in ROLE_PERMISSIONS.get(role, [])
+  app\eldora\core\real_world_action_engine.py:13:    }
+  app\eldora\core\real_world_action_engine.py:14:
+  app\eldora\core\real_world_action_engine.py:15:    ACTIONS.append(item)
+  app\eldora\core\real_world_action_engine.py:16:
+> app\eldora\core\real_world_action_engine.py:17:    return {
+  app\eldora\core\real_world_action_engine.py:18:        "status":"ok",
+  app\eldora\core\real_world_action_engine.py:19:        "execution":item
+  app\eldora\core\real_world_action_engine.py:20:    }
+  app\eldora\core\real_world_action_engine.py:21:
+  app\eldora\core\real_world_action_engine.py:22:def action_report():
+> app\eldora\core\real_world_action_engine.py:23:    return {
+  app\eldora\core\real_world_action_engine.py:24:        "status":"ok",
+  app\eldora\core\real_world_action_engine.py:25:        "actions_total":len(ACTIONS),
+  app\eldora\core\real_world_action_engine.py:26:        "actions":ACTIONS[-100:]
+  app\eldora\core\real_world_action_engine.py:27:    }
+  app\eldora\core\realtime_cognitive_mesh.py:11:    }
+  app\eldora\core\realtime_cognitive_mesh.py:12:
+  app\eldora\core\realtime_cognitive_mesh.py:13:    COGNITIVE_MESH.append(item)
+  app\eldora\core\realtime_cognitive_mesh.py:14:
+> app\eldora\core\realtime_cognitive_mesh.py:15:    return {
+  app\eldora\core\realtime_cognitive_mesh.py:16:        "status":"ok",
+  app\eldora\core\realtime_cognitive_mesh.py:17:        "mesh":item
+  app\eldora\core\realtime_cognitive_mesh.py:18:    }
+  app\eldora\core\realtime_cognitive_mesh.py:19:
+  app\eldora\core\realtime_cognitive_mesh.py:20:def mesh_report():
+> app\eldora\core\realtime_cognitive_mesh.py:21:    return {
+  app\eldora\core\realtime_cognitive_mesh.py:22:        "status":"ok",
+  app\eldora\core\realtime_cognitive_mesh.py:23:        "nodes_total":len(COGNITIVE_MESH),
+  app\eldora\core\realtime_cognitive_mesh.py:24:        "nodes":COGNITIVE_MESH[-100:]
+  app\eldora\core\realtime_cognitive_mesh.py:25:    }
+  app\eldora\core\realtime_event_stream.py:11:    }
+  app\eldora\core\realtime_event_stream.py:12:
+  app\eldora\core\realtime_event_stream.py:13:    EVENT_STREAM.append(item)
+  app\eldora\core\realtime_event_stream.py:14:
+> app\eldora\core\realtime_event_stream.py:15:    return {
+  app\eldora\core\realtime_event_stream.py:16:        "status":"ok",
+  app\eldora\core\realtime_event_stream.py:17:        "event":item
+  app\eldora\core\realtime_event_stream.py:18:    }
+  app\eldora\core\realtime_event_stream.py:19:
+  app\eldora\core\realtime_event_stream.py:20:def stream_report():
+> app\eldora\core\realtime_event_stream.py:21:    return {
+  app\eldora\core\realtime_event_stream.py:22:        "status":"ok",
+  app\eldora\core\realtime_event_stream.py:23:        "events_total":len(EVENT_STREAM),
+  app\eldora\core\realtime_event_stream.py:24:        "events":EVENT_STREAM[-100:]
+  app\eldora\core\realtime_event_stream.py:25:    }
+  app\eldora\core\realtime_task_market.py:21:    }
+  app\eldora\core\realtime_task_market.py:22:
+  app\eldora\core\realtime_task_market.py:23:    TASK_MARKET.append(task)
+  app\eldora\core\realtime_task_market.py:24:
+> app\eldora\core\realtime_task_market.py:25:    return {
+  app\eldora\core\realtime_task_market.py:26:        "status":"ok",
+  app\eldora\core\realtime_task_market.py:27:        "task":task,
+  app\eldora\core\realtime_task_market.py:28:        "market_size":len(TASK_MARKET)
+  app\eldora\core\realtime_task_market.py:29:    }
+  app\eldora\core\realtime_task_market.py:30:
+  app\eldora\core\realtime_task_market.py:31:def submit_agent_bid(
+  app\eldora\core\realtime_task_market.py:32:    task_id:str,
+  app\eldora\core\realtime_task_market.py:33:    agent_id:str,
+  app\eldora\core\realtime_task_market.py:34:    estimated_cost:int=10,
+  app\eldora\core\realtime_task_market.py:35:    estimated_latency:int=1
+  app\eldora\core\realtime_task_market.py:36:):
+  app\eldora\core\realtime_task_market.py:37:
+  app\eldora\core\realtime_task_market.py:38:    bid = {
+  app\eldora\core\realtime_task_market.py:39:        "bid_id": str(uuid.uuid4()),
+  app\eldora\core\realtime_task_market.py:40:        "task_id": task_id,
+  app\eldora\core\realtime_task_market.py:41:        "agent_id": agent_id,
+  app\eldora\core\realtime_task_market.py:42:        "estimated_cost": estimated_cost,
+  app\eldora\core\realtime_task_market.py:43:        "estimated_latency": estimated_latency,
+> app\eldora\core\realtime_task_market.py:44:        "score": max(1, 100 - estimated_cost - estimated_latency),
+  app\eldora\core\realtime_task_market.py:45:        "created_at": datetime.now(timezone.utc).isoformat()
+  app\eldora\core\realtime_task_market.py:46:    }
+  app\eldora\core\realtime_task_market.py:47:
+  app\eldora\core\realtime_task_market.py:48:    TASK_BIDS.append(bid)
+  app\eldora\core\realtime_task_market.py:49:
+> app\eldora\core\realtime_task_market.py:50:    return {
+  app\eldora\core\realtime_task_market.py:51:        "status":"ok",
+  app\eldora\core\realtime_task_market.py:52:        "bid":bid,
+  app\eldora\core\realtime_task_market.py:53:        "bids_total":len(TASK_BIDS)
+  app\eldora\core\realtime_task_market.py:54:    }
+  app\eldora\core\realtime_task_market.py:55:
+  app\eldora\core\realtime_task_market.py:56:def assign_execution_contract(task_id:str):
+  app\eldora\core\realtime_task_market.py:57:
+  app\eldora\core\realtime_task_market.py:58:    bids = [b for b in TASK_BIDS if b["task_id"] == task_id]
+  app\eldora\core\realtime_task_market.py:59:
+  app\eldora\core\realtime_task_market.py:60:    if not bids:
+> app\eldora\core\realtime_task_market.py:61:        return {
+  app\eldora\core\realtime_task_market.py:62:            "status":"error",
+  app\eldora\core\realtime_task_market.py:63:            "detail":"no bids"
+  app\eldora\core\realtime_task_market.py:64:        }
+  app\eldora\core\realtime_task_market.py:65:
+  app\eldora\core\realtime_task_market.py:66:    best = sorted(
+  app\eldora\core\realtime_task_market.py:67:        bids,
+> app\eldora\core\realtime_task_market.py:68:        key=lambda x: x["score"],
+  app\eldora\core\realtime_task_market.py:69:        reverse=True
+  app\eldora\core\realtime_task_market.py:70:    )[0]
+  app\eldora\core\realtime_task_market.py:71:
+  app\eldora\core\realtime_task_market.py:72:    contract = {
+  app\eldora\core\realtime_task_market.py:73:        "contract_id": str(uuid.uuid4()),
+  app\eldora\core\realtime_task_market.py:74:        "task_id": task_id,
+  app\eldora\core\realtime_task_market.py:75:        "assigned_agent": best["agent_id"],
+> app\eldora\core\realtime_task_market.py:76:        "score": best["score"],
+  app\eldora\core\realtime_task_market.py:77:        "status": "assigned",
+  app\eldora\core\realtime_task_market.py:78:        "created_at": datetime.now(timezone.utc).isoformat()
+  app\eldora\core\realtime_task_market.py:79:    }
+  app\eldora\core\realtime_task_market.py:80:
+  app\eldora\core\realtime_task_market.py:81:    EXECUTION_CONTRACTS.append(contract)
+  app\eldora\core\realtime_task_market.py:82:
+> app\eldora\core\realtime_task_market.py:83:    return {
+  app\eldora\core\realtime_task_market.py:84:        "status":"ok",
+  app\eldora\core\realtime_task_market.py:85:        "contract":contract
+  app\eldora\core\realtime_task_market.py:86:    }
+  app\eldora\core\realtime_task_market.py:87:
+  app\eldora\core\realtime_task_market.py:88:def economic_market_report():
+  app\eldora\core\realtime_task_market.py:89:
+> app\eldora\core\realtime_task_market.py:90:    return {
+  app\eldora\core\realtime_task_market.py:91:        "status":"ok",
+  app\eldora\core\realtime_task_market.py:92:        "tasks_total":len(TASK_MARKET),
+  app\eldora\core\realtime_task_market.py:93:        "bids_total":len(TASK_BIDS),
+  app\eldora\core\realtime_task_market.py:94:        "contracts_total":len(EXECUTION_CONTRACTS),
+  app\eldora\core\realtime_task_market.py:95:        "tasks":TASK_MARKET[-20:],
+  app\eldora\core\realtime_task_market.py:96:        "contracts":EXECUTION_CONTRACTS[-20:]
+  app\eldora\core\realtime_task_market.py:97:    }
+  app\eldora\core\recursive_execution_engine.py:19:        children.append(
+  app\eldora\core\recursive_execution_engine.py:20:            recursive_execute(goal, depth + 1, max_depth)
+  app\eldora\core\recursive_execution_engine.py:21:        )
+  app\eldora\core\recursive_execution_engine.py:22:
+> app\eldora\core\recursive_execution_engine.py:23:    return {
+  app\eldora\core\recursive_execution_engine.py:24:        "status": "ok",
+  app\eldora\core\recursive_execution_engine.py:25:        "goal": goal,
+  app\eldora\core\recursive_execution_engine.py:26:        "depth": depth,
+  app\eldora\core\recursive_execution_engine.py:27:        "children": children
+  app\eldora\core\recursive_execution_engine.py:28:    }
+  app\eldora\core\recursive_execution_engine.py:29:
+  app\eldora\core\recursive_execution_engine.py:30:def recursive_report():
+> app\eldora\core\recursive_execution_engine.py:31:    return {
+  app\eldora\core\recursive_execution_engine.py:32:        "status": "ok",
+  app\eldora\core\recursive_execution_engine.py:33:        "executions_total": len(RECURSIVE_STATE["executions"]),
+  app\eldora\core\recursive_execution_engine.py:34:        "executions": RECURSIVE_STATE["executions"][-20:]
+  app\eldora\core\recursive_execution_engine.py:35:    }
+  app\eldora\core\recursive_introspection_engine.py:12:    }
+  app\eldora\core\recursive_introspection_engine.py:13:
+  app\eldora\core\recursive_introspection_engine.py:14:    INTROSPECTION_LOG.append(item)
+  app\eldora\core\recursive_introspection_engine.py:15:
+> app\eldora\core\recursive_introspection_engine.py:16:    return {
+  app\eldora\core\recursive_introspection_engine.py:17:        "status":"ok",
+  app\eldora\core\recursive_introspection_engine.py:18:        "introspection":item
+  app\eldora\core\recursive_introspection_engine.py:19:    }
+  app\eldora\core\recursive_introspection_engine.py:20:
+  app\eldora\core\recursive_introspection_engine.py:21:def introspection_report():
+> app\eldora\core\recursive_introspection_engine.py:22:    return {
+  app\eldora\core\recursive_introspection_engine.py:23:        "status":"ok",
+  app\eldora\core\recursive_introspection_engine.py:24:        "events_total":len(INTROSPECTION_LOG),
+  app\eldora\core\recursive_introspection_engine.py:25:        "events":INTROSPECTION_LOG[-100:]
+  app\eldora\core\recursive_introspection_engine.py:26:    }
+  app\eldora\core\redis_diagnostics.py:24:            info["ping"] = bool(client.ping())
+  app\eldora\core\redis_diagnostics.py:25:    except Exception as e:
+  app\eldora\core\redis_diagnostics.py:26:        info["error"] = str(e)
+  app\eldora\core\redis_diagnostics.py:27:
+> app\eldora\core\redis_diagnostics.py:28:    return info
+  app\eldora\core\redis_stream_fabric.py:5:    import redis
+  app\eldora\core\redis_stream_fabric.py:6:except Exception:
+  app\eldora\core\redis_stream_fabric.py:7:    redis = None
+  app\eldora\core\redis_stream_fabric.py:8:
+> app\eldora\core\redis_stream_fabric.py:9:MEMORY_STREAM=[]
+  app\eldora\core\redis_stream_fabric.py:10:
+  app\eldora\core\redis_stream_fabric.py:11:def _client():
+  app\eldora\core\redis_stream_fabric.py:12:    url=os.getenv("REDIS_URL")
+  app\eldora\core\redis_stream_fabric.py:13:    if not url or redis is None:
+> app\eldora\core\redis_stream_fabric.py:14:        return None
+> app\eldora\core\redis_stream_fabric.py:15:    return redis.from_url(url, decode_responses=True)
+  app\eldora\core\redis_stream_fabric.py:16:
+  app\eldora\core\redis_stream_fabric.py:17:def publish_stream(stream:str, event:str, payload:dict|None=None):
+  app\eldora\core\redis_stream_fabric.py:18:    item={
+  app\eldora\core\redis_stream_fabric.py:19:        "event_id":str(uuid.uuid4()),
+  app\eldora\core\redis_stream_fabric.py:20:        "stream":stream,
+  app\eldora\core\redis_stream_fabric.py:21:        "event":event,
+  app\eldora\core\redis_stream_fabric.py:22:        "payload":payload or {},
+  app\eldora\core\redis_stream_fabric.py:23:        "timestamp":datetime.now(timezone.utc).isoformat()
+  app\eldora\core\redis_stream_fabric.py:24:    }
+  app\eldora\core\redis_stream_fabric.py:25:    client=_client()
+  app\eldora\core\redis_stream_fabric.py:26:    if not client:
+> app\eldora\core\redis_stream_fabric.py:27:        MEMORY_STREAM.append(item)
+> app\eldora\core\redis_stream_fabric.py:28:        return {"status":"ok","backend":"memory","event":item}
+  app\eldora\core\redis_stream_fabric.py:29:    client.xadd(stream, {"event":event, "payload":json.dumps(payload or {}), "timestamp":item["timestamp"]})
+> app\eldora\core\redis_stream_fabric.py:30:    return {"status":"ok","backend":"redis","event":item}
+  app\eldora\core\redis_stream_fabric.py:31:
+  app\eldora\core\redis_stream_fabric.py:32:def stream_report():
+> app\eldora\core\redis_stream_fabric.py:33:    return {"status":"ok","backend":"redis" if _client() else "memory","events_total":len(MEMORY_STREAM),"events":MEMORY_STREAM[-100:]}
+  app\eldora\core\relational_cognition_engine.py:1:from datetime import datetime, timezone
+  app\eldora\core\relational_cognition_engine.py:2:
+  app\eldora\core\relational_cognition_engine.py:3:RELATIONAL_COGNITION=[]
+  app\eldora\core\relational_cognition_engine.py:4:
+> app\eldora\core\relational_cognition_engine.py:5:def relational_analysis(user_id:str, profile:str):
+  app\eldora\core\relational_cognition_engine.py:6:    item = {
+  app\eldora\core\relational_cognition_engine.py:7:        "user_id":user_id,
+> app\eldora\core\relational_cognition_engine.py:8:        "profile":profile,
+> app\eldora\core\relational_cognition_engine.py:9:        "relationship_depth":0.94,
+  app\eldora\core\relational_cognition_engine.py:10:        "timestamp":datetime.now(timezone.utc).isoformat()
+  app\eldora\core\relational_cognition_engine.py:11:    }
+  app\eldora\core\relational_cognition_engine.py:12:
+  app\eldora\core\relational_cognition_engine.py:13:    RELATIONAL_COGNITION.append(item)
+  app\eldora\core\relational_cognition_engine.py:14:
+> app\eldora\core\relational_cognition_engine.py:15:    return {
+  app\eldora\core\relational_cognition_engine.py:16:        "status":"ok",
+  app\eldora\core\relational_cognition_engine.py:17:        "analysis":item
+  app\eldora\core\relational_cognition_engine.py:18:    }
+  app\eldora\core\relational_cognition_engine.py:19:
+> app\eldora\core\relational_cognition_engine.py:20:def relational_report():
+> app\eldora\core\relational_cognition_engine.py:21:    return {
+  app\eldora\core\relational_cognition_engine.py:22:        "status":"ok",
+  app\eldora\core\relational_cognition_engine.py:23:        "events_total":len(RELATIONAL_COGNITION),
+  app\eldora\core\relational_cognition_engine.py:24:        "events":RELATIONAL_COGNITION[-100:]
+  app\eldora\core\relational_cognition_engine.py:25:    }
+  app\eldora\core\runtime_metrics.py:5:}
+  app\eldora\core\runtime_metrics.py:6:
+  app\eldora\core\runtime_metrics.py:7:def increment(metric: str, value: int = 1):
+  app\eldora\core\runtime_metrics.py:8:    RUNTIME_METRICS[metric] = RUNTIME_METRICS.get(metric, 0) + value
+> app\eldora\core\runtime_metrics.py:9:    return RUNTIME_METRICS[metric]
+  app\eldora\core\runtime_metrics.py:10:
+  app\eldora\core\runtime_metrics.py:11:def metrics_report():
+> app\eldora\core\runtime_metrics.py:12:    return {"status": "ok", "metrics": RUNTIME_METRICS}
+  app\eldora\core\runtime_observation_engine.py:11:    }
+  app\eldora\core\runtime_observation_engine.py:12:
+  app\eldora\core\runtime_observation_engine.py:13:    OBSERVATION_EVENTS.append(item)
+  app\eldora\core\runtime_observation_engine.py:14:
+> app\eldora\core\runtime_observation_engine.py:15:    return {
+  app\eldora\core\runtime_observation_engine.py:16:        "status":"ok",
+  app\eldora\core\runtime_observation_engine.py:17:        "observation":item
+  app\eldora\core\runtime_observation_engine.py:18:    }
+  app\eldora\core\runtime_observation_engine.py:19:
+  app\eldora\core\runtime_observation_engine.py:20:def observation_report():
+> app\eldora\core\runtime_observation_engine.py:21:    return {
+  app\eldora\core\runtime_observation_engine.py:22:        "status":"ok",
+  app\eldora\core\runtime_observation_engine.py:23:        "events_total":len(OBSERVATION_EVENTS),
+  app\eldora\core\runtime_observation_engine.py:24:        "events":OBSERVATION_EVENTS[-100:]
+  app\eldora\core\runtime_observation_engine.py:25:    }
+  app\eldora\core\self_awareness_engine.py:5:def self_awareness(runtime_state:str, objective:str):
+  app\eldora\core\self_awareness_engine.py:6:    item = {
+  app\eldora\core\self_awareness_engine.py:7:        "runtime_state":runtime_state,
+  app\eldora\core\self_awareness_engine.py:8:        "objective":objective,
+> app\eldora\core\self_awareness_engine.py:9:        "awareness_score":0.96,
+  app\eldora\core\self_awareness_engine.py:10:        "timestamp":datetime.now(timezone.utc).isoformat()
+  app\eldora\core\self_awareness_engine.py:11:    }
+  app\eldora\core\self_awareness_engine.py:12:
+  app\eldora\core\self_awareness_engine.py:13:    SELF_AWARENESS.append(item)
+  app\eldora\core\self_awareness_engine.py:14:
+> app\eldora\core\self_awareness_engine.py:15:    return {
+  app\eldora\core\self_awareness_engine.py:16:        "status":"ok",
+  app\eldora\core\self_awareness_engine.py:17:        "awareness":item
+  app\eldora\core\self_awareness_engine.py:18:    }
+  app\eldora\core\self_awareness_engine.py:19:
+  app\eldora\core\self_awareness_engine.py:20:def awareness_report():
+> app\eldora\core\self_awareness_engine.py:21:    return {
+  app\eldora\core\self_awareness_engine.py:22:        "status":"ok",
+  app\eldora\core\self_awareness_engine.py:23:        "events_total":len(SELF_AWARENESS),
+  app\eldora\core\self_awareness_engine.py:24:        "events":SELF_AWARENESS[-100:]
+  app\eldora\core\self_awareness_engine.py:25:    }
+  app\eldora\core\self_healing_engine.py:13:    }
+  app\eldora\core\self_healing_engine.py:14:
+  app\eldora\core\self_healing_engine.py:15:    SELF_HEALING_STATE["recoveries"].append(recovery)
+  app\eldora\core\self_healing_engine.py:16:
+> app\eldora\core\self_healing_engine.py:17:    return {
+  app\eldora\core\self_healing_engine.py:18:        "status": "ok",
+  app\eldora\core\self_healing_engine.py:19:        "recovery": recovery,
+  app\eldora\core\self_healing_engine.py:20:        "recoveries_total": len(SELF_HEALING_STATE["recoveries"])
+  app\eldora\core\self_healing_engine.py:21:    }
+  app\eldora\core\self_healing_engine.py:22:
+  app\eldora\core\self_healing_engine.py:23:def healing_report():
+> app\eldora\core\self_healing_engine.py:24:    return {
+  app\eldora\core\self_healing_engine.py:25:        "status": "ok",
+  app\eldora\core\self_healing_engine.py:26:        "runtime_status": SELF_HEALING_STATE["runtime_status"],
+  app\eldora\core\self_healing_engine.py:27:        "recoveries_total": len(SELF_HEALING_STATE["recoveries"]),
+  app\eldora\core\self_healing_engine.py:28:        "recoveries": SELF_HEALING_STATE["recoveries"][-20:]
+  app\eldora\core\self_healing_engine.py:29:    }
+  app\eldora\core\semantic_memory_engine.py:7:from app.runtime.embedding_cache import cached_embed
+  app\eldora\core\semantic_memory_engine.py:8:
+  app\eldora\core\semantic_memory_engine.py:9:
+  app\eldora\core\semantic_memory_engine.py:10:def _database_url() -> str | None:
+> app\eldora\core\semantic_memory_engine.py:11:    return os.getenv("DATABASE_URL")
+  app\eldora\core\semantic_memory_engine.py:12:
+  app\eldora\core\semantic_memory_engine.py:13:
+  app\eldora\core\semantic_memory_engine.py:14:def _db_unavailable() -> dict:
+> app\eldora\core\semantic_memory_engine.py:15:    return {"status": "unavailable", "stored": False, "reason": "DATABASE_URL not configured", "source": "pgvector"}
+  app\eldora\core\semantic_memory_engine.py:16:
+  app\eldora\core\semantic_memory_engine.py:17:
+  app\eldora\core\semantic_memory_engine.py:18:def _ensure_schema() -> None:
+  app\eldora\core\semantic_memory_engine.py:19:    db = _database_url()
+  app\eldora\core\semantic_memory_engine.py:20:    if not db:
+> app\eldora\core\semantic_memory_engine.py:21:        return
+  app\eldora\core\semantic_memory_engine.py:22:    with psycopg2.connect(db, connect_timeout=5) as conn:
+  app\eldora\core\semantic_memory_engine.py:23:        with conn.cursor() as cur:
+  app\eldora\core\semantic_memory_engine.py:24:            cur.execute("create extension if not exists vector")
+  app\eldora\core\semantic_memory_engine.py:25:            cur.execute("""
+  app\eldora\core\semantic_memory_engine.py:26:            create table if not exists neura_embeddings(
+  app\eldora\core\semantic_memory_engine.py:27:                id bigserial primary key,
+  app\eldora\core\semantic_memory_engine.py:28:                sender_id text not null,
+  app\eldora\core\semantic_memory_engine.py:29:                message text not null,
+  app\eldora\core\semantic_memory_engine.py:30:                metadata jsonb default '{}'::jsonb,
+  app\eldora\core\semantic_memory_engine.py:31:                embedding vector(1536),
+  app\eldora\core\semantic_memory_engine.py:32:                created_at timestamptz default now()
+  app\eldora\core\semantic_memory_engine.py:33:            )
+  app\eldora\core\semantic_memory_engine.py:34:            """)
+  app\eldora\core\semantic_memory_engine.py:35:            cur.execute("create index if not exists neura_embeddings_sender_idx on neura_embeddings(sender_id)")
+  app\eldora\core\semantic_memory_engine.py:36:        conn.commit()
+  app\eldora\core\semantic_memory_engine.py:37:
+  app\eldora\core\semantic_memory_engine.py:38:
+  app\eldora\core\semantic_memory_engine.py:39:def insert_embedding(sender_id: str, text: str, metadata: dict | None = None) -> dict:
+  app\eldora\core\semantic_memory_engine.py:40:    if not text or not text.strip():
+> app\eldora\core\semantic_memory_engine.py:41:        return {"status": "skipped", "stored": False, "reason": "empty_text", "source": "pgvector"}
+  app\eldora\core\semantic_memory_engine.py:42:    if not _database_url():
+> app\eldora\core\semantic_memory_engine.py:43:        return _db_unavailable()
+  app\eldora\core\semantic_memory_engine.py:44:
+  app\eldora\core\semantic_memory_engine.py:45:    _ensure_schema()
+  app\eldora\core\semantic_memory_engine.py:46:    embedding = cached_embed(EmbeddingProvider(), text)
+  app\eldora\core\semantic_memory_engine.py:47:    if not embedding:
+> app\eldora\core\semantic_memory_engine.py:48:        raise RuntimeError("embedding_provider_returned_empty")
+  app\eldora\core\semantic_memory_engine.py:49:
+  app\eldora\core\semantic_memory_engine.py:50:    payload = metadata or {}
+  app\eldora\core\semantic_memory_engine.py:51:    with psycopg2.connect(_database_url(), connect_timeout=5) as conn:
+  app\eldora\core\semantic_memory_engine.py:52:        with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+  app\eldora\core\semantic_memory_engine.py:53:            cur.execute("""
+  app\eldora\core\semantic_memory_engine.py:54:            insert into neura_embeddings(sender_id, message, metadata, embedding)
+  app\eldora\core\semantic_memory_engine.py:55:            values (%s, %s, %s::jsonb, %s::vector)
+> app\eldora\core\semantic_memory_engine.py:56:            returning id, sender_id, message, metadata, created_at
+  app\eldora\core\semantic_memory_engine.py:57:            """, (sender_id or "default", text, psycopg2.extras.Json(payload), embedding))
+  app\eldora\core\semantic_memory_engine.py:58:            row = dict(cur.fetchone())
+  app\eldora\core\semantic_memory_engine.py:59:        conn.commit()
+  app\eldora\core\semantic_memory_engine.py:60:
+> app\eldora\core\semantic_memory_engine.py:61:    return {"status": "ok", "stored": True, "source": "pgvector", "id": str(row["id"]), "sender_id": row["sender_id"]}
+  app\eldora\core\semantic_memory_engine.py:62:
+  app\eldora\core\semantic_memory_engine.py:63:
+  app\eldora\core\semantic_memory_engine.py:64:def semantic_search(sender_id: str, query: str, limit: int = 5) -> list[dict]:
+  app\eldora\core\semantic_memory_engine.py:65:    if not _database_url():
+> app\eldora\core\semantic_memory_engine.py:66:        return []
+> app\eldora\core\semantic_memory_engine.py:67:    return SemanticRetrievalProvider().search(sender_id or "default", query, limit)
+  app\eldora\core\semantic_memory_engine.py:68:
+  app\eldora\core\semantic_memory_engine.py:69:
+  app\eldora\core\semantic_memory_engine.py:70:def similarity_search(sender_id: str, query: str, top_k: int = 3) -> dict:
+> app\eldora\core\semantic_memory_engine.py:71:    return {"status": "ok", "query": query, "results": semantic_search(sender_id or "default", query, top_k)}
+  app\eldora\core\semantic_memory_engine.py:72:
+  app\eldora\core\semantic_memory_engine.py:73:
+> app\eldora\core\semantic_memory_engine.py:74:def semantic_memory_recall(sender_id: str, query: str, top_k: int = 3) -> dict:
+> app\eldora\core\semantic_memory_engine.py:75:    return similarity_search(sender_id, query, top_k)
+  app\eldora\core\semantic_memory_engine.py:76:
+  app\eldora\core\semantic_memory_engine.py:77:
+> app\eldora\core\semantic_memory_engine.py:78:def store_memory(text: str, metadata: dict | None = None):
+  app\eldora\core\semantic_memory_engine.py:79:    meta = metadata or {}
+  app\eldora\core\semantic_memory_engine.py:80:    sender_id = meta.get("sender_id") or meta.get("from") or "default"
+> app\eldora\core\semantic_memory_engine.py:81:    return insert_embedding(sender_id, text, meta)
+  app\eldora\core\semantic_memory_engine.py:82:
+  app\eldora\core\semantic_memory_engine.py:83:
+> app\eldora\core\semantic_memory_engine.py:84:def retrieve_memory(query: str, top_k: int = 3):
+> app\eldora\core\semantic_memory_engine.py:85:    return similarity_search("pytest_semantic", query, top_k)
+  app\eldora\core\semantic_memory_engine.py:86:
+  app\eldora\core\semantic_memory_engine.py:87:
+  app\eldora\core\semantic_memory_engine.py:88:def semantic_graph_report():
+  app\eldora\core\semantic_memory_engine.py:89:    if not _database_url():
+> app\eldora\core\semantic_memory_engine.py:90:        return {"status": "unavailable", "source": "pgvector", "nodes_total": 0, "graph": [], "reason": "DATABASE_URL not configured"}
+  app\eldora\core\semantic_memory_engine.py:91:
+  app\eldora\core\semantic_memory_engine.py:92:    with psycopg2.connect(_database_url(), connect_timeout=5) as conn:
+  app\eldora\core\semantic_memory_engine.py:93:        with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+  app\eldora\core\semantic_memory_engine.py:94:            cur.execute("""
+  app\eldora\core\semantic_memory_engine.py:95:            select sender_id, count(*) as memories
+  app\eldora\core\semantic_memory_engine.py:96:            from neura_embeddings
+  app\eldora\core\semantic_memory_engine.py:97:            group by sender_id
+  app\eldora\core\semantic_memory_engine.py:98:            order by memories desc
+  app\eldora\core\semantic_memory_engine.py:99:            limit 50
+  app\eldora\core\semantic_memory_engine.py:100:            """)
+  app\eldora\core\semantic_memory_engine.py:101:            rows = [dict(x) for x in cur.fetchall()]
+> app\eldora\core\semantic_memory_engine.py:102:    return {"status": "ok", "source": "pgvector", "nodes_total": len(rows), "graph": rows}
+  app\eldora\core\service_health_graph.py:2:from app.eldora.core.module_registry import MODULE_REGISTRY
+  app\eldora\core\service_health_graph.py:3:from app.eldora.core.startup_manager import startup_report
+  app\eldora\core\service_health_graph.py:4:
+  app\eldora\core\service_health_graph.py:5:def service_health_graph():
+> app\eldora\core\service_health_graph.py:6:    return {
+  app\eldora\core\service_health_graph.py:7:        "runtime": "eldora",
+  app\eldora\core\service_health_graph.py:8:        "status": "ok",
+  app\eldora\core\service_health_graph.py:9:        "modules": MODULE_REGISTRY,
+  app\eldora\core\service_health_graph.py:10:        "feature_flags": FEATURE_FLAGS,
+  app\eldora\core\service_health_graph.py:11:        "startup": startup_report()
+  app\eldora\core\service_health_graph.py:12:    }
+  app\eldora\core\session_memory.py:1:SESSIONS={}
+  app\eldora\core\session_memory.py:2:def save_session(user_id: str, tenant_id: str="default", data: dict|None=None):
+> app\eldora\core\session_memory.py:3:    SESSIONS[f"{tenant_id}:{user_id}"]={"user_id":user_id,"tenant_id":tenant_id,"data":data or {}}; return SESSIONS[f"{tenant_id}:{user_id}"]
+  app\eldora\core\session_memory.py:4:def get_session(user_id: str, tenant_id: str="default"):
+> app\eldora\core\session_memory.py:5:    return SESSIONS.get(f"{tenant_id}:{user_id}", {"user_id":user_id,"tenant_id":tenant_id,"data":{},"status":"new"})
+  app\eldora\core\startup_manager.py:7:    "feature_flags_loaded"
+  app\eldora\core\startup_manager.py:8:]
+  app\eldora\core\startup_manager.py:9:
+  app\eldora\core\startup_manager.py:10:def startup_report():
+> app\eldora\core\startup_manager.py:11:    return {
+  app\eldora\core\startup_manager.py:12:        "enabled": is_enabled("eldora_startup_manager_enabled"),
+  app\eldora\core\startup_manager.py:13:        "tasks": STARTUP_TASKS,
+  app\eldora\core\startup_manager.py:14:        "status": "ok"
+  app\eldora\core\startup_manager.py:15:    }
+  app\eldora\core\startup_manager.py:16:
+  app\eldora\core\startup_manager.py:17:def shutdown_report():
+> app\eldora\core\startup_manager.py:18:    return {"status": "ok", "shutdown": "clean"}
+  app\eldora\core\structured_logger.py:1:from datetime import datetime, timezone
+  app\eldora\core\structured_logger.py:2:
+  app\eldora\core\structured_logger.py:3:def log(level: str, message: str, **fields):
+> app\eldora\core\structured_logger.py:4:    return {
+  app\eldora\core\structured_logger.py:5:        "level": level.upper(),
+  app\eldora\core\structured_logger.py:6:        "message": message,
+  app\eldora\core\structured_logger.py:7:        "fields": fields,
+  app\eldora\core\structured_logger.py:8:        "timestamp": datetime.now(timezone.utc).isoformat()
+  app\eldora\core\structured_logger.py:9:    }
+  app\eldora\core\supervisor_swarm.py:1:from datetime import datetime, timezone
+  app\eldora\core\supervisor_swarm.py:2:
+  app\eldora\core\supervisor_swarm.py:3:SUPERVISOR_SWARM = {
+  app\eldora\core\supervisor_swarm.py:4:    "runtime_supervisor": "active",
+> app\eldora\core\supervisor_swarm.py:5:    "memory_supervisor": "active",
+  app\eldora\core\supervisor_swarm.py:6:    "reasoning_supervisor": "active",
+  app\eldora\core\supervisor_swarm.py:7:    "execution_supervisor": "active"
+  app\eldora\core\supervisor_swarm.py:8:}
+  app\eldora\core\supervisor_swarm.py:9:
+  app\eldora\core\supervisor_swarm.py:10:def supervisor_report():
+> app\eldora\core\supervisor_swarm.py:11:    return {
+  app\eldora\core\supervisor_swarm.py:12:        "status": "ok",
+  app\eldora\core\supervisor_swarm.py:13:        "supervisors_total": len(SUPERVISOR_SWARM),
+  app\eldora\core\supervisor_swarm.py:14:        "supervisors": SUPERVISOR_SWARM,
+  app\eldora\core\supervisor_swarm.py:15:        "timestamp": datetime.now(timezone.utc).isoformat()
+  app\eldora\core\supervisor_swarm.py:16:    }
+  app\eldora\core\task_engine.py:14:        "created_at": datetime.now(timezone.utc).isoformat()
+  app\eldora\core\task_engine.py:15:    }
+  app\eldora\core\task_engine.py:16:
+  app\eldora\core\task_engine.py:17:    TASKS[task_id] = task
+> app\eldora\core\task_engine.py:18:    return task
+  app\eldora\core\task_engine.py:19:
+  app\eldora\core\task_engine.py:20:def complete_task(task_id: str):
+  app\eldora\core\task_engine.py:21:    if task_id in TASKS:
+  app\eldora\core\task_engine.py:22:        TASKS[task_id]["status"] = "completed"
+> app\eldora\core\task_engine.py:23:    return TASKS.get(task_id)
+  app\eldora\core\task_engine.py:24:
+  app\eldora\core\task_engine.py:25:def get_task(task_id: str):
+> app\eldora\core\task_engine.py:26:    return TASKS.get(task_id, {"status": "not_found"})
+  app\eldora\core\task_engine.py:27:
+  app\eldora\core\task_engine.py:28:def task_report():
+> app\eldora\core\task_engine.py:29:    return {
+  app\eldora\core\task_engine.py:30:        "status": "ok",
+  app\eldora\core\task_engine.py:31:        "tasks_total": len(TASKS),
+  app\eldora\core\task_engine.py:32:        "tasks": list(TASKS.values())[-20:]
+  app\eldora\core\task_engine.py:33:    }
+  app\eldora\core\telemetry_runtime.py:1:import uuid
+  app\eldora\core\telemetry_runtime.py:2:from datetime import datetime, timezone
+  app\eldora\core\telemetry_runtime.py:3:
+  app\eldora\core\telemetry_runtime.py:4:def new_correlation_id():
+> app\eldora\core\telemetry_runtime.py:5:    return str(uuid.uuid4())
+  app\eldora\core\telemetry_runtime.py:6:
+  app\eldora\core\telemetry_runtime.py:7:def telemetry_event(name: str, payload: dict | None = None):
+> app\eldora\core\telemetry_runtime.py:8:    return {
+  app\eldora\core\telemetry_runtime.py:9:        "name": name,
+  app\eldora\core\telemetry_runtime.py:10:        "payload": payload or {},
+  app\eldora\core\telemetry_runtime.py:11:        "correlation_id": new_correlation_id(),
+  app\eldora\core\telemetry_runtime.py:12:        "timestamp": datetime.now(timezone.utc).isoformat()
+  app\eldora\core\telemetry_runtime.py:13:    }
+  app\eldora\core\tenant_engine.py:7:}
+  app\eldora\core\tenant_engine.py:8:
+  app\eldora\core\tenant_engine.py:9:def resolve_tenant(tenant_id: str | None = None):
+  app\eldora\core\tenant_engine.py:10:    key = tenant_id or "default"
+> app\eldora\core\tenant_engine.py:11:    return TENANTS.get(key, TENANTS["default"])
+  app\eldora\core\tool_learning_engine.py:7:        "capability": capability,
+  app\eldora\core\tool_learning_engine.py:8:        "learned_at": datetime.now(timezone.utc).isoformat()
+  app\eldora\core\tool_learning_engine.py:9:    }
+  app\eldora\core\tool_learning_engine.py:10:
+> app\eldora\core\tool_learning_engine.py:11:    return {
+  app\eldora\core\tool_learning_engine.py:12:        "status": "ok",
+  app\eldora\core\tool_learning_engine.py:13:        "tool_name": tool_name,
+  app\eldora\core\tool_learning_engine.py:14:        "capability": capability,
+  app\eldora\core\tool_learning_engine.py:15:        "tools_total": len(LEARNED_TOOLS)
+  app\eldora\core\tool_learning_engine.py:16:    }
+  app\eldora\core\tool_learning_engine.py:17:
+  app\eldora\core\tool_learning_engine.py:18:def tool_report():
+> app\eldora\core\tool_learning_engine.py:19:    return {
+  app\eldora\core\tool_learning_engine.py:20:        "status": "ok",
+  app\eldora\core\tool_learning_engine.py:21:        "tools_total": len(LEARNED_TOOLS),
+  app\eldora\core\tool_learning_engine.py:22:        "tools": LEARNED_TOOLS
+  app\eldora\core\tool_learning_engine.py:23:    }
+  app\eldora\core\true_redis_runtime.py:11:    IMPORT_ERROR = str(e)
+  app\eldora\core\true_redis_runtime.py:12:else:
+  app\eldora\core\true_redis_runtime.py:13:    IMPORT_ERROR = None
+  app\eldora\core\true_redis_runtime.py:14:
+> app\eldora\core\true_redis_runtime.py:15:MEMORY_FALLBACK = []
+  app\eldora\core\true_redis_runtime.py:16:
+  app\eldora\core\true_redis_runtime.py:17:LAST_REDIS_ERROR = None
+  app\eldora\core\true_redis_runtime.py:18:
+  app\eldora\core\true_redis_runtime.py:19:def redis_last_error():
+> app\eldora\core\true_redis_runtime.py:20:    return LAST_REDIS_ERROR
+  app\eldora\core\true_redis_runtime.py:21:
+  app\eldora\core\true_redis_runtime.py:22:def redis_client():
+  app\eldora\core\true_redis_runtime.py:23:
+  app\eldora\core\true_redis_runtime.py:24:    global LAST_REDIS_ERROR
+  app\eldora\core\true_redis_runtime.py:25:
+  app\eldora\core\true_redis_runtime.py:26:    try:
+  app\eldora\core\true_redis_runtime.py:27:
+  app\eldora\core\true_redis_runtime.py:28:        url = os.getenv("REDIS_URL")
+  app\eldora\core\true_redis_runtime.py:29:
+  app\eldora\core\true_redis_runtime.py:30:        if not url:
+  app\eldora\core\true_redis_runtime.py:31:            LAST_REDIS_ERROR = "REDIS_URL missing"
+> app\eldora\core\true_redis_runtime.py:32:            return None
+  app\eldora\core\true_redis_runtime.py:33:
+  app\eldora\core\true_redis_runtime.py:34:        if redis is None:
+  app\eldora\core\true_redis_runtime.py:35:            LAST_REDIS_ERROR = f"redis import failed: {IMPORT_ERROR}"
+> app\eldora\core\true_redis_runtime.py:36:            return None
+  app\eldora\core\true_redis_runtime.py:37:
+  app\eldora\core\true_redis_runtime.py:38:        kwargs = {
+  app\eldora\core\true_redis_runtime.py:39:            "decode_responses": True,
+  app\eldora\core\true_redis_runtime.py:40:            "socket_connect_timeout": 5,
+  app\eldora\core\true_redis_runtime.py:41:            "socket_timeout": 5
+  app\eldora\core\true_redis_runtime.py:42:        }
+  app\eldora\core\true_redis_runtime.py:43:
+  app\eldora\core\true_redis_runtime.py:44:        if url.startswith("rediss://"):
+  app\eldora\core\true_redis_runtime.py:45:            kwargs["ssl_cert_reqs"] = None
+  app\eldora\core\true_redis_runtime.py:46:
+  app\eldora\core\true_redis_runtime.py:47:        client = redis.from_url(
+  app\eldora\core\true_redis_runtime.py:48:            url,
+  app\eldora\core\true_redis_runtime.py:49:            **kwargs
+  app\eldora\core\true_redis_runtime.py:50:        )
+  app\eldora\core\true_redis_runtime.py:51:
+  app\eldora\core\true_redis_runtime.py:52:        client.ping()
+  app\eldora\core\true_redis_runtime.py:53:
+  app\eldora\core\true_redis_runtime.py:54:        LAST_REDIS_ERROR = None
+  app\eldora\core\true_redis_runtime.py:55:
+> app\eldora\core\true_redis_runtime.py:56:        return client
+  app\eldora\core\true_redis_runtime.py:57:
+  app\eldora\core\true_redis_runtime.py:58:    except Exception as e:
+  app\eldora\core\true_redis_runtime.py:59:
+  app\eldora\core\true_redis_runtime.py:60:        LAST_REDIS_ERROR = str(e)
+  app\eldora\core\true_redis_runtime.py:61:
+> app\eldora\core\true_redis_runtime.py:62:        return None
+  app\eldora\core\true_redis_runtime.py:63:
+  app\eldora\core\true_redis_runtime.py:64:def publish_true_stream(
+  app\eldora\core\true_redis_runtime.py:65:    stream:str,
+  app\eldora\core\true_redis_runtime.py:66:    event:str,
+  app\eldora\core\true_redis_runtime.py:67:    payload:dict|None=None
+  app\eldora\core\true_redis_runtime.py:68:):
+  app\eldora\core\true_redis_runtime.py:69:
+  app\eldora\core\true_redis_runtime.py:70:    payload = payload or {}
+  app\eldora\core\true_redis_runtime.py:71:
+  app\eldora\core\true_redis_runtime.py:72:    item = {
+  app\eldora\core\true_redis_runtime.py:73:        "event_id": str(uuid.uuid4()),
+  app\eldora\core\true_redis_runtime.py:74:        "stream": stream,
+  app\eldora\core\true_redis_runtime.py:75:        "event": event,
+  app\eldora\core\true_redis_runtime.py:76:        "payload": payload,
+  app\eldora\core\true_redis_runtime.py:77:        "timestamp": datetime.now(timezone.utc).isoformat()
+  app\eldora\core\true_redis_runtime.py:78:    }
+  app\eldora\core\true_redis_runtime.py:79:
+  app\eldora\core\true_redis_runtime.py:80:    try:
+  app\eldora\core\true_redis_runtime.py:81:
+  app\eldora\core\true_redis_runtime.py:82:        client = redis_client()
+  app\eldora\core\true_redis_runtime.py:83:
+  app\eldora\core\true_redis_runtime.py:84:        if client is None:
+  app\eldora\core\true_redis_runtime.py:85:
+> app\eldora\core\true_redis_runtime.py:86:            MEMORY_FALLBACK.append(item)
+  app\eldora\core\true_redis_runtime.py:87:
+> app\eldora\core\true_redis_runtime.py:88:            return {
+  app\eldora\core\true_redis_runtime.py:89:                "status":"ok",
+> app\eldora\core\true_redis_runtime.py:90:                "backend":"memory_fallback",
+  app\eldora\core\true_redis_runtime.py:91:                "redis_error": redis_last_error(),
+  app\eldora\core\true_redis_runtime.py:92:                "event":item
+  app\eldora\core\true_redis_runtime.py:93:            }
+  app\eldora\core\true_redis_runtime.py:94:
+  app\eldora\core\true_redis_runtime.py:95:        redis_event_id = client.xadd(
+  app\eldora\core\true_redis_runtime.py:96:            stream,
+  app\eldora\core\true_redis_runtime.py:97:            {
+  app\eldora\core\true_redis_runtime.py:98:                "event_id": item["event_id"],
+  app\eldora\core\true_redis_runtime.py:99:                "event": event,
+  app\eldora\core\true_redis_runtime.py:100:                "payload": json.dumps(payload),
+  app\eldora\core\true_redis_runtime.py:101:                "timestamp": item["timestamp"]
+  app\eldora\core\true_redis_runtime.py:102:            }
+  app\eldora\core\true_redis_runtime.py:103:        )
+  app\eldora\core\true_redis_runtime.py:104:
+  app\eldora\core\true_redis_runtime.py:105:        item["redis_event_id"] = redis_event_id
+  app\eldora\core\true_redis_runtime.py:106:
+> app\eldora\core\true_redis_runtime.py:107:        return {
+  app\eldora\core\true_redis_runtime.py:108:            "status":"ok",
+  app\eldora\core\true_redis_runtime.py:109:            "backend":"redis",
+  app\eldora\core\true_redis_runtime.py:110:            "event":item
+  app\eldora\core\true_redis_runtime.py:111:        }
+  app\eldora\core\true_redis_runtime.py:112:
+  app\eldora\core\true_redis_runtime.py:113:    except Exception as e:
+  app\eldora\core\true_redis_runtime.py:114:
+> app\eldora\core\true_redis_runtime.py:115:        MEMORY_FALLBACK.append(item)
+  app\eldora\core\true_redis_runtime.py:116:
+> app\eldora\core\true_redis_runtime.py:117:        return {
+  app\eldora\core\true_redis_runtime.py:118:            "status":"ok",
+> app\eldora\core\true_redis_runtime.py:119:            "backend":"memory_fallback",
+  app\eldora\core\true_redis_runtime.py:120:            "redis_error": str(e),
+  app\eldora\core\true_redis_runtime.py:121:            "event": item
+  app\eldora\core\true_redis_runtime.py:122:        }
+  app\eldora\core\true_redis_runtime.py:123:
+  app\eldora\core\true_redis_runtime.py:124:def true_stream_report(
+  app\eldora\core\true_redis_runtime.py:125:    stream:str="eldora.true.events",
+  app\eldora\core\true_redis_runtime.py:126:    count:int=20
+  app\eldora\core\true_redis_runtime.py:127:):
+  app\eldora\core\true_redis_runtime.py:128:
+  app\eldora\core\true_redis_runtime.py:129:    try:
+  app\eldora\core\true_redis_runtime.py:130:
+  app\eldora\core\true_redis_runtime.py:131:        client = redis_client()
+  app\eldora\core\true_redis_runtime.py:132:
+  app\eldora\core\true_redis_runtime.py:133:        if client is None:
+  app\eldora\core\true_redis_runtime.py:134:
+> app\eldora\core\true_redis_runtime.py:135:            return {
+  app\eldora\core\true_redis_runtime.py:136:                "status":"ok",
+> app\eldora\core\true_redis_runtime.py:137:                "backend":"memory_fallback",
+  app\eldora\core\true_redis_runtime.py:138:                "redis_error": redis_last_error(),
+> app\eldora\core\true_redis_runtime.py:139:                "events_total":len(MEMORY_FALLBACK),
+> app\eldora\core\true_redis_runtime.py:140:                "events":MEMORY_FALLBACK[-count:]
+  app\eldora\core\true_redis_runtime.py:141:            }
+  app\eldora\core\true_redis_runtime.py:142:
+  app\eldora\core\true_redis_runtime.py:143:        items = client.xrevrange(
+  app\eldora\core\true_redis_runtime.py:144:            stream,
+  app\eldora\core\true_redis_runtime.py:145:            count=count
+  app\eldora\core\true_redis_runtime.py:146:        )
+  app\eldora\core\true_redis_runtime.py:147:
+> app\eldora\core\true_redis_runtime.py:148:        return {
+  app\eldora\core\true_redis_runtime.py:149:            "status":"ok",
+  app\eldora\core\true_redis_runtime.py:150:            "backend":"redis",
+  app\eldora\core\true_redis_runtime.py:151:            "events_total":len(items),
+  app\eldora\core\true_redis_runtime.py:152:            "events":items
+  app\eldora\core\true_redis_runtime.py:153:        }
+  app\eldora\core\true_redis_runtime.py:154:
+  app\eldora\core\true_redis_runtime.py:155:    except Exception as e:
+  app\eldora\core\true_redis_runtime.py:156:
+> app\eldora\core\true_redis_runtime.py:157:        return {
+  app\eldora\core\true_redis_runtime.py:158:            "status":"ok",
+> app\eldora\core\true_redis_runtime.py:159:            "backend":"memory_fallback",
+  app\eldora\core\true_redis_runtime.py:160:            "redis_error":str(e),
+> app\eldora\core\true_redis_runtime.py:161:            "events_total":len(MEMORY_FALLBACK),
+> app\eldora\core\true_redis_runtime.py:162:            "events":MEMORY_FALLBACK[-count:]
+  app\eldora\core\true_redis_runtime.py:163:        }
+  app\eldora\core\universal_orchestration_fabric.py:12:    }
+  app\eldora\core\universal_orchestration_fabric.py:13:
+  app\eldora\core\universal_orchestration_fabric.py:14:    ORCHESTRATIONS.append(item)
+  app\eldora\core\universal_orchestration_fabric.py:15:
+> app\eldora\core\universal_orchestration_fabric.py:16:    return {
+  app\eldora\core\universal_orchestration_fabric.py:17:        "status":"ok",
+  app\eldora\core\universal_orchestration_fabric.py:18:        "orchestration":item
+  app\eldora\core\universal_orchestration_fabric.py:19:    }
+  app\eldora\core\universal_orchestration_fabric.py:20:
+  app\eldora\core\universal_orchestration_fabric.py:21:def orchestration_report():
+> app\eldora\core\universal_orchestration_fabric.py:22:    return {
+  app\eldora\core\universal_orchestration_fabric.py:23:        "status":"ok",
+  app\eldora\core\universal_orchestration_fabric.py:24:        "orchestrations_total":len(ORCHESTRATIONS),
+  app\eldora\core\universal_orchestration_fabric.py:25:        "orchestrations":ORCHESTRATIONS[-100:]
+  app\eldora\core\universal_orchestration_fabric.py:26:    }
+  app\eldora\core\universal_tool_controller.py:11:    }
+  app\eldora\core\universal_tool_controller.py:12:
+  app\eldora\core\universal_tool_controller.py:13:    TOOLS.append(item)
+  app\eldora\core\universal_tool_controller.py:14:
+> app\eldora\core\universal_tool_controller.py:15:    return {
+  app\eldora\core\universal_tool_controller.py:16:        "status":"ok",
+  app\eldora\core\universal_tool_controller.py:17:        "tool":item
+  app\eldora\core\universal_tool_controller.py:18:    }
+  app\eldora\core\universal_tool_controller.py:19:
+  app\eldora\core\universal_tool_controller.py:20:def tool_report():
+> app\eldora\core\universal_tool_controller.py:21:    return {
+  app\eldora\core\universal_tool_controller.py:22:        "status":"ok",
+  app\eldora\core\universal_tool_controller.py:23:        "tools_total":len(TOOLS),
+  app\eldora\core\universal_tool_controller.py:24:        "tools":TOOLS[-100:]
+  app\eldora\core\universal_tool_controller.py:25:    }
+  app\eldora\core\visual_semantic_memory.py:1:from datetime import datetime, timezone
+  app\eldora\core\visual_semantic_memory.py:2:
+> app\eldora\core\visual_semantic_memory.py:3:VISUAL_MEMORY=[]
+  app\eldora\core\visual_semantic_memory.py:4:
+> app\eldora\core\visual_semantic_memory.py:5:def store_visual_memory(description:str):
+  app\eldora\core\visual_semantic_memory.py:6:    item={
+  app\eldora\core\visual_semantic_memory.py:7:        "description":description,
+  app\eldora\core\visual_semantic_memory.py:8:        "timestamp":datetime.now(timezone.utc).isoformat()
+  app\eldora\core\visual_semantic_memory.py:9:    }
+  app\eldora\core\visual_semantic_memory.py:10:
+> app\eldora\core\visual_semantic_memory.py:11:    VISUAL_MEMORY.append(item)
+  app\eldora\core\visual_semantic_memory.py:12:
+> app\eldora\core\visual_semantic_memory.py:13:    return {
+  app\eldora\core\visual_semantic_memory.py:14:        "status":"ok",
+  app\eldora\core\visual_semantic_memory.py:15:        "stored":True,
+  app\eldora\core\visual_semantic_memory.py:16:        "item":item
+  app\eldora\core\visual_semantic_memory.py:17:    }
+  app\eldora\core\visual_semantic_memory.py:18:
+> app\eldora\core\visual_semantic_memory.py:19:def visual_memory_report():
+> app\eldora\core\visual_semantic_memory.py:20:    return {
+  app\eldora\core\visual_semantic_memory.py:21:        "status":"ok",
+> app\eldora\core\visual_semantic_memory.py:22:        "items_total":len(VISUAL_MEMORY),
+> app\eldora\core\visual_semantic_memory.py:23:        "items":VISUAL_MEMORY[-20:]
+  app\eldora\core\visual_semantic_memory.py:24:    }
+  app\eldora\core\websocket_cognition.py:9:        "mode":"websocket_ready",
+  app\eldora\core\websocket_cognition.py:10:        "timestamp":datetime.now(timezone.utc).isoformat()
+  app\eldora\core\websocket_cognition.py:11:    }
+  app\eldora\core\websocket_cognition.py:12:    WEBSOCKET_EVENTS.append(item)
+> app\eldora\core\websocket_cognition.py:13:    return {"status":"ok","signal":item}
+  app\eldora\core\websocket_cognition.py:14:
+  app\eldora\core\websocket_cognition.py:15:def websocket_report():
+> app\eldora\core\websocket_cognition.py:16:    return {"status":"ok","signals_total":len(WEBSOCKET_EVENTS),"signals":WEBSOCKET_EVENTS[-100:]}
+  app\eldora\core\world_model_engine.py:2:import uuid
+  app\eldora\core\world_model_engine.py:3:
+  app\eldora\core\world_model_engine.py:4:WORLD_STATES=[]
+  app\eldora\core\world_model_engine.py:5:
+> app\eldora\core\world_model_engine.py:6:def create_world_state(environment:str, context:str):
+  app\eldora\core\world_model_engine.py:7:    state = {
+  app\eldora\core\world_model_engine.py:8:        "state_id":str(uuid.uuid4()),
+  app\eldora\core\world_model_engine.py:9:        "environment":environment,
+> app\eldora\core\world_model_engine.py:10:        "context":context,
+  app\eldora\core\world_model_engine.py:11:        "created_at":datetime.now(timezone.utc).isoformat()
+  app\eldora\core\world_model_engine.py:12:    }
+  app\eldora\core\world_model_engine.py:13:
+  app\eldora\core\world_model_engine.py:14:    WORLD_STATES.append(state)
+  app\eldora\core\world_model_engine.py:15:
+> app\eldora\core\world_model_engine.py:16:    return {
+  app\eldora\core\world_model_engine.py:17:        "status":"ok",
+  app\eldora\core\world_model_engine.py:18:        "state":state,
+  app\eldora\core\world_model_engine.py:19:        "states_total":len(WORLD_STATES)
+  app\eldora\core\world_model_engine.py:20:    }
+  app\eldora\core\world_model_engine.py:21:
+  app\eldora\core\world_model_engine.py:22:def world_report():
+> app\eldora\core\world_model_engine.py:23:    return {
+  app\eldora\core\world_model_engine.py:24:        "status":"ok",
+  app\eldora\core\world_model_engine.py:25:        "states_total":len(WORLD_STATES),
+  app\eldora\core\world_model_engine.py:26:        "states":WORLD_STATES[-100:]
+  app\eldora\core\world_model_engine.py:27:    }
+

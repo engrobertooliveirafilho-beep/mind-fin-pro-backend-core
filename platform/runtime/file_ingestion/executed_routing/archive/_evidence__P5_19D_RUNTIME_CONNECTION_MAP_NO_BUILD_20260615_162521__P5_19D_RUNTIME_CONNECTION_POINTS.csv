@@ -1,0 +1,3 @@
+"adapter","capability","position","future_input_from","future_output_to","allowed_mode","forbidden_mode"
+"hierarchical_planner_adapter","HIERARCHICAL_PLANNING","BEFORE_DISPATCHER","System.Object[]","System.Object[]","SHADOW_PLAN_COMPARE","System.Object[]"
+"oversight_shadow_adapter","COGNITIVE_CONTROL","AFTER_DECISION_BEFORE_EXECUTION","System.Object[]","System.Object[]","SHADOW_DECISION_AUDIT","System.Object[]"

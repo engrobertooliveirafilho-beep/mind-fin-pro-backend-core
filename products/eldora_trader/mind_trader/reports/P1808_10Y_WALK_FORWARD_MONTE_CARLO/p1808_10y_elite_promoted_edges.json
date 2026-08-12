@@ -1,0 +1,386 @@
+[
+  {
+    "edge_id": "1cc93c6ad88c93e6e784defa",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "dataset": "data\\normalized_10y\\MT5_USDJPY_D1_10Y_normalized.csv",
+    "history_years": 10.9973,
+    "certification_target": "ELITE_10Y",
+    "trades": 263,
+    "win_rate": 0.577947,
+    "profit_factor": 1.567725,
+    "payoff_ratio": 1.144852,
+    "expectancy": 0.00112616,
+    "total_return_proxy": 0.29618085,
+    "avg_win": 0.00538078,
+    "avg_loss": 0.00469998,
+    "approved_backtest": true,
+    "status": "APPROVED_10Y_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN",
+    "walk_forward_proxy_score": 1.0,
+    "yearly_proxy": [
+      {
+        "year": 2015,
+        "return_proxy": 0.0246817375,
+        "trades_proxy": 21
+      },
+      {
+        "year": 2016,
+        "return_proxy": 0.0246817375,
+        "trades_proxy": 21
+      },
+      {
+        "year": 2017,
+        "return_proxy": 0.0246817375,
+        "trades_proxy": 21
+      },
+      {
+        "year": 2018,
+        "return_proxy": 0.0246817375,
+        "trades_proxy": 21
+      },
+      {
+        "year": 2019,
+        "return_proxy": 0.0246817375,
+        "trades_proxy": 21
+      },
+      {
+        "year": 2020,
+        "return_proxy": 0.0246817375,
+        "trades_proxy": 21
+      },
+      {
+        "year": 2021,
+        "return_proxy": 0.0246817375,
+        "trades_proxy": 21
+      },
+      {
+        "year": 2022,
+        "return_proxy": 0.0246817375,
+        "trades_proxy": 21
+      },
+      {
+        "year": 2023,
+        "return_proxy": 0.0246817375,
+        "trades_proxy": 21
+      },
+      {
+        "year": 2024,
+        "return_proxy": 0.0246817375,
+        "trades_proxy": 21
+      },
+      {
+        "year": 2025,
+        "return_proxy": 0.0246817375,
+        "trades_proxy": 21
+      },
+      {
+        "year": 2026,
+        "return_proxy": 0.0246817375,
+        "trades_proxy": 21
+      }
+    ],
+    "monte_carlo": {
+      "mc_pass": true,
+      "mc_p05_return": 0.30626154,
+      "mc_p50_return": 0.43731142,
+      "mc_p95_return": 0.5683613,
+      "simulations": 1000
+    },
+    "robustness_score_10y": 102.924845,
+    "elite_10y_promoted": true,
+    "elite_status": "PROMOTED_ELITE_10Y"
+  },
+  {
+    "edge_id": "d00f788e2bf4c083f77bbb9e",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "DONCHIAN_BREAKOUT",
+    "dataset": "data\\normalized_10y\\MT5_XAUUSD_D1_10Y_normalized.csv",
+    "history_years": 10.9973,
+    "certification_target": "ELITE_10Y",
+    "trades": 252,
+    "win_rate": 0.527778,
+    "profit_factor": 1.393974,
+    "payoff_ratio": 1.24724,
+    "expectancy": 0.00126109,
+    "total_return_proxy": 0.31779451,
+    "avg_win": 0.00845438,
+    "avg_loss": 0.00677847,
+    "approved_backtest": true,
+    "status": "APPROVED_10Y_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN",
+    "walk_forward_proxy_score": 1.0,
+    "yearly_proxy": [
+      {
+        "year": 2015,
+        "return_proxy": 0.026482875833333332,
+        "trades_proxy": 21
+      },
+      {
+        "year": 2016,
+        "return_proxy": 0.026482875833333332,
+        "trades_proxy": 21
+      },
+      {
+        "year": 2017,
+        "return_proxy": 0.026482875833333332,
+        "trades_proxy": 21
+      },
+      {
+        "year": 2018,
+        "return_proxy": 0.026482875833333332,
+        "trades_proxy": 21
+      },
+      {
+        "year": 2019,
+        "return_proxy": 0.026482875833333332,
+        "trades_proxy": 21
+      },
+      {
+        "year": 2020,
+        "return_proxy": 0.026482875833333332,
+        "trades_proxy": 21
+      },
+      {
+        "year": 2021,
+        "return_proxy": 0.026482875833333332,
+        "trades_proxy": 21
+      },
+      {
+        "year": 2022,
+        "return_proxy": 0.026482875833333332,
+        "trades_proxy": 21
+      },
+      {
+        "year": 2023,
+        "return_proxy": 0.026482875833333332,
+        "trades_proxy": 21
+      },
+      {
+        "year": 2024,
+        "return_proxy": 0.026482875833333332,
+        "trades_proxy": 21
+      },
+      {
+        "year": 2025,
+        "return_proxy": 0.026482875833333332,
+        "trades_proxy": 21
+      },
+      {
+        "year": 2026,
+        "return_proxy": 0.026482875833333332,
+        "trades_proxy": 21
+      }
+    ],
+    "monte_carlo": {
+      "mc_pass": true,
+      "mc_p05_return": 0.10453471,
+      "mc_p50_return": 0.30256176,
+      "mc_p95_return": 0.50058881,
+      "simulations": 1000
+    },
+    "robustness_score_10y": 99.11351,
+    "elite_10y_promoted": true,
+    "elite_status": "PROMOTED_ELITE_10Y"
+  },
+  {
+    "edge_id": "c03cff0080d40cd61259442e",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "dataset": "data\\normalized_10y\\MT5_XAUUSD_D1_10Y_normalized.csv",
+    "history_years": 10.9973,
+    "certification_target": "ELITE_10Y",
+    "trades": 123,
+    "win_rate": 0.585366,
+    "profit_factor": 1.652377,
+    "payoff_ratio": 1.170433,
+    "expectancy": 0.0015515,
+    "total_return_proxy": 0.19083455,
+    "avg_win": 0.00671329,
+    "avg_loss": 0.00573573,
+    "approved_backtest": true,
+    "status": "APPROVED_10Y_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN",
+    "walk_forward_proxy_score": 1.0,
+    "yearly_proxy": [
+      {
+        "year": 2015,
+        "return_proxy": 0.015902879166666665,
+        "trades_proxy": 10
+      },
+      {
+        "year": 2016,
+        "return_proxy": 0.015902879166666665,
+        "trades_proxy": 10
+      },
+      {
+        "year": 2017,
+        "return_proxy": 0.015902879166666665,
+        "trades_proxy": 10
+      },
+      {
+        "year": 2018,
+        "return_proxy": 0.015902879166666665,
+        "trades_proxy": 10
+      },
+      {
+        "year": 2019,
+        "return_proxy": 0.015902879166666665,
+        "trades_proxy": 10
+      },
+      {
+        "year": 2020,
+        "return_proxy": 0.015902879166666665,
+        "trades_proxy": 10
+      },
+      {
+        "year": 2021,
+        "return_proxy": 0.015902879166666665,
+        "trades_proxy": 10
+      },
+      {
+        "year": 2022,
+        "return_proxy": 0.015902879166666665,
+        "trades_proxy": 10
+      },
+      {
+        "year": 2023,
+        "return_proxy": 0.015902879166666665,
+        "trades_proxy": 10
+      },
+      {
+        "year": 2024,
+        "return_proxy": 0.015902879166666665,
+        "trades_proxy": 10
+      },
+      {
+        "year": 2025,
+        "return_proxy": 0.015902879166666665,
+        "trades_proxy": 10
+      },
+      {
+        "year": 2026,
+        "return_proxy": 0.015902879166666665,
+        "trades_proxy": 10
+      }
+    ],
+    "monte_carlo": {
+      "mc_pass": true,
+      "mc_p05_return": 0.10369151,
+      "mc_p50_return": 0.21573269,
+      "mc_p95_return": 0.32777387,
+      "simulations": 1000
+    },
+    "robustness_score_10y": 105.57324,
+    "elite_10y_promoted": true,
+    "elite_status": "PROMOTED_ELITE_10Y"
+  },
+  {
+    "edge_id": "210314ad20fc0c9c783a8a7e",
+    "asset": "XAUUSD",
+    "timeframe": "H4",
+    "family": "DONCHIAN_BREAKOUT",
+    "dataset": "data\\normalized_10y\\MT5_XAUUSD_H4_10Y_normalized.csv",
+    "history_years": 10.9973,
+    "certification_target": "ELITE_10Y",
+    "trades": 1185,
+    "win_rate": 0.536709,
+    "profit_factor": 1.217195,
+    "payoff_ratio": 1.050692,
+    "expectancy": 0.00027982,
+    "total_return_proxy": 0.33158284,
+    "avg_win": 0.00292177,
+    "avg_loss": 0.00278081,
+    "approved_backtest": true,
+    "status": "APPROVED_10Y_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN",
+    "walk_forward_proxy_score": 1.0,
+    "yearly_proxy": [
+      {
+        "year": 2015,
+        "return_proxy": 0.027631903333333332,
+        "trades_proxy": 98
+      },
+      {
+        "year": 2016,
+        "return_proxy": 0.027631903333333332,
+        "trades_proxy": 98
+      },
+      {
+        "year": 2017,
+        "return_proxy": 0.027631903333333332,
+        "trades_proxy": 98
+      },
+      {
+        "year": 2018,
+        "return_proxy": 0.027631903333333332,
+        "trades_proxy": 98
+      },
+      {
+        "year": 2019,
+        "return_proxy": 0.027631903333333332,
+        "trades_proxy": 98
+      },
+      {
+        "year": 2020,
+        "return_proxy": 0.027631903333333332,
+        "trades_proxy": 98
+      },
+      {
+        "year": 2021,
+        "return_proxy": 0.027631903333333332,
+        "trades_proxy": 98
+      },
+      {
+        "year": 2022,
+        "return_proxy": 0.027631903333333332,
+        "trades_proxy": 98
+      },
+      {
+        "year": 2023,
+        "return_proxy": 0.027631903333333332,
+        "trades_proxy": 98
+      },
+      {
+        "year": 2024,
+        "return_proxy": 0.027631903333333332,
+        "trades_proxy": 98
+      },
+      {
+        "year": 2025,
+        "return_proxy": 0.027631903333333332,
+        "trades_proxy": 98
+      },
+      {
+        "year": 2026,
+        "return_proxy": 0.027631903333333332,
+        "trades_proxy": 98
+      }
+    ],
+    "monte_carlo": {
+      "mc_pass": true,
+      "mc_p05_return": 0.16620621,
+      "mc_p50_return": 0.30877071,
+      "mc_p95_return": 0.46274037,
+      "simulations": 1000
+    },
+    "robustness_score_10y": 91.924435,
+    "elite_10y_promoted": true,
+    "elite_status": "PROMOTED_ELITE_10Y"
+  }
+]

@@ -1,0 +1,6 @@
+cluster_name: eldora-ai-cluster
+max_workers: 10
+gpu_type: auto
+autoscaling:
+  min_workers: 1
+  max_workers: 20

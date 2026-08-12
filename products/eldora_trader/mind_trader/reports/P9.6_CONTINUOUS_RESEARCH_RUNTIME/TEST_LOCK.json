@@ -1,0 +1,25 @@
+{
+  "cycle_id": "TEST_LOCK",
+  "status": "COMPLETED_RESEARCH_ONLY",
+  "steps": [
+    "new_data_scan",
+    "dataset_catalog",
+    "dataset_quality_gate",
+    "genome_generation",
+    "massive_backtest_grid",
+    "walk_forward",
+    "monte_carlo",
+    "robustness_committee",
+    "paper_candidate_ranking",
+    "reports"
+  ],
+  "edge_factory_status": "P9.5_EDGE_DISCOVERY_FACTORY_IMPLEMENTED",
+  "live": "FORBIDDEN",
+  "production": "BLOCKED",
+  "real_broker": "DISABLED",
+  "ftmo_real": "FORBIDDEN",
+  "promotion_allowed": false,
+  "edge": "NOT_PROVEN",
+  "causality": "NOT_PROVEN",
+  "export_ready": true
+}

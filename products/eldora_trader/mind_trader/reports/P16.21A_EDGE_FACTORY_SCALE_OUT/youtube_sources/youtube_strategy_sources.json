@@ -1,0 +1,52 @@
+{
+  "STATUS": "P16.21A_YOUTUBE_STRATEGY_SOURCE_REGISTRY_CREATED",
+  "RULE": "YOUTUBE_IS_HYPOTHESIS_ONLY",
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "sources": [
+    {
+      "name": "XTraders",
+      "url": "https://www.youtube.com/@xtraders",
+      "type": "youtube_channel",
+      "status": "HYPOTHESIS_SOURCE"
+    },
+    {
+      "name": "Ariane Campolim",
+      "url": "https://www.youtube.com/@ArianeCampolim",
+      "type": "youtube_channel",
+      "status": "HYPOTHESIS_SOURCE"
+    },
+    {
+      "name": "Ogrowallst",
+      "url": "https://www.youtube.com/@ogrowallst",
+      "type": "youtube_channel",
+      "status": "HYPOTHESIS_SOURCE"
+    },
+    {
+      "name": "YouTube Search Day Trader",
+      "url": "https://www.youtube.com/results?search_query=day+trader",
+      "type": "youtube_search",
+      "status": "HYPOTHESIS_SOURCE"
+    }
+  ],
+  "extraction_targets": [
+    "setup_name",
+    "asset",
+    "timeframe",
+    "entry_rule",
+    "exit_rule",
+    "stop_rule",
+    "target_rule",
+    "indicators",
+    "parameters",
+    "market_regime",
+    "risk_model"
+  ],
+  "promotion_required": [
+    "BACKTEST_APPROVED",
+    "WALK_FORWARD_APPROVED",
+    "MONTE_CARLO_APPROVED"
+  ]
+}

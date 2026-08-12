@@ -1,0 +1,23 @@
+{
+  "STATUS": "P14.13_INLINE_NTSL_GENERATOR_PATCH_IMPLEMENTED",
+  "GENERATED_FILE": "profit_import_package\\p1413_inline_media_strategy.nts",
+  "PATCH_DECISION": "Use inline expressions only; avoid input, var, Float until Profit syntax compatibility is proven.",
+  "COMPAT_PROVEN": {
+    "begin_end": true,
+    "close_open_logic": true,
+    "buy_at_market": true,
+    "sell_short_at_market": true,
+    "media_inline": true,
+    "var_block": false,
+    "input_block": false,
+    "media_exp": "UNTESTED",
+    "series_indexing": "UNTESTED"
+  },
+  "REAL_ORDERS": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "LIVE": "FORBIDDEN",
+  "EDGE": "NOT_PROVEN",
+  "CAUSALITY": "NOT_PROVEN",
+  "EXPORT_READY": true,
+  "generated_at": "2026-06-14T16:11:28.225962+00:00"
+}

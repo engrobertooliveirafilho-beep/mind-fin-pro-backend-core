@@ -1,0 +1,21 @@
+{
+  "timestamp": "20260518_193231",
+  "runtime": "ELDORA_RUNTIME_STABLE_V2",
+  "production_validation": [
+    {
+      "code": 200,
+      "endpoint": "https://mind-fin-pro-backend-core-1.onrender.com/health",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "endpoint": "https://mind-fin-pro-backend-core-1.onrender.com/docs",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "endpoint": "https://mind-fin-pro-backend-core-1.onrender.com/openapi.json",
+      "status": "ok"
+    }
+  ]
+}

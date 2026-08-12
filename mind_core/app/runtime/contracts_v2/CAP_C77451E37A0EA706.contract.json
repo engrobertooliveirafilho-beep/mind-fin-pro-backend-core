@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_C77451E37A0EA706",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\core\\reshape\\melt.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\pandas\\core\\reshape\\melt.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 103,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "numpy",
+    "pandas",
+    "pandas._typing",
+    "pandas.core.algorithms",
+    "pandas.core.dtypes.common",
+    "pandas.core.dtypes.concat",
+    "pandas.core.dtypes.missing",
+    "pandas.core.indexes.api",
+    "pandas.core.reshape.concat",
+    "pandas.core.tools.numeric",
+    "pandas.util._decorators",
+    "re",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

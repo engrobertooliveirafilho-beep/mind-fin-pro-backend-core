@@ -1,0 +1,13 @@
+{
+  "STATUS": "P1905_MARKET_ANALOG_SEARCH_BOOTSTRAPPED",
+  "METHODS": [
+    "feature_similarity",
+    "regime_similarity",
+    "sequence_similarity",
+    "payoff_similarity"
+  ],
+  "OUTPUT": [
+    "top_100_historical_twins",
+    "expected_outcome_distribution"
+  ]
+}

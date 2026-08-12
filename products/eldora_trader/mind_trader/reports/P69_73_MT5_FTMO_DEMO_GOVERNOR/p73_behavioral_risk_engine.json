@@ -1,0 +1,13 @@
+{
+  "module": "P73_BEHAVIORAL_RISK_ENGINE",
+  "consecutive_losses": 3,
+  "behavioral_mode": "DEFENSIVE",
+  "risk_multiplier": 0.5,
+  "overtrading_guard": "ENABLED",
+  "revenge_trading_guard": "ENABLED",
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN"
+}

@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_6108BA31DDCC53F0",
+  "source_file": "_evidence\\P19P47_CANARY_VALIDATION_20260622_191947\\p19p47_canary_validation.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P19P47_CANARY_VALIDATION_20260622_191947\\p19p47_canary_validation.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 116,
+  "imports": [
+    "app.api.whatsapp",
+    "app.companionship.behavior_modeling",
+    "app.companionship.cognitive_context_builder",
+    "app.companionship.digital_twin_real",
+    "app.companionship.live_cognition_gated",
+    "app.companionship.safe_recovery_adapter",
+    "app.companionship.self_reflection_engine",
+    "app.runtime.cognitive_pipeline",
+    "datetime",
+    "json"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

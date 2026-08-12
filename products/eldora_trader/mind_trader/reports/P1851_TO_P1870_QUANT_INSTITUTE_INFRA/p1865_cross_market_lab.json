@@ -1,0 +1,21 @@
+{
+  "STATUS": "P1865_CROSS_MARKET_LAB_BOOTSTRAPPED",
+  "MARKETS": [
+    "DXY",
+    "VIX",
+    "US10Y",
+    "SPX500",
+    "NAS100",
+    "BTCUSD",
+    "XAUUSD",
+    "USDJPY",
+    "WTI"
+  ],
+  "OUTPUT": [
+    "lead_lag",
+    "risk_on_off",
+    "usd_pressure",
+    "gold_pressure",
+    "equity_pressure"
+  ]
+}

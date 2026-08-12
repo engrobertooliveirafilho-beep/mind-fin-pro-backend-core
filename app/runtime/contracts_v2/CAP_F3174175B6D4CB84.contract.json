@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_F3174175B6D4CB84",
+  "source_file": ".venv\\Lib\\site-packages\\setuptools\\_vendor\\more_itertools\\more.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\setuptools\\_vendor\\more_itertools\\more.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 123,
+  "imports": [
+    "collections",
+    "collections.abc",
+    "contextlib",
+    "functools",
+    "heapq",
+    "itertools",
+    "math",
+    "operator",
+    "queue",
+    "random",
+    "recipes",
+    "sys",
+    "time",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

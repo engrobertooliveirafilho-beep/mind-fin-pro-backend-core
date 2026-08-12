@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_301AF995958B4E81",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\plotting\\frame\\test_frame_subplots.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\pandas\\tests\\plotting\\frame\\test_frame_subplots.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 116,
+  "imports": [
+    "numpy",
+    "pandas",
+    "pandas._testing",
+    "pandas.compat",
+    "pandas.io.formats.printing",
+    "pandas.tests.plotting.common",
+    "pytest",
+    "string"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

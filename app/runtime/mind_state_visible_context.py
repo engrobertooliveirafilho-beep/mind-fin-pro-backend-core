@@ -12,15 +12,5 @@ def is_state_query(text: str) -> bool:
     ])
 
 def build_mind_state_visible_response() -> str:
-    return (
-        "Resumo técnico do MIND/Eldora:\n"
-        "- Runtime estável V2 ativo.\n"
-        "- Testes verdes: 194/194.\n"
-        "- Render operacional.\n"
-        "- Twilio/WhatsApp validado com entrega real.\n"
-        "- Webhook produtivo respondendo.\n"
-        "- Camada de inteligência WhatsApp acoplada.\n"
-        "- Gap atual: resposta visível ainda precisa usar memória/contexto MIND completo.\n"
-        "Próximo passo: conectar resposta visível ao estado real, memória persistente e orquestração."
-    )
-
+    # GATE1F: meta-runtime user-facing generator disabled
+    return None

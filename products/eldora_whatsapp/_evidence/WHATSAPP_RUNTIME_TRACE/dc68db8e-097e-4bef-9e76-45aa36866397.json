@@ -1,0 +1,35 @@
+{
+  "trace_id": "dc68db8e-097e-4bef-9e76-45aa36866397",
+  "ts": 1779821750.1950524,
+  "sender_id": "whatsapp:+559999999999",
+  "user_message": "porque deu errado?",
+  "events": [
+    {
+      "stage": "input",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "porque deu errado?",
+      "output_preview": "Porque a conversa precisa manter causa e contexto, não voltar para apresentação fixa.",
+      "leaks": [],
+      "extra": {}
+    },
+    {
+      "stage": "humanized",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "Porque a conversa precisa manter causa e contexto, não voltar para apresentação fixa.",
+      "output_preview": "Porque a conversa precisa manter causa e contexto, não voltar para apresentação fixa.",
+      "leaks": [],
+      "extra": {}
+    },
+    {
+      "stage": "final_output",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "Porque a conversa precisa manter causa e contexto, não voltar para apresentação fixa.",
+      "output_preview": "Porque a conversa precisa manter causa e contexto, não voltar para apresentação fixa.",
+      "leaks": [],
+      "extra": {}
+    }
+  ]
+}

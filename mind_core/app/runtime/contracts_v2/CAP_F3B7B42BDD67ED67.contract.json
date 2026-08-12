@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_F3B7B42BDD67ED67",
+  "source_file": "_evidence\\P19P16_CONSOLIDATED_DOMAIN_INTERCEPTOR_20260618_060119\\patch_p19p16.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P19P16_CONSOLIDATED_DOMAIN_INTERCEPTOR_20260618_060119\\patch_p19p16.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 95,
+  "imports": [
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

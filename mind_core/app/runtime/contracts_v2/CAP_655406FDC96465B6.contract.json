@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_655406FDC96465B6",
+  "source_file": "_evidence\\P4_63J_EXPAND_CONTINUITY_INTENT_20260618_124829\\p463j_ab_test.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P4_63J_EXPAND_CONTINUITY_INTENT_20260618_124829\\p463j_ab_test.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 100,
+  "imports": [
+    "app.api.whatsapp",
+    "app.runtime.short_memory"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

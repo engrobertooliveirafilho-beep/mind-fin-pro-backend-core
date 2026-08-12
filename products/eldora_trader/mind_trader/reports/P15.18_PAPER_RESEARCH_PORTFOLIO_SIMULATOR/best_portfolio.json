@@ -1,0 +1,26 @@
+{
+  "allocation": "ifix_heavy",
+  "weights": [
+    0.25,
+    0.5,
+    0.25
+  ],
+  "edges": [
+    "CSAN3_H1_sma_cross_13_55",
+    "IFIX_H1_sma_cross_5_55",
+    "SHUL4_H1_sma_cross_5_55"
+  ],
+  "return": 0.325657,
+  "profit_factor": 2.7172,
+  "trades": 154,
+  "winrate": 40.8725,
+  "max_drawdown_proxy": 0.122007,
+  "recovery_factor_proxy": 2.669163,
+  "sharpe_proxy": 6.905831,
+  "avg_correlation_proxy": 0.766667,
+  "correlation_penalty": 0.9,
+  "institutional_score": 14.810642,
+  "portfolio_approved": true,
+  "live": "FORBIDDEN",
+  "real_orders": "FORBIDDEN"
+}

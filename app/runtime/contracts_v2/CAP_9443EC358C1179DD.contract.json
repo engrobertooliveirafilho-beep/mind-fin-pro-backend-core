@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_9443EC358C1179DD",
+  "source_file": "_evidence\\P4_63L_DEAD_CODE_AUDIT_20260618_125856\\p463l_dead_code_audit.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\_evidence\\P4_63L_DEAD_CODE_AUDIT_20260618_125856\\p463l_dead_code_audit.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 90,
+  "imports": [
+    "ast",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

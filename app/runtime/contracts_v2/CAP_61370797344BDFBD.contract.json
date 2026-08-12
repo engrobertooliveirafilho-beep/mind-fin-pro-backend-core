@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_61370797344BDFBD",
+  "source_file": "mind_trader\\app\\backtest\\digital_twin_replay.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\data\\mind_trader\\app\\backtest\\digital_twin_replay.py",
+  "domain": "DATA",
+  "target_layer": "app/runtime",
+  "promotion_score": 92,
+  "imports": [
+    "datetime",
+    "json",
+    "mind_trader.app.backtest.market_core",
+    "pathlib",
+    "uuid"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

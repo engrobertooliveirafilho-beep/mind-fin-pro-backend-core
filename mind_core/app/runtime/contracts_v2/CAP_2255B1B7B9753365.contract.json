@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_2255B1B7B9753365",
+  "source_file": "_evidence\\P19P38_J_CRITICAL_RUNTIME_MANUAL_REVIEW_20260622_181851\\p19p38j_manual_review.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P19P38_J_CRITICAL_RUNTIME_MANUAL_REVIEW_20260622_181851\\p19p38j_manual_review.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 110,
+  "imports": [
+    "datetime",
+    "json",
+    "os",
+    "pathlib",
+    "subprocess"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

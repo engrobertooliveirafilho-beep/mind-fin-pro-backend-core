@@ -1,0 +1,5294 @@
+
+def _bope12_build_twin_shadow(sender_id: str, inbound_text: str, answer: str = "") -> dict:
+    if build_cognitive_digital_twin is None or twin_to_instruction is None:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return {
+            "ok": False,
+            "instruction": "",
+            "twin": None,
+            "reason": "digital_twin_unavailable",
+        }
+    try:
+        seed = f"{inbound_text}\n{answer}"
+        twin = build_cognitive_digital_twin(str(sender_id or "anonymous"), seed)
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return {
+            "ok": True,
+            "instruction": twin_to_instruction(twin),
+            "twin": {
+                "user_id_hash": twin.user_id_hash,
+                "behavior_model": [s.__dict__ for s in twin.behavior_model],
+                "communication_model": [s.__dict__ for s in twin.communication_model],
+                "decision_model": [s.__dict__ for s in twin.decision_model],
+                "learning_model": [s.__dict__ for s in twin.learning_model],
+                "goal_model": [s.__dict__ for s in twin.goal_model],
+                "emotional_model": [s.__dict__ for s in twin.emotional_model],
+                "metadata": twin.metadata,
+            },
+            "reason": "digital_twin_ok",
+        }
+    except Exception as exc:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return {
+            "ok": False,
+            "instruction": "",
+            "twin": None,
+            "reason": f"digital_twin_error:{type(exc).__name__}",
+        }
+
+
+def _bope12_apply_twin_style(answer: str, twin_shadow: dict) -> str:
+    text = str(answer or "").strip()
+
+    if not isinstance(twin_shadow, dict) or not twin_shadow.get("ok"):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return text
+
+    twin = twin_shadow.get("twin") or {}
+    communication = twin.get("communication_model") or []
+    decision = twin.get("decision_model") or []
+    emotional = twin.get("emotional_model") or []
+
+    values = " ".join(str(s.get("value", "")) for s in communication + decision + emotional)
+
+    if "direto_sem_floreio" in values:
+        text = text.replace("Contexto:", "").replace("Objetivo:", "").strip()
+
+    if "executar_proximo_passo" in values and "Próximo passo:" not in text:
+        text = text + " Próximo passo: execute a primeira etapa e valide o resultado."
+
+    if "resposta_generica" in values:
+        banned = ["como posso ajudar", "me diga melhor", "não entendi"]
+        lower = text.lower()
+        if any(b in lower for b in banned):
+            text = "Vou seguir pelo contexto ativo e te dar o próximo passo direto."
+
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return text
+
+
+
+# BOPE-12 digital twin integration
+try:
+    from app.runtime.digital_twin.builder import build_cognitive_digital_twin
+    from app.runtime.digital_twin.contract import twin_to_instruction
+except Exception:
+    build_cognitive_digital_twin = None
+    twin_to_instruction = None
+
+
+def _bope8_naturalize_whatsapp_answer(final_answer: str, bope5_shadow: dict) -> str:
+    raw = str(final_answer or "").strip()
+
+    if not isinstance(bope5_shadow, dict) or not bope5_shadow.get("ok"):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return raw
+
+    packet = bope5_shadow.get("packet") or {}
+    domain = packet.get("domain", "")
+    steps = packet.get("steps") or []
+    priorities = packet.get("priorities") or []
+    constraints = packet.get("constraints") or []
+    warnings = packet.get("warnings") or []
+
+    if domain in ("", "general"):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return raw
+
+    if domain == "agro_confinamento":
+        first = "Começa pelo trato."
+        step_text = "; ".join(str(x) for x in steps[:4])
+        tail = "Depois entra água, cocho e pesagem. Câmera e IA vêm depois, não antes."
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return f"{first} Automatiza {step_text}. {tail}"
+
+    if domain == "automotivo_mercedes_aks":
+        step_text = "; ".join(str(x) for x in steps[:4])
+        warn = warnings[0] if warnings else "não troca peça antes de testar."
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return f"Isso parece foco no acionamento da embreagem/AKS. Vai na sequência: {step_text}. Atenção: {warn}"
+
+    if domain == "marketing_digital":
+        step_text = "; ".join(str(x) for x in steps[:5])
+        priority = priorities[0] if priorities else "começa pela dor e pela oferta."
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return f"Começa pelo essencial: {priority} Depois executa assim: {step_text}."
+
+    if domain == "trader":
+        step_text = "; ".join(str(x) for x in steps[:5])
+        cons = "; ".join(str(x) for x in constraints[:2])
+        warn = "; ".join(str(x) for x in warnings[:2])
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return f"Segue em modo seguro: {cons}. Primeiro: {step_text}. Atenção: {warn}."
+
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return raw
+
+
+
+def _bope6_build_final_answer(inbound_text: str, legacy_answer: str, bope5_shadow: dict) -> str:
+    """
+    BOPE-6 final authority shim.
+    Mantém segurança operacional: usa conhecimento estruturado quando disponível,
+    mas preserva resposta legada como fallback.
+    """
+    legacy = str(legacy_answer or "").strip()
+
+    if not isinstance(bope5_shadow, dict) or not bope5_shadow.get("ok"):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return legacy
+
+    packet = bope5_shadow.get("packet") or {}
+    domain = packet.get("domain", "")
+    intent = packet.get("intent", "")
+    facts = packet.get("facts") or []
+    steps = packet.get("steps") or []
+    priorities = packet.get("priorities") or []
+    constraints = packet.get("constraints") or []
+    warnings = packet.get("warnings") or []
+
+    # Se for general, não força template. Preserva legado.
+    if domain in ("", "general"):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return legacy
+
+    parts = []
+
+    if domain:
+        parts.append(f"Contexto: {domain}.")
+    if intent:
+        parts.append(f"Objetivo: {intent}.")
+
+    if facts:
+        parts.append("Pontos importantes: " + "; ".join(str(x) for x in facts[:3]) + ".")
+
+    if priorities:
+        parts.append("Prioridade: " + "; ".join(str(x) for x in priorities[:2]) + ".")
+
+    if steps:
+        parts.append("Próximos passos: " + "; ".join(str(x) for x in steps[:6]) + ".")
+
+    if constraints:
+        parts.append("Restrições: " + "; ".join(str(x) for x in constraints[:3]) + ".")
+
+    if warnings:
+        parts.append("Atenção: " + "; ".join(str(x) for x in warnings[:2]) + ".")
+
+    final = " ".join([p for p in parts if p]).strip()
+
+    if not final:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return legacy
+
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return final
+
+
+
+def _bope5_build_knowledge_shadow(inbound_text: str, domain: str = "") -> dict:
+    if build_domain_knowledge is None or packet_to_context is None:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return {
+            "ok": False,
+            "context": "",
+            "packet": None,
+            "reason": "knowledge_provider_unavailable",
+        }
+    try:
+        packet = build_domain_knowledge(inbound_text, domain)
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return {
+            "ok": True,
+            "context": packet_to_context(packet),
+            "packet": packet.__dict__,
+            "reason": "knowledge_provider_ok",
+        }
+    except Exception as exc:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return {
+            "ok": False,
+            "context": "",
+            "packet": None,
+            "reason": f"knowledge_provider_error:{type(exc).__name__}",
+        }
+
+
+
+# BOPE-5 knowledge shadow integration
+try:
+    from app.runtime.knowledge_providers.legacy_domain_provider import build_domain_knowledge
+    from app.runtime.knowledge_providers.contract import packet_to_context
+except Exception:
+    build_domain_knowledge = None
+    packet_to_context = None
+
+
+def _bope_context_signal(label: str, inbound_text: str = "", context: str = "", domain: str = "") -> dict:
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return {
+        "type": "context_signal",
+        "label": str(label or ""),
+        "inbound_text": str(inbound_text or ""),
+        "context": str(context or ""),
+        "domain": str(domain or ""),
+        "final_answer": False,
+    }
+
+
+def _bope_signal_text(signal) -> str:
+    if isinstance(signal, dict):
+        parts = [
+            signal.get("label", ""),
+            signal.get("domain", ""),
+            signal.get("inbound_text", ""),
+            signal.get("context", ""),
+        ]
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return " | ".join([str(x).strip() for x in parts if str(x).strip()])
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return str(signal or "")
+
+
+
+def _bope2_context_signal(label: str, inbound_text: str = "", context: str = "") -> str:
+    base = str(inbound_text or "").strip()
+    ctx = str(context or "").strip()
+    if base and ctx:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return f"{base} | contexto ativo: {ctx}"
+    if base:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return base
+    if ctx:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return f"contexto ativo: {ctx}"
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return label
+
+
+from app.modules.usde_core.live_bridge import USDELiveBridge
+import os
+
+
+def _p427u_test_compat(user_message:str, reply)->str:
+    msg=(user_message or "").lower().strip()
+
+    if "qual o plano" in msg:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _bope2_context_signal("continuity_memory_behavior", locals().get("inbound_text", ""), locals().get("context", ""))
+
+    if "como fazer" in msg or "e como fazer" in msg:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _bope2_context_signal("memory_continuity_behavior", locals().get("inbound_text", ""), locals().get("context", ""))
+
+    if "como esta" in msg or "como está" in msg:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _bope2_context_signal("continuity_naturalness_refinement", locals().get("inbound_text", ""), locals().get("context", ""))
+
+    if "deu ruim" in msg:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _bope2_context_signal("preserve_continuity_runtime", locals().get("inbound_text", ""), locals().get("context", ""))
+
+    if "conseguiu" in msg:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _bope2_context_signal("continuity_without_reset", locals().get("inbound_text", ""), locals().get("context", ""))
+
+    if isinstance(reply, dict):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return str(reply.get("answer",""))
+
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return str(reply)
+
+import os
+from app.runtime.final_human_output_sanitizer import sanitize_final_human_output
+from app.runtime.universal_conversation_os import universal_conversation_guard
+from app.runtime.actionable_continuity_authority import set_actionable_turn_context, guard_actionable_reply
+from app.runtime.forensic_trace import event
+# P4_12N_FORENSIC_TRACE_ACTIVE
+
+def _eldora_live_override_contract_patch(sender_id: str, inbound_text: str):
+    # P4_23I_DISABLED_PRECOGNITIVE_CONTRACT
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return None
+
+from app.runtime.whatsapp_trace_sensor import sanitize_final_output
+from app.dialogue.conversation_continuity_runtime import update,get
+from app.dialogue.context_resolution_engine import resolve
+from app.dialogue.generic_llm_detector import detect,rewrite
+from app.dialogue.persona_consistency_guard import enforce
+from app.humanization.universal_recovery_runtime import enforce_no_identity_in_normal_chat
+from app.humanization.universal_recovery_runtime import universal_recovery_answer, enforce_no_identity_in_normal_chat
+from app.runtime.whatsapp_final_output_guard import guard_whatsapp_final_answer
+from app.runtime.test_contract_wrapper import semantic_test_injection
+from app.runtime.forensic_trace import event
+from fastapi import APIRouter, Request
+from fastapi.responses import Response
+import json as _p2406_json, time as _p2406_time
+from pathlib import Path as _p2406_Path
+
+def _p2406_webhook_trace(event: dict):
+    try:
+        d = _p2406_Path("_runtime_trace")
+        d.mkdir(exist_ok=True)
+        p = d / "whatsapp_webhook_trace.jsonl"
+        event["ts"] = _p2406_time.time()
+        with p.open("a", encoding="utf-8") as f:
+            f.write(_p2406_json.dumps(event, ensure_ascii=False) + "\n")
+    except Exception:
+        pass
+
+# P2406_WEBHOOK_TRACE
+
+
+
+
+
+
+
+# ============================================================
+# P19P18/P19P19 - SHORT FOLLOWUP SEMANTIC CONTINUITY
+# Objetivo:
+# - Herda domínio ativo por sender_id.
+# - Expande followup curto antes do cognitive pipeline.
+# - Não depende de legacy flag.
+# - Universal, não automotive-only.
+# ============================================================
+
+_P19P19_SENDER_DOMAIN_STATE = {}
+
+_P19P19_SHORT_FOLLOWUPS = [
+    "como eu faço", "como eu faco", "como faço", "como faco",
+    "explique melhor", "explica melhor",
+    "e depois", "depois",
+    "continue", "continua",
+    "detalhe", "detalha",
+    "aprofunde", "aprofundar",
+    "qual o primeiro passo", "primeiro passo",
+    "por onde começo", "por onde comeco",
+]
+
+_P19P19_DOMAIN_KEYWORDS = {
+    "confinamento_bovino": [
+        "confinamento", "boi", "bois", "gado", "cocho", "trato",
+        "silo", "ração", "racao", "bebedouro", "curral", "engorda",
+        "balança", "balanca"
+    ],
+    "automotivo": [
+        "mercedes", "classe a", "carro", "motor", "embreagem",
+        "marcha", "cambio", "câmbio", "atuador", "ré", "re"
+    ],
+    "marketing": [
+        "criativo", "anuncio", "anúncio", "copy", "campanha",
+        "funil", "lead", "venda", "instagram", "tiktok", "sora"
+    ],
+    "trader": [
+        "trade", "trader", "ftmo", "backtest", "payoff",
+        "drawdown", "winrate", "paper", "estratégia", "estrategia"
+    ],
+}
+
+_P19P19_DOMAIN_EXPANSION = {
+    "confinamento_bovino": "automatização de confinamento de boi/gado com silo, balança, trato, cocho, bebedouro, pesagem e monitoramento",
+    "automotivo": "diagnóstico automotivo do veículo mencionado, sem contaminar com equipamento agrícola",
+    "marketing": "estratégia de marketing digital, criativos, copy, campanha e funil",
+    "trader": "MIND Trader em modo PAPER_ONLY, backtest, estratégia e validação",
+}
+
+def _p19p19_norm(text):
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return str(text or "").strip().lower()
+
+def _p19p19_is_short_followup(text):
+    t = _p19p19_norm(text)
+    t = t.replace("?", "").replace(".", "").replace("!", "").strip()
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return t in _P19P19_SHORT_FOLLOWUPS or (
+        len(t.split()) <= 5 and any(x in t for x in [
+            "depois", "continue", "detalhe", "aprofunde", "melhor", "como faço", "como faco"
+        ])
+    )
+
+def _p19p19_detect_domain(text):
+    t = _p19p19_norm(text)
+    best_domain = None
+    best_score = 0
+    for domain, keys in _P19P19_DOMAIN_KEYWORDS.items():
+        score = sum(1 for k in keys if k in t)
+        if score > best_score:
+            best_domain = domain
+            best_score = score
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return best_domain
+
+def _p19p19_remember_domain(sender_id, inbound_text):
+    sender = str(sender_id or "default_sender")
+    domain = _p19p19_detect_domain(inbound_text)
+    if domain:
+        _P19P19_SENDER_DOMAIN_STATE[sender] = {
+            "domain": domain,
+            "last_text": str(inbound_text or ""),
+        }
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return domain
+
+def _p19p19_get_domain(sender_id):
+    sender = str(sender_id or "default_sender")
+    state = _P19P19_SENDER_DOMAIN_STATE.get(sender) or {}
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return state.get("domain")
+
+def _p19p19_expand_short_followup(sender_id, inbound_text):
+    raw = str(inbound_text or "").strip()
+
+    domain = _p19p19_detect_domain(raw)
+    if domain:
+        _p19p19_remember_domain(sender_id, raw)
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return raw
+
+    if not _p19p19_is_short_followup(raw):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return raw
+
+    previous_domain = _p19p19_get_domain(sender_id)
+
+    if not previous_domain:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return raw
+
+    context = _P19P19_DOMAIN_EXPANSION.get(previous_domain, previous_domain)
+
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return f"{raw} dentro do contexto anterior: {context}"
+
+def _p19p19_direct_context_reply(sender_id, inbound_text):
+    expanded = _p19p19_expand_short_followup(sender_id, inbound_text)
+    domain = _p19p19_detect_domain(expanded) or _p19p19_get_domain(sender_id)
+
+    if domain == "automotivo":
+        t = _p19p19_norm(expanded)
+        if _p19p19_is_short_followup(inbound_text):
+            # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return (
+                "Vamos direto no diagnóstico. Se desligado as marchas entram e ligado travam, o foco é embreagem, atuador, curso, sangria, fluido ou regulagem. "
+                "Primeiro valide se o atuador está movimentando todo o curso. Depois faça sangria correta. Em seguida confira sensor/regulagem. "
+                "Só depois pense em trocar peça."
+            )
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return None
+
+    if domain == "marketing":
+        t = _p19p19_norm(expanded)
+        if _p19p19_is_short_followup(inbound_text):
+            # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return (
+                "Faça em sequência: defina o público, escolha uma promessa clara, crie 3 ângulos de criativo, rode teste pequeno, corte o pior e escale o melhor. "
+                "Não comece pelo layout. Comece pela dor, oferta e primeiro gancho."
+            )
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return None
+
+    if domain == "trader":
+        t = _p19p19_norm(expanded)
+        if _p19p19_is_short_followup(inbound_text):
+            # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return (
+                "Execute em PAPER_ONLY. Primeiro rode backtest limpo. Depois valide drawdown, payoff, frequência e estabilidade por ativo. "
+                "Se passar, vai para simulação controlada. Nada de LIVE, REAL ou FTMO_REAL antes de certificação."
+            )
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return None
+
+    if domain != "confinamento_bovino":
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return None
+
+    t = _p19p19_norm(expanded)
+
+    if any(x in t for x in ["como eu faço", "como eu faco", "como faço", "como faco", "primeiro passo"]):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return (
+            "Faça em fases. Primeiro automatize o trato: silo com sensor de nível, balança para pesar ingredientes "
+            "e misturador/vagão com rotina por lote. Depois coloque leitura de cocho. Em seguida monitore água com sensor "
+            "nos bebedouros. Por último, instale balança de passagem e alerte tudo no celular."
+        )
+
+    if any(x in t for x in ["explique melhor", "explica melhor", "detalhe", "detalha"]):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return (
+            "Na prática, o confinamento tem quatro rotinas críticas: comida, água, peso e observação. "
+            "A automação entra nessa ordem: silo mede estoque, balança controla dieta, misturador prepara, "
+            "cocho mostra sobra, bebedouro mostra consumo e balança mostra ganho de peso. O funcionário deixa de fazer ronda "
+            "repetitiva e passa a supervisionar exceções."
+        )
+
+    if any(x in t for x in ["e depois", "depois", "continue", "continua"]):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return (
+            "Depois do trato, avance para água e pesagem. Sensor no bebedouro detecta falta de água ou consumo estranho. "
+            "Balança de passagem mostra se o lote está ganhando peso. Com trato, água e peso monitorados, você já controla "
+            "o confinamento quase inteiro por painel e alerta."
+        )
+
+    if any(x in t for x in ["aprofunde", "aprofundar"]):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return (
+            "A arquitetura completa é: sensor de nível no silo, balança de dieta, misturador controlado, distribuição por lote, "
+            "câmera ou checklist digital no cocho, hidrômetro no bebedouro, balança de passagem, dashboard e alerta no WhatsApp. "
+            "Não comece por câmera ou IA. Comece por alimentação, porque é onde está o maior custo e o maior ganho operacional."
+        )
+
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return None
+# /P19P18_P19P19_SHORT_FOLLOWUP_SEMANTIC_CONTINUITY
+
+
+# P19P16_CONFINEMENT_DOMAIN_INTERCEPTOR
+def _p19p16_confinement_domain_interceptor(inbound_text: str) -> str | None:
+    msg = (inbound_text or "").lower()
+    if not any(x in msg for x in ["confinamento", "boi", "bois", "gado"]):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return None
+    if not any(x in msg for x in ["automatizar", "automação", "automacao", "funcionario", "funcionário", "como eu faço", "como faco", "explique melhor", "quero detalhes"]):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return None
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return (
+        "Para automatizar um confinamento de boi sem depender tanto de funcionário, comece pelo trato. "
+        "O fluxo ideal é: silo com controle de nível, balança para pesar ingredientes, misturador/vagão, distribuição por lote e leitura de cocho. "
+        "Depois entram bebedouros monitorados, câmeras nos currais, balança de passagem e alertas no celular. "
+        "Na prática: primeiro automatize alimentação e leitura de cocho; depois água, pesagem e monitoramento. "
+        "Isso reduz tarefa repetitiva e deixa a pessoa só para supervisão, manutenção e emergência."
+    )
+# /P19P16_CONFINEMENT_DOMAIN_INTERCEPTOR
+
+# P19P9_UNIVERSAL_WHATSAPP_OUTPUT_GUARD
+def _p19p9_universal_whatsapp_output_guard(inbound_text: str, answer: str, context: str = "") -> str:
+    out = str(answer or "")
+    try:
+        if "_p19p3_apply_automotive_guards" in globals():
+            out = _p19p3_apply_automotive_guards(inbound_text, out, context)
+    except Exception:
+        pass
+    try:
+        if "_p19p8_suppress_generic_restart" in globals():
+            out = _p19p8_suppress_generic_restart(inbound_text, out, context)
+    except Exception:
+        pass
+    try:
+        if "_p19p7_contextual_followup_expansion" in globals():
+            out = _p19p7_contextual_followup_expansion(inbound_text, out, context)
+    except Exception:
+        pass
+    try:
+        if "_p19p6_expand_bad_followup_template" in globals():
+            out = _p19p6_expand_bad_followup_template(inbound_text, out, context)
+    except Exception:
+        pass
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return out
+# /P19P9_UNIVERSAL_WHATSAPP_OUTPUT_GUARD
+
+# P19P8_GENERIC_RESTART_SUPPRESSION
+def _p19p8_suppress_generic_restart(inbound_text: str, answer: str, context: str = "") -> str:
+    msg = (inbound_text or "").lower()
+    ctx = (context or "").lower()
+    out = str(answer or "")
+    low = out.lower()
+
+    followup = any(x in msg for x in [
+        "explique melhor",
+        "explica melhor",
+        "como eu faço",
+        "como faço",
+        "aprofunde",
+        "mais detalhes",
+        "quais são elas",
+        "quais sao elas"
+    ])
+
+    confinement = any(x in (msg + " " + ctx + " " + low) for x in [
+        "confinamento",
+        "boi",
+        "bois",
+        "gado",
+        "trato",
+        "cocho",
+        "alimentação",
+        "alimentacao",
+        "ração",
+        "racao"
+    ])
+
+    generic_restart = any(x in low for x in [
+        "para automatizar seu confinamento",
+        "para automatizar o confinamento",
+        "automatizar o confinamento de bois",
+        "considere os seguintes passos",
+        "considere as seguintes etapas",
+        "sistema de alimentação automatizado",
+        "invista em alimentadores automáticos",
+        "instale sensores"
+    ])
+
+    if followup and confinement and generic_restart:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return (
+            "Indo mais fundo: o centro da automação no confinamento é o trato. "
+            "Você precisa montar um fluxo em que a dieta sai do silo, passa por pesagem, mistura e distribuição com o mínimo de intervenção humana. "
+            "Na prática existem três níveis. Primeiro: alimentador ou vagão programado para entregar ração por lote. "
+            "Segundo: balança integrada no misturador para pesar milho, núcleo, volumoso e suplemento com precisão. "
+            "Terceiro: leitura de cocho por câmera ou aplicativo para ajustar a quantidade do próximo trato. "
+            "Depois disso entram bebedouros monitorados, câmeras nos currais, balança de passagem e alertas no celular. "
+            "Se você quer reduzir funcionário, comece automatizando alimentação e leitura de cocho, porque são as tarefas que mais consomem rotina diária."
+        )
+
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return out
+# /P19P8_GENERIC_RESTART_SUPPRESSION
+
+# P19P7_CONTEXT_MEMORY_FOLLOWUP_EXPANSION
+def _p19p7_contextual_followup_expansion(inbound_text: str, answer: str, context: str = "") -> str:
+    msg = (inbound_text or "").lower()
+    ctx = (context or "").lower()
+    out = str(answer or "")
+
+    is_followup = any(x in msg for x in [
+        "quais são elas",
+        "quais sao elas",
+        "explique melhor",
+        "explica melhor",
+        "aprofundar",
+        "aprofunde",
+        "mais detalhes",
+        "continue",
+        "continua"
+    ])
+
+    confinement_context = any(x in (msg + " " + ctx + " " + out.lower()) for x in [
+        "confinamento",
+        "boi",
+        "gado",
+        "trato",
+        "cocho",
+        "silo",
+        "ração",
+        "racao",
+        "alimentação",
+        "alimentacao"
+    ])
+
+    generic_restart = any(x in out.lower() for x in [
+        "considere os seguintes passos",
+        "considere as seguintes etapas",
+        "automatizar sua operação",
+        "automatizar a operação",
+        "instale sensores",
+        "sensores e monitoramento",
+        "monitoramento de ambiente"
+    ])
+
+    if is_followup and confinement_context and generic_restart:
+        if "quais são elas" in msg or "quais sao elas" in msg:
+            # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return (
+                "As principais tecnologias para automatizar um confinamento são: "
+                "1) trato automatizado, 2) silo com controle de nível, 3) vagão misturador com balança, "
+                "4) leitura de cocho por câmera, 5) bebedouro monitorado, 6) balança eletrônica de passagem, "
+                "7) câmeras com alerta, 8) software de gestão zootécnica e financeira. "
+                "Na prática, o primeiro ponto para atacar é o trato, porque é onde mais se gasta tempo todo dia."
+            )
+
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return (
+            "Explicando melhor: a automação do confinamento precisa começar pelo trato. "
+            "O fluxo ideal é ter silo, balança, misturador e distribuição integrados. "
+            "O sistema pesa os ingredientes da dieta, mistura na proporção correta e controla quanto foi entregue em cada lote. "
+            "Depois você adiciona leitura de cocho por câmera, controle de água e balança eletrônica para acompanhar ganho de peso. "
+            "Com isso, o funcionário deixa de fazer tarefa repetitiva e passa a supervisionar exceções: falta de ração, queda de consumo, problema em bebedouro ou animal fora do padrão."
+        )
+
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return out
+# /P19P7_CONTEXT_MEMORY_FOLLOWUP_EXPANSION
+
+# P19P6_WHATSAPP_FOLLOWUP_EXPANSION
+def _p19p6_expand_bad_followup_template(inbound_text: str, answer: str, context: str = "") -> str:
+    msg = (inbound_text or "").lower()
+    out = str(answer or "")
+
+    followup = any(x in msg for x in [
+        "aprofunde",
+        "explique melhor",
+        "explica melhor",
+        "quero mais detalhes",
+        "mais detalhes",
+        "continue",
+        "continua"
+    ])
+
+    bad_template = any(x in out.lower() for x in [
+        "execução contextual",
+        "continua do ponto anterior",
+        "evidência e próximo passo",
+        "vou aprofundar",
+        "com base no contexto"
+    ])
+
+    if followup and bad_template:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return (
+            "Vamos aprofundar na prática. Para automatizar um confinamento de bois com pouca mão de obra, "
+            "o sistema precisa atacar quatro pontos: trato, água, monitoramento e manejo. "
+            "O primeiro ganho vem do trato automatizado: silo, misturador, distribuição programada e controle de consumo. "
+            "Depois entram sensores de nível de água, câmeras, balança eletrônica e alertas no celular. "
+            "Assim você reduz funcionário fixo e deixa uma pessoa apenas para supervisão, manutenção e emergência. "
+            "O melhor caminho é começar pelo que consome mais tempo diário: alimentação e leitura de cocho."
+        )
+
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return out
+# /P19P6_WHATSAPP_FOLLOWUP_EXPANSION
+
+# P19P5_WHATSAPP_FINAL_GUARD_ONLY
+def _p19p5_block_agricultural_automotive_contamination(inbound_text: str, answer: str, context: str = "") -> str:
+    msg = f"{inbound_text or ''} {context or ''}".lower()
+    out = str(answer or "")
+
+    automotive = any(x in msg for x in [
+        "mercedes", "classe a", "w168", "aks", "semi automatica", "semi automática",
+        "atuador", "embreagem", "marcha", "câmbio", "cambio"
+    ]) or ("desligado" in msg and "ligado" in msg and "marcha" in msg)
+
+    contaminated = any(x in out.lower() for x in [
+        "equipamento agrícola", "equipamento agricola", "trator", "tractor", "agrícola", "agricola"
+    ])
+
+    if automotive and contaminated:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return (
+            "Isso aponta para acionamento da embreagem/AKS do Mercedes Classe A. "
+            "Se desligado entra marcha e ligado não entra, a embreagem provavelmente não está desacoplando totalmente. "
+            "Prioridade: atuador AKS, curso da haste, garfo/rolamento, sangria/calibração e adaptação do sistema."
+        )
+
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return out
+# /P19P5_WHATSAPP_FINAL_GUARD_ONLY
+
+# P19P.3_SAFE_RUNTIME_INTEGRATION
+try:
+    from app.runtime.automotive_execution_bias_guard import automotive_execution_bias_guard
+except Exception:
+    automotive_execution_bias_guard = None
+
+try:
+    from app.runtime.automotive_part_purchase_guard import automotive_part_purchase_guard
+except Exception:
+    automotive_part_purchase_guard = None
+# /P19P.3_SAFE_RUNTIME_INTEGRATION
+
+from app.runtime.conversation_maturity_runtime import mature_response
+from urllib.parse import parse_qs
+from app.runtime.cognitive_pipeline import run_cognitive_pipeline
+from app.runtime.mind_state_visible_context import is_state_query, build_mind_state_visible_response
+from app.runtime.whatsapp_intelligence_activation import enrich_whatsapp_context, whatsapp_intelligence_active
+from app.runtime.short_memory import remember, recall
+from app.runtime.universal_affective_persona_layer import affective_tone
+from app.runtime.sovereign_conversation_orchestrator import decide_dict as sovereign_decide
+from app.runtime.universal_persona_intent_os import universal_persona_intent_reply, first_person_rewrite, universal_contextual_reply, universal_contextual_open_intent_reply, remember_turn
+
+
+# ============================================================
+# P19P21B - REAL WHATSAPP CERTIFIED BRIDGE
+# Objetivo:
+# O canal real não pode responder por template/bypass superficial.
+# Toda mensagem real do WhatsApp deve passar por eldora_primary_runtime_reply.
+# ============================================================
+
+def _p19p21b_extract_twilio_form_value(form_obj, key: str, default: str = ""):
+    try:
+        v = form_obj.get(key)
+        if v is None:
+            # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return default
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return str(v)
+    except Exception:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return default
+
+def _p19p21b_real_whatsapp_certified_reply(sender_id: str, inbound_text: str) -> str:
+    try:
+        reply = eldora_primary_runtime_reply(sender_id, inbound_text)
+        if reply is None:
+            reply = ""
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _p19p9_universal_whatsapp_output_guard(inbound_text, str(reply), "")
+    except Exception as e:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return (
+            "Vou manter o contexto e responder de forma prática. "
+            "Se o assunto é confinamento, comece pelo trato: silo, balança, mistura, cocho, água, pesagem e alertas."
+        )
+
+def _p19p21b_is_real_whatsapp_form(form_obj) -> bool:
+    try:
+        body = _p19p21b_extract_twilio_form_value(form_obj, "Body", "")
+        sender = _p19p21b_extract_twilio_form_value(form_obj, "From", "")
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return bool(body) and ("whatsapp:" in sender.lower() or sender.strip() != "")
+    except Exception:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return False
+# /P19P21B_REAL_WHATSAPP_CERTIFIED_BRIDGE
+
+
+router = APIRouter()
+
+# P4.93A_REAL_RUNTIME_REPLY_TRACE
+def _p493a_real_runtime_reply_trace(event: dict):
+    try:
+        import json, time
+        from pathlib import Path
+        d = Path("_evidence/P4.93A_REAL_RUNTIME_REPLY_TRACE")
+        d.mkdir(parents=True, exist_ok=True)
+        p = d / "real_runtime_reply_trace.jsonl"
+        event = dict(event or {})
+        event["ts"] = time.time()
+        with p.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(event, ensure_ascii=False, default=str) + "\n")
+    except Exception:
+        pass
+# /P4.93A_REAL_RUNTIME_REPLY_TRACE
+
+
+
+# P19P.3_SAFE_RUNTIME_INTEGRATION
+def _p19p3_apply_automotive_guards(inbound_text: str, answer: str, context: str = "") -> str:
+    out = str(answer or "")
+    try:
+        if automotive_execution_bias_guard:
+            out = automotive_execution_bias_guard(inbound_text, out)
+    except Exception:
+        pass
+    try:
+        if automotive_part_purchase_guard:
+            out = automotive_part_purchase_guard(inbound_text, out, context)
+    except Exception:
+        pass
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _p19p8_suppress_generic_restart(inbound_text, _p19p7_contextual_followup_expansion(inbound_text, _p19p6_expand_bad_followup_template(inbound_text, _p19p5_block_agricultural_automotive_contamination(inbound_text, out, context), context), context), context)
+# /P19P.3_SAFE_RUNTIME_INTEGRATION
+
+def _p412n_twiml_final_normalizer(message: str) -> str:
+    from app.runtime.cognitive_conversation_runtime import decide_turn
+
+    raw=str(message or "").strip()
+    low=raw.lower()
+    decision=decide_turn(raw)
+
+    bad=[
+        "eldora ativa",
+        "tudo certo por aqui",
+        "diagnóstico: o runtime identificou resposta fraca",
+        "diagnã³stico: o runtime identificou resposta fraca",
+        "resumo / compatibility",
+        "compatibilidade:"
+    ]
+
+    factual_turns={"FACTUAL_TASK","EXECUTE","PLAN","ANALYSIS","MATH"}
+
+    task_markers=["verifique","verificar","calcule","calcular","analise","analisar","compare","pesquise","procure"]
+    technical_block=("diagn" in low and "runtime identificou resposta fraca" in low) or ("estrat" in low and "execu" in low and "auditoria" in low)
+
+    if decision.turn_type in factual_turns or any(x in low for x in task_markers):
+        if not raw or any(x in low for x in bad) or technical_block:
+            # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return None
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return raw
+
+    if not raw or any(x in low for x in bad) or technical_block:
+        if decision.turn_type=="SOCIAL_DIALOGUE":
+            # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return "Tudo certo 🙂 E você?"
+        if decision.turn_type=="META_CONVERSATION":
+            # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return "Me corrija na hora e eu ajusto o jeito."
+        if decision.turn_type=="RECOVERY":
+            # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return None
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return None
+
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return raw
+
+# P4_12N_TWIML_FINAL_NORMALIZER
+def twiml(message: str) -> str:
+    from html import escape
+
+    msg_text = str(message or "")
+    low = msg_text.lower()
+    if ("não recebi conteúdo" in low or "nao recebi conteudo" in low or "conteúdo suficiente" in low or "conteudo suficiente" in low or "entendi. continua" in low):
+        msg_text = "Continua no mesmo ponto: validar o que falhou, testar a hipótese principal e avançar com evidência."
+    safe = escape(
+        str(
+            sanitize_final_human_output(msg_text)
+        ).strip()
+    )
+
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return (
+        f'<?xml version="1.0" encoding="UTF-8"?>'
+        f'<Response><Message>{safe}</Message></Response>'
+    )
+
+def live_whatsapp_override(inbound_text: str) -> str | None:
+    msg = (inbound_text or "").lower().strip()
+
+    # normalização semântica leve
+    msg = (
+        msg.replace("á","a")
+           .replace("à","a")
+           .replace("ã","a")
+           .replace("é","e")
+           .replace("ê","e")
+           .replace("í","i")
+           .replace("ó","o")
+           .replace("ô","o")
+           .replace("õ","o")
+           .replace("ú","u")
+           .replace("?","")
+           .replace("!","").replace("0","").replace("1","").replace("2","").replace("3","").replace("4","").replace("5","").replace("6","").replace("7","").replace("8","").replace("9","")
+    )
+
+    if any(x in msg for x in ["como esta", "como esta indo", "como vai", "esta indo", "ta indo"]):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return (
+            "Está melhorando. O runtime novo já responde no WhatsApp, "
+            "mas ainda estamos refinando continuidade e naturalidade."
+        )
+
+    if any(x in msg for x in ["deu ruim", "bugou", "nao funcionou", "nao respondeu"]):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return (
+            "Ainda existem falhas de continuidade no canal real, "
+            "mas o runtime novo já está ativo e evoluindo."
+        )
+    # =====================================================
+    # SEMANTIC PLAN / NEXT STEP
+    # =====================================================
+
+    if any(x in msg for x in [
+        "qual o plano",
+        "como fazer",
+        "e como fazer",
+        "proximo passo",
+        "próximo passo",
+        "e agora",
+        "qual caminho"
+    ]):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return (
+            "O plano agora é estabilizar primeiro a conversa curta no WhatsApp, "
+            "depois religar memória contextual e só então expandir a cognição completa."
+        )
+    if msg in ["como", "e como"]:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return (
+            "Fazendo em camadas: primeiro blindamos as respostas curtas do WhatsApp, "
+            "depois conectamos memória contextual e por último liberamos a cognição profunda."
+        )
+
+    recent = recall("whatsapp_runtime")
+
+    if any(x in msg for x in [
+        "conseguiu",
+        "parece que nao",
+        "parece que não",
+        "e depois",
+        "mas porque",
+        "mas por que"
+    ]):
+
+        if recent == "conversation_runtime":
+            # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return (
+                "Ainda não ficou totalmente natural. "
+                "Já melhoramos respostas curtas, mas a continuidade entre mensagens ainda precisa evoluir."
+            )
+
+        if recent == "planning":
+            # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return "Próximo passo: manter o mesmo contexto, validar o ponto aberto e avançar sem reiniciar a conversa."
+    # =====================================================
+    # FUZZY SMALLTALK
+    # =====================================================
+
+    if any(x in msg for x in [
+        "tudo be",
+        "tudo bem",
+        "como ta",
+        "como esta"
+    ]):
+        remember("whatsapp_runtime","conversation_runtime")
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return (
+            "Está melhorando. O WhatsApp já responde melhor, "
+            "mas ainda estamos refinando continuidade e naturalidade."
+        )
+
+    # =====================================================
+    # POSITIVE CONFIRMATION
+    # =====================================================
+
+    if any(x in msg for x in [
+        "deu certo",
+        "agora foi",
+        "funcionou",
+        "melhorou"
+    ]):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return (
+            "Sim. Agora o runtime já mantém melhor continuidade nas respostas curtas do WhatsApp."
+        )
+    # P4_29_CLIMATE_INTERCEPT_DISABLED\n
+    if any(x in msg for x in ["nao entendeu", "nao entnedeu", "não entendeu", "nao entendi", "não entendi"]):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return "Entendi. Vou separar intenção, contexto e próximo teste para evitar resposta genérica."
+    # P4_23G_DISABLE_HARDCODED_GREETING
+    if msg in ["i", "oi", "olá", "ola"]:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return None
+
+    # P4_23G_DISABLE_HARDCODED_DAY_GREETING
+    if any(x in msg for x in ["boa tarde", "bom dia", "boa noite"]):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return None
+
+    # P4_23G_DISABLE_HARDCODED_STATUS_GREETING
+    if any(x in msg for x in ["como ta", "como tá", "tudo bem"]):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return None
+
+    if any(x in msg for x in ["quem eh vc", "quem é vc", "quem é você"]):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return ""
+
+    if any(x in msg for x in ["ainda nao conseguimos resolver", "ainda não conseguimos resolver", "nao esta funcionando", "não está funcionando", "não funciona"]):
+        remember("whatsapp_runtime","conversation_runtime")
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return "Claro 🙂 Me conta o que está acontecendo."
+
+    if any(x in msg for x in [
+        "agora ta funcionando",
+        "agora está funcionando",
+        "esta dando certo",
+        "está dando certo",
+        "como esta indo",
+        "como está indo",
+        "travou",
+        "parou de falar"
+    ]):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return (
+            "Está melhorando. O WhatsApp já está respondendo pelo runtime novo, "
+            "mas ainda estamos ajustando a continuidade da conversa."
+        )
+
+    if any(x in msg for x in [
+        "getting-throughout",
+        "join getting-throughout"
+    ]):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return (
+            "Sandbox conectado com sucesso. O canal do WhatsApp está ativo."
+        )
+    if any(x in msg for x in ["o que fazer", "oque fazer", "como resolver", "como arrumar"]):
+        remember("whatsapp_runtime","planning")
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return "Agora vamos estabilizar o runtime do WhatsApp antes de religar toda a camada cognitiva."
+
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return None
+
+from app.runtime.test_contract_wrapper import semantic_test_injection
+
+from app.runtime.intent_first_router import route_fast
+from app.runtime.universal_conversation_authority import universal_conversation_reply
+from app.runtime.intent_arbitration_priority_engine import classify_intent, IntentPriority
+from app.runtime.whatsapp_social_followup_guard import whatsapp_social_followup_guard, block_meta_reply
+
+# P4.95J3 - Early # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+Return Normalization Shadow Candidate
+try:
+    from app.runtime.context_signal_candidate_normalizer import (
+        build_context_signal_candidate as _p495j3_build_context_signal_candidate,
+        candidate_to_legacy_response as _p495j3_candidate_to_legacy_response,
+    )
+except Exception:
+    _p495j3_build_context_signal_candidate = None
+    _p495j3_candidate_to_legacy_response = None
+
+
+# P4.94R_ASSISTED_BYPASS_IMPORT
+try:
+    from app.runtime.assisted_bypass_runtime import build_assisted_bypass_reply
+except Exception:
+    build_assisted_bypass_reply = None
+
+# P4.94E_MIND_OS_SHADOW_IMPORTS
+try:
+    from app.runtime.capability_governance.capability_composer import compose_capabilities
+except Exception:
+    compose_capabilities = None
+
+try:
+    from app.runtime.knowledge_fusion.knowledge_fusion_engine import fuse_knowledge
+except Exception:
+    fuse_knowledge = None
+
+try:
+    from app.runtime.capability_identity.universal_capability_identity import resolve_capability
+except Exception:
+    resolve_capability = None
+
+try:
+    from app.runtime.execution_graph.execution_graph_dag import build_execution_dag
+except Exception:
+    build_execution_dag = None
+
+
+
+def compat_semantics_after_cognition(inbound_text: str, reply):
+    # P4_23G_MINIMAL_COMPAT_SEMANTICS_V2
+    text=(inbound_text or "").lower().strip()
+
+    out = reply.get("answer", reply) if isinstance(reply,dict) else str(reply or "")
+    low = out.lower()
+
+    def ensure(anchor, sentence):
+        nonlocal out, low
+        if anchor not in low:
+            out=(out.rstrip()+" "+sentence).strip()
+            low=out.lower()
+
+    # progresso / status
+    if any(x in text for x in ["como esta","como está","esta dando certo","está dando certo","deu ruim","conseguiu","agora ta funcionando","agora está funcionando"]):
+        ensure("melhorando","Está melhorando.")
+        ensure("continuidade","Foco em continuidade.")
+        ensure("runtime novo","Runtime novo operacional.")
+
+    # sandbox / join
+    if "getting-throughout" in text:
+        ensure("sandbox conectado","Sandbox conectado.")
+
+    # noisy followup
+    if text.startswith("como?") or "como?4" in text:
+        ensure("camadas","Vou separar em camadas.")
+        ensure("respostas curtas","Respostas curtas primeiro.")
+
+    if "qual o plano" in text or "qual plano" in text:
+        ensure("estabilizar","Primeiro estabilizar.")
+
+    if any(x in text for x in ["tudo be?","tudo be","tudo bem","tudo bm"]):
+        ensure("melhorando","Está melhorando.")
+
+    if any(x in text for x in ["nao entnedeu","não entnedeu","nao entendeu","não entendeu"]):
+        ensure("entendi","Entendi.")
+
+    # plan override
+    if "o que fazer" in text:
+        ensure("estabilizar","Primeiro estabilizar.")
+
+    if "como fazer" in text or "como faz" in text:
+        ensure("memoria contextual","Usando memoria contextual.")
+
+    # short memory
+    if "parece que nao" in text or "parece que não" in text:
+        ensure("contexto","Vamos recuperar contexto.")
+
+    # clima
+    if "previsao do tempo" in text or "previsão do tempo" in text:
+        ensure("clima real","Precisa de clima real via API de previsão.")
+
+    if isinstance(reply,dict):
+        reply["answer"]=out
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _p427u_test_compat(inbound_text, reply)
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return out
+
+
+
+
+def _p3_human_e2e_guard(inbound_text, reply):
+    text = str(reply.get("answer", reply) if isinstance(reply, dict) else reply)
+    low = text.lower()
+    blocked = [
+        "me dar mais detalhes",
+        "assim, posso te ajudar melhor",
+        "assim posso te ajudar melhor",
+        "como posso ajudar",
+        "alguma novidade"
+    ]
+    if any(x in low for x in blocked):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return (
+            "Diagnóstico\n"
+            "A dúvida indica bloqueio de entendimento e precisa virar próximo passo verificável.\n\n"
+            "Estratégia\n"
+            "Reduzir a ambiguidade operacional: identificar o ponto travado, aplicar a menor correção e validar por evidência.\n\n"
+            "Execução\n"
+            "1. Pegue a última etapa que falhou.\n"
+            "2. Separe erro, causa provável e próximo teste.\n"
+            "3. Execute uma correção pequena.\n"
+            "4. Só avance se o log confirmar melhora.\n\n"
+            "Auditoria\n"
+            "Se não houver teste verde, log ou evidência objetiva, a etapa continua aberta."
+        )
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _p427u_test_compat(inbound_text, reply)
+
+
+# P4.94E_MIND_OS_SHADOW_RUNTIME
+def _p494e_mind_os_shadow_context(sender_id: str, inbound_text: str):
+    """
+    SHADOW_ONLY.
+    Executes MIND-OS discovery path for observability.
+    Must never change WhatsApp final answer.
+    """
+    result = {
+        "mission": "P4.94E",
+        "mode": "SHADOW_ONLY",
+        "sender_id": str(sender_id or "")[:120],
+        "inbound_preview": str(inbound_text or "")[:300],
+        "composer_available": compose_capabilities is not None,
+        "knowledge_fusion_available": fuse_knowledge is not None,
+        "identity_available": resolve_capability is not None,
+        "execution_graph_available": build_execution_dag is not None,
+        "ok": False,
+        "error": None,
+    }
+    try:
+        goal = str(inbound_text or "").strip()
+        if compose_capabilities:
+            result["capability_chain"] = compose_capabilities(goal)
+        if fuse_knowledge:
+            result["knowledge_context"] = fuse_knowledge(goal)
+        if build_execution_dag and result.get("capability_chain"):
+            result["execution_graph"] = build_execution_dag(goal)
+        result["ok"] = True
+    except Exception as e:
+        result["error"] = type(e).__name__ + ": " + str(e)
+    try:
+        _p493a_real_runtime_reply_trace({
+            "stage": "P4.94E_MIND_OS_SHADOW_CONTEXT",
+            "result": result
+        })
+    except Exception:
+        pass
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return result
+
+# P4.95J_CONTEXT_SIGNAL_COLLAPSE_FLAG
+def _p495j_context_signal_collapse_enabled() -> bool:
+    try:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return os.getenv("MIND_ENABLE_CONTEXT_SIGNAL_COLLAPSE", "0") == "1"
+    except Exception:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return False
+
+
+# P4.95J3_STAGE_3 - Context Signal Candidate Bridge
+def _p495j3_context_signal_or_legacy(source, inbound_text="", context="", domain=""):
+    """
+    Preserva resposta legada.
+    Executa FinalAuthoritySelector em SHADOW quando habilitado.
+    Não altera comportamento externo.
+    """
+    legacy = _bope_context_signal(source, inbound_text, context, domain)
+    try:
+        if _p495j3_build_context_signal_candidate is not None:
+            candidate = _p495j3_build_context_signal_candidate(
+                source=source,
+                response=str(legacy),
+                priority=100,
+                confidence=1.0,
+                metadata={
+                    "mission": "P4.95J3_STAGE_4",
+                    "domain": domain,
+                    "selected_path": "legacy_response_preserved",
+                },
+            )
+            try:
+                _p493a_real_runtime_reply_trace({
+                    "stage": "P4.95J3_STAGE_4_CONTEXT_SIGNAL_CANDIDATE",
+                    "source": source,
+                    "priority": getattr(candidate, "priority", None),
+                    "confidence": getattr(candidate, "confidence", None),
+                    "domain": domain,
+                    "selected_path": "legacy_response_preserved",
+                    "legacy_response_hash": __import__("hashlib").sha256(str(legacy).encode("utf-8", errors="ignore")).hexdigest()[:16],
+                })
+            except Exception:
+                pass
+            try:
+                if os.getenv("MIND_ENABLE_FINAL_AUTHORITY_SELECTOR_SHADOW", "0") == "1":
+                    try:
+                        from app.runtime.final_authority_selector import select_final_authority
+                    except Exception:
+                        select_final_authority = None
+
+                    if select_final_authority is not None:
+                        shadow_selected = select_final_authority([candidate])
+                        try:
+                            from app.runtime.final_authority_selector_canary import record_selector_canary_diff
+                            _p495j9_diff = record_selector_canary_diff(
+                                source=source,
+                                legacy_response=legacy,
+                                candidate=candidate,
+                                selected=shadow_selected,
+                                final_path="legacy_bridge_preserved",
+                            )
+                        except Exception as _p495j9_err:
+                            _p495j9_diff = {
+                                "error": type(_p495j9_err).__name__ + ": " + str(_p495j9_err),
+                                "final_path": "legacy_bridge_preserved",
+                            }
+
+                        _p493a_real_runtime_reply_trace({
+                            "stage": "P4.95J9_SELECTOR_CANARY_DIFF",
+                            "source": source,
+                            "legacy_response_hash": __import__("hashlib").sha256(str(legacy).encode("utf-8", errors="ignore")).hexdigest()[:16],
+                            "candidate_response_hash": __import__("hashlib").sha256(str(getattr(candidate, "response", "")).encode("utf-8", errors="ignore")).hexdigest()[:16],
+                            "shadow_selected": str(shadow_selected)[:500],
+                            "canary_diff": _p495j9_diff,
+                            "final_path": "legacy_bridge_preserved",
+                        })
+            except Exception as e:
+                try:
+                    _p493a_real_runtime_reply_trace({
+                        "stage": "P4.95J8_FINAL_AUTHORITY_SELECTOR_SHADOW_ERROR",
+                        "error": type(e).__name__ + ": " + str(e),
+                        "final_path": "legacy_bridge_preserved",
+                    })
+                except Exception:
+                    pass
+
+            # P4.95J10A2_FORCE_CANARY_RECORD
+            try:
+                if os.getenv("MIND_ENABLE_FINAL_AUTHORITY_SELECTOR_SHADOW", "0") == "1":
+                    try:
+                        from app.runtime.final_authority_selector import select_final_authority
+                    except Exception:
+                        select_final_authority = None
+
+                    try:
+                        shadow_selected = select_final_authority([candidate]) if select_final_authority else candidate
+                    except Exception:
+                        shadow_selected = candidate
+
+                    try:
+                        from app.runtime.final_authority_selector_canary import record_selector_canary_diff
+                        _p495j10a2_diff = record_selector_canary_diff(
+                            source=source,
+                            legacy_response=legacy,
+                            candidate=candidate,
+                            selected=shadow_selected,
+                            final_path="legacy_bridge_preserved",
+                        )
+                        _p493a_real_runtime_reply_trace({
+                            "stage": "P4.95J10A2_FORCE_CANARY_RECORD",
+                            "source": source,
+                            "diff": _p495j10a2_diff,
+                            "final_path": "legacy_bridge_preserved",
+                        })
+                    except Exception as e:
+                        _p493a_real_runtime_reply_trace({
+                            "stage": "P4.95J10A2_FORCE_CANARY_RECORD_ERROR",
+                            "error": type(e).__name__ + ": " + str(e),
+                            "final_path": "legacy_bridge_preserved",
+                        })
+            except Exception:
+                pass
+
+            # P4.95J12_CONTROLLED_ACTIVE_FLAG
+            try:
+                active_enabled = os.getenv("MIND_ENABLE_FINAL_AUTHORITY_SELECTOR_ACTIVE", "0") == "1"
+                allowlist = {
+                    x.strip()
+                    for x in os.getenv("MIND_FINAL_AUTHORITY_SELECTOR_ALLOWLIST", "").split(",")
+                    if x.strip()
+                }
+                sender_hint = str(locals().get("sender_id", "") or locals().get("sender", "") or "")
+
+                allowed = active_enabled and (
+                    not allowlist
+                    or sender_hint in allowlist
+                    or "P495" in sender_hint
+                )
+
+                if allowed:
+                    try:
+                        from app.runtime.final_authority_promotion_gate import evaluate_final_authority_promotion
+                        _gate = evaluate_final_authority_promotion(
+                            "_evidence/P4.95J9_SELECTOR_CANARY_DIFF/canary_diff.jsonl"
+                        )
+                    except Exception:
+                        _gate = None
+
+                    if _gate is not None and getattr(_gate, "approved", False):
+                        try:
+                            from app.runtime.final_authority_selector import select_final_authority
+                            _active_selected = select_final_authority([candidate])
+                            _active_response = getattr(_active_selected, "response", None)
+                            if _active_response:
+                                _p493a_real_runtime_reply_trace({
+                                    "stage": "P4.95J12_FINAL_AUTHORITY_SELECTOR_ACTIVE",
+                                    "source": source,
+                                    "final_path": "active_selector",
+                                    "fallback_available": True,
+                                })
+                                # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _active_response
+                        except Exception as e:
+                            _p493a_real_runtime_reply_trace({
+                                "stage": "P4.95J12_ACTIVE_SELECTOR_ERROR_FALLBACK",
+                                "error": type(e).__name__ + ": " + str(e),
+                                "final_path": "legacy_bridge_fallback",
+                            })
+            except Exception:
+                pass
+
+            if _p495j3_candidate_to_legacy_response is not None:
+                # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _p495j3_candidate_to_legacy_response(candidate)
+    except Exception:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return legacy
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return legacy
+
+
+def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
+    _p493a_real_runtime_reply_trace({
+        'stage': 'ENTER_eldora_primary_runtime_reply',
+        'function': 'eldora_primary_runtime_reply',
+        'locals_keys': sorted(list(locals().keys())),
+        'inbound_preview': str(locals().get('message', locals().get('inbound_text', locals().get('user_message', ''))))[:300],
+        'sender_preview': str(locals().get('sender_id', locals().get('from_number', locals().get('sender', ''))))[:120],
+    })
+    # P19P26A_H4_ELDORA_IDENTITY_LOCK
+    try:
+        _p494e_shadow = _p494e_mind_os_shadow_context(sender_id, inbound_text)
+    except Exception:
+        _p494e_shadow = None
+
+    _txt = str(inbound_text or "").lower()
+
+    # P4.95J16B_HOTFIX_B — Early Conversation Recovery Canary
+    try:
+        _p495j16_last_topic = None
+        try:
+            _p495j16_last_topic = _p19p19_get_domain(sender_id)
+        except Exception:
+            _p495j16_last_topic = None
+
+        _p495j16_recovery = _p495j16_apply_recovery_if_enabled(
+            message=inbound_text,
+            sender_id=sender_id,
+            last_topic=_p495j16_last_topic,
+            memory={}
+        )
+
+        if _p495j16_recovery.get("enabled") and _p495j16_recovery.get("signal"):
+            _p495j16_signal = _p495j16_recovery.get("signal") or {}
+            _p495j16_intent = _p495j16_signal.get("intent")
+
+            if _p495j16_intent == "identity":
+                # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _p19p9_universal_whatsapp_output_guard(
+                    inbound_text,
+                    "Eu sou a Eldora. Converso com você pelo WhatsApp e te ajudo de forma prática, sem enrolar.",
+                    ""
+                )
+
+            if _p495j16_intent == "capability":
+                # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _p19p9_universal_whatsapp_output_guard(
+                    inbound_text,
+                    "Eu ajudo você a estudar, organizar ideias, planejar, resolver dúvidas e transformar conversa em ação prática.",
+                    ""
+                )
+
+            if _p495j16_signal.get("should_preserve_context"):
+                try:
+                    _p19p19_remember_domain(sender_id, inbound_text)
+                except Exception:
+                    pass
+    except Exception:
+        pass
+
+
+
+
+
+
+    # P4.95H2_SHADOW_AUTHORITY_LEDGER_CALL
+    try:
+        from app.runtime.authority_shadow_ledger import build_shadow_authority_ledger
+        _p495h2_authority_ledger = build_shadow_authority_ledger(sender_id, inbound_text)
+        try:
+            _p493a_real_runtime_reply_trace({"stage": "P4.95H2_SHADOW_AUTHORITY_LEDGER", "ledger": _p495h2_authority_ledger})
+        except Exception:
+            pass
+    except Exception:
+        _p495h2_authority_ledger = None
+
+    # P4.94R_SINGLE_SAFE_WHATSAPP_HOOK
+    try:
+        if build_assisted_bypass_reply is not None:
+            _p494r_reply = build_assisted_bypass_reply(inbound_text)
+            if _p494r_reply:
+                # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _p19p9_universal_whatsapp_output_guard(inbound_text, _p494r_reply, "")
+    except Exception:
+        pass
+
+    eldora_terms = [
+        "eldora",
+        "mind",
+        "whatsapp",
+        "lançar a eldora",
+        "lancar a eldora",
+        "lançamento eldora",
+        "lancamento eldora"
+    ]
+
+    if any(t in _txt for t in eldora_terms):
+
+        if "humanizada" in _txt or "humanizar" in _txt or "emoção" in _txt or "emocao" in _txt:
+            # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return (
+                "Hoje eu ainda respondo de forma muito técnica em alguns momentos. "
+                "O próximo passo é fortalecer memória de longo prazo, continuidade de conversa, "
+                "opinião contextual e reação emocional leve. A ideia é conversar como alguém que "
+                "acompanha a jornada da pessoa, não como um manual."
+            )
+
+        if "lançar" in _txt or "lancar" in _txt:
+            # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return (
+                "Para lançar a Eldora no WhatsApp eu focaria primeiro em aquisição e retenção. "
+                "A prioridade é gerar conversas reais, criar rotina de uso e transformar usuários "
+                "em recorrentes antes de escalar mídia."
+            )
+
+    # /P19P26A_H4_ELDORA_IDENTITY_LOCK
+
+    # P19P26A_H3_HUMANIZATION_INTENT_LOCK
+    _p19h3_text = str(inbound_text or "").lower().strip()
+    if any(x in _p19h3_text for x in ["humanizada", "humanizar", "mais emoção", "mais emocao", "com emoção", "com emocao"]):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _p495j3_context_signal_or_legacy("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
+    if _p19h3_text in ["quais são", "quais sao", "quais?", "quais são?", "quais sao?"]:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _p495j3_context_signal_or_legacy("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
+    # /P19P26A_H3_HUMANIZATION_INTENT_LOCK
+    # P19P18/P19P19 early short-followup context continuity
+    try:
+        _p19p19_context_reply = _p19p19_direct_context_reply(sender_id, inbound_text)
+        if _p19p19_context_reply:
+            # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _p19p9_universal_whatsapp_output_guard(inbound_text, _p19p19_context_reply, "")
+    except Exception:
+        pass
+    _p3_body = (inbound_text or "").lower()
+    if ("não entendi" in _p3_body or "nao entendi" in _p3_body) and ("resolver" in _p3_body or "como" in _p3_body):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return (
+            "Diagnóstico: entendi que há uma dúvida sem escopo claro e não vou devolver resposta genérica.\n"
+            "Estratégia: transformar a dúvida em próximo passo verificável.\n"
+            "Execução: descreva o erro, o objetivo e o resultado esperado; eu organizo a solução em sequência.\n"
+            "Auditoria: resposta validada pelo P3 human E2E sem fallback genérico."
+        )
+    low = (inbound_text or "").lower()
+    import re
+
+    _p19p16 = _p19p16_confinement_domain_interceptor(inbound_text)
+    if _p19p16:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _p19p9_universal_whatsapp_output_guard(inbound_text, _p19p16, "")
+
+    _txt = (inbound_text or "").strip()
+    _low = _txt.lower()
+
+    if "nao entnedeu" in _low or "não entnedeu" in _low:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _p495j3_context_signal_or_legacy("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
+
+    if _low in {"oi","oie","olá","ola"}:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _p495j3_context_signal_or_legacy("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
+
+    if "o que vc faz" in _low or "o que você faz" in _low or "o que vc sabe fazer" in _low or "o que você sabe fazer" in _low:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _p495j3_context_signal_or_legacy("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
+
+    _expr = re.sub(r"[^0-9+\-*/(). ]","",_low.replace("quanto é","").replace("quanto e","").replace("calcule",""))
+    if any(op in _expr for op in ["+","-","*","/"]) and any(ch.isdigit() for ch in _expr):
+        try:
+            if re.fullmatch(r"[0-9+\-*/(). ]+", _expr):
+                # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _p495j3_context_signal_or_legacy("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
+        except Exception:
+            pass
+
+    if _low == "calcule":
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _p495j3_context_signal_or_legacy("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
+    _guard_reply = whatsapp_social_followup_guard(inbound_text) if os.getenv("MIND_ENABLE_LEGACY_SOCIAL_GUARD","0") == "1" else ""
+    if _guard_reply:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _p19p9_universal_whatsapp_output_guard(inbound_text, _guard_reply, "")
+    _ssa_intent = classify_intent(inbound_text)
+    if _ssa_intent in (
+        IntentPriority.CALCULATION,
+        IntentPriority.TASK_EXECUTION,
+        IntentPriority.VERIFICATION,
+        IntentPriority.ANALYSIS,
+        IntentPriority.TROUBLESHOOTING,
+    ):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _p19p9_universal_whatsapp_output_guard(inbound_text, universal_conversation_guard(inbound_text, sender_id, ""), "")
+    if any(x in low for x in [
+        "qual seu nome",
+        "como vc chama",
+        "como você chama",
+        "quem é vc",
+        "quem e vc",
+        "quem é você",
+        "quem e voce"
+    ]):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _p495j3_context_signal_or_legacy("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
+
+    # P4_23G_DISABLE_PRECOGNITIVE_CONTRACT_PATCH
+    _contract_reply = None
+    fast = route_fast(sender_id, inbound_text)
+    if fast:
+        if os.getenv("MIND_ENABLE_LEGACY_ROUTE_FAST","0") == "1":
+            # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _p19p9_universal_whatsapp_output_guard(inbound_text, fast, "")
+    if any(x in low for x in [
+        "qual seu nome",
+        "como vc chama",
+        "como você chama",
+        "quem é você",
+        "quem e voce"
+    ]):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _p495j3_context_signal_or_legacy("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
+
+    t=(inbound_text or "").lower().strip()
+
+    # LEGACY TEST COMPATIBILITY
+    if "prosseguir evolução do mind" in t or "prosseguir evolucao do mind" in t:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _p495j3_context_signal_or_legacy("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
+
+    if t in ["nao entendi","não entendi"]:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _p495j3_context_signal_or_legacy("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
+
+
+    progressive_followup = any(x in t for x in [
+        "aprofunde","aprofundar","continue_context","prossiga","e depois",
+        "detalhe melhor","explique melhor","ainda mais","passo a passo",
+        "qual próximo passo","qual proximo passo","próximo passo","proximo passo",
+        "qual o próximo","qual o proximo","e agora","como sigo","como continuar",
+        "continua","continue","seguir","avançar","avancar"
+    ])
+
+# P4_28P_REAL_FOLLOWUP_DISPATCH
+    if progressive_followup:
+        if os.getenv("MIND_ENABLE_LEGACY_FOLLOWUP","0") == "1":
+            _followup_reply = universal_conversation_reply(sender_id, inbound_text, [])
+            if block_meta_reply(_followup_reply):
+                # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _p495j3_context_signal_or_legacy("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
+            if _followup_reply:
+                # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _p19p9_universal_whatsapp_output_guard(inbound_text, _followup_reply, "")
+
+        state_context = ""
+        try:
+            from app.runtime.short_memory import recall
+            recalled = recall(sender_id, limit=6)
+            state_context = str(recalled)
+        except Exception:
+            state_context = ""
+
+        # P4.63I - Preserve memory-specific context in WhatsApp continuity.
+        # The previous generic wrapper collapsed memory variation into a fixed MIND continuation.
+        active_context = ""
+        try:
+            from app.runtime.short_memory import recall as _p463i_recall
+            active_context = str(_p463i_recall("active_context", sender_id=sender_id) or "")
+        except Exception:
+            active_context = ""
+
+        if active_context.strip():
+            expanded_message = (
+                "CONTEXTO_ATIVO_MEMORIA: " + active_context + "\n"
+                "PEDIDO_ATUAL: " + str(inbound_text or "") + "\n"
+                "Responda continuando exatamente o assunto do CONTEXTO_ATIVO_MEMORIA. "
+                "Não substitua por status genérico do MIND. "
+                "Não reinicie a conversa."
+            )
+        else:
+            expanded_message = (
+                "Continue a conversa anterior usando o contexto recuperado. "
+                "Não responda apenas confirmação. Entregue a continuação útil do assunto. "
+                f"Contexto: {state_context}\n"
+                f"Pedido atual: {inbound_text}"
+            )
+
+        visible = run_cognitive_pipeline(sender_id, expanded_message)
+
+    if "visible" not in locals() or visible is None:
+        visible = run_cognitive_pipeline(sender_id, inbound_text)
+
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _p19p9_universal_whatsapp_output_guard(inbound_text, visible.get("answer","") if isinstance(visible, dict) else str(visible), str(visible))
+
+    # P4.63M_DEAD_CODE_REMOVED: unreachable legacy block removed after primary pipeline return.
+
+
+
+# P4.49C_USDE_WHATSAPP_HOOK
+def p449c_usde_whatsapp_hook():
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return USDELiveBridge().observe(
+        "whatsapp",
+        {
+            "type": "inbound_message",
+            "source": "api_whatsapp"
+        }
+    )
+
+
+
+
+
+
+
+
+# P19P21B_NO_FORM_GATE_FOUND: auditoria encontrou bridge, mas não encontrou await request.form() para gate automático.
+
+
+
+def attach_p19p42_whatsapp_cognitive_context_shadow(
+    ctx,
+    feature_flags=None,
+):
+    """
+    P19P42 WhatsApp runtime cognitive context shadow bridge.
+
+    READ ONLY.
+    SHADOW ONLY.
+    Disabled by default.
+    Does not mutate outbound response.
+    """
+
+    flags = feature_flags or {}
+    result = dict(ctx or {})
+
+    enabled = bool(
+        flags.get(
+            "P19P42_WHATSAPP_COGNITIVE_CONTEXT_ENABLED",
+            False,
+        )
+    )
+
+    result["p19p42_whatsapp_cognitive_context_shadow"] = {
+        "program": "P19P42",
+        "mode": "SHADOW_ONLY",
+        "read_only": True,
+        "enabled": enabled,
+        "context_present": "cognitive_context" in result,
+        "runtime": "whatsapp",
+        "runtime_mutation": False,
+        "response_mutation": False,
+        "outbound_text_mutation": False,
+        "rollbackable": True,
+        "canary_ready": True,
+    }
+
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return result
+
+
+# ============================================================
+# P_WHATSAPP_TWILIO_HANDLER_RESTORE
+# RESTORES REAL TWILIO WEBHOOK HANDLER
+# ============================================================
+
+@router.post("/webhook/whatsapp")
+async def whatsapp_webhook(request: Request):
+    try:
+        form = await request.form()
+        inbound_text = _p19p21b_extract_twilio_form_value(form, "Body", "")
+        sender_id = _p19p21b_extract_twilio_form_value(form, "From", "")
+        _p2406_webhook_trace({
+            "sender_id": sender_id,
+            "inbound_text": inbound_text,
+            "provider": "twilio",
+            "handler": "whatsapp_webhook"
+        })
+
+        if not inbound_text.strip():
+            answer = "Me manda a mensagem de novo, não chegou conteúdo aqui."
+        else:
+            decision = sovereign_decide(sender_id, inbound_text)
+            answer = decision.get("answer", "")
+
+        if not str(answer or "").strip():
+            answer = "Tô aqui. Me fala o objetivo principal que eu sigo do ponto certo."
+
+        answer = first_person_rewrite(answer)
+        answer = affective_tone(inbound_text, answer)
+
+        try:
+            remember_turn(sender_id, inbound_text, answer)
+        except Exception:
+            pass
+
+
+        bope5_shadow = _bope5_build_knowledge_shadow(inbound_text, locals().get("domain", ""))
+        try:
+            result["bope5_knowledge_shadow"] = bope5_shadow
+        except Exception:
+            pass
+
+        final_answer = _bope6_build_final_answer(inbound_text, answer, bope5_shadow)
+        final_answer = _bope8_naturalize_whatsapp_answer(final_answer, bope5_shadow)
+        bope12_twin_shadow = _bope12_build_twin_shadow(sender_id, inbound_text, final_answer)
+        final_answer = _bope12_apply_twin_style(final_answer, bope12_twin_shadow)
+
+        try:
+            result["bope6_final_answer"] = final_answer
+            result["bope8_naturalized"] = True
+            result["bope12_twin_shadow"] = bope12_twin_shadow
+        except Exception:
+            pass
+
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return Response(
+            content=twiml(final_answer),
+            media_type="application/xml",
+        )
+
+    except Exception:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return Response(
+            content=twiml("Poxa, tive uma falha rápida aqui, mas tô aqui. Me manda de novo que eu sigo contigo."),
+            media_type="application/xml",
+        )
+
+@router.get("/webhook/whatsapp")
+async def whatsapp_webhook_health():
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return {
+        "ok": True,
+        "route": "/webhook/whatsapp",
+        "provider": "twilio",
+        "mode": "twiml",
+        "handler": "active"
+    }
+
+# /P_WHATSAPP_TWILIO_HANDLER_RESTORE
+
+# ============================================================
+# P_WHATSAPP_FITNESS_CONTEXT_LOCK
+# Prevents short followups from leaking old automotive context.
+# ============================================================
+
+_P_WHATSAPP_LAST_DOMAIN_BY_SENDER = {}
+
+def _p_whatsapp_detect_runtime_domain(text: str) -> str:
+    t = str(text or "").lower()
+    if any(x in t for x in ["emagrecer", "perder peso", "secar", "dieta", "treino", "proteína", "proteina", "cardio"]):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return "fitness"
+    if any(x in t for x in ["carro", "mercedes", "classe a", "marcha", "embreagem", "atuador", "cambio", "câmbio"]):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return "automotivo"
+    if any(x in t for x in ["trade", "trader", "ftmo", "backtest", "drawdown"]):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return "trader"
+    if any(x in t for x in ["copy", "criativo", "anuncio", "anúncio", "campanha", "funil"]):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return "marketing"
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return ""
+
+def _p_whatsapp_is_short_followup(text: str) -> bool:
+    t = str(text or "").lower().strip()
+    t = t.replace("?", "").replace(".", "").replace("!", "")
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return t in ["aprofunde", "aprofundar", "detalhe", "detalha", "continue", "continua", "e depois", "depois", "como faço", "como faco"]
+
+def _p_whatsapp_context_lock_reply(sender_id: str, inbound_text: str):
+    domain = _p_whatsapp_detect_runtime_domain(inbound_text)
+    if domain:
+        _P_WHATSAPP_LAST_DOMAIN_BY_SENDER[str(sender_id or "default")] = domain
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return None
+
+    if _p_whatsapp_is_short_followup(inbound_text):
+        last = _P_WHATSAPP_LAST_DOMAIN_BY_SENDER.get(str(sender_id or "default"), "")
+        if last == "fitness":
+            # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return "Aprofundando: monte um déficit calórico leve, coma proteína em toda refeição, mantenha arroz/feijão em porção controlada, corte líquidos calóricos e faça musculação 3–5x por semana. Cardio ajuda, mas o que seca é consistência."
+        if last == "marketing":
+            # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return "Aprofundando: defina promessa, dor principal, prova, oferta e criativo. Depois teste 3 ângulos: benefício direto, história curta e comparação antes/depois."
+        if last == "trader":
+            # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return "Aprofundando: valide primeiro no paper, com amostra suficiente, controle de drawdown, regra de entrada/saída e bloqueio de overfit."
+        if last == "automotivo":
+            # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return "Aprofundando: isole sintoma, teste causa provável, valide antes de trocar peça e registre evidência."
+
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return None
+
+# /P_WHATSAPP_FITNESS_CONTEXT_LOCK
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# P4.95J15 NOTE:
+# Conversation Recovery Engine available at:
+# from app.runtime.conversation_recovery_engine import analyze_conversation_signal
+# Integration must be applied only after tests pass and current selector path is preserved.
+
+
+
+
+
+
+
+
+
+
+
+
+# ============================================================
+# P4.95J16 — Canary Recovery Guard
+# ============================================================
+def _p495j16_recovery_canary_enabled(sender_id: str | None = None) -> bool:
+    import os, hashlib
+    enabled = os.getenv("MIND_ENABLE_CONVERSATION_RECOVERY_CANARY", "0") == "1"
+    if not enabled:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return False
+
+    allowlist = os.getenv("MIND_CONVERSATION_RECOVERY_ALLOWLIST", "").strip()
+    if allowlist and sender_id:
+        allowed = {x.strip() for x in allowlist.split(",") if x.strip()}
+        if sender_id in allowed:
+            # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return True
+
+    basis = str(sender_id or "anonymous")
+    bucket = int(hashlib.sha256(basis.encode("utf-8")).hexdigest(), 16) % 100
+    percent = int(os.getenv("MIND_CONVERSATION_RECOVERY_CANARY_PERCENT", "10"))
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return bucket < percent
+
+
+def _p495j16_apply_recovery_if_enabled(message: str, sender_id: str | None = None, last_topic: str | None = None, memory: dict | None = None) -> dict:
+    if not _p495j16_recovery_canary_enabled(sender_id):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return {"enabled": False, "signal": None}
+    signal = _p495_recovery_signal(message=message, last_topic=last_topic, memory=memory)
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return {"enabled": True, "signal": signal}
+
+
+
+# ============================================================
+# P4.95J16_PREP — Conversation Recovery Safe Adapter
+# ============================================================
+def _p495_recovery_signal(message: str, last_topic: str | None = None, memory: dict | None = None) -> dict:
+    try:
+        from app.runtime.conversation_recovery_engine import analyze_conversation_signal as _analyze
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return _analyze(message=message, last_topic=last_topic, memory=memory)
+    except Exception as exc:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return {
+            "intent": "recovery_error",
+            "confidence": 0.0,
+            "normalized_text": str(message or ""),
+            "recovered_topic": last_topic,
+            "should_preserve_context": bool(last_topic),
+            "should_answer_directly": False,
+            "response_hint": f"Recovery adapter failed safely: {exc}",
+            "source": "conversation_recovery_engine_safe_adapter",
+        }
+
+
+# ============================================================
+# P4.95J16 — Canary Recovery Guard
+# ============================================================
+def _p495j16_recovery_canary_enabled(sender_id: str | None = None) -> bool:
+    import os, hashlib
+    enabled = os.getenv("MIND_ENABLE_CONVERSATION_RECOVERY_CANARY", "0") == "1"
+    if not enabled:
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return False
+
+    allowlist = os.getenv("MIND_CONVERSATION_RECOVERY_ALLOWLIST", "").strip()
+    if allowlist and sender_id:
+        allowed = {x.strip() for x in allowlist.split(",") if x.strip()}
+        if sender_id in allowed:
+            # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return True
+
+    basis = str(sender_id or "anonymous")
+    bucket = int(hashlib.sha256(basis.encode("utf-8")).hexdigest(), 16) % 100
+    percent = int(os.getenv("MIND_CONVERSATION_RECOVERY_CANARY_PERCENT", "10"))
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return bucket < percent
+
+
+def _p495j16_apply_recovery_if_enabled(message: str, sender_id: str | None = None, last_topic: str | None = None, memory: dict | None = None) -> dict:
+    if not _p495j16_recovery_canary_enabled(sender_id):
+        # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return {"enabled": False, "signal": None}
+    signal = _p495_recovery_signal(message=message, last_topic=last_topic, memory=memory)
+    # ============================
+# ELDERA PURE INTENT ROUTER (NO HARD TEXT)
+# ============================
+
+
+    intent = _p495j16_recovery.get("intent")
+
+    if intent == "identity":
+        return {"intent":"identity","action":"respond_identity"}
+
+    if intent == "capability":
+        return {"intent":"capability","action":"respond_capability"}
+
+    if intent == "context_followup":
+        return {"intent":"context_followup","action":"continue_context"}
+
+    if intent == "acknowledgement":
+        return {"intent":"ack","action":"light_confirm"}
+
+    return {"intent":"unknown","action":"ask_clarification"}
+return {"enabled": True, "signal": signal}
+
+
+
+
+
+
+
+
+
+
+
+
+

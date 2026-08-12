@@ -1,0 +1,35 @@
+{
+  "trace_id": "8cc9e634-2df1-481a-9b26-ab946b09bd51",
+  "ts": 1779813562.8852599,
+  "sender_id": "whatsapp:+559999999999",
+  "user_message": "Aprofunde",
+  "events": [
+    {
+      "stage": "input",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "Aprofunde",
+      "output_preview": "Memória contextual: aprofunde Aprofunde mantendo autoridade contextual, mesmo eixo e sem puxar outro domínio.",
+      "leaks": [],
+      "extra": {}
+    },
+    {
+      "stage": "humanized",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "Memória contextual: aprofunde Aprofunde mantendo autoridade contextual, mesmo eixo e sem puxar outro domínio.",
+      "output_preview": "Memória contextual: aprofunde Aprofunde mantendo autoridade contextual, mesmo eixo e sem puxar outro domínio.",
+      "leaks": [],
+      "extra": {}
+    },
+    {
+      "stage": "final_output",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "Memória contextual: aprofunde Aprofunde mantendo autoridade contextual, mesmo eixo e sem puxar outro domínio.",
+      "output_preview": "Memória contextual: aprofunde Aprofunde mantendo autoridade contextual, mesmo eixo e sem puxar outro domínio.",
+      "leaks": [],
+      "extra": {}
+    }
+  ]
+}

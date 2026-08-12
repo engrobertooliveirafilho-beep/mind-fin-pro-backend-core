@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_6FC6A11277E88DA5",
+  "source_file": "_evidence\\P5_10_DRIVE_EXHAUSTIVE_CAPABILITY_CERTIFICATION_20260611_213756\\p5_10_drive_exhaustive_capability_certification.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P5_10_DRIVE_EXHAUSTIVE_CAPABILITY_CERTIFICATION_20260611_213756\\p5_10_drive_exhaustive_capability_certification.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 128,
+  "imports": [
+    "__future__",
+    "ast",
+    "collections",
+    "datetime",
+    "hashlib",
+    "json",
+    "os",
+    "pathlib",
+    "re",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,130 @@
+{
+  "SAMPLE": [
+    {
+      "job_id": "a4a680e1d6e0132dc3cebd46",
+      "dataset": "data\\normalized\\ABCB4F_D1_normalized.csv",
+      "asset": "ABCB4F",
+      "source_timeframe": "D1",
+      "target_timeframe": "M1",
+      "family": "SMA_CROSS",
+      "params": [
+        5,
+        20
+      ],
+      "trades": 110,
+      "profit_factor": 0.936368,
+      "max_drawdown_proxy": 0.614996,
+      "score": 0.360506,
+      "approved_backtest": false,
+      "LIVE": "FORBIDDEN",
+      "REAL_BROKER": "DISABLED",
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    },
+    {
+      "job_id": "7b3400b867e74e3bcf0331c1",
+      "dataset": "data\\normalized\\ABCB4F_D1_normalized.csv",
+      "asset": "ABCB4F",
+      "source_timeframe": "D1",
+      "target_timeframe": "M2",
+      "family": "SMA_CROSS",
+      "params": [
+        5,
+        20
+      ],
+      "trades": 110,
+      "profit_factor": 0.936368,
+      "max_drawdown_proxy": 0.614996,
+      "score": 0.360506,
+      "approved_backtest": false,
+      "LIVE": "FORBIDDEN",
+      "REAL_BROKER": "DISABLED",
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    },
+    {
+      "job_id": "96dcf08daa2a70f46e9e8a82",
+      "dataset": "data\\normalized\\ABCB4F_D1_normalized.csv",
+      "asset": "ABCB4F",
+      "source_timeframe": "D1",
+      "target_timeframe": "M5",
+      "family": "SMA_CROSS",
+      "params": [
+        5,
+        20
+      ],
+      "trades": 110,
+      "profit_factor": 0.936368,
+      "max_drawdown_proxy": 0.614996,
+      "score": 0.360506,
+      "approved_backtest": false,
+      "LIVE": "FORBIDDEN",
+      "REAL_BROKER": "DISABLED",
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    },
+    {
+      "job_id": "8b2f555616a1fb43afb7ca55",
+      "dataset": "data\\normalized\\ABCB4F_D1_normalized.csv",
+      "asset": "ABCB4F",
+      "source_timeframe": "D1",
+      "target_timeframe": "M15",
+      "family": "SMA_CROSS",
+      "params": [
+        5,
+        20
+      ],
+      "trades": 110,
+      "profit_factor": 0.936368,
+      "max_drawdown_proxy": 0.614996,
+      "score": 0.360506,
+      "approved_backtest": false,
+      "LIVE": "FORBIDDEN",
+      "REAL_BROKER": "DISABLED",
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    },
+    {
+      "job_id": "021f9eaef853010e5c981fd8",
+      "dataset": "data\\normalized\\ABCB4F_D1_normalized.csv",
+      "asset": "ABCB4F",
+      "source_timeframe": "D1",
+      "target_timeframe": "M30",
+      "family": "SMA_CROSS",
+      "params": [
+        5,
+        20
+      ],
+      "trades": 110,
+      "profit_factor": 0.936368,
+      "max_drawdown_proxy": 0.614996,
+      "score": 0.360506,
+      "approved_backtest": false,
+      "LIVE": "FORBIDDEN",
+      "REAL_BROKER": "DISABLED",
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    }
+  ],
+  "LIVE": "FORBIDDEN",
+  "PASS_ROBUST": 0,
+  "DD_MAX": 0.709625,
+  "NEXT": "FIX_APPROVAL_CRITERIA_BASED_ON_REAL_DISTRIBUTION",
+  "INPUT_RESULTS": 1000,
+  "PF_MAX": 2.036624,
+  "REAL_BROKER": "DISABLED",
+  "PASS_LOOSE": 418,
+  "PF_MIN": 0.491009,
+  "STATUS": "P401D_BACKTEST_METRIC_AUDIT_COMPLETED",
+  "SCORE_MIN": 0.142577,
+  "SCORE_MAX": 1.401267,
+  "FTMO_REAL": "FORBIDDEN",
+  "DD_MIN": 0.25071,
+  "REAL_ORDERS": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN"
+}

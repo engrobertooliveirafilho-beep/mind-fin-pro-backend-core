@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_9CD4B2C6F3FEF9D3",
+  "source_file": "data\\runtime\\P2071_2080\\run_p2071_2080.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\data\\runtime\\P2071_2080\\run_p2071_2080.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 105,
+  "imports": [
+    "app.runtime.p2071_2080_realtime_paper_runtime",
+    "json"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

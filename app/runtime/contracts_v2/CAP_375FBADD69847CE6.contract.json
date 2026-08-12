@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_375FBADD69847CE6",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\realtime\\realtime_session_create_request_param.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\openai\\types\\realtime\\realtime_session_create_request_param.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 86,
+  "imports": [
+    "__future__",
+    "realtime_audio_config_param",
+    "realtime_reasoning_param",
+    "realtime_tool_choice_config_param",
+    "realtime_tools_config_param",
+    "realtime_tracing_config_param",
+    "realtime_truncation_param",
+    "responses.response_prompt_param",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

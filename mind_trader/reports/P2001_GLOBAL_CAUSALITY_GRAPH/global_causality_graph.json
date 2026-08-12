@@ -1,0 +1,26 @@
+{
+  "STATUS": "P2001_GLOBAL_CAUSALITY_GRAPH_BOOTSTRAPPED",
+  "NODES": [
+    "DXY",
+    "US10Y",
+    "VIX",
+    "SPX500",
+    "NAS100",
+    "XAUUSD",
+    "USDJPY",
+    "EURUSD",
+    "BTCUSD",
+    "WTI",
+    "CPI",
+    "FOMC",
+    "NFP"
+  ],
+  "RELATIONS": [
+    "leads",
+    "lags",
+    "inverts",
+    "amplifies",
+    "decouples"
+  ],
+  "CAUSALITY_STATUS": "HYPOTHESIS_ONLY_UNTIL_TESTED"
+}

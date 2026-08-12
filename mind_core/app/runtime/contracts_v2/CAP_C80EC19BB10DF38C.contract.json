@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_C80EC19BB10DF38C",
+  "source_file": "_evidence\\P4.91F4_MIND_ONLY_LOCKED_WALK_20260622_125928\\p491f4_mind_only_locked_walk.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P4.91F4_MIND_ONLY_LOCKED_WALK_20260622_125928\\p491f4_mind_only_locked_walk.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 100,
+  "imports": [
+    "datetime",
+    "json",
+    "pathlib",
+    "subprocess",
+    "time"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

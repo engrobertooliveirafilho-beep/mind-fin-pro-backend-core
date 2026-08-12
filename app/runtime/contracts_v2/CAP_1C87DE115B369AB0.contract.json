@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_1C87DE115B369AB0",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\shared_params\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\openai\\types\\shared_params\\__init__.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 116,
+  "imports": [
+    "chat_model",
+    "comparison_filter",
+    "compound_filter",
+    "custom_tool_input_format",
+    "function_definition",
+    "function_parameters",
+    "metadata",
+    "oauth_error_code",
+    "reasoning",
+    "reasoning_effort",
+    "response_format_json_object",
+    "response_format_json_schema",
+    "response_format_text",
+    "responses_model"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

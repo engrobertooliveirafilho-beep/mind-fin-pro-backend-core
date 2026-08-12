@@ -1,0 +1,2432 @@
+[
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "f2bd49b3a8b9fb39",
+      "cf55443f421a0662"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_b0034c654b3d8032"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "f2bd49b3a8b9fb39",
+      "12699344a8726f29"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_809b24621280af9c"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "f2bd49b3a8b9fb39",
+      "18b35083704934ee"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_f270ce0838c5b41c"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "f2bd49b3a8b9fb39",
+      "436fb144a4c1f856"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_f11aab7696c94580"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "f2bd49b3a8b9fb39",
+      "b3f1816bc49c7c06"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_853ab1f355d6aea0"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "f2bd49b3a8b9fb39",
+      "72f9065f52adc376"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_14b3a144dca02710"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "f2bd49b3a8b9fb39",
+      "d4b29d7525fbe6e2"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_3939eb6968978c95"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "f2bd49b3a8b9fb39",
+      "0a13a7c42df65a69"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_b10125eaacebb7c1"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "f2bd49b3a8b9fb39",
+      "fddf5c6f079968d9"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_db52f80045c369db"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "13b803cab65532ea",
+      "cf55443f421a0662"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_ae7a6a9fe0d5fc47"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "13b803cab65532ea",
+      "12699344a8726f29"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_0af7941f6342006c"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "13b803cab65532ea",
+      "18b35083704934ee"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_7ecf99d20f2e1fe2"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "13b803cab65532ea",
+      "436fb144a4c1f856"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_eaabbd736ab600ea"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "13b803cab65532ea",
+      "b3f1816bc49c7c06"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_a1acb47b85ddedb1"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "13b803cab65532ea",
+      "72f9065f52adc376"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_6c67f046c75f779a"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "13b803cab65532ea",
+      "d4b29d7525fbe6e2"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_33dd7a9762ba484c"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "13b803cab65532ea",
+      "0a13a7c42df65a69"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_6b6bfa1b9bebb833"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "13b803cab65532ea",
+      "fddf5c6f079968d9"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_ef54f9a4af3cdd5c"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "82a90628d82a7df7",
+      "cf55443f421a0662"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_6c3ef27b185cd7ba"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "82a90628d82a7df7",
+      "12699344a8726f29"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_b8b7c5b0707f54d8"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "82a90628d82a7df7",
+      "18b35083704934ee"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_da6232bacea40c16"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "82a90628d82a7df7",
+      "436fb144a4c1f856"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_3e99912049694fbe"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "82a90628d82a7df7",
+      "b3f1816bc49c7c06"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_a650885fb1a2dda2"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "82a90628d82a7df7",
+      "72f9065f52adc376"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_6c3d7dd2b534473a"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "82a90628d82a7df7",
+      "d4b29d7525fbe6e2"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_13912594f80984cd"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "82a90628d82a7df7",
+      "0a13a7c42df65a69"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_10ee1df5920dec3a"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "82a90628d82a7df7",
+      "fddf5c6f079968d9"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_dd35d9fa8b2e7210"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "e4563505f876b4a0",
+      "cf55443f421a0662"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_d8fc5bc48784ed84"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "e4563505f876b4a0",
+      "12699344a8726f29"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_cd2cb559964d4892"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "e4563505f876b4a0",
+      "18b35083704934ee"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_319ea2af276afdad"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "e4563505f876b4a0",
+      "436fb144a4c1f856"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_c8d65f3ddf8aa631"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "e4563505f876b4a0",
+      "b3f1816bc49c7c06"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_90640717550ff21a"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "e4563505f876b4a0",
+      "72f9065f52adc376"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_bedab96a478cd7b6"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "e4563505f876b4a0",
+      "d4b29d7525fbe6e2"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_918c0863ec2e39a4"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "e4563505f876b4a0",
+      "0a13a7c42df65a69"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_4e3d01c797c38626"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "e4563505f876b4a0",
+      "fddf5c6f079968d9"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_f1ca86cd30370bee"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "6fb8258ab3be1296",
+      "cf55443f421a0662"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_4ed9d4014c0445b0"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "6fb8258ab3be1296",
+      "12699344a8726f29"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_9c9c545b0715f3a7"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "6fb8258ab3be1296",
+      "18b35083704934ee"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_25f67535d6e41908"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "6fb8258ab3be1296",
+      "436fb144a4c1f856"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_465e6ca1db802bd4"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "6fb8258ab3be1296",
+      "b3f1816bc49c7c06"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_1c722336acc51c33"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "6fb8258ab3be1296",
+      "72f9065f52adc376"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_e99a8a6562cdf67d"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "6fb8258ab3be1296",
+      "d4b29d7525fbe6e2"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_0b4038ab82110d6e"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "6fb8258ab3be1296",
+      "0a13a7c42df65a69"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_b50f06948ee41458"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "6fb8258ab3be1296",
+      "fddf5c6f079968d9"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_373b61bdcc6b14c6"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "b51e139ad59c8f56",
+      "cf55443f421a0662"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_5f27bc6615459807"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "b51e139ad59c8f56",
+      "12699344a8726f29"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_1745905e4179580a"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "b51e139ad59c8f56",
+      "18b35083704934ee"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_33200e232b58cc1c"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "b51e139ad59c8f56",
+      "436fb144a4c1f856"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_b437a2fd833ac988"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "b51e139ad59c8f56",
+      "b3f1816bc49c7c06"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_ab40785ecb42357a"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "b51e139ad59c8f56",
+      "72f9065f52adc376"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_adcdf105959e615f"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "b51e139ad59c8f56",
+      "d4b29d7525fbe6e2"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_064b30e1d76e21a9"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "b51e139ad59c8f56",
+      "0a13a7c42df65a69"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_e766d203b6d192eb"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "b51e139ad59c8f56",
+      "fddf5c6f079968d9"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_7ae7ee54a4aa0792"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "f1fc26fcc331c033",
+      "cf55443f421a0662"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_5ca9843f877d7577"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "f1fc26fcc331c033",
+      "12699344a8726f29"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_b80ab1b26ba38ed9"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "f1fc26fcc331c033",
+      "18b35083704934ee"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_9f72e93d0b1dfe34"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "f1fc26fcc331c033",
+      "436fb144a4c1f856"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_13b9e3dbd81cd775"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "f1fc26fcc331c033",
+      "b3f1816bc49c7c06"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_cb71dfdb3dbf5786"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "f1fc26fcc331c033",
+      "72f9065f52adc376"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_2f726de7d9a14468"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "f1fc26fcc331c033",
+      "d4b29d7525fbe6e2"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_778199d975854f83"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "f1fc26fcc331c033",
+      "0a13a7c42df65a69"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_d87ab7d0a6748e0b"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "f1fc26fcc331c033",
+      "fddf5c6f079968d9"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_10d0cbd1af87f7e6"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "c6ecfec58240c13f",
+      "cf55443f421a0662"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_58f3110c8316a857"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "c6ecfec58240c13f",
+      "12699344a8726f29"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_13f5a871d8adc829"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "c6ecfec58240c13f",
+      "18b35083704934ee"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_b2a814f83652789c"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "c6ecfec58240c13f",
+      "436fb144a4c1f856"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_e08c04760e94cdd9"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "c6ecfec58240c13f",
+      "b3f1816bc49c7c06"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_a3e19388e4804968"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "c6ecfec58240c13f",
+      "72f9065f52adc376"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_5a15ad778468ab4c"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "c6ecfec58240c13f",
+      "d4b29d7525fbe6e2"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_82144bb0fd510bfd"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "c6ecfec58240c13f",
+      "0a13a7c42df65a69"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_1d610343e3cb3f6c"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "c6ecfec58240c13f",
+      "fddf5c6f079968d9"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_c5ff6c0c1f2a6821"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "d8a47fa4648bb8bc",
+      "cf55443f421a0662"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_c323757ea74b18c7"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "d8a47fa4648bb8bc",
+      "12699344a8726f29"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_fdd4f76531d549e5"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "d8a47fa4648bb8bc",
+      "18b35083704934ee"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_b76a38673ea25ff0"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "d8a47fa4648bb8bc",
+      "436fb144a4c1f856"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "NORMAL_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_e3af931a529d47ae"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "d8a47fa4648bb8bc",
+      "b3f1816bc49c7c06"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_DOWN",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_af7161ebdd3be63e"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "d8a47fa4648bb8bc",
+      "72f9065f52adc376"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_f830da9c2bd3b805"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "d8a47fa4648bb8bc",
+      "d4b29d7525fbe6e2"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "LOW_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_b8835cde7a152b70"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "d8a47fa4648bb8bc",
+      "0a13a7c42df65a69"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "TREND_UP",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_6ffa895bd51f5fd8"
+  },
+  {
+    "type": "GENETIC_CROSSOVER",
+    "parents": [
+      "d8a47fa4648bb8bc",
+      "fddf5c6f079968d9"
+    ],
+    "source_assets": [
+      "XAUUSD",
+      "USDJPY"
+    ],
+    "hypothesis": "Combine liquidity/sweep context with statistical reversion context",
+    "genome": {
+      "xau_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "LIQUIDITY_SWEEP"
+      },
+      "jpy_component": {
+        "session": "ASIA",
+        "trend_regime": "RANGE",
+        "volatility_regime": "HIGH_VOL",
+        "trigger": "RSI_REVERSION"
+      }
+    },
+    "status": "HYPOTHESIS_ONLY_PENDING_BACKTEST",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "crossover_id": "XOV_4d86040d1334ba2c"
+  }
+]

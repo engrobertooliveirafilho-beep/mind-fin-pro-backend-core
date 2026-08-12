@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_AF032D6F4896C229",
+  "source_file": ".venv\\Lib\\site-packages\\openpyxl\\workbook\\external_link\\external.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\data\\.venv\\Lib\\site-packages\\openpyxl\\workbook\\external_link\\external.py",
+  "domain": "DATA",
+  "target_layer": "app/runtime",
+  "promotion_score": 94,
+  "imports": [
+    "openpyxl.descriptors",
+    "openpyxl.descriptors.excel",
+    "openpyxl.descriptors.nested",
+    "openpyxl.descriptors.sequence",
+    "openpyxl.descriptors.serialisable",
+    "openpyxl.packaging.relationship",
+    "openpyxl.xml.constants",
+    "openpyxl.xml.functions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

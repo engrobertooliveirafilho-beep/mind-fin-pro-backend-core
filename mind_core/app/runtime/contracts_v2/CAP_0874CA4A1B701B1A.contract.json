@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_0874CA4A1B701B1A",
+  "source_file": "_evidence\\P19P49_HUMANIZED_META_COGNITION_EXPANSION_20260622_193029\\p19p49_inventory_scan.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P19P49_HUMANIZED_META_COGNITION_EXPANSION_20260622_193029\\p19p49_inventory_scan.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 99,
+  "imports": [
+    "datetime",
+    "json",
+    "os"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

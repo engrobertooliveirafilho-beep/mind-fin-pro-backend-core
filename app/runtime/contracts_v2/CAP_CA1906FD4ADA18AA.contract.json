@@ -1,0 +1,33 @@
+{
+  "capability_id": "CAP_CA1906FD4ADA18AA",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\lib\\_utils_impl.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\numpy\\lib\\_utils_impl.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 133,
+  "imports": [
+    "ast",
+    "functools",
+    "inspect",
+    "numpy",
+    "numpy._core",
+    "numpy._core._multiarray_umath",
+    "numpy._utils",
+    "os",
+    "platform",
+    "pprint",
+    "pydoc",
+    "sys",
+    "textwrap",
+    "threadpoolctl",
+    "types",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

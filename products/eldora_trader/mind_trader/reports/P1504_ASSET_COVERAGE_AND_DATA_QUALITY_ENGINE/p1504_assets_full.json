@@ -1,0 +1,1916 @@
+[
+  {
+    "asset": "AUDUSD",
+    "market_class": "FOREX_OR_METAL",
+    "dataset_count": 7,
+    "timeframes": [
+      "D1",
+      "H1",
+      "H4",
+      "M1",
+      "M15",
+      "M30",
+      "M5"
+    ],
+    "coverage_score": 10,
+    "day_trade_ready": true,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "MT5_AUDUSD_D1.csv",
+      "MT5_AUDUSD_H1.csv",
+      "MT5_AUDUSD_H4.csv",
+      "MT5_AUDUSD_M1.csv",
+      "MT5_AUDUSD_M15.csv",
+      "MT5_AUDUSD_M30.csv",
+      "MT5_AUDUSD_M5.csv"
+    ]
+  },
+  {
+    "asset": "EURUSD",
+    "market_class": "FOREX_OR_METAL",
+    "dataset_count": 7,
+    "timeframes": [
+      "D1",
+      "H1",
+      "H4",
+      "M1",
+      "M15",
+      "M30",
+      "M5"
+    ],
+    "coverage_score": 10,
+    "day_trade_ready": true,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "MT5_EURUSD_D1.csv",
+      "MT5_EURUSD_H1.csv",
+      "MT5_EURUSD_H4.csv",
+      "MT5_EURUSD_M1.csv",
+      "MT5_EURUSD_M15.csv",
+      "MT5_EURUSD_M30.csv",
+      "MT5_EURUSD_M5.csv"
+    ]
+  },
+  {
+    "asset": "GBPUSD",
+    "market_class": "FOREX_OR_METAL",
+    "dataset_count": 7,
+    "timeframes": [
+      "D1",
+      "H1",
+      "H4",
+      "M1",
+      "M15",
+      "M30",
+      "M5"
+    ],
+    "coverage_score": 10,
+    "day_trade_ready": true,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "MT5_GBPUSD_D1.csv",
+      "MT5_GBPUSD_H1.csv",
+      "MT5_GBPUSD_H4.csv",
+      "MT5_GBPUSD_M1.csv",
+      "MT5_GBPUSD_M15.csv",
+      "MT5_GBPUSD_M30.csv",
+      "MT5_GBPUSD_M5.csv"
+    ]
+  },
+  {
+    "asset": "USDCAD",
+    "market_class": "FOREX_OR_METAL",
+    "dataset_count": 7,
+    "timeframes": [
+      "D1",
+      "H1",
+      "H4",
+      "M1",
+      "M15",
+      "M30",
+      "M5"
+    ],
+    "coverage_score": 10,
+    "day_trade_ready": true,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "MT5_USDCAD_D1.csv",
+      "MT5_USDCAD_H1.csv",
+      "MT5_USDCAD_H4.csv",
+      "MT5_USDCAD_M1.csv",
+      "MT5_USDCAD_M15.csv",
+      "MT5_USDCAD_M30.csv",
+      "MT5_USDCAD_M5.csv"
+    ]
+  },
+  {
+    "asset": "USDJPY",
+    "market_class": "FOREX_OR_METAL",
+    "dataset_count": 7,
+    "timeframes": [
+      "D1",
+      "H1",
+      "H4",
+      "M1",
+      "M15",
+      "M30",
+      "M5"
+    ],
+    "coverage_score": 10,
+    "day_trade_ready": true,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "MT5_USDJPY_D1.csv",
+      "MT5_USDJPY_H1.csv",
+      "MT5_USDJPY_H4.csv",
+      "MT5_USDJPY_M1.csv",
+      "MT5_USDJPY_M15.csv",
+      "MT5_USDJPY_M30.csv",
+      "MT5_USDJPY_M5.csv"
+    ]
+  },
+  {
+    "asset": "XAUUSD",
+    "market_class": "FOREX_OR_METAL",
+    "dataset_count": 7,
+    "timeframes": [
+      "D1",
+      "H1",
+      "H4",
+      "M1",
+      "M15",
+      "M30",
+      "M5"
+    ],
+    "coverage_score": 10,
+    "day_trade_ready": true,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "MT5_XAUUSD_D1.csv",
+      "MT5_XAUUSD_H1.csv",
+      "MT5_XAUUSD_H4.csv",
+      "MT5_XAUUSD_M1.csv",
+      "MT5_XAUUSD_M15.csv",
+      "MT5_XAUUSD_M30.csv",
+      "MT5_XAUUSD_M5.csv"
+    ]
+  },
+  {
+    "asset": "BTCI11",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 5,
+    "timeframes": [
+      "D1",
+      "H1",
+      "M15",
+      "M20",
+      "M30"
+    ],
+    "coverage_score": 8,
+    "day_trade_ready": true,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "BTCI11_D1_normalized.csv",
+      "BTCI11_H1_normalized.csv",
+      "BTCI11_M15_normalized.csv",
+      "BTCI11_M20_normalized.csv",
+      "BTCI11_M30_normalized.csv"
+    ]
+  },
+  {
+    "asset": "IBOV",
+    "market_class": "INDEX",
+    "dataset_count": 5,
+    "timeframes": [
+      "D1",
+      "H1",
+      "M15",
+      "M20",
+      "M30"
+    ],
+    "coverage_score": 8,
+    "day_trade_ready": true,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "IBOV_D1_normalized.csv",
+      "IBOV_H1_normalized.csv",
+      "IBOV_M15_normalized.csv",
+      "IBOV_M20_normalized.csv",
+      "IBOV_M30_normalized.csv"
+    ]
+  },
+  {
+    "asset": "VALE3",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 5,
+    "timeframes": [
+      "D1",
+      "H1",
+      "M15",
+      "M20",
+      "M30"
+    ],
+    "coverage_score": 8,
+    "day_trade_ready": true,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "VALE3_D1_normalized.csv",
+      "VALE3_H1_normalized.csv",
+      "VALE3_M15_normalized.csv",
+      "VALE3_M20_normalized.csv",
+      "VALE3_M30_normalized.csv"
+    ]
+  },
+  {
+    "asset": "WINFUT",
+    "market_class": "FUTURES",
+    "dataset_count": 5,
+    "timeframes": [
+      "D1",
+      "H1",
+      "M15",
+      "M20",
+      "M30"
+    ],
+    "coverage_score": 8,
+    "day_trade_ready": true,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "WINFUT_D1_normalized.csv",
+      "WINFUT_H1_normalized.csv",
+      "WINFUT_M15_normalized.csv",
+      "WINFUT_M20_normalized.csv",
+      "WINFUT_M30_normalized.csv"
+    ]
+  },
+  {
+    "asset": "PETR4",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 4,
+    "timeframes": [
+      "H1",
+      "M15",
+      "M20",
+      "M30"
+    ],
+    "coverage_score": 6,
+    "day_trade_ready": true,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "PETR4_H1_normalized.csv",
+      "PETR4_M15_normalized.csv",
+      "PETR4_M20_normalized.csv",
+      "PETR4_M30_normalized.csv"
+    ]
+  },
+  {
+    "asset": "WDOFUT",
+    "market_class": "FUTURES",
+    "dataset_count": 4,
+    "timeframes": [
+      "H1",
+      "M15",
+      "M20",
+      "M30"
+    ],
+    "coverage_score": 6,
+    "day_trade_ready": true,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "WDOFUT_H1_normalized.csv",
+      "WDOFUT_M15_normalized.csv",
+      "WDOFUT_M20_normalized.csv",
+      "WDOFUT_M30_normalized.csv"
+    ]
+  },
+  {
+    "asset": "ALPA4",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "ALPA4_D1_normalized.csv",
+      "ALPA4_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "CADFUT",
+    "market_class": "FUTURES",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "CADFUT_D1_normalized.csv",
+      "CADFUT_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "CGAS3F",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "CGAS3F_D1_normalized.csv",
+      "CGAS3F_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "CMIG4F",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "CMIG4F_D1_normalized.csv",
+      "CMIG4F_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "CMIG4",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "CMIG4_D1_normalized.csv",
+      "CMIG4_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "CRAA11",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "CRAA11_D1_normalized.csv",
+      "CRAA11_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "CSAN3",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "CSAN3_D1_normalized.csv",
+      "CSAN3_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "CTKA3",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "CTKA3_D1_normalized.csv",
+      "CTKA3_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "DI1F29",
+    "market_class": "RATES_MACRO",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "DI1F29_D1_normalized.csv",
+      "DI1F29_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "DI1F34",
+    "market_class": "RATES_MACRO",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "DI1F34_D1_normalized.csv",
+      "DI1F34_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "DI1F35",
+    "market_class": "RATES_MACRO",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "DI1F35_D1_normalized.csv",
+      "DI1F35_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "DI1F38",
+    "market_class": "RATES_MACRO",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "DI1F38_D1_normalized.csv",
+      "DI1F38_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "DI1N30",
+    "market_class": "RATES_MACRO",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "DI1N30_D1_normalized.csv",
+      "DI1N30_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "DI1X29",
+    "market_class": "RATES_MACRO",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "DI1X29_D1_normalized.csv",
+      "DI1X29_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "DIIV26F27",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "DIIV26F27_D1_normalized.csv",
+      "DIIV26F27_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "ENEV3",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "ENEV3_D1_normalized.csv",
+      "ENEV3_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "HBOR3",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "HBOR3_D1_normalized.csv",
+      "HBOR3_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "IBBR",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "IBBR_D1_normalized.csv",
+      "IBBR_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "IBEP",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "IBEP_D1_normalized.csv",
+      "IBEP_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "IBRA",
+    "market_class": "INDEX",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "IBRA_D1_normalized.csv",
+      "IBRA_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "IFIX",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "IFIX_D1_normalized.csv",
+      "IFIX_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "IGCT",
+    "market_class": "INDEX",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "IGCT_D1_normalized.csv",
+      "IGCT_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "IGCX",
+    "market_class": "INDEX",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "IGCX_D1_normalized.csv",
+      "IGCX_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "IGTI3F",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "IGTI3F_D1_normalized.csv",
+      "IGTI3F_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "IMOB",
+    "market_class": "INDEX",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "IMOB_D1_normalized.csv",
+      "IMOB_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "INBR32",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "INBR32_D1_normalized.csv",
+      "INBR32_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "ITUBPFUT",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "ITUBPFUT_D1_normalized.csv",
+      "ITUBPFUT_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "LFTS11",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "LFTS11_D1_normalized.csv",
+      "LFTS11_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "MDIA3",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "MDIA3_D1_normalized.csv",
+      "MDIA3_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "NBIT11",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "NBIT11_D1_normalized.csv",
+      "NBIT11_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "NZLFUT",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "NZLFUT_D1_normalized.csv",
+      "NZLFUT_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "SBSP3F",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "SBSP3F_D1_normalized.csv",
+      "SBSP3F_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "SHUL4",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "SHUL4_D1_normalized.csv",
+      "SHUL4_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "TAEE11",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "TAEE11_D1_normalized.csv",
+      "TAEE11_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "VCJR11",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "VCJR11_D1_normalized.csv",
+      "VCJR11_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "WINFUTV",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "WINFUTV_D1_normalized.csv",
+      "WINFUTV_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "WINM26",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "WINM26_D1_normalized.csv",
+      "WINM26_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "WSPFUT",
+    "market_class": "FUTURES",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "WSPFUT_D1_normalized.csv",
+      "WSPFUT_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "WSPM26",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "WSPM26_D1_normalized.csv",
+      "WSPM26_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "ZARFUT",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 2,
+    "timeframes": [
+      "D1",
+      "H1"
+    ],
+    "coverage_score": 4,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "ZARFUT_D1_normalized.csv",
+      "ZARFUT_H1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "ABCB4F",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "ABCB4F_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "ABCB4",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "ABCB4_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "ARGE11",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "ARGE11_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "AUPO11",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "AUPO11_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "BCIC",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "BCIC_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "BDIF11",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "BDIF11_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "BINC11",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "BINC11_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "BMKS3",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "BMKS3_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "BOVAG181",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "BOVAG181_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "BOVAR170",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "BOVAR170_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "BOVAS47",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "BOVAS47_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "BOVV11",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "BOVV11_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "BPAC11F",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "BPAC11F_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "BPAC11",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "BPAC11_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "BPAC3F",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "BPAC3F_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "BPAC3",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "BPAC3_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "BPAC5F",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "BPAC5F_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "BPAC5",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "BPAC5_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "BPML11",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "BPML11_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "BRXC",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "BRXC_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "BTCI11Q",
+    "market_class": "CRYPTO",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "BTCI11Q_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "BTCLIQBRL",
+    "market_class": "CRYPTO",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "BTCLIQBRL_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "BTCLIQUSD",
+    "market_class": "CRYPTO",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "BTCLIQUSD_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "BTCV39",
+    "market_class": "CRYPTO",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "BTCV39_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "BTHF11",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "BTHF11_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "BTHI11",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "BTHI11_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "BTLG11",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "BTLG11_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "BTRA11",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "BTRA11_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "CMDB11",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "CMDB11_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "CMDB",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "CMDB_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "DEBB11",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "DEBB11_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "DOLB11",
+    "market_class": "FUTURES",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "DOLB11_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "DOLCC",
+    "market_class": "FUTURES",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "DOLCC_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "DOLCV",
+    "market_class": "FUTURES",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "DOLCV_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "DOLPT",
+    "market_class": "FUTURES",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "DOLPT_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "ESGB",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "ESGB_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "GBTC11",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "GBTC11_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "GENB",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "GENB_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "IBBC",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "IBBC_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "IPCA",
+    "market_class": "RATES_MACRO",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "IPCA_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "LLFT11",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "LLFT11_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "M2RV34",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "M2RV34_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "MARG11",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "MARG11_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "OBTC3F",
+    "market_class": "CRYPTO",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "OBTC3F_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "OBTC3",
+    "market_class": "CRYPTO",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "OBTC3_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "PACB11",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "PACB11_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "POSI3F",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "POSI3F_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "POSI3",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "POSI3_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "QBTC11",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "QBTC11_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "SELIC",
+    "market_class": "RATES_MACRO",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "SELIC_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "SMAB11",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "SMAB11_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "SMAB",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "SMAB_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "SPXB11",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "SPXB11_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "SYNE3F",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "SYNE3F_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "SYNE3",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "SYNE3_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "TIRB11",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "TIRB11_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "TIRB",
+    "market_class": "EQUITY_OR_OTHER",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "TIRB_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "XBIT11",
+    "market_class": "FII_OR_ETF",
+    "dataset_count": 1,
+    "timeframes": [
+      "D1"
+    ],
+    "coverage_score": 2,
+    "day_trade_ready": false,
+    "swing_trade_ready": true,
+    "quality_flags": [],
+    "files": [
+      "XBIT11_D1_normalized.csv"
+    ]
+  },
+  {
+    "asset": "TEST_1m_21dd63dfb9f3",
+    "market_class": "BLACKLIST_TEST",
+    "dataset_count": 1,
+    "timeframes": [
+      "TEST"
+    ],
+    "coverage_score": 0,
+    "day_trade_ready": false,
+    "swing_trade_ready": false,
+    "quality_flags": [
+      "TEST_DATASET"
+    ],
+    "files": [
+      "TEST_1m_21dd63dfb9f3.csv"
+    ]
+  },
+  {
+    "asset": "TEST_1m_5862881949e3",
+    "market_class": "BLACKLIST_TEST",
+    "dataset_count": 1,
+    "timeframes": [
+      "TEST"
+    ],
+    "coverage_score": 0,
+    "day_trade_ready": false,
+    "swing_trade_ready": false,
+    "quality_flags": [
+      "TEST_DATASET"
+    ],
+    "files": [
+      "TEST_1m_5862881949e3.csv"
+    ]
+  },
+  {
+    "asset": "TEST_1m_9d416573404f",
+    "market_class": "BLACKLIST_TEST",
+    "dataset_count": 1,
+    "timeframes": [
+      "TEST"
+    ],
+    "coverage_score": 0,
+    "day_trade_ready": false,
+    "swing_trade_ready": false,
+    "quality_flags": [
+      "TEST_DATASET"
+    ],
+    "files": [
+      "TEST_1m_9d416573404f.csv"
+    ]
+  },
+  {
+    "asset": "TEST_1m_a936139f4287",
+    "market_class": "BLACKLIST_TEST",
+    "dataset_count": 1,
+    "timeframes": [
+      "TEST"
+    ],
+    "coverage_score": 0,
+    "day_trade_ready": false,
+    "swing_trade_ready": false,
+    "quality_flags": [
+      "TEST_DATASET"
+    ],
+    "files": [
+      "TEST_1m_a936139f4287.csv"
+    ]
+  }
+]

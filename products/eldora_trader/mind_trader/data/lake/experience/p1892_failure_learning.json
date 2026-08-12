@@ -1,0 +1,200 @@
+[
+  {
+    "failure_id": "FAIL_9227fe15b20b7a8a",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "session": "ASIA",
+    "trend_regime": "RANGE",
+    "volatility_regime": "HIGH_VOL",
+    "losses": 16,
+    "avg_loss": -0.0095492,
+    "avoidance_candidate": true
+  },
+  {
+    "failure_id": "FAIL_205d2471569cb723",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "session": "ASIA",
+    "trend_regime": "RANGE",
+    "volatility_regime": "LOW_VOL",
+    "losses": 13,
+    "avg_loss": -0.00296222,
+    "avoidance_candidate": true
+  },
+  {
+    "failure_id": "FAIL_32e471250e6b4082",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "session": "ASIA",
+    "trend_regime": "RANGE",
+    "volatility_regime": "NORMAL_VOL",
+    "losses": 6,
+    "avg_loss": -0.00642726,
+    "avoidance_candidate": true
+  },
+  {
+    "failure_id": "FAIL_b80309d0023b1be6",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "session": "ASIA",
+    "trend_regime": "TREND_DOWN",
+    "volatility_regime": "HIGH_VOL",
+    "losses": 19,
+    "avg_loss": -0.00451684,
+    "avoidance_candidate": true
+  },
+  {
+    "failure_id": "FAIL_d73ffcb7402e7adc",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "session": "ASIA",
+    "trend_regime": "TREND_DOWN",
+    "volatility_regime": "LOW_VOL",
+    "losses": 1,
+    "avg_loss": -0.00152211,
+    "avoidance_candidate": true
+  },
+  {
+    "failure_id": "FAIL_022221db53b31688",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "session": "ASIA",
+    "trend_regime": "TREND_DOWN",
+    "volatility_regime": "NORMAL_VOL",
+    "losses": 24,
+    "avg_loss": -0.00351328,
+    "avoidance_candidate": true
+  },
+  {
+    "failure_id": "FAIL_39c88571dc9eb33d",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "session": "ASIA",
+    "trend_regime": "TREND_UP",
+    "volatility_regime": "HIGH_VOL",
+    "losses": 8,
+    "avg_loss": -0.00794477,
+    "avoidance_candidate": true
+  },
+  {
+    "failure_id": "FAIL_aa15fce1bd1f29bd",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "session": "ASIA",
+    "trend_regime": "TREND_UP",
+    "volatility_regime": "LOW_VOL",
+    "losses": 12,
+    "avg_loss": -0.00315832,
+    "avoidance_candidate": true
+  },
+  {
+    "failure_id": "FAIL_35a30b0582dc3208",
+    "asset": "USDJPY",
+    "family": "RSI_REVERSION",
+    "session": "ASIA",
+    "trend_regime": "TREND_UP",
+    "volatility_regime": "NORMAL_VOL",
+    "losses": 12,
+    "avg_loss": -0.00155997,
+    "avoidance_candidate": true
+  },
+  {
+    "failure_id": "FAIL_629fa54dd403a4fc",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "session": "ASIA",
+    "trend_regime": "RANGE",
+    "volatility_regime": "HIGH_VOL",
+    "losses": 3,
+    "avg_loss": -0.00959143,
+    "avoidance_candidate": true
+  },
+  {
+    "failure_id": "FAIL_540832e7ef7cc62b",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "session": "ASIA",
+    "trend_regime": "RANGE",
+    "volatility_regime": "LOW_VOL",
+    "losses": 7,
+    "avg_loss": -0.00322641,
+    "avoidance_candidate": true
+  },
+  {
+    "failure_id": "FAIL_cfc9256eab2bfd27",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "session": "ASIA",
+    "trend_regime": "RANGE",
+    "volatility_regime": "NORMAL_VOL",
+    "losses": 8,
+    "avg_loss": -0.00831919,
+    "avoidance_candidate": true
+  },
+  {
+    "failure_id": "FAIL_8b06a4ad1ab21555",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "session": "ASIA",
+    "trend_regime": "TREND_DOWN",
+    "volatility_regime": "HIGH_VOL",
+    "losses": 3,
+    "avg_loss": -0.00417483,
+    "avoidance_candidate": true
+  },
+  {
+    "failure_id": "FAIL_a84a7c6f1461937d",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "session": "ASIA",
+    "trend_regime": "TREND_DOWN",
+    "volatility_regime": "LOW_VOL",
+    "losses": 1,
+    "avg_loss": -0.00760885,
+    "avoidance_candidate": true
+  },
+  {
+    "failure_id": "FAIL_7c3c729a7c14f204",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "session": "ASIA",
+    "trend_regime": "TREND_DOWN",
+    "volatility_regime": "NORMAL_VOL",
+    "losses": 13,
+    "avg_loss": -0.00323694,
+    "avoidance_candidate": true
+  },
+  {
+    "failure_id": "FAIL_2353f2fd690f0d88",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "session": "ASIA",
+    "trend_regime": "TREND_UP",
+    "volatility_regime": "HIGH_VOL",
+    "losses": 4,
+    "avg_loss": -0.01146882,
+    "avoidance_candidate": true
+  },
+  {
+    "failure_id": "FAIL_03bc974f51635ecb",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "session": "ASIA",
+    "trend_regime": "TREND_UP",
+    "volatility_regime": "LOW_VOL",
+    "losses": 3,
+    "avg_loss": -0.00668712,
+    "avoidance_candidate": true
+  },
+  {
+    "failure_id": "FAIL_8a1d784dbdd5da5f",
+    "asset": "XAUUSD",
+    "family": "LIQUIDITY_SWEEP_TRIGGER",
+    "session": "ASIA",
+    "trend_regime": "TREND_UP",
+    "volatility_regime": "NORMAL_VOL",
+    "losses": 9,
+    "avg_loss": -0.00516214,
+    "avoidance_candidate": true
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_2F226E640CE75B11",
+  "source_file": "evidence\\P4.51_LEVEL_C_FULL_AUDIT_20260618_062425\\backup\\tests\\test_p55b_bull_web_absorption.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\evidence\\P4.51_LEVEL_C_FULL_AUDIT_20260618_062425\\backup\\tests\\test_p55b_bull_web_absorption.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 98,
+  "imports": [
+    "app.mind.p5_5b_bull_web_absorption",
+    "app.mind.p5_5b_bull_web_absorption.engine"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

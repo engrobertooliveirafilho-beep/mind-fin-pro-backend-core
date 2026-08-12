@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_333F925F52B4CE75",
+  "source_file": "get-pip.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\get-pip.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 124,
+  "imports": [
+    "argparse",
+    "base64",
+    "importlib",
+    "os.path",
+    "pip._internal.cli.main",
+    "pip._internal.commands.install",
+    "pkgutil",
+    "shutil",
+    "sys",
+    "tempfile"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

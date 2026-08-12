@@ -1,0 +1,3150 @@
+[
+  {
+    "specialist_id": "GBPUSD_M30_BOLLINGER_REVERSION_7d0ccd5986a18a8a9162e384",
+    "edge_id": "7d0ccd5986a18a8a9162e384",
+    "asset": "GBPUSD",
+    "timeframe": "M30",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      20,
+      2
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "INTRADAY"
+    ],
+    "trades": 15,
+    "win_rate": 0.8,
+    "payoff_ratio_real": 7.42826,
+    "expectancy_per_trade_real": 0.00037095,
+    "profit_factor_real": 29.71304,
+    "avg_holding_bars": 1.4,
+    "best_entry_hour": 12,
+    "deployment_score": 69.813175,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_M5_RSI_REVERSION_6ffc7212b632c0f09f8de2fc",
+    "edge_id": "6ffc7212b632c0f09f8de2fc",
+    "asset": "XAUUSD",
+    "timeframe": "M5",
+    "family": "RSI_REVERSION",
+    "params": [
+      14,
+      30,
+      70
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "FAST_EXECUTION"
+    ],
+    "trades": 17,
+    "win_rate": 0.823529,
+    "payoff_ratio_real": 5.002199,
+    "expectancy_per_trade_real": 0.00103089,
+    "profit_factor_real": 23.343597,
+    "avg_holding_bars": 2.47,
+    "best_entry_hour": 20,
+    "deployment_score": 55.51994,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDCAD_M5_RSI_REVERSION_73a728872bbd72d8549d9fbb",
+    "edge_id": "73a728872bbd72d8549d9fbb",
+    "asset": "USDCAD",
+    "timeframe": "M5",
+    "family": "RSI_REVERSION",
+    "params": [
+      14,
+      30,
+      70
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "FAST_EXECUTION"
+    ],
+    "trades": 12,
+    "win_rate": 0.916667,
+    "payoff_ratio_real": 2.140707,
+    "expectancy_per_trade_real": 0.00018839,
+    "profit_factor_real": 23.547776,
+    "avg_holding_bars": 2.75,
+    "best_entry_hour": 20,
+    "deployment_score": 50.205251,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_EMA_CROSS_9a53b0630c7b7e29e960eb66",
+    "edge_id": "9a53b0630c7b7e29e960eb66",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "EMA_CROSS",
+    "params": [
+      21,
+      55
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "POSITIONAL"
+    ],
+    "trades": 8,
+    "win_rate": 0.75,
+    "payoff_ratio_real": 5.388597,
+    "expectancy_per_trade_real": 0.06085955,
+    "profit_factor_real": 16.165792,
+    "avg_holding_bars": 125.88,
+    "best_entry_hour": 0,
+    "deployment_score": 47.611837,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "GBPUSD_M1_BOLLINGER_REVERSION_5aefbb04c2a4913ca649c3fa",
+    "edge_id": "5aefbb04c2a4913ca649c3fa",
+    "asset": "GBPUSD",
+    "timeframe": "M1",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      30,
+      2
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "FAST_EXECUTION"
+    ],
+    "trades": 9,
+    "win_rate": 0.777778,
+    "payoff_ratio_real": 4.774651,
+    "expectancy_per_trade_real": 0.00013018,
+    "profit_factor_real": 16.711278,
+    "avg_holding_bars": 2.78,
+    "best_entry_hour": 17,
+    "deployment_score": 43.684793,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDCAD_M5_BOLLINGER_REVERSION_151b15410031fd12a113e8ed",
+    "edge_id": "151b15410031fd12a113e8ed",
+    "asset": "USDCAD",
+    "timeframe": "M5",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      30,
+      2
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "FAST_EXECUTION"
+    ],
+    "trades": 6,
+    "win_rate": 0.833333,
+    "payoff_ratio_real": 3.489472,
+    "expectancy_per_trade_real": 0.00017653,
+    "profit_factor_real": 17.44736,
+    "avg_holding_bars": 1.83,
+    "best_entry_hour": 20,
+    "deployment_score": 42.334303,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_EMA_CROSS_1d35b1a3343e2da75db035d2",
+    "edge_id": "1d35b1a3343e2da75db035d2",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "POSITIONAL"
+    ],
+    "trades": 7,
+    "win_rate": 0.428571,
+    "payoff_ratio_real": 8.96119,
+    "expectancy_per_trade_real": 0.08294911,
+    "profit_factor_real": 6.720892,
+    "avg_holding_bars": 55.71,
+    "best_entry_hour": 0,
+    "deployment_score": 40.905771,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_ATR_TREND_6acf0720c9a2785ffadc3f98",
+    "edge_id": "6acf0720c9a2785ffadc3f98",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "POSITIONAL"
+    ],
+    "trades": 16,
+    "win_rate": 0.5,
+    "payoff_ratio_real": 8.573799,
+    "expectancy_per_trade_real": 0.01993677,
+    "profit_factor_real": 8.573799,
+    "avg_holding_bars": 8.06,
+    "best_entry_hour": 0,
+    "deployment_score": 39.251973,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDCAD_M30_RSI_REVERSION_e66b449b7ac4c0f21513e76c",
+    "edge_id": "e66b449b7ac4c0f21513e76c",
+    "asset": "USDCAD",
+    "timeframe": "M30",
+    "family": "RSI_REVERSION",
+    "params": [
+      14,
+      30,
+      70
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "INTRADAY"
+    ],
+    "trades": 11,
+    "win_rate": 0.818182,
+    "payoff_ratio_real": 3.006123,
+    "expectancy_per_trade_real": 0.00035961,
+    "profit_factor_real": 13.527553,
+    "avg_holding_bars": 3.91,
+    "best_entry_hour": 18,
+    "deployment_score": 36.725901,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_EMA_CROSS_444166c3680882e799445fb4",
+    "edge_id": "444166c3680882e799445fb4",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "POSITIONAL"
+    ],
+    "trades": 11,
+    "win_rate": 0.363636,
+    "payoff_ratio_real": 8.604577,
+    "expectancy_per_trade_real": 0.04930955,
+    "profit_factor_real": 4.916901,
+    "avg_holding_bars": 33.36,
+    "best_entry_hour": 0,
+    "deployment_score": 35.242733,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "GBPUSD_M1_BOLLINGER_REVERSION_45ecd4d9094ad6334a86ad21",
+    "edge_id": "45ecd4d9094ad6334a86ad21",
+    "asset": "GBPUSD",
+    "timeframe": "M1",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      20,
+      2
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "FAST_EXECUTION"
+    ],
+    "trades": 12,
+    "win_rate": 0.75,
+    "payoff_ratio_real": 2.944448,
+    "expectancy_per_trade_real": 0.00011194,
+    "profit_factor_real": 8.833343,
+    "avg_holding_bars": 1.92,
+    "best_entry_hour": 17,
+    "deployment_score": 29.400104,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "GBPUSD_M5_BREAKOUT_763eb8a78ba94c747cce0c78",
+    "edge_id": "763eb8a78ba94c747cce0c78",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "FAST_EXECUTION"
+    ],
+    "trades": 20,
+    "win_rate": 0.25,
+    "payoff_ratio_real": 8.549562,
+    "expectancy_per_trade_real": 0.00016413,
+    "profit_factor_real": 2.849854,
+    "avg_holding_bars": 1.85,
+    "best_entry_hour": 20,
+    "deployment_score": 29.390318,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "GBPUSD_M5_DONCHIAN_451b7efaae6360b1d2e591fd",
+    "edge_id": "451b7efaae6360b1d2e591fd",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "FAST_EXECUTION"
+    ],
+    "trades": 20,
+    "win_rate": 0.25,
+    "payoff_ratio_real": 8.549562,
+    "expectancy_per_trade_real": 0.00016413,
+    "profit_factor_real": 2.849854,
+    "avg_holding_bars": 1.85,
+    "best_entry_hour": 20,
+    "deployment_score": 29.390318,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_M30_DONCHIAN_00611607bd336a68cad8ed43",
+    "edge_id": "00611607bd336a68cad8ed43",
+    "asset": "XAUUSD",
+    "timeframe": "M30",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "INTRADAY"
+    ],
+    "trades": 5,
+    "win_rate": 0.6,
+    "payoff_ratio_real": 4.532043,
+    "expectancy_per_trade_real": 0.00302812,
+    "profit_factor_real": 6.798064,
+    "avg_holding_bars": 2.6,
+    "best_entry_hour": 20,
+    "deployment_score": 28.263994,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_M1_BOLLINGER_REVERSION_6ae48c55cf6aec9ab90698e4",
+    "edge_id": "6ae48c55cf6aec9ab90698e4",
+    "asset": "USDJPY",
+    "timeframe": "M1",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      30,
+      2
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "FAST_EXECUTION"
+    ],
+    "trades": 13,
+    "win_rate": 0.692308,
+    "payoff_ratio_real": 3.259708,
+    "expectancy_per_trade_real": 2.737e-05,
+    "profit_factor_real": 7.334342,
+    "avg_holding_bars": 2.15,
+    "best_entry_hour": 20,
+    "deployment_score": 27.658282,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "GBPUSD_M15_RSI_REVERSION_f50aa1c8c0e61317773e1144",
+    "edge_id": "f50aa1c8c0e61317773e1144",
+    "asset": "GBPUSD",
+    "timeframe": "M15",
+    "family": "RSI_REVERSION",
+    "params": [
+      14,
+      30,
+      70
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "INTRADAY"
+    ],
+    "trades": 19,
+    "win_rate": 0.789474,
+    "payoff_ratio_real": 1.967439,
+    "expectancy_per_trade_real": 0.00029375,
+    "profit_factor_real": 7.377897,
+    "avg_holding_bars": 1.79,
+    "best_entry_hour": 15,
+    "deployment_score": 24.110046,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "GBPUSD_M30_DONCHIAN_56d0ca61ac024413d97abaeb",
+    "edge_id": "56d0ca61ac024413d97abaeb",
+    "asset": "GBPUSD",
+    "timeframe": "M30",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "INTRADAY"
+    ],
+    "trades": 11,
+    "win_rate": 0.272727,
+    "payoff_ratio_real": 5.760669,
+    "expectancy_per_trade_real": 0.00020296,
+    "profit_factor_real": 2.160251,
+    "avg_holding_bars": 1.82,
+    "best_entry_hour": 21,
+    "deployment_score": 22.827464,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_EMA_CROSS_30f4d7dbe6217d8f106b65db",
+    "edge_id": "30f4d7dbe6217d8f106b65db",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "POSITIONAL"
+    ],
+    "trades": 33,
+    "win_rate": 0.515152,
+    "payoff_ratio_real": 3.97063,
+    "expectancy_per_trade_real": 0.01169944,
+    "profit_factor_real": 4.218794,
+    "avg_holding_bars": 28.91,
+    "best_entry_hour": 0,
+    "deployment_score": 22.719699,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_SMA_CROSS_598331ffe1e6047d6a961fb3",
+    "edge_id": "598331ffe1e6047d6a961fb3",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "POSITIONAL"
+    ],
+    "trades": 38,
+    "win_rate": 0.5,
+    "payoff_ratio_real": 3.992386,
+    "expectancy_per_trade_real": 0.01205833,
+    "profit_factor_real": 3.992386,
+    "avg_holding_bars": 23.74,
+    "best_entry_hour": 0,
+    "deployment_score": 22.429184,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "GBPUSD_M15_RSI_REVERSION_eaeb8751f0cdc8a590d78d81",
+    "edge_id": "eaeb8751f0cdc8a590d78d81",
+    "asset": "GBPUSD",
+    "timeframe": "M15",
+    "family": "RSI_REVERSION",
+    "params": [
+      10,
+      25,
+      75
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "INTRADAY"
+    ],
+    "trades": 17,
+    "win_rate": 0.705882,
+    "payoff_ratio_real": 2.105071,
+    "expectancy_per_trade_real": 0.00018897,
+    "profit_factor_real": 5.052171,
+    "avg_holding_bars": 2.47,
+    "best_entry_hour": 8,
+    "deployment_score": 21.96906,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_M5_EMA_CROSS_fa2dcd03b7d4f6fb9f9e640d",
+    "edge_id": "fa2dcd03b7d4f6fb9f9e640d",
+    "asset": "XAUUSD",
+    "timeframe": "M5",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "FAST_EXECUTION"
+    ],
+    "trades": 10,
+    "win_rate": 0.5,
+    "payoff_ratio_real": 4.099264,
+    "expectancy_per_trade_real": 0.0026913,
+    "profit_factor_real": 4.099264,
+    "avg_holding_bars": 25.9,
+    "best_entry_hour": 20,
+    "deployment_score": 21.866554,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDCAD_H1_RSI_REVERSION_7b393bb88f020bdb1d9e42a3",
+    "edge_id": "7b393bb88f020bdb1d9e42a3",
+    "asset": "USDCAD",
+    "timeframe": "H1",
+    "family": "RSI_REVERSION",
+    "params": [
+      14,
+      30,
+      70
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "INTRADAY"
+    ],
+    "trades": 6,
+    "win_rate": 0.666667,
+    "payoff_ratio_real": 3.078032,
+    "expectancy_per_trade_real": 0.00046,
+    "profit_factor_real": 6.156065,
+    "avg_holding_bars": 3.67,
+    "best_entry_hour": 15,
+    "deployment_score": 21.769496,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_ATR_TREND_02cd7c32dee4e1f0e25fb9e6",
+    "edge_id": "02cd7c32dee4e1f0e25fb9e6",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "POSITIONAL"
+    ],
+    "trades": 43,
+    "win_rate": 0.395349,
+    "payoff_ratio_real": 5.010733,
+    "expectancy_per_trade_real": 0.0093463,
+    "profit_factor_real": 3.276248,
+    "avg_holding_bars": 6.35,
+    "best_entry_hour": 0,
+    "deployment_score": 21.661166,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_M5_EMA_CROSS_463e4d9498ac1dbaf9c291d5",
+    "edge_id": "463e4d9498ac1dbaf9c291d5",
+    "asset": "XAUUSD",
+    "timeframe": "M5",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "FAST_EXECUTION"
+    ],
+    "trades": 7,
+    "win_rate": 0.571429,
+    "payoff_ratio_real": 3.713683,
+    "expectancy_per_trade_real": 0.00337292,
+    "profit_factor_real": 4.951578,
+    "avg_holding_bars": 37.86,
+    "best_entry_hour": 20,
+    "deployment_score": 21.334883,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "GBPUSD_M30_BREAKOUT_f74610aafbcf25daf07b10ab",
+    "edge_id": "f74610aafbcf25daf07b10ab",
+    "asset": "GBPUSD",
+    "timeframe": "M30",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "INTRADAY"
+    ],
+    "trades": 11,
+    "win_rate": 0.272727,
+    "payoff_ratio_real": 5.159586,
+    "expectancy_per_trade_real": 0.00016353,
+    "profit_factor_real": 1.934845,
+    "avg_holding_bars": 1.73,
+    "best_entry_hour": 11,
+    "deployment_score": 21.283246,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_H4_BOLLINGER_REVERSION_feb4410f1a11eda356dd6c3d",
+    "edge_id": "feb4410f1a11eda356dd6c3d",
+    "asset": "USDJPY",
+    "timeframe": "H4",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      30,
+      2
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "POSITIONAL"
+    ],
+    "trades": 7,
+    "win_rate": 0.714286,
+    "payoff_ratio_real": 2.570583,
+    "expectancy_per_trade_real": 0.00070034,
+    "profit_factor_real": 6.426457,
+    "avg_holding_bars": 2.29,
+    "best_entry_hour": 12,
+    "deployment_score": 21.279457,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDCAD_M30_ATR_TREND_8b42ec3c1d3bd65c27543629",
+    "edge_id": "8b42ec3c1d3bd65c27543629",
+    "asset": "USDCAD",
+    "timeframe": "M30",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "INTRADAY"
+    ],
+    "trades": 23,
+    "win_rate": 0.347826,
+    "payoff_ratio_real": 4.563842,
+    "expectancy_per_trade_real": 0.00025749,
+    "profit_factor_real": 2.434049,
+    "avg_holding_bars": 4.7,
+    "best_entry_hour": 9,
+    "deployment_score": 21.000159,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "GBPUSD_M5_RSI_REVERSION_0b8db3559f8a8e5bd2d14d04",
+    "edge_id": "0b8db3559f8a8e5bd2d14d04",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "family": "RSI_REVERSION",
+    "params": [
+      10,
+      25,
+      75
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "FAST_EXECUTION"
+    ],
+    "trades": 19,
+    "win_rate": 0.263158,
+    "payoff_ratio_real": 4.823971,
+    "expectancy_per_trade_real": 8.269e-05,
+    "profit_factor_real": 1.855373,
+    "avg_holding_bars": 4.16,
+    "best_entry_hour": 20,
+    "deployment_score": 20.465587,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_H4_ATR_TREND_3dce8c299331c949f24977b3",
+    "edge_id": "3dce8c299331c949f24977b3",
+    "asset": "XAUUSD",
+    "timeframe": "H4",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "POSITIONAL"
+    ],
+    "trades": 101,
+    "win_rate": 0.485149,
+    "payoff_ratio_real": 3.943934,
+    "expectancy_per_trade_real": 0.00307587,
+    "profit_factor_real": 3.716399,
+    "avg_holding_bars": 6.4,
+    "best_entry_hour": 0,
+    "deployment_score": 19.740352,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "GBPUSD_M5_BREAKOUT_7cd39a370389d085a81479a0",
+    "edge_id": "7cd39a370389d085a81479a0",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "FAST_EXECUTION"
+    ],
+    "trades": 7,
+    "win_rate": 0.428571,
+    "payoff_ratio_real": 3.891115,
+    "expectancy_per_trade_real": 0.00010014,
+    "profit_factor_real": 2.918336,
+    "avg_holding_bars": 2.29,
+    "best_entry_hour": 22,
+    "deployment_score": 19.27689,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDCAD_H4_EMA_CROSS_d454498bf3f2a434e438a3b1",
+    "edge_id": "d454498bf3f2a434e438a3b1",
+    "asset": "USDCAD",
+    "timeframe": "H4",
+    "family": "EMA_CROSS",
+    "params": [
+      8,
+      21
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "POSITIONAL"
+    ],
+    "trades": 7,
+    "win_rate": 0.428571,
+    "payoff_ratio_real": 4.582069,
+    "expectancy_per_trade_real": 0.0030077,
+    "profit_factor_real": 3.436551,
+    "avg_holding_bars": 37.86,
+    "best_entry_hour": 16,
+    "deployment_score": 19.226876,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_RSI_REVERSION_4e8ae7b35cb9e309e51d9af5",
+    "edge_id": "4e8ae7b35cb9e309e51d9af5",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "params": [
+      14,
+      30,
+      70
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "POSITIONAL"
+    ],
+    "trades": 6,
+    "win_rate": 0.833333,
+    "payoff_ratio_real": 1.330233,
+    "expectancy_per_trade_real": 0.01102485,
+    "profit_factor_real": 6.651163,
+    "avg_holding_bars": 2.83,
+    "best_entry_hour": 0,
+    "deployment_score": 19.156361,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_SMA_CROSS_c20b3f79e90be73438b442d1",
+    "edge_id": "c20b3f79e90be73438b442d1",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "SMA_CROSS",
+    "params": [
+      9,
+      21
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "POSITIONAL"
+    ],
+    "trades": 35,
+    "win_rate": 0.714286,
+    "payoff_ratio_real": 1.970045,
+    "expectancy_per_trade_real": 0.01261384,
+    "profit_factor_real": 4.925113,
+    "avg_holding_bars": 25.74,
+    "best_entry_hour": 0,
+    "deployment_score": 19.017715,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDCAD_M5_ATR_TREND_0c2d3f8ccca7b742e450ec91",
+    "edge_id": "0c2d3f8ccca7b742e450ec91",
+    "asset": "USDCAD",
+    "timeframe": "M5",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "FAST_EXECUTION"
+    ],
+    "trades": 15,
+    "win_rate": 0.333333,
+    "payoff_ratio_real": 4.705007,
+    "expectancy_per_trade_real": 0.00016553,
+    "profit_factor_real": 2.352503,
+    "avg_holding_bars": 7.47,
+    "best_entry_hour": 8,
+    "deployment_score": 18.621987,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_M30_DONCHIAN_91b9fe6eedb4eb189575f2ac",
+    "edge_id": "91b9fe6eedb4eb189575f2ac",
+    "asset": "XAUUSD",
+    "timeframe": "M30",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "INTRADAY"
+    ],
+    "trades": 168,
+    "win_rate": 0.392857,
+    "payoff_ratio_real": 3.33956,
+    "expectancy_per_trade_real": 0.00113405,
+    "profit_factor_real": 2.160892,
+    "avg_holding_bars": 2.17,
+    "best_entry_hour": 21,
+    "deployment_score": 18.319577,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_M30_BREAKOUT_dbec369637da0147ff14cffc",
+    "edge_id": "dbec369637da0147ff14cffc",
+    "asset": "XAUUSD",
+    "timeframe": "M30",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "INTRADAY"
+    ],
+    "trades": 162,
+    "win_rate": 0.376543,
+    "payoff_ratio_real": 3.41163,
+    "expectancy_per_trade_real": 0.0010522,
+    "profit_factor_real": 2.060489,
+    "avg_holding_bars": 2.09,
+    "best_entry_hour": 21,
+    "deployment_score": 18.272299,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDCAD_M30_BREAKOUT_07317e5286c83b6bfec3ddad",
+    "edge_id": "07317e5286c83b6bfec3ddad",
+    "asset": "USDCAD",
+    "timeframe": "M30",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "INTRADAY"
+    ],
+    "trades": 25,
+    "win_rate": 0.4,
+    "payoff_ratio_real": 3.307771,
+    "expectancy_per_trade_real": 0.00013758,
+    "profit_factor_real": 2.205181,
+    "avg_holding_bars": 2.12,
+    "best_entry_hour": 9,
+    "deployment_score": 18.237071,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_M1_ATR_TREND_a044785c82bcd165d9848714",
+    "edge_id": "a044785c82bcd165d9848714",
+    "asset": "XAUUSD",
+    "timeframe": "M1",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "FAST_EXECUTION"
+    ],
+    "trades": 128,
+    "win_rate": 0.304688,
+    "payoff_ratio_real": 3.77598,
+    "expectancy_per_trade_real": 0.00023941,
+    "profit_factor_real": 1.654643,
+    "avg_holding_bars": 3.96,
+    "best_entry_hour": 22,
+    "deployment_score": 18.167242,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_M30_ATR_TREND_cb63bd77b40ecb1dfb7896fe",
+    "edge_id": "cb63bd77b40ecb1dfb7896fe",
+    "asset": "XAUUSD",
+    "timeframe": "M30",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "INTRADAY"
+    ],
+    "trades": 21,
+    "win_rate": 0.380952,
+    "payoff_ratio_real": 3.310351,
+    "expectancy_per_trade_real": 0.00081229,
+    "profit_factor_real": 2.037139,
+    "avg_holding_bars": 2.81,
+    "best_entry_hour": 20,
+    "deployment_score": 18.019543,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_H4_BREAKOUT_13fc3999bf50f6094a70da1f",
+    "edge_id": "13fc3999bf50f6094a70da1f",
+    "asset": "XAUUSD",
+    "timeframe": "H4",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "POSITIONAL"
+    ],
+    "trades": 17,
+    "win_rate": 0.352941,
+    "payoff_ratio_real": 4.249145,
+    "expectancy_per_trade_real": 0.00267508,
+    "profit_factor_real": 2.317715,
+    "avg_holding_bars": 2.24,
+    "best_entry_hour": 4,
+    "deployment_score": 17.948253,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_H4_DONCHIAN_3ab68f501e8f164d1a42f5ef",
+    "edge_id": "3ab68f501e8f164d1a42f5ef",
+    "asset": "XAUUSD",
+    "timeframe": "H4",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "POSITIONAL"
+    ],
+    "trades": 17,
+    "win_rate": 0.352941,
+    "payoff_ratio_real": 4.249145,
+    "expectancy_per_trade_real": 0.00267508,
+    "profit_factor_real": 2.317715,
+    "avg_holding_bars": 2.24,
+    "best_entry_hour": 4,
+    "deployment_score": 17.948253,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "GBPUSD_M30_BREAKOUT_985642a5d40b6eb0c99ff846",
+    "edge_id": "985642a5d40b6eb0c99ff846",
+    "asset": "GBPUSD",
+    "timeframe": "M30",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "INTRADAY"
+    ],
+    "trades": 23,
+    "win_rate": 0.347826,
+    "payoff_ratio_real": 3.458018,
+    "expectancy_per_trade_real": 0.00016386,
+    "profit_factor_real": 1.844276,
+    "avg_holding_bars": 2.0,
+    "best_entry_hour": 20,
+    "deployment_score": 17.894488,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "GBPUSD_M30_DONCHIAN_06073724172bc8630884e37e",
+    "edge_id": "06073724172bc8630884e37e",
+    "asset": "GBPUSD",
+    "timeframe": "M30",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "INTRADAY"
+    ],
+    "trades": 23,
+    "win_rate": 0.347826,
+    "payoff_ratio_real": 3.458018,
+    "expectancy_per_trade_real": 0.00016386,
+    "profit_factor_real": 1.844276,
+    "avg_holding_bars": 2.0,
+    "best_entry_hour": 20,
+    "deployment_score": 17.894488,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_ATR_TREND_fb04cbc863c890a62bc833cf",
+    "edge_id": "fb04cbc863c890a62bc833cf",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "POSITIONAL"
+    ],
+    "trades": 27,
+    "win_rate": 0.444444,
+    "payoff_ratio_real": 3.47349,
+    "expectancy_per_trade_real": 0.00889846,
+    "profit_factor_real": 2.778792,
+    "avg_holding_bars": 5.3,
+    "best_entry_hour": 0,
+    "deployment_score": 17.893902,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDCAD_M30_SMA_CROSS_83af079b54956b66787d8091",
+    "edge_id": "83af079b54956b66787d8091",
+    "asset": "USDCAD",
+    "timeframe": "M30",
+    "family": "SMA_CROSS",
+    "params": [
+      5,
+      20
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "INTRADAY"
+    ],
+    "trades": 14,
+    "win_rate": 0.571429,
+    "payoff_ratio_real": 2.590169,
+    "expectancy_per_trade_real": 0.00069027,
+    "profit_factor_real": 3.453558,
+    "avg_holding_bars": 21.57,
+    "best_entry_hour": 0,
+    "deployment_score": 17.82256,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_M15_ATR_TREND_077668504fa21a4dad2dc196",
+    "edge_id": "077668504fa21a4dad2dc196",
+    "asset": "XAUUSD",
+    "timeframe": "M15",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "INTRADAY"
+    ],
+    "trades": 7,
+    "win_rate": 0.285714,
+    "payoff_ratio_real": 5.151438,
+    "expectancy_per_trade_real": 0.00097234,
+    "profit_factor_real": 2.060575,
+    "avg_holding_bars": 5.43,
+    "best_entry_hour": 20,
+    "deployment_score": 17.8124,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDCAD_M15_ATR_TREND_9ab3c761b382cb63961ac695",
+    "edge_id": "9ab3c761b382cb63961ac695",
+    "asset": "USDCAD",
+    "timeframe": "M15",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "INTRADAY"
+    ],
+    "trades": 13,
+    "win_rate": 0.461538,
+    "payoff_ratio_real": 3.578353,
+    "expectancy_per_trade_real": 0.0002813,
+    "profit_factor_real": 3.06716,
+    "avg_holding_bars": 5.62,
+    "best_entry_hour": 8,
+    "deployment_score": 17.708652,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "GBPUSD_M5_ATR_TREND_85f2c4d16a3e6ab6580d20ac",
+    "edge_id": "85f2c4d16a3e6ab6580d20ac",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "FAST_EXECUTION"
+    ],
+    "trades": 20,
+    "win_rate": 0.25,
+    "payoff_ratio_real": 4.319573,
+    "expectancy_per_trade_real": 6.695e-05,
+    "profit_factor_real": 1.439858,
+    "avg_holding_bars": 2.9,
+    "best_entry_hour": 20,
+    "deployment_score": 17.555628,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDCAD_M15_ATR_TREND_20077ffb611b5e71cb525b36",
+    "edge_id": "20077ffb611b5e71cb525b36",
+    "asset": "USDCAD",
+    "timeframe": "M15",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "INTRADAY"
+    ],
+    "trades": 10,
+    "win_rate": 0.5,
+    "payoff_ratio_real": 2.584996,
+    "expectancy_per_trade_real": 0.00025376,
+    "profit_factor_real": 3.231245,
+    "avg_holding_bars": 6.1,
+    "best_entry_hour": 9,
+    "deployment_score": 17.292235,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDCAD_M30_DONCHIAN_e4df002278d1725f5c7ada31",
+    "edge_id": "e4df002278d1725f5c7ada31",
+    "asset": "USDCAD",
+    "timeframe": "M30",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "INTRADAY"
+    ],
+    "trades": 27,
+    "win_rate": 0.37037,
+    "payoff_ratio_real": 3.11732,
+    "expectancy_per_trade_real": 0.00011178,
+    "profit_factor_real": 1.833718,
+    "avg_holding_bars": 2.07,
+    "best_entry_hour": 9,
+    "deployment_score": 17.237135,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_M5_ATR_TREND_f61d7310577189645e855a29",
+    "edge_id": "f61d7310577189645e855a29",
+    "asset": "XAUUSD",
+    "timeframe": "M5",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "FAST_EXECUTION"
+    ],
+    "trades": 19,
+    "win_rate": 0.368421,
+    "payoff_ratio_real": 2.973199,
+    "expectancy_per_trade_real": 0.00056547,
+    "profit_factor_real": 1.734366,
+    "avg_holding_bars": 4.05,
+    "best_entry_hour": 20,
+    "deployment_score": 16.841336,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_M1_RSI_REVERSION_76d92a1e50ead3ed431a7a25",
+    "edge_id": "76d92a1e50ead3ed431a7a25",
+    "asset": "USDJPY",
+    "timeframe": "M1",
+    "family": "RSI_REVERSION",
+    "params": [
+      10,
+      25,
+      75
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "FAST_EXECUTION"
+    ],
+    "trades": 15,
+    "win_rate": 0.733333,
+    "payoff_ratio_real": 1.034787,
+    "expectancy_per_trade_real": 3.371e-05,
+    "profit_factor_real": 3.79422,
+    "avg_holding_bars": 2.47,
+    "best_entry_hour": 17,
+    "deployment_score": 16.730941,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_M5_BOLLINGER_REVERSION_cd60e83e939f5efea0497778",
+    "edge_id": "cd60e83e939f5efea0497778",
+    "asset": "XAUUSD",
+    "timeframe": "M5",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      30,
+      2
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "FAST_EXECUTION"
+    ],
+    "trades": 14,
+    "win_rate": 0.714286,
+    "payoff_ratio_real": 1.305817,
+    "expectancy_per_trade_real": 0.00047643,
+    "profit_factor_real": 3.264541,
+    "avg_holding_bars": 2.29,
+    "best_entry_hour": 14,
+    "deployment_score": 16.484661,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "GBPUSD_M15_ATR_TREND_7e8fed473a75cf3d0b3bbeea",
+    "edge_id": "7e8fed473a75cf3d0b3bbeea",
+    "asset": "GBPUSD",
+    "timeframe": "M15",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "INTRADAY"
+    ],
+    "trades": 10,
+    "win_rate": 0.4,
+    "payoff_ratio_real": 3.540302,
+    "expectancy_per_trade_real": 0.00022753,
+    "profit_factor_real": 2.360202,
+    "avg_holding_bars": 6.5,
+    "best_entry_hour": 11,
+    "deployment_score": 16.44366,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_M15_DONCHIAN_3622860fb1939f822e58722e",
+    "edge_id": "3622860fb1939f822e58722e",
+    "asset": "USDJPY",
+    "timeframe": "M15",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "INTRADAY"
+    ],
+    "trades": 11,
+    "win_rate": 0.363636,
+    "payoff_ratio_real": 2.866438,
+    "expectancy_per_trade_real": 3.29e-05,
+    "profit_factor_real": 1.637964,
+    "avg_holding_bars": 1.91,
+    "best_entry_hour": 19,
+    "deployment_score": 16.420384,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "GBPUSD_M5_ATR_TREND_c8c503757c808bf40b934d9a",
+    "edge_id": "c8c503757c808bf40b934d9a",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "FAST_EXECUTION"
+    ],
+    "trades": 131,
+    "win_rate": 0.374046,
+    "payoff_ratio_real": 2.782459,
+    "expectancy_per_trade_real": 6.638e-05,
+    "profit_factor_real": 1.704256,
+    "avg_holding_bars": 4.34,
+    "best_entry_hour": 20,
+    "deployment_score": 16.376032,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_M30_RSI_REVERSION_8ea3c1286d216a631677e386",
+    "edge_id": "8ea3c1286d216a631677e386",
+    "asset": "USDJPY",
+    "timeframe": "M30",
+    "family": "RSI_REVERSION",
+    "params": [
+      14,
+      30,
+      70
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "INTRADAY"
+    ],
+    "trades": 5,
+    "win_rate": 0.8,
+    "payoff_ratio_real": 1.042306,
+    "expectancy_per_trade_real": 0.00033647,
+    "profit_factor_real": 4.169222,
+    "avg_holding_bars": 5.0,
+    "best_entry_hour": 1,
+    "deployment_score": 16.222092,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_H1_RSI_REVERSION_103d2cfc73e4dbb7ac1697fb",
+    "edge_id": "103d2cfc73e4dbb7ac1697fb",
+    "asset": "USDJPY",
+    "timeframe": "H1",
+    "family": "RSI_REVERSION",
+    "params": [
+      10,
+      25,
+      75
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "INTRADAY"
+    ],
+    "trades": 6,
+    "win_rate": 0.833333,
+    "payoff_ratio_real": 1.107464,
+    "expectancy_per_trade_real": 0.00051478,
+    "profit_factor_real": 5.53732,
+    "avg_holding_bars": 2.67,
+    "best_entry_hour": 14,
+    "deployment_score": 15.989052,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "GBPUSD_M5_BREAKOUT_5df8b20ec03b2df504155e78",
+    "edge_id": "5df8b20ec03b2df504155e78",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "FAST_EXECUTION"
+    ],
+    "trades": 157,
+    "win_rate": 0.369427,
+    "payoff_ratio_real": 2.56937,
+    "expectancy_per_trade_real": 5.051e-05,
+    "profit_factor_real": 1.674421,
+    "avg_holding_bars": 1.96,
+    "best_entry_hour": 0,
+    "deployment_score": 15.894277,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "GBPUSD_M5_DONCHIAN_6db4c0f42895208e69c65c7d",
+    "edge_id": "6db4c0f42895208e69c65c7d",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "FAST_EXECUTION"
+    ],
+    "trades": 167,
+    "win_rate": 0.353293,
+    "payoff_ratio_real": 2.638742,
+    "expectancy_per_trade_real": 4.529e-05,
+    "profit_factor_real": 1.58863,
+    "avg_holding_bars": 1.95,
+    "best_entry_hour": 0,
+    "deployment_score": 15.871544,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_H4_BREAKOUT_12ec592c1a521cd1925d5b9d",
+    "edge_id": "12ec592c1a521cd1925d5b9d",
+    "asset": "XAUUSD",
+    "timeframe": "H4",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "POSITIONAL"
+    ],
+    "trades": 217,
+    "win_rate": 0.400922,
+    "payoff_ratio_real": 3.247701,
+    "expectancy_per_trade_real": 0.00180636,
+    "profit_factor_real": 2.173462,
+    "avg_holding_bars": 2.3,
+    "best_entry_hour": 0,
+    "deployment_score": 15.738075,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_H4_DONCHIAN_e7d8f73df27849a0e9a01c4c",
+    "edge_id": "e7d8f73df27849a0e9a01c4c",
+    "asset": "XAUUSD",
+    "timeframe": "H4",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "POSITIONAL"
+    ],
+    "trades": 217,
+    "win_rate": 0.400922,
+    "payoff_ratio_real": 3.247701,
+    "expectancy_per_trade_real": 0.00180636,
+    "profit_factor_real": 2.173462,
+    "avg_holding_bars": 2.3,
+    "best_entry_hour": 0,
+    "deployment_score": 15.738075,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDCAD_M15_BOLLINGER_REVERSION_7db31172ee9b8be9a155a134",
+    "edge_id": "7db31172ee9b8be9a155a134",
+    "asset": "USDCAD",
+    "timeframe": "M15",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      20,
+      2
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "INTRADAY"
+    ],
+    "trades": 16,
+    "win_rate": 0.6875,
+    "payoff_ratio_real": 1.277466,
+    "expectancy_per_trade_real": 0.00010394,
+    "profit_factor_real": 2.810424,
+    "avg_holding_bars": 1.88,
+    "best_entry_hour": 10,
+    "deployment_score": 15.655962,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_H4_DONCHIAN_0cfebfbe757754c7da1dc801",
+    "edge_id": "0cfebfbe757754c7da1dc801",
+    "asset": "XAUUSD",
+    "timeframe": "H4",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "POSITIONAL"
+    ],
+    "trades": 157,
+    "win_rate": 0.420382,
+    "payoff_ratio_real": 3.028734,
+    "expectancy_per_trade_real": 0.0019849,
+    "profit_factor_real": 2.196664,
+    "avg_holding_bars": 2.36,
+    "best_entry_hour": 0,
+    "deployment_score": 15.391718,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_M5_BREAKOUT_12c24a066004b5cfe90adb70",
+    "edge_id": "12c24a066004b5cfe90adb70",
+    "asset": "XAUUSD",
+    "timeframe": "M5",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "FAST_EXECUTION"
+    ],
+    "trades": 24,
+    "win_rate": 0.416667,
+    "payoff_ratio_real": 2.190696,
+    "expectancy_per_trade_real": 0.00027704,
+    "profit_factor_real": 1.685151,
+    "avg_holding_bars": 2.08,
+    "best_entry_hour": 10,
+    "deployment_score": 15.270156,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_M5_DONCHIAN_927fe8ab893a9c5a3b24b2e8",
+    "edge_id": "927fe8ab893a9c5a3b24b2e8",
+    "asset": "XAUUSD",
+    "timeframe": "M5",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "FAST_EXECUTION"
+    ],
+    "trades": 24,
+    "win_rate": 0.416667,
+    "payoff_ratio_real": 2.190696,
+    "expectancy_per_trade_real": 0.00027704,
+    "profit_factor_real": 1.685151,
+    "avg_holding_bars": 2.08,
+    "best_entry_hour": 10,
+    "deployment_score": 15.270156,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_M1_RSI_REVERSION_933f55bb5c43702c74bf3b21",
+    "edge_id": "933f55bb5c43702c74bf3b21",
+    "asset": "USDJPY",
+    "timeframe": "M1",
+    "family": "RSI_REVERSION",
+    "params": [
+      14,
+      30,
+      70
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "FAST_EXECUTION"
+    ],
+    "trades": 16,
+    "win_rate": 0.625,
+    "payoff_ratio_real": 1.296851,
+    "expectancy_per_trade_real": 1.989e-05,
+    "profit_factor_real": 2.593701,
+    "avg_holding_bars": 2.69,
+    "best_entry_hour": 19,
+    "deployment_score": 15.236242,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_H4_BREAKOUT_7674ea65e3098a66c6495128",
+    "edge_id": "7674ea65e3098a66c6495128",
+    "asset": "XAUUSD",
+    "timeframe": "H4",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "POSITIONAL"
+    ],
+    "trades": 150,
+    "win_rate": 0.433333,
+    "payoff_ratio_real": 2.902673,
+    "expectancy_per_trade_real": 0.00196114,
+    "profit_factor_real": 2.219691,
+    "avg_holding_bars": 2.37,
+    "best_entry_hour": 0,
+    "deployment_score": 15.197662,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDCAD_M5_RSI_REVERSION_7e1b2e19d39cb7b1e70a57a1",
+    "edge_id": "7e1b2e19d39cb7b1e70a57a1",
+    "asset": "USDCAD",
+    "timeframe": "M5",
+    "family": "RSI_REVERSION",
+    "params": [
+      10,
+      25,
+      75
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "FAST_EXECUTION"
+    ],
+    "trades": 13,
+    "win_rate": 0.615385,
+    "payoff_ratio_real": 1.442949,
+    "expectancy_per_trade_real": 6.989e-05,
+    "profit_factor_real": 2.308718,
+    "avg_holding_bars": 2.77,
+    "best_entry_hour": 20,
+    "deployment_score": 15.086734,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_D1_RSI_REVERSION_abd92bb22a121a519a8004bd",
+    "edge_id": "abd92bb22a121a519a8004bd",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "family": "RSI_REVERSION",
+    "params": [
+      14,
+      30,
+      70
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "POSITIONAL"
+    ],
+    "trades": 12,
+    "win_rate": 0.666667,
+    "payoff_ratio_real": 1.679862,
+    "expectancy_per_trade_real": 0.00338872,
+    "profit_factor_real": 3.359725,
+    "avg_holding_bars": 3.17,
+    "best_entry_hour": 0,
+    "deployment_score": 15.071518,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_H1_ATR_TREND_f2d7db76ba461a6692beea9e",
+    "edge_id": "f2d7db76ba461a6692beea9e",
+    "asset": "XAUUSD",
+    "timeframe": "H1",
+    "family": "ATR_TREND",
+    "params": [
+      21,
+      3
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "INTRADAY"
+    ],
+    "trades": 155,
+    "win_rate": 0.348387,
+    "payoff_ratio_real": 3.287434,
+    "expectancy_per_trade_real": 0.00126139,
+    "profit_factor_real": 1.757638,
+    "avg_holding_bars": 5.32,
+    "best_entry_hour": 2,
+    "deployment_score": 15.034238,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_H4_ATR_TREND_54b4ee126ec0e4d289575156",
+    "edge_id": "54b4ee126ec0e4d289575156",
+    "asset": "XAUUSD",
+    "timeframe": "H4",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "POSITIONAL"
+    ],
+    "trades": 147,
+    "win_rate": 0.469388,
+    "payoff_ratio_real": 2.606368,
+    "expectancy_per_trade_real": 0.00265965,
+    "profit_factor_real": 2.305633,
+    "avg_holding_bars": 5.01,
+    "best_entry_hour": 16,
+    "deployment_score": 14.875927,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_M1_BREAKOUT_78ccf31faf86feca98b07172",
+    "edge_id": "78ccf31faf86feca98b07172",
+    "asset": "USDJPY",
+    "timeframe": "M1",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "FAST_EXECUTION"
+    ],
+    "trades": 195,
+    "win_rate": 0.271795,
+    "payoff_ratio_real": 3.008302,
+    "expectancy_per_trade_real": 6.67e-06,
+    "profit_factor_real": 1.362735,
+    "avg_holding_bars": 1.84,
+    "best_entry_hour": 3,
+    "deployment_score": 14.854964,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "GBPUSD_M15_BOLLINGER_REVERSION_1fd53bb66774c8e62915a866",
+    "edge_id": "1fd53bb66774c8e62915a866",
+    "asset": "GBPUSD",
+    "timeframe": "M15",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      30,
+      2
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "INTRADAY"
+    ],
+    "trades": 11,
+    "win_rate": 0.545455,
+    "payoff_ratio_real": 1.641024,
+    "expectancy_per_trade_real": 0.00012731,
+    "profit_factor_real": 1.969229,
+    "avg_holding_bars": 2.36,
+    "best_entry_hour": 9,
+    "deployment_score": 14.839532,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDCAD_M30_BREAKOUT_228b68669c17c75bcd046957",
+    "edge_id": "228b68669c17c75bcd046957",
+    "asset": "USDCAD",
+    "timeframe": "M30",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "INTRADAY"
+    ],
+    "trades": 40,
+    "win_rate": 0.425,
+    "payoff_ratio_real": 2.085013,
+    "expectancy_per_trade_real": 7.553e-05,
+    "profit_factor_real": 1.541096,
+    "avg_holding_bars": 2.17,
+    "best_entry_hour": 9,
+    "deployment_score": 14.839223,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDCAD_M30_DONCHIAN_20049895492b40e8f0f8b4a8",
+    "edge_id": "20049895492b40e8f0f8b4a8",
+    "asset": "USDCAD",
+    "timeframe": "M30",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "INTRADAY"
+    ],
+    "trades": 40,
+    "win_rate": 0.425,
+    "payoff_ratio_real": 2.085013,
+    "expectancy_per_trade_real": 7.553e-05,
+    "profit_factor_real": 1.541096,
+    "avg_holding_bars": 2.17,
+    "best_entry_hour": 9,
+    "deployment_score": 14.839223,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "GBPUSD_M5_DONCHIAN_c7b71a491dde8f0e4cf0b167",
+    "edge_id": "c7b71a491dde8f0e4cf0b167",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "FAST_EXECUTION"
+    ],
+    "trades": 8,
+    "win_rate": 0.375,
+    "payoff_ratio_real": 2.678462,
+    "expectancy_per_trade_real": 5.035e-05,
+    "profit_factor_real": 1.607077,
+    "avg_holding_bars": 2.12,
+    "best_entry_hour": 22,
+    "deployment_score": 14.772575,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "GBPUSD_H4_RSI_REVERSION_0f876e5fa9a9ce86846a3915",
+    "edge_id": "0f876e5fa9a9ce86846a3915",
+    "asset": "GBPUSD",
+    "timeframe": "H4",
+    "family": "RSI_REVERSION",
+    "params": [
+      14,
+      30,
+      70
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "POSITIONAL"
+    ],
+    "trades": 18,
+    "win_rate": 0.666667,
+    "payoff_ratio_real": 1.650283,
+    "expectancy_per_trade_real": 0.00097831,
+    "profit_factor_real": 3.300566,
+    "avg_holding_bars": 3.33,
+    "best_entry_hour": 8,
+    "deployment_score": 14.68258,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDCAD_M5_ATR_TREND_432094813086cd10b3193e90",
+    "edge_id": "432094813086cd10b3193e90",
+    "asset": "USDCAD",
+    "timeframe": "M5",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "FAST_EXECUTION"
+    ],
+    "trades": 25,
+    "win_rate": 0.48,
+    "payoff_ratio_real": 2.55712,
+    "expectancy_per_trade_real": 0.0001205,
+    "profit_factor_real": 2.360419,
+    "avg_holding_bars": 5.32,
+    "best_entry_hour": 8,
+    "deployment_score": 14.626918,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "GBPUSD_M5_BREAKOUT_f49c2914f515a393677d351a",
+    "edge_id": "f49c2914f515a393677d351a",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "FAST_EXECUTION"
+    ],
+    "trades": 282,
+    "win_rate": 0.333333,
+    "payoff_ratio_real": 2.732123,
+    "expectancy_per_trade_real": 3.843e-05,
+    "profit_factor_real": 1.484506,
+    "avg_holding_bars": 1.96,
+    "best_entry_hour": 20,
+    "deployment_score": 14.611514,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "GBPUSD_M5_DONCHIAN_d924754e359f294b666e1667",
+    "edge_id": "d924754e359f294b666e1667",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "FAST_EXECUTION"
+    ],
+    "trades": 282,
+    "win_rate": 0.333333,
+    "payoff_ratio_real": 2.732123,
+    "expectancy_per_trade_real": 3.843e-05,
+    "profit_factor_real": 1.484506,
+    "avg_holding_bars": 1.96,
+    "best_entry_hour": 20,
+    "deployment_score": 14.611514,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_M30_DONCHIAN_affa9be54f29ab7eaeb05f77",
+    "edge_id": "affa9be54f29ab7eaeb05f77",
+    "asset": "XAUUSD",
+    "timeframe": "M30",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "INTRADAY"
+    ],
+    "trades": 288,
+    "win_rate": 0.333333,
+    "payoff_ratio_real": 2.766206,
+    "expectancy_per_trade_real": 0.00044705,
+    "profit_factor_real": 1.383103,
+    "avg_holding_bars": 1.98,
+    "best_entry_hour": 21,
+    "deployment_score": 14.568437,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_M1_BOLLINGER_REVERSION_86fd92489d21a96f709a4134",
+    "edge_id": "86fd92489d21a96f709a4134",
+    "asset": "USDJPY",
+    "timeframe": "M1",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      20,
+      2
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "FAST_EXECUTION"
+    ],
+    "trades": 15,
+    "win_rate": 0.533333,
+    "payoff_ratio_real": 1.479272,
+    "expectancy_per_trade_real": 1.457e-05,
+    "profit_factor_real": 1.972363,
+    "avg_holding_bars": 1.87,
+    "best_entry_hour": 17,
+    "deployment_score": 14.485212,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_M1_DONCHIAN_1752ca0b2b0aad0f8a3dd97d",
+    "edge_id": "1752ca0b2b0aad0f8a3dd97d",
+    "asset": "USDJPY",
+    "timeframe": "M1",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "FAST_EXECUTION"
+    ],
+    "trades": 207,
+    "win_rate": 0.280193,
+    "payoff_ratio_real": 2.832367,
+    "expectancy_per_trade_real": 5.86e-06,
+    "profit_factor_real": 1.324817,
+    "avg_holding_bars": 1.82,
+    "best_entry_hour": 3,
+    "deployment_score": 14.462931,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDCAD_M30_BOLLINGER_REVERSION_953eedccdb820b111947e39e",
+    "edge_id": "953eedccdb820b111947e39e",
+    "asset": "USDCAD",
+    "timeframe": "M30",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      30,
+      2
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "INTRADAY"
+    ],
+    "trades": 11,
+    "win_rate": 0.636364,
+    "payoff_ratio_real": 1.21253,
+    "expectancy_per_trade_real": 0.00016444,
+    "profit_factor_real": 2.121927,
+    "avg_holding_bars": 2.82,
+    "best_entry_hour": 15,
+    "deployment_score": 14.397123,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "GBPUSD_M1_DONCHIAN_d8ceb70b37cb84019d746754",
+    "edge_id": "d8ceb70b37cb84019d746754",
+    "asset": "GBPUSD",
+    "timeframe": "M1",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "FAST_EXECUTION"
+    ],
+    "trades": 170,
+    "win_rate": 0.311765,
+    "payoff_ratio_real": 2.650619,
+    "expectancy_per_trade_real": 1.79e-05,
+    "profit_factor_real": 1.350796,
+    "avg_holding_bars": 1.78,
+    "best_entry_hour": 20,
+    "deployment_score": 14.202752,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "GBPUSD_M1_BREAKOUT_6b11e7fe515639005edcc9cd",
+    "edge_id": "6b11e7fe515639005edcc9cd",
+    "asset": "GBPUSD",
+    "timeframe": "M1",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "FAST_EXECUTION"
+    ],
+    "trades": 161,
+    "win_rate": 0.329193,
+    "payoff_ratio_real": 2.531717,
+    "expectancy_per_trade_real": 2.07e-05,
+    "profit_factor_real": 1.412432,
+    "avg_holding_bars": 1.8,
+    "best_entry_hour": 20,
+    "deployment_score": 14.092538,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_M5_DONCHIAN_1c67afaac2f3153ea54d7b75",
+    "edge_id": "1c67afaac2f3153ea54d7b75",
+    "asset": "XAUUSD",
+    "timeframe": "M5",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "FAST_EXECUTION"
+    ],
+    "trades": 18,
+    "win_rate": 0.444444,
+    "payoff_ratio_real": 1.990809,
+    "expectancy_per_trade_real": 0.00028459,
+    "profit_factor_real": 1.769608,
+    "avg_holding_bars": 1.89,
+    "best_entry_hour": 1,
+    "deployment_score": 13.803377,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_H1_DONCHIAN_c0be527479dd90d20a3a623e",
+    "edge_id": "c0be527479dd90d20a3a623e",
+    "asset": "XAUUSD",
+    "timeframe": "H1",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "INTRADAY"
+    ],
+    "trades": 226,
+    "win_rate": 0.389381,
+    "payoff_ratio_real": 2.62272,
+    "expectancy_per_trade_real": 0.00082282,
+    "profit_factor_real": 1.672459,
+    "avg_holding_bars": 2.18,
+    "best_entry_hour": 21,
+    "deployment_score": 13.615172,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_H1_BREAKOUT_3ce0312c78634a9ee29504f8",
+    "edge_id": "3ce0312c78634a9ee29504f8",
+    "asset": "XAUUSD",
+    "timeframe": "H1",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "INTRADAY"
+    ],
+    "trades": 217,
+    "win_rate": 0.391705,
+    "payoff_ratio_real": 2.567485,
+    "expectancy_per_trade_real": 0.00080716,
+    "profit_factor_real": 1.653305,
+    "avg_holding_bars": 2.21,
+    "best_entry_hour": 21,
+    "deployment_score": 13.479054,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDCAD_H4_EMA_CROSS_99ec7531e0f0ceeb4795e785",
+    "edge_id": "99ec7531e0f0ceeb4795e785",
+    "asset": "USDCAD",
+    "timeframe": "H4",
+    "family": "EMA_CROSS",
+    "params": [
+      12,
+      26
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "POSITIONAL"
+    ],
+    "trades": 7,
+    "win_rate": 0.428571,
+    "payoff_ratio_real": 2.769436,
+    "expectancy_per_trade_real": 0.0020919,
+    "profit_factor_real": 2.077077,
+    "avg_holding_bars": 37.86,
+    "best_entry_hour": 0,
+    "deployment_score": 13.470819,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_H1_BREAKOUT_cadd0604cea0b0cd45fa4628",
+    "edge_id": "cadd0604cea0b0cd45fa4628",
+    "asset": "XAUUSD",
+    "timeframe": "H1",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "INTRADAY"
+    ],
+    "trades": 329,
+    "win_rate": 0.392097,
+    "payoff_ratio_real": 2.540318,
+    "expectancy_per_trade_real": 0.00080011,
+    "profit_factor_real": 1.638505,
+    "avg_holding_bars": 2.14,
+    "best_entry_hour": 21,
+    "deployment_score": 13.402598,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_H1_DONCHIAN_6264d001abbc993289cc18bf",
+    "edge_id": "6264d001abbc993289cc18bf",
+    "asset": "XAUUSD",
+    "timeframe": "H1",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "INTRADAY"
+    ],
+    "trades": 329,
+    "win_rate": 0.392097,
+    "payoff_ratio_real": 2.540318,
+    "expectancy_per_trade_real": 0.00080011,
+    "profit_factor_real": 1.638505,
+    "avg_holding_bars": 2.14,
+    "best_entry_hour": 21,
+    "deployment_score": 13.402598,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "GBPUSD_H4_BREAKOUT_c8eab2292e567f59277b7a58",
+    "edge_id": "c8eab2292e567f59277b7a58",
+    "asset": "GBPUSD",
+    "timeframe": "H4",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "POSITIONAL"
+    ],
+    "trades": 6,
+    "win_rate": 0.333333,
+    "payoff_ratio_real": 3.243381,
+    "expectancy_per_trade_real": 0.00061949,
+    "profit_factor_real": 1.62169,
+    "avg_holding_bars": 2.67,
+    "best_entry_hour": 16,
+    "deployment_score": 13.397912,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_DONCHIAN_0d3fa54d55958a7e9e6a9b36",
+    "edge_id": "0d3fa54d55958a7e9e6a9b36",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "POSITIONAL"
+    ],
+    "trades": 36,
+    "win_rate": 0.416667,
+    "payoff_ratio_real": 2.26581,
+    "expectancy_per_trade_real": 0.00405301,
+    "profit_factor_real": 1.618436,
+    "avg_holding_bars": 2.17,
+    "best_entry_hour": 0,
+    "deployment_score": 13.197909,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_H1_BOLLINGER_REVERSION_bf2b92643afbd10a243a2f0a",
+    "edge_id": "bf2b92643afbd10a243a2f0a",
+    "asset": "USDJPY",
+    "timeframe": "H1",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      20,
+      2
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "INTRADAY"
+    ],
+    "trades": 11,
+    "win_rate": 0.727273,
+    "payoff_ratio_real": 1.113124,
+    "expectancy_per_trade_real": 0.00031885,
+    "profit_factor_real": 2.968331,
+    "avg_holding_bars": 1.73,
+    "best_entry_hour": 14,
+    "deployment_score": 13.165176,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDCAD_D1_ATR_TREND_36d544d92daf453ce9e08aa1",
+    "edge_id": "36d544d92daf453ce9e08aa1",
+    "asset": "USDCAD",
+    "timeframe": "D1",
+    "family": "ATR_TREND",
+    "params": [
+      14,
+      2
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "TREND_FOLLOWING",
+      "POSITIONAL"
+    ],
+    "trades": 19,
+    "win_rate": 0.315789,
+    "payoff_ratio_real": 3.190824,
+    "expectancy_per_trade_real": 0.00080098,
+    "profit_factor_real": 1.472688,
+    "avg_holding_bars": 5.11,
+    "best_entry_hour": 0,
+    "deployment_score": 13.052356,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDCAD_M15_BREAKOUT_6cb3072febea0192a6591778",
+    "edge_id": "6cb3072febea0192a6591778",
+    "asset": "USDCAD",
+    "timeframe": "M15",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "INTRADAY"
+    ],
+    "trades": 23,
+    "win_rate": 0.478261,
+    "payoff_ratio_real": 1.591623,
+    "expectancy_per_trade_real": 9.522e-05,
+    "profit_factor_real": 1.750785,
+    "avg_holding_bars": 2.52,
+    "best_entry_hour": 9,
+    "deployment_score": 13.025467,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDCAD_M15_DONCHIAN_25c0f7838a75ef0895fbfa48",
+    "edge_id": "25c0f7838a75ef0895fbfa48",
+    "asset": "USDCAD",
+    "timeframe": "M15",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "INTRADAY"
+    ],
+    "trades": 23,
+    "win_rate": 0.478261,
+    "payoff_ratio_real": 1.591623,
+    "expectancy_per_trade_real": 9.522e-05,
+    "profit_factor_real": 1.750785,
+    "avg_holding_bars": 2.52,
+    "best_entry_hour": 9,
+    "deployment_score": 13.025467,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_BREAKOUT_852b3311b72daed06f079da7",
+    "edge_id": "852b3311b72daed06f079da7",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "POSITIONAL"
+    ],
+    "trades": 35,
+    "win_rate": 0.428571,
+    "payoff_ratio_real": 2.109881,
+    "expectancy_per_trade_real": 0.00386834,
+    "profit_factor_real": 1.582411,
+    "avg_holding_bars": 2.14,
+    "best_entry_hour": 0,
+    "deployment_score": 12.837355,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_BREAKOUT_7a7ccccbf0e367b23f9d3d47",
+    "edge_id": "7a7ccccbf0e367b23f9d3d47",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "BREAKOUT",
+    "params": [
+      20
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "POSITIONAL"
+    ],
+    "trades": 48,
+    "win_rate": 0.375,
+    "payoff_ratio_real": 2.457152,
+    "expectancy_per_trade_real": 0.00290608,
+    "profit_factor_real": 1.474291,
+    "avg_holding_bars": 2.12,
+    "best_entry_hour": 0,
+    "deployment_score": 11.916348,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_DONCHIAN_38ada14ef06fb3d3930c9951",
+    "edge_id": "38ada14ef06fb3d3930c9951",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "DONCHIAN",
+    "params": [
+      20
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "POSITIONAL"
+    ],
+    "trades": 48,
+    "win_rate": 0.375,
+    "payoff_ratio_real": 2.457152,
+    "expectancy_per_trade_real": 0.00290608,
+    "profit_factor_real": 1.474291,
+    "avg_holding_bars": 2.12,
+    "best_entry_hour": 0,
+    "deployment_score": 11.916348,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDCAD_M5_BOLLINGER_REVERSION_492468243b42b1330af63a79",
+    "edge_id": "492468243b42b1330af63a79",
+    "asset": "USDCAD",
+    "timeframe": "M5",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      20,
+      2
+    ],
+    "profile": "SCALP_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "FAST_EXECUTION"
+    ],
+    "trades": 5,
+    "win_rate": 0.6,
+    "payoff_ratio_real": 1.048856,
+    "expectancy_per_trade_real": 6.729e-05,
+    "profit_factor_real": 1.573283,
+    "avg_holding_bars": 2.4,
+    "best_entry_hour": 20,
+    "deployment_score": 11.914365,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "XAUUSD_D1_BREAKOUT_950553c3af5d6a19e302be6c",
+    "edge_id": "950553c3af5d6a19e302be6c",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "family": "BREAKOUT",
+    "params": [
+      55
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "POSITIONAL"
+    ],
+    "trades": 82,
+    "win_rate": 0.390244,
+    "payoff_ratio_real": 2.087554,
+    "expectancy_per_trade_real": 0.00178638,
+    "profit_factor_real": 1.336035,
+    "avg_holding_bars": 2.06,
+    "best_entry_hour": 0,
+    "deployment_score": 10.888286,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDJPY_H4_BOLLINGER_REVERSION_aa43992c8a6379ca2aa0d71f",
+    "edge_id": "aa43992c8a6379ca2aa0d71f",
+    "asset": "USDJPY",
+    "timeframe": "H4",
+    "family": "BOLLINGER_REVERSION",
+    "params": [
+      20,
+      2
+    ],
+    "profile": "SWING_SPECIALIST",
+    "regime_tags": [
+      "RANGE_REVERSION",
+      "POSITIONAL"
+    ],
+    "trades": 7,
+    "win_rate": 0.571429,
+    "payoff_ratio_real": 1.407894,
+    "expectancy_per_trade_real": 0.00043911,
+    "profit_factor_real": 1.877192,
+    "avg_holding_bars": 2.43,
+    "best_entry_hour": 12,
+    "deployment_score": 10.568345,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "specialist_id": "USDCAD_M15_DONCHIAN_a2c55b4e7a623f590af84320",
+    "edge_id": "a2c55b4e7a623f590af84320",
+    "asset": "USDCAD",
+    "timeframe": "M15",
+    "family": "DONCHIAN",
+    "params": [
+      50
+    ],
+    "profile": "DAY_TRADE_SPECIALIST",
+    "regime_tags": [
+      "BREAKOUT_VOLATILITY",
+      "INTRADAY"
+    ],
+    "trades": 15,
+    "win_rate": 0.466667,
+    "payoff_ratio_real": 1.232557,
+    "expectancy_per_trade_real": 7.181e-05,
+    "profit_factor_real": 1.437984,
+    "avg_holding_bars": 2.53,
+    "best_entry_hour": 9,
+    "deployment_score": 10.562605,
+    "status": "SPECIALIST_REGISTERED",
+    "certification": "RESEARCH_OR_PROFILE_PENDING",
+    "ORDER_SENT": false,
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  }
+]

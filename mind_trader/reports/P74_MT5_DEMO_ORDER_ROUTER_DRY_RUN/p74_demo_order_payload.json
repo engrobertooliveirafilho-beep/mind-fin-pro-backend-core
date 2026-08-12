@@ -1,0 +1,13 @@
+{
+  "symbol": "EURUSD",
+  "side": "BUY",
+  "lot": 0.01,
+  "sl_points": 100,
+  "tp_points": 150,
+  "order_mode": "DRY_RUN_DEMO_ONLY",
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN"
+}

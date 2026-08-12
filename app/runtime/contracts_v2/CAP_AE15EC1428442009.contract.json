@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_AE15EC1428442009",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\core\\dtypes\\base.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\pandas\\core\\dtypes\\base.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 114,
+  "imports": [
+    "__future__",
+    "numpy",
+    "pandas",
+    "pandas._libs",
+    "pandas._libs.hashtable",
+    "pandas._libs.properties",
+    "pandas._typing",
+    "pandas.core.arrays",
+    "pandas.core.dtypes.generic",
+    "pandas.errors",
+    "pandas.util._decorators",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

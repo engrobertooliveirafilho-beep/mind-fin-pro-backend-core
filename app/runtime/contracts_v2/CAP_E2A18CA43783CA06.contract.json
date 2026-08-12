@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_E2A18CA43783CA06",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\beta\\assistant_stream_event.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\openai\\types\\beta\\assistant_stream_event.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 98,
+  "imports": [
+    "_models",
+    "_utils",
+    "shared.error_object",
+    "thread",
+    "threads.message",
+    "threads.message_delta_event",
+    "threads.run",
+    "threads.runs.run_step",
+    "threads.runs.run_step_delta_event",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

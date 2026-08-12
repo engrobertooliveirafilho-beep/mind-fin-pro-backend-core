@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_0309A439473F185B",
+  "source_file": ".venv\\Lib\\site-packages\\psycopg\\types\\hstore.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\psycopg\\types\\hstore.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 119,
+  "imports": [
+    "__future__",
+    "_encodings",
+    "_oids",
+    "_typeinfo",
+    "abc",
+    "adapt",
+    "functools",
+    "pq",
+    "re",
+    "struct",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

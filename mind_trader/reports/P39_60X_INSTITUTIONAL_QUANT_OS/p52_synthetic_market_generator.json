@@ -1,0 +1,15 @@
+{
+  "synthetic_scenarios": [
+    "trend_up",
+    "trend_down",
+    "sideways",
+    "gap",
+    "vol_spike",
+    "crash"
+  ],
+  "status": "SYNTHETIC_MARKET_READY",
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN"
+}

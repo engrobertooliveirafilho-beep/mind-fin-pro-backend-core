@@ -1,0 +1,13 @@
+var
+  fastMA, slowMA : Float;
+
+begin
+  fastMA := Media(8, Close);
+  slowMA := Media(34, Close);
+
+  if fastMA > slowMA then
+    BuyAtMarket;
+
+  if fastMA < slowMA then
+    SellShortAtMarket;
+end;

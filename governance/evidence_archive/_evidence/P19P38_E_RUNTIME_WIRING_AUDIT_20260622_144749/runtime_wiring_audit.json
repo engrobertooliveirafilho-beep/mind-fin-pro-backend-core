@@ -1,0 +1,272 @@
+[
+  {
+    "id": "safe_recovery_adapter",
+    "path": "app/companionship/safe_recovery_adapter.py",
+    "risk": "MEDIUM",
+    "purpose": "central context collector already used for shadow memory",
+    "exists": true,
+    "size": 24289,
+    "functions": [
+      "safe_import",
+      "collect_recovered_context",
+      "enrich_reply_shadow",
+      "_safe_json_default",
+      "record_shadow_telemetry",
+      "_p19p36k_normalize_memory_item",
+      "_p19p36k_get_memory_store",
+      "remember_user_message",
+      "recall_user_history",
+      "collect_memory_shadow",
+      "_p19p36l_tokens",
+      "score_memory_relevance",
+      "attach_memory_fusion_shadow",
+      "build_memory_fusion_advisor",
+      "attach_memory_fusion_advisor_shadow",
+      "_p19p36m_hotfix_without_current_message",
+      "_p19p36m_h2_domain_semantic_bridge",
+      "score_memory_relevance",
+      "_p19p36m_h4_authoritative_advisor_guard",
+      "_p19p36n_memory_fusion_enabled",
+      "build_memory_fusion_live_context",
+      "attach_memory_fusion_live_gated",
+      "record_p19p36n_memory_fusion_telemetry"
+    ],
+    "imports_count": 14,
+    "anchors": [
+      "collect_recovered_context",
+      "record_shadow_telemetry"
+    ],
+    "current_connections": {
+      "imports_live_cognition_gated": false,
+      "imports_digital_twin_real": false,
+      "imports_long_term_memory_real": false,
+      "imports_self_reflection_engine": false,
+      "mentions_safe_recovery_adapter": true,
+      "mentions_shadow": true,
+      "mentions_feature_flag": true
+    },
+    "suggested_patch": [
+      "import attach_digital_twin_shadow",
+      "import attach_behavior_model_shadow",
+      "import attach_emotional_continuity_shadow",
+      "import attach_long_term_memory_shadow",
+      "import attach_self_reflection_shadow",
+      "import attach_live_cognition_shadow",
+      "attach in collect_recovered_context after p19p36p_long_term_goal_shadow",
+      "record in telemetry payload"
+    ],
+    "recommended_action": "WIRE_IN_SAFE_RECOVERY_ADAPTER_FIRST"
+  },
+  {
+    "id": "whatsapp_runtime",
+    "path": "app/api/whatsapp.py",
+    "risk": "HIGH",
+    "purpose": "production WhatsApp entrypoint",
+    "exists": true,
+    "size": 46885,
+    "functions": [
+      "_p482c_whatsapp_contract_reply",
+      "_p19p28_pre_context_router",
+      "_p427u_test_compat",
+      "_eldora_live_override_contract_patch",
+      "_p19p19_norm",
+      "_p19p19_is_short_followup",
+      "_p19p19_detect_domain",
+      "_p19p19_remember_domain",
+      "_p19p19_get_domain",
+      "_p19p19_expand_short_followup",
+      "_p19p19_direct_context_reply",
+      "_p19p16_confinement_domain_interceptor",
+      "_p19p9_universal_whatsapp_output_guard",
+      "_p19p8_suppress_generic_restart",
+      "_p19p7_contextual_followup_expansion",
+      "_p19p6_expand_bad_followup_template",
+      "_p19p5_block_agricultural_automotive_contamination",
+      "_p19p21b_extract_twilio_form_value",
+      "_p19p21b_real_whatsapp_certified_reply",
+      "_p19p21b_is_real_whatsapp_form",
+      "_p19p3_apply_automotive_guards",
+      "_p412n_twiml_final_normalizer",
+      "twiml",
+      "live_whatsapp_override",
+      "compat_semantics_after_cognition",
+      "_p3_human_e2e_guard",
+      "eldora_primary_runtime_reply",
+      "p449c_usde_whatsapp_hook"
+    ],
+    "imports_count": 44,
+    "anchors": [
+      "Body",
+      "From",
+      "cognitive",
+      "respond",
+      "pipeline"
+    ],
+    "current_connections": {
+      "imports_live_cognition_gated": false,
+      "imports_digital_twin_real": false,
+      "imports_long_term_memory_real": false,
+      "imports_self_reflection_engine": false,
+      "mentions_safe_recovery_adapter": false,
+      "mentions_shadow": false,
+      "mentions_feature_flag": true
+    },
+    "suggested_patch": [
+      "do not modify directly until adapter wiring has tests",
+      "audit only for collect_recovered_context usage",
+      "promote only with feature flag and canary allowlist"
+    ],
+    "recommended_action": "AUDIT_ONLY_DO_NOT_PATCH_DIRECTLY"
+  },
+  {
+    "id": "cognitive_pipeline",
+    "path": "app/runtime/cognitive_pipeline.py",
+    "risk": "HIGH",
+    "purpose": "runtime cognition pipeline",
+    "exists": true,
+    "size": 17639,
+    "functions": [
+      "_p482c_scores",
+      "_p482c_answer",
+      "run_cognitive_pipeline",
+      "__identity_guard_last_hop",
+      "_p428e_runtime_fusion"
+    ],
+    "imports_count": 22,
+    "anchors": [
+      "cognitive",
+      "respond",
+      "pipeline"
+    ],
+    "current_connections": {
+      "imports_live_cognition_gated": false,
+      "imports_digital_twin_real": false,
+      "imports_long_term_memory_real": false,
+      "imports_self_reflection_engine": false,
+      "mentions_safe_recovery_adapter": false,
+      "mentions_shadow": true,
+      "mentions_feature_flag": false
+    },
+    "suggested_patch": [
+      "do not modify directly until safe_recovery_adapter emits full cognition shadow",
+      "read cognition context only after no response regression",
+      "compare shadow-vs-visible output before promotion"
+    ],
+    "recommended_action": "AUDIT_ONLY_DO_NOT_PATCH_DIRECTLY"
+  },
+  {
+    "id": "live_cognition_gated",
+    "path": "app/companionship/live_cognition_gated.py",
+    "risk": "MEDIUM",
+    "purpose": "feature-flagged live cognition gate",
+    "exists": true,
+    "size": 2217,
+    "functions": [
+      "live_cognition_enabled",
+      "build_live_cognition_decision",
+      "attach_live_cognition_shadow"
+    ],
+    "imports_count": 2,
+    "anchors": [
+      "attach_live_cognition_shadow"
+    ],
+    "current_connections": {
+      "imports_live_cognition_gated": false,
+      "imports_digital_twin_real": true,
+      "imports_long_term_memory_real": true,
+      "imports_self_reflection_engine": false,
+      "mentions_safe_recovery_adapter": false,
+      "mentions_shadow": true,
+      "mentions_feature_flag": true
+    },
+    "suggested_patch": [],
+    "recommended_action": "AVAILABLE_FOR_ADAPTER_IMPORT"
+  },
+  {
+    "id": "digital_twin_real",
+    "path": "app/companionship/digital_twin_real.py",
+    "risk": "MEDIUM",
+    "purpose": "digital twin shadow profile",
+    "exists": true,
+    "size": 3318,
+    "functions": [
+      "enabled",
+      "_now",
+      "_load",
+      "_save",
+      "_profile",
+      "build_digital_twin_snapshot",
+      "attach_digital_twin_shadow"
+    ],
+    "imports_count": 5,
+    "anchors": [
+      "attach_digital_twin_shadow"
+    ],
+    "current_connections": {
+      "imports_live_cognition_gated": false,
+      "imports_digital_twin_real": true,
+      "imports_long_term_memory_real": false,
+      "imports_self_reflection_engine": false,
+      "mentions_safe_recovery_adapter": false,
+      "mentions_shadow": true,
+      "mentions_feature_flag": true
+    },
+    "suggested_patch": [],
+    "recommended_action": "AVAILABLE_FOR_ADAPTER_IMPORT"
+  },
+  {
+    "id": "long_term_memory_real",
+    "path": "app/companionship/long_term_memory_real.py",
+    "risk": "MEDIUM",
+    "purpose": "long-term memory consolidation",
+    "exists": true,
+    "size": 2076,
+    "functions": [
+      "_now",
+      "consolidate_long_term_memory",
+      "attach_long_term_memory_shadow"
+    ],
+    "imports_count": 4,
+    "anchors": [
+      "attach_long_term_memory_shadow"
+    ],
+    "current_connections": {
+      "imports_live_cognition_gated": false,
+      "imports_digital_twin_real": true,
+      "imports_long_term_memory_real": true,
+      "imports_self_reflection_engine": false,
+      "mentions_safe_recovery_adapter": false,
+      "mentions_shadow": true,
+      "mentions_feature_flag": true
+    },
+    "suggested_patch": [],
+    "recommended_action": "AVAILABLE_FOR_ADAPTER_IMPORT"
+  },
+  {
+    "id": "self_reflection_engine",
+    "path": "app/companionship/self_reflection_engine.py",
+    "risk": "MEDIUM",
+    "purpose": "self reflection readiness",
+    "exists": true,
+    "size": 1179,
+    "functions": [
+      "build_self_reflection",
+      "attach_self_reflection_shadow"
+    ],
+    "imports_count": 1,
+    "anchors": [
+      "attach_self_reflection_shadow"
+    ],
+    "current_connections": {
+      "imports_live_cognition_gated": false,
+      "imports_digital_twin_real": true,
+      "imports_long_term_memory_real": true,
+      "imports_self_reflection_engine": false,
+      "mentions_safe_recovery_adapter": false,
+      "mentions_shadow": true,
+      "mentions_feature_flag": true
+    },
+    "suggested_patch": [],
+    "recommended_action": "AVAILABLE_FOR_ADAPTER_IMPORT"
+  }
+]

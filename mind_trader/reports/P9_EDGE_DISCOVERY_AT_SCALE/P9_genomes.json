@@ -1,0 +1,10002 @@
+[
+  {
+    "family": "range_compression",
+    "asset": "NASDAQ",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 0,
+    "genome_id": "fdfdc510eb7e4613"
+  },
+  {
+    "family": "hybrid",
+    "asset": "BTCUSD",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 1,
+    "genome_id": "1d70d9081f906634"
+  },
+  {
+    "family": "pullback",
+    "asset": "IND",
+    "timeframe": "M1",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 2,
+    "genome_id": "8fa99fb5c16d3d0f"
+  },
+  {
+    "family": "order_flow",
+    "asset": "ETHUSD",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 3,
+    "genome_id": "c36c9f42552d827a"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "USDJPY",
+    "timeframe": "M30",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 4,
+    "genome_id": "7ac5b5efaf03e659"
+  },
+  {
+    "family": "trend_following",
+    "asset": "NASDAQ",
+    "timeframe": "M15",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 5,
+    "genome_id": "93a9c3bf1d5d33a6"
+  },
+  {
+    "family": "hybrid",
+    "asset": "SP500",
+    "timeframe": "H1",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 6,
+    "genome_id": "2b31a040f5b7c2e6"
+  },
+  {
+    "family": "range_compression",
+    "asset": "XAUUSD",
+    "timeframe": "M1",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 7,
+    "genome_id": "d26b3854df973e5f"
+  },
+  {
+    "family": "pullback",
+    "asset": "ETHUSD",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 8,
+    "genome_id": "9d61ecc1c96c2a0f"
+  },
+  {
+    "family": "pullback",
+    "asset": "SP500",
+    "timeframe": "M30",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 9,
+    "genome_id": "ec0f69a5bcf5a5f7"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "BTCUSD",
+    "timeframe": "D1",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 10,
+    "genome_id": "747a08ad40980047"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "ETHUSD",
+    "timeframe": "M15",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 11,
+    "genome_id": "5d5347f7d2c3ca1e"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "NASDAQ",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 12,
+    "genome_id": "129ef1271e63032b"
+  },
+  {
+    "family": "breakout",
+    "asset": "WDO",
+    "timeframe": "TICK",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 13,
+    "genome_id": "d81e545e9c78da31"
+  },
+  {
+    "family": "vwap",
+    "asset": "DOL",
+    "timeframe": "M15",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 14,
+    "genome_id": "cc02401cdaa48b0f"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "SP500",
+    "timeframe": "M15",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 15,
+    "genome_id": "0027aec0be3d46c2"
+  },
+  {
+    "family": "range_compression",
+    "asset": "WIN",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 16,
+    "genome_id": "03be5e45d99bb16b"
+  },
+  {
+    "family": "breakout",
+    "asset": "ETHUSD",
+    "timeframe": "H1",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 17,
+    "genome_id": "816965abc52a2ffb"
+  },
+  {
+    "family": "pullback",
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 18,
+    "genome_id": "918fac776e13f87b"
+  },
+  {
+    "family": "hybrid",
+    "asset": "WDO",
+    "timeframe": "D1",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 19,
+    "genome_id": "be443ad38a5b369a"
+  },
+  {
+    "family": "breakout",
+    "asset": "ETHUSD",
+    "timeframe": "M15",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 20,
+    "genome_id": "2f23af6122922e8f"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 21,
+    "genome_id": "2d6a248e10f23ea8"
+  },
+  {
+    "family": "vwap",
+    "asset": "BTCUSD",
+    "timeframe": "H4",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 22,
+    "genome_id": "f4be85d52639f8a8"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "DOL",
+    "timeframe": "H1",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 23,
+    "genome_id": "d6bb221bad67ff0e"
+  },
+  {
+    "family": "breakout",
+    "asset": "IND",
+    "timeframe": "M15",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 24,
+    "genome_id": "6034c00498671c17"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 25,
+    "genome_id": "f9bc1b8ca244c2ea"
+  },
+  {
+    "family": "vwap",
+    "asset": "BTCUSD",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 26,
+    "genome_id": "cba6d73853695a36"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "SP500",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 27,
+    "genome_id": "81625063463b0aeb"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 28,
+    "genome_id": "53e346974b78e903"
+  },
+  {
+    "family": "hybrid",
+    "asset": "BTCUSD",
+    "timeframe": "H1",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 29,
+    "genome_id": "81590ea4546cc97c"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "WIN",
+    "timeframe": "TICK",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 30,
+    "genome_id": "e5366b5c3f826062"
+  },
+  {
+    "family": "trend_following",
+    "asset": "SP500",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 31,
+    "genome_id": "d8ab311c6533c6d5"
+  },
+  {
+    "family": "breakout",
+    "asset": "USDJPY",
+    "timeframe": "M1",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 32,
+    "genome_id": "95bc5f1d4cdc81e6"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "WDO",
+    "timeframe": "TICK",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 33,
+    "genome_id": "00af1beb56e45cf9"
+  },
+  {
+    "family": "vwap",
+    "asset": "WIN",
+    "timeframe": "H4",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 34,
+    "genome_id": "f245a47a8a026608"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 35,
+    "genome_id": "d3736aba22a7ad84"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "IND",
+    "timeframe": "M1",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 36,
+    "genome_id": "604473863d508a84"
+  },
+  {
+    "family": "hybrid",
+    "asset": "IND",
+    "timeframe": "D1",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 37,
+    "genome_id": "f7dca9fb1f9f09fa"
+  },
+  {
+    "family": "range_compression",
+    "asset": "WIN",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 38,
+    "genome_id": "ba851d3c174cd6fe"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "NASDAQ",
+    "timeframe": "M5",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 39,
+    "genome_id": "03e1fc39e115e5b2"
+  },
+  {
+    "family": "breakout",
+    "asset": "WIN",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 40,
+    "genome_id": "9f78f3cf8697f2f7"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "SP500",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 41,
+    "genome_id": "76e0a24127ff1caf"
+  },
+  {
+    "family": "trend_following",
+    "asset": "ETHUSD",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 42,
+    "genome_id": "3da485b26f92cd5c"
+  },
+  {
+    "family": "pullback",
+    "asset": "WIN",
+    "timeframe": "TICK",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 43,
+    "genome_id": "e0889eab1d08e709"
+  },
+  {
+    "family": "hybrid",
+    "asset": "GBPUSD",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 44,
+    "genome_id": "c83a75ddce381bd6"
+  },
+  {
+    "family": "pullback",
+    "asset": "NASDAQ",
+    "timeframe": "H1",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 45,
+    "genome_id": "e3fc8049df36f8b7"
+  },
+  {
+    "family": "breakout",
+    "asset": "WIN",
+    "timeframe": "D1",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 46,
+    "genome_id": "dba9f7ebf92e37ec"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "BTCUSD",
+    "timeframe": "M1",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 47,
+    "genome_id": "bc791cf731650756"
+  },
+  {
+    "family": "breakout",
+    "asset": "DOL",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 48,
+    "genome_id": "7e6bde2765ef5ae2"
+  },
+  {
+    "family": "trend_following",
+    "asset": "WDO",
+    "timeframe": "H1",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 49,
+    "genome_id": "aa5504df20ad110f"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "SP500",
+    "timeframe": "M30",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 50,
+    "genome_id": "cd637a994ab94ce6"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "DOL",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 51,
+    "genome_id": "e960cf506eb757e6"
+  },
+  {
+    "family": "breakout",
+    "asset": "DOL",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 52,
+    "genome_id": "b88086970eaefd6f"
+  },
+  {
+    "family": "range_compression",
+    "asset": "SP500",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 53,
+    "genome_id": "b9196580b21aec7e"
+  },
+  {
+    "family": "trend_following",
+    "asset": "WDO",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 54,
+    "genome_id": "9d88df64a18e78a3"
+  },
+  {
+    "family": "hybrid",
+    "asset": "BTCUSD",
+    "timeframe": "TICK",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 55,
+    "genome_id": "0074de789bd37f55"
+  },
+  {
+    "family": "trend_following",
+    "asset": "ETHUSD",
+    "timeframe": "D1",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 56,
+    "genome_id": "0bc23915a0a4b5c2"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 57,
+    "genome_id": "6d26b48b2819a74b"
+  },
+  {
+    "family": "pullback",
+    "asset": "SP500",
+    "timeframe": "M1",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 58,
+    "genome_id": "f9e7e39af0c339aa"
+  },
+  {
+    "family": "hybrid",
+    "asset": "USDJPY",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 59,
+    "genome_id": "c9a81ad3a2189a97"
+  },
+  {
+    "family": "vwap",
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 60,
+    "genome_id": "48d9dc6e12bf4cd8"
+  },
+  {
+    "family": "breakout",
+    "asset": "IND",
+    "timeframe": "M15",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 61,
+    "genome_id": "026c9a7ebb914e3d"
+  },
+  {
+    "family": "trend_following",
+    "asset": "ETHUSD",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 62,
+    "genome_id": "16b16f4c1f949b84"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 63,
+    "genome_id": "eabe7019b70852ba"
+  },
+  {
+    "family": "vwap",
+    "asset": "SP500",
+    "timeframe": "M15",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 64,
+    "genome_id": "bed013232ab83adc"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "WDO",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 65,
+    "genome_id": "c872fe9208cd2b1a"
+  },
+  {
+    "family": "vwap",
+    "asset": "BTCUSD",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 66,
+    "genome_id": "0f9d71c9d0a62ee3"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "USDJPY",
+    "timeframe": "M30",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 67,
+    "genome_id": "54ef3133903716b0"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "IND",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 68,
+    "genome_id": "9a8fc9d652b70902"
+  },
+  {
+    "family": "vwap",
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 69,
+    "genome_id": "0cdbe479971e8463"
+  },
+  {
+    "family": "range_compression",
+    "asset": "NASDAQ",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 70,
+    "genome_id": "db6b90ef591e57c0"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "USDJPY",
+    "timeframe": "TICK",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 71,
+    "genome_id": "e443483de7766a32"
+  },
+  {
+    "family": "trend_following",
+    "asset": "WIN",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 72,
+    "genome_id": "56ceb7cff13b1384"
+  },
+  {
+    "family": "hybrid",
+    "asset": "ETHUSD",
+    "timeframe": "M30",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 73,
+    "genome_id": "03d14f30bbc36c79"
+  },
+  {
+    "family": "breakout",
+    "asset": "NASDAQ",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 74,
+    "genome_id": "435d6660102eb559"
+  },
+  {
+    "family": "hybrid",
+    "asset": "NASDAQ",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 75,
+    "genome_id": "3fb2382f39551c1a"
+  },
+  {
+    "family": "order_flow",
+    "asset": "WDO",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 76,
+    "genome_id": "3183363ba8512585"
+  },
+  {
+    "family": "hybrid",
+    "asset": "XAUUSD",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 77,
+    "genome_id": "24bc79be7cb97429"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "DOL",
+    "timeframe": "M15",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 78,
+    "genome_id": "07c9af27c2e1fb31"
+  },
+  {
+    "family": "range_compression",
+    "asset": "BTCUSD",
+    "timeframe": "M15",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 79,
+    "genome_id": "a01e1563b472740a"
+  },
+  {
+    "family": "vwap",
+    "asset": "ETHUSD",
+    "timeframe": "D1",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 80,
+    "genome_id": "b306e98ee2504438"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "IND",
+    "timeframe": "M15",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 81,
+    "genome_id": "18f77259ff22c008"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "BTCUSD",
+    "timeframe": "M30",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 82,
+    "genome_id": "8d913b9fc74de08d"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "WDO",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 83,
+    "genome_id": "c94554cd64556cc4"
+  },
+  {
+    "family": "vwap",
+    "asset": "BTCUSD",
+    "timeframe": "H4",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 84,
+    "genome_id": "24ddbb7f18e36bdd"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "GBPUSD",
+    "timeframe": "H1",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 85,
+    "genome_id": "8bfddce0e96e05b5"
+  },
+  {
+    "family": "order_flow",
+    "asset": "BTCUSD",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 86,
+    "genome_id": "481d25f58f3a50bd"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 87,
+    "genome_id": "a7582cfe5f480d80"
+  },
+  {
+    "family": "breakout",
+    "asset": "IND",
+    "timeframe": "M15",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 88,
+    "genome_id": "96d14d17a5ad9ffb"
+  },
+  {
+    "family": "breakout",
+    "asset": "DOL",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 89,
+    "genome_id": "c10aee45a564b13c"
+  },
+  {
+    "family": "trend_following",
+    "asset": "BTCUSD",
+    "timeframe": "TICK",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 90,
+    "genome_id": "bd36ea48539a9077"
+  },
+  {
+    "family": "order_flow",
+    "asset": "USDJPY",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 91,
+    "genome_id": "ae9a9ea35a2273ec"
+  },
+  {
+    "family": "pullback",
+    "asset": "XAUUSD",
+    "timeframe": "TICK",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 92,
+    "genome_id": "39baa6bccb0dddcb"
+  },
+  {
+    "family": "range_compression",
+    "asset": "BTCUSD",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 93,
+    "genome_id": "0ab4048f8e0613dd"
+  },
+  {
+    "family": "range_compression",
+    "asset": "XAUUSD",
+    "timeframe": "M5",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 94,
+    "genome_id": "e80a5dd5ffa95365"
+  },
+  {
+    "family": "vwap",
+    "asset": "IND",
+    "timeframe": "M1",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 95,
+    "genome_id": "18ffc2a1c482fac6"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "DOL",
+    "timeframe": "H4",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 96,
+    "genome_id": "5fda34652a58dbfd"
+  },
+  {
+    "family": "range_compression",
+    "asset": "ETHUSD",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 97,
+    "genome_id": "3381d38f27b5eb69"
+  },
+  {
+    "family": "hybrid",
+    "asset": "BTCUSD",
+    "timeframe": "H4",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 98,
+    "genome_id": "34110dd19579ff1a"
+  },
+  {
+    "family": "hybrid",
+    "asset": "ETHUSD",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 99,
+    "genome_id": "bde861745682abfe"
+  },
+  {
+    "family": "range_compression",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 100,
+    "genome_id": "115407c8350d80a5"
+  },
+  {
+    "family": "hybrid",
+    "asset": "WDO",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 101,
+    "genome_id": "e77806e81bfd9380"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "USDJPY",
+    "timeframe": "M15",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 102,
+    "genome_id": "0a232c2a81d73758"
+  },
+  {
+    "family": "breakout",
+    "asset": "NASDAQ",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 103,
+    "genome_id": "d01d73e09c1566ef"
+  },
+  {
+    "family": "range_compression",
+    "asset": "ETHUSD",
+    "timeframe": "TICK",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 104,
+    "genome_id": "248a9de4fb8a081f"
+  },
+  {
+    "family": "order_flow",
+    "asset": "SP500",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 105,
+    "genome_id": "be96e7cc5386559d"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "XAUUSD",
+    "timeframe": "M30",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 106,
+    "genome_id": "b07eeef9fe761fd2"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "IND",
+    "timeframe": "H1",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 107,
+    "genome_id": "924e7b04aef2509c"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "NASDAQ",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 108,
+    "genome_id": "5ce1377b8ed7c192"
+  },
+  {
+    "family": "trend_following",
+    "asset": "EURUSD",
+    "timeframe": "TICK",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 109,
+    "genome_id": "a51b8998feb9a51e"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 110,
+    "genome_id": "18ea41d33bbc4878"
+  },
+  {
+    "family": "order_flow",
+    "asset": "DOL",
+    "timeframe": "D1",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 111,
+    "genome_id": "c107a2daf7768a84"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 112,
+    "genome_id": "325991863fd40589"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "NASDAQ",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 113,
+    "genome_id": "9541ec36f2985221"
+  },
+  {
+    "family": "vwap",
+    "asset": "WDO",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 114,
+    "genome_id": "3cb1afba5dda01b6"
+  },
+  {
+    "family": "trend_following",
+    "asset": "SP500",
+    "timeframe": "M15",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 115,
+    "genome_id": "c8e11fbdd4613993"
+  },
+  {
+    "family": "vwap",
+    "asset": "GBPUSD",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 116,
+    "genome_id": "086f1d1eba892589"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "BTCUSD",
+    "timeframe": "D1",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 117,
+    "genome_id": "90f6b4d3c186ccac"
+  },
+  {
+    "family": "pullback",
+    "asset": "SP500",
+    "timeframe": "D1",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 118,
+    "genome_id": "aacf21ac33434b89"
+  },
+  {
+    "family": "range_compression",
+    "asset": "WIN",
+    "timeframe": "M1",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 119,
+    "genome_id": "74de1f427e279c98"
+  },
+  {
+    "family": "hybrid",
+    "asset": "XAUUSD",
+    "timeframe": "M1",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 120,
+    "genome_id": "09889bc04bd998f3"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "USDJPY",
+    "timeframe": "TICK",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 121,
+    "genome_id": "436c400dd58cc027"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "WIN",
+    "timeframe": "H1",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 122,
+    "genome_id": "58e6b5cf63d72305"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "BTCUSD",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 123,
+    "genome_id": "6f0f15c1a61a9aea"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "WDO",
+    "timeframe": "M30",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 124,
+    "genome_id": "a8a4e1f730708037"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 125,
+    "genome_id": "5d3e744a887cf1f0"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "WDO",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 126,
+    "genome_id": "4b03e0a12acdbded"
+  },
+  {
+    "family": "breakout",
+    "asset": "DOL",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 127,
+    "genome_id": "0ecbd8a7d9e3c203"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "ETHUSD",
+    "timeframe": "D1",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 128,
+    "genome_id": "a5bed1cda5366a84"
+  },
+  {
+    "family": "order_flow",
+    "asset": "NASDAQ",
+    "timeframe": "M30",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 129,
+    "genome_id": "1f27390c27db6044"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "XAUUSD",
+    "timeframe": "TICK",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 130,
+    "genome_id": "dac5f524efc9a65d"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "XAUUSD",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 131,
+    "genome_id": "8a0602251a375d3f"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "IND",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 132,
+    "genome_id": "1ad38953bdcfdc49"
+  },
+  {
+    "family": "vwap",
+    "asset": "WIN",
+    "timeframe": "M15",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 133,
+    "genome_id": "a1ffad7246daf4c7"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "NASDAQ",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 134,
+    "genome_id": "c88191b227f5e0a2"
+  },
+  {
+    "family": "trend_following",
+    "asset": "NASDAQ",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 135,
+    "genome_id": "3b7c0da785c869f4"
+  },
+  {
+    "family": "range_compression",
+    "asset": "BTCUSD",
+    "timeframe": "M5",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 136,
+    "genome_id": "9025e95a4b45dc82"
+  },
+  {
+    "family": "pullback",
+    "asset": "DOL",
+    "timeframe": "TICK",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 137,
+    "genome_id": "fab34383ff0c399f"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "DOL",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 138,
+    "genome_id": "fbaaed3efbc5b373"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "SP500",
+    "timeframe": "M15",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 139,
+    "genome_id": "09ed0b5d3b8864d6"
+  },
+  {
+    "family": "order_flow",
+    "asset": "NASDAQ",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 140,
+    "genome_id": "3f1224d7214e0e99"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "GBPUSD",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 141,
+    "genome_id": "0a2981b3cb896410"
+  },
+  {
+    "family": "breakout",
+    "asset": "WIN",
+    "timeframe": "M30",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 142,
+    "genome_id": "f3d776d94b19a530"
+  },
+  {
+    "family": "range_compression",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 143,
+    "genome_id": "284e7a37837a309e"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "BTCUSD",
+    "timeframe": "M5",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 144,
+    "genome_id": "6741b5893a7957bd"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "BTCUSD",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 145,
+    "genome_id": "8ce68f0d4248c3c7"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 146,
+    "genome_id": "b087ca780ff52c5f"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 147,
+    "genome_id": "c96ad652e3a90d42"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "XAUUSD",
+    "timeframe": "H1",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 148,
+    "genome_id": "7b9f51ed56491648"
+  },
+  {
+    "family": "vwap",
+    "asset": "BTCUSD",
+    "timeframe": "M1",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 149,
+    "genome_id": "2a81d3660151c2c1"
+  },
+  {
+    "family": "trend_following",
+    "asset": "IND",
+    "timeframe": "M30",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 150,
+    "genome_id": "6ac3e775b408a20d"
+  },
+  {
+    "family": "hybrid",
+    "asset": "SP500",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 151,
+    "genome_id": "22ab87d13ebba5da"
+  },
+  {
+    "family": "vwap",
+    "asset": "XAUUSD",
+    "timeframe": "H1",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 152,
+    "genome_id": "916605eedb68a7f5"
+  },
+  {
+    "family": "hybrid",
+    "asset": "WDO",
+    "timeframe": "M1",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 153,
+    "genome_id": "01e8d0ee092a7008"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "SP500",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 154,
+    "genome_id": "56a7ea96c33fe3c5"
+  },
+  {
+    "family": "breakout",
+    "asset": "SP500",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 155,
+    "genome_id": "19af657b1273e25f"
+  },
+  {
+    "family": "order_flow",
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 156,
+    "genome_id": "6eccc5aa70f098e3"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "SP500",
+    "timeframe": "M1",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 157,
+    "genome_id": "2234bec67336708c"
+  },
+  {
+    "family": "vwap",
+    "asset": "SP500",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 158,
+    "genome_id": "242a866058f06d53"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "WIN",
+    "timeframe": "M15",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 159,
+    "genome_id": "08e19bfdc3bec5e0"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "XAUUSD",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 160,
+    "genome_id": "9b54d09ff086b77f"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "WIN",
+    "timeframe": "H1",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 161,
+    "genome_id": "0172e0ee1254a3f3"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "BTCUSD",
+    "timeframe": "TICK",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 162,
+    "genome_id": "852f0e5efffa823a"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "USDJPY",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 163,
+    "genome_id": "cdbce27222da5ea6"
+  },
+  {
+    "family": "pullback",
+    "asset": "ETHUSD",
+    "timeframe": "TICK",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 164,
+    "genome_id": "220d08e7ac2d9528"
+  },
+  {
+    "family": "order_flow",
+    "asset": "NASDAQ",
+    "timeframe": "M5",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 165,
+    "genome_id": "57233c196d0a717c"
+  },
+  {
+    "family": "vwap",
+    "asset": "ETHUSD",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 166,
+    "genome_id": "3744b3b4d1778faf"
+  },
+  {
+    "family": "breakout",
+    "asset": "GBPUSD",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 167,
+    "genome_id": "916ecc4f87a67cf2"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "WIN",
+    "timeframe": "TICK",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 168,
+    "genome_id": "7aafa1a18859e002"
+  },
+  {
+    "family": "order_flow",
+    "asset": "XAUUSD",
+    "timeframe": "M1",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 169,
+    "genome_id": "94816e8068ea184b"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 170,
+    "genome_id": "977574efa1adf54b"
+  },
+  {
+    "family": "pullback",
+    "asset": "XAUUSD",
+    "timeframe": "M1",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 171,
+    "genome_id": "148c71901eeb46e6"
+  },
+  {
+    "family": "trend_following",
+    "asset": "ETHUSD",
+    "timeframe": "M30",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 172,
+    "genome_id": "1c167d8080ca2d57"
+  },
+  {
+    "family": "order_flow",
+    "asset": "ETHUSD",
+    "timeframe": "M15",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 173,
+    "genome_id": "9abba24a06d6edeb"
+  },
+  {
+    "family": "trend_following",
+    "asset": "ETHUSD",
+    "timeframe": "D1",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 174,
+    "genome_id": "8e135bda35df1243"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "IND",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 175,
+    "genome_id": "d354ee7616ecc208"
+  },
+  {
+    "family": "order_flow",
+    "asset": "USDJPY",
+    "timeframe": "H1",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 176,
+    "genome_id": "4b4b7a26fdf6fa8c"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "XAUUSD",
+    "timeframe": "M1",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 177,
+    "genome_id": "81d51f2f4abd567c"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "XAUUSD",
+    "timeframe": "TICK",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 178,
+    "genome_id": "67c82894f8f7063b"
+  },
+  {
+    "family": "vwap",
+    "asset": "XAUUSD",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 179,
+    "genome_id": "68b3f429a280bfba"
+  },
+  {
+    "family": "order_flow",
+    "asset": "USDJPY",
+    "timeframe": "M15",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 180,
+    "genome_id": "1a336b6c2f30b884"
+  },
+  {
+    "family": "range_compression",
+    "asset": "IND",
+    "timeframe": "M30",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 181,
+    "genome_id": "cbe3586fd6e3371b"
+  },
+  {
+    "family": "vwap",
+    "asset": "SP500",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 182,
+    "genome_id": "1cb0c9bf7e63f6ab"
+  },
+  {
+    "family": "order_flow",
+    "asset": "USDJPY",
+    "timeframe": "TICK",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 183,
+    "genome_id": "b2570843d3932559"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "WDO",
+    "timeframe": "TICK",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 184,
+    "genome_id": "de0ea1c0cb8b45a5"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "SP500",
+    "timeframe": "M30",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 185,
+    "genome_id": "cab2d3967a064d70"
+  },
+  {
+    "family": "pullback",
+    "asset": "XAUUSD",
+    "timeframe": "M5",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 186,
+    "genome_id": "871458df43b84eee"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "SP500",
+    "timeframe": "M5",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 187,
+    "genome_id": "3c0721f6fd333afa"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "XAUUSD",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 188,
+    "genome_id": "1b0941a338e6847b"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "IND",
+    "timeframe": "H1",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 189,
+    "genome_id": "f8faf7a644efa82a"
+  },
+  {
+    "family": "range_compression",
+    "asset": "WDO",
+    "timeframe": "M1",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 190,
+    "genome_id": "feffe3972974508b"
+  },
+  {
+    "family": "trend_following",
+    "asset": "DOL",
+    "timeframe": "M1",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 191,
+    "genome_id": "78323b9eee026453"
+  },
+  {
+    "family": "order_flow",
+    "asset": "WDO",
+    "timeframe": "M15",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 192,
+    "genome_id": "7da5cef5fb3983d7"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "NASDAQ",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 193,
+    "genome_id": "a56e85c217d1c69b"
+  },
+  {
+    "family": "trend_following",
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 194,
+    "genome_id": "b67b534975681029"
+  },
+  {
+    "family": "pullback",
+    "asset": "NASDAQ",
+    "timeframe": "M1",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 195,
+    "genome_id": "4d505b522a1b0fff"
+  },
+  {
+    "family": "breakout",
+    "asset": "NASDAQ",
+    "timeframe": "D1",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 196,
+    "genome_id": "583d66097de5bb38"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 197,
+    "genome_id": "00de76aad9ff5019"
+  },
+  {
+    "family": "order_flow",
+    "asset": "WIN",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 198,
+    "genome_id": "b34749ee5b52102a"
+  },
+  {
+    "family": "hybrid",
+    "asset": "NASDAQ",
+    "timeframe": "M1",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 199,
+    "genome_id": "2b20acf3937fd5ba"
+  },
+  {
+    "family": "range_compression",
+    "asset": "BTCUSD",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 200,
+    "genome_id": "f6863e4434816304"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "DOL",
+    "timeframe": "M30",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 201,
+    "genome_id": "ba915845c902a9e6"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "DOL",
+    "timeframe": "M1",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 202,
+    "genome_id": "b3ef6aaedc5ba4e0"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "ETHUSD",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 203,
+    "genome_id": "0e04a4b4082cccdf"
+  },
+  {
+    "family": "breakout",
+    "asset": "DOL",
+    "timeframe": "H4",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 204,
+    "genome_id": "e64306b9c7ba3783"
+  },
+  {
+    "family": "vwap",
+    "asset": "SP500",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 205,
+    "genome_id": "2190e37f09d4e6e8"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "XAUUSD",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 206,
+    "genome_id": "d8b70bdce753ef1c"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "IND",
+    "timeframe": "H1",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 207,
+    "genome_id": "67604db623b7741a"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "GBPUSD",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 208,
+    "genome_id": "f180a829741319ff"
+  },
+  {
+    "family": "order_flow",
+    "asset": "DOL",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 209,
+    "genome_id": "d03b53106d639206"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "DOL",
+    "timeframe": "D1",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 210,
+    "genome_id": "0b410a99f0f863cd"
+  },
+  {
+    "family": "breakout",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 211,
+    "genome_id": "c1b2be6d31a5df0a"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "WDO",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 212,
+    "genome_id": "8e26e2e1a67ebf57"
+  },
+  {
+    "family": "trend_following",
+    "asset": "SP500",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 213,
+    "genome_id": "c57bc4f5fa50731b"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 214,
+    "genome_id": "5815c8d7c3b198d6"
+  },
+  {
+    "family": "vwap",
+    "asset": "BTCUSD",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 215,
+    "genome_id": "7b6da2a608b92806"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "SP500",
+    "timeframe": "H4",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 216,
+    "genome_id": "c3abd0534ac77089"
+  },
+  {
+    "family": "pullback",
+    "asset": "USDJPY",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 217,
+    "genome_id": "f2fcad02053a4908"
+  },
+  {
+    "family": "range_compression",
+    "asset": "BTCUSD",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 218,
+    "genome_id": "6836716ddb4dc218"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "WIN",
+    "timeframe": "M1",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 219,
+    "genome_id": "fbed4a975f081474"
+  },
+  {
+    "family": "vwap",
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 220,
+    "genome_id": "0632d6b553dfaaed"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "IND",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 221,
+    "genome_id": "b477646a8a02ff2e"
+  },
+  {
+    "family": "pullback",
+    "asset": "XAUUSD",
+    "timeframe": "TICK",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 222,
+    "genome_id": "a24d929ba79f5ef4"
+  },
+  {
+    "family": "breakout",
+    "asset": "DOL",
+    "timeframe": "H1",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 223,
+    "genome_id": "874f8a4fc65f3c5d"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "NASDAQ",
+    "timeframe": "M30",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 224,
+    "genome_id": "efe7e474bf070276"
+  },
+  {
+    "family": "breakout",
+    "asset": "USDJPY",
+    "timeframe": "M15",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 225,
+    "genome_id": "d2433dc9b22aea05"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "SP500",
+    "timeframe": "H1",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 226,
+    "genome_id": "5bd88673d242959b"
+  },
+  {
+    "family": "hybrid",
+    "asset": "NASDAQ",
+    "timeframe": "TICK",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 227,
+    "genome_id": "a0a2bc36c1650817"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "BTCUSD",
+    "timeframe": "H1",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 228,
+    "genome_id": "07ec9765095021a6"
+  },
+  {
+    "family": "pullback",
+    "asset": "USDJPY",
+    "timeframe": "M1",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 229,
+    "genome_id": "3c1ca5ff0a6bf6c4"
+  },
+  {
+    "family": "order_flow",
+    "asset": "WIN",
+    "timeframe": "D1",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 230,
+    "genome_id": "7758e4a285755229"
+  },
+  {
+    "family": "hybrid",
+    "asset": "WDO",
+    "timeframe": "M30",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 231,
+    "genome_id": "99aac5512097739f"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "SP500",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 232,
+    "genome_id": "e73f9428ca4c18db"
+  },
+  {
+    "family": "order_flow",
+    "asset": "WDO",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 233,
+    "genome_id": "5a218085929903a5"
+  },
+  {
+    "family": "breakout",
+    "asset": "ETHUSD",
+    "timeframe": "TICK",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 234,
+    "genome_id": "9a2bee1bb6c9893f"
+  },
+  {
+    "family": "hybrid",
+    "asset": "ETHUSD",
+    "timeframe": "H1",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 235,
+    "genome_id": "1be84a4cf42520da"
+  },
+  {
+    "family": "breakout",
+    "asset": "DOL",
+    "timeframe": "H1",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 236,
+    "genome_id": "dab9b062d6ee2d04"
+  },
+  {
+    "family": "vwap",
+    "asset": "XAUUSD",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 237,
+    "genome_id": "26c868e05ae67356"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "SP500",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 238,
+    "genome_id": "1b760ecbeffc1867"
+  },
+  {
+    "family": "breakout",
+    "asset": "IND",
+    "timeframe": "H4",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 239,
+    "genome_id": "57bcfc72737f687c"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "ETHUSD",
+    "timeframe": "H4",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 240,
+    "genome_id": "8c32af8aa33de3d5"
+  },
+  {
+    "family": "breakout",
+    "asset": "NASDAQ",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 241,
+    "genome_id": "a4612f7e4c176da7"
+  },
+  {
+    "family": "order_flow",
+    "asset": "USDJPY",
+    "timeframe": "M15",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 242,
+    "genome_id": "15363f6c66673478"
+  },
+  {
+    "family": "breakout",
+    "asset": "USDJPY",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 243,
+    "genome_id": "6d1b139fa42ddb93"
+  },
+  {
+    "family": "vwap",
+    "asset": "WIN",
+    "timeframe": "H1",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 244,
+    "genome_id": "2770f4d95057214b"
+  },
+  {
+    "family": "vwap",
+    "asset": "BTCUSD",
+    "timeframe": "M15",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 245,
+    "genome_id": "4af46c461d22310f"
+  },
+  {
+    "family": "order_flow",
+    "asset": "XAUUSD",
+    "timeframe": "TICK",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 246,
+    "genome_id": "60014aacbb5fe814"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "GBPUSD",
+    "timeframe": "TICK",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 247,
+    "genome_id": "8293b46fc8aef92c"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "DOL",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 248,
+    "genome_id": "81acd78f2d65581d"
+  },
+  {
+    "family": "pullback",
+    "asset": "WIN",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 249,
+    "genome_id": "727d13ea61f2b3d0"
+  },
+  {
+    "family": "trend_following",
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 250,
+    "genome_id": "3c89e07bb6d46468"
+  },
+  {
+    "family": "trend_following",
+    "asset": "NASDAQ",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 251,
+    "genome_id": "ddb8f40d52584aa9"
+  },
+  {
+    "family": "breakout",
+    "asset": "SP500",
+    "timeframe": "D1",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 252,
+    "genome_id": "d4f2f394dec850f9"
+  },
+  {
+    "family": "hybrid",
+    "asset": "SP500",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 253,
+    "genome_id": "166d692c8484db09"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "GBPUSD",
+    "timeframe": "M30",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 254,
+    "genome_id": "60bc24240f9ba273"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 255,
+    "genome_id": "3cb1bbb6412db17f"
+  },
+  {
+    "family": "range_compression",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 256,
+    "genome_id": "5f332e881a0dd5a1"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "WDO",
+    "timeframe": "TICK",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 257,
+    "genome_id": "b87a4ab137264034"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "WDO",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 258,
+    "genome_id": "198b834f519a6567"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "NASDAQ",
+    "timeframe": "H4",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 259,
+    "genome_id": "48bf269c776bf9d1"
+  },
+  {
+    "family": "pullback",
+    "asset": "IND",
+    "timeframe": "M15",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 260,
+    "genome_id": "e23aa0ec74dbada0"
+  },
+  {
+    "family": "order_flow",
+    "asset": "ETHUSD",
+    "timeframe": "M1",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 261,
+    "genome_id": "d72c368a64bb9b07"
+  },
+  {
+    "family": "trend_following",
+    "asset": "XAUUSD",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 262,
+    "genome_id": "f243793c6fa2d370"
+  },
+  {
+    "family": "hybrid",
+    "asset": "ETHUSD",
+    "timeframe": "TICK",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 263,
+    "genome_id": "e3e50ae262f02fbd"
+  },
+  {
+    "family": "trend_following",
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 264,
+    "genome_id": "0e350a728d618fad"
+  },
+  {
+    "family": "pullback",
+    "asset": "GBPUSD",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 265,
+    "genome_id": "b587d7c906084b31"
+  },
+  {
+    "family": "breakout",
+    "asset": "XAUUSD",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 266,
+    "genome_id": "3fff67eac62da512"
+  },
+  {
+    "family": "hybrid",
+    "asset": "WIN",
+    "timeframe": "D1",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 267,
+    "genome_id": "1f40862ee65f8d2b"
+  },
+  {
+    "family": "hybrid",
+    "asset": "SP500",
+    "timeframe": "M5",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 268,
+    "genome_id": "f26ec7669842d8d1"
+  },
+  {
+    "family": "breakout",
+    "asset": "ETHUSD",
+    "timeframe": "M15",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 269,
+    "genome_id": "09668580fdcb510c"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "DOL",
+    "timeframe": "D1",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 270,
+    "genome_id": "da635f0a2f099d54"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 271,
+    "genome_id": "e4f613684edc9c6b"
+  },
+  {
+    "family": "pullback",
+    "asset": "WDO",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 272,
+    "genome_id": "0f081155d6894b77"
+  },
+  {
+    "family": "hybrid",
+    "asset": "WIN",
+    "timeframe": "M30",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 273,
+    "genome_id": "e9681d7ede4b36bf"
+  },
+  {
+    "family": "trend_following",
+    "asset": "XAUUSD",
+    "timeframe": "H1",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 274,
+    "genome_id": "c66ea488135e2375"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "BTCUSD",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 275,
+    "genome_id": "2acc83d079b0bf2e"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "DOL",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 276,
+    "genome_id": "8f7bb73251ebabea"
+  },
+  {
+    "family": "breakout",
+    "asset": "ETHUSD",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 277,
+    "genome_id": "c7aeafc357198d2b"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "USDJPY",
+    "timeframe": "M1",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 278,
+    "genome_id": "ee3718c2ab564bb8"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "NASDAQ",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 279,
+    "genome_id": "51f861757b1cb79d"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "SP500",
+    "timeframe": "TICK",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 280,
+    "genome_id": "4a6a4374cd6dda02"
+  },
+  {
+    "family": "breakout",
+    "asset": "NASDAQ",
+    "timeframe": "M15",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 281,
+    "genome_id": "1a802c7adb433f34"
+  },
+  {
+    "family": "pullback",
+    "asset": "IND",
+    "timeframe": "M30",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 282,
+    "genome_id": "9d7168e4fc7e493c"
+  },
+  {
+    "family": "hybrid",
+    "asset": "GBPUSD",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 283,
+    "genome_id": "63c01f0f8c456593"
+  },
+  {
+    "family": "hybrid",
+    "asset": "IND",
+    "timeframe": "H1",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 284,
+    "genome_id": "861fb4b80fd1550d"
+  },
+  {
+    "family": "trend_following",
+    "asset": "USDJPY",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 285,
+    "genome_id": "2aa1697fbad9db1e"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "WIN",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 286,
+    "genome_id": "fa7b1492cc0ab113"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "SP500",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 287,
+    "genome_id": "9136f3271d450ebe"
+  },
+  {
+    "family": "vwap",
+    "asset": "WIN",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 288,
+    "genome_id": "bc16870758cdb99a"
+  },
+  {
+    "family": "range_compression",
+    "asset": "ETHUSD",
+    "timeframe": "H1",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 289,
+    "genome_id": "0aa9079bfbcca7c6"
+  },
+  {
+    "family": "range_compression",
+    "asset": "NASDAQ",
+    "timeframe": "H1",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 290,
+    "genome_id": "86ed728e493730f4"
+  },
+  {
+    "family": "range_compression",
+    "asset": "XAUUSD",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 291,
+    "genome_id": "9c157f3cf521aeac"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "NASDAQ",
+    "timeframe": "M5",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 292,
+    "genome_id": "7a3e9a38f1e3f660"
+  },
+  {
+    "family": "trend_following",
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 293,
+    "genome_id": "a45c99da83e5f855"
+  },
+  {
+    "family": "vwap",
+    "asset": "XAUUSD",
+    "timeframe": "H1",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 294,
+    "genome_id": "c48a0908e2855a97"
+  },
+  {
+    "family": "breakout",
+    "asset": "BTCUSD",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 295,
+    "genome_id": "93c894004cce3621"
+  },
+  {
+    "family": "range_compression",
+    "asset": "IND",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 296,
+    "genome_id": "01a9c144ca368467"
+  },
+  {
+    "family": "hybrid",
+    "asset": "SP500",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 297,
+    "genome_id": "e091c49cbeaac8b1"
+  },
+  {
+    "family": "breakout",
+    "asset": "DOL",
+    "timeframe": "M1",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 298,
+    "genome_id": "c4bcf12a372408e5"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "ETHUSD",
+    "timeframe": "D1",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 299,
+    "genome_id": "b91c874c1adf78d6"
+  },
+  {
+    "family": "hybrid",
+    "asset": "XAUUSD",
+    "timeframe": "H4",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 300,
+    "genome_id": "1bc37cc05fdc5faf"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "BTCUSD",
+    "timeframe": "M30",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 301,
+    "genome_id": "fdaae27291b32562"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "IND",
+    "timeframe": "H4",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 302,
+    "genome_id": "0636d460519a8631"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "USDJPY",
+    "timeframe": "H4",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 303,
+    "genome_id": "01c17b8a670f7de4"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "NASDAQ",
+    "timeframe": "TICK",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 304,
+    "genome_id": "8a14a8f0f5c4d4af"
+  },
+  {
+    "family": "breakout",
+    "asset": "ETHUSD",
+    "timeframe": "M30",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 305,
+    "genome_id": "ff8d5935ba679ac4"
+  },
+  {
+    "family": "order_flow",
+    "asset": "WIN",
+    "timeframe": "TICK",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 306,
+    "genome_id": "585af1fb32fee2c2"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "NASDAQ",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 307,
+    "genome_id": "9feda84c95e813fa"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "XAUUSD",
+    "timeframe": "M15",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 308,
+    "genome_id": "479ab4b111f80477"
+  },
+  {
+    "family": "trend_following",
+    "asset": "USDJPY",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 309,
+    "genome_id": "789e2f79d40029f5"
+  },
+  {
+    "family": "trend_following",
+    "asset": "XAUUSD",
+    "timeframe": "M15",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 310,
+    "genome_id": "5e936945e6683694"
+  },
+  {
+    "family": "trend_following",
+    "asset": "BTCUSD",
+    "timeframe": "M15",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 311,
+    "genome_id": "371fa97f3a784835"
+  },
+  {
+    "family": "range_compression",
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 312,
+    "genome_id": "121fa00d91366f9a"
+  },
+  {
+    "family": "vwap",
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 313,
+    "genome_id": "d8c7206e76154e21"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "USDJPY",
+    "timeframe": "M1",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 314,
+    "genome_id": "beb31ae0309661f5"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "NASDAQ",
+    "timeframe": "H4",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 315,
+    "genome_id": "d3beee23e5eec23e"
+  },
+  {
+    "family": "trend_following",
+    "asset": "USDJPY",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 316,
+    "genome_id": "7e34283ab597a771"
+  },
+  {
+    "family": "range_compression",
+    "asset": "NASDAQ",
+    "timeframe": "D1",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 317,
+    "genome_id": "10776da7c7ba209b"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "ETHUSD",
+    "timeframe": "TICK",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 318,
+    "genome_id": "26d22fc625ba1788"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "ETHUSD",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 319,
+    "genome_id": "dfdb9ee6cdbe38c7"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 320,
+    "genome_id": "ed9e6a2bebd0ee69"
+  },
+  {
+    "family": "trend_following",
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 321,
+    "genome_id": "b5a3cc89b43319be"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "SP500",
+    "timeframe": "H4",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 322,
+    "genome_id": "bff888e4cd4df9d9"
+  },
+  {
+    "family": "breakout",
+    "asset": "WIN",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 323,
+    "genome_id": "22e234019a817853"
+  },
+  {
+    "family": "hybrid",
+    "asset": "IND",
+    "timeframe": "TICK",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 324,
+    "genome_id": "5577a472ebbc285a"
+  },
+  {
+    "family": "trend_following",
+    "asset": "BTCUSD",
+    "timeframe": "H1",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 325,
+    "genome_id": "d007509e8a5ba15e"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "BTCUSD",
+    "timeframe": "M15",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 326,
+    "genome_id": "4753206cdea26d27"
+  },
+  {
+    "family": "range_compression",
+    "asset": "XAUUSD",
+    "timeframe": "M15",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 327,
+    "genome_id": "5089677ffa18f92f"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "WIN",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 328,
+    "genome_id": "f0363e171211a7c4"
+  },
+  {
+    "family": "vwap",
+    "asset": "IND",
+    "timeframe": "M1",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 329,
+    "genome_id": "34ce2ac5b047319c"
+  },
+  {
+    "family": "vwap",
+    "asset": "IND",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 330,
+    "genome_id": "bf9436920d541501"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "GBPUSD",
+    "timeframe": "H1",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 331,
+    "genome_id": "55b05d859d7ad43f"
+  },
+  {
+    "family": "vwap",
+    "asset": "IND",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 332,
+    "genome_id": "263b9953e7b3d9ca"
+  },
+  {
+    "family": "trend_following",
+    "asset": "WIN",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 333,
+    "genome_id": "b56ffc15803e51b6"
+  },
+  {
+    "family": "hybrid",
+    "asset": "XAUUSD",
+    "timeframe": "M30",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 334,
+    "genome_id": "bb99534339932f7c"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "ETHUSD",
+    "timeframe": "TICK",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 335,
+    "genome_id": "cff7aef704d2bd4e"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "XAUUSD",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 336,
+    "genome_id": "6e823d07c32b93cc"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "IND",
+    "timeframe": "H4",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 337,
+    "genome_id": "67907906d29083c8"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "NASDAQ",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 338,
+    "genome_id": "b2e8025543fd4e23"
+  },
+  {
+    "family": "vwap",
+    "asset": "IND",
+    "timeframe": "D1",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 339,
+    "genome_id": "cbc638c3e0a686e2"
+  },
+  {
+    "family": "breakout",
+    "asset": "NASDAQ",
+    "timeframe": "TICK",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 340,
+    "genome_id": "4f2d1cc4a80be3c6"
+  },
+  {
+    "family": "hybrid",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 341,
+    "genome_id": "1c391a9394dd78f9"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "SP500",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 342,
+    "genome_id": "42fa832b4b003971"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "USDJPY",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 343,
+    "genome_id": "818558ebd46585a0"
+  },
+  {
+    "family": "hybrid",
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 344,
+    "genome_id": "f966e1f56ad9da7a"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "USDJPY",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 345,
+    "genome_id": "0cd1278c0053a98c"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "NASDAQ",
+    "timeframe": "D1",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 346,
+    "genome_id": "acf102437de1b50d"
+  },
+  {
+    "family": "range_compression",
+    "asset": "WDO",
+    "timeframe": "TICK",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 347,
+    "genome_id": "bbb730825ba1b366"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "BTCUSD",
+    "timeframe": "TICK",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 348,
+    "genome_id": "43f7f0201537182f"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "BTCUSD",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 349,
+    "genome_id": "81fbed55d6c2606d"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "IND",
+    "timeframe": "M5",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 350,
+    "genome_id": "c891185ffbeb6d24"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "BTCUSD",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 351,
+    "genome_id": "d51e87a03a69e3ae"
+  },
+  {
+    "family": "trend_following",
+    "asset": "BTCUSD",
+    "timeframe": "M1",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 352,
+    "genome_id": "086fb45772857cb0"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 353,
+    "genome_id": "cca31e0d7181c1fe"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "BTCUSD",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 354,
+    "genome_id": "e3502bed2fa0d5cd"
+  },
+  {
+    "family": "breakout",
+    "asset": "NASDAQ",
+    "timeframe": "TICK",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 355,
+    "genome_id": "f15d36b1bc1ac6e9"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "DOL",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 356,
+    "genome_id": "38a2b4e235cef6d5"
+  },
+  {
+    "family": "pullback",
+    "asset": "DOL",
+    "timeframe": "H4",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 357,
+    "genome_id": "28674902411683c0"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "DOL",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 358,
+    "genome_id": "7af1be75e248575c"
+  },
+  {
+    "family": "pullback",
+    "asset": "BTCUSD",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 359,
+    "genome_id": "a4520c12119664db"
+  },
+  {
+    "family": "pullback",
+    "asset": "EURUSD",
+    "timeframe": "TICK",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 360,
+    "genome_id": "3eaa28e199545d6c"
+  },
+  {
+    "family": "vwap",
+    "asset": "DOL",
+    "timeframe": "M30",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 361,
+    "genome_id": "dc4192f86ccad684"
+  },
+  {
+    "family": "pullback",
+    "asset": "USDJPY",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 362,
+    "genome_id": "767a1c053f70d7f9"
+  },
+  {
+    "family": "breakout",
+    "asset": "IND",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 363,
+    "genome_id": "6396f972c4de10da"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "ETHUSD",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 364,
+    "genome_id": "f7a9713187c9ebc4"
+  },
+  {
+    "family": "hybrid",
+    "asset": "IND",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 365,
+    "genome_id": "49ef2796d9e7747a"
+  },
+  {
+    "family": "hybrid",
+    "asset": "SP500",
+    "timeframe": "D1",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 366,
+    "genome_id": "95d1e3cf8565d08f"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "WIN",
+    "timeframe": "M5",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 367,
+    "genome_id": "118e207ef208c858"
+  },
+  {
+    "family": "vwap",
+    "asset": "ETHUSD",
+    "timeframe": "M1",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 368,
+    "genome_id": "5a5782c54bee6de1"
+  },
+  {
+    "family": "trend_following",
+    "asset": "XAUUSD",
+    "timeframe": "M5",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 369,
+    "genome_id": "9eab0a34fc81240a"
+  },
+  {
+    "family": "order_flow",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 370,
+    "genome_id": "b25a6cb48a2e0d8a"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 371,
+    "genome_id": "dd03d1e906e844ff"
+  },
+  {
+    "family": "breakout",
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 372,
+    "genome_id": "c3f1941a67903eeb"
+  },
+  {
+    "family": "range_compression",
+    "asset": "IND",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 373,
+    "genome_id": "6c5a3d459822533e"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "BTCUSD",
+    "timeframe": "M30",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 374,
+    "genome_id": "6d5884ccca192f43"
+  },
+  {
+    "family": "vwap",
+    "asset": "BTCUSD",
+    "timeframe": "M1",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 375,
+    "genome_id": "32ad139ea4b8a591"
+  },
+  {
+    "family": "trend_following",
+    "asset": "IND",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 376,
+    "genome_id": "ab12328275cede8a"
+  },
+  {
+    "family": "trend_following",
+    "asset": "EURUSD",
+    "timeframe": "TICK",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 377,
+    "genome_id": "95d656f9e40f12dc"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "WDO",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 378,
+    "genome_id": "8d9d92b90177942b"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 379,
+    "genome_id": "5a80b5328c06296b"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "DOL",
+    "timeframe": "M1",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 380,
+    "genome_id": "690a1345fdb9ddd0"
+  },
+  {
+    "family": "hybrid",
+    "asset": "BTCUSD",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 381,
+    "genome_id": "72dd27174ef8d4a0"
+  },
+  {
+    "family": "pullback",
+    "asset": "WIN",
+    "timeframe": "M30",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 382,
+    "genome_id": "dc5148320e2998fc"
+  },
+  {
+    "family": "range_compression",
+    "asset": "WIN",
+    "timeframe": "M5",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 383,
+    "genome_id": "4168b38e406b4681"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "IND",
+    "timeframe": "TICK",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 384,
+    "genome_id": "0cf0b54b01844a39"
+  },
+  {
+    "family": "range_compression",
+    "asset": "ETHUSD",
+    "timeframe": "H1",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 385,
+    "genome_id": "43d306b6a73439f9"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "BTCUSD",
+    "timeframe": "M1",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 386,
+    "genome_id": "61d85e4bce34188f"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 387,
+    "genome_id": "10a8698813ec56aa"
+  },
+  {
+    "family": "hybrid",
+    "asset": "BTCUSD",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 388,
+    "genome_id": "7414147f2ece9189"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "WIN",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 389,
+    "genome_id": "c70d27bcfd90e39a"
+  },
+  {
+    "family": "range_compression",
+    "asset": "WIN",
+    "timeframe": "TICK",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 390,
+    "genome_id": "215e847616539fa9"
+  },
+  {
+    "family": "order_flow",
+    "asset": "WIN",
+    "timeframe": "TICK",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 391,
+    "genome_id": "c2628d256647cf28"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "IND",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 392,
+    "genome_id": "93e6583720b66428"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "ETHUSD",
+    "timeframe": "D1",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 393,
+    "genome_id": "934b3bff6bb8f301"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "DOL",
+    "timeframe": "H4",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 394,
+    "genome_id": "db95e246e5591a66"
+  },
+  {
+    "family": "pullback",
+    "asset": "SP500",
+    "timeframe": "M30",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 395,
+    "genome_id": "e9c23801bb260a63"
+  },
+  {
+    "family": "trend_following",
+    "asset": "IND",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 396,
+    "genome_id": "82739de26b0de947"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "NASDAQ",
+    "timeframe": "H1",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 397,
+    "genome_id": "1c90777913867e3a"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "SP500",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 398,
+    "genome_id": "3b82e171b7a81d22"
+  },
+  {
+    "family": "order_flow",
+    "asset": "IND",
+    "timeframe": "H4",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 399,
+    "genome_id": "e579b1bf47e38149"
+  },
+  {
+    "family": "trend_following",
+    "asset": "WIN",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 400,
+    "genome_id": "40993eb0055bdba0"
+  },
+  {
+    "family": "order_flow",
+    "asset": "SP500",
+    "timeframe": "M1",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 401,
+    "genome_id": "afc27fc6e62c303e"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "SP500",
+    "timeframe": "M1",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 402,
+    "genome_id": "fd4c732b9fbe44f1"
+  },
+  {
+    "family": "pullback",
+    "asset": "WIN",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 403,
+    "genome_id": "dd711db4b15d3e8f"
+  },
+  {
+    "family": "order_flow",
+    "asset": "IND",
+    "timeframe": "D1",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 404,
+    "genome_id": "a2c348e4a5101007"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "IND",
+    "timeframe": "M5",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 405,
+    "genome_id": "34864b1b602cd194"
+  },
+  {
+    "family": "range_compression",
+    "asset": "XAUUSD",
+    "timeframe": "M30",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 406,
+    "genome_id": "8dc7a73ab8c34f68"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "ETHUSD",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 407,
+    "genome_id": "cd2fd39ad27d7800"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "NASDAQ",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 408,
+    "genome_id": "cf7adf91c274eac8"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "ETHUSD",
+    "timeframe": "D1",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 409,
+    "genome_id": "9cc4b1f564b87305"
+  },
+  {
+    "family": "trend_following",
+    "asset": "ETHUSD",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 410,
+    "genome_id": "104a5518764d4d79"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "WDO",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 411,
+    "genome_id": "7cdd125df6b34991"
+  },
+  {
+    "family": "pullback",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 412,
+    "genome_id": "9f195097d66049bc"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "NASDAQ",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 413,
+    "genome_id": "cd77f581a3762a8a"
+  },
+  {
+    "family": "hybrid",
+    "asset": "GBPUSD",
+    "timeframe": "M1",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 414,
+    "genome_id": "a6e72ba8934b2ae8"
+  },
+  {
+    "family": "order_flow",
+    "asset": "DOL",
+    "timeframe": "H4",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 415,
+    "genome_id": "f84426198cf315c2"
+  },
+  {
+    "family": "breakout",
+    "asset": "WIN",
+    "timeframe": "D1",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 416,
+    "genome_id": "4a22a2846e259307"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "GBPUSD",
+    "timeframe": "M15",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 417,
+    "genome_id": "2fcfbe9258018791"
+  },
+  {
+    "family": "range_compression",
+    "asset": "USDJPY",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 418,
+    "genome_id": "b513bead303bad4a"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "IND",
+    "timeframe": "H1",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 419,
+    "genome_id": "67b44f0ffda14c4a"
+  },
+  {
+    "family": "trend_following",
+    "asset": "XAUUSD",
+    "timeframe": "M15",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 420,
+    "genome_id": "78601582857e379c"
+  },
+  {
+    "family": "pullback",
+    "asset": "IND",
+    "timeframe": "M1",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 421,
+    "genome_id": "63878b95621b0b41"
+  },
+  {
+    "family": "order_flow",
+    "asset": "DOL",
+    "timeframe": "M15",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 422,
+    "genome_id": "a29b66d35f328e8c"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "IND",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 423,
+    "genome_id": "c7245fedd20c768f"
+  },
+  {
+    "family": "pullback",
+    "asset": "ETHUSD",
+    "timeframe": "H1",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 424,
+    "genome_id": "09eb155d23efcde4"
+  },
+  {
+    "family": "trend_following",
+    "asset": "SP500",
+    "timeframe": "H1",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 425,
+    "genome_id": "778497162c3c03de"
+  },
+  {
+    "family": "trend_following",
+    "asset": "GBPUSD",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 426,
+    "genome_id": "332d7ccecf76a0e7"
+  },
+  {
+    "family": "hybrid",
+    "asset": "NASDAQ",
+    "timeframe": "D1",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 427,
+    "genome_id": "1796cba0a38b4fe2"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "IND",
+    "timeframe": "H1",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 428,
+    "genome_id": "5fc4d37ca3d05695"
+  },
+  {
+    "family": "vwap",
+    "asset": "WDO",
+    "timeframe": "M30",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 429,
+    "genome_id": "ca540d62b5fc9164"
+  },
+  {
+    "family": "breakout",
+    "asset": "NASDAQ",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 430,
+    "genome_id": "fd48c5a4e7e197a9"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "USDJPY",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 431,
+    "genome_id": "6d9776b6ed62c055"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "SP500",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 432,
+    "genome_id": "22202a845794fe23"
+  },
+  {
+    "family": "vwap",
+    "asset": "DOL",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 433,
+    "genome_id": "dd41505b56d07607"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "DOL",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 434,
+    "genome_id": "70f7cba74f65eb3e"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "ETHUSD",
+    "timeframe": "H1",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 435,
+    "genome_id": "b239e4883e292f51"
+  },
+  {
+    "family": "order_flow",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 436,
+    "genome_id": "f2f9e4c81a05a0f0"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "IND",
+    "timeframe": "M1",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 437,
+    "genome_id": "65115c559d4bbe25"
+  },
+  {
+    "family": "pullback",
+    "asset": "WDO",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 438,
+    "genome_id": "a7548d09da39546b"
+  },
+  {
+    "family": "range_compression",
+    "asset": "USDJPY",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 439,
+    "genome_id": "75c7fd503adeef9c"
+  },
+  {
+    "family": "trend_following",
+    "asset": "DOL",
+    "timeframe": "H4",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 440,
+    "genome_id": "e8f8253aa7ae81f2"
+  },
+  {
+    "family": "breakout",
+    "asset": "NASDAQ",
+    "timeframe": "H4",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 441,
+    "genome_id": "1d4719216576438e"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 442,
+    "genome_id": "f978f6805594e11a"
+  },
+  {
+    "family": "vwap",
+    "asset": "SP500",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 443,
+    "genome_id": "522e97ed5d7b0746"
+  },
+  {
+    "family": "range_compression",
+    "asset": "DOL",
+    "timeframe": "M30",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 444,
+    "genome_id": "f24b1dc1c81f065d"
+  },
+  {
+    "family": "hybrid",
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 445,
+    "genome_id": "2c746af15a06e46d"
+  },
+  {
+    "family": "vwap",
+    "asset": "NASDAQ",
+    "timeframe": "M5",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 446,
+    "genome_id": "1297ef84dffe112f"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "SP500",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 447,
+    "genome_id": "a96ef6059a2beedf"
+  },
+  {
+    "family": "trend_following",
+    "asset": "BTCUSD",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 448,
+    "genome_id": "cacdcbd9fedf01a9"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "BTCUSD",
+    "timeframe": "M5",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 449,
+    "genome_id": "61909a399bdb65be"
+  },
+  {
+    "family": "range_compression",
+    "asset": "NASDAQ",
+    "timeframe": "H1",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 450,
+    "genome_id": "7c8ff1e35472f8f6"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "GBPUSD",
+    "timeframe": "M1",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 451,
+    "genome_id": "2b863a41c347c0ca"
+  },
+  {
+    "family": "vwap",
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 452,
+    "genome_id": "4d056327b7569612"
+  },
+  {
+    "family": "pullback",
+    "asset": "BTCUSD",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 453,
+    "genome_id": "89de19a1c9a1da8a"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 454,
+    "genome_id": "8b9f10910eda17b5"
+  },
+  {
+    "family": "pullback",
+    "asset": "WDO",
+    "timeframe": "TICK",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 455,
+    "genome_id": "83f76cea911b3022"
+  },
+  {
+    "family": "range_compression",
+    "asset": "NASDAQ",
+    "timeframe": "TICK",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 456,
+    "genome_id": "c3ef1f38e77d20e6"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "EURUSD",
+    "timeframe": "TICK",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 457,
+    "genome_id": "f2ceff9d6b7179ab"
+  },
+  {
+    "family": "range_compression",
+    "asset": "XAUUSD",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 458,
+    "genome_id": "18397515c659f352"
+  },
+  {
+    "family": "trend_following",
+    "asset": "BTCUSD",
+    "timeframe": "D1",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 459,
+    "genome_id": "76e47da5dd5a2b6f"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "DOL",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 460,
+    "genome_id": "f04abe83dfe7cd9d"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "WDO",
+    "timeframe": "H1",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 461,
+    "genome_id": "7df5bc44311525e3"
+  },
+  {
+    "family": "hybrid",
+    "asset": "WIN",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 462,
+    "genome_id": "321b783c7181e3fe"
+  },
+  {
+    "family": "breakout",
+    "asset": "SP500",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 463,
+    "genome_id": "02bc6059d2680517"
+  },
+  {
+    "family": "pullback",
+    "asset": "ETHUSD",
+    "timeframe": "M1",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 464,
+    "genome_id": "27ba14302911b369"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "XAUUSD",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 465,
+    "genome_id": "2f72824b4c9520bd"
+  },
+  {
+    "family": "pullback",
+    "asset": "ETHUSD",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 466,
+    "genome_id": "37fbe700e9ae2da2"
+  },
+  {
+    "family": "breakout",
+    "asset": "XAUUSD",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 467,
+    "genome_id": "da302c94668fc3a9"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "NASDAQ",
+    "timeframe": "M1",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 468,
+    "genome_id": "c86781441f779b6c"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "SP500",
+    "timeframe": "D1",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 469,
+    "genome_id": "d5d5252edae18be5"
+  },
+  {
+    "family": "range_compression",
+    "asset": "XAUUSD",
+    "timeframe": "M5",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 470,
+    "genome_id": "f3d8b043b9c4441a"
+  },
+  {
+    "family": "order_flow",
+    "asset": "USDJPY",
+    "timeframe": "M1",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 471,
+    "genome_id": "32b794b01ade489c"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "BTCUSD",
+    "timeframe": "H1",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 472,
+    "genome_id": "1409a8bc47d18ced"
+  },
+  {
+    "family": "trend_following",
+    "asset": "DOL",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 473,
+    "genome_id": "0fc0d48ea8aa35d6"
+  },
+  {
+    "family": "breakout",
+    "asset": "WDO",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 474,
+    "genome_id": "de0d394983321d57"
+  },
+  {
+    "family": "pullback",
+    "asset": "BTCUSD",
+    "timeframe": "M15",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 475,
+    "genome_id": "92580b2ed9c1e11c"
+  },
+  {
+    "family": "hybrid",
+    "asset": "SP500",
+    "timeframe": "M1",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 476,
+    "genome_id": "1c0a754cadf57e7a"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "XAUUSD",
+    "timeframe": "H1",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 477,
+    "genome_id": "bc88d14220d5519a"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 478,
+    "genome_id": "cef02f989e73f08d"
+  },
+  {
+    "family": "breakout",
+    "asset": "NASDAQ",
+    "timeframe": "H4",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 479,
+    "genome_id": "0f4c81ef91a215de"
+  },
+  {
+    "family": "breakout",
+    "asset": "USDJPY",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 480,
+    "genome_id": "bdf001c22344d8ee"
+  },
+  {
+    "family": "breakout",
+    "asset": "WDO",
+    "timeframe": "M30",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 481,
+    "genome_id": "66a2e0b7aac06016"
+  },
+  {
+    "family": "trend_following",
+    "asset": "IND",
+    "timeframe": "M1",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 482,
+    "genome_id": "aef5af30ebf540ab"
+  },
+  {
+    "family": "pullback",
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 483,
+    "genome_id": "11646103532eee58"
+  },
+  {
+    "family": "hybrid",
+    "asset": "XAUUSD",
+    "timeframe": "H4",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 484,
+    "genome_id": "dfb1383cb82b3188"
+  },
+  {
+    "family": "pullback",
+    "asset": "IND",
+    "timeframe": "H1",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 485,
+    "genome_id": "a26b15dfca7e88c6"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 486,
+    "genome_id": "bd0adde2b6ef062e"
+  },
+  {
+    "family": "hybrid",
+    "asset": "SP500",
+    "timeframe": "TICK",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 487,
+    "genome_id": "08ea73dafd436563"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "SP500",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 488,
+    "genome_id": "a5b26660cb1f23b4"
+  },
+  {
+    "family": "range_compression",
+    "asset": "WDO",
+    "timeframe": "M15",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 489,
+    "genome_id": "7202e9b01b632cf3"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "XAUUSD",
+    "timeframe": "M30",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 490,
+    "genome_id": "9247861072d28e1b"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 491,
+    "genome_id": "135744b12554c768"
+  },
+  {
+    "family": "breakout",
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 492,
+    "genome_id": "4b68bc08de0c55f8"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "XAUUSD",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 493,
+    "genome_id": "bdc8fb2824a6feb7"
+  },
+  {
+    "family": "vwap",
+    "asset": "WIN",
+    "timeframe": "D1",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 494,
+    "genome_id": "fb6436a71c6392d2"
+  },
+  {
+    "family": "trend_following",
+    "asset": "ETHUSD",
+    "timeframe": "M5",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 495,
+    "genome_id": "9e65423dbef9def2"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "WDO",
+    "timeframe": "H1",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 496,
+    "genome_id": "5010fdf4292de0ca"
+  },
+  {
+    "family": "breakout",
+    "asset": "IND",
+    "timeframe": "D1",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 497,
+    "genome_id": "c2389d39d64c9f36"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "WDO",
+    "timeframe": "M30",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 498,
+    "genome_id": "204016c317aaeca4"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "GBPUSD",
+    "timeframe": "M30",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 499,
+    "genome_id": "dff06ab4091394b4"
+  },
+  {
+    "family": "breakout",
+    "asset": "USDJPY",
+    "timeframe": "M15",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 500,
+    "genome_id": "fbe69618c1dd65e1"
+  },
+  {
+    "family": "breakout",
+    "asset": "ETHUSD",
+    "timeframe": "M5",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 501,
+    "genome_id": "c6027db13e0dd179"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "XAUUSD",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 502,
+    "genome_id": "e729b479d6bff69a"
+  },
+  {
+    "family": "order_flow",
+    "asset": "WIN",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 503,
+    "genome_id": "2bbeb2ee41c8a14c"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 504,
+    "genome_id": "814c5cfa72a763f1"
+  },
+  {
+    "family": "breakout",
+    "asset": "USDJPY",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 505,
+    "genome_id": "df2a9b701ebf323f"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "SP500",
+    "timeframe": "M1",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 506,
+    "genome_id": "cdd047d257251cb8"
+  },
+  {
+    "family": "trend_following",
+    "asset": "GBPUSD",
+    "timeframe": "TICK",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 507,
+    "genome_id": "ca46ccd13a197103"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 508,
+    "genome_id": "59b4a81ac9c68a5f"
+  },
+  {
+    "family": "vwap",
+    "asset": "WIN",
+    "timeframe": "H1",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 509,
+    "genome_id": "c59646203eea756b"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "WIN",
+    "timeframe": "M30",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 510,
+    "genome_id": "89306ea103f315e0"
+  },
+  {
+    "family": "order_flow",
+    "asset": "IND",
+    "timeframe": "H4",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 511,
+    "genome_id": "085dd563a1bf5a8b"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "ETHUSD",
+    "timeframe": "M1",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 512,
+    "genome_id": "84156821539cf0e8"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "NASDAQ",
+    "timeframe": "M1",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 513,
+    "genome_id": "a4184a8d69b8be7a"
+  },
+  {
+    "family": "vwap",
+    "asset": "WDO",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 514,
+    "genome_id": "fdeb54aef31841cf"
+  },
+  {
+    "family": "range_compression",
+    "asset": "WIN",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 515,
+    "genome_id": "92d055d4a045929f"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 516,
+    "genome_id": "9a70d1d57ee1ea8c"
+  },
+  {
+    "family": "order_flow",
+    "asset": "DOL",
+    "timeframe": "TICK",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 517,
+    "genome_id": "54a7dc8c1f7ed56d"
+  },
+  {
+    "family": "breakout",
+    "asset": "ETHUSD",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 518,
+    "genome_id": "e9223cb21e6b001e"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "WDO",
+    "timeframe": "M1",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 519,
+    "genome_id": "3144737217ad0226"
+  },
+  {
+    "family": "vwap",
+    "asset": "DOL",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 520,
+    "genome_id": "421d2f761971924e"
+  },
+  {
+    "family": "pullback",
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 521,
+    "genome_id": "36c57b99240ede64"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "EURUSD",
+    "timeframe": "TICK",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 522,
+    "genome_id": "268408077f5fa680"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "ETHUSD",
+    "timeframe": "M30",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 523,
+    "genome_id": "f16076d13df0f7c6"
+  },
+  {
+    "family": "pullback",
+    "asset": "IND",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 524,
+    "genome_id": "654e58fd2966aabe"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "DOL",
+    "timeframe": "M15",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 525,
+    "genome_id": "1d9cc0d971d6e8c0"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "WIN",
+    "timeframe": "TICK",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 526,
+    "genome_id": "c6e272110a4c3f5d"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "WIN",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 527,
+    "genome_id": "2da41a653e4cb1a7"
+  },
+  {
+    "family": "trend_following",
+    "asset": "USDJPY",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 528,
+    "genome_id": "c9b1c28ef9743815"
+  },
+  {
+    "family": "order_flow",
+    "asset": "WIN",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 529,
+    "genome_id": "cddc1e8b97c510fe"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "GBPUSD",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 530,
+    "genome_id": "9dcc84a2cb9c2f7a"
+  },
+  {
+    "family": "vwap",
+    "asset": "BTCUSD",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 531,
+    "genome_id": "e0565e6565e2727a"
+  },
+  {
+    "family": "range_compression",
+    "asset": "XAUUSD",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 532,
+    "genome_id": "27cc04c7184bc21e"
+  },
+  {
+    "family": "pullback",
+    "asset": "NASDAQ",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 533,
+    "genome_id": "108e720f94191cfb"
+  },
+  {
+    "family": "trend_following",
+    "asset": "EURUSD",
+    "timeframe": "TICK",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 534,
+    "genome_id": "2f6e0c90b97e4ec5"
+  },
+  {
+    "family": "breakout",
+    "asset": "SP500",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 535,
+    "genome_id": "41569e53e154b0f8"
+  },
+  {
+    "family": "range_compression",
+    "asset": "DOL",
+    "timeframe": "D1",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 536,
+    "genome_id": "4480f8736d15d683"
+  },
+  {
+    "family": "trend_following",
+    "asset": "DOL",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 537,
+    "genome_id": "17b910d126a80a61"
+  },
+  {
+    "family": "breakout",
+    "asset": "NASDAQ",
+    "timeframe": "M1",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 538,
+    "genome_id": "6fe336983196d46c"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "XAUUSD",
+    "timeframe": "M5",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 539,
+    "genome_id": "e3e38a2844e1908b"
+  },
+  {
+    "family": "hybrid",
+    "asset": "WDO",
+    "timeframe": "M1",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 540,
+    "genome_id": "c078879754c957e2"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "USDJPY",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 541,
+    "genome_id": "da3dcb8e3f0ed47b"
+  },
+  {
+    "family": "pullback",
+    "asset": "ETHUSD",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 542,
+    "genome_id": "5b0560a7ab86202d"
+  },
+  {
+    "family": "range_compression",
+    "asset": "WIN",
+    "timeframe": "M15",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 543,
+    "genome_id": "4e8a311f860f8909"
+  },
+  {
+    "family": "trend_following",
+    "asset": "WIN",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 544,
+    "genome_id": "7c667191e76c8ef1"
+  },
+  {
+    "family": "vwap",
+    "asset": "SP500",
+    "timeframe": "M30",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 545,
+    "genome_id": "cf37f8a2906f61ce"
+  },
+  {
+    "family": "vwap",
+    "asset": "SP500",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 546,
+    "genome_id": "f299d7d48dec359b"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "WDO",
+    "timeframe": "H4",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 547,
+    "genome_id": "7bb452ad1fd576f1"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "BTCUSD",
+    "timeframe": "TICK",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 548,
+    "genome_id": "49dc97d0b90f9fc3"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 549,
+    "genome_id": "404c4834e5027306"
+  },
+  {
+    "family": "breakout",
+    "asset": "IND",
+    "timeframe": "D1",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 550,
+    "genome_id": "653209033a7a4f60"
+  },
+  {
+    "family": "hybrid",
+    "asset": "SP500",
+    "timeframe": "H1",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 551,
+    "genome_id": "2029f54a7619da77"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "IND",
+    "timeframe": "M15",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 552,
+    "genome_id": "b015d3cc9af0a360"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "WDO",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 553,
+    "genome_id": "de2c564965688372"
+  },
+  {
+    "family": "range_compression",
+    "asset": "WDO",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 554,
+    "genome_id": "efbb39db9e5f029f"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "WDO",
+    "timeframe": "M15",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 555,
+    "genome_id": "2fea4bbfccba6383"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 556,
+    "genome_id": "dca50368befab62a"
+  },
+  {
+    "family": "range_compression",
+    "asset": "USDJPY",
+    "timeframe": "M30",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 557,
+    "genome_id": "a81c09d888e724e5"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "WIN",
+    "timeframe": "D1",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 558,
+    "genome_id": "d1402456a3871363"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "NASDAQ",
+    "timeframe": "M30",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 559,
+    "genome_id": "9f923bf38181dbb3"
+  },
+  {
+    "family": "breakout",
+    "asset": "NASDAQ",
+    "timeframe": "TICK",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 560,
+    "genome_id": "60eab93c9f2c8a78"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "SP500",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 561,
+    "genome_id": "97ef064fe67a5bf5"
+  },
+  {
+    "family": "trend_following",
+    "asset": "IND",
+    "timeframe": "M1",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 562,
+    "genome_id": "b7318ec37408a39f"
+  },
+  {
+    "family": "pullback",
+    "asset": "ETHUSD",
+    "timeframe": "H1",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 563,
+    "genome_id": "b6f8fc3888edcfc4"
+  },
+  {
+    "family": "order_flow",
+    "asset": "BTCUSD",
+    "timeframe": "M15",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 564,
+    "genome_id": "4cecea3b336be30d"
+  },
+  {
+    "family": "breakout",
+    "asset": "SP500",
+    "timeframe": "D1",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 565,
+    "genome_id": "8bea0cb9566c5ae4"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "BTCUSD",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 566,
+    "genome_id": "d7145c3ff7e15b41"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "BTCUSD",
+    "timeframe": "D1",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 567,
+    "genome_id": "1c70b7e383464f49"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "USDJPY",
+    "timeframe": "TICK",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 568,
+    "genome_id": "eb11d7d25fa4078a"
+  },
+  {
+    "family": "trend_following",
+    "asset": "WIN",
+    "timeframe": "H1",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 569,
+    "genome_id": "983bb11c9be486eb"
+  },
+  {
+    "family": "order_flow",
+    "asset": "USDJPY",
+    "timeframe": "M5",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 570,
+    "genome_id": "dc0e716acb3d87a7"
+  },
+  {
+    "family": "vwap",
+    "asset": "BTCUSD",
+    "timeframe": "M5",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 571,
+    "genome_id": "e42628e58ae10052"
+  },
+  {
+    "family": "order_flow",
+    "asset": "SP500",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 572,
+    "genome_id": "79f7e0724468b548"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "BTCUSD",
+    "timeframe": "M30",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 573,
+    "genome_id": "b529d29c20de3e40"
+  },
+  {
+    "family": "trend_following",
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 574,
+    "genome_id": "88ddafe821eb820d"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "SP500",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 575,
+    "genome_id": "a01e5a90e7fa4042"
+  },
+  {
+    "family": "pullback",
+    "asset": "WIN",
+    "timeframe": "H1",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 576,
+    "genome_id": "2359c41ac19568b6"
+  },
+  {
+    "family": "vwap",
+    "asset": "ETHUSD",
+    "timeframe": "H1",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 577,
+    "genome_id": "6725b85cdbbd8236"
+  },
+  {
+    "family": "order_flow",
+    "asset": "WIN",
+    "timeframe": "H4",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 578,
+    "genome_id": "0262756b9839124a"
+  },
+  {
+    "family": "order_flow",
+    "asset": "SP500",
+    "timeframe": "M30",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 579,
+    "genome_id": "b1b7f72ab433626d"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "IND",
+    "timeframe": "TICK",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 580,
+    "genome_id": "e766efca5939bdd6"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "XAUUSD",
+    "timeframe": "M30",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 581,
+    "genome_id": "f72754b9d77a300b"
+  },
+  {
+    "family": "vwap",
+    "asset": "IND",
+    "timeframe": "D1",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 582,
+    "genome_id": "4193dbf2c0a978b2"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "BTCUSD",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 583,
+    "genome_id": "8373e690a8a88944"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "USDJPY",
+    "timeframe": "TICK",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 584,
+    "genome_id": "211300224718754a"
+  },
+  {
+    "family": "hybrid",
+    "asset": "IND",
+    "timeframe": "TICK",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 585,
+    "genome_id": "c7e58f46ca826741"
+  },
+  {
+    "family": "pullback",
+    "asset": "BTCUSD",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 586,
+    "genome_id": "d0aa97968dabcf1e"
+  },
+  {
+    "family": "breakout",
+    "asset": "ETHUSD",
+    "timeframe": "M1",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 587,
+    "genome_id": "fc6db5c5a227097f"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "DOL",
+    "timeframe": "M1",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 588,
+    "genome_id": "7fd14ff5d7cc94f1"
+  },
+  {
+    "family": "range_compression",
+    "asset": "IND",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 589,
+    "genome_id": "8af61c4e89df3017"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "GBPUSD",
+    "timeframe": "H1",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 590,
+    "genome_id": "ed0b5971ee787031"
+  },
+  {
+    "family": "vwap",
+    "asset": "BTCUSD",
+    "timeframe": "H1",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 591,
+    "genome_id": "3be70f0734040182"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "BTCUSD",
+    "timeframe": "H1",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 592,
+    "genome_id": "670bb58be4f47bc0"
+  },
+  {
+    "family": "breakout",
+    "asset": "BTCUSD",
+    "timeframe": "M1",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 593,
+    "genome_id": "787a727045303157"
+  },
+  {
+    "family": "vwap",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 594,
+    "genome_id": "fa9f2af0a9d4e007"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "NASDAQ",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 595,
+    "genome_id": "824011274fec50fd"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "BTCUSD",
+    "timeframe": "M30",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 596,
+    "genome_id": "46d4c88f8343f326"
+  },
+  {
+    "family": "pullback",
+    "asset": "BTCUSD",
+    "timeframe": "H4",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 597,
+    "genome_id": "c46bcfbfb1de05f7"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "BTCUSD",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 598,
+    "genome_id": "aeacbb94fbffe73e"
+  },
+  {
+    "family": "hybrid",
+    "asset": "GBPUSD",
+    "timeframe": "TICK",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 599,
+    "genome_id": "7fd1b92206a4d062"
+  },
+  {
+    "family": "breakout",
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 600,
+    "genome_id": "7e76fbd614cdbc13"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "NASDAQ",
+    "timeframe": "M30",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 601,
+    "genome_id": "4a08235bde8d5952"
+  },
+  {
+    "family": "breakout",
+    "asset": "ETHUSD",
+    "timeframe": "H1",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 602,
+    "genome_id": "f517209a063aae6e"
+  },
+  {
+    "family": "order_flow",
+    "asset": "SP500",
+    "timeframe": "TICK",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 603,
+    "genome_id": "43031cf8e414e446"
+  },
+  {
+    "family": "pullback",
+    "asset": "NASDAQ",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 604,
+    "genome_id": "bf24761be15288e8"
+  },
+  {
+    "family": "trend_following",
+    "asset": "XAUUSD",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 605,
+    "genome_id": "f0dc0f08903524e8"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "IND",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 606,
+    "genome_id": "a18a268dfd99d1b6"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "USDJPY",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 607,
+    "genome_id": "4181c1f3b0532f43"
+  },
+  {
+    "family": "range_compression",
+    "asset": "ETHUSD",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 608,
+    "genome_id": "69bc96ed52bbcddd"
+  },
+  {
+    "family": "hybrid",
+    "asset": "DOL",
+    "timeframe": "H1",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 609,
+    "genome_id": "8ef0ad5a474ec218"
+  },
+  {
+    "family": "hybrid",
+    "asset": "WIN",
+    "timeframe": "H1",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 610,
+    "genome_id": "989c3b297821d556"
+  },
+  {
+    "family": "range_compression",
+    "asset": "BTCUSD",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 611,
+    "genome_id": "5dd26e26c56c6ebe"
+  },
+  {
+    "family": "pullback",
+    "asset": "DOL",
+    "timeframe": "TICK",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 612,
+    "genome_id": "066523cd9e59ded2"
+  },
+  {
+    "family": "range_compression",
+    "asset": "NASDAQ",
+    "timeframe": "M5",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 613,
+    "genome_id": "8c6d681bdc45bcd5"
+  },
+  {
+    "family": "vwap",
+    "asset": "ETHUSD",
+    "timeframe": "H1",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 614,
+    "genome_id": "b8a51a0525e3b239"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "WIN",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 615,
+    "genome_id": "e98b053b6498600b"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "ETHUSD",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 616,
+    "genome_id": "788e1e88ac7c4adc"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 617,
+    "genome_id": "c12471a1fc7bea6c"
+  },
+  {
+    "family": "hybrid",
+    "asset": "WIN",
+    "timeframe": "H4",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 618,
+    "genome_id": "b3f08ceb810ac02e"
+  },
+  {
+    "family": "range_compression",
+    "asset": "WDO",
+    "timeframe": "M1",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 619,
+    "genome_id": "27254718b7871b2c"
+  },
+  {
+    "family": "order_flow",
+    "asset": "BTCUSD",
+    "timeframe": "TICK",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 620,
+    "genome_id": "cfe773dbd8d4842f"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "DOL",
+    "timeframe": "TICK",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 621,
+    "genome_id": "255b57849b951b38"
+  },
+  {
+    "family": "trend_following",
+    "asset": "WIN",
+    "timeframe": "H4",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 622,
+    "genome_id": "f946122b6c6f2fa6"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "GBPUSD",
+    "timeframe": "H1",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 623,
+    "genome_id": "8276ede59e8cc513"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 624,
+    "genome_id": "21dbe9aecb23ea3f"
+  },
+  {
+    "family": "trend_following",
+    "asset": "BTCUSD",
+    "timeframe": "H4",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 625,
+    "genome_id": "e9f7cdc3d9e2d515"
+  },
+  {
+    "family": "breakout",
+    "asset": "WIN",
+    "timeframe": "M15",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 626,
+    "genome_id": "872ca48f5a22ebdc"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "BTCUSD",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 627,
+    "genome_id": "0ec34d946c3f1ae2"
+  },
+  {
+    "family": "pullback",
+    "asset": "IND",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 628,
+    "genome_id": "e04fb9ea8f5a68c9"
+  },
+  {
+    "family": "vwap",
+    "asset": "DOL",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 629,
+    "genome_id": "2a2ca2436760fc8d"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 630,
+    "genome_id": "fd4d9c181104ba54"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "DOL",
+    "timeframe": "TICK",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 631,
+    "genome_id": "c5481bfdf4ba3535"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 632,
+    "genome_id": "a8da867ac2fe429c"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "NASDAQ",
+    "timeframe": "TICK",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 633,
+    "genome_id": "77b0e8cc9504868c"
+  },
+  {
+    "family": "breakout",
+    "asset": "WDO",
+    "timeframe": "M5",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 634,
+    "genome_id": "6b257073b73c0106"
+  },
+  {
+    "family": "breakout",
+    "asset": "SP500",
+    "timeframe": "M30",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 635,
+    "genome_id": "7c90cf41e297bd40"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "ETHUSD",
+    "timeframe": "D1",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 636,
+    "genome_id": "7f1ee3a2adb4b1ef"
+  },
+  {
+    "family": "vwap",
+    "asset": "DOL",
+    "timeframe": "D1",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 637,
+    "genome_id": "94a06cde36ef23e7"
+  },
+  {
+    "family": "hybrid",
+    "asset": "WDO",
+    "timeframe": "D1",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 638,
+    "genome_id": "e9a406e900b828f9"
+  },
+  {
+    "family": "pullback",
+    "asset": "NASDAQ",
+    "timeframe": "D1",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 639,
+    "genome_id": "8fee949003bdea07"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "WIN",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 640,
+    "genome_id": "f69edf5b2783b23b"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "BTCUSD",
+    "timeframe": "H4",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 641,
+    "genome_id": "c599d044fa295cc4"
+  },
+  {
+    "family": "pullback",
+    "asset": "DOL",
+    "timeframe": "M30",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 642,
+    "genome_id": "2f7dfd1eaadbeb02"
+  },
+  {
+    "family": "trend_following",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 643,
+    "genome_id": "017576f8a950eb91"
+  },
+  {
+    "family": "range_compression",
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 644,
+    "genome_id": "02e0e9f368760eb8"
+  },
+  {
+    "family": "breakout",
+    "asset": "WDO",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 645,
+    "genome_id": "7678c842e432705d"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "IND",
+    "timeframe": "D1",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 646,
+    "genome_id": "25b0250f7b059030"
+  },
+  {
+    "family": "pullback",
+    "asset": "USDJPY",
+    "timeframe": "M5",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 647,
+    "genome_id": "348dca145aba877a"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "USDJPY",
+    "timeframe": "H1",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 648,
+    "genome_id": "59fb1ad4176c58f3"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "NASDAQ",
+    "timeframe": "M5",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 649,
+    "genome_id": "86a3741907be3190"
+  },
+  {
+    "family": "order_flow",
+    "asset": "NASDAQ",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 650,
+    "genome_id": "d11afca32bd3aed6"
+  },
+  {
+    "family": "breakout",
+    "asset": "XAUUSD",
+    "timeframe": "TICK",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 651,
+    "genome_id": "b3f50fc66cec3e93"
+  },
+  {
+    "family": "trend_following",
+    "asset": "WDO",
+    "timeframe": "M30",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 652,
+    "genome_id": "17fdd93f6f848682"
+  },
+  {
+    "family": "range_compression",
+    "asset": "IND",
+    "timeframe": "H1",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 653,
+    "genome_id": "25b7fb672799ff50"
+  },
+  {
+    "family": "trend_following",
+    "asset": "BTCUSD",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 654,
+    "genome_id": "7510dc58bd1dedc9"
+  },
+  {
+    "family": "hybrid",
+    "asset": "IND",
+    "timeframe": "D1",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 655,
+    "genome_id": "0d800c6137b26adc"
+  },
+  {
+    "family": "trend_following",
+    "asset": "ETHUSD",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 656,
+    "genome_id": "b51f79108e23f256"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "NASDAQ",
+    "timeframe": "D1",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 657,
+    "genome_id": "d29b00a7412b9d4a"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "WDO",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 658,
+    "genome_id": "8b73ca88e7aabae5"
+  },
+  {
+    "family": "order_flow",
+    "asset": "XAUUSD",
+    "timeframe": "TICK",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 659,
+    "genome_id": "9b8d3e2bfea9149f"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "WIN",
+    "timeframe": "H1",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 660,
+    "genome_id": "129cbe4a9e52d774"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "XAUUSD",
+    "timeframe": "H4",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 661,
+    "genome_id": "cc401726782718ec"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "WIN",
+    "timeframe": "H1",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 662,
+    "genome_id": "501ad2d39eeb16ac"
+  },
+  {
+    "family": "hybrid",
+    "asset": "GBPUSD",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 663,
+    "genome_id": "1d97a416fdcede86"
+  },
+  {
+    "family": "vwap",
+    "asset": "BTCUSD",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 664,
+    "genome_id": "e30a516f894af45b"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "USDJPY",
+    "timeframe": "TICK",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 665,
+    "genome_id": "ecf28c51a9933c07"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 666,
+    "genome_id": "afb1ab7d53f49f29"
+  },
+  {
+    "family": "breakout",
+    "asset": "USDJPY",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 667,
+    "genome_id": "7b20a823f05ed6d0"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "WIN",
+    "timeframe": "H1",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 668,
+    "genome_id": "5645742e9bc35e2b"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "XAUUSD",
+    "timeframe": "H4",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 669,
+    "genome_id": "93946d6bb73cb16a"
+  },
+  {
+    "family": "hybrid",
+    "asset": "IND",
+    "timeframe": "H4",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 670,
+    "genome_id": "d1e57f635d6f6697"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "DOL",
+    "timeframe": "TICK",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 671,
+    "genome_id": "c5ce29f4cf0461ed"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "IND",
+    "timeframe": "M30",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 672,
+    "genome_id": "16e60ef822983818"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "WDO",
+    "timeframe": "TICK",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 673,
+    "genome_id": "8fa084e9f68af693"
+  },
+  {
+    "family": "pullback",
+    "asset": "ETHUSD",
+    "timeframe": "H1",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 674,
+    "genome_id": "bb5690c9d919fe21"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "ETHUSD",
+    "timeframe": "M15",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 675,
+    "genome_id": "4f081a83c772b3c3"
+  },
+  {
+    "family": "breakout",
+    "asset": "WDO",
+    "timeframe": "M1",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 676,
+    "genome_id": "3132efd681d5236c"
+  },
+  {
+    "family": "hybrid",
+    "asset": "IND",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 677,
+    "genome_id": "6a5149a68b111ccd"
+  },
+  {
+    "family": "pullback",
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 678,
+    "genome_id": "b411d608d0bbea66"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "GBPUSD",
+    "timeframe": "M15",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 679,
+    "genome_id": "f5a3d95a691c59f0"
+  },
+  {
+    "family": "hybrid",
+    "asset": "SP500",
+    "timeframe": "M15",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 680,
+    "genome_id": "6a5d560525635599"
+  },
+  {
+    "family": "pullback",
+    "asset": "DOL",
+    "timeframe": "M1",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 681,
+    "genome_id": "d609cdd3b7d6e1c2"
+  },
+  {
+    "family": "order_flow",
+    "asset": "ETHUSD",
+    "timeframe": "M30",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 682,
+    "genome_id": "abb2a68977bb3c5e"
+  },
+  {
+    "family": "vwap",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 683,
+    "genome_id": "7f1eabb9bdcdcdbb"
+  },
+  {
+    "family": "hybrid",
+    "asset": "SP500",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 684,
+    "genome_id": "8b7b30bd95a7d5f2"
+  },
+  {
+    "family": "order_flow",
+    "asset": "WDO",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 685,
+    "genome_id": "d68da07d576a50c4"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "XAUUSD",
+    "timeframe": "M1",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 686,
+    "genome_id": "69a5f0a524c0bad7"
+  },
+  {
+    "family": "pullback",
+    "asset": "ETHUSD",
+    "timeframe": "D1",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 687,
+    "genome_id": "09034dc6eb71265f"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "DOL",
+    "timeframe": "M15",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 688,
+    "genome_id": "0bdcd4c4ca4d2d0f"
+  },
+  {
+    "family": "breakout",
+    "asset": "IND",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 689,
+    "genome_id": "a0c0428e023a37ab"
+  },
+  {
+    "family": "range_compression",
+    "asset": "WDO",
+    "timeframe": "TICK",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 690,
+    "genome_id": "d69ed84c1741b519"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "USDJPY",
+    "timeframe": "M1",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 691,
+    "genome_id": "ffaa742845b1bee9"
+  },
+  {
+    "family": "order_flow",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 692,
+    "genome_id": "e6c3a4858eef508a"
+  },
+  {
+    "family": "breakout",
+    "asset": "DOL",
+    "timeframe": "M15",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 693,
+    "genome_id": "b074113011a83132"
+  },
+  {
+    "family": "pullback",
+    "asset": "ETHUSD",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 694,
+    "genome_id": "886690e944f91f4e"
+  },
+  {
+    "family": "pullback",
+    "asset": "WIN",
+    "timeframe": "H1",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 695,
+    "genome_id": "373d8ca1a4f931dc"
+  },
+  {
+    "family": "range_compression",
+    "asset": "WIN",
+    "timeframe": "M30",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 696,
+    "genome_id": "53802e6a17020aab"
+  },
+  {
+    "family": "breakout",
+    "asset": "GBPUSD",
+    "timeframe": "M15",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 697,
+    "genome_id": "6ac5c8fcedf2bbfb"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "ETHUSD",
+    "timeframe": "M5",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 698,
+    "genome_id": "eea80b8b929d4920"
+  },
+  {
+    "family": "vwap",
+    "asset": "WDO",
+    "timeframe": "H4",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 699,
+    "genome_id": "5eabf5201e24e8f0"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "NASDAQ",
+    "timeframe": "M30",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 700,
+    "genome_id": "bdfbaf21a640320c"
+  },
+  {
+    "family": "hybrid",
+    "asset": "WIN",
+    "timeframe": "M1",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 701,
+    "genome_id": "19cfd2c0b42e881f"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "XAUUSD",
+    "timeframe": "TICK",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 702,
+    "genome_id": "756e57e4c40cd62d"
+  },
+  {
+    "family": "hybrid",
+    "asset": "WDO",
+    "timeframe": "H1",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 703,
+    "genome_id": "8011d0809f1bd70f"
+  },
+  {
+    "family": "hybrid",
+    "asset": "SP500",
+    "timeframe": "TICK",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 704,
+    "genome_id": "7b00760af7c232ab"
+  },
+  {
+    "family": "range_compression",
+    "asset": "EURUSD",
+    "timeframe": "TICK",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 705,
+    "genome_id": "55f1235f43e58564"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 706,
+    "genome_id": "7cf6aa4ea5a56bde"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 707,
+    "genome_id": "c4847e8e4313b89f"
+  },
+  {
+    "family": "vwap",
+    "asset": "SP500",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 708,
+    "genome_id": "769f842e6632438f"
+  },
+  {
+    "family": "pullback",
+    "asset": "WDO",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 709,
+    "genome_id": "2aa54c3272347e3b"
+  },
+  {
+    "family": "vwap",
+    "asset": "IND",
+    "timeframe": "M5",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 710,
+    "genome_id": "26358956aa8472c2"
+  },
+  {
+    "family": "order_flow",
+    "asset": "USDJPY",
+    "timeframe": "M15",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 711,
+    "genome_id": "0123b4edfb90856c"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "WIN",
+    "timeframe": "H1",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 712,
+    "genome_id": "296ef8207949c00d"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "BTCUSD",
+    "timeframe": "M15",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 713,
+    "genome_id": "d96d892be464ad76"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "ETHUSD",
+    "timeframe": "H1",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 714,
+    "genome_id": "a97fb3bca38d26c7"
+  },
+  {
+    "family": "trend_following",
+    "asset": "BTCUSD",
+    "timeframe": "TICK",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 715,
+    "genome_id": "87c5fae377518617"
+  },
+  {
+    "family": "vwap",
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 716,
+    "genome_id": "a14555761ce748f1"
+  },
+  {
+    "family": "pullback",
+    "asset": "NASDAQ",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 717,
+    "genome_id": "bcb1563b5915a00f"
+  },
+  {
+    "family": "vwap",
+    "asset": "XAUUSD",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 718,
+    "genome_id": "df4a660bae480c8a"
+  },
+  {
+    "family": "order_flow",
+    "asset": "IND",
+    "timeframe": "D1",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 719,
+    "genome_id": "cd11b8a9ab27709a"
+  },
+  {
+    "family": "trend_following",
+    "asset": "IND",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 720,
+    "genome_id": "3f8a26aa1119683c"
+  },
+  {
+    "family": "hybrid",
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 721,
+    "genome_id": "fbe4848e3c8dd388"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "GBPUSD",
+    "timeframe": "M30",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 722,
+    "genome_id": "ec3a0493621085d0"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 723,
+    "genome_id": "c6d7fe3f95ad453a"
+  },
+  {
+    "family": "range_compression",
+    "asset": "NASDAQ",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 724,
+    "genome_id": "a4029f6539e0186d"
+  },
+  {
+    "family": "trend_following",
+    "asset": "WDO",
+    "timeframe": "H1",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 725,
+    "genome_id": "848c094f47bc7a2e"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "SP500",
+    "timeframe": "M5",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 726,
+    "genome_id": "99c47720c44489e2"
+  },
+  {
+    "family": "breakout",
+    "asset": "BTCUSD",
+    "timeframe": "M1",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 727,
+    "genome_id": "caca5a9ff89188da"
+  },
+  {
+    "family": "breakout",
+    "asset": "WDO",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 728,
+    "genome_id": "8a696fffcaf5486d"
+  },
+  {
+    "family": "hybrid",
+    "asset": "WIN",
+    "timeframe": "D1",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 729,
+    "genome_id": "a19b72fad54a4a49"
+  },
+  {
+    "family": "hybrid",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 730,
+    "genome_id": "11ccecd197ba5007"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "IND",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 731,
+    "genome_id": "9ab408d2a5f6c941"
+  },
+  {
+    "family": "order_flow",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 732,
+    "genome_id": "9f0ef55aacc889eb"
+  },
+  {
+    "family": "order_flow",
+    "asset": "DOL",
+    "timeframe": "M15",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 733,
+    "genome_id": "82e66ca36059ee6c"
+  },
+  {
+    "family": "range_compression",
+    "asset": "XAUUSD",
+    "timeframe": "M1",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 734,
+    "genome_id": "2e44edd02beb7149"
+  },
+  {
+    "family": "vwap",
+    "asset": "WDO",
+    "timeframe": "H4",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 735,
+    "genome_id": "b30232f90e17a073"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 736,
+    "genome_id": "bdae8abcca2e655d"
+  },
+  {
+    "family": "breakout",
+    "asset": "WIN",
+    "timeframe": "TICK",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 737,
+    "genome_id": "563e4ad2ad771c97"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "GBPUSD",
+    "timeframe": "H4",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 738,
+    "genome_id": "4a98825bede6fd92"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "BTCUSD",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 739,
+    "genome_id": "30dcd095ccfbbdb5"
+  },
+  {
+    "family": "breakout",
+    "asset": "GBPUSD",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 740,
+    "genome_id": "59a31e9aae4e8377"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "XAUUSD",
+    "timeframe": "M5",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 741,
+    "genome_id": "4971977087ade017"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "IND",
+    "timeframe": "TICK",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 742,
+    "genome_id": "61fa829a9ab145f6"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "WIN",
+    "timeframe": "M30",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 743,
+    "genome_id": "2380fd90eaa240cd"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "IND",
+    "timeframe": "M30",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 744,
+    "genome_id": "3eceb2d9ea2b1f1e"
+  },
+  {
+    "family": "vwap",
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 745,
+    "genome_id": "0785a31388940070"
+  },
+  {
+    "family": "order_flow",
+    "asset": "BTCUSD",
+    "timeframe": "M15",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 746,
+    "genome_id": "28a86f1ab75df0e1"
+  },
+  {
+    "family": "range_compression",
+    "asset": "IND",
+    "timeframe": "M5",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 747,
+    "genome_id": "fbeecccea95a4b40"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "SP500",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 748,
+    "genome_id": "281ea12a9a6aeed9"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 749,
+    "genome_id": "20e0cf03ed1257e3"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "WDO",
+    "timeframe": "TICK",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 750,
+    "genome_id": "1ded1047097503af"
+  },
+  {
+    "family": "range_compression",
+    "asset": "NASDAQ",
+    "timeframe": "TICK",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 751,
+    "genome_id": "72968b7d132fd8a6"
+  },
+  {
+    "family": "hybrid",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 752,
+    "genome_id": "58e16ae179d1b732"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "ETHUSD",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 753,
+    "genome_id": "0251f979551e67fa"
+  },
+  {
+    "family": "vwap",
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 754,
+    "genome_id": "08609ec456862f38"
+  },
+  {
+    "family": "trend_following",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 755,
+    "genome_id": "fd15f87fe0b0f5be"
+  },
+  {
+    "family": "vwap",
+    "asset": "WDO",
+    "timeframe": "M15",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 756,
+    "genome_id": "10b2a8419b8610d1"
+  },
+  {
+    "family": "vwap",
+    "asset": "NASDAQ",
+    "timeframe": "M30",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 757,
+    "genome_id": "56cb44342556cbb2"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "ETHUSD",
+    "timeframe": "M30",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 758,
+    "genome_id": "28d189e42de57c50"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "ETHUSD",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 759,
+    "genome_id": "fd90929d5ec15818"
+  },
+  {
+    "family": "pullback",
+    "asset": "DOL",
+    "timeframe": "M5",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 760,
+    "genome_id": "11911c09039e6c9e"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "DOL",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 761,
+    "genome_id": "1907999e6d526d1f"
+  },
+  {
+    "family": "hybrid",
+    "asset": "GBPUSD",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 762,
+    "genome_id": "9deadbebd1541dd7"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "USDJPY",
+    "timeframe": "M5",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 763,
+    "genome_id": "a8439190c3b149f0"
+  },
+  {
+    "family": "pullback",
+    "asset": "GBPUSD",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 764,
+    "genome_id": "ba52976e5aec8832"
+  },
+  {
+    "family": "vwap",
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 765,
+    "genome_id": "908caab4b877c967"
+  },
+  {
+    "family": "vwap",
+    "asset": "ETHUSD",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 766,
+    "genome_id": "69c3de5a72ab6642"
+  },
+  {
+    "family": "hybrid",
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 767,
+    "genome_id": "f745c255e075ff34"
+  },
+  {
+    "family": "range_compression",
+    "asset": "WIN",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 768,
+    "genome_id": "e59c61b521c5817d"
+  },
+  {
+    "family": "trend_following",
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 769,
+    "genome_id": "f6e5e98307a18e13"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "IND",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 770,
+    "genome_id": "cbf17147e930b593"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "WIN",
+    "timeframe": "M30",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 771,
+    "genome_id": "f7a3f6e9f9ccbc92"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "IND",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 772,
+    "genome_id": "0c33cdd6ce22891c"
+  },
+  {
+    "family": "vwap",
+    "asset": "ETHUSD",
+    "timeframe": "H1",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 773,
+    "genome_id": "3a975705bf3424a9"
+  },
+  {
+    "family": "pullback",
+    "asset": "ETHUSD",
+    "timeframe": "M15",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 774,
+    "genome_id": "3b515838a9d69bd2"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "IND",
+    "timeframe": "TICK",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 775,
+    "genome_id": "d7005d9050a981a0"
+  },
+  {
+    "family": "range_compression",
+    "asset": "DOL",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 776,
+    "genome_id": "221c9ecd5688b418"
+  },
+  {
+    "family": "range_compression",
+    "asset": "ETHUSD",
+    "timeframe": "TICK",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 777,
+    "genome_id": "8fd1901f86ee4cc5"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "USDJPY",
+    "timeframe": "M1",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 778,
+    "genome_id": "3fb237c588a9abba"
+  },
+  {
+    "family": "range_compression",
+    "asset": "ETHUSD",
+    "timeframe": "M30",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 779,
+    "genome_id": "2ceea4d485db2e31"
+  },
+  {
+    "family": "hybrid",
+    "asset": "WIN",
+    "timeframe": "M1",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 780,
+    "genome_id": "3ad10e245a21f0ec"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "NASDAQ",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 781,
+    "genome_id": "92b97c15eb0273b4"
+  },
+  {
+    "family": "hybrid",
+    "asset": "BTCUSD",
+    "timeframe": "D1",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 782,
+    "genome_id": "5a60e6d5202c6459"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "NASDAQ",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 783,
+    "genome_id": "180e4fd3ad1dc8e0"
+  },
+  {
+    "family": "hybrid",
+    "asset": "NASDAQ",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 784,
+    "genome_id": "d9f832292a719d9b"
+  },
+  {
+    "family": "order_flow",
+    "asset": "EURUSD",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 785,
+    "genome_id": "bdc64d463ba7e718"
+  },
+  {
+    "family": "order_flow",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 786,
+    "genome_id": "2bfa4146f2d4caff"
+  },
+  {
+    "family": "trend_following",
+    "asset": "WDO",
+    "timeframe": "D1",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 787,
+    "genome_id": "e7a5f4ec724f3af0"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "BTCUSD",
+    "timeframe": "D1",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 788,
+    "genome_id": "72cc6c85021cb146"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "XAUUSD",
+    "timeframe": "TICK",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 789,
+    "genome_id": "83da468dd5f0202b"
+  },
+  {
+    "family": "pullback",
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 790,
+    "genome_id": "b1182832b96d2c8b"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "USDJPY",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 791,
+    "genome_id": "f0bdaacfc2dea284"
+  },
+  {
+    "family": "hybrid",
+    "asset": "DOL",
+    "timeframe": "H1",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 792,
+    "genome_id": "c12d7171e44dce1a"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "WIN",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 793,
+    "genome_id": "9e4b1230bd080fce"
+  },
+  {
+    "family": "range_compression",
+    "asset": "ETHUSD",
+    "timeframe": "M15",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 794,
+    "genome_id": "0235227a00f87855"
+  },
+  {
+    "family": "hybrid",
+    "asset": "SP500",
+    "timeframe": "TICK",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 795,
+    "genome_id": "c30299454188e97b"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "EURUSD",
+    "timeframe": "TICK",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 796,
+    "genome_id": "d9d954c843861eec"
+  },
+  {
+    "family": "vwap",
+    "asset": "WIN",
+    "timeframe": "TICK",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 797,
+    "genome_id": "0768ed2c23f7e05e"
+  },
+  {
+    "family": "vwap",
+    "asset": "WDO",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 798,
+    "genome_id": "98977cd041678e47"
+  },
+  {
+    "family": "breakout",
+    "asset": "SP500",
+    "timeframe": "M30",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 799,
+    "genome_id": "789872e873239576"
+  },
+  {
+    "family": "vwap",
+    "asset": "USDJPY",
+    "timeframe": "TICK",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 800,
+    "genome_id": "308fb6ccd686240a"
+  },
+  {
+    "family": "hybrid",
+    "asset": "GBPUSD",
+    "timeframe": "M30",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 801,
+    "genome_id": "3257bcaac00400c7"
+  },
+  {
+    "family": "hybrid",
+    "asset": "WIN",
+    "timeframe": "M30",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 802,
+    "genome_id": "5d23e4651675be78"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "EURUSD",
+    "timeframe": "TICK",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 803,
+    "genome_id": "c8206e5cad4b54c8"
+  },
+  {
+    "family": "breakout",
+    "asset": "GBPUSD",
+    "timeframe": "TICK",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 804,
+    "genome_id": "96fa9f97e31b19bd"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "USDJPY",
+    "timeframe": "M30",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 805,
+    "genome_id": "a2e186d422c479f1"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 806,
+    "genome_id": "87c32786430273a1"
+  },
+  {
+    "family": "vwap",
+    "asset": "IND",
+    "timeframe": "M30",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 807,
+    "genome_id": "6fed9d3b9931cc79"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "SP500",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 808,
+    "genome_id": "3e9c2dea0061775a"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "USDJPY",
+    "timeframe": "M1",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 809,
+    "genome_id": "19ae870c89f80b88"
+  },
+  {
+    "family": "vwap",
+    "asset": "XAUUSD",
+    "timeframe": "M30",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 810,
+    "genome_id": "2474417d7e10e25a"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "USDJPY",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 811,
+    "genome_id": "67a4ed24a9440ac1"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "XAUUSD",
+    "timeframe": "M5",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 812,
+    "genome_id": "e5a5fba063a48e16"
+  },
+  {
+    "family": "order_flow",
+    "asset": "WDO",
+    "timeframe": "M15",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 813,
+    "genome_id": "05ebecd43d7bc356"
+  },
+  {
+    "family": "hybrid",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 814,
+    "genome_id": "f9417af25ce4b57f"
+  },
+  {
+    "family": "range_compression",
+    "asset": "GBPUSD",
+    "timeframe": "M15",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 815,
+    "genome_id": "6ad1acfe2b2b203e"
+  },
+  {
+    "family": "trend_following",
+    "asset": "EURUSD",
+    "timeframe": "H4",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 816,
+    "genome_id": "ee652d47dda757e1"
+  },
+  {
+    "family": "pullback",
+    "asset": "NASDAQ",
+    "timeframe": "M30",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 817,
+    "genome_id": "389049bd09b95489"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "BTCUSD",
+    "timeframe": "M15",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 818,
+    "genome_id": "1ea178cd22de9cd0"
+  },
+  {
+    "family": "hybrid",
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 819,
+    "genome_id": "7664ec6c0065e37a"
+  },
+  {
+    "family": "trend_following",
+    "asset": "WDO",
+    "timeframe": "H4",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 820,
+    "genome_id": "7acc4f9909772c57"
+  },
+  {
+    "family": "trend_following",
+    "asset": "WDO",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 821,
+    "genome_id": "89c85e9c16f049da"
+  },
+  {
+    "family": "breakout",
+    "asset": "EURUSD",
+    "timeframe": "TICK",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 822,
+    "genome_id": "085dbd78500d62c6"
+  },
+  {
+    "family": "order_flow",
+    "asset": "BTCUSD",
+    "timeframe": "M15",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 823,
+    "genome_id": "36c5b9255912df55"
+  },
+  {
+    "family": "range_compression",
+    "asset": "WDO",
+    "timeframe": "M1",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 824,
+    "genome_id": "dd1fe29cba7be39f"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 825,
+    "genome_id": "75af1b9835cbc555"
+  },
+  {
+    "family": "hybrid",
+    "asset": "SP500",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 826,
+    "genome_id": "9e4f3b7446cc3ed9"
+  },
+  {
+    "family": "range_compression",
+    "asset": "BTCUSD",
+    "timeframe": "M15",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 827,
+    "genome_id": "b991c91419d14491"
+  },
+  {
+    "family": "order_flow",
+    "asset": "XAUUSD",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 828,
+    "genome_id": "8c466e8c7e49a214"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "IND",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 829,
+    "genome_id": "3f0b24a0376dba71"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "NASDAQ",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 830,
+    "genome_id": "a9e41ee3b2336726"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "WIN",
+    "timeframe": "M30",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 831,
+    "genome_id": "418ab687c0f16059"
+  },
+  {
+    "family": "vwap",
+    "asset": "IND",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 832,
+    "genome_id": "23c14b2d5617ff7b"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "WIN",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 833,
+    "genome_id": "75859fa91177cbc3"
+  },
+  {
+    "family": "trend_following",
+    "asset": "BTCUSD",
+    "timeframe": "M30",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 834,
+    "genome_id": "120d8dcf435450be"
+  },
+  {
+    "family": "vwap",
+    "asset": "SP500",
+    "timeframe": "M1",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 835,
+    "genome_id": "80f0bdde83ff0840"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "BTCUSD",
+    "timeframe": "M1",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 836,
+    "genome_id": "787e93bc9865b322"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "IND",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 837,
+    "genome_id": "833cb3917ec4e50a"
+  },
+  {
+    "family": "pullback",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 838,
+    "genome_id": "ddc4620a6bb08c4c"
+  },
+  {
+    "family": "hybrid",
+    "asset": "WIN",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 839,
+    "genome_id": "0d16ead712dcc0bd"
+  },
+  {
+    "family": "vwap",
+    "asset": "ETHUSD",
+    "timeframe": "H1",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 840,
+    "genome_id": "32ba4bf4995a0f6e"
+  },
+  {
+    "family": "range_compression",
+    "asset": "DOL",
+    "timeframe": "M15",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 841,
+    "genome_id": "0c9780ca90e7c181"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "ETHUSD",
+    "timeframe": "H4",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 842,
+    "genome_id": "29a59ca23ebfa148"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "NASDAQ",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 843,
+    "genome_id": "b2816f488cfdf88c"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "SP500",
+    "timeframe": "M15",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 844,
+    "genome_id": "5a2f45fcb0f43674"
+  },
+  {
+    "family": "breakout",
+    "asset": "ETHUSD",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 845,
+    "genome_id": "772d0345574e7e8d"
+  },
+  {
+    "family": "range_compression",
+    "asset": "ETHUSD",
+    "timeframe": "H1",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 846,
+    "genome_id": "48a401a9480796e8"
+  },
+  {
+    "family": "range_compression",
+    "asset": "IND",
+    "timeframe": "M30",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 847,
+    "genome_id": "e5e703da0cf11031"
+  },
+  {
+    "family": "order_flow",
+    "asset": "USDJPY",
+    "timeframe": "M1",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 848,
+    "genome_id": "04edf18296db10b6"
+  },
+  {
+    "family": "pullback",
+    "asset": "BTCUSD",
+    "timeframe": "M1",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 849,
+    "genome_id": "9fe385c45b4ea7d5"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "WDO",
+    "timeframe": "H1",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 850,
+    "genome_id": "26dc51854ad9a469"
+  },
+  {
+    "family": "trend_following",
+    "asset": "GBPUSD",
+    "timeframe": "M1",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 851,
+    "genome_id": "5f02aabc3cf3c174"
+  },
+  {
+    "family": "range_compression",
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 852,
+    "genome_id": "012b3ccd5f39e8b2"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "IND",
+    "timeframe": "M30",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 853,
+    "genome_id": "9144e9966c589b94"
+  },
+  {
+    "family": "pullback",
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 854,
+    "genome_id": "e54ead91c9a89e53"
+  },
+  {
+    "family": "hybrid",
+    "asset": "SP500",
+    "timeframe": "M1",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 855,
+    "genome_id": "e9f46a842901f341"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "WIN",
+    "timeframe": "TICK",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 856,
+    "genome_id": "b13235639c504596"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "ETHUSD",
+    "timeframe": "TICK",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 857,
+    "genome_id": "7938c789067501b4"
+  },
+  {
+    "family": "range_compression",
+    "asset": "SP500",
+    "timeframe": "M5",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 858,
+    "genome_id": "4bd431d4919a502a"
+  },
+  {
+    "family": "hybrid",
+    "asset": "GBPUSD",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 859,
+    "genome_id": "49f431399704e125"
+  },
+  {
+    "family": "trend_following",
+    "asset": "BTCUSD",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 860,
+    "genome_id": "4d6a42dac4a6a09d"
+  },
+  {
+    "family": "range_compression",
+    "asset": "WDO",
+    "timeframe": "TICK",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 861,
+    "genome_id": "7277bf82e6c9df9f"
+  },
+  {
+    "family": "vwap",
+    "asset": "DOL",
+    "timeframe": "H1",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 862,
+    "genome_id": "8044437d761017df"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "XAUUSD",
+    "timeframe": "H4",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 863,
+    "genome_id": "fc711dd76fbb74a0"
+  },
+  {
+    "family": "breakout",
+    "asset": "IND",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 864,
+    "genome_id": "24fc7af7399ebc42"
+  },
+  {
+    "family": "range_compression",
+    "asset": "IND",
+    "timeframe": "D1",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 865,
+    "genome_id": "6d42fdb38f0b5d53"
+  },
+  {
+    "family": "breakout",
+    "asset": "GBPUSD",
+    "timeframe": "M30",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 866,
+    "genome_id": "2f30558831340f7c"
+  },
+  {
+    "family": "breakout",
+    "asset": "GBPUSD",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 867,
+    "genome_id": "57786859b7ee8230"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "NASDAQ",
+    "timeframe": "H1",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 868,
+    "genome_id": "fb6e7a577e92005f"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "WDO",
+    "timeframe": "M30",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 869,
+    "genome_id": "7dcd4724064e98be"
+  },
+  {
+    "family": "order_flow",
+    "asset": "IND",
+    "timeframe": "D1",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 870,
+    "genome_id": "8082a6d78fda02db"
+  },
+  {
+    "family": "breakout",
+    "asset": "DOL",
+    "timeframe": "M1",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 871,
+    "genome_id": "75027f8fdeb766f2"
+  },
+  {
+    "family": "range_compression",
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 872,
+    "genome_id": "cf1cae363be3e4ec"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "WDO",
+    "timeframe": "M15",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 873,
+    "genome_id": "5ff71423d1342ce6"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "IND",
+    "timeframe": "M15",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 874,
+    "genome_id": "f71c643c29380dd1"
+  },
+  {
+    "family": "vwap",
+    "asset": "NASDAQ",
+    "timeframe": "H1",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 875,
+    "genome_id": "b28788055caec8be"
+  },
+  {
+    "family": "breakout",
+    "asset": "NASDAQ",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 876,
+    "genome_id": "27363a60862aa551"
+  },
+  {
+    "family": "order_flow",
+    "asset": "DOL",
+    "timeframe": "H1",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 877,
+    "genome_id": "cf70d5d8d0162499"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "EURUSD",
+    "timeframe": "D1",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 878,
+    "genome_id": "66d22034490c2865"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 879,
+    "genome_id": "a4e400829c0034c2"
+  },
+  {
+    "family": "hybrid",
+    "asset": "ETHUSD",
+    "timeframe": "D1",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 880,
+    "genome_id": "37c26a1337333426"
+  },
+  {
+    "family": "breakout",
+    "asset": "EURUSD",
+    "timeframe": "TICK",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 881,
+    "genome_id": "0ae1460cfd2205b8"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "WIN",
+    "timeframe": "TICK",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 882,
+    "genome_id": "072d8fde97a4cc29"
+  },
+  {
+    "family": "pullback",
+    "asset": "IND",
+    "timeframe": "H1",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 883,
+    "genome_id": "d6fd4a50f16da988"
+  },
+  {
+    "family": "order_flow",
+    "asset": "WIN",
+    "timeframe": "H1",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 884,
+    "genome_id": "a80ff386c7c4169f"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "DOL",
+    "timeframe": "M1",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 885,
+    "genome_id": "a70867e4d1915e87"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "DOL",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 886,
+    "genome_id": "b650d2d7d31d48b2"
+  },
+  {
+    "family": "range_compression",
+    "asset": "XAUUSD",
+    "timeframe": "TICK",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 887,
+    "genome_id": "f2d580f0712df45e"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "XAUUSD",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 888,
+    "genome_id": "e9a5a717dbc05671"
+  },
+  {
+    "family": "hybrid",
+    "asset": "WIN",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 889,
+    "genome_id": "8496a8827ed902e5"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "BTCUSD",
+    "timeframe": "TICK",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 890,
+    "genome_id": "70a51e918770e0a7"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "BTCUSD",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 891,
+    "genome_id": "6c759f5d9c4c6bad"
+  },
+  {
+    "family": "pullback",
+    "asset": "BTCUSD",
+    "timeframe": "M1",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 892,
+    "genome_id": "7c3bb632133ac5ba"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "USDJPY",
+    "timeframe": "M15",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 893,
+    "genome_id": "6678c58f61669c8e"
+  },
+  {
+    "family": "vwap",
+    "asset": "USDJPY",
+    "timeframe": "H1",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 894,
+    "genome_id": "d96f66a3cc24757e"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "USDJPY",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 895,
+    "genome_id": "09e97812d940e757"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "NASDAQ",
+    "timeframe": "M15",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 896,
+    "genome_id": "b16f69cbab11cc54"
+  },
+  {
+    "family": "order_flow",
+    "asset": "USDJPY",
+    "timeframe": "M15",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 897,
+    "genome_id": "a3e3d9d160229121"
+  },
+  {
+    "family": "pullback",
+    "asset": "WIN",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 898,
+    "genome_id": "d09a62aafc8f342e"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "WDO",
+    "timeframe": "TICK",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 899,
+    "genome_id": "1e2ceadd47e21961"
+  },
+  {
+    "family": "order_flow",
+    "asset": "NASDAQ",
+    "timeframe": "H1",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 900,
+    "genome_id": "78d451fac4a1999c"
+  },
+  {
+    "family": "range_compression",
+    "asset": "USDJPY",
+    "timeframe": "M30",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 901,
+    "genome_id": "5466219ee61cca17"
+  },
+  {
+    "family": "vwap",
+    "asset": "WIN",
+    "timeframe": "TICK",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 902,
+    "genome_id": "f614403a7bb874e7"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "WIN",
+    "timeframe": "M15",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 903,
+    "genome_id": "2c21fa696508db40"
+  },
+  {
+    "family": "trend_following",
+    "asset": "EURUSD",
+    "timeframe": "TICK",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 904,
+    "genome_id": "aba12fafb02eef3c"
+  },
+  {
+    "family": "range_compression",
+    "asset": "GBPUSD",
+    "timeframe": "M15",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 905,
+    "genome_id": "ab2a5081e32b0ab6"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "NASDAQ",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 906,
+    "genome_id": "820a79c914ee6a8d"
+  },
+  {
+    "family": "order_flow",
+    "asset": "NASDAQ",
+    "timeframe": "M15",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 907,
+    "genome_id": "f65e6aa393ee07ae"
+  },
+  {
+    "family": "range_compression",
+    "asset": "BTCUSD",
+    "timeframe": "D1",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 908,
+    "genome_id": "22102abe80ff34af"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "NASDAQ",
+    "timeframe": "TICK",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 909,
+    "genome_id": "0d16271f395714bc"
+  },
+  {
+    "family": "order_flow",
+    "asset": "ETHUSD",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 910,
+    "genome_id": "7887ca948fcc566d"
+  },
+  {
+    "family": "order_flow",
+    "asset": "SP500",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 911,
+    "genome_id": "6d3558beeaef43e2"
+  },
+  {
+    "family": "breakout",
+    "asset": "SP500",
+    "timeframe": "H1",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 912,
+    "genome_id": "59383adc9fd1d665"
+  },
+  {
+    "family": "range_compression",
+    "asset": "IND",
+    "timeframe": "M1",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 913,
+    "genome_id": "0fdce61dc2dc2fc0"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "IND",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 914,
+    "genome_id": "1ff1391bf18a1568"
+  },
+  {
+    "family": "order_flow",
+    "asset": "NASDAQ",
+    "timeframe": "M30",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 915,
+    "genome_id": "6e08975e1c0c9e89"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 916,
+    "genome_id": "f6f7b0e3127fb415"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "WDO",
+    "timeframe": "D1",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 15,
+    "index": 917,
+    "genome_id": "86fbcb9bf1c6813e"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "WDO",
+    "timeframe": "D1",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 918,
+    "genome_id": "724037ccaec55d3c"
+  },
+  {
+    "family": "vwap",
+    "asset": "IND",
+    "timeframe": "TICK",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 919,
+    "genome_id": "cf478473bdc51fdb"
+  },
+  {
+    "family": "breakout",
+    "asset": "BTCUSD",
+    "timeframe": "M30",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 920,
+    "genome_id": "b9c63357e98f9255"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "BTCUSD",
+    "timeframe": "H4",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 921,
+    "genome_id": "f1cc6cf5077d95f1"
+  },
+  {
+    "family": "range_compression",
+    "asset": "EURUSD",
+    "timeframe": "M1",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 922,
+    "genome_id": "bf16f20dc1118312"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "USDJPY",
+    "timeframe": "M1",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 923,
+    "genome_id": "62688a0586304d38"
+  },
+  {
+    "family": "pullback",
+    "asset": "DOL",
+    "timeframe": "D1",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 924,
+    "genome_id": "7a5fee7b878c0da0"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "IND",
+    "timeframe": "M1",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 925,
+    "genome_id": "ef383e66b185f115"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "DOL",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 926,
+    "genome_id": "2ffcf996320d637d"
+  },
+  {
+    "family": "order_flow",
+    "asset": "WDO",
+    "timeframe": "H1",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 927,
+    "genome_id": "6c07d523016ea770"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "WDO",
+    "timeframe": "H1",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 928,
+    "genome_id": "8d9a495eb2a94e56"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "WDO",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 929,
+    "genome_id": "9772cffa7b11e874"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "BTCUSD",
+    "timeframe": "M15",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 930,
+    "genome_id": "3fe9ef134417b18b"
+  },
+  {
+    "family": "breakout",
+    "asset": "WIN",
+    "timeframe": "M30",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 931,
+    "genome_id": "dda231db20ac0809"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "GBPUSD",
+    "timeframe": "M1",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 932,
+    "genome_id": "f539fa9e4e19e9b6"
+  },
+  {
+    "family": "trend_following",
+    "asset": "WIN",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 933,
+    "genome_id": "fd333dcae66860bc"
+  },
+  {
+    "family": "vwap",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 934,
+    "genome_id": "4789df4d98a895fd"
+  },
+  {
+    "family": "trend_following",
+    "asset": "ETHUSD",
+    "timeframe": "H4",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 935,
+    "genome_id": "ef72c7c6d163d5f0"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "WDO",
+    "timeframe": "TICK",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 936,
+    "genome_id": "d1ec8d21c338c483"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 937,
+    "genome_id": "7034efe8f1c36df7"
+  },
+  {
+    "family": "pullback",
+    "asset": "BTCUSD",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 938,
+    "genome_id": "8e6984e7944a5a8f"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "XAUUSD",
+    "timeframe": "M1",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 939,
+    "genome_id": "f4e235d0c1743697"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "GBPUSD",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 940,
+    "genome_id": "6114b0849868c48d"
+  },
+  {
+    "family": "range_compression",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 941,
+    "genome_id": "e0e009435f6be2ae"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "DOL",
+    "timeframe": "H1",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 942,
+    "genome_id": "25e1017f737f4401"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "SP500",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 943,
+    "genome_id": "dd8ecae308536198"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "WDO",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 944,
+    "genome_id": "30a8e7d89ca61986"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "ETHUSD",
+    "timeframe": "M15",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 945,
+    "genome_id": "25a5a8c8e3b624e4"
+  },
+  {
+    "family": "trend_following",
+    "asset": "EURUSD",
+    "timeframe": "M5",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 946,
+    "genome_id": "8d8d87b12cd08232"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "WIN",
+    "timeframe": "TICK",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 947,
+    "genome_id": "c31887c7dfa0cff0"
+  },
+  {
+    "family": "vwap",
+    "asset": "SP500",
+    "timeframe": "M1",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 948,
+    "genome_id": "a1f99585465516ba"
+  },
+  {
+    "family": "vwap",
+    "asset": "ETHUSD",
+    "timeframe": "D1",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 949,
+    "genome_id": "7bdf2a2c2fbfa1fe"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "GBPUSD",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 950,
+    "genome_id": "4b91f6fe6f40a103"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "WIN",
+    "timeframe": "TICK",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 951,
+    "genome_id": "56daaaec6de221c3"
+  },
+  {
+    "family": "range_compression",
+    "asset": "IND",
+    "timeframe": "TICK",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 952,
+    "genome_id": "9a2b5f74f82d194c"
+  },
+  {
+    "family": "trend_following",
+    "asset": "IND",
+    "timeframe": "M5",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 953,
+    "genome_id": "aa4f6c23cbb5dbc9"
+  },
+  {
+    "family": "pullback",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 954,
+    "genome_id": "8681c5e8d881c7d9"
+  },
+  {
+    "family": "vwap",
+    "asset": "GBPUSD",
+    "timeframe": "M15",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 955,
+    "genome_id": "5084d59e275f8fab"
+  },
+  {
+    "family": "vwap",
+    "asset": "GBPUSD",
+    "timeframe": "H1",
+    "fast": 5,
+    "slow": 55,
+    "risk_bps": 20,
+    "index": 956,
+    "genome_id": "f46cbb52b256d526"
+  },
+  {
+    "family": "hybrid",
+    "asset": "BTCUSD",
+    "timeframe": "D1",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 957,
+    "genome_id": "2cdde6fa9d5ea95f"
+  },
+  {
+    "family": "vwap",
+    "asset": "BTCUSD",
+    "timeframe": "D1",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 958,
+    "genome_id": "08cf7be47267c423"
+  },
+  {
+    "family": "hybrid",
+    "asset": "DOL",
+    "timeframe": "M30",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 959,
+    "genome_id": "a200aaa8f7d1520b"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "DOL",
+    "timeframe": "M1",
+    "fast": 21,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 960,
+    "genome_id": "cd5c3a0ec4ce83d2"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 961,
+    "genome_id": "d4168e70f0057411"
+  },
+  {
+    "family": "breakout",
+    "asset": "SP500",
+    "timeframe": "TICK",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 962,
+    "genome_id": "888f155b84f3aa9c"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "WIN",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 963,
+    "genome_id": "604ac8eead319fdb"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "DOL",
+    "timeframe": "D1",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 964,
+    "genome_id": "f75baef39bfce05d"
+  },
+  {
+    "family": "vwap",
+    "asset": "USDJPY",
+    "timeframe": "D1",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 965,
+    "genome_id": "b8fdb2222c8d1bc2"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "SP500",
+    "timeframe": "H1",
+    "fast": 34,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 966,
+    "genome_id": "89f3d7ca6c122f99"
+  },
+  {
+    "family": "order_flow",
+    "asset": "SP500",
+    "timeframe": "H4",
+    "fast": 13,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 967,
+    "genome_id": "7f25dc145753ef58"
+  },
+  {
+    "family": "volatility_expansion",
+    "asset": "DOL",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 15,
+    "index": 968,
+    "genome_id": "7b86f10c4013bc81"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "WDO",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 10,
+    "index": 969,
+    "genome_id": "b349e1f268094799"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "USDJPY",
+    "timeframe": "M1",
+    "fast": 8,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 970,
+    "genome_id": "97f326d3f50d3008"
+  },
+  {
+    "family": "trend_following",
+    "asset": "SP500",
+    "timeframe": "H1",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 971,
+    "genome_id": "2f8487ca37d7d49a"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "USDJPY",
+    "timeframe": "H4",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 972,
+    "genome_id": "6b0d42def9ecab7d"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "XAUUSD",
+    "timeframe": "H4",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 973,
+    "genome_id": "8eb1ec39e9cfa760"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "USDJPY",
+    "timeframe": "M5",
+    "fast": 8,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 974,
+    "genome_id": "070615e1eb9eb376"
+  },
+  {
+    "family": "multi_signal",
+    "asset": "USDJPY",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 55,
+    "risk_bps": 5,
+    "index": 975,
+    "genome_id": "84cf04b981300a48"
+  },
+  {
+    "family": "hybrid",
+    "asset": "USDJPY",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 976,
+    "genome_id": "a5bab982c2c9a4b2"
+  },
+  {
+    "family": "pullback",
+    "asset": "WIN",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 977,
+    "genome_id": "ea17521aa9d07149"
+  },
+  {
+    "family": "breakout",
+    "asset": "XAUUSD",
+    "timeframe": "M5",
+    "fast": 34,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 978,
+    "genome_id": "d097d51c1ce6e13c"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "USDJPY",
+    "timeframe": "M30",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 979,
+    "genome_id": "dff78ad2800c2304"
+  },
+  {
+    "family": "trend_following",
+    "asset": "NASDAQ",
+    "timeframe": "M15",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 980,
+    "genome_id": "1849da3b5d5bec85"
+  },
+  {
+    "family": "trend_following",
+    "asset": "WIN",
+    "timeframe": "M5",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 981,
+    "genome_id": "5a138b115011d5eb"
+  },
+  {
+    "family": "pullback",
+    "asset": "NASDAQ",
+    "timeframe": "TICK",
+    "fast": 8,
+    "slow": 55,
+    "risk_bps": 10,
+    "index": 982,
+    "genome_id": "cf473ec1bfb943d6"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "WIN",
+    "timeframe": "TICK",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 983,
+    "genome_id": "0bd82a1a6df5e653"
+  },
+  {
+    "family": "pullback",
+    "asset": "SP500",
+    "timeframe": "TICK",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 984,
+    "genome_id": "42b2641ccd7262dc"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "NASDAQ",
+    "timeframe": "M1",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 985,
+    "genome_id": "535999709755c472"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "USDJPY",
+    "timeframe": "M1",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 10,
+    "index": 986,
+    "genome_id": "4e1abaea142ae505"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "USDJPY",
+    "timeframe": "H4",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 987,
+    "genome_id": "8758ce620adc0961"
+  },
+  {
+    "family": "range_compression",
+    "asset": "WDO",
+    "timeframe": "M15",
+    "fast": 21,
+    "slow": 144,
+    "risk_bps": 10,
+    "index": 988,
+    "genome_id": "985d42051bf021e8"
+  },
+  {
+    "family": "trend_following",
+    "asset": "WDO",
+    "timeframe": "H1",
+    "fast": 13,
+    "slow": 233,
+    "risk_bps": 20,
+    "index": 989,
+    "genome_id": "12cb54731e8ad2d2"
+  },
+  {
+    "family": "range_compression",
+    "asset": "NASDAQ",
+    "timeframe": "M1",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 15,
+    "index": 990,
+    "genome_id": "b9488f101008ae2b"
+  },
+  {
+    "family": "vwap",
+    "asset": "SP500",
+    "timeframe": "M5",
+    "fast": 13,
+    "slow": 144,
+    "risk_bps": 5,
+    "index": 991,
+    "genome_id": "a70929b062f3dd39"
+  },
+  {
+    "family": "pullback",
+    "asset": "SP500",
+    "timeframe": "H1",
+    "fast": 21,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 992,
+    "genome_id": "fc4584f62f795b89"
+  },
+  {
+    "family": "mean_reversion",
+    "asset": "XAUUSD",
+    "timeframe": "D1",
+    "fast": 34,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 993,
+    "genome_id": "d040607a6f70f327"
+  },
+  {
+    "family": "breakout",
+    "asset": "GBPUSD",
+    "timeframe": "D1",
+    "fast": 5,
+    "slow": 233,
+    "risk_bps": 15,
+    "index": 994,
+    "genome_id": "edc3e6bde74fab78"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "BTCUSD",
+    "timeframe": "H4",
+    "fast": 34,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 995,
+    "genome_id": "5a02e2a051aa848c"
+  },
+  {
+    "family": "volume_profile",
+    "asset": "XAUUSD",
+    "timeframe": "M30",
+    "fast": 13,
+    "slow": 89,
+    "risk_bps": 5,
+    "index": 996,
+    "genome_id": "5c754d2861a233c9"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "EURUSD",
+    "timeframe": "M30",
+    "fast": 5,
+    "slow": 89,
+    "risk_bps": 20,
+    "index": 997,
+    "genome_id": "c15964a013f6f7e4"
+  },
+  {
+    "family": "liquidity_sweep",
+    "asset": "XAUUSD",
+    "timeframe": "M5",
+    "fast": 5,
+    "slow": 144,
+    "risk_bps": 20,
+    "index": 998,
+    "genome_id": "facb6670037bfd6e"
+  },
+  {
+    "family": "range_compression",
+    "asset": "USDJPY",
+    "timeframe": "M15",
+    "fast": 8,
+    "slow": 233,
+    "risk_bps": 5,
+    "index": 999,
+    "genome_id": "5d5d2a87cea16f17"
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_376C012D0EC732DB",
+  "source_file": "mind_trader\\tests\\test_p863_connector_catalog_integration.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\data\\mind_trader\\tests\\test_p863_connector_catalog_integration.py",
+  "domain": "DATA",
+  "target_layer": "app/runtime",
+  "promotion_score": 92,
+  "imports": [
+    "csv",
+    "math",
+    "mind_trader.app.data.data_catalog",
+    "mind_trader.app.data.market_data_connector",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

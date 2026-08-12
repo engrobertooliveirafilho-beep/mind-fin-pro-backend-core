@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_4C9EAEA02377B037",
+  "source_file": ".venv\\Lib\\site-packages\\redis\\multidb\\command_executor.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\redis\\multidb\\command_executor.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 117,
+  "imports": [
+    "abc",
+    "datetime",
+    "redis.client",
+    "redis.event",
+    "redis.multidb.circuit",
+    "redis.multidb.config",
+    "redis.multidb.database",
+    "redis.multidb.event",
+    "redis.multidb.failover",
+    "redis.multidb.failure_detector",
+    "redis.observability.attributes",
+    "redis.observability.recorder",
+    "redis.retry",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

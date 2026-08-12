@@ -269,4 +269,5 @@ def reasoning_provider_answer(domain: str, intent: str, text: str, state: dict) 
     if domain == "capability":
         return "Pra eu responder isso melhor, preciso saber qual capacidade você quer ativar: busca real, memória, imagem, calendário ou integração externa."
 
-    return "Não entendi perfeitamente. Reformula em uma frase curta que eu sigo do ponto certo."
+    return None
+

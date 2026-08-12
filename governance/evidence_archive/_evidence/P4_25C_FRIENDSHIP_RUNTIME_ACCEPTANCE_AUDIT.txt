@@ -1,0 +1,30 @@
+P4.25C — FRIENDSHIP ACCEPTANCE AUDIT
+
+GOAL:
+validate if friendship runtime already satisfies incorporation contract
+
+TESTS:
+1 deterministic proactive decision
+2 opt_out respected
+3 daily limit respected
+4 outbound payload generated
+5 no real twilio in test mode
+6 minimal persistence compatible
+7 pytest preserved
+{
+  "DETERMINISTIC": {
+    "send": true,
+    "reason": "OK",
+    "message": "Bom dia, Roberto. Quer que eu te ajude a organizar seus estudos hoje?"
+  },
+  "OPT_OUT": {
+    "send": false,
+    "reason": "OPT_OUT"
+  },
+  "DAILY_LIMIT": {
+    "send": false,
+    "reason": "DAILY_LIMIT"
+  },
+  "OUTBOUND_PAYLOAD_OK": true,
+  "TWILIO_SEND_IN_TEST_MODE": false
+}

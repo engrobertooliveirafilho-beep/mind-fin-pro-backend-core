@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_7FF863E3688435B6",
+  "source_file": ".venv\\Lib\\site-packages\\websockets\\client.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\websockets\\client.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 120,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "datastructures",
+    "exceptions",
+    "extensions",
+    "headers",
+    "http11",
+    "imports",
+    "os",
+    "protocol",
+    "random",
+    "typing",
+    "uri",
+    "utils",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

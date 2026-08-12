@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_2D50730ABDBD6A15",
+  "source_file": ".venv\\Lib\\site-packages\\colorama\\tests\\winterm_test.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\colorama\\tests\\winterm_test.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 98,
+  "imports": [
+    "mock",
+    "sys",
+    "unittest",
+    "unittest.mock",
+    "winterm"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,50 @@
+{
+  "snapshot": "P8.91_FINAL_CERTIFIED_RESEARCH_SNAPSHOT",
+  "created_at": "2026-06-14T16:22:51.989815+00:00",
+  "tests_passed": 270,
+  "certification": {
+    "certification": "P8.90_FINAL_RESEARCH_CERTIFICATION",
+    "created_at": "2026-06-14T16:22:51.989815+00:00",
+    "tests_passed": 270,
+    "required": [
+      "data_quality",
+      "dataset_catalog",
+      "dataset_lineage",
+      "knowledge_source_registry",
+      "dna_authority",
+      "correlation_authority",
+      "causality_authority",
+      "uncertainty_authority",
+      "edge_discovery_authority",
+      "anti_overfitting_authority",
+      "walk_forward_authority",
+      "monte_carlo_authority",
+      "robustness_committee",
+      "validation_protocol",
+      "promotion_authority",
+      "paper_session",
+      "execution_gateway",
+      "audit_ledger"
+    ],
+    "missing": [],
+    "failed": [],
+    "decision": "FINAL_RESEARCH_CERTIFIED_PAPER_ONLY",
+    "allowed_scope": "PAPER_RESEARCH_ONLY",
+    "production": "BLOCKED",
+    "live": "FORBIDDEN",
+    "edge_claim": "NONE",
+    "causality_claim": "NOT_PROVEN"
+  },
+  "commands": {
+    "test_all": "$env:PYTHONPATH=(Get-Location).Path; pytest .\\mind_trader\\tests -q",
+    "status": "$env:PYTHONPATH=(Get-Location).Path; python -m mind_trader.app.cli.status_cli --tests-passed 208",
+    "final_audit": "$env:PYTHONPATH=(Get-Location).Path; python -m mind_trader.app.cli.final_audit_cli --tests-passed 208",
+    "paper_research": "$env:PYTHONPATH=(Get-Location).Path; python -m mind_trader.app.cli.paper_research_cli --data-folder .\\mind_trader\\incoming_data --symbol TEST --timeframe 1m --db-path .\\mind_trader\\data\\market.sqlite --ftmo-config .\\mind_trader\\config\\ftmo_ruleset.json --limit 10"
+  },
+  "decision": "CERTIFIED_FOR_PAPER_RESEARCH_ONLY",
+  "production": "BLOCKED",
+  "live": "FORBIDDEN",
+  "edge_claim": "NONE",
+  "causality_claim": "NOT_PROVEN",
+  "snapshot_hash": "5ff3f0fc98aba1b685de39dff0e65fc74307540cbea32c71e7373b45727e41a9"
+}

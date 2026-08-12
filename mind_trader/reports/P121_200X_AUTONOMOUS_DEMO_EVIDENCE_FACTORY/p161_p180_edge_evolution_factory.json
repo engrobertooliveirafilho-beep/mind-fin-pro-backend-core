@@ -1,0 +1,102 @@
+[
+  {
+    "module": "edge_promotion",
+    "layer": "P161_P180_EDGE_EVOLUTION_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "module": "edge_decay",
+    "layer": "P161_P180_EDGE_EVOLUTION_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "module": "edge_retirement",
+    "layer": "P161_P180_EDGE_EVOLUTION_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "module": "edge_replacement",
+    "layer": "P161_P180_EDGE_EVOLUTION_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "module": "edge_competition",
+    "layer": "P161_P180_EDGE_EVOLUTION_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "module": "edge_confidence",
+    "layer": "P161_P180_EDGE_EVOLUTION_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "module": "edge_survival",
+    "layer": "P161_P180_EDGE_EVOLUTION_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "module": "edge_scaling",
+    "layer": "P161_P180_EDGE_EVOLUTION_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "module": "edge_allocation",
+    "layer": "P161_P180_EDGE_EVOLUTION_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "module": "edge_memory",
+    "layer": "P161_P180_EDGE_EVOLUTION_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  }
+]

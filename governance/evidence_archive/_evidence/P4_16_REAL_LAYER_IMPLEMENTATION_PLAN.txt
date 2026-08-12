@@ -1,0 +1,37 @@
+P4.16 — REAL SOCIAL LAYER PLAN
+
+OBJETIVO:
+Substituir stubs/placebos por camadas reais mantendo runtime atual e 333 testes verdes.
+
+CAMADAS:
+1. real_social_memory_layer.py
+- preferências persistentes
+- temas recorrentes
+- longitudinal context
+- relationship memory
+
+2. real_emotional_state_layer.py
+- trust
+- frustration
+- motivation
+- stress
+- curiosity
+- energy
+- temporal decay
+
+3. real_relationship_profile_layer.py
+- communication_style
+- goal_pressure
+- trust_level
+- dominant_topics
+- interaction_patterns
+
+PONTO DE INSERÇÃO:
+runtime/cognitive_pipeline.py
+memory dict (linha ~83–88)
+
+REGRA:
+manter interfaces atuais
+não quebrar cognitive_pipeline
+não quebrar whatsapp runtime
+preservar 333 passed

@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_93E3101D814AB11F",
+  "source_file": ".venv\\Lib\\site-packages\\twilio\\rest\\messaging\\v1\\domain_config_messaging_service.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\twilio\\rest\\messaging\\v1\\domain_config_messaging_service.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 82,
+  "imports": [
+    "datetime",
+    "twilio.base",
+    "twilio.base.api_response",
+    "twilio.base.instance_context",
+    "twilio.base.instance_resource",
+    "twilio.base.list_resource",
+    "twilio.base.version",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

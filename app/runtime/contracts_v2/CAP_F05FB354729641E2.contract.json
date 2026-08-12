@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_F05FB354729641E2",
+  "source_file": ".venv\\Lib\\site-packages\\pptx\\opc\\package.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\pptx\\opc\\package.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 105,
+  "imports": [
+    "__future__",
+    "collections",
+    "pptx.opc.constants",
+    "pptx.opc.oxml",
+    "pptx.opc.packuri",
+    "pptx.opc.serialized",
+    "pptx.opc.shared",
+    "pptx.oxml",
+    "pptx.oxml.xmlchemy",
+    "pptx.package",
+    "pptx.parts.presentation",
+    "pptx.util",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

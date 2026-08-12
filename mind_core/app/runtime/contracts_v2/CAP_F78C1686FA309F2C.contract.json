@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_F78C1686FA309F2C",
+  "source_file": "mind_trader\\app\\validation\\monte_carlo_authority.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\mind_trader\\app\\validation\\monte_carlo_authority.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 107,
+  "imports": [
+    "datetime",
+    "json",
+    "pathlib",
+    "random"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

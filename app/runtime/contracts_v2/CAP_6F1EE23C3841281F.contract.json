@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_6F1EE23C3841281F",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\_pytesttester.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\numpy\\_pytesttester.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 106,
+  "imports": [
+    "numpy",
+    "numpy.distutils",
+    "numpy.testing",
+    "os",
+    "pytest",
+    "sys",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

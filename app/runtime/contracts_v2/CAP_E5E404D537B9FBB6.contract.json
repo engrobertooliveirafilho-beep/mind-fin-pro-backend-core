@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_E5E404D537B9FBB6",
+  "source_file": "app\\p8_shadow\\planner_consumption_contract.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\app\\p8_shadow\\planner_consumption_contract.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 102,
+  "imports": [
+    "app.p8_shadow.planner_sandbox",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

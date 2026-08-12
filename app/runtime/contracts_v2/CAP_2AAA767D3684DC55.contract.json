@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_2AAA767D3684DC55",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\realtime\\conversation_item.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\openai\\types\\realtime\\conversation_item.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 90,
+  "imports": [
+    "_utils",
+    "realtime_conversation_item_assistant_message",
+    "realtime_conversation_item_function_call",
+    "realtime_conversation_item_function_call_output",
+    "realtime_conversation_item_system_message",
+    "realtime_conversation_item_user_message",
+    "realtime_mcp_approval_request",
+    "realtime_mcp_approval_response",
+    "realtime_mcp_list_tools",
+    "realtime_mcp_tool_call",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_4B2DBCF4EEE3C7CF",
+  "source_file": "app\\mind\\p5_5e_source_queue_seeds\\seeder.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\app\\mind\\p5_5e_source_queue_seeds\\seeder.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 96,
+  "imports": [
+    "app.mind.p5_5d_deduplicated_evidence_writer.writer"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

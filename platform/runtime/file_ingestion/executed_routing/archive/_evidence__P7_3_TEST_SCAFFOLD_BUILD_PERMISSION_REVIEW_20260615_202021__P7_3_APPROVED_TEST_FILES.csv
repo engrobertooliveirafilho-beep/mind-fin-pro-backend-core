@@ -1,0 +1,6 @@
+"file","capability","purpose","required_tests"
+"tests/test_hierarchical_planner_contract.py","HIERARCHICAL_PLANNING","Validar contratos de request/response/node antes de qualquer adapter","System.Object[]"
+"tests/test_hierarchical_planner_shadow_adapter.py","HIERARCHICAL_PLANNING","Validar adapter em shadow mode sem execução real","System.Object[]"
+"tests/test_oversight_contract.py","COGNITIVE_CONTROL","Validar contrato OversightInput/OversightDecision","System.Object[]"
+"tests/test_oversight_shadow_adapter.py","COGNITIVE_CONTROL","Validar oversight em shadow mode sem bloqueio inicial","System.Object[]"
+"tests/test_p7_integration_guardrails.py","RUNTIME_GUARDRAILS","Garantir que nada altera core, memória, live endpoint ou execução real","System.Object[]"

@@ -1,0 +1,17 @@
+{
+  "STATUS": "P68_REAL_MARKET_DAILY_OBSERVER_IMPLEMENTED",
+  "day_index": 1,
+  "datasets_observed": 163,
+  "paper_pnl_proxy": -0.693446,
+  "daily_loss": 0.693446,
+  "max_loss_proxy": 0.1,
+  "daily_loss_limit_pass": false,
+  "max_loss_limit_pass": true,
+  "validation_level": "REAL_DATASET_OBSERVATION",
+  "day_status": "FAIL",
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "generated_at": "2026-06-14T16:22:34.691011+00:00"
+}

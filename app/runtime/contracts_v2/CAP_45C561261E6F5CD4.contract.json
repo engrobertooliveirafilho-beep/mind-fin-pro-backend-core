@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_45C561261E6F5CD4",
+  "source_file": "app\\modules\\usde_core\\scientific_background_service.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\app\\modules\\usde_core\\scientific_background_service.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 90,
+  "imports": [
+    "__future__",
+    "app.modules.usde_core.scientific_scheduler_runtime"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

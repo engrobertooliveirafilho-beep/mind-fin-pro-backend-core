@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_17241EA967AA606E",
+  "source_file": "tests\\test_p19p36o_relationship_memory_advisor.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\tests\\test_p19p36o_relationship_memory_advisor.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 100,
+  "imports": [
+    "app.companionship.relationship_memory_store",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

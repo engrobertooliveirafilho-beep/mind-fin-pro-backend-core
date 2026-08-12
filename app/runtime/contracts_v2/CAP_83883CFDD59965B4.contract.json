@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_83883CFDD59965B4",
+  "source_file": ".venv\\Lib\\site-packages\\anyio\\abc\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\.venv\\Lib\\site-packages\\anyio\\abc\\__init__.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 173,
+  "imports": [
+    "__future__",
+    "_core._synchronization",
+    "_core._tasks",
+    "_eventloop",
+    "_resources",
+    "_sockets",
+    "_streams",
+    "_subprocesses",
+    "_tasks",
+    "_testing",
+    "from_thread"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

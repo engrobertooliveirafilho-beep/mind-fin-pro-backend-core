@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_0F3063D3E2A5AF78",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\reshape\\concat\\test_concat.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pandas\\tests\\reshape\\concat\\test_concat.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 119,
+  "imports": [
+    "collections",
+    "collections.abc",
+    "datetime",
+    "decimal",
+    "itertools",
+    "numpy",
+    "pandas",
+    "pandas._testing",
+    "pandas.core.arrays",
+    "pandas.errors",
+    "pandas.tests.extension.decimal",
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

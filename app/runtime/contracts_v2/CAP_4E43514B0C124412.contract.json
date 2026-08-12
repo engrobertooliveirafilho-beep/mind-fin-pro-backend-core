@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_4E43514B0C124412",
+  "source_file": ".venv\\Lib\\site-packages\\PIL\\PngImagePlugin.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\PIL\\PngImagePlugin.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 137,
+  "imports": [
+    "__future__",
+    "_binary",
+    "_deprecate",
+    "_util",
+    "collections.abc",
+    "enum",
+    "fractions",
+    "io",
+    "itertools",
+    "logging",
+    "re",
+    "struct",
+    "typing",
+    "warnings",
+    "zlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

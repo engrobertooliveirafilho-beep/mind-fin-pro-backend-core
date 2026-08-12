@@ -1,0 +1,111 @@
+{
+  "STATUS": "P1505J_REJECTED_EDGE_FORENSICS_COMPLETED",
+  "BACKTEST_ROWS_INPUT": 500,
+  "SELECTED_EDGES_INPUT": 37,
+  "REJECTED_OR_NOT_SELECTED": 437,
+  "ASSETS_ANALYZED": 3,
+  "ZERO_SELECTED_ASSETS": [],
+  "ASSET_FORENSICS": [
+    {
+      "asset": "EURUSD",
+      "tested": 224,
+      "approved_backtest": 54,
+      "selected": 28,
+      "approval_rate": 0.2411,
+      "selection_rate": 0.125,
+      "avg_pf": 1.14453,
+      "avg_dd": 0.018823,
+      "avg_score": 1.126035,
+      "families_tested": {
+        "SMA_CROSS": 42,
+        "EMA_CROSS": 42,
+        "RSI_REVERSION": 28,
+        "BREAKOUT": 28,
+        "DONCHIAN": 28,
+        "ATR_TREND": 28,
+        "BOLLINGER_REVERSION": 28
+      },
+      "timeframes_tested": {
+        "D1": 32,
+        "H1": 32,
+        "H4": 32,
+        "M1": 32,
+        "M15": 32,
+        "M30": 32,
+        "M5": 32
+      },
+      "failure_reasons": {
+        "LOW_PF": 167,
+        "DIVERSIFICATION_CAP_OR_RANKING": 29
+      }
+    },
+    {
+      "asset": "AUDUSD",
+      "tested": 224,
+      "approved_backtest": 47,
+      "selected": 26,
+      "approval_rate": 0.2098,
+      "selection_rate": 0.1161,
+      "avg_pf": 1.030197,
+      "avg_dd": 0.029731,
+      "avg_score": 1.003644,
+      "families_tested": {
+        "SMA_CROSS": 42,
+        "EMA_CROSS": 42,
+        "RSI_REVERSION": 28,
+        "BREAKOUT": 28,
+        "DONCHIAN": 28,
+        "ATR_TREND": 28,
+        "BOLLINGER_REVERSION": 28
+      },
+      "timeframes_tested": {
+        "D1": 32,
+        "H1": 32,
+        "H4": 32,
+        "M1": 32,
+        "M15": 32,
+        "M30": 32,
+        "M5": 32
+      },
+      "failure_reasons": {
+        "LOW_PF": 172,
+        "DIVERSIFICATION_CAP_OR_RANKING": 26,
+        "HIGH_DD": 1
+      }
+    },
+    {
+      "asset": "GBPUSD",
+      "tested": 52,
+      "approved_backtest": 9,
+      "selected": 9,
+      "approval_rate": 0.1731,
+      "selection_rate": 0.1731,
+      "avg_pf": 1.063578,
+      "avg_dd": 0.042455,
+      "avg_score": 1.024213,
+      "families_tested": {
+        "SMA_CROSS": 12,
+        "EMA_CROSS": 10,
+        "RSI_REVERSION": 6,
+        "BREAKOUT": 6,
+        "DONCHIAN": 6,
+        "ATR_TREND": 6,
+        "BOLLINGER_REVERSION": 6
+      },
+      "timeframes_tested": {
+        "D1": 32,
+        "H1": 20
+      },
+      "failure_reasons": {
+        "LOW_PF": 42,
+        "DIVERSIFICATION_CAP_OR_RANKING": 1
+      }
+    }
+  ],
+  "NEXT": "P1505K_ADAPTIVE_STRATEGY_EXPANSION_FOR_ZERO_SELECTED_ASSETS",
+  "ORDER_SENT": false,
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN",
+  "generated_at": "2026-06-15T18:25:12.699255+00:00"
+}

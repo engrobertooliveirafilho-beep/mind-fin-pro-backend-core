@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_F9116E860C0FD90E",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\f2py\\tests\\test_return_real.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\numpy\\f2py\\tests\\test_return_real.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 98,
+  "imports": [
+    "numpy",
+    "numpy.testing",
+    "platform",
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

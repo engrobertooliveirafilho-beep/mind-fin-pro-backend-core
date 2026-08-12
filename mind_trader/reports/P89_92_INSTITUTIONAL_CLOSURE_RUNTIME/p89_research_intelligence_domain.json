@@ -1,0 +1,18 @@
+{
+  "status": "IMPLEMENTED",
+  "research_loop": "ACTIVE",
+  "hypothesis_to_edge_feedback": true,
+  "edge_to_research_feedback": true,
+  "research_priority_inputs": [
+    "edge_score",
+    "portfolio_score",
+    "market_regime",
+    "execution_feedback"
+  ],
+  "modules": 10,
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN"
+}

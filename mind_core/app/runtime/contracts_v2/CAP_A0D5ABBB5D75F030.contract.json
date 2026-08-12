@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_A0D5ABBB5D75F030",
+  "source_file": "app\\mind\\p5_6g24_google_custom_search_adapter\\adapter.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\app\\mind\\p5_6g24_google_custom_search_adapter\\adapter.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 102,
+  "imports": [
+    "datetime",
+    "json",
+    "os",
+    "time",
+    "urllib.error",
+    "urllib.parse",
+    "urllib.request"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

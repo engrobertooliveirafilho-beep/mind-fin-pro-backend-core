@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_6BED7183F3FA6A34",
+  "source_file": "_fix_block_indent_108_140.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_fix_block_indent_108_140.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 93,
+  "imports": [
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

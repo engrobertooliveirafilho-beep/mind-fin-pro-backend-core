@@ -1,0 +1,14 @@
+{
+  "STATUS": "P1859_QUARANTINE_SYSTEM_BOOTSTRAPPED",
+  "RULE": "BAD_EDGES_ARE_ARCHIVED_NOT_DELETED",
+  "DESTINATION": "data/lake/quarantine",
+  "REASONS": [
+    "low_pf",
+    "low_sample",
+    "wf_fail",
+    "mc_fail",
+    "decay",
+    "execution_sensitive",
+    "overfit"
+  ]
+}

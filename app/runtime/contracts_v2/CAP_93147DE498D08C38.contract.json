@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_93147DE498D08C38",
+  "source_file": "_evidence\\P19P9_WHATSAPP_RETURN_COVERAGE_AUDIT_20260618_045210\\patch_p19p9.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P19P9_WHATSAPP_RETURN_COVERAGE_AUDIT_20260618_045210\\patch_p19p9.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 96,
+  "imports": [
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

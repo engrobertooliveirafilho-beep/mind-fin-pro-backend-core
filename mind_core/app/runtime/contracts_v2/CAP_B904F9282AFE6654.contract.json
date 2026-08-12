@@ -1,0 +1,30 @@
+{
+  "capability_id": "CAP_B904F9282AFE6654",
+  "source_file": ".venv\\Lib\\site-packages\\websockets\\cli.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\websockets\\cli.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 114,
+  "imports": [
+    "__future__",
+    "argparse",
+    "asyncio",
+    "asyncio.client",
+    "asyncio.messages",
+    "exceptions",
+    "frames",
+    "os",
+    "readline",
+    "streams",
+    "sys",
+    "typing",
+    "version"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

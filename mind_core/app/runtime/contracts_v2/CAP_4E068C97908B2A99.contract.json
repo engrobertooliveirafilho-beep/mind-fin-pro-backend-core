@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_4E068C97908B2A99",
+  "source_file": "_evidence\\P6_2_AUTOMATED_RUNTIME_BEHAVIOR_OBSERVATION_20260615_170333\\p6_2_runtime_observation.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\_evidence\\P6_2_AUTOMATED_RUNTIME_BEHAVIOR_OBSERVATION_20260615_170333\\p6_2_runtime_observation.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 110,
+  "imports": [
+    "datetime",
+    "json",
+    "pathlib",
+    "re",
+    "time",
+    "urllib.request"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

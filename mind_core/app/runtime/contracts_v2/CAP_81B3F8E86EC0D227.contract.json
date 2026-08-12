@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_81B3F8E86EC0D227",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\frame\\methods\\test_transpose.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pandas\\tests\\frame\\methods\\test_transpose.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 103,
+  "imports": [
+    "numpy",
+    "pandas",
+    "pandas._testing",
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

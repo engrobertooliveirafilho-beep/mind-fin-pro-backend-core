@@ -1,0 +1,26 @@
+{
+  "STATUS": "P14.11_NTSL_GENERATOR_SYNTAX_REPAIR_IMPLEMENTED",
+  "GENERATED_FILE": "profit_import_package\\p1411_minimal_logic_compilable.nts",
+  "NTSL_COMPAT_TARGET": "Profit 5.0.3.254",
+  "REAL_ORDERS": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "LIVE": "FORBIDDEN",
+  "EDGE": "NOT_PROVEN",
+  "CAUSALITY": "NOT_PROVEN",
+  "VALIDATION_REQUIRED": "Import generated .nts into Profit and compile manually",
+  "CSV_EXPECTED_SUCCESS": {
+    "strategy_id": "p1411_minimal_logic_compilable",
+    "file": "p1411_minimal_logic_compilable.nts",
+    "compiled": "true",
+    "error": ""
+  },
+  "DIFF_LOGIC": [
+    "Removed input block to avoid Profit parser incompatibility.",
+    "Removed var declarations to validate strategy-command syntax first.",
+    "Removed MediaExp and indexed series access for baseline compatibility.",
+    "Kept real strategy commands BuyAtMarket and SellShortAtMarket.",
+    "Generated minimal logical strategy, not empty begin/end."
+  ],
+  "EXPORT_READY": true,
+  "generated_at": "2026-06-14T16:11:28.154783+00:00"
+}

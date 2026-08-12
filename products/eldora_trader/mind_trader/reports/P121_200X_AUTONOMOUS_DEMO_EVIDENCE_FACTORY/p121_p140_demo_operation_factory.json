@@ -1,0 +1,102 @@
+[
+  {
+    "module": "daily_supervision",
+    "layer": "P121_P140_DEMO_OPERATION_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "module": "weekly_review",
+    "layer": "P121_P140_DEMO_OPERATION_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "module": "monthly_review",
+    "layer": "P121_P140_DEMO_OPERATION_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "module": "trade_journal",
+    "layer": "P121_P140_DEMO_OPERATION_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "module": "position_analytics",
+    "layer": "P121_P140_DEMO_OPERATION_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "module": "win_rate_analytics",
+    "layer": "P121_P140_DEMO_OPERATION_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "module": "profit_factor_analytics",
+    "layer": "P121_P140_DEMO_OPERATION_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "module": "drawdown_analytics",
+    "layer": "P121_P140_DEMO_OPERATION_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "module": "consistency_analytics",
+    "layer": "P121_P140_DEMO_OPERATION_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "module": "ftmo_analytics",
+    "layer": "P121_P140_DEMO_OPERATION_FACTORY",
+    "status": "IMPLEMENTED",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  }
+]

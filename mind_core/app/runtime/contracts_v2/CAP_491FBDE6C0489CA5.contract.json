@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_491FBDE6C0489CA5",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_vendor\\platformdirs\\unix.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\pip\\_vendor\\platformdirs\\unix.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 101,
+  "imports": [
+    "__future__",
+    "api",
+    "collections.abc",
+    "configparser",
+    "os",
+    "pathlib",
+    "sys",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

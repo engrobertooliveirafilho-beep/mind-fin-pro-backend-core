@@ -10,12 +10,29 @@ from app.runtime.conversation_state_machine import build_conversation_payload
 _CONTEXT = {}
 
 def semantic_whatsapp_payload(message: str, sender_id: str = "default") -> dict:
+
+    # P19P28K_R10_ACTIVE_SEMANTIC_CONTINUITY
+    from app.runtime.followup_unified_resolver import (
+        prepare_message as _p19p28k_prepare_active_message,
+        record_answer as _p19p28k_record_active_answer,
+    )
+    _p19p28k_original_message = message
+    message = _p19p28k_prepare_active_message(
+        sender_id,
+        message,
+    )
+    # /P19P28K_R10_ACTIVE_SEMANTIC_CONTINUITY
     sid = sender_id or "default"
     ctx = _CONTEXT.get(sid, {})
 
     priority = context_priority_reply(message, sid)
     if priority:
         answer = whatsapp_ux_guard(message, priority)
+        # P19P28K_R16_CONTROL_FLOW_ANSWER_RECORDING
+        _p19p28k_record_active_answer(
+            sender_id,
+            answer,
+        )
         return {"intent":"CONTEXT_PRIORITY","domain":"project_context","confidence":0.99,"entities":{},"context":ctx,"provider_ok":False,"provider":"context_priority_engine","model":None,"answer":answer,"errors":[]}
 
     provider_message = build_conversation_payload(message, ctx)
@@ -29,7 +46,7 @@ def semantic_whatsapp_payload(message: str, sender_id: str = "default") -> dict:
     _CONTEXT[sid] = ctx
 
     provider = multi_provider_factual_provider(provider_message, sid, ctx)
-    answer = provider["answer"] if provider.get("ok") else getattr(decision, "answer", "Recebi. Reformule em uma frase.")
+    answer = provider["answer"] if provider.get("ok") else getattr(decision, "answer", None)
     if str(answer or "").strip().lower() in {"claro!","claro","certo!","certo","entendi!","entendi","ok","ok!"} and ctx.get("last_subject"):
         retry_msg = f"Explique de forma prática e completa sobre: {ctx.get('last_subject')}. Continue o contexto anterior. Responda em PT-BR com etapas concretas."
         retry = multi_provider_factual_provider(retry_msg, sid, ctx)
@@ -57,6 +74,12 @@ def semantic_whatsapp_payload(message: str, sender_id: str = "default") -> dict:
         if retry.get("ok") and len(str(retry.get("answer","")).strip()) > 40:
             answer = whatsapp_ux_guard(message, retry["answer"])
 
+    # P19P28K_R14_REACHABLE_ANSWER_RECORDING
+    # P19P28K_R16_CONTROL_FLOW_ANSWER_RECORDING
+    _p19p28k_record_active_answer(
+        sender_id,
+        answer,
+    )
     return {"intent":getattr(decision,"intent","UNKNOWN"),"domain":ctx.get("last_domain","general"),"confidence":getattr(decision,"confidence",0.0),"entities":{},"context":ctx,"provider_ok":provider.get("ok",False),"provider":provider.get("provider"),"model":provider.get("model"),"answer":answer,"errors":provider.get("errors",[])}
 
 def route_semantic_whatsapp(message: str, sender_id: str = "default") -> str:

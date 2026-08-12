@@ -1,0 +1,20 @@
+{
+  "candidate_id": "SAMPLE_EDGE_CANDIDATE",
+  "checks": {
+    "min_datasets": true,
+    "min_periods": true,
+    "min_assets": true,
+    "walk_forward": true,
+    "monte_carlo": true,
+    "robustness": true,
+    "out_of_sample": true
+  },
+  "evidence_score": 1.0,
+  "paper_edge_evidence": true,
+  "causality_proven": false,
+  "live_allowed": false,
+  "real_broker_allowed": false,
+  "promotion_allowed": false,
+  "status": "PAPER_EDGE_EVIDENCE_CANDIDATE",
+  "evaluated_at": "2026-06-14T16:11:26.476221+00:00"
+}

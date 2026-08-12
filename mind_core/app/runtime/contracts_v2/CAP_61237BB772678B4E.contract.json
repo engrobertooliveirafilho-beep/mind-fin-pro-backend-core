@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_61237BB772678B4E",
+  "source_file": "_evidence\\P4_26L_universal_conversation_os_before.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\_evidence\\P4_26L_universal_conversation_os_before.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 81,
+  "imports": [
+    "__future__",
+    "ast",
+    "dataclasses",
+    "datetime",
+    "enum",
+    "operator",
+    "re",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

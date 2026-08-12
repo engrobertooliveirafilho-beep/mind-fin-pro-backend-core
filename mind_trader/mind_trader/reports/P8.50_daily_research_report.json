@@ -1,0 +1,475 @@
+{
+  "daily_run_id": "c3b2b827-e27c-495a-8ebd-3e3654b58c80",
+  "start_ts": "2026-06-14T16:22:47.675699+00:00",
+  "end_ts": "2026-06-14T16:22:47.966905+00:00",
+  "session_open": {
+    "decision": "SESSION_OPENED",
+    "session": {
+      "session_id": "0e6c6ecc-de9d-4785-bc1a-7505c7563594",
+      "account_id": "PAPER_DAILY_c3b2b827-e27c-495a-8ebd-3e3654b58c80",
+      "status": "OPEN",
+      "opened_at": "2026-06-14T16:22:47.722022+00:00",
+      "closed_at": null,
+      "daily_pnl": 0.0,
+      "trades": 0,
+      "loss_streak": 0,
+      "max_daily_trades": 5,
+      "max_daily_loss": 5000,
+      "profit_target": 10000,
+      "ftmo_config_hash": "37f501efd2369b95f31f8d7a72bcc8248bc243e2dcb70cfc5d369b3f492ffb59",
+      "production": "BLOCKED",
+      "edge_claim": "NONE"
+    },
+    "production": "BLOCKED"
+  },
+  "orchestration": {
+    "run_id": "db897fd3-de87-4546-b74f-5cc6a651893e",
+    "start_ts": "2026-06-14T16:22:47.722022+00:00",
+    "end_ts": "2026-06-14T16:22:47.887862+00:00",
+    "symbols": [
+      "TEST"
+    ],
+    "timeframes": [
+      "1m"
+    ],
+    "genomes_total": 48,
+    "genomes_executed": 3,
+    "genomes_tested": 3,
+    "genomes_rejected": 3,
+    "genomes_research": 0,
+    "genomes_paper": 0,
+    "cluster": {
+      "requested": 48,
+      "executed": 3,
+      "tested": 3,
+      "failed": 0,
+      "skipped": 0,
+      "blocked": 0,
+      "elapsed_sec": 0.017189,
+      "ranking": [
+        {
+          "genome_id": "47eaafa39b5fc1b5293b692a",
+          "status": "TESTED",
+          "dataset_id": null,
+          "backtest": {
+            "symbol": "TEST",
+            "timeframe": "1m",
+            "strategy": "SMA_CROSS",
+            "params": {
+              "fast": 5,
+              "slow": 21,
+              "cost_per_trade": 1.0,
+              "slippage_points": 0.0
+            },
+            "metrics": {
+              "trades": 2,
+              "net_profit": 2.722117373007137,
+              "max_drawdown": 2.830407710032887,
+              "profit_factor": 999,
+              "expectancy": 1.3610586865035685,
+              "win_rate": 1.0
+            },
+            "edge_claim": "NONE",
+            "decision": "RESEARCH_ONLY_NOT_PROMOTED"
+          },
+          "validation": {
+            "in_sample": {
+              "trades": 0,
+              "net_profit": 0,
+              "profit_factor": 0,
+              "expectancy": 0,
+              "win_rate": 0,
+              "max_drawdown": 0
+            },
+            "out_of_sample": {
+              "trades": 2,
+              "net_profit": 2.722117373007137,
+              "profit_factor": 999,
+              "expectancy": 1.3610586865035685,
+              "win_rate": 1.0,
+              "max_drawdown": 0
+            },
+            "monte_carlo": {
+              "runs": 300,
+              "p05_net_profit": 2.722117373007137,
+              "p50_net_profit": 2.722117373007137,
+              "p95_drawdown": 0,
+              "passed": true
+            },
+            "degradation": {
+              "haircut": 0.3,
+              "metrics": {
+                "trades": 2,
+                "net_profit": 1.905482161104996,
+                "profit_factor": 999,
+                "expectancy": 0.952741080552498,
+                "win_rate": 1.0,
+                "max_drawdown": 0
+              },
+              "passed": true
+            },
+            "cost_stress": {
+              "extra_cost": 1.0,
+              "metrics": {
+                "trades": 2,
+                "net_profit": 0.7221173730071371,
+                "profit_factor": 999,
+                "expectancy": 0.36105868650356854,
+                "win_rate": 1.0,
+                "max_drawdown": 0
+              },
+              "passed": true
+            },
+            "classification": "REJECTED_EDGE",
+            "production": "BLOCKED",
+            "edge_claim": "NONE_UNTIL_PAPER_AND_LIVE_EVIDENCE"
+          },
+          "production": "BLOCKED",
+          "edge_claim": "NONE"
+        },
+        {
+          "genome_id": "4768ae11d7b3f292da87144f",
+          "status": "TESTED",
+          "dataset_id": null,
+          "backtest": {
+            "symbol": "TEST",
+            "timeframe": "1m",
+            "strategy": "SMA_CROSS",
+            "params": {
+              "fast": 5,
+              "slow": 34,
+              "cost_per_trade": 1.0,
+              "slippage_points": 0.0
+            },
+            "metrics": {
+              "trades": 2,
+              "net_profit": 0.1523334281189932,
+              "max_drawdown": 4.373643092359998,
+              "profit_factor": 999,
+              "expectancy": 0.0761667140594966,
+              "win_rate": 1.0
+            },
+            "edge_claim": "NONE",
+            "decision": "RESEARCH_ONLY_NOT_PROMOTED"
+          },
+          "validation": {
+            "in_sample": {
+              "trades": 0,
+              "net_profit": 0,
+              "profit_factor": 0,
+              "expectancy": 0,
+              "win_rate": 0,
+              "max_drawdown": 0
+            },
+            "out_of_sample": {
+              "trades": 2,
+              "net_profit": 0.1523334281189932,
+              "profit_factor": 999,
+              "expectancy": 0.0761667140594966,
+              "win_rate": 1.0,
+              "max_drawdown": 0
+            },
+            "monte_carlo": {
+              "runs": 300,
+              "p05_net_profit": 0.1523334281189932,
+              "p50_net_profit": 0.1523334281189932,
+              "p95_drawdown": 0,
+              "passed": true
+            },
+            "degradation": {
+              "haircut": 0.3,
+              "metrics": {
+                "trades": 2,
+                "net_profit": 0.10663339968329523,
+                "profit_factor": 999,
+                "expectancy": 0.053316699841647615,
+                "win_rate": 1.0,
+                "max_drawdown": 0
+              },
+              "passed": true
+            },
+            "cost_stress": {
+              "extra_cost": 1.0,
+              "metrics": {
+                "trades": 2,
+                "net_profit": -1.8476665718810068,
+                "profit_factor": 0.0,
+                "expectancy": -0.9238332859405034,
+                "win_rate": 0.0,
+                "max_drawdown": 1.8476665718810068
+              },
+              "passed": false
+            },
+            "classification": "REJECTED_EDGE",
+            "production": "BLOCKED",
+            "edge_claim": "NONE_UNTIL_PAPER_AND_LIVE_EVIDENCE"
+          },
+          "production": "BLOCKED",
+          "edge_claim": "NONE"
+        },
+        {
+          "genome_id": "f142f5bd542644783e9fa3cc",
+          "status": "TESTED",
+          "dataset_id": null,
+          "backtest": {
+            "symbol": "TEST",
+            "timeframe": "1m",
+            "strategy": "SMA_CROSS",
+            "params": {
+              "fast": 5,
+              "slow": 55,
+              "cost_per_trade": 1.0,
+              "slippage_points": 0.0
+            },
+            "metrics": {
+              "trades": 2,
+              "net_profit": -1.6123723516729314,
+              "max_drawdown": 6.138348872162169,
+              "profit_factor": 0.0,
+              "expectancy": -0.8061861758364657,
+              "win_rate": 0.0
+            },
+            "edge_claim": "NONE",
+            "decision": "RESEARCH_ONLY_NOT_PROMOTED"
+          },
+          "validation": {
+            "in_sample": {
+              "trades": 0,
+              "net_profit": 0,
+              "profit_factor": 0,
+              "expectancy": 0,
+              "win_rate": 0,
+              "max_drawdown": 0
+            },
+            "out_of_sample": {
+              "trades": 2,
+              "net_profit": -1.6123723516729314,
+              "profit_factor": 0.0,
+              "expectancy": -0.8061861758364657,
+              "win_rate": 0.0,
+              "max_drawdown": 1.6123723516729314
+            },
+            "monte_carlo": {
+              "runs": 300,
+              "p05_net_profit": -1.6123723516729314,
+              "p50_net_profit": -1.6123723516729314,
+              "p95_drawdown": 1.6123723516729314,
+              "passed": false
+            },
+            "degradation": {
+              "haircut": 0.3,
+              "metrics": {
+                "trades": 2,
+                "net_profit": -2.096084057174811,
+                "profit_factor": 0.0,
+                "expectancy": -1.0480420285874055,
+                "win_rate": 0.0,
+                "max_drawdown": 2.096084057174811
+              },
+              "passed": false
+            },
+            "cost_stress": {
+              "extra_cost": 1.0,
+              "metrics": {
+                "trades": 2,
+                "net_profit": -3.6123723516729314,
+                "profit_factor": 0.0,
+                "expectancy": -1.8061861758364657,
+                "win_rate": 0.0,
+                "max_drawdown": 3.6123723516729314
+              },
+              "passed": false
+            },
+            "classification": "REJECTED_EDGE",
+            "production": "BLOCKED",
+            "edge_claim": "NONE_UNTIL_PAPER_AND_LIVE_EVIDENCE"
+          },
+          "production": "BLOCKED",
+          "edge_claim": "NONE"
+        }
+      ],
+      "decision": "RESEARCH_ONLY",
+      "production": "BLOCKED",
+      "edge_claim": "NONE"
+    },
+    "self_evolution": {
+      "evaluated": 3,
+      "ranked": [
+        {
+          "genome_id": "47eaafa39b5fc1b5293b692a",
+          "score": 107.22117373007137,
+          "history": [
+            {
+              "ts": "2026-06-14T16:22:47.787245+00:00",
+              "score": 107.22117373007137
+            }
+          ],
+          "deterioration": {
+            "deteriorated": false,
+            "reason": "INSUFFICIENT_HISTORY"
+          },
+          "status": "REJECT_OR_RETEST",
+          "production": "BLOCKED",
+          "edge_claim": "NONE"
+        },
+        {
+          "genome_id": "4768ae11d7b3f292da87144f",
+          "score": 51.52333428118993,
+          "history": [
+            {
+              "ts": "2026-06-14T16:22:47.787245+00:00",
+              "score": 51.52333428118993
+            }
+          ],
+          "deterioration": {
+            "deteriorated": false,
+            "reason": "INSUFFICIENT_HISTORY"
+          },
+          "status": "REJECT_OR_RETEST",
+          "production": "BLOCKED",
+          "edge_claim": "NONE"
+        },
+        {
+          "genome_id": "f142f5bd542644783e9fa3cc",
+          "score": -76.92990969256579,
+          "history": [
+            {
+              "ts": "2026-06-14T16:22:47.787245+00:00",
+              "score": -76.92990969256579
+            }
+          ],
+          "deterioration": {
+            "deteriorated": false,
+            "reason": "INSUFFICIENT_HISTORY"
+          },
+          "status": "REJECT_OR_RETEST",
+          "production": "BLOCKED",
+          "edge_claim": "NONE"
+        }
+      ],
+      "paper_candidates": 0,
+      "demoted": 0,
+      "decision": "SELF_EVOLUTION_RESEARCH_ONLY",
+      "production": "BLOCKED",
+      "edge_claim": "NONE"
+    },
+    "committee": {
+      "genome_id": "db897fd3-de87-4546-b74f-5cc6a651893e",
+      "committee": "P8.84_VALIDATION_PROTOCOL_WITH_ROBUSTNESS",
+      "evaluated_at": "2026-06-14T16:22:47.787245+00:00",
+      "required_evidence": [
+        "edge_validation",
+        "walk_forward",
+        "monte_carlo",
+        "stress_test",
+        "degradation_test",
+        "regime_stability",
+        "cross_asset_stability",
+        "risk_of_ruin",
+        "ftmo_simulation",
+        "adversarial_validation",
+        "digital_twin_replay",
+        "robustness_committee"
+      ],
+      "result": {
+        "decision": "REJECTED_EDGE",
+        "failed": [
+          "edge_validation",
+          "walk_forward",
+          "monte_carlo",
+          "stress_test",
+          "degradation_test",
+          "regime_stability",
+          "cross_asset_stability",
+          "risk_of_ruin",
+          "ftmo_simulation",
+          "adversarial_validation",
+          "digital_twin_replay",
+          "robustness_committee"
+        ],
+        "production": "BLOCKED",
+        "edge_claim": "NONE"
+      },
+      "production": "BLOCKED",
+      "live": "FORBIDDEN"
+    },
+    "snapshot": {
+      "system": "MIND_TRADER_PRIVATE_ADAPTIVE_MARKET_INTELLIGENCE_SYSTEM",
+      "snapshot_ts": "2026-06-14T16:22:47.787245+00:00",
+      "modules": {
+        "P8.26": "OK_RESEARCH_LAYER",
+        "P8.27": "OK_FTMO_SIMULATION",
+        "P8.28": "OK_MARKET_DATA_CORE",
+        "P8.29": "OK_DATA_QUALITY_GATE",
+        "P8.30": "OK_EDGE_VALIDATION",
+        "P8.31": "OK_REGIME_DETECTION",
+        "P8.32": "OK_STRATEGY_GENOME",
+        "P8.33": "OK_ADVERSARIAL_VALIDATION",
+        "P8.34": "OK_CROSS_ASSET_BRAIN",
+        "P8.35": "OK_CAUSALITY_HYPOTHESIS",
+        "P8.36": "OK_FEATURE_STORE",
+        "P8.37": "OK_MASSIVE_BACKTEST_CLUSTER",
+        "P8.38": "OK_DIGITAL_TWIN_REPLAY",
+        "P8.39": "OK_CAPITAL_EVOLUTION",
+        "P8.40": "OK_SELF_EVOLUTION",
+        "P8.41": "OK_EXECUTION_GATEWAY_SIM",
+        "P8.42": "OK_VALIDATION_PROTOCOL"
+      },
+      "tests_passed": 101,
+      "production": "BLOCKED",
+      "live": "FORBIDDEN",
+      "max_approval_scope": "PAPER_TRADING_APPROVED",
+      "edge_claim": "NONE",
+      "causality_claim": "NOT_PROVEN"
+    },
+    "ledger_state": {
+      "valid": true,
+      "events": 5065,
+      "last_hash": "7dd38d626c1f66cb00c17ccb4aa9f4c13a5de8e6ff3126d2531b00d589f2adba"
+    },
+    "decision": "RESEARCH_ORCHESTRATION_COMPLETE",
+    "production": "BLOCKED",
+    "live": "FORBIDDEN",
+    "edge_claim": "NONE",
+    "snapshot_hash": "8cb5876506b112fd21e317751d2c76803fd354f46d433c9e27750661e222578d",
+    "ledger_hash": "5e6f2723e1dba37b38d1008fe8d9e55e359abfad704cf524037d6392633f9c6a"
+  },
+  "session_close": {
+    "decision": "SESSION_CLOSED",
+    "session": {
+      "session_id": "0e6c6ecc-de9d-4785-bc1a-7505c7563594",
+      "account_id": "PAPER_DAILY_c3b2b827-e27c-495a-8ebd-3e3654b58c80",
+      "status": "CLOSED",
+      "opened_at": "2026-06-14T16:22:47.722022+00:00",
+      "closed_at": "2026-06-14T16:22:47.956942+00:00",
+      "daily_pnl": 0.0,
+      "trades": 0,
+      "loss_streak": 0,
+      "max_daily_trades": 5,
+      "max_daily_loss": 5000,
+      "profit_target": 10000,
+      "ftmo_config_hash": "37f501efd2369b95f31f8d7a72bcc8248bc243e2dcb70cfc5d369b3f492ffb59",
+      "production": "BLOCKED",
+      "edge_claim": "NONE",
+      "close_reason": "DAILY_RESEARCH_COMPLETE"
+    },
+    "production": "BLOCKED"
+  },
+  "daily_summary": {
+    "decision": "DAILY_SUMMARY",
+    "session_id": "0e6c6ecc-de9d-4785-bc1a-7505c7563594",
+    "status": "CLOSED",
+    "daily_pnl": 0.0,
+    "trades": 0,
+    "loss_streak": 0,
+    "ftmo_config_hash": "37f501efd2369b95f31f8d7a72bcc8248bc243e2dcb70cfc5d369b3f492ffb59",
+    "production": "BLOCKED",
+    "edge_claim": "NONE"
+  },
+  "decision": "DAILY_RESEARCH_RUN_COMPLETE",
+  "production": "BLOCKED",
+  "live": "FORBIDDEN",
+  "edge_claim": "NONE",
+  "report_hash": "b7b2a98304aad328b56c5d0d042d0bc67a2d21db7f04d264ee2a25b3a38c4c0b",
+  "ledger_hash": "b9c34b86fa7df035591b7aff52f1ddd449448bd30f6a1791d9ba40ae044f81a1"
+}

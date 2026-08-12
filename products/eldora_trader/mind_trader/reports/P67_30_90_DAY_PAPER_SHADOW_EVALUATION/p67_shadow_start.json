@@ -1,0 +1,27 @@
+{
+  "REAL_ORDERS": "FORBIDDEN",
+  "TIMEFRAMES": 11,
+  "ENTRY": "P66B_FULL_TIMEFRAME_EXPANSION_COMPLETED",
+  "ASSETS": 104,
+  "FTMO_REAL": "FORBIDDEN",
+  "LIVE": "FORBIDDEN",
+  "DURATION_REQUIRED_DAYS": "30_TO_90",
+  "REAL_BROKER": "DISABLED",
+  "MODE": "PAPER_SHADOW_ONLY",
+  "NEXT": "P67_DAILY_PAPER_EVIDENCE_COLLECTOR",
+  "CANDIDATES": 9416,
+  "STATUS": "P67_30_90_DAY_PAPER_SHADOW_EVALUATION_STARTED",
+  "DAILY_CHECKS": [
+    "daily_loss_limit",
+    "max_loss_limit",
+    "profit_target_progress",
+    "minimum_trading_days",
+    "consistency",
+    "drawdown",
+    "edge_decay",
+    "correlation",
+    "overtrading",
+    "execution_realism",
+    "timeframe_diversification"
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "STATUS": "P9.2_GENOME_EXPLOSION_ENGINE_IMPLEMENTED",
+  "GENOMES": 1000,
+  "UNIQUE": 1000,
+  "FAMILIES": [
+    "trend_following",
+    "mean_reversion",
+    "breakout",
+    "pullback",
+    "volatility_expansion",
+    "liquidity_sweep",
+    "range_compression",
+    "order_flow",
+    "volume_profile",
+    "vwap",
+    "hybrid",
+    "multi_signal"
+  ],
+  "SIGNALS": [
+    "sma_cross",
+    "ema_cross",
+    "rsi",
+    "macd",
+    "atr_break",
+    "bollinger",
+    "donchian",
+    "vwap_distance",
+    "volume_zscore",
+    "range_compression",
+    "liquidity_sweep",
+    "gap_reversion"
+  ],
+  "RISK_MODELS": [
+    "fixed_bps",
+    "atr_stop",
+    "vol_target",
+    "kelly_capped",
+    "ftmo_guarded"
+  ],
+  "REGIMES": [
+    "trend",
+    "range",
+    "high_vol",
+    "low_vol",
+    "news_avoidance",
+    "session_open",
+    "session_close"
+  ],
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "EDGE": "NONE",
+  "CAUSALITY": "NOT_PROVEN",
+  "EXPORT_READY": true
+}

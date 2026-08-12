@@ -1,0 +1,33 @@
+{
+  "capability_id": "CAP_6137E844CF7D68C0",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_vendor\\requests\\sessions.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\.venv\\Lib\\site-packages\\pip\\_vendor\\requests\\sessions.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 126,
+  "imports": [
+    "_internal_utils",
+    "adapters",
+    "auth",
+    "collections",
+    "compat",
+    "cookies",
+    "datetime",
+    "exceptions",
+    "hooks",
+    "models",
+    "os",
+    "status_codes",
+    "structures",
+    "sys",
+    "time",
+    "utils"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

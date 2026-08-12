@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_B112784A4AF2A21C",
+  "source_file": ".venv\\Lib\\site-packages\\pydantic\\v1\\parse.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\pydantic\\v1\\parse.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 95,
+  "imports": [
+    "enum",
+    "json",
+    "pathlib",
+    "pickle",
+    "pydantic.v1.types",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

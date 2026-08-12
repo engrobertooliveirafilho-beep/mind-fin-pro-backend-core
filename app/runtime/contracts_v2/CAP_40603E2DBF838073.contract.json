@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_40603E2DBF838073",
+  "source_file": "evidence\\P4.51_LEVEL_C_FULL_AUDIT_20260618_062425\\backup\\tests\\test_p7_isolated_adapters.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\evidence\\P4.51_LEVEL_C_FULL_AUDIT_20260618_062425\\backup\\tests\\test_p7_isolated_adapters.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 105,
+  "imports": [
+    "app.p7_adapters.hierarchical_contracts",
+    "app.p7_adapters.hierarchical_planner_adapter",
+    "app.p7_adapters.oversight_contracts",
+    "app.p7_adapters.oversight_shadow_adapter"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

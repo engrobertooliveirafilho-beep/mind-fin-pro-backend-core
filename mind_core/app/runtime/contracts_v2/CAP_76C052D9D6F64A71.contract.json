@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_76C052D9D6F64A71",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\lib\\_pydantic.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\openai\\lib\\_pydantic.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 89,
+  "imports": [
+    "__future__",
+    "_compat",
+    "_types",
+    "_utils",
+    "inspect",
+    "pydantic",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

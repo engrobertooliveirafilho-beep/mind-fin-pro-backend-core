@@ -1,0 +1,4 @@
+﻿begin
+  if MediaMovel(9, Close) > MediaMovel(21, Close) then
+    BuyAtMarket;
+end;

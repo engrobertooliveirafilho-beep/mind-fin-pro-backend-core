@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_BFEC27E42AA37469",
+  "source_file": "mind_trader\\app\\p9_dna_extraction_engine\\engine.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\mind_trader\\app\\p9_dna_extraction_engine\\engine.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 111,
+  "imports": [
+    "hashlib",
+    "json",
+    "pathlib",
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

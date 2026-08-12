@@ -1,0 +1,25 @@
+{
+  "mission": "P2506_GLOBAL_RUNTIME_PROMOTION",
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "input": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core_evidence\\P2503_STAGED_CONTRACT_TEST_HARNESS_V2_20260626_072525",
+  "promoted": 5393,
+  "failed": 0,
+  "domain_counts": {
+    "SOCIAL": 270,
+    "API": 810,
+    "MEMORY": 1598,
+    "DATA": 142,
+    "TRADER": 701,
+    "EXECUTION": 391,
+    "REASONING": 533,
+    "AUDIT": 944,
+    "UNKNOWN": 4
+  },
+  "status": "GLOBAL_PROMOTED_WRAPPED_DISABLED",
+  "wrappers_execute_disabled": true,
+  "runtime_active_modified": true,
+  "real_execution_allowed": false,
+  "next_required": "P2507_GLOBAL_SWITCHBOARD_ACTIVATION_PAPER_ONLY"
+}

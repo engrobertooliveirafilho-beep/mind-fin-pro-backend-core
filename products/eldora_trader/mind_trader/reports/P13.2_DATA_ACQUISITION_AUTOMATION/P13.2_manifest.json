@@ -1,0 +1,17 @@
+{
+  "STATUS": "P13.2_DATA_ACQUISITION_AUTOMATION_IMPLEMENTED",
+  "WATCH_DIRS": [
+    "data/incoming/mt5",
+    "data/incoming/profit",
+    "data/incoming/generic_ohlcv",
+    "data/incoming/tick"
+  ],
+  "ACQUISITION_SLOTS": 1120,
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "EDGE": "NOT_PROVEN",
+  "CAUSALITY": "NOT_PROVEN",
+  "NEXT": "DROP_REAL_CSV_FILES_IN_WATCH_DIRS",
+  "EXPORT_READY": true,
+  "generated_at": "2026-06-14T16:11:27.487704+00:00"
+}

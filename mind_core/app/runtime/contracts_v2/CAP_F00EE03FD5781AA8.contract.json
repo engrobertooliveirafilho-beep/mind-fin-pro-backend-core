@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_F00EE03FD5781AA8",
+  "source_file": "app\\cognitive_agent_kernel\\bootstrap.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\app\\cognitive_agent_kernel\\bootstrap.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 104,
+  "imports": [
+    "app.cognitive_agent_kernel.dispatcher.dispatcher",
+    "app.cognitive_agent_kernel.goal_persistence.engine",
+    "app.cognitive_agent_kernel.planner.planner",
+    "app.cognitive_agent_kernel.policy.policy",
+    "app.cognitive_agent_kernel.world_model.model"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

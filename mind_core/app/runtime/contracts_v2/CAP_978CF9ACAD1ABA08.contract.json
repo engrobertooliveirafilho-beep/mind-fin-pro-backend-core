@@ -1,0 +1,30 @@
+{
+  "capability_id": "CAP_978CF9ACAD1ABA08",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\random\\tests\\test_generator_mt19937.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\numpy\\random\\tests\\test_generator_mt19937.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 126,
+  "imports": [
+    "gzip",
+    "hashlib",
+    "numpy",
+    "numpy.exceptions",
+    "numpy.linalg",
+    "numpy.random",
+    "numpy.testing",
+    "os.path",
+    "pickle",
+    "pytest",
+    "sys",
+    "threading",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

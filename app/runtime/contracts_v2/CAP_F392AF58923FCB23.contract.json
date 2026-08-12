@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_F392AF58923FCB23",
+  "source_file": ".venv\\Lib\\site-packages\\setuptools\\tests\\config\\test_expand.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\setuptools\\tests\\config\\test_expand.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 109,
+  "imports": [
+    "distutils.errors",
+    "os",
+    "pathlib",
+    "pytest",
+    "setuptools._static",
+    "setuptools.config",
+    "setuptools.discovery",
+    "sys"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

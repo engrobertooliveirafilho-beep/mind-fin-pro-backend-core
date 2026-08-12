@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_FF31F332A0BBDC84",
+  "source_file": "_evidence\\P19P28H_G_K_FITNESS_RECOVERY_CERT_20260620_205804\\patch_whatsapp.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\_evidence\\P19P28H_G_K_FITNESS_RECOVERY_CERT_20260620_205804\\patch_whatsapp.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 88,
+  "imports": [
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

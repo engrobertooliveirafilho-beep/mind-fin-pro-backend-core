@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_9DEB2DA266831C3B",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\indexes\\datetimes\\test_iter.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pandas\\tests\\indexes\\datetimes\\test_iter.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 103,
+  "imports": [
+    "dateutil.tz",
+    "numpy",
+    "pandas",
+    "pandas.core.arrays",
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

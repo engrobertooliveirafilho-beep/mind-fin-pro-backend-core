@@ -1,0 +1,30 @@
+{
+  "capability_id": "CAP_50295755B51C716E",
+  "source_file": ".venv\\Lib\\site-packages\\pydantic\\v1\\generics.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\pydantic\\v1\\generics.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 113,
+  "imports": [
+    "functools",
+    "operator",
+    "pydantic.v1.class_validators",
+    "pydantic.v1.fields",
+    "pydantic.v1.main",
+    "pydantic.v1.types",
+    "pydantic.v1.typing",
+    "pydantic.v1.utils",
+    "sys",
+    "types",
+    "typing",
+    "typing_extensions",
+    "weakref"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

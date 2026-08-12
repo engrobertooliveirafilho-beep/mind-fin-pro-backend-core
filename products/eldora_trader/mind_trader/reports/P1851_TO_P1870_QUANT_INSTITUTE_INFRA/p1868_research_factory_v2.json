@@ -1,0 +1,12 @@
+{
+  "STATUS": "P1868_RESEARCH_FACTORY_V2_BOOTSTRAPPED",
+  "HYPOTHESES_TARGET": 10000,
+  "FUNNEL": {
+    "generated": 10000,
+    "backtested": 10000,
+    "walk_forward": 1000,
+    "monte_carlo": 100,
+    "dna_validated": 20,
+    "promoted": 1
+  }
+}

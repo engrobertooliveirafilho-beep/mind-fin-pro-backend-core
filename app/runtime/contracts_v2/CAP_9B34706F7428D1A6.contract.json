@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_9B34706F7428D1A6",
+  "source_file": "_evidence\\P16E_LIMITED_RESPONSE_MODIFICATION_DRY_RUN_20260616_161249\\run_p16e_limited_modification.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P16E_LIMITED_RESPONSE_MODIFICATION_DRY_RUN_20260616_161249\\run_p16e_limited_modification.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 94,
+  "imports": [
+    "app.p16_real_use_case.limited_response_modification",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

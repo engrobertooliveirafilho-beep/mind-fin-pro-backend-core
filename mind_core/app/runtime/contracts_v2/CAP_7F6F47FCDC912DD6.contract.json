@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_7F6F47FCDC912DD6",
+  "source_file": "_evidence\\P4_65E_REAL_RETRIEVAL_DATA_VALIDATION_20260618_142901\\p465e_retrieval_data_audit.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P4_65E_REAL_RETRIEVAL_DATA_VALIDATION_20260618_142901\\p465e_retrieval_data_audit.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 113,
+  "imports": [
+    "app.embedding.provider",
+    "app.retrieval.semantic_provider",
+    "app.runtime.embedding_cache",
+    "os",
+    "psycopg2",
+    "psycopg2.extras",
+    "traceback"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_F1883EEB79F5F929",
+  "source_file": "_evidence\\P4.82_AUTO_PRIORITIZATION\\20260620_205335\\build_runtime_prioritized_queue.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P4.82_AUTO_PRIORITIZATION\\20260620_205335\\build_runtime_prioritized_queue.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 108,
+  "imports": [
+    "datetime",
+    "hashlib",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

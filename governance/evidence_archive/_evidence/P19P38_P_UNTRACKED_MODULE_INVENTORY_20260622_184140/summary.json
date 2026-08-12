@@ -1,0 +1,22 @@
+{
+  "mission": "P19P38_P_UNTRACKED_MODULE_INVENTORY",
+  "status": "AUDIT_ONLY_PASS",
+  "runtime_modified": false,
+  "files_moved": false,
+  "files_deleted": false,
+  "generated_at": "2026-06-22T21:41:44.571539+00:00",
+  "untracked_total": 6073,
+  "counts": {
+    "BACKUP_OR_QUARANTINE": 356,
+    "BACKUP_FILE": 2,
+    "ELDORA_COMPANION_COGNITION": 1,
+    "MANUAL_REVIEW": 1869,
+    "ELDORA_PROGRAM_LAYER": 54,
+    "ELDORA_RUNTIME_SUPPORT": 22,
+    "TRADER_FTMO_RUNTIME": 221,
+    "DATA_RUNTIME_ARTIFACT": 3242,
+    "P55_P56_BOVINE_STACK": 81,
+    "SUPABASE_ARTIFACT": 8,
+    "TESTS_UNTRACKED": 217
+  }
+}

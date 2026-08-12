@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_A0705360CB5CB71C",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_internal\\utils\\filesystem.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\pip\\_internal\\utils\\filesystem.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 126,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "contextlib",
+    "fnmatch",
+    "os",
+    "os.path",
+    "pathlib",
+    "pip._internal.utils.compat",
+    "pip._internal.utils.misc",
+    "pip._internal.utils.retry",
+    "random",
+    "sys",
+    "tempfile",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

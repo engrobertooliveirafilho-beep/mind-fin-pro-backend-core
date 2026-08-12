@@ -1,0 +1,7 @@
+begin
+  if Close > Close[1] then
+    BuyAtMarket;
+
+  if Close < Close[1] then
+    SellShortAtMarket;
+end;

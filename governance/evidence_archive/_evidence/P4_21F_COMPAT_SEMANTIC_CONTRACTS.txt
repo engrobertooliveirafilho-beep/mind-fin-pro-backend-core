@@ -1,0 +1,53 @@
+
+  tests\test_whatsapp_noisy_followup.py:3:def test_noisy_how_followup():
+  tests\test_whatsapp_noisy_followup.py:4:    out = eldora_primary_runtime_reply("u","como?4").lower()
+> tests\test_whatsapp_noisy_followup.py:5:    assert "camadas" in out
+  tests\test_whatsapp_noisy_followup.py:6:    assert "respostas curtas" in out
+  tests\test_whatsapp_plan_override.py:3:def test_semantic_plan():
+  tests\test_whatsapp_plan_override.py:4:    out = eldora_primary_runtime_reply("u","qual o plano?").lower()
+> tests\test_whatsapp_plan_override.py:5:    assert "estabilizar" in out
+  tests\test_whatsapp_plan_override.py:6:
+  tests\test_whatsapp_plan_override.py:7:def test_semantic_how_to():
+  tests\test_whatsapp_plan_override.py:8:    out = eldora_primary_runtime_reply("u","e como fazer?").lower()
+> tests\test_whatsapp_plan_override.py:9:    assert "memoria contextual" in out or "estabilizar" in out
+  tests\test_whatsapp_positive_feedback.py:3:def test_fuzzy_everything_good():
+  tests\test_whatsapp_positive_feedback.py:4:    out = eldora_primary_runtime_reply("u","tudo be?").lower()
+> tests\test_whatsapp_positive_feedback.py:5:    assert "melhorando" in out
+  tests\test_whatsapp_positive_feedback.py:6:
+  tests\test_whatsapp_positive_feedback.py:7:def test_positive_confirmation():
+  tests\test_whatsapp_positive_feedback.py:8:    out = eldora_primary_runtime_reply("u","deu certo").lower()
+> tests\test_whatsapp_positive_feedback.py:9:    assert "continuidade" in out or "runtime" in out
+  tests\test_whatsapp_progress_override.py:3:def test_progress_question():
+  tests\test_whatsapp_progress_override.py:4:    out = eldora_primary_runtime_reply("u","e como esta indo?").lower()
+> tests\test_whatsapp_progress_override.py:5:    assert "melhorando" in out
+  tests\test_whatsapp_progress_override.py:6:
+  tests\test_whatsapp_progress_override.py:7:def test_working_question():
+  tests\test_whatsapp_progress_override.py:8:    out = eldora_primary_runtime_reply("u","esta dando certo?").lower()
+> tests\test_whatsapp_progress_override.py:9:    assert "runtime novo" in out or "melhorando" in out
+  tests\test_whatsapp_progress_override.py:10:
+  tests\test_whatsapp_progress_override.py:11:def test_join_message():
+  tests\test_whatsapp_progress_override.py:12:    out = eldora_primary_runtime_reply("u","getting-throughout").lower()
+> tests\test_whatsapp_progress_override.py:13:    assert "sandbox conectado" in out
+  tests\test_whatsapp_semantic_override.py:3:def test_semantic_status():
+  tests\test_whatsapp_semantic_override.py:4:    out = eldora_primary_runtime_reply("u","como esta ?").lower()
+> tests\test_whatsapp_semantic_override.py:5:    assert "melhorando" in out
+  tests\test_whatsapp_semantic_override.py:6:
+  tests\test_whatsapp_semantic_override.py:7:def test_semantic_failure():
+  tests\test_whatsapp_semantic_override.py:8:    out = eldora_primary_runtime_reply("u","deu ruim").lower()
+> tests\test_whatsapp_semantic_override.py:9:    assert "runtime novo" in out or "continuidade" in out
+  tests\test_whatsapp_short_memory.py:4:    eldora_primary_runtime_reply("u","nao esta funcionando")
+  tests\test_whatsapp_short_memory.py:5:    out = eldora_primary_runtime_reply("u","conseguiu?").lower()
+> tests\test_whatsapp_short_memory.py:6:    assert "continuidade" in out or "natural" in out
+  tests\test_whatsapp_short_memory.py:7:
+  tests\test_whatsapp_short_memory.py:8:def test_followup_parece_nao():
+  tests\test_whatsapp_short_memory.py:9:    eldora_primary_runtime_reply("u","o que fazer?")
+  tests\test_whatsapp_short_memory.py:10:    out = eldora_primary_runtime_reply("u","parece que nao").lower()
+  tests\test_whatsapp_short_memory.py:11:    assert "contexto" in out or "generica" in out or "genérica" in out
+  tests\test_whatsapp_weather_and_typo.py:3:def test_weather_request_safe():
+  tests\test_whatsapp_weather_and_typo.py:4:    out = eldora_primary_runtime_reply("u","qual a previsão do tempo para amanhã em Jaguariuna?").lower()
+> tests\test_whatsapp_weather_and_typo.py:5:    assert "clima real" in out or "api de previsão" in out
+  tests\test_whatsapp_weather_and_typo.py:6:
+  tests\test_whatsapp_weather_and_typo.py:7:def test_typo_not_understood():
+  tests\test_whatsapp_weather_and_typo.py:8:    out = eldora_primary_runtime_reply("u","nao entnedeu?").lower()
+  tests\test_whatsapp_weather_and_typo.py:9:    assert "fallback" in out or "entendi" in out
+

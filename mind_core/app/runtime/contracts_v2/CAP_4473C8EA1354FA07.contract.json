@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_4473C8EA1354FA07",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\tools\\test_to_time.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\pandas\\tests\\tools\\test_to_time.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 102,
+  "imports": [
+    "datetime",
+    "locale",
+    "numpy",
+    "pandas",
+    "pandas._testing",
+    "pandas.core.tools.times",
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

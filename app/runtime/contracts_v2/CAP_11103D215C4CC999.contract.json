@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_11103D215C4CC999",
+  "source_file": "tests\\test_p2368_de40_context_backtest_with_2r_targeting.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\data\\tests\\test_p2368_de40_context_backtest_with_2r_targeting.py",
+  "domain": "DATA",
+  "target_layer": "app/runtime",
+  "promotion_score": 87,
+  "imports": [
+    "app.runtime.p2368_de40_context_backtest_with_2r_targeting",
+    "csv",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

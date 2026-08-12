@@ -1,0 +1,13 @@
+var
+  m, s : Float;
+
+begin
+  m := MACD(26, 12, 9);
+  s := MediaExp(9, m);
+
+  if m > s then
+    BuyAtMarket;
+
+  if m < s then
+    SellShortAtMarket;
+end;

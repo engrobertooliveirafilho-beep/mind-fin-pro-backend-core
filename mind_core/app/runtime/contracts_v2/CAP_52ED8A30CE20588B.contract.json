@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_52ED8A30CE20588B",
+  "source_file": "mind_trader\\tests\\test_p883_robustness_committee.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\mind_trader\\tests\\test_p883_robustness_committee.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 108,
+  "imports": [
+    "mind_trader.app.validation.robustness_committee",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

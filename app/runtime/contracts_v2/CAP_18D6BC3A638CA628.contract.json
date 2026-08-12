@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_18D6BC3A638CA628",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\graders\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\openai\\types\\graders\\__init__.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 103,
+  "imports": [
+    "__future__",
+    "grader_inputs",
+    "grader_inputs_param",
+    "label_model_grader",
+    "label_model_grader_param",
+    "multi_grader",
+    "multi_grader_param",
+    "python_grader",
+    "python_grader_param",
+    "score_model_grader",
+    "score_model_grader_param",
+    "string_check_grader",
+    "string_check_grader_param",
+    "text_similarity_grader",
+    "text_similarity_grader_param"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

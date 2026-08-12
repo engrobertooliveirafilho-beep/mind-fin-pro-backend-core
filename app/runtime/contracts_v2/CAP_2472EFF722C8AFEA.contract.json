@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_2472EFF722C8AFEA",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_internal\\commands\\cache.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\pip\\_internal\\commands\\cache.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 83,
+  "imports": [
+    "optparse",
+    "os",
+    "pip._internal.cli.base_command",
+    "pip._internal.cli.status_codes",
+    "pip._internal.exceptions",
+    "pip._internal.utils",
+    "pip._internal.utils.logging",
+    "pip._internal.utils.misc",
+    "textwrap",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

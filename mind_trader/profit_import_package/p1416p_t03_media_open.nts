@@ -1,0 +1,4 @@
+﻿begin
+  if Media(9, Open) > Media(21, Open) then
+    BuyAtMarket;
+end;

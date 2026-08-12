@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_64BF5C3354E02C2F",
+  "source_file": ".venv\\Lib\\site-packages\\_pytest\\faulthandler.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\_pytest\\faulthandler.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 101,
+  "imports": [
+    "__future__",
+    "_pytest.config",
+    "_pytest.config.argparsing",
+    "_pytest.nodes",
+    "_pytest.stash",
+    "collections.abc",
+    "faulthandler",
+    "os",
+    "pytest",
+    "sys"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

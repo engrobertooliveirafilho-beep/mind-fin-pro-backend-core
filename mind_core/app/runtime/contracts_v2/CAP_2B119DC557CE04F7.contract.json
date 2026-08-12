@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_2B119DC557CE04F7",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\lib\\streaming\\responses\\_responses.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\openai\\lib\\streaming\\responses\\_responses.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 113,
+  "imports": [
+    "__future__",
+    "_events",
+    "_models",
+    "_parsing._responses",
+    "_streaming",
+    "_types",
+    "_utils",
+    "inspect",
+    "types",
+    "types.responses",
+    "types.responses.parsed_response",
+    "types.responses.tool_param",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

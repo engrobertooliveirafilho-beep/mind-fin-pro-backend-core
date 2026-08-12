@@ -1,0 +1,59 @@
+{
+  "engine": "P4.80_CAPABILITY_RECONSTRUCTION_PLANNER",
+  "created_at": "2026-06-19T18:18:10.944113+00:00",
+  "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/capability_notes.md",
+  "total_missions": 4,
+  "missions": [
+    {
+      "mission_id": "P4.80_AUTO_001",
+      "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/capability_notes.md",
+      "type": "CAPABILITY",
+      "priority": "MEDIUM",
+      "title": "Documento de capability",
+      "evidence_text": "Documento de capability",
+      "recommended_action": "MAP_TO_REGISTRY_OR_CREATE_ADAPTER",
+      "suggested_files": [],
+      "suggested_tests": [],
+      "risk": "medium"
+    },
+    {
+      "mission_id": "P4.80_AUTO_002",
+      "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/capability_notes.md",
+      "type": "CAPABILITY",
+      "priority": "MEDIUM",
+      "title": "semantic_retrieval usando pgvector e embeddings.",
+      "evidence_text": "semantic_retrieval usando pgvector e embeddings.",
+      "recommended_action": "MAP_TO_REGISTRY_OR_CREATE_ADAPTER",
+      "suggested_files": [],
+      "suggested_tests": [],
+      "risk": "medium"
+    },
+    {
+      "mission_id": "P4.80_AUTO_003",
+      "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/capability_notes.md",
+      "type": "CAPABILITY",
+      "priority": "MEDIUM",
+      "title": "social_memory usando Supabase.",
+      "evidence_text": "social_memory usando Supabase.",
+      "recommended_action": "MAP_TO_REGISTRY_OR_CREATE_ADAPTER",
+      "suggested_files": [],
+      "suggested_tests": [],
+      "risk": "medium"
+    },
+    {
+      "mission_id": "P4.80_AUTO_005",
+      "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/capability_notes.md",
+      "type": "CAPABILITY",
+      "priority": "MEDIUM",
+      "title": "Ideia pendente: transformar knowledge graph em runtime ativo.",
+      "evidence_text": "Ideia pendente: transformar knowledge graph em runtime ativo.",
+      "recommended_action": "MAP_TO_REGISTRY_OR_CREATE_ADAPTER",
+      "suggested_files": [],
+      "suggested_tests": [],
+      "risk": "medium"
+    }
+  ],
+  "summary": {
+    "MAP_TO_REGISTRY_OR_CREATE_ADAPTER": 4
+  }
+}

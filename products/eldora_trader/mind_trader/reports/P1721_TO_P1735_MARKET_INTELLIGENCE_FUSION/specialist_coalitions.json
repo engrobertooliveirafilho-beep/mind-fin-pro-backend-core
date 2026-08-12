@@ -1,0 +1,90 @@
+[
+  {
+    "asset": "USDJPY",
+    "coalition_size": 3,
+    "specialists": [
+      "USDJPY_D1_EMA_CROSS_9a53b0630c7b7e29e960eb66",
+      "USDJPY_H1_RSI_REVERSION_103d2cfc73e4dbb7ac1697fb",
+      "USDJPY_D1_SMA_CROSS_c20b3f79e90be73438b442d1"
+    ],
+    "families": [
+      "EMA_CROSS",
+      "RSI_REVERSION",
+      "SMA_CROSS"
+    ],
+    "profiles": [
+      "DAY_TRADE_SPECIALIST",
+      "SWING_SPECIALIST"
+    ],
+    "consensus_score": 65.318273,
+    "coalition_decision": "COALITION_WATCH",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "XAUUSD",
+    "coalition_size": 3,
+    "specialists": [
+      "XAUUSD_M5_RSI_REVERSION_6ffc7212b632c0f09f8de2fc",
+      "XAUUSD_D1_EMA_CROSS_1d35b1a3343e2da75db035d2",
+      "XAUUSD_M5_EMA_CROSS_463e4d9498ac1dbaf9c291d5"
+    ],
+    "families": [
+      "EMA_CROSS",
+      "RSI_REVERSION"
+    ],
+    "profiles": [
+      "SCALP_SPECIALIST",
+      "SWING_SPECIALIST"
+    ],
+    "consensus_score": 61.125669,
+    "coalition_decision": "COALITION_WATCH",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "GBPUSD",
+    "coalition_size": 3,
+    "specialists": [
+      "GBPUSD_M1_BOLLINGER_REVERSION_5aefbb04c2a4913ca649c3fa",
+      "GBPUSD_M1_BOLLINGER_REVERSION_45ecd4d9094ad6334a86ad21",
+      "GBPUSD_M30_BOLLINGER_REVERSION_7d0ccd5986a18a8a9162e384"
+    ],
+    "families": [
+      "BOLLINGER_REVERSION"
+    ],
+    "profiles": [
+      "DAY_TRADE_SPECIALIST",
+      "SCALP_SPECIALIST"
+    ],
+    "consensus_score": 62.707883,
+    "coalition_decision": "COALITION_WATCH",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  {
+    "asset": "USDCAD",
+    "coalition_size": 3,
+    "specialists": [
+      "USDCAD_M30_RSI_REVERSION_e66b449b7ac4c0f21513e76c",
+      "USDCAD_D1_ATR_TREND_36d544d92daf453ce9e08aa1",
+      "USDCAD_M15_ATR_TREND_9ab3c761b382cb63961ac695"
+    ],
+    "families": [
+      "ATR_TREND",
+      "RSI_REVERSION"
+    ],
+    "profiles": [
+      "DAY_TRADE_SPECIALIST",
+      "SWING_SPECIALIST"
+    ],
+    "consensus_score": 51.936585,
+    "coalition_decision": "COALITION_WATCH",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  }
+]

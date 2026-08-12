@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_4DCAD67C58891E0F",
+  "source_file": ".venv\\Lib\\site-packages\\PIL\\GbrImagePlugin.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\.venv\\Lib\\site-packages\\PIL\\GbrImagePlugin.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 97,
+  "imports": [
+    "__future__",
+    "_binary"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

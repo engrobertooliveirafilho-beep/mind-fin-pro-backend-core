@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_709565079EE5FAF3",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_umath_accuracy.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\data\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_umath_accuracy.py",
+  "domain": "DATA",
+  "target_layer": "app/runtime",
+  "promotion_score": 99,
+  "imports": [
+    "ctypes",
+    "numpy",
+    "numpy._core._multiarray_umath",
+    "numpy.testing",
+    "numpy.testing._private.utils",
+    "os",
+    "pytest",
+    "sys"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

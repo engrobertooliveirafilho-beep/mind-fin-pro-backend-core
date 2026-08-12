@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_4DB785880E892638",
+  "source_file": ".venv\\Lib\\site-packages\\charset_normalizer\\md.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\.venv\\Lib\\site-packages\\charset_normalizer\\md.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 107,
+  "imports": [
+    "__future__",
+    "constant",
+    "functools",
+    "logging",
+    "sys",
+    "typing",
+    "typing_extensions",
+    "utils"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

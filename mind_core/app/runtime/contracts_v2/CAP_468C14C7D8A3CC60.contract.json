@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_468C14C7D8A3CC60",
+  "source_file": ".venv\\Lib\\site-packages\\twilio\\rest\\conversations\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\twilio\\rest\\conversations\\__init__.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 86,
+  "imports": [
+    "twilio.rest.conversations.ConversationsBase",
+    "twilio.rest.conversations.v1.address_configuration",
+    "twilio.rest.conversations.v1.configuration",
+    "twilio.rest.conversations.v1.conversation",
+    "twilio.rest.conversations.v1.credential",
+    "twilio.rest.conversations.v1.participant_conversation",
+    "twilio.rest.conversations.v1.role",
+    "twilio.rest.conversations.v1.service",
+    "twilio.rest.conversations.v1.user",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,33 @@
+{
+  "capability_id": "CAP_DD2DB0B1EA95CD99",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\io\\json\\test_pandas.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pandas\\tests\\io\\json\\test_pandas.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 134,
+  "imports": [
+    "datetime",
+    "io",
+    "json",
+    "numpy",
+    "os",
+    "pandas",
+    "pandas._config",
+    "pandas._testing",
+    "pandas.arrays",
+    "pandas.compat",
+    "pandas.errors",
+    "pandas.io.json",
+    "pandas.util._test_decorators",
+    "pytest",
+    "sys",
+    "uuid"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

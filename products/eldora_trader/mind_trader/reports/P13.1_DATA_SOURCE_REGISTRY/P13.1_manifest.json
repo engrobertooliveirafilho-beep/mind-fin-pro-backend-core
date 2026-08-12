@@ -1,0 +1,102 @@
+{
+  "STATUS": "P13.1_DATA_SOURCE_REGISTRY_IMPLEMENTED",
+  "TOTAL_SOURCE_SLOTS": 1120,
+  "SOURCES": [
+    {
+      "source_id": "MT5_CSV",
+      "type": "csv",
+      "markets": [
+        "forex",
+        "commodities",
+        "indices",
+        "crypto",
+        "stocks"
+      ],
+      "requires_manual_export": true,
+      "trust_level": "HIGH_IF_BROKER_HISTORY"
+    },
+    {
+      "source_id": "PROFIT_CSV",
+      "type": "csv",
+      "markets": [
+        "brazil_futures",
+        "brazil_stocks"
+      ],
+      "requires_manual_export": true,
+      "trust_level": "HIGH_IF_PLATFORM_HISTORY"
+    },
+    {
+      "source_id": "GENERIC_OHLCV_CSV",
+      "type": "csv",
+      "markets": [
+        "all"
+      ],
+      "requires_manual_export": true,
+      "trust_level": "MEDIUM_REQUIRES_VALIDATION"
+    },
+    {
+      "source_id": "TICK_CSV",
+      "type": "csv",
+      "markets": [
+        "futures",
+        "forex",
+        "crypto"
+      ],
+      "requires_manual_export": true,
+      "trust_level": "HIGH_IF_TICK_COMPLETE"
+    }
+  ],
+  "ASSETS": [
+    "WIN",
+    "WDO",
+    "IND",
+    "DOL",
+    "PETR4",
+    "VALE3",
+    "ITUB4",
+    "BBDC4",
+    "BBAS3",
+    "WEGE3",
+    "BOVA11",
+    "SPY",
+    "QQQ",
+    "DIA",
+    "AAPL",
+    "MSFT",
+    "NVDA",
+    "AMZN",
+    "META",
+    "GOOGL",
+    "TSLA",
+    "EURUSD",
+    "GBPUSD",
+    "USDJPY",
+    "AUDUSD",
+    "USDCAD",
+    "XAUUSD",
+    "XAGUSD",
+    "WTI",
+    "BRENT",
+    "NATGAS",
+    "BTCUSD",
+    "ETHUSD",
+    "SOLUSD",
+    "BNBUSD"
+  ],
+  "TIMEFRAMES": [
+    "TICK",
+    "M1",
+    "M5",
+    "M15",
+    "M30",
+    "H1",
+    "H4",
+    "D1"
+  ],
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "EDGE": "NOT_PROVEN",
+  "CAUSALITY": "NOT_PROVEN",
+  "EXPORT_READY": true,
+  "generated_at": "2026-06-14T16:11:27.415547+00:00"
+}

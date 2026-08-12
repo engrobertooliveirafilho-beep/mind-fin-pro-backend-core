@@ -1,0 +1,10 @@
+{
+  "strategy_id": "08fdc8087267e7ae",
+  "template": "bollinger_reversion",
+  "asset": "PETR4",
+  "timeframe": "M1",
+  "platform": "Profit/NTSL",
+  "requires_profit_backtest": true,
+  "live": "FORBIDDEN",
+  "real_orders": "FORBIDDEN"
+}

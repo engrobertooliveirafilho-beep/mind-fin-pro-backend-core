@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_978048AEC4EC366A",
+  "source_file": "_evidence\\P8_OBSERVATION_PHASE_20260616_072741\\run_p8_observation.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P8_OBSERVATION_PHASE_20260616_072741\\run_p8_observation.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 101,
+  "imports": [
+    "app.p8_shadow.shadow_hooks",
+    "json",
+    "os",
+    "pathlib",
+    "time"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,14 @@
+{
+  "status": "READY",
+  "actions": [
+    "tighten_filter",
+    "reduce_risk",
+    "change_session",
+    "retire_edge"
+  ],
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN"
+}

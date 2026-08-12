@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_3F145F14DCE2719B",
+  "source_file": "mind_trader\\app\\engines\\causality_authority.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\mind_trader\\app\\engines\\causality_authority.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 113,
+  "imports": [
+    "datetime",
+    "json",
+    "mind_trader.app.backtest.market_core",
+    "mind_trader.app.engines.causality_hypothesis",
+    "mind_trader.app.engines.cross_asset_brain",
+    "pathlib",
+    "random"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

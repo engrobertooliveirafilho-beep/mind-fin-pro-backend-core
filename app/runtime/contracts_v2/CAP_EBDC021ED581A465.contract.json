@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_EBDC021ED581A465",
+  "source_file": ".venv\\Lib\\site-packages\\twilio\\rest\\bulkexports\\v1\\export\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\twilio\\rest\\bulkexports\\v1\\export\\__init__.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 86,
+  "imports": [
+    "twilio.base",
+    "twilio.base.api_response",
+    "twilio.base.instance_context",
+    "twilio.base.instance_resource",
+    "twilio.base.list_resource",
+    "twilio.base.version",
+    "twilio.rest.bulkexports.v1.export.day",
+    "twilio.rest.bulkexports.v1.export.export_custom_job",
+    "twilio.rest.bulkexports.v1.export.job",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

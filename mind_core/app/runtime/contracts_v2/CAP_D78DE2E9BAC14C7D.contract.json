@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_D78DE2E9BAC14C7D",
+  "source_file": "app\\modules\\usde_core\\scientific_scheduler_runtime.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\app\\modules\\usde_core\\scientific_scheduler_runtime.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 95,
+  "imports": [
+    "__future__",
+    "app.modules.usde_core.autonomous_scientific_pipeline",
+    "time"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

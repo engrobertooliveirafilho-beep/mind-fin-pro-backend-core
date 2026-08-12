@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_C59B6D78D38780CB",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\test_nanops.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pandas\\tests\\test_nanops.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 111,
+  "imports": [
+    "functools",
+    "numpy",
+    "pandas",
+    "pandas._testing",
+    "pandas.core",
+    "pandas.core.dtypes.common",
+    "pandas.util._test_decorators",
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

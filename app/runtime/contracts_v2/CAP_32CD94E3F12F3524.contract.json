@@ -1,0 +1,33 @@
+{
+  "capability_id": "CAP_32CD94E3F12F3524",
+  "source_file": ".venv\\Lib\\site-packages\\pptx\\parts\\slide.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pptx\\parts\\slide.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 127,
+  "imports": [
+    "__future__",
+    "pptx.chart.data",
+    "pptx.enum.chart",
+    "pptx.enum.shapes",
+    "pptx.media",
+    "pptx.opc.constants",
+    "pptx.opc.package",
+    "pptx.opc.packuri",
+    "pptx.oxml.slide",
+    "pptx.oxml.theme",
+    "pptx.parts.chart",
+    "pptx.parts.embeddedpackage",
+    "pptx.parts.image",
+    "pptx.slide",
+    "pptx.util",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,13 @@
+{
+  "macro_inputs": [
+    "rates",
+    "usd",
+    "vix",
+    "commodities"
+  ],
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN"
+}

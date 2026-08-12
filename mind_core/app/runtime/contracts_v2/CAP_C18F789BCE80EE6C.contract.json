@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_C18F789BCE80EE6C",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\core\\arrays\\_arrow_string_mixins.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\data\\.venv\\Lib\\site-packages\\pandas\\core\\arrays\\_arrow_string_mixins.py",
+  "domain": "DATA",
+  "target_layer": "app/runtime",
+  "promotion_score": 104,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "functools",
+    "numpy",
+    "pandas",
+    "pandas._libs",
+    "pandas._typing",
+    "pandas.compat",
+    "pyarrow",
+    "pyarrow.compute",
+    "re",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

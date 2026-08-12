@@ -1,0 +1,916 @@
+[
+  {
+    "job_id": "8805a55d62aad77eaf",
+    "queue": "ingestion",
+    "payload": {
+      "dataset_index": 0
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "b97dbf8d639e7ceb35",
+    "queue": "quality_gate",
+    "payload": {
+      "dataset_index": 0
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "5fc346c1f9f4e4f1e3",
+    "queue": "ingestion",
+    "payload": {
+      "dataset_index": 1
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "23491c44cf5015a59e",
+    "queue": "quality_gate",
+    "payload": {
+      "dataset_index": 1
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "9a59c9911a3c92c009",
+    "queue": "ingestion",
+    "payload": {
+      "dataset_index": 2
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "041e979e29fb3e0b9d",
+    "queue": "quality_gate",
+    "payload": {
+      "dataset_index": 2
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "8ccf25279679e34da4",
+    "queue": "ingestion",
+    "payload": {
+      "dataset_index": 3
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "849bbab757b8a47656",
+    "queue": "quality_gate",
+    "payload": {
+      "dataset_index": 3
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "53005f1d9cc3135d15",
+    "queue": "ingestion",
+    "payload": {
+      "dataset_index": 4
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "1be99f7339337e8bde",
+    "queue": "quality_gate",
+    "payload": {
+      "dataset_index": 4
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "1b30717bd2939c66c3",
+    "queue": "ingestion",
+    "payload": {
+      "dataset_index": 5
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "619c19b71068afad4e",
+    "queue": "quality_gate",
+    "payload": {
+      "dataset_index": 5
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "47c04dcb47011198ff",
+    "queue": "ingestion",
+    "payload": {
+      "dataset_index": 6
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "e87a81d716a9ba9f4d",
+    "queue": "quality_gate",
+    "payload": {
+      "dataset_index": 6
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "2a4ca88a515d23c749",
+    "queue": "ingestion",
+    "payload": {
+      "dataset_index": 7
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "9820e68bff7bea3693",
+    "queue": "quality_gate",
+    "payload": {
+      "dataset_index": 7
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "37d5100d31153b1185",
+    "queue": "ingestion",
+    "payload": {
+      "dataset_index": 8
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "8ba7d5f114b88fa137",
+    "queue": "quality_gate",
+    "payload": {
+      "dataset_index": 8
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "5c68c61acda5beec9b",
+    "queue": "ingestion",
+    "payload": {
+      "dataset_index": 9
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "136a607708218bfff6",
+    "queue": "quality_gate",
+    "payload": {
+      "dataset_index": 9
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "548ce811e9631669c7",
+    "queue": "genome_generation",
+    "payload": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "74a1ff21e3618e2736",
+    "queue": "backtest",
+    "payload": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "ac06f53c7eaf7d3685",
+    "queue": "walk_forward",
+    "payload": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "c74837835e6d03273c",
+    "queue": "monte_carlo",
+    "payload": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "6d64a0439357525e39",
+    "queue": "robustness",
+    "payload": {
+      "batch_start": 0,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "3907c8f5ee0aac7165",
+    "queue": "genome_generation",
+    "payload": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "cd5b111956038685b0",
+    "queue": "backtest",
+    "payload": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "4652e32a4a33534f4b",
+    "queue": "walk_forward",
+    "payload": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "ff81ae865ecea9640a",
+    "queue": "monte_carlo",
+    "payload": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "40d08c7438b90bbe95",
+    "queue": "robustness",
+    "payload": {
+      "batch_start": 1000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "39165f262dbf5911a5",
+    "queue": "genome_generation",
+    "payload": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "b614b804a1d7ebb79c",
+    "queue": "backtest",
+    "payload": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "11d2919454002e39a2",
+    "queue": "walk_forward",
+    "payload": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "6c633a1f802d4d1d01",
+    "queue": "monte_carlo",
+    "payload": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "145bb08580b2d25601",
+    "queue": "robustness",
+    "payload": {
+      "batch_start": 2000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "decad8030529cb395e",
+    "queue": "genome_generation",
+    "payload": {
+      "batch_start": 3000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "8e0711719a5d55c6bc",
+    "queue": "backtest",
+    "payload": {
+      "batch_start": 3000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "72a61c1ebd6ba3199b",
+    "queue": "walk_forward",
+    "payload": {
+      "batch_start": 3000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "fd6e26bfceef8b979a",
+    "queue": "monte_carlo",
+    "payload": {
+      "batch_start": 3000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "a993738d50cbba00b6",
+    "queue": "robustness",
+    "payload": {
+      "batch_start": 3000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "37cdfa3f5f7cb312ab",
+    "queue": "genome_generation",
+    "payload": {
+      "batch_start": 4000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "7fde260cdb43fa7fca",
+    "queue": "backtest",
+    "payload": {
+      "batch_start": 4000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "33e4f735ea2b809799",
+    "queue": "walk_forward",
+    "payload": {
+      "batch_start": 4000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "facd4ca751e8b056d3",
+    "queue": "monte_carlo",
+    "payload": {
+      "batch_start": 4000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.154949+00:00"
+  },
+  {
+    "job_id": "f5c50d90f4699b7b2b",
+    "queue": "robustness",
+    "payload": {
+      "batch_start": 4000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.155948+00:00"
+  },
+  {
+    "job_id": "05006a653add922237",
+    "queue": "genome_generation",
+    "payload": {
+      "batch_start": 5000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.155948+00:00"
+  },
+  {
+    "job_id": "88096a0a8959f8e804",
+    "queue": "backtest",
+    "payload": {
+      "batch_start": 5000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.155948+00:00"
+  },
+  {
+    "job_id": "e5d75686fc2b511c75",
+    "queue": "walk_forward",
+    "payload": {
+      "batch_start": 5000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.155948+00:00"
+  },
+  {
+    "job_id": "17eefa435a8ee878f4",
+    "queue": "monte_carlo",
+    "payload": {
+      "batch_start": 5000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.155948+00:00"
+  },
+  {
+    "job_id": "c7c860b20d92ec9540",
+    "queue": "robustness",
+    "payload": {
+      "batch_start": 5000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.155948+00:00"
+  },
+  {
+    "job_id": "9a7d1f7890029b6508",
+    "queue": "genome_generation",
+    "payload": {
+      "batch_start": 6000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.155948+00:00"
+  },
+  {
+    "job_id": "9c9be1a06607ca9d25",
+    "queue": "backtest",
+    "payload": {
+      "batch_start": 6000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.155948+00:00"
+  },
+  {
+    "job_id": "6a8e09592f07ec4105",
+    "queue": "walk_forward",
+    "payload": {
+      "batch_start": 6000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.155948+00:00"
+  },
+  {
+    "job_id": "e9cff920023f2df79e",
+    "queue": "monte_carlo",
+    "payload": {
+      "batch_start": 6000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.155948+00:00"
+  },
+  {
+    "job_id": "8a74abaae858f44cc7",
+    "queue": "robustness",
+    "payload": {
+      "batch_start": 6000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.155948+00:00"
+  },
+  {
+    "job_id": "8dd2b45bc8d57d05de",
+    "queue": "genome_generation",
+    "payload": {
+      "batch_start": 7000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.155948+00:00"
+  },
+  {
+    "job_id": "7db57c1010512ae184",
+    "queue": "backtest",
+    "payload": {
+      "batch_start": 7000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.155948+00:00"
+  },
+  {
+    "job_id": "5b39f8a17bb97de1a6",
+    "queue": "walk_forward",
+    "payload": {
+      "batch_start": 7000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.155948+00:00"
+  },
+  {
+    "job_id": "33b257176adfe0f62a",
+    "queue": "monte_carlo",
+    "payload": {
+      "batch_start": 7000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.155948+00:00"
+  },
+  {
+    "job_id": "b7bf3ac08018e9fa9d",
+    "queue": "robustness",
+    "payload": {
+      "batch_start": 7000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.155948+00:00"
+  },
+  {
+    "job_id": "981d05e334c4e281d4",
+    "queue": "genome_generation",
+    "payload": {
+      "batch_start": 8000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.155948+00:00"
+  },
+  {
+    "job_id": "1d40dd1230b9d8ccdd",
+    "queue": "backtest",
+    "payload": {
+      "batch_start": 8000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.155948+00:00"
+  },
+  {
+    "job_id": "1bb751c55528aa312f",
+    "queue": "walk_forward",
+    "payload": {
+      "batch_start": 8000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.155948+00:00"
+  },
+  {
+    "job_id": "ce6bd4707d15966489",
+    "queue": "monte_carlo",
+    "payload": {
+      "batch_start": 8000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.155948+00:00"
+  },
+  {
+    "job_id": "12f47cefa5dbaa4395",
+    "queue": "robustness",
+    "payload": {
+      "batch_start": 8000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.155948+00:00"
+  },
+  {
+    "job_id": "b02e7ad2fec88c91a5",
+    "queue": "genome_generation",
+    "payload": {
+      "batch_start": 9000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.155948+00:00"
+  },
+  {
+    "job_id": "d4ad87bfd12822b2c2",
+    "queue": "backtest",
+    "payload": {
+      "batch_start": 9000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.155948+00:00"
+  },
+  {
+    "job_id": "876bfe1cd350b45f26",
+    "queue": "walk_forward",
+    "payload": {
+      "batch_start": 9000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.155948+00:00"
+  },
+  {
+    "job_id": "4371230fede4edc160",
+    "queue": "monte_carlo",
+    "payload": {
+      "batch_start": 9000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.155948+00:00"
+  },
+  {
+    "job_id": "d0750a6aabd45971f1",
+    "queue": "robustness",
+    "payload": {
+      "batch_start": 9000,
+      "batch_size": 1000
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.155948+00:00"
+  },
+  {
+    "job_id": "f8457cbc1f9540250c",
+    "queue": "ranking",
+    "payload": {
+      "scope": "paper_candidates_only"
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.155948+00:00"
+  },
+  {
+    "job_id": "b922bb969544a41a0c",
+    "queue": "reporting",
+    "payload": {
+      "scope": "full_research_audit"
+    },
+    "status": "PENDING",
+    "live": "FORBIDDEN",
+    "real_broker": "DISABLED",
+    "promotion_allowed": false,
+    "created_at": "2026-06-14T16:11:26.155948+00:00"
+  }
+]

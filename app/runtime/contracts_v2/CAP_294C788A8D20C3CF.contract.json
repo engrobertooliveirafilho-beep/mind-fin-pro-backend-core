@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_294C788A8D20C3CF",
+  "source_file": "mind_trader\\tests\\test_p106_real_data_research_certification.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\mind_trader\\tests\\test_p106_real_data_research_certification.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 105,
+  "imports": [
+    "app.p10_real_data_research_certification.engine",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

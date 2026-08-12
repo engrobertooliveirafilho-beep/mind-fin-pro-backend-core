@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_A7B11C9007C708BF",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\evals\\create_eval_completions_run_data_source.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\openai\\types\\evals\\create_eval_completions_run_data_source.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 121,
+  "imports": [
+    "_models",
+    "_utils",
+    "chat.chat_completion_function_tool",
+    "graders.grader_inputs",
+    "responses.easy_input_message",
+    "responses.response_input_audio",
+    "responses.response_input_text",
+    "shared.metadata",
+    "shared.reasoning_effort",
+    "shared.response_format_json_object",
+    "shared.response_format_json_schema",
+    "shared.response_format_text",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

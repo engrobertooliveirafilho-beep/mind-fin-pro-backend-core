@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_925DB20759268C11",
+  "source_file": ".venv\\Lib\\site-packages\\psycopg\\_cursor_base.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\psycopg\\_cursor_base.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 126,
+  "imports": [
+    "__future__",
+    "_capabilities",
+    "_column",
+    "_compat",
+    "_preparing",
+    "_queries",
+    "abc",
+    "collections.abc",
+    "functools",
+    "generators",
+    "pq.abc",
+    "pq.misc",
+    "rows",
+    "typing",
+    "weakref"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_E5209E8FACE23F3B",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\arrays\\sparse\\test_combine_concat.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\.venv\\Lib\\site-packages\\pandas\\tests\\arrays\\sparse\\test_combine_concat.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 101,
+  "imports": [
+    "numpy",
+    "pandas",
+    "pandas._testing",
+    "pandas.core.arrays.sparse",
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

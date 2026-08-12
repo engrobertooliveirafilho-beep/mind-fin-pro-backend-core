@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_03A1724E2A7AF655",
+  "source_file": ".venv\\Lib\\site-packages\\multidict\\_multidict_py.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\multidict\\_multidict_py.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 105,
+  "imports": [
+    "_abc",
+    "array",
+    "collections.abc",
+    "dataclasses",
+    "enum",
+    "functools",
+    "reprlib",
+    "sys",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

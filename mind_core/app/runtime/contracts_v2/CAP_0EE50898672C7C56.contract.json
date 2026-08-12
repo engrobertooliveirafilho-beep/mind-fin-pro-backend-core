@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_0EE50898672C7C56",
+  "source_file": "evidence\\P19_PIPELINE_DEPENDENCY_INJECTION_FIX_20260618_082613\\test.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\evidence\\P19_PIPELINE_DEPENDENCY_INJECTION_FIX_20260618_082613\\test.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 88,
+  "imports": [
+    "app.runtime.p19_unified_pipeline"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

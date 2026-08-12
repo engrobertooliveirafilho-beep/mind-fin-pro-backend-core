@@ -1,0 +1,17 @@
+{
+  "sources": [
+    "YouTube",
+    "Google Custom Search",
+    "Gemini",
+    "Blogs",
+    "Research Papers",
+    "GitHub",
+    "Reddit"
+  ],
+  "rule": "ALL_SOURCES_HYPOTHESIS_ONLY",
+  "status": "AUTONOMOUS_RESEARCH_OS_EXPANDED",
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN"
+}

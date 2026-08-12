@@ -1,0 +1,16 @@
+{
+  "capability_id": "CAP_455A9AACCD0E4DAC",
+  "source_file": "_evidence\\P19P39_COGNITIVE_CONTEXT_BUILDER_20260622_185402\\rollback\\companionship_before\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P19P39_COGNITIVE_CONTEXT_BUILDER_20260622_185402\\rollback\\companionship_before\\__init__.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 93,
+  "imports": [],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

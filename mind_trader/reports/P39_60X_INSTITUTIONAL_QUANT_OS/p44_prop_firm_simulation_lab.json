@@ -1,0 +1,386 @@
+[
+  {
+    "edge_id": "CSAN3_H1_sma_cross_13_55",
+    "firm": "FTMO",
+    "rules": {
+      "daily_loss": 0.05,
+      "max_loss": 0.1,
+      "profit_target": 0.1,
+      "min_days": 4
+    },
+    "status": "PAPER_PROP_SIM_READY",
+    "real_account": "FORBIDDEN",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "CSAN3_H1_sma_cross_13_55",
+    "firm": "FundedNext",
+    "rules": {
+      "daily_loss": 0.05,
+      "max_loss": 0.1,
+      "profit_target": 0.1,
+      "min_days": 4
+    },
+    "status": "PAPER_PROP_SIM_READY",
+    "real_account": "FORBIDDEN",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "CSAN3_H1_sma_cross_13_55",
+    "firm": "The5ers",
+    "rules": {
+      "daily_loss": 0.05,
+      "max_loss": 0.1,
+      "profit_target": 0.1,
+      "min_days": 4
+    },
+    "status": "PAPER_PROP_SIM_READY",
+    "real_account": "FORBIDDEN",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "CSAN3_H1_sma_cross_13_55",
+    "firm": "MyFundedFutures",
+    "rules": {
+      "daily_loss": 0.05,
+      "max_loss": 0.1,
+      "profit_target": 0.1,
+      "min_days": 4
+    },
+    "status": "PAPER_PROP_SIM_READY",
+    "real_account": "FORBIDDEN",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "IFIX_H1_sma_cross_5_55",
+    "firm": "FTMO",
+    "rules": {
+      "daily_loss": 0.05,
+      "max_loss": 0.1,
+      "profit_target": 0.1,
+      "min_days": 4
+    },
+    "status": "PAPER_PROP_SIM_READY",
+    "real_account": "FORBIDDEN",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "IFIX_H1_sma_cross_5_55",
+    "firm": "FundedNext",
+    "rules": {
+      "daily_loss": 0.05,
+      "max_loss": 0.1,
+      "profit_target": 0.1,
+      "min_days": 4
+    },
+    "status": "PAPER_PROP_SIM_READY",
+    "real_account": "FORBIDDEN",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "IFIX_H1_sma_cross_5_55",
+    "firm": "The5ers",
+    "rules": {
+      "daily_loss": 0.05,
+      "max_loss": 0.1,
+      "profit_target": 0.1,
+      "min_days": 4
+    },
+    "status": "PAPER_PROP_SIM_READY",
+    "real_account": "FORBIDDEN",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "IFIX_H1_sma_cross_5_55",
+    "firm": "MyFundedFutures",
+    "rules": {
+      "daily_loss": 0.05,
+      "max_loss": 0.1,
+      "profit_target": 0.1,
+      "min_days": 4
+    },
+    "status": "PAPER_PROP_SIM_READY",
+    "real_account": "FORBIDDEN",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "SHUL4_H1_sma_cross_5_55",
+    "firm": "FTMO",
+    "rules": {
+      "daily_loss": 0.05,
+      "max_loss": 0.1,
+      "profit_target": 0.1,
+      "min_days": 4
+    },
+    "status": "PAPER_PROP_SIM_READY",
+    "real_account": "FORBIDDEN",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "SHUL4_H1_sma_cross_5_55",
+    "firm": "FundedNext",
+    "rules": {
+      "daily_loss": 0.05,
+      "max_loss": 0.1,
+      "profit_target": 0.1,
+      "min_days": 4
+    },
+    "status": "PAPER_PROP_SIM_READY",
+    "real_account": "FORBIDDEN",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "SHUL4_H1_sma_cross_5_55",
+    "firm": "The5ers",
+    "rules": {
+      "daily_loss": 0.05,
+      "max_loss": 0.1,
+      "profit_target": 0.1,
+      "min_days": 4
+    },
+    "status": "PAPER_PROP_SIM_READY",
+    "real_account": "FORBIDDEN",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "SHUL4_H1_sma_cross_5_55",
+    "firm": "MyFundedFutures",
+    "rules": {
+      "daily_loss": 0.05,
+      "max_loss": 0.1,
+      "profit_target": 0.1,
+      "min_days": 4
+    },
+    "status": "PAPER_PROP_SIM_READY",
+    "real_account": "FORBIDDEN",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "VIDEO_8834d6c1b66f26e6ce1d3007",
+    "firm": "FTMO",
+    "rules": {
+      "daily_loss": 0.05,
+      "max_loss": 0.1,
+      "profit_target": 0.1,
+      "min_days": 4
+    },
+    "status": "PAPER_PROP_SIM_READY",
+    "real_account": "FORBIDDEN",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "VIDEO_8834d6c1b66f26e6ce1d3007",
+    "firm": "FundedNext",
+    "rules": {
+      "daily_loss": 0.05,
+      "max_loss": 0.1,
+      "profit_target": 0.1,
+      "min_days": 4
+    },
+    "status": "PAPER_PROP_SIM_READY",
+    "real_account": "FORBIDDEN",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "VIDEO_8834d6c1b66f26e6ce1d3007",
+    "firm": "The5ers",
+    "rules": {
+      "daily_loss": 0.05,
+      "max_loss": 0.1,
+      "profit_target": 0.1,
+      "min_days": 4
+    },
+    "status": "PAPER_PROP_SIM_READY",
+    "real_account": "FORBIDDEN",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "VIDEO_8834d6c1b66f26e6ce1d3007",
+    "firm": "MyFundedFutures",
+    "rules": {
+      "daily_loss": 0.05,
+      "max_loss": 0.1,
+      "profit_target": 0.1,
+      "min_days": 4
+    },
+    "status": "PAPER_PROP_SIM_READY",
+    "real_account": "FORBIDDEN",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "VIDEO_9a075b6ef8d3f0363d232ba8",
+    "firm": "FTMO",
+    "rules": {
+      "daily_loss": 0.05,
+      "max_loss": 0.1,
+      "profit_target": 0.1,
+      "min_days": 4
+    },
+    "status": "PAPER_PROP_SIM_READY",
+    "real_account": "FORBIDDEN",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "VIDEO_9a075b6ef8d3f0363d232ba8",
+    "firm": "FundedNext",
+    "rules": {
+      "daily_loss": 0.05,
+      "max_loss": 0.1,
+      "profit_target": 0.1,
+      "min_days": 4
+    },
+    "status": "PAPER_PROP_SIM_READY",
+    "real_account": "FORBIDDEN",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "VIDEO_9a075b6ef8d3f0363d232ba8",
+    "firm": "The5ers",
+    "rules": {
+      "daily_loss": 0.05,
+      "max_loss": 0.1,
+      "profit_target": 0.1,
+      "min_days": 4
+    },
+    "status": "PAPER_PROP_SIM_READY",
+    "real_account": "FORBIDDEN",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "VIDEO_9a075b6ef8d3f0363d232ba8",
+    "firm": "MyFundedFutures",
+    "rules": {
+      "daily_loss": 0.05,
+      "max_loss": 0.1,
+      "profit_target": 0.1,
+      "min_days": 4
+    },
+    "status": "PAPER_PROP_SIM_READY",
+    "real_account": "FORBIDDEN",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "VIDEO_b237455793f2a763ee436139",
+    "firm": "FTMO",
+    "rules": {
+      "daily_loss": 0.05,
+      "max_loss": 0.1,
+      "profit_target": 0.1,
+      "min_days": 4
+    },
+    "status": "PAPER_PROP_SIM_READY",
+    "real_account": "FORBIDDEN",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "VIDEO_b237455793f2a763ee436139",
+    "firm": "FundedNext",
+    "rules": {
+      "daily_loss": 0.05,
+      "max_loss": 0.1,
+      "profit_target": 0.1,
+      "min_days": 4
+    },
+    "status": "PAPER_PROP_SIM_READY",
+    "real_account": "FORBIDDEN",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "VIDEO_b237455793f2a763ee436139",
+    "firm": "The5ers",
+    "rules": {
+      "daily_loss": 0.05,
+      "max_loss": 0.1,
+      "profit_target": 0.1,
+      "min_days": 4
+    },
+    "status": "PAPER_PROP_SIM_READY",
+    "real_account": "FORBIDDEN",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "edge_id": "VIDEO_b237455793f2a763ee436139",
+    "firm": "MyFundedFutures",
+    "rules": {
+      "daily_loss": 0.05,
+      "max_loss": 0.1,
+      "profit_target": 0.1,
+      "min_days": 4
+    },
+    "status": "PAPER_PROP_SIM_READY",
+    "real_account": "FORBIDDEN",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  }
+]

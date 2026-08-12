@@ -1,0 +1,26 @@
+{
+  "capability_id": "CAP_45E97C5F810C639C",
+  "source_file": "_runtime_split_backup\\P19P38_N_RUNTIME_CLEAN_SPLIT_EXECUTOR_20260622_183445\\app__runtime__fix11k_probe.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\_runtime_split_backup\\P19P38_N_RUNTIME_CLEAN_SPLIT_EXECUTOR_20260622_183445\\app__runtime__fix11k_probe.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 94,
+  "imports": [
+    "__future__",
+    "contextvars",
+    "functools",
+    "inspect",
+    "json",
+    "pathlib",
+    "starlette.responses",
+    "time",
+    "uuid"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_2A89BA004AB61C12",
+  "source_file": ".venv\\Lib\\site-packages\\fastapi\\security\\open_id_connect_url.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\fastapi\\security\\open_id_connect_url.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 90,
+  "imports": [
+    "annotated_doc",
+    "fastapi.openapi.models",
+    "fastapi.security.base",
+    "starlette.exceptions",
+    "starlette.requests",
+    "starlette.status",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

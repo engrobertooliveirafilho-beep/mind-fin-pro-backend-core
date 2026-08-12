@@ -1,0 +1,10 @@
+{
+  "STATUS": "P2010_RESEARCH_FACTORY_BOOTSTRAPPED",
+  "DAILY_PIPELINE": {
+    "hypotheses_generated": 1000,
+    "backtested": 1000,
+    "walk_forward_candidates": 100,
+    "monte_carlo_candidates": 10,
+    "promoted_target": 1
+  }
+}

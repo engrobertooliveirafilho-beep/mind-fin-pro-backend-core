@@ -1,0 +1,10 @@
+{
+  "STATUS": "P1866_CAUSALITY_LAB_BOOTSTRAPPED",
+  "RULE": "CAUSALITY_IS_HYPOTHESIS_ONLY_UNTIL_VALIDATED",
+  "TESTS": [
+    "lead_lag_test",
+    "granger_proxy",
+    "event_reaction_test",
+    "regime_conditioned_correlation"
+  ]
+}

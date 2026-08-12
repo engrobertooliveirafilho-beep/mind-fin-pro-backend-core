@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_4042FD72D6D260EA",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\lib\\_format_impl.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\.venv\\Lib\\site-packages\\numpy\\lib\\_format_impl.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 118,
+  "imports": [
+    "ast",
+    "io",
+    "numpy",
+    "numpy._utils",
+    "numpy.lib._utils_impl",
+    "os",
+    "pickle",
+    "struct",
+    "tokenize",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

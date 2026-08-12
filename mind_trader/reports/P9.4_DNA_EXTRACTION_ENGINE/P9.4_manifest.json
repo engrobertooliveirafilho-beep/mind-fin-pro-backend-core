@@ -1,0 +1,17 @@
+{
+  "STATUS": "P9.4_DNA_EXTRACTION_ENGINE_IMPLEMENTED",
+  "SOURCES_SUPPORTED": [
+    "book",
+    "paper",
+    "whitepaper",
+    "note",
+    "internal_material"
+  ],
+  "DNA_CANDIDATES": 5,
+  "GENOME_CANDIDATES": 5,
+  "EDGE": "NOT_ASSUMED",
+  "CAUSALITY": "NOT_ASSUMED",
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "EXPORT_READY": true
+}

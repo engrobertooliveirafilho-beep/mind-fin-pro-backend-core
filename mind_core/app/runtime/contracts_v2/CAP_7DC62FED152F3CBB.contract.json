@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_7DC62FED152F3CBB",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_internal\\distributions\\wheel.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pip\\_internal\\distributions\\wheel.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 105,
+  "imports": [
+    "__future__",
+    "pip._internal.build_env",
+    "pip._internal.distributions.base",
+    "pip._internal.metadata",
+    "pip._vendor.packaging.utils",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

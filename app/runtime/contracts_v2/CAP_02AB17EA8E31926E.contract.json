@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_02AB17EA8E31926E",
+  "source_file": "mind_trader\\app\\p9_continuous_research_runtime\\engine.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\mind_trader\\app\\p9_continuous_research_runtime\\engine.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 113,
+  "imports": [
+    "app.p9_edge_discovery_factory.engine",
+    "json",
+    "pathlib",
+    "time"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

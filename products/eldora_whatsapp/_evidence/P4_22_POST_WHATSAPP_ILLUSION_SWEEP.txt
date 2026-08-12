@@ -1,0 +1,1607 @@
+
+  app\api\eldora_canonical.py:10:    return {"sanitized":True,"secrets_exposed":False}
+  app\api\eldora_canonical.py:11:
+> app\api\eldora_canonical.py:12:@router.post("/billing/mock-subscription")
+  app\api\eldora_canonical.py:13:def billing(payload:dict):
+> app\api\eldora_canonical.py:14:    return {"subscription":"mock","real_revenue":False}
+  app\api\eldora_canonical.py:15:
+  app\api\eldora_canonical.py:16:@router.post("/lotofacil/report")
+  app\api\eldora_canonical.py:17:def lotofacil(payload:dict):
+  app\api\eldora_canonical.py:18:    return {"mode":"simulation_report_only","promise_of_gain":False}
+  app\api\eldora_canonical.py:19:
+  app\api\eldora_canonical.py:20:@router.get("/admin/audit")
+  app\api\eldora_canonical.py:21:def admin_audit(x_admin_token: str | None = Header(default=None)):
+  app\api\eldora_canonical.py:22:    if not x_admin_token:
+  app\api\eldora_canonical.py:23:        raise HTTPException(403,"admin token required")
+  app\api\eldora_canonical.py:24:    return {"admin_guard":True,"public_admin_blocked":True}
+  app\api\eldora_swarm.py:16:            ep["user_message"],
+  app\api\eldora_swarm.py:17:            ep["assistant_answer"],
+> app\api\eldora_swarm.py:18:            kind="simulation",
+  app\api\eldora_swarm.py:19:            score=ep["humanization_score"]
+  app\api\eldora_swarm.py:20:        )
+  app\api\eldora_swarm.py:21:        if r.get("ok"):
+  app\api\eldora_swarm.py:22:            persisted+=1
+  app\api\eldora_swarm.py:23:        else:
+  app\api\eldora_swarm.py:24:            failed+=1
+  app\api\eldora_swarm.py:25:    return {
+  app\api\eldora_swarm.py:26:        "ok": failed==0,
+  app\api\eldora_swarm.py:27:        "requested": total,
+  app\api\eldora_swarm.py:28:        "persisted": persisted,
+  app\api\eldora_swarm.py:29:        "failed": failed,
+  app\api\eldora_swarm.py:30:        "storage": "supabase_only",
+  app\api\eldora_swarm.py:31:        "engine": "multi_ai_conversational_swarm_v1"
+  app\api\eldora_swarm.py:32:    }
+  app\api\eldora_swarm.py:33:
+  app\api\eldora_swarm.py:34:@router.get("/admin/eldora/swarm/report")
+  app\api\eldora_swarm.py:35:def swarm_report():
+  app\api\eldora_swarm.py:36:    return fetch_report(5000)
+  app\api\eldora_telemetry.py:4:router=APIRouter()
+  app\api\eldora_telemetry.py:5:
+> app\api\eldora_telemetry.py:6:SCENARIOS=[
+> app\api\eldora_telemetry.py:7:("oi","Oi, Roberto.",98),
+> app\api\eldora_telemetry.py:8:("tudo bem?","Tudo certo por aqui.",96),
+  app\api\eldora_telemetry.py:9:("sentiu diferença?","melhorou um pouco, mas ainda tem continuidade para ajustar.",91),
+  app\api\eldora_telemetry.py:10:("quero saber sobre cane corso","Cane Corso é forte, leal e exige socialização cedo.",94),
+  app\api\eldora_telemetry.py:11:("quais cuidados com filhote?","foco em genética, socialização, alimentação e veterinário.",95),
+  app\api\eldora_telemetry.py:12:("motor diesel é mais forte?","diesel gera mais torque por compressão alta e combustão mais eficiente.",94),
+> app\api\eldora_telemetry.py:13:("onde está o problema da humanização?","o problema está no roteamento, memória e fallback antes da humanização.",92)
+  app\api\eldora_telemetry.py:14:]
+  app\api\eldora_telemetry.py:15:
+  app\api\eldora_telemetry.py:16:@router.post("/admin/eldora/training/run")
+  app\api\eldora_telemetry.py:17:def run_training(cycles:int=100):
+  app\api\eldora_telemetry.py:18:    total=max(1,min(int(cycles),5000))
+  app\api\eldora_telemetry.py:19:    ok=0
+  app\api\eldora_telemetry.py:20:    for i in range(total):
+  app\api\eldora_telemetry.py:21:        u,a,s=SCENARIOS[i % len(SCENARIOS)]
+> app\api\eldora_telemetry.py:22:        r=log_event("simulation",u,a,kind="simulation",score=s)
+  app\api\eldora_telemetry.py:23:        ok+=1 if r.get("ok") else 0
+  app\api\eldora_telemetry.py:24:    return {"ok":ok==total,"requested":total,"persisted":ok,"storage":"supabase_only"}
+  app\api\eldora_telemetry.py:25:
+  app\api\eldora_telemetry.py:26:@router.get("/admin/eldora/telemetry/report")
+  app\api\eldora_telemetry.py:27:def telemetry_report():
+  app\api\eldora_telemetry.py:28:    return fetch_report()
+  app\api\eldora_true_distributed.py:24:        return {
+  app\api\eldora_true_distributed.py:25:            "status": "ok",
+> app\api\eldora_true_distributed.py:26:            "backend": "memory_fallback",
+  app\api\eldora_true_distributed.py:27:            "endpoint_error": str(e)
+  app\api\eldora_true_distributed.py:28:        }
+  app\api\eldora_true_distributed.py:29:
+  app\api\eldora_true_distributed.py:30:@router.get("/redis/report")
+  app\api\eldora_true_distributed.py:31:async def redis_report(
+  app\api\eldora_true_distributed.py:32:    stream: str = "eldora.true.events"
+  app\api\eldora_true_distributed.py:33:):
+  app\api\eldora_true_distributed.py:34:    try:
+  app\api\eldora_true_distributed.py:35:
+  app\api\eldora_true_distributed.py:36:        return true_stream_report(stream)
+  app\api\eldora_true_distributed.py:37:
+  app\api\eldora_true_distributed.py:38:    except Exception as e:
+  app\api\eldora_true_distributed.py:39:
+  app\api\eldora_true_distributed.py:40:        return {
+  app\api\eldora_true_distributed.py:41:            "status": "ok",
+> app\api\eldora_true_distributed.py:42:            "backend": "memory_fallback",
+  app\api\eldora_true_distributed.py:43:            "endpoint_error": str(e),
+  app\api\eldora_true_distributed.py:44:            "events_total": 0,
+  app\api\eldora_true_distributed.py:45:            "events": []
+  app\api\eldora_true_distributed.py:46:        }
+  app\api\eldora_true_distributed.py:47:
+  app\api\eldora_true_distributed.py:48:@router.get("/redis/diagnostics")
+  app\api\eldora_true_distributed.py:49:async def diagnostics():
+  app\api\eldora_true_distributed.py:50:    return redis_diagnostics()
+  app\api\eldora_true_distributed.py:51:
+  app\api\eldora_true_distributed.py:52:@router.post("/worker/loop")
+  app\api\eldora_true_distributed.py:53:async def worker_loop(
+  app\api\eldora_true_distributed.py:54:    worker_name: str = "worker_alpha",
+  app\api\eldora_true_distributed.py:55:    cycles: int = 1
+  app\api\eldora_true_distributed.py:56:):
+  app\api\eldora_true_distributed.py:57:    return run_worker_loop(worker_name, cycles)
+  app\api\eldora_true_distributed.py:58:
+  app\api\eldora_true_distributed.py:59:@router.get("/worker/report")
+  app\api\eldora_true_distributed.py:60:async def workers():
+  app\api\whatsapp.py:15:
+  app\api\whatsapp.py:16:    if compact in {"oi","oie","ola","olá","bom dia","boa tarde","boa noite"}:
+> app\api\whatsapp.py:17:        return "Oi, Roberto 👋 Tudo certo?"
+  app\api\whatsapp.py:18:
+  app\api\whatsapp.py:19:    if (
+  app\api\whatsapp.py:20:        "ainda nao conseguimos resolver" in compact
+  app\api\whatsapp.py:21:        or "nao conseguimos resolver" in compact
+  app\api\whatsapp.py:22:        or "não conseguimos resolver" in text
+  app\api\whatsapp.py:23:    ):
+> app\api\whatsapp.py:24:        return "Ainda não fechou 100%. O gargalo está no handler do canal WhatsApp: ele responde, mas ainda precisa estabilizar continuidade, fallback e contexto real."
+  app\api\whatsapp.py:25:
+> app\api\whatsapp.py:26:    return None
+  app\api\whatsapp.py:27:from app.runtime.whatsapp_trace_sensor import sanitize_final_output
+  app\api\whatsapp.py:28:from app.dialogue.conversation_continuity_runtime import update,get
+  app\api\whatsapp.py:29:from app.dialogue.context_resolution_engine import resolve
+  app\api\whatsapp.py:30:from app.dialogue.generic_llm_detector import detect,rewrite
+  app\api\whatsapp.py:31:from app.dialogue.persona_consistency_guard import enforce
+  app\api\whatsapp.py:32:from app.humanization.universal_recovery_runtime import enforce_no_identity_in_normal_chat
+  app\api\whatsapp.py:33:from app.humanization.universal_recovery_runtime import universal_recovery_answer, enforce_no_identity_in_normal_chat
+  app\api\whatsapp.py:34:from app.runtime.whatsapp_final_output_guard import guard_whatsapp_final_answer
+  app\api\whatsapp.py:35:from app.runtime.test_contract_wrapper import semantic_test_injection
+  app\api\whatsapp.py:36:from app.runtime.forensic_trace import event
+  app\api\whatsapp.py:37:from fastapi import APIRouter, Request
+  app\api\whatsapp.py:38:from fastapi.responses import Response
+  app\api\whatsapp.py:39:from app.runtime.conversation_maturity_runtime import mature_response
+  app\api\whatsapp.py:40:from urllib.parse import parse_qs
+  app\api\whatsapp.py:41:from app.runtime.cognitive_pipeline import run_cognitive_pipeline
+  app\api\whatsapp.py:42:from app.runtime.mind_state_visible_context import is_state_query, build_mind_state_visible_response
+  app\api\whatsapp.py:43:from app.runtime.whatsapp_intelligence_activation import enrich_whatsapp_context, whatsapp_intelligence_active
+  app\api\whatsapp.py:44:from app.runtime.short_memory import remember, recall
+  app\api\whatsapp.py:55:    bad=[
+  app\api\whatsapp.py:56:        "eldora ativa",
+> app\api\whatsapp.py:57:        "tudo certo por aqui",
+  app\api\whatsapp.py:58:        "diagnóstico: o runtime identificou resposta fraca",
+  app\api\whatsapp.py:59:        "diagnã³stico: o runtime identificou resposta fraca",
+  app\api\whatsapp.py:60:        "resumo / compatibility",
+  app\api\whatsapp.py:61:        "compatibilidade:"
+  app\api\whatsapp.py:62:    ]
+  app\api\whatsapp.py:63:
+  app\api\whatsapp.py:64:    factual_turns={"FACTUAL_TASK","EXECUTE","PLAN","ANALYSIS","MATH"}
+  app\api\whatsapp.py:65:
+  app\api\whatsapp.py:66:    task_markers=["verifique","verificar","calcule","calcular","analise","analisar","compare","pesquise","procure"]
+  app\api\whatsapp.py:67:    technical_block=("diagn" in low and "runtime identificou resposta fraca" in low) or ("estrat" in low and "execu" in low and "auditoria" in low)
+  app\api\whatsapp.py:68:
+  app\api\whatsapp.py:69:    if decision.turn_type in factual_turns or any(x in low for x in task_markers):
+  app\api\whatsapp.py:70:        if not raw or any(x in low for x in bad) or technical_block:
+> app\api\whatsapp.py:71:            return None
+  app\api\whatsapp.py:72:        return raw
+  app\api\whatsapp.py:73:
+  app\api\whatsapp.py:74:    if not raw or any(x in low for x in bad) or technical_block:
+  app\api\whatsapp.py:75:        if decision.turn_type=="SOCIAL_DIALOGUE":
+  app\api\whatsapp.py:76:            return "Tudo certo 🙂 E você?"
+  app\api\whatsapp.py:77:        if decision.turn_type=="META_CONVERSATION":
+  app\api\whatsapp.py:78:            return "Me corrija na hora e eu ajusto o jeito."
+  app\api\whatsapp.py:79:        if decision.turn_type=="RECOVERY":
+> app\api\whatsapp.py:80:            return None
+> app\api\whatsapp.py:81:        return None
+  app\api\whatsapp.py:82:
+  app\api\whatsapp.py:83:    return raw
+  app\api\whatsapp.py:84:
+  app\api\whatsapp.py:85:# P4_12N_TWIML_FINAL_NORMALIZER
+  app\api\whatsapp.py:86:def twiml(message: str) -> str:
+  app\api\whatsapp.py:87:    from html import escape
+  app\api\whatsapp.py:88:
+  app\api\whatsapp.py:89:    msg_text = str(message or "")
+  app\api\whatsapp.py:90:    low = msg_text.lower()
+  app\api\whatsapp.py:91:    if ("não recebi conteúdo" in low or "nao recebi conteudo" in low or "conteúdo suficiente" in low or "conteudo suficiente" in low or "entendi. continua" in low):
+  app\api\whatsapp.py:92:        msg_text = "Continua no mesmo ponto: validar o que falhou, testar a hipótese principal e avançar com evidência."
+  app\api\whatsapp.py:93:    safe = escape(
+  app\api\whatsapp.py:94:        str(
+  app\api\whatsapp.py:95:            sanitize_final_human_output(msg_text)
+  app\api\whatsapp.py:96:        ).strip()
+  app\api\whatsapp.py:97:    )
+  app\api\whatsapp.py:98:
+  app\api\whatsapp.py:99:    return (
+  app\api\whatsapp.py:209:        return "Entendi. Vou separar intenção, contexto e próximo teste para evitar resposta genérica."
+  app\api\whatsapp.py:210:    if msg in ["i", "oi", "olá", "ola"]:
+> app\api\whatsapp.py:211:        return "Oi, Roberto 👋 Tudo bem por aí?"
+  app\api\whatsapp.py:212:
+  app\api\whatsapp.py:213:    if any(x in msg for x in ["boa tarde", "bom dia", "boa noite"]):
+  app\api\whatsapp.py:214:        return "Boa tarde, Roberto ☀️ Como você está?"
+  app\api\whatsapp.py:215:
+  app\api\whatsapp.py:216:    if any(x in msg for x in ["como ta", "como tá", "tudo bem"]):
+> app\api\whatsapp.py:217:        return "Tudo certo por aqui 🙂 E você?"
+  app\api\whatsapp.py:218:
+  app\api\whatsapp.py:219:    if any(x in msg for x in ["quem eh vc", "quem é vc", "quem é você"]):
+  app\api\whatsapp.py:220:        return ""
+  app\api\whatsapp.py:221:
+  app\api\whatsapp.py:222:    if any(x in msg for x in ["ainda nao conseguimos resolver", "ainda não conseguimos resolver", "nao esta funcionando", "não está funcionando", "não funciona"]):
+  app\api\whatsapp.py:223:        remember("whatsapp_runtime","conversation_runtime")
+  app\api\whatsapp.py:224:        return "Claro 🙂 Me conta o que está acontecendo."
+  app\api\whatsapp.py:225:
+  app\api\whatsapp.py:226:    if any(x in msg for x in [
+  app\api\whatsapp.py:227:        "agora ta funcionando",
+  app\api\whatsapp.py:228:        "agora está funcionando",
+  app\api\whatsapp.py:229:        "esta dando certo",
+  app\api\whatsapp.py:230:        "está dando certo",
+  app\api\whatsapp.py:231:        "como esta indo",
+  app\api\whatsapp.py:232:        "como está indo",
+  app\api\whatsapp.py:233:        "travou",
+  app\api\whatsapp.py:234:        "parou de falar"
+  app\api\whatsapp.py:235:    ]):
+  app\api\whatsapp.py:250:        return "Agora vamos estabilizar o runtime do WhatsApp antes de religar toda a camada cognitiva."
+  app\api\whatsapp.py:251:
+> app\api\whatsapp.py:252:    return None
+  app\api\whatsapp.py:253:
+  app\api\whatsapp.py:254:from app.runtime.test_contract_wrapper import semantic_test_injection
+  app\api\whatsapp.py:255:
+  app\api\whatsapp.py:256:from app.runtime.intent_first_router import route_fast
+  app\api\whatsapp.py:257:from app.runtime.universal_conversation_authority import universal_conversation_reply
+  app\api\whatsapp.py:258:from app.runtime.intent_arbitration_priority_engine import classify_intent, IntentPriority
+  app\api\whatsapp.py:259:from app.runtime.whatsapp_social_followup_guard import whatsapp_social_followup_guard, block_meta_reply
+  app\api\whatsapp.py:260:
+  app\api\whatsapp.py:261:
+  app\api\whatsapp.py:262:
+  app\api\whatsapp.py:263:def compat_semantics_after_cognition(inbound_text: str, reply):
+  app\api\whatsapp.py:264:    # P4_21H_COGNITIVE_FIRST_COMPAT_ACTIVE
+  app\api\whatsapp.py:265:    text=(inbound_text or "").lower()
+  app\api\whatsapp.py:266:
+  app\api\whatsapp.py:267:    out = reply.get("answer", reply) if isinstance(reply,dict) else str(reply or "")
+  app\api\whatsapp.py:268:    low = out.lower()
+  app\api\whatsapp.py:269:
+  app\api\whatsapp.py:270:    def ensure(anchor, sentence):
+  app\api\whatsapp.py:332:            "Estratégia: transformar a dúvida em próximo passo verificável.\n"
+  app\api\whatsapp.py:333:            "Execução: descreva o erro, o objetivo e o resultado esperado; eu organizo a solução em sequência.\n"
+> app\api\whatsapp.py:334:            "Auditoria: resposta validada pelo P3 human E2E sem fallback genérico."
+  app\api\whatsapp.py:335:        )
+  app\api\whatsapp.py:336:    low = (inbound_text or "").lower()
+  app\api\whatsapp.py:337:    import re
+  app\api\whatsapp.py:338:    _txt = (inbound_text or "").strip()
+  app\api\whatsapp.py:339:    _low = _txt.lower()
+  app\api\whatsapp.py:340:
+  app\api\whatsapp.py:341:    if _low in {"oi","oie","olá","ola"}:
+> app\api\whatsapp.py:342:        return "Oi, Roberto. Tudo certo?"
+  app\api\whatsapp.py:343:
+  app\api\whatsapp.py:344:    if "o que vc faz" in _low or "o que você faz" in _low or "o que vc sabe fazer" in _low or "o que você sabe fazer" in _low:
+  app\api\whatsapp.py:345:        return "Eu organizo contexto, respondo perguntas, faço cálculos simples e ajudo a validar próximos passos."
+  app\api\whatsapp.py:346:
+  app\api\whatsapp.py:347:    _expr = re.sub(r"[^0-9+\-*/(). ]","",_low.replace("quanto é","").replace("quanto e","").replace("calcule",""))
+  app\api\whatsapp.py:348:    if any(op in _expr for op in ["+","-","*","/"]) and any(ch.isdigit() for ch in _expr):
+  app\api\whatsapp.py:349:        try:
+  app\api\whatsapp.py:350:            if re.fullmatch(r"[0-9+\-*/(). ]+", _expr):
+  app\api\whatsapp.py:351:                return f"Resultado: {eval(_expr, {'__builtins__': {}}, {})}."
+  app\api\whatsapp.py:352:        except Exception:
+  app\api\whatsapp.py:353:            pass
+  app\api\whatsapp.py:354:
+  app\api\whatsapp.py:355:    if _low == "calcule":
+  app\api\whatsapp.py:356:        return "Me mande a conta completa que eu calculo direto."
+  app\api\whatsapp.py:357:    _guard_reply = whatsapp_social_followup_guard(inbound_text)
+  app\api\whatsapp.py:358:    if _guard_reply:
+  app\api\whatsapp.py:359:        return _guard_reply
+  app\api\whatsapp.py:360:    _ssa_intent = classify_intent(inbound_text)
+  app\eldora\canonical_registry.py:9:    "memory": ["eldora_memory","episodic_memory","semantic_memory","emotional_memory","visual_memory","procedural_memory","context_compressor"],
+  app\eldora\canonical_registry.py:10:    "media_voice_video_language": ["pdf_sanitizer","file_gate","validate_mime","extract_text_safely","remove_metadata","transcribe_audio","generate_tts_response","select_response_language"],
+> app\eldora\canonical_registry.py:11:    "multi_llm_rag_knowledge": ["llm_router","document_loader","chunker","embedding_generator","evidence_index","source_citation_linker","knowledge_graph","select_model_by_cost","fallback_model","retry_with_backoff"],
+  app\eldora\canonical_registry.py:12:    "skills_study_lotofacil": ["skills_registry","skills_router","skills_executor","study_router","document_explainer","class_transcript","task_planner","student_memory","lotofacil_run","lotofacil_report"],
+  app\eldora\canonical_registry.py:13:    "drive_forensics_industrial_os": ["rclone_inventory","duplicate_detector","folder_tree_mapper","metadata_extractor","quarantine_planner","core_selector","version_comparator","noise_classifier","sqlite_fts5","dependency_graph","runtime_lineage","knowledge_fusion_engine"]
+  app\eldora\canonical_registry.py:14:}
+  app\eldora\canonical_registry.py:15:STATUS_FINAL_ADICIONAL = "ELDORA_CANONICAL_FUNCTIONS_EXPANDED"
+  app\embedding\provider.py:10:            raise RuntimeError("OPENAI_API_KEY not configured")
+  app\embedding\provider.py:11:        if not text or not text.strip():
+> app\embedding\provider.py:12:            return None
+  app\embedding\provider.py:13:        from openai import OpenAI
+  app\embedding\provider.py:14:        client = OpenAI(api_key=self.api_key)
+  app\embedding\provider.py:15:        emb = client.embeddings.create(model=self.model, input=text[:8000]).data[0].embedding
+  app\embedding\provider.py:16:        if not emb or len(emb) != 1536:
+  app\embedding\provider.py:17:            raise RuntimeError(f"invalid_embedding_dimension:{len(emb) if emb else 0}")
+  app\embedding\provider.py:18:        return emb
+> app\friendship\emotional_checkin.py:1:def light_checkin(name="Roberto"):
+  app\friendship\emotional_checkin.py:2:    return f"Como foi seu dia, {name}? Tem algo que você quer tirar da cabeça e jogar pra Neura?"
+  app\friendship\friendship_profile.py:1:def default_profile(sender_id):
+> app\friendship\friendship_profile.py:2:    return {"sender_id":sender_id,"tone_preference":"leve","opt_out":False,"relationship_stage":"beta_friend","preferred_time_window":"08:00-22:00"}
+  app\human\human_like_response_layer.py:39:
+  app\human\human_like_response_layer.py:40:        if msg.strip() in ["oi", "ola", "bom dia", "boa tarde", "boa noite"]:
+> app\human\human_like_response_layer.py:41:            return "Oi, Roberto."
+  app\human\human_like_response_layer.py:42:
+  app\human\human_like_response_layer.py:43:        if "como voce funciona" in msg or "como vc funciona" in msg or "o que voce faz" in msg:
+  app\human\human_like_response_layer.py:44:            return "Eu funciono como uma memória de estudo no WhatsApp: guardo seu contexto, recupero o que você já me contou e uso isso para te explicar assuntos, contextos e dúvidas com mais precisão."
+  app\human\human_like_response_layer.py:45:
+  app\human\human_like_response_layer.py:46:        if (
+  app\human\human_like_response_layer.py:47:            "simulacoes" in msg
+  app\human\human_like_response_layer.py:48:            or "outras ias" in msg
+  app\human\human_like_response_layer.py:49:            or "outras inteligencias" in msg
+  app\human\human_like_response_layer.py:50:            or "modelos" in msg
+  app\human\human_like_response_layer.py:51:            or "multi llm" in msg
+  app\human\human_like_response_layer.py:52:            or "multillm" in msg
+  app\human\human_like_response_layer.py:53:        ):
+> app\human\human_like_response_layer.py:54:            return "As simulações MultiLLM estão sendo ativadas agora: OpenAI entra como motor principal, DeepSeek e Mistral entram como fallback cognitivo, e a NEURA escolhe a melhor resposta disponível antes de cair no fallback de emergência."
+  app\human\human_like_response_layer.py:55:
+  app\human\human_like_response_layer.py:56:        prompt = self.build_prompt(message, context)
+  app\human\human_like_response_layer.py:57:        llm_response = self.llm.generate(prompt)
+  app\human\human_like_response_layer.py:58:
+  app\human\human_like_response_layer.py:59:        if llm_response:
+  app\human\human_like_response_layer.py:60:            return llm_response
+  app\human\human_like_response_layer.py:61:
+> app\human\human_like_response_layer.py:62:        return None
+  app\human\human_like_response_layer.py:63:
+  app\human\human_like_response_layer.py:64:
+  app\human\human_like_response_layer.py:65:
+  app\human\multi_llm_runtime.py:12:    def _openai(self, prompt):
+  app\human\multi_llm_runtime.py:13:        if not self.openai_key:
+> app\human\multi_llm_runtime.py:14:            return None
+  app\human\multi_llm_runtime.py:15:
+  app\human\multi_llm_runtime.py:16:        client = OpenAI(api_key=self.openai_key)
+  app\human\multi_llm_runtime.py:17:
+  app\human\multi_llm_runtime.py:18:        response = client.chat.completions.create(
+  app\human\multi_llm_runtime.py:19:            model=os.getenv("OPENAI_MODEL", "gpt-4o-mini"),
+  app\human\multi_llm_runtime.py:20:            messages=[
+  app\human\multi_llm_runtime.py:21:                {"role": "system", "content": "Você é a Eldora do MIND. Converse naturalmente, mantenha continuidade, responda de forma humana e contextual pelo WhatsApp."},
+  app\human\multi_llm_runtime.py:22:                {"role": "user", "content": prompt}
+  app\human\multi_llm_runtime.py:23:            ],
+  app\human\multi_llm_runtime.py:24:            temperature=0.55,
+  app\human\multi_llm_runtime.py:25:            max_tokens=700
+  app\human\multi_llm_runtime.py:26:        )
+  app\human\multi_llm_runtime.py:27:
+  app\human\multi_llm_runtime.py:28:        return response.choices[0].message.content
+  app\human\multi_llm_runtime.py:29:
+  app\human\multi_llm_runtime.py:30:    def _deepseek(self, prompt):
+  app\human\multi_llm_runtime.py:31:        if not self.deepseek_key:
+> app\human\multi_llm_runtime.py:32:            return None
+  app\human\multi_llm_runtime.py:33:
+  app\human\multi_llm_runtime.py:34:        r = requests.post(
+  app\human\multi_llm_runtime.py:35:            "https://api.deepseek.com/chat/completions",
+  app\human\multi_llm_runtime.py:36:            headers={
+  app\human\multi_llm_runtime.py:37:                "Authorization": f"Bearer {self.deepseek_key}",
+  app\human\multi_llm_runtime.py:38:                "Content-Type": "application/json"
+  app\human\multi_llm_runtime.py:39:            },
+  app\human\multi_llm_runtime.py:40:            json={
+  app\human\multi_llm_runtime.py:41:                "model": "deepseek-chat",
+  app\human\multi_llm_runtime.py:42:                "messages": [
+  app\human\multi_llm_runtime.py:43:                    {"role": "system", "content": "Você é a Eldora do MIND. Responda com continuidade contextual e sem linguagem robótica."},
+  app\human\multi_llm_runtime.py:44:                    {"role": "user", "content": prompt}
+  app\human\multi_llm_runtime.py:45:                ],
+  app\human\multi_llm_runtime.py:46:                "temperature": 0.55,
+  app\human\multi_llm_runtime.py:47:                "max_tokens": 700
+  app\human\multi_llm_runtime.py:48:            },
+  app\human\multi_llm_runtime.py:49:            timeout=18
+  app\human\multi_llm_runtime.py:50:        )
+  app\human\multi_llm_runtime.py:51:
+  app\human\multi_llm_runtime.py:52:        if r.status_code >= 300:
+> app\human\multi_llm_runtime.py:53:            return None
+  app\human\multi_llm_runtime.py:54:
+  app\human\multi_llm_runtime.py:55:        return r.json()["choices"][0]["message"]["content"]
+  app\human\multi_llm_runtime.py:56:
+  app\human\multi_llm_runtime.py:57:    def _mistral(self, prompt):
+  app\human\multi_llm_runtime.py:58:        if not self.mistral_key:
+> app\human\multi_llm_runtime.py:59:            return None
+  app\human\multi_llm_runtime.py:60:
+  app\human\multi_llm_runtime.py:61:        r = requests.post(
+  app\human\multi_llm_runtime.py:62:            "https://api.mistral.ai/v1/chat/completions",
+  app\human\multi_llm_runtime.py:63:            headers={
+  app\human\multi_llm_runtime.py:64:                "Authorization": f"Bearer {self.mistral_key}",
+  app\human\multi_llm_runtime.py:65:                "Content-Type": "application/json"
+  app\human\multi_llm_runtime.py:66:            },
+  app\human\multi_llm_runtime.py:67:            json={
+  app\human\multi_llm_runtime.py:68:                "model": "mistral-small-latest",
+  app\human\multi_llm_runtime.py:69:                "messages": [
+  app\human\multi_llm_runtime.py:70:                    {"role": "system", "content": "Você é a Eldora do MIND. Responda com continuidade contextual e sem linguagem robótica."},
+  app\human\multi_llm_runtime.py:71:                    {"role": "user", "content": prompt}
+  app\human\multi_llm_runtime.py:72:                ],
+  app\human\multi_llm_runtime.py:73:                "temperature": 0.55,
+  app\human\multi_llm_runtime.py:74:                "max_tokens": 700
+  app\human\multi_llm_runtime.py:75:            },
+  app\human\multi_llm_runtime.py:76:            timeout=18
+  app\human\multi_llm_runtime.py:77:        )
+  app\human\multi_llm_runtime.py:78:
+  app\human\multi_llm_runtime.py:79:        if r.status_code >= 300:
+> app\human\multi_llm_runtime.py:80:            return None
+  app\human\multi_llm_runtime.py:81:
+  app\human\multi_llm_runtime.py:82:        return r.json()["choices"][0]["message"]["content"]
+  app\human\multi_llm_runtime.py:83:
+  app\human\multi_llm_runtime.py:84:    def generate(self, prompt):
+  app\human\multi_llm_runtime.py:85:        for provider in [self._openai, self._deepseek, self._mistral]:
+  app\human\multi_llm_runtime.py:86:            try:
+  app\human\multi_llm_runtime.py:87:                result = provider(prompt)
+  app\human\multi_llm_runtime.py:88:                if result and len(str(result).strip()) > 10:
+  app\human\multi_llm_runtime.py:89:                    return str(result).strip()
+  app\human\multi_llm_runtime.py:90:            except Exception:
+  app\human\multi_llm_runtime.py:91:                continue
+  app\human\multi_llm_runtime.py:92:
+> app\human\multi_llm_runtime.py:93:        return None
+  app\human\multi_llm_runtime.py:94:
+  app\humanization\anti_llm_speech_filter.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\anti_llm_speech_filter.py:60:    return ds
+> app\humanization\anti_llm_speech_filter.py:61:def train_sim(n=50000):
+  app\humanization\anti_llm_speech_filter.py:62:    scores=[]
+  app\humanization\anti_llm_speech_filter.py:63:    leaks=0
+  app\humanization\anti_llm_speech_filter.py:64:    cats=["small talk","trabalho","stress","humor","follow-up","ironia","casual","causalidade","contexto","conflito leve","produtividade"]
+  app\humanization\anti_llm_speech_filter.py:65:    for i in range(n):
+  app\humanization\anti_llm_speech_filter.py:66:        u=random.choice(["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?"])
+  app\humanization\anti_llm_speech_filter.py:67:        r=humanization_runtime(u,"Sou a Eldora, posso auxiliar")
+  app\humanization\anti_llm_speech_filter.py:68:        j=r["judge"]
+  app\humanization\anti_llm_speech_filter.py:69:        scores.append(j["humanization_score"])
+  app\humanization\anti_llm_speech_filter.py:70:        leaks+=1 if j["robotic_probability"]>0 else 0
+> app\humanization\anti_llm_speech_filter.py:71:    return {"humanization_score":round(statistics.mean(scores),3),"identity_fallback_rate":round(leaks/max(n,1),5),"robotic_probability":round(leaks/max(n,1),5),"whatsapp_cadence_score":99.9,"over_fragmentation_risk":0.01,"categories":cats}
+  app\humanization\anti_llm_speech_filter.py:72:if __name__=="__main__":
+> app\humanization\anti_llm_speech_filter.py:73:    print(json.dumps(train_sim(),ensure_ascii=False))
+  app\humanization\conversation_maturity_engine.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\conversation_maturity_engine.py:60:    return ds
+> app\humanization\conversation_maturity_engine.py:61:def train_sim(n=50000):
+  app\humanization\conversation_maturity_engine.py:62:    scores=[]
+  app\humanization\conversation_maturity_engine.py:63:    leaks=0
+  app\humanization\conversation_maturity_engine.py:64:    cats=["small talk","trabalho","stress","humor","follow-up","ironia","casual","causalidade","contexto","conflito leve","produtividade"]
+  app\humanization\conversation_maturity_engine.py:65:    for i in range(n):
+  app\humanization\conversation_maturity_engine.py:66:        u=random.choice(["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?"])
+  app\humanization\conversation_maturity_engine.py:67:        r=humanization_runtime(u,"Sou a Eldora, posso auxiliar")
+  app\humanization\conversation_maturity_engine.py:68:        j=r["judge"]
+  app\humanization\conversation_maturity_engine.py:69:        scores.append(j["humanization_score"])
+  app\humanization\conversation_maturity_engine.py:70:        leaks+=1 if j["robotic_probability"]>0 else 0
+> app\humanization\conversation_maturity_engine.py:71:    return {"humanization_score":round(statistics.mean(scores),3),"identity_fallback_rate":round(leaks/max(n,1),5),"robotic_probability":round(leaks/max(n,1),5),"whatsapp_cadence_score":99.9,"over_fragmentation_risk":0.01,"categories":cats}
+  app\humanization\conversation_maturity_engine.py:72:if __name__=="__main__":
+> app\humanization\conversation_maturity_engine.py:73:    print(json.dumps(train_sim(),ensure_ascii=False))
+  app\humanization\conversation_training_runtime.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\conversation_training_runtime.py:60:    return ds
+> app\humanization\conversation_training_runtime.py:61:def train_sim(n=50000):
+  app\humanization\conversation_training_runtime.py:62:    scores=[]
+  app\humanization\conversation_training_runtime.py:63:    leaks=0
+  app\humanization\conversation_training_runtime.py:64:    cats=["small talk","trabalho","stress","humor","follow-up","ironia","casual","causalidade","contexto","conflito leve","produtividade"]
+  app\humanization\conversation_training_runtime.py:65:    for i in range(n):
+  app\humanization\conversation_training_runtime.py:66:        u=random.choice(["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?"])
+  app\humanization\conversation_training_runtime.py:67:        r=humanization_runtime(u,"Sou a Eldora, posso auxiliar")
+  app\humanization\conversation_training_runtime.py:68:        j=r["judge"]
+  app\humanization\conversation_training_runtime.py:69:        scores.append(j["humanization_score"])
+  app\humanization\conversation_training_runtime.py:70:        leaks+=1 if j["robotic_probability"]>0 else 0
+> app\humanization\conversation_training_runtime.py:71:    return {"humanization_score":round(statistics.mean(scores),3),"identity_fallback_rate":round(leaks/max(n,1),5),"robotic_probability":round(leaks/max(n,1),5),"whatsapp_cadence_score":99.9,"over_fragmentation_risk":0.01,"categories":cats}
+  app\humanization\conversation_training_runtime.py:72:if __name__=="__main__":
+> app\humanization\conversation_training_runtime.py:73:    print(json.dumps(train_sim(),ensure_ascii=False))
+  app\humanization\human_conversation_runtime.py:64:
+  app\humanization\human_conversation_runtime.py:65:    if "estranha" in t or "rob" in t:
+> app\humanization\human_conversation_runtime.py:66:        return "Concordo com o alerta. Quando ela parece robótica, o problema é tom, timing e continuidade. A correção é responder pelo contexto da conversa, não por fallback de identidade."
+  app\humanization\human_conversation_runtime.py:67:
+  app\humanization\human_conversation_runtime.py:68:    if "dia" in t:
+  app\humanization\human_conversation_runtime.py:69:        return "Pelo contexto, seu dia foi de ajuste fino pesado: você está tentando transformar a Eldora de um backend funcional em uma presença conversacional realmente natural e vendável."
+  app\humanization\human_conversation_runtime.py:70:
+  app\humanization\human_conversation_runtime.py:71:    if "cansado" in t:
+  app\humanization\human_conversation_runtime.py:72:        return "Então o melhor é reduzir carga agora: fechar um bug crítico, validar com evidência e evitar abrir arquitetura nova. Cansaço pede execução curta, objetiva e com prova de avanço."
+  app\humanization\human_conversation_runtime.py:73:
+  app\humanization\human_conversation_runtime.py:74:    if "prova sexta" in t:
+  app\humanization\human_conversation_runtime.py:75:        return "Então o plano tem que ser simples: mapear os tópicos que mais caem, revisar teoria mínima, fazer exercícios típicos e deixar quinta para revisão leve. Sem sobrecarga até sexta."
+  app\humanization\human_conversation_runtime.py:76:
+  app\humanization\human_conversation_runtime.py:77:    if "não entendi" in t or "nao entendi" in t:
+  app\humanization\human_conversation_runtime.py:78:        return "Beleza. Simplificando: ela estava respondendo como se precisasse se apresentar de novo, quando deveria continuar a conversa e adaptar a resposta ao que você acabou de perguntar."
+  app\humanization\human_conversation_runtime.py:79:
+  app\humanization\human_conversation_runtime.py:80:    if "cadê" in t or "cade" in t:
+> app\humanization\human_conversation_runtime.py:81:        return "A resposta precisa aparecer direta e útil. O gate novo bloqueia silêncio, frase genérica e fallback fora de contexto, justamente para não quebrar a conversa no WhatsApp."
+  app\humanization\human_conversation_runtime.py:82:
+  app\humanization\human_conversation_runtime.py:83:    return "Entendi. Vou responder usando o contexto da conversa, com resposta direta, natural e sem resetar para apresentação ou frase pronta."
+  app\humanization\human_conversation_runtime.py:84:
+  app\humanization\human_conversation_runtime.py:85:def score_response(prompt: str, response: str) -> dict:
+  app\humanization\human_conversation_runtime.py:86:    r = clean_text(response)
+  app\humanization\human_conversation_runtime.py:87:    leak = has_identity_leak(response)
+  app\humanization\human_conversation_runtime.py:88:
+  app\humanization\human_conversation_runtime.py:89:    if leak:
+  app\humanization\human_conversation_runtime.py:90:        final = 0.0
+  app\humanization\human_conversation_runtime.py:91:    else:
+  app\humanization\human_conversation_runtime.py:92:        checks = {
+  app\humanization\human_conversation_runtime.py:93:            "naturalness": 100 if len(r.split()) >= 14 else 98,
+  app\humanization\human_conversation_runtime.py:94:            "continuity": 100 if any(x in r for x in ["contexto", "conversa", "continuação", "sequência", "whatsapp", "sexta", "cansaço"]) else 98,
+  app\humanization\human_conversation_runtime.py:95:            "warmth": 100 if any(x in r for x in ["justo", "beleza", "concordo", "sim", "então", "melhor"]) else 99,
+> app\humanization\human_conversation_runtime.py:96:            "anti_roboticity": 100 if not any(x in r for x in ["frase genérica", "fallback de identidade", "resetar"]) else 99,
+  app\humanization\human_conversation_runtime.py:97:            "reflective_reasoning": 100 if any(x in r for x in ["porque", "gargalo", "validação", "corrigir", "plano", "taxa de mudança"]) else 99,
+  app\humanization\human_conversation_runtime.py:98:            "contextuality": 100 if any(x in r for x in ["usuário", "prova", "evolução", "eldora", "whatsapp", "mudar", "problema"]) else 99,
+  app\humanization\human_conversation_runtime.py:99:        }
+  app\humanization\human_conversation_runtime.py:100:        final = round(sum(checks.values()) / len(checks), 2)
+  app\humanization\human_conversation_runtime.py:101:
+  app\humanization\human_conversation_runtime.py:102:    return {
+  app\humanization\human_conversation_runtime.py:103:        "prompt": prompt,
+  app\humanization\human_conversation_runtime.py:104:        "response": response,
+  app\humanization\human_conversation_runtime.py:105:        "identity_leak": leak,
+  app\humanization\human_conversation_runtime.py:106:        "score": final
+  app\humanization\human_conversation_runtime.py:107:    }
+  app\humanization\humanization_reward_engine.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\humanization_reward_engine.py:60:    return ds
+> app\humanization\humanization_reward_engine.py:61:def train_sim(n=50000):
+  app\humanization\humanization_reward_engine.py:62:    scores=[]
+  app\humanization\humanization_reward_engine.py:63:    leaks=0
+  app\humanization\humanization_reward_engine.py:64:    cats=["small talk","trabalho","stress","humor","follow-up","ironia","casual","causalidade","contexto","conflito leve","produtividade"]
+  app\humanization\humanization_reward_engine.py:65:    for i in range(n):
+  app\humanization\humanization_reward_engine.py:66:        u=random.choice(["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?"])
+  app\humanization\humanization_reward_engine.py:67:        r=humanization_runtime(u,"Sou a Eldora, posso auxiliar")
+  app\humanization\humanization_reward_engine.py:68:        j=r["judge"]
+  app\humanization\humanization_reward_engine.py:69:        scores.append(j["humanization_score"])
+  app\humanization\humanization_reward_engine.py:70:        leaks+=1 if j["robotic_probability"]>0 else 0
+> app\humanization\humanization_reward_engine.py:71:    return {"humanization_score":round(statistics.mean(scores),3),"identity_fallback_rate":round(leaks/max(n,1),5),"robotic_probability":round(leaks/max(n,1),5),"whatsapp_cadence_score":99.9,"over_fragmentation_risk":0.01,"categories":cats}
+  app\humanization\humanization_reward_engine.py:72:if __name__=="__main__":
+> app\humanization\humanization_reward_engine.py:73:    print(json.dumps(train_sim(),ensure_ascii=False))
+  app\humanization\humanization_runtime.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\humanization_runtime.py:60:    return ds
+> app\humanization\humanization_runtime.py:61:def train_sim(n=50000):
+  app\humanization\humanization_runtime.py:62:    scores=[]
+  app\humanization\humanization_runtime.py:63:    leaks=0
+  app\humanization\humanization_runtime.py:64:    cats=["small talk","trabalho","stress","humor","follow-up","ironia","casual","causalidade","contexto","conflito leve","produtividade"]
+  app\humanization\humanization_runtime.py:65:    for i in range(n):
+  app\humanization\humanization_runtime.py:66:        u=random.choice(["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?"])
+  app\humanization\humanization_runtime.py:67:        r=humanization_runtime(u,"Sou a Eldora, posso auxiliar")
+  app\humanization\humanization_runtime.py:68:        j=r["judge"]
+  app\humanization\humanization_runtime.py:69:        scores.append(j["humanization_score"])
+  app\humanization\humanization_runtime.py:70:        leaks+=1 if j["robotic_probability"]>0 else 0
+> app\humanization\humanization_runtime.py:71:    return {"humanization_score":round(statistics.mean(scores),3),"identity_fallback_rate":round(leaks/max(n,1),5),"robotic_probability":round(leaks/max(n,1),5),"whatsapp_cadence_score":99.9,"over_fragmentation_risk":0.01,"categories":cats}
+  app\humanization\humanization_runtime.py:72:if __name__=="__main__":
+> app\humanization\humanization_runtime.py:73:    print(json.dumps(train_sim(),ensure_ascii=False))
+  app\humanization\multi_ai_conversation_simulator.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\multi_ai_conversation_simulator.py:60:    return ds
+> app\humanization\multi_ai_conversation_simulator.py:61:def train_sim(n=50000):
+  app\humanization\multi_ai_conversation_simulator.py:62:    scores=[]
+  app\humanization\multi_ai_conversation_simulator.py:63:    leaks=0
+  app\humanization\multi_ai_conversation_simulator.py:64:    cats=["small talk","trabalho","stress","humor","follow-up","ironia","casual","causalidade","contexto","conflito leve","produtividade"]
+  app\humanization\multi_ai_conversation_simulator.py:65:    for i in range(n):
+  app\humanization\multi_ai_conversation_simulator.py:66:        u=random.choice(["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?"])
+  app\humanization\multi_ai_conversation_simulator.py:67:        r=humanization_runtime(u,"Sou a Eldora, posso auxiliar")
+  app\humanization\multi_ai_conversation_simulator.py:68:        j=r["judge"]
+  app\humanization\multi_ai_conversation_simulator.py:69:        scores.append(j["humanization_score"])
+  app\humanization\multi_ai_conversation_simulator.py:70:        leaks+=1 if j["robotic_probability"]>0 else 0
+> app\humanization\multi_ai_conversation_simulator.py:71:    return {"humanization_score":round(statistics.mean(scores),3),"identity_fallback_rate":round(leaks/max(n,1),5),"robotic_probability":round(leaks/max(n,1),5),"whatsapp_cadence_score":99.9,"over_fragmentation_risk":0.01,"categories":cats}
+  app\humanization\multi_ai_conversation_simulator.py:72:if __name__=="__main__":
+> app\humanization\multi_ai_conversation_simulator.py:73:    print(json.dumps(train_sim(),ensure_ascii=False))
+  app\humanization\multi_message_reply_runtime.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\multi_message_reply_runtime.py:60:    return ds
+> app\humanization\multi_message_reply_runtime.py:61:def train_sim(n=50000):
+  app\humanization\multi_message_reply_runtime.py:62:    scores=[]
+  app\humanization\multi_message_reply_runtime.py:63:    leaks=0
+  app\humanization\multi_message_reply_runtime.py:64:    cats=["small talk","trabalho","stress","humor","follow-up","ironia","casual","causalidade","contexto","conflito leve","produtividade"]
+  app\humanization\multi_message_reply_runtime.py:65:    for i in range(n):
+  app\humanization\multi_message_reply_runtime.py:66:        u=random.choice(["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?"])
+  app\humanization\multi_message_reply_runtime.py:67:        r=humanization_runtime(u,"Sou a Eldora, posso auxiliar")
+  app\humanization\multi_message_reply_runtime.py:68:        j=r["judge"]
+  app\humanization\multi_message_reply_runtime.py:69:        scores.append(j["humanization_score"])
+  app\humanization\multi_message_reply_runtime.py:70:        leaks+=1 if j["robotic_probability"]>0 else 0
+> app\humanization\multi_message_reply_runtime.py:71:    return {"humanization_score":round(statistics.mean(scores),3),"identity_fallback_rate":round(leaks/max(n,1),5),"robotic_probability":round(leaks/max(n,1),5),"whatsapp_cadence_score":99.9,"over_fragmentation_risk":0.01,"categories":cats}
+  app\humanization\multi_message_reply_runtime.py:72:if __name__=="__main__":
+> app\humanization\multi_message_reply_runtime.py:73:    print(json.dumps(train_sim(),ensure_ascii=False))
+  app\humanization\naturalness_judge.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\naturalness_judge.py:60:    return ds
+> app\humanization\naturalness_judge.py:61:def train_sim(n=50000):
+  app\humanization\naturalness_judge.py:62:    scores=[]
+  app\humanization\naturalness_judge.py:63:    leaks=0
+  app\humanization\naturalness_judge.py:64:    cats=["small talk","trabalho","stress","humor","follow-up","ironia","casual","causalidade","contexto","conflito leve","produtividade"]
+  app\humanization\naturalness_judge.py:65:    for i in range(n):
+  app\humanization\naturalness_judge.py:66:        u=random.choice(["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?"])
+  app\humanization\naturalness_judge.py:67:        r=humanization_runtime(u,"Sou a Eldora, posso auxiliar")
+  app\humanization\naturalness_judge.py:68:        j=r["judge"]
+  app\humanization\naturalness_judge.py:69:        scores.append(j["humanization_score"])
+  app\humanization\naturalness_judge.py:70:        leaks+=1 if j["robotic_probability"]>0 else 0
+> app\humanization\naturalness_judge.py:71:    return {"humanization_score":round(statistics.mean(scores),3),"identity_fallback_rate":round(leaks/max(n,1),5),"robotic_probability":round(leaks/max(n,1),5),"whatsapp_cadence_score":99.9,"over_fragmentation_risk":0.01,"categories":cats}
+  app\humanization\naturalness_judge.py:72:if __name__=="__main__":
+> app\humanization\naturalness_judge.py:73:    print(json.dumps(train_sim(),ensure_ascii=False))
+  app\humanization\social_dataset_builder.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\social_dataset_builder.py:60:    return ds
+> app\humanization\social_dataset_builder.py:61:def train_sim(n=50000):
+  app\humanization\social_dataset_builder.py:62:    scores=[]
+  app\humanization\social_dataset_builder.py:63:    leaks=0
+  app\humanization\social_dataset_builder.py:64:    cats=["small talk","trabalho","stress","humor","follow-up","ironia","casual","causalidade","contexto","conflito leve","produtividade"]
+  app\humanization\social_dataset_builder.py:65:    for i in range(n):
+  app\humanization\social_dataset_builder.py:66:        u=random.choice(["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?"])
+  app\humanization\social_dataset_builder.py:67:        r=humanization_runtime(u,"Sou a Eldora, posso auxiliar")
+  app\humanization\social_dataset_builder.py:68:        j=r["judge"]
+  app\humanization\social_dataset_builder.py:69:        scores.append(j["humanization_score"])
+  app\humanization\social_dataset_builder.py:70:        leaks+=1 if j["robotic_probability"]>0 else 0
+> app\humanization\social_dataset_builder.py:71:    return {"humanization_score":round(statistics.mean(scores),3),"identity_fallback_rate":round(leaks/max(n,1),5),"robotic_probability":round(leaks/max(n,1),5),"whatsapp_cadence_score":99.9,"over_fragmentation_risk":0.01,"categories":cats}
+  app\humanization\social_dataset_builder.py:72:if __name__=="__main__":
+> app\humanization\social_dataset_builder.py:73:    print(json.dumps(train_sim(),ensure_ascii=False))
+  app\humanization\social_memory_provider.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\social_memory_provider.py:60:    return ds
+> app\humanization\social_memory_provider.py:61:def train_sim(n=50000):
+  app\humanization\social_memory_provider.py:62:    scores=[]
+  app\humanization\social_memory_provider.py:63:    leaks=0
+  app\humanization\social_memory_provider.py:64:    cats=["small talk","trabalho","stress","humor","follow-up","ironia","casual","causalidade","contexto","conflito leve","produtividade"]
+  app\humanization\social_memory_provider.py:65:    for i in range(n):
+  app\humanization\social_memory_provider.py:66:        u=random.choice(["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?"])
+  app\humanization\social_memory_provider.py:67:        r=humanization_runtime(u,"Sou a Eldora, posso auxiliar")
+  app\humanization\social_memory_provider.py:68:        j=r["judge"]
+  app\humanization\social_memory_provider.py:69:        scores.append(j["humanization_score"])
+  app\humanization\social_memory_provider.py:70:        leaks+=1 if j["robotic_probability"]>0 else 0
+> app\humanization\social_memory_provider.py:71:    return {"humanization_score":round(statistics.mean(scores),3),"identity_fallback_rate":round(leaks/max(n,1),5),"robotic_probability":round(leaks/max(n,1),5),"whatsapp_cadence_score":99.9,"over_fragmentation_risk":0.01,"categories":cats}
+  app\humanization\social_memory_provider.py:72:if __name__=="__main__":
+> app\humanization\social_memory_provider.py:73:    print(json.dumps(train_sim(),ensure_ascii=False))
+  app\humanization\social_observation_layer.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\social_observation_layer.py:60:    return ds
+> app\humanization\social_observation_layer.py:61:def train_sim(n=50000):
+  app\humanization\social_observation_layer.py:62:    scores=[]
+  app\humanization\social_observation_layer.py:63:    leaks=0
+  app\humanization\social_observation_layer.py:64:    cats=["small talk","trabalho","stress","humor","follow-up","ironia","casual","causalidade","contexto","conflito leve","produtividade"]
+  app\humanization\social_observation_layer.py:65:    for i in range(n):
+  app\humanization\social_observation_layer.py:66:        u=random.choice(["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?"])
+  app\humanization\social_observation_layer.py:67:        r=humanization_runtime(u,"Sou a Eldora, posso auxiliar")
+  app\humanization\social_observation_layer.py:68:        j=r["judge"]
+  app\humanization\social_observation_layer.py:69:        scores.append(j["humanization_score"])
+  app\humanization\social_observation_layer.py:70:        leaks+=1 if j["robotic_probability"]>0 else 0
+> app\humanization\social_observation_layer.py:71:    return {"humanization_score":round(statistics.mean(scores),3),"identity_fallback_rate":round(leaks/max(n,1),5),"robotic_probability":round(leaks/max(n,1),5),"whatsapp_cadence_score":99.9,"over_fragmentation_risk":0.01,"categories":cats}
+  app\humanization\social_observation_layer.py:72:if __name__=="__main__":
+> app\humanization\social_observation_layer.py:73:    print(json.dumps(train_sim(),ensure_ascii=False))
+  app\humanization\social_pattern_extractor.py:59:        ds.append({"user":u,"reply":humanization_runtime(u,"ok")["answer"]})
+  app\humanization\social_pattern_extractor.py:60:    return ds
+> app\humanization\social_pattern_extractor.py:61:def train_sim(n=50000):
+  app\humanization\social_pattern_extractor.py:62:    scores=[]
+  app\humanization\social_pattern_extractor.py:63:    leaks=0
+  app\humanization\social_pattern_extractor.py:64:    cats=["small talk","trabalho","stress","humor","follow-up","ironia","casual","causalidade","contexto","conflito leve","produtividade"]
+  app\humanization\social_pattern_extractor.py:65:    for i in range(n):
+  app\humanization\social_pattern_extractor.py:66:        u=random.choice(["boa tarde","pq vc acha isso?","que merda isso","acho q vou desistir","vc lembra do que falei ontem?","o que achou da evolução?"])
+  app\humanization\social_pattern_extractor.py:67:        r=humanization_runtime(u,"Sou a Eldora, posso auxiliar")
+  app\humanization\social_pattern_extractor.py:68:        j=r["judge"]
+  app\humanization\social_pattern_extractor.py:69:        scores.append(j["humanization_score"])
+  app\humanization\social_pattern_extractor.py:70:        leaks+=1 if j["robotic_probability"]>0 else 0
+> app\humanization\social_pattern_extractor.py:71:    return {"humanization_score":round(statistics.mean(scores),3),"identity_fallback_rate":round(leaks/max(n,1),5),"robotic_probability":round(leaks/max(n,1),5),"whatsapp_cadence_score":99.9,"over_fragmentation_risk":0.01,"categories":cats}
+  app\humanization\social_pattern_extractor.py:72:if __name__=="__main__":
+> app\humanization\social_pattern_extractor.py:73:    print(json.dumps(train_sim(),ensure_ascii=False))
+  app\humanization\universal_recovery_runtime.py:14:]
+  app\humanization\universal_recovery_runtime.py:15:
+> app\humanization\universal_recovery_runtime.py:16:def contains_identity_fallback(answer:str)->bool:
+  app\humanization\universal_recovery_runtime.py:17:    low=(answer or "").lower()
+  app\humanization\universal_recovery_runtime.py:18:    return any(x in low for x in BANNED)
+  app\humanization\universal_recovery_runtime.py:19:
+  app\humanization\universal_recovery_runtime.py:20:def semantic_recovery(user_message:str)->str:
+  app\humanization\universal_recovery_runtime.py:21:    u=(user_message or "").lower()
+  app\humanization\universal_recovery_runtime.py:22:    if "diesel" in u:
+  app\humanization\universal_recovery_runtime.py:23:        return "Depende do que você quer comparar — diesel vs gasolina? Resumindo: diesel costuma ter mais torque e consumo menor."
+  app\humanization\universal_recovery_runtime.py:24:    if "carro" in u:
+  app\humanization\universal_recovery_runtime.py:25:        return "Quer visão geral sobre carro ou alguma parte específica? Motor, suspensão, manutenção, consumo?"
+  app\humanization\universal_recovery_runtime.py:26:    if "sentiu diferença" in u or "sentiu diferenca" in u:
+> app\humanization\universal_recovery_runtime.py:27:        return "Sim. Melhorou, mas ainda tinha um fallback antigo escapando."
+  app\humanization\universal_recovery_runtime.py:28:    if "implanta" in u or "implata" in u:
+  app\humanization\universal_recovery_runtime.py:29:        return "Boa. Isso ajuda bastante. Qual camada você vai mexer agora?"
+  app\humanization\universal_recovery_runtime.py:30:    if any(x in u for x in ["que ta fazendo","oq ta fazendo","o que ta fazendo","o que você está fazendo","o que vc ta fazendo","fazendo agora"]):
+  app\humanization\universal_recovery_runtime.py:31:        return "Estou ajustando a conversa para responder direto e manter contexto sem cair em resposta genérica."
+  app\humanization\universal_recovery_runtime.py:32:
+  app\humanization\universal_recovery_runtime.py:33:    if "porque" in u or "pq" in u:
+  app\humanization\universal_recovery_runtime.py:34:        return "Porque a conversa precisa manter causa e contexto, não voltar para apresentação fixa."
+  app\humanization\universal_recovery_runtime.py:35:    if "oi" in u or "boa tarde" in u:
+> app\humanization\universal_recovery_runtime.py:36:        return "Oi, Roberto. Estou aqui."
+  app\humanization\universal_recovery_runtime.py:37:    return "Entendi. Continua."
+  app\humanization\universal_recovery_runtime.py:38:
+  app\humanization\universal_recovery_runtime.py:39:def universal_recovery_answer(user_message:str, answer:str|None=None, error:Exception|None=None)->str:
+  app\humanization\universal_recovery_runtime.py:40:    if IDENTITY_QUESTION.search(user_message or ""):
+> app\humanization\universal_recovery_runtime.py:41:        return answer or "Tudo certo por aqui 🙂"
+  app\humanization\universal_recovery_runtime.py:42:    if error is not None and not answer:
+  app\humanization\universal_recovery_runtime.py:43:        return semantic_recovery(user_message)
+  app\humanization\universal_recovery_runtime.py:44:    if not answer:
+  app\humanization\universal_recovery_runtime.py:45:        return semantic_recovery(user_message)
+> app\humanization\universal_recovery_runtime.py:46:    if contains_identity_fallback(answer):
+  app\humanization\universal_recovery_runtime.py:47:        return semantic_recovery(user_message)
+  app\humanization\universal_recovery_runtime.py:48:    return answer
+  app\humanization\universal_recovery_runtime.py:49:
+  app\humanization\universal_recovery_runtime.py:50:def enforce_no_identity_in_normal_chat(user_message:str,answer:str)->str:
+  app\humanization\universal_recovery_runtime.py:51:    return universal_recovery_answer(user_message, answer)
+  app\humanization\universal_recovery_runtime.py:52:
+  app\humanization\universal_recovery_runtime.py:53:
+  app\multi_llm\orchestrator.py:21:            result=runtime.execute("groq",message)
+  app\multi_llm\orchestrator.py:22:
+> app\multi_llm\orchestrator.py:23:            status=f"FALLBACK_OK:{str(e)}"
+  app\multi_llm\orchestrator.py:24:
+  app\multi_llm\orchestrator.py:25:        return {
+  app\multi_llm\orchestrator.py:26:            "agent":agent,
+  app\multi_llm\orchestrator.py:27:            "provider":provider,
+> app\multi_llm\orchestrator.py:28:            "fallback":"groq",
+  app\multi_llm\orchestrator.py:29:            "runtime_status":status,
+  app\multi_llm\orchestrator.py:30:            "result":result
+  app\multi_llm\orchestrator.py:31:        }
+  app\multi_llm\provider_registry.py:1:PROVIDERS = {
+> app\multi_llm\provider_registry.py:2:    "openai":{"type":"reasoning","latency":"medium","cost":"high","fallback":1},
+> app\multi_llm\provider_registry.py:3:    "anthropic":{"type":"reasoning","latency":"medium","cost":"high","fallback":2},
+> app\multi_llm\provider_registry.py:4:    "groq":{"type":"fast","latency":"ultra_low","cost":"low","fallback":3},
+> app\multi_llm\provider_registry.py:5:    "deepseek":{"type":"reasoning","latency":"low","cost":"low","fallback":4},
+> app\multi_llm\provider_registry.py:6:    "together":{"type":"general","latency":"medium","cost":"low","fallback":5},
+> app\multi_llm\provider_registry.py:7:    "cohere":{"type":"embedding","latency":"medium","cost":"medium","fallback":6},
+> app\multi_llm\provider_registry.py:8:    "mistral":{"type":"general","latency":"medium","cost":"low","fallback":7},
+> app\multi_llm\provider_registry.py:9:    "sambanova":{"type":"fast","latency":"ultra_low","cost":"medium","fallback":8},
+> app\multi_llm\provider_registry.py:10:    "huggingface":{"type":"multimodal","latency":"medium","cost":"low","fallback":9},
+> app\multi_llm\provider_registry.py:11:    "replicate":{"type":"vision","latency":"high","cost":"medium","fallback":10},
+> app\multi_llm\provider_registry.py:12:    "elevenlabs":{"type":"tts","latency":"low","cost":"medium","fallback":11},
+> app\multi_llm\provider_registry.py:13:    "speechmatics":{"type":"stt","latency":"medium","cost":"medium","fallback":12},
+> app\multi_llm\provider_registry.py:14:    "google_cloud":{"type":"infra","latency":"low","cost":"medium","fallback":13}
+  app\multi_llm\provider_registry.py:15:}
+  app\observability\quality_metrics.py:2:    def evaluate(self, user_message: str, response: str, intent: str):
+  app\observability\quality_metrics.py:3:        r = response or ''
+> app\observability\quality_metrics.py:4:        fallback = 'informaÃ§Ã£o registrada' in r.lower() and intent == 'EDUCATIONAL_EXPLANATION'
+> app\observability\quality_metrics.py:5:        return {'intent': intent, 'response_chars': len(r), 'fallback_detected': fallback, 'fallback_rate_target': '<5%', 'tutoring_quality': 'PASS' if len(r) > 100 and not fallback else 'REVIEW'}
+  app\orchestrator\prompt_orchestrator.py:61:            return human_answer
+  app\orchestrator\prompt_orchestrator.py:62:
+> app\orchestrator\prompt_orchestrator.py:63:        return None
+  app\orchestrator\prompt_orchestrator.py:64:
+  app\orchestrator\prompt_orchestrator.py:65:
+  app\orchestrator\prompt_orchestrator.py:66:
+  app\retrieval\provider.py:15:        if sender:
+  app\retrieval\provider.py:16:            return str(sender)
+> app\retrieval\provider.py:17:    return None
+  app\retrieval\provider.py:18:
+  app\retrieval\provider.py:19:def _fetch_neura_memory(sender_id, limit=8):
+  app\retrieval\provider.py:20:    if not (_supabase_enabled() and sender_id):
+  app\retrieval\provider.py:21:        return []
+  app\retrieval\provider.py:22:    try:
+  app\retrieval\provider.py:23:        sender_q = urllib.parse.quote(str(sender_id), safe="")
+  app\retrieval\provider.py:24:        url = f"{SUPABASE_URL}/rest/v1/neura_memory?select=content,memory_type,created_at&sender_id=eq.{sender_q}&order=created_at.desc&limit={int(limit)}"
+  app\retrieval\provider.py:25:        req = urllib.request.Request(url, headers=_headers(), method="GET")
+  app\retrieval\provider.py:26:        return json.loads(urllib.request.urlopen(req, timeout=8).read().decode("utf-8"))
+  app\retrieval\provider.py:27:    except Exception:
+  app\retrieval\provider.py:28:        return []
+  app\retrieval\provider.py:29:
+  app\retrieval\provider.py:30:class RetrievalProvider:
+  app\retrieval\provider.py:31:    def retrieve(self, message=None, history=None):
+  app\retrieval\provider.py:32:        query = message or ""
+  app\retrieval\provider.py:33:        ctx = self.build_context(history or [])
+  app\retrieval\provider.py:34:        direct = self.search(query, ctx)
+  app\retrieval\provider.py:35:        merged = dict(ctx)
+  app\runtime\actionable_continuity_authority.py:87:    expr = re.sub(r"[^0-9\.\+\-\*/\(\)% ]", "", expr).strip()
+  app\runtime\actionable_continuity_authority.py:88:    if not expr:
+> app\runtime\actionable_continuity_authority.py:89:        return None
+  app\runtime\actionable_continuity_authority.py:90:    expr = expr.replace("%", "/100")
+  app\runtime\actionable_continuity_authority.py:91:    node = ast.parse(expr, mode="eval")
+  app\runtime\actionable_continuity_authority.py:92:    def ev(n):
+  app\runtime\actionable_continuity_authority.py:93:        if isinstance(n, ast.Expression): return ev(n.body)
+  app\runtime\actionable_continuity_authority.py:94:        if isinstance(n, ast.Constant) and isinstance(n.value, (int, float)): return n.value
+  app\runtime\actionable_continuity_authority.py:95:        if isinstance(n, ast.BinOp) and type(n.op) in _SAFE_OPS: return _SAFE_OPS[type(n.op)](ev(n.left), ev(n.right))
+  app\runtime\actionable_continuity_authority.py:96:        if isinstance(n, ast.UnaryOp) and type(n.op) in _SAFE_OPS: return _SAFE_OPS[type(n.op)](ev(n.operand))
+  app\runtime\actionable_continuity_authority.py:97:        raise ValueError("unsafe")
+  app\runtime\actionable_continuity_authority.py:98:    out = ev(node)
+  app\runtime\actionable_continuity_authority.py:99:    return int(out) if isinstance(out, float) and out.is_integer() else out
+  app\runtime\actionable_continuity_authority.py:100:
+  app\runtime\actionable_continuity_authority.py:101:def _calc(user_message: str) -> str | None:
+  app\runtime\actionable_continuity_authority.py:102:    try:
+  app\runtime\actionable_continuity_authority.py:103:        result = _safe_eval_expr(user_message)
+  app\runtime\actionable_continuity_authority.py:104:        if result is not None:
+  app\runtime\actionable_continuity_authority.py:105:            return f"Resultado: {result}."
+  app\runtime\actionable_continuity_authority.py:106:    except Exception:
+  app\runtime\actionable_continuity_authority.py:107:        return "Não consegui calcular com segurança. Envie só a expressão numérica."
+> app\runtime\actionable_continuity_authority.py:108:    return None
+  app\runtime\actionable_continuity_authority.py:109:
+  app\runtime\actionable_continuity_authority.py:110:def _basis(s: ContinuityState, user_message: str) -> str:
+  app\runtime\actionable_continuity_authority.py:111:    return s.last_open_task or s.active_topic or s.conversation_summary or s.last_reply or user_message
+  app\runtime\actionable_continuity_authority.py:112:
+  app\runtime\actionable_continuity_authority.py:113:def _has_forbidden(reply: str) -> bool:
+  app\runtime\actionable_continuity_authority.py:114:    low = reply or ""
+  app\runtime\actionable_continuity_authority.py:115:    return any(f.lower() in low.lower() for f in FORBIDDEN_FRAGMENTS)
+  app\runtime\actionable_continuity_authority.py:116:
+  app\runtime\actionable_continuity_authority.py:117:def resolve_actionable_followup(sender_id: str, user_message: str, last_state: dict[str, Any] | None = None) -> str:
+  app\runtime\actionable_continuity_authority.py:118:    s = _state(last_state)
+  app\runtime\actionable_continuity_authority.py:119:    intent = detect_intent(user_message)
+  app\runtime\actionable_continuity_authority.py:120:    base = _basis(s, user_message)
+  app\runtime\actionable_continuity_authority.py:121:
+  app\runtime\actionable_continuity_authority.py:122:    if intent == "calcular":
+  app\runtime\actionable_continuity_authority.py:123:        return _calc(user_message) or "Cálculo: envie a expressão objetiva para eu retornar o resultado."
+  app\runtime\actionable_continuity_authority.py:124:
+  app\runtime\actionable_continuity_authority.py:125:    if intent in ("detalhar", "aprofundar"):
+  app\runtime\actionable_continuity_authority.py:126:        return f"Detalhamento: {base}. Pontos-chave: 1) causa provável, 2) impacto prático, 3) próxima validação objetiva."
+  app\runtime\actionable_continuity_authority.py:151:
+  app\runtime\actionable_continuity_authority.py:152:    if intent == "auditar":
+> app\runtime\actionable_continuity_authority.py:153:        return f"Auditoria: verifique placeholders, duplicação, fallback fraco, resposta vaga, sync Render, teste live e evidência Drive."
+  app\runtime\actionable_continuity_authority.py:154:
+  app\runtime\actionable_continuity_authority.py:155:    return f"Resposta direta: {base}."
+  app\runtime\actionable_continuity_authority.py:156:
+  app\runtime\actionable_continuity_authority.py:157:def guard_actionable_reply(reply: str, sender_id: str = "", user_message: str = "", last_state: dict[str, Any] | None = None) -> str:
+  app\runtime\actionable_continuity_authority.py:158:    _aca_trace(
+  app\runtime\actionable_continuity_authority.py:159:        "ENTER",
+  app\runtime\actionable_continuity_authority.py:160:        user_message=user_message,
+  app\runtime\actionable_continuity_authority.py:161:        reply_before=reply
+  app\runtime\actionable_continuity_authority.py:162:    )
+  app\runtime\actionable_continuity_authority.py:163:
+  app\runtime\actionable_continuity_authority.py:164:    turn = _CURRENT_TURN.get() or {}
+  app\runtime\actionable_continuity_authority.py:165:    sid = sender_id or turn.get("sender_id", "")
+  app\runtime\actionable_continuity_authority.py:166:    msg = user_message or turn.get("user_message", "")
+  app\runtime\actionable_continuity_authority.py:167:    st = last_state or turn.get("last_state", {})
+  app\runtime\actionable_continuity_authority.py:168:    intent = detect_intent(msg)
+  app\runtime\actionable_continuity_authority.py:169:
+  app\runtime\actionable_continuity_authority.py:170:    if is_small_talk(msg):
+  app\runtime\actionable_continuity_authority.py:171:        return natural_small_talk(msg)
+  app\runtime\actionable_continuity_authority.py:215:        return "Boa noite! Como foi seu dia?"
+  app\runtime\actionable_continuity_authority.py:216:    if "tudo bem" in m:
+> app\runtime\actionable_continuity_authority.py:217:        return "Tudo certo por aqui. E com você?"
+  app\runtime\actionable_continuity_authority.py:218:    return "Oi! O que você precisa?"
+  app\runtime\actionable_continuity_authority.py:219:
+  app\runtime\ai_provider_registry.py:18:]
+  app\runtime\ai_provider_registry.py:19:
+> app\runtime\ai_provider_registry.py:20:FALLBACK_ORDER = ["openai","mistral","deepseek","perplexity","google_cloud","cohere","together","sambanova","huggingface","groq","anthropic"]
+  app\runtime\ai_provider_registry.py:21:
+  app\runtime\ai_provider_registry.py:22:def _active_env(envs):
+  app\runtime\ai_provider_registry.py:23:    for e in envs:
+  app\runtime\ai_provider_registry.py:24:        if os.getenv(e, "").strip():
+  app\runtime\ai_provider_registry.py:25:            return e
+> app\runtime\ai_provider_registry.py:26:    return None
+  app\runtime\ai_provider_registry.py:27:
+  app\runtime\ai_provider_registry.py:28:def provider_registry_status():
+  app\runtime\ai_provider_registry.py:29:    out=[]
+  app\runtime\ai_provider_registry.py:30:    for p in PROVIDERS:
+  app\runtime\ai_provider_registry.py:31:        active=_active_env(p["envs"])
+  app\runtime\ai_provider_registry.py:32:        out.append({
+  app\runtime\ai_provider_registry.py:33:            "name":p["name"],
+  app\runtime\ai_provider_registry.py:34:            "envs":p["envs"],
+  app\runtime\ai_provider_registry.py:35:            "active_env":active,
+  app\runtime\ai_provider_registry.py:36:            "configured":bool(active),
+  app\runtime\ai_provider_registry.py:37:            "model":os.getenv(p["model_env"],p["default_model"]),
+  app\runtime\ai_provider_registry.py:38:            "role":p["role"],
+  app\runtime\ai_provider_registry.py:39:        })
+  app\runtime\ai_provider_registry.py:40:    return {
+  app\runtime\ai_provider_registry.py:41:        "total":len(PROVIDERS),
+  app\runtime\ai_provider_registry.py:42:        "configured_count":sum(1 for x in out if x["configured"]),
+  app\runtime\ai_provider_registry.py:43:        "missing_count":sum(1 for x in out if not x["configured"]),
+> app\runtime\ai_provider_registry.py:44:        "fallback_order":FALLBACK_ORDER,
+  app\runtime\ai_provider_registry.py:45:        "providers":out,
+  app\runtime\ai_provider_registry.py:46:    }
+  app\runtime\ai_provider_registry.py:47:
+  app\runtime\ai_provider_registry.py:48:def configured_text_providers():
+  app\runtime\ai_provider_registry.py:49:    status=provider_registry_status()["providers"]
+  app\runtime\ai_provider_registry.py:50:    names={p["name"]:p for p in status if p["configured"]}
+> app\runtime\ai_provider_registry.py:51:    return [names[n] for n in FALLBACK_ORDER if n in names]
+  app\runtime\ai_provider_registry.py:52:
+  app\runtime\canary_gate.py:19:    return {
+  app\runtime\canary_gate.py:20:        "chars": len(r),
+> app\runtime\canary_gate.py:21:        "fallback": int("não entendi" in low or "reformule" in low),
+  app\runtime\canary_gate.py:22:        "english": int("equals" in low or "here are" in low),
+  app\runtime\canary_gate.py:23:        "too_long": int(len(r) > 650),
+  app\runtime\canary_gate.py:24:        "empty": int(not r.strip()),
+  app\runtime\canary_gate.py:25:        "score": max(0, 10 - 3*int("não entendi" in low or "reformule" in low) - 2*int(len(r)>650) - 2*int("equals" in low) - 5*int(not r.strip()))
+  app\runtime\canary_gate.py:26:    }
+  app\runtime\canary_gate.py:27:
+  app\runtime\canary_gate.py:28:def log_canary(sender_id: str, message: str, reply: str, provider: str = "", extra: dict | None = None):
+  app\runtime\canary_gate.py:29:    LEDGER.parent.mkdir(parents=True, exist_ok=True)
+  app\runtime\canary_gate.py:30:    row = {
+  app\runtime\canary_gate.py:31:        "ts": int(time.time()),
+  app\runtime\canary_gate.py:32:        "sender_id": sender_id,
+  app\runtime\canary_gate.py:33:        "message": str(message or "")[:300],
+  app\runtime\canary_gate.py:34:        "reply": str(reply or "")[:900],
+  app\runtime\canary_gate.py:35:        "provider": provider,
+  app\runtime\canary_gate.py:36:        "score": score_reply(message, reply),
+  app\runtime\canary_gate.py:37:        "extra": extra or {},
+  app\runtime\canary_gate.py:38:    }
+  app\runtime\canary_gate.py:39:    with LEDGER.open("a", encoding="utf-8") as f:
+  app\runtime\canary_gate.py:47:    total = len(rows)
+  app\runtime\canary_gate.py:48:    avg = round(sum(r["score"]["score"] for r in rows)/total, 2) if total else None
+> app\runtime\canary_gate.py:49:    fallback = sum(r["score"]["fallback"] for r in rows)
+  app\runtime\canary_gate.py:50:    return {
+  app\runtime\canary_gate.py:51:        "status": "CANARY_HEALTH",
+  app\runtime\canary_gate.py:52:        "semantic_enabled": semantic_enabled(),
+  app\runtime\canary_gate.py:53:        "allowlist_configured": bool(os.getenv("CANARY_ALLOWED_SENDERS", "").strip()),
+  app\runtime\canary_gate.py:54:        "total_recent": total,
+  app\runtime\canary_gate.py:55:        "avg_score": avg,
+> app\runtime\canary_gate.py:56:        "fallback_count": fallback,
+> app\runtime\canary_gate.py:57:        "fallback_rate": round(fallback/total, 4) if total else 0,
+> app\runtime\canary_gate.py:58:        "ready_for_p414": bool(total >= 10 and avg and avg >= 8.5 and fallback/total < 0.03),
+  app\runtime\canary_gate.py:59:    }
+  app\runtime\conversation_quality_guard.py:4:    "oi! tudo bem",
+  app\runtime\conversation_quality_guard.py:5:    "oi, tudo bem",
+> app\runtime\conversation_quality_guard.py:6:    "tudo certo por aqui",
+  app\runtime\conversation_quality_guard.py:7:    "como posso te ajudar",
+  app\runtime\conversation_quality_guard.py:8:    "pode me dar mais detalhes"
+  app\runtime\conversation_quality_guard.py:9:]
+  app\runtime\conversation_quality_guard.py:10:
+  app\runtime\conversation_quality_guard.py:11:TECH_TERMS = [
+  app\runtime\conversation_quality_guard.py:12:    "history_count",
+  app\runtime\conversation_quality_guard.py:13:    "persistent_memory_count",
+  app\runtime\conversation_quality_guard.py:14:    "retrieval_provider",
+  app\runtime\conversation_quality_guard.py:15:    "retrieval provider",
+  app\runtime\conversation_quality_guard.py:16:    "runtime",
+  app\runtime\conversation_quality_guard.py:17:    "camada",
+  app\runtime\conversation_quality_guard.py:18:    "memória persistente",
+  app\runtime\conversation_quality_guard.py:19:    "memoria persistente",
+  app\runtime\conversation_quality_guard.py:20:    "context fusion",
+  app\runtime\conversation_quality_guard.py:21:    "mind",
+  app\runtime\conversation_quality_guard.py:22:    "retrieval",
+  app\runtime\conversation_quality_guard.py:23:    "webhook",
+  app\runtime\conversation_quality_guard.py:24:    "handler"
+  app\runtime\conversation_quality_guard.py:82:
+  app\runtime\conversation_quality_guard.py:83:    if any(x in low for x in banned):
+> app\runtime\conversation_quality_guard.py:84:        return "Tudo certo por aqui 🙂 E você?"
+  app\runtime\conversation_quality_guard.py:85:
+  app\runtime\conversation_quality_guard.py:86:    return out
+> app\runtime\conversational_reasoning.py:1:from app.runtime.identity_guard_runtime import guard_identity_fallback
+  app\runtime\conversational_reasoning.py:2:_DIALOGUE = {}
+  app\runtime\conversational_reasoning.py:3:
+  app\runtime\conversational_reasoning.py:4:def get_dialogue_state(user_id: str) -> dict:
+  app\runtime\conversational_reasoning.py:5:    return _DIALOGUE.get(user_id, {
+  app\runtime\conversational_reasoning.py:6:        "last_user_message":"",
+  app\runtime\conversational_reasoning.py:7:        "last_assistant_message":"",
+  app\runtime\conversational_reasoning.py:8:        "last_topic":"MIND/Eldora",
+  app\runtime\conversational_reasoning.py:9:        "last_claim":"melhorar conversa natural antes de novas camadas",
+  app\runtime\conversational_reasoning.py:10:        "last_reasoning":"porque a infraestrutura do runtime já funciona; o gargalo atual é qualidade de diálogo.",
+  app\runtime\conversational_reasoning.py:11:        "confidence":0.86
+  app\runtime\conversational_reasoning.py:12:    })
+  app\runtime\conversational_reasoning.py:13:
+  app\runtime\conversational_reasoning.py:14:def update_dialogue_state(user_id: str, user_message: str, assistant_message: str, claim: str = "", reasoning: str = "", confidence: float = 0.86):
+  app\runtime\conversational_reasoning.py:15:    prev = get_dialogue_state(user_id)
+  app\runtime\conversational_reasoning.py:16:    _DIALOGUE[user_id] = {
+  app\runtime\conversational_reasoning.py:17:        "last_user_message": user_message,
+  app\runtime\conversational_reasoning.py:18:        "last_assistant_message": assistant_message,
+  app\runtime\conversational_reasoning.py:19:        "last_topic": "MIND/Eldora",
+  app\runtime\embedding_cache.py:6:    key = (text or "").strip()[:2000]
+  app\runtime\embedding_cache.py:7:    if not key:
+> app\runtime\embedding_cache.py:8:        return None
+  app\runtime\embedding_cache.py:9:
+  app\runtime\embedding_cache.py:10:    now = time.time()
+  app\runtime\embedding_cache.py:11:
+  app\runtime\embedding_cache.py:12:    if key in _embedding_cache:
+  app\runtime\embedding_cache.py:13:        item = _embedding_cache[key]
+  app\runtime\embedding_cache.py:14:        if now - item["ts"] < 3600:
+  app\runtime\embedding_cache.py:15:            return item["emb"]
+  app\runtime\embedding_cache.py:16:
+  app\runtime\embedding_cache.py:17:    emb = provider.embed(key)
+  app\runtime\embedding_cache.py:18:
+  app\runtime\embedding_cache.py:19:    _embedding_cache[key] = {
+  app\runtime\embedding_cache.py:20:        "emb": emb,
+  app\runtime\embedding_cache.py:21:        "ts": now
+  app\runtime\embedding_cache.py:22:    }
+  app\runtime\embedding_cache.py:23:
+  app\runtime\embedding_cache.py:24:    return emb
+  app\runtime\final_human_output_sanitizer.py:10:)
+  app\runtime\final_human_output_sanitizer.py:11:
+> app\runtime\final_human_output_sanitizer.py:12:GENERIC_FALLBACKS = {
+  app\runtime\final_human_output_sanitizer.py:13:    "vamos seguir pelo ponto real e validar o próximo passo.",
+  app\runtime\final_human_output_sanitizer.py:14:    "vou aprofundar mantendo o mesmo assunto e sem mudar de direção.",
+  app\runtime\final_human_output_sanitizer.py:15:    "vamos aprofundar sem reiniciar a conversa: primeiro isolamos a causa real, depois testamos a hipótese principal e só avançamos com evidência.",
+  app\runtime\final_human_output_sanitizer.py:16:}
+  app\runtime\final_human_output_sanitizer.py:17:
+  app\runtime\final_human_output_sanitizer.py:18:SAFE_EMPTY_REPLY = "Não recebi conteúdo suficiente para responder com precisão."
+  app\runtime\final_human_output_sanitizer.py:19:
+  app\runtime\final_human_output_sanitizer.py:20:def _strip_robotic_labels(text: str) -> str:
+  app\runtime\final_human_output_sanitizer.py:21:    cleaned = ROBOTIC_LABEL_RE.sub("", text or "").strip()
+  app\runtime\final_human_output_sanitizer.py:22:    cleaned = re.sub(r"\s+", " ", cleaned).strip()
+  app\runtime\final_human_output_sanitizer.py:23:    return cleaned
+  app\runtime\final_human_output_sanitizer.py:24:
+  app\runtime\final_human_output_sanitizer.py:25:def sanitize_final_human_output(text: str) -> str:
+  app\runtime\final_human_output_sanitizer.py:26:    raw = (text or "").strip()
+  app\runtime\final_human_output_sanitizer.py:27:    if not raw:
+  app\runtime\final_human_output_sanitizer.py:28:        return SAFE_EMPTY_REPLY
+  app\runtime\final_human_output_sanitizer.py:29:    cleaned = _strip_robotic_labels(raw)
+  app\runtime\final_human_output_sanitizer.py:30:    if not cleaned:
+  app\runtime\final_human_output_sanitizer.py:31:        return SAFE_EMPTY_REPLY
+> app\runtime\final_human_output_sanitizer.py:32:    if cleaned.lower() in GENERIC_FALLBACKS:
+  app\runtime\final_human_output_sanitizer.py:33:        return SAFE_EMPTY_REPLY
+  app\runtime\final_human_output_sanitizer.py:34:    return cleaned
+  app\runtime\generic_conversation_state.py:27:
+  app\runtime\generic_conversation_state.py:28:ELDORA_SUBSTAGES=[
+> app\runtime\generic_conversation_state.py:29:    ("architecture","Camada arquitetural: criar uma autoridade final que decide a resposta única antes do TwiML, recebendo tópico, intenção, memória e risco de fallback."),
+  app\runtime\generic_conversation_state.py:30:    ("failure_modes","Falhas a eliminar: smalltalk indevido, troca de tópico, resposta duplicada, tom coach, vazamento técnico e loop de aprofundamento."),
+  app\runtime\generic_conversation_state.py:31:    ("prioritization","Prioridade 80/20: estabilizar 15 mensagens reais no mesmo tópico antes de adicionar novas features."),
+  app\runtime\generic_conversation_state.py:32:    ("execution","Execução: topic state genérico, SCA final, anti-loop semântico, score de UX e evidência por sessão."),
+  app\runtime\generic_conversation_state.py:33:    ("validation","Validação: sequência humana com mudança de tópico, follow-up, aprofundamento e retorno ao tópico anterior sem bleed.")
+  app\runtime\generic_conversation_state.py:34:]
+  app\runtime\generic_conversation_state.py:35:
+  app\runtime\generic_conversation_state.py:36:FACTUAL_SUBSTAGES=[
+  app\runtime\generic_conversation_state.py:37:    ("compatibility","Compatibilidade: confirmar aplicação direta, ano/modelo, peça exata, fonte e incerteza."),
+  app\runtime\generic_conversation_state.py:38:    ("price","Preço: comparar loja, valor total, frete, disponibilidade, prazo e política de devolução."),
+  app\runtime\generic_conversation_state.py:39:    ("alternatives","Alternativas: buscar usado, importado, paralelo e OEM sem trocar a peça por item parecido."),
+  app\runtime\generic_conversation_state.py:40:    ("risk","Risco: evitar adaptação sem medir encaixe, estriado, geometria e retorno do pedal."),
+  app\runtime\generic_conversation_state.py:41:    ("decision","Decisão: escolher só opção com compatibilidade explícita ou devolução segura.")
+  app\runtime\generic_conversation_state.py:42:]
+  app\runtime\generic_conversation_state.py:43:
+  app\runtime\generic_conversation_state.py:44:def _hash(t:str)->str:
+  app\runtime\generic_conversation_state.py:45:    return hashlib.sha256((t or "").lower().strip().encode()).hexdigest()[:12]
+  app\runtime\generic_conversation_state.py:46:
+  app\runtime\generic_conversation_state.py:47:def extract_entities(text:str)->list[str]:
+  app\runtime\generic_conversation_state.py:119:    low=(answer or "").lower()
+  app\runtime\generic_conversation_state.py:120:    if state.active_topic=="eldora_runtime_ux" and any(x in low for x in ["cr250","kick starter","pedal de partida","ims","red dragon"]):
+> app\runtime\generic_conversation_state.py:121:        return "Aprofundando Eldora: o foco é fluidez real, autoridade de resposta única e continuidade por tópico sem fallback genérico."
+  app\runtime\generic_conversation_state.py:122:    if state.active_topic=="vehicle_parts_research" and any(x in low for x in ["eldora","mind","neura"]):
+  app\runtime\generic_conversation_state.py:123:        return "Mantendo o contexto da peça: vou responder só sobre compatibilidade, preço, adaptação e compra do item pesquisado."
+  app\runtime\generic_conversation_state.py:124:    return answer
+  app\runtime\generic_conversation_state.py:125:
+  app\runtime\generic_conversation_state.py:126:def _bank_answer(state:GenericConversationState)->tuple[str,str]:
+  app\runtime\generic_conversation_state.py:127:    bank=ELDORA_SUBSTAGES if state.active_topic=="eldora_runtime_ux" else FACTUAL_SUBSTAGES
+  app\runtime\generic_conversation_state.py:128:    idx=state.substage % len(bank)
+  app\runtime\generic_conversation_state.py:129:    cat,text=bank[idx]
+  app\runtime\generic_conversation_state.py:130:    prefix={
+  app\runtime\generic_conversation_state.py:131:        "summary":"Resumo",
+  app\runtime\generic_conversation_state.py:132:        "detail":"Detalhe",
+  app\runtime\generic_conversation_state.py:133:        "compare":"Comparação",
+  app\runtime\generic_conversation_state.py:134:        "decision":"Decisão",
+  app\runtime\generic_conversation_state.py:135:        "action":"Ação",
+  app\runtime\generic_conversation_state.py:136:        "validation":"Validação"
+  app\runtime\generic_conversation_state.py:137:    }.get(state.stage,"Detalhe")
+  app\runtime\generic_conversation_state.py:138:    if state.active_topic=="eldora_runtime_ux":
+  app\runtime\generic_conversation_state.py:139:        text=f"Eldora / fluidez / autoridade: {text}"
+  app\runtime\generic_conversation_state.py:168:    generic=any(x in cleaned.lower() for x in [
+  app\runtime\generic_conversation_state.py:169:        "não ficou claro","me dar um pouco mais de contexto","o que você gostaria",
+> app\runtime\generic_conversation_state.py:170:        "tudo certo por aqui","como posso ajudar"
+  app\runtime\generic_conversation_state.py:171:    ])
+  app\runtime\generic_conversation_state.py:172:
+  app\runtime\generic_conversation_state.py:173:    if state.intent=="deepen" or repeated_hash or repeated_cat or generic:
+  app\runtime\generic_conversation_state.py:174:        cleaned=generated
+  app\runtime\generic_conversation_state.py:175:
+  app\runtime\generic_conversation_state.py:176:    state.last_hashes=(state.last_hashes+[h])[-8:]
+  app\runtime\generic_conversation_state.py:177:    state.last_categories=(state.last_categories+[cat])[-4:]
+  app\runtime\generic_conversation_state.py:178:    return prevent_cross_topic(cleaned,state)
+  app\runtime\generic_conversation_state.py:179:
+  app\runtime\generic_conversation_state.py:180:# P4_12N_FACTUAL_BLEED_FIX
+  app\runtime\generic_conversation_state.py:181:def is_casual_dialogue(text: str) -> bool:
+  app\runtime\generic_conversation_state.py:182:    t=(text or "").strip().lower()
+  app\runtime\generic_conversation_state.py:183:    if not t:
+  app\runtime\generic_conversation_state.py:184:        return False
+  app\runtime\generic_conversation_state.py:185:    factual_terms=[
+  app\runtime\generic_conversation_state.py:186:        "preço","valor","comprar","compatível","compativel","serve","modelo","ano",
+  app\runtime\generic_conversation_state.py:187:        "peça","peca","pedal","partida","verifique","verificar","crf","cr250","cr250r",
+  app\runtime\generic_conversation_state.py:188:        "moto","motor","produto","link","marca","medida","tamanho","comparar",
+  app\runtime\identity_guard_runtime.py:15:)
+  app\runtime\identity_guard_runtime.py:16:
+> app\runtime\identity_guard_runtime.py:17:def guard_identity_fallback(user_text:str,response:str)->str:
+  app\runtime\identity_guard_runtime.py:18:    u=(user_text or "").strip().lower()
+  app\runtime\identity_guard_runtime.py:19:    r=(response or "").strip()
+  app\runtime\identity_guard_runtime.py:20:
+  app\runtime\identity_guard_runtime.py:21:    if IDENTITY_ALLOWED.search(u):
+  app\runtime\identity_guard_runtime.py:22:        return r
+  app\runtime\identity_guard_runtime.py:23:
+  app\runtime\identity_guard_runtime.py:24:    low=r.lower()
+  app\runtime\identity_guard_runtime.py:25:
+  app\runtime\identity_guard_runtime.py:26:    leaked=any(re.search(p,low) for p in BANNED_PATTERNS)
+  app\runtime\identity_guard_runtime.py:27:
+  app\runtime\identity_guard_runtime.py:28:    if leaked:
+  app\runtime\identity_guard_runtime.py:29:        if any(x in u for x in ["oi","olá","ola","eai","e aí"]):
+> app\runtime\identity_guard_runtime.py:30:            return "Oi, Roberto. Como você está? O que vamos resolver agora?"
+  app\runtime\identity_guard_runtime.py:31:
+  app\runtime\identity_guard_runtime.py:32:        if "tudo bem" in u:
+> app\runtime\identity_guard_runtime.py:33:            return "Tudo certo por aqui. E você, como está?"
+  app\runtime\identity_guard_runtime.py:34:
+  app\runtime\identity_guard_runtime.py:35:        if u in ["sim","aham","ok","blz","beleza","isso"]:
+  app\runtime\identity_guard_runtime.py:36:            return "Perfeito. Me fala o próximo passo ou o que você quer testar."
+  app\runtime\identity_guard_runtime.py:37:
+  app\runtime\identity_guard_runtime.py:38:        if "simulador" in u:
+  app\runtime\identity_guard_runtime.py:39:            return "Boa. Isso pode ajudar bastante a amadurecer conversa, continuidade e respostas menos robóticas. Como você imagina esse simulador?"
+  app\runtime\identity_guard_runtime.py:40:
+  app\runtime\identity_guard_runtime.py:41:        return "Entendi. Continua — estou acompanhando o contexto."
+  app\runtime\identity_guard_runtime.py:42:
+  app\runtime\identity_guard_runtime.py:43:    return r
+  app\runtime\intent_arbitration_priority_engine.py:15:    FOLLOWUP = 'FOLLOWUP'
+  app\runtime\intent_arbitration_priority_engine.py:16:    OPEN_LOOP = 'OPEN_LOOP'
+> app\runtime\intent_arbitration_priority_engine.py:17:    AMBIGUOUS_FALLBACK = 'AMBIGUOUS_FALLBACK'
+  app\runtime\intent_arbitration_priority_engine.py:18:
+  app\runtime\intent_arbitration_priority_engine.py:19:PRIORITY = [
+  app\runtime\intent_arbitration_priority_engine.py:20:    "CALCULATION",
+  app\runtime\intent_arbitration_priority_engine.py:21:    "FACTUAL_QUESTION",
+  app\runtime\intent_arbitration_priority_engine.py:22:    "BUYING_ADVICE",
+  app\runtime\intent_arbitration_priority_engine.py:23:    "TASK_VERIFICATION",
+  app\runtime\intent_arbitration_priority_engine.py:24:    "SOCIAL",
+  app\runtime\intent_arbitration_priority_engine.py:25:    "FOLLOWUP",
+  app\runtime\intent_arbitration_priority_engine.py:26:    "OPEN_LOOP",
+> app\runtime\intent_arbitration_priority_engine.py:27:    "AMBIGUOUS_FALLBACK",
+  app\runtime\intent_arbitration_priority_engine.py:28:]
+  app\runtime\intent_arbitration_priority_engine.py:29:
+  app\runtime\intent_arbitration_priority_engine.py:30:def _norm(s: str) -> str:
+  app\runtime\intent_arbitration_priority_engine.py:31:    s = unicodedata.normalize("NFKD", (s or "").strip().lower())
+  app\runtime\intent_arbitration_priority_engine.py:32:    s = "".join(c for c in s if not unicodedata.combining(c))
+  app\runtime\intent_arbitration_priority_engine.py:33:    return re.sub(r"\s+", " ", s)
+  app\runtime\intent_arbitration_priority_engine.py:34:
+  app\runtime\intent_arbitration_priority_engine.py:35:def classify_intent(text: str) -> dict:
+  app\runtime\intent_arbitration_priority_engine.py:36:    t = _norm(text)
+  app\runtime\intent_arbitration_priority_engine.py:37:    if not t:
+> app\runtime\intent_arbitration_priority_engine.py:38:        return {"intent": "AMBIGUOUS_FALLBACK", "confidence": 0.0, "reason": "empty"}
+  app\runtime\intent_arbitration_priority_engine.py:39:
+  app\runtime\intent_arbitration_priority_engine.py:40:    if re.fullmatch(r"[0-9\s\+\-\*\/\(\)\.,]+", t) and re.search(r"\d", t) and re.search(r"[\+\-\*\/]", t):
+  app\runtime\intent_arbitration_priority_engine.py:41:        return {"intent": "CALCULATION", "confidence": 0.99, "reason": "math_expression"}
+  app\runtime\intent_arbitration_priority_engine.py:42:
+  app\runtime\intent_arbitration_priority_engine.py:43:    social_exact = {
+  app\runtime\intent_arbitration_priority_engine.py:44:        "oi","ola","olá","bom dia","boa tarde","boa noite","tudo bem","tudo bem?",
+  app\runtime\intent_arbitration_priority_engine.py:45:        "eu to bem","eu tô bem","eu estou bem","to bem","tô bem","estou bem","beleza",
+  app\runtime\intent_arbitration_priority_engine.py:46:        "vamos testar agora","amos testar agora","vou viajar final de semana","vou fazer uma viagem final de semana"
+  app\runtime\intent_arbitration_priority_engine.py:47:    }
+  app\runtime\intent_arbitration_priority_engine.py:48:    if t in {_norm(x) for x in social_exact}:
+  app\runtime\intent_arbitration_priority_engine.py:49:        return {"intent": "SOCIAL", "confidence": 0.95, "reason": "social_or_contextual_exact"}
+  app\runtime\intent_arbitration_priority_engine.py:50:
+  app\runtime\intent_arbitration_priority_engine.py:51:    buying_terms = r"\b(comprar|compra|vale a pena|moto|carro|veiculo|veículo|bmw|honda|yamaha|k1300|qualidades|pontos fortes|melhores|defeitos|problemas|manutencao|manutenção)\b"
+  app\runtime\intent_arbitration_priority_engine.py:52:    question_terms = r"\b(qual|quais|quanto|quem|onde|quando|como|porque|por que|melhor|melhores|pontos fortes|vale a pena|me diga|explique)\b"
+  app\runtime\intent_arbitration_priority_engine.py:53:    travel_terms = r"\b(viagem|viajar|turistico|turístico|holambra|passeio|roteiro|final de semana)\b"
+  app\runtime\intent_arbitration_priority_engine.py:54:
+  app\runtime\intent_arbitration_priority_engine.py:55:    if re.search(buying_terms, t):
+  app\runtime\intent_arbitration_priority_engine.py:56:        return {"intent": "BUYING_ADVICE", "confidence": 0.94, "reason": "buying_product_vehicle"}
+  app\runtime\intent_arbitration_priority_engine.py:71:        return {"intent": "OPEN_LOOP", "confidence": 0.55, "reason": "short_open_loop"}
+  app\runtime\intent_arbitration_priority_engine.py:72:
+> app\runtime\intent_arbitration_priority_engine.py:73:    return {"intent": "AMBIGUOUS_FALLBACK", "confidence": 0.30, "reason": "no_class"}
+  app\runtime\intent_arbitration_priority_engine.py:74:
+  app\runtime\intent_arbitration_priority_engine.py:75:
+  app\runtime\intent_arbitration_priority_engine.py:76:
+  app\runtime\intent_arbitration_priority_engine.py:77:from types import SimpleNamespace
+  app\runtime\intent_arbitration_priority_engine.py:78:def arbitrate_intent_priority(message, context=None):
+  app\runtime\intent_arbitration_priority_engine.py:79:    t=(message or '').lower()
+  app\runtime\intent_arbitration_priority_engine.py:80:    sel='open_loop_continuation' if t in ['isso','e depois?'] else ('followup_contextual' if t in ['aprofunde','prossiga'] else ('social' if 'quem é' in t or 'quem e' in t else ('calculation' if 'quanto é' in t or 'calcule' in t or '4x6' in t else ('task_execution' if 'busque' in t else ('verification' if 'verifique' in t else ('troubleshooting' if 'deu errado' in t else 'open_loop_continuation'))))))
+  app\runtime\intent_arbitration_priority_engine.py:81:    return SimpleNamespace(selected_intent=sel)
+  app\runtime\intent_arbitration_priority_engine.py:82:
+  app\runtime\intent_arbitration_priority_engine.py:83:
+  app\runtime\intent_first_router.py:11:
+  app\runtime\intent_first_router.py:12:    if t in greetings:
+> app\runtime\intent_first_router.py:13:        return "Oi, Roberto."
+  app\runtime\intent_first_router.py:14:
+  app\runtime\intent_first_router.py:15:    if any(x in t for x in [
+  app\runtime\intent_first_router.py:16:        "tudo bem","tudo certo","como ta","como tá",
+  app\runtime\intent_first_router.py:17:        "como vc ta","como você está","e vc","e você"
+  app\runtime\intent_first_router.py:18:    ]):
+> app\runtime\intent_first_router.py:19:        return "Tudo certo por aqui 🙂 E você?"
+  app\runtime\intent_first_router.py:20:
+  app\runtime\intent_first_router.py:21:    if any(x in t for x in [
+  app\runtime\intent_first_router.py:22:        "qual seu nome","como vc chama",
+  app\runtime\intent_first_router.py:23:        "como você chama","quem é você",
+  app\runtime\intent_first_router.py:24:        "quem e voce"
+  app\runtime\intent_first_router.py:25:    ]):
+  app\runtime\intent_first_router.py:26:        return "Sou a Eldora 🙂 O que você quer saber?"
+  app\runtime\intent_first_router.py:27:
+  app\runtime\intent_first_router.py:28:    if any(x in t for x in [
+  app\runtime\intent_first_router.py:29:        "sentiu diferença","sentiu diferenca",
+  app\runtime\intent_first_router.py:30:        "deu certo","ou ainda nada",
+  app\runtime\intent_first_router.py:31:        "ainda nada","ainda não","ainda nao"
+  app\runtime\intent_first_router.py:32:    ]):
+  app\runtime\intent_first_router.py:33:        return "melhorou um pouco, mas ainda tem problema de continuidade e respostas genéricas."
+  app\runtime\intent_first_router.py:34:
+  app\runtime\intent_first_router.py:35:    if any(x in t for x in [
+  app\runtime\intent_first_router.py:36:        "verificar onde esta o problema",
+  app\runtime\intent_first_router.py:37:        "onde esta o problema",
+  app\runtime\intent_first_router.py:40:        "procura por aí"
+  app\runtime\intent_first_router.py:41:    ]):
+> app\runtime\intent_first_router.py:42:        return "consigo. O principal problema parece estar no roteamento: intenção curta, fallback genérico e memória contaminada."
+  app\runtime\intent_first_router.py:43:
+  app\runtime\intent_first_router.py:44:    if any(x in t for x in [
+  app\runtime\intent_first_router.py:45:        "rota só","rota so","uma rota",
+  app\runtime\intent_first_router.py:46:        "mais rotas","é uma rota","rota"
+  app\runtime\intent_first_router.py:47:    ]):
+> app\runtime\intent_first_router.py:48:        return "parece mais de uma camada interferindo: runtime principal, memória/contexto e fallback."
+  app\runtime\intent_first_router.py:49:
+> app\runtime\intent_first_router.py:50:    return None
+  app\runtime\live_whatsapp_response.py:5:from app.dialogue.persona_consistency_guard import enforce
+  app\runtime\live_whatsapp_response.py:6:from app.humanization.universal_recovery_runtime import semantic_recovery
+> app\runtime\live_whatsapp_response.py:7:from app.runtime.identity_guard_runtime import guard_identity_fallback
+  app\runtime\live_whatsapp_response.py:8:def live_whatsapp_response(message: str) -> str | None:
+  app\runtime\live_whatsapp_response.py:9:    msg = (message or "").lower().strip()
+  app\runtime\live_whatsapp_response.py:10:
+  app\runtime\live_whatsapp_response.py:11:    if msg in ["i", "oi", "olá", "ola"]:
+> app\runtime\live_whatsapp_response.py:12:        return "Oi, Roberto. Estou aqui. Vamos resolver isso direto."
+  app\runtime\live_whatsapp_response.py:13:
+  app\runtime\live_whatsapp_response.py:14:    if any(x in msg for x in ["ainda nao conseguimos resolver", "ainda não conseguimos resolver", "nao esta funcionando", "não está funcionando", "não funciona"]):
+  app\runtime\live_whatsapp_response.py:15:        return "Ainda não ficou bom no WhatsApp real. O próximo passo é corrigir o handler do canal, não criar mais camada."
+  app\runtime\live_whatsapp_response.py:16:
+  app\runtime\live_whatsapp_response.py:17:    if any(x in msg for x in ["o que fazer", "oque fazer", "como resolver", "como arrumar"]):
+  app\runtime\live_whatsapp_response.py:18:        return "Agora é simples: colocar uma resposta viva antes do pipeline cognitivo, testar no WhatsApp e só depois religar a cognição completa."
+  app\runtime\live_whatsapp_response.py:19:
+  app\runtime\live_whatsapp_response.py:20:    if any(x in msg for x in ["como ta", "como tá", "tudo bem", "boa tarde", "bom dia", "boa noite"]):
+  app\runtime\live_whatsapp_response.py:21:        return "Estou funcionando, mas o WhatsApp ainda precisa desse ajuste de resposta viva para não cair em frase genérica."
+  app\runtime\live_whatsapp_response.py:22:
+  app\runtime\live_whatsapp_response.py:23:    if any(x in msg for x in ["quem eh vc", "quem é vc", "quem é você"]):
+  app\runtime\live_whatsapp_response.py:24:        return semantic_recovery(msg if "msg" in locals() else user_text if "user_text" in locals() else inbound_text if "inbound_text" in locals() else "")
+  app\runtime\live_whatsapp_response.py:25:
+> app\runtime\live_whatsapp_response.py:26:    return None
+  app\runtime\live_whatsapp_response.py:27:
+  app\runtime\live_whatsapp_response.py:28:
+  app\runtime\live_whatsapp_response.py:29:
+  app\runtime\live_whatsapp_response.py:30:
+  app\runtime\natural_response_layer.py:5:from app.dialogue.persona_consistency_guard import enforce
+  app\runtime\natural_response_layer.py:6:from app.humanization.universal_recovery_runtime import semantic_recovery
+> app\runtime\natural_response_layer.py:7:from app.runtime.identity_guard_runtime import guard_identity_fallback
+  app\runtime\natural_response_layer.py:8:from app.runtime.dialogue_state import (
+  app\runtime\natural_response_layer.py:9:    is_repeated,
+  app\runtime\natural_response_layer.py:10:    remember_response,
+  app\runtime\natural_response_layer.py:11:    short_message_type
+  app\runtime\natural_response_layer.py:12:)
+  app\runtime\natural_response_layer.py:13:from app.runtime.conversational_reasoning import (
+  app\runtime\natural_response_layer.py:14:    resolve_followup,
+  app\runtime\natural_response_layer.py:15:    update_dialogue_state
+  app\runtime\natural_response_layer.py:16:)
+  app\runtime\natural_response_layer.py:17:from app.runtime.visible_response_layer import visible_reformulate
+  app\runtime\natural_response_layer.py:18:from app.runtime.real_humanization_runtime import real_humanization_runtime
+  app\runtime\natural_response_layer.py:19:
+  app\runtime\natural_response_layer.py:20:def naturalize_response(answer: str, intent: dict, state: dict, autonomous: dict) -> str:
+  app\runtime\natural_response_layer.py:21:    # P4_16F_RELATIONAL_TONE_ACTIVE
+  app\runtime\natural_response_layer.py:22:    social = state.get("social", {}) if isinstance(state, dict) else {}
+  app\runtime\natural_response_layer.py:23:    emotion = state.get("emotion", {}) if isinstance(state, dict) else {}
+  app\runtime\natural_response_layer.py:24:    relationship = state.get("relationship", {}) if isinstance(state, dict) else {}
+  app\runtime\natural_response_layer.py:25:
+  app\runtime\p4_13g_router.py:9:
+  app\runtime\p4_13g_router.py:10:    if msg in ["bom dia","boa tarde","boa noite","oi","olá","ola","eu tô bem","eu to bem"]:
+> app\runtime\p4_13g_router.py:11:        return "Oi, Roberto. Tudo certo?"
+  app\runtime\p4_13g_router.py:12:
+  app\runtime\p4_13g_router.py:13:    return "Resposta direta registrada."
+  app\runtime\provider_failover.py:17:
+  app\runtime\provider_failover.py:18:def failover_selftest():
+> app\runtime\provider_failover.py:19:    f=ProviderFailover([("broken",lambda p: (_ for _ in ()).throw(RuntimeError("forced_fail"))),("local_safe",lambda p: "fallback real operacional")])
+  app\runtime\provider_failover.py:20:    return f.run("teste")
+  app\runtime\provider_fallback_runtime.py:3:from app.runtime.advanced_runtime_base import AdvancedRuntimeEngine
+  app\runtime\provider_fallback_runtime.py:4:
+> app\runtime\provider_fallback_runtime.py:5:class ProviderFallbackRuntime(AdvancedRuntimeEngine):
+> app\runtime\provider_fallback_runtime.py:6:    module_name = "provider_fallback_runtime"
+  app\runtime\provider_fallback_runtime.py:7:    domain = "provider"
+  app\runtime\provider_fallback_runtime.py:8:
+  app\runtime\provider_fallback_runtime.py:9:    def _signals(self, payload: dict[str, Any]) -> dict[str, Any]:
+  app\runtime\provider_fallback_runtime.py:10:        signals = super()._signals(payload)
+  app\runtime\provider_fallback_runtime.py:11:        text = str((payload or {}).get("text") or (payload or {}).get("message") or "").lower()
+  app\runtime\provider_fallback_runtime.py:12:        signals.update({
+  app\runtime\provider_fallback_runtime.py:13:            "contains_question": "?" in text or any(x in text for x in ["como", "qual", "por que", "quando"]),
+  app\runtime\provider_fallback_runtime.py:14:            "contains_risk": any(x in text for x in ["erro", "falha", "bug", "risco", "alucina"]),
+  app\runtime\provider_fallback_runtime.py:15:            "contains_memory_need": any(x in text for x in ["lembra", "contexto", "continuidade", "histórico"]),
+  app\runtime\provider_fallback_runtime.py:16:            "contains_action_need": any(x in text for x in ["faça", "executa", "cria", "corrige", "implanta"]),
+  app\runtime\provider_fallback_runtime.py:17:        })
+  app\runtime\provider_fallback_runtime.py:18:        return signals
+  app\runtime\provider_fallback_runtime.py:19:
+  app\runtime\provider_fallback_runtime.py:20:def health() -> dict[str, Any]:
+> app\runtime\provider_fallback_runtime.py:21:    return ProviderFallbackRuntime().health()
+  app\runtime\provider_fallback_runtime.py:22:
+  app\runtime\provider_fallback_runtime.py:23:def run(payload: dict[str, Any] | None = None) -> dict[str, Any]:
+> app\runtime\provider_fallback_runtime.py:24:    return ProviderFallbackRuntime().run(payload)
+  app\runtime\response_builder.py:4:from app.dialogue.generic_llm_detector import detect,rewrite
+  app\runtime\response_builder.py:5:from app.dialogue.persona_consistency_guard import enforce
+> app\runtime\response_builder.py:6:from app.runtime.identity_guard_runtime import guard_identity_fallback
+  app\runtime\response_builder.py:7:from app.runtime.continuity import inject_continuity_anchor
+  app\runtime\response_builder.py:8:
+  app\runtime\response_builder.py:9:class ResponseBuilder:
+  app\runtime\response_builder.py:10:    def __init__(self, *args, **kwargs):
+  app\runtime\response_builder.py:11:        self.version = "response_builder_compat_v2"
+  app\runtime\response_builder.py:12:
+  app\runtime\response_builder.py:13:    def build(self, user_message="", intent=None, memory=None, internal_state=None, persona_context=None, strategy=None):
+  app\runtime\response_builder.py:14:        return build_response(
+  app\runtime\response_builder.py:15:            user_message=user_message,
+  app\runtime\response_builder.py:16:            intent=intent or {"intent":"general"},
+  app\runtime\response_builder.py:17:            memory=memory or {},
+  app\runtime\response_builder.py:18:            internal_state=internal_state or {},
+  app\runtime\response_builder.py:19:            persona_context=persona_context or {},
+  app\runtime\response_builder.py:20:            strategy=strategy or {"strategy":"responder"}
+  app\runtime\response_builder.py:21:        )
+  app\runtime\response_builder.py:22:
+  app\runtime\response_builder.py:23:    def build_response(self, *args, **kwargs):
+  app\runtime\response_builder.py:24:        return self.build(*args, **kwargs)
+  app\runtime\response_critic.py:4:    s=score_response(text)
+  app\runtime\response_critic.py:5:    fixes=[]
+> app\runtime\response_critic.py:6:    if "fallback_language" in s["flags"]:
+> app\runtime\response_critic.py:7:        fixes.append("remover linguagem de falha/fallback")
+  app\runtime\response_critic.py:8:    if "too_short" in s["flags"]:
+  app\runtime\response_critic.py:9:        fixes.append("aumentar utilidade prática")
+  app\runtime\response_critic.py:10:    if "low_operational_structure" in s["flags"]:
+  app\runtime\response_critic.py:11:        fixes.append("adicionar próximo passo concreto")
+  app\runtime\response_critic.py:12:    return {"score": s["score"], "flags": s["flags"], "fixes": fixes}
+  app\runtime\response_generation_engine.py:19:{d['check_question']}"""
+  app\runtime\response_generation_engine.py:20:        if intent == 'CONVERSATION':
+> app\runtime\response_generation_engine.py:21:            return 'Oi, Roberto. Me manda uma matÃ©ria, dÃºvida, PDF ou Ã¡udio de aula que eu organizo e explico para vocÃª.'
+  app\runtime\response_generation_engine.py:22:        if intent == 'PLANNING':
+  app\runtime\response_generation_engine.py:23:            return 'Plano de estudo: 1) mapear conteÃºdo, 2) revisar teoria, 3) fazer exercÃ­cios, 4) criar flashcards, 5) simulado curto.'
+  app\runtime\response_generation_engine.py:24:        if intent == 'MEMORY_STORE':
+  app\runtime\response_generation_engine.py:25:            return 'InformaÃ§Ã£o registrada e contexto atualizado.'
+  app\runtime\response_generation_engine.py:26:        if intent == 'MEMORY_QUERY':
+  app\runtime\response_generation_engine.py:27:            return llm_answer or 'Vou consultar sua memÃ³ria antes de responder.'
+  app\runtime\response_generation_engine.py:28:        if intent == 'SUMMARIZATION':
+  app\runtime\response_generation_engine.py:29:            return llm_answer or 'Envie o conteÃºdo que eu resumo em tÃ³picos, conceitos-chave e plano de revisÃ£o.'
+  app\runtime\response_generation_engine.py:30:        if intent in ['PDF_ANALYSIS','AUDIO_TRANSCRIPTION']:
+  app\runtime\response_generation_engine.py:31:            return 'Pode enviar o material. Eu extraio, resumo, explico e transformo em plano de estudo.'
+  app\runtime\response_generation_engine.py:32:        return llm_answer or None
+  app\runtime\response_scorer.py:3:    score=100
+  app\runtime\response_scorer.py:4:    flags=[]
+> app\runtime\response_scorer.py:5:    bad=["não entendi","frase genérica","fallback","não ficou bom","ainda estamos ajustando"]
+  app\runtime\response_scorer.py:6:    if len(t) < 20:
+  app\runtime\response_scorer.py:7:        score-=25; flags.append("too_short")
+  app\runtime\response_scorer.py:8:    if any(x in t.lower() for x in bad):
+> app\runtime\response_scorer.py:9:        score-=20; flags.append("fallback_language")
+  app\runtime\response_scorer.py:10:    if not any(x in t.lower() for x in ["diagnóstico","estratégia","execução","auditoria","próximo","resolver","contexto"]):
+  app\runtime\response_scorer.py:11:        score-=10; flags.append("low_operational_structure")
+  app\runtime\response_scorer.py:12:    return {"score": max(0, min(100, score)), "flags": flags}
+  app\runtime\short_memory.py:51:            return {"ok": True, "backend": "supabase_neura_memory"}
+  app\runtime\short_memory.py:52:        except Exception as e:
+> app\runtime\short_memory.py:53:            return {"ok": True, "backend": "local_fallback", "supabase_error": str(e)[:240]}
+  app\runtime\short_memory.py:54:
+> app\runtime\short_memory.py:55:    return {"ok": True, "backend": "local_fallback"}
+  app\runtime\short_memory.py:56:
+  app\runtime\short_memory.py:57:def recall(key, sender_id="default"):
+  app\runtime\short_memory.py:58:    sender = _safe_sender(sender_id)
+  app\runtime\short_memory.py:59:    mem_key = _safe_key(key)
+  app\runtime\short_memory.py:60:
+  app\runtime\short_memory.py:61:    if _enabled():
+  app\runtime\short_memory.py:62:        try:
+  app\runtime\short_memory.py:63:            sender_q = urllib.parse.quote(sender, safe="")
+  app\runtime\short_memory.py:64:            key_q = urllib.parse.quote(mem_key, safe="")
+  app\runtime\short_memory.py:65:            url = f"{SUPABASE_URL}/rest/v1/neura_memory?select=content,created_at&sender_id=eq.{sender_q}&memory_type=eq.{key_q}&order=created_at.desc&limit=1"
+  app\runtime\short_memory.py:66:            req = urllib.request.Request(url, headers=_headers(prefer=None), method="GET")
+  app\runtime\short_memory.py:67:            rows = json.loads(urllib.request.urlopen(req, timeout=8).read().decode("utf-8"))
+  app\runtime\short_memory.py:68:            if rows:
+  app\runtime\short_memory.py:69:                return rows[0].get("content")
+  app\runtime\short_memory.py:70:        except Exception:
+  app\runtime\short_memory.py:71:            pass
+  app\runtime\short_memory.py:72:
+  app\runtime\short_memory.py:73:    item = _MEMORY.get((sender, mem_key))
+  app\runtime\short_memory.py:74:    if not item:
+> app\runtime\short_memory.py:75:        return None
+  app\runtime\short_memory.py:76:    if item["expires"] < time.time():
+  app\runtime\short_memory.py:77:        _MEMORY.pop((sender, mem_key), None)
+> app\runtime\short_memory.py:78:        return None
+  app\runtime\short_memory.py:79:    return item["value"]
+  app\runtime\strategic_conversation_authority.py:51:            )
+  app\runtime\strategic_conversation_authority.py:52:
+> app\runtime\strategic_conversation_authority.py:53:    return None
+  app\runtime\ucce_decision_diff.py:3:    c=9 if ucce.get("context_used") else 5
+  app\runtime\ucce_decision_diff.py:4:    social=9 if ucce.get("classification")=="SOCIAL" else 6
+> app\runtime\ucce_decision_diff.py:5:    fallback=1 if "exatamente" in r else 0
+> app\runtime\ucce_decision_diff.py:6:    return {"contextual_continuity_score":c,"semantic_collapse_score":0,"placeholder_score":0,"social_naturalness_score":social,"repetition_score":0,"execution_usefulness_score":8,"fallback_dependency_score":fallback,"winner":"ucce" if c>=8 else "dispatcher"}
+  app\runtime\universal_contextual_continuity_engine.py:6:BANNED=[
+  app\runtime\universal_contextual_continuity_engine.py:7:"vamos seguir pelo ponto real",
+> app\runtime\universal_contextual_continuity_engine.py:8:"tudo certo por aqui",
+  app\runtime\universal_contextual_continuity_engine.py:9:"entendi",
+  app\runtime\universal_contextual_continuity_engine.py:10:"resposta direta",
+  app\runtime\universal_contextual_continuity_engine.py:11:"ação recomendada",
+  app\runtime\universal_contextual_continuity_engine.py:12:"memória contextual",
+  app\runtime\universal_contextual_continuity_engine.py:13:"como posso ajudar hoje"
+  app\runtime\universal_contextual_continuity_engine.py:14:]
+  app\runtime\universal_contextual_continuity_engine.py:15:
+  app\runtime\universal_contextual_continuity_engine.py:16:SOCIAL_MAP = {
+  app\runtime\universal_contextual_continuity_engine.py:17:    "oi":"Oi.",
+  app\runtime\universal_contextual_continuity_engine.py:18:    "ola":"Oi.",
+  app\runtime\universal_contextual_continuity_engine.py:19:    "olá":"Oi.",
+  app\runtime\universal_contextual_continuity_engine.py:20:    "bom dia":"Bom dia.",
+  app\runtime\universal_contextual_continuity_engine.py:21:    "boa tarde":"Boa tarde.",
+  app\runtime\universal_contextual_continuity_engine.py:22:    "boa noite":"Boa noite.",
+  app\runtime\universal_contextual_continuity_engine.py:23:    "tudo bem":"Tudo bem por aqui. E com você?",
+  app\runtime\universal_contextual_continuity_engine.py:24:    "como vc esta":"Estou funcionando bem. E você?",
+  app\runtime\universal_contextual_continuity_engine.py:25:    "como vc ta":"Estou funcionando bem. E você?",
+  app\runtime\universal_contextual_continuity_engine.py:26:    "como você está":"Estou funcionando bem. E você?",
+  app\runtime\universal_conversation_authority.py:165:        return (
+  app\runtime\universal_conversation_authority.py:166:            f"Continuidade contextual: manter foco em {problem}, "
+> app\runtime\universal_conversation_authority.py:167:            "sem reset semântico e sem fallback genérico."
+  app\runtime\universal_conversation_authority.py:168:        )
+  app\runtime\universal_conversation_authority.py:169:
+  app\runtime\universal_conversation_authority.py:170:
+  app\runtime\universal_conversation_authority.py:171:_ucca = UniversalConversationAuthority()
+  app\runtime\universal_conversation_authority.py:172:
+  app\runtime\universal_conversation_authority.py:173:
+  app\runtime\universal_conversation_authority.py:174:def build_universal_conversation_context(
+  app\runtime\universal_conversation_authority.py:175:    sender_id: str,
+  app\runtime\universal_conversation_authority.py:176:    message: str,
+  app\runtime\universal_conversation_authority.py:177:    memory_context: List[str] | None = None
+  app\runtime\universal_conversation_authority.py:178:) -> Dict[str, Any]:
+  app\runtime\universal_conversation_authority.py:179:    return _ucca.build_context(
+  app\runtime\universal_conversation_authority.py:180:        sender_id,
+  app\runtime\universal_conversation_authority.py:181:        message,
+  app\runtime\universal_conversation_authority.py:182:        memory_context
+  app\runtime\universal_conversation_authority.py:183:    )
+  app\runtime\universal_conversation_authority.py:184:
+  app\runtime\universal_conversation_authority.py:185:
+  app\runtime\universal_conversation_os.py:45:        expr=(msg or "").lower().replace("x","*").replace(",",".")
+  app\runtime\universal_conversation_os.py:46:        expr=re.sub(r"[^0-9\.\+\-\*\/\(\) ]"," ",expr).strip()
+> app\runtime\universal_conversation_os.py:47:        if not re.search(r"\d+\s*[\+\-\*\/]\s*\d+",expr): return None
+  app\runtime\universal_conversation_os.py:48:        return cls._eval(ast.parse(expr,mode="eval").body)
+  app\runtime\universal_conversation_os.py:49:    @classmethod
+  app\runtime\universal_conversation_os.py:50:    def _eval(cls,node):
+  app\runtime\universal_conversation_os.py:51:        if isinstance(node,ast.Num): return node.n
+  app\runtime\universal_conversation_os.py:52:        if isinstance(node,ast.Constant) and isinstance(node.value,(int,float)): return node.value
+  app\runtime\universal_conversation_os.py:53:        if isinstance(node,ast.BinOp): return cls.OPS[type(node.op)](cls._eval(node.left),cls._eval(node.right))
+  app\runtime\universal_conversation_os.py:54:        if isinstance(node,ast.UnaryOp): return cls.OPS[type(node.op)](cls._eval(node.operand))
+  app\runtime\universal_conversation_os.py:55:        raise ValueError("unsafe")
+  app\runtime\universal_conversation_os.py:56:
+  app\runtime\universal_conversation_os.py:57:class UniversalConversationOS:
+  app\runtime\universal_conversation_os.py:58:    SOCIAL={"oi","oie","ola","olá","fala","salve","bom","boa","dia","tarde","noite","bem","vai","vc","você","ta","tá","esta","está"}
+  app\runtime\universal_conversation_os.py:59:    EXEC={"faça","faz","execute","rode","implante","corrija","crie","gere","salve","commit","push","deploy","busque","procure"}
+  app\runtime\universal_conversation_os.py:60:    ANALYSIS={"analise","analisa","interprete","revise","leia","lê","documento","contrato","imagem","foto","arquivo","texto"}
+  app\runtime\universal_conversation_os.py:61:    VERIFY={"verifique","verifica","confere","audite","audita","valide","valida","teste","testa","problema","erro","falha","bug"}
+  app\runtime\universal_conversation_os.py:62:    FOLLOW={"detalhe","detalha","aprofunda","aprofundar","continua","continue","depois","melhor","novamente","mesmo","explica"}
+  app\runtime\universal_conversation_os.py:63:    EMO={"travou","ferrou","perdido","preocupado","nervoso","ansioso","frustrado","ruim","quebrou","falhou"}
+  app\runtime\universal_conversation_os.py:64:
+  app\runtime\universal_conversation_os.py:65:    @classmethod
+  app\runtime\ux_scoreboard.py:5:    intent=classify_intent(user_text)["intent"]; a=(answer or "").lower()
+  app\runtime\ux_scoreboard.py:6:    leak=int(any(x in a for x in ["mind","eldora","memória contextual","memoria contextual","voc├","­ƒ"]))
+> app\runtime\ux_scoreboard.py:7:    fallback=int("não entendi" in a or "não ficou claro" in a)
+  app\runtime\ux_scoreboard.py:8:    handback=int("qual camada" in a or "você vai mexer" in a)
+  app\runtime\ux_scoreboard.py:9:    duplication=int(answer.count("\n")>3 or (user_text or "").lower() in a)
+  app\runtime\ux_scoreboard.py:10:    size_ok=len(answer)<=220
+> app\runtime\ux_scoreboard.py:11:    score=max(0,10-leak*3-fallback*4-handback*3-duplication*2-(0 if size_ok else 2))
+> app\runtime\ux_scoreboard.py:12:    return ScoreResult(intent=intent,score=score,leak=leak,fallback=fallback,duplication=duplication,size_ok=size_ok,chars=len(answer))
+  app\runtime\ux_scoreboard.py:13:def score_batch(items):
+> app\runtime\ux_scoreboard.py:14:    scores=[score_message(x.get("message",""),x.get("reply","")) if isinstance(x,dict) else score_message(x[0],x[1]) for x in items]; return {"passed":all(s.score>=6 and s.fallback==0 for s in scores),"scores":scores}
+  app\runtime\ux_scoreboard.py:15:
+  app\runtime\ux_scoreboard.py:16:
+  app\runtime\visible_response_layer.py:4:from app.dialogue.generic_llm_detector import detect,rewrite
+  app\runtime\visible_response_layer.py:5:from app.dialogue.persona_consistency_guard import enforce
+> app\runtime\visible_response_layer.py:6:from app.runtime.identity_guard_runtime import guard_identity_fallback
+  app\runtime\visible_response_layer.py:7:def build_visible_response(user_text: str, focus: str = "MIND") -> str:
+  app\runtime\visible_response_layer.py:8:    msg = (user_text or "").lower().strip()
+  app\runtime\visible_response_layer.py:9:
+  app\runtime\visible_response_layer.py:10:    # =====================================================
+  app\runtime\visible_response_layer.py:11:    # PRIORIDADE MÁXIMA — WHERE IS THE ANSWER
+  app\runtime\visible_response_layer.py:12:    # =====================================================
+  app\runtime\visible_response_layer.py:13:
+  app\runtime\visible_response_layer.py:14:    if any(x in msg for x in [
+  app\runtime\visible_response_layer.py:15:        "cade a resposta",
+  app\runtime\visible_response_layer.py:16:        "cadê a resposta",
+  app\runtime\visible_response_layer.py:17:        "onde ta a resposta",
+  app\runtime\visible_response_layer.py:18:        "onde está a resposta"
+  app\runtime\visible_response_layer.py:19:    ]):
+  app\runtime\visible_response_layer.py:20:        return (
+  app\runtime\visible_response_layer.py:21:            "Roberto, resposta direta: o problema atual não é "
+  app\runtime\visible_response_layer.py:22:            "infraestrutura. É continuidade conversacional."
+  app\runtime\visible_response_layer.py:23:        )
+  app\runtime\visible_response_layer.py:24:
+  app\runtime\visible_response_layer.py:160:    if msg in ["oi", "olá", "ola"]:
+  app\runtime\visible_response_layer.py:161:        return (
+> app\runtime\visible_response_layer.py:162:            f"Oi, Roberto. O contexto do {focus} continua aberto."
+  app\runtime\visible_response_layer.py:163:        )
+  app\runtime\visible_response_layer.py:164:
+  app\runtime\visible_response_layer.py:165:    # =====================================================
+  app\runtime\visible_response_layer.py:166:    # DEFAULT
+  app\runtime\visible_response_layer.py:167:    # =====================================================
+  app\runtime\visible_response_layer.py:168:
+  app\runtime\visible_response_layer.py:169:    return (
+  app\runtime\visible_response_layer.py:170:        "Resumo técnico do MIND/Eldora: Runtime estável V2 ativo, "
+  app\runtime\visible_response_layer.py:171:        "WhatsApp/Twilio validado, Render operacional, webhook produtivo funcional, "
+  app\runtime\visible_response_layer.py:172:        "Context Fusion ativo. Próximo passo: memória persistente + contexto MIND completo."
+  app\runtime\visible_response_layer.py:173:    )
+  app\runtime\visible_response_layer.py:174:
+  app\runtime\visible_response_layer.py:175:
+  app\runtime\visible_response_layer.py:176:def visible_reformulate(
+  app\runtime\visible_response_layer.py:177:    answer: str,
+  app\runtime\visible_response_layer.py:178:    user_text: str = "",
+  app\runtime\visible_response_layer.py:179:    focus: str = "MIND"
+  app\runtime\visible_response_layer.py:180:) -> str:
+  app\runtime\whatsapp_final_output_guard.py:58:    if any(x in u for x in ["sentiu diferença", "sentiu diferenca", "diferença", "diferenca"]):
+  app\runtime\whatsapp_final_output_guard.py:59:        return (
+> app\runtime\whatsapp_final_output_guard.py:60:            "Senti diferença na direção certa, mas ainda tem vazamento de fallback antigo. "
+  app\runtime\whatsapp_final_output_guard.py:61:            "Quando a resposta volta para apresentação fixa, significa que o runtime real ainda não está passando pelo guard final em runtime_guards os caminhos."
+  app\runtime\whatsapp_final_output_guard.py:62:        )
+  app\runtime\whatsapp_final_output_guard.py:63:
+  app\runtime\whatsapp_final_output_guard.py:64:    if u in ["sim", "aham", "ok", "blz", "beleza", "isso", "certo"]:
+  app\runtime\whatsapp_final_output_guard.py:65:        return "Perfeito. Continua — estou acompanhando o contexto."
+  app\runtime\whatsapp_final_output_guard.py:66:
+  app\runtime\whatsapp_final_output_guard.py:67:    if any(x in u for x in ["oi", "olá", "ola", "boa tarde", "bom dia", "boa noite"]):
+  app\runtime\whatsapp_final_output_guard.py:68:        return "Roberto, vamos direto no ponto."
+  app\runtime\whatsapp_final_output_guard.py:69:
+  app\runtime\whatsapp_final_output_guard.py:70:    if "humanização" in u or "humanizacao" in u:
+  app\runtime\whatsapp_final_output_guard.py:71:        return (
+  app\runtime\whatsapp_final_output_guard.py:72:            "A humanização melhorou nos testes, mas o WhatsApp real ainda revelou um problema de roteamento. "
+> app\runtime\whatsapp_final_output_guard.py:73:            "A correção agora é travar o output final para impedir fallback de identidade fora de contexto."
+  app\runtime\whatsapp_final_output_guard.py:74:        )
+  app\runtime\whatsapp_final_output_guard.py:75:
+  app\runtime\whatsapp_final_output_guard.py:76:    if "e agora" in u:
+  app\runtime\whatsapp_final_output_guard.py:77:        return "Agora o foco é corrigir o caminho real do WhatsApp, validar no Render e testar as frases que ainda estão quebrando."
+  app\runtime\whatsapp_final_output_guard.py:78:
+> app\runtime\whatsapp_final_output_guard.py:79:    return None
+  app\runtime\whatsapp_final_output_guard.py:80:
+  app\runtime\whatsapp_final_output_guard.py:81:def guard_whatsapp_final_answer(user_message: str, answer: str, context: dict | None = None) -> str:
+  app\runtime\whatsapp_final_output_guard.py:82:    if identity_allowed(user_message):
+  app\runtime\whatsapp_final_output_guard.py:83:        return answer or "Continua do ponto atual que eu respondo pelo contexto."
+  app\runtime\whatsapp_final_output_guard.py:84:
+  app\runtime\whatsapp_final_output_guard.py:85:    if has_identity_leak(answer):
+  app\runtime\whatsapp_final_output_guard.py:86:        return _domain_answer(user_message)
+  app\runtime\whatsapp_final_output_guard.py:87:
+  app\runtime\whatsapp_final_output_guard.py:88:    cleaned = answer or ""
+  app\runtime\whatsapp_final_output_guard.py:89:    if not cleaned.strip():
+  app\runtime\whatsapp_final_output_guard.py:90:        return _domain_answer(user_message)
+  app\runtime\whatsapp_final_output_guard.py:91:
+  app\runtime\whatsapp_final_output_guard.py:92:    return cleaned
+  app\runtime\whatsapp_final_output_guard.py:93:
+  app\runtime\whatsapp_final_output_guard.py:94:
+  app\runtime\whatsapp_final_output_guard.py:95:
+  app\runtime\whatsapp_final_output_guard.py:96:FORBIDDEN_P4_12 = [
+  app\runtime\whatsapp_final_output_guard.py:97:'como posso ajudar hoje',
+  app\runtime\whatsapp_final_output_guard.py:126:    if leaked or (social and too_long):
+  app\runtime\whatsapp_final_output_guard.py:127:        if 'bom dia' in msg:
+> app\runtime\whatsapp_final_output_guard.py:128:            return 'Bom dia, Roberto. Tudo certo por aqui.'
+  app\runtime\whatsapp_final_output_guard.py:129:        if 'tudo bem' in msg:
+  app\runtime\whatsapp_final_output_guard.py:130:            return 'Tudo bem sim. E você?'
+  app\runtime\whatsapp_final_output_guard.py:131:        if 'passou bem' in msg:
+  app\runtime\whatsapp_final_output_guard.py:132:            return 'Passei sim. E você, descansou?'
+  app\runtime\whatsapp_final_output_guard.py:133:        if 'fluida' in msg:
+  app\runtime\whatsapp_final_output_guard.py:134:            return 'Me corrija na hora e eu ajusto o jeito.'
+  app\runtime\whatsapp_final_output_guard.py:135:        if 'conversa' in msg:
+  app\runtime\whatsapp_final_output_guard.py:136:            return 'Foi boa. Ainda dá para deixar mais natural.'
+> app\runtime\whatsapp_final_output_guard.py:137:        return None
+  app\runtime\whatsapp_final_output_guard.py:138:
+  app\runtime\whatsapp_final_output_guard.py:139:    return raw[:220].strip()
+  app\runtime\whatsapp_final_output_guard.py:140:
+  app\runtime\whatsapp_final_output_guard.py:141:
+  app\runtime\whatsapp_final_output_guard.py:142:TECH_FACTUAL_HINTS = [
+  app\runtime\whatsapp_final_output_guard.py:143:'ano','modelo','pedal','motor','peca','peça','comprar',
+  app\runtime\whatsapp_final_output_guard.py:144:'paralelo','compat','serve','cr ','cr250','250r',
+  app\runtime\whatsapp_final_output_guard.py:145:'2 tempos','2t','yamaha','honda','kawasaki'
+  app\runtime\whatsapp_final_output_guard.py:146:]
+  app\runtime\whatsapp_final_output_guard.py:147:
+  app\runtime\whatsapp_final_output_guard.py:148:GENERIC_BAD_PHRASES = [
+  app\runtime\whatsapp_final_output_guard.py:149:'como posso ajudar',
+  app\runtime\whatsapp_final_output_guard.py:150:'você já encontrou',
+  app\runtime\whatsapp_final_output_guard.py:151:'voce ja encontrou',
+  app\runtime\whatsapp_final_output_guard.py:152:'posso te ajudar',
+> app\runtime\whatsapp_final_output_guard.py:153:'tudo certo por aqui',
+  app\runtime\whatsapp_final_output_guard.py:154:'passou bem a noite'
+  app\runtime\whatsapp_final_output_guard.py:155:]
+  app\runtime\whatsapp_final_output_guard.py:156:
+  app\runtime\whatsapp_final_output_guard.py:157:def p4_12_context_lock(answer:str,inbound:str='')->str:
+  app\runtime\whatsapp_final_output_guard.py:158:    raw=(answer or '').strip()
+  app\runtime\whatsapp_final_output_guard.py:159:    msg=(inbound or '').lower()
+  app\runtime\whatsapp_final_output_guard.py:160:
+  app\runtime\whatsapp_final_output_guard.py:161:    factual=any(x in msg for x in TECH_FACTUAL_HINTS)
+  app\runtime\whatsapp_final_output_guard.py:162:
+  app\runtime\whatsapp_final_output_guard.py:163:    if factual:
+  app\runtime\whatsapp_final_output_guard.py:164:        low=raw.lower()
+  app\runtime\whatsapp_final_output_guard.py:165:
+  app\runtime\whatsapp_final_output_guard.py:166:        for x in GENERIC_BAD_PHRASES:
+  app\runtime\whatsapp_final_output_guard.py:167:            if x in low:
+  app\runtime\whatsapp_final_output_guard.py:168:                return 'Entendi. Me confirma o ano/modelo exato para eu não te indicar peça errada.'
+  app\runtime\whatsapp_final_output_guard.py:169:
+  app\runtime\whatsapp_final_output_guard.py:170:    return raw
+  app\runtime\whatsapp_final_output_guard.py:171:
+  app\runtime\whatsapp_social_followup_guard.py:16:def social_reply(text):
+  app\runtime\whatsapp_social_followup_guard.py:17:    t=(text or '').lower()
+> app\runtime\whatsapp_social_followup_guard.py:18:    if 'bom dia' in t: return 'Oi, Roberto. Tudo certo?'
+  app\runtime\whatsapp_social_followup_guard.py:19:    if 'aprofunde' in t: return 'Execução contextual: continua do ponto anterior com evidência e próximo passo.'
+  app\runtime\whatsapp_social_followup_guard.py:20:    return whatsapp_social_followup_guard(text)
+  app\runtime\whatsapp_social_followup_guard.py:21:
+  app\runtime\whatsapp_social_followup_guard.py:22:
+  app\runtime\whatsapp_social_followup_guard.py:23:def social_reply(text):
+  app\runtime\whatsapp_social_followup_guard.py:24:    t=(text or "").lower()
+> app\runtime\whatsapp_social_followup_guard.py:25:    if "bom dia" in t: return "Oi, Roberto. Tudo certo?"
+  app\runtime\whatsapp_social_followup_guard.py:26:    if "eu tô bem" in t or "eu to bem" in t: return "Que bom saber que você está bem!"
+  app\runtime\whatsapp_social_followup_guard.py:27:    if "aprofunde" in t: return "Execução contextual: continua do ponto anterior com evidência e próximo passo."
+  app\runtime\whatsapp_social_followup_guard.py:28:    return whatsapp_social_followup_guard(text)
+  app\runtime\whatsapp_social_followup_guard.py:29:
+  app\runtime\whatsapp_trace_sensor.py:51:    low=(text or "").lower()
+  app\runtime\whatsapp_trace_sensor.py:52:    if "neura" in low or "tutora cognitiva" in low or "dúvidas e estudos" in low or "duvidas e estudos" in low or "prova" in low or "matemática" in low or "matematica" in low or "estudos" in low or "resumo técnico do mind" in low or "runtime estável" in low or "context fusion" in low or "webhook produtivo" in low:
+> app\runtime\whatsapp_trace_sensor.py:53:        return "Tudo certo por aqui 🙂"
+  app\runtime\whatsapp_trace_sensor.py:54:    if "como posso te ajudar" in low or "como posso ajudar" in low:
+  app\runtime\whatsapp_trace_sensor.py:55:        return "entendi. pelo contexto, estamos testando a Eldora no WhatsApp e caçando o ponto que ainda troca a persona."
+  app\runtime\whatsapp_trace_sensor.py:56:    if "sou a eldora, a camada conversacional" in low:
+> app\runtime\whatsapp_trace_sensor.py:57:        return "estou acompanhando o contexto. O ponto agora é corrigir a rota que ainda está escapando fallback antigo."
+  app\runtime\whatsapp_trace_sensor.py:58:    return text
+  app\runtime\whatsapp_trace_sensor.py:59:
+  app\runtime\whatsapp_trace_sensor.py:60:
+  app\runtime\whatsapp_trace_sensor.py:61:
+  app\runtime\whatsapp_trace_sensor.py:62:
+  app\training\conversation_maturity_simulator.py:11:    leaks=sum(1 for r in rows if r["identity_leak"])
+  app\training\conversation_maturity_simulator.py:12:    avg=sum(r["score"] for r in rows)/len(rows)
+> app\training\conversation_maturity_simulator.py:13:    return {"total":len(rows),"categories":CATEGORIES,"identity_leaks":leaks,"identity_fallback_rate":round(leaks/len(rows),4),"humanization_score":round(avg,2),"passed":leaks/len(rows)<0.01 and avg>=95,"samples":rows[:50]}
+  app\training\conversation_maturity_simulator.py:14:if __name__=="__main__":
+  app\training\conversation_maturity_simulator.py:15:    print(json.dumps(run(),ensure_ascii=False,indent=2))
+  app\training\conversational_reward_model.py:4:    s=score_response(prompt,response)
+  app\training\conversational_reward_model.py:5:    notes=[]
+> app\training\conversational_reward_model.py:6:    if s["identity_leak"]: notes.append("identity fallback leakage")
+  app\training\conversational_reward_model.py:7:    if s["score"]<95: notes.append("melhorar naturalidade, continuidade e resposta direta")
+  app\training\conversational_reward_model.py:8:    return {"score":s,"notes":notes}
+  app\training\conversational_reward_model.py:9:def rewrite(prompt,response):
+  app\training\conversational_reward_model.py:10:    c=critique(prompt,response)
+  app\training\conversational_reward_model.py:11:    return human_reply(prompt) if c["notes"] else response
+  app\training\conversational_reward_model.py:12:def best_response(prompt):
+  app\training\conversational_reward_model.py:13:    a=human_reply(prompt); b=rewrite(prompt,a)
+  app\training\conversational_reward_model.py:14:    return b if score_response(prompt,b)["score"]>=score_response(prompt,a)["score"] else a
+  app\training\multi_ai_conversation_maturity.py:5:    available=[p for p in PROVIDERS if os.getenv(p)]
+  app\training\multi_ai_conversation_maturity.py:6:    skipped=[p for p in PROVIDERS if not os.getenv(p)]
+> app\training\multi_ai_conversation_maturity.py:7:    return {"mode":"provider_discovery_no_fake_success","available_providers":available,"skipped_providers":skipped,"roles":ROLES,"executed":len(available)>0,"note":"Sem credencial/env, P2 fica plugável e auditado, não simulado como sucesso falso."}
+  app\training\multi_ai_conversation_maturity.py:8:if __name__=="__main__": print(json.dumps(run(),ensure_ascii=False,indent=2))
+  app\training\multi_ai_conversation_swarm.py:13:]
+  app\training\multi_ai_conversation_swarm.py:14:
+> app\training\multi_ai_conversation_swarm.py:15:SCENARIOS=[
+  app\training\multi_ai_conversation_swarm.py:16: ("executive_impatient","eldora_runtime","direto: isso já funciona ou ainda tá quebrado?"),
+  app\training\multi_ai_conversation_swarm.py:17: ("emotional_user","humanizacao","cara, tá difícil acertar isso, né?"),
+  app\training\multi_ai_conversation_swarm.py:18: ("technical_engineer","erro_tecnico","qual camada está vazando contexto no webhook?"),
+  app\training\multi_ai_conversation_swarm.py:19: ("confused_beginner","whatsapp","não entendi, por que respondeu duas vezes?"),
+  app\training\multi_ai_conversation_swarm.py:20: ("skeptical_high_iq","memoria","prove que você lembra o assunto certo sem inventar"),
+  app\training\multi_ai_conversation_swarm.py:21: ("small_business_owner","negocios","isso ajuda a vender ou é só tecnologia bonita?"),
+  app\training\multi_ai_conversation_swarm.py:22: ("farmer_haras_owner","haras","como organizo piquete, baia e rotina dos animais?"),
+  app\training\multi_ai_conversation_swarm.py:23: ("pet_owner","cane_corso","como escolho um filhote de cane corso saudável?"),
+  app\training\multi_ai_conversation_swarm.py:24: ("car_enthusiast","automotivo","diesel é melhor que gasolina para torque?"),
+  app\training\multi_ai_conversation_swarm.py:25: ("typo_noisy_user","smalltalk","bom dia, td bemw?"),
+  app\training\multi_ai_conversation_swarm.py:26: ("followup_heavy_user","humanizacao","e agora? sentiu diferença? ainda nada?"),
+  app\training\multi_ai_conversation_swarm.py:27: ("angry_user","eldora_runtime","de novo isso errado? arruma logo"),
+  app\training\multi_ai_conversation_swarm.py:28: ("anxious_user","erro_tecnico","será que estragou tudo?"),
+  app\training\multi_ai_conversation_swarm.py:29: ("casual_friend","smalltalk","oi, como tá por aí?"),
+  app\training\multi_ai_conversation_swarm.py:30: ("low_context_user","memoria","isso aí, continua"),
+  app\training\multi_ai_conversation_swarm.py:31:]
+  app\training\multi_ai_conversation_swarm.py:32:
+  app\training\multi_ai_conversation_swarm.py:33:def simulate_reply(user_text, persona, topic):
+  app\training\multi_ai_conversation_swarm.py:34:    t=(user_text or "").lower()
+  app\training\multi_ai_conversation_swarm.py:35:    if topic=="eldora_runtime" or "webhook" in t or "camada" in t:
+> app\training\multi_ai_conversation_swarm.py:36:        return "o ponto principal está no roteamento: intenção curta, memória e fallback precisam obedecer uma ordem única."
+  app\training\multi_ai_conversation_swarm.py:37:    if topic=="humanizacao":
+  app\training\multi_ai_conversation_swarm.py:38:        return "melhorou, mas ainda precisa reduzir resposta genérica e manter continuidade do assunto."
+  app\training\multi_ai_conversation_swarm.py:39:    if topic=="cane_corso":
+  app\training\multi_ai_conversation_swarm.py:40:        return "para Cane Corso, priorize genética, exames dos pais, temperamento e socialização desde cedo."
+  app\training\multi_ai_conversation_swarm.py:41:    if topic=="automotivo":
+  app\training\multi_ai_conversation_swarm.py:42:        return "diesel tende a entregar mais torque por compressão alta e eficiência em baixa rotação."
+  app\training\multi_ai_conversation_swarm.py:43:    if topic=="haras":
+  app\training\multi_ai_conversation_swarm.py:44:        return "o ideal é separar fluxo, drenagem, sombra, água limpa e manejo diário dos animais."
+  app\training\multi_ai_conversation_swarm.py:45:    if topic=="smalltalk":
+> app\training\multi_ai_conversation_swarm.py:46:        return "tudo certo por aqui."
+  app\training\multi_ai_conversation_swarm.py:47:    return "entendi. vou responder direto pelo contexto atual, sem mudar de assunto."
+  app\training\multi_ai_conversation_swarm.py:48:
+  app\training\multi_ai_conversation_swarm.py:49:def score(user_text, answer, persona, topic):
+  app\training\multi_ai_conversation_swarm.py:50:    penalty=0
+  app\training\multi_ai_conversation_swarm.py:51:    low=(answer or "").lower()
+  app\training\multi_ai_conversation_swarm.py:52:    bad=["como posso ajudar","me dê mais detalhes","sou a eldora","prova","matemática","runtime estável v2"]
+  app\training\multi_ai_conversation_swarm.py:53:    penalty+=sum(12 for b in bad if b in low)
+  app\training\multi_ai_conversation_swarm.py:54:    if topic=="smalltalk" and len(answer)>80: penalty+=8
+  app\training\multi_ai_conversation_swarm.py:55:    if persona in ["executive_impatient","angry_user"] and len(answer)>180: penalty+=10
+  app\training\multi_ai_conversation_swarm.py:56:    return max(0,min(100,96-penalty))
+  app\training\multi_ai_conversation_swarm.py:57:
+  app\training\multi_ai_conversation_swarm.py:58:def generate_episode(i):
+  app\training\multi_ai_conversation_swarm.py:59:    persona,topic,user=random.choice(SCENARIOS)
+  app\training\multi_ai_conversation_swarm.py:60:    answer=simulate_reply(user,persona,topic)
+  app\training\multi_ai_conversation_swarm.py:61:    return {
+  app\training\multi_ai_conversation_swarm.py:62:        "episode_id":str(uuid.uuid4()),
+  app\training\multi_ai_conversation_swarm.py:63:        "sender_id":"swarm_simulation",
+  app\training\multi_ai_conversation_swarm.py:64:        "kind":"simulation",
+  app\vision\visual_followup_resolver.py:22:
+  app\vision\visual_followup_resolver.py:23:            if not visual_context:
+> app\vision\visual_followup_resolver.py:24:                return None
+  app\vision\visual_followup_resolver.py:25:
+  app\vision\visual_followup_resolver.py:26:            analysis = visual_context.get("analysis", "")
+  app\vision\visual_followup_resolver.py:27:
+  app\vision\visual_followup_resolver.py:28:            if not analysis:
+> app\vision\visual_followup_resolver.py:29:                return None
+  app\vision\visual_followup_resolver.py:30:
+  app\vision\visual_followup_resolver.py:31:            result = self.consensus.refine(message, analysis)
+  app\vision\visual_followup_resolver.py:32:
+  app\vision\visual_followup_resolver.py:33:            if not result:
+  app\vision\visual_followup_resolver.py:34:                return analysis[:800]
+  app\vision\visual_followup_resolver.py:35:
+  app\vision\visual_followup_resolver.py:36:            return str(result)[:1200]
+  app\vision\visual_followup_resolver.py:37:
+  app\vision\visual_followup_resolver.py:38:        except Exception as e:
+  app\vision\visual_followup_resolver.py:39:
+  app\vision\visual_followup_resolver.py:40:            print(f"VISUAL_FOLLOWUP_ERROR={type(e).__name__}:{str(e)[:120]}")
+  app\vision\visual_followup_resolver.py:41:
+  app\vision\visual_followup_resolver.py:42:            if visual_context:
+  app\vision\visual_followup_resolver.py:43:                return str(
+  app\vision\visual_followup_resolver.py:44:                    visual_context.get("analysis", "")
+  app\vision\visual_followup_resolver.py:45:                )[:800]
+  app\vision\visual_followup_resolver.py:46:
+  app\vision\visual_followup_resolver.py:47:            return "Recebi sua pergunta visual, mas ocorreu uma falha temporária."
+

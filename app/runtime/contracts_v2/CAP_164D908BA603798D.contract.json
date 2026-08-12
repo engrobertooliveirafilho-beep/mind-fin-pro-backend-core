@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_164D908BA603798D",
+  "source_file": "evidence\\P4.51_LEVEL_C_FULL_AUDIT_20260618_062425\\backup\\app\\mind\\p5_6g20_real_web_search_adapter\\adapter.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\evidence\\P4.51_LEVEL_C_FULL_AUDIT_20260618_062425\\backup\\app\\mind\\p5_6g20_real_web_search_adapter\\adapter.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 109,
+  "imports": [
+    "datetime",
+    "json",
+    "os",
+    "time",
+    "urllib.parse",
+    "urllib.request"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

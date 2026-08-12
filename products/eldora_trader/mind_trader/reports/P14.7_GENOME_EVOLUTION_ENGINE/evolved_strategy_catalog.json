@@ -1,0 +1,67 @@
+[
+  {
+    "strategy_id": "f12f98d0ca9b12af",
+    "parent_strategy_id": "s1",
+    "asset": "WIN",
+    "timeframe": "M1",
+    "mutation": {
+      "fast": 8,
+      "slow": 20
+    },
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "abac2cbb37b2250a",
+    "parent_strategy_id": "s1",
+    "asset": "WIN",
+    "timeframe": "M1",
+    "mutation": {
+      "fast": 9,
+      "slow": 21
+    },
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "d07d314725994b08",
+    "parent_strategy_id": "s1",
+    "asset": "WIN",
+    "timeframe": "M1",
+    "mutation": {
+      "fast": 10,
+      "slow": 25
+    },
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "e29f070db67e9149",
+    "parent_strategy_id": "s1",
+    "asset": "WIN",
+    "timeframe": "M1",
+    "mutation": {
+      "fast": 12,
+      "slow": 30
+    },
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "strategy_id": "becdb70c249e11bb",
+    "parent_strategy_id": "s1",
+    "asset": "WIN",
+    "timeframe": "M1",
+    "mutation": {
+      "fast": 14,
+      "slow": 34
+    },
+    "requires_profit_backtest": true,
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  }
+]

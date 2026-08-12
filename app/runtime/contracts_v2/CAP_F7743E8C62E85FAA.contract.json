@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_F7743E8C62E85FAA",
+  "source_file": "app\\mind\\p5_5r_claim_to_entity_promoter\\promoter.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\app\\mind\\p5_5r_claim_to_entity_promoter\\promoter.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 99,
+  "imports": [
+    "hashlib",
+    "json",
+    "os",
+    "re",
+    "urllib.parse",
+    "urllib.request"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

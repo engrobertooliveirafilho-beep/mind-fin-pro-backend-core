@@ -1,0 +1,13 @@
+{
+  "status": "P1891_META_LEARNING_COMPLETED",
+  "learning_targets": [
+    "which_contexts_improve_pf",
+    "which_filters_reduce_losers",
+    "which_regimes_activate_specialists",
+    "which_assets_accept_transfer_learning"
+  ],
+  "current_best_learning": {
+    "XAUUSD": "liquidity_sweep + low execution sensitivity",
+    "USDJPY": "rsi_reversion + execution sensitive + trend/volatility filtering"
+  }
+}

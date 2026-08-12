@@ -1,0 +1,10 @@
+{
+  "STATUS": "P1907_OPPOSITION_ENGINE_BOOTSTRAPPED",
+  "OBJECTIVE": "Every buy/sell thesis must face an anti-thesis",
+  "OUTPUT": [
+    "reason_to_trade",
+    "reason_not_to_trade",
+    "conflict_score",
+    "abstain_signal"
+  ]
+}

@@ -1,0 +1,23 @@
+
+  app\api\whatsapp.py:1430:    _p19h3_text = str(inbound_text or "").lower().strip()
+  app\api\whatsapp.py:1431:    if any(x in _p19h3_text for x in ["humanizada", "humanizar", "mais emoção", "mais emocao", "com emoção", "com emocao"]):
+  app\api\whatsapp.py:1432:        return _p495j3_context_signal_or_legacy("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
+  app\api\whatsapp.py:1433:    if _p19h3_text in ["quais são", "quais sao", "quais?", "quais são?", "quais sao?"]:
+  app\api\whatsapp.py:1434:        return _p495j3_context_signal_or_legacy("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
+  app\api\whatsapp.py:1435:    # /P19P26A_H3_HUMANIZATION_INTENT_LOCK
+  app\api\whatsapp.py:1436:    # P19P18/P19P19 early short-followup context continuity
+  app\api\whatsapp.py:1437:    try:
+> app\api\whatsapp.py:1438:        _p19p19_context_reply = _p19p19_direct_context_reply(sender_id, inbound_text)
+  app\api\whatsapp.py:1439:        if _p19p19_context_reply:
+  app\api\whatsapp.py:1440:            return _p19p9_universal_whatsapp_output_guard(inbound_text, _p19p19_context_reply, "")
+  app\api\whatsapp.py:1441:    except Exception:
+  app\api\whatsapp.py:1442:        pass
+  app\api\whatsapp.py:1443:    _p3_body = (inbound_text or "").lower()
+  app\api\whatsapp.py:1444:    if ("não entendi" in _p3_body or "nao entendi" in _p3_body) and ("resolver" in _p3_body or "como" in _p3_body):
+  app\api\whatsapp.py:1445:        return (
+  app\api\whatsapp.py:1446:            "Diagnóstico: entendi que há uma dúvida sem escopo claro e não vou devolver resposta genérica.\n"
+  app\api\whatsapp.py:1447:            "Estratégia: transformar a dúvida em próximo passo verificável.\n"
+  app\api\whatsapp.py:1448:            "Execução: descreva o erro, o objetivo e o resultado esperado; eu organizo a solução em sequência.\n"
+  app\api\whatsapp.py:1449:            "Auditoria: resposta validada pelo P3 human E2E sem fallback genérico."
+  app\api\whatsapp.py:1450:        )
+

@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_5542B474053209AC",
+  "source_file": "mind_trader\\app\\genomes\\strategy_genome.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\mind_trader\\app\\genomes\\strategy_genome.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 108,
+  "imports": [
+    "hashlib",
+    "itertools",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

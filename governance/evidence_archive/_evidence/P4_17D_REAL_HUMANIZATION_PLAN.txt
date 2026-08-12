@@ -1,0 +1,48 @@
+P4.17D — REAL HUMANIZATION REPLACEMENT PLAN
+
+KEEP_PARTIAL:
+- anti_llm_speech_filter (rewrite lexical only)
+
+REWRITE_REAL:
+- social_observation_layer
+- social_pattern_extractor
+- naturalness_judge
+- should_split_reply
+- classify_reply_cadence
+- humanization_runtime
+
+DELETE_DUPLICATE:
+- anti_llm_speech_filter.py duplicated runtime
+- conversation_maturity_engine.py duplicated runtime
+- conversation_training_runtime.py duplicated runtime
+- humanization_reward_engine.py duplicated runtime
+- multi_ai_conversation_simulator.py duplicated runtime
+- multi_message_reply_runtime.py duplicated runtime
+
+NEW_SOURCE_OF_TRUTH:
+app/runtime/real_humanization_runtime.py
+
+REAL INPUTS:
+- social memory
+- emotional state
+- relationship profile
+- runtime context
+- longitudinal memory
+
+REAL OUTPUTS:
+- tone
+- cadence
+- followup_probability
+- rewrite_style
+- proactive_suitability
+- supportive_mode
+- fragmentation_strategy
+
+RULE:
+- no hardcoded score
+- no fake probability
+- no keyword emotional inference
+- preserve interfaces
+- preserve whatsapp runtime
+- preserve cognitive pipeline
+- preserve 333 tests

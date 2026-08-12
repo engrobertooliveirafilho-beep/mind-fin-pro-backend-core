@@ -1,0 +1,98 @@
+[
+  {
+    "function": "BuyAtMarket",
+    "used_in_files": 161,
+    "screenshot_evidence": 23,
+    "status": "EVIDENCE_FOUND",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "function": "SellShortAtMarket",
+    "used_in_files": 144,
+    "screenshot_evidence": 6,
+    "status": "EVIDENCE_FOUND",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "function": "ClosePosition",
+    "used_in_files": 0,
+    "screenshot_evidence": 0,
+    "status": "NOT_USED",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "function": "IsBought",
+    "used_in_files": 0,
+    "screenshot_evidence": 0,
+    "status": "NOT_USED",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "function": "IsSold",
+    "used_in_files": 0,
+    "screenshot_evidence": 0,
+    "status": "NOT_USED",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "function": "HasPosition",
+    "used_in_files": 0,
+    "screenshot_evidence": 0,
+    "status": "NOT_USED",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "function": "Media",
+    "used_in_files": 97,
+    "screenshot_evidence": 12,
+    "status": "EVIDENCE_FOUND",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "function": "MediaExp",
+    "used_in_files": 54,
+    "screenshot_evidence": 4,
+    "status": "EVIDENCE_FOUND",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "function": "MME",
+    "used_in_files": 1,
+    "screenshot_evidence": 1,
+    "status": "EVIDENCE_FOUND",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "function": "MMA",
+    "used_in_files": 1,
+    "screenshot_evidence": 1,
+    "status": "EVIDENCE_FOUND",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "function": "RSI",
+    "used_in_files": 0,
+    "screenshot_evidence": 0,
+    "status": "NOT_USED",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  },
+  {
+    "function": "MACD",
+    "used_in_files": 0,
+    "screenshot_evidence": 0,
+    "status": "NOT_USED",
+    "live": "FORBIDDEN",
+    "real_orders": "FORBIDDEN"
+  }
+]

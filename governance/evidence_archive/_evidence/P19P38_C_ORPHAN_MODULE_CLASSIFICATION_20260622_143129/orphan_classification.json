@@ -1,0 +1,5533 @@
+[
+  {
+    "path": "app/api/eldora_core_runtime.py",
+    "exists": true,
+    "module": "app.api.eldora_core_runtime",
+    "token": "eldora_core_runtime",
+    "references_total": 4,
+    "app_references": [
+      "app/main.py",
+      "app/modules/usde_core/live_integration_certification.py",
+      "app/modules/usde_core/runtime_integration_binder.py"
+    ],
+    "test_references": [
+      "tests/modules/test_p449d_eldora_core_hook.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 3"
+  },
+  {
+    "path": "app/api/eldora_core_runtime.py.bak_p449d",
+    "exists": true,
+    "module": "app.api.eldora_core_runtime.py.bak_p449d",
+    "token": "eldora_core_runtime.py",
+    "references_total": 1,
+    "app_references": [
+      "app/modules/usde_core/runtime_integration_binder.py"
+    ],
+    "test_references": [],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/api/whatsapp.py",
+    "exists": true,
+    "module": "app.api.whatsapp",
+    "token": "whatsapp",
+    "references_total": 144,
+    "app_references": [
+      "app/main.py",
+      "app/main_core.py",
+      "app/admin/friendship_outbound_test.py",
+      "app/admin/public_runtime.py",
+      "app/admin/semantic_activation.py",
+      "app/api/debug_whatsapp_runtime_trace.py",
+      "app/api/debug_whatsapp_source.py",
+      "app/api/debug_whatsapp_state.py",
+      "app/api/eldora_growth.py",
+      "app/api/eldora_neura_scale.py",
+      "app/api/eldora_runtime_canonical.py",
+      "app/companionship/p19p31_p19p36_companion_runtime.py",
+      "app/companionship/relationship_memory_store.py",
+      "app/humanization/anti_llm_speech_filter.py",
+      "app/humanization/conversation_maturity_engine.py",
+      "app/humanization/conversation_training_runtime.py",
+      "app/humanization/humanization_reward_engine.py",
+      "app/humanization/humanization_runtime.py",
+      "app/humanization/human_conversation_runtime.py",
+      "app/humanization/multi_ai_conversation_simulator.py",
+      "app/humanization/multi_message_reply_runtime.py",
+      "app/humanization/naturalness_judge.py",
+      "app/humanization/social_dataset_builder.py",
+      "app/humanization/social_memory_provider.py",
+      "app/humanization/social_observation_layer.py"
+    ],
+    "test_references": [
+      "tests/test_advanced_runtime_modules_real.py",
+      "tests/test_eldora_embodied.py",
+      "tests/test_eldora_neura_scale.py",
+      "tests/test_eldora_whatsapp_cognitive_pipeline.py",
+      "tests/test_eldora_whatsapp_live_regression.py",
+      "tests/test_eldora_whatsapp_primary_runtime.py",
+      "tests/test_fix11l2e_b_identity_override_remove.py",
+      "tests/test_fix11l2f_primary_identity_precedence.py",
+      "tests/test_fix11l2g_identity_allowed_normalization.py",
+      "tests/test_fix11l2h_webhook_identity_toplock.py",
+      "tests/test_fix11l2i_webhook_followup_toplock.py",
+      "tests/test_p10_to_p15_activation_stack.py",
+      "tests/test_p18b_runtime_hook.py",
+      "tests/test_p18_conversational_execution.py",
+      "tests/test_p19a_1_improved_conversation.py",
+      "tests/test_p19a_3_failure_fixes.py",
+      "tests/test_p19a_whatsapp_real_traffic_eval.py",
+      "tests/test_p19p11_fast_return_bypass.py",
+      "tests/test_p19p16_confinement_domain_interceptor.py",
+      "tests/test_p19p28k_contextual_fitness.py",
+      "tests/test_p19p29_universal_domain_context.py",
+      "tests/test_p19p30d_legacy_interceptor_containment.py",
+      "tests/test_p19p31_p19p36_companion_cognition_stack.py",
+      "tests/test_p19p36h_safe_adapter_shadow_wiring.py",
+      "tests/test_p19p36k_webhook_memory_shadow.py"
+    ],
+    "classification": "DANGEROUS_TO_TOUCH",
+    "reason": "runtime/router/provider/forensic marker"
+  },
+  {
+    "path": "app/api/whatsapp.py.bak_p449c_fix2",
+    "exists": true,
+    "module": "app.api.whatsapp.py.bak_p449c_fix2",
+    "token": "whatsapp.py",
+    "references_total": 2,
+    "app_references": [
+      "app/api/debug_whatsapp_source.py",
+      "app/modules/usde_core/runtime_integration_binder.py"
+    ],
+    "test_references": [],
+    "classification": "DANGEROUS_TO_TOUCH",
+    "reason": "runtime/router/provider/forensic marker"
+  },
+  {
+    "path": "app/companionship/self_reflection_engine.py",
+    "exists": true,
+    "module": "app.companionship.self_reflection_engine",
+    "token": "self_reflection_engine",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p19p37e_self_reflection_engine.py"
+    ],
+    "classification": "ACTIVE_CORE",
+    "reason": "matches cognition/runtime core marker"
+  },
+  {
+    "path": "app/context_runtime/__init__.py",
+    "exists": true,
+    "module": "app.context_runtime",
+    "token": "__init__",
+    "references_total": 94,
+    "app_references": [
+      "app/main.py",
+      "app/api/whatsapp.py",
+      "app/embedding/provider.py",
+      "app/human/human_like_response_layer.py",
+      "app/human/multi_llm_runtime.py",
+      "app/ingestion/image_vision_runtime.py",
+      "app/ingestion/multimodal_router.py",
+      "app/medical_swarm/runtime.py",
+      "app/memory/provider.py",
+      "app/multi_llm/provider_runtime.py",
+      "app/orchestrator/prompt_orchestrator.py",
+      "app/persona/human_like_persona_pipeline.py",
+      "app/retrieval/semantic_provider.py",
+      "app/runtime/memory_quarantine_manifest.json",
+      "app/runtime/memory_store.py",
+      "app/runtime/p2071_2080_realtime_paper_runtime.py",
+      "app/runtime/p2223_broker_emulator.py",
+      "app/runtime/p2224_2226_institutional_core.py",
+      "app/runtime/p2227_2229_advanced_layer.py",
+      "app/runtime/provider_failover.py",
+      "app/runtime/response_builder.py",
+      "app/runtime/response_generation_engine.py",
+      "app/runtime/universal_conversation_authority.py",
+      "app/runtime/universal_conversation_authority_BACKUP_20260523_114422.py",
+      "app/vision/consensus_judge.py"
+    ],
+    "test_references": [],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 94"
+  },
+  {
+    "path": "app/context_runtime/p19p28_context.py",
+    "exists": true,
+    "module": "app.context_runtime.p19p28_context",
+    "token": "p19p28_context",
+    "references_total": 2,
+    "app_references": [
+      "app/main.py",
+      "app/api/whatsapp.py"
+    ],
+    "test_references": [],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 2"
+  },
+  {
+    "path": "app/domains/__init__.py",
+    "exists": true,
+    "module": "app.domains",
+    "token": "__init__",
+    "references_total": 95,
+    "app_references": [
+      "app/main.py",
+      "app/api/whatsapp.py",
+      "app/domains/universal_domain_router.py",
+      "app/embedding/provider.py",
+      "app/human/human_like_response_layer.py",
+      "app/human/multi_llm_runtime.py",
+      "app/ingestion/image_vision_runtime.py",
+      "app/ingestion/multimodal_router.py",
+      "app/medical_swarm/runtime.py",
+      "app/memory/provider.py",
+      "app/multi_llm/provider_runtime.py",
+      "app/orchestrator/prompt_orchestrator.py",
+      "app/persona/human_like_persona_pipeline.py",
+      "app/retrieval/semantic_provider.py",
+      "app/runtime/memory_quarantine_manifest.json",
+      "app/runtime/memory_store.py",
+      "app/runtime/p2071_2080_realtime_paper_runtime.py",
+      "app/runtime/p2223_broker_emulator.py",
+      "app/runtime/p2224_2226_institutional_core.py",
+      "app/runtime/p2227_2229_advanced_layer.py",
+      "app/runtime/provider_failover.py",
+      "app/runtime/response_builder.py",
+      "app/runtime/response_generation_engine.py",
+      "app/runtime/universal_conversation_authority.py",
+      "app/runtime/universal_conversation_authority_BACKUP_20260523_114422.py"
+    ],
+    "test_references": [],
+    "classification": "ACTIVE_CORE",
+    "reason": "matches cognition/runtime core marker"
+  },
+  {
+    "path": "app/domains/fitness_runtime.py",
+    "exists": true,
+    "module": "app.domains.fitness_runtime",
+    "token": "fitness_runtime",
+    "references_total": 3,
+    "app_references": [
+      "app/main.py",
+      "app/api/whatsapp.py",
+      "app/domains/universal_domain_router.py"
+    ],
+    "test_references": [],
+    "classification": "ACTIVE_CORE",
+    "reason": "matches cognition/runtime core marker"
+  },
+  {
+    "path": "app/eldora/core/agent_orchestrator.py",
+    "exists": true,
+    "module": "app.eldora.core.agent_orchestrator",
+    "token": "agent_orchestrator",
+    "references_total": 4,
+    "app_references": [
+      "app/api/eldora_async.py",
+      "app/runtime/level_b_dynamic_composer.py",
+      "app/runtime/level_b_shadow_runtime.py"
+    ],
+    "test_references": [
+      "tests/test_eldora_async_orchestrator.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 3"
+  },
+  {
+    "path": "app/eldora/core/audit_ledger.py",
+    "exists": true,
+    "module": "app.eldora.core.audit_ledger",
+    "token": "audit_ledger",
+    "references_total": 2,
+    "app_references": [
+      "app/api/eldora.py"
+    ],
+    "test_references": [
+      "tests/test_eldora_observability_core.py"
+    ],
+    "classification": "DANGEROUS_TO_TOUCH",
+    "reason": "runtime/router/provider/forensic marker"
+  },
+  {
+    "path": "app/eldora/core/distributed_runtime.py",
+    "exists": true,
+    "module": "app.eldora.core.distributed_runtime",
+    "token": "distributed_runtime",
+    "references_total": 6,
+    "app_references": [
+      "app/api/eldora_async.py",
+      "app/api/eldora_distributed.py",
+      "app/runtime/level_b_shadow_runtime.py",
+      "app/eldora/core/distributed_runtime_state.py"
+    ],
+    "test_references": [
+      "tests/test_eldora_async_orchestrator.py",
+      "tests/test_eldora_distributed_runtime.py"
+    ],
+    "classification": "DANGEROUS_TO_TOUCH",
+    "reason": "runtime/router/provider/forensic marker"
+  },
+  {
+    "path": "app/eldora/core/distributed_runtime_state.py",
+    "exists": true,
+    "module": "app.eldora.core.distributed_runtime_state",
+    "token": "distributed_runtime_state",
+    "references_total": 3,
+    "app_references": [
+      "app/api/eldora_distributed.py",
+      "app/eldora/core/distributed_runtime.py"
+    ],
+    "test_references": [
+      "tests/test_eldora_distributed_runtime.py"
+    ],
+    "classification": "DANGEROUS_TO_TOUCH",
+    "reason": "runtime/router/provider/forensic marker"
+  },
+  {
+    "path": "app/eldora/core/event_bus.py",
+    "exists": true,
+    "module": "app.eldora.core.event_bus",
+    "token": "event_bus",
+    "references_total": 2,
+    "app_references": [
+      "app/api/eldora.py"
+    ],
+    "test_references": [
+      "tests/test_eldora_observability_core.py"
+    ],
+    "classification": "DANGEROUS_TO_TOUCH",
+    "reason": "runtime/router/provider/forensic marker"
+  },
+  {
+    "path": "app/eldora/core/predictive_simulation_engine.py",
+    "exists": true,
+    "module": "app.eldora.core.predictive_simulation_engine",
+    "token": "predictive_simulation_engine",
+    "references_total": 3,
+    "app_references": [
+      "app/api/eldora_world.py",
+      "app/runtime/level_b_dynamic_composer.py"
+    ],
+    "test_references": [
+      "tests/test_eldora_world.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 2"
+  },
+  {
+    "path": "app/eldora/core/task_engine.py",
+    "exists": true,
+    "module": "app.eldora.core.task_engine",
+    "token": "task_engine",
+    "references_total": 2,
+    "app_references": [
+      "app/api/eldora_async.py"
+    ],
+    "test_references": [
+      "tests/test_eldora_async_orchestrator.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/embedding/provider.py",
+    "exists": true,
+    "module": "app.embedding.provider",
+    "token": "provider",
+    "references_total": 53,
+    "app_references": [
+      "app/main.py",
+      "app/admin/semantic_activation.py",
+      "app/api/eldora_persistence_workers.py",
+      "app/api/provider_registry_routes.py",
+      "app/human/multi_llm_runtime.py",
+      "app/ingestion/audio_transcription.py",
+      "app/medical_swarm/debate_engine.py",
+      "app/medical_swarm/personas.py",
+      "app/medical_swarm/runtime.py",
+      "app/multi_llm/orchestrator.py",
+      "app/multi_llm/provider_routes.py",
+      "app/multi_llm/provider_runtime.py",
+      "app/retrieval/provider.py",
+      "app/retrieval/semantic_provider.py",
+      "app/runtime/ai_provider_registry.py",
+      "app/runtime/canary_gate.py",
+      "app/runtime/capability_orchestrator.py",
+      "app/runtime/capability_recovery_bridge.py",
+      "app/runtime/cognitive_pipeline.py",
+      "app/runtime/context_priority_engine.py",
+      "app/runtime/conversation_quality_guard.py",
+      "app/runtime/embedding_cache.py",
+      "app/runtime/knowledge_extraction_engine.py",
+      "app/runtime/memory_quarantine_manifest.json",
+      "app/runtime/multi_provider_factual_provider.py"
+    ],
+    "test_references": [
+      "tests/test_eldora_llm_live.py",
+      "tests/test_eldora_persistence_workers.py",
+      "tests/test_p3_conversational_maturity_runtime.py",
+      "tests/test_p412c_factual_search_handoff.py",
+      "tests/test_p445a_non_destructive_humanization.py",
+      "tests/test_p445b_context_aware_provider.py",
+      "tests/test_p465g_retrieval_failsafe.py",
+      "tests/institutional/test_p1902g_source_validation_engine.py"
+    ],
+    "classification": "DANGEROUS_TO_TOUCH",
+    "reason": "runtime/router/provider/forensic marker"
+  },
+  {
+    "path": "app/humanization/universal_recovery_runtime.py",
+    "exists": true,
+    "module": "app.humanization.universal_recovery_runtime",
+    "token": "universal_recovery_runtime",
+    "references_total": 11,
+    "app_references": [
+      "app/main.py",
+      "app/admin/friendship_outbound_test.py",
+      "app/api/diagnostic_twilio.py",
+      "app/api/eldora_cognitive_runtime.py",
+      "app/api/whatsapp.py",
+      "app/memory/memory_graph.py",
+      "app/runtime/cognitive_pipeline.py",
+      "app/runtime/live_whatsapp_response.py",
+      "app/runtime/natural_response_layer.py",
+      "app/runtime/single_runtime_dispatcher.py"
+    ],
+    "test_references": [
+      "tests/test_identity_fallback_hotfix.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 10"
+  },
+  {
+    "path": "app/main.py.bak_p4_46x",
+    "exists": true,
+    "module": "app.main.py.bak_p4_46x",
+    "token": "main.py",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p463k_memory_whatsapp_contract.py"
+    ],
+    "classification": "DANGEROUS_TO_TOUCH",
+    "reason": "runtime/router/provider/forensic marker"
+  },
+  {
+    "path": "app/main_core.py",
+    "exists": true,
+    "module": "app.main_core",
+    "token": "main_core",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "ACTIVE_CORE",
+    "reason": "matches cognition/runtime core marker"
+  },
+  {
+    "path": "app/mind/p5_5v_pedigree_extractor/extractor.py",
+    "exists": true,
+    "module": "app.mind.p5_5v_pedigree_extractor.extractor",
+    "token": "extractor",
+    "references_total": 23,
+    "app_references": [
+      "app/eldora/canonical_registry.py",
+      "app/humanization/anti_llm_speech_filter.py",
+      "app/humanization/conversation_maturity_engine.py",
+      "app/humanization/conversation_training_runtime.py",
+      "app/humanization/humanization_reward_engine.py",
+      "app/humanization/humanization_runtime.py",
+      "app/humanization/multi_ai_conversation_simulator.py",
+      "app/humanization/multi_message_reply_runtime.py",
+      "app/humanization/naturalness_judge.py",
+      "app/humanization/social_dataset_builder.py",
+      "app/humanization/social_memory_provider.py",
+      "app/humanization/social_observation_layer.py",
+      "app/humanization/social_pattern_extractor.py",
+      "app/runtime/memory_quarantine_manifest.json",
+      "app/mind/p5_5u_real_result_claim_extractor/__init__.py",
+      "app/mind/p5_5v_pedigree_extractor/__init__.py",
+      "app/mind/p5_5w_video_metadata_extractor/extractor.py",
+      "app/mind/p5_5w_video_metadata_extractor/__init__.py",
+      "app/mind/p5_6f_autonomous_video_discovery_loop/loop.py"
+    ],
+    "test_references": [
+      "tests/test_p491b_zip_archive_reader_extractor.py",
+      "tests/test_p55u_real_result_claim_extractor.py",
+      "tests/test_p55v_pedigree_extractor.py",
+      "tests/test_p55w_video_metadata_extractor.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 19"
+  },
+  {
+    "path": "app/p10_activation_stack/",
+    "exists": true,
+    "module": "app.p10_activation_stack.",
+    "token": "p10_activation_stack",
+    "references_total": 2,
+    "app_references": [
+      "app/p10_activation_stack/controlled_consumption.py"
+    ],
+    "test_references": [
+      "tests/test_p10_to_p15_activation_stack.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/p10_activation_stack/__init__.py",
+    "exists": true,
+    "module": "app.p10_activation_stack",
+    "token": "__init__",
+    "references_total": 94,
+    "app_references": [
+      "app/embedding/provider.py",
+      "app/human/human_like_response_layer.py",
+      "app/human/multi_llm_runtime.py",
+      "app/ingestion/image_vision_runtime.py",
+      "app/ingestion/multimodal_router.py",
+      "app/medical_swarm/runtime.py",
+      "app/memory/provider.py",
+      "app/multi_llm/provider_runtime.py",
+      "app/orchestrator/prompt_orchestrator.py",
+      "app/p10_activation_stack/controlled_consumption.py",
+      "app/persona/human_like_persona_pipeline.py",
+      "app/retrieval/semantic_provider.py",
+      "app/runtime/memory_quarantine_manifest.json",
+      "app/runtime/memory_store.py",
+      "app/runtime/p2071_2080_realtime_paper_runtime.py",
+      "app/runtime/p2223_broker_emulator.py",
+      "app/runtime/p2224_2226_institutional_core.py",
+      "app/runtime/p2227_2229_advanced_layer.py",
+      "app/runtime/provider_failover.py",
+      "app/runtime/response_builder.py",
+      "app/runtime/response_generation_engine.py",
+      "app/runtime/universal_conversation_authority.py",
+      "app/runtime/universal_conversation_authority_BACKUP_20260523_114422.py",
+      "app/vision/consensus_judge.py",
+      "app/vision/multi_vision_consensus_runtime.py"
+    ],
+    "test_references": [
+      "tests/test_p10_to_p15_activation_stack.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 93"
+  },
+  {
+    "path": "app/p10_activation_stack/activation_policy.py",
+    "exists": true,
+    "module": "app.p10_activation_stack.activation_policy",
+    "token": "activation_policy",
+    "references_total": 2,
+    "app_references": [
+      "app/p10_activation_stack/controlled_consumption.py"
+    ],
+    "test_references": [
+      "tests/test_p10_to_p15_activation_stack.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/p10_activation_stack/certification.py",
+    "exists": true,
+    "module": "app.p10_activation_stack.certification",
+    "token": "certification",
+    "references_total": 20,
+    "app_references": [
+      "app/p17x_causality_research_runtime/engine.py",
+      "app/runtime/p2071_2080_realtime_paper_runtime.py",
+      "app/runtime/p2081_2090_realtime_portfolio_governance.py",
+      "app/runtime/p2091_2100_realtime_intelligence_layer.py",
+      "app/runtime/p2101_2110_autonomous_paper_operations.py",
+      "app/runtime/p2111_2120_maximum_technical_capacity.py",
+      "app/modules/usde_core/full_runtime_certification.py"
+    ],
+    "test_references": [
+      "tests/test_p10_to_p15_activation_stack.py",
+      "tests/test_p2071_2080b_repair.py",
+      "tests/test_p2071_2080_realtime_paper_runtime.py",
+      "tests/test_p2081_2090_realtime_portfolio_governance.py",
+      "tests/test_p2091_2100_realtime_intelligence_layer.py",
+      "tests/test_p2101_2110_autonomous_paper_operations.py",
+      "tests/test_p2111_2120_maximum_technical_capacity.py",
+      "tests/test_p2121_plus_continuous_max_capacity_audit.py",
+      "tests/test_p2131_2150_ftmo_paper_compliance_assurance.py",
+      "tests/test_p488_technical_gap_detector.py",
+      "tests/test_p490_sovereign_certification.py",
+      "tests/modules/test_p449g_live_integration_certification.py",
+      "tests/modules/test_usde_full_runtime_certification.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 7"
+  },
+  {
+    "path": "app/p10_activation_stack/controlled_consumption.py",
+    "exists": true,
+    "module": "app.p10_activation_stack.controlled_consumption",
+    "token": "controlled_consumption",
+    "references_total": 2,
+    "app_references": [
+      "app/p10_activation_stack/rollback.py"
+    ],
+    "test_references": [
+      "tests/test_p10_to_p15_activation_stack.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/p10_activation_stack/observability.py",
+    "exists": true,
+    "module": "app.p10_activation_stack.observability",
+    "token": "observability",
+    "references_total": 2,
+    "app_references": [
+      "app/main.py",
+      "app/runtime/p2161_2220_full_governance_system.py"
+    ],
+    "test_references": [],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 2"
+  },
+  {
+    "path": "app/p10_activation_stack/risk_governance.py",
+    "exists": true,
+    "module": "app.p10_activation_stack.risk_governance",
+    "token": "risk_governance",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p10_to_p15_activation_stack.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 1"
+  },
+  {
+    "path": "app/p10_activation_stack/rollback.py",
+    "exists": true,
+    "module": "app.p10_activation_stack.rollback",
+    "token": "rollback",
+    "references_total": 16,
+    "app_references": [
+      "app/companionship/behavior_modeling.py",
+      "app/p10_activation_stack/activation_policy.py",
+      "app/p10_activation_stack/controlled_consumption.py",
+      "app/p16_real_use_case/controlled_response_shadow.py",
+      "app/p16_real_use_case/limited_response_modification.py",
+      "app/p16_real_use_case/response_modification_safety_gate.py",
+      "app/p16_real_use_case/response_shadow_observation.py",
+      "app/p8_shadow/real_planner.py"
+    ],
+    "test_references": [
+      "tests/test_p10_to_p15_activation_stack.py",
+      "tests/test_p19p37b_behavior_modeling.py",
+      "tests/test_p483_safe_code_generation_gate.py",
+      "tests/test_p484_capability_reconstruction_engine.py",
+      "tests/test_p489b_safe_physical_file_routing.py",
+      "tests/test_p489c_limited_routing_execution.py",
+      "tests/test_p489d_post_routing_validation.py",
+      "tests/test_p7_integration_guardrails.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 8"
+  },
+  {
+    "path": "app/p12_cloud_export_verification_ledger/",
+    "exists": true,
+    "module": "app.p12_cloud_export_verification_ledger.",
+    "token": "p12_cloud_export_verification_ledger",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p122_cloud_export_verification_ledger.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 1"
+  },
+  {
+    "path": "app/p12_cloud_export_verification_ledger/engine.py",
+    "exists": true,
+    "module": "app.p12_cloud_export_verification_ledger.engine",
+    "token": "engine",
+    "references_total": 158,
+    "app_references": [
+      "app/admin/public_runtime.py",
+      "app/api/eldora_action.py",
+      "app/api/eldora_async.py",
+      "app/api/eldora_auth.py",
+      "app/api/eldora_autonomous.py",
+      "app/api/eldora_autonomy.py",
+      "app/api/eldora_cognition.py",
+      "app/api/eldora_embodied.py",
+      "app/api/eldora_evolution.py",
+      "app/api/eldora_infrastructure.py",
+      "app/api/eldora_liveos.py",
+      "app/api/eldora_meta.py",
+      "app/api/eldora_multimodal.py",
+      "app/api/eldora_runtime_supervisor.py",
+      "app/api/eldora_security.py",
+      "app/api/eldora_semantic.py",
+      "app/api/eldora_social.py",
+      "app/api/eldora_swarm.py",
+      "app/api/eldora_world.py",
+      "app/api/whatsapp.py",
+      "app/companionship/final_audit_dossier.py",
+      "app/companionship/safe_recovery_adapter.py",
+      "app/eldora/canonical_registry.py",
+      "app/friendship/proactive_scheduler.py",
+      "app/medical_swarm/validation_routes.py"
+    ],
+    "test_references": [
+      "tests/test_concern_engine.py",
+      "tests/test_context_resolution.py",
+      "tests/test_eldora_action.py",
+      "tests/test_eldora_async_orchestrator.py",
+      "tests/test_eldora_auth_session_rate_limit.py",
+      "tests/test_eldora_autonomous_runtime.py",
+      "tests/test_eldora_autonomy.py",
+      "tests/test_eldora_cognition.py",
+      "tests/test_eldora_embodied.py",
+      "tests/test_eldora_evolution.py",
+      "tests/test_eldora_infrastructure.py",
+      "tests/test_eldora_liveos.py",
+      "tests/test_eldora_meta.py",
+      "tests/test_eldora_multimodal.py",
+      "tests/test_eldora_multitenant_rbac_policy.py",
+      "tests/test_eldora_runtime_supervisor.py",
+      "tests/test_eldora_semantic_memory.py",
+      "tests/test_eldora_social.py",
+      "tests/test_eldora_swarm.py",
+      "tests/test_eldora_world.py",
+      "tests/test_emotional_continuity_engine.py",
+      "tests/test_intent_arbitration_priority_engine.py",
+      "tests/test_p122_cloud_export_verification_ledger.py",
+      "tests/test_p17x_causality_research_runtime.py",
+      "tests/test_p19p37e_self_reflection_engine.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 75"
+  },
+  {
+    "path": "app/p16_real_use_case/",
+    "exists": true,
+    "module": "app.p16_real_use_case.",
+    "token": "p16_real_use_case",
+    "references_total": 14,
+    "app_references": [
+      "app/p16_real_use_case/controlled_response_shadow.py",
+      "app/p16_real_use_case/limited_response_awareness.py",
+      "app/p16_real_use_case/limited_response_modification.py",
+      "app/p16_real_use_case/response_awareness_quality.py",
+      "app/p16_real_use_case/response_modification_safety_gate.py",
+      "app/p16_real_use_case/response_shadow_observation.py"
+    ],
+    "test_references": [
+      "tests/test_p16a_real_use_case_consumption.py",
+      "tests/test_p16b_internal_only_consumption.py",
+      "tests/test_p16c_limited_response_awareness.py",
+      "tests/test_p16d_response_awareness_quality.py",
+      "tests/test_p16e_limited_response_modification.py",
+      "tests/test_p16f_response_modification_safety_gate.py",
+      "tests/test_p16g_controlled_response_shadow.py",
+      "tests/test_p16h_response_shadow_observation.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 6"
+  },
+  {
+    "path": "app/p16_real_use_case/__init__.py",
+    "exists": true,
+    "module": "app.p16_real_use_case",
+    "token": "__init__",
+    "references_total": 106,
+    "app_references": [
+      "app/embedding/provider.py",
+      "app/human/human_like_response_layer.py",
+      "app/human/multi_llm_runtime.py",
+      "app/ingestion/image_vision_runtime.py",
+      "app/ingestion/multimodal_router.py",
+      "app/medical_swarm/runtime.py",
+      "app/memory/provider.py",
+      "app/multi_llm/provider_runtime.py",
+      "app/orchestrator/prompt_orchestrator.py",
+      "app/p16_real_use_case/controlled_response_shadow.py",
+      "app/p16_real_use_case/limited_response_awareness.py",
+      "app/p16_real_use_case/limited_response_modification.py",
+      "app/p16_real_use_case/response_awareness_quality.py",
+      "app/p16_real_use_case/response_modification_safety_gate.py",
+      "app/p16_real_use_case/response_shadow_observation.py",
+      "app/persona/human_like_persona_pipeline.py",
+      "app/retrieval/semantic_provider.py",
+      "app/runtime/memory_quarantine_manifest.json",
+      "app/runtime/memory_store.py",
+      "app/runtime/p2071_2080_realtime_paper_runtime.py",
+      "app/runtime/p2223_broker_emulator.py",
+      "app/runtime/p2224_2226_institutional_core.py",
+      "app/runtime/p2227_2229_advanced_layer.py",
+      "app/runtime/provider_failover.py",
+      "app/runtime/response_builder.py"
+    ],
+    "test_references": [
+      "tests/test_p16a_real_use_case_consumption.py",
+      "tests/test_p16b_internal_only_consumption.py",
+      "tests/test_p16c_limited_response_awareness.py",
+      "tests/test_p16d_response_awareness_quality.py",
+      "tests/test_p16e_limited_response_modification.py",
+      "tests/test_p16f_response_modification_safety_gate.py",
+      "tests/test_p16g_controlled_response_shadow.py",
+      "tests/test_p16h_response_shadow_observation.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 98"
+  },
+  {
+    "path": "app/p16_real_use_case/controlled_response_shadow.py",
+    "exists": true,
+    "module": "app.p16_real_use_case.controlled_response_shadow",
+    "token": "controlled_response_shadow",
+    "references_total": 2,
+    "app_references": [
+      "app/p16_real_use_case/response_shadow_observation.py"
+    ],
+    "test_references": [
+      "tests/test_p16g_controlled_response_shadow.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/p16_real_use_case/internal_only_consumption.py",
+    "exists": true,
+    "module": "app.p16_real_use_case.internal_only_consumption",
+    "token": "internal_only_consumption",
+    "references_total": 2,
+    "app_references": [
+      "app/p16_real_use_case/limited_response_awareness.py"
+    ],
+    "test_references": [
+      "tests/test_p16b_internal_only_consumption.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/p16_real_use_case/limited_response_awareness.py",
+    "exists": true,
+    "module": "app.p16_real_use_case.limited_response_awareness",
+    "token": "limited_response_awareness",
+    "references_total": 3,
+    "app_references": [
+      "app/p16_real_use_case/limited_response_modification.py",
+      "app/p16_real_use_case/response_awareness_quality.py"
+    ],
+    "test_references": [
+      "tests/test_p16c_limited_response_awareness.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 2"
+  },
+  {
+    "path": "app/p16_real_use_case/limited_response_modification.py",
+    "exists": true,
+    "module": "app.p16_real_use_case.limited_response_modification",
+    "token": "limited_response_modification",
+    "references_total": 3,
+    "app_references": [
+      "app/p16_real_use_case/controlled_response_shadow.py",
+      "app/p16_real_use_case/response_modification_safety_gate.py"
+    ],
+    "test_references": [
+      "tests/test_p16e_limited_response_modification.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 2"
+  },
+  {
+    "path": "app/p16_real_use_case/real_use_case_runner.py",
+    "exists": true,
+    "module": "app.p16_real_use_case.real_use_case_runner",
+    "token": "real_use_case_runner",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p16a_real_use_case_consumption.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 1"
+  },
+  {
+    "path": "app/p16_real_use_case/response_awareness_quality.py",
+    "exists": true,
+    "module": "app.p16_real_use_case.response_awareness_quality",
+    "token": "response_awareness_quality",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p16d_response_awareness_quality.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 1"
+  },
+  {
+    "path": "app/p16_real_use_case/response_modification_safety_gate.py",
+    "exists": true,
+    "module": "app.p16_real_use_case.response_modification_safety_gate",
+    "token": "response_modification_safety_gate",
+    "references_total": 2,
+    "app_references": [
+      "app/p16_real_use_case/controlled_response_shadow.py"
+    ],
+    "test_references": [
+      "tests/test_p16f_response_modification_safety_gate.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/p16_real_use_case/response_shadow_observation.py",
+    "exists": true,
+    "module": "app.p16_real_use_case.response_shadow_observation",
+    "token": "response_shadow_observation",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p16h_response_shadow_observation.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 1"
+  },
+  {
+    "path": "app/p17_value_proof/",
+    "exists": true,
+    "module": "app.p17_value_proof.",
+    "token": "p17_value_proof",
+    "references_total": 5,
+    "app_references": [
+      "app/p17_value_proof/eldora_human_review.py",
+      "app/p17_value_proof/review_decision_aggregation.py"
+    ],
+    "test_references": [
+      "tests/test_p17b_human_review.py",
+      "tests/test_p17c_review_decision_aggregation.py",
+      "tests/test_p17_eldora_value_proof.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 2"
+  },
+  {
+    "path": "app/p17_value_proof/__init__.py",
+    "exists": true,
+    "module": "app.p17_value_proof",
+    "token": "__init__",
+    "references_total": 97,
+    "app_references": [
+      "app/embedding/provider.py",
+      "app/human/human_like_response_layer.py",
+      "app/human/multi_llm_runtime.py",
+      "app/ingestion/image_vision_runtime.py",
+      "app/ingestion/multimodal_router.py",
+      "app/medical_swarm/runtime.py",
+      "app/memory/provider.py",
+      "app/multi_llm/provider_runtime.py",
+      "app/orchestrator/prompt_orchestrator.py",
+      "app/p17_value_proof/eldora_human_review.py",
+      "app/p17_value_proof/review_decision_aggregation.py",
+      "app/persona/human_like_persona_pipeline.py",
+      "app/retrieval/semantic_provider.py",
+      "app/runtime/memory_quarantine_manifest.json",
+      "app/runtime/memory_store.py",
+      "app/runtime/p2071_2080_realtime_paper_runtime.py",
+      "app/runtime/p2223_broker_emulator.py",
+      "app/runtime/p2224_2226_institutional_core.py",
+      "app/runtime/p2227_2229_advanced_layer.py",
+      "app/runtime/provider_failover.py",
+      "app/runtime/response_builder.py",
+      "app/runtime/response_generation_engine.py",
+      "app/runtime/universal_conversation_authority.py",
+      "app/runtime/universal_conversation_authority_BACKUP_20260523_114422.py",
+      "app/vision/consensus_judge.py"
+    ],
+    "test_references": [
+      "tests/test_p17b_human_review.py",
+      "tests/test_p17c_review_decision_aggregation.py",
+      "tests/test_p17_eldora_value_proof.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 94"
+  },
+  {
+    "path": "app/p17_value_proof/eldora_human_review.py",
+    "exists": true,
+    "module": "app.p17_value_proof.eldora_human_review",
+    "token": "eldora_human_review",
+    "references_total": 2,
+    "app_references": [
+      "app/p17_value_proof/review_decision_aggregation.py"
+    ],
+    "test_references": [
+      "tests/test_p17b_human_review.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/p17_value_proof/eldora_value_proof.py",
+    "exists": true,
+    "module": "app.p17_value_proof.eldora_value_proof",
+    "token": "eldora_value_proof",
+    "references_total": 2,
+    "app_references": [
+      "app/p17_value_proof/eldora_human_review.py"
+    ],
+    "test_references": [
+      "tests/test_p17_eldora_value_proof.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/p17_value_proof/review_decision_aggregation.py",
+    "exists": true,
+    "module": "app.p17_value_proof.review_decision_aggregation",
+    "token": "review_decision_aggregation",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p17c_review_decision_aggregation.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 1"
+  },
+  {
+    "path": "app/p17x_causality_research_runtime/",
+    "exists": true,
+    "module": "app.p17x_causality_research_runtime.",
+    "token": "p17x_causality_research_runtime",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p17x_causality_research_runtime.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 1"
+  },
+  {
+    "path": "app/p17x_causality_research_runtime/engine.py",
+    "exists": true,
+    "module": "app.p17x_causality_research_runtime.engine",
+    "token": "engine",
+    "references_total": 158,
+    "app_references": [
+      "app/admin/public_runtime.py",
+      "app/api/eldora_action.py",
+      "app/api/eldora_async.py",
+      "app/api/eldora_auth.py",
+      "app/api/eldora_autonomous.py",
+      "app/api/eldora_autonomy.py",
+      "app/api/eldora_cognition.py",
+      "app/api/eldora_embodied.py",
+      "app/api/eldora_evolution.py",
+      "app/api/eldora_infrastructure.py",
+      "app/api/eldora_liveos.py",
+      "app/api/eldora_meta.py",
+      "app/api/eldora_multimodal.py",
+      "app/api/eldora_runtime_supervisor.py",
+      "app/api/eldora_security.py",
+      "app/api/eldora_semantic.py",
+      "app/api/eldora_social.py",
+      "app/api/eldora_swarm.py",
+      "app/api/eldora_world.py",
+      "app/api/whatsapp.py",
+      "app/companionship/final_audit_dossier.py",
+      "app/companionship/safe_recovery_adapter.py",
+      "app/eldora/canonical_registry.py",
+      "app/friendship/proactive_scheduler.py",
+      "app/medical_swarm/validation_routes.py"
+    ],
+    "test_references": [
+      "tests/test_concern_engine.py",
+      "tests/test_context_resolution.py",
+      "tests/test_eldora_action.py",
+      "tests/test_eldora_async_orchestrator.py",
+      "tests/test_eldora_auth_session_rate_limit.py",
+      "tests/test_eldora_autonomous_runtime.py",
+      "tests/test_eldora_autonomy.py",
+      "tests/test_eldora_cognition.py",
+      "tests/test_eldora_embodied.py",
+      "tests/test_eldora_evolution.py",
+      "tests/test_eldora_infrastructure.py",
+      "tests/test_eldora_liveos.py",
+      "tests/test_eldora_meta.py",
+      "tests/test_eldora_multimodal.py",
+      "tests/test_eldora_multitenant_rbac_policy.py",
+      "tests/test_eldora_runtime_supervisor.py",
+      "tests/test_eldora_semantic_memory.py",
+      "tests/test_eldora_social.py",
+      "tests/test_eldora_swarm.py",
+      "tests/test_eldora_world.py",
+      "tests/test_emotional_continuity_engine.py",
+      "tests/test_intent_arbitration_priority_engine.py",
+      "tests/test_p122_cloud_export_verification_ledger.py",
+      "tests/test_p17x_causality_research_runtime.py",
+      "tests/test_p19p37e_self_reflection_engine.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 75"
+  },
+  {
+    "path": "app/p18_conversational_execution/",
+    "exists": true,
+    "module": "app.p18_conversational_execution.",
+    "token": "p18_conversational_execution",
+    "references_total": 13,
+    "app_references": [
+      "app/p18_conversational_execution/failure_fixes.py",
+      "app/p18_conversational_execution/internal_pilot.py",
+      "app/p18_conversational_execution/response_executor.py",
+      "app/p18_conversational_execution/runtime_hook.py",
+      "app/p18_conversational_execution/selection_gate.py",
+      "app/p19_real_world_validation/whatsapp_real_traffic_eval.py"
+    ],
+    "test_references": [
+      "tests/test_p18b_runtime_hook.py",
+      "tests/test_p18c_shadow_diff.py",
+      "tests/test_p18d_selection_gate.py",
+      "tests/test_p18f_pilot_flags.py",
+      "tests/test_p18g_internal_pilot.py",
+      "tests/test_p18_conversational_execution.py",
+      "tests/test_p19a_3_failure_fixes.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 6"
+  },
+  {
+    "path": "app/p18_conversational_execution/__init__.py",
+    "exists": true,
+    "module": "app.p18_conversational_execution",
+    "token": "__init__",
+    "references_total": 105,
+    "app_references": [
+      "app/embedding/provider.py",
+      "app/human/human_like_response_layer.py",
+      "app/human/multi_llm_runtime.py",
+      "app/ingestion/image_vision_runtime.py",
+      "app/ingestion/multimodal_router.py",
+      "app/medical_swarm/runtime.py",
+      "app/memory/provider.py",
+      "app/multi_llm/provider_runtime.py",
+      "app/orchestrator/prompt_orchestrator.py",
+      "app/p18_conversational_execution/failure_fixes.py",
+      "app/p18_conversational_execution/internal_pilot.py",
+      "app/p18_conversational_execution/response_executor.py",
+      "app/p18_conversational_execution/runtime_hook.py",
+      "app/p18_conversational_execution/selection_gate.py",
+      "app/p19_real_world_validation/whatsapp_real_traffic_eval.py",
+      "app/persona/human_like_persona_pipeline.py",
+      "app/retrieval/semantic_provider.py",
+      "app/runtime/memory_quarantine_manifest.json",
+      "app/runtime/memory_store.py",
+      "app/runtime/p2071_2080_realtime_paper_runtime.py",
+      "app/runtime/p2223_broker_emulator.py",
+      "app/runtime/p2224_2226_institutional_core.py",
+      "app/runtime/p2227_2229_advanced_layer.py",
+      "app/runtime/provider_failover.py",
+      "app/runtime/response_builder.py"
+    ],
+    "test_references": [
+      "tests/test_p18b_runtime_hook.py",
+      "tests/test_p18c_shadow_diff.py",
+      "tests/test_p18d_selection_gate.py",
+      "tests/test_p18f_pilot_flags.py",
+      "tests/test_p18g_internal_pilot.py",
+      "tests/test_p18_conversational_execution.py",
+      "tests/test_p19a_3_failure_fixes.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 98"
+  },
+  {
+    "path": "app/p18_conversational_execution/context_guard.py",
+    "exists": true,
+    "module": "app.p18_conversational_execution.context_guard",
+    "token": "context_guard",
+    "references_total": 2,
+    "app_references": [
+      "app/p18_conversational_execution/failure_fixes.py"
+    ],
+    "test_references": [
+      "tests/test_p19a_3_failure_fixes.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/p18_conversational_execution/failure_fixes.py",
+    "exists": true,
+    "module": "app.p18_conversational_execution.failure_fixes",
+    "token": "failure_fixes",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p19a_3_failure_fixes.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 1"
+  },
+  {
+    "path": "app/p18_conversational_execution/intent_router.py",
+    "exists": true,
+    "module": "app.p18_conversational_execution.intent_router",
+    "token": "intent_router",
+    "references_total": 5,
+    "app_references": [
+      "app/api/eldora_cognitive_runtime.py",
+      "app/multi_llm/orchestrator.py",
+      "app/p18_conversational_execution/response_executor.py",
+      "app/runtime/cognitive_pipeline.py"
+    ],
+    "test_references": [
+      "tests/test_advanced_runtime_modules_real.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 4"
+  },
+  {
+    "path": "app/p18_conversational_execution/internal_pilot.py",
+    "exists": true,
+    "module": "app.p18_conversational_execution.internal_pilot",
+    "token": "internal_pilot",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p18g_internal_pilot.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 1"
+  },
+  {
+    "path": "app/p18_conversational_execution/pilot_flags.py",
+    "exists": true,
+    "module": "app.p18_conversational_execution.pilot_flags",
+    "token": "pilot_flags",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p18f_pilot_flags.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 1"
+  },
+  {
+    "path": "app/p18_conversational_execution/response_executor.py",
+    "exists": true,
+    "module": "app.p18_conversational_execution.response_executor",
+    "token": "response_executor",
+    "references_total": 5,
+    "app_references": [
+      "app/p18_conversational_execution/runtime_hook.py",
+      "app/p18_conversational_execution/selection_gate.py",
+      "app/p19_real_world_validation/whatsapp_real_traffic_eval.py"
+    ],
+    "test_references": [
+      "tests/test_p18c_shadow_diff.py",
+      "tests/test_p18_conversational_execution.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 3"
+  },
+  {
+    "path": "app/p18_conversational_execution/runtime_hook.py",
+    "exists": true,
+    "module": "app.p18_conversational_execution.runtime_hook",
+    "token": "runtime_hook",
+    "references_total": 3,
+    "app_references": [
+      "app/runtime/p19p3_safe_runtime_hook.py"
+    ],
+    "test_references": [
+      "tests/test_p18b_runtime_hook.py",
+      "tests/test_p19p3_safe_runtime_hook.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/p18_conversational_execution/selection_gate.py",
+    "exists": true,
+    "module": "app.p18_conversational_execution.selection_gate",
+    "token": "selection_gate",
+    "references_total": 2,
+    "app_references": [
+      "app/p18_conversational_execution/internal_pilot.py"
+    ],
+    "test_references": [
+      "tests/test_p18d_selection_gate.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/p18_conversational_execution/shadow_diff.py",
+    "exists": true,
+    "module": "app.p18_conversational_execution.shadow_diff",
+    "token": "shadow_diff",
+    "references_total": 3,
+    "app_references": [
+      "app/p18_conversational_execution/selection_gate.py",
+      "app/p19_real_world_validation/whatsapp_real_traffic_eval.py"
+    ],
+    "test_references": [
+      "tests/test_p18c_shadow_diff.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 2"
+  },
+  {
+    "path": "app/p19_real_world_validation/",
+    "exists": true,
+    "module": "app.p19_real_world_validation.",
+    "token": "p19_real_world_validation",
+    "references_total": 2,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p19a_1_improved_conversation.py",
+      "tests/test_p19a_whatsapp_real_traffic_eval.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 2"
+  },
+  {
+    "path": "app/p19_real_world_validation/__init__.py",
+    "exists": true,
+    "module": "app.p19_real_world_validation",
+    "token": "__init__",
+    "references_total": 94,
+    "app_references": [
+      "app/embedding/provider.py",
+      "app/human/human_like_response_layer.py",
+      "app/human/multi_llm_runtime.py",
+      "app/ingestion/image_vision_runtime.py",
+      "app/ingestion/multimodal_router.py",
+      "app/medical_swarm/runtime.py",
+      "app/memory/provider.py",
+      "app/multi_llm/provider_runtime.py",
+      "app/orchestrator/prompt_orchestrator.py",
+      "app/persona/human_like_persona_pipeline.py",
+      "app/retrieval/semantic_provider.py",
+      "app/runtime/memory_quarantine_manifest.json",
+      "app/runtime/memory_store.py",
+      "app/runtime/p2071_2080_realtime_paper_runtime.py",
+      "app/runtime/p2223_broker_emulator.py",
+      "app/runtime/p2224_2226_institutional_core.py",
+      "app/runtime/p2227_2229_advanced_layer.py",
+      "app/runtime/provider_failover.py",
+      "app/runtime/response_builder.py",
+      "app/runtime/response_generation_engine.py",
+      "app/runtime/universal_conversation_authority.py",
+      "app/runtime/universal_conversation_authority_BACKUP_20260523_114422.py",
+      "app/vision/consensus_judge.py",
+      "app/vision/multi_vision_consensus_runtime.py",
+      "app/vision/visual_followup_resolver.py"
+    ],
+    "test_references": [
+      "tests/test_p19a_1_improved_conversation.py",
+      "tests/test_p19a_whatsapp_real_traffic_eval.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 92"
+  },
+  {
+    "path": "app/p19_real_world_validation/whatsapp_real_traffic_eval.py",
+    "exists": true,
+    "module": "app.p19_real_world_validation.whatsapp_real_traffic_eval",
+    "token": "whatsapp_real_traffic_eval",
+    "references_total": 2,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p19a_1_improved_conversation.py",
+      "tests/test_p19a_whatsapp_real_traffic_eval.py"
+    ],
+    "classification": "DANGEROUS_TO_TOUCH",
+    "reason": "runtime/router/provider/forensic marker"
+  },
+  {
+    "path": "app/p7_adapters/",
+    "exists": true,
+    "module": "app.p7_adapters.",
+    "token": "p7_adapters",
+    "references_total": 3,
+    "app_references": [
+      "app/p7_adapters/hierarchical_planner_adapter.py",
+      "app/runtime/level_b_dynamic_composer.py"
+    ],
+    "test_references": [
+      "tests/test_p7_isolated_adapters.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 2"
+  },
+  {
+    "path": "app/p7_adapters/__init__.py",
+    "exists": true,
+    "module": "app.p7_adapters",
+    "token": "__init__",
+    "references_total": 95,
+    "app_references": [
+      "app/embedding/provider.py",
+      "app/human/human_like_response_layer.py",
+      "app/human/multi_llm_runtime.py",
+      "app/ingestion/image_vision_runtime.py",
+      "app/ingestion/multimodal_router.py",
+      "app/medical_swarm/runtime.py",
+      "app/memory/provider.py",
+      "app/multi_llm/provider_runtime.py",
+      "app/orchestrator/prompt_orchestrator.py",
+      "app/p7_adapters/hierarchical_planner_adapter.py",
+      "app/persona/human_like_persona_pipeline.py",
+      "app/retrieval/semantic_provider.py",
+      "app/runtime/level_b_dynamic_composer.py",
+      "app/runtime/memory_quarantine_manifest.json",
+      "app/runtime/memory_store.py",
+      "app/runtime/p2071_2080_realtime_paper_runtime.py",
+      "app/runtime/p2223_broker_emulator.py",
+      "app/runtime/p2224_2226_institutional_core.py",
+      "app/runtime/p2227_2229_advanced_layer.py",
+      "app/runtime/provider_failover.py",
+      "app/runtime/response_builder.py",
+      "app/runtime/response_generation_engine.py",
+      "app/runtime/universal_conversation_authority.py",
+      "app/runtime/universal_conversation_authority_BACKUP_20260523_114422.py",
+      "app/vision/consensus_judge.py"
+    ],
+    "test_references": [
+      "tests/test_p7_isolated_adapters.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 94"
+  },
+  {
+    "path": "app/p7_adapters/hierarchical_contracts.py",
+    "exists": true,
+    "module": "app.p7_adapters.hierarchical_contracts",
+    "token": "hierarchical_contracts",
+    "references_total": 2,
+    "app_references": [
+      "app/p7_adapters/hierarchical_planner_adapter.py"
+    ],
+    "test_references": [
+      "tests/test_p7_isolated_adapters.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/p7_adapters/hierarchical_planner_adapter.py",
+    "exists": true,
+    "module": "app.p7_adapters.hierarchical_planner_adapter",
+    "token": "hierarchical_planner_adapter",
+    "references_total": 2,
+    "app_references": [
+      "app/runtime/level_b_dynamic_composer.py"
+    ],
+    "test_references": [
+      "tests/test_p7_isolated_adapters.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/p7_adapters/oversight_contracts.py",
+    "exists": true,
+    "module": "app.p7_adapters.oversight_contracts",
+    "token": "oversight_contracts",
+    "references_total": 2,
+    "app_references": [
+      "app/p7_adapters/oversight_shadow_adapter.py"
+    ],
+    "test_references": [
+      "tests/test_p7_isolated_adapters.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/p7_adapters/oversight_shadow_adapter.py",
+    "exists": true,
+    "module": "app.p7_adapters.oversight_shadow_adapter",
+    "token": "oversight_shadow_adapter",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p7_isolated_adapters.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 1"
+  },
+  {
+    "path": "app/p8_shadow/",
+    "exists": true,
+    "module": "app.p8_shadow.",
+    "token": "p8_shadow",
+    "references_total": 12,
+    "app_references": [
+      "app/p16_real_use_case/internal_only_consumption.py",
+      "app/p16_real_use_case/real_use_case_runner.py",
+      "app/p17_value_proof/eldora_value_proof.py",
+      "app/p8_shadow/planner_consumption_contract.py",
+      "app/p8_shadow/planner_sandbox.py",
+      "app/p8_shadow/telemetry.py",
+      "app/p9_runtime_consumption/planner_injection.py"
+    ],
+    "test_references": [
+      "tests/test_p8_12_planner_active_policy.py",
+      "tests/test_p8_15_real_planner.py",
+      "tests/test_p8_19_planner_sandbox.py",
+      "tests/test_p8_23_consumption_contract.py",
+      "tests/test_p8_shadow_implementation.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 7"
+  },
+  {
+    "path": "app/p8_shadow/__init__.py",
+    "exists": true,
+    "module": "app.p8_shadow",
+    "token": "__init__",
+    "references_total": 103,
+    "app_references": [
+      "app/embedding/provider.py",
+      "app/human/human_like_response_layer.py",
+      "app/human/multi_llm_runtime.py",
+      "app/ingestion/image_vision_runtime.py",
+      "app/ingestion/multimodal_router.py",
+      "app/medical_swarm/runtime.py",
+      "app/memory/provider.py",
+      "app/multi_llm/provider_runtime.py",
+      "app/orchestrator/prompt_orchestrator.py",
+      "app/p16_real_use_case/internal_only_consumption.py",
+      "app/p16_real_use_case/real_use_case_runner.py",
+      "app/p17_value_proof/eldora_value_proof.py",
+      "app/p8_shadow/planner_consumption_contract.py",
+      "app/p8_shadow/planner_sandbox.py",
+      "app/p9_runtime_consumption/planner_injection.py",
+      "app/persona/human_like_persona_pipeline.py",
+      "app/retrieval/semantic_provider.py",
+      "app/runtime/memory_quarantine_manifest.json",
+      "app/runtime/memory_store.py",
+      "app/runtime/p2071_2080_realtime_paper_runtime.py",
+      "app/runtime/p2223_broker_emulator.py",
+      "app/runtime/p2224_2226_institutional_core.py",
+      "app/runtime/p2227_2229_advanced_layer.py",
+      "app/runtime/provider_failover.py",
+      "app/runtime/response_builder.py"
+    ],
+    "test_references": [
+      "tests/test_p8_12_planner_active_policy.py",
+      "tests/test_p8_15_real_planner.py",
+      "tests/test_p8_19_planner_sandbox.py",
+      "tests/test_p8_23_consumption_contract.py",
+      "tests/test_p8_shadow_implementation.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 98"
+  },
+  {
+    "path": "app/p8_shadow/diff_engine.py",
+    "exists": true,
+    "module": "app.p8_shadow.diff_engine",
+    "token": "diff_engine",
+    "references_total": 2,
+    "app_references": [
+      "app/p8_shadow/shadow_hooks.py"
+    ],
+    "test_references": [
+      "tests/test_p8_shadow_implementation.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/p8_shadow/feature_flags.py",
+    "exists": true,
+    "module": "app.p8_shadow.feature_flags",
+    "token": "feature_flags",
+    "references_total": 8,
+    "app_references": [
+      "app/admin/beta_platform.py",
+      "app/p8_shadow/shadow_hooks.py",
+      "app/eldora/core/middleware_registry.py",
+      "app/eldora/core/service_health_graph.py",
+      "app/eldora/core/startup_manager.py"
+    ],
+    "test_references": [
+      "tests/test_eldora_runtime_core.py",
+      "tests/test_p7_integration_guardrails.py",
+      "tests/test_p8_shadow_implementation.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 5"
+  },
+  {
+    "path": "app/p8_shadow/planner_active_policy.py",
+    "exists": true,
+    "module": "app.p8_shadow.planner_active_policy",
+    "token": "planner_active_policy",
+    "references_total": 2,
+    "app_references": [
+      "app/p8_shadow/planner_sandbox.py"
+    ],
+    "test_references": [
+      "tests/test_p8_12_planner_active_policy.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/p8_shadow/planner_consumption_contract.py",
+    "exists": true,
+    "module": "app.p8_shadow.planner_consumption_contract",
+    "token": "planner_consumption_contract",
+    "references_total": 2,
+    "app_references": [
+      "app/p9_runtime_consumption/planner_injection.py"
+    ],
+    "test_references": [
+      "tests/test_p8_23_consumption_contract.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/p8_shadow/planner_sandbox.py",
+    "exists": true,
+    "module": "app.p8_shadow.planner_sandbox",
+    "token": "planner_sandbox",
+    "references_total": 2,
+    "app_references": [
+      "app/p8_shadow/planner_consumption_contract.py"
+    ],
+    "test_references": [
+      "tests/test_p8_19_planner_sandbox.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/p8_shadow/real_planner.py",
+    "exists": true,
+    "module": "app.p8_shadow.real_planner",
+    "token": "real_planner",
+    "references_total": 5,
+    "app_references": [
+      "app/p16_real_use_case/internal_only_consumption.py",
+      "app/p16_real_use_case/real_use_case_runner.py",
+      "app/p17_value_proof/eldora_value_proof.py",
+      "app/p8_shadow/planner_sandbox.py"
+    ],
+    "test_references": [
+      "tests/test_p8_15_real_planner.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 4"
+  },
+  {
+    "path": "app/p8_shadow/shadow_hooks.py",
+    "exists": true,
+    "module": "app.p8_shadow.shadow_hooks",
+    "token": "shadow_hooks",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p8_shadow_implementation.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 1"
+  },
+  {
+    "path": "app/p8_shadow/telemetry.py",
+    "exists": true,
+    "module": "app.p8_shadow.telemetry",
+    "token": "telemetry",
+    "references_total": 20,
+    "app_references": [
+      "app/main.py",
+      "app/api/eldora_swarm.py",
+      "app/api/eldora_swarm_monitor.py",
+      "app/api/eldora_telemetry.py",
+      "app/companionship/long_term_goal_tracker.py",
+      "app/companionship/relationship_memory_store.py",
+      "app/companionship/safe_recovery_adapter.py",
+      "app/p8_shadow/diff_engine.py",
+      "app/p8_shadow/real_planner.py",
+      "app/p8_shadow/shadow_hooks.py",
+      "app/runtime/single_runtime_dispatcher.py",
+      "app/eldora/core/telemetry_runtime.py",
+      "app/modules/usde_core/runtime_integration_binder.py"
+    ],
+    "test_references": [
+      "tests/test_eldora_observability_core.py",
+      "tests/test_p19p36h_safe_adapter_shadow_wiring.py",
+      "tests/test_p19p36k_webhook_memory_shadow.py",
+      "tests/test_p19p36l_webhook_memory_fusion_shadow.py",
+      "tests/test_p19p36m_hotfix_webhook.py",
+      "tests/test_p19p36m_webhook_memory_fusion_advisor.py",
+      "tests/test_p19p36n_memory_fusion_live_gated.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 13"
+  },
+  {
+    "path": "app/p9_runtime_consumption/",
+    "exists": true,
+    "module": "app.p9_runtime_consumption.",
+    "token": "p9_runtime_consumption",
+    "references_total": 5,
+    "app_references": [
+      "app/p10_activation_stack/controlled_consumption.py",
+      "app/p16_real_use_case/internal_only_consumption.py",
+      "app/p16_real_use_case/real_use_case_runner.py",
+      "app/p9_runtime_consumption/planner_injection.py"
+    ],
+    "test_references": [
+      "tests/test_p9_runtime_consumption.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 4"
+  },
+  {
+    "path": "app/p9_runtime_consumption/__init__.py",
+    "exists": true,
+    "module": "app.p9_runtime_consumption",
+    "token": "__init__",
+    "references_total": 97,
+    "app_references": [
+      "app/embedding/provider.py",
+      "app/human/human_like_response_layer.py",
+      "app/human/multi_llm_runtime.py",
+      "app/ingestion/image_vision_runtime.py",
+      "app/ingestion/multimodal_router.py",
+      "app/medical_swarm/runtime.py",
+      "app/memory/provider.py",
+      "app/multi_llm/provider_runtime.py",
+      "app/orchestrator/prompt_orchestrator.py",
+      "app/p10_activation_stack/controlled_consumption.py",
+      "app/p16_real_use_case/internal_only_consumption.py",
+      "app/p16_real_use_case/real_use_case_runner.py",
+      "app/p9_runtime_consumption/planner_injection.py",
+      "app/persona/human_like_persona_pipeline.py",
+      "app/retrieval/semantic_provider.py",
+      "app/runtime/memory_quarantine_manifest.json",
+      "app/runtime/memory_store.py",
+      "app/runtime/p2071_2080_realtime_paper_runtime.py",
+      "app/runtime/p2223_broker_emulator.py",
+      "app/runtime/p2224_2226_institutional_core.py",
+      "app/runtime/p2227_2229_advanced_layer.py",
+      "app/runtime/provider_failover.py",
+      "app/runtime/response_builder.py",
+      "app/runtime/response_generation_engine.py",
+      "app/runtime/universal_conversation_authority.py"
+    ],
+    "test_references": [
+      "tests/test_p9_runtime_consumption.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 96"
+  },
+  {
+    "path": "app/p9_runtime_consumption/consumption_gate.py",
+    "exists": true,
+    "module": "app.p9_runtime_consumption.consumption_gate",
+    "token": "consumption_gate",
+    "references_total": 2,
+    "app_references": [
+      "app/p9_runtime_consumption/planner_injection.py"
+    ],
+    "test_references": [
+      "tests/test_p9_runtime_consumption.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/p9_runtime_consumption/context_bridge.py",
+    "exists": true,
+    "module": "app.p9_runtime_consumption.context_bridge",
+    "token": "context_bridge",
+    "references_total": 2,
+    "app_references": [
+      "app/p9_runtime_consumption/planner_injection.py"
+    ],
+    "test_references": [
+      "tests/test_p9_runtime_consumption.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/p9_runtime_consumption/observability.py",
+    "exists": true,
+    "module": "app.p9_runtime_consumption.observability",
+    "token": "observability",
+    "references_total": 2,
+    "app_references": [
+      "app/main.py",
+      "app/runtime/p2161_2220_full_governance_system.py"
+    ],
+    "test_references": [],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 2"
+  },
+  {
+    "path": "app/p9_runtime_consumption/parity.py",
+    "exists": true,
+    "module": "app.p9_runtime_consumption.parity",
+    "token": "parity",
+    "references_total": 3,
+    "app_references": [
+      "app/p16_real_use_case/internal_only_consumption.py",
+      "app/p16_real_use_case/real_use_case_runner.py"
+    ],
+    "test_references": [
+      "tests/test_p9_runtime_consumption.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 2"
+  },
+  {
+    "path": "app/p9_runtime_consumption/planner_injection.py",
+    "exists": true,
+    "module": "app.p9_runtime_consumption.planner_injection",
+    "token": "planner_injection",
+    "references_total": 2,
+    "app_references": [
+      "app/p10_activation_stack/controlled_consumption.py"
+    ],
+    "test_references": [
+      "tests/test_p9_runtime_consumption.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/retrieval/semantic_provider.py",
+    "exists": true,
+    "module": "app.retrieval.semantic_provider",
+    "token": "semantic_provider",
+    "references_total": 6,
+    "app_references": [
+      "app/admin/semantic_activation.py",
+      "app/runtime/capability_orchestrator.py",
+      "app/runtime/cognitive_pipeline.py",
+      "app/runtime/memory_quarantine_manifest.json",
+      "app/eldora/core/semantic_memory_engine.py"
+    ],
+    "test_references": [
+      "tests/test_p465g_retrieval_failsafe.py"
+    ],
+    "classification": "DANGEROUS_TO_TOUCH",
+    "reason": "runtime/router/provider/forensic marker"
+  },
+  {
+    "path": "app/runtime/automotive_domain_guard.py",
+    "exists": true,
+    "module": "app.runtime.automotive_domain_guard",
+    "token": "automotive_domain_guard",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p19p5_automotive_router_correction.py"
+    ],
+    "classification": "ACTIVE_CORE",
+    "reason": "matches cognition/runtime core marker"
+  },
+  {
+    "path": "app/runtime/automotive_execution_bias_guard.py",
+    "exists": true,
+    "module": "app.runtime.automotive_execution_bias_guard",
+    "token": "automotive_execution_bias_guard",
+    "references_total": 2,
+    "app_references": [
+      "app/api/whatsapp.py"
+    ],
+    "test_references": [
+      "tests/test_p19p_automotive_execution_bias_guard.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/runtime/automotive_part_purchase_guard.py",
+    "exists": true,
+    "module": "app.runtime.automotive_part_purchase_guard",
+    "token": "automotive_part_purchase_guard",
+    "references_total": 2,
+    "app_references": [
+      "app/api/whatsapp.py"
+    ],
+    "test_references": [
+      "tests/test_p19p2_automotive_part_purchase_guard.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/runtime/capability_orchestrator.py",
+    "exists": true,
+    "module": "app.runtime.capability_orchestrator",
+    "token": "capability_orchestrator",
+    "references_total": 3,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p474a_capability_orchestrator.py",
+      "tests/test_p474b_orchestrator_diagnostic_mode.py",
+      "tests/test_p474c_orchestrator_diagnostic_runner.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 3"
+  },
+  {
+    "path": "app/runtime/capability_reconstruction_planner.py",
+    "exists": true,
+    "module": "app.runtime.capability_reconstruction_planner",
+    "token": "capability_reconstruction_planner",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p480_capability_reconstruction_planner.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 1"
+  },
+  {
+    "path": "app/runtime/capability_recovery_bridge.py",
+    "exists": true,
+    "module": "app.runtime.capability_recovery_bridge",
+    "token": "capability_recovery_bridge",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p472b_capability_recovery_bridge.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 1"
+  },
+  {
+    "path": "app/runtime/capability_usage_ledger.py",
+    "exists": true,
+    "module": "app.runtime.capability_usage_ledger",
+    "token": "capability_usage_ledger",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p474d_capability_usage_ledger.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 1"
+  },
+  {
+    "path": "app/runtime/cognitive_pipeline.py",
+    "exists": true,
+    "module": "app.runtime.cognitive_pipeline",
+    "token": "cognitive_pipeline",
+    "references_total": 15,
+    "app_references": [
+      "app/api/whatsapp.py"
+    ],
+    "test_references": [
+      "tests/test_eldora_autonomous_pipeline_integration.py",
+      "tests/test_eldora_conversational_reasoning.py",
+      "tests/test_eldora_dynamic_dialogue.py",
+      "tests/test_eldora_global_humanization.py",
+      "tests/test_eldora_human_smalltalk.py",
+      "tests/test_eldora_identity_help.py",
+      "tests/test_eldora_natural_response_layer.py",
+      "tests/test_eldora_visible_response_layer.py",
+      "tests/test_eldora_whatsapp_cognitive_pipeline.py",
+      "tests/test_eldora_whatsapp_live_regression.py",
+      "tests/test_eldora_whatsapp_real_observed.py",
+      "tests/test_p463k_memory_whatsapp_contract.py",
+      "tests/test_p465d_semantic_retrieval_bridge.py",
+      "tests/test_p465o_composite_retrieval_answer.py"
+    ],
+    "classification": "DANGEROUS_TO_TOUCH",
+    "reason": "runtime/router/provider/forensic marker"
+  },
+  {
+    "path": "app/runtime/drive_batch_processor.py",
+    "exists": true,
+    "module": "app.runtime.drive_batch_processor",
+    "token": "drive_batch_processor",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p478_batch_drive_processor.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 1"
+  },
+  {
+    "path": "app/runtime/drive_capability_absorption.py",
+    "exists": true,
+    "module": "app.runtime.drive_capability_absorption",
+    "token": "drive_capability_absorption",
+    "references_total": 2,
+    "app_references": [
+      "app/runtime/drive_processed_queue.py"
+    ],
+    "test_references": [
+      "tests/test_p476_drive_capability_absorption.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/runtime/drive_processed_queue.py",
+    "exists": true,
+    "module": "app.runtime.drive_processed_queue",
+    "token": "drive_processed_queue",
+    "references_total": 2,
+    "app_references": [
+      "app/runtime/drive_batch_processor.py"
+    ],
+    "test_references": [
+      "tests/test_p477_drive_processed_queue.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/runtime/fix11k_probe.py",
+    "exists": true,
+    "module": "app.runtime.fix11k_probe",
+    "token": "fix11k_probe",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "ORPHAN_CANDIDATE",
+    "reason": "no references found"
+  },
+  {
+    "path": "app/runtime/followup_unified_resolver.py",
+    "exists": true,
+    "module": "app.runtime.followup_unified_resolver",
+    "token": "followup_unified_resolver",
+    "references_total": 1,
+    "app_references": [
+      "app/companionship/safe_recovery_adapter.py"
+    ],
+    "test_references": [],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/runtime/forensic_bootstrap.py",
+    "exists": true,
+    "module": "app.runtime.forensic_bootstrap",
+    "token": "forensic_bootstrap",
+    "references_total": 1,
+    "app_references": [
+      "app/main.py"
+    ],
+    "test_references": [],
+    "classification": "DANGEROUS_TO_TOUCH",
+    "reason": "runtime/router/provider/forensic marker"
+  },
+  {
+    "path": "app/runtime/forensic_trace.py",
+    "exists": true,
+    "module": "app.runtime.forensic_trace",
+    "token": "forensic_trace",
+    "references_total": 3,
+    "app_references": [
+      "app/main.py",
+      "app/api/whatsapp.py",
+      "app/runtime/forensic_bootstrap.py"
+    ],
+    "test_references": [],
+    "classification": "DANGEROUS_TO_TOUCH",
+    "reason": "runtime/router/provider/forensic marker"
+  },
+  {
+    "path": "app/runtime/generic_topic_memory_engine.py",
+    "exists": true,
+    "module": "app.runtime.generic_topic_memory_engine",
+    "token": "generic_topic_memory_engine",
+    "references_total": 4,
+    "app_references": [
+      "app/companionship/safe_recovery_adapter.py",
+      "app/runtime/memory_quarantine_manifest.json"
+    ],
+    "test_references": [
+      "tests/test_p444d_generic_topic_entity_fix.py",
+      "tests/test_p445m_maintenance_checklist.py"
+    ],
+    "classification": "ACTIVE_CORE",
+    "reason": "matches cognition/runtime core marker"
+  },
+  {
+    "path": "app/runtime/knowledge_extraction_engine.py",
+    "exists": true,
+    "module": "app.runtime.knowledge_extraction_engine",
+    "token": "knowledge_extraction_engine",
+    "references_total": 2,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p479_knowledge_extraction_engine.py",
+      "tests/test_p480_capability_reconstruction_planner.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 2"
+  },
+  {
+    "path": "app/runtime/level_a_cognitive_shadow.py",
+    "exists": true,
+    "module": "app.runtime.level_a_cognitive_shadow",
+    "token": "level_a_cognitive_shadow",
+    "references_total": 1,
+    "app_references": [
+      "app/runtime/cognitive_pipeline.py"
+    ],
+    "test_references": [],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/runtime/level_b_dynamic_composer.py",
+    "exists": true,
+    "module": "app.runtime.level_b_dynamic_composer",
+    "token": "level_b_dynamic_composer",
+    "references_total": 1,
+    "app_references": [
+      "app/runtime/cognitive_pipeline.py"
+    ],
+    "test_references": [],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/runtime/level_b_shadow_runtime.py",
+    "exists": true,
+    "module": "app.runtime.level_b_shadow_runtime",
+    "token": "level_b_shadow_runtime",
+    "references_total": 1,
+    "app_references": [
+      "app/runtime/cognitive_pipeline.py"
+    ],
+    "test_references": [],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/runtime/memory_adapter.py",
+    "exists": true,
+    "module": "app.runtime.memory_adapter",
+    "token": "memory_adapter",
+    "references_total": 4,
+    "app_references": [
+      "app/companionship/safe_recovery_adapter.py",
+      "app/runtime/memory_quarantine_manifest.json"
+    ],
+    "test_references": [
+      "tests/test_p19p36k_safe_memory_adapter_v2.py",
+      "tests/test_p464d_memory_quarantine_manifest.py"
+    ],
+    "classification": "ACTIVE_CORE",
+    "reason": "matches cognition/runtime core marker"
+  },
+  {
+    "path": "app/runtime/memory_quarantine_manifest.json",
+    "exists": true,
+    "module": "app.runtime.memory_quarantine_manifest.json",
+    "token": "memory_quarantine_manifest",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p464d_memory_quarantine_manifest.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 1"
+  },
+  {
+    "path": "app/runtime/memory_store.py",
+    "exists": true,
+    "module": "app.runtime.memory_store",
+    "token": "memory_store",
+    "references_total": 10,
+    "app_references": [
+      "app/main.py",
+      "app/api/eldora_semantic.py",
+      "app/companionship/regression_suite_manifest.py",
+      "app/companionship/safe_recovery_adapter.py",
+      "app/intent/intent_classifier_v2.py",
+      "app/runtime/followup_unified_resolver.py",
+      "app/runtime/memory_quarantine_manifest.json"
+    ],
+    "test_references": [
+      "tests/test_p19p36o_relationship_memory_advisor.py",
+      "tests/test_p19p36o_relationship_memory_store.py",
+      "tests/modules/test_usde_scientific_memory.py"
+    ],
+    "classification": "ACTIVE_CORE",
+    "reason": "matches cognition/runtime core marker"
+  },
+  {
+    "path": "app/runtime/mind_state_visible_context.py",
+    "exists": true,
+    "module": "app.runtime.mind_state_visible_context",
+    "token": "mind_state_visible_context",
+    "references_total": 3,
+    "app_references": [
+      "app/api/debug_whatsapp_source.py",
+      "app/api/debug_whatsapp_state.py",
+      "app/api/whatsapp.py"
+    ],
+    "test_references": [],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 3"
+  },
+  {
+    "path": "app/runtime/p19_unified_pipeline.py",
+    "exists": true,
+    "module": "app.runtime.p19_unified_pipeline",
+    "token": "p19_unified_pipeline",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "ORPHAN_CANDIDATE",
+    "reason": "no references found"
+  },
+  {
+    "path": "app/runtime/p19p3_safe_runtime_hook.py",
+    "exists": true,
+    "module": "app.runtime.p19p3_safe_runtime_hook",
+    "token": "p19p3_safe_runtime_hook",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p19p3_safe_runtime_hook.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 1"
+  },
+  {
+    "path": "app/runtime/p2071_2080_realtime_paper_runtime.py",
+    "exists": true,
+    "module": "app.runtime.p2071_2080_realtime_paper_runtime",
+    "token": "p2071_2080_realtime_paper_runtime",
+    "references_total": 4,
+    "app_references": [
+      "app/runtime/p2111_2120_maximum_technical_capacity.py",
+      "app/runtime/p2121_plus_continuous_max_capacity_audit.py"
+    ],
+    "test_references": [
+      "tests/test_p2071_2080b_repair.py",
+      "tests/test_p2071_2080_realtime_paper_runtime.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 2"
+  },
+  {
+    "path": "app/runtime/p2071_2080_realtime_paper_runtime.py.bak_P2071_2080B_20260618_063050",
+    "exists": true,
+    "module": "app.runtime.p2071_2080_realtime_paper_runtime.py.bak_P2071_2080B_20260618_063050",
+    "token": "p2071_2080_realtime_paper_runtime.py",
+    "references_total": 2,
+    "app_references": [
+      "app/runtime/p2111_2120_maximum_technical_capacity.py",
+      "app/runtime/p2121_plus_continuous_max_capacity_audit.py"
+    ],
+    "test_references": [],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 2"
+  },
+  {
+    "path": "app/runtime/p2081_2090_realtime_portfolio_governance.py",
+    "exists": true,
+    "module": "app.runtime.p2081_2090_realtime_portfolio_governance",
+    "token": "p2081_2090_realtime_portfolio_governance",
+    "references_total": 3,
+    "app_references": [
+      "app/runtime/p2111_2120_maximum_technical_capacity.py",
+      "app/runtime/p2121_plus_continuous_max_capacity_audit.py"
+    ],
+    "test_references": [
+      "tests/test_p2081_2090_realtime_portfolio_governance.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 2"
+  },
+  {
+    "path": "app/runtime/p2091_2100_realtime_intelligence_layer.py",
+    "exists": true,
+    "module": "app.runtime.p2091_2100_realtime_intelligence_layer",
+    "token": "p2091_2100_realtime_intelligence_layer",
+    "references_total": 3,
+    "app_references": [
+      "app/runtime/p2111_2120_maximum_technical_capacity.py",
+      "app/runtime/p2121_plus_continuous_max_capacity_audit.py"
+    ],
+    "test_references": [
+      "tests/test_p2091_2100_realtime_intelligence_layer.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 2"
+  },
+  {
+    "path": "app/runtime/p2101_2110_autonomous_paper_operations.py",
+    "exists": true,
+    "module": "app.runtime.p2101_2110_autonomous_paper_operations",
+    "token": "p2101_2110_autonomous_paper_operations",
+    "references_total": 3,
+    "app_references": [
+      "app/runtime/p2111_2120_maximum_technical_capacity.py",
+      "app/runtime/p2121_plus_continuous_max_capacity_audit.py"
+    ],
+    "test_references": [
+      "tests/test_p2101_2110_autonomous_paper_operations.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 2"
+  },
+  {
+    "path": "app/runtime/p2111_2120_maximum_technical_capacity.py",
+    "exists": true,
+    "module": "app.runtime.p2111_2120_maximum_technical_capacity",
+    "token": "p2111_2120_maximum_technical_capacity",
+    "references_total": 2,
+    "app_references": [
+      "app/runtime/p2121_plus_continuous_max_capacity_audit.py"
+    ],
+    "test_references": [
+      "tests/test_p2111_2120_maximum_technical_capacity.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/runtime/p2121_plus_continuous_max_capacity_audit.py",
+    "exists": true,
+    "module": "app.runtime.p2121_plus_continuous_max_capacity_audit",
+    "token": "p2121_plus_continuous_max_capacity_audit",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p2121_plus_continuous_max_capacity_audit.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 1"
+  },
+  {
+    "path": "app/runtime/p2131_2150_ftmo_paper_compliance_assurance.py",
+    "exists": true,
+    "module": "app.runtime.p2131_2150_ftmo_paper_compliance_assurance",
+    "token": "p2131_2150_ftmo_paper_compliance_assurance",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p2131_2150_ftmo_paper_compliance_assurance.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 1"
+  },
+  {
+    "path": "app/runtime/p2151_plus_readiness_dossier_gate_review.py",
+    "exists": true,
+    "module": "app.runtime.p2151_plus_readiness_dossier_gate_review",
+    "token": "p2151_plus_readiness_dossier_gate_review",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p2151_plus_readiness_dossier_gate_review.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 1"
+  },
+  {
+    "path": "app/runtime/p2161_2220_full_governance_system.py",
+    "exists": true,
+    "module": "app.runtime.p2161_2220_full_governance_system",
+    "token": "p2161_2220_full_governance_system",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "ORPHAN_CANDIDATE",
+    "reason": "no references found"
+  },
+  {
+    "path": "app/runtime/p2223_broker_emulator.py",
+    "exists": true,
+    "module": "app.runtime.p2223_broker_emulator",
+    "token": "p2223_broker_emulator",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p2223_broker_emulator.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 1"
+  },
+  {
+    "path": "app/runtime/p2224_2226_institutional_core.py",
+    "exists": true,
+    "module": "app.runtime.p2224_2226_institutional_core",
+    "token": "p2224_2226_institutional_core",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p2224_2226_core.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 1"
+  },
+  {
+    "path": "app/runtime/p2227_2229_advanced_layer.py",
+    "exists": true,
+    "module": "app.runtime.p2227_2229_advanced_layer",
+    "token": "p2227_2229_advanced_layer",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p2227_2229.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 1"
+  },
+  {
+    "path": "app/runtime/ready_capability_bridge.py",
+    "exists": true,
+    "module": "app.runtime.ready_capability_bridge",
+    "token": "ready_capability_bridge",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p473b_ready_capability_bridge.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 1"
+  },
+  {
+    "path": "app/runtime/universal_capability_registry.json",
+    "exists": true,
+    "module": "app.runtime.universal_capability_registry.json",
+    "token": "universal_capability_registry",
+    "references_total": 2,
+    "app_references": [
+      "app/runtime/drive_capability_absorption.py"
+    ],
+    "test_references": [
+      "tests/test_p475_universal_capability_registry.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "app/runtime/whatsapp_final_output_guard.py",
+    "exists": true,
+    "module": "app.runtime.whatsapp_final_output_guard",
+    "token": "whatsapp_final_output_guard",
+    "references_total": 6,
+    "app_references": [
+      "app/main.py",
+      "app/api/whatsapp.py",
+      "app/runtime/forensic_bootstrap.py",
+      "app/modules/usde_core/runtime_integration_binder.py"
+    ],
+    "test_references": [
+      "tests/test_fix11l2g_identity_allowed_normalization.py",
+      "tests/test_whatsapp_final_output_guard.py"
+    ],
+    "classification": "DANGEROUS_TO_TOUCH",
+    "reason": "runtime/router/provider/forensic marker"
+  },
+  {
+    "path": "tests/institutional/",
+    "exists": true,
+    "module": "tests.institutional.",
+    "token": "institutional",
+    "references_total": 47,
+    "app_references": [
+      "app/p17x_causality_research_runtime/engine.py"
+    ],
+    "test_references": [
+      "tests/test_p2224_2226_core.py",
+      "tests/institutional/test_p1901h3_live_risk_forensics.py",
+      "tests/institutional/test_p1901h_capability_discovery.py",
+      "tests/institutional/test_p1901i_module_registry.py",
+      "tests/institutional/test_p1901j_runtime_graph.py",
+      "tests/institutional/test_p1901k_capability_map_v2.py",
+      "tests/institutional/test_p1901l_institutional_rescoring.py",
+      "tests/institutional/test_p1901_depth_audit.py",
+      "tests/institutional/test_p1902a_data_density_baseline.py",
+      "tests/institutional/test_p1902b_dataset_canonicalization.py",
+      "tests/institutional/test_p1902c_data_quality_coverage.py",
+      "tests/institutional/test_p1902d1_coverage_matrix_audit.py",
+      "tests/institutional/test_p1902d2_unified_coverage_matrix.py",
+      "tests/institutional/test_p1902d_data_coverage_matrix.py",
+      "tests/institutional/test_p1902e_coverage_expansion_planner.py",
+      "tests/institutional/test_p1902f_data_acquisition_engine.py",
+      "tests/institutional/test_p1902g_source_validation_engine.py",
+      "tests/institutional/test_p1902h_mass_normalization_plan.py",
+      "tests/institutional/test_p1902i_historical_density_rebuild_plan.py",
+      "tests/institutional/test_p1902j_execution_readiness_gate.py",
+      "tests/institutional/test_p1902k_dry_run_execution_simulator.py",
+      "tests/institutional/test_p1902l_safe_execution_controller.py",
+      "tests/institutional/test_p1903a_real_event_memory_schema.py",
+      "tests/institutional/test_p1903b_event_source_registry.py",
+      "tests/institutional/test_p1903c_event_ingestion_plan.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "tests/institutional/test_p1901_depth_audit.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1901_depth_audit",
+    "token": "test_p1901_depth_audit",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1901h3_live_risk_forensics.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1901h3_live_risk_forensics",
+    "token": "test_p1901h3_live_risk_forensics",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "DANGEROUS_TO_TOUCH",
+    "reason": "runtime/router/provider/forensic marker"
+  },
+  {
+    "path": "tests/institutional/test_p1901h_capability_discovery.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1901h_capability_discovery",
+    "token": "test_p1901h_capability_discovery",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1901i_module_registry.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1901i_module_registry",
+    "token": "test_p1901i_module_registry",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1901j_runtime_graph.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1901j_runtime_graph",
+    "token": "test_p1901j_runtime_graph",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1901k_capability_map_v2.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1901k_capability_map_v2",
+    "token": "test_p1901k_capability_map_v2",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1901l_institutional_rescoring.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1901l_institutional_rescoring",
+    "token": "test_p1901l_institutional_rescoring",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1902a_data_density_baseline.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1902a_data_density_baseline",
+    "token": "test_p1902a_data_density_baseline",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1902b_dataset_canonicalization.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1902b_dataset_canonicalization",
+    "token": "test_p1902b_dataset_canonicalization",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1902c_data_quality_coverage.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1902c_data_quality_coverage",
+    "token": "test_p1902c_data_quality_coverage",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1902d1_coverage_matrix_audit.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1902d1_coverage_matrix_audit",
+    "token": "test_p1902d1_coverage_matrix_audit",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1902d2_unified_coverage_matrix.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1902d2_unified_coverage_matrix",
+    "token": "test_p1902d2_unified_coverage_matrix",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1902d_data_coverage_matrix.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1902d_data_coverage_matrix",
+    "token": "test_p1902d_data_coverage_matrix",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1902e_coverage_expansion_planner.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1902e_coverage_expansion_planner",
+    "token": "test_p1902e_coverage_expansion_planner",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1902f_data_acquisition_engine.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1902f_data_acquisition_engine",
+    "token": "test_p1902f_data_acquisition_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1902g_source_validation_engine.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1902g_source_validation_engine",
+    "token": "test_p1902g_source_validation_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1902h_mass_normalization_plan.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1902h_mass_normalization_plan",
+    "token": "test_p1902h_mass_normalization_plan",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1902i_historical_density_rebuild_plan.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1902i_historical_density_rebuild_plan",
+    "token": "test_p1902i_historical_density_rebuild_plan",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1902j_execution_readiness_gate.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1902j_execution_readiness_gate",
+    "token": "test_p1902j_execution_readiness_gate",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1902k_dry_run_execution_simulator.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1902k_dry_run_execution_simulator",
+    "token": "test_p1902k_dry_run_execution_simulator",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1902l_safe_execution_controller.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1902l_safe_execution_controller",
+    "token": "test_p1902l_safe_execution_controller",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1903a_real_event_memory_schema.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1903a_real_event_memory_schema",
+    "token": "test_p1903a_real_event_memory_schema",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1903b_event_source_registry.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1903b_event_source_registry",
+    "token": "test_p1903b_event_source_registry",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1903c_event_ingestion_plan.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1903c_event_ingestion_plan",
+    "token": "test_p1903c_event_ingestion_plan",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1903d_j_event_memory_package.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1903d_j_event_memory_package",
+    "token": "test_p1903d_j_event_memory_package",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1904a_j_regime_discovery_package.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1904a_j_regime_discovery_package",
+    "token": "test_p1904a_j_regime_discovery_package",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1905a_j_multi_asset_package.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1905a_j_multi_asset_package",
+    "token": "test_p1905a_j_multi_asset_package",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1906a_j_feature_explosion_package.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1906a_j_feature_explosion_package",
+    "token": "test_p1906a_j_feature_explosion_package",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1907a_j_causality_package.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1907a_j_causality_package",
+    "token": "test_p1907a_j_causality_package",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1908a_j_market_memory_v2_package.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1908a_j_market_memory_v2_package",
+    "token": "test_p1908a_j_market_memory_v2_package",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p1909a_j_specialist_evolution_package.py",
+    "exists": true,
+    "module": "tests.institutional.test_p1909a_j_specialist_evolution_package",
+    "token": "test_p1909a_j_specialist_evolution_package",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p2000_real_depth_program.py",
+    "exists": true,
+    "module": "tests.institutional.test_p2000_real_depth_program",
+    "token": "test_p2000_real_depth_program",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p2001_data_expansion_controlled_executor.py",
+    "exists": true,
+    "module": "tests.institutional.test_p2001_data_expansion_controlled_executor",
+    "token": "test_p2001_data_expansion_controlled_executor",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p2001b_source_connector_probe.py",
+    "exists": true,
+    "module": "tests.institutional.test_p2001b_source_connector_probe",
+    "token": "test_p2001b_source_connector_probe",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p2001c_connector_detail_audit.py",
+    "exists": true,
+    "module": "tests.institutional.test_p2001c_connector_detail_audit",
+    "token": "test_p2001c_connector_detail_audit",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p2001d_zero_write_sample_builder.py",
+    "exists": true,
+    "module": "tests.institutional.test_p2001d_zero_write_sample_builder",
+    "token": "test_p2001d_zero_write_sample_builder",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p2001e_connector_dry_run_detail.py",
+    "exists": true,
+    "module": "tests.institutional.test_p2001e_connector_dry_run_detail",
+    "token": "test_p2001e_connector_dry_run_detail",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p2001f_manual_download_unlock_gate.py",
+    "exists": true,
+    "module": "tests.institutional.test_p2001f_manual_download_unlock_gate",
+    "token": "test_p2001f_manual_download_unlock_gate",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p2001g_j_controlled_data_execution_package.py",
+    "exists": true,
+    "module": "tests.institutional.test_p2001g_j_controlled_data_execution_package",
+    "token": "test_p2001g_j_controlled_data_execution_package",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p2002a_j_real_event_ingestion_package.py",
+    "exists": true,
+    "module": "tests.institutional.test_p2002a_j_real_event_ingestion_package",
+    "token": "test_p2002a_j_real_event_ingestion_package",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p2003a_j_real_feature_computation_package.py",
+    "exists": true,
+    "module": "tests.institutional.test_p2003a_j_real_feature_computation_package",
+    "token": "test_p2003a_j_real_feature_computation_package",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p2004a_j_real_regime_discovery_package.py",
+    "exists": true,
+    "module": "tests.institutional.test_p2004a_j_real_regime_discovery_package",
+    "token": "test_p2004a_j_real_regime_discovery_package",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p2005a_j_real_memory_construction_package.py",
+    "exists": true,
+    "module": "tests.institutional.test_p2005a_j_real_memory_construction_package",
+    "token": "test_p2005a_j_real_memory_construction_package",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p2006a_j_real_specialist_evolution_package.py",
+    "exists": true,
+    "module": "tests.institutional.test_p2006a_j_real_specialist_evolution_package",
+    "token": "test_p2006a_j_real_specialist_evolution_package",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/institutional/test_p2007_real_depth_readiness_audit.py",
+    "exists": true,
+    "module": "tests.institutional.test_p2007_real_depth_readiness_audit",
+    "token": "test_p2007_real_depth_readiness_audit",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/",
+    "exists": true,
+    "module": "tests.modules.",
+    "token": "modules",
+    "references_total": 110,
+    "app_references": [
+      "app/main.py",
+      "app/routes_usde.py",
+      "app/routes_usde_runtime.py",
+      "app/routes_usde_runtime_execute.py",
+      "app/routes_usde_science.py",
+      "app/api/eldora.py",
+      "app/api/eldora_core_runtime.py",
+      "app/api/whatsapp.py",
+      "app/runtime/capability_recovery_bridge.py",
+      "app/runtime/memory_quarantine_manifest.json",
+      "app/runtime/p2111_2120_maximum_technical_capacity.py",
+      "app/runtime/p2121_plus_continuous_max_capacity_audit.py",
+      "app/runtime/ready_capability_bridge.py",
+      "app/runtime/runtime_registry.py",
+      "app/runtime/whatsapp_intelligence_activation.py",
+      "app/eldora/core/service_health_graph.py",
+      "app/mind/p5_5a_bovine_sports_genetics/core.py",
+      "app/mind/p5_5a_bovine_sports_genetics/P55A_MANIFEST.json",
+      "app/mind/p5_5a_bovine_sports_genetics/runtime.py",
+      "app/modules/usde_core/autonomous_discovery_loop.py",
+      "app/modules/usde_core/autonomous_scientific_pipeline.py",
+      "app/modules/usde_core/drive_live_hook.py",
+      "app/modules/usde_core/eldora_runtime_integration.py",
+      "app/modules/usde_core/experiment_runner.py",
+      "app/modules/usde_core/full_runtime_certification.py"
+    ],
+    "test_references": [
+      "tests/test_advanced_runtime_modules_real.py",
+      "tests/test_p464d_memory_quarantine_manifest.py",
+      "tests/test_p473b_ready_capability_bridge.py",
+      "tests/test_p55a_bovine_sports_genetics.py",
+      "tests/test_runtime_registry_governance.py",
+      "tests/test_whatsapp_intelligence_activation.py",
+      "tests/institutional/test_p1901_depth_audit.py",
+      "tests/modules/test_p449e_supabase_live_hook.py",
+      "tests/modules/test_p449f_drive_live_hook.py",
+      "tests/modules/test_p449g_live_integration_certification.py",
+      "tests/modules/test_usde_ai_feynman_adapter.py",
+      "tests/modules/test_usde_automl_engine.py",
+      "tests/modules/test_usde_autonomous_discovery_loop.py",
+      "tests/modules/test_usde_autonomous_pipeline.py",
+      "tests/modules/test_usde_auto_hypothesis_generator.py",
+      "tests/modules/test_usde_background_service.py",
+      "tests/modules/test_usde_baseline_engine.py",
+      "tests/modules/test_usde_complexity_engine.py",
+      "tests/modules/test_usde_core_backend.py",
+      "tests/modules/test_usde_cross_domain_transfer_learning.py",
+      "tests/modules/test_usde_dataset_registry.py",
+      "tests/modules/test_usde_decision_engine.py",
+      "tests/modules/test_usde_decision_registry.py",
+      "tests/modules/test_usde_drive_scientific_ingestion.py",
+      "tests/modules/test_usde_eldora_runtime_integration.py"
+    ],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 42"
+  },
+  {
+    "path": "tests/modules/test_p449c_whatsapp_live_hook.py",
+    "exists": true,
+    "module": "tests.modules.test_p449c_whatsapp_live_hook",
+    "token": "test_p449c_whatsapp_live_hook",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "DANGEROUS_TO_TOUCH",
+    "reason": "runtime/router/provider/forensic marker"
+  },
+  {
+    "path": "tests/modules/test_p449d_eldora_core_hook.py",
+    "exists": true,
+    "module": "tests.modules.test_p449d_eldora_core_hook",
+    "token": "test_p449d_eldora_core_hook",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_p449e_supabase_live_hook.py",
+    "exists": true,
+    "module": "tests.modules.test_p449e_supabase_live_hook",
+    "token": "test_p449e_supabase_live_hook",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_p449f_drive_live_hook.py",
+    "exists": true,
+    "module": "tests.modules.test_p449f_drive_live_hook",
+    "token": "test_p449f_drive_live_hook",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_p449g_live_integration_certification.py",
+    "exists": true,
+    "module": "tests.modules.test_p449g_live_integration_certification",
+    "token": "test_p449g_live_integration_certification",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_ai_feynman_adapter.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_ai_feynman_adapter",
+    "token": "test_usde_ai_feynman_adapter",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_auto_hypothesis_generator.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_auto_hypothesis_generator",
+    "token": "test_usde_auto_hypothesis_generator",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_automl_engine.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_automl_engine",
+    "token": "test_usde_automl_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_autonomous_discovery_loop.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_autonomous_discovery_loop",
+    "token": "test_usde_autonomous_discovery_loop",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_autonomous_pipeline.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_autonomous_pipeline",
+    "token": "test_usde_autonomous_pipeline",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_background_service.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_background_service",
+    "token": "test_usde_background_service",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_baseline_engine.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_baseline_engine",
+    "token": "test_usde_baseline_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_complexity_engine.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_complexity_engine",
+    "token": "test_usde_complexity_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_core_backend.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_core_backend",
+    "token": "test_usde_core_backend",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_cross_domain_transfer_learning.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_cross_domain_transfer_learning",
+    "token": "test_usde_cross_domain_transfer_learning",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "ACTIVE_CORE",
+    "reason": "matches cognition/runtime core marker"
+  },
+  {
+    "path": "tests/modules/test_usde_dataset_registry.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_dataset_registry",
+    "token": "test_usde_dataset_registry",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_decision_engine.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_decision_engine",
+    "token": "test_usde_decision_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_decision_registry.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_decision_registry",
+    "token": "test_usde_decision_registry",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_drive_scientific_ingestion.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_drive_scientific_ingestion",
+    "token": "test_usde_drive_scientific_ingestion",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_eldora_runtime_integration.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_eldora_runtime_integration",
+    "token": "test_usde_eldora_runtime_integration",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_ensemble_evolution_engine.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_ensemble_evolution_engine",
+    "token": "test_usde_ensemble_evolution_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_evidence_engine.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_evidence_engine",
+    "token": "test_usde_evidence_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_evidence_registry.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_evidence_registry",
+    "token": "test_usde_evidence_registry",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_experiment_queue.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_experiment_queue",
+    "token": "test_usde_experiment_queue",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_experiment_registry.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_experiment_registry",
+    "token": "test_usde_experiment_registry",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_experiment_runner.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_experiment_runner",
+    "token": "test_usde_experiment_runner",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_full_runtime_certification.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_full_runtime_certification",
+    "token": "test_usde_full_runtime_certification",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_graph_engine.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_graph_engine",
+    "token": "test_usde_graph_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_hypothesis_registry.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_hypothesis_registry",
+    "token": "test_usde_hypothesis_registry",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_information_theory_engine.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_information_theory_engine",
+    "token": "test_usde_information_theory_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_ingestors.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_ingestors",
+    "token": "test_usde_ingestors",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_ledger.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_ledger",
+    "token": "test_usde_ledger",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_live_bridge.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_live_bridge",
+    "token": "test_usde_live_bridge",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_markov_engine.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_markov_engine",
+    "token": "test_usde_markov_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_meta_learning_engine.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_meta_learning_engine",
+    "token": "test_usde_meta_learning_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_monte_carlo_engine.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_monte_carlo_engine",
+    "token": "test_usde_monte_carlo_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_monte_carlo_service.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_monte_carlo_service",
+    "token": "test_usde_monte_carlo_service",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_physics_engine.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_physics_engine",
+    "token": "test_usde_physics_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_red_team_engine.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_red_team_engine",
+    "token": "test_usde_red_team_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_red_team_service.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_red_team_service",
+    "token": "test_usde_red_team_service",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_run_file_route.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_run_file_route",
+    "token": "test_usde_run_file_route",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_runtime_binding.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_runtime_binding",
+    "token": "test_usde_runtime_binding",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_runtime_execute_route.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_runtime_execute_route",
+    "token": "test_usde_runtime_execute_route",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_runtime_health_monitor.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_runtime_health_monitor",
+    "token": "test_usde_runtime_health_monitor",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_runtime_integration_binder.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_runtime_integration_binder",
+    "token": "test_usde_runtime_integration_binder",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_runtime_metrics.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_runtime_metrics",
+    "token": "test_usde_runtime_metrics",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_runtime_orchestrator.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_runtime_orchestrator",
+    "token": "test_usde_runtime_orchestrator",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_runtime_route.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_runtime_route",
+    "token": "test_usde_runtime_route",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_scheduler_runtime.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_scheduler_runtime",
+    "token": "test_usde_scheduler_runtime",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_science_route.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_science_route",
+    "token": "test_usde_science_route",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_scientific_evidence_service.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_scientific_evidence_service",
+    "token": "test_usde_scientific_evidence_service",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_scientific_governance_engine.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_scientific_governance_engine",
+    "token": "test_usde_scientific_governance_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_scientific_knowledge_graph.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_scientific_knowledge_graph",
+    "token": "test_usde_scientific_knowledge_graph",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_scientific_knowledge_sync.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_scientific_knowledge_sync",
+    "token": "test_usde_scientific_knowledge_sync",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_scientific_ledger.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_scientific_ledger",
+    "token": "test_usde_scientific_ledger",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_scientific_memory.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_scientific_memory",
+    "token": "test_usde_scientific_memory",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_scientific_os.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_scientific_os",
+    "token": "test_usde_scientific_os",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_scientific_pipeline.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_scientific_pipeline",
+    "token": "test_usde_scientific_pipeline",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_sindy_engine.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_sindy_engine",
+    "token": "test_usde_sindy_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_supabase_scientific_memory.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_supabase_scientific_memory",
+    "token": "test_usde_supabase_scientific_memory",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_symbolic_regression_engine.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_symbolic_regression_engine",
+    "token": "test_usde_symbolic_regression_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_tda_engine.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_tda_engine",
+    "token": "test_usde_tda_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_test_monitor.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_test_monitor",
+    "token": "test_usde_test_monitor",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_theorem_engine.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_theorem_engine",
+    "token": "test_usde_theorem_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_universal_discovery_runtime.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_universal_discovery_runtime",
+    "token": "test_usde_universal_discovery_runtime",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_walk_forward_engine.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_walk_forward_engine",
+    "token": "test_usde_walk_forward_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/modules/test_usde_walk_forward_service.py",
+    "exists": true,
+    "module": "tests.modules.test_usde_walk_forward_service",
+    "token": "test_usde_walk_forward_service",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_hierarchical_planner_contract.py",
+    "exists": true,
+    "module": "tests.test_hierarchical_planner_contract",
+    "token": "test_hierarchical_planner_contract",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_hierarchical_planner_shadow_adapter.py",
+    "exists": true,
+    "module": "tests.test_hierarchical_planner_shadow_adapter",
+    "token": "test_hierarchical_planner_shadow_adapter",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_oversight_contract.py",
+    "exists": true,
+    "module": "tests.test_oversight_contract",
+    "token": "test_oversight_contract",
+    "references_total": 1,
+    "app_references": [],
+    "test_references": [
+      "tests/test_p7_isolated_adapters.py"
+    ],
+    "classification": "LEGACY_REVIEW",
+    "reason": "referenced by tests only: 1"
+  },
+  {
+    "path": "tests/test_oversight_shadow_adapter.py",
+    "exists": true,
+    "module": "tests.test_oversight_shadow_adapter",
+    "token": "test_oversight_shadow_adapter",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p10_to_p15_activation_stack.py",
+    "exists": true,
+    "module": "tests.test_p10_to_p15_activation_stack",
+    "token": "test_p10_to_p15_activation_stack",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p122_cloud_export_verification_ledger.py",
+    "exists": true,
+    "module": "tests.test_p122_cloud_export_verification_ledger",
+    "token": "test_p122_cloud_export_verification_ledger",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p16a_real_use_case_consumption.py",
+    "exists": true,
+    "module": "tests.test_p16a_real_use_case_consumption",
+    "token": "test_p16a_real_use_case_consumption",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p16b_internal_only_consumption.py",
+    "exists": true,
+    "module": "tests.test_p16b_internal_only_consumption",
+    "token": "test_p16b_internal_only_consumption",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p16c_limited_response_awareness.py",
+    "exists": true,
+    "module": "tests.test_p16c_limited_response_awareness",
+    "token": "test_p16c_limited_response_awareness",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p16d_response_awareness_quality.py",
+    "exists": true,
+    "module": "tests.test_p16d_response_awareness_quality",
+    "token": "test_p16d_response_awareness_quality",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p16e_limited_response_modification.py",
+    "exists": true,
+    "module": "tests.test_p16e_limited_response_modification",
+    "token": "test_p16e_limited_response_modification",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p16f_response_modification_safety_gate.py",
+    "exists": true,
+    "module": "tests.test_p16f_response_modification_safety_gate",
+    "token": "test_p16f_response_modification_safety_gate",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p16g_controlled_response_shadow.py",
+    "exists": true,
+    "module": "tests.test_p16g_controlled_response_shadow",
+    "token": "test_p16g_controlled_response_shadow",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p16h_response_shadow_observation.py",
+    "exists": true,
+    "module": "tests.test_p16h_response_shadow_observation",
+    "token": "test_p16h_response_shadow_observation",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p17_eldora_value_proof.py",
+    "exists": true,
+    "module": "tests.test_p17_eldora_value_proof",
+    "token": "test_p17_eldora_value_proof",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p17b_human_review.py",
+    "exists": true,
+    "module": "tests.test_p17b_human_review",
+    "token": "test_p17b_human_review",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p17c_review_decision_aggregation.py",
+    "exists": true,
+    "module": "tests.test_p17c_review_decision_aggregation",
+    "token": "test_p17c_review_decision_aggregation",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p17x_causality_research_runtime.py",
+    "exists": true,
+    "module": "tests.test_p17x_causality_research_runtime",
+    "token": "test_p17x_causality_research_runtime",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p18_conversational_execution.py",
+    "exists": true,
+    "module": "tests.test_p18_conversational_execution",
+    "token": "test_p18_conversational_execution",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p18b_runtime_hook.py",
+    "exists": true,
+    "module": "tests.test_p18b_runtime_hook",
+    "token": "test_p18b_runtime_hook",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p18c_shadow_diff.py",
+    "exists": true,
+    "module": "tests.test_p18c_shadow_diff",
+    "token": "test_p18c_shadow_diff",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p18d_selection_gate.py",
+    "exists": true,
+    "module": "tests.test_p18d_selection_gate",
+    "token": "test_p18d_selection_gate",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p18f_pilot_flags.py",
+    "exists": true,
+    "module": "tests.test_p18f_pilot_flags",
+    "token": "test_p18f_pilot_flags",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p18g_internal_pilot.py",
+    "exists": true,
+    "module": "tests.test_p18g_internal_pilot",
+    "token": "test_p18g_internal_pilot",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p19a_1_improved_conversation.py",
+    "exists": true,
+    "module": "tests.test_p19a_1_improved_conversation",
+    "token": "test_p19a_1_improved_conversation",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p19a_3_failure_fixes.py",
+    "exists": true,
+    "module": "tests.test_p19a_3_failure_fixes",
+    "token": "test_p19a_3_failure_fixes",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p19a_whatsapp_real_traffic_eval.py",
+    "exists": true,
+    "module": "tests.test_p19a_whatsapp_real_traffic_eval",
+    "token": "test_p19a_whatsapp_real_traffic_eval",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "DANGEROUS_TO_TOUCH",
+    "reason": "runtime/router/provider/forensic marker"
+  },
+  {
+    "path": "tests/test_p19p11_fast_return_bypass.py",
+    "exists": true,
+    "module": "tests.test_p19p11_fast_return_bypass",
+    "token": "test_p19p11_fast_return_bypass",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p19p16_confinement_domain_interceptor.py",
+    "exists": true,
+    "module": "tests.test_p19p16_confinement_domain_interceptor",
+    "token": "test_p19p16_confinement_domain_interceptor",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "ACTIVE_CORE",
+    "reason": "matches cognition/runtime core marker"
+  },
+  {
+    "path": "tests/test_p19p28k_contextual_fitness.py",
+    "exists": true,
+    "module": "tests.test_p19p28k_contextual_fitness",
+    "token": "test_p19p28k_contextual_fitness",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p19p2_automotive_part_purchase_guard.py",
+    "exists": true,
+    "module": "tests.test_p19p2_automotive_part_purchase_guard",
+    "token": "test_p19p2_automotive_part_purchase_guard",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p19p37e_self_reflection_engine.py",
+    "exists": true,
+    "module": "tests.test_p19p37e_self_reflection_engine",
+    "token": "test_p19p37e_self_reflection_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "ACTIVE_CORE",
+    "reason": "matches cognition/runtime core marker"
+  },
+  {
+    "path": "tests/test_p19p3_safe_runtime_hook.py",
+    "exists": true,
+    "module": "tests.test_p19p3_safe_runtime_hook",
+    "token": "test_p19p3_safe_runtime_hook",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p19p5_automotive_router_correction.py",
+    "exists": true,
+    "module": "tests.test_p19p5_automotive_router_correction",
+    "token": "test_p19p5_automotive_router_correction",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p19p5_whatsapp_final_guard_only.py",
+    "exists": true,
+    "module": "tests.test_p19p5_whatsapp_final_guard_only",
+    "token": "test_p19p5_whatsapp_final_guard_only",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "DANGEROUS_TO_TOUCH",
+    "reason": "runtime/router/provider/forensic marker"
+  },
+  {
+    "path": "tests/test_p19p6_whatsapp_followup_expansion.py",
+    "exists": true,
+    "module": "tests.test_p19p6_whatsapp_followup_expansion",
+    "token": "test_p19p6_whatsapp_followup_expansion",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "DANGEROUS_TO_TOUCH",
+    "reason": "runtime/router/provider/forensic marker"
+  },
+  {
+    "path": "tests/test_p19p7_context_memory_followup_expansion.py",
+    "exists": true,
+    "module": "tests.test_p19p7_context_memory_followup_expansion",
+    "token": "test_p19p7_context_memory_followup_expansion",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p19p8_generic_restart_suppression.py",
+    "exists": true,
+    "module": "tests.test_p19p8_generic_restart_suppression",
+    "token": "test_p19p8_generic_restart_suppression",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p19p9_universal_whatsapp_output_guard.py",
+    "exists": true,
+    "module": "tests.test_p19p9_universal_whatsapp_output_guard",
+    "token": "test_p19p9_universal_whatsapp_output_guard",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "DANGEROUS_TO_TOUCH",
+    "reason": "runtime/router/provider/forensic marker"
+  },
+  {
+    "path": "tests/test_p19p_automotive_execution_bias_guard.py",
+    "exists": true,
+    "module": "tests.test_p19p_automotive_execution_bias_guard",
+    "token": "test_p19p_automotive_execution_bias_guard",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p2071_2080_realtime_paper_runtime.py",
+    "exists": true,
+    "module": "tests.test_p2071_2080_realtime_paper_runtime",
+    "token": "test_p2071_2080_realtime_paper_runtime",
+    "references_total": 1,
+    "app_references": [
+      "app/runtime/p2121_plus_continuous_max_capacity_audit.py"
+    ],
+    "test_references": [],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "tests/test_p2071_2080b_repair.py",
+    "exists": true,
+    "module": "tests.test_p2071_2080b_repair",
+    "token": "test_p2071_2080b_repair",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p2081_2090_realtime_portfolio_governance.py",
+    "exists": true,
+    "module": "tests.test_p2081_2090_realtime_portfolio_governance",
+    "token": "test_p2081_2090_realtime_portfolio_governance",
+    "references_total": 1,
+    "app_references": [
+      "app/runtime/p2121_plus_continuous_max_capacity_audit.py"
+    ],
+    "test_references": [],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "tests/test_p2091_2100_realtime_intelligence_layer.py",
+    "exists": true,
+    "module": "tests.test_p2091_2100_realtime_intelligence_layer",
+    "token": "test_p2091_2100_realtime_intelligence_layer",
+    "references_total": 1,
+    "app_references": [
+      "app/runtime/p2121_plus_continuous_max_capacity_audit.py"
+    ],
+    "test_references": [],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "tests/test_p2101_2110_autonomous_paper_operations.py",
+    "exists": true,
+    "module": "tests.test_p2101_2110_autonomous_paper_operations",
+    "token": "test_p2101_2110_autonomous_paper_operations",
+    "references_total": 1,
+    "app_references": [
+      "app/runtime/p2121_plus_continuous_max_capacity_audit.py"
+    ],
+    "test_references": [],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "tests/test_p2111_2120_maximum_technical_capacity.py",
+    "exists": true,
+    "module": "tests.test_p2111_2120_maximum_technical_capacity",
+    "token": "test_p2111_2120_maximum_technical_capacity",
+    "references_total": 1,
+    "app_references": [
+      "app/runtime/p2121_plus_continuous_max_capacity_audit.py"
+    ],
+    "test_references": [],
+    "classification": "CONNECTED_SUPPORT",
+    "reason": "referenced by app code: 1"
+  },
+  {
+    "path": "tests/test_p2121_plus_continuous_max_capacity_audit.py",
+    "exists": true,
+    "module": "tests.test_p2121_plus_continuous_max_capacity_audit",
+    "token": "test_p2121_plus_continuous_max_capacity_audit",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p2131_2150_ftmo_paper_compliance_assurance.py",
+    "exists": true,
+    "module": "tests.test_p2131_2150_ftmo_paper_compliance_assurance",
+    "token": "test_p2131_2150_ftmo_paper_compliance_assurance",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p2151_plus_readiness_dossier_gate_review.py",
+    "exists": true,
+    "module": "tests.test_p2151_plus_readiness_dossier_gate_review",
+    "token": "test_p2151_plus_readiness_dossier_gate_review",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p2223_broker_emulator.py",
+    "exists": true,
+    "module": "tests.test_p2223_broker_emulator",
+    "token": "test_p2223_broker_emulator",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p2224_2226_core.py",
+    "exists": true,
+    "module": "tests.test_p2224_2226_core",
+    "token": "test_p2224_2226_core",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p2227_2229.py",
+    "exists": true,
+    "module": "tests.test_p2227_2229",
+    "token": "test_p2227_2229",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p445m_maintenance_checklist.py",
+    "exists": true,
+    "module": "tests.test_p445m_maintenance_checklist",
+    "token": "test_p445m_maintenance_checklist",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "ACTIVE_CORE",
+    "reason": "matches cognition/runtime core marker"
+  },
+  {
+    "path": "tests/test_p463k_memory_whatsapp_contract.py",
+    "exists": true,
+    "module": "tests.test_p463k_memory_whatsapp_contract",
+    "token": "test_p463k_memory_whatsapp_contract",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "DANGEROUS_TO_TOUCH",
+    "reason": "runtime/router/provider/forensic marker"
+  },
+  {
+    "path": "tests/test_p464d_memory_quarantine_manifest.py",
+    "exists": true,
+    "module": "tests.test_p464d_memory_quarantine_manifest",
+    "token": "test_p464d_memory_quarantine_manifest",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p465d_semantic_retrieval_bridge.py",
+    "exists": true,
+    "module": "tests.test_p465d_semantic_retrieval_bridge",
+    "token": "test_p465d_semantic_retrieval_bridge",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p465g_retrieval_failsafe.py",
+    "exists": true,
+    "module": "tests.test_p465g_retrieval_failsafe",
+    "token": "test_p465g_retrieval_failsafe",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p465o_composite_retrieval_answer.py",
+    "exists": true,
+    "module": "tests.test_p465o_composite_retrieval_answer",
+    "token": "test_p465o_composite_retrieval_answer",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p472b_capability_recovery_bridge.py",
+    "exists": true,
+    "module": "tests.test_p472b_capability_recovery_bridge",
+    "token": "test_p472b_capability_recovery_bridge",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p472c_capability_pipeline_aux.disabled",
+    "exists": true,
+    "module": "tests.test_p472c_capability_pipeline_aux.disabled",
+    "token": "test_p472c_capability_pipeline_aux",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p473b_ready_capability_bridge.py",
+    "exists": true,
+    "module": "tests.test_p473b_ready_capability_bridge",
+    "token": "test_p473b_ready_capability_bridge",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p474a_capability_orchestrator.py",
+    "exists": true,
+    "module": "tests.test_p474a_capability_orchestrator",
+    "token": "test_p474a_capability_orchestrator",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p474b_orchestrator_diagnostic_mode.py",
+    "exists": true,
+    "module": "tests.test_p474b_orchestrator_diagnostic_mode",
+    "token": "test_p474b_orchestrator_diagnostic_mode",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p474c_orchestrator_diagnostic_runner.py",
+    "exists": true,
+    "module": "tests.test_p474c_orchestrator_diagnostic_runner",
+    "token": "test_p474c_orchestrator_diagnostic_runner",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p474d_capability_usage_ledger.py",
+    "exists": true,
+    "module": "tests.test_p474d_capability_usage_ledger",
+    "token": "test_p474d_capability_usage_ledger",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p474e_capability_effectiveness.py",
+    "exists": true,
+    "module": "tests.test_p474e_capability_effectiveness",
+    "token": "test_p474e_capability_effectiveness",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p475_universal_capability_registry.py",
+    "exists": true,
+    "module": "tests.test_p475_universal_capability_registry",
+    "token": "test_p475_universal_capability_registry",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p476_drive_capability_absorption.py",
+    "exists": true,
+    "module": "tests.test_p476_drive_capability_absorption",
+    "token": "test_p476_drive_capability_absorption",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p477_drive_processed_queue.py",
+    "exists": true,
+    "module": "tests.test_p477_drive_processed_queue",
+    "token": "test_p477_drive_processed_queue",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p478_batch_drive_processor.py",
+    "exists": true,
+    "module": "tests.test_p478_batch_drive_processor",
+    "token": "test_p478_batch_drive_processor",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p479_knowledge_extraction_engine.py",
+    "exists": true,
+    "module": "tests.test_p479_knowledge_extraction_engine",
+    "token": "test_p479_knowledge_extraction_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p480_capability_reconstruction_planner.py",
+    "exists": true,
+    "module": "tests.test_p480_capability_reconstruction_planner",
+    "token": "test_p480_capability_reconstruction_planner",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p481_runtime_review_queue.py",
+    "exists": true,
+    "module": "tests.test_p481_runtime_review_queue",
+    "token": "test_p481_runtime_review_queue",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p482_runtime_prioritization.py",
+    "exists": true,
+    "module": "tests.test_p482_runtime_prioritization",
+    "token": "test_p482_runtime_prioritization",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p483_safe_code_generation_gate.py",
+    "exists": true,
+    "module": "tests.test_p483_safe_code_generation_gate",
+    "token": "test_p483_safe_code_generation_gate",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p484_capability_reconstruction_engine.py",
+    "exists": true,
+    "module": "tests.test_p484_capability_reconstruction_engine",
+    "token": "test_p484_capability_reconstruction_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p485_drive_knowledge_graph.py",
+    "exists": true,
+    "module": "tests.test_p485_drive_knowledge_graph",
+    "token": "test_p485_drive_knowledge_graph",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p486_orphan_recovery_engine.py",
+    "exists": true,
+    "module": "tests.test_p486_orphan_recovery_engine",
+    "token": "test_p486_orphan_recovery_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p487_capability_merge_engine.py",
+    "exists": true,
+    "module": "tests.test_p487_capability_merge_engine",
+    "token": "test_p487_capability_merge_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p488_technical_gap_detector.py",
+    "exists": true,
+    "module": "tests.test_p488_technical_gap_detector",
+    "token": "test_p488_technical_gap_detector",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p489_full_repository_intelligence.py",
+    "exists": true,
+    "module": "tests.test_p489_full_repository_intelligence",
+    "token": "test_p489_full_repository_intelligence",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p489a_file_ingestion_pipeline.py",
+    "exists": true,
+    "module": "tests.test_p489a_file_ingestion_pipeline",
+    "token": "test_p489a_file_ingestion_pipeline",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p489b2_routing_safety_audit.py",
+    "exists": true,
+    "module": "tests.test_p489b2_routing_safety_audit",
+    "token": "test_p489b2_routing_safety_audit",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p489b_safe_physical_file_routing.py",
+    "exists": true,
+    "module": "tests.test_p489b_safe_physical_file_routing",
+    "token": "test_p489b_safe_physical_file_routing",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p489c_limited_routing_execution.py",
+    "exists": true,
+    "module": "tests.test_p489c_limited_routing_execution",
+    "token": "test_p489c_limited_routing_execution",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p489d_post_routing_validation.py",
+    "exists": true,
+    "module": "tests.test_p489d_post_routing_validation",
+    "token": "test_p489d_post_routing_validation",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p489e_multi_extension_file_reader.py",
+    "exists": true,
+    "module": "tests.test_p489e_multi_extension_file_reader",
+    "token": "test_p489e_multi_extension_file_reader",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p489f_content_extraction_to_knowledge.py",
+    "exists": true,
+    "module": "tests.test_p489f_content_extraction_to_knowledge",
+    "token": "test_p489f_content_extraction_to_knowledge",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p489g_unknown_extension_classifier.py",
+    "exists": true,
+    "module": "tests.test_p489g_unknown_extension_classifier",
+    "token": "test_p489g_unknown_extension_classifier",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p489h_specialized_parser_backlog.py",
+    "exists": true,
+    "module": "tests.test_p489h_specialized_parser_backlog",
+    "token": "test_p489h_specialized_parser_backlog",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p489i_specialized_parser_plan.py",
+    "exists": true,
+    "module": "tests.test_p489i_specialized_parser_plan",
+    "token": "test_p489i_specialized_parser_plan",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p489j_file_intelligence_expansion_plan.py",
+    "exists": true,
+    "module": "tests.test_p489j_file_intelligence_expansion_plan",
+    "token": "test_p489j_file_intelligence_expansion_plan",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p490_sovereign_certification.py",
+    "exists": true,
+    "module": "tests.test_p490_sovereign_certification",
+    "token": "test_p490_sovereign_certification",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p491_idea_comprehension_depth_match.py",
+    "exists": true,
+    "module": "tests.test_p491_idea_comprehension_depth_match",
+    "token": "test_p491_idea_comprehension_depth_match",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p491b_zip_archive_reader_extractor.py",
+    "exists": true,
+    "module": "tests.test_p491b_zip_archive_reader_extractor",
+    "token": "test_p491b_zip_archive_reader_extractor",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p491e2_drive_absorption_resilient_audit.py",
+    "exists": true,
+    "module": "tests.test_p491e2_drive_absorption_resilient_audit",
+    "token": "test_p491e2_drive_absorption_resilient_audit",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p491e_continuous_drive_absorption_engine.py",
+    "exists": true,
+    "module": "tests.test_p491e_continuous_drive_absorption_engine",
+    "token": "test_p491e_continuous_drive_absorption_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p491f2_drive_scan_monitor.py",
+    "exists": true,
+    "module": "tests.test_p491f2_drive_scan_monitor",
+    "token": "test_p491f2_drive_scan_monitor",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p491f3_drive_scan_monitor_ascii_safe.py",
+    "exists": true,
+    "module": "tests.test_p491f3_drive_scan_monitor_ascii_safe",
+    "token": "test_p491f3_drive_scan_monitor_ascii_safe",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p491f_drive_recursive_paged_inventory.py",
+    "exists": true,
+    "module": "tests.test_p491f_drive_recursive_paged_inventory",
+    "token": "test_p491f_drive_recursive_paged_inventory",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55a_bovine_sports_genetics.py",
+    "exists": true,
+    "module": "tests.test_p55a_bovine_sports_genetics",
+    "token": "test_p55a_bovine_sports_genetics",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55b_bull_web_absorption.py",
+    "exists": true,
+    "module": "tests.test_p55b_bull_web_absorption",
+    "token": "test_p55b_bull_web_absorption",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55c_supabase_ingestion_writer.py",
+    "exists": true,
+    "module": "tests.test_p55c_supabase_ingestion_writer",
+    "token": "test_p55c_supabase_ingestion_writer",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55d_deduplicated_evidence_writer.py",
+    "exists": true,
+    "module": "tests.test_p55d_deduplicated_evidence_writer",
+    "token": "test_p55d_deduplicated_evidence_writer",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55e_source_queue_seeds.py",
+    "exists": true,
+    "module": "tests.test_p55e_source_queue_seeds",
+    "token": "test_p55e_source_queue_seeds",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55f_bull_candidate_ingestion.py",
+    "exists": true,
+    "module": "tests.test_p55f_bull_candidate_ingestion",
+    "token": "test_p55f_bull_candidate_ingestion",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55g_pedigree_edge_ingestion.py",
+    "exists": true,
+    "module": "tests.test_p55g_pedigree_edge_ingestion",
+    "token": "test_p55g_pedigree_edge_ingestion",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55h_media_event_ingestion.py",
+    "exists": true,
+    "module": "tests.test_p55h_media_event_ingestion",
+    "token": "test_p55h_media_event_ingestion",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55i_biomechanics_score_engine.py",
+    "exists": true,
+    "module": "tests.test_p55i_biomechanics_score_engine",
+    "token": "test_p55i_biomechanics_score_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55j_digital_judge_score_engine.py",
+    "exists": true,
+    "module": "tests.test_p55j_digital_judge_score_engine",
+    "token": "test_p55j_digital_judge_score_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55k_valuation_engine.py",
+    "exists": true,
+    "module": "tests.test_p55k_valuation_engine",
+    "token": "test_p55k_valuation_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55l_executive_decision_api.py",
+    "exists": true,
+    "module": "tests.test_p55l_executive_decision_api",
+    "token": "test_p55l_executive_decision_api",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55m1_valuation_dedup_cleaner.py",
+    "exists": true,
+    "module": "tests.test_p55m1_valuation_dedup_cleaner",
+    "token": "test_p55m1_valuation_dedup_cleaner",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55m_identity_merge_resolver.py",
+    "exists": true,
+    "module": "tests.test_p55m_identity_merge_resolver",
+    "token": "test_p55m_identity_merge_resolver",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55n_fastapi_routes.py",
+    "exists": true,
+    "module": "tests.test_p55n_fastapi_routes",
+    "token": "test_p55n_fastapi_routes",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55o_audit_endpoint.py",
+    "exists": true,
+    "module": "tests.test_p55o_audit_endpoint",
+    "token": "test_p55o_audit_endpoint",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55p_global_web_absorption_runtime.py",
+    "exists": true,
+    "module": "tests.test_p55p_global_web_absorption_runtime",
+    "token": "test_p55p_global_web_absorption_runtime",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55q_worker_fetch_parse.py",
+    "exists": true,
+    "module": "tests.test_p55q_worker_fetch_parse",
+    "token": "test_p55q_worker_fetch_parse",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55r_claim_to_entity_promoter.py",
+    "exists": true,
+    "module": "tests.test_p55r_claim_to_entity_promoter",
+    "token": "test_p55r_claim_to_entity_promoter",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55s_source_expansion_autopilot.py",
+    "exists": true,
+    "module": "tests.test_p55s_source_expansion_autopilot",
+    "token": "test_p55s_source_expansion_autopilot",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55t_real_fetcher_search_connector.py",
+    "exists": true,
+    "module": "tests.test_p55t_real_fetcher_search_connector",
+    "token": "test_p55t_real_fetcher_search_connector",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55u_real_result_claim_extractor.py",
+    "exists": true,
+    "module": "tests.test_p55u_real_result_claim_extractor",
+    "token": "test_p55u_real_result_claim_extractor",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55v_pedigree_extractor.py",
+    "exists": true,
+    "module": "tests.test_p55v_pedigree_extractor",
+    "token": "test_p55v_pedigree_extractor",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55w_video_metadata_extractor.py",
+    "exists": true,
+    "module": "tests.test_p55w_video_metadata_extractor",
+    "token": "test_p55w_video_metadata_extractor",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55x1_fake_animal_cleaner.py",
+    "exists": true,
+    "module": "tests.test_p55x1_fake_animal_cleaner",
+    "token": "test_p55x1_fake_animal_cleaner",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55x2_human_family_name_cleaner.py",
+    "exists": true,
+    "module": "tests.test_p55x2_human_family_name_cleaner",
+    "token": "test_p55x2_human_family_name_cleaner",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55x3_org_fragment_cleaner.py",
+    "exists": true,
+    "module": "tests.test_p55x3_org_fragment_cleaner",
+    "token": "test_p55x3_org_fragment_cleaner",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55x4_strict_animal_name_normalizer.py",
+    "exists": true,
+    "module": "tests.test_p55x4_strict_animal_name_normalizer",
+    "token": "test_p55x4_strict_animal_name_normalizer",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55x5_final_phrase_cleaner.py",
+    "exists": true,
+    "module": "tests.test_p55x5_final_phrase_cleaner",
+    "token": "test_p55x5_final_phrase_cleaner",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55x6_cross_duplicate_cleaner.py",
+    "exists": true,
+    "module": "tests.test_p55x6_cross_duplicate_cleaner",
+    "token": "test_p55x6_cross_duplicate_cleaner",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55x_genetic_graph_builder.py",
+    "exists": true,
+    "module": "tests.test_p55x_genetic_graph_builder",
+    "token": "test_p55x_genetic_graph_builder",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55y_country_comparator.py",
+    "exists": true,
+    "module": "tests.test_p55y_country_comparator",
+    "token": "test_p55y_country_comparator",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p55z_executive_snapshot.py",
+    "exists": true,
+    "module": "tests.test_p55z_executive_snapshot",
+    "token": "test_p55z_executive_snapshot",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p56b2_real_cv_pipeline.py",
+    "exists": true,
+    "module": "tests.test_p56b2_real_cv_pipeline",
+    "token": "test_p56b2_real_cv_pipeline",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p56b3_video_web_discovery_queue.py",
+    "exists": true,
+    "module": "tests.test_p56b3_video_web_discovery_queue",
+    "token": "test_p56b3_video_web_discovery_queue",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p56b4_youtube_acquisition_engine.py",
+    "exists": true,
+    "module": "tests.test_p56b4_youtube_acquisition_engine",
+    "token": "test_p56b4_youtube_acquisition_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p56b4a_duration_filter.py",
+    "exists": true,
+    "module": "tests.test_p56b4a_duration_filter",
+    "token": "test_p56b4a_duration_filter",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p56b5_judge_real_biomechanics_binder.py",
+    "exists": true,
+    "module": "tests.test_p56b5_judge_real_biomechanics_binder",
+    "token": "test_p56b5_judge_real_biomechanics_binder",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p56b5_youtube_url_resolver.py",
+    "exists": true,
+    "module": "tests.test_p56b5_youtube_url_resolver",
+    "token": "test_p56b5_youtube_url_resolver",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p56b6_real_valuation_binder.py",
+    "exists": true,
+    "module": "tests.test_p56b6_real_valuation_binder",
+    "token": "test_p56b6_real_valuation_binder",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p56b7_real_ranking_api.py",
+    "exists": true,
+    "module": "tests.test_p56b7_real_ranking_api",
+    "token": "test_p56b7_real_ranking_api",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p56b8_real_country_ranking_recalculator.py",
+    "exists": true,
+    "module": "tests.test_p56b8_real_country_ranking_recalculator",
+    "token": "test_p56b8_real_country_ranking_recalculator",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p56b_video_computer_vision_engine.py",
+    "exists": true,
+    "module": "tests.test_p56b_video_computer_vision_engine",
+    "token": "test_p56b_video_computer_vision_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p56c_pedigree_source_validation.py",
+    "exists": true,
+    "module": "tests.test_p56c_pedigree_source_validation",
+    "token": "test_p56c_pedigree_source_validation",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p56d1_market_price_dedup_validator.py",
+    "exists": true,
+    "module": "tests.test_p56d1_market_price_dedup_validator",
+    "token": "test_p56d1_market_price_dedup_validator",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p56d_market_valuation_real_prices.py",
+    "exists": true,
+    "module": "tests.test_p56d_market_valuation_real_prices",
+    "token": "test_p56d_market_valuation_real_prices",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p56f1_animal_discovery_engine.py",
+    "exists": true,
+    "module": "tests.test_p56f1_animal_discovery_engine",
+    "token": "test_p56f1_animal_discovery_engine",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p56f1a_strict_candidate_filter.py",
+    "exists": true,
+    "module": "tests.test_p56f1a_strict_candidate_filter",
+    "token": "test_p56f1a_strict_candidate_filter",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p56f2_database_sanitizer.py",
+    "exists": true,
+    "module": "tests.test_p56f2_database_sanitizer",
+    "token": "test_p56f2_database_sanitizer",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p56f_autonomous_video_discovery_loop.py",
+    "exists": true,
+    "module": "tests.test_p56f_autonomous_video_discovery_loop",
+    "token": "test_p56f_autonomous_video_discovery_loop",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p7_integration_guardrails.py",
+    "exists": true,
+    "module": "tests.test_p7_integration_guardrails",
+    "token": "test_p7_integration_guardrails",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p7_isolated_adapters.py",
+    "exists": true,
+    "module": "tests.test_p7_isolated_adapters",
+    "token": "test_p7_isolated_adapters",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p8_12_planner_active_policy.py",
+    "exists": true,
+    "module": "tests.test_p8_12_planner_active_policy",
+    "token": "test_p8_12_planner_active_policy",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p8_15_real_planner.py",
+    "exists": true,
+    "module": "tests.test_p8_15_real_planner",
+    "token": "test_p8_15_real_planner",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p8_19_planner_sandbox.py",
+    "exists": true,
+    "module": "tests.test_p8_19_planner_sandbox",
+    "token": "test_p8_19_planner_sandbox",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p8_23_consumption_contract.py",
+    "exists": true,
+    "module": "tests.test_p8_23_consumption_contract",
+    "token": "test_p8_23_consumption_contract",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p8_shadow_implementation.py",
+    "exists": true,
+    "module": "tests.test_p8_shadow_implementation",
+    "token": "test_p8_shadow_implementation",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  },
+  {
+    "path": "tests/test_p9_runtime_consumption.py",
+    "exists": true,
+    "module": "tests.test_p9_runtime_consumption",
+    "token": "test_p9_runtime_consumption",
+    "references_total": 0,
+    "app_references": [],
+    "test_references": [],
+    "classification": "LEGACY_REVIEW",
+    "reason": "test file without app reference"
+  }
+]

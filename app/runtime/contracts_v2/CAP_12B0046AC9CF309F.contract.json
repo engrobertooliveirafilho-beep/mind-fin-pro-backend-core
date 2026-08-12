@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_12B0046AC9CF309F",
+  "source_file": ".venv\\Lib\\site-packages\\pygments\\lexers\\lisp.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\pygments\\lexers\\lisp.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 113,
+  "imports": [
+    "pygments.lexer",
+    "pygments.lexers._cl_builtins",
+    "pygments.lexers._scheme_builtins",
+    "pygments.lexers.python",
+    "pygments.token",
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,92 @@
+{
+  "P9.1_STATE_SNAPSHOT": {
+    "STATUS": "P9.1_DATA_EXPANSION_ENGINE_REGISTERED",
+    "TOTAL_DATASET_SLOTS": 1504,
+    "ASSET_UNIVERSE": {
+      "brazil_futures": [
+        "WIN",
+        "WDO",
+        "IND",
+        "DOL"
+      ],
+      "forex": [
+        "EURUSD",
+        "GBPUSD",
+        "USDJPY"
+      ],
+      "commodities": [
+        "XAUUSD"
+      ],
+      "indices": [
+        "SP500",
+        "NASDAQ"
+      ],
+      "crypto": [
+        "BTCUSD",
+        "ETHUSD"
+      ],
+      "brazil_stocks": [
+        "PETR4",
+        "VALE3",
+        "ITUB4",
+        "BBDC4",
+        "BBAS3",
+        "ABEV3",
+        "WEGE3",
+        "B3SA3",
+        "RENT3",
+        "PRIO3",
+        "SUZB3",
+        "ELET3",
+        "JBSS3",
+        "RAIL3",
+        "MGLU3"
+      ],
+      "international_stocks": [
+        "AAPL",
+        "MSFT",
+        "NVDA",
+        "AMZN",
+        "GOOGL",
+        "META",
+        "TSLA",
+        "NFLX",
+        "AMD",
+        "INTC",
+        "JPM",
+        "BAC",
+        "KO",
+        "PEP",
+        "WMT",
+        "COST",
+        "DIS",
+        "NKE",
+        "XOM",
+        "CVX"
+      ]
+    },
+    "TIMEFRAMES": [
+      "TICK",
+      "M1",
+      "M5",
+      "M15",
+      "M30",
+      "H1",
+      "H4",
+      "D1"
+    ],
+    "SOURCES": [
+      "MT5_CSV",
+      "PROFIT_CSV",
+      "GENERIC_OHLCV_CSV",
+      "TICK_DATA"
+    ],
+    "LIVE": "FORBIDDEN",
+    "PRODUCTION": "BLOCKED",
+    "REAL_BROKER": "DISABLED",
+    "EDGE": "NONE",
+    "CAUSALITY": "NOT_PROVEN",
+    "NEXT": "INGEST_REAL_MT5_PROFIT_CSV_FILES",
+    "EXPORT_READY": true
+  }
+}

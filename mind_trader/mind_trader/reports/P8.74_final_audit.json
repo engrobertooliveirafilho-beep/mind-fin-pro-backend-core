@@ -1,0 +1,243 @@
+{
+  "command": "P8.74_FINAL_AUDIT_COMMAND",
+  "created_at": "2026-06-14T16:22:50.510119+00:00",
+  "tests_passed": 205,
+  "status": {
+    "command": "P8.73_OPERATIONAL_STATUS",
+    "created_at": "2026-06-14T16:22:49.754642+00:00",
+    "tests_passed": 205,
+    "readiness": {
+      "report": "P8.67_PAPER_RESEARCH_READINESS",
+      "created_at": "2026-06-14T16:22:49.754642+00:00",
+      "tests_passed": 205,
+      "required": [
+        "data_connector",
+        "data_quality",
+        "data_catalog",
+        "dataset_lineage",
+        "dataset_lineage_gate",
+        "backtest_cluster",
+        "edge_validation",
+        "regime_detection",
+        "ftmo_simulation",
+        "paper_session",
+        "execution_gateway",
+        "audit_ledger",
+        "healthcheck"
+      ],
+      "missing": [],
+      "failed": [],
+      "decision": "PAPER_RESEARCH_READY",
+      "allowed_scope": "PAPER_RESEARCH_ONLY",
+      "production": "BLOCKED",
+      "live": "FORBIDDEN",
+      "edge_claim": "NONE",
+      "causality_claim": "NOT_PROVEN"
+    },
+    "preflight": null,
+    "latest_reports": [
+      {
+        "name": "P8.74_final_audit.json",
+        "path": "mind_trader\\reports\\P8.74_final_audit.json",
+        "bytes": 10797
+      },
+      {
+        "name": "P8.54_release_audit_gate.json",
+        "path": "mind_trader\\reports\\P8.54_release_audit_gate.json",
+        "bytes": 1665
+      },
+      {
+        "name": "P8.53_institutional_healthcheck.json",
+        "path": "mind_trader\\reports\\P8.53_institutional_healthcheck.json",
+        "bytes": 5658
+      },
+      {
+        "name": "P8.52_runtime_evidence_package.json",
+        "path": "mind_trader\\reports\\P8.52_runtime_evidence_package.json",
+        "bytes": 4954
+      },
+      {
+        "name": "P8.71_preflight_check.json",
+        "path": "mind_trader\\reports\\P8.71_preflight_check.json",
+        "bytes": 1419
+      },
+      {
+        "name": "P8.50_daily_research_report.json",
+        "path": "mind_trader\\reports\\P8.50_daily_research_report.json",
+        "bytes": 15540
+      },
+      {
+        "name": "P8.68_paper_research_operation.json",
+        "path": "mind_trader\\reports\\P8.68_paper_research_operation.json",
+        "bytes": 21932
+      },
+      {
+        "name": "P8.44_research_orchestrator_report.json",
+        "path": "mind_trader\\reports\\P8.44_research_orchestrator_report.json",
+        "bytes": 12447
+      },
+      {
+        "name": "P8.60_batch_market_ingestion_manifest.json",
+        "path": "mind_trader\\reports\\P8.60_batch_market_ingestion_manifest.json",
+        "bytes": 4222
+      },
+      {
+        "name": "P8.61_data_catalog.json",
+        "path": "mind_trader\\reports\\P8.61_data_catalog.json",
+        "bytes": 1185
+      }
+    ],
+    "decision": "STATUS_ONLY",
+    "production": "BLOCKED",
+    "live": "FORBIDDEN",
+    "edge_claim": "NONE"
+  },
+  "healthcheck": {
+    "decision": "SYSTEM_HEALTH_OK",
+    "tests": {
+      "passed": true,
+      "skipped": true
+    },
+    "evidence_package": {
+      "package": "P8.52_RUNTIME_EVIDENCE_PACKAGE",
+      "created_at": "2026-06-14T16:22:49.879059+00:00",
+      "tests_passed": 205,
+      "snapshot": {
+        "system": "MIND_TRADER_PRIVATE_ADAPTIVE_MARKET_INTELLIGENCE_SYSTEM",
+        "snapshot_ts": "2026-06-14T16:22:49.754642+00:00",
+        "modules": {
+          "P8.26": "OK_RESEARCH_LAYER",
+          "P8.27": "OK_FTMO_SIMULATION",
+          "P8.28": "OK_MARKET_DATA_CORE",
+          "P8.29": "OK_DATA_QUALITY_GATE",
+          "P8.30": "OK_EDGE_VALIDATION",
+          "P8.31": "OK_REGIME_DETECTION",
+          "P8.32": "OK_STRATEGY_GENOME",
+          "P8.33": "OK_ADVERSARIAL_VALIDATION",
+          "P8.34": "OK_CROSS_ASSET_BRAIN",
+          "P8.35": "OK_CAUSALITY_HYPOTHESIS",
+          "P8.36": "OK_FEATURE_STORE",
+          "P8.37": "OK_MASSIVE_BACKTEST_CLUSTER",
+          "P8.38": "OK_DIGITAL_TWIN_REPLAY",
+          "P8.39": "OK_CAPITAL_EVOLUTION",
+          "P8.40": "OK_SELF_EVOLUTION",
+          "P8.41": "OK_EXECUTION_GATEWAY_SIM",
+          "P8.42": "OK_VALIDATION_PROTOCOL"
+        },
+        "tests_passed": 205,
+        "production": "BLOCKED",
+        "live": "FORBIDDEN",
+        "max_approval_scope": "PAPER_TRADING_APPROVED",
+        "edge_claim": "NONE",
+        "causality_claim": "NOT_PROVEN"
+      },
+      "ledger_integrity": {
+        "valid": true,
+        "events": 5069,
+        "last_hash": "7d0317f811169bb5f0d665d1a9ae893954d2a3024117888eb13994e14caf90a9"
+      },
+      "report_hashes": {
+        "P8.100_paper_research_v1_release.json": "aa008e70206f1348f73cc4d75f2b183af89c52e690ebd71f858fdee6df24f1cd",
+        "P8.44_research_orchestrator_report.json": "e239a40f245376d92d869c20daa3dbb340b69bbb05c55285e936f30d927af899",
+        "P8.46_ftmo_rule_audit.json": "e04ce4b78101ece9bc7bd498ac548277a05b03b071f745fc95569181d7d33b73",
+        "P8.50_daily_research_report.json": "f165090041ad14524a9df76e0b751add967d751ab405357de523ea7247ffd4ce",
+        "P8.52_runtime_evidence_package.json": "6342d7ab23c6d87ef1f82395f2ec430a7f5021d0946dfd49b67004b3b8b00591",
+        "P8.53_institutional_healthcheck.json": "68809966b31f7a3244f7d2a63bff0df8d71edd3a8d11e7fbc081215027cf0cf3",
+        "P8.54_release_audit_gate.json": "ca2ec73c63aa3adb0ff481eb6b652bef2d7fcfd5fad8d0926e3f6932d1cb0128",
+        "P8.55_transfer_snapshot.json": "372adeda767afddafd3d407c791257ca796a68ddd8373f4e4f4ce81e62c9b0f2",
+        "P8.59_market_data_connector_manifest.json": "770cb71e80c81381ecb4f6e97d8edcad90d21fff5de58e7a0dd67428f4d63cdc",
+        "P8.60_batch_market_ingestion_manifest.json": "bda84bda506a72c6c51512a2e199f3e9a373a506a2bd370737af7372579d4414",
+        "P8.61_data_catalog.json": "8666443d455031a6abf2552ebdbe1437351ccc314897ce97059451b26da18358",
+        "P8.63_market_data_connector_catalog_manifest.json": "0ab2d5a1d6e63c0301e0d4daf610db123b6af77502bdfe05fd42d577476a16c7",
+        "P8.64_dataset_lineage.json": "6312206f03f8c901acfdaed61e075381d2054ca579a3fb0a33496d0bfccfc34e",
+        "P8.65_market_data_connector_lineage_manifest.json": "5453b126f308c19d44204ac165cad97dfa0f0d0953b52d7170930960454de7de",
+        "P8.68_paper_research_operation.json": "ebcb6bd58e7d51e1fa9f075fa29bee2b441818dae4bcf88ab7a0280476143ebc",
+        "P8.71_preflight_check.json": "e898adc060248f0bac4d94fd8edfc7abe54f29b578b080fcbfcdd557dc308935",
+        "P8.74_final_audit.json": "7223815797c3869723e714826a2990e9c39bbda30b38ff3a05f8fe04b556dd4b",
+        "P8.76_correlation_authority.json": "bdb4319e0aae928016430929f6a193720cb7b3b922124d89a0f486a6f2f3f622",
+        "P8.77_causality_authority.json": "604ca5fe063c07ca0bec9ed79090fccaa101d8c18f5fb4a1d3b0e10d519c4acf",
+        "P8.78_uncertainty_authority.json": "55b44660ad4dd408e33c076e2dd33c6317e9330020af5e5a2cdf0ea0214beb7c",
+        "P8.79_edge_discovery_authority.json": "f31713449546d6edbb1275b80ffd19849e7bf5d6a5ece60e7af9efae8bd36aef",
+        "P8.80_anti_overfitting_authority.json": "85791b222054bf278bbe678f7da01686181cda80e90816e079aad249ea204f2d",
+        "P8.82_monte_carlo_authority.json": "dd78ab2da76d793f887d48ca1159b27d23f15604f539bee8b5839fded885435e",
+        "P8.83_robustness_committee.json": "5dca6633e690a101a3c8531476d5b0b0802b3b917e6d066e52e8633c68432022",
+        "P8.85_promotion_authority.json": "76ba00a98985861f1c2c7b6cd3a6f27d59dade568bbdd8d251077698a1788368",
+        "P8.89_knowledge_absorption_registered.json": "6b27402a2c2222cc5ddd2b370ab4e80a8dab20d672b5b067a8e006559f2d3dc3",
+        "P8.90_final_research_certification.json": "2531bcdfe311d2df6e44830d1073444a9462a9d2938f4b4d71287793863447cd",
+        "P8.91_final_certified_snapshot.json": "005998a1acd0f4f50025af29f174fb47ea0cc60662c5f640669a2e503ad2c846",
+        "P8.92_institutional_live_lock.json": "b870af44d4e1fb6c3ef9348ca238d38ede51db8a24f3fb852a9a273348402f1f",
+        "P8.94_safe_broker_adapter.json": "2a728875a57356220203a0b9bcad3b408023fe94187bdf1c621c653589cc9abd"
+      },
+      "repro_command": "$env:PYTHONPATH=(Get-Location).Path; pytest .\\mind_trader\\tests -q",
+      "production": "BLOCKED",
+      "live": "FORBIDDEN",
+      "edge_claim": "NONE",
+      "package_hash": "57a0e4c96016b1496b38f441245c3dce4f282b8cd67ceadd1d76974502e11c98"
+    },
+    "critical_blocks": {
+      "passed": true,
+      "checks": {
+        "production_blocked": true,
+        "live_forbidden": true,
+        "edge_none": true,
+        "hash_present": true
+      }
+    },
+    "ledger_integrity": {
+      "valid": true,
+      "events": 5069,
+      "last_hash": "7d0317f811169bb5f0d665d1a9ae893954d2a3024117888eb13994e14caf90a9"
+    },
+    "production": "BLOCKED",
+    "live": "FORBIDDEN",
+    "edge_claim": "NONE"
+  },
+  "release_gate": {
+    "gate": "P8.54_RELEASE_AUDIT_GATE",
+    "created_at": "2026-06-14T16:22:50.330922+00:00",
+    "target": "PAPER_RESEARCH",
+    "snapshot": {
+      "system": "MIND_TRADER_PRIVATE_ADAPTIVE_MARKET_INTELLIGENCE_SYSTEM",
+      "snapshot_ts": "2026-06-14T16:22:50.330922+00:00",
+      "modules": {
+        "P8.26": "OK_RESEARCH_LAYER",
+        "P8.27": "OK_FTMO_SIMULATION",
+        "P8.28": "OK_MARKET_DATA_CORE",
+        "P8.29": "OK_DATA_QUALITY_GATE",
+        "P8.30": "OK_EDGE_VALIDATION",
+        "P8.31": "OK_REGIME_DETECTION",
+        "P8.32": "OK_STRATEGY_GENOME",
+        "P8.33": "OK_ADVERSARIAL_VALIDATION",
+        "P8.34": "OK_CROSS_ASSET_BRAIN",
+        "P8.35": "OK_CAUSALITY_HYPOTHESIS",
+        "P8.36": "OK_FEATURE_STORE",
+        "P8.37": "OK_MASSIVE_BACKTEST_CLUSTER",
+        "P8.38": "OK_DIGITAL_TWIN_REPLAY",
+        "P8.39": "OK_CAPITAL_EVOLUTION",
+        "P8.40": "OK_SELF_EVOLUTION",
+        "P8.41": "OK_EXECUTION_GATEWAY_SIM",
+        "P8.42": "OK_VALIDATION_PROTOCOL"
+      },
+      "tests_passed": 205,
+      "production": "BLOCKED",
+      "live": "FORBIDDEN",
+      "max_approval_scope": "PAPER_TRADING_APPROVED",
+      "edge_claim": "NONE",
+      "causality_claim": "NOT_PROVEN"
+    },
+    "evidence_package_hash": "d0dde5cea214fe0159af9513330840d66f79442b720ab39b85eea2fa2481da6a",
+    "health_decision": "SYSTEM_HEALTH_OK",
+    "decision": "RELEASE_AUDIT_PACKAGE_READY",
+    "allowed_scope": "PAPER_RESEARCH_ONLY",
+    "production": "BLOCKED",
+    "live": "FORBIDDEN",
+    "edge_claim": "NONE",
+    "release_hash": "ec4af938e35a3f9e9bb0747e812ce957b82e5e09ad4982be47982c119f959c5f",
+    "ledger_hash": "fec3e3c414bf27e97278b6e80a5a708468a15cfcad4002e12a5e1c8dcee42f92"
+  },
+  "evidence_hash": "8a56b54d3ccd0fb6991554afe827c58675f31e8a584ac3175739c267937981d5",
+  "decision": "FINAL_AUDIT_OK",
+  "production": "BLOCKED",
+  "live": "FORBIDDEN",
+  "edge_claim": "NONE"
+}

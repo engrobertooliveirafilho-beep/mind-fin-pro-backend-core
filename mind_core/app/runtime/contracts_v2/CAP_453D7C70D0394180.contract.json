@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_453D7C70D0394180",
+  "source_file": "tests\\test_p19p29_universal_domain_context.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\tests\\test_p19p29_universal_domain_context.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 83,
+  "imports": [
+    "app.main",
+    "fastapi.testclient"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

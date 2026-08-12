@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_FA31BF0F87DA6F5E",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\indexes\\datetimes\\test_date_range.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\pandas\\tests\\indexes\\datetimes\\test_date_range.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 130,
+  "imports": [
+    "datetime",
+    "numpy",
+    "pandas",
+    "pandas._libs.tslibs",
+    "pandas._libs.tslibs.offsets",
+    "pandas._libs.tslibs.timezones",
+    "pandas._testing",
+    "pandas.core.arrays.datetimes",
+    "pandas.errors",
+    "pandas.tests.indexes.datetimes.test_timezones",
+    "pandas.tseries.holiday",
+    "pandas.util._test_decorators",
+    "pytest",
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

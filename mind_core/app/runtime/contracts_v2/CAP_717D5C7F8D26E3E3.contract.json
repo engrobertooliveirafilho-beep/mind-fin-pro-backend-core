@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_717D5C7F8D26E3E3",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_internal\\req\\pep723.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\.venv\\Lib\\site-packages\\pip\\_internal\\req\\pep723.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 97,
+  "imports": [
+    "pip._internal.utils.compat",
+    "re",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

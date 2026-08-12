@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_DFB3C5CBDA932632",
+  "source_file": "mind_trader\\tests\\test_p102_dataset_certification_runtime.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\data\\mind_trader\\tests\\test_p102_dataset_certification_runtime.py",
+  "domain": "DATA",
+  "target_layer": "app/runtime",
+  "promotion_score": 83,
+  "imports": [
+    "app.p10_dataset_certification_runtime.engine"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

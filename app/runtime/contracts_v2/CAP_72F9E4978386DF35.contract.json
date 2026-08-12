@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_72F9E4978386DF35",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\_core\\memmap.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\numpy\\_core\\memmap.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 110,
+  "imports": [
+    "contextlib",
+    "mmap",
+    "numeric",
+    "numpy",
+    "numpy._utils",
+    "operator",
+    "os.path"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

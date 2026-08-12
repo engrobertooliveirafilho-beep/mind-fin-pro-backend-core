@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_A68F23BA6354835B",
+  "source_file": "app\\cognitive_os\\self_evolution_boot.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\app\\cognitive_os\\self_evolution_boot.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 94,
+  "imports": [
+    "app.cognitive_os.graph_core",
+    "app.observability.system_drift_detector",
+    "app.self_evolution.evolution_controller"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

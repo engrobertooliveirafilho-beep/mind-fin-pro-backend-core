@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_A2DBF4CEE323F217",
+  "source_file": "_evidence\\P17_ELDORA_VALUE_PROOF_HYBRID_20260616_205638\\run_p17_eldora_value_proof.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P17_ELDORA_VALUE_PROOF_HYBRID_20260616_205638\\run_p17_eldora_value_proof.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 97,
+  "imports": [
+    "app.p17_value_proof.eldora_value_proof",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

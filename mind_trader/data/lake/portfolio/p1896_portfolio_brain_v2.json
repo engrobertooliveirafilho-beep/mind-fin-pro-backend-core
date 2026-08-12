@@ -1,0 +1,187 @@
+{
+  "status": "P1896_PORTFOLIO_BRAIN_V2_COMPLETED",
+  "mode": "RESEARCH_ONLY",
+  "selected_specialists": [
+    {
+      "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_e22e151504a57648",
+      "asset": "USDJPY",
+      "family": "RSI_REVERSION",
+      "health_score": 160.601565,
+      "health_state": "ELITE",
+      "tier": "S+",
+      "status": "EDGE_HEALTH_ACTIVE"
+    },
+    {
+      "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_aa12e174aa75b5b2",
+      "asset": "USDJPY",
+      "family": "RSI_REVERSION",
+      "health_score": 160.601565,
+      "health_state": "ELITE",
+      "tier": "S+",
+      "status": "EDGE_HEALTH_ACTIVE"
+    },
+    {
+      "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_1e538a0d6fedf6dc",
+      "asset": "USDJPY",
+      "family": "RSI_REVERSION",
+      "health_score": 112.802795,
+      "health_state": "ELITE",
+      "tier": "S+",
+      "status": "EDGE_HEALTH_ACTIVE"
+    },
+    {
+      "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_c2eee99c5c1c4c61",
+      "asset": "USDJPY",
+      "family": "RSI_REVERSION",
+      "health_score": 112.802795,
+      "health_state": "ELITE",
+      "tier": "S+",
+      "status": "EDGE_HEALTH_ACTIVE"
+    },
+    {
+      "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_b363b38c9bf8d051",
+      "asset": "USDJPY",
+      "family": "RSI_REVERSION",
+      "health_score": 112.802795,
+      "health_state": "ELITE",
+      "tier": "S+",
+      "status": "EDGE_HEALTH_ACTIVE"
+    },
+    {
+      "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_7fdced0772c3179a",
+      "asset": "USDJPY",
+      "family": "RSI_REVERSION",
+      "health_score": 112.802795,
+      "health_state": "ELITE",
+      "tier": "S+",
+      "status": "EDGE_HEALTH_ACTIVE"
+    },
+    {
+      "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_2cfb8703fb0375e8",
+      "asset": "USDJPY",
+      "family": "RSI_REVERSION",
+      "health_score": 112.802795,
+      "health_state": "ELITE",
+      "tier": "S+",
+      "status": "EDGE_HEALTH_ACTIVE"
+    },
+    {
+      "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_f55caa4584df31ee",
+      "asset": "USDJPY",
+      "family": "RSI_REVERSION",
+      "health_score": 112.802795,
+      "health_state": "ELITE",
+      "tier": "S+",
+      "status": "EDGE_HEALTH_ACTIVE"
+    },
+    {
+      "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_1e065a0e0043f30d",
+      "asset": "XAUUSD",
+      "family": "LIQUIDITY_SWEEP_TRIGGER",
+      "health_score": 108.12002,
+      "health_state": "ELITE",
+      "tier": "S+",
+      "status": "EDGE_HEALTH_ACTIVE"
+    },
+    {
+      "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_889afb67b1412459",
+      "asset": "XAUUSD",
+      "family": "LIQUIDITY_SWEEP_TRIGGER",
+      "health_score": 108.12002,
+      "health_state": "ELITE",
+      "tier": "S+",
+      "status": "EDGE_HEALTH_ACTIVE"
+    },
+    {
+      "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_c47653114bb5eced",
+      "asset": "USDJPY",
+      "family": "RSI_REVERSION",
+      "health_score": 105.40591,
+      "health_state": "ELITE",
+      "tier": "S",
+      "status": "EDGE_HEALTH_ACTIVE"
+    },
+    {
+      "specialist_id": "USDJPY_D1_RSI_REVERSION_MUT_0e6318b221b2afe9",
+      "asset": "USDJPY",
+      "family": "RSI_REVERSION",
+      "health_score": 105.40591,
+      "health_state": "ELITE",
+      "tier": "S",
+      "status": "EDGE_HEALTH_ACTIVE"
+    },
+    {
+      "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_23d9161ce0f608da",
+      "asset": "XAUUSD",
+      "family": "LIQUIDITY_SWEEP_TRIGGER",
+      "health_score": 104.6597,
+      "health_state": "ELITE",
+      "tier": "S+",
+      "status": "EDGE_HEALTH_ACTIVE"
+    },
+    {
+      "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_8f80417fbd476053",
+      "asset": "XAUUSD",
+      "family": "LIQUIDITY_SWEEP_TRIGGER",
+      "health_score": 104.6597,
+      "health_state": "ELITE",
+      "tier": "S+",
+      "status": "EDGE_HEALTH_ACTIVE"
+    },
+    {
+      "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_4bc877150e2be425",
+      "asset": "XAUUSD",
+      "family": "LIQUIDITY_SWEEP_TRIGGER",
+      "health_score": 100.76385,
+      "health_state": "ELITE",
+      "tier": "S",
+      "status": "EDGE_HEALTH_ACTIVE"
+    },
+    {
+      "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_780770da731391ee",
+      "asset": "XAUUSD",
+      "family": "LIQUIDITY_SWEEP_TRIGGER",
+      "health_score": 100.76385,
+      "health_state": "ELITE",
+      "tier": "S",
+      "status": "EDGE_HEALTH_ACTIVE"
+    },
+    {
+      "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_669f2fd24755ee6e",
+      "asset": "XAUUSD",
+      "family": "LIQUIDITY_SWEEP_TRIGGER",
+      "health_score": 100.76385,
+      "health_state": "ELITE",
+      "tier": "S",
+      "status": "EDGE_HEALTH_ACTIVE"
+    },
+    {
+      "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_852b3ba8467e673c",
+      "asset": "XAUUSD",
+      "family": "LIQUIDITY_SWEEP_TRIGGER",
+      "health_score": 100.76385,
+      "health_state": "ELITE",
+      "tier": "S",
+      "status": "EDGE_HEALTH_ACTIVE"
+    },
+    {
+      "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_b1ec47028d941110",
+      "asset": "XAUUSD",
+      "family": "LIQUIDITY_SWEEP_TRIGGER",
+      "health_score": 100.76385,
+      "health_state": "ELITE",
+      "tier": "S",
+      "status": "EDGE_HEALTH_ACTIVE"
+    },
+    {
+      "specialist_id": "XAUUSD_D1_LIQUIDITY_SWEEP_TRIGGER_MUT_ab1ac702ffa78240",
+      "asset": "XAUUSD",
+      "family": "LIQUIDITY_SWEEP_TRIGGER",
+      "health_score": 100.76385,
+      "health_state": "ELITE",
+      "tier": "S",
+      "status": "EDGE_HEALTH_ACTIVE"
+    }
+  ],
+  "rule": "choose_best_specialist_set_not_single_trade"
+}

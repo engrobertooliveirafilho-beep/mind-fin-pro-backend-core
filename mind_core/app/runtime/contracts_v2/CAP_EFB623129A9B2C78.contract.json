@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_EFB623129A9B2C78",
+  "source_file": "mind_trader\\app\\orchestration\\daily_research_runner.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\mind_trader\\app\\orchestration\\daily_research_runner.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 119,
+  "imports": [
+    "datetime",
+    "json",
+    "mind_trader.app.audits.institutional_audit_ledger",
+    "mind_trader.app.execution.paper_session",
+    "mind_trader.app.orchestration.research_orchestrator",
+    "pathlib",
+    "uuid"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

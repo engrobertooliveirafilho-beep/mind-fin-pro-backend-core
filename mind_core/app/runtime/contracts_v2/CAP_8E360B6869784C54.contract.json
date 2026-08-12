@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_8E360B6869784C54",
+  "source_file": "_evidence\\P19P36O_C_RELATIONSHIP_MEMORY_ADVISOR_20260622_131323\\ROLLBACK_relationship_memory_store.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\_evidence\\P19P36O_C_RELATIONSHIP_MEMORY_ADVISOR_20260622_131323\\ROLLBACK_relationship_memory_store.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 113,
+  "imports": [
+    "datetime",
+    "json",
+    "os",
+    "pathlib",
+    "re",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

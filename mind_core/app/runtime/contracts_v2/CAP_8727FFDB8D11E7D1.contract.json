@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_8727FFDB8D11E7D1",
+  "source_file": "app\\api\\eldora_autonomous.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\app\\api\\eldora_autonomous.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 87,
+  "imports": [
+    "app.eldora.core.autonomous_planner",
+    "app.eldora.core.checkpoint_engine",
+    "app.eldora.core.governor_engine",
+    "fastapi"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

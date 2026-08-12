@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_1BD3DDACD28D7123",
+  "source_file": "_evidence\\P2403_UNIVERSAL_PROVIDER_ORCHESTRATOR_20260624_183324\\sovereign_before.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P2403_UNIVERSAL_PROVIDER_ORCHESTRATOR_20260624_183324\\sovereign_before.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 95,
+  "imports": [
+    "dataclasses",
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

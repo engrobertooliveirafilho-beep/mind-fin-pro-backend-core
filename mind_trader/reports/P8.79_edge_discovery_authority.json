@@ -1,0 +1,433 @@
+{
+  "authority": "P8.79_EDGE_DISCOVERY_AUTHORITY",
+  "created_at": "2026-06-09T14:40:04.032105+00:00",
+  "symbol": "TEST",
+  "timeframe": "1m",
+  "hypotheses_reviewed": 18,
+  "top": [
+    {
+      "hypothesis": {
+        "feature": "volatility",
+        "bucket": "NEUTRAL",
+        "regime": "TREND_DOWN",
+        "sample_size": 51,
+        "avg_forward_return": 0.0007705624319208887,
+        "hit_rate": 0.7058823529411765,
+        "score": 9.764447848620652,
+        "classification": "HYPOTHESIS_ONLY",
+        "edge_claim": "NONE",
+        "production": "BLOCKED"
+      },
+      "validation_proxy": {
+        "out_of_sample": {
+          "trades": 51,
+          "profit_factor": 1.411764705882353,
+          "expectancy": 0.7705624319208887,
+          "max_drawdown": 1.5411248638417774
+        },
+        "monte_carlo": {
+          "passed": true
+        },
+        "degradation": {
+          "passed": true
+        },
+        "cost_stress": {
+          "passed": true
+        }
+      },
+      "uncertainty": {
+        "confidence": 0.6572421306512944,
+        "uncertainty": 0.34275786934870556,
+        "robustness": 1.0,
+        "decision": "UNCERTAINTY_RETEST",
+        "production": "BLOCKED",
+        "edge_claim": "NONE"
+      },
+      "classification": "RESEARCH_HYPOTHESIS",
+      "edge_claim": "NONE",
+      "production": "BLOCKED"
+    },
+    {
+      "hypothesis": {
+        "feature": "range_pct",
+        "bucket": "POS",
+        "regime": "TREND_DOWN",
+        "sample_size": 51,
+        "avg_forward_return": 0.0007705624319208887,
+        "hit_rate": 0.7058823529411765,
+        "score": 9.764447848620652,
+        "classification": "HYPOTHESIS_ONLY",
+        "edge_claim": "NONE",
+        "production": "BLOCKED"
+      },
+      "validation_proxy": {
+        "out_of_sample": {
+          "trades": 51,
+          "profit_factor": 1.411764705882353,
+          "expectancy": 0.7705624319208887,
+          "max_drawdown": 1.5411248638417774
+        },
+        "monte_carlo": {
+          "passed": true
+        },
+        "degradation": {
+          "passed": true
+        },
+        "cost_stress": {
+          "passed": true
+        }
+      },
+      "uncertainty": {
+        "confidence": 0.6572421306512944,
+        "uncertainty": 0.34275786934870556,
+        "robustness": 1.0,
+        "decision": "UNCERTAINTY_RETEST",
+        "production": "BLOCKED",
+        "edge_claim": "NONE"
+      },
+      "classification": "RESEARCH_HYPOTHESIS",
+      "edge_claim": "NONE",
+      "production": "BLOCKED"
+    },
+    {
+      "hypothesis": {
+        "feature": "volume_zscore",
+        "bucket": "HIGH_POS",
+        "regime": "TREND_DOWN",
+        "sample_size": 51,
+        "avg_forward_return": 0.0007705624319208887,
+        "hit_rate": 0.7058823529411765,
+        "score": 9.764447848620652,
+        "classification": "HYPOTHESIS_ONLY",
+        "edge_claim": "NONE",
+        "production": "BLOCKED"
+      },
+      "validation_proxy": {
+        "out_of_sample": {
+          "trades": 51,
+          "profit_factor": 1.411764705882353,
+          "expectancy": 0.7705624319208887,
+          "max_drawdown": 1.5411248638417774
+        },
+        "monte_carlo": {
+          "passed": true
+        },
+        "degradation": {
+          "passed": true
+        },
+        "cost_stress": {
+          "passed": true
+        }
+      },
+      "uncertainty": {
+        "confidence": 0.6572421306512944,
+        "uncertainty": 0.34275786934870556,
+        "robustness": 1.0,
+        "decision": "UNCERTAINTY_RETEST",
+        "production": "BLOCKED",
+        "edge_claim": "NONE"
+      },
+      "classification": "RESEARCH_HYPOTHESIS",
+      "edge_claim": "NONE",
+      "production": "BLOCKED"
+    },
+    {
+      "hypothesis": {
+        "feature": "ret_1",
+        "bucket": "NEUTRAL",
+        "regime": "TREND_DOWN",
+        "sample_size": 47,
+        "avg_forward_return": 0.0006546793810313494,
+        "hit_rate": 0.6808510638297872,
+        "score": 8.355304448611365,
+        "classification": "HYPOTHESIS_ONLY",
+        "edge_claim": "NONE",
+        "production": "BLOCKED"
+      },
+      "validation_proxy": {
+        "out_of_sample": {
+          "trades": 47,
+          "profit_factor": 1.3617021276595744,
+          "expectancy": 0.6546793810313494,
+          "max_drawdown": 1.3093587620626987
+        },
+        "monte_carlo": {
+          "passed": true
+        },
+        "degradation": {
+          "passed": true
+        },
+        "cost_stress": {
+          "passed": true
+        }
+      },
+      "uncertainty": {
+        "confidence": 0.6168218167618675,
+        "uncertainty": 0.38317818323813246,
+        "robustness": 0.985,
+        "decision": "UNCERTAINTY_RETEST",
+        "production": "BLOCKED",
+        "edge_claim": "NONE"
+      },
+      "classification": "RESEARCH_HYPOTHESIS",
+      "edge_claim": "NONE",
+      "production": "BLOCKED"
+    },
+    {
+      "hypothesis": {
+        "feature": "momentum",
+        "bucket": "HIGH_POS",
+        "regime": "TREND_UP",
+        "sample_size": 30,
+        "avg_forward_return": 0.0010148861506317527,
+        "hit_rate": 0.8333333333333334,
+        "score": 13.48219483965086,
+        "classification": "HYPOTHESIS_ONLY",
+        "edge_claim": "NONE",
+        "production": "BLOCKED"
+      },
+      "validation_proxy": {
+        "out_of_sample": {
+          "trades": 30,
+          "profit_factor": 1.6666666666666667,
+          "expectancy": 1.0148861506317528,
+          "max_drawdown": 2.0297723012635056
+        },
+        "monte_carlo": {
+          "passed": true
+        },
+        "degradation": {
+          "passed": true
+        },
+        "cost_stress": {
+          "passed": true
+        }
+      },
+      "uncertainty": {
+        "confidence": 0.6028230184337626,
+        "uncertainty": 0.3971769815662374,
+        "robustness": 0.9,
+        "decision": "UNCERTAINTY_RETEST",
+        "production": "BLOCKED",
+        "edge_claim": "NONE"
+      },
+      "classification": "RESEARCH_HYPOTHESIS",
+      "edge_claim": "NONE",
+      "production": "BLOCKED"
+    },
+    {
+      "hypothesis": {
+        "feature": "volatility",
+        "bucket": "NEUTRAL",
+        "regime": "TREND_UP",
+        "sample_size": 47,
+        "avg_forward_return": 7.579086571129195e-05,
+        "hit_rate": 0.5319148936170213,
+        "score": 1.0770575932831323,
+        "classification": "HYPOTHESIS_ONLY",
+        "edge_claim": "NONE",
+        "production": "BLOCKED"
+      },
+      "validation_proxy": {
+        "out_of_sample": {
+          "trades": 47,
+          "profit_factor": 1.0638297872340425,
+          "expectancy": 0.07579086571129195,
+          "max_drawdown": 1
+        },
+        "monte_carlo": {
+          "passed": true
+        },
+        "degradation": {
+          "passed": false
+        },
+        "cost_stress": {
+          "passed": false
+        }
+      },
+      "uncertainty": {
+        "confidence": 0.3713621560862519,
+        "uncertainty": 0.6286378439137481,
+        "robustness": 0.485,
+        "decision": "UNCERTAINTY_BLOCK",
+        "production": "BLOCKED",
+        "edge_claim": "NONE"
+      },
+      "classification": "REJECTED_HYPOTHESIS",
+      "edge_claim": "NONE",
+      "production": "BLOCKED"
+    },
+    {
+      "hypothesis": {
+        "feature": "range_pct",
+        "bucket": "POS",
+        "regime": "TREND_UP",
+        "sample_size": 47,
+        "avg_forward_return": 7.579086571129195e-05,
+        "hit_rate": 0.5319148936170213,
+        "score": 1.0770575932831323,
+        "classification": "HYPOTHESIS_ONLY",
+        "edge_claim": "NONE",
+        "production": "BLOCKED"
+      },
+      "validation_proxy": {
+        "out_of_sample": {
+          "trades": 47,
+          "profit_factor": 1.0638297872340425,
+          "expectancy": 0.07579086571129195,
+          "max_drawdown": 1
+        },
+        "monte_carlo": {
+          "passed": true
+        },
+        "degradation": {
+          "passed": false
+        },
+        "cost_stress": {
+          "passed": false
+        }
+      },
+      "uncertainty": {
+        "confidence": 0.3713621560862519,
+        "uncertainty": 0.6286378439137481,
+        "robustness": 0.485,
+        "decision": "UNCERTAINTY_BLOCK",
+        "production": "BLOCKED",
+        "edge_claim": "NONE"
+      },
+      "classification": "REJECTED_HYPOTHESIS",
+      "edge_claim": "NONE",
+      "production": "BLOCKED"
+    },
+    {
+      "hypothesis": {
+        "feature": "volume_zscore",
+        "bucket": "HIGH_POS",
+        "regime": "TREND_UP",
+        "sample_size": 47,
+        "avg_forward_return": 7.579086571129195e-05,
+        "hit_rate": 0.5319148936170213,
+        "score": 1.0770575932831323,
+        "classification": "HYPOTHESIS_ONLY",
+        "edge_claim": "NONE",
+        "production": "BLOCKED"
+      },
+      "validation_proxy": {
+        "out_of_sample": {
+          "trades": 47,
+          "profit_factor": 1.0638297872340425,
+          "expectancy": 0.07579086571129195,
+          "max_drawdown": 1
+        },
+        "monte_carlo": {
+          "passed": true
+        },
+        "degradation": {
+          "passed": false
+        },
+        "cost_stress": {
+          "passed": false
+        }
+      },
+      "uncertainty": {
+        "confidence": 0.3713621560862519,
+        "uncertainty": 0.6286378439137481,
+        "robustness": 0.485,
+        "decision": "UNCERTAINTY_BLOCK",
+        "production": "BLOCKED",
+        "edge_claim": "NONE"
+      },
+      "classification": "REJECTED_HYPOTHESIS",
+      "edge_claim": "NONE",
+      "production": "BLOCKED"
+    },
+    {
+      "hypothesis": {
+        "feature": "momentum",
+        "bucket": "HIGH_NEG",
+        "regime": "TREND_DOWN",
+        "sample_size": 36,
+        "avg_forward_return": 0.00028413116856896106,
+        "hit_rate": 0.5833333333333334,
+        "score": 3.674645019022944,
+        "classification": "HYPOTHESIS_ONLY",
+        "edge_claim": "NONE",
+        "production": "BLOCKED"
+      },
+      "validation_proxy": {
+        "out_of_sample": {
+          "trades": 36,
+          "profit_factor": 1.1666666666666667,
+          "expectancy": 0.28413116856896103,
+          "max_drawdown": 1
+        },
+        "monte_carlo": {
+          "passed": true
+        },
+        "degradation": {
+          "passed": false
+        },
+        "cost_stress": {
+          "passed": false
+        }
+      },
+      "uncertainty": {
+        "confidence": 0.3457941738488979,
+        "uncertainty": 0.6542058261511021,
+        "robustness": 0.43,
+        "decision": "UNCERTAINTY_BLOCK",
+        "production": "BLOCKED",
+        "edge_claim": "NONE"
+      },
+      "classification": "REJECTED_HYPOTHESIS",
+      "edge_claim": "NONE",
+      "production": "BLOCKED"
+    },
+    {
+      "hypothesis": {
+        "feature": "ret_1",
+        "bucket": "NEUTRAL",
+        "regime": "TREND_UP",
+        "sample_size": 42,
+        "avg_forward_return": -0.00015271983054292377,
+        "hit_rate": 0.47619047619047616,
+        "score": -1.765293543524476,
+        "classification": "HYPOTHESIS_ONLY",
+        "edge_claim": "NONE",
+        "production": "BLOCKED"
+      },
+      "validation_proxy": {
+        "out_of_sample": {
+          "trades": 42,
+          "profit_factor": 1.0,
+          "expectancy": -0.15271983054292376,
+          "max_drawdown": 1
+        },
+        "monte_carlo": {
+          "passed": false
+        },
+        "degradation": {
+          "passed": false
+        },
+        "cost_stress": {
+          "passed": false
+        }
+      },
+      "uncertainty": {
+        "confidence": 0.2575,
+        "uncertainty": 0.7424999999999999,
+        "robustness": 0.21,
+        "decision": "UNCERTAINTY_BLOCK",
+        "production": "BLOCKED",
+        "edge_claim": "NONE"
+      },
+      "classification": "REJECTED_HYPOTHESIS",
+      "edge_claim": "NONE",
+      "production": "BLOCKED"
+    }
+  ],
+  "decision": "EDGE_DISCOVERY_RESEARCH_ONLY",
+  "production": "BLOCKED",
+  "live": "FORBIDDEN",
+  "edge_claim": "NONE"
+}

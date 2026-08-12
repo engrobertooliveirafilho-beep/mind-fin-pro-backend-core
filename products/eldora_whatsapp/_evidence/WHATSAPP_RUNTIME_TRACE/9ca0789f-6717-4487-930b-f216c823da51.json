@@ -1,0 +1,35 @@
+{
+  "trace_id": "9ca0789f-6717-4487-930b-f216c823da51",
+  "ts": 1779822248.2206218,
+  "sender_id": "whatsapp:+559999999999",
+  "user_message": "como resolvemos isso?",
+  "events": [
+    {
+      "stage": "input",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "como resolvemos isso?",
+      "output_preview": "Vou te ajudar de forma prática: organizar ideias, lembrar contexto, transformar conversa em plano, explicar conteúdos, priorizar decisões e executar próximos passos sem perder o fio da conversa.",
+      "leaks": [],
+      "extra": {}
+    },
+    {
+      "stage": "humanized",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "Vou te ajudar de forma prática: organizar ideias, lembrar contexto, transformar conversa em plano, explicar conteúdos, priorizar decisões e executar próximos passos sem perder o fio da conversa.",
+      "output_preview": "Vou te ajudar de forma prática: organizar ideias, lembrar contexto, transformar conversa em plano, explicar conteúdos, priorizar decisões e executar próximos passos sem perder o fio da conversa.",
+      "leaks": [],
+      "extra": {}
+    },
+    {
+      "stage": "final_output",
+      "module": "main",
+      "function": "eldora_primary_runtime_reply",
+      "input_preview": "Vou te ajudar de forma prática: organizar ideias, lembrar contexto, transformar conversa em plano, explicar conteúdos, priorizar decisões e executar próximos passos sem perder o fio da conversa.",
+      "output_preview": "Vou te ajudar de forma prática: organizar ideias, lembrar contexto, transformar conversa em plano, explicar conteúdos, priorizar decisões e executar próximos passos sem perder o fio da conversa.",
+      "leaks": [],
+      "extra": {}
+    }
+  ]
+}

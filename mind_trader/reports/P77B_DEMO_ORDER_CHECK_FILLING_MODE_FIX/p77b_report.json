@@ -1,0 +1,84 @@
+{
+  "STATUS": "P77B_DEMO_ORDER_CHECK_FILLING_MODE_FIX_COMPLETED",
+  "ACCOUNT_SERVER": "MetaQuotes-Demo",
+  "TERMINAL_CONNECTED": true,
+  "TERMINAL_TRADE_ALLOWED": true,
+  "SYMBOL": "EURUSD",
+  "LOT": 0.01,
+  "FILLING_RESULTS": [
+    {
+      "filling_name": "FOK",
+      "filling_value": 0,
+      "retcode": 0,
+      "comment": "Done",
+      "approved": true,
+      "request": {
+        "action": 1,
+        "symbol": "EURUSD",
+        "volume": 0.01,
+        "type": 0,
+        "price": 1.1576,
+        "sl": 1.1566,
+        "tp": 1.1591,
+        "deviation": 20,
+        "magic": 770077,
+        "comment": "MIND_P77B_FILLING_CHECK",
+        "type_time": 0,
+        "type_filling": 0
+      }
+    },
+    {
+      "filling_name": "IOC",
+      "filling_value": 1,
+      "retcode": 10030,
+      "comment": "Unsupported filling mode",
+      "approved": false,
+      "request": {
+        "action": 1,
+        "symbol": "EURUSD",
+        "volume": 0.01,
+        "type": 0,
+        "price": 1.1576,
+        "sl": 1.1566,
+        "tp": 1.1591,
+        "deviation": 20,
+        "magic": 770077,
+        "comment": "MIND_P77B_FILLING_CHECK",
+        "type_time": 0,
+        "type_filling": 1
+      }
+    },
+    {
+      "filling_name": "RETURN",
+      "filling_value": 2,
+      "retcode": 10030,
+      "comment": "Unsupported filling mode",
+      "approved": false,
+      "request": {
+        "action": 1,
+        "symbol": "EURUSD",
+        "volume": 0.01,
+        "type": 0,
+        "price": 1.1576,
+        "sl": 1.1566,
+        "tp": 1.1591,
+        "deviation": 20,
+        "magic": 770077,
+        "comment": "MIND_P77B_FILLING_CHECK",
+        "type_time": 0,
+        "type_filling": 2
+      }
+    }
+  ],
+  "APPROVED_FILLING": "FOK",
+  "APPROVED_FILLING_VALUE": 0,
+  "ORDER_CHECK_APPROVED": true,
+  "ORDER_SENT": false,
+  "NEXT": "P78_DEMO_ORDER_SEND_SINGLE_CONTROLLED",
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN",
+  "generated_at": "2026-06-12T15:51:17.564204+00:00"
+}

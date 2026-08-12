@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_9F5F986C1F180A7F",
+  "source_file": "TRANSFER_PACKAGE\\PTO_20260611T143207Z\\p56a_reproduction_from_pedigree.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\TRANSFER_PACKAGE\\PTO_20260611T143207Z\\p56a_reproduction_from_pedigree.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 100,
+  "imports": [
+    "datetime",
+    "json",
+    "os",
+    "requests"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_24A9A3E5170023FE",
+  "source_file": "_evidence\\P19P30C_ROUTING_PRECEDENCE_FORENSICS_20260621_213040\\10_probe_router_called.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\_evidence\\P19P30C_ROUTING_PRECEDENCE_FORENSICS_20260621_213040\\10_probe_router_called.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 88,
+  "imports": [
+    "app.domains.universal_domain_router",
+    "app.main",
+    "fastapi.testclient"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

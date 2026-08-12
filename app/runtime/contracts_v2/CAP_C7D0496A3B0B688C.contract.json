@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_C7D0496A3B0B688C",
+  "source_file": ".venv\\Lib\\site-packages\\pptx\\shapes\\base.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\pptx\\shapes\\base.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 122,
+  "imports": [
+    "__future__",
+    "pptx.action",
+    "pptx.dml.effect",
+    "pptx.enum.shapes",
+    "pptx.oxml.shapes",
+    "pptx.oxml.shapes.shared",
+    "pptx.parts.slide",
+    "pptx.shared",
+    "pptx.types",
+    "pptx.util",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

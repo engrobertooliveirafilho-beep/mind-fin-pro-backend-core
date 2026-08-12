@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_0925EB2183AC8616",
+  "source_file": "_evidence\\P19P36M_H3_FORENSIC_RETURN_PATH_AUDIT_20260621_233752\\02_patch_authoritative_scorer.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P19P36M_H3_FORENSIC_RETURN_PATH_AUDIT_20260621_233752\\02_patch_authoritative_scorer.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 96,
+  "imports": [
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

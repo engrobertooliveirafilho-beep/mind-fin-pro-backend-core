@@ -1,0 +1,30 @@
+{
+  "capability_id": "CAP_2CD88A778287D4F9",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_internal\\resolution\\resolvelib\\provider.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\pip\\_internal\\resolution\\resolvelib\\provider.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 101,
+  "imports": [
+    "__future__",
+    "base",
+    "candidates",
+    "collections",
+    "collections.abc",
+    "factory",
+    "functools",
+    "math",
+    "pip._internal.req.req_install",
+    "pip._vendor.resolvelib.providers",
+    "pip._vendor.resolvelib.resolvers",
+    "requirements",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_E6FF1117BF4E5C90",
+  "source_file": ".venv\\Lib\\site-packages\\jwt\\api_jws.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\jwt\\api_jws.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 89,
+  "imports": [
+    "__future__",
+    "algorithms",
+    "api_jwk",
+    "binascii",
+    "collections.abc",
+    "exceptions",
+    "json",
+    "types",
+    "typing",
+    "utils",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,80 @@
+{
+  "FTMO_REAL": "FORBIDDEN",
+  "NEXT": "P82_MARKET_INTELLIGENCE_DOMAIN",
+  "MT5_REAL": "FORBIDDEN",
+  "STATUS": "P81_DOMAIN_GAP_MATRIX_AND_DEEP_ROADMAP_COMPLETED",
+  "LIVE": "FORBIDDEN",
+  "GAP_MATRIX": {
+    "LEARNING": {
+      "CURRENT_MODULES": 2,
+      "TARGET_MODULES": 25,
+      "GAP": 23,
+      "PRIORITY": "CRITICAL"
+    },
+    "EXECUTION": {
+      "CURRENT_MODULES": 6,
+      "TARGET_MODULES": 20,
+      "GAP": 14,
+      "PRIORITY": "HIGH"
+    },
+    "EDGE": {
+      "CURRENT_MODULES": 16,
+      "TARGET_MODULES": 25,
+      "GAP": 9,
+      "PRIORITY": "MEDIUM"
+    },
+    "MARKET": {
+      "CURRENT_MODULES": 1,
+      "TARGET_MODULES": 25,
+      "GAP": 24,
+      "PRIORITY": "CRITICAL"
+    },
+    "RISK": {
+      "CURRENT_MODULES": 6,
+      "TARGET_MODULES": 25,
+      "GAP": 19,
+      "PRIORITY": "HIGH"
+    },
+    "GOVERNANCE": {
+      "CURRENT_MODULES": 11,
+      "TARGET_MODULES": 20,
+      "GAP": 9,
+      "PRIORITY": "MEDIUM"
+    },
+    "PORTFOLIO": {
+      "CURRENT_MODULES": 4,
+      "TARGET_MODULES": 25,
+      "GAP": 21,
+      "PRIORITY": "CRITICAL"
+    },
+    "RESEARCH": {
+      "CURRENT_MODULES": 28,
+      "TARGET_MODULES": 35,
+      "GAP": 7,
+      "PRIORITY": "MEDIUM"
+    }
+  },
+  "REAL_ORDERS": "FORBIDDEN",
+  "TOTAL_TESTS": 179,
+  "REAL_BROKER": "DISABLED",
+  "ROADMAP": {
+    "PHASE_4": [
+      "P90_UNIFIED_INSTITUTIONAL_OPERATING_SYSTEM"
+    ],
+    "PHASE_3": [
+      "P88_GOVERNANCE_INTELLIGENCE_DOMAIN",
+      "P89_RESEARCH_INTELLIGENCE_DOMAIN"
+    ],
+    "PHASE_2": [
+      "P85_RISK_INTELLIGENCE_DOMAIN",
+      "P86_EXECUTION_INTELLIGENCE_DOMAIN",
+      "P87_EDGE_INTELLIGENCE_DOMAIN"
+    ],
+    "PHASE_1": [
+      "P82_MARKET_INTELLIGENCE_DOMAIN",
+      "P83_LEARNING_INTELLIGENCE_DOMAIN",
+      "P84_PORTFOLIO_INTELLIGENCE_DOMAIN"
+    ]
+  },
+  "TOTAL_MODULES": 120
+}

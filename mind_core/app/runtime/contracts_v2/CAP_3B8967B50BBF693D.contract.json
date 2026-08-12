@@ -1,0 +1,26 @@
+{
+  "capability_id": "CAP_3B8967B50BBF693D",
+  "source_file": "_evidence\\P4.91M_PRIORITY_SCORE_SCHEDULER_FULL_20260623_182409\\p491m_priority_score_scheduler.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P4.91M_PRIORITY_SCORE_SCHEDULER_FULL_20260623_182409\\p491m_priority_score_scheduler.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 114,
+  "imports": [
+    "ast",
+    "csv",
+    "datetime",
+    "hashlib",
+    "json",
+    "pathlib",
+    "re",
+    "subprocess",
+    "time"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

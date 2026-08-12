@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_F199DE01878BE78D",
+  "source_file": "app\\ccl\\bootstrap.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\app\\ccl\\bootstrap.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 101,
+  "imports": [
+    "app.ccl.agents.society",
+    "app.ccl.economy.economy",
+    "app.ccl.governor.governor",
+    "app.ccl.memory.shared_field",
+    "app.ccl.roles.roles"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

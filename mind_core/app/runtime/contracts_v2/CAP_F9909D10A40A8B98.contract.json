@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_F9909D10A40A8B98",
+  "source_file": ".venv\\Lib\\site-packages\\setuptools\\_distutils\\tests\\unix_compat.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\setuptools\\_distutils\\tests\\unix_compat.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 96,
+  "imports": [
+    "grp",
+    "pwd",
+    "pytest",
+    "sys"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

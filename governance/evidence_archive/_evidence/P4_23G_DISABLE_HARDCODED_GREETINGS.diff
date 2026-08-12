@@ -1,0 +1,25 @@
+diff --git a/app/api/whatsapp.py b/app/api/whatsapp.py
+index 07a5c1b..0f9a955 100644
+--- a/app/api/whatsapp.py
++++ b/app/api/whatsapp.py
+@@ -207,14 +207,17 @@ def live_whatsapp_override(inbound_text: str) -> str | None:
+ 
+     if any(x in msg for x in ["nao entendeu", "nao entnedeu", "n├úo entendeu", "nao entendi", "n├úo entendi"]):
+         return "Entendi. Vou separar inten├º├úo, contexto e pr├│ximo teste para evitar resposta gen├®rica."
++    # P4_23G_DISABLE_HARDCODED_GREETING
+     if msg in ["i", "oi", "ol├í", "ola"]:
+-        return "Oi, Roberto ­ƒæï Tudo bem por a├¡?"
++        return None
+ 
++    # P4_23G_DISABLE_HARDCODED_DAY_GREETING
+     if any(x in msg for x in ["boa tarde", "bom dia", "boa noite"]):
+-        return "Boa tarde, Roberto ÔÿÇ´©Å Como voc├¬ est├í?"
++        return None
+ 
++    # P4_23G_DISABLE_HARDCODED_STATUS_GREETING
+     if any(x in msg for x in ["como ta", "como t├í", "tudo bem"]):
+-        return "Tudo certo por aqui ­ƒÖé E voc├¬?"
++        return None
+ 
+     if any(x in msg for x in ["quem eh vc", "quem ├® vc", "quem ├® voc├¬"]):
+         return ""

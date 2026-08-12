@@ -1,0 +1,26 @@
+{
+  "capability_id": "CAP_7F5296678879148A",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\tests\\test_ctypeslib.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\numpy\\tests\\test_ctypeslib.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 114,
+  "imports": [
+    "ctypes",
+    "numpy",
+    "numpy.ctypeslib",
+    "numpy.testing",
+    "pathlib",
+    "pytest",
+    "sys",
+    "sysconfig",
+    "weakref"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

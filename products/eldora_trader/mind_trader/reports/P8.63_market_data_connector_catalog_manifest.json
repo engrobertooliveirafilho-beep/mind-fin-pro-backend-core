@@ -1,0 +1,53 @@
+{
+  "connector": "P8.63_MARKET_DATA_CONNECTOR_WITH_CATALOG",
+  "source_type": "GENERIC_OHLCV_CSV",
+  "file_path": "C:\\Users\\MindFin\\AppData\\Local\\Temp\\pytest-of-MindFin\\pytest-46\\test_connector_manifest_writte0\\data.csv",
+  "file_checksum": "a936139f428705e346a4e9cbe8f34d096d3e9ae9463c7e0f0e06026f7016fcce",
+  "symbol": "TEST",
+  "timeframe": "1m",
+  "db_path": "C:\\Users\\MindFin\\AppData\\Local\\Temp\\pytest-of-MindFin\\pytest-46\\test_connector_manifest_writte0\\m.sqlite",
+  "catalog_path": "C:\\Users\\MindFin\\AppData\\Local\\Temp\\pytest-of-MindFin\\pytest-46\\test_connector_manifest_writte0\\catalog.json",
+  "dataset": {
+    "dataset_id": "8dd91f49bec99f7ebc13bea3",
+    "symbol": "TEST",
+    "timeframe": "1m",
+    "source_hash": "a936139f428705e346a4e9cbe8f34d096d3e9ae9463c7e0f0e06026f7016fcce",
+    "rows": 120,
+    "quality_passed": true,
+    "registered_at": "2026-06-08T21:20:24.429714+00:00",
+    "status": "APPROVED_FOR_RESEARCH",
+    "production": "BLOCKED",
+    "edge_claim": "NONE"
+  },
+  "ingestion_result": {
+    "source": "C:\\Users\\MindFin\\AppData\\Local\\Temp\\pytest-of-MindFin\\pytest-46\\test_connector_manifest_writte0\\data.csv",
+    "raw_checksum": "a936139f428705e346a4e9cbe8f34d096d3e9ae9463c7e0f0e06026f7016fcce",
+    "normalization": {
+      "normalized_path": "mind_trader\\data\\normalized\\TEST_1m_a936139f4287.csv",
+      "rows": 120,
+      "checksum": "a936139f428705e346a4e9cbe8f34d096d3e9ae9463c7e0f0e06026f7016fcce"
+    },
+    "quality": {
+      "rows": 120,
+      "duplicates": 0,
+      "bad_ohlc": 0,
+      "ordering_issues": 0,
+      "min_rows": 90,
+      "quality_passed": true,
+      "decision": "ALLOW_BACKTEST"
+    },
+    "ingestion": {
+      "ingested_rows_seen": 120,
+      "db_path": "C:\\Users\\MindFin\\AppData\\Local\\Temp\\pytest-of-MindFin\\pytest-46\\test_connector_manifest_writte0\\m.sqlite",
+      "symbol": "TEST",
+      "timeframe": "1m"
+    },
+    "ts": "2026-06-08T21:20:24.396115+00:00",
+    "decision": "INGESTED_AND_BACKTEST_ALLOWED"
+  },
+  "created_at": "2026-06-08T21:20:24.429714+00:00",
+  "decision": "DATA_CONNECTED_AND_CATALOGED",
+  "production": "BLOCKED",
+  "live": "FORBIDDEN",
+  "edge_claim": "NONE"
+}

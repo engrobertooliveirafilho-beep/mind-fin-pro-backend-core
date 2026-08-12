@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_ACB63E240D7559A0",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\core\\indexers\\utils.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pandas\\core\\indexers\\utils.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 117,
+  "imports": [
+    "__future__",
+    "numpy",
+    "pandas._libs",
+    "pandas._typing",
+    "pandas.core.construction",
+    "pandas.core.dtypes.common",
+    "pandas.core.dtypes.dtypes",
+    "pandas.core.dtypes.generic",
+    "pandas.core.frame",
+    "pandas.core.indexes.base",
+    "pandas.util._decorators",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

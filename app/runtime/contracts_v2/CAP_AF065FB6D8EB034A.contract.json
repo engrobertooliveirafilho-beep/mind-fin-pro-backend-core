@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_AF065FB6D8EB034A",
+  "source_file": "_evidence\\P2406_STATE_CONTINUITY_AUDIT_20260624_214905\\sovereign_before.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P2406_STATE_CONTINUITY_AUDIT_20260624_214905\\sovereign_before.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 102,
+  "imports": [
+    "app.runtime.universal_knowledge_provider",
+    "dataclasses",
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

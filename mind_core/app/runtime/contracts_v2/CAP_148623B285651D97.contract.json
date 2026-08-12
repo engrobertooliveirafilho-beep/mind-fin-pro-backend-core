@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_148623B285651D97",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\compat\\pickle_compat.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pandas\\compat\\pickle_compat.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 115,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "contextlib",
+    "io",
+    "numpy",
+    "pandas._libs.arrays",
+    "pandas._libs.tslibs",
+    "pandas.core.arrays",
+    "pandas.core.internals",
+    "pickle",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

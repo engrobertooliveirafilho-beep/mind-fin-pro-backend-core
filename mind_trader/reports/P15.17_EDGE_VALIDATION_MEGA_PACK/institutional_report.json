@@ -1,0 +1,95 @@
+{
+  "STATUS": "P15.17_EDGE_VALIDATION_MEGA_PACK_IMPLEMENTED",
+  "INPUT_AUTHORITY_EDGES": 3,
+  "VALIDATED": 3,
+  "INSTITUTIONAL_CANDIDATES": 3,
+  "RESEARCH_CANDIDATES": 0,
+  "REJECTED": 0,
+  "TOP_REGIMES": [
+    [
+      "strong_trend",
+      2
+    ],
+    [
+      "asymmetric_payoff",
+      1
+    ]
+  ],
+  "WEB_STRATEGY_CONTINUOUS_RESEARCH": {
+    "queue_items": 594,
+    "families": [
+      [
+        "trend_following",
+        108
+      ],
+      [
+        "mean_reversion",
+        81
+      ],
+      [
+        "breakout",
+        81
+      ],
+      [
+        "market_regime",
+        81
+      ],
+      [
+        "risk_management",
+        81
+      ],
+      [
+        "volatility",
+        54
+      ],
+      [
+        "volume",
+        54
+      ],
+      [
+        "multi_timeframe",
+        54
+      ]
+    ],
+    "assets": [
+      [
+        "WINFUT",
+        110
+      ],
+      [
+        "IBOV",
+        110
+      ],
+      [
+        "VALE3",
+        110
+      ],
+      [
+        "WDOFUT",
+        88
+      ],
+      [
+        "PETR4",
+        88
+      ],
+      [
+        "IFIX",
+        44
+      ],
+      [
+        "CSAN3",
+        44
+      ]
+    ],
+    "mode": "WEB_STRATEGY_CONTINUOUS_RESEARCH_AS_HYPOTHESIS_ONLY",
+    "requires_backtest": true
+  },
+  "EDGE": "INSTITUTIONAL_CANDIDATE_FOUND",
+  "CAUSALITY": "NOT_PROVEN",
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "NEXT": "P15.18_PAPER_RESEARCH_PORTFOLIO_SIMULATOR",
+  "EXPORT_READY": true,
+  "generated_at": "2026-06-14T16:11:32.606505+00:00"
+}

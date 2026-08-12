@@ -1,0 +1,10 @@
+{
+  "patched": [
+    "app/runtime/cognitive_pipeline.py",
+    "app/runtime/whatsapp_final_output_guard.py",
+    "app/api/whatsapp.py",
+    "app/eldora/core/audit_ledger.py",
+    "app/eldora/core/event_bus.py",
+    "app/runtime/knowledge_extraction_engine.py"
+  ]
+}

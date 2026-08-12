@@ -1,0 +1,38 @@
+[
+  {
+    "dataset_id": "d6237279007c1aa876a1ff07",
+    "symbol": "TEST",
+    "timeframe": "1m",
+    "source_hash": "21dd63dfb9f3ed4bbc07bbf9528d0d51402ffbef1e54626cb9affa4e40ffbc7f",
+    "rows": 120,
+    "quality_passed": true,
+    "registered_at": "2026-06-14T16:22:45.632994+00:00",
+    "status": "APPROVED_FOR_RESEARCH",
+    "production": "BLOCKED",
+    "edge_claim": "NONE"
+  },
+  {
+    "dataset_id": "8dd91f49bec99f7ebc13bea3",
+    "symbol": "TEST",
+    "timeframe": "1m",
+    "source_hash": "a936139f428705e346a4e9cbe8f34d096d3e9ae9463c7e0f0e06026f7016fcce",
+    "rows": 120,
+    "quality_passed": true,
+    "registered_at": "2026-06-14T16:22:45.831307+00:00",
+    "status": "APPROVED_FOR_RESEARCH",
+    "production": "BLOCKED",
+    "edge_claim": "NONE"
+  },
+  {
+    "dataset_id": "0e8e82e85aead749131309a4",
+    "symbol": "TEST",
+    "timeframe": "1m",
+    "source_hash": "9d416573404f37e24513b43ab3bc17e06c8308b7e052b7c7cd027389abeca83f",
+    "rows": 180,
+    "quality_passed": true,
+    "registered_at": "2026-06-14T16:22:47.675699+00:00",
+    "status": "APPROVED_FOR_RESEARCH",
+    "production": "BLOCKED",
+    "edge_claim": "NONE"
+  }
+]

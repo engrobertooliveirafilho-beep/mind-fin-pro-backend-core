@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_CA40EEF74DD0B4ED",
+  "source_file": ".venv\\Lib\\site-packages\\setuptools\\config\\_validate_pyproject\\error_reporting.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\setuptools\\config\\_validate_pyproject\\error_reporting.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 121,
+  "imports": [
+    "__future__",
+    "contextlib",
+    "fastjsonschema_exceptions",
+    "io",
+    "json",
+    "logging",
+    "os",
+    "re",
+    "sys",
+    "textwrap",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

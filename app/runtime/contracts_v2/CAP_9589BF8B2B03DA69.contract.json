@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_9589BF8B2B03DA69",
+  "source_file": "evidence\\P19P21_REAL_WHATSAPP_CERTIFICATION_20260618_065536\\p19p21_local_certification.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\evidence\\P19P21_REAL_WHATSAPP_CERTIFICATION_20260618_065536\\p19p21_local_certification.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 112,
+  "imports": [
+    "importlib.util",
+    "json",
+    "pathlib",
+    "sys"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

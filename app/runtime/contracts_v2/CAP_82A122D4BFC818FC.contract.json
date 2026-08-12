@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_82A122D4BFC818FC",
+  "source_file": "app\\mind\\p5_5v_pedigree_extractor\\extractor.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\app\\mind\\p5_5v_pedigree_extractor\\extractor.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 101,
+  "imports": [
+    "_maintenance.P19P22A_20260618_110511.p56g4_strict_entity_validator",
+    "hashlib",
+    "json",
+    "os",
+    "re",
+    "urllib.parse",
+    "urllib.request"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

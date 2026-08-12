@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_0DB8A22C30B61AF4",
+  "source_file": "_evidence\\P4.88_TECHNICAL_GAP_DETECTOR_20260621_211006\\test_p488_technical_gap_detector.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P4.88_TECHNICAL_GAP_DETECTOR_20260621_211006\\test_p488_technical_gap_detector.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 104,
+  "imports": [
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

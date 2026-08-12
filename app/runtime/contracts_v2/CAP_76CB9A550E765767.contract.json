@@ -1,0 +1,33 @@
+{
+  "capability_id": "CAP_76CB9A550E765767",
+  "source_file": "TRANSFER_PACKAGE\\PTO_20260611T143207Z\\p56_full_structural_expansion_runtime.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\TRANSFER_PACKAGE\\PTO_20260611T143207Z\\p56_full_structural_expansion_runtime.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 120,
+  "imports": [
+    "app.mind.p5_5s_source_expansion_autopilot.autopilot",
+    "app.mind.p5_5t_real_fetcher_search_connector.connector",
+    "app.mind.p5_5x_genetic_graph_builder.graph",
+    "app.mind.p5_5z_executive_snapshot.snapshot",
+    "app.mind.p5_6b4_youtube_acquisition_engine.engine",
+    "app.mind.p5_6b5_judge_real_biomechanics_binder.binder",
+    "app.mind.p5_6b6_real_valuation_binder.binder",
+    "app.mind.p5_6c_pedigree_source_validation.validator",
+    "app.mind.p5_6d_market_valuation_real_prices.prices",
+    "app.mind.p5_6f1_animal_discovery_engine.engine",
+    "datetime",
+    "json",
+    "os",
+    "requests",
+    "time",
+    "traceback"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

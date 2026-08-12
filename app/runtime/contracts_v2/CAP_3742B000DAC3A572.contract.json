@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_3742B000DAC3A572",
+  "source_file": "_evidence\\P4.87_CAPABILITY_MERGE_ENGINE_20260621_210550\\test_p487_capability_merge_engine.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P4.87_CAPABILITY_MERGE_ENGINE_20260621_210550\\test_p487_capability_merge_engine.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 98,
+  "imports": [
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

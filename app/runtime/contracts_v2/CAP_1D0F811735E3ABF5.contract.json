@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_1D0F811735E3ABF5",
+  "source_file": "_evidence\\P18F_INTERNAL_PILOT_FLAG_DESIGN_20260616_214846\\run_p18f.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P18F_INTERNAL_PILOT_FLAG_DESIGN_20260616_214846\\run_p18f.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 94,
+  "imports": [
+    "app.p18_conversational_execution.pilot_flags",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

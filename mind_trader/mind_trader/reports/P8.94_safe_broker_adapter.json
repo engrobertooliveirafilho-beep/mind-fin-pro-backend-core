@@ -1,0 +1,36 @@
+{
+  "adapter": "P8.94_SAFE_BROKER_ADAPTER",
+  "created_at": "2026-06-14T16:22:52.039080+00:00",
+  "broker": "PROFIT",
+  "payload_check": {
+    "valid": true,
+    "missing": [],
+    "decision": "ORDER_PAYLOAD_OK"
+  },
+  "live_lock": {
+    "lock": "P8.92_INSTITUTIONAL_LIVE_LOCK",
+    "created_at": "2026-06-14T16:22:52.039080+00:00",
+    "action": "BROKER_SEND_ORDER",
+    "payload": {
+      "broker": "PROFIT",
+      "order": {
+        "symbol": "WIN",
+        "side": "BUY",
+        "entry": 100,
+        "stop": 98,
+        "target": 104,
+        "risk_amount": 500,
+        "strategy_id": "S1"
+      }
+    },
+    "blocked": true,
+    "decision": "FORCE_BLOCK_LIVE_OR_PRODUCTION",
+    "production": "BLOCKED",
+    "live": "FORBIDDEN",
+    "edge_claim": "NONE"
+  },
+  "decision": "FORCE_BLOCK_BROKER_SEND_ORDER",
+  "production": "BLOCKED",
+  "live": "FORBIDDEN",
+  "edge_claim": "NONE"
+}

@@ -1,0 +1,26 @@
+{
+  "capability_id": "CAP_2A9EF8AF9FDF9C26",
+  "source_file": "_evidence\\P4.91N3_LIVE_FEED_CONSUMER_FIXED_20260624_082622\\p491n3_live_feed_consumer_fixed.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P4.91N3_LIVE_FEED_CONSUMER_FIXED_20260624_082622\\p491n3_live_feed_consumer_fixed.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 100,
+  "imports": [
+    "ast",
+    "csv",
+    "datetime",
+    "hashlib",
+    "json",
+    "os",
+    "pathlib",
+    "time",
+    "traceback"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

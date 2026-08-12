@@ -1,0 +1,17 @@
+input
+  rsiPeriod(14);
+  oversold(30);
+  overbought(70);
+
+var
+  r : Float;
+
+begin
+  r := RSI(rsiPeriod, 0);
+
+  if r < oversold then
+    BuyAtMarket;
+
+  if r > overbought then
+    SellShortAtMarket;
+end;

@@ -1,0 +1,26 @@
+{
+  "capability_id": "CAP_4337905DEDAC3EA5",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\extension\\date\\array.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\pandas\\tests\\extension\\date\\array.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 91,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "datetime",
+    "numpy",
+    "pandas._typing",
+    "pandas.api.extensions",
+    "pandas.api.types",
+    "pandas.core.dtypes.dtypes",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

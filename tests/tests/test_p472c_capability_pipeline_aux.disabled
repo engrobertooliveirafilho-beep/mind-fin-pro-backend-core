@@ -1,0 +1,28 @@
+from pathlib import Path
+import os
+
+def load_env():
+    p = Path(".env")
+    if p.exists():
+        for raw in p.read_text(encoding="utf-8", errors="ignore").splitlines():
+            line = raw.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, v = line.split("=", 1)
+                os.environ[k.strip()] = v.strip().strip('"').strip("'")
+
+load_env()
+
+from app.runtime.capability_recovery_bridge import capability_recovery_report
+from app.runtime.cognitive_pipeline import run_cognitive_pipeline
+
+
+def test_p472c_bridge_reports_top5():
+    out = capability_recovery_report("p472c_test", "teste")
+    assert out["summary"]["total"] == 5
+    assert out["summary"]["import_ok"] == 5
+
+
+def test_p472c_pipeline_exposes_capabilities_aux():
+    out = run_cognitive_pipeline("whatsapp:+5519996166906", "Use retrieval e responda: qual é meu nome?")
+    assert "capabilities" in out
+    assert out["capabilities"]["summary"]["total"] == 5

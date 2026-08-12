@@ -1,0 +1,15 @@
+{
+  "image": {
+    "sdxl": "stabilityai/stable-diffusion-xl-base-1.0"
+  },
+  "video": {
+    "svd": "stabilityai/stable-video-diffusion-img2vid",
+    "animatediff": "guoyww/animatediff"
+  },
+  "audio": {
+    "whisper": "openai/whisper-large-v3"
+  },
+  "llm": {
+    "mistral": "mistralai/Mistral-7B-Instruct"
+  }
+}

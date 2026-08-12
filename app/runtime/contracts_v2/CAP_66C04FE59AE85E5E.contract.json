@@ -1,0 +1,30 @@
+{
+  "capability_id": "CAP_66C04FE59AE85E5E",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\_utils\\_transform.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\openai\\_utils\\_transform.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 128,
+  "imports": [
+    "__future__",
+    "_compat",
+    "_files",
+    "_typing",
+    "_utils",
+    "anyio",
+    "base64",
+    "datetime",
+    "io",
+    "pathlib",
+    "pydantic",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,144 @@
+{
+  "NEXT": "P81_DOMAIN_GAP_MATRIX_AND_DEEP_ROADMAP",
+  "MT5_REAL": "FORBIDDEN",
+  "STATUS": "P80_MASTER_RUNTIME_AUDIT_COMPLETED",
+  "LIVE": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "REAL_ORDERS": "FORBIDDEN",
+  "DOMAIN_AUDIT": {
+    "LEARNING": {
+      "MODULES": 2,
+      "TESTS": 4,
+      "REPORTS": 18,
+      "MODULE_NAMES": [
+        "p147_genome_evolution_engine",
+        "p19_deep_evolution_brain"
+      ]
+    },
+    "EXECUTION": {
+      "MODULES": 6,
+      "TESTS": 7,
+      "REPORTS": 462,
+      "MODULE_NAMES": [
+        "execution",
+        "p1310_mt5_normalized_dataset_certification",
+        "p139_mt5_historical_data_puller",
+        "p69_73_mt5_ftmo_demo_governor",
+        "p74_mt5_demo_order_router_dry_run",
+        "p75_mt5_demo_order_execution_controlled"
+      ]
+    },
+    "EDGE": {
+      "MODULES": 16,
+      "TESTS": 22,
+      "REPORTS": 63,
+      "MODULE_NAMES": [
+        "knowledge",
+        "p11_edge_evidence_at_scale",
+        "p11_edge_evidence_engine",
+        "p12_cloud_export_verification_ledger",
+        "p151_real_edge_discovery_runtime",
+        "p1511_promoted_edge_forensic_audit",
+        "p1512_edge_promotion_authority",
+        "p1517_edge_validation_mega_pack",
+        "p156_p1510_real_edge_research_runtime",
+        "p1621m_video_edge_memory_merge",
+        "p1621o_edge_factory_master_certification",
+        "p1623_edge_decay_revalidation_auto_archive",
+        "p1624_asset_regime_edge_allocation",
+        "p1625_paper_portfolio_from_active_edges",
+        "p9_edge_discovery_at_scale",
+        "p9_edge_discovery_factory"
+      ]
+    },
+    "MARKET": {
+      "MODULES": 1,
+      "TESTS": 4,
+      "REPORTS": 11,
+      "MODULE_NAMES": [
+        "p1624_asset_regime_edge_allocation"
+      ]
+    },
+    "RISK": {
+      "MODULES": 6,
+      "TESTS": 9,
+      "REPORTS": 37,
+      "MODULE_NAMES": [
+        "p1416a_risk_syntax_ladder",
+        "p1416c_risk_factory_50",
+        "p22_38x_ftmo_robust_research_expansion",
+        "p61_65x_ftmo_evidence_release_gate",
+        "p69_73_mt5_ftmo_demo_governor",
+        "risk"
+      ]
+    },
+    "GOVERNANCE": {
+      "MODULES": 11,
+      "TESTS": 14,
+      "REPORTS": 55,
+      "MODULE_NAMES": [
+        "audits",
+        "p10_dataset_certification_runtime",
+        "p10_real_data_research_certification",
+        "p11_global_research_certification",
+        "p13_dataset_certification_automation",
+        "p1310_mt5_normalized_dataset_certification",
+        "p1419_p1421_final_certification",
+        "p1511_promoted_edge_forensic_audit",
+        "p1519_p1525_institutional_research_certification",
+        "p1621o_edge_factory_master_certification",
+        "p9_final_certification"
+      ]
+    },
+    "PORTFOLIO": {
+      "MODULES": 4,
+      "TESTS": 6,
+      "REPORTS": 28,
+      "MODULE_NAMES": [
+        "p1518_paper_research_portfolio_simulator",
+        "p1624_asset_regime_edge_allocation",
+        "p1625_paper_portfolio_from_active_edges",
+        "p1626x_institutional_portfolio_intelligence"
+      ]
+    },
+    "RESEARCH": {
+      "MODULES": 28,
+      "TESTS": 40,
+      "REPORTS": 120,
+      "MODULE_NAMES": [
+        "backtest",
+        "p10_certified_dataset_backtest_router",
+        "p10_distributed_research_scale",
+        "p10_real_data_research_certification",
+        "p10_real_data_research_orchestrator",
+        "p11_global_research_certification",
+        "p11_multi_market_research_grid",
+        "p145_profit_backtest_result_intake",
+        "p1513_p1514_web_strategy_arsenal",
+        "p1515_web_research_to_backtest_queue",
+        "p1516_multi_family_combo_backtest_executor",
+        "p1518_paper_research_portfolio_simulator",
+        "p1519_p1525_institutional_research_certification",
+        "p152_profit_backtest_export_normalizer",
+        "p156_p1510_real_edge_research_runtime",
+        "p16_autonomous_research_runtime",
+        "p1621b_youtube_absorption_engine",
+        "p1621c_video_transcript_extraction_auto_backtest",
+        "p1621g_rule_normalization_auto_backtest",
+        "p1621k_video_strategy_backtest_executor",
+        "p1621n_continuous_youtube_loop_scheduler",
+        "p1622_autonomous_daily_research_cron",
+        "p17x_causality_research_runtime",
+        "p18_deep_research_brain",
+        "p22_38x_ftmo_robust_research_expansion",
+        "p9_continuous_research_runtime",
+        "p9_massive_backtest_grid",
+        "p9_research_command_center"
+      ]
+    }
+  },
+  "TOTAL_TESTS": 179,
+  "REAL_BROKER": "DISABLED",
+  "TOTAL_MODULES": 120,
+  "TOTAL_REPORT_JSON": 462
+}

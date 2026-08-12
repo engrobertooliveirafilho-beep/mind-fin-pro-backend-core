@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_17C58393AF2FA51C",
+  "source_file": "evidence\\P19_SINGLE_EXIT_POINT_ENFORCEMENT_20260618_090003\\test.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\evidence\\P19_SINGLE_EXIT_POINT_ENFORCEMENT_20260618_090003\\test.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 85,
+  "imports": [
+    "app.api.whatsapp"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

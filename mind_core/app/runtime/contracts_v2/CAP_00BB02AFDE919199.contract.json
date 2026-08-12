@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_00BB02AFDE919199",
+  "source_file": "tests\\test_p19p31_p19p36_companion_cognition_stack.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\tests\\test_p19p31_p19p36_companion_cognition_stack.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 85,
+  "imports": [
+    "app.companionship.p19p31_p19p36_companion_runtime",
+    "app.main",
+    "fastapi.testclient"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

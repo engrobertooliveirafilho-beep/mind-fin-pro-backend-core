@@ -1,0 +1,2658 @@
+[
+  {
+    "dataset": "data\\normalized\\ABCB4F_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\ABCB4_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\ALPA4_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\ALPA4_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\ARGE11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\AUPO11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BCIC_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BDIF11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BINC11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BMKS3_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BOVAG181_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BOVAR170_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BOVAS47_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BOVV11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BPAC11F_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BPAC11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BPAC3F_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BPAC3_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BPAC5F_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BPAC5_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BPML11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BRXC_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BTCI11Q_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BTCI11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BTCI11_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BTCI11_M15_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BTCI11_M20_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BTCI11_M30_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BTCLIQBRL_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BTCLIQUSD_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BTCV39_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BTHF11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BTHI11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BTLG11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\BTRA11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\CADFUT_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\CADFUT_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\CGAS3F_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\CGAS3F_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\CMDB11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\CMDB_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\CMIG4F_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\CMIG4F_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\CMIG4_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\CMIG4_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\CRAA11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\CRAA11_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\CSAN3_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\CSAN3_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\CTKA3_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\CTKA3_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\DEBB11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\DI1F29_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\DI1F29_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\DI1F34_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\DI1F34_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\DI1F35_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\DI1F35_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\DI1F38_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\DI1F38_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\DI1N30_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\DI1N30_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\DI1X29_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\DI1X29_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\DIIV26F27_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\DIIV26F27_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\DOLB11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\DOLCC_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\DOLCV_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\DOLPT_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\ENEV3_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\ENEV3_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\ESGB_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\GBTC11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\GENB_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\HBOR3_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\HBOR3_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\IBBC_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\IBBR_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\IBBR_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\IBEP_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\IBEP_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\IBOV_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\IBOV_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\IBOV_M15_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\IBOV_M20_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\IBOV_M30_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\IBRA_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\IBRA_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\IFIX_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\IFIX_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\IGCT_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\IGCT_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\IGCX_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\IGCX_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\IGTI3F_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\IGTI3F_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\IMOB_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\IMOB_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\INBR32_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\INBR32_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\IPCA_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\ITUBPFUT_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\ITUBPFUT_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\LFTS11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\LFTS11_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\LLFT11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\M2RV34_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\MARG11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\MDIA3_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\MDIA3_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\NBIT11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\NBIT11_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\NZLFUT_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\NZLFUT_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\OBTC3F_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\OBTC3_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\PACB11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\PETR4_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\PETR4_M15_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\PETR4_M20_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\PETR4_M30_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\POSI3F_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\POSI3_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\QBTC11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\SBSP3F_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\SBSP3F_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\SELIC_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\SHUL4_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\SHUL4_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\SMAB11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\SMAB_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\SPXB11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\SYNE3F_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\SYNE3_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\TAEE11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\TAEE11_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\TIRB11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\TIRB_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\VALE3_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\VALE3_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\VALE3_M15_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\VALE3_M20_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\VALE3_M30_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\VCJR11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\VCJR11_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\WDOFUT_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\WDOFUT_M15_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\WDOFUT_M20_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\WDOFUT_M30_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\WINFUTV_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\WINFUTV_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\WINFUT_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\WINFUT_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\WINFUT_M15_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\WINFUT_M20_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\WINFUT_M30_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\WINM26_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\WINM26_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\WSPFUT_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\WSPFUT_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\WSPM26_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\WSPM26_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\XBIT11_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\ZARFUT_D1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  },
+  {
+    "dataset": "data\\normalized\\ZARFUT_H1_normalized.csv",
+    "market_states": [
+      "trend",
+      "range",
+      "high_vol",
+      "low_vol",
+      "crisis",
+      "recovery"
+    ],
+    "status": "STATE_CLASSIFIER_READY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN"
+  }
+]

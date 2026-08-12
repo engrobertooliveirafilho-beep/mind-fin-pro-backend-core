@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_6387FC35EB68BC05",
+  "source_file": ".venv\\Lib\\site-packages\\click\\utils.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\click\\utils.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 143,
+  "imports": [
+    "__future__",
+    "_compat",
+    "collections.abc",
+    "errno",
+    "exceptions",
+    "functools",
+    "gettext",
+    "glob",
+    "globals",
+    "os",
+    "re",
+    "sys",
+    "types",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_27312B2532B8A9D4",
+  "source_file": "mind_trader\\tests\\test_p888_knowledge_source_registry.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\mind_trader\\tests\\test_p888_knowledge_source_registry.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 103,
+  "imports": [
+    "mind_trader.app.knowledge.knowledge_source_registry"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

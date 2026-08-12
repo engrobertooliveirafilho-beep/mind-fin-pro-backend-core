@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_C527C62181DC22EB",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\reshape\\test_pivot.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pandas\\tests\\reshape\\test_pivot.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 117,
+  "imports": [
+    "datetime",
+    "itertools",
+    "numpy",
+    "pandas",
+    "pandas._config",
+    "pandas._testing",
+    "pandas.api.types",
+    "pandas.core.reshape",
+    "pandas.core.reshape.pivot",
+    "pytest",
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

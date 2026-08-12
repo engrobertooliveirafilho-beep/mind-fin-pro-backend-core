@@ -1,0 +1,30 @@
+{
+  "capability_id": "CAP_10CC0B296BDC6213",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_vendor\\cachecontrol\\controller.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\pip\\_vendor\\cachecontrol\\controller.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 103,
+  "imports": [
+    "__future__",
+    "calendar",
+    "email.utils",
+    "logging",
+    "pip._vendor.cachecontrol.cache",
+    "pip._vendor.cachecontrol.serialize",
+    "pip._vendor.requests",
+    "pip._vendor.requests.structures",
+    "pip._vendor.urllib3",
+    "re",
+    "time",
+    "typing",
+    "weakref"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

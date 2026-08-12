@@ -1,0 +1,164 @@
+{
+  "STATUS": "P1617A_INDICATOR_FEATURE_FACTORY_COMPLETED",
+  "DATASETS_INPUT": 254,
+  "FEATURE_FILES_CREATED": 223,
+  "ERRORS": 1,
+  "RESULTS_SAMPLE": [
+    {
+      "dataset": "data\\normalized\\ABCB4F_D1_normalized.csv",
+      "asset": "ABCB4F",
+      "timeframe": "D1",
+      "rows": 200,
+      "features_file": "data\\features\\ABCB4F_D1_features.csv",
+      "status": "FEATURES_CREATED"
+    },
+    {
+      "dataset": "data\\normalized\\ABCB4_D1_normalized.csv",
+      "asset": "ABCB4",
+      "timeframe": "D1",
+      "rows": 200,
+      "features_file": "data\\features\\ABCB4_D1_features.csv",
+      "status": "FEATURES_CREATED"
+    },
+    {
+      "dataset": "data\\normalized\\ALPA4_D1_normalized.csv",
+      "asset": "ALPA4",
+      "timeframe": "D1",
+      "rows": 200,
+      "features_file": "data\\features\\ALPA4_D1_features.csv",
+      "status": "FEATURES_CREATED"
+    },
+    {
+      "dataset": "data\\normalized\\ALPA4_H1_normalized.csv",
+      "asset": "ALPA4",
+      "timeframe": "H1",
+      "rows": 1581,
+      "features_file": "data\\features\\ALPA4_H1_features.csv",
+      "status": "FEATURES_CREATED"
+    },
+    {
+      "dataset": "data\\normalized\\ARGE11_D1_normalized.csv",
+      "status": "SKIPPED",
+      "reason": "TOO_FEW_ROWS",
+      "rows": 81
+    },
+    {
+      "dataset": "data\\normalized\\AUPO11_D1_normalized.csv",
+      "status": "SKIPPED",
+      "reason": "TOO_FEW_ROWS",
+      "rows": 45
+    },
+    {
+      "dataset": "data\\normalized\\BCIC_D1_normalized.csv",
+      "asset": "BCIC",
+      "timeframe": "D1",
+      "rows": 200,
+      "features_file": "data\\features\\BCIC_D1_features.csv",
+      "status": "FEATURES_CREATED"
+    },
+    {
+      "dataset": "data\\normalized\\BDIF11_D1_normalized.csv",
+      "asset": "BDIF11",
+      "timeframe": "D1",
+      "rows": 200,
+      "features_file": "data\\features\\BDIF11_D1_features.csv",
+      "status": "FEATURES_CREATED"
+    },
+    {
+      "dataset": "data\\normalized\\BINC11_D1_normalized.csv",
+      "asset": "BINC11",
+      "timeframe": "D1",
+      "rows": 161,
+      "features_file": "data\\features\\BINC11_D1_features.csv",
+      "status": "FEATURES_CREATED"
+    },
+    {
+      "dataset": "data\\normalized\\BMKS3_D1_normalized.csv",
+      "asset": "BMKS3",
+      "timeframe": "D1",
+      "rows": 196,
+      "features_file": "data\\features\\BMKS3_D1_features.csv",
+      "status": "FEATURES_CREATED"
+    },
+    {
+      "dataset": "data\\normalized\\BOVAG181_D1_normalized.csv",
+      "status": "SKIPPED",
+      "reason": "TOO_FEW_ROWS",
+      "rows": 10
+    },
+    {
+      "dataset": "data\\normalized\\BOVAR170_D1_normalized.csv",
+      "status": "SKIPPED",
+      "reason": "TOO_FEW_ROWS",
+      "rows": 43
+    },
+    {
+      "dataset": "data\\normalized\\BOVAS47_D1_normalized.csv",
+      "status": "SKIPPED",
+      "reason": "TOO_FEW_ROWS",
+      "rows": 7
+    },
+    {
+      "dataset": "data\\normalized\\BOVV11_D1_normalized.csv",
+      "asset": "BOVV11",
+      "timeframe": "D1",
+      "rows": 200,
+      "features_file": "data\\features\\BOVV11_D1_features.csv",
+      "status": "FEATURES_CREATED"
+    },
+    {
+      "dataset": "data\\normalized\\BPAC11F_D1_normalized.csv",
+      "asset": "BPAC11F",
+      "timeframe": "D1",
+      "rows": 199,
+      "features_file": "data\\features\\BPAC11F_D1_features.csv",
+      "status": "FEATURES_CREATED"
+    },
+    {
+      "dataset": "data\\normalized\\BPAC11_D1_normalized.csv",
+      "asset": "BPAC11",
+      "timeframe": "D1",
+      "rows": 199,
+      "features_file": "data\\features\\BPAC11_D1_features.csv",
+      "status": "FEATURES_CREATED"
+    },
+    {
+      "dataset": "data\\normalized\\BPAC3F_D1_normalized.csv",
+      "asset": "BPAC3F",
+      "timeframe": "D1",
+      "rows": 199,
+      "features_file": "data\\features\\BPAC3F_D1_features.csv",
+      "status": "FEATURES_CREATED"
+    },
+    {
+      "dataset": "data\\normalized\\BPAC3_D1_normalized.csv",
+      "asset": "BPAC3",
+      "timeframe": "D1",
+      "rows": 199,
+      "features_file": "data\\features\\BPAC3_D1_features.csv",
+      "status": "FEATURES_CREATED"
+    },
+    {
+      "dataset": "data\\normalized\\BPAC5F_D1_normalized.csv",
+      "asset": "BPAC5F",
+      "timeframe": "D1",
+      "rows": 199,
+      "features_file": "data\\features\\BPAC5F_D1_features.csv",
+      "status": "FEATURES_CREATED"
+    },
+    {
+      "dataset": "data\\normalized\\BPAC5_D1_normalized.csv",
+      "asset": "BPAC5",
+      "timeframe": "D1",
+      "rows": 199,
+      "features_file": "data\\features\\BPAC5_D1_features.csv",
+      "status": "FEATURES_CREATED"
+    }
+  ],
+  "NEXT": "P1617B_SPECIALIST_INDICATOR_PATTERN_TESTER",
+  "ORDER_SENT": false,
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN",
+  "generated_at": "2026-06-15T20:16:45.317702+00:00"
+}

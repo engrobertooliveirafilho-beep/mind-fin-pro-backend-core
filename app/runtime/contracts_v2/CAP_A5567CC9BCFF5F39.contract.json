@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_A5567CC9BCFF5F39",
+  "source_file": "evidence\\P19_MEMORY_STATE_PERSISTENCE_AUDIT_20260618_081843\\sender_test.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\evidence\\P19_MEMORY_STATE_PERSISTENCE_AUDIT_20260618_081843\\sender_test.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 96,
+  "imports": [
+    "app.runtime.followup_unified_resolver"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

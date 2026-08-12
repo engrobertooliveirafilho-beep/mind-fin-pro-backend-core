@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_72943BF87DA03325",
+  "source_file": ".venv\\Lib\\site-packages\\pydantic\\v1\\dataclasses.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pydantic\\v1\\dataclasses.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 127,
+  "imports": [
+    "contextlib",
+    "copy",
+    "dataclasses",
+    "functools",
+    "pydantic.v1.class_validators",
+    "pydantic.v1.config",
+    "pydantic.v1.error_wrappers",
+    "pydantic.v1.errors",
+    "pydantic.v1.fields",
+    "pydantic.v1.main",
+    "pydantic.v1.typing",
+    "pydantic.v1.utils",
+    "sys",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

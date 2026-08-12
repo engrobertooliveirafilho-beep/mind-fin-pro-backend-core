@@ -1,0 +1,59 @@
+{
+  "engine": "P4.80_CAPABILITY_RECONSTRUCTION_PLANNER",
+  "created_at": "2026-06-19T18:18:10.944113+00:00",
+  "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/mind_strategy.txt",
+  "total_missions": 4,
+  "missions": [
+    {
+      "mission_id": "P4.80_AUTO_001",
+      "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/mind_strategy.txt",
+      "type": "CAPABILITY",
+      "priority": "MEDIUM",
+      "title": "Existe bug TypeError no semantic_whatsapp_runtime.",
+      "evidence_text": "Existe bug TypeError no semantic_whatsapp_runtime.",
+      "recommended_action": "MAP_TO_REGISTRY_OR_CREATE_ADAPTER",
+      "suggested_files": [],
+      "suggested_tests": [],
+      "risk": "medium"
+    },
+    {
+      "mission_id": "P4.80_AUTO_002",
+      "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/mind_strategy.txt",
+      "type": "CAPABILITY",
+      "priority": "MEDIUM",
+      "title": "A arquitetura deve usar pipeline, retrieval, registry e orchestrator.",
+      "evidence_text": "A arquitetura deve usar pipeline, retrieval, registry e orchestrator.",
+      "recommended_action": "MAP_TO_REGISTRY_OR_CREATE_ADAPTER",
+      "suggested_files": [],
+      "suggested_tests": [],
+      "risk": "medium"
+    },
+    {
+      "mission_id": "P4.80_AUTO_003",
+      "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/mind_strategy.txt",
+      "type": "CAPABILITY",
+      "priority": "MEDIUM",
+      "title": "Lição aprendida: não integrar direto no cognitive_pipeline antes de validar bridge isolado",
+      "evidence_text": "Lição aprendida: não integrar direto no cognitive_pipeline antes de validar bridge isolado.",
+      "recommended_action": "MAP_TO_REGISTRY_OR_CREATE_ADAPTER",
+      "suggested_files": [],
+      "suggested_tests": [],
+      "risk": "medium"
+    },
+    {
+      "mission_id": "P4.80_AUTO_004",
+      "source_id": "_evidence/P4_78_80_FULL_DRIVE_DEEP_ABSORPTION_20260619_151810/smoke_drive_docs/mind_strategy.txt",
+      "type": "CAPABILITY",
+      "priority": "MEDIUM",
+      "title": "Capability: persistent cognitive graph.",
+      "evidence_text": "Capability: persistent cognitive graph.",
+      "recommended_action": "MAP_TO_REGISTRY_OR_CREATE_ADAPTER",
+      "suggested_files": [],
+      "suggested_tests": [],
+      "risk": "medium"
+    }
+  ],
+  "summary": {
+    "MAP_TO_REGISTRY_OR_CREATE_ADAPTER": 4
+  }
+}

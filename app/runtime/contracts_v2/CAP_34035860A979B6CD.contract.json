@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_34035860A979B6CD",
+  "source_file": "_evidence\\P8_19_TO_P8_22_LIMITED_ACTIVE_SANDBOX_REVIEW_20260616_151040\\run_p8_19_to_p8_22_sandbox_review.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P8_19_TO_P8_22_LIMITED_ACTIVE_SANDBOX_REVIEW_20260616_151040\\run_p8_19_to_p8_22_sandbox_review.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 99,
+  "imports": [
+    "app.p8_shadow.planner_sandbox",
+    "json",
+    "pathlib",
+    "time"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_5821EF550F21F439",
+  "source_file": "data\\runtime\\P2081_2090\\run_p2081_2090.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\data\\runtime\\P2081_2090\\run_p2081_2090.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 104,
+  "imports": [
+    "app.runtime.p2081_2090_realtime_portfolio_governance",
+    "json"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

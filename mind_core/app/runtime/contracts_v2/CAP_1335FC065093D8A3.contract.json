@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_1335FC065093D8A3",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\lib\\_nanfunctions_impl.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\numpy\\lib\\_nanfunctions_impl.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 112,
+  "imports": [
+    "functools",
+    "numpy",
+    "numpy._core",
+    "numpy._core.numeric",
+    "numpy.lib",
+    "numpy.lib._function_base_impl",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

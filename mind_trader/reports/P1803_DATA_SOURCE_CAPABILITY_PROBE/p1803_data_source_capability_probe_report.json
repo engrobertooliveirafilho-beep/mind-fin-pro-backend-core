@@ -1,0 +1,51 @@
+{
+  "STATUS": "P1803_DATA_SOURCE_CAPABILITY_PROBE_CREATED",
+  "OBJECTIVE": "Prove whether the environment can access 10 years of market history",
+  "PRIORITY_ASSETS": [
+    "XAUUSD",
+    "USDJPY",
+    "GBPUSD",
+    "EURUSD",
+    "USDCAD",
+    "BTCUSD",
+    "NAS100"
+  ],
+  "TIMEFRAMES": [
+    "M5",
+    "M15",
+    "M30",
+    "H1",
+    "H4",
+    "D1"
+  ],
+  "PROBE_TESTS": 42,
+  "SOURCES": [
+    {
+      "source": "MT5",
+      "status": "NEEDS_PROBE",
+      "test_method": "export/request max bars per symbol/timeframe",
+      "expected_strength": "Forex/metals/index if broker provides history",
+      "risk": "broker may limit candles"
+    },
+    {
+      "source": "Nelogica/Profit",
+      "status": "NEEDS_PROBE",
+      "test_method": "export historical bars by asset/timeframe",
+      "expected_strength": "Brazilian assets/futures",
+      "risk": "export limits and subscription limits"
+    },
+    {
+      "source": "CSV_IMPORT",
+      "status": "READY",
+      "test_method": "manual import from external provider",
+      "expected_strength": "universal fallback",
+      "risk": "data quality and timezone normalization"
+    }
+  ],
+  "NEXT": "RUN_REAL_MT5_EXPORT_TEST_FOR_PRIORITY_ASSETS",
+  "ORDER_SENT": false,
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN",
+  "generated_at": "2026-06-15T23:51:32.932782+00:00"
+}

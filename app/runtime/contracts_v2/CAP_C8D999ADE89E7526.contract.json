@@ -1,0 +1,33 @@
+{
+  "capability_id": "CAP_C8D999ADE89E7526",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\core\\missing.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\pandas\\core\\missing.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 130,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "functools",
+    "numpy",
+    "pandas",
+    "pandas._config",
+    "pandas._libs",
+    "pandas._typing",
+    "pandas.compat._optional",
+    "pandas.core.dtypes.cast",
+    "pandas.core.dtypes.common",
+    "pandas.core.dtypes.dtypes",
+    "pandas.core.dtypes.missing",
+    "pyarrow.compute",
+    "scipy",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

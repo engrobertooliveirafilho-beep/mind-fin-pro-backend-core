@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_9302D1EF60DA8DF6",
+  "source_file": ".venv\\Lib\\site-packages\\aiohttp\\_cookie_helpers.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\aiohttp\\_cookie_helpers.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 84,
+  "imports": [
+    "http.cookies",
+    "log",
+    "re",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

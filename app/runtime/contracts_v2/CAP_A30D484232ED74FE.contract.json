@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_A30D484232ED74FE",
+  "source_file": "mind_trader\\app\\engines\\core.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\mind_trader\\app\\engines\\core.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 116,
+  "imports": [
+    "dataclasses",
+    "datetime",
+    "json",
+    "os",
+    "uuid"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_A072CB03E2D8846B",
+  "source_file": ".venv\\Lib\\site-packages\\twilio\\rest\\intelligence\\v2\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\twilio\\rest\\intelligence\\v2\\__init__.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 85,
+  "imports": [
+    "twilio.base.domain",
+    "twilio.base.version",
+    "twilio.rest.intelligence.v2.custom_operator",
+    "twilio.rest.intelligence.v2.operator",
+    "twilio.rest.intelligence.v2.operator_attachment",
+    "twilio.rest.intelligence.v2.operator_attachments",
+    "twilio.rest.intelligence.v2.operator_type",
+    "twilio.rest.intelligence.v2.prebuilt_operator",
+    "twilio.rest.intelligence.v2.service",
+    "twilio.rest.intelligence.v2.transcript",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

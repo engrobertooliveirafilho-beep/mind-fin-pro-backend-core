@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_3BBC28F715B00C8B",
+  "source_file": ".venv\\Lib\\site-packages\\psycopg\\types\\net.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\psycopg\\types\\net.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 118,
+  "imports": [
+    "__future__",
+    "abc",
+    "adapt",
+    "collections.abc",
+    "ipaddress",
+    "pq",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,1005 @@
+{
+  "app/api/eldora_multimodal.py": {
+    "id": "009_eldora_multimodal",
+    "path": "app/api/eldora_multimodal.py",
+    "technical_score": 118,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "memory",
+      "multimodal",
+      "natural_language",
+      "routing"
+    ],
+    "classes_count": 0,
+    "functions_count": 9,
+    "imports_count": 6,
+    "top_classes": [],
+    "top_functions": [
+      "upload",
+      "ocr",
+      "transcript",
+      "visual",
+      "fusion",
+      "fusion_runtime",
+      "ocr_runtime",
+      "audio_runtime",
+      "visual_runtime"
+    ]
+  },
+  "app/api/eldora_true_distributed.py": {
+    "id": "024_eldora_true_distributed",
+    "path": "app/api/eldora_true_distributed.py",
+    "technical_score": 113,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "diagnostic",
+      "routing",
+      "trader"
+    ],
+    "classes_count": 0,
+    "functions_count": 8,
+    "imports_count": 5,
+    "top_classes": [],
+    "top_functions": [
+      "redis_publish",
+      "redis_report",
+      "diagnostics",
+      "worker_loop",
+      "workers",
+      "ws_signal",
+      "ws_report",
+      "websocket_endpoint"
+    ]
+  },
+  "app/api/eldora_autonomous.py": {
+    "id": "008_eldora_autonomous",
+    "path": "app/api/eldora_autonomous.py",
+    "technical_score": 105,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "automotive",
+      "routing"
+    ],
+    "classes_count": 0,
+    "functions_count": 7,
+    "imports_count": 4,
+    "top_classes": [],
+    "top_functions": [
+      "plan_create",
+      "plan_get",
+      "planner",
+      "governor",
+      "governor_consume",
+      "checkpoint",
+      "checkpoints"
+    ]
+  },
+  "app/api/eldora_cognition.py": {
+    "id": "002_eldora_cognition",
+    "path": "app/api/eldora_cognition.py",
+    "technical_score": 98,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "memory",
+      "routing"
+    ],
+    "classes_count": 0,
+    "functions_count": 6,
+    "imports_count": 4,
+    "top_classes": [],
+    "top_functions": [
+      "cognitive_store",
+      "cognitive_report",
+      "compression",
+      "compression_runtime",
+      "tool_learn",
+      "tools"
+    ]
+  },
+  "app/api/eldora_world.py": {
+    "id": "004_eldora_world",
+    "path": "app/api/eldora_world.py",
+    "technical_score": 98,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "memory",
+      "routing"
+    ],
+    "classes_count": 0,
+    "functions_count": 6,
+    "imports_count": 4,
+    "top_classes": [],
+    "top_functions": [
+      "state",
+      "states",
+      "causal",
+      "causal_runtime",
+      "simulation",
+      "simulation_runtime"
+    ]
+  },
+  "app/api/eldora_social.py": {
+    "id": "012_eldora_social",
+    "path": "app/api/eldora_social.py",
+    "technical_score": 98,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "marketing",
+      "memory",
+      "routing"
+    ],
+    "classes_count": 0,
+    "functions_count": 6,
+    "imports_count": 4,
+    "top_classes": [],
+    "top_functions": [
+      "memory",
+      "memory_runtime",
+      "emotion",
+      "emotion_runtime",
+      "relationship",
+      "relationship_runtime"
+    ]
+  },
+  "app/api/eldora_autonomy.py": {
+    "id": "016_eldora_autonomy",
+    "path": "app/api/eldora_autonomy.py",
+    "technical_score": 98,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "automotive",
+      "routing"
+    ],
+    "classes_count": 0,
+    "functions_count": 6,
+    "imports_count": 4,
+    "top_classes": [],
+    "top_functions": [
+      "goal",
+      "goals",
+      "loop",
+      "loops",
+      "observe",
+      "observations"
+    ]
+  },
+  "app/api/eldora_embodied.py": {
+    "id": "017_eldora_embodied",
+    "path": "app/api/eldora_embodied.py",
+    "technical_score": 98,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "automotive",
+      "routing"
+    ],
+    "classes_count": 0,
+    "functions_count": 6,
+    "imports_count": 4,
+    "top_classes": [],
+    "top_functions": [
+      "browser",
+      "browsers",
+      "presence",
+      "presences",
+      "awareness",
+      "awareness_runtime"
+    ]
+  },
+  "app/api/eldora_liveos.py": {
+    "id": "019_eldora_liveos",
+    "path": "app/api/eldora_liveos.py",
+    "technical_score": 98,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "routing",
+      "trader"
+    ],
+    "classes_count": 0,
+    "functions_count": 6,
+    "imports_count": 4,
+    "top_classes": [],
+    "top_functions": [
+      "publish",
+      "streams",
+      "orchestrate",
+      "orchestrations",
+      "runtime",
+      "runtimes"
+    ]
+  },
+  "app/api/eldora_mesh.py": {
+    "id": "020_eldora_mesh",
+    "path": "app/api/eldora_mesh.py",
+    "technical_score": 98,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "routing",
+      "trader"
+    ],
+    "classes_count": 0,
+    "functions_count": 6,
+    "imports_count": 4,
+    "top_classes": [],
+    "top_functions": [
+      "sync",
+      "mesh",
+      "broker",
+      "brokers",
+      "agent",
+      "agents"
+    ]
+  },
+  "app/api/eldora_meta.py": {
+    "id": "021_eldora_meta",
+    "path": "app/api/eldora_meta.py",
+    "technical_score": 98,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "memory",
+      "routing"
+    ],
+    "classes_count": 0,
+    "functions_count": 6,
+    "imports_count": 4,
+    "top_classes": [],
+    "top_functions": [
+      "cognition",
+      "cognition_runtime",
+      "awareness",
+      "awareness_runtime",
+      "introspection",
+      "introspection_runtime"
+    ]
+  },
+  "app/api/eldora_action.py": {
+    "id": "033_eldora_action",
+    "path": "app/api/eldora_action.py",
+    "technical_score": 98,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "routing"
+    ],
+    "classes_count": 0,
+    "functions_count": 6,
+    "imports_count": 4,
+    "top_classes": [],
+    "top_functions": [
+      "tool",
+      "tools",
+      "execute",
+      "executions",
+      "workflow",
+      "workflows"
+    ]
+  },
+  "app/api/eldora_distributed.py": {
+    "id": "036_eldora_distributed",
+    "path": "app/api/eldora_distributed.py",
+    "technical_score": 98,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "memory",
+      "routing"
+    ],
+    "classes_count": 0,
+    "functions_count": 6,
+    "imports_count": 4,
+    "top_classes": [],
+    "top_functions": [
+      "stream_publish",
+      "streams",
+      "worker",
+      "workers",
+      "state_set",
+      "state_report"
+    ]
+  },
+  "app/api/eldora_evolution.py": {
+    "id": "038_eldora_evolution",
+    "path": "app/api/eldora_evolution.py",
+    "technical_score": 98,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "automotive",
+      "routing"
+    ],
+    "classes_count": 0,
+    "functions_count": 6,
+    "imports_count": 4,
+    "top_classes": [],
+    "top_functions": [
+      "synthesize",
+      "capability_runtime",
+      "skill",
+      "skill_runtime",
+      "evolve",
+      "evolution_runtime"
+    ]
+  },
+  "app/api/eldora_infrastructure.py": {
+    "id": "039_eldora_infrastructure",
+    "path": "app/api/eldora_infrastructure.py",
+    "technical_score": 98,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "routing"
+    ],
+    "classes_count": 0,
+    "functions_count": 6,
+    "imports_count": 4,
+    "top_classes": [],
+    "top_functions": [
+      "connector",
+      "connectors",
+      "route",
+      "bus",
+      "event",
+      "events"
+    ]
+  },
+  "app/api/eldora_runtime_supervisor.py": {
+    "id": "022_eldora_runtime_supervisor",
+    "path": "app/api/eldora_runtime_supervisor.py",
+    "technical_score": 92,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "routing"
+    ],
+    "classes_count": 0,
+    "functions_count": 5,
+    "imports_count": 4,
+    "top_classes": [],
+    "top_functions": [
+      "self_heal",
+      "self_heal_report",
+      "supervisor",
+      "recursive",
+      "recursive_runtime"
+    ]
+  },
+  "app/api/eldora_async.py": {
+    "id": "007_eldora_async",
+    "path": "app/api/eldora_async.py",
+    "technical_score": 90,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "routing"
+    ],
+    "classes_count": 0,
+    "functions_count": 5,
+    "imports_count": 4,
+    "top_classes": [],
+    "top_functions": [
+      "task_create",
+      "task_get",
+      "tasks_report",
+      "orchestrator",
+      "distributed_runtime"
+    ]
+  },
+  "app/api/eldora_auth.py": {
+    "id": "015_eldora_auth",
+    "path": "app/api/eldora_auth.py",
+    "technical_score": 89,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "memory",
+      "routing"
+    ],
+    "classes_count": 0,
+    "functions_count": 5,
+    "imports_count": 4,
+    "top_classes": [],
+    "top_functions": [
+      "token",
+      "verify",
+      "session_save",
+      "session_get",
+      "rate_limit"
+    ]
+  },
+  "app/api/eldora_neura_scale.py": {
+    "id": "010_eldora_neura_scale",
+    "path": "app/api/eldora_neura_scale.py",
+    "technical_score": 88,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "marketing",
+      "routing",
+      "whatsapp"
+    ],
+    "classes_count": 0,
+    "functions_count": 5,
+    "imports_count": 2,
+    "top_classes": [],
+    "top_functions": [
+      "tenant",
+      "acquisition",
+      "scheduler",
+      "launch",
+      "report"
+    ]
+  },
+  "app/api/eldora_growth.py": {
+    "id": "018_eldora_growth",
+    "path": "app/api/eldora_growth.py",
+    "technical_score": 88,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "automotive",
+      "marketing",
+      "routing"
+    ],
+    "classes_count": 0,
+    "functions_count": 5,
+    "imports_count": 2,
+    "top_classes": [],
+    "top_functions": [
+      "create_distribution",
+      "create_swarm",
+      "execute_commercial",
+      "optimize_revenue",
+      "report"
+    ]
+  },
+  "app/humanization/social_memory_provider.py": {
+    "id": "013_social_memory_provider",
+    "path": "app/humanization/social_memory_provider.py",
+    "technical_score": 86,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "marketing",
+      "memory",
+      "natural_language",
+      "whatsapp"
+    ],
+    "classes_count": 0,
+    "functions_count": 12,
+    "imports_count": 5,
+    "top_classes": [],
+    "top_functions": [
+      "social_observation_layer",
+      "social_pattern_extractor",
+      "anti_llm_speech_filter",
+      "naturalness_judge",
+      "should_split_reply",
+      "classify_reply_cadence",
+      "split_human_reply",
+      "enforce_whatsapp_natural_length",
+      "avoid_over_fragmentation",
+      "humanization_runtime",
+      "build_dataset",
+      "train_sim"
+    ]
+  },
+  "app/humanization/conversation_maturity_engine.py": {
+    "id": "026_conversation_maturity_engine",
+    "path": "app/humanization/conversation_maturity_engine.py",
+    "technical_score": 86,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "marketing",
+      "natural_language",
+      "whatsapp"
+    ],
+    "classes_count": 0,
+    "functions_count": 12,
+    "imports_count": 5,
+    "top_classes": [],
+    "top_functions": [
+      "social_observation_layer",
+      "social_pattern_extractor",
+      "anti_llm_speech_filter",
+      "naturalness_judge",
+      "should_split_reply",
+      "classify_reply_cadence",
+      "split_human_reply",
+      "enforce_whatsapp_natural_length",
+      "avoid_over_fragmentation",
+      "humanization_runtime",
+      "build_dataset",
+      "train_sim"
+    ]
+  },
+  "app/humanization/conversation_training_runtime.py": {
+    "id": "027_conversation_training_runtime",
+    "path": "app/humanization/conversation_training_runtime.py",
+    "technical_score": 86,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "marketing",
+      "natural_language",
+      "whatsapp"
+    ],
+    "classes_count": 0,
+    "functions_count": 12,
+    "imports_count": 5,
+    "top_classes": [],
+    "top_functions": [
+      "social_observation_layer",
+      "social_pattern_extractor",
+      "anti_llm_speech_filter",
+      "naturalness_judge",
+      "should_split_reply",
+      "classify_reply_cadence",
+      "split_human_reply",
+      "enforce_whatsapp_natural_length",
+      "avoid_over_fragmentation",
+      "humanization_runtime",
+      "build_dataset",
+      "train_sim"
+    ]
+  },
+  "app/humanization/multi_ai_conversation_simulator.py": {
+    "id": "028_multi_ai_conversation_simulator",
+    "path": "app/humanization/multi_ai_conversation_simulator.py",
+    "technical_score": 86,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "marketing",
+      "natural_language",
+      "simulation",
+      "whatsapp"
+    ],
+    "classes_count": 0,
+    "functions_count": 12,
+    "imports_count": 5,
+    "top_classes": [],
+    "top_functions": [
+      "social_observation_layer",
+      "social_pattern_extractor",
+      "anti_llm_speech_filter",
+      "naturalness_judge",
+      "should_split_reply",
+      "classify_reply_cadence",
+      "split_human_reply",
+      "enforce_whatsapp_natural_length",
+      "avoid_over_fragmentation",
+      "humanization_runtime",
+      "build_dataset",
+      "train_sim"
+    ]
+  },
+  "app/api/eldora_browser_fleet.py": {
+    "id": "034_eldora_browser_fleet",
+    "path": "app/api/eldora_browser_fleet.py",
+    "technical_score": 82,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "routing"
+    ],
+    "classes_count": 0,
+    "functions_count": 4,
+    "imports_count": 2,
+    "top_classes": [],
+    "top_functions": [
+      "create_agent",
+      "create_task",
+      "assign_task",
+      "report"
+    ]
+  },
+  "app/api/eldora_business.py": {
+    "id": "035_eldora_business",
+    "path": "app/api/eldora_business.py",
+    "technical_score": 82,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "routing"
+    ],
+    "classes_count": 0,
+    "functions_count": 4,
+    "imports_count": 2,
+    "top_classes": [],
+    "top_functions": [
+      "create_agent",
+      "create_pipeline_lead",
+      "register_revenue",
+      "report"
+    ]
+  },
+  "app/api/eldora_economic_market.py": {
+    "id": "037_eldora_economic_market",
+    "path": "app/api/eldora_economic_market.py",
+    "technical_score": 82,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "routing",
+      "trader"
+    ],
+    "classes_count": 0,
+    "functions_count": 4,
+    "imports_count": 2,
+    "top_classes": [],
+    "top_functions": [
+      "create_task",
+      "submit_bid",
+      "assign_contract",
+      "report"
+    ]
+  },
+  "app/api/eldora_live_voice.py": {
+    "id": "040_eldora_live_voice",
+    "path": "app/api/eldora_live_voice.py",
+    "technical_score": 82,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "memory",
+      "routing"
+    ],
+    "classes_count": 0,
+    "functions_count": 4,
+    "imports_count": 2,
+    "top_classes": [],
+    "top_functions": [
+      "create_session",
+      "stream_event",
+      "update_presence",
+      "report"
+    ]
+  },
+  "app/api/debug_whatsapp_runtime_trace.py": {
+    "id": "000_debug_whatsapp_runtime_trace",
+    "path": "app/api/debug_whatsapp_runtime_trace.py",
+    "technical_score": 80,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "diagnostic",
+      "natural_language",
+      "routing",
+      "whatsapp"
+    ],
+    "classes_count": 0,
+    "functions_count": 1,
+    "imports_count": 5,
+    "top_classes": [],
+    "top_functions": [
+      "whatsapp_runtime_trace"
+    ]
+  },
+  "app/runtime/semantic_whatsapp_runtime.py": {
+    "id": "032_semantic_whatsapp_runtime",
+    "path": "app/runtime/semantic_whatsapp_runtime.py",
+    "technical_score": 80,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "governance",
+      "memory",
+      "natural_language",
+      "routing",
+      "whatsapp"
+    ],
+    "classes_count": 0,
+    "functions_count": 2,
+    "imports_count": 8,
+    "top_classes": [],
+    "top_functions": [
+      "semantic_whatsapp_payload",
+      "route_semantic_whatsapp"
+    ]
+  },
+  "app/api/diagnostic_twilio.py": {
+    "id": "001_diagnostic_twilio",
+    "path": "app/api/diagnostic_twilio.py",
+    "technical_score": 78,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "diagnostic",
+      "governance",
+      "natural_language",
+      "routing",
+      "whatsapp"
+    ],
+    "classes_count": 0,
+    "functions_count": 2,
+    "imports_count": 5,
+    "top_classes": [],
+    "top_functions": [
+      "diagnostic_twilio_inbound",
+      "__identity_guard_last_hop"
+    ]
+  },
+  "app/api/eldora_persistent_cognition.py": {
+    "id": "003_eldora_persistent_cognition",
+    "path": "app/api/eldora_persistent_cognition.py",
+    "technical_score": 76,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "memory",
+      "routing"
+    ],
+    "classes_count": 0,
+    "functions_count": 3,
+    "imports_count": 2,
+    "top_classes": [],
+    "top_functions": [
+      "store",
+      "retrieve",
+      "report"
+    ]
+  },
+  "app/api/eldora_semantic.py": {
+    "id": "011_eldora_semantic",
+    "path": "app/api/eldora_semantic.py",
+    "technical_score": 76,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "memory",
+      "routing"
+    ],
+    "classes_count": 0,
+    "functions_count": 3,
+    "imports_count": 2,
+    "top_classes": [],
+    "top_functions": [
+      "memory_store",
+      "memory_retrieve",
+      "graph"
+    ]
+  },
+  "app/api/eldora_security.py": {
+    "id": "023_eldora_security",
+    "path": "app/api/eldora_security.py",
+    "technical_score": 74,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "governance",
+      "memory",
+      "natural_language",
+      "routing"
+    ],
+    "classes_count": 0,
+    "functions_count": 3,
+    "imports_count": 4,
+    "top_classes": [],
+    "top_functions": [
+      "tenant",
+      "auth_context",
+      "policy"
+    ]
+  },
+  "app/api/eldora_admin.py": {
+    "id": "006_eldora_admin",
+    "path": "app/api/eldora_admin.py",
+    "technical_score": 68,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "governance",
+      "retrieval",
+      "routing"
+    ],
+    "classes_count": 0,
+    "functions_count": 2,
+    "imports_count": 4,
+    "top_classes": [],
+    "top_functions": [
+      "apply_schema",
+      "apply_pgvector_schema"
+    ]
+  },
+  "app/p18_conversational_execution/failure_fixes.py": {
+    "id": "042_failure_fixes",
+    "path": "app/p18_conversational_execution/failure_fixes.py",
+    "technical_score": 65,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "governance",
+      "memory",
+      "natural_language",
+      "whatsapp"
+    ],
+    "classes_count": 0,
+    "functions_count": 1,
+    "imports_count": 2,
+    "top_classes": [],
+    "top_functions": [
+      "fix_real_whatsapp_failure"
+    ]
+  },
+  "app/p18_conversational_execution/context_guard.py": {
+    "id": "029_context_guard",
+    "path": "app/p18_conversational_execution/context_guard.py",
+    "technical_score": 62,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "governance",
+      "memory",
+      "natural_language",
+      "whatsapp"
+    ],
+    "classes_count": 0,
+    "functions_count": 2,
+    "imports_count": 1,
+    "top_classes": [],
+    "top_functions": [
+      "detect_context_contamination",
+      "safe_topic_from_message"
+    ]
+  },
+  "app/p18_conversational_execution/response_executor.py": {
+    "id": "030_response_executor",
+    "path": "app/p18_conversational_execution/response_executor.py",
+    "technical_score": 62,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "natural_language",
+      "routing",
+      "whatsapp"
+    ],
+    "classes_count": 0,
+    "functions_count": 1,
+    "imports_count": 2,
+    "top_classes": [],
+    "top_functions": [
+      "execute_conversational_response"
+    ]
+  },
+  "app/runtime/cognitive_observatory/ai_only_review.py": {
+    "id": "014_ai_only_review",
+    "path": "app/runtime/cognitive_observatory/ai_only_review.py",
+    "technical_score": 59,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "whatsapp"
+    ],
+    "classes_count": 0,
+    "functions_count": 1,
+    "imports_count": 2,
+    "top_classes": [],
+    "top_functions": [
+      "ai_only_review_conversation"
+    ]
+  },
+  "app/runtime/cognitive_observatory/user_mirror.py": {
+    "id": "031_user_mirror",
+    "path": "app/runtime/cognitive_observatory/user_mirror.py",
+    "technical_score": 59,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "general"
+    ],
+    "classes_count": 0,
+    "functions_count": 2,
+    "imports_count": 1,
+    "top_classes": [],
+    "top_functions": [
+      "build_user_cognitive_mirror",
+      "apply_user_mirror_to_instruction"
+    ]
+  },
+  "app/runtime/conversation_quality_guard.py": {
+    "id": "043_conversation_quality_guard",
+    "path": "app/runtime/conversation_quality_guard.py",
+    "technical_score": 59,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "governance",
+      "whatsapp"
+    ],
+    "classes_count": 0,
+    "functions_count": 3,
+    "imports_count": 1,
+    "top_classes": [],
+    "top_functions": [
+      "strip_repeated_intro",
+      "reset_stale_topic",
+      "final_conversation_guard"
+    ]
+  },
+  "app/runtime/context_priority_engine.py": {
+    "id": "005_context_priority_engine",
+    "path": "app/runtime/context_priority_engine.py",
+    "technical_score": 53,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "memory",
+      "natural_language",
+      "whatsapp"
+    ],
+    "classes_count": 0,
+    "functions_count": 1,
+    "imports_count": 0,
+    "top_classes": [],
+    "top_functions": [
+      "context_priority_reply"
+    ]
+  },
+  "app/runtime/strategic_conversation_authority.py": {
+    "id": "044_strategic_conversation_authority",
+    "path": "app/runtime/strategic_conversation_authority.py",
+    "technical_score": 53,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "governance",
+      "whatsapp"
+    ],
+    "classes_count": 0,
+    "functions_count": 1,
+    "imports_count": 1,
+    "top_classes": [],
+    "top_functions": [
+      "strategic_conversation_authority"
+    ]
+  },
+  "app/eldora/canonical_registry.py": {
+    "id": "025_canonical_registry",
+    "path": "app/eldora/canonical_registry.py",
+    "technical_score": 50,
+    "import_ok": true,
+    "error": null,
+    "skills": [
+      "general"
+    ],
+    "classes_count": 0,
+    "functions_count": 0,
+    "imports_count": 0,
+    "top_classes": [],
+    "top_functions": []
+  },
+  "app/companionship/cognitive_context_builder.py": {
+    "id": "041_cognitive_context_builder",
+    "path": "app/companionship/cognitive_context_builder.py",
+    "technical_score": 0,
+    "import_ok": false,
+    "error": "'NoneType' object has no attribute '__dict__'",
+    "skills": [
+      "memory",
+      "natural_language"
+    ],
+    "classes_count": 1,
+    "functions_count": 4,
+    "imports_count": 4,
+    "top_classes": [
+      "CognitiveContext"
+    ],
+    "top_functions": [
+      "_safe_layer",
+      "build_cognitive_context",
+      "attach_cognitive_context_shadow",
+      "attach_p19p50_humanized_meta_cognition_to_context"
+    ]
+  }
+}

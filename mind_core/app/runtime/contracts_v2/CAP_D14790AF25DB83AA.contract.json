@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_D14790AF25DB83AA",
+  "source_file": "app\\admin\\semantic_activation.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\app\\admin\\semantic_activation.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 133,
+  "imports": [
+    "app.embedding.provider",
+    "app.memory.provider",
+    "app.orchestrator.prompt_orchestrator",
+    "app.retrieval.provider",
+    "app.retrieval.semantic_provider",
+    "app.runtime.contextual_reranker",
+    "fastapi",
+    "os",
+    "psycopg2",
+    "psycopg2.extras",
+    "time",
+    "traceback"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

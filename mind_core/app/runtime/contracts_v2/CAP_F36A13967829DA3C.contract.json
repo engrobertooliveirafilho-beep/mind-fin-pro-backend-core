@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_F36A13967829DA3C",
+  "source_file": "_evidence\\P8_14_REAL_WORLD_PLANNER_BENCHMARK_20260616_130544\\run_p8_14_real_world_benchmark.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P8_14_REAL_WORLD_PLANNER_BENCHMARK_20260616_130544\\run_p8_14_real_world_benchmark.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 107,
+  "imports": [
+    "app.p8_shadow.shadow_hooks",
+    "json",
+    "os",
+    "pathlib",
+    "time"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

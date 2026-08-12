@@ -1,0 +1,4 @@
+﻿begin
+  if EMA(Close, 9) > EMA(Close, 21) then
+    BuyAtMarket;
+end;

@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_A8E29B6224AD7D75",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\core\\arrays\\floating.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pandas\\core\\arrays\\floating.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 109,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "numpy",
+    "pandas.core.arrays.numeric",
+    "pandas.core.dtypes.base",
+    "pandas.core.dtypes.common",
+    "pandas.util._decorators",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

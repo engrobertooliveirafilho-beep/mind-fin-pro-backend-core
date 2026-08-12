@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_F6722C354983C919",
+  "source_file": "_evidence\\P19P51_CAPABILITY_RECOVERY_AND_INTEGRATION_20260622_195620\\p19p51_capability_inventory.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P19P51_CAPABILITY_RECOVERY_AND_INTEGRATION_20260622_195620\\p19p51_capability_inventory.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 97,
+  "imports": [
+    "datetime",
+    "json",
+    "os"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

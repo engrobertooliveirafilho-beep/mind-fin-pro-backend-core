@@ -1,0 +1,10 @@
+{
+  "strategy_id": "30d56c57e356808e",
+  "template": "ema_cross",
+  "asset": "PETR4",
+  "timeframe": "M1",
+  "platform": "Profit/NTSL",
+  "requires_profit_backtest": true,
+  "live": "FORBIDDEN",
+  "real_orders": "FORBIDDEN"
+}

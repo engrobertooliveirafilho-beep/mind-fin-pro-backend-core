@@ -1,0 +1,30 @@
+{
+  "capability_id": "CAP_E5DD47989EF7EE83",
+  "source_file": ".venv\\Lib\\site-packages\\urllib3\\util\\ssl_.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\urllib3\\util\\ssl_.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 132,
+  "imports": [
+    "__future__",
+    "binascii",
+    "exceptions",
+    "hashlib",
+    "hmac",
+    "os",
+    "socket",
+    "ssl",
+    "ssltransport",
+    "sys",
+    "typing",
+    "url",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

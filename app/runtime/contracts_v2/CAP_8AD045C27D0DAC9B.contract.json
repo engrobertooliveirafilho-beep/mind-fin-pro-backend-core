@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_8AD045C27D0DAC9B",
+  "source_file": ".venv\\Lib\\site-packages\\lxml\\ElementInclude.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\lxml\\ElementInclude.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 108,
+  "imports": [
+    "lxml",
+    "urllib.parse",
+    "urllib.request",
+    "urllib2",
+    "urlparse"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_E783E2CECE5A8BAD",
+  "source_file": ".venv\\Lib\\site-packages\\PIL\\FliImagePlugin.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\.venv\\Lib\\site-packages\\PIL\\FliImagePlugin.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 105,
+  "imports": [
+    "__future__",
+    "_binary",
+    "_util",
+    "os"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

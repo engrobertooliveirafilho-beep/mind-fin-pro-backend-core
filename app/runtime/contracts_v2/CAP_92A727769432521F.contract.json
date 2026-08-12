@@ -1,0 +1,30 @@
+{
+  "capability_id": "CAP_92A727769432521F",
+  "source_file": ".venv\\Lib\\site-packages\\pptx\\opc\\serialized.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pptx\\opc\\serialized.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 119,
+  "imports": [
+    "__future__",
+    "os",
+    "posixpath",
+    "pptx.exc",
+    "pptx.opc.constants",
+    "pptx.opc.oxml",
+    "pptx.opc.package",
+    "pptx.opc.packuri",
+    "pptx.opc.shared",
+    "pptx.opc.spec",
+    "pptx.util",
+    "typing",
+    "zipfile"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

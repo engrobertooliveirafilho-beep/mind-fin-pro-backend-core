@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_2C322718275EA6A4",
+  "source_file": "_evidence\\P19P28M_MAIN_PRE_ROUTER_FITNESS_LOCK_20260621_103742\\02_probe.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\_evidence\\P19P28M_MAIN_PRE_ROUTER_FITNESS_LOCK_20260621_103742\\02_probe.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 86,
+  "imports": [
+    "app.main",
+    "fastapi.testclient"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

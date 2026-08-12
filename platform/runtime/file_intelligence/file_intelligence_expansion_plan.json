@@ -1,0 +1,69 @@
+{
+  "milestone": "P4.89J COMPLETE",
+  "plan": "FILE_INTELLIGENCE_EXPANSION_PLAN",
+  "generated_at": "2026-06-22T01:06:03.128933+00:00",
+  "mode": "PLAN_ONLY",
+  "physical_move": "FORBIDDEN",
+  "delete": "FORBIDDEN",
+  "current_state": {
+    "files_checked": 8823,
+    "read_ok": 6894,
+    "unknown_extension": 1053,
+    "source_not_found": 876,
+    "knowledge_items": 6992,
+    "useful_unknown_files": 37,
+    "trash_unknown_files": 1015,
+    "manual_review_files": 1
+  },
+  "p0_parsers": [
+    {
+      "parser": "generic_code_parser",
+      "affected_files": 32,
+      "priority": "P0",
+      "purpose": "Ler código sem extensão conhecida",
+      "risk": "LOW",
+      "implementation_mode": "READ_ONLY",
+      "approval_required": true,
+      "physical_move": "FORBIDDEN",
+      "delete": "FORBIDDEN"
+    },
+    {
+      "parser": "json_artifact_parser",
+      "affected_files": 2,
+      "priority": "P0",
+      "purpose": "Ler artefatos estruturados",
+      "risk": "LOW",
+      "implementation_mode": "READ_ONLY",
+      "approval_required": true,
+      "physical_move": "FORBIDDEN",
+      "delete": "FORBIDDEN"
+    },
+    {
+      "parser": "python_code_parser",
+      "affected_files": 1,
+      "priority": "P0",
+      "purpose": "Ler artefatos Python",
+      "risk": "LOW",
+      "implementation_mode": "READ_ONLY",
+      "approval_required": true,
+      "physical_move": "FORBIDDEN",
+      "delete": "FORBIDDEN"
+    }
+  ],
+  "expansion_value": {
+    "core_gain_remaining_files": 37,
+    "trash_cleanup_candidates": 1015,
+    "manual_review_required": 1,
+    "recommendation": "OPTIONAL_IMPLEMENT_P0_PARSERS_BEFORE_LONG_TERM_AUTOMATION"
+  },
+  "decision_for_p490": {
+    "ready_for_p490": true,
+    "reason": "Core pipeline, governance, KG, repository intelligence, ingestion, reader, extraction, unknown classification and parser planning are certified.",
+    "known_residual": {
+      "p0_parser_implementation": "PLANNED_NOT_EXECUTED",
+      "trash_cleanup": "CLASSIFIED_NOT_DELETED",
+      "manual_review": 1
+    }
+  },
+  "next": "P4.90 SOVEREIGN TECHNICAL CAPACITY CERTIFICATION"
+}

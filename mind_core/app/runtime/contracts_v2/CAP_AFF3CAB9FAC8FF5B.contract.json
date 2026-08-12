@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_AFF3CAB9FAC8FF5B",
+  "source_file": "evidence\\P4.51_LEVEL_C_FULL_AUDIT_20260618_062425\\backup\\app\\mind\\p5_6f_autonomous_video_discovery_loop\\loop.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\evidence\\P4.51_LEVEL_C_FULL_AUDIT_20260618_062425\\backup\\app\\mind\\p5_6f_autonomous_video_discovery_loop\\loop.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 116,
+  "imports": [
+    "app.mind.p5_5s_source_expansion_autopilot.autopilot",
+    "app.mind.p5_5t_real_fetcher_search_connector.connector",
+    "app.mind.p5_5u_real_result_claim_extractor.extractor",
+    "app.mind.p5_5w_video_metadata_extractor.extractor",
+    "app.mind.p5_6b4_youtube_acquisition_engine.engine",
+    "app.mind.p5_6b5_judge_real_biomechanics_binder.binder",
+    "app.mind.p5_6b5_youtube_url_resolver.resolver",
+    "app.mind.p5_6b6_real_valuation_binder.binder",
+    "app.mind.p5_6b8_real_country_ranking_recalculator.recalculator",
+    "app.mind.p5_6f1_animal_discovery_engine.engine",
+    "json",
+    "time"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

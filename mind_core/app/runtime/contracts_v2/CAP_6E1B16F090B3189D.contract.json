@@ -1,0 +1,26 @@
+{
+  "capability_id": "CAP_6E1B16F090B3189D",
+  "source_file": ".venv\\Lib\\site-packages\\twilio\\rest\\voice\\v1\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\twilio\\rest\\voice\\v1\\__init__.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 81,
+  "imports": [
+    "twilio.base.domain",
+    "twilio.base.version",
+    "twilio.rest.voice.v1.archived_call",
+    "twilio.rest.voice.v1.byoc_trunk",
+    "twilio.rest.voice.v1.connection_policy",
+    "twilio.rest.voice.v1.dialing_permissions",
+    "twilio.rest.voice.v1.ip_record",
+    "twilio.rest.voice.v1.source_ip_mapping",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_224F15AA0F92BF58",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\arrays\\test_datetimelike.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pandas\\tests\\arrays\\test_datetimelike.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 122,
+  "imports": [
+    "__future__",
+    "numpy",
+    "pandas",
+    "pandas._libs",
+    "pandas._libs.tslibs",
+    "pandas._testing",
+    "pandas.compat.numpy",
+    "pandas.core.arrays",
+    "pandas.core.dtypes.dtypes",
+    "pytest",
+    "re",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

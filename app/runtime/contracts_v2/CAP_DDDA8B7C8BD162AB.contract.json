@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_DDDA8B7C8BD162AB",
+  "source_file": "_evidence\\P18D_LIMITED_INTERNAL_SELECTION_GATE_20260616_214148\\run_p18d.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P18D_LIMITED_INTERNAL_SELECTION_GATE_20260616_214148\\run_p18d.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 99,
+  "imports": [
+    "app.p18_conversational_execution.selection_gate",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

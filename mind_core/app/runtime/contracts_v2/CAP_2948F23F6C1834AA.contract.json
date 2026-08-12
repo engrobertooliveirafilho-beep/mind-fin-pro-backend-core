@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_2948F23F6C1834AA",
+  "source_file": ".venv\\Lib\\site-packages\\packaging\\tags.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\packaging\\tags.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 116,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "importlib.machinery",
+    "logging",
+    "operator",
+    "platform",
+    "re",
+    "struct",
+    "subprocess",
+    "sys",
+    "sysconfig",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

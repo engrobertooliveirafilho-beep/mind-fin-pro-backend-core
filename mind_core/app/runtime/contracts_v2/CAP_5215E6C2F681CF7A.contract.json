@@ -1,0 +1,26 @@
+{
+  "capability_id": "CAP_5215E6C2F681CF7A",
+  "source_file": "evidence\\P4.51_LEVEL_C_FULL_AUDIT_20260618_062425\\backup\\app\\api\\eldora_cognitive_runtime.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\evidence\\P4.51_LEVEL_C_FULL_AUDIT_20260618_062425\\backup\\app\\api\\eldora_cognitive_runtime.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 115,
+  "imports": [
+    "app.humanization.universal_recovery_runtime",
+    "app.memory.memory_graph",
+    "app.persona.eldora_core",
+    "app.runtime.intent_router",
+    "app.runtime.internal_state",
+    "app.runtime.quality_gate",
+    "app.runtime.response_builder",
+    "app.runtime.response_strategy",
+    "fastapi"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

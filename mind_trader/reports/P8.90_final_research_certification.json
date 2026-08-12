@@ -1,0 +1,33 @@
+{
+  "certification": "P8.90_FINAL_RESEARCH_CERTIFICATION",
+  "created_at": "2026-06-09T14:40:04.317020+00:00",
+  "tests_passed": 270,
+  "required": [
+    "data_quality",
+    "dataset_catalog",
+    "dataset_lineage",
+    "knowledge_source_registry",
+    "dna_authority",
+    "correlation_authority",
+    "causality_authority",
+    "uncertainty_authority",
+    "edge_discovery_authority",
+    "anti_overfitting_authority",
+    "walk_forward_authority",
+    "monte_carlo_authority",
+    "robustness_committee",
+    "validation_protocol",
+    "promotion_authority",
+    "paper_session",
+    "execution_gateway",
+    "audit_ledger"
+  ],
+  "missing": [],
+  "failed": [],
+  "decision": "FINAL_RESEARCH_CERTIFIED_PAPER_ONLY",
+  "allowed_scope": "PAPER_RESEARCH_ONLY",
+  "production": "BLOCKED",
+  "live": "FORBIDDEN",
+  "edge_claim": "NONE",
+  "causality_claim": "NOT_PROVEN"
+}

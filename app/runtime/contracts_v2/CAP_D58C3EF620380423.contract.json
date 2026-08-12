@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_D58C3EF620380423",
+  "source_file": "_backup\\P4.82_IMPORT_RECOVERY_20260620_205702\\extractor.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_backup\\P4.82_IMPORT_RECOVERY_20260620_205702\\extractor.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 103,
+  "imports": [
+    "app.mind.p5_6g4_strict_entity_validator.p56g4_strict_entity_validator",
+    "hashlib",
+    "json",
+    "os",
+    "p56g4_strict_entity_validator",
+    "re",
+    "urllib.parse",
+    "urllib.request"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

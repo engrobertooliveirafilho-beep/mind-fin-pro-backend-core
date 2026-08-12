@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_9C935568C8A074CE",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\resources\\beta\\threads\\runs\\steps.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\openai\\resources\\beta\\threads\\runs\\steps.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 105,
+  "imports": [
+    "__future__",
+    "_base_client",
+    "_compat",
+    "_resource",
+    "_response",
+    "_types",
+    "_utils",
+    "httpx",
+    "pagination",
+    "types.beta.threads.runs",
+    "types.beta.threads.runs.run_step",
+    "types.beta.threads.runs.run_step_include",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

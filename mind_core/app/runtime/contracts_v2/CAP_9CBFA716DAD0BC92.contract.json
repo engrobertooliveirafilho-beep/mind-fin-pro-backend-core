@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_9CBFA716DAD0BC92",
+  "source_file": "_evidence\\P19P38_K_CRITICAL_DIFF_RESOLUTION_PLAN_20260622_182307\\p19p38k_hunk_resolution_plan.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P19P38_K_CRITICAL_DIFF_RESOLUTION_PLAN_20260622_182307\\p19p38k_hunk_resolution_plan.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 110,
+  "imports": [
+    "datetime",
+    "json",
+    "os",
+    "pathlib",
+    "subprocess"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

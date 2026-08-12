@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_4138D85DDBBA6D81",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\core\\arrays\\sparse\\scipy_sparse.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\pandas\\core\\arrays\\sparse\\scipy_sparse.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 99,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "numpy",
+    "pandas",
+    "pandas._libs",
+    "pandas._typing",
+    "pandas.core.algorithms",
+    "pandas.core.dtypes.missing",
+    "pandas.core.indexes.api",
+    "pandas.core.series",
+    "scipy.sparse",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

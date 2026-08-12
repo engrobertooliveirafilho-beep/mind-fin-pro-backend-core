@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_2F3505A35FD8938A",
+  "source_file": ".venv\\Lib\\site-packages\\aiohttp\\abc.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\aiohttp\\abc.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 123,
+  "imports": [
+    "_cookie_helpers",
+    "abc",
+    "asyncio",
+    "collections.abc",
+    "http.cookies",
+    "logging",
+    "multidict",
+    "socket",
+    "typedefs",
+    "typing",
+    "web_app",
+    "web_exceptions",
+    "web_request",
+    "web_response",
+    "yarl"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

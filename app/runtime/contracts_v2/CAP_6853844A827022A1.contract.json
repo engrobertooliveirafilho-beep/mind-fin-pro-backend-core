@@ -1,0 +1,26 @@
+{
+  "capability_id": "CAP_6853844A827022A1",
+  "source_file": "_evidence\\P4.91N5_FAST_INDEX_STREAMING_CONSUMER_20260624_095328\\p491n5_fast_index_streaming.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P4.91N5_FAST_INDEX_STREAMING_CONSUMER_20260624_095328\\p491n5_fast_index_streaming.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 100,
+  "imports": [
+    "ast",
+    "csv",
+    "datetime",
+    "hashlib",
+    "json",
+    "os",
+    "pathlib",
+    "time",
+    "traceback"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

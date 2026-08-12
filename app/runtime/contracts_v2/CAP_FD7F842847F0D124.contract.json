@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_FD7F842847F0D124",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\groupby\\test_groupby.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pandas\\tests\\groupby\\test_groupby.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 119,
+  "imports": [
+    "datetime",
+    "decimal",
+    "numpy",
+    "pandas",
+    "pandas._testing",
+    "pandas.core.arrays",
+    "pandas.core.common",
+    "pandas.errors",
+    "pandas.util._test_decorators",
+    "pytest",
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

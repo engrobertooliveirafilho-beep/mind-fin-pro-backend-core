@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_B853C2EA80AC430B",
+  "source_file": "_evidence\\P19P38_M_TRACKED_RUNTIME_FORENSIC_AUDIT_20260622_183019\\p19p38m_tracked_runtime_forensic_audit.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P19P38_M_TRACKED_RUNTIME_FORENSIC_AUDIT_20260622_183019\\p19p38m_tracked_runtime_forensic_audit.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 106,
+  "imports": [
+    "datetime",
+    "json",
+    "os",
+    "pathlib",
+    "re",
+    "subprocess"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,26 @@
+{
+  "capability_id": "CAP_203AD0EB50A08872",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\fine_tuning\\reinforcement_method_param.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\openai\\types\\fine_tuning\\reinforcement_method_param.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 91,
+  "imports": [
+    "__future__",
+    "graders.multi_grader_param",
+    "graders.python_grader_param",
+    "graders.score_model_grader_param",
+    "graders.string_check_grader_param",
+    "graders.text_similarity_grader_param",
+    "reinforcement_hyperparameters_param",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

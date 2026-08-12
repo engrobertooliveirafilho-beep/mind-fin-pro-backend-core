@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_755DA87658F5541C",
+  "source_file": "_evidence\\P2408_PERSISTENT_SOVEREIGN_STATE_20260624_221307\\sovereign_before.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P2408_PERSISTENT_SOVEREIGN_STATE_20260624_221307\\sovereign_before.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 106,
+  "imports": [
+    "app.runtime.universal_knowledge_provider",
+    "dataclasses",
+    "json",
+    "os",
+    "pathlib",
+    "re",
+    "time"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,21 @@
+{
+  "mission": "P2510_GLOBAL_RUNTIME_FINAL_LOCK",
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "inputs": [
+    "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core_evidence\\P2506_GLOBAL_RUNTIME_PROMOTION_20260626_080951",
+    "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core_evidence\\P2507_GLOBAL_SWITCHBOARD_ACTIVATION_PAPER_ONLY_20260626_081438",
+    "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core_evidence\\P2508_GLOBAL_RUNTIME_SMOKE_TEST_20260626_203553",
+    "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core_evidence\\P2509_GLOBAL_RUNTIME_STRESS_AND_FAULT_TEST_20260626_203842"
+  ],
+  "hashed_files": 16,
+  "global_runtime_hash": "905ce7b450da9c6fbe132bfcd88158dc8a55e7a51f36344c77757997a839094a",
+  "mutation_allowed": false,
+  "runtime_global_locked": true,
+  "paper_only": true,
+  "real_execution_allowed": false,
+  "ftmo_real_allowed": false,
+  "certification": "P2510_GLOBAL_RUNTIME_FINAL_LOCK_CERTIFIED",
+  "next_required": "P2511_OPERATIONAL_READINESS_REPORT"
+}

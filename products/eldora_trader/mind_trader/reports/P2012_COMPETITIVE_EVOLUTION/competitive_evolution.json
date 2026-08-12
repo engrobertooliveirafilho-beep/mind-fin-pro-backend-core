@@ -1,0 +1,9 @@
+{
+  "STATUS": "P2012_COMPETITIVE_EVOLUTION_BOOTSTRAPPED",
+  "RULES": [
+    "promote_top",
+    "quarantine_bottom",
+    "mutate_winners",
+    "archive_context_specific_edges"
+  ]
+}

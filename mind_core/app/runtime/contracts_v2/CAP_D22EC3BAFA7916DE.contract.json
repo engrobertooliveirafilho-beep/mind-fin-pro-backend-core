@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_D22EC3BAFA7916DE",
+  "source_file": "_evidence\\P_UNIVERSAL_MENTAL_TREE_FULL_AUDIT_20260624_175657\\universal_affective_persona_layer.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\_evidence\\P_UNIVERSAL_MENTAL_TREE_FULL_AUDIT_20260624_175657\\universal_affective_persona_layer.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 88,
+  "imports": [
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

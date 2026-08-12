@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_3EEDF6D2A12CCEB2",
+  "source_file": ".venv\\Lib\\site-packages\\twilio\\rest\\trunking\\v1\\trunk\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\twilio\\rest\\trunking\\v1\\trunk\\__init__.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 124,
+  "imports": [
+    "datetime",
+    "twilio.base",
+    "twilio.base.api_response",
+    "twilio.base.instance_context",
+    "twilio.base.instance_resource",
+    "twilio.base.list_resource",
+    "twilio.base.page",
+    "twilio.base.version",
+    "twilio.rest.trunking.v1.trunk.credential_list",
+    "twilio.rest.trunking.v1.trunk.ip_access_control_list",
+    "twilio.rest.trunking.v1.trunk.origination_url",
+    "twilio.rest.trunking.v1.trunk.phone_number",
+    "twilio.rest.trunking.v1.trunk.recording",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

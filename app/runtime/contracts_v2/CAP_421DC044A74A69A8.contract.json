@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_421DC044A74A69A8",
+  "source_file": "_evidence\\_drive_recovered_friendship_runtime\\agents_scheduler.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\_evidence\\_drive_recovered_friendship_runtime\\agents_scheduler.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 94,
+  "imports": [
+    "app.meta.agents_unified_runtime",
+    "datetime",
+    "json",
+    "threading",
+    "time"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

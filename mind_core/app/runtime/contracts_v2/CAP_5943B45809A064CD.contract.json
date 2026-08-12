@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_5943B45809A064CD",
+  "source_file": "backups\\P19P17_P19P21_UNIVERSAL_CONTEXT_RUNTIME_20260618_062646\\tests\\test_eldora_evolution.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\backups\\P19P17_P19P21_UNIVERSAL_CONTEXT_RUNTIME_20260618_062646\\tests\\test_eldora_evolution.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 102,
+  "imports": [
+    "app.eldora.core.autonomous_capability_evolution",
+    "app.eldora.core.capability_synthesis_engine",
+    "app.eldora.core.dynamic_skill_engine"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_8D7ABAAFBD8941F1",
+  "source_file": "_quarantine\\P19P38_L_SAFE_JUNK_QUARANTINE_20260622_182732\\_maintenance__\\P19P22A_20260618_110511\\p56g53_register_local_evidence_bind_edges.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\_quarantine\\P19P38_L_SAFE_JUNK_QUARANTINE_20260622_182732\\_maintenance__\\P19P22A_20260618_110511\\p56g53_register_local_evidence_bind_edges.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 107,
+  "imports": [
+    "datetime",
+    "json",
+    "os",
+    "pathlib",
+    "psycopg2",
+    "uuid"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

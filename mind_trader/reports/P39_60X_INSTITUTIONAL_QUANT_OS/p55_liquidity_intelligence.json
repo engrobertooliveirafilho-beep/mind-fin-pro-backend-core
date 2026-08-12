@@ -1,0 +1,13 @@
+{
+  "liquidity_features": [
+    "volume_proxy",
+    "range_expansion",
+    "gap_risk",
+    "session_liquidity"
+  ],
+  "status": "LIQUIDITY_LAYER_READY",
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN"
+}

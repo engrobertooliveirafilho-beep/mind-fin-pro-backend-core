@@ -1,0 +1,166 @@
+
+> app\api\whatsapp.py:751:def _p19p21b_real_whatsapp_certified_reply(sender_id: str, inbound_text: str) -> str:
+  app\api\whatsapp.py:752:    try:
+> app\api\whatsapp.py:753:        reply = eldora_primary_runtime_reply(sender_id, inbound_text)
+  app\api\whatsapp.py:754:        if reply is None:
+  app\api\whatsapp.py:755:            reply = ""
+  app\api\whatsapp.py:756:        return _p19p9_universal_whatsapp_output_guard(inbound_text, str(reply), "")
+  app\api\whatsapp.py:757:    except Exception as e:
+  app\api\whatsapp.py:758:        return (
+  app\api\whatsapp.py:759:            "Vou manter o contexto e responder de forma prática. "
+  app\api\whatsapp.py:760:            "Se o assunto é confinamento, comece pelo trato: silo, balança, mistura, cocho, água, pesagem e alertas."
+  app\api\whatsapp.py:761:        )
+  app\api\whatsapp.py:762:
+  app\api\whatsapp.py:763:def _p19p21b_is_real_whatsapp_form(form_obj) -> bool:
+  app\api\whatsapp.py:764:    try:
+  app\api\whatsapp.py:765:        body = _p19p21b_extract_twilio_form_value(form_obj, "Body", "")
+  app\api\whatsapp.py:766:        sender = _p19p21b_extract_twilio_form_value(form_obj, "From", "")
+  app\api\whatsapp.py:767:        return bool(body) and ("whatsapp:" in sender.lower() or sender.strip() != "")
+  app\api\whatsapp.py:768:    except Exception:
+  app\api\whatsapp.py:769:        return False
+  app\api\whatsapp.py:770:# /P19P21B_REAL_WHATSAPP_CERTIFIED_BRIDGE
+  app\api\whatsapp.py:771:
+  app\api\whatsapp.py:772:
+  app\api\whatsapp.py:773:router = APIRouter()
+  app\api\whatsapp.py:774:
+  app\api\whatsapp.py:775:# P4.93A_REAL_RUNTIME_REPLY_TRACE
+  app\api\whatsapp.py:776:def _p493a_real_runtime_reply_trace(event: dict):
+  app\api\whatsapp.py:777:    try:
+  app\api\whatsapp.py:778:        import json, time
+  app\api\whatsapp.py:779:        from pathlib import Path
+  app\api\whatsapp.py:780:        d = Path("_evidence/P4.93A_REAL_RUNTIME_REPLY_TRACE")
+  app\api\whatsapp.py:781:        d.mkdir(parents=True, exist_ok=True)
+  app\api\whatsapp.py:782:        p = d / "real_runtime_reply_trace.jsonl"
+  app\api\whatsapp.py:783:        event = dict(event or {})
+  app\api\whatsapp.py:784:        event["ts"] = time.time()
+  app\api\whatsapp.py:785:        with p.open("a", encoding="utf-8") as f:
+  app\api\whatsapp.py:786:            f.write(json.dumps(event, ensure_ascii=False, default=str) + "\n")
+  app\api\whatsapp.py:787:    except Exception:
+  app\api\whatsapp.py:788:        pass
+  app\api\whatsapp.py:789:# /P4.93A_REAL_RUNTIME_REPLY_TRACE
+  app\api\whatsapp.py:790:
+  app\api\whatsapp.py:791:
+  app\api\whatsapp.py:792:
+  app\api\whatsapp.py:793:# P19P.3_SAFE_RUNTIME_INTEGRATION
+  app\api\whatsapp.py:794:def _p19p3_apply_automotive_guards(inbound_text: str, answer: str, context: str = "") -> str:
+  app\api\whatsapp.py:795:    out = str(answer or "")
+  app\api\whatsapp.py:796:    try:
+  app\api\whatsapp.py:797:        if automotive_execution_bias_guard:
+  app\api\whatsapp.py:798:            out = automotive_execution_bias_guard(inbound_text, out)
+  app\api\whatsapp.py:799:    except Exception:
+  app\api\whatsapp.py:800:        pass
+  app\api\whatsapp.py:801:    try:
+  app\api\whatsapp.py:802:        if automotive_part_purchase_guard:
+  app\api\whatsapp.py:803:            out = automotive_part_purchase_guard(inbound_text, out, context)
+  app\api\whatsapp.py:804:    except Exception:
+  app\api\whatsapp.py:805:        pass
+  app\api\whatsapp.py:806:    return _p19p8_suppress_generic_restart(inbound_text, _p19p7_contextual_followup_expansion(inbound_text, _p19p6_expand_bad_followup_template(inbound_text, _p19p5_block_agricultural_automotive_contamination(inbound_text, out, context), context), context), context)
+  app\api\whatsapp.py:807:# /P19P.3_SAFE_RUNTIME_INTEGRATION
+  app\api\whatsapp.py:808:
+  app\api\whatsapp.py:809:def _p412n_twiml_final_normalizer(message: str) -> str:
+  app\api\whatsapp.py:810:    from app.runtime.cognitive_conversation_runtime import decide_turn
+  app\api\whatsapp.py:811:
+  app\api\whatsapp.py:812:    raw=str(message or "").strip()
+  app\api\whatsapp.py:813:    low=raw.lower()
+  app\api\whatsapp.py:814:    decision=decide_turn(raw)
+  app\api\whatsapp.py:815:
+  app\api\whatsapp.py:816:    bad=[
+  app\api\whatsapp.py:817:        "eldora ativa",
+  app\api\whatsapp.py:818:        "tudo certo por aqui",
+  app\api\whatsapp.py:819:        "diagnóstico: o runtime identificou resposta fraca",
+  app\api\whatsapp.py:820:        "diagnã³stico: o runtime identificou resposta fraca",
+  app\api\whatsapp.py:821:        "resumo / compatibility",
+  app\api\whatsapp.py:822:        "compatibilidade:"
+  app\api\whatsapp.py:823:    ]
+  app\api\whatsapp.py:824:
+  app\api\whatsapp.py:825:    factual_turns={"FACTUAL_TASK","EXECUTE","PLAN","ANALYSIS","MATH"}
+  app\api\whatsapp.py:826:
+  app\api\whatsapp.py:827:    task_markers=["verifique","verificar","calcule","calcular","analise","analisar","compare","pesquise","procure"]
+  app\api\whatsapp.py:828:    technical_block=("diagn" in low and "runtime identificou resposta fraca" in low) or ("estrat" in low and "execu" in low and "auditoria" in low)
+  app\api\whatsapp.py:829:
+  app\api\whatsapp.py:830:    if decision.turn_type in factual_turns or any(x in low for x in task_markers):
+  app\api\whatsapp.py:831:        if not raw or any(x in low for x in bad) or technical_block:
+  app\api\whatsapp.py:832:            return None
+  app\api\whatsapp.py:833:        return raw
+> app\api\whatsapp.py:1364:def eldora_primary_runtime_reply(sender_id: str, inbound_text: str):
+  app\api\whatsapp.py:1365:    _p493a_real_runtime_reply_trace({
+  app\api\whatsapp.py:1366:        'stage': 'ENTER_eldora_primary_runtime_reply',
+  app\api\whatsapp.py:1367:        'function': 'eldora_primary_runtime_reply',
+  app\api\whatsapp.py:1368:        'locals_keys': sorted(list(locals().keys())),
+  app\api\whatsapp.py:1369:        'inbound_preview': str(locals().get('message', locals().get('inbound_text', locals().get('user_message', ''))))[:300],
+  app\api\whatsapp.py:1370:        'sender_preview': str(locals().get('sender_id', locals().get('from_number', locals().get('sender', ''))))[:120],
+  app\api\whatsapp.py:1371:    })
+  app\api\whatsapp.py:1372:    # P19P26A_H4_ELDORA_IDENTITY_LOCK
+  app\api\whatsapp.py:1373:    try:
+  app\api\whatsapp.py:1374:        _p494e_shadow = _p494e_mind_os_shadow_context(sender_id, inbound_text)
+  app\api\whatsapp.py:1375:    except Exception:
+  app\api\whatsapp.py:1376:        _p494e_shadow = None
+  app\api\whatsapp.py:1377:
+  app\api\whatsapp.py:1378:    _txt = str(inbound_text or "").lower()
+  app\api\whatsapp.py:1379:
+  app\api\whatsapp.py:1380:    # P4.95H2_SHADOW_AUTHORITY_LEDGER_CALL
+  app\api\whatsapp.py:1381:    try:
+  app\api\whatsapp.py:1382:        from app.runtime.authority_shadow_ledger import build_shadow_authority_ledger
+  app\api\whatsapp.py:1383:        _p495h2_authority_ledger = build_shadow_authority_ledger(sender_id, inbound_text)
+  app\api\whatsapp.py:1384:        try:
+  app\api\whatsapp.py:1385:            _p493a_real_runtime_reply_trace({"stage": "P4.95H2_SHADOW_AUTHORITY_LEDGER", "ledger": _p495h2_authority_ledger})
+  app\api\whatsapp.py:1386:        except Exception:
+  app\api\whatsapp.py:1387:            pass
+  app\api\whatsapp.py:1388:    except Exception:
+  app\api\whatsapp.py:1389:        _p495h2_authority_ledger = None
+  app\api\whatsapp.py:1390:
+  app\api\whatsapp.py:1391:    # P4.94R_SINGLE_SAFE_WHATSAPP_HOOK
+  app\api\whatsapp.py:1392:    try:
+  app\api\whatsapp.py:1393:        if build_assisted_bypass_reply is not None:
+  app\api\whatsapp.py:1394:            _p494r_reply = build_assisted_bypass_reply(inbound_text)
+  app\api\whatsapp.py:1395:            if _p494r_reply:
+  app\api\whatsapp.py:1396:                return _p19p9_universal_whatsapp_output_guard(inbound_text, _p494r_reply, "")
+  app\api\whatsapp.py:1397:    except Exception:
+  app\api\whatsapp.py:1398:        pass
+  app\api\whatsapp.py:1399:
+  app\api\whatsapp.py:1400:    eldora_terms = [
+  app\api\whatsapp.py:1401:        "eldora",
+  app\api\whatsapp.py:1402:        "mind",
+  app\api\whatsapp.py:1403:        "whatsapp",
+  app\api\whatsapp.py:1404:        "lançar a eldora",
+  app\api\whatsapp.py:1405:        "lancar a eldora",
+  app\api\whatsapp.py:1406:        "lançamento eldora",
+  app\api\whatsapp.py:1407:        "lancamento eldora"
+  app\api\whatsapp.py:1408:    ]
+  app\api\whatsapp.py:1409:
+  app\api\whatsapp.py:1410:    if any(t in _txt for t in eldora_terms):
+  app\api\whatsapp.py:1411:
+  app\api\whatsapp.py:1412:        if "humanizada" in _txt or "humanizar" in _txt or "emoção" in _txt or "emocao" in _txt:
+  app\api\whatsapp.py:1413:            return (
+  app\api\whatsapp.py:1414:                "Hoje eu ainda respondo de forma muito técnica em alguns momentos. "
+  app\api\whatsapp.py:1415:                "O próximo passo é fortalecer memória de longo prazo, continuidade de conversa, "
+  app\api\whatsapp.py:1416:                "opinião contextual e reação emocional leve. A ideia é conversar como alguém que "
+  app\api\whatsapp.py:1417:                "acompanha a jornada da pessoa, não como um manual."
+  app\api\whatsapp.py:1418:            )
+  app\api\whatsapp.py:1419:
+  app\api\whatsapp.py:1420:        if "lançar" in _txt or "lancar" in _txt:
+  app\api\whatsapp.py:1421:            return (
+  app\api\whatsapp.py:1422:                "Para lançar a Eldora no WhatsApp eu focaria primeiro em aquisição e retenção. "
+  app\api\whatsapp.py:1423:                "A prioridade é gerar conversas reais, criar rotina de uso e transformar usuários "
+  app\api\whatsapp.py:1424:                "em recorrentes antes de escalar mídia."
+  app\api\whatsapp.py:1425:            )
+  app\api\whatsapp.py:1426:
+  app\api\whatsapp.py:1427:    # /P19P26A_H4_ELDORA_IDENTITY_LOCK
+  app\api\whatsapp.py:1428:
+  app\api\whatsapp.py:1429:    # P19P26A_H3_HUMANIZATION_INTENT_LOCK
+  app\api\whatsapp.py:1430:    _p19h3_text = str(inbound_text or "").lower().strip()
+  app\api\whatsapp.py:1431:    if any(x in _p19h3_text for x in ["humanizada", "humanizar", "mais emoção", "mais emocao", "com emoção", "com emocao"]):
+  app\api\whatsapp.py:1432:        return _p495j3_context_signal_or_legacy("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
+  app\api\whatsapp.py:1433:    if _p19h3_text in ["quais são", "quais sao", "quais?", "quais são?", "quais sao?"]:
+  app\api\whatsapp.py:1434:        return _p495j3_context_signal_or_legacy("eldoraprimaryruntimereply", locals().get("inbound_text", ""), locals().get("context", ""), locals().get("domain", ""))
+  app\api\whatsapp.py:1435:    # /P19P26A_H3_HUMANIZATION_INTENT_LOCK
+  app\api\whatsapp.py:1436:    # P19P18/P19P19 early short-followup context continuity
+  app\api\whatsapp.py:1437:    try:
+  app\api\whatsapp.py:1438:        _p19p19_context_reply = _p19p19_direct_context_reply(sender_id, inbound_text)
+  app\api\whatsapp.py:1439:        if _p19p19_context_reply:
+  app\api\whatsapp.py:1440:            return _p19p9_universal_whatsapp_output_guard(inbound_text, _p19p19_context_reply, "")
+  app\api\whatsapp.py:1441:    except Exception:
+  app\api\whatsapp.py:1442:        pass
+  app\api\whatsapp.py:1443:    _p3_body = (inbound_text or "").lower()
+  app\api\whatsapp.py:1444:    if ("não entendi" in _p3_body or "nao entendi" in _p3_body) and ("resolver" in _p3_body or "como" in _p3_body):
+

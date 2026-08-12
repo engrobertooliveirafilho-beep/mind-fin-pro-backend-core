@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_2940BFB34B25AF98",
+  "source_file": "_evidence\\P4.89B_SAFE_PHYSICAL_FILE_ROUTING_20260621_213353\\p489b_safe_physical_file_routing.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P4.89B_SAFE_PHYSICAL_FILE_ROUTING_20260621_213353\\p489b_safe_physical_file_routing.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 103,
+  "imports": [
+    "datetime",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_CC1D83301B887826",
+  "source_file": "tests\\test_p444d_generic_topic_entity_fix.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\tests\\test_p444d_generic_topic_entity_fix.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 98,
+  "imports": [
+    "app.runtime.generic_topic_memory_engine"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

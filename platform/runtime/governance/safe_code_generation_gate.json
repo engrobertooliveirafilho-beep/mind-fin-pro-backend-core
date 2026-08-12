@@ -1,0 +1,27 @@
+{
+  "milestone": "P4.83 COMPLETE",
+  "gate": "SAFE_CODE_GENERATION_GATE",
+  "generated_at": "2026-06-21T15:05:11.450031+00:00",
+  "states": [
+    "REVIEW",
+    "APPROVAL",
+    "EXECUTION"
+  ],
+  "default_state": "REVIEW",
+  "automatic_implementation": "FORBIDDEN",
+  "automatic_file_mutation": "FORBIDDEN",
+  "required_before_execution": [
+    "mission_id",
+    "risk_score",
+    "target_files",
+    "test_plan",
+    "approval_status"
+  ],
+  "approval_required": true,
+  "execution_allowed_only_if": {
+    "approval_status": "APPROVED",
+    "execution_lock": "UNLOCKED",
+    "target_files_declared": true,
+    "tests_declared": true
+  }
+}

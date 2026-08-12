@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_7B7AB6AA6206797F",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\util\\ssltransport.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\util\\ssltransport.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 112,
+  "imports": [
+    "__future__",
+    "exceptions",
+    "io",
+    "socket",
+    "ssl",
+    "ssl_",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

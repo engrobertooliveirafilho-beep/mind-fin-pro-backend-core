@@ -1,0 +1,17 @@
+{
+  "mission": "P5.6G30C_FINAL_ROLLBACK_SQL",
+  "mode": "FINAL_SQL_WITH_ROLLBACK_NO_COMMIT",
+  "canonical_source_id": "df645e3f-d3c9-4eed-a876-d79d052a6f99",
+  "bushwacker_id": "fc55d337-491f-458f-b962-d8cc6372a0fb",
+  "new_ids": {
+    "reindeer_mo_id": "85de9713-9345-42da-b8cb-8977f6af53f8",
+    "dam_110_id": "8d5685ac-c0d4-4569-ad9b-9b276255bcea",
+    "reindeer_edge_id": "40e1c5b0-a279-4f2e-baa4-b54435c2f5c8",
+    "dam_110_edge_id": "65fb2c59-e33c-4629-8146-83f85cc8bdb2"
+  },
+  "blocked": true,
+  "blockers": [
+    "REINDEER MO/10010628 already exists: [('5a87cfa3-c33e-463c-9b5c-30b997d1b962', 'REINDEER MO', '10010628')]",
+    "110/10007793 already exists: [('d64d1a1f-01dd-4587-bf18-bf8e3c968cfc', '110', '10007793')]"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "candidate_id": "sample",
+  "edge": {
+    "candidate_id": "edge_sample",
+    "checks": {
+      "min_datasets": true,
+      "min_periods": true,
+      "min_assets": true,
+      "walk_forward": true,
+      "monte_carlo": true,
+      "robustness": true,
+      "out_of_sample": true
+    },
+    "evidence_score": 1.0,
+    "paper_edge_evidence": true,
+    "causality_proven": false,
+    "live_allowed": false,
+    "real_broker_allowed": false,
+    "promotion_allowed": false,
+    "status": "PAPER_EDGE_EVIDENCE_CANDIDATE",
+    "evaluated_at": "2026-06-14T16:11:26.285561+00:00"
+  },
+  "causality": {
+    "claim_id": "causal_sample",
+    "checks": {
+      "temporal_precedence": true,
+      "placebo_test": true,
+      "regime_invariance": true,
+      "confounder_check": true,
+      "cross_asset_replication": true,
+      "out_of_sample_replication": true
+    },
+    "causality_score": 1.0,
+    "causality_proven": true,
+    "live_allowed": false,
+    "real_broker_allowed": false,
+    "promotion_allowed": false,
+    "status": "CAUSALITY_EVIDENCE_ACCEPTED_PAPER_ONLY",
+    "evaluated_at": "2026-06-14T16:11:26.285561+00:00"
+  },
+  "paper_promotion_allowed": true,
+  "live_promotion_allowed": false,
+  "real_broker_allowed": false,
+  "ftmo_real_allowed": false,
+  "status": "PAPER_PROMOTION_ALLOWED_RESEARCH_ONLY",
+  "evaluated_at": "2026-06-14T16:11:26.285561+00:00"
+}

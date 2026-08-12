@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_F1AE9E3903EEFF5C",
+  "source_file": ".venv\\Lib\\site-packages\\openpyxl\\drawing\\effect.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\openpyxl\\drawing\\effect.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 104,
+  "imports": [
+    "colors",
+    "openpyxl.descriptors",
+    "openpyxl.descriptors.serialisable"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

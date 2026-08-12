@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_48A1A1330EB0DE8D",
+  "source_file": "tools\\runtime_reachability_audit.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\tools\\runtime_reachability_audit.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 100,
+  "imports": [
+    "ast",
+    "collections",
+    "json",
+    "os",
+    "pathlib",
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

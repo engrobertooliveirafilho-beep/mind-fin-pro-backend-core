@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_988DC4A98E492287",
+  "source_file": "_quarantine\\P19P38_L_SAFE_JUNK_QUARANTINE_20260622_182732\\_maintenance__\\P19P22A_20260618_110511\\p56g1_real_genetic_graph_rebuild.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\_quarantine\\P19P38_L_SAFE_JUNK_QUARANTINE_20260622_182732\\_maintenance__\\P19P22A_20260618_110511\\p56g1_real_genetic_graph_rebuild.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 102,
+  "imports": [
+    "datetime",
+    "json",
+    "os",
+    "psycopg2"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

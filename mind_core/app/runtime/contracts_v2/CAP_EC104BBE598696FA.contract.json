@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_EC104BBE598696FA",
+  "source_file": ".venv\\Lib\\site-packages\\httpcore\\_async\\socks_proxy.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\httpcore\\_async\\socks_proxy.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 106,
+  "imports": [
+    "__future__",
+    "_backends.auto",
+    "_backends.base",
+    "_exceptions",
+    "_models",
+    "_ssl",
+    "_synchronization",
+    "_trace",
+    "connection_pool",
+    "http11",
+    "http2",
+    "interfaces",
+    "logging",
+    "socksio",
+    "ssl"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

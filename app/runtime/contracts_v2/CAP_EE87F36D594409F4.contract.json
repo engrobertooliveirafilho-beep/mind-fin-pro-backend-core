@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_EE87F36D594409F4",
+  "source_file": "app\\mind\\p5_5o_audit_endpoint\\routes.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\app\\mind\\p5_5o_audit_endpoint\\routes.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 83,
+  "imports": [
+    "fastapi",
+    "json",
+    "os",
+    "urllib.request"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

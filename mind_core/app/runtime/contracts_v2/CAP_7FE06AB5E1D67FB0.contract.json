@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_7FE06AB5E1D67FB0",
+  "source_file": ".venv\\Lib\\site-packages\\twilio\\rest\\numbers\\v1\\porting_port_in_phone_number.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\twilio\\rest\\numbers\\v1\\porting_port_in_phone_number.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 92,
+  "imports": [
+    "datetime",
+    "twilio.base",
+    "twilio.base.api_response",
+    "twilio.base.instance_context",
+    "twilio.base.instance_resource",
+    "twilio.base.list_resource",
+    "twilio.base.version",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

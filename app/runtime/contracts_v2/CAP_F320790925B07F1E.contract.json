@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_F320790925B07F1E",
+  "source_file": ".venv\\Lib\\site-packages\\setuptools\\_distutils\\tests\\test_bdist_rpm.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\setuptools\\_distutils\\tests\\test_bdist_rpm.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 108,
+  "imports": [
+    "distutils.command.bdist_rpm",
+    "distutils.core",
+    "distutils.tests",
+    "os",
+    "pytest",
+    "shutil",
+    "sys",
+    "test.support"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,135 @@
+{
+  "STATUS": "P1604D_POLICY_V3_NO_PARTIAL_RUNNER_CREATED",
+  "POLICIES_CREATED": 3,
+  "POLICIES": [
+    {
+      "edge_id": "7d0ccd5986a18a8a9162e384",
+      "asset": "GBPUSD",
+      "timeframe": "M30",
+      "family": null,
+      "policy_type": "NO_PARTIAL_HIGH_PAYOFF_RUNNER",
+      "initial_lot": 0.01,
+      "partial_take_profit": {
+        "enabled": false,
+        "reason": "PARTIAL_REDUCED_TOTAL_R_IN_V1_AND_V2"
+      },
+      "break_even": {
+        "enabled": true,
+        "move_sl_to_entry_after_R": 2.0
+      },
+      "trailing": {
+        "enabled": true,
+        "start_after_R": 3.0,
+        "trail_by_ATR_multiple": 2.5
+      },
+      "position_rebuild": {
+        "enabled": true,
+        "max_rebuilds_per_signal": 1,
+        "rebuild_only_if_confluence_score_above": 92,
+        "rebuild_lot_multiplier": 0.25
+      },
+      "scale_in": {
+        "enabled": true,
+        "max_additions": 1,
+        "add_only_after_profit_R": 2.0,
+        "addition_lot_multiplier": 0.25
+      },
+      "previous_base_R": 22.902299,
+      "previous_v2_managed_R": 19.827349,
+      "previous_v2_delta_R": -3.07495,
+      "objective": "MAXIMIZE_PAYOFF_WITHOUT_EARLY_PARTIAL",
+      "ORDER_SENT": false,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    },
+    {
+      "edge_id": "6ffc7212b632c0f09f8de2fc",
+      "asset": "XAUUSD",
+      "timeframe": "M5",
+      "family": null,
+      "policy_type": "NO_PARTIAL_HIGH_PAYOFF_RUNNER",
+      "initial_lot": 0.01,
+      "partial_take_profit": {
+        "enabled": false,
+        "reason": "PARTIAL_REDUCED_TOTAL_R_IN_V1_AND_V2"
+      },
+      "break_even": {
+        "enabled": true,
+        "move_sl_to_entry_after_R": 2.0
+      },
+      "trailing": {
+        "enabled": true,
+        "start_after_R": 3.0,
+        "trail_by_ATR_multiple": 2.5
+      },
+      "position_rebuild": {
+        "enabled": true,
+        "max_rebuilds_per_signal": 1,
+        "rebuild_only_if_confluence_score_above": 92,
+        "rebuild_lot_multiplier": 0.25
+      },
+      "scale_in": {
+        "enabled": true,
+        "max_additions": 1,
+        "add_only_after_profit_R": 2.0,
+        "addition_lot_multiplier": 0.25
+      },
+      "previous_base_R": 34.482746,
+      "previous_v2_managed_R": 28.522677,
+      "previous_v2_delta_R": -5.960069,
+      "objective": "MAXIMIZE_PAYOFF_WITHOUT_EARLY_PARTIAL",
+      "ORDER_SENT": false,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    },
+    {
+      "edge_id": "9a53b0630c7b7e29e960eb66",
+      "asset": "USDJPY",
+      "timeframe": "D1",
+      "family": null,
+      "policy_type": "NO_PARTIAL_HIGH_PAYOFF_RUNNER",
+      "initial_lot": 0.01,
+      "partial_take_profit": {
+        "enabled": false,
+        "reason": "PARTIAL_REDUCED_TOTAL_R_IN_V1_AND_V2"
+      },
+      "break_even": {
+        "enabled": true,
+        "move_sl_to_entry_after_R": 3.0
+      },
+      "trailing": {
+        "enabled": true,
+        "start_after_R": 5.0,
+        "trail_by_ATR_multiple": 3.5
+      },
+      "position_rebuild": {
+        "enabled": true,
+        "max_rebuilds_per_signal": 1,
+        "rebuild_only_if_confluence_score_above": 95,
+        "rebuild_lot_multiplier": 0.25
+      },
+      "scale_in": {
+        "enabled": true,
+        "max_additions": 1,
+        "add_only_after_profit_R": 3.0,
+        "addition_lot_multiplier": 0.25
+      },
+      "previous_base_R": 90.857485,
+      "previous_v2_managed_R": 75.953083,
+      "previous_v2_delta_R": -14.904402,
+      "objective": "MAXIMIZE_PAYOFF_WITHOUT_EARLY_PARTIAL",
+      "ORDER_SENT": false,
+      "REAL_ORDERS": "FORBIDDEN",
+      "FTMO_REAL": "FORBIDDEN",
+      "MT5_REAL": "FORBIDDEN"
+    }
+  ],
+  "NEXT": "SIMULATE_POLICY_V3_AND_BUILD_P1605_ADAPTIVE_POSITION_SIZING",
+  "ORDER_SENT": false,
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN",
+  "generated_at": "2026-06-15T19:08:39.308295+00:00"
+}

@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_84197D8170532ED9",
+  "source_file": "data\\runtime\\P2111_2120\\run_p2111_2120.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\data\\runtime\\P2111_2120\\run_p2111_2120.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 101,
+  "imports": [
+    "app.runtime.p2111_2120_maximum_technical_capacity",
+    "json"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

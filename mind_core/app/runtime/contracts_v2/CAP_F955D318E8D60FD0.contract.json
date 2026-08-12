@@ -1,0 +1,30 @@
+{
+  "capability_id": "CAP_F955D318E8D60FD0",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\util\\ssl_.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\util\\ssl_.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 110,
+  "imports": [
+    "__future__",
+    "binascii",
+    "exceptions",
+    "hashlib",
+    "hmac",
+    "os",
+    "socket",
+    "ssl",
+    "ssltransport",
+    "sys",
+    "typing",
+    "url",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_516C969C4882AE2F",
+  "source_file": "app\\api\\eldora_meta.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\app\\api\\eldora_meta.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 87,
+  "imports": [
+    "app.eldora.core.meta_cognition_engine",
+    "app.eldora.core.recursive_introspection_engine",
+    "app.eldora.core.self_awareness_engine",
+    "fastapi"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

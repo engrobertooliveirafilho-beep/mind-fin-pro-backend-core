@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_61B5A45FA7D44401",
+  "source_file": "evidence\\P4.51_LEVEL_C_FULL_AUDIT_20260618_062425\\backup\\app\\api\\eldora_core_runtime.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\evidence\\P4.51_LEVEL_C_FULL_AUDIT_20260618_062425\\backup\\app\\api\\eldora_core_runtime.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 111,
+  "imports": [
+    "app.eldora.billing.service",
+    "app.eldora.consents.service",
+    "app.eldora.identity.service",
+    "app.eldora.plans.service",
+    "app.eldora.security.service",
+    "app.modules.usde_core.live_bridge",
+    "fastapi"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

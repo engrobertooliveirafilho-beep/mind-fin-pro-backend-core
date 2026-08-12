@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_0733AB1A505C710A",
+  "source_file": ".venv\\Lib\\site-packages\\PIL\\Jpeg2KImagePlugin.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\.venv\\Lib\\site-packages\\PIL\\Jpeg2KImagePlugin.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 107,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "io",
+    "os",
+    "struct",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

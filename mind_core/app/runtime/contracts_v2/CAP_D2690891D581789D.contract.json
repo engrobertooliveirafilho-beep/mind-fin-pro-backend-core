@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_D2690891D581789D",
+  "source_file": ".venv\\Lib\\site-packages\\psycopg\\_tpc.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\psycopg\\_tpc.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 98,
+  "imports": [
+    "__future__",
+    "base64",
+    "dataclasses",
+    "datetime",
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

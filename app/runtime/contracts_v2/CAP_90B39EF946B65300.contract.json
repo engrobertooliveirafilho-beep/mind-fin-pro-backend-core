@@ -1,0 +1,26 @@
+{
+  "capability_id": "CAP_90B39EF946B65300",
+  "source_file": ".venv\\Lib\\site-packages\\twilio\\rest\\preview\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\twilio\\rest\\preview\\__init__.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 81,
+  "imports": [
+    "twilio.rest.preview.PreviewBase",
+    "twilio.rest.preview.hosted_numbers.authorization_document",
+    "twilio.rest.preview.hosted_numbers.hosted_number_order",
+    "twilio.rest.preview.marketplace.available_add_on",
+    "twilio.rest.preview.marketplace.installed_add_on",
+    "twilio.rest.preview.wireless.command",
+    "twilio.rest.preview.wireless.rate_plan",
+    "twilio.rest.preview.wireless.sim",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

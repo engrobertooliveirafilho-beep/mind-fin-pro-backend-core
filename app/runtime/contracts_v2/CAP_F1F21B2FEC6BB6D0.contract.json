@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_F1F21B2FEC6BB6D0",
+  "source_file": ".venv\\Lib\\site-packages\\starlette\\staticfiles.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\starlette\\staticfiles.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 111,
+  "imports": [
+    "__future__",
+    "anyio",
+    "anyio.to_thread",
+    "email.utils",
+    "errno",
+    "importlib.util",
+    "os",
+    "starlette._utils",
+    "starlette.datastructures",
+    "starlette.exceptions",
+    "starlette.responses",
+    "starlette.types",
+    "stat",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

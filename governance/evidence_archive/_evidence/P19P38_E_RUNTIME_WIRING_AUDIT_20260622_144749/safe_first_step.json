@@ -1,0 +1,9 @@
+[
+  "Patch only app/companionship/safe_recovery_adapter.py",
+  "Attach P19P37 shadows after existing P19P36 shadows",
+  "Do not alter app/api/whatsapp.py",
+  "Do not alter app/runtime/cognitive_pipeline.py",
+  "Keep P19P37_LIVE_COGNITION_ENABLED default false",
+  "Add telemetry only",
+  "Run focused tests before any commit"
+]

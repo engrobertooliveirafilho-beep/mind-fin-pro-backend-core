@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_34746BDF85536D49",
+  "source_file": ".venv\\Lib\\site-packages\\psycopg\\_dns.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\.venv\\Lib\\site-packages\\psycopg\\_dns.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 119,
+  "imports": [
+    "__future__",
+    "collections",
+    "collections.abc",
+    "dns.asyncresolver",
+    "dns.exception",
+    "dns.rdtypes.IN.SRV",
+    "dns.resolver",
+    "os",
+    "random",
+    "re",
+    "typing",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_84ECB3F13247A5B6",
+  "source_file": "tests\\test_p18c_shadow_diff.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\tests\\test_p18c_shadow_diff.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 90,
+  "imports": [
+    "app.p18_conversational_execution.response_executor",
+    "app.p18_conversational_execution.shadow_diff"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,26 @@
+{
+  "capability_id": "CAP_C07E914AA10995DD",
+  "source_file": ".venv\\Lib\\site-packages\\twilio\\rest\\numbers\\v2\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\twilio\\rest\\numbers\\v2\\__init__.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 81,
+  "imports": [
+    "twilio.base.domain",
+    "twilio.base.version",
+    "twilio.rest.numbers.v2.application",
+    "twilio.rest.numbers.v2.authorization_document",
+    "twilio.rest.numbers.v2.bulk_hosted_number_order",
+    "twilio.rest.numbers.v2.bundle_clone",
+    "twilio.rest.numbers.v2.hosted_number_order",
+    "twilio.rest.numbers.v2.regulatory_compliance",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

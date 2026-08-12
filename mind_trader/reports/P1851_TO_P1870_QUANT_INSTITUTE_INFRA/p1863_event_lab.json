@@ -1,0 +1,20 @@
+{
+  "STATUS": "P1863_EVENT_LAB_BOOTSTRAPPED",
+  "EVENTS": [
+    "FOMC",
+    "CPI",
+    "NFP",
+    "ECB",
+    "BOE",
+    "BOJ",
+    "WAR",
+    "BANKING_CRISIS",
+    "FLASH_CRASH"
+  ],
+  "OUTPUT": [
+    "pre_event_behavior",
+    "post_event_behavior",
+    "avoidance_window",
+    "alpha_window"
+  ]
+}

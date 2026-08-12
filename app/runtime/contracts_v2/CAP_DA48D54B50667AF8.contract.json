@@ -1,0 +1,33 @@
+{
+  "capability_id": "CAP_DA48D54B50667AF8",
+  "source_file": ".venv\\Lib\\site-packages\\redis\\commands\\core.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\redis\\commands\\core.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 150,
+  "imports": [
+    "datetime",
+    "enum",
+    "hashlib",
+    "helpers",
+    "inspect",
+    "observability.attributes",
+    "observability.recorder",
+    "redis.asyncio.client",
+    "redis.asyncio.observability.recorder",
+    "redis.client",
+    "redis.exceptions",
+    "redis.typing",
+    "redis.utils",
+    "typing",
+    "warnings",
+    "xxhash"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

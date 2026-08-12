@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_C987EF191BBDAC0F",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\core\\arrays\\boolean.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\pandas\\core\\arrays\\boolean.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 107,
+  "imports": [
+    "__future__",
+    "numbers",
+    "numpy",
+    "pandas._libs",
+    "pandas._typing",
+    "pandas.core",
+    "pandas.core.array_algos",
+    "pandas.core.arrays",
+    "pandas.core.arrays.masked",
+    "pandas.core.dtypes.common",
+    "pandas.core.dtypes.dtypes",
+    "pandas.core.dtypes.missing",
+    "pandas.util._decorators",
+    "pyarrow",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

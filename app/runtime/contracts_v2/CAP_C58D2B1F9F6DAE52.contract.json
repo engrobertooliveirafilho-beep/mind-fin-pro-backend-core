@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_C58D2B1F9F6DAE52",
+  "source_file": ".venv\\Lib\\site-packages\\watchfiles\\main.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\watchfiles\\main.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 138,
+  "imports": [
+    "_rust_notify",
+    "anyio",
+    "asyncio",
+    "collections.abc",
+    "enum",
+    "filters",
+    "logging",
+    "os",
+    "pathlib",
+    "platform",
+    "sys",
+    "trio",
+    "typing",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_90CA02F46AAD300F",
+  "source_file": "mind_trader\\app\\p10_certified_dataset_backtest_router\\engine.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\data\\mind_trader\\app\\p10_certified_dataset_backtest_router\\engine.py",
+  "domain": "DATA",
+  "target_layer": "app/runtime",
+  "promotion_score": 95,
+  "imports": [
+    "app.p10_real_dataset_registry_bridge.engine",
+    "datetime",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

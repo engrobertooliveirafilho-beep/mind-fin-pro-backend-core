@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_90F46F7E0A318DB6",
+  "source_file": "_evidence\\P4_65G_EMBEDDING_FAILSAFE_SUPABASE_GUARD_20260618_144208\\p465g_smoke.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P4_65G_EMBEDDING_FAILSAFE_SUPABASE_GUARD_20260618_144208\\p465g_smoke.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 105,
+  "imports": [
+    "app.embedding.provider",
+    "app.retrieval.semantic_provider",
+    "app.runtime.cognitive_pipeline"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,30 @@
+{
+  "capability_id": "CAP_0E62235F767A4682",
+  "source_file": ".venv\\Lib\\site-packages\\setuptools\\_vendor\\packaging\\pylock.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\setuptools\\_vendor\\packaging\\pylock.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 121,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "dataclasses",
+    "datetime",
+    "logging",
+    "markers",
+    "pathlib",
+    "re",
+    "specifiers",
+    "typing",
+    "typing_extensions",
+    "utils",
+    "version"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

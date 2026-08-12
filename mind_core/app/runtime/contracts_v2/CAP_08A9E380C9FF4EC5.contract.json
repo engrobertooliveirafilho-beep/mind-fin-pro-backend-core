@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_08A9E380C9FF4EC5",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\testing\\overrides.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\numpy\\testing\\overrides.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 81,
+  "imports": [
+    "numpy",
+    "numpy._core.overrides",
+    "numpy._core.umath",
+    "numpy.lib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

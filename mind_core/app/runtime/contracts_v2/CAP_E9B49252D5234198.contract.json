@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_E9B49252D5234198",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\realtime\\realtime_session_create_response.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\openai\\types\\realtime\\realtime_session_create_response.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 94,
+  "imports": [
+    "_models",
+    "_utils",
+    "audio_transcription",
+    "noise_reduction_type",
+    "realtime_audio_formats",
+    "realtime_function_tool",
+    "realtime_reasoning",
+    "realtime_truncation",
+    "responses.response_prompt",
+    "responses.tool_choice_function",
+    "responses.tool_choice_mcp",
+    "responses.tool_choice_options",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

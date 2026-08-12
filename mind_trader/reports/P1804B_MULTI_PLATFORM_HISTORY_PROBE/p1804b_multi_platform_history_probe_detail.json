@@ -1,0 +1,20 @@
+[
+  {
+    "platform": "MT5",
+    "status": "NO_CSV_FILES_FOUND",
+    "path": "data\\raw\\platform_probe\\mt5",
+    "instruction": "Exportar CSV histórico da plataforma para esta pasta e rodar novamente."
+  },
+  {
+    "platform": "PROFIT_NELOGICA",
+    "status": "NO_CSV_FILES_FOUND",
+    "path": "data\\raw\\platform_probe\\profit",
+    "instruction": "Exportar CSV histórico da plataforma para esta pasta e rodar novamente."
+  },
+  {
+    "platform": "BLACKARROW_ACTIVETRADER",
+    "status": "NO_CSV_FILES_FOUND",
+    "path": "data\\raw\\platform_probe\\blackarrow",
+    "instruction": "Exportar CSV histórico da plataforma para esta pasta e rodar novamente."
+  }
+]

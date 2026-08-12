@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_BB0EEBEA309BE712",
+  "source_file": "app\\p9_runtime_consumption\\planner_injection.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\app\\p9_runtime_consumption\\planner_injection.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 94,
+  "imports": [
+    "app.p8_shadow.planner_consumption_contract",
+    "app.p9_runtime_consumption.consumption_gate",
+    "app.p9_runtime_consumption.context_bridge",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

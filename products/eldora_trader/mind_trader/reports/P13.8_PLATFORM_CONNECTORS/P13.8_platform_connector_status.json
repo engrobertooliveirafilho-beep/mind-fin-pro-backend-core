@@ -1,0 +1,31 @@
+{
+  "STATUS": "P13.8_PLATFORM_CONNECTORS_IMPLEMENTED",
+  "MT5": {
+    "platform": "MT5",
+    "available": true,
+    "terminal_info": "TerminalInfo(community_account=False, community_connection=False, connected=True, dlls_allowed=False, trade_allowed=True, tradeapi_disabled=False, email_enabled=False, ftp_enabled=False, notifications_enabled=False, mqid=False, build=5836, maxbars=100000, codepage=1252, ping_last=192329, community_balance=0.0, retransmission=0.6163328197226503, company='MetaQuotes Ltd.', name='MetaTrader 5', language='Portuguese (Brazil)', path='C:\\\\Program Files\\\\MetaTrader 5', data_path='C:\\\\Users\\\\MindFin\\\\AppData\\\\Roaming\\\\MetaQuotes\\\\Terminal\\\\D0E8209F77C8CF37AD8BF550E51FF075', commondata_path='C:\\\\Users\\\\MindFin\\\\AppData\\\\Roaming\\\\MetaQuotes\\\\Terminal\\\\Common')",
+    "reason": null
+  },
+  "PROFIT": {
+    "platform": "PROFIT",
+    "available": false,
+    "mode": "LOCAL_EXPORT_BRIDGE",
+    "watch_dir": "data\\incoming\\profit",
+    "csv_files": 0
+  },
+  "FTMO": {
+    "platform": "FTMO",
+    "available": false,
+    "mode": "ACCOUNT_REPORT_INGESTION_ONLY",
+    "watch_dir": "data\\incoming\\ftmo",
+    "csv_files": 0,
+    "real_trading": "FORBIDDEN"
+  },
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "EDGE": "NOT_PROVEN",
+  "CAUSALITY": "NOT_PROVEN",
+  "EXPORT_READY": true,
+  "generated_at": "2026-06-14T16:11:27.630720+00:00"
+}

@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_E1D23FDCA913EC5A",
+  "source_file": "_evidence\\P17B_REAL_LLM_JUDGE_OR_HUMAN_REVIEW_20260616_210127\\run_p17b_review.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P17B_REAL_LLM_JUDGE_OR_HUMAN_REVIEW_20260616_210127\\run_p17b_review.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 94,
+  "imports": [
+    "app.p17_value_proof.eldora_human_review",
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

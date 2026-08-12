@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_EEE7E954D93D5DDD",
+  "source_file": "_evidence\\P19P30C_ROUTING_PRECEDENCE_FORENSICS_20260621_213040\\11_direct_context_router_test.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\_evidence\\P19P30C_ROUTING_PRECEDENCE_FORENSICS_20260621_213040\\11_direct_context_router_test.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 102,
+  "imports": [
+    "app.context_runtime.universal_domain_context",
+    "app.domains.universal_domain_router"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

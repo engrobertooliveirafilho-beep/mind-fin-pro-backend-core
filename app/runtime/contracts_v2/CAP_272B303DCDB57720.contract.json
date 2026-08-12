@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_272B303DCDB57720",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\io\\generate_legacy_storage_files.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\.venv\\Lib\\site-packages\\pandas\\tests\\io\\generate_legacy_storage_files.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 113,
+  "imports": [
+    "datetime",
+    "numpy",
+    "os",
+    "pandas",
+    "pandas.arrays",
+    "pandas.tseries.offsets",
+    "pickle",
+    "platform",
+    "sys",
+    "tables"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_B7E454995F6383B6",
+  "source_file": ".venv\\Lib\\site-packages\\redis\\asyncio\\multidb\\healthcheck.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\redis\\asyncio\\multidb\\healthcheck.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 106,
+  "imports": [
+    "abc",
+    "asyncio",
+    "enum",
+    "inspect",
+    "logging",
+    "redis.asyncio",
+    "redis.asyncio.cluster",
+    "redis.asyncio.http.http_client",
+    "redis.backoff",
+    "redis.client",
+    "redis.cluster",
+    "redis.http.http_client",
+    "redis.multidb.exception",
+    "redis.retry",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

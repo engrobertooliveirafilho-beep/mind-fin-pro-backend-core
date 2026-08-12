@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_51C0ECCD1EE38E9A",
+  "source_file": "_evidence\\P4_72C_CAPABILITY_BRIDGE_PIPELINE_AUX_20260618_195205\\p472c_inspect_signatures.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P4_72C_CAPABILITY_BRIDGE_PIPELINE_AUX_20260618_195205\\p472c_inspect_signatures.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 102,
+  "imports": [
+    "importlib",
+    "inspect",
+    "json"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

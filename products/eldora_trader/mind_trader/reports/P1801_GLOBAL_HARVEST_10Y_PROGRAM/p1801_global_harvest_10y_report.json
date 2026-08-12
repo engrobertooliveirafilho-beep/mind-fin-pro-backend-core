@@ -1,0 +1,35 @@
+{
+  "STATUS": "P1801_GLOBAL_HARVEST_QUEUE_AND_10Y_DATA_PROGRAM_COMPLETED",
+  "HARVEST_ITEMS": 2940,
+  "BACKTEST_ITEMS": 2940,
+  "PRIORITY_ASSETS": [
+    "XAUUSD",
+    "USDJPY",
+    "GBPUSD",
+    "EURUSD",
+    "USDCAD",
+    "BTCUSD",
+    "NAS100"
+  ],
+  "PRIORITY_TIMEFRAMES": [
+    "M5",
+    "M15",
+    "M30",
+    "H1",
+    "H4",
+    "D1"
+  ],
+  "P1_TO_P5_PRIORITY_COUNTS": {
+    "1": 700,
+    "2": 700,
+    "3": 1050,
+    "4": 70,
+    "5": 420
+  },
+  "NEXT": "P1802_DATA_AVAILABILITY_AUDIT_AND_MISSING_HISTORY_REPORT",
+  "ORDER_SENT": false,
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN",
+  "generated_at": "2026-06-15T23:42:05.394512+00:00"
+}

@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_DB6002A122546F73",
+  "source_file": "app\\api\\eldora.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\app\\api\\eldora.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 91,
+  "imports": [
+    "app.eldora.core.audit_ledger",
+    "app.eldora.core.event_bus",
+    "app.eldora.core.runtime_metrics",
+    "app.eldora.core.service_health_graph",
+    "app.eldora.core.startup_manager",
+    "fastapi"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

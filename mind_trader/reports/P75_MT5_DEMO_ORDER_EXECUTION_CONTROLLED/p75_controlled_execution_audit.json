@@ -1,0 +1,38 @@
+{
+  "module": "P75_MT5_DEMO_ORDER_EXECUTION_CONTROLLED",
+  "execution_armed": false,
+  "manual_confirmation": false,
+  "demo_check": {
+    "account_mode": "DEMO",
+    "demo_ok": true,
+    "real_blocked": false,
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  "governor_decision": "ALLOW_DEMO_TRADE",
+  "order": {
+    "symbol": "EURUSD",
+    "side": "BUY",
+    "lot": 0.01,
+    "sl_points": 100,
+    "tp_points": 150,
+    "order_mode": "DRY_RUN_DEMO_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "MT5_REAL": "FORBIDDEN"
+  },
+  "sent_to_mt5_demo": false,
+  "execution_status": "BLOCKED_CONTROLLED_MODE",
+  "reason": "Requires EXECUTION_ARMED=True, manual_confirmation=True, DEMO account, governor approval, lot<=0.01",
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN",
+  "generated_at": "2026-06-14T16:22:34.712153+00:00"
+}

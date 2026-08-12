@@ -1,0 +1,40 @@
+[
+  {
+    "needle": "Não entendi com precisão",
+    "matches": [
+      {
+        "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+        "LineNumber": 502,
+        "Line": "            return Response(content='<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Não entendi com precisão. Reformule em uma frase mais clara.</Message></Response>', media_type=\"application/xml\")"
+      },
+      {
+        "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\p4_13g_router.py",
+        "LineNumber": 45,
+        "Line": "    return \"Não entendi com precisão. Reformule em uma frase mais clara.\""
+      }
+    ]
+  },
+  {
+    "needle": "Nao entendi com precisao",
+    "matches": null
+  },
+  {
+    "needle": "O que você quer verificar",
+    "matches": [
+      {
+        "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\main.py",
+        "LineNumber": 461,
+        "Line": "        if p4_13g_reply and (\"não entendi\" not in str(p4_13g_reply).lower()) and (\"o que você quer verificar\" not in str(p4_13g_reply).lower()):"
+      },
+      {
+        "Path": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\universal_contextual_continuity_engine.py",
+        "LineNumber": 85,
+        "Line": "            reply=\"O que você quer verificar?\""
+      }
+    ]
+  },
+  {
+    "needle": "O que voce quer verificar",
+    "matches": null
+  }
+]

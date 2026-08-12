@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_1B7EFAE98BD4AEA9",
+  "source_file": "app\\mind\\p5_5b_bull_web_absorption\\engine.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\app\\mind\\p5_5b_bull_web_absorption\\engine.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 102,
+  "imports": [
+    "dataclasses",
+    "datetime",
+    "hashlib",
+    "json",
+    "re",
+    "urllib.parse"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

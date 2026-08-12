@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_2C93A216C06920E5",
+  "source_file": "app\\api\\eldora_multimodal.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\app\\api\\eldora_multimodal.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 91,
+  "imports": [
+    "app.eldora.core.audio_transcript_engine",
+    "app.eldora.core.multimodal_fusion_engine",
+    "app.eldora.core.multimodal_ingestion",
+    "app.eldora.core.ocr_engine",
+    "app.eldora.core.visual_semantic_memory",
+    "fastapi"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

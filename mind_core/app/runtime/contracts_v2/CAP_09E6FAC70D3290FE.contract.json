@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_09E6FAC70D3290FE",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\http2\\probe.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\http2\\probe.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 102,
+  "imports": [
+    "__future__",
+    "threading"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

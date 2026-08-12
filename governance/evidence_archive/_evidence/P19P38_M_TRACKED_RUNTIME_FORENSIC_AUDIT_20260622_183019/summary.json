@@ -1,0 +1,16 @@
+{
+  "mission": "P19P38_M_TRACKED_RUNTIME_FORENSIC_AUDIT",
+  "status": "AUDIT_ONLY_PASS",
+  "runtime_modified": false,
+  "files_moved": false,
+  "files_deleted": false,
+  "generated_at": "2026-06-22T21:30:22.441500+00:00",
+  "tracked_runtime_modified": 19,
+  "blocking_files": 18,
+  "p19p39_allowed": false,
+  "decision_counts": {
+    "BLOCK_P19P39_UNTIL_RESOLVED": 3,
+    "MANUAL_REVIEW_BEFORE_COMMIT": 15,
+    "KEEP_CANDIDATE_AFTER_TESTS": 1
+  }
+}

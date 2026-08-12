@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_6EF86B552088EA9B",
+  "source_file": ".venv\\Lib\\site-packages\\twilio\\rest\\numbers\\v1\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\twilio\\rest\\numbers\\v1\\__init__.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 106,
+  "imports": [
+    "twilio.base.domain",
+    "twilio.base.version",
+    "twilio.rest.numbers.v1.bulk_eligibility",
+    "twilio.rest.numbers.v1.eligibility",
+    "twilio.rest.numbers.v1.embedded_session",
+    "twilio.rest.numbers.v1.porting_all_port_in",
+    "twilio.rest.numbers.v1.porting_port_in",
+    "twilio.rest.numbers.v1.porting_port_in_phone_number",
+    "twilio.rest.numbers.v1.porting_portability",
+    "twilio.rest.numbers.v1.porting_webhook_configuration",
+    "twilio.rest.numbers.v1.porting_webhook_configuration_delete",
+    "twilio.rest.numbers.v1.sender_id_registration",
+    "twilio.rest.numbers.v1.signing_request_configuration",
+    "twilio.rest.numbers.v1.webhook",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

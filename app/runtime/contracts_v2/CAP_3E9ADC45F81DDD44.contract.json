@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_3E9ADC45F81DDD44",
+  "source_file": "_evidence\\P4_65N_RETRIEVAL_GROUNDED_ANSWER_20260618_152504\\p465n_test.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\_evidence\\P4_65N_RETRIEVAL_GROUNDED_ANSWER_20260618_152504\\p465n_test.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 92,
+  "imports": [
+    "app.runtime.cognitive_pipeline",
+    "os",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

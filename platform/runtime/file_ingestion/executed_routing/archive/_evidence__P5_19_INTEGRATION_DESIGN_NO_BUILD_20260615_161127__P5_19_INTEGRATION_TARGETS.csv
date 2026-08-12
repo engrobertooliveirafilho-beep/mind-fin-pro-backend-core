@@ -1,0 +1,3 @@
+"capability","component","priority","design_goal","future_connection_points","required_contracts","required_tests_before_build","risk","recommended_mode"
+"HIERARCHICAL_PLANNING","hierarchical_planner_step449","CRITICAL","Adicionar camada formal de decomposição hierárquica antes da execução","System.Object[]","System.Object[]","System.Object[]","Alto se integrar direto; baixo se usar adapter isolado","ADAPTER_FIRST_NO_CORE_MUTATION"
+"COGNITIVE_CONTROL","oversight","HIGH","Adicionar camada de supervisão cognitiva antes/depois de decisões críticas","System.Object[]","System.Object[]","System.Object[]","Médio; deve operar como gate consultivo antes de virar autoridade","SHADOW_MODE_FIRST"

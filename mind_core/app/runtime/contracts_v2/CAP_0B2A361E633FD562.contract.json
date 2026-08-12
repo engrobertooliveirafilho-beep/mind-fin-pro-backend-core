@@ -1,0 +1,33 @@
+{
+  "capability_id": "CAP_0B2A361E633FD562",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\lib\\_function_base_impl.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\numpy\\lib\\_function_base_impl.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 160,
+  "imports": [
+    "builtins",
+    "collections.abc",
+    "functools",
+    "numpy",
+    "numpy._core",
+    "numpy._core._multiarray_umath",
+    "numpy._core.fromnumeric",
+    "numpy._core.multiarray",
+    "numpy._core.numeric",
+    "numpy._core.numerictypes",
+    "numpy._core.umath",
+    "numpy._utils",
+    "numpy.lib._histograms_impl",
+    "numpy.lib._twodim_base_impl",
+    "re",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

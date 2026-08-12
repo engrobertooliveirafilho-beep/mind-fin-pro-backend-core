@@ -1,0 +1,2302 @@
+[
+  {
+    "genome": {
+      "family": "liquidity_sweep",
+      "asset": "ETHUSD",
+      "timeframe": "M15",
+      "fast": 21,
+      "slow": 233,
+      "risk_bps": 15,
+      "index": 11,
+      "genome_id": "5d5347f7d2c3ca1e"
+    },
+    "metrics": {
+      "sharpe": -0.602,
+      "sortino": 0.8672,
+      "profit_factor": 1.7998,
+      "max_drawdown": 0.2321,
+      "expectancy": 0.00068,
+      "risk_of_ruin": 0.6866,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "order_flow",
+      "asset": "NASDAQ",
+      "timeframe": "H1",
+      "fast": 5,
+      "slow": 55,
+      "risk_bps": 15,
+      "index": 900,
+      "genome_id": "78d451fac4a1999c"
+    },
+    "metrics": {
+      "sharpe": 1.6847,
+      "sortino": 1.2432,
+      "profit_factor": 1.7996,
+      "max_drawdown": 0.3303,
+      "expectancy": 0.001079,
+      "risk_of_ruin": 0.5798,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "range_compression",
+      "asset": "WIN",
+      "timeframe": "M1",
+      "fast": 8,
+      "slow": 144,
+      "risk_bps": 10,
+      "index": 119,
+      "genome_id": "74de1f427e279c98"
+    },
+    "metrics": {
+      "sharpe": 1.3094,
+      "sortino": 1.2875,
+      "profit_factor": 1.798,
+      "max_drawdown": 0.0315,
+      "expectancy": 0.00356,
+      "risk_of_ruin": 0.1052,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "volatility_expansion",
+      "asset": "IND",
+      "timeframe": "H1",
+      "fast": 5,
+      "slow": 233,
+      "risk_bps": 15,
+      "index": 428,
+      "genome_id": "5fc4d37ca3d05695"
+    },
+    "metrics": {
+      "sharpe": -0.6567,
+      "sortino": 0.513,
+      "profit_factor": 1.7958,
+      "max_drawdown": 0.2829,
+      "expectancy": 0.000963,
+      "risk_of_ruin": 0.7975,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "breakout",
+      "asset": "SP500",
+      "timeframe": "TICK",
+      "fast": 34,
+      "slow": 89,
+      "risk_bps": 10,
+      "index": 962,
+      "genome_id": "888f155b84f3aa9c"
+    },
+    "metrics": {
+      "sharpe": -0.3569,
+      "sortino": 2.7457,
+      "profit_factor": 1.7957,
+      "max_drawdown": 0.1585,
+      "expectancy": 0.001077,
+      "risk_of_ruin": 0.5682,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "breakout",
+      "asset": "DOL",
+      "timeframe": "M5",
+      "fast": 5,
+      "slow": 144,
+      "risk_bps": 15,
+      "index": 127,
+      "genome_id": "0ecbd8a7d9e3c203"
+    },
+    "metrics": {
+      "sharpe": -0.54,
+      "sortino": 0.8091,
+      "profit_factor": 1.7947,
+      "max_drawdown": 0.2155,
+      "expectancy": 0.001572,
+      "risk_of_ruin": 0.3833,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "trend_following",
+      "asset": "USDJPY",
+      "timeframe": "M30",
+      "fast": 21,
+      "slow": 89,
+      "risk_bps": 10,
+      "index": 316,
+      "genome_id": "7e34283ab597a771"
+    },
+    "metrics": {
+      "sharpe": 0.2065,
+      "sortino": 2.7994,
+      "profit_factor": 1.7941,
+      "max_drawdown": 0.0238,
+      "expectancy": 0.002554,
+      "risk_of_ruin": 0.3127,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "liquidity_sweep",
+      "asset": "USDJPY",
+      "timeframe": "M1",
+      "fast": 21,
+      "slow": 233,
+      "risk_bps": 10,
+      "index": 986,
+      "genome_id": "4e1abaea142ae505"
+    },
+    "metrics": {
+      "sharpe": -0.9543,
+      "sortino": 1.1115,
+      "profit_factor": 1.7937,
+      "max_drawdown": 0.0629,
+      "expectancy": 0.001802,
+      "risk_of_ruin": 0.189,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "range_compression",
+      "asset": "WIN",
+      "timeframe": "M15",
+      "fast": 5,
+      "slow": 144,
+      "risk_bps": 15,
+      "index": 543,
+      "genome_id": "4e8a311f860f8909"
+    },
+    "metrics": {
+      "sharpe": -0.2456,
+      "sortino": 0.2417,
+      "profit_factor": 1.7931,
+      "max_drawdown": 0.0564,
+      "expectancy": 0.001959,
+      "risk_of_ruin": 0.2125,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "mean_reversion",
+      "asset": "BTCUSD",
+      "timeframe": "M15",
+      "fast": 8,
+      "slow": 144,
+      "risk_bps": 20,
+      "index": 351,
+      "genome_id": "d51e87a03a69e3ae"
+    },
+    "metrics": {
+      "sharpe": 0.534,
+      "sortino": -0.1321,
+      "profit_factor": 1.7921,
+      "max_drawdown": 0.2395,
+      "expectancy": -0.00165,
+      "risk_of_ruin": 0.5357,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "range_compression",
+      "asset": "BTCUSD",
+      "timeframe": "H4",
+      "fast": 21,
+      "slow": 233,
+      "risk_bps": 15,
+      "index": 93,
+      "genome_id": "0ab4048f8e0613dd"
+    },
+    "metrics": {
+      "sharpe": 1.2825,
+      "sortino": -0.0241,
+      "profit_factor": 1.7919,
+      "max_drawdown": 0.3868,
+      "expectancy": 0.00073,
+      "risk_of_ruin": 0.3361,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "mean_reversion",
+      "asset": "BTCUSD",
+      "timeframe": "H4",
+      "fast": 21,
+      "slow": 233,
+      "risk_bps": 15,
+      "index": 566,
+      "genome_id": "d7145c3ff7e15b41"
+    },
+    "metrics": {
+      "sharpe": 0.4398,
+      "sortino": -0.3183,
+      "profit_factor": 1.7903,
+      "max_drawdown": 0.3725,
+      "expectancy": -0.000277,
+      "risk_of_ruin": 0.6268,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "mean_reversion",
+      "asset": "IND",
+      "timeframe": "M30",
+      "fast": 21,
+      "slow": 89,
+      "risk_bps": 20,
+      "index": 392,
+      "genome_id": "93e6583720b66428"
+    },
+    "metrics": {
+      "sharpe": -0.5409,
+      "sortino": -0.0419,
+      "profit_factor": 1.7903,
+      "max_drawdown": 0.2804,
+      "expectancy": -0.001846,
+      "risk_of_ruin": 0.2049,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "liquidity_sweep",
+      "asset": "BTCUSD",
+      "timeframe": "TICK",
+      "fast": 34,
+      "slow": 233,
+      "risk_bps": 10,
+      "index": 548,
+      "genome_id": "49dc97d0b90f9fc3"
+    },
+    "metrics": {
+      "sharpe": -0.7837,
+      "sortino": -0.1364,
+      "profit_factor": 1.7866,
+      "max_drawdown": 0.1036,
+      "expectancy": 0.003903,
+      "risk_of_ruin": 0.406,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "mean_reversion",
+      "asset": "DOL",
+      "timeframe": "M15",
+      "fast": 8,
+      "slow": 89,
+      "risk_bps": 15,
+      "index": 761,
+      "genome_id": "1907999e6d526d1f"
+    },
+    "metrics": {
+      "sharpe": -0.6951,
+      "sortino": 1.4954,
+      "profit_factor": 1.7864,
+      "max_drawdown": 0.0223,
+      "expectancy": 0.003839,
+      "risk_of_ruin": 0.0558,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "order_flow",
+      "asset": "BTCUSD",
+      "timeframe": "M15",
+      "fast": 13,
+      "slow": 233,
+      "risk_bps": 5,
+      "index": 746,
+      "genome_id": "28a86f1ab75df0e1"
+    },
+    "metrics": {
+      "sharpe": -0.6127,
+      "sortino": -0.1573,
+      "profit_factor": 1.7863,
+      "max_drawdown": 0.225,
+      "expectancy": 0.001454,
+      "risk_of_ruin": 0.0759,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "order_flow",
+      "asset": "EURUSD",
+      "timeframe": "H1",
+      "fast": 21,
+      "slow": 55,
+      "risk_bps": 5,
+      "index": 785,
+      "genome_id": "bdc64d463ba7e718"
+    },
+    "metrics": {
+      "sharpe": 1.1994,
+      "sortino": 0.1844,
+      "profit_factor": 1.7819,
+      "max_drawdown": 0.2887,
+      "expectancy": -0.001268,
+      "risk_of_ruin": 0.7026,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "mean_reversion",
+      "asset": "IND",
+      "timeframe": "M30",
+      "fast": 5,
+      "slow": 55,
+      "risk_bps": 10,
+      "index": 853,
+      "genome_id": "9144e9966c589b94"
+    },
+    "metrics": {
+      "sharpe": -0.8719,
+      "sortino": 1.1244,
+      "profit_factor": 1.7811,
+      "max_drawdown": 0.0778,
+      "expectancy": -0.001333,
+      "risk_of_ruin": 0.2623,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "hybrid",
+      "asset": "GBPUSD",
+      "timeframe": "M5",
+      "fast": 21,
+      "slow": 233,
+      "risk_bps": 10,
+      "index": 814,
+      "genome_id": "f9417af25ce4b57f"
+    },
+    "metrics": {
+      "sharpe": -0.232,
+      "sortino": 2.6471,
+      "profit_factor": 1.7795,
+      "max_drawdown": 0.137,
+      "expectancy": 0.001959,
+      "risk_of_ruin": 0.7053,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "pullback",
+      "asset": "EURUSD",
+      "timeframe": "M1",
+      "fast": 5,
+      "slow": 233,
+      "risk_bps": 10,
+      "index": 854,
+      "genome_id": "e54ead91c9a89e53"
+    },
+    "metrics": {
+      "sharpe": 1.6534,
+      "sortino": 2.1044,
+      "profit_factor": 1.7745,
+      "max_drawdown": 0.2653,
+      "expectancy": 0.00201,
+      "risk_of_ruin": 0.7448,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "liquidity_sweep",
+      "asset": "WIN",
+      "timeframe": "TICK",
+      "fast": 13,
+      "slow": 144,
+      "risk_bps": 20,
+      "index": 947,
+      "genome_id": "c31887c7dfa0cff0"
+    },
+    "metrics": {
+      "sharpe": 0.0414,
+      "sortino": 0.4079,
+      "profit_factor": 1.7735,
+      "max_drawdown": 0.3689,
+      "expectancy": -0.00013,
+      "risk_of_ruin": 0.5673,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "volatility_expansion",
+      "asset": "SP500",
+      "timeframe": "TICK",
+      "fast": 13,
+      "slow": 89,
+      "risk_bps": 5,
+      "index": 280,
+      "genome_id": "4a6a4374cd6dda02"
+    },
+    "metrics": {
+      "sharpe": 1.8319,
+      "sortino": 1.0168,
+      "profit_factor": 1.7733,
+      "max_drawdown": 0.0496,
+      "expectancy": 0.000347,
+      "risk_of_ruin": 0.2056,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "liquidity_sweep",
+      "asset": "SP500",
+      "timeframe": "H1",
+      "fast": 21,
+      "slow": 55,
+      "risk_bps": 10,
+      "index": 398,
+      "genome_id": "3b82e171b7a81d22"
+    },
+    "metrics": {
+      "sharpe": 0.0387,
+      "sortino": 0.8372,
+      "profit_factor": 1.7733,
+      "max_drawdown": 0.2018,
+      "expectancy": -0.000603,
+      "risk_of_ruin": 0.4105,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "range_compression",
+      "asset": "IND",
+      "timeframe": "D1",
+      "fast": 34,
+      "slow": 233,
+      "risk_bps": 20,
+      "index": 589,
+      "genome_id": "8af61c4e89df3017"
+    },
+    "metrics": {
+      "sharpe": 1.5312,
+      "sortino": 0.6544,
+      "profit_factor": 1.7731,
+      "max_drawdown": 0.2723,
+      "expectancy": 0.003317,
+      "risk_of_ruin": 0.2309,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "vwap",
+      "asset": "XAUUSD",
+      "timeframe": "H1",
+      "fast": 34,
+      "slow": 89,
+      "risk_bps": 20,
+      "index": 294,
+      "genome_id": "c48a0908e2855a97"
+    },
+    "metrics": {
+      "sharpe": 0.1241,
+      "sortino": 2.4389,
+      "profit_factor": 1.7728,
+      "max_drawdown": 0.035,
+      "expectancy": 0.002462,
+      "risk_of_ruin": 0.7839,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "volume_profile",
+      "asset": "XAUUSD",
+      "timeframe": "H4",
+      "fast": 34,
+      "slow": 55,
+      "risk_bps": 10,
+      "index": 669,
+      "genome_id": "93946d6bb73cb16a"
+    },
+    "metrics": {
+      "sharpe": 0.4058,
+      "sortino": -0.9909,
+      "profit_factor": 1.7722,
+      "max_drawdown": 0.219,
+      "expectancy": 0.001717,
+      "risk_of_ruin": 0.1001,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "range_compression",
+      "asset": "EURUSD",
+      "timeframe": "M15",
+      "fast": 8,
+      "slow": 55,
+      "risk_bps": 10,
+      "index": 644,
+      "genome_id": "02e0e9f368760eb8"
+    },
+    "metrics": {
+      "sharpe": 1.6948,
+      "sortino": 0.8951,
+      "profit_factor": 1.7715,
+      "max_drawdown": 0.3438,
+      "expectancy": -0.000623,
+      "risk_of_ruin": 0.6357,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "vwap",
+      "asset": "DOL",
+      "timeframe": "H4",
+      "fast": 5,
+      "slow": 144,
+      "risk_bps": 5,
+      "index": 433,
+      "genome_id": "dd41505b56d07607"
+    },
+    "metrics": {
+      "sharpe": 0.4763,
+      "sortino": 1.8833,
+      "profit_factor": 1.7714,
+      "max_drawdown": 0.2906,
+      "expectancy": -1.1e-05,
+      "risk_of_ruin": 0.1196,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "hybrid",
+      "asset": "XAUUSD",
+      "timeframe": "H4",
+      "fast": 34,
+      "slow": 144,
+      "risk_bps": 15,
+      "index": 484,
+      "genome_id": "dfb1383cb82b3188"
+    },
+    "metrics": {
+      "sharpe": 1.3119,
+      "sortino": -0.891,
+      "profit_factor": 1.7711,
+      "max_drawdown": 0.1801,
+      "expectancy": 0.000699,
+      "risk_of_ruin": 0.4951,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "trend_following",
+      "asset": "NASDAQ",
+      "timeframe": "M15",
+      "fast": 34,
+      "slow": 144,
+      "risk_bps": 15,
+      "index": 5,
+      "genome_id": "93a9c3bf1d5d33a6"
+    },
+    "metrics": {
+      "sharpe": -0.5601,
+      "sortino": 1.2911,
+      "profit_factor": 1.7707,
+      "max_drawdown": 0.0783,
+      "expectancy": 0.001495,
+      "risk_of_ruin": 0.5819,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "hybrid",
+      "asset": "SP500",
+      "timeframe": "H1",
+      "fast": 13,
+      "slow": 144,
+      "risk_bps": 20,
+      "index": 6,
+      "genome_id": "2b31a040f5b7c2e6"
+    },
+    "metrics": {
+      "sharpe": -0.2376,
+      "sortino": 1.5727,
+      "profit_factor": 1.7694,
+      "max_drawdown": 0.1968,
+      "expectancy": 0.003904,
+      "risk_of_ruin": 0.4486,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "liquidity_sweep",
+      "asset": "EURUSD",
+      "timeframe": "M30",
+      "fast": 5,
+      "slow": 89,
+      "risk_bps": 20,
+      "index": 997,
+      "genome_id": "c15964a013f6f7e4"
+    },
+    "metrics": {
+      "sharpe": 0.1692,
+      "sortino": -0.6024,
+      "profit_factor": 1.7661,
+      "max_drawdown": 0.1933,
+      "expectancy": 0.00222,
+      "risk_of_ruin": 0.4301,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "volume_profile",
+      "asset": "XAUUSD",
+      "timeframe": "M30",
+      "fast": 21,
+      "slow": 233,
+      "risk_bps": 10,
+      "index": 131,
+      "genome_id": "8a0602251a375d3f"
+    },
+    "metrics": {
+      "sharpe": 0.0585,
+      "sortino": 0.7316,
+      "profit_factor": 1.7639,
+      "max_drawdown": 0.0333,
+      "expectancy": 0.002637,
+      "risk_of_ruin": 0.0771,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "volume_profile",
+      "asset": "IND",
+      "timeframe": "H4",
+      "fast": 34,
+      "slow": 233,
+      "risk_bps": 10,
+      "index": 337,
+      "genome_id": "67907906d29083c8"
+    },
+    "metrics": {
+      "sharpe": 0.6566,
+      "sortino": -0.5336,
+      "profit_factor": 1.7629,
+      "max_drawdown": 0.2424,
+      "expectancy": 0.000788,
+      "risk_of_ruin": 0.2632,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "volume_profile",
+      "asset": "EURUSD",
+      "timeframe": "D1",
+      "fast": 13,
+      "slow": 55,
+      "risk_bps": 15,
+      "index": 197,
+      "genome_id": "00de76aad9ff5019"
+    },
+    "metrics": {
+      "sharpe": 1.054,
+      "sortino": -0.0229,
+      "profit_factor": 1.7628,
+      "max_drawdown": 0.4136,
+      "expectancy": 0.003457,
+      "risk_of_ruin": 0.5376,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "hybrid",
+      "asset": "WDO",
+      "timeframe": "M1",
+      "fast": 13,
+      "slow": 233,
+      "risk_bps": 10,
+      "index": 153,
+      "genome_id": "01e8d0ee092a7008"
+    },
+    "metrics": {
+      "sharpe": 1.3274,
+      "sortino": 1.387,
+      "profit_factor": 1.7624,
+      "max_drawdown": 0.0759,
+      "expectancy": -0.001252,
+      "risk_of_ruin": 0.7167,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "volatility_expansion",
+      "asset": "BTCUSD",
+      "timeframe": "M30",
+      "fast": 13,
+      "slow": 233,
+      "risk_bps": 15,
+      "index": 82,
+      "genome_id": "8d913b9fc74de08d"
+    },
+    "metrics": {
+      "sharpe": 1.8358,
+      "sortino": -0.5665,
+      "profit_factor": 1.7623,
+      "max_drawdown": 0.3649,
+      "expectancy": 0.003418,
+      "risk_of_ruin": 0.725,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "vwap",
+      "asset": "ETHUSD",
+      "timeframe": "H1",
+      "fast": 5,
+      "slow": 144,
+      "risk_bps": 10,
+      "index": 614,
+      "genome_id": "b8a51a0525e3b239"
+    },
+    "metrics": {
+      "sharpe": -0.3312,
+      "sortino": -0.4071,
+      "profit_factor": 1.7577,
+      "max_drawdown": 0.3396,
+      "expectancy": 0.002469,
+      "risk_of_ruin": 0.5551,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "pullback",
+      "asset": "WDO",
+      "timeframe": "TICK",
+      "fast": 21,
+      "slow": 233,
+      "risk_bps": 20,
+      "index": 455,
+      "genome_id": "83f76cea911b3022"
+    },
+    "metrics": {
+      "sharpe": -0.224,
+      "sortino": -0.78,
+      "profit_factor": 1.7573,
+      "max_drawdown": 0.4261,
+      "expectancy": 0.001728,
+      "risk_of_ruin": 0.5132,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "mean_reversion",
+      "asset": "WIN",
+      "timeframe": "TICK",
+      "fast": 34,
+      "slow": 144,
+      "risk_bps": 5,
+      "index": 30,
+      "genome_id": "e5366b5c3f826062"
+    },
+    "metrics": {
+      "sharpe": -0.1882,
+      "sortino": 2.8612,
+      "profit_factor": 1.7564,
+      "max_drawdown": 0.4336,
+      "expectancy": 0.001005,
+      "risk_of_ruin": 0.6311,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "multi_signal",
+      "asset": "NASDAQ",
+      "timeframe": "TICK",
+      "fast": 34,
+      "slow": 89,
+      "risk_bps": 20,
+      "index": 304,
+      "genome_id": "8a14a8f0f5c4d4af"
+    },
+    "metrics": {
+      "sharpe": 1.3389,
+      "sortino": 2.18,
+      "profit_factor": 1.7552,
+      "max_drawdown": 0.3219,
+      "expectancy": 0.001051,
+      "risk_of_ruin": 0.571,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "liquidity_sweep",
+      "asset": "NASDAQ",
+      "timeframe": "M5",
+      "fast": 21,
+      "slow": 233,
+      "risk_bps": 15,
+      "index": 906,
+      "genome_id": "820a79c914ee6a8d"
+    },
+    "metrics": {
+      "sharpe": 1.5459,
+      "sortino": 2.1245,
+      "profit_factor": 1.754,
+      "max_drawdown": 0.1992,
+      "expectancy": -0.00172,
+      "risk_of_ruin": 0.5322,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "pullback",
+      "asset": "BTCUSD",
+      "timeframe": "H4",
+      "fast": 34,
+      "slow": 233,
+      "risk_bps": 5,
+      "index": 597,
+      "genome_id": "c46bcfbfb1de05f7"
+    },
+    "metrics": {
+      "sharpe": -0.7933,
+      "sortino": 2.0493,
+      "profit_factor": 1.7527,
+      "max_drawdown": 0.1728,
+      "expectancy": 0.001947,
+      "risk_of_ruin": 0.5163,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "volume_profile",
+      "asset": "NASDAQ",
+      "timeframe": "M1",
+      "fast": 8,
+      "slow": 233,
+      "risk_bps": 10,
+      "index": 985,
+      "genome_id": "535999709755c472"
+    },
+    "metrics": {
+      "sharpe": -0.1192,
+      "sortino": 0.4013,
+      "profit_factor": 1.752,
+      "max_drawdown": 0.3001,
+      "expectancy": 0.000181,
+      "risk_of_ruin": 0.7678,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "multi_signal",
+      "asset": "NASDAQ",
+      "timeframe": "M30",
+      "fast": 5,
+      "slow": 233,
+      "risk_bps": 10,
+      "index": 601,
+      "genome_id": "4a08235bde8d5952"
+    },
+    "metrics": {
+      "sharpe": -0.8243,
+      "sortino": 1.3742,
+      "profit_factor": 1.7508,
+      "max_drawdown": 0.3846,
+      "expectancy": 0.000822,
+      "risk_of_ruin": 0.7525,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "volatility_expansion",
+      "asset": "NASDAQ",
+      "timeframe": "H4",
+      "fast": 13,
+      "slow": 89,
+      "risk_bps": 15,
+      "index": 259,
+      "genome_id": "48bf269c776bf9d1"
+    },
+    "metrics": {
+      "sharpe": -0.9343,
+      "sortino": -0.3167,
+      "profit_factor": 1.7465,
+      "max_drawdown": 0.1824,
+      "expectancy": 0.003724,
+      "risk_of_ruin": 0.3467,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "mean_reversion",
+      "asset": "USDJPY",
+      "timeframe": "M30",
+      "fast": 5,
+      "slow": 89,
+      "risk_bps": 5,
+      "index": 67,
+      "genome_id": "54ef3133903716b0"
+    },
+    "metrics": {
+      "sharpe": 1.9974,
+      "sortino": 0.7014,
+      "profit_factor": 1.7464,
+      "max_drawdown": 0.3698,
+      "expectancy": 0.002032,
+      "risk_of_ruin": 0.171,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "hybrid",
+      "asset": "WDO",
+      "timeframe": "M1",
+      "fast": 21,
+      "slow": 89,
+      "risk_bps": 20,
+      "index": 540,
+      "genome_id": "c078879754c957e2"
+    },
+    "metrics": {
+      "sharpe": 0.9779,
+      "sortino": 1.344,
+      "profit_factor": 1.7455,
+      "max_drawdown": 0.1241,
+      "expectancy": 0.001929,
+      "risk_of_ruin": 0.2219,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "hybrid",
+      "asset": "XAUUSD",
+      "timeframe": "H4",
+      "fast": 13,
+      "slow": 55,
+      "risk_bps": 5,
+      "index": 300,
+      "genome_id": "1bc37cc05fdc5faf"
+    },
+    "metrics": {
+      "sharpe": 1.6053,
+      "sortino": 2.3886,
+      "profit_factor": 1.7452,
+      "max_drawdown": 0.2747,
+      "expectancy": 0.002814,
+      "risk_of_ruin": 0.52,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "multi_signal",
+      "asset": "GBPUSD",
+      "timeframe": "D1",
+      "fast": 8,
+      "slow": 89,
+      "risk_bps": 20,
+      "index": 387,
+      "genome_id": "10a8698813ec56aa"
+    },
+    "metrics": {
+      "sharpe": 1.238,
+      "sortino": 2.5223,
+      "profit_factor": 1.7424,
+      "max_drawdown": 0.4078,
+      "expectancy": 0.001002,
+      "risk_of_ruin": 0.0671,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "vwap",
+      "asset": "IND",
+      "timeframe": "M5",
+      "fast": 5,
+      "slow": 89,
+      "risk_bps": 20,
+      "index": 832,
+      "genome_id": "23c14b2d5617ff7b"
+    },
+    "metrics": {
+      "sharpe": 0.0186,
+      "sortino": -0.3104,
+      "profit_factor": 1.7424,
+      "max_drawdown": 0.2135,
+      "expectancy": 0.002284,
+      "risk_of_ruin": 0.2681,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "order_flow",
+      "asset": "WDO",
+      "timeframe": "M15",
+      "fast": 21,
+      "slow": 233,
+      "risk_bps": 15,
+      "index": 192,
+      "genome_id": "7da5cef5fb3983d7"
+    },
+    "metrics": {
+      "sharpe": 1.7032,
+      "sortino": 2.6078,
+      "profit_factor": 1.7407,
+      "max_drawdown": 0.1423,
+      "expectancy": 0.002599,
+      "risk_of_ruin": 0.117,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "volume_profile",
+      "asset": "USDJPY",
+      "timeframe": "H1",
+      "fast": 21,
+      "slow": 89,
+      "risk_bps": 5,
+      "index": 541,
+      "genome_id": "da3dcb8e3f0ed47b"
+    },
+    "metrics": {
+      "sharpe": 1.6697,
+      "sortino": 1.6693,
+      "profit_factor": 1.7369,
+      "max_drawdown": 0.0256,
+      "expectancy": -0.001743,
+      "risk_of_ruin": 0.6998,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "hybrid",
+      "asset": "IND",
+      "timeframe": "M15",
+      "fast": 8,
+      "slow": 144,
+      "risk_bps": 20,
+      "index": 677,
+      "genome_id": "6a5149a68b111ccd"
+    },
+    "metrics": {
+      "sharpe": 0.7594,
+      "sortino": 1.4978,
+      "profit_factor": 1.7362,
+      "max_drawdown": 0.2012,
+      "expectancy": -0.000266,
+      "risk_of_ruin": 0.5662,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "liquidity_sweep",
+      "asset": "WIN",
+      "timeframe": "M5",
+      "fast": 8,
+      "slow": 233,
+      "risk_bps": 5,
+      "index": 367,
+      "genome_id": "118e207ef208c858"
+    },
+    "metrics": {
+      "sharpe": 0.9176,
+      "sortino": 2.8581,
+      "profit_factor": 1.7361,
+      "max_drawdown": 0.334,
+      "expectancy": -0.001478,
+      "risk_of_ruin": 0.0383,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "multi_signal",
+      "asset": "WIN",
+      "timeframe": "H1",
+      "fast": 5,
+      "slow": 144,
+      "risk_bps": 15,
+      "index": 122,
+      "genome_id": "58e6b5cf63d72305"
+    },
+    "metrics": {
+      "sharpe": -0.6325,
+      "sortino": -0.6799,
+      "profit_factor": 1.7355,
+      "max_drawdown": 0.1099,
+      "expectancy": 0.00361,
+      "risk_of_ruin": 0.3257,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "liquidity_sweep",
+      "asset": "NASDAQ",
+      "timeframe": "D1",
+      "fast": 8,
+      "slow": 89,
+      "risk_bps": 20,
+      "index": 346,
+      "genome_id": "acf102437de1b50d"
+    },
+    "metrics": {
+      "sharpe": -0.2089,
+      "sortino": 2.3918,
+      "profit_factor": 1.7348,
+      "max_drawdown": 0.3909,
+      "expectancy": -0.000393,
+      "risk_of_ruin": 0.0609,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "breakout",
+      "asset": "DOL",
+      "timeframe": "H1",
+      "fast": 13,
+      "slow": 89,
+      "risk_bps": 5,
+      "index": 236,
+      "genome_id": "dab9b062d6ee2d04"
+    },
+    "metrics": {
+      "sharpe": -0.1861,
+      "sortino": 1.0564,
+      "profit_factor": 1.7344,
+      "max_drawdown": 0.3931,
+      "expectancy": -0.001888,
+      "risk_of_ruin": 0.1669,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "range_compression",
+      "asset": "WDO",
+      "timeframe": "M1",
+      "fast": 8,
+      "slow": 89,
+      "risk_bps": 10,
+      "index": 619,
+      "genome_id": "27254718b7871b2c"
+    },
+    "metrics": {
+      "sharpe": 1.2902,
+      "sortino": 2.1312,
+      "profit_factor": 1.7336,
+      "max_drawdown": 0.1318,
+      "expectancy": -0.000876,
+      "risk_of_ruin": 0.3223,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "hybrid",
+      "asset": "IND",
+      "timeframe": "M30",
+      "fast": 21,
+      "slow": 144,
+      "risk_bps": 10,
+      "index": 365,
+      "genome_id": "49ef2796d9e7747a"
+    },
+    "metrics": {
+      "sharpe": 0.5108,
+      "sortino": -0.6453,
+      "profit_factor": 1.7333,
+      "max_drawdown": 0.3124,
+      "expectancy": 0.003132,
+      "risk_of_ruin": 0.7694,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "breakout",
+      "asset": "DOL",
+      "timeframe": "H1",
+      "fast": 34,
+      "slow": 55,
+      "risk_bps": 20,
+      "index": 223,
+      "genome_id": "874f8a4fc65f3c5d"
+    },
+    "metrics": {
+      "sharpe": -0.6525,
+      "sortino": 1.7438,
+      "profit_factor": 1.7332,
+      "max_drawdown": 0.2348,
+      "expectancy": 0.00163,
+      "risk_of_ruin": 0.6105,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "volume_profile",
+      "asset": "ETHUSD",
+      "timeframe": "M15",
+      "fast": 5,
+      "slow": 233,
+      "risk_bps": 5,
+      "index": 675,
+      "genome_id": "4f081a83c772b3c3"
+    },
+    "metrics": {
+      "sharpe": -0.5917,
+      "sortino": 0.0616,
+      "profit_factor": 1.7324,
+      "max_drawdown": 0.0402,
+      "expectancy": 0.000738,
+      "risk_of_ruin": 0.3199,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "vwap",
+      "asset": "USDJPY",
+      "timeframe": "H1",
+      "fast": 34,
+      "slow": 144,
+      "risk_bps": 15,
+      "index": 894,
+      "genome_id": "d96f66a3cc24757e"
+    },
+    "metrics": {
+      "sharpe": 1.1935,
+      "sortino": 2.2714,
+      "profit_factor": 1.7322,
+      "max_drawdown": 0.2945,
+      "expectancy": 0.003216,
+      "risk_of_ruin": 0.3004,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "range_compression",
+      "asset": "DOL",
+      "timeframe": "H4",
+      "fast": 5,
+      "slow": 144,
+      "risk_bps": 5,
+      "index": 776,
+      "genome_id": "221c9ecd5688b418"
+    },
+    "metrics": {
+      "sharpe": 1.4764,
+      "sortino": 2.8468,
+      "profit_factor": 1.7307,
+      "max_drawdown": 0.0692,
+      "expectancy": 0.002225,
+      "risk_of_ruin": 0.4705,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "multi_signal",
+      "asset": "SP500",
+      "timeframe": "H1",
+      "fast": 21,
+      "slow": 144,
+      "risk_bps": 15,
+      "index": 238,
+      "genome_id": "1b760ecbeffc1867"
+    },
+    "metrics": {
+      "sharpe": 0.066,
+      "sortino": -0.7129,
+      "profit_factor": 1.727,
+      "max_drawdown": 0.0598,
+      "expectancy": -0.001641,
+      "risk_of_ruin": 0.6387,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "hybrid",
+      "asset": "WDO",
+      "timeframe": "D1",
+      "fast": 21,
+      "slow": 144,
+      "risk_bps": 20,
+      "index": 638,
+      "genome_id": "e9a406e900b828f9"
+    },
+    "metrics": {
+      "sharpe": -0.2856,
+      "sortino": 0.4916,
+      "profit_factor": 1.7247,
+      "max_drawdown": 0.3925,
+      "expectancy": 0.003959,
+      "risk_of_ruin": 0.4064,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "pullback",
+      "asset": "ETHUSD",
+      "timeframe": "M1",
+      "fast": 34,
+      "slow": 89,
+      "risk_bps": 5,
+      "index": 464,
+      "genome_id": "27ba14302911b369"
+    },
+    "metrics": {
+      "sharpe": 1.077,
+      "sortino": 2.4618,
+      "profit_factor": 1.724,
+      "max_drawdown": 0.136,
+      "expectancy": 0.000579,
+      "risk_of_ruin": 0.2319,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "liquidity_sweep",
+      "asset": "WIN",
+      "timeframe": "M30",
+      "fast": 34,
+      "slow": 55,
+      "risk_bps": 10,
+      "index": 831,
+      "genome_id": "418ab687c0f16059"
+    },
+    "metrics": {
+      "sharpe": 0.4883,
+      "sortino": 0.8452,
+      "profit_factor": 1.7223,
+      "max_drawdown": 0.0209,
+      "expectancy": -0.000311,
+      "risk_of_ruin": 0.1676,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "volume_profile",
+      "asset": "EURUSD",
+      "timeframe": "H1",
+      "fast": 5,
+      "slow": 55,
+      "risk_bps": 15,
+      "index": 549,
+      "genome_id": "404c4834e5027306"
+    },
+    "metrics": {
+      "sharpe": -0.1387,
+      "sortino": 0.3399,
+      "profit_factor": 1.7212,
+      "max_drawdown": 0.3832,
+      "expectancy": 0.00059,
+      "risk_of_ruin": 0.3179,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "hybrid",
+      "asset": "WDO",
+      "timeframe": "D1",
+      "fast": 5,
+      "slow": 233,
+      "risk_bps": 15,
+      "index": 19,
+      "genome_id": "be443ad38a5b369a"
+    },
+    "metrics": {
+      "sharpe": -0.5961,
+      "sortino": 2.4019,
+      "profit_factor": 1.721,
+      "max_drawdown": 0.2749,
+      "expectancy": 0.002518,
+      "risk_of_ruin": 0.4449,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "breakout",
+      "asset": "WIN",
+      "timeframe": "D1",
+      "fast": 13,
+      "slow": 55,
+      "risk_bps": 10,
+      "index": 416,
+      "genome_id": "4a22a2846e259307"
+    },
+    "metrics": {
+      "sharpe": -0.6278,
+      "sortino": -0.9309,
+      "profit_factor": 1.7196,
+      "max_drawdown": 0.4399,
+      "expectancy": 0.003065,
+      "risk_of_ruin": 0.2171,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "breakout",
+      "asset": "SP500",
+      "timeframe": "M15",
+      "fast": 8,
+      "slow": 55,
+      "risk_bps": 5,
+      "index": 535,
+      "genome_id": "41569e53e154b0f8"
+    },
+    "metrics": {
+      "sharpe": -0.3376,
+      "sortino": 2.8325,
+      "profit_factor": 1.7193,
+      "max_drawdown": 0.3551,
+      "expectancy": -0.000721,
+      "risk_of_ruin": 0.789,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "volatility_expansion",
+      "asset": "GBPUSD",
+      "timeframe": "M5",
+      "fast": 21,
+      "slow": 89,
+      "risk_bps": 5,
+      "index": 320,
+      "genome_id": "ed9e6a2bebd0ee69"
+    },
+    "metrics": {
+      "sharpe": 0.1941,
+      "sortino": 0.7663,
+      "profit_factor": 1.7164,
+      "max_drawdown": 0.2858,
+      "expectancy": -5.9e-05,
+      "risk_of_ruin": 0.7346,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "volatility_expansion",
+      "asset": "NASDAQ",
+      "timeframe": "H4",
+      "fast": 21,
+      "slow": 233,
+      "risk_bps": 20,
+      "index": 413,
+      "genome_id": "cd77f581a3762a8a"
+    },
+    "metrics": {
+      "sharpe": -0.5318,
+      "sortino": -0.7823,
+      "profit_factor": 1.7148,
+      "max_drawdown": 0.3051,
+      "expectancy": 0.001868,
+      "risk_of_ruin": 0.423,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "mean_reversion",
+      "asset": "GBPUSD",
+      "timeframe": "M1",
+      "fast": 34,
+      "slow": 144,
+      "risk_bps": 20,
+      "index": 451,
+      "genome_id": "2b863a41c347c0ca"
+    },
+    "metrics": {
+      "sharpe": -0.1364,
+      "sortino": 0.1991,
+      "profit_factor": 1.7145,
+      "max_drawdown": 0.2171,
+      "expectancy": -0.000656,
+      "risk_of_ruin": 0.5449,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "trend_following",
+      "asset": "EURUSD",
+      "timeframe": "TICK",
+      "fast": 34,
+      "slow": 55,
+      "risk_bps": 15,
+      "index": 904,
+      "genome_id": "aba12fafb02eef3c"
+    },
+    "metrics": {
+      "sharpe": -0.2339,
+      "sortino": -0.8122,
+      "profit_factor": 1.7145,
+      "max_drawdown": 0.04,
+      "expectancy": 0.001204,
+      "risk_of_ruin": 0.4969,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "multi_signal",
+      "asset": "USDJPY",
+      "timeframe": "M1",
+      "fast": 8,
+      "slow": 144,
+      "risk_bps": 20,
+      "index": 970,
+      "genome_id": "97f326d3f50d3008"
+    },
+    "metrics": {
+      "sharpe": -0.9974,
+      "sortino": 1.8065,
+      "profit_factor": 1.7115,
+      "max_drawdown": 0.2373,
+      "expectancy": 0.003733,
+      "risk_of_ruin": 0.0162,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "vwap",
+      "asset": "ETHUSD",
+      "timeframe": "H1",
+      "fast": 5,
+      "slow": 233,
+      "risk_bps": 5,
+      "index": 840,
+      "genome_id": "32ba4bf4995a0f6e"
+    },
+    "metrics": {
+      "sharpe": -0.5845,
+      "sortino": -0.8269,
+      "profit_factor": 1.711,
+      "max_drawdown": 0.4255,
+      "expectancy": -0.001229,
+      "risk_of_ruin": 0.5731,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "range_compression",
+      "asset": "DOL",
+      "timeframe": "M30",
+      "fast": 5,
+      "slow": 233,
+      "risk_bps": 15,
+      "index": 444,
+      "genome_id": "f24b1dc1c81f065d"
+    },
+    "metrics": {
+      "sharpe": 1.0352,
+      "sortino": -0.3052,
+      "profit_factor": 1.7093,
+      "max_drawdown": 0.0837,
+      "expectancy": 0.003266,
+      "risk_of_ruin": 0.0532,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "liquidity_sweep",
+      "asset": "EURUSD",
+      "timeframe": "TICK",
+      "fast": 5,
+      "slow": 89,
+      "risk_bps": 15,
+      "index": 522,
+      "genome_id": "268408077f5fa680"
+    },
+    "metrics": {
+      "sharpe": 0.1701,
+      "sortino": -0.0095,
+      "profit_factor": 1.7079,
+      "max_drawdown": 0.076,
+      "expectancy": 0.000702,
+      "risk_of_ruin": 0.3852,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "vwap",
+      "asset": "ETHUSD",
+      "timeframe": "M1",
+      "fast": 13,
+      "slow": 233,
+      "risk_bps": 10,
+      "index": 368,
+      "genome_id": "5a5782c54bee6de1"
+    },
+    "metrics": {
+      "sharpe": 1.4974,
+      "sortino": -0.9722,
+      "profit_factor": 1.7078,
+      "max_drawdown": 0.1851,
+      "expectancy": -0.000292,
+      "risk_of_ruin": 0.082,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "multi_signal",
+      "asset": "USDJPY",
+      "timeframe": "H4",
+      "fast": 21,
+      "slow": 89,
+      "risk_bps": 20,
+      "index": 343,
+      "genome_id": "818558ebd46585a0"
+    },
+    "metrics": {
+      "sharpe": -0.0776,
+      "sortino": 1.6454,
+      "profit_factor": 1.7056,
+      "max_drawdown": 0.2772,
+      "expectancy": 0.00135,
+      "risk_of_ruin": 0.5915,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "trend_following",
+      "asset": "ETHUSD",
+      "timeframe": "M5",
+      "fast": 34,
+      "slow": 55,
+      "risk_bps": 5,
+      "index": 495,
+      "genome_id": "9e65423dbef9def2"
+    },
+    "metrics": {
+      "sharpe": -0.4331,
+      "sortino": 1.382,
+      "profit_factor": 1.7056,
+      "max_drawdown": 0.2638,
+      "expectancy": 0.001078,
+      "risk_of_ruin": 0.5593,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "range_compression",
+      "asset": "ETHUSD",
+      "timeframe": "H4",
+      "fast": 5,
+      "slow": 233,
+      "risk_bps": 15,
+      "index": 97,
+      "genome_id": "3381d38f27b5eb69"
+    },
+    "metrics": {
+      "sharpe": 0.3369,
+      "sortino": 0.6118,
+      "profit_factor": 1.7011,
+      "max_drawdown": 0.1125,
+      "expectancy": -0.000627,
+      "risk_of_ruin": 0.3088,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "pullback",
+      "asset": "WDO",
+      "timeframe": "M15",
+      "fast": 8,
+      "slow": 233,
+      "risk_bps": 10,
+      "index": 272,
+      "genome_id": "0f081155d6894b77"
+    },
+    "metrics": {
+      "sharpe": 0.8106,
+      "sortino": 0.3621,
+      "profit_factor": 1.7007,
+      "max_drawdown": 0.3374,
+      "expectancy": -0.000994,
+      "risk_of_ruin": 0.1046,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "liquidity_sweep",
+      "asset": "XAUUSD",
+      "timeframe": "D1",
+      "fast": 34,
+      "slow": 144,
+      "risk_bps": 10,
+      "index": 478,
+      "genome_id": "cef02f989e73f08d"
+    },
+    "metrics": {
+      "sharpe": -0.585,
+      "sortino": 0.181,
+      "profit_factor": 1.6975,
+      "max_drawdown": 0.0323,
+      "expectancy": 0.002657,
+      "risk_of_ruin": 0.0838,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "breakout",
+      "asset": "NASDAQ",
+      "timeframe": "M1",
+      "fast": 5,
+      "slow": 89,
+      "risk_bps": 10,
+      "index": 876,
+      "genome_id": "27363a60862aa551"
+    },
+    "metrics": {
+      "sharpe": -0.9706,
+      "sortino": 0.6463,
+      "profit_factor": 1.6968,
+      "max_drawdown": 0.2487,
+      "expectancy": 4.4e-05,
+      "risk_of_ruin": 0.2187,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "volume_profile",
+      "asset": "WIN",
+      "timeframe": "M30",
+      "fast": 34,
+      "slow": 55,
+      "risk_bps": 10,
+      "index": 771,
+      "genome_id": "f7a3f6e9f9ccbc92"
+    },
+    "metrics": {
+      "sharpe": -0.0643,
+      "sortino": 2.4182,
+      "profit_factor": 1.6955,
+      "max_drawdown": 0.2219,
+      "expectancy": 0.000791,
+      "risk_of_ruin": 0.5858,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "volatility_expansion",
+      "asset": "USDJPY",
+      "timeframe": "D1",
+      "fast": 21,
+      "slow": 89,
+      "risk_bps": 15,
+      "index": 806,
+      "genome_id": "87c32786430273a1"
+    },
+    "metrics": {
+      "sharpe": 1.1847,
+      "sortino": 0.9519,
+      "profit_factor": 1.6938,
+      "max_drawdown": 0.1071,
+      "expectancy": 0.002402,
+      "risk_of_ruin": 0.7949,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "liquidity_sweep",
+      "asset": "WDO",
+      "timeframe": "H1",
+      "fast": 8,
+      "slow": 55,
+      "risk_bps": 20,
+      "index": 850,
+      "genome_id": "26dc51854ad9a469"
+    },
+    "metrics": {
+      "sharpe": -0.6206,
+      "sortino": -0.5669,
+      "profit_factor": 1.6925,
+      "max_drawdown": 0.4327,
+      "expectancy": 0.00256,
+      "risk_of_ruin": 0.6008,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "hybrid",
+      "asset": "BTCUSD",
+      "timeframe": "H4",
+      "fast": 34,
+      "slow": 55,
+      "risk_bps": 20,
+      "index": 98,
+      "genome_id": "34110dd19579ff1a"
+    },
+    "metrics": {
+      "sharpe": 0.3135,
+      "sortino": 1.2978,
+      "profit_factor": 1.6922,
+      "max_drawdown": 0.1673,
+      "expectancy": 0.001094,
+      "risk_of_ruin": 0.5174,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "hybrid",
+      "asset": "GBPUSD",
+      "timeframe": "M5",
+      "fast": 13,
+      "slow": 55,
+      "risk_bps": 15,
+      "index": 730,
+      "genome_id": "11ccecd197ba5007"
+    },
+    "metrics": {
+      "sharpe": 1.334,
+      "sortino": 1.9186,
+      "profit_factor": 1.6895,
+      "max_drawdown": 0.3957,
+      "expectancy": 0.001685,
+      "risk_of_ruin": 0.428,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "volatility_expansion",
+      "asset": "WIN",
+      "timeframe": "M15",
+      "fast": 8,
+      "slow": 233,
+      "risk_bps": 20,
+      "index": 833,
+      "genome_id": "75859fa91177cbc3"
+    },
+    "metrics": {
+      "sharpe": 0.0631,
+      "sortino": 2.3499,
+      "profit_factor": 1.6889,
+      "max_drawdown": 0.1341,
+      "expectancy": 0.002758,
+      "risk_of_ruin": 0.0746,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "pullback",
+      "asset": "XAUUSD",
+      "timeframe": "M5",
+      "fast": 34,
+      "slow": 233,
+      "risk_bps": 20,
+      "index": 186,
+      "genome_id": "871458df43b84eee"
+    },
+    "metrics": {
+      "sharpe": 0.7671,
+      "sortino": 1.6528,
+      "profit_factor": 1.6884,
+      "max_drawdown": 0.1551,
+      "expectancy": 0.003207,
+      "risk_of_ruin": 0.0627,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "mean_reversion",
+      "asset": "USDJPY",
+      "timeframe": "M1",
+      "fast": 34,
+      "slow": 55,
+      "risk_bps": 20,
+      "index": 778,
+      "genome_id": "3fb237c588a9abba"
+    },
+    "metrics": {
+      "sharpe": -0.5478,
+      "sortino": -0.1001,
+      "profit_factor": 1.6879,
+      "max_drawdown": 0.371,
+      "expectancy": -0.000342,
+      "risk_of_ruin": 0.1007,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "pullback",
+      "asset": "DOL",
+      "timeframe": "M1",
+      "fast": 21,
+      "slow": 233,
+      "risk_bps": 20,
+      "index": 681,
+      "genome_id": "d609cdd3b7d6e1c2"
+    },
+    "metrics": {
+      "sharpe": 1.5491,
+      "sortino": 1.8421,
+      "profit_factor": 1.6871,
+      "max_drawdown": 0.3307,
+      "expectancy": 0.000497,
+      "risk_of_ruin": 0.657,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "order_flow",
+      "asset": "USDJPY",
+      "timeframe": "M5",
+      "fast": 8,
+      "slow": 233,
+      "risk_bps": 15,
+      "index": 570,
+      "genome_id": "dc0e716acb3d87a7"
+    },
+    "metrics": {
+      "sharpe": 0.2117,
+      "sortino": 1.8426,
+      "profit_factor": 1.6858,
+      "max_drawdown": 0.3767,
+      "expectancy": 0.000865,
+      "risk_of_ruin": 0.7365,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "order_flow",
+      "asset": "NASDAQ",
+      "timeframe": "H4",
+      "fast": 21,
+      "slow": 89,
+      "risk_bps": 5,
+      "index": 140,
+      "genome_id": "3f1224d7214e0e99"
+    },
+    "metrics": {
+      "sharpe": 0.2479,
+      "sortino": 0.6999,
+      "profit_factor": 1.6837,
+      "max_drawdown": 0.1444,
+      "expectancy": 0.003853,
+      "risk_of_ruin": 0.3953,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "range_compression",
+      "asset": "NASDAQ",
+      "timeframe": "M5",
+      "fast": 8,
+      "slow": 55,
+      "risk_bps": 5,
+      "index": 613,
+      "genome_id": "8c6d681bdc45bcd5"
+    },
+    "metrics": {
+      "sharpe": -0.1778,
+      "sortino": -0.074,
+      "profit_factor": 1.6821,
+      "max_drawdown": 0.1908,
+      "expectancy": 0.000232,
+      "risk_of_ruin": 0.6829,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  },
+  {
+    "genome": {
+      "family": "breakout",
+      "asset": "NASDAQ",
+      "timeframe": "M1",
+      "fast": 34,
+      "slow": 144,
+      "risk_bps": 10,
+      "index": 538,
+      "genome_id": "6fe336983196d46c"
+    },
+    "metrics": {
+      "sharpe": -0.3453,
+      "sortino": 0.7579,
+      "profit_factor": 1.6803,
+      "max_drawdown": 0.44,
+      "expectancy": -0.000334,
+      "risk_of_ruin": 0.2838,
+      "edge_proven": false,
+      "causality_proven": false,
+      "promotion_allowed": false
+    }
+  }
+]

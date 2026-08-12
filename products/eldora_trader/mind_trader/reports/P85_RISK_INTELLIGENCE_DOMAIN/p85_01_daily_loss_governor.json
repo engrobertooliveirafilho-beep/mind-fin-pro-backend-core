@@ -1,0 +1,16 @@
+{
+  "rules": {
+    "max_daily_loss_pct": 0.05,
+    "internal_daily_guard_pct": 0.03,
+    "max_total_loss_pct": 0.1,
+    "internal_total_guard_pct": 0.06,
+    "max_risk_per_trade_pct": 0.0025,
+    "max_position_lot": 0.01
+  },
+  "status": "READY",
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN"
+}

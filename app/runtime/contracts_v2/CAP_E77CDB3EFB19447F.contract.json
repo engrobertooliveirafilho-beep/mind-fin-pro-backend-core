@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_E77CDB3EFB19447F",
+  "source_file": "_evidence\\P4.91L2_STAGING_COPY_AND_TEST_20260623_170841\\staging\\76df71c7236f0cb0a8945091356367fd7d81c6114d8cd3ea3c4c7514af44cc63_p56b_consolidated_runtime.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P4.91L2_STAGING_COPY_AND_TEST_20260623_170841\\staging\\76df71c7236f0cb0a8945091356367fd7d81c6114d8cd3ea3c4c7514af44cc63_p56b_consolidated_runtime.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 104,
+  "imports": [
+    "app.mind.p5_5z_executive_snapshot.snapshot",
+    "app.mind.p5_6b4_youtube_acquisition_engine.engine",
+    "app.mind.p5_6b5_judge_real_biomechanics_binder.binder",
+    "app.mind.p5_6b6_real_valuation_binder.binder",
+    "datetime",
+    "json",
+    "os",
+    "requests"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

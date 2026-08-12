@@ -1,0 +1,4 @@
+"group","capability","priority","tests","pass_required_before_build"
+"HIERARCHICAL_PLANNING_CONTRACT_TESTS","HIERARCHICAL_PLANNING","CRITICAL","System.Object[]","True"
+"COGNITIVE_CONTROL_CONTRACT_TESTS","COGNITIVE_CONTROL","HIGH","System.Object[]","True"
+"INTEGRATION_GUARD_TESTS","RUNTIME_GUARDRAILS","CRITICAL","System.Object[]","True"

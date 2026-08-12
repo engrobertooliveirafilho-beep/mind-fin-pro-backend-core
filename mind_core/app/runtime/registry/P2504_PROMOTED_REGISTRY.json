@@ -1,0 +1,14 @@
+{
+  "mission": "P2504_RUNTIME_PROMOTION_BATCH_V1",
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "input": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core_evidence\\P2503_STAGED_CONTRACT_TEST_HARNESS_V2_20260626_072525",
+  "promoted": 500,
+  "batch_limit": 500,
+  "status": "PROMOTED_WRAPPED_DISABLED",
+  "wrappers_execute_disabled": true,
+  "runtime_active_modified": true,
+  "real_execution_allowed": false,
+  "next_required": "P2505_PROMOTED_RUNTIME_INTEGRATION_TEST"
+}

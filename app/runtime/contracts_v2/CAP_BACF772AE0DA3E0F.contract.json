@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_BACF772AE0DA3E0F",
+  "source_file": "_runtime_split_backup\\P19P38_N_RUNTIME_CLEAN_SPLIT_EXECUTOR_20260622_183445\\app__embedding__provider.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\_runtime_split_backup\\P19P38_N_RUNTIME_CLEAN_SPLIT_EXECUTOR_20260622_183445\\app__embedding__provider.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 90,
+  "imports": [
+    "openai",
+    "os"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

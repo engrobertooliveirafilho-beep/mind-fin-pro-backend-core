@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_097035D1E04DAC87",
+  "source_file": "_evidence\\P8_MASTER_SHADOW_VALIDATION_20260615_211124\\run_p8_shadow_smoke.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P8_MASTER_SHADOW_VALIDATION_20260615_211124\\run_p8_shadow_smoke.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 101,
+  "imports": [
+    "app.p8_shadow.feature_flags",
+    "app.p8_shadow.shadow_hooks",
+    "json",
+    "os",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

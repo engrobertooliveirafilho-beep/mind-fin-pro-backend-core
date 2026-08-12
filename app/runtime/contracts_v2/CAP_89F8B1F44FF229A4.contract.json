@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_89F8B1F44FF229A4",
+  "source_file": ".venv\\Lib\\site-packages\\redis\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\redis\\__init__.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 113,
+  "imports": [
+    "redis",
+    "redis.backoff",
+    "redis.client",
+    "redis.cluster",
+    "redis.connection",
+    "redis.credentials",
+    "redis.driver_info",
+    "redis.exceptions",
+    "redis.sentinel",
+    "redis.utils"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

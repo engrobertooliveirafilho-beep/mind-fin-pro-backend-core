@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_AD19244543FF9A4B",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\io\\sas\\sas_xport.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\pandas\\io\\sas\\sas_xport.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 120,
+  "imports": [
+    "__future__",
+    "datetime",
+    "numpy",
+    "pandas",
+    "pandas._typing",
+    "pandas.io.common",
+    "pandas.io.sas.sasreader",
+    "pandas.util._exceptions",
+    "struct",
+    "typing",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

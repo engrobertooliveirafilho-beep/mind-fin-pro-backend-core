@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_D5B2C056D423EC68",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_vendor\\rich\\_win32_console.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\_win32_console.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 111,
+  "imports": [
+    "ctypes",
+    "pip._vendor.rich.color",
+    "pip._vendor.rich.console",
+    "pip._vendor.rich.style",
+    "sys",
+    "time",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_3C760B6E7ED984A4",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\generic\\test_to_xarray.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\data\\.venv\\Lib\\site-packages\\pandas\\tests\\generic\\test_to_xarray.py",
+  "domain": "DATA",
+  "target_layer": "app/runtime",
+  "promotion_score": 88,
+  "imports": [
+    "numpy",
+    "pandas",
+    "pandas._testing",
+    "pandas.util.version",
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

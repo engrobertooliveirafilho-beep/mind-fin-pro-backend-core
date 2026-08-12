@@ -1,0 +1,14 @@
+{
+  "milestone": "P4.91B COMPLETE",
+  "engine": "ZIP_ARCHIVE_READER_AND_EXTRACTOR",
+  "generated_at": "2026-06-22T01:27:44.385543+00:00",
+  "mode": "SAFE_ZIP_INDEX_AND_LIMITED_EXTRACT",
+  "delete_original_zip": "FORBIDDEN",
+  "move_original_zip": "FORBIDDEN",
+  "max_extract_per_zip": 50,
+  "max_file_size": 5000000,
+  "zip_files_found": 0,
+  "archives_indexed": 0,
+  "archives": [],
+  "next": "P4.91C EXTRACTED_ARCHIVE_CONTENT_READER"
+}

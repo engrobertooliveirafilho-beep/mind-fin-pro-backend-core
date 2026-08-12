@@ -1,0 +1,5 @@
+{
+  "rclone_drive": "rclone copy \"reports/P12_REAL_DATA_LOADING_CLOUD_EXPORT/export_package\" \"gdrive:mind-workspace/MIND_TRADER/P12_EXPORT_PACKAGE\" --create-empty-src-dirs --progress",
+  "supabase_note": "Upload package files to bucket mind-workspace/MIND_TRADER/P12_EXPORT_PACKAGE using existing project credentials.",
+  "source_dir": "reports/P12_REAL_DATA_LOADING_CLOUD_EXPORT/export_package"
+}

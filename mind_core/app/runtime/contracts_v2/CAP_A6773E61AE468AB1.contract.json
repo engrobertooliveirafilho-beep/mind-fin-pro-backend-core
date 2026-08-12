@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_A6773E61AE468AB1",
+  "source_file": "_evidence\\P5_13_DEEP_AUDIT_IMPORTANT_CANDIDATES_20260612_090337\\p5_13.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P5_13_DEEP_AUDIT_IMPORTANT_CANDIDATES_20260612_090337\\p5_13.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 111,
+  "imports": [
+    "collections",
+    "datetime",
+    "json",
+    "os",
+    "pathlib",
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

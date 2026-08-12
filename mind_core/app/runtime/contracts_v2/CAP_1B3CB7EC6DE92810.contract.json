@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_1B3CB7EC6DE92810",
+  "source_file": "_evidence\\P19P30_UNIVERSAL_DOMAIN_DISCOVERY_ENGINE_20260621_121346\\09_probe.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\_evidence\\P19P30_UNIVERSAL_DOMAIN_DISCOVERY_ENGINE_20260621_121346\\09_probe.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 83,
+  "imports": [
+    "app.main",
+    "fastapi.testclient"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

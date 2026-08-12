@@ -1,0 +1,16 @@
+{
+  "mission": "P19P38_C_ORPHAN_MODULE_CLASSIFICATION",
+  "status": "AUDIT_ONLY_PASS",
+  "runtime_modified": false,
+  "files_moved": false,
+  "files_deleted": false,
+  "generated_at": "2026-06-22T17:31:45.802419+00:00",
+  "candidate_count": 400,
+  "counts": {
+    "CONNECTED_SUPPORT": 82,
+    "DANGEROUS_TO_TOUCH": 21,
+    "ACTIVE_CORE": 12,
+    "LEGACY_REVIEW": 282,
+    "ORPHAN_CANDIDATE": 3
+  }
+}

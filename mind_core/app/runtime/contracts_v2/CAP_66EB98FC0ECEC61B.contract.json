@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_66EB98FC0ECEC61B",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_internal\\network\\lazy_wheel.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pip\\_internal\\network\\lazy_wheel.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 120,
+  "imports": [
+    "__future__",
+    "bisect",
+    "collections.abc",
+    "contextlib",
+    "pip._internal.metadata",
+    "pip._internal.network.session",
+    "pip._internal.network.utils",
+    "pip._vendor.packaging.utils",
+    "pip._vendor.requests.models",
+    "tempfile",
+    "typing",
+    "zipfile"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

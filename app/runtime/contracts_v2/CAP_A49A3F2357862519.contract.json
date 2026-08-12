@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_A49A3F2357862519",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_internal\\locations\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pip\\_internal\\locations\\__init__.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 136,
+  "imports": [
+    "__future__",
+    "base",
+    "distutils.command.install",
+    "distutils.dist",
+    "functools",
+    "logging",
+    "os",
+    "pathlib",
+    "pip._internal.models.scheme",
+    "pip._internal.utils.compat",
+    "pip._internal.utils.deprecation",
+    "pip._internal.utils.virtualenv",
+    "sys",
+    "sysconfig"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

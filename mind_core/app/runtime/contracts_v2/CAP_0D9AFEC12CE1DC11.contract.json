@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_0D9AFEC12CE1DC11",
+  "source_file": ".venv\\Lib\\site-packages\\psycopg\\transaction.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\psycopg\\transaction.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 119,
+  "imports": [
+    "__future__",
+    "_compat",
+    "abc",
+    "collections.abc",
+    "connection",
+    "connection_async",
+    "enum",
+    "logging",
+    "pq.misc",
+    "types",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_BEAF5CFEFB7FB4FA",
+  "source_file": "backups\\ATOMIC_SNAPSHOT_20260618_074551\\app\\api\\eldora_auth.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\backups\\ATOMIC_SNAPSHOT_20260618_074551\\app\\api\\eldora_auth.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 87,
+  "imports": [
+    "app.eldora.core.jwt_auth",
+    "app.eldora.core.rate_limit_engine",
+    "app.eldora.core.session_memory",
+    "fastapi"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

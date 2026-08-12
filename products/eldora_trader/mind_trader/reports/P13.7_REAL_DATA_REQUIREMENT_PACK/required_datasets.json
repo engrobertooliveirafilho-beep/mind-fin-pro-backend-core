@@ -1,0 +1,65 @@
+[
+  {
+    "asset": "WIN",
+    "timeframe": "M1",
+    "period": "2024_2026",
+    "target": "data/incoming/profit/WIN_M1_2024_2026.csv",
+    "priority": "CRITICAL"
+  },
+  {
+    "asset": "WDO",
+    "timeframe": "M1",
+    "period": "2024_2026",
+    "target": "data/incoming/profit/WDO_M1_2024_2026.csv",
+    "priority": "CRITICAL"
+  },
+  {
+    "asset": "PETR4",
+    "timeframe": "D1",
+    "period": "2020_2026",
+    "target": "data/incoming/profit/PETR4_D1_2020_2026.csv",
+    "priority": "HIGH"
+  },
+  {
+    "asset": "VALE3",
+    "timeframe": "D1",
+    "period": "2020_2026",
+    "target": "data/incoming/profit/VALE3_D1_2020_2026.csv",
+    "priority": "HIGH"
+  },
+  {
+    "asset": "AAPL",
+    "timeframe": "D1",
+    "period": "2020_2026",
+    "target": "data/incoming/mt5/AAPL_D1_2020_2026.csv",
+    "priority": "HIGH"
+  },
+  {
+    "asset": "NVDA",
+    "timeframe": "D1",
+    "period": "2020_2026",
+    "target": "data/incoming/mt5/NVDA_D1_2020_2026.csv",
+    "priority": "HIGH"
+  },
+  {
+    "asset": "EURUSD",
+    "timeframe": "M15",
+    "period": "2022_2026",
+    "target": "data/incoming/mt5/EURUSD_M15_2022_2026.csv",
+    "priority": "HIGH"
+  },
+  {
+    "asset": "XAUUSD",
+    "timeframe": "M15",
+    "period": "2022_2026",
+    "target": "data/incoming/mt5/XAUUSD_M15_2022_2026.csv",
+    "priority": "HIGH"
+  },
+  {
+    "asset": "BTCUSD",
+    "timeframe": "H1",
+    "period": "2021_2026",
+    "target": "data/incoming/mt5/BTCUSD_H1_2021_2026.csv",
+    "priority": "HIGH"
+  }
+]

@@ -1,0 +1,307 @@
+{
+  "summary": {
+    "NEEDS_ADAPTER": 4,
+    "ORPHAN": 15,
+    "READY_TO_INTEGRATE": 3
+  },
+  "modules": [
+    {
+      "module": "app.eldora.core.persistent_social_memory",
+      "import_ok": true,
+      "functions": [
+        "_enabled",
+        "_headers",
+        "social_memory_report",
+        "store_social_memory"
+      ],
+      "classes": [
+        "datetime",
+        "timezone"
+      ],
+      "classification": "NEEDS_ADAPTER",
+      "reason": ""
+    },
+    {
+      "module": "app.persona.adaptive_social_dialogue",
+      "import_ok": true,
+      "functions": [],
+      "classes": [
+        "AdaptiveSocialDialogue"
+      ],
+      "classification": "ORPHAN",
+      "reason": ""
+    },
+    {
+      "module": "app.api.eldora_social",
+      "import_ok": true,
+      "functions": [
+        "emotion",
+        "emotion_runtime",
+        "emotional_continuity",
+        "emotional_report",
+        "memory",
+        "memory_runtime",
+        "relational_analysis",
+        "relational_report",
+        "relationship",
+        "relationship_runtime",
+        "social_memory_report",
+        "store_social_memory"
+      ],
+      "classes": [
+        "APIRouter"
+      ],
+      "classification": "READY_TO_INTEGRATE",
+      "reason": ""
+    },
+    {
+      "module": "app.retrieval.provider",
+      "import_ok": true,
+      "functions": [
+        "_extract_sender_id",
+        "_fetch_neura_memory",
+        "_headers",
+        "_supabase_enabled"
+      ],
+      "classes": [
+        "RetrievalProvider"
+      ],
+      "classification": "NEEDS_ADAPTER",
+      "reason": ""
+    },
+    {
+      "module": "app.eldora.core.long_term_memory",
+      "import_ok": true,
+      "functions": [
+        "retrieve_cognitive_memory",
+        "store_cognitive_memory"
+      ],
+      "classes": [
+        "datetime",
+        "timezone"
+      ],
+      "classification": "ORPHAN",
+      "reason": ""
+    },
+    {
+      "module": "app.eldora.core.visual_semantic_memory",
+      "import_ok": true,
+      "functions": [
+        "store_visual_memory",
+        "visual_memory_report"
+      ],
+      "classes": [
+        "datetime",
+        "timezone"
+      ],
+      "classification": "ORPHAN",
+      "reason": ""
+    },
+    {
+      "module": "app.eldora.core.persistent_cognitive_graph",
+      "import_ok": true,
+      "functions": [
+        "_conn",
+        "cognitive_store_report",
+        "cosine",
+        "embed",
+        "retrieve_persistent_memory",
+        "store_persistent_memory"
+      ],
+      "classes": [
+        "datetime",
+        "timezone"
+      ],
+      "classification": "NEEDS_ADAPTER",
+      "reason": ""
+    },
+    {
+      "module": "app.eldora.core.memory_compression_engine",
+      "import_ok": true,
+      "functions": [
+        "compress_memory",
+        "compression_report"
+      ],
+      "classes": [],
+      "classification": "ORPHAN",
+      "reason": ""
+    },
+    {
+      "module": "app.eldora.core.session_memory",
+      "import_ok": true,
+      "functions": [
+        "get_session",
+        "save_session"
+      ],
+      "classes": [],
+      "classification": "ORPHAN",
+      "reason": ""
+    },
+    {
+      "module": "app.memory.provider",
+      "import_ok": true,
+      "functions": [],
+      "classes": [
+        "MemoryProvider",
+        "RealDictCursor"
+      ],
+      "classification": "ORPHAN",
+      "reason": ""
+    },
+    {
+      "module": "app.modules.usde_core.supabase_scientific_memory",
+      "import_ok": true,
+      "functions": [],
+      "classes": [
+        "Path",
+        "SupabaseScientificMemory"
+      ],
+      "classification": "ORPHAN",
+      "reason": ""
+    },
+    {
+      "module": "app.runtime.memory_store",
+      "import_ok": true,
+      "functions": [],
+      "classes": [
+        "Path",
+        "SimpleMemoryStore"
+      ],
+      "classification": "ORPHAN",
+      "reason": ""
+    },
+    {
+      "module": "app.persona.persona_continuity_memory",
+      "import_ok": true,
+      "functions": [],
+      "classes": [
+        "PersonaContinuityMemory"
+      ],
+      "classification": "ORPHAN",
+      "reason": ""
+    },
+    {
+      "module": "app.vision.vision_memory_store",
+      "import_ok": true,
+      "functions": [],
+      "classes": [
+        "VisionMemoryStore"
+      ],
+      "classification": "ORPHAN",
+      "reason": ""
+    },
+    {
+      "module": "app.eldora.core.service_health_graph",
+      "import_ok": true,
+      "functions": [
+        "service_health_graph",
+        "startup_report"
+      ],
+      "classes": [],
+      "classification": "ORPHAN",
+      "reason": ""
+    },
+    {
+      "module": "app.modules.usde_core.scientific_knowledge_graph",
+      "import_ok": true,
+      "functions": [],
+      "classes": [
+        "ScientificKnowledgeGraph"
+      ],
+      "classification": "ORPHAN",
+      "reason": ""
+    },
+    {
+      "module": "app.persona.emotional_dialogue_layer",
+      "import_ok": true,
+      "functions": [],
+      "classes": [
+        "EmotionalDialogueLayer"
+      ],
+      "classification": "ORPHAN",
+      "reason": ""
+    },
+    {
+      "module": "app.admin.semantic_activation",
+      "import_ok": true,
+      "functions": [
+        "Header",
+        "_check",
+        "activate_semantic_runtime",
+        "contextual_rerank",
+        "debug_context",
+        "debug_orchestrator",
+        "diagnose_semantic_runtime",
+        "semantic_query_fast"
+      ],
+      "classes": [
+        "APIRouter",
+        "EmbeddingProvider",
+        "HTTPException",
+        "SemanticRetrievalProvider"
+      ],
+      "classification": "READY_TO_INTEGRATE",
+      "reason": ""
+    },
+    {
+      "module": "app.runtime.semantic_whatsapp_runtime",
+      "import_ok": true,
+      "functions": [
+        "build_conversation_payload",
+        "compose_human_style",
+        "context_priority_reply",
+        "humanized_answer",
+        "multi_provider_factual_provider",
+        "relationalize",
+        "route_semantic_whatsapp",
+        "semantic_route",
+        "semantic_whatsapp_payload",
+        "whatsapp_ux_guard"
+      ],
+      "classes": [],
+      "classification": "READY_TO_INTEGRATE",
+      "reason": ""
+    },
+    {
+      "module": "app.api.eldora_semantic",
+      "import_ok": true,
+      "functions": [
+        "graph",
+        "memory_retrieve",
+        "memory_store",
+        "retrieve_memory",
+        "semantic_graph_report",
+        "store_memory"
+      ],
+      "classes": [
+        "APIRouter"
+      ],
+      "classification": "NEEDS_ADAPTER",
+      "reason": ""
+    },
+    {
+      "module": "app.eldora.core.emotional_continuity_engine",
+      "import_ok": true,
+      "functions": [
+        "emotional_continuity",
+        "emotional_report"
+      ],
+      "classes": [
+        "datetime",
+        "timezone"
+      ],
+      "classification": "ORPHAN",
+      "reason": ""
+    },
+    {
+      "module": "app.ingestion.semantic_chunking",
+      "import_ok": true,
+      "functions": [],
+      "classes": [
+        "SemanticChunker"
+      ],
+      "classification": "ORPHAN",
+      "reason": ""
+    }
+  ]
+}

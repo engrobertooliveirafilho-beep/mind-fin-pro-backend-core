@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_534AF4E41812387A",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_internal\\commands\\wheel.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pip\\_internal\\commands\\wheel.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 121,
+  "imports": [
+    "logging",
+    "optparse",
+    "os",
+    "pip._internal.cache",
+    "pip._internal.cli",
+    "pip._internal.cli.req_command",
+    "pip._internal.cli.status_codes",
+    "pip._internal.exceptions",
+    "pip._internal.operations.build.build_tracker",
+    "pip._internal.req.req_install",
+    "pip._internal.utils.misc",
+    "pip._internal.utils.temp_dir",
+    "pip._internal.wheel_builder",
+    "shutil"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

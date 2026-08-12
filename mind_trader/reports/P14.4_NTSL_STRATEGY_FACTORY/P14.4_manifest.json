@@ -1,0 +1,29 @@
+{
+  "STATUS": "P14.4_NTSL_STRATEGY_FACTORY_IMPLEMENTED",
+  "STRATEGIES_CREATED": 48,
+  "TEMPLATES": [
+    "ema_cross",
+    "rsi_reversion",
+    "macd_trend",
+    "bollinger_reversion"
+  ],
+  "ASSETS": [
+    "WIN",
+    "WDO",
+    "PETR4",
+    "VALE3"
+  ],
+  "TIMEFRAMES": [
+    "M1",
+    "M5",
+    "M15"
+  ],
+  "PROFIT_NTSL_CONFIRMED": true,
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "EDGE": "NOT_PROVEN",
+  "CAUSALITY": "NOT_PROVEN",
+  "EXPORT_READY": true,
+  "generated_at": "2026-06-14T16:11:29.973673+00:00"
+}

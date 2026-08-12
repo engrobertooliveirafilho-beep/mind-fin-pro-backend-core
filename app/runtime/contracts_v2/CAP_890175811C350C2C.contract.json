@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_890175811C350C2C",
+  "source_file": "app\\runtime\\visual_memory_runtime.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\app\\runtime\\visual_memory_runtime.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 104,
+  "imports": [
+    "os",
+    "psycopg2",
+    "psycopg2.extras",
+    "uuid"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

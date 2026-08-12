@@ -1,0 +1,32 @@
+{
+  "capability_id": "CAP_2755343DA6C1CC76",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_internal\\operations\\freeze.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\data\\.venv\\Lib\\site-packages\\pip\\_internal\\operations\\freeze.py",
+  "domain": "DATA",
+  "target_layer": "app/runtime",
+  "promotion_score": 108,
+  "imports": [
+    "__future__",
+    "collections",
+    "collections.abc",
+    "dataclasses",
+    "logging",
+    "os",
+    "pip._internal.exceptions",
+    "pip._internal.metadata",
+    "pip._internal.req.constructors",
+    "pip._internal.req.req_file",
+    "pip._internal.utils.direct_url_helpers",
+    "pip._internal.vcs",
+    "pip._vendor.packaging.utils",
+    "pip._vendor.packaging.version",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_E973A0A04B013BC7",
+  "source_file": "_evidence\\P19P38_E_RUNTIME_WIRING_AUDIT_20260622_144749\\validate.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\_evidence\\P19P38_E_RUNTIME_WIRING_AUDIT_20260622_144749\\validate.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 88,
+  "imports": [
+    "json",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

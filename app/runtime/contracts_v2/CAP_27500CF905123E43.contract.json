@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_27500CF905123E43",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\base\\test_misc.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pandas\\tests\\base\\test_misc.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 107,
+  "imports": [
+    "numpy",
+    "pandas",
+    "pandas.compat",
+    "pandas.core.dtypes.common",
+    "pytest",
+    "sys"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_E3918CD12E004705",
+  "source_file": ".venv\\Lib\\site-packages\\redis\\multidb\\failure_detector.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\redis\\multidb\\failure_detector.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 95,
+  "imports": [
+    "abc",
+    "datetime",
+    "math",
+    "redis.multidb.circuit",
+    "threading",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

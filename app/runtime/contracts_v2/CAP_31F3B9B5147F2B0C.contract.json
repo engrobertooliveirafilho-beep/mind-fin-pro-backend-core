@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_31F3B9B5147F2B0C",
+  "source_file": ".venv\\Lib\\site-packages\\docx\\styles\\style.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\docx\\styles\\style.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 114,
+  "imports": [
+    "__future__",
+    "docx.enum.style",
+    "docx.oxml.styles",
+    "docx.shared",
+    "docx.styles",
+    "docx.text.font",
+    "docx.text.parfmt",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

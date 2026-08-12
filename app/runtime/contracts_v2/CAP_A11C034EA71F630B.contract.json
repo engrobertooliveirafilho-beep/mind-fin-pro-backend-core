@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_A11C034EA71F630B",
+  "source_file": "_evidence\\P19P28L_FORENSIC_WRAPPER_CONTAINMENT_20260620_210330\\06_webhook_probe.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\_evidence\\P19P28L_FORENSIC_WRAPPER_CONTAINMENT_20260620_210330\\06_webhook_probe.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 83,
+  "imports": [
+    "app.main",
+    "fastapi.testclient"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

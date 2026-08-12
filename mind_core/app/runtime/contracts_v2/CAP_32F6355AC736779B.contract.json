@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_32F6355AC736779B",
+  "source_file": "tmp_primary_trace.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\tmp_primary_trace.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 87,
+  "imports": [
+    "app.api.whatsapp",
+    "app.main"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

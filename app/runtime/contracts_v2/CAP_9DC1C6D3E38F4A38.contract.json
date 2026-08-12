@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_9DC1C6D3E38F4A38",
+  "source_file": "_evidence\\P8_15_TO_P8_18_REAL_PLANNER_UPGRADE_20260616_130914\\run_p8_15_to_p8_18_real_planner.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P8_15_TO_P8_18_REAL_PLANNER_UPGRADE_20260616_130914\\run_p8_15_to_p8_18_real_planner.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 104,
+  "imports": [
+    "app.p8_shadow.diff_engine",
+    "app.p8_shadow.real_planner",
+    "json",
+    "pathlib",
+    "time"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

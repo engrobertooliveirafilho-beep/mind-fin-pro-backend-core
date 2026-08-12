@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_71812168FE26BA46",
+  "source_file": ".venv\\Lib\\site-packages\\urllib3\\contrib\\socks.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\urllib3\\contrib\\socks.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 100,
+  "imports": [
+    "__future__",
+    "connection",
+    "connectionpool",
+    "exceptions",
+    "poolmanager",
+    "socket",
+    "socks",
+    "ssl",
+    "typing",
+    "util.url",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

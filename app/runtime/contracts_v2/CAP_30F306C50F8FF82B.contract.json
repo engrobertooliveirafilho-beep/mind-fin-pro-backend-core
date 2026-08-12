@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_30F306C50F8FF82B",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\groupby\\test_bin_groupby.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\.venv\\Lib\\site-packages\\pandas\\tests\\groupby\\test_bin_groupby.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 101,
+  "imports": [
+    "numpy",
+    "pandas",
+    "pandas._libs",
+    "pandas._testing",
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_FE3E7FB51A4F6637",
+  "source_file": "_evidence\\P19P22E_RUNTIME_TRACE_CERTIFICATION_20260618_124749\\p19p22e_local_webhook_test.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\_evidence\\P19P22E_RUNTIME_TRACE_CERTIFICATION_20260618_124749\\p19p22e_local_webhook_test.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 85,
+  "imports": [
+    "app.main",
+    "fastapi.testclient",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

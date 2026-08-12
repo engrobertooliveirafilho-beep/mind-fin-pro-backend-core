@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_825797FE7AB75F4C",
+  "source_file": "mind_trader\\tests\\test_p112_evidence_promotion_gate.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\mind_trader\\tests\\test_p112_evidence_promotion_gate.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 108,
+  "imports": [
+    "app.p11_causality_evidence_firewall.engine",
+    "app.p11_evidence_promotion_gate.engine"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

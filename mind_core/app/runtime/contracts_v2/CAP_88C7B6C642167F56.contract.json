@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_88C7B6C642167F56",
+  "source_file": ".venv\\Lib\\site-packages\\pydantic_core\\core_schema.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pydantic_core\\core_schema.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 259,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "datetime",
+    "decimal",
+    "pydantic_core",
+    "re",
+    "sys",
+    "typing",
+    "typing_extensions",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

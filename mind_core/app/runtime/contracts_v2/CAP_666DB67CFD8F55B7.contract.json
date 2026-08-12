@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_666DB67CFD8F55B7",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\types\\fine_tuning\\checkpoints\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\openai\\types\\fine_tuning\\checkpoints\\__init__.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 89,
+  "imports": [
+    "__future__",
+    "permission_create_params",
+    "permission_create_response",
+    "permission_delete_response",
+    "permission_list_params",
+    "permission_list_response",
+    "permission_retrieve_params",
+    "permission_retrieve_response"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

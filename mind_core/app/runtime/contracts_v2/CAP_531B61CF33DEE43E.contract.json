@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_531B61CF33DEE43E",
+  "source_file": ".venv\\Lib\\site-packages\\twilio\\rest\\marketplace\\v1\\installed_add_on\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\twilio\\rest\\marketplace\\v1\\installed_add_on\\__init__.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 118,
+  "imports": [
+    "datetime",
+    "twilio.base",
+    "twilio.base.api_response",
+    "twilio.base.instance_context",
+    "twilio.base.instance_resource",
+    "twilio.base.list_resource",
+    "twilio.base.page",
+    "twilio.base.version",
+    "twilio.rest.marketplace.v1.installed_add_on.installed_add_on_extension",
+    "twilio.rest.marketplace.v1.installed_add_on.installed_add_on_usage",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

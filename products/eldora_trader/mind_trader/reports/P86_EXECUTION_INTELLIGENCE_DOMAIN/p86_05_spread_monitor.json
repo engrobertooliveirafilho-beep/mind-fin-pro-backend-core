@@ -1,0 +1,29 @@
+{
+  "ticks": {
+    "EURUSD": {
+      "bid": 1.1566,
+      "ask": 1.15671,
+      "spread": 0.00011
+    },
+    "GBPUSD": {
+      "bid": 1.34076,
+      "ask": 1.34083,
+      "spread": 7e-05
+    },
+    "USDJPY": {
+      "bid": 160.221,
+      "ask": 160.225,
+      "spread": 0.004
+    },
+    "USDCHF": {
+      "bid": 0.79709,
+      "ask": 0.79712,
+      "spread": 3e-05
+    }
+  },
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN"
+}

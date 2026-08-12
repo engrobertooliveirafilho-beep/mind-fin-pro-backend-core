@@ -1,0 +1,32 @@
+[
+  {
+    "id": "PHEWa80lGTM",
+    "title": "Morning Call - Tuesday, June 9, 2026 - Market demands higher interest rates! What now?",
+    "url": "https://www.youtube.com/watch?v=PHEWa80lGTM",
+    "channel": null,
+    "source_url": "https://www.youtube.com/@ogrowallst",
+    "assets": [],
+    "families": [
+      "EMA"
+    ],
+    "status": "HYPOTHESIS_ONLY",
+    "hypothesis_status": "HYPOTHESIS_ONLY",
+    "LIVE": "FORBIDDEN",
+    "REAL_BROKER": "DISABLED",
+    "REAL_ORDERS": "FORBIDDEN",
+    "FTMO_REAL": "FORBIDDEN",
+    "CAUSALITY": "NOT_PROVEN",
+    "transcript_fetch_status": "FETCH_ATTEMPTED",
+    "transcript_sample": "Morning Call - Terça-feira, 09/06/2026 - Mercado pede juros mais alto! E agora?\n\nWARNING: [youtube] No supported JavaScript runtime could be found. Only deno is enabled by default; to use another runtime add  --js-runtimes RUNTIME[:PATH]  to your command/config. YouTube extraction without a JS runtime has been deprecated, and some formats may be missing. See  https://github.com/yt-dlp/yt-dlp/wiki/EJS  for details on installing one\nWARNING: ffmpeg not found. The downloaded format may not be the best available. Installing ffmpeg is strongly recommended: https://github.com/yt-dlp/yt-dlp#dependencies\n",
+    "extracted_rules": [
+      "MOVING_AVERAGE_FILTER"
+    ],
+    "backtest_status": "REJECTED_NO_DATASET",
+    "normalized_strategy_id": "133b484796e6fc9b75f09980",
+    "normalized_family": "MA",
+    "normalized_asset": "UNRESOLVED",
+    "normalized_timeframe": "H1",
+    "dataset": null,
+    "edge_status": "NOT_APPROVED"
+  }
+]

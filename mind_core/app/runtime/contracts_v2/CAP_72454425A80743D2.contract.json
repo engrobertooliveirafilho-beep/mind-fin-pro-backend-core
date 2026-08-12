@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_72454425A80743D2",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\scalar\\timestamp\\methods\\test_timestamp_method.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\pandas\\tests\\scalar\\timestamp\\methods\\test_timestamp_method.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 100,
+  "imports": [
+    "datetime",
+    "pandas._libs.tslibs",
+    "pandas._testing",
+    "pandas.compat",
+    "pandas.util._test_decorators",
+    "pytest"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

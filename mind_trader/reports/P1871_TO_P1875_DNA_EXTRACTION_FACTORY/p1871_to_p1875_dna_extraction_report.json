@@ -1,0 +1,25 @@
+{
+  "STATUS": "P1871_TO_P1875_DNA_EXTRACTION_FACTORY_COMPLETED",
+  "P1871_TRADE_DNA_ROWS": 386,
+  "P1872_WINNER_DNA_ROWS": 224,
+  "P1873_LOSER_DNA_ROWS": 162,
+  "P1874_DNA_CLUSTERS": 18,
+  "P1875_PATTERN_GENOMES": 18,
+  "FEATURE_EXPORTS": [
+    "data\\lake\\features\\USDJPY_D1_features.csv",
+    "data\\lake\\features\\XAUUSD_D1_features.csv"
+  ],
+  "OUTPUTS": {
+    "trade_dna": "data\\lake\\dna\\p1871_trade_dna.csv",
+    "winner_dna": "data\\lake\\dna\\p1872_winner_dna.csv",
+    "loser_dna": "data\\lake\\dna\\p1873_loser_dna.csv",
+    "clusters": "data\\lake\\dna\\p1874_dna_clusters.json",
+    "pattern_genome": "data\\lake\\dna\\p1875_pattern_genome.json"
+  },
+  "NEXT": "P1876_TO_P1880_SPECIALIST_EVOLUTION_FACTORY",
+  "ORDER_SENT": false,
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN",
+  "generated_at": "2026-06-16T18:35:36.193929+00:00"
+}

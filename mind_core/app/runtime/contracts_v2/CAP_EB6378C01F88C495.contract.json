@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_EB6378C01F88C495",
+  "source_file": ".venv\\Lib\\site-packages\\psycopg\\raw_cursor.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\psycopg\\raw_cursor.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 99,
+  "imports": [
+    "__future__",
+    "_cursor_base",
+    "_queries",
+    "_server_cursor",
+    "_server_cursor_async",
+    "abc",
+    "connection",
+    "connection_async",
+    "cursor",
+    "cursor_async",
+    "rows",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,16 @@
+{
+  "STATUS": "P1852_DATA_QUALITY_ENGINE_BOOTSTRAPPED",
+  "SCORES": [
+    "quality_score",
+    "missing_score",
+    "gap_score",
+    "duplicate_score",
+    "trust_score"
+  ],
+  "RULES": {
+    "reject_if_missing_ohlc": true,
+    "reject_if_duplicate_time_gt_pct": 1,
+    "reject_if_history_years_lt_required": true,
+    "timezone_required": "UTC_NORMALIZED"
+  }
+}

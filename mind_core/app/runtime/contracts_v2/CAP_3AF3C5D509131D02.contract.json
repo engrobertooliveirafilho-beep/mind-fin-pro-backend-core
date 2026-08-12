@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_3AF3C5D509131D02",
+  "source_file": ".venv\\Lib\\site-packages\\fastapi\\security\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\fastapi\\security\\__init__.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 106,
+  "imports": [
+    "api_key",
+    "http",
+    "oauth2",
+    "open_id_connect_url"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,30 @@
+{
+  "capability_id": "CAP_A9336C37289A6FDF",
+  "source_file": "_evidence\\P4_28E_cognitive_pipeline_before_20260602_151903.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\_evidence\\P4_28E_cognitive_pipeline_before_20260602_151903.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 122,
+  "imports": [
+    "app.humanization.universal_recovery_runtime",
+    "app.memory.memory_graph",
+    "app.persona.eldora_core",
+    "app.runtime.autonomous_cognition_layer",
+    "app.runtime.intent_router",
+    "app.runtime.internal_state",
+    "app.runtime.natural_response_layer",
+    "app.runtime.quality_gate",
+    "app.runtime.real_emotional_state_layer",
+    "app.runtime.real_relationship_profile_layer",
+    "app.runtime.real_social_memory_layer",
+    "app.runtime.response_builder",
+    "app.runtime.response_strategy"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

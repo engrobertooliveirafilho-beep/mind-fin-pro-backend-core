@@ -1,0 +1,26 @@
+{
+  "capability_id": "CAP_F70C6F3B7375F7AD",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_internal\\operations\\build\\build_tracker.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\pip\\_internal\\operations\\build\\build_tracker.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 111,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "contextlib",
+    "hashlib",
+    "logging",
+    "os",
+    "pip._internal.req.req_install",
+    "pip._internal.utils.temp_dir",
+    "types"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

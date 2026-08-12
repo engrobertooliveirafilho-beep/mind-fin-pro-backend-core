@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_A680D9735DBF6564",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_vendor\\requests\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\pip\\_vendor\\requests\\__init__.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 107,
+  "imports": [
+    "__version__",
+    "api",
+    "cryptography",
+    "exceptions",
+    "logging",
+    "models",
+    "pip._internal.utils.compat",
+    "pip._vendor",
+    "pip._vendor.urllib3.contrib",
+    "pip._vendor.urllib3.exceptions",
+    "sessions",
+    "ssl",
+    "status_codes",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

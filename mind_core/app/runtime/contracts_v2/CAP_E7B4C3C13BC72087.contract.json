@@ -1,0 +1,24 @@
+{
+  "capability_id": "CAP_E7B4C3C13BC72087",
+  "source_file": "app\\runtime\\actionable_continuity_authority.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\app\\runtime\\actionable_continuity_authority.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 80,
+  "imports": [
+    "__future__",
+    "ast",
+    "contextvars",
+    "dataclasses",
+    "operator",
+    "re",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

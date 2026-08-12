@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_FF2A0948105BF1A2",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_deprecations.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_deprecations.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 119,
+  "imports": [
+    "contextlib",
+    "numpy",
+    "numpy._core._multiarray_tests",
+    "numpy._core._struct_ufunc_tests",
+    "numpy._core.numerictypes",
+    "numpy.lib._npyio_impl",
+    "numpy.lib._shape_base_impl",
+    "numpy.lib._utils_impl",
+    "numpy.lib.tests.test_io",
+    "numpy.testing",
+    "pytest",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

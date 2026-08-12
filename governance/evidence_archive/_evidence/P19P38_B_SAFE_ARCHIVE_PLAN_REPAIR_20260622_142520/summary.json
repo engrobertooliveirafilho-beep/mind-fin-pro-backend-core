@@ -1,0 +1,14 @@
+{
+  "mission": "P19P38_B_SAFE_ARCHIVE_PLAN_REPAIR",
+  "status": "DRY_RUN_PASS",
+  "runtime_modified": false,
+  "files_moved": false,
+  "files_deleted": false,
+  "generated_at": "2026-06-22T17:25:25.322865+00:00",
+  "counts": {
+    "SAFE_ARCHIVE_CANDIDATES": 685,
+    "NEVER_AUTO_ARCHIVE": 395,
+    "MANUAL_REVIEW_REQUIRED": 5015,
+    "RESTORE_REVIEW_REQUIRED": 74
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_675866EE42D8FDA2",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\indexes\\datetimes\\test_scalar_compat.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\pandas\\tests\\indexes\\datetimes\\test_scalar_compat.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 97,
+  "imports": [
+    "calendar",
+    "datetime",
+    "hypothesis",
+    "hypothesis.strategies",
+    "locale",
+    "numpy",
+    "pandas",
+    "pandas._libs.tslibs",
+    "pandas._testing",
+    "pandas.core.arrays",
+    "pytest",
+    "unicodedata"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

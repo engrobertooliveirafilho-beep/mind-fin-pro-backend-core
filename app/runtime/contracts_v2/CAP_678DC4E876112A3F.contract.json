@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_678DC4E876112A3F",
+  "source_file": "_quarantine\\P19P38_L_SAFE_JUNK_QUARANTINE_20260622_182732\\tools__\\p491e2_drive_absorption_resilient_audit.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\_quarantine\\P19P38_L_SAFE_JUNK_QUARANTINE_20260622_182732\\tools__\\p491e2_drive_absorption_resilient_audit.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 104,
+  "imports": [
+    "datetime",
+    "hashlib",
+    "json",
+    "pathlib",
+    "subprocess"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_2A6603D164E90D1C",
+  "source_file": "data\\runtime\\P2101_2110\\run_p2101_2110.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\data\\runtime\\P2101_2110\\run_p2101_2110.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 101,
+  "imports": [
+    "app.runtime.p2101_2110_autonomous_paper_operations",
+    "json"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

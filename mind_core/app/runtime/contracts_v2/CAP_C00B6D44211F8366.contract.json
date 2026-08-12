@@ -1,0 +1,21 @@
+{
+  "capability_id": "CAP_C00B6D44211F8366",
+  "source_file": "mind_trader\\app\\cli\\paper_research_cli.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\mind_trader\\app\\cli\\paper_research_cli.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 113,
+  "imports": [
+    "argparse",
+    "json",
+    "mind_trader.app.audits.preflight_check",
+    "mind_trader.app.orchestration.paper_research_operation"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

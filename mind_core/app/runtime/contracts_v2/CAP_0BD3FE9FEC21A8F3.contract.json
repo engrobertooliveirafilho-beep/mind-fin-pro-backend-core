@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_0BD3FE9FEC21A8F3",
+  "source_file": ".venv\\Lib\\site-packages\\uvicorn\\supervisors\\multiprocess.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\uvicorn\\supervisors\\multiprocess.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 110,
+  "imports": [
+    "__future__",
+    "click",
+    "collections.abc",
+    "logging",
+    "multiprocessing",
+    "os",
+    "signal",
+    "socket",
+    "threading",
+    "typing",
+    "uvicorn._subprocess",
+    "uvicorn.config"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_0E8103C7006DA69C",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\util\\_decorators.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\pandas\\util\\_decorators.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 85,
+  "imports": [
+    "__future__",
+    "collections.abc",
+    "functools",
+    "inspect",
+    "pandas._libs.properties",
+    "pandas._typing",
+    "pandas.errors",
+    "pandas.util._exceptions",
+    "textwrap",
+    "typing",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

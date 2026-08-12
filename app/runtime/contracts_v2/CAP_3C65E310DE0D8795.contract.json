@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_3C65E310DE0D8795",
+  "source_file": ".venv\\Lib\\site-packages\\websockets\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\.venv\\Lib\\site-packages\\websockets\\__init__.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 106,
+  "imports": [
+    "__future__",
+    "asyncio.client",
+    "asyncio.router",
+    "asyncio.server",
+    "client",
+    "datastructures",
+    "exceptions",
+    "frames",
+    "http11",
+    "imports",
+    "protocol",
+    "server",
+    "typing",
+    "version"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

@@ -1,0 +1,30 @@
+{
+  "capability_id": "CAP_EB3BDAADA4C9E199",
+  "source_file": ".venv\\Lib\\site-packages\\pandas\\tests\\groupby\\test_reductions.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\.venv\\Lib\\site-packages\\pandas\\tests\\groupby\\test_reductions.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 126,
+  "imports": [
+    "builtins",
+    "datetime",
+    "numpy",
+    "pandas",
+    "pandas._libs.tslibs",
+    "pandas._testing",
+    "pandas.core.dtypes.common",
+    "pandas.core.dtypes.missing",
+    "pandas.tests.groupby",
+    "pandas.util",
+    "pytest",
+    "scipy.stats",
+    "string"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

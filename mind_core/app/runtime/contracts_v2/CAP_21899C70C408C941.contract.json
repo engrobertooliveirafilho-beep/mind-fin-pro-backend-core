@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_21899C70C408C941",
+  "source_file": "neura_orchestrator_fix_validation.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\neura_orchestrator_fix_validation.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 92,
+  "imports": [
+    "app.orchestrator.prompt_orchestrator",
+    "json"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

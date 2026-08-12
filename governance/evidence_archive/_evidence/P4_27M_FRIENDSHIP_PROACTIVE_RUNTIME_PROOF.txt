@@ -1,0 +1,21 @@
+P4.27M — FRIENDSHIP PROACTIVE RUNTIME PROOF
+
+CLASSIFICATION:
+GOLD_OPERATIONAL
+
+PROOF:
+- neura_friendship_profile exists and profile was created for whatsapp:+5519996166906
+- neura_user_preferences exists with opt_out=False and tone=natural_light_useful
+- neura_proactive_messages exists and inserted planned message id=4
+- planned message: Roberto, quer que eu organize seu próximo passo agora?
+- previous outbound_test sent rows exist
+- directed pytest: 12 passed / 3 skipped / 0 failed
+
+STATUS:
+- friendship persistence: REAL
+- opt-out and anti-spam base: REAL
+- proactive queue: REAL
+- real WhatsApp outbound scheduler: PENDING
+
+NEXT:
+Implement outbound worker that sends planned neura_proactive_messages via Twilio and marks status=sent.

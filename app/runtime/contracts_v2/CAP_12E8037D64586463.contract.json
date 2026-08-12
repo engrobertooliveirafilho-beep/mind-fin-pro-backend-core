@@ -1,0 +1,22 @@
+{
+  "capability_id": "CAP_12E8037D64586463",
+  "source_file": "_evidence\\P19P38_F_PRODUCTION_CANDIDATE_MAP_20260622_175339\\p19p38f_production_candidate_map.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_evidence\\P19P38_F_PRODUCTION_CANDIDATE_MAP_20260622_175339\\p19p38f_production_candidate_map.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 107,
+  "imports": [
+    "datetime",
+    "json",
+    "os",
+    "pathlib",
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

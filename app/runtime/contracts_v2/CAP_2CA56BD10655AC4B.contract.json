@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_2CA56BD10655AC4B",
+  "source_file": ".venv\\Lib\\site-packages\\openai\\resources\\admin\\organization\\projects\\rate_limits.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\openai\\resources\\admin\\organization\\projects\\rate_limits.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 87,
+  "imports": [
+    "__future__",
+    "_base_client",
+    "_compat",
+    "_resource",
+    "_response",
+    "_types",
+    "_utils",
+    "httpx",
+    "pagination",
+    "types.admin.organization.projects",
+    "types.admin.organization.projects.project_rate_limit"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

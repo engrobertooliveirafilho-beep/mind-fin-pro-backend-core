@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_90164974FB616A9D",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\_core\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\numpy\\_core\\__init__.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 132,
+  "imports": [
+    "copyreg",
+    "einsumfunc",
+    "fromnumeric",
+    "function_base",
+    "getlimits",
+    "memmap",
+    "numeric",
+    "numerictypes",
+    "numpy._pytesttester",
+    "numpy.version",
+    "os",
+    "records",
+    "shape_base",
+    "sys"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

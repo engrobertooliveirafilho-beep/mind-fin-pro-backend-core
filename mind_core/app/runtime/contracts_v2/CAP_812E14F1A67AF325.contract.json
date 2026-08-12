@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_812E14F1A67AF325",
+  "source_file": "tests\\test_eldora_cognitive_runtime.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\tests\\test_eldora_cognitive_runtime.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 98,
+  "imports": [
+    "app.api.eldora_cognitive_runtime"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

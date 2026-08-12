@@ -1,0 +1,28 @@
+{
+  "capability_id": "CAP_E67004BCCB4EFFA2",
+  "source_file": ".venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\contrib\\emscripten\\fetch.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\contrib\\emscripten\\fetch.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 119,
+  "imports": [
+    "__future__",
+    "email.parser",
+    "importlib.resources",
+    "io",
+    "js",
+    "json",
+    "pyodide.ffi",
+    "request",
+    "response",
+    "typing",
+    "typing_extensions"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

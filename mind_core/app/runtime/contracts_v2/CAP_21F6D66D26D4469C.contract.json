@@ -1,0 +1,29 @@
+{
+  "capability_id": "CAP_21F6D66D26D4469C",
+  "source_file": ".venv\\Lib\\site-packages\\_pytest\\mark\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\social\\.venv\\Lib\\site-packages\\_pytest\\mark\\__init__.py",
+  "domain": "SOCIAL",
+  "target_layer": "app/social",
+  "promotion_score": 117,
+  "imports": [
+    "__future__",
+    "_pytest.config",
+    "_pytest.config.argparsing",
+    "_pytest.nodes",
+    "_pytest.stash",
+    "collections",
+    "collections.abc",
+    "dataclasses",
+    "expression",
+    "pytest",
+    "structures",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

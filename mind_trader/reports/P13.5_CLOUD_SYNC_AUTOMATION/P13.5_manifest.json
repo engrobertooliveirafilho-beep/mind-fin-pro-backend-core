@@ -1,0 +1,15 @@
+{
+  "STATUS": "P13.5_CLOUD_SYNC_AUTOMATION_IMPLEMENTED",
+  "COMMANDS": {
+    "reports_to_drive": "rclone copy \"reports\" \"gdrive:mind-workspace/MIND_TRADER/P13_DATA_FOUNDATION/reports\" --create-empty-src-dirs --progress",
+    "data_to_drive": "rclone copy \"data\" \"gdrive:mind-workspace/MIND_TRADER/P13_DATA_FOUNDATION/data\" --create-empty-src-dirs --progress"
+  },
+  "CLOUD_TARGET": "gdrive:mind-workspace/MIND_TRADER/P13_DATA_FOUNDATION",
+  "LOCAL_DATA_TEMPORARY": true,
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "EDGE": "NOT_PROVEN",
+  "CAUSALITY": "NOT_PROVEN",
+  "EXPORT_READY": true,
+  "generated_at": "2026-06-14T16:11:27.561822+00:00"
+}

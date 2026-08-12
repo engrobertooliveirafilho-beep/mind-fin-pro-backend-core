@@ -1,0 +1,27 @@
+{
+  "capability_id": "CAP_3CDBABC827751551",
+  "source_file": ".venv\\Lib\\site-packages\\PIL\\ImageQt.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\PIL\\ImageQt.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 107,
+  "imports": [
+    "PyQt6.QtCore",
+    "PyQt6.QtGui",
+    "PySide6.QtCore",
+    "PySide6.QtGui",
+    "__future__",
+    "_util",
+    "collections.abc",
+    "io",
+    "sys",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

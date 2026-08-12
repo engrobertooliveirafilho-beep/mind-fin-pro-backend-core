@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_471C91AE3185D427",
+  "source_file": "mind_trader\\tests\\test_p95_edge_discovery_factory.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\mind_trader\\tests\\test_p95_edge_discovery_factory.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 111,
+  "imports": [
+    "app.p9_edge_discovery_factory.engine",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

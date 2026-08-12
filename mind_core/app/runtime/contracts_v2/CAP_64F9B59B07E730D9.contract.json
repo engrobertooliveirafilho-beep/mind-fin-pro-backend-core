@@ -1,0 +1,31 @@
+{
+  "capability_id": "CAP_64F9B59B07E730D9",
+  "source_file": ".venv\\Lib\\site-packages\\numpy\\ma\\core.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\numpy\\ma\\core.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 126,
+  "imports": [
+    "builtins",
+    "copy",
+    "functools",
+    "inspect",
+    "numpy",
+    "numpy._core",
+    "numpy._core.numeric",
+    "numpy._core.numerictypes",
+    "numpy._core.umath",
+    "numpy._utils",
+    "operator",
+    "re",
+    "textwrap",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

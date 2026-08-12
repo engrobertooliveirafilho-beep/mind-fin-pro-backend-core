@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_266557315CB815C0",
+  "source_file": "_evidence\\P19P53A_COGNITIVE_PROMOTION_EXECUTION_20260622_203922\\validation_check.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\reasoning\\_evidence\\P19P53A_COGNITIVE_PROMOTION_EXECUTION_20260622_203922\\validation_check.py",
+  "domain": "REASONING",
+  "target_layer": "app/runtime",
+  "promotion_score": 90,
+  "imports": [
+    "json",
+    "os"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

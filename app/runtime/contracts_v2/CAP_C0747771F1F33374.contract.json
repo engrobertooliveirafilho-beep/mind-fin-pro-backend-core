@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_C0747771F1F33374",
+  "source_file": "app\\runtime\\followup_unified_resolver.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\app\\runtime\\followup_unified_resolver.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 98,
+  "imports": [
+    "app.runtime.memory_store"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

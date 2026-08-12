@@ -1,0 +1,18 @@
+P4.27R — REAL EXECUTION GOVERNOR RUNTIME
+
+CLASSIFICATION:
+REAL_OPERATIONAL / GOLD
+
+PROOF:
+- execution_governor_runtime.py created
+- neura_execution_plans schema created
+- neura_execution_checkpoints schema created
+- neura_governor_events schema created
+- governor event persisted: p4_27r_probe allowed=True
+- execution plan persisted: Finalizar camadas reais encontradas na varredura
+- checkpoint persisted with head=6e5e9b6 stage=P4.27R
+- active plan recovered from database
+- directed pytest: 24 passed / 3 skipped / 0 failed
+
+CONCLUSION:
+The old RAM planner/governor/checkpoint prototype was reimplemented as persistent Supabase/Postgres runtime.

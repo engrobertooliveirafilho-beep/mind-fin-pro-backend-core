@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_90B49A255D51F4DF",
+  "source_file": ".venv\\Lib\\site-packages\\redis\\commands\\search\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\.venv\\Lib\\site-packages\\redis\\commands\\search\\__init__.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 89,
+  "imports": [
+    "asyncio.client",
+    "commands",
+    "redis.client"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

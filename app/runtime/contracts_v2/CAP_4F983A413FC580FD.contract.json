@@ -1,0 +1,23 @@
+{
+  "capability_id": "CAP_4F983A413FC580FD",
+  "source_file": "mind_trader\\app\\data\\ingestion_adapters.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\data\\mind_trader\\app\\data\\ingestion_adapters.py",
+  "domain": "DATA",
+  "target_layer": "app/runtime",
+  "promotion_score": 92,
+  "imports": [
+    "csv",
+    "datetime",
+    "hashlib",
+    "json",
+    "mind_trader.app.backtest.market_core",
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

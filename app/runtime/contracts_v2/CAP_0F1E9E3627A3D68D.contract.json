@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_0F1E9E3627A3D68D",
+  "source_file": "_evidence\\P2411_CONVERSATION_AUTHORITY_COLLAPSE_20260624_225152\\provider_before.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\trader\\_evidence\\P2411_CONVERSATION_AUTHORITY_COLLAPSE_20260624_225152\\provider_before.py",
+  "domain": "TRADER",
+  "target_layer": "app/runtime",
+  "promotion_score": 108,
+  "imports": [
+    "__future__",
+    "re"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

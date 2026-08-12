@@ -1,0 +1,513 @@
+{
+  "STATUS": "P14.16_IMPORT_AUTORUN_RECONCILIATION_IMPLEMENTED",
+  "TOOLS_PS1": 17,
+  "NTS_IMPORT_FILES": 162,
+  "AUTORUN_RESULT_ROWS": 45,
+  "SCREENSHOTS_FOUND": 76,
+  "TOOLS": [
+    "tools\\profit_autorun_p1416k.ps1",
+    "tools\\profit_autorun_p1416l.ps1",
+    "tools\\profit_autorun_p1416m.ps1",
+    "tools\\profit_autorun_p1416m_fixed.ps1",
+    "tools\\profit_autorun_p1416n.ps1",
+    "tools\\profit_autorun_p1416n_debug.ps1",
+    "tools\\profit_autorun_p1416o_line.ps1",
+    "tools\\profit_batch_runner_p1416d.ps1",
+    "tools\\profit_batch_runner_p1416e.ps1",
+    "tools\\profit_batch_runner_p1416f.ps1",
+    "tools\\profit_batch_runner_p1416g.ps1",
+    "tools\\profit_batch_runner_p1416h.ps1",
+    "tools\\profit_compile_clipboard_runner.ps1",
+    "tools\\profit_ntsl_function_probe_p1416p.ps1",
+    "tools\\profit_syntax_probe_p1416i.ps1",
+    "tools\\profit_syntax_probe_p1416j.ps1",
+    "tools\\setup_profit_batch_runner_p1416d.ps1"
+  ],
+  "NTS_FILES": [
+    "profit_import_package\\0069beaec0134f0b.nts",
+    "profit_import_package\\023ea1ae421a1484.nts",
+    "profit_import_package\\02da7ab512e21e25.nts",
+    "profit_import_package\\02dd9f11ca17ce87.nts",
+    "profit_import_package\\02f9caec89b0d37e.nts",
+    "profit_import_package\\031dfbc177a12f68.nts",
+    "profit_import_package\\038fa367de7827cf.nts",
+    "profit_import_package\\040e3cccdea91843.nts",
+    "profit_import_package\\04868dbd5717d3d9.nts",
+    "profit_import_package\\04a26eca09273e86.nts",
+    "profit_import_package\\0571c4fa48517bd3.nts",
+    "profit_import_package\\0595b482e2bf26e8.nts",
+    "profit_import_package\\062d88b8abd7ba11.nts",
+    "profit_import_package\\06ebfd2343758518.nts",
+    "profit_import_package\\0756b77ffffff46e.nts",
+    "profit_import_package\\07b52870a2cdaf54.nts",
+    "profit_import_package\\07c0a825cab09562.nts",
+    "profit_import_package\\080fe7e4e89b167a.nts",
+    "profit_import_package\\087f28933adfab2b.nts",
+    "profit_import_package\\0895904274f11ada.nts",
+    "profit_import_package\\0a0092e75d9b3bac.nts",
+    "profit_import_package\\0a0dde8a395a294d.nts",
+    "profit_import_package\\0a69dfefb3844c8f.nts",
+    "profit_import_package\\0a94c9d88ff346a5.nts",
+    "profit_import_package\\0b33a6c7fbc2b4b3.nts",
+    "profit_import_package\\0ba55c49377eb496.nts",
+    "profit_import_package\\0bb46a57c6d64c79.nts",
+    "profit_import_package\\0e0076caeaf22971.nts",
+    "profit_import_package\\1007f29d0f6ff191.nts",
+    "profit_import_package\\1155a83cf4f5431c.nts",
+    "profit_import_package\\11d51bef0ff8e902.nts",
+    "profit_import_package\\122be70e3a74f8be.nts",
+    "profit_import_package\\12e4332595ba0d4c.nts",
+    "profit_import_package\\135de774f91c6a1d.nts",
+    "profit_import_package\\13e245bf5aad76a2.nts",
+    "profit_import_package\\145b32ac8c7b179b.nts",
+    "profit_import_package\\154efdddbc05d696.nts",
+    "profit_import_package\\15ca457b125f027b.nts",
+    "profit_import_package\\15e1a73a6f99bd23.nts",
+    "profit_import_package\\1643cf2b81bc04d4.nts",
+    "profit_import_package\\1817b7da5c5f9a69.nts",
+    "profit_import_package\\187466dbc140cbc3.nts",
+    "profit_import_package\\193fd690c61c475a.nts",
+    "profit_import_package\\1946082b47193f30.nts",
+    "profit_import_package\\19c0d510cf864a7e.nts",
+    "profit_import_package\\19f5c124d04d4d50.nts",
+    "profit_import_package\\1a5daa336738eaf5.nts",
+    "profit_import_package\\1b6425216f4bb1df.nts",
+    "profit_import_package\\1bcd682c50ea5b7b.nts",
+    "profit_import_package\\1c10cebbe654ae64.nts",
+    "profit_import_package\\p1411_minimal_logic_compilable.nts",
+    "profit_import_package\\p1412_l1_empty.nts",
+    "profit_import_package\\p1412_l2_close_open_logic.nts",
+    "profit_import_package\\p1412_l3_directional_if_only.nts",
+    "profit_import_package\\p1412_l4_single_media.nts",
+    "profit_import_package\\p1412_l5_dual_media.nts",
+    "profit_import_package\\p1413_inline_media_strategy.nts",
+    "profit_import_package\\p1414_inline_media_f13_s144.nts",
+    "profit_import_package\\p1414_inline_media_f13_s21.nts",
+    "profit_import_package\\p1414_inline_media_f13_s34.nts",
+    "profit_import_package\\p1414_inline_media_f13_s55.nts",
+    "profit_import_package\\p1414_inline_media_f13_s89.nts",
+    "profit_import_package\\p1414_inline_media_f21_s144.nts",
+    "profit_import_package\\p1414_inline_media_f21_s34.nts",
+    "profit_import_package\\p1414_inline_media_f21_s55.nts",
+    "profit_import_package\\p1414_inline_media_f21_s89.nts",
+    "profit_import_package\\p1414_inline_media_f3_s144.nts",
+    "profit_import_package\\p1414_inline_media_f3_s21.nts",
+    "profit_import_package\\p1414_inline_media_f3_s34.nts",
+    "profit_import_package\\p1414_inline_media_f3_s55.nts",
+    "profit_import_package\\p1414_inline_media_f3_s89.nts",
+    "profit_import_package\\p1414_inline_media_f5_s144.nts",
+    "profit_import_package\\p1414_inline_media_f5_s21.nts",
+    "profit_import_package\\p1414_inline_media_f5_s34.nts",
+    "profit_import_package\\p1414_inline_media_f5_s55.nts",
+    "profit_import_package\\p1414_inline_media_f5_s89.nts",
+    "profit_import_package\\p1414_inline_media_f8_s144.nts",
+    "profit_import_package\\p1414_inline_media_f8_s21.nts",
+    "profit_import_package\\p1414_inline_media_f8_s34.nts",
+    "profit_import_package\\p1414_inline_media_f8_s55.nts",
+    "profit_import_package\\p1414_inline_media_f8_s89.nts",
+    "profit_import_package\\p1414_inline_media_f9_s144.nts",
+    "profit_import_package\\p1414_inline_media_f9_s21.nts",
+    "profit_import_package\\p1414_inline_media_f9_s34.nts",
+    "profit_import_package\\p1414_inline_media_f9_s55.nts",
+    "profit_import_package\\p1414_inline_media_f9_s89.nts",
+    "profit_import_package\\p1416a_l1_trend_filter.nts",
+    "profit_import_package\\p1416a_l2_stop_points_probe.nts",
+    "profit_import_package\\p1416a_l3_take_points_probe.nts",
+    "profit_import_package\\p1416a_l4_stop_take_probe.nts",
+    "profit_import_package\\p1416c_risk_f13_s144_t100.nts",
+    "profit_import_package\\p1416c_risk_f13_s144_t200.nts",
+    "profit_import_package\\p1416c_risk_f13_s21_t100.nts",
+    "profit_import_package\\p1416c_risk_f13_s21_t200.nts",
+    "profit_import_package\\p1416c_risk_f13_s34_t100.nts",
+    "profit_import_package\\p1416c_risk_f13_s34_t200.nts",
+    "profit_import_package\\p1416c_risk_f13_s55_t100.nts",
+    "profit_import_package\\p1416c_risk_f13_s55_t200.nts",
+    "profit_import_package\\p1416c_risk_f13_s89_t100.nts",
+    "profit_import_package\\p1416c_risk_f13_s89_t200.nts",
+    "profit_import_package\\p1416c_risk_f3_s144_t100.nts",
+    "profit_import_package\\p1416c_risk_f3_s144_t200.nts",
+    "profit_import_package\\p1416c_risk_f3_s21_t100.nts",
+    "profit_import_package\\p1416c_risk_f3_s21_t200.nts",
+    "profit_import_package\\p1416c_risk_f3_s34_t100.nts",
+    "profit_import_package\\p1416c_risk_f3_s34_t200.nts",
+    "profit_import_package\\p1416c_risk_f3_s55_t100.nts",
+    "profit_import_package\\p1416c_risk_f3_s55_t200.nts",
+    "profit_import_package\\p1416c_risk_f3_s89_t100.nts",
+    "profit_import_package\\p1416c_risk_f3_s89_t200.nts",
+    "profit_import_package\\p1416c_risk_f5_s144_t100.nts",
+    "profit_import_package\\p1416c_risk_f5_s144_t200.nts",
+    "profit_import_package\\p1416c_risk_f5_s21_t100.nts",
+    "profit_import_package\\p1416c_risk_f5_s21_t200.nts",
+    "profit_import_package\\p1416c_risk_f5_s34_t100.nts",
+    "profit_import_package\\p1416c_risk_f5_s34_t200.nts",
+    "profit_import_package\\p1416c_risk_f5_s55_t100.nts",
+    "profit_import_package\\p1416c_risk_f5_s55_t200.nts",
+    "profit_import_package\\p1416c_risk_f5_s89_t100.nts",
+    "profit_import_package\\p1416c_risk_f5_s89_t200.nts",
+    "profit_import_package\\p1416c_risk_f8_s144_t100.nts",
+    "profit_import_package\\p1416c_risk_f8_s144_t200.nts",
+    "profit_import_package\\p1416c_risk_f8_s21_t100.nts",
+    "profit_import_package\\p1416c_risk_f8_s21_t200.nts",
+    "profit_import_package\\p1416c_risk_f8_s34_t100.nts",
+    "profit_import_package\\p1416c_risk_f8_s34_t200.nts",
+    "profit_import_package\\p1416c_risk_f8_s55_t100.nts",
+    "profit_import_package\\p1416c_risk_f8_s55_t200.nts",
+    "profit_import_package\\p1416c_risk_f8_s89_t100.nts",
+    "profit_import_package\\p1416c_risk_f8_s89_t200.nts",
+    "profit_import_package\\p1416c_risk_f9_s144_t100.nts",
+    "profit_import_package\\p1416c_risk_f9_s144_t200.nts",
+    "profit_import_package\\p1416c_risk_f9_s21_t100.nts",
+    "profit_import_package\\p1416c_risk_f9_s21_t200.nts",
+    "profit_import_package\\p1416c_risk_f9_s34_t100.nts",
+    "profit_import_package\\p1416c_risk_f9_s34_t200.nts",
+    "profit_import_package\\p1416c_risk_f9_s55_t100.nts",
+    "profit_import_package\\p1416c_risk_f9_s55_t200.nts",
+    "profit_import_package\\p1416c_risk_f9_s89_t100.nts",
+    "profit_import_package\\p1416c_risk_f9_s89_t200.nts",
+    "profit_import_package\\p1416h_risk_f13_s55_t200.nts",
+    "profit_import_package\\p1416h_risk_f3_s21_t100.nts",
+    "profit_import_package\\p1416h_risk_f3_s21_t200.nts",
+    "profit_import_package\\p1416h_risk_f8_s34_t100.nts",
+    "profit_import_package\\p1416h_risk_f8_s34_t200.nts",
+    "profit_import_package\\p1416i_t01_buy_only.nts",
+    "profit_import_package\\p1416i_t02_close_open.nts",
+    "profit_import_package\\p1416i_t03_media_9_21.nts",
+    "profit_import_package\\p1416i_t04_media_no_space.nts",
+    "profit_import_package\\p1416i_t05_media_one_arg.nts",
+    "profit_import_package\\p1416i_t06_mediaexp_two_args.nts",
+    "profit_import_package\\p1416i_t07_mediaexp_one_arg.nts",
+    "profit_import_package\\p1416p_t01_media_close.nts",
+    "profit_import_package\\p1416p_t02_media_no_space.nts",
+    "profit_import_package\\p1416p_t03_media_open.nts",
+    "profit_import_package\\p1416p_t04_mediaexp_close.nts",
+    "profit_import_package\\p1416p_t05_mediaexp_no_space.nts",
+    "profit_import_package\\p1416p_t06_mme_close.nts",
+    "profit_import_package\\p1416p_t07_mma_close.nts",
+    "profit_import_package\\p1416p_t08_media_movel.nts",
+    "profit_import_package\\p1416p_t09_average.nts",
+    "profit_import_package\\p1416p_t10_ema.nts"
+  ],
+  "AUTORUN_RESULTS": [
+    {
+      "strategy_id": "p1416i_t01_buy_only",
+      "screenshot": "reports\\P14.16K_AUTORUN\\screenshots\\p1416i_t01_buy_only.png",
+      "source_file": "reports\\P14.16K_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t02_close_open",
+      "screenshot": "reports\\P14.16K_AUTORUN\\screenshots\\p1416i_t02_close_open.png",
+      "source_file": "reports\\P14.16K_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t03_media_9_21",
+      "screenshot": "reports\\P14.16K_AUTORUN\\screenshots\\p1416i_t03_media_9_21.png",
+      "source_file": "reports\\P14.16K_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t04_media_no_space",
+      "screenshot": "reports\\P14.16K_AUTORUN\\screenshots\\p1416i_t04_media_no_space.png",
+      "source_file": "reports\\P14.16K_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t05_media_one_arg",
+      "screenshot": "reports\\P14.16K_AUTORUN\\screenshots\\p1416i_t05_media_one_arg.png",
+      "source_file": "reports\\P14.16K_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t06_mediaexp_two_args",
+      "screenshot": "reports\\P14.16K_AUTORUN\\screenshots\\p1416i_t06_mediaexp_two_args.png",
+      "source_file": "reports\\P14.16K_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t07_mediaexp_one_arg",
+      "screenshot": "reports\\P14.16K_AUTORUN\\screenshots\\p1416i_t07_mediaexp_one_arg.png",
+      "source_file": "reports\\P14.16K_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t01_buy_only",
+      "screenshot": "reports\\P14.16L_DUAL_MONITOR_AUTORUN\\screenshots\\p1416i_t01_buy_only.png",
+      "source_file": "reports\\P14.16L_DUAL_MONITOR_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t02_close_open",
+      "screenshot": "reports\\P14.16L_DUAL_MONITOR_AUTORUN\\screenshots\\p1416i_t02_close_open.png",
+      "source_file": "reports\\P14.16L_DUAL_MONITOR_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t03_media_9_21",
+      "screenshot": "reports\\P14.16L_DUAL_MONITOR_AUTORUN\\screenshots\\p1416i_t03_media_9_21.png",
+      "source_file": "reports\\P14.16L_DUAL_MONITOR_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t04_media_no_space",
+      "screenshot": "reports\\P14.16L_DUAL_MONITOR_AUTORUN\\screenshots\\p1416i_t04_media_no_space.png",
+      "source_file": "reports\\P14.16L_DUAL_MONITOR_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t05_media_one_arg",
+      "screenshot": "reports\\P14.16L_DUAL_MONITOR_AUTORUN\\screenshots\\p1416i_t05_media_one_arg.png",
+      "source_file": "reports\\P14.16L_DUAL_MONITOR_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t06_mediaexp_two_args",
+      "screenshot": "reports\\P14.16L_DUAL_MONITOR_AUTORUN\\screenshots\\p1416i_t06_mediaexp_two_args.png",
+      "source_file": "reports\\P14.16L_DUAL_MONITOR_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t07_mediaexp_one_arg",
+      "screenshot": "reports\\P14.16L_DUAL_MONITOR_AUTORUN\\screenshots\\p1416i_t07_mediaexp_one_arg.png",
+      "source_file": "reports\\P14.16L_DUAL_MONITOR_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t01_buy_only",
+      "screenshot": "reports\\P14.16M_SAFE_PASTE_AUTORUN\\screenshots\\p1416i_t01_buy_only.png",
+      "source_file": "reports\\P14.16M_SAFE_PASTE_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t02_close_open",
+      "screenshot": "reports\\P14.16M_SAFE_PASTE_AUTORUN\\screenshots\\p1416i_t02_close_open.png",
+      "source_file": "reports\\P14.16M_SAFE_PASTE_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t03_media_9_21",
+      "screenshot": "reports\\P14.16M_SAFE_PASTE_AUTORUN\\screenshots\\p1416i_t03_media_9_21.png",
+      "source_file": "reports\\P14.16M_SAFE_PASTE_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t04_media_no_space",
+      "screenshot": "reports\\P14.16M_SAFE_PASTE_AUTORUN\\screenshots\\p1416i_t04_media_no_space.png",
+      "source_file": "reports\\P14.16M_SAFE_PASTE_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t05_media_one_arg",
+      "screenshot": "reports\\P14.16M_SAFE_PASTE_AUTORUN\\screenshots\\p1416i_t05_media_one_arg.png",
+      "source_file": "reports\\P14.16M_SAFE_PASTE_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t06_mediaexp_two_args",
+      "screenshot": "reports\\P14.16M_SAFE_PASTE_AUTORUN\\screenshots\\p1416i_t06_mediaexp_two_args.png",
+      "source_file": "reports\\P14.16M_SAFE_PASTE_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t07_mediaexp_one_arg",
+      "screenshot": "reports\\P14.16M_SAFE_PASTE_AUTORUN\\screenshots\\p1416i_t07_mediaexp_one_arg.png",
+      "source_file": "reports\\P14.16M_SAFE_PASTE_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t01_buy_only",
+      "screenshot": "reports\\P14.16N_DEBUG_AUTORUN\\screenshots\\p1416i_t01_buy_only.png",
+      "source_file": "reports\\P14.16N_DEBUG_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t02_close_open",
+      "screenshot": "reports\\P14.16N_DEBUG_AUTORUN\\screenshots\\p1416i_t02_close_open.png",
+      "source_file": "reports\\P14.16N_DEBUG_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t03_media_9_21",
+      "screenshot": "reports\\P14.16N_DEBUG_AUTORUN\\screenshots\\p1416i_t03_media_9_21.png",
+      "source_file": "reports\\P14.16N_DEBUG_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t04_media_no_space",
+      "screenshot": "reports\\P14.16N_DEBUG_AUTORUN\\screenshots\\p1416i_t04_media_no_space.png",
+      "source_file": "reports\\P14.16N_DEBUG_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t05_media_one_arg",
+      "screenshot": "reports\\P14.16N_DEBUG_AUTORUN\\screenshots\\p1416i_t05_media_one_arg.png",
+      "source_file": "reports\\P14.16N_DEBUG_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t06_mediaexp_two_args",
+      "screenshot": "reports\\P14.16N_DEBUG_AUTORUN\\screenshots\\p1416i_t06_mediaexp_two_args.png",
+      "source_file": "reports\\P14.16N_DEBUG_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t07_mediaexp_one_arg",
+      "screenshot": "reports\\P14.16N_DEBUG_AUTORUN\\screenshots\\p1416i_t07_mediaexp_one_arg.png",
+      "source_file": "reports\\P14.16N_DEBUG_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t01_buy_only",
+      "screenshot": "reports\\P14.16O_LINE_BY_LINE_AUTORUN\\screenshots\\p1416i_t01_buy_only.png",
+      "source_file": "reports\\P14.16O_LINE_BY_LINE_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t02_close_open",
+      "screenshot": "reports\\P14.16O_LINE_BY_LINE_AUTORUN\\screenshots\\p1416i_t02_close_open.png",
+      "source_file": "reports\\P14.16O_LINE_BY_LINE_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t03_media_9_21",
+      "screenshot": "reports\\P14.16O_LINE_BY_LINE_AUTORUN\\screenshots\\p1416i_t03_media_9_21.png",
+      "source_file": "reports\\P14.16O_LINE_BY_LINE_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t04_media_no_space",
+      "screenshot": "reports\\P14.16O_LINE_BY_LINE_AUTORUN\\screenshots\\p1416i_t04_media_no_space.png",
+      "source_file": "reports\\P14.16O_LINE_BY_LINE_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t05_media_one_arg",
+      "screenshot": "reports\\P14.16O_LINE_BY_LINE_AUTORUN\\screenshots\\p1416i_t05_media_one_arg.png",
+      "source_file": "reports\\P14.16O_LINE_BY_LINE_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t06_mediaexp_two_args",
+      "screenshot": "reports\\P14.16O_LINE_BY_LINE_AUTORUN\\screenshots\\p1416i_t06_mediaexp_two_args.png",
+      "source_file": "reports\\P14.16O_LINE_BY_LINE_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416i_t07_mediaexp_one_arg",
+      "screenshot": "reports\\P14.16O_LINE_BY_LINE_AUTORUN\\screenshots\\p1416i_t07_mediaexp_one_arg.png",
+      "source_file": "reports\\P14.16O_LINE_BY_LINE_AUTORUN\\results.csv"
+    },
+    {
+      "strategy_id": "p1416p_t01_media_close",
+      "file": "p1416p_t01_media_close.nts",
+      "screenshot": "reports\\P14.16P_NTSL_FUNCTION_PROBE\\screenshots\\p1416p_t01_media_close.png",
+      "source_file": "reports\\P14.16P_NTSL_FUNCTION_PROBE\\results.csv"
+    },
+    {
+      "strategy_id": "p1416p_t02_media_no_space",
+      "file": "p1416p_t02_media_no_space.nts",
+      "screenshot": "reports\\P14.16P_NTSL_FUNCTION_PROBE\\screenshots\\p1416p_t02_media_no_space.png",
+      "source_file": "reports\\P14.16P_NTSL_FUNCTION_PROBE\\results.csv"
+    },
+    {
+      "strategy_id": "p1416p_t03_media_open",
+      "file": "p1416p_t03_media_open.nts",
+      "screenshot": "reports\\P14.16P_NTSL_FUNCTION_PROBE\\screenshots\\p1416p_t03_media_open.png",
+      "source_file": "reports\\P14.16P_NTSL_FUNCTION_PROBE\\results.csv"
+    },
+    {
+      "strategy_id": "p1416p_t04_mediaexp_close",
+      "file": "p1416p_t04_mediaexp_close.nts",
+      "screenshot": "reports\\P14.16P_NTSL_FUNCTION_PROBE\\screenshots\\p1416p_t04_mediaexp_close.png",
+      "source_file": "reports\\P14.16P_NTSL_FUNCTION_PROBE\\results.csv"
+    },
+    {
+      "strategy_id": "p1416p_t05_mediaexp_no_space",
+      "file": "p1416p_t05_mediaexp_no_space.nts",
+      "screenshot": "reports\\P14.16P_NTSL_FUNCTION_PROBE\\screenshots\\p1416p_t05_mediaexp_no_space.png",
+      "source_file": "reports\\P14.16P_NTSL_FUNCTION_PROBE\\results.csv"
+    },
+    {
+      "strategy_id": "p1416p_t06_mme_close",
+      "file": "p1416p_t06_mme_close.nts",
+      "screenshot": "reports\\P14.16P_NTSL_FUNCTION_PROBE\\screenshots\\p1416p_t06_mme_close.png",
+      "source_file": "reports\\P14.16P_NTSL_FUNCTION_PROBE\\results.csv"
+    },
+    {
+      "strategy_id": "p1416p_t07_mma_close",
+      "file": "p1416p_t07_mma_close.nts",
+      "screenshot": "reports\\P14.16P_NTSL_FUNCTION_PROBE\\screenshots\\p1416p_t07_mma_close.png",
+      "source_file": "reports\\P14.16P_NTSL_FUNCTION_PROBE\\results.csv"
+    },
+    {
+      "strategy_id": "p1416p_t08_media_movel",
+      "file": "p1416p_t08_media_movel.nts",
+      "screenshot": "reports\\P14.16P_NTSL_FUNCTION_PROBE\\screenshots\\p1416p_t08_media_movel.png",
+      "source_file": "reports\\P14.16P_NTSL_FUNCTION_PROBE\\results.csv"
+    },
+    {
+      "strategy_id": "p1416p_t09_average",
+      "file": "p1416p_t09_average.nts",
+      "screenshot": "reports\\P14.16P_NTSL_FUNCTION_PROBE\\screenshots\\p1416p_t09_average.png",
+      "source_file": "reports\\P14.16P_NTSL_FUNCTION_PROBE\\results.csv"
+    },
+    {
+      "strategy_id": "p1416p_t10_ema",
+      "file": "p1416p_t10_ema.nts",
+      "screenshot": "reports\\P14.16P_NTSL_FUNCTION_PROBE\\screenshots\\p1416p_t10_ema.png",
+      "source_file": "reports\\P14.16P_NTSL_FUNCTION_PROBE\\results.csv"
+    }
+  ],
+  "SCREENSHOTS": [
+    "reports\\P14.16B_PROFIT_UI_AUTOMATION\\screenshots\\profit_import_package_p1416a_l1_trend_filter.nts.png",
+    "reports\\P14.16B_PROFIT_UI_AUTOMATION\\screenshots\\profit_import_package_p1416a_l2_stop_points_probe.nts.png",
+    "reports\\P14.16B_PROFIT_UI_AUTOMATION\\screenshots\\profit_import_package_p1416a_l3_take_points_probe.nts.png",
+    "reports\\P14.16B_PROFIT_UI_AUTOMATION\\screenshots\\profit_import_package_p1416a_l4_stop_take_probe.nts.png",
+    "reports\\P14.16D_PROFIT_BATCH_AUTOMATION\\screenshots\\p1416c_risk_f13_s55_t200.png",
+    "reports\\P14.16D_PROFIT_BATCH_AUTOMATION\\screenshots\\p1416c_risk_f3_s21_t100.png",
+    "reports\\P14.16D_PROFIT_BATCH_AUTOMATION\\screenshots\\p1416c_risk_f3_s21_t200.png",
+    "reports\\P14.16D_PROFIT_BATCH_AUTOMATION\\screenshots\\p1416c_risk_f8_s34_t100.png",
+    "reports\\P14.16D_PROFIT_BATCH_AUTOMATION\\screenshots\\p1416c_risk_f8_s34_t200.png",
+    "reports\\P14.16E_PROFIT_BATCH_RUNNER\\screenshots\\p1416c_risk_f13_s55_t200.png",
+    "reports\\P14.16E_PROFIT_BATCH_RUNNER\\screenshots\\p1416c_risk_f3_s21_t100.png",
+    "reports\\P14.16E_PROFIT_BATCH_RUNNER\\screenshots\\p1416c_risk_f3_s21_t200.png",
+    "reports\\P14.16E_PROFIT_BATCH_RUNNER\\screenshots\\p1416c_risk_f8_s34_t100.png",
+    "reports\\P14.16E_PROFIT_BATCH_RUNNER\\screenshots\\p1416c_risk_f8_s34_t200.png",
+    "reports\\P14.16F_PROFIT_REAL_CLICK_RUNNER\\screenshots\\p1416c_risk_f3_s21_t100.png",
+    "reports\\P14.16F_PROFIT_REAL_CLICK_RUNNER\\screenshots\\p1416c_risk_f3_s21_t200.png",
+    "reports\\P14.16G_PROFIT_AUTO_OK_RUNNER\\screenshots\\p1416c_risk_f13_s55_t200.png",
+    "reports\\P14.16G_PROFIT_AUTO_OK_RUNNER\\screenshots\\p1416c_risk_f3_s21_t100.png",
+    "reports\\P14.16G_PROFIT_AUTO_OK_RUNNER\\screenshots\\p1416c_risk_f3_s21_t200.png",
+    "reports\\P14.16G_PROFIT_AUTO_OK_RUNNER\\screenshots\\p1416c_risk_f8_s34_t100.png",
+    "reports\\P14.16G_PROFIT_AUTO_OK_RUNNER\\screenshots\\p1416c_risk_f8_s34_t200.png",
+    "reports\\P14.16G_PROFIT_AUTO_OK_RUNNER\\screenshots\\p1416h_risk_f3_s21_t100.png",
+    "reports\\P14.16I_SYNTAX_PROBE_AUTOMATION\\screenshots\\p1416i_t01_buy_only.png",
+    "reports\\P14.16I_SYNTAX_PROBE_AUTOMATION\\screenshots\\p1416i_t02_close_open.png",
+    "reports\\P14.16I_SYNTAX_PROBE_AUTOMATION\\screenshots\\p1416i_t03_media_9_21.png",
+    "reports\\P14.16I_SYNTAX_PROBE_AUTOMATION\\screenshots\\p1416i_t04_media_no_space.png",
+    "reports\\P14.16I_SYNTAX_PROBE_AUTOMATION\\screenshots\\p1416i_t05_media_one_arg.png",
+    "reports\\P14.16I_SYNTAX_PROBE_AUTOMATION\\screenshots\\p1416i_t06_mediaexp_two_args.png",
+    "reports\\P14.16J_CLEAN_EDITOR_SYNTAX_PROBE\\screenshots\\p1416i_t01_buy_only.png",
+    "reports\\P14.16J_CLEAN_EDITOR_SYNTAX_PROBE\\screenshots\\p1416i_t02_close_open.png",
+    "reports\\P14.16J_CLEAN_EDITOR_SYNTAX_PROBE\\screenshots\\p1416i_t03_media_9_21.png",
+    "reports\\P14.16K_AUTORUN\\screenshots\\p1416i_t01_buy_only.png",
+    "reports\\P14.16K_AUTORUN\\screenshots\\p1416i_t02_close_open.png",
+    "reports\\P14.16K_AUTORUN\\screenshots\\p1416i_t03_media_9_21.png",
+    "reports\\P14.16K_AUTORUN\\screenshots\\p1416i_t04_media_no_space.png",
+    "reports\\P14.16K_AUTORUN\\screenshots\\p1416i_t05_media_one_arg.png",
+    "reports\\P14.16K_AUTORUN\\screenshots\\p1416i_t06_mediaexp_two_args.png",
+    "reports\\P14.16K_AUTORUN\\screenshots\\p1416i_t07_mediaexp_one_arg.png",
+    "reports\\P14.16L_DUAL_MONITOR_AUTORUN\\screenshots\\p1416i_t01_buy_only.png",
+    "reports\\P14.16L_DUAL_MONITOR_AUTORUN\\screenshots\\p1416i_t02_close_open.png",
+    "reports\\P14.16L_DUAL_MONITOR_AUTORUN\\screenshots\\p1416i_t03_media_9_21.png",
+    "reports\\P14.16L_DUAL_MONITOR_AUTORUN\\screenshots\\p1416i_t04_media_no_space.png",
+    "reports\\P14.16L_DUAL_MONITOR_AUTORUN\\screenshots\\p1416i_t05_media_one_arg.png",
+    "reports\\P14.16L_DUAL_MONITOR_AUTORUN\\screenshots\\p1416i_t06_mediaexp_two_args.png",
+    "reports\\P14.16L_DUAL_MONITOR_AUTORUN\\screenshots\\p1416i_t07_mediaexp_one_arg.png",
+    "reports\\P14.16M_SAFE_PASTE_AUTORUN\\screenshots\\p1416i_t01_buy_only.png",
+    "reports\\P14.16M_SAFE_PASTE_AUTORUN\\screenshots\\p1416i_t02_close_open.png",
+    "reports\\P14.16M_SAFE_PASTE_AUTORUN\\screenshots\\p1416i_t03_media_9_21.png",
+    "reports\\P14.16M_SAFE_PASTE_AUTORUN\\screenshots\\p1416i_t04_media_no_space.png",
+    "reports\\P14.16M_SAFE_PASTE_AUTORUN\\screenshots\\p1416i_t05_media_one_arg.png",
+    "reports\\P14.16M_SAFE_PASTE_AUTORUN\\screenshots\\p1416i_t06_mediaexp_two_args.png",
+    "reports\\P14.16M_SAFE_PASTE_AUTORUN\\screenshots\\p1416i_t07_mediaexp_one_arg.png",
+    "reports\\P14.16N_DEBUG_AUTORUN\\screenshots\\p1416i_t01_buy_only.png",
+    "reports\\P14.16N_DEBUG_AUTORUN\\screenshots\\p1416i_t02_close_open.png",
+    "reports\\P14.16N_DEBUG_AUTORUN\\screenshots\\p1416i_t03_media_9_21.png",
+    "reports\\P14.16N_DEBUG_AUTORUN\\screenshots\\p1416i_t04_media_no_space.png",
+    "reports\\P14.16N_DEBUG_AUTORUN\\screenshots\\p1416i_t05_media_one_arg.png",
+    "reports\\P14.16N_DEBUG_AUTORUN\\screenshots\\p1416i_t06_mediaexp_two_args.png",
+    "reports\\P14.16N_DEBUG_AUTORUN\\screenshots\\p1416i_t07_mediaexp_one_arg.png",
+    "reports\\P14.16O_LINE_BY_LINE_AUTORUN\\screenshots\\p1416i_t01_buy_only.png",
+    "reports\\P14.16O_LINE_BY_LINE_AUTORUN\\screenshots\\p1416i_t02_close_open.png",
+    "reports\\P14.16O_LINE_BY_LINE_AUTORUN\\screenshots\\p1416i_t03_media_9_21.png",
+    "reports\\P14.16O_LINE_BY_LINE_AUTORUN\\screenshots\\p1416i_t04_media_no_space.png",
+    "reports\\P14.16O_LINE_BY_LINE_AUTORUN\\screenshots\\p1416i_t05_media_one_arg.png",
+    "reports\\P14.16O_LINE_BY_LINE_AUTORUN\\screenshots\\p1416i_t06_mediaexp_two_args.png",
+    "reports\\P14.16O_LINE_BY_LINE_AUTORUN\\screenshots\\p1416i_t07_mediaexp_one_arg.png",
+    "reports\\P14.16P_NTSL_FUNCTION_PROBE\\screenshots\\p1416p_t01_media_close.png",
+    "reports\\P14.16P_NTSL_FUNCTION_PROBE\\screenshots\\p1416p_t02_media_no_space.png",
+    "reports\\P14.16P_NTSL_FUNCTION_PROBE\\screenshots\\p1416p_t03_media_open.png",
+    "reports\\P14.16P_NTSL_FUNCTION_PROBE\\screenshots\\p1416p_t04_mediaexp_close.png",
+    "reports\\P14.16P_NTSL_FUNCTION_PROBE\\screenshots\\p1416p_t05_mediaexp_no_space.png",
+    "reports\\P14.16P_NTSL_FUNCTION_PROBE\\screenshots\\p1416p_t06_mme_close.png",
+    "reports\\P14.16P_NTSL_FUNCTION_PROBE\\screenshots\\p1416p_t07_mma_close.png",
+    "reports\\P14.16P_NTSL_FUNCTION_PROBE\\screenshots\\p1416p_t08_media_movel.png",
+    "reports\\P14.16P_NTSL_FUNCTION_PROBE\\screenshots\\p1416p_t09_average.png",
+    "reports\\P14.16P_NTSL_FUNCTION_PROBE\\screenshots\\p1416p_t10_ema.png"
+  ],
+  "LIVE": "FORBIDDEN",
+  "REAL_BROKER": "DISABLED",
+  "REAL_ORDERS": "FORBIDDEN",
+  "EDGE": "NOT_PROVEN",
+  "CAUSALITY": "NOT_PROVEN",
+  "NEXT": "P14.17_NTSL_FUNCTION_COMPATIBILITY_MATRIX",
+  "EXPORT_READY": true,
+  "generated_at": "2026-06-14T16:11:28.615991+00:00"
+}

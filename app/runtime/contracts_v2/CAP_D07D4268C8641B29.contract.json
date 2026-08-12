@@ -1,0 +1,20 @@
+{
+  "capability_id": "CAP_D07D4268C8641B29",
+  "source_file": "app\\medical_swarm\\validation_routes.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\api\\app\\medical_swarm\\validation_routes.py",
+  "domain": "API",
+  "target_layer": "app/api",
+  "promotion_score": 85,
+  "imports": [
+    "app.medical_swarm.debate_engine",
+    "app.medical_swarm.evidence_sync",
+    "fastapi"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

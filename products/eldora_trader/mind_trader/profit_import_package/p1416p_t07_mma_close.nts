@@ -1,0 +1,4 @@
+﻿begin
+  if MMA(9, Close) > MMA(21, Close) then
+    BuyAtMarket;
+end;

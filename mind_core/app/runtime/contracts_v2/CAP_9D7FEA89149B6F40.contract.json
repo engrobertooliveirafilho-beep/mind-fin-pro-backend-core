@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_9D7FEA89149B6F40",
+  "source_file": "_quarantine\\P19P38_L_SAFE_JUNK_QUARANTINE_20260622_182732\\_maintenance__\\P19P22A_20260618_110511\\p56g6_parent_quality_audit.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\audit\\_quarantine\\P19P38_L_SAFE_JUNK_QUARANTINE_20260622_182732\\_maintenance__\\P19P22A_20260618_110511\\p56g6_parent_quality_audit.py",
+  "domain": "AUDIT",
+  "target_layer": "app/runtime",
+  "promotion_score": 93,
+  "imports": [
+    "os",
+    "psycopg2"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

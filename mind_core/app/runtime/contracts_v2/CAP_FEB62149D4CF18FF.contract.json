@@ -1,0 +1,33 @@
+{
+  "capability_id": "CAP_FEB62149D4CF18FF",
+  "source_file": ".venv\\Lib\\site-packages\\anyio\\__init__.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\anyio\\__init__.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 264,
+  "imports": [
+    "__future__",
+    "_core._contextmanagers",
+    "_core._eventloop",
+    "_core._exceptions",
+    "_core._fileio",
+    "_core._resources",
+    "_core._signals",
+    "_core._sockets",
+    "_core._streams",
+    "_core._subprocesses",
+    "_core._synchronization",
+    "_core._tasks",
+    "_core._tempfile",
+    "_core._testing",
+    "_core._typedattr",
+    "warnings"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

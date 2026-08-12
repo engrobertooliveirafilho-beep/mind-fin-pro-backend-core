@@ -1,0 +1,23 @@
+{
+  "STATUS": "P1876_TO_P1880_SPECIALIST_EVOLUTION_FACTORY_COMPLETED",
+  "P1876_MUTATIONS_CREATED": 180,
+  "P1877_CROSSOVERS_CREATED": 81,
+  "P1878_PRIORITY_SURVIVORS": 90,
+  "P1878_QUARANTINED_PREFILTER": 90,
+  "P1879_FAMILY_TREE_ROWS": 180,
+  "P1880_SPECIALIST_GENOMES": 180,
+  "OUTPUTS": {
+    "mutations": "data\\lake\\specialists\\p1876_elite_mutations.json",
+    "crossovers": "data\\lake\\specialists\\p1877_genetic_crossovers.json",
+    "survivors": "data\\lake\\specialists\\p1878_survival_prefilter.json",
+    "family_tree": "data\\lake\\specialists\\p1879_family_tree.json",
+    "specialist_genomes": "data\\lake\\specialists\\p1880_specialist_genomes.json",
+    "quarantine": "data\\lake\\quarantine\\p1878_quarantine_prefilter.json"
+  },
+  "NEXT": "P1881_TO_P1885_ASSET_PERSONALITY_FACTORY",
+  "ORDER_SENT": false,
+  "REAL_ORDERS": "FORBIDDEN",
+  "FTMO_REAL": "FORBIDDEN",
+  "MT5_REAL": "FORBIDDEN",
+  "generated_at": "2026-06-16T18:38:44.126707+00:00"
+}

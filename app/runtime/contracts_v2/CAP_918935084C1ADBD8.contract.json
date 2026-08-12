@@ -1,0 +1,18 @@
+{
+  "capability_id": "CAP_918935084C1ADBD8",
+  "source_file": "_evidence\\P19P5_FIX_COGNITIVE_PIPELINE_INDENT_20260617_213029\\fix_indent_precise.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\execution\\_evidence\\P19P5_FIX_COGNITIVE_PIPELINE_INDENT_20260617_213029\\fix_indent_precise.py",
+  "domain": "EXECUTION",
+  "target_layer": "app/runtime",
+  "promotion_score": 88,
+  "imports": [
+    "pathlib"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

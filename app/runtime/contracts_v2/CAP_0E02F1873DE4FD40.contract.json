@@ -1,0 +1,19 @@
+{
+  "capability_id": "CAP_0E02F1873DE4FD40",
+  "source_file": "tests\\test_p465g_retrieval_failsafe.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\tests\\test_p465g_retrieval_failsafe.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 103,
+  "imports": [
+    "app.embedding.provider",
+    "app.retrieval.semantic_provider"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}

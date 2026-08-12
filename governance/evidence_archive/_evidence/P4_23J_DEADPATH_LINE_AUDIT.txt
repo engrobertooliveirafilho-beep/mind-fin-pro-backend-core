@@ -1,0 +1,77 @@
+ 421:             return "Continua no mesmo ponto: validar o que falhou, testar a hipótese principal e avançar com evidência."
+ 422:         return _followup_reply
+ 423: 
+ 424:     if is_state_query(inbound_text):
+ 425:         return build_mind_state_visible_response()
+ 426: 
+ 427:     inbound_text = str(inbound_text or "")
+ 428: 
+ 429:     # ==========================================
+ 430:     # PRIORIDADE 1 — LIVE OVERRIDES
+ 431:     # ==========================================
+ 432: 
+ 433:     override = live_whatsapp_override(inbound_text)
+ 434: 
+ 435:     compat_hint = override
+ 436: 
+ 437:     visible = run_cognitive_pipeline(
+ 438:         sender_id,
+ 439:         inbound_text
+ 440:     )
+ 441: 
+ 442:     visible = compat_semantics_after_cognition(
+ 443:         inbound_text,
+ 444:         visible
+ 445:     )
+ 446: 
+ 447:     if compat_hint and isinstance(visible, dict):
+ 448:         visible["compat_hint"] = compat_hint
+ 449: 
+ 450:     # P4_21I_RETURN_COMPAT_VISIBLE_ACTIVE
+ 451:     return semantic_test_injection(
+ 452:         inbound_text,
+ 453:         visible
+ 454:     )
+ 455: 
+ 456:     # ==========================================
+ 457:     # PRIORIDADE 2 — COGNITIVE RUNTIME
+ 458:     # ==========================================
+ 459: 
+ 460:     visible = run_cognitive_pipeline(
+ 461:         sender_id,
+ 462:         inbound_text
+ 463:     )
+ 464: 
+ 465:     if whatsapp_intelligence_active() and isinstance(visible, dict):
+ 466:         visible["activation_context"] = enrich_whatsapp_context(sender_id, inbound_text, {})
+ 467: 
+ 468:     return semantic_test_injection(
+ 469:         inbound_text,
+ 470:         visible
+ 471:     )
+ 472: 
+ 473: 
+ 474: 
+ 475: 
+ 476: 
+ 477: 
+ 478: 
+ 479: 
+ 480: 
+ 481: 
+ 482: 
+ 483: 
+ 484: 
+ 485: 
+ 486: 
+ 487: 
+ 488: 
+ 489: 
+ 490: 
+ 491: 
+ 492: 
+ 493: 
+ 494: 
+ 495: 
+ 496: 
+ 497: 

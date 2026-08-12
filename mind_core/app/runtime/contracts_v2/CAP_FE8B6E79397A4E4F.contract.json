@@ -1,0 +1,25 @@
+{
+  "capability_id": "CAP_FE8B6E79397A4E4F",
+  "source_file": ".venv\\Lib\\site-packages\\anyio\\_core\\_asyncio_selector_thread.py",
+  "staged_file": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\staging_v2\\memory\\.venv\\Lib\\site-packages\\anyio\\_core\\_asyncio_selector_thread.py",
+  "domain": "MEMORY",
+  "target_layer": "app/runtime",
+  "promotion_score": 109,
+  "imports": [
+    "__future__",
+    "_typeshed",
+    "asyncio",
+    "collections.abc",
+    "selectors",
+    "socket",
+    "threading",
+    "typing"
+  ],
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_active": false,
+  "requires_tests": true,
+  "requires_contract": true,
+  "real_execution_allowed": false
+}
