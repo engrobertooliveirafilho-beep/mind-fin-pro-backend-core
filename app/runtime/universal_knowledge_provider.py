@@ -84,7 +84,8 @@ def universal_provider_answer(domain: str, intent: str, text: str, state: dict) 
 
     if intent == "followup":
         last = state.get("last_answer", "")
-        return f"Continuando do ponto anterior: {last[:180]}"
+        if last:
+            return f"Continuando do ponto anterior: {last[:180]}"
 
     return reasoning_provider_answer(domain, intent, text, state)
 

@@ -1053,6 +1053,8 @@ from app.runtime.intent_first_router import route_fast
 from app.runtime.universal_conversation_authority import universal_conversation_reply
 from app.runtime.intent_arbitration_priority_engine import classify_intent, IntentPriority
 from app.runtime.whatsapp_social_followup_guard import whatsapp_social_followup_guard, block_meta_reply
+from app.runtime.followup_unified_resolver import get_context as _p19p29_get_context
+from app.runtime.followup_unified_resolver import is_followup as _p19p29_is_followup_authority
 
 # P4.95J3 - Early Return Normalization Shadow Candidate
 try:
@@ -1853,7 +1855,43 @@ async def whatsapp_webhook(request: Request):
             answer = "Tô aqui. Me fala o objetivo principal que eu sigo do ponto certo."
 
         answer = first_person_rewrite(answer)
-        answer = affective_tone(inbound_text, answer)
+        # P19P29_UNKNOWN_FOLLOWUP_TOPIC_CONTRACT_REAL_RESTORE
+        _p19p29_is_followup = _p19p29_is_followup_authority(inbound_text)
+        _p19p29_context = _p19p29_get_context(sender_id) or {}
+        _p19p29_subject = str(
+            _p19p29_context.get("active_subject")
+            or _p19p29_context.get("last_subject")
+            or _p19p29_context.get("last_substantive_user_message")
+            or ""
+        ).strip()
+
+        _p19p29_contextual_retry_applied = False
+        _p19p29_answer_text = str(answer or "").strip()
+        _p19p29_generic_followup_answer = _p19p29_answer_text in {
+            "Oi, Roberto 🙂 Tô aqui. Me fala o que vamos ajustar agora.",
+            "Tô aqui. Me fala o objetivo principal que eu sigo do ponto certo.",
+        }
+
+        if _p19p29_is_followup and (
+            not _p19p29_answer_text
+            or _p19p29_generic_followup_answer
+        ):
+            if _p19p29_subject:
+                _p19p29_retry = run_cognitive_pipeline(
+                    sender_id,
+                    _p19p28k_decision_input,
+                )
+                answer = (
+                    str(_p19p29_retry.get("answer") or "").strip()
+                    if isinstance(_p19p29_retry, dict)
+                    else str(_p19p29_retry or "").strip()
+                )
+                _p19p29_contextual_retry_applied = bool(answer)
+            else:
+                answer = "Sobre qual assunto? Preciso do tópico exato para continuar sem inventar contexto."
+
+        if not _p19p29_contextual_retry_applied:
+            answer = affective_tone(inbound_text, answer)
 
         try:
             remember_turn(sender_id, inbound_text, answer)

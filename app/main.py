@@ -736,10 +736,6 @@ def _p412n_normalize_xml_response(message: str, xml: str) -> str:
     body = m.group(1).strip() if m else raw.strip()
     return f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>{sanitize_final_human_output(sanitize_final_human_output(body))}</Message></Response>'
 
-@app.post("/webhook/whatsapp")
-async def whatsapp_webhook(request: Request):
-    # GATE1F: meta-runtime user-facing generator disabled
-    return None
 async def neura_persona_webhook_stable(Body: str = Form(default=""), From: str = Form(default="")):
     msg = (Body or "").lower().strip()
 
