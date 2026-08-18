@@ -1080,3 +1080,10 @@ h1,h2{color:#111}.muted{color:#666}
 """
 
 # /ELDORA_LEGAL_ROUTES_V1
+
+
+# ELDORA_TIKTOK_SITE_VERIFICATION_V1
+@app.get("/tiktokVzCN3jbOfQpZIn9OUn8GxhSdFh6kcvdX.txt", response_class=HTMLResponse, include_in_schema=False)
+def eldora_tiktok_site_verification():
+    return "tiktok-developers-site-verification=VzCN3jbOfQpZIn9OUn8GxhSdFh6kcvdX"
+# /ELDORA_TIKTOK_SITE_VERIFICATION_V1
