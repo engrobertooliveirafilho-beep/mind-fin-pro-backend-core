@@ -335,6 +335,7 @@ def twiml(message: str) -> str:
 
 from app.runtime.forensic_trace import new_trace,mark,fail,save
 from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
 from app.api.runpod_routes import router as runpod_router
 # disabled missing module neura_viral_router
 from app.medical_curriculum.routes import router as medical_curriculum_router
@@ -991,3 +992,91 @@ app.add_middleware(
     FeedbackEffectivenessMiddleware,
 )
 
+
+
+# ELDORA_LEGAL_ROUTES_V1
+
+@app.get("/legal/privacy", response_class=HTMLResponse, include_in_schema=False)
+def eldora_privacy_policy():
+    return """
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy Policy - Eldora Influencer</title>
+<style>
+body{font-family:Arial,sans-serif;max-width:900px;margin:40px auto;padding:0 20px;line-height:1.6;color:#222}
+h1,h2{color:#111}.muted{color:#666}
+</style>
+</head>
+<body>
+<h1>Privacy Policy - Eldora Influencer</h1>
+<p class="muted">Effective date: August 18, 2026</p>
+<h2>1. About this application</h2>
+<p>Eldora Influencer is a content management and social media integration application used to manage authorized digital content and connected social media accounts.</p>
+<h2>2. Information we may process</h2>
+<p>The application may process account identifiers, profile information, authorization tokens, media metadata, and content required for authorized integrations.</p>
+<h2>3. How information is used</h2>
+<p>Information is used to authenticate authorized accounts, operate permitted integrations, prepare or upload authorized content, maintain security, diagnose errors, and provide requested functionality.</p>
+<h2>4. Third-party platforms</h2>
+<p>When TikTok or another supported platform is connected, information is processed according to permissions granted by the user and applicable platform rules.</p>
+<h2>5. Data sharing</h2>
+<p>Information is not sold. Data may be transmitted to service providers or social platforms only when necessary to operate an authorized integration or comply with applicable obligations.</p>
+<h2>6. Security</h2>
+<p>Reasonable technical and organizational safeguards are used to protect credentials, authorization tokens, and application data.</p>
+<h2>7. Retention and deletion</h2>
+<p>Information is retained only as reasonably necessary for operation, security, legitimate requirements, or applicable obligations. Users may request deletion and revoke third-party authorization.</p>
+<h2>8. User rights</h2>
+<p>Users may request access, correction, or deletion of applicable personal data and may withdraw platform authorization.</p>
+<h2>9. Contact</h2>
+<p>Privacy and data requests: eldoraoliveiraoficial@gmail.com</p>
+<h2>10. Changes</h2>
+<p>This Privacy Policy may be updated as application functionality, integrations, or applicable requirements change.</p>
+</body>
+</html>
+"""
+
+
+@app.get("/legal/terms", response_class=HTMLResponse, include_in_schema=False)
+def eldora_terms_of_service():
+    return """
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Terms of Service - Eldora Influencer</title>
+<style>
+body{font-family:Arial,sans-serif;max-width:900px;margin:40px auto;padding:0 20px;line-height:1.6;color:#222}
+h1,h2{color:#111}.muted{color:#666}
+</style>
+</head>
+<body>
+<h1>Terms of Service - Eldora Influencer</h1>
+<p class="muted">Effective date: August 18, 2026</p>
+<h2>1. Acceptance</h2>
+<p>By using Eldora Influencer or authorizing a supported social media integration, the user agrees to these Terms of Service.</p>
+<h2>2. Purpose</h2>
+<p>Eldora Influencer provides tools for authorized content management, media workflows, account integrations, and social media publishing functions.</p>
+<h2>3. Authorized accounts</h2>
+<p>Users may connect only accounts they own or are authorized to manage.</p>
+<h2>4. Social media integrations</h2>
+<p>Integrations with TikTok and other platforms operate subject to granted permissions and applicable third-party terms, policies, limitations, and availability.</p>
+<h2>5. Content responsibility</h2>
+<p>The user remains responsible for content submitted, generated, approved, uploaded, or published through the application.</p>
+<h2>6. Prohibited use</h2>
+<p>The application must not be used for unauthorized access, illegal activity, deceptive activity, infringement, malware, platform abuse, or circumvention of security controls.</p>
+<h2>7. Availability</h2>
+<p>Application features and integrations may be modified, interrupted, restricted, or unavailable because of maintenance, platform changes, technical failures, or external limitations.</p>
+<h2>8. Third-party services</h2>
+<p>Third-party services are governed by their own terms and policies.</p>
+<h2>9. Contact</h2>
+<p>Questions regarding these Terms: eldoraoliveiraoficial@gmail.com</p>
+<h2>10. Changes</h2>
+<p>These Terms may be updated as the application or its integrations evolve.</p>
+</body>
+</html>
+"""
+
+# /ELDORA_LEGAL_ROUTES_V1
