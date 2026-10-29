@@ -36,5 +36,7 @@ async def session_get(user_id: str, tenant_id: str="default", authorization: str
     return get_session(user_id, tenant_id)
 
 @router.get("/rate-limit/check")
-async def rate_limit(key: str="anonymous", limit: int=60):
-    return check_rate_limit(key, limit)
+async def rate_limit(authorization: str=Header(default="")):
+    claims = _claims(authorization)
+    key = f'{claims["tenant_id"]}:{claims["sub"]}'
+    return check_rate_limit(key, 60)
