@@ -1,0 +1,38 @@
+name: R334 Drive recovery (read-only)
+on:
+  workflow_dispatch:
+    inputs:
+      max_items:
+        description: '0 = entire queue'
+        required: true
+        default: '0'
+permissions:
+  contents: read
+jobs:
+  recovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      RCLONE_CONFIG_GDRIVE_TYPE: drive
+      RCLONE_CONFIG_GDRIVE_TOKEN: ${{ secrets.RCLONE_GDRIVE_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Require authenticated Drive token and queue
+        shell: bash
+        run: |
+          test -n "$RCLONE_CONFIG_GDRIVE_TOKEN" || { echo "BLOCKED: missing RCLONE_GDRIVE_TOKEN"; exit 2; }
+          test -s recovery/r328_drive_zip/recovery_queue.jsonl || { echo "BLOCKED: queue missing"; exit 2; }
+          test -s recovery/r328_drive_zip/recover_all.py || { echo "BLOCKED: runner missing"; exit 2; }
+      - name: Install rclone
+        run: sudo apt-get update -qq && sudo apt-get install -y rclone
+      - name: Execute read-only recovery
+        run: python recovery/r328_drive_zip/recover_all.py --queue recovery/r328_drive_zip/recovery_queue.jsonl --output "$RUNNER_TEMP/recovered" --remote gdrive: --limit "${{ inputs.max_items }}"
+      - name: Upload audit reports only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: r334-recovery-ledger
+          path: |
+            ${{ runner.temp }}/recovered/report.json
+            ${{ runner.temp }}/recovered/recovery.jsonl
+          if-no-files-found: warn
