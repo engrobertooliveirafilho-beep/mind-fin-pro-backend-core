@@ -6,10 +6,15 @@ on:
         description: '0 = entire queue'
         required: true
         default: '0'
+  push:
+    branches: [audit/r318-ftmo-evidence]
+    paths:
+      - '.github/workflows/r334-drive-recovery.yml'
 permissions:
   contents: read
 jobs:
   recovery:
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 360
     env:
