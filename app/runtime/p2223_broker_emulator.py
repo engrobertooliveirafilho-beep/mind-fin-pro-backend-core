@@ -37,11 +37,11 @@ class RiskEngine:
         drawdown = (self.peak - self.equity) / self.peak
 
         daily_loss = (self.day_start_equity - self.equity) / self.day_start_equity
-        if daily_loss >= self.daily_loss_limit:
-            self.daily_killed = True
-            return "KILLED"
         if drawdown >= self.max_drawdown:
             self.global_killed = True
+            return "KILLED"
+        if daily_loss >= self.daily_loss_limit:
+            self.daily_killed = True
             return "KILLED"
         return "OK"
 
