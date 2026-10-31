@@ -1,0 +1,31 @@
+name: R4 cloud forensic smoke test
+on:
+  push:
+    branches: [audit/r318-ftmo-evidence]
+    paths:
+      - 'recovery/r4_forensic/**'
+      - '.github/workflows/r4-cloud-smoke.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate existing recovery engine
+        run: |
+          python -m py_compile recovery/r328_drive_zip/recover_all.py
+          python -m unittest discover -s recovery/r328_drive_zip -p test_recover_all_r335.py
+      - name: Check R4 Drive auth gate without exposing tokens
+        env:
+          DRIVE_TOKEN_PRESENT: ${{ secrets.RCLONE_GDRIVE_TOKEN != '' }}
+        run: |
+          if [ "$DRIVE_TOKEN_PRESENT" != "true" ]; then
+            echo 'AUTHORITY=BLOCKED; DRIVE_RECOVERY=NOT_RUN; reason=missing_cloud_credential'
+          else
+            echo 'DRIVE_CREDENTIAL_PRESENT=true; no recovery performed in smoke test'
+          fi
