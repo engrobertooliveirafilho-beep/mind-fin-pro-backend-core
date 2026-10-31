@@ -1,0 +1,23 @@
+name: Institutional health and symbol contract
+on:
+  push:
+    branches: [fix/r444-institutional-health-failclosed]
+  pull_request:
+    paths:
+      - 'app/runtime/mind_trader_institutional_wiring.py'
+      - 'tests/security/test_institutional_wiring_contract.py'
+  workflow_dispatch:
+jobs:
+  isolated-contract:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pytest
+      - run: python -m py_compile app/runtime/mind_trader_institutional_wiring.py tests/security/test_institutional_wiring_contract.py
+      - run: python -m pytest -q tests/security/test_institutional_wiring_contract.py
