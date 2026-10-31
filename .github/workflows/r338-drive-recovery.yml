@@ -1,0 +1,42 @@
+name: R338 Drive recovery staged
+on:
+  workflow_dispatch:
+    inputs:
+      max_items:
+        description: 'Maximum P0 items (0 = all)'
+        required: true
+        default: '0'
+permissions:
+  contents: read
+jobs:
+  recovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      RCLONE_CONFIG_GDRIVE_TYPE: drive
+      RCLONE_CONFIG_GDRIVE_TOKEN: ${{ secrets.RCLONE_GDRIVE_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/r318-ftmo-evidence
+      - name: Fail closed without credentials
+        shell: bash
+        run: |
+          test -n "$RCLONE_CONFIG_GDRIVE_TOKEN" || { echo "BLOCKED: set RCLONE_GDRIVE_TOKEN repository secret"; exit 2; }
+          test -s recovery/r328_drive_zip/queue_p0.jsonl
+          test -s recovery/r328_drive_zip/recover_all.py
+      - name: Install rclone
+        run: sudo apt-get update -qq && sudo apt-get install -y rclone
+      - name: Run recovery safety tests
+        run: python -m unittest discover -s recovery/r328_drive_zip -p test_recover_all_r335.py
+      - name: Stage recovered objects and hashes
+        run: python recovery/r328_drive_zip/recover_all.py --queue recovery/r328_drive_zip/queue_p0.jsonl --output "$RUNNER_TEMP/recovered" --remote gdrive: --limit "${{ inputs.max_items }}"
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: r338-audit
+          path: |
+            ${{ runner.temp }}/recovered/report.json
+            ${{ runner.temp }}/recovered/recovery.jsonl
+          if-no-files-found: warn
