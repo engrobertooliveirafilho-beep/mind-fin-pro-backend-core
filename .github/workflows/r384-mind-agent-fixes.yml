@@ -1,0 +1,25 @@
+name: R384 isolated MIND agent fixes
+on:
+  push:
+    branches: [audit/r318-ftmo-evidence]
+    paths:
+      - 'audits/r384_mind_agents/**'
+      - '.github/workflows/r384-mind-agent-fixes.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  isolated-fixes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile isolated fixes
+        run: python -m compileall -q audits/r384_mind_agents
+      - name: Execute isolated regression tests
+        run: python -m unittest discover -s audits/r384_mind_agents -p 'test_*.py' -v
+      - name: Keep promotion blocked
+        run: echo 'MIND_AGENT_PROMOTION=BLOCKED; INTEGRATION=BLOCKED'
