@@ -1,0 +1,5 @@
+# R432 — MIND Anti-Retrabalho Engine
+
+Offline deterministic implementation created and tested in isolated workspace (`anti_rework_engine.py`, `test_anti_rework_engine.py`). 11/11 pytest tests passed (0.04s). Source and tests are supplied as separate conversation artifacts; **not yet merged or deployed in the repository**.
+
+Decision rules: invalid/missing inventory -> BLOCK; invalid candidate -> BLOCK; duplicate inventory IDs -> BLOCK; exact SHA256 match -> REUSE; same capability with different SHA256 -> BLOCK for review; unverified source authority -> BLOCK; missing test pass/evidence -> BLOCK; otherwise -> ALLOW_STAGING only. No automatic integration, Drive mutations, trading, or production execution. Input schema requires id, capability, sha256, commit, tests_passed, evidence. SHA256 validates byte identity, not semantic equivalence; additional semantic/lineage audits remain mandatory. Integration gate is fail-closed. Historical inventory must be populated from verified Drive/GitHub records; do not assume exhaustive coverage.
