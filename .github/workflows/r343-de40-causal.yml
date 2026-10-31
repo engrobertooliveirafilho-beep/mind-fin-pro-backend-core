@@ -1,0 +1,30 @@
+name: R343 DE40 causal certification
+on:
+  push:
+    branches: [audit/r318-ftmo-evidence]
+    paths:
+      - 'recovery/r342_de40/**'
+      - '.github/workflows/r343-de40-causal.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  causal-regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile and run isolated regressions
+        run: |
+          python -m py_compile recovery/r342_de40/causal_gates.py recovery/r342_de40/test_causal_gates.py
+          python -m unittest discover -s recovery/r342_de40 -p 'test_*.py' -v
+      - name: Explicit no-promotion gate
+        run: |
+          python - <<'PY'
+          from recovery.r342_de40.causal_gates import certification_report
+          r=certification_report(success=True,source_sha_verified=False,oos_independent=False,ci_pass=True,no_lookahead=True,chronology_pass=False)
+          assert r['status']=='BLOCKED' and r['promotion_authorized'] is False
+          print('PROMOTION=BLOCKED; FTMO_READY=FALSE')
+          PY
