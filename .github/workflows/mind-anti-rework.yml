@@ -1,0 +1,45 @@
+name: MIND Anti-Retrabalho Gate
+on:
+  pull_request:
+  push:
+    branches: [audit/r318-ftmo-evidence]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  anti-rework:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run isolated regression tests
+        run: |
+          python -m pip install pytest
+          cd recovery/r432_anti_rework
+          python -m pytest -q test_anti_rework_engine.py
+      - name: Enforce candidate and inventory (fail closed)
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s .mind/anti_rework/candidate.json
+          test -s .mind/anti_rework/inventory.json
+          python recovery/r432_anti_rework/anti_rework_engine.py \
+            --candidate .mind/anti_rework/candidate.json \
+            --inventory .mind/anti_rework/inventory.json \
+            --output anti_rework_decision.json
+          python - <<'PY'
+          import json
+          with open('anti_rework_decision.json', encoding='utf-8') as f:
+              decision = json.load(f)
+          if decision['status'] not in ('REUSE', 'ALLOW_STAGING'):
+              raise SystemExit('FAIL_CLOSED: '+decision['reason'])
+          print('STAGING_ONLY:', decision['status'])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: anti-rework-decision
+          path: anti_rework_decision.json
+          if-no-files-found: ignore
