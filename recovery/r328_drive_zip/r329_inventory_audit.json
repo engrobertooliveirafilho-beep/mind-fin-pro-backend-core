@@ -1,0 +1,14 @@
+{
+  "source": "R324_R4_RECOVERY_INDEX_20261031_READONLY/PARTITION_METADATA.csv",
+  "sha256": "8ea67dfdfb6aeab6128daeb84ad27a03861fc39b6634a8d4723c6d98052e340f",
+  "reference_sha256": "8EA67DFDFB6AEAB6128DAEB84AD27A03861FC39B6634A8D4723C6D98052E340F",
+  "reference_match": true,
+  "rows": 95347,
+  "unique_paths": 95347,
+  "directory_paths": 95347,
+  "file_paths": 0,
+  "historically_recovered": 5,
+  "sha_per_file": false,
+  "mass_file_recovery_authorized": false,
+  "reason": "Inventory contains directory prefixes, not per-file records; no per-file hash or authoritative ZIP bytes."
+}
