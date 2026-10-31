@@ -1,0 +1,20 @@
+{
+  "scope": "BOUNDED_NOT_FULL",
+  "timeframes": [
+    "D1",
+    "H4",
+    "H1",
+    "M30",
+    "M15",
+    "M5",
+    "M1"
+  ],
+  "combinations": 3024,
+  "observed": 149,
+  "promoted": 0,
+  "output_hashes_verified": 28,
+  "original_engine": "P2369",
+  "ftmo_certified": false,
+  "promotion_authorized": false,
+  "notes": "D1 H4 H1 full input; M30 M15 M5 M1 650 rows each; local detailed checkpoint hashes /mnt/data/r425/seven_timeframes_manifest.json"
+}
