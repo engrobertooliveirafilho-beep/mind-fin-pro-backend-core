@@ -1,0 +1,25 @@
+name: R388 DE40 provenance and paper walk-forward
+on:
+  push:
+    branches: [audit/r318-ftmo-evidence]
+    paths:
+      - 'recovery/r388_walkforward/**'
+      - '.github/workflows/r388-de40-walkforward.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  isolated-paper:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile
+        run: python -m compileall -q recovery/r388_walkforward
+      - name: Run provenance fail-closed tests
+        run: python -m unittest discover -s recovery/r388_walkforward -p 'test_*.py' -v
+      - name: Promotion remains blocked
+        run: echo 'DE40_DATASETS_VERIFIED=0; PAPER_ONLY; FTMO_READY=FALSE'
