@@ -25,15 +25,29 @@ class RiskEngine:
         self.daily_loss_limit = 0.03
         self.equity = 100000
         self.peak = self.equity
+        self.day_start_equity = self.equity
+        self.daily_killed = False
 
     def check(self, pnl):
+        if self.daily_killed:
+            return "KILLED"
         self.equity += pnl
         self.peak = max(self.peak, self.equity)
         drawdown = (self.peak - self.equity) / self.peak
 
-        if drawdown > self.max_drawdown:
+        daily_loss = (self.day_start_equity - self.equity) / self.day_start_equity
+        if daily_loss >= self.daily_loss_limit:
+            self.daily_killed = True
+            return "KILLED"
+        if drawdown >= self.max_drawdown:
+            self.daily_killed = True
             return "KILLED"
         return "OK"
+
+    def reset_day(self):
+        """Explicit simulated session boundary; does not reset total drawdown peak."""
+        self.day_start_equity = self.equity
+        self.daily_killed = False
 
 
 class BrokerEmulator:
