@@ -1,0 +1,25 @@
+name: R383 MIND historical agent isolation
+on:
+  push:
+    branches: [audit/r318-ftmo-evidence]
+    paths:
+      - 'audits/r383_mind_agents/**'
+      - '.github/workflows/r383-mind-agent-isolation.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  isolated-source-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: AST compile originals without importing or running them
+        run: python -m py_compile audits/r383_mind_agents/agents_unified_runtime.py audits/r383_mind_agents/agents_runtime.py audits/r383_mind_agents/agent_runtime.py audits/r383_mind_agents/mind_talk_runtime_adapter.py
+      - name: Reproduce historical defects without external dependencies
+        run: python -m unittest discover -s audits/r383_mind_agents -p 'test_*.py' -v
+      - name: Block integration and promotion
+        run: echo 'MIND_AGENTS_INTEGRATION=BLOCKED; PROMOTION=BLOCKED; FTMO_READY=FALSE'
