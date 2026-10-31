@@ -1,4 +1,5 @@
 import re
+from app.eldora.core.jwt_auth import verify_token
 
 DANGEROUS_PATTERNS = ["ignore previous instructions", "reveal secrets", "admin token", "system prompt"]
 
@@ -16,7 +17,10 @@ def abuse_score(text: str) -> dict:
     return {"score": score, "blocked": score >= 75}
 
 def require_admin_token(token: str | None) -> bool:
-    return bool(token and len(token) >= 12)
+    if not token:
+        return False
+    result = verify_token(token.removeprefix("Bearer ").strip())
+    return bool(result.get("valid") and result.get("payload", {}).get("role") == "admin")
 
 def block_public_admin_access(token: str | None) -> dict:
     ok = require_admin_token(token)

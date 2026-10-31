@@ -1,0 +1,28 @@
+name: JWT tenant security regression
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'app/api/eldora_auth.py'
+      - 'app/api/eldora_security.py'
+      - 'app/eldora/core/**'
+      - 'app/eldora/security/service.py'
+      - 'tests/test_eldora_jwt_tenant_hardening.py'
+      - '.github/workflows/jwt-tenant-security.yml'
+  workflow_dispatch:
+jobs:
+  jwt-tenant:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install isolated test dependencies
+        run: python -m pip install 'fastapi>=0.100,<1' 'pytest>=8,<10' 'pytest-asyncio>=0.23,<2'
+      - name: Compile changed modules
+        run: python -m compileall -q app/api/eldora_auth.py app/api/eldora_security.py app/eldora/core/jwt_auth.py app/eldora/core/auth_context.py app/eldora/core/tenant_engine.py app/eldora/security/service.py
+      - name: Run security regression suite
+        run: python -m pytest -q tests/test_eldora_jwt_tenant_hardening.py
