@@ -27,9 +27,10 @@ class RiskEngine:
         self.peak = self.equity
         self.day_start_equity = self.equity
         self.daily_killed = False
+        self.global_killed = False
 
     def check(self, pnl):
-        if self.daily_killed:
+        if self.daily_killed or self.global_killed:
             return "KILLED"
         self.equity += pnl
         self.peak = max(self.peak, self.equity)
@@ -40,12 +41,12 @@ class RiskEngine:
             self.daily_killed = True
             return "KILLED"
         if drawdown >= self.max_drawdown:
-            self.daily_killed = True
+            self.global_killed = True
             return "KILLED"
         return "OK"
 
     def reset_day(self):
-        """Explicit simulated session boundary; does not reset total drawdown peak."""
+        """Reset only daily latch; global kill remains irreversible for this engine."""
         self.day_start_equity = self.equity
         self.daily_killed = False
 
