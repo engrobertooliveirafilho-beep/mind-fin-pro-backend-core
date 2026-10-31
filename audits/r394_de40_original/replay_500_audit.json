@@ -1,0 +1,25 @@
+{
+  "mission": "R394_DE40_ORIGINAL_EXECUTOR_RECOVERY",
+  "date": "2026-10-31",
+  "source_drive_id": "1iiGUkUUHv887TatldMfg-_PEk2yaWxoO",
+  "source_name": "p2369_de40_multitimeframe_edge_discovery_loop.py",
+  "source_sha256": "8611e62b39a38bd33e58da03f4fe8bb31066c7a436ef174ac02692e5b923b04f",
+  "execution": "isolated Python original source unchanged; seven original datasets; --max-rows-per-tf 500",
+  "result": {
+    "combinations": 3024,
+    "promoted": 0,
+    "observed": 24,
+    "rejected": 3000
+  },
+  "historical": {
+    "combinations": 3024,
+    "promoted": 0,
+    "observed": 79,
+    "rejected": 2945
+  },
+  "status": "PARTIAL_PASS",
+  "full_historical_parity": false,
+  "independent_historical_code_sha": false,
+  "ftmo_ready": false,
+  "real_orders": "FORBIDDEN"
+}
