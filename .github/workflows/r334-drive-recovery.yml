@@ -21,12 +21,12 @@ jobs:
         shell: bash
         run: |
           test -n "$RCLONE_CONFIG_GDRIVE_TOKEN" || { echo "BLOCKED: missing RCLONE_GDRIVE_TOKEN"; exit 2; }
-          test -s recovery/r328_drive_zip/recovery_queue.jsonl || { echo "BLOCKED: queue missing"; exit 2; }
+          test -s recovery/r328_drive_zip/queue_p0.jsonl || { echo "BLOCKED: queue missing"; exit 2; }
           test -s recovery/r328_drive_zip/recover_all.py || { echo "BLOCKED: runner missing"; exit 2; }
       - name: Install rclone
         run: sudo apt-get update -qq && sudo apt-get install -y rclone
       - name: Execute read-only recovery
-        run: python recovery/r328_drive_zip/recover_all.py --queue recovery/r328_drive_zip/recovery_queue.jsonl --output "$RUNNER_TEMP/recovered" --remote gdrive: --limit "${{ inputs.max_items }}"
+        run: python recovery/r328_drive_zip/recover_all.py --queue recovery/r328_drive_zip/queue_p0.jsonl --output "$RUNNER_TEMP/recovered" --remote gdrive: --limit "${{ inputs.max_items }}"
       - name: Upload audit reports only
         if: always()
         uses: actions/upload-artifact@v4
