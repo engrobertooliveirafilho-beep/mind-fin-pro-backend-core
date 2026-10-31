@@ -1,0 +1,1 @@
+R421 2026-10-31. Historical P2369 source run on seven recovered DE40 datasets with max-rows-per-tf 650. Completed: 3024 combinations; 89 observed; 2935 rejected; 0 promoted. Full dataset run timed out. No OOS/FTMO certification. Historical independent SHA256 authority and execution cost contract still unavailable. PAPER_ONLY. No live orders. No production promotion.
