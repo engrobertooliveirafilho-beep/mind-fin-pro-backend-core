@@ -1,0 +1,35 @@
+{
+  "schema": "R331_TRADER_ZIP_DISCOVERY_V1",
+  "zip": "PARTITIONS(4).zip",
+  "zip_sha256": "8540d5fc596dd28702ad0acb24412b935e147601da95da83fdf8c54f6eba185a",
+  "json_partitions": 39956,
+  "metadata_records": 277405,
+  "matching_records": 1570,
+  "parse_errors": 12,
+  "source_recovered": [
+    {
+      "name": "p2382_de40_replay_after_loss_patch.py",
+      "drive_id": "1o4oavUNHi9pMkYh6nGZdnWzfxtsEntcx",
+      "bytes": 10175,
+      "sha256": "7f50612564642647b5e08c0d09e38dddacc312ec8b03b86890bc739fa4f2b279",
+      "ast": "PASS"
+    },
+    {
+      "name": "p2383_de40_walk_forward_after_patch.py",
+      "drive_id": "1W7c0W_07GQ8ZjU_Yfa3MfGv2BSgKh6hs",
+      "bytes": 10301,
+      "sha256": "155e207d5125ac9b2eff325400be2a5e18e5fd567229ec7fcf50733607641aac",
+      "ast": "PASS"
+    },
+    {
+      "name": "p2383c_de40_true_out_of_sample_validation.py",
+      "drive_id": "1f8sg2q3VaErkd5PR2Uxm9wjlDwD292IH",
+      "bytes": 8431,
+      "sha256": "1694a5ed6e5412b900e71fd0ee063a3c197d46d36ce1f2b32ac1ae9afb337893",
+      "ast": "PASS"
+    }
+  ],
+  "authority": "SOURCE_BYTES_RECOVERED_NOT_TESTED",
+  "full_recovery_certified": false,
+  "ftmo_ready": false
+}
