@@ -39,21 +39,26 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
                 if callable(v) and not isinstance(v, type) and not k.startswith("_")
             ]
 
-            if hasattr(m, "health"):
+            has_health = callable(getattr(m, "health", None))
+            has_run = callable(getattr(m, "run", None))
+            row["health_ok"] = not has_health
+            row["run_ok"] = not has_run
+
+            if has_health:
                 try:
                     h = m.health()
-                    row["health_ok"] = isinstance(h, dict)
+                    row["health_ok"] = isinstance(h, dict) and h.get("status") in ("operational", "OPERATIONAL", "PASS", "OK")
                     row["health"] = h
                 except Exception as e:
                     row["error"] += f"health_error={e};"
 
-            if hasattr(m, "run"):
+            if has_run:
                 try:
                     try:
                         r = m.run(payload)
                     except TypeError:
                         r = m.run()
-                    row["run_ok"] = r is not None
+                    row["run_ok"] = r is not None and not (isinstance(r, dict) and (r.get("status") in ("error", "ERROR", "FAILED", "DEGRADED", "stub", "not_implemented") or r.get("error")))
                     row["run_result_type"] = type(r).__name__
                     row["run_result"] = r if isinstance(r, (dict, list, str, int, float, bool)) else str(r)
                 except Exception as e:
@@ -66,7 +71,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
 
     return {
         "program": "MIND_TRADER_INSTITUTIONAL_WIRING",
-        "status": "operational",
+        "status": "operational" if results and all(r["import_ok"] and r["run_ok"] and r["health_ok"] and not r["error"] for r in results) else "DEGRADED",
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "mode": "PAPER_ONLY",
         "real_orders": "FORBIDDEN",
@@ -81,7 +86,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
 def health() -> dict:
     r = run_institutional_wiring({})
     return {
-        "status": "operational" if r["imports_ok"] == r["modules_total"] else "DEGRADED",
+        "status": r["status"],
         "modules_total": r["modules_total"],
         "imports_ok": r["imports_ok"],
         "runs_ok": r["runs_ok"],
