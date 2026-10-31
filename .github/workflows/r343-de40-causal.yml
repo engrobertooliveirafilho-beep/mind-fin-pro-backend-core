@@ -4,6 +4,7 @@ on:
     branches: [audit/r318-ftmo-evidence]
     paths:
       - 'recovery/r342_de40/**'
+      - 'recovery/r344_evidence/**'
       - '.github/workflows/r343-de40-causal.yml'
   workflow_dispatch:
 permissions:
@@ -18,8 +19,9 @@ jobs:
           python-version: '3.12'
       - name: Compile and run isolated regressions
         run: |
-          python -m py_compile recovery/r342_de40/causal_gates.py recovery/r342_de40/test_causal_gates.py
+          python -m py_compile recovery/r342_de40/causal_gates.py recovery/r342_de40/test_causal_gates.py recovery/r344_evidence/provenance_gate.py recovery/r344_evidence/test_provenance_gate.py
           python -m unittest discover -s recovery/r342_de40 -p 'test_*.py' -v
+          python -m unittest discover -s recovery/r344_evidence -p 'test_*.py' -v
       - name: Explicit no-promotion gate
         run: |
           python - <<'PY'
