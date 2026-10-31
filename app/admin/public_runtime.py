@@ -4,7 +4,8 @@ from fastapi import APIRouter, Header, HTTPException
 router = APIRouter()
 
 def guard(token):
-    if token != os.getenv("ADMIN_ACTIVATION_TOKEN"):
+    configured_token = os.getenv("ADMIN_ACTIVATION_TOKEN")
+    if not configured_token or not token or not isinstance(token, str) or token != configured_token:
         raise HTTPException(status_code=403, detail="forbidden")
 
 def db():
