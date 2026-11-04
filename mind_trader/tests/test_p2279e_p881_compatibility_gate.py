@@ -17,7 +17,8 @@ def test_p2279e_historical_approval_is_not_p881_authority():
     decision = walk_forward_authority(windows)
     assert decision["passed"] is False
     assert decision["production"] == "BLOCKED"
-    assert decision["live"] if "live" in decision else decision["edge_claim"] == "NONE"
+    assert decision["live"] == "FORBIDDEN"
+    assert decision["edge_claim"] == "NONE"
 
 
 def test_p881_rejects_historical_summary_without_window_evidence():
