@@ -1,0 +1,42 @@
+{
+  "checks": {
+    "broker_zero": true,
+    "failure_complete": true,
+    "failure_fail_zero": false,
+    "normal_complete": true,
+    "normal_fail_zero": true,
+    "orders_zero": true,
+    "violations_zero": true
+  },
+  "error": {
+    "message": "",
+    "traceback": "",
+    "type": ""
+  },
+  "failure_injection": {
+    "fail": 1,
+    "pass": 15,
+    "total": 16
+  },
+  "ftmo_model": "2STEP",
+  "normal_scenarios": {
+    "fail": 0,
+    "pass": 5000,
+    "total": 5000
+  },
+  "run_id": "20260806_141023",
+  "safety": {
+    "broker_connection": false,
+    "live_real": "FORBIDDEN",
+    "network_access": false,
+    "order_execution": false,
+    "runtime_loop_started": false,
+    "runtime_started": false,
+    "source_write": false,
+    "subprocess_started": false,
+    "threads_started": false,
+    "violation_details": [],
+    "violations": 0
+  },
+  "status": "CONTROLLED_FTMO_RULE_SHADOW_FAIL"
+}
