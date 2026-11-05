@@ -1,0 +1,88 @@
+{
+  "audit_id": "ET664",
+  "date": "2026-11-05",
+  "scope": "S1-S21 historical recovery; no live trading",
+  "base_commit": "3a0b8985db1b465aacdfc2321b0762579f1a336b",
+  "source": "Google Drive historical executors; ET663 locally verified SHA256",
+  "executors": [
+    {
+      "stage": "S11",
+      "file": "controlled_runtime_materialization_probe.py",
+      "sha256": "052cc81ca7b85f92337609fac72b1ac0ac0b12bb59b7e2251b5d5ed51a054da6"
+    },
+    {
+      "stage": "S15",
+      "file": "supervised_continuous_paper_runtime.py",
+      "sha256": "1a52b99d2a257e6d0a179624188bfd34e068484f130a32d807dbf263b9f4f999"
+    },
+    {
+      "stage": "S16",
+      "file": "extended_supervised_paper_market_replay.py",
+      "sha256": "643f9a993565130281b8881b206176abc9196124fcd65a92f73595d6f091722b"
+    },
+    {
+      "stage": "S17",
+      "file": "simulator_activation_candidate_feed.py",
+      "sha256": "f4bd3a2f0f517873d58cbb59befee0428b03e19efb53727db86d6e22ea8d5d01"
+    },
+    {
+      "stage": "S18",
+      "file": "ftmo_rule_shadow_failure_injection.py",
+      "sha256": "72c25c2b77410e328354c8261a3a993c1f683da7cb7fd0e19e0023f6685e7430"
+    },
+    {
+      "stage": "S19",
+      "file": "multi_day_equity_replay.py",
+      "sha256": "3855783e2504a90c764eae75c2a50919879fbeb5085d2af73cae776001bbeebf"
+    }
+  ],
+  "historical_certifications": {
+    "S7-S10": "CERTIFIED historical PAPER only",
+    "S11-S14": "CERTIFIED historical controlled PAPER",
+    "S15": "CERTIFIED historical supervised PAPER",
+    "S17": "CERTIFIED historical simulator candidate",
+    "S18": "FAIL: failure_fail_zero false, 1/16 failed",
+    "S19": "FAIL: failure_injections_positive false, 0 injections in 84000 ticks"
+  },
+  "dependencies_confirmed": [
+    {
+      "from": "S11",
+      "to": "app.runtime.mind_trader_institutional_wiring.create_paper_runtime"
+    },
+    {
+      "from": "S15",
+      "to": "app.runtime.mind_trader_institutional_wiring.create_paper_runtime"
+    },
+    {
+      "from": "S16",
+      "to": "S16_REPLAY_MANIFEST.json"
+    },
+    {
+      "from": "S17",
+      "to": "S17_MARKET_FEED_MANIFEST.json"
+    },
+    {
+      "from": "S18",
+      "to": "S18_FTMO_RULE_SNAPSHOT.json and S18_FAILURE_PROFILES.json"
+    },
+    {
+      "from": "S19",
+      "to": "S19_FTMO_RULE_SNAPSHOT.json"
+    }
+  ],
+  "unresolved": [
+    "S1-S6 not recovered",
+    "S12-S14 distinct executors not recovered",
+    "S20 writer and original decision ledger contract not verified",
+    "S21 0/84000 decision-symbol joins certified",
+    "original source bytes not yet committed to GitHub",
+    "no new isolated runtime certification"
+  ],
+  "gate": {
+    "global_certified": false,
+    "phase_a_certified": false,
+    "ftmo_release": "BLOCKED",
+    "real_orders": 0,
+    "mode": "PAPER_ONLY"
+  }
+}
