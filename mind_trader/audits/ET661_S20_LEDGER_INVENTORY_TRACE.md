@@ -1,0 +1,9 @@
+# ET-661 — S20 exact persistence artifact inventory (2026-11-05)
+Authenticated Drive historical inventory `S21_R9_R1_REMOTE_INVENTORY_RAW.txt` (file ID `1HDeeYjPhX3WABzG70Wxvdbok9EMOML24`) explicitly records:
+- `SIMULATOR/runs/S20/20260806_195027/ledgers/S20_DECISION_LEDGER.csv` — **19,671,989 bytes**, historical modification `2026-08-06 20:02:42`.
+- `SIMULATOR/runs/S20/20260806_195027/profiles/S20_STRATEGY_INTELLIGENCE_PROFILE.json` — 916 bytes, historical modification `2026-08-06 19:50:28`.
+- `SIMULATOR/runs/S20/20260806_195027/evidence/TRADER_SIMULATOR_S20_PAPER_TRADING_CONTINUOUS_VALIDATION_AND_STRATEGY_INTELLIGENCE_GATE_CERTIFICATION.json` — 1,968 bytes, historical modification `2026-08-06 20:23:59`.
+Drive `S21_R13_R2D_R1_TRANSCRIPT.txt` (ID `1k8j3AKzJ6C04hB8ORXqEUmYkkHNCF07w`) also references `market_data_foundation/S21_R13_R2D/20260807_194435/evidence/TRADER_DECISION_SYMBOL_AUTHORITY_MAP_V1.csv`.
+Search by exact filenames in authenticated Drive returned **no indexed file records** for `S20_DECISION_LEDGER.csv`, `TRADER_DECISION_SYMBOL_AUTHORITY_MAP_V1.csv`, or `mind_trader_institutional_wiring.py`; the inventory reference alone does not establish raw file access. GitHub code search `S20_DECISION_LEDGER`, `day tick`, `decision_ledger` returned no indexed results; absence from search is not proof of absence from repository.
+Previous historical factory SHA-256 `3E4A66308FDF69BEEC2A1DE3309C68A14F8AD285787CD63EAF56A0FB237B7C42` remains **unverified** against original bytes. Exact S20 writer/serializer call **unresolved**; 0/84000 verified `day+tick -> symbol -> outcome` joins. No runtime tests or patches. Next: navigate canonical remote path via authenticated folder hierarchy / recover preserved ZIP, hash raw S20 ledger and factory source, trace exact CSV write call by static analysis, then join only with explicit symbol and realized market source.
+`PAPER_ONLY`; `FTMO_BLOCKED`; `REAL_ORDERS=0`.
