@@ -1,6 +1,6 @@
-import csv, hashlib, json
+import csv, hashlib, json, math
 from pathlib import Path
-from datetime import datetime, UTC
+from datetime import datetime, UTC, timedelta
 from mind_trader.app.backtest.market_core import ingest_ohlcv_csv
 
 ALIASES = {
@@ -39,6 +39,19 @@ def map_columns(headers):
         raise ValueError(f"COLUNAS_OBRIGATORIAS_AUSENTES:{missing}")
     return mapped
 
+def parse_utc_timestamp(value):
+    """Accept explicit UTC ISO-8601 timestamps; reject naive or non-UTC offsets."""
+    raw = str(value).strip()
+    if not raw:
+        raise ValueError("TIMESTAMP_EMPTY")
+    try:
+        dt = datetime.fromisoformat(raw.replace("Z", "+00:00"))
+    except ValueError as exc:
+        raise ValueError("TIMESTAMP_INVALID") from exc
+    if dt.tzinfo is None or dt.utcoffset() != timedelta(0):
+        raise ValueError("TIMESTAMP_NOT_UTC")
+    return dt.astimezone(UTC)
+
 def normalize_csv(input_path, output_path):
     delim=detect_delimiter(input_path)
     Path(output_path).parent.mkdir(parents=True,exist_ok=True)
@@ -50,7 +63,7 @@ def normalize_csv(input_path, output_path):
         rows=0
         for x in r:
             w.writerow({
-                "ts": str(x[mp["ts"]]).strip(),
+                "ts": parse_utc_timestamp(x[mp["ts"]]).isoformat(),
                 "open": float(str(x[mp["open"]]).replace(",",".")),
                 "high": float(str(x[mp["high"]]).replace(",",".")),
                 "low": float(str(x[mp["low"]]).replace(",",".")),
@@ -61,24 +74,32 @@ def normalize_csv(input_path, output_path):
     return {"normalized_path":str(output_path),"rows":rows,"checksum":checksum(input_path)}
 
 def quality_report(normalized_csv_path, min_rows=90):
-    seen=set(); duplicates=0; bad_ohlc=0; rows=[]; prev=None; gaps=0
+    seen=set(); duplicates=0; bad_ohlc=0; rows=0; prev=None; ordering_issues=0; invalid_timestamps=0
     with open(normalized_csv_path,"r",encoding="utf-8",newline="") as f:
         r=csv.DictReader(f)
         for x in r:
-            ts=x["ts"]
-            o,h,l,c=map(float,[x["open"],x["high"],x["low"],x["close"]])
-            if ts in seen: duplicates+=1
-            seen.add(ts)
-            if h < max(o,c) or l > min(o,c): bad_ohlc+=1
-            if prev and ts <= prev: gaps+=1
-            prev=ts
-            rows.append(x)
-    passed = len(rows) >= min_rows and duplicates == 0 and bad_ohlc == 0
+            rows += 1
+            try:
+                ts=parse_utc_timestamp(x["ts"])
+                if ts in seen: duplicates += 1
+                seen.add(ts)
+                if prev is not None and ts <= prev: ordering_issues += 1
+                prev=ts
+            except (ValueError, TypeError, KeyError):
+                invalid_timestamps += 1
+            try:
+                o,h,l,c=map(float,[x["open"],x["high"],x["low"],x["close"]])
+                if not all(map(math.isfinite,(o,h,l,c))) or l > h or h < max(o,c,l) or l > min(o,c,h):
+                    bad_ohlc += 1
+            except (ValueError, TypeError, KeyError):
+                bad_ohlc += 1
+    passed = rows >= min_rows and duplicates == 0 and bad_ohlc == 0 and ordering_issues == 0 and invalid_timestamps == 0
     return {
-        "rows":len(rows),
+        "rows":rows,
         "duplicates":duplicates,
         "bad_ohlc":bad_ohlc,
-        "ordering_issues":gaps,
+        "ordering_issues":ordering_issues,
+        "invalid_timestamps":invalid_timestamps,
         "min_rows":min_rows,
         "quality_passed":passed,
         "decision":"ALLOW_BACKTEST" if passed else "BLOCK_BACKTEST"
