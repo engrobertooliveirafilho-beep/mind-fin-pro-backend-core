@@ -1,0 +1,54 @@
+{
+  "checks": {
+    "all_days_completed": true,
+    "broker_connection_zero": true,
+    "failure_injections_positive": false,
+    "failure_recoveries_match": true,
+    "holiday_days_positive": true,
+    "live_real_forbidden": true,
+    "network_violations_zero": true,
+    "order_api_invocations_zero": true,
+    "synthetic_orders_positive": true,
+    "ticks_positive": true,
+    "weekend_days_positive": true
+  },
+  "error": {
+    "message": "",
+    "traceback": "",
+    "type": ""
+  },
+  "ftmo_model": "2STEP",
+  "run_id": "20260806_145222",
+  "safety": {
+    "broker_connection": false,
+    "live_real": "FORBIDDEN",
+    "network_access": false,
+    "order_execution": false,
+    "runtime_loop_started": false,
+    "runtime_started": false,
+    "source_write": false,
+    "subprocess_started": false,
+    "threads_started": false,
+    "violation_details": [],
+    "violations": 0
+  },
+  "status": "EXTENDED_FTMO_SHADOW_AND_MULTI_DAY_REPLAY_FAIL",
+  "summary": {
+    "checkpoint_count": 12,
+    "closing_balance": "309181.75",
+    "failure_injections": 0,
+    "failure_recoveries": 0,
+    "holiday_days": 2,
+    "maximum_daily_loss_breaches": 0,
+    "maximum_loss_breaches": 0,
+    "minimum_days_passes": 39,
+    "order_api_invocations": 0,
+    "peak_midnight_balance": "304687.93",
+    "profit_target_hits": 39,
+    "simulated_days": 60,
+    "synthetic_orders": 413,
+    "total_ticks": 84000,
+    "trading_days": 42,
+    "weekend_days": 16
+  }
+}
