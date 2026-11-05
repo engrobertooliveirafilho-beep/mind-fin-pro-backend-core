@@ -1,0 +1,16 @@
+ET-638 | 2026-11-05 | ISOLATED AUDIT
+Source test commit: c99fc867dfb67535ce786fa497fad613ced50a0c
+Command: python -m unittest discover -v -s /mnt/data/et638 -p test_et637_artifact_gates.py
+RESULT: 5 tests, 5 PASS, 0 FAIL
+- test_original_metadata_consistency PASS
+- test_reject_inconsistent_trade_count PASS
+- test_reject_loosened_daily_loss PASS
+- test_reject_optimistic_reclassification_of_breakeven PASS
+- test_reject_real_orders PASS
+Drive originals independently downloaded, bytes and SHA256 checked:
+ftmo_pretest_policy.json | 389 | c8ca8cbc22b9dc540aadd2a6e6c68d20ef7728015fdec709b4f09e1053400521
+institutional_loss_report.json | 632 | b84e61c209f8ac434fed1f0e52050dc415e0742e81248f9659238d3f06dce01f
+institutional_win_report.json | 606 | 5d0bfca753380ed5f060a932bb02ca89b6e6583f5f9ccb2ef50b80398184601a
+Additional direct-source metadata gate: PASS (881=539+342; PAPER_ONLY; REAL_ORDERS FORBIDDEN).
+Scope: isolated test module fetched from GitHub and run in Python environment; no full repository checkout, no production engine invocation, no integration test, no FTMO certification.
+DECISION: METADATA AUDIT PASS; ENGINE INTEGRATION BLOCKED pending original executors, CSVs, and compatibility tests. MAIN UNCHANGED.
