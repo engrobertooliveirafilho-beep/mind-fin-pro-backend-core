@@ -1,0 +1,8 @@
+# ET-657 — New Drive evidence, authority gaps (2026-11-05)
+## Authenticated Drive discoveries
+1. `S21_R13_R2B_TRANSCRIPT.txt`, Drive ID `1ZsgLYe3qkIKUdKzmfUOLHwM6gY9n2LuI`, historical run `20260807_184524`, source canonical remote `gdrive:ELDORA_TRADER_EXCLUSIVE_REPOSITORY`. Source transcript reports `DATASET BUILDER CONTRACT VISIBLE=True`, `CONTRACT EVIDENCE FILES=48`, `GAP CLASSIFICATION=DATASET_BUILDER_REFERENCED_BUT_SYMBOL_UNIVERSE_NOT_RECOVERED`, `FEATURE STORE MANIFEST AUTHORITY=False`, `DECISION-KEY SYMBOL AUTHORITY=False`, `DECISION SYMBOL MAP BUILT=False`, `REALIZED_OUTCOME LEDGER=NOT BUILT`. Next historical work item S21-R13-R2C recover/rebuild canonical feature store manifest from certified R12 bridge, without bulk data copy.
+2. `cat_evidence_0002290.stdout.txt`, Drive ID `1EcVAJ2PtpqS-K-CZeheu_AqOfFT37D7H`, P8.83 historical robustness committee evidence for genome g1. P8.81 walk-forward 3 windows passed RESEARCH_ONLY; P8.82 Monte Carlo 200 runs/80 trades passed RESEARCH_ONLY; P8.80 anti-overfitting passed RESEARCH_ONLY; overall `ROBUSTNESS_PASS_PAPER_CANDIDATE` with `production=BLOCKED`, `live=FORBIDDEN`, `edge_claim=NONE`.
+## Integration / deduplication
+These are **historical evidence and authority contracts**, not new execution motors. Do not create duplicates of P8.80/P8.81/P8.82/P8.83 or promote g1. Require original implementation and canonical source/hash reconciliation before integration. Feature store and decision/outcome joins remain blocked; isolated PAPER V2–V7 remains separate.
+## Certification
+Historical artifact read and classified; **no new runtime execution** in ET-657. GitHub exact-branch tests, canonical OOS, data authority and FTMO certification remain unverified. `PAPER_ONLY`; `REAL_ORDERS=0`; `FTMO_BLOCKED`.
