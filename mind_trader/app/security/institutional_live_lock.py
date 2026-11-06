@@ -27,7 +27,7 @@ def institutional_live_lock(action, payload=None):
     blocked = not known_research
     decision = (
         "FORCE_BLOCK_LIVE_OR_PRODUCTION"
-        if action in FORBIDDEN_ACTIONS
+        if isinstance(action, str) and action in FORBIDDEN_ACTIONS
         else "BLOCK_UNKNOWN_ACTION"
         if blocked
         else "ALLOW_NON_LIVE_RESEARCH_ACTION"
