@@ -1,0 +1,76 @@
+"""ET665.MB: one-shot, offline Phase B evidence runner. Never grants trading authorization."""
+import hashlib
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+import zipfile
+from datetime import datetime, timezone
+from xml.etree import ElementTree as ET
+
+ROOT = Path(__file__).resolve().parents[2]
+TESTS = [
+    "mind_trader/tests/test_et665_cm2_residual_guards.py",
+    "mind_trader/tests/test_et665_cm5_mt5_fail_closed.py",
+    "mind_trader/tests/test_et665_cm6_evidence_stager.py",
+    "mind_trader/tests/test_et665_cm7_p15_offline_exports.py",
+    "mind_trader/tests/test_et665_cm7_stager_integration.py",
+]
+REQUIRED = 42
+
+def sha(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+def main():
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--output", required=True)
+    args = parser.parse_args()
+    out = Path(args.output).resolve()
+    if out.exists():
+        raise SystemExit("ET665_MB_NO_OVERWRITE")
+    out.mkdir(parents=True)
+    env = os.environ.copy()
+    env.update(PYTEST_DISABLE_PLUGIN_AUTOLOAD="1", PYTHONDONTWRITEBYTECODE="1", PYTHONPATH=str(ROOT))
+    command = [sys.executable, "-m", "pytest", "-q", *TESTS, "--junitxml=" + str(out / "junit.xml")]
+    result = subprocess.run(command, cwd=ROOT, env=env, capture_output=True, text=True, timeout=180)
+    (out / "execution.log").write_text(result.stdout + "\n" + result.stderr, encoding="utf-8")
+    counts = {"tests": 0, "failures": 0, "errors": 0, "skipped": 0}
+    junit = out / "junit.xml"
+    if junit.exists():
+        tree = ET.parse(junit)
+        suites = [tree.getroot()] if tree.getroot().tag == "testsuite" else tree.getroot().findall("testsuite")
+        for suite in suites:
+            for key in counts:
+                counts[key] += int(suite.get(key, 0))
+    focused = result.returncode == 0 and counts == dict(tests=REQUIRED, failures=0, errors=0, skipped=0)
+    # Deliberately fail-closed: focused tests do not establish integrated runtime,
+    # comprehensive security review, or formal authorization.
+    gates = {
+        "focused_regressions": "PASS" if focused else "BLOCKED",
+        "p15_synthetic_end_to_end": "NOT_CERTIFIED",
+        "complete_residual_inventory": "NOT_CERTIFIED",
+        "independent_security_approval": "NOT_CERTIFIED",
+        "governed_github_publication": "NOT_CERTIFIED",
+    }
+    evidence = {
+        "mission": "ET665.MB", "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+        "test_counts": counts, "pytest_exit_code": result.returncode,
+        "gates": gates, "phase_b": "BLOCKED",
+        "real_orders": "FORBIDDEN", "ftmo_real": "FORBIDDEN",
+        "evidence_sha256": {p.name: sha(p) for p in (out / "execution.log", junit) if p.exists()},
+    }
+    (out / "decision.json").write_text(json.dumps(evidence, indent=2) + "\n", encoding="utf-8")
+    archive = out.parent / (out.name + ".zip")
+    if archive.exists():
+        raise SystemExit("ET665_MB_ZIP_NO_OVERWRITE")
+    with zipfile.ZipFile(archive, "x", compression=zipfile.ZIP_DEFLATED) as z:
+        for p in sorted(out.iterdir()):
+            z.write(p, arcname=p.name)
+    print(json.dumps({"phase_b": "BLOCKED", "focused": gates["focused_regressions"],
+                      "tests": counts, "zip": str(archive), "zip_sha256": sha(archive)}))
+    return 0 if focused else 1
+
+if __name__ == "__main__":
+    raise SystemExit(main())
