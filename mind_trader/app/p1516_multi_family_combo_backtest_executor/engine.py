@@ -201,7 +201,8 @@ def run():
     (out/"combo_backtest_results.json").write_text(json.dumps(results,indent=2,ensure_ascii=False),encoding="utf-8")
     (out/"combo_promoted_edges.json").write_text(json.dumps(promoted,indent=2,ensure_ascii=False),encoding="utf-8")
     (out/"P15.16_manifest.json").write_text(json.dumps(manifest,indent=2,ensure_ascii=False),encoding="utf-8")
-    cmd(f'rclone copy "{out}" "{REMOTE_REPORTS}" --progress')
+    from mind_trader.security.et665_cm6_evidence_stager import stage_engine_report
+    stage_engine_report(out, "p1516")  # Offline only; GitHub publication requires review.
     safe_cleanup()
     return manifest
 
