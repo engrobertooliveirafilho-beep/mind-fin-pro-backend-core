@@ -36,6 +36,6 @@ def test_mt5_function_blocked_before_connection(path, function):
 @pytest.mark.parametrize("path", TOP_LEVEL_GUARDS)
 def test_mt5_top_level_blocked_before_import(path):
     tree = ast.parse((ROOT / path).read_text(encoding="utf-8"))
-    imports = [i for i, n in enumerate(tree.body) if isinstance(n, (ast.Import, ast.ImportFrom)) and any(a.name == "MetaTrader5" for a in n.names)]
-    guards = [i for i, n in enumerate(tree.body) if _guarded(n)]
-    assert imports and guards and guards[0] < imports[0]
+    imports = [n for n in ast.walk(tree) if isinstance(n, (ast.Import, ast.ImportFrom)) and any(a.name == "MetaTrader5" for a in n.names)]
+    guards = [n for n in tree.body if _guarded(n)]
+    assert imports and guards and guards[0].lineno < min(n.lineno for n in imports)
