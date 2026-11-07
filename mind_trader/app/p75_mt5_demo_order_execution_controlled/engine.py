@@ -47,9 +47,10 @@ def execute_demo_order_controlled(order=None, account_mode="DEMO", manual_confir
         "demo_check":demo,
         "governor_decision":gov["decision"],
         "order":order,
-        "sent_to_mt5_demo":allowed,
-        "execution_status":"DEMO_ORDER_SENT" if allowed else "BLOCKED_CONTROLLED_MODE",
-        "reason":"Requires EXECUTION_ARMED=True, manual_confirmation=True, DEMO account, governor approval, lot<=0.01",
+        "permission_granted":allowed,
+        "sent_to_mt5_demo":False,
+        "execution_status":"DEMO_PERMISSION_ONLY_NOT_SENT" if allowed else "BLOCKED_CONTROLLED_MODE",
+        "reason":"Permission evaluation only; no MT5 transport is implemented in P75",
         **BLOCKS,
         "generated_at":datetime.now(UTC).isoformat()
     }
