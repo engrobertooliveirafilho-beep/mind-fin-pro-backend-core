@@ -15,10 +15,13 @@ def simulate_fill(order, spread=0.0, slippage=0.0, commission=0.0):
     entry, stop, target = values[:3]
     if entry <= 0 or stop <= 0 or target <= 0 or spread < 0 or slippage < 0 or commission < 0:
         return rejected
+    execution_cost = spread / 2 + slippage
+    if not math.isfinite(execution_cost) or execution_cost >= entry:
+        return rejected
     if side == "BUY":
-        fill_price = entry + spread / 2 + slippage
+        fill_price = entry + execution_cost
     else:
-        fill_price = entry - spread / 2 - slippage
+        fill_price = entry - execution_cost
     if not math.isfinite(fill_price) or fill_price <= 0:
         return rejected
     return {
