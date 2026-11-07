@@ -161,7 +161,8 @@ def run():
     (out/"correlations_cloud.json").write_text(json.dumps(correlations,indent=2,ensure_ascii=False),encoding="utf-8")
     (out/"institutional_certification_cloud_fix.json").write_text(json.dumps(report,indent=2,ensure_ascii=False),encoding="utf-8")
 
-    cmd(f'rclone copy "{out}" "{REMOTE_REPORTS}" --progress')
+    from mind_trader.security.et665_cm6_evidence_stager import stage_engine_report
+    stage_engine_report(out, "p1525b")  # Offline only; GitHub publication requires review.
     safe_cleanup()
     return report
 
