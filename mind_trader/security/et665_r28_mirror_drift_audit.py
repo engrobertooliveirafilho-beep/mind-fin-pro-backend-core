@@ -73,6 +73,6 @@ def main():
     target.write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print("MIRROR_DRIFT_SHA256="+hashlib.sha256(target.read_bytes()).hexdigest())
     print(json.dumps({k:v for k,v in report.items() if k!="pairs"},ensure_ascii=False))
-    for row in (x for x in pairs if x["sensitive_drift_candidate"]):
+    for row in [x for x in pairs if x["sensitive_drift_candidate"]][:60]:
         print("DRIFT | "+row["canonical"]+" | "+row["mirror"]+" | "+",".join(row["mirror_analysis"]["tokens"]))
 if __name__=="__main__":main()
