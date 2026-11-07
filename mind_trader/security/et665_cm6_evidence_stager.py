@@ -18,9 +18,13 @@ def _inside(child, parent):
     return child != parent and parent in child.parents
 
 def stage_evidence(source, destination):
-    source = Path(source).resolve(strict=True)
-    destination = Path(destination).resolve()
-    if not source.is_dir() or source.is_symlink():
+    source_input = Path(source)
+    destination_input = Path(destination)
+    if source_input.is_symlink() or destination_input.is_symlink():
+        raise PermissionError("ET665_SYMLINK_ROOT_FORBIDDEN")
+    source = source_input.resolve(strict=True)
+    destination = destination_input.resolve()
+    if not source.is_dir():
         raise PermissionError("ET665_SOURCE_MUST_BE_DIRECTORY")
     if not destination.is_absolute() or not _inside(destination, Path(os.environ.get("TEMP", os.environ.get("TMP", "/tmp"))).resolve()):
         raise PermissionError("ET665_DESTINATION_MUST_BE_TEMP_SUBDIRECTORY")
@@ -28,10 +32,13 @@ def stage_evidence(source, destination):
         raise PermissionError("ET665_SOURCE_DESTINATION_OVERLAP")
     if destination.exists():
         raise FileExistsError("ET665_NO_OVERWRITE")
+    if any(parent.is_symlink() for parent in destination_input.parents):
+        raise PermissionError("ET665_SYMLINK_DESTINATION_PARENT")
     paths = sorted(source.iterdir(), key=lambda p: p.name)
     if not paths or len(paths) > MAX_FILES:
         raise ValueError("ET665_INVALID_FILE_COUNT")
     manifest = []
+    snapshots = {}
     for p in paths:
         if p.is_symlink() or not p.is_file() or p.name.lower() in FORBIDDEN_NAMES or p.suffix.lower() not in ALLOWED_SUFFIXES:
             raise PermissionError("ET665_UNAPPROVED_FILE")
@@ -40,14 +47,14 @@ def stage_evidence(source, destination):
         data = p.read_bytes()
         if b"-----BEGIN PRIVATE KEY-----" in data or b"ghp_" in data or b"github_pat_" in data:
             raise PermissionError("ET665_SECRET_MARKER_DETECTED")
+        snapshots[p.name] = data
         manifest.append({"file": p.name, "bytes": len(data), "sha256": hashlib.sha256(data).hexdigest()})
     destination.mkdir(parents=True, exist_ok=False)
     try:
         for item in manifest:
-            src = source / item["file"]
             dst = destination / item["file"]
-            with src.open("rb") as reader, dst.open("xb") as writer:
-                shutil.copyfileobj(reader, writer)
+            with dst.open("xb") as writer:
+                writer.write(snapshots[item["file"]])
             if hashlib.sha256(dst.read_bytes()).hexdigest() != item["sha256"]:
                 raise IOError("ET665_STAGING_HASH_MISMATCH")
         (destination / "manifest.sha256.json").write_text(
