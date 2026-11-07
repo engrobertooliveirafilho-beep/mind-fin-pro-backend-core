@@ -58,3 +58,14 @@ def stage_evidence(source, destination):
         shutil.rmtree(destination)
         raise
     return destination / "manifest.sha256.json"
+
+
+def stage_engine_report(source, engine_id):
+    """Stage one P15 report locally; no GitHub/Drive publication."""
+    import re
+    import uuid
+    if not re.fullmatch(r"p15[a-z0-9_]{1,48}", engine_id):
+        raise PermissionError("ET665_INVALID_ENGINE_ID")
+    temp_root = Path(os.environ.get("TEMP", os.environ.get("TMP", "/tmp"))).resolve()
+    destination = temp_root / "et665_cm6_exports" / (engine_id + "_" + uuid.uuid4().hex)
+    return stage_evidence(source, destination)
