@@ -1,4 +1,4 @@
-import json, random
+import json, random, math
 from pathlib import Path
 from datetime import datetime, UTC
 
@@ -60,17 +60,15 @@ def p70_ftmo_rule_engine(balance=100000,equity=100000,daily_pnl=0,total_pnl=0,tr
 def p71_pre_trade_governor(account_state, proposed_risk_pct=0.001, account_mode="DEMO"):
     bridge=p69_mt5_demo_bridge(account_mode)
     rules=p70_ftmo_rule_engine(**account_state)
-    allow=(
-        bridge["demo_validated"] and
+    risk_valid = (isinstance(proposed_risk_pct, (int, float)) and not isinstance(proposed_risk_pct, bool)\n                  and math.isfinite(proposed_risk_pct) and 0 < proposed_risk_pct <= FTMO_RULES["max_risk_per_trade_pct"])\n    allow=(\n        risk_valid and\n        bridge["demo_validated"] and
         rules["daily_loss_pass"] and
         rules["total_loss_pass"] and
-        proposed_risk_pct <= FTMO_RULES["max_risk_per_trade_pct"]
-    )
+        risk_valid\n    )
     reasons=[]
     if not bridge["demo_validated"]: reasons.append("ACCOUNT_NOT_DEMO")
     if not rules["daily_loss_pass"]: reasons.append("DAILY_LOSS_GUARD")
     if not rules["total_loss_pass"]: reasons.append("TOTAL_LOSS_GUARD")
-    if proposed_risk_pct > FTMO_RULES["max_risk_per_trade_pct"]: reasons.append("RISK_PER_TRADE_TOO_HIGH")
+    if not risk_valid: reasons.append("RISK_PER_TRADE_INVALID_OR_EXCESSIVE")
     return {
         "module":"P71_PRE_TRADE_FTMO_GOVERNOR",
         "decision":"ALLOW_DEMO_TRADE" if allow else "BLOCK_TRADE",
