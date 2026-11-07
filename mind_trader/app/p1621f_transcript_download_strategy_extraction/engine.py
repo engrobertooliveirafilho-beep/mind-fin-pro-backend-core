@@ -11,6 +11,7 @@ def load():
     return json.loads(INP.read_text(encoding="utf-8")) if INP.exists() else []
 
 def fetch_subtitles(video_url):
+    raise RuntimeError("ET665_BR_EXTERNAL_EXECUTION_DISABLED_PENDING_SECURITY_REVIEW")
     if not video_url:
         return {"status":"NO_URL","text":""}
     try:
