@@ -37,3 +37,10 @@ def test_valid_simulation_remains_paper_only(side):
     assert result["decision"]=="FILL_SIMULATED"
     assert result["production"]=="BLOCKED"
     assert result["live"]=="FORBIDDEN"
+
+@pytest.mark.parametrize("side", ["BUY", "SELL"])
+def test_aggregate_execution_cost_at_or_above_entry_is_rejected(side):
+    assert simulate_fill({**ORDER, "side": side}, spread=200.0)["filled"] is False
+
+def test_finite_but_excessive_buy_execution_cost_is_rejected():
+    assert simulate_fill(ORDER, spread=100.0, slippage=60.0)["filled"] is False
