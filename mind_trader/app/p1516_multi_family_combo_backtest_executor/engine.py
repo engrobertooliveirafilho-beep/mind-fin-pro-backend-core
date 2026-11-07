@@ -12,7 +12,12 @@ MAX_QUEUE=120
 MIN_BARS=120
 
 def cmd(c):
-    return subprocess.run(c,shell=True,capture_output=True,text=True)
+    # ET665.CM.2: allow read-only rclone with argv; prohibit historic Drive writes.
+    import shlex
+    args = shlex.split(c)
+    if len(args) < 4 or args[:2] != ["rclone", "copy"] or not args[2].startswith("gdrive:") or any(a.startswith("gdrive:") for a in args[3:]):
+        raise PermissionError("ET665_DRIVE_HISTORICAL_WRITE_FORBIDDEN")
+    return subprocess.run(args, shell=False, capture_output=True, text=True, check=True)
 
 def f(v):
     try: return float(v)
@@ -135,8 +140,16 @@ def build_combos(queue):
             jobs.append((asset,tf,dataset,list(combo),"combo_3"))
     return jobs
 
+def safe_cleanup():
+    # Only the expected per-engine scratch folder can be removed.
+    expected = Path(os.environ.get("TEMP", ".")).resolve()
+    if TMP.resolve() != expected / "mind_p1516_combo_runtime" or TMP.resolve() == Path.cwd().resolve():
+        raise PermissionError("ET665_UNSAFE_TEMP_PATH")
+    if TMP.exists():
+        shutil.rmtree(TMP)
+
 def run():
-    if TMP.exists(): shutil.rmtree(TMP,ignore_errors=True)
+    if TMP.exists(): safe_cleanup()
     DATA.mkdir(parents=True,exist_ok=True)
     cmd(f'rclone copy "{REMOTE_NORM}" "{DATA}" --progress')
 
@@ -189,7 +202,7 @@ def run():
     (out/"combo_promoted_edges.json").write_text(json.dumps(promoted,indent=2,ensure_ascii=False),encoding="utf-8")
     (out/"P15.16_manifest.json").write_text(json.dumps(manifest,indent=2,ensure_ascii=False),encoding="utf-8")
     cmd(f'rclone copy "{out}" "{REMOTE_REPORTS}" --progress')
-    shutil.rmtree(TMP,ignore_errors=True)
+    safe_cleanup()
     return manifest
 
 if __name__=="__main__":
