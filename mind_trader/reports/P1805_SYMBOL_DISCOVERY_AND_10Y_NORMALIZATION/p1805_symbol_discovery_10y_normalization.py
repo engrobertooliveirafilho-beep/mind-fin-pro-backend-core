@@ -66,6 +66,8 @@ for f in PROBE.glob("MT5_PROBE_*.csv"):
 
 symbol_discovery = []
 
+raise PermissionError("ET665_MT5_UNCERTIFIED_ENTRYPOINT_BLOCKED")
+
 try:
     import MetaTrader5 as mt5
     if mt5.initialize():
