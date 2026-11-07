@@ -61,11 +61,22 @@ def main():
         except (ET.ParseError, ValueError):
             return_code = 125
     focused = return_code == 0 and counts == dict(tests=REQUIRED, failures=0, errors=0, skipped=0)
+    # Per-case JUnit proof: a suite-wide PASS cannot hide missing P15 cases.
+    case_names = set()
+    if junit.exists() and return_code == 0:
+        for testcase in tree.getroot().iter("testcase"):
+            case_names.add(testcase.get("name", ""))
+    required_engines = ("p1516", "p1525b", "p153_p155", "p156_p1510")
+    integrated = focused and all(
+        any(name.startswith("test_full_engine_offline_with_synthetic_dataset[") and engine in name for name in case_names)
+        and any(name.startswith("test_drive_write_is_blocked_by_real_command_guard[") and engine in name for name in case_names)
+        for engine in required_engines
+    )
     # Deliberately fail-closed: focused tests do not establish integrated runtime,
     # comprehensive security review, or formal authorization.
     gates = {
         "focused_regressions": "PASS" if focused else "BLOCKED",
-        "p15_synthetic_end_to_end": "PASS_SYNTHETIC" if focused else "BLOCKED",
+        "p15_synthetic_end_to_end": "PASS_SYNTHETIC" if integrated else "BLOCKED",
         "complete_residual_inventory": "NOT_CERTIFIED",
         "independent_security_approval": "NOT_CERTIFIED",
         "governed_github_publication": "NOT_CERTIFIED",
@@ -73,6 +84,8 @@ def main():
     evidence = {
         "mission": "ET665.MB", "timestamp_utc": datetime.now(timezone.utc).isoformat(),
         "test_counts": counts, "pytest_exit_code": return_code,
+        "required_p15_engine_ids": list(required_engines),
+        "p15_integration_and_write_guard_confirmed": integrated,
         "gates": gates, "phase_b": "BLOCKED",
         "real_orders": "FORBIDDEN", "ftmo_real": "FORBIDDEN",
         "evidence_sha256": {p.name: sha(p) for p in (out / "execution.log", junit) if p.exists()},
@@ -83,7 +96,7 @@ def main():
             z.write(p, arcname=p.name)
     print(json.dumps({"phase_b": "BLOCKED", "focused": gates["focused_regressions"],
                       "tests": counts, "zip": str(archive), "zip_sha256": sha(archive)}))
-    return 0 if focused else 1
+    return 0 if focused and integrated else 1
 
 if __name__ == "__main__":
     raise SystemExit(main())
