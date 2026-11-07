@@ -11,6 +11,7 @@ def load_sources():
     return json.loads(SOURCES.read_text(encoding="utf-8")) if SOURCES.exists() else []
 
 def fetch_metadata(url, limit=5):
+    raise PermissionError("ET665_R29_MIRRORED_EXTERNAL_CAPABILITY_FORBIDDEN")
     cmd=["yt-dlp","--flat-playlist","--dump-json",f"--playlist-end={limit}",url]
     p=subprocess.run(cmd,capture_output=True,text=True,timeout=120)
     rows=[]
