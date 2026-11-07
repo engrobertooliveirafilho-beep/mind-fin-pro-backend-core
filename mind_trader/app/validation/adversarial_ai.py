@@ -14,6 +14,14 @@ def _invalid_context(trade, regime_report, genome):
     atr = regime_report.get("normalized_atr", 0)
     if isinstance(atr, bool) or not isinstance(atr, (int, float)) or not math.isfinite(atr):
         return True
+    if "entry" in trade and "stop" in trade and "target" in trade:
+        if not math.isfinite(trade["target"] - trade["entry"]) or not math.isfinite(trade["entry"] - trade["stop"]):
+            return True
+    if "open_risk" in trade and "risk_amount" in trade:
+        if not math.isfinite(trade["open_risk"] + trade["risk_amount"]):
+            return True
+    if "risk_amount" in trade and not math.isfinite(trade["risk_amount"] * 1.25):
+        return True
     return False
 
 
