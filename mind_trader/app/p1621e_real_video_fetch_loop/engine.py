@@ -11,6 +11,7 @@ def load_sources():
     return json.loads(SOURCES.read_text(encoding="utf-8")) if SOURCES.exists() else []
 
 def fetch_metadata(url, limit=5):
+    raise RuntimeError("ET665_BR_EXTERNAL_EXECUTION_DISABLED_PENDING_SECURITY_REVIEW")
     cmd=["yt-dlp","--flat-playlist","--dump-json",f"--playlist-end={limit}",url]
     p=subprocess.run(cmd,capture_output=True,text=True,timeout=120)
     rows=[]
