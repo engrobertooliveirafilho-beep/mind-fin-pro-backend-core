@@ -3,7 +3,7 @@ import ast
 import subprocess
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[3]
 TARGETS = (
     ("products/eldora_trader/mind_trader/reports/P78_DEMO_ORDER_SEND_SINGLE_CONTROLLED/p78_demo_order_send.py", "run"),
     ("products/eldora_trader/mind_trader/reports/P77_DEMO_ORDER_CHECK_ONLY/p77_order_check_only.py", "run"),
