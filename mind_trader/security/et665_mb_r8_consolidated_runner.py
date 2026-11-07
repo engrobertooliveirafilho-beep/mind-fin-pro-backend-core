@@ -25,8 +25,9 @@ TESTS = [
     "mind_trader/tests/security_review/test_et665_mb_r7_ftmo_cost_constraints.py",
     "mind_trader/tests/security_review/test_et665_mb_r9_adversarial_context_failclosed.py",
     "mind_trader/tests/security_review/test_et665_mb_r11_ftmo_audit_failclosed.py",
+    "mind_trader/tests/security_review/test_et665_mb_r18_demo_risk_governor.py",
 ]
-REQUIRED = 253
+REQUIRED = 264
 
 def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
