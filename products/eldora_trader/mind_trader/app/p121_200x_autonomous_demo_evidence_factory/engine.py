@@ -7,6 +7,7 @@ OUT=Path("reports/P121_200X_AUTONOMOUS_DEMO_EVIDENCE_FACTORY")
 BLOCKS={"LIVE":"FORBIDDEN","REAL_BROKER":"DISABLED","REAL_ORDERS":"FORBIDDEN","FTMO_REAL":"FORBIDDEN","MT5_REAL":"FORBIDDEN"}
 
 def snapshot():
+    raise PermissionError("ET665_R29_MIRRORED_EXTERNAL_CAPABILITY_FORBIDDEN")
     mt5.initialize()
     account=mt5.account_info()._asdict() if mt5.account_info() else {}
     terminal=mt5.terminal_info()._asdict() if mt5.terminal_info() else {}
