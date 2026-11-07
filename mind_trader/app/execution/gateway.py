@@ -52,6 +52,23 @@ class ExecutionGateway:
                 return write_execution_ledger({"mode":mode,"decision":"BLOCKED_INVALID_ORDER_FIELDS","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
             if trade_dict["risk_amount"]<=0:
                 return write_execution_ledger({"mode":mode,"decision":"BLOCKED_INVALID_ORDER_FIELDS","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
+            optional_numeric=("stop","open_risk","daily_pnl","total_pnl")
+            for field in optional_numeric:
+                if field not in trade_dict or (field=="stop" and trade_dict[field] is None):
+                    continue
+                value=trade_dict[field]
+                if isinstance(value,bool) or not isinstance(value,(int,float)) or not math.isfinite(value):
+                    return write_execution_ledger({"mode":mode,"decision":"BLOCKED_INVALID_ORDER_FIELDS","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
+            if "open_risk" in trade_dict and trade_dict["open_risk"]<0:
+                return write_execution_ledger({"mode":mode,"decision":"BLOCKED_INVALID_ORDER_FIELDS","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
+            for field in ("daily_trades","loss_streak"):
+                if field in trade_dict and (isinstance(trade_dict[field],bool) or not isinstance(trade_dict[field],int) or trade_dict[field]<0):
+                    return write_execution_ledger({"mode":mode,"decision":"BLOCKED_INVALID_ORDER_FIELDS","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
+            for field in ("session_allowed","news_blocked"):
+                if field in trade_dict and not isinstance(trade_dict[field],bool):
+                    return write_execution_ledger({"mode":mode,"decision":"BLOCKED_INVALID_ORDER_FIELDS","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
+            if "side" in trade_dict and (not isinstance(trade_dict["side"],str) or trade_dict["side"] not in ("BUY","SELL")):
+                return write_execution_ledger({"mode":mode,"decision":"BLOCKED_INVALID_ORDER_FIELDS","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
         if mode in LIVE_MODE_TO_ACTION:
             lock=institutional_live_lock(LIVE_MODE_TO_ACTION[mode],{"mode":mode,"trade":trade_dict})
             return write_execution_ledger({"mode":mode,"decision":lock["decision"],"live_lock":lock,"production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
