@@ -18,7 +18,7 @@ TESTS = [
     "mind_trader/tests/test_et665_cm7_stager_integration.py",
     "mind_trader/tests/test_et665_mb_p15_synthetic_integration.py",
 ]
-REQUIRED = 46
+REQUIRED = 50
 
 def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -29,23 +29,38 @@ def main():
     parser.add_argument("--output", required=True)
     args = parser.parse_args()
     out = Path(args.output).resolve()
+    temp_root = Path(os.environ.get("TEMP", os.environ.get("TMP", "/tmp"))).resolve()
+    if temp_root not in out.parents:
+        raise SystemExit("ET665_MB_OUTPUT_MUST_BE_TEMP_SUBDIRECTORY")
+    archive = out.parent / (out.name + ".zip")
+    if archive.exists():
+        raise SystemExit("ET665_MB_ZIP_NO_OVERWRITE")
     if out.exists():
         raise SystemExit("ET665_MB_NO_OVERWRITE")
     out.mkdir(parents=True)
     env = os.environ.copy()
     env.update(PYTEST_DISABLE_PLUGIN_AUTOLOAD="1", PYTHONDONTWRITEBYTECODE="1", PYTHONPATH=str(ROOT))
     command = [sys.executable, "-m", "pytest", "-q", *TESTS, "--junitxml=" + str(out / "junit.xml")]
-    result = subprocess.run(command, cwd=ROOT, env=env, capture_output=True, text=True, timeout=180)
-    (out / "execution.log").write_text(result.stdout + "\n" + result.stderr, encoding="utf-8")
+    try:
+        result = subprocess.run(command, cwd=ROOT, env=env, capture_output=True, text=True, timeout=180)
+        output_text = result.stdout + "\n" + result.stderr
+        return_code = result.returncode
+    except subprocess.TimeoutExpired as exc:
+        output_text = "ET665_MB_TIMEOUT_180_SECONDS\\n"
+        return_code = 124
+    (out / "execution.log").write_text(output_text, encoding="utf-8")
     counts = {"tests": 0, "failures": 0, "errors": 0, "skipped": 0}
     junit = out / "junit.xml"
     if junit.exists():
-        tree = ET.parse(junit)
-        suites = [tree.getroot()] if tree.getroot().tag == "testsuite" else tree.getroot().findall("testsuite")
-        for suite in suites:
-            for key in counts:
-                counts[key] += int(suite.get(key, 0))
-    focused = result.returncode == 0 and counts == dict(tests=REQUIRED, failures=0, errors=0, skipped=0)
+        try:
+            tree = ET.parse(junit)
+            suites = [tree.getroot()] if tree.getroot().tag == "testsuite" else tree.getroot().findall("testsuite")
+            for suite in suites:
+                for key in counts:
+                    counts[key] += int(suite.get(key, 0))
+        except (ET.ParseError, ValueError):
+            return_code = 125
+    focused = return_code == 0 and counts == dict(tests=REQUIRED, failures=0, errors=0, skipped=0)
     # Deliberately fail-closed: focused tests do not establish integrated runtime,
     # comprehensive security review, or formal authorization.
     gates = {
@@ -57,15 +72,12 @@ def main():
     }
     evidence = {
         "mission": "ET665.MB", "timestamp_utc": datetime.now(timezone.utc).isoformat(),
-        "test_counts": counts, "pytest_exit_code": result.returncode,
+        "test_counts": counts, "pytest_exit_code": return_code,
         "gates": gates, "phase_b": "BLOCKED",
         "real_orders": "FORBIDDEN", "ftmo_real": "FORBIDDEN",
         "evidence_sha256": {p.name: sha(p) for p in (out / "execution.log", junit) if p.exists()},
     }
     (out / "decision.json").write_text(json.dumps(evidence, indent=2) + "\n", encoding="utf-8")
-    archive = out.parent / (out.name + ".zip")
-    if archive.exists():
-        raise SystemExit("ET665_MB_ZIP_NO_OVERWRITE")
     with zipfile.ZipFile(archive, "x", compression=zipfile.ZIP_DEFLATED) as z:
         for p in sorted(out.iterdir()):
             z.write(p, arcname=p.name)
