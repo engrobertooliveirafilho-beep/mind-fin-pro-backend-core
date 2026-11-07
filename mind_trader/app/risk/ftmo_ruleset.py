@@ -71,6 +71,12 @@ def validate_ftmo_config(config):
     invalid=[k for k in numeric_positive if config[k] <= 0]
     if invalid:
         return {"valid":False,"reason":"INVALID_NUMERIC_LIMITS","fields":invalid}
+    nonnegative_costs = ("commission", "spread", "slippage")
+    invalid_costs = [key for key in nonnegative_costs if config[key] < 0]
+    if invalid_costs:
+        return {"valid":False,"reason":"INVALID_TRADING_COSTS","fields":invalid_costs}
+    if config["max_position_size"] <= 0:
+        return {"valid":False,"reason":"INVALID_POSITION_SIZE"}
     if config["max_daily_loss"] > config["max_total_loss"]:
         return {"valid":False,"reason":"DAILY_LOSS_GT_TOTAL_LOSS"}
     if not config["allowed_symbols"]:
