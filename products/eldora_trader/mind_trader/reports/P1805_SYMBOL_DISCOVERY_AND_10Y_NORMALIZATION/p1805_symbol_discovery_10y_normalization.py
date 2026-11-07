@@ -1,3 +1,4 @@
+raise PermissionError("ET665_R29_MIRRORED_TOP_LEVEL_MT5_FORBIDDEN")
 import json
 import pandas as pd
 from pathlib import Path

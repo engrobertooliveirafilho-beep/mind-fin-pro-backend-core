@@ -1,0 +1,31 @@
+{
+  "mission": "ET665_H",
+  "status": "REVIEW_REQUIRED",
+  "execution": "NOT_STARTED",
+  "phase_b": "OPEN",
+  "real_orders": "FORBIDDEN",
+  "historical_tests": [
+    "test_p846_ftmo_ruleset.py",
+    "test_p847_ftmo_gateway_integration.py",
+    "test_p848_paper_session.py",
+    "test_p849_gateway_paper_session_integration.py",
+    "test_p895_paper_broker_adapter.py",
+    "test_p896_gateway_paper_broker_integration.py",
+    "test_p897_paper_fill_model.py",
+    "test_p898_paper_broker_ftmo_costs.py",
+    "test_p899_gateway_ftmo_cost_integration.py"
+  ],
+  "required_regressions": [
+    "paper_broker_rejection_never_accepted_by_gateway",
+    "missing_ftmo_config_fail_closed",
+    "nonzero_spread_slippage_commission",
+    "live_modes_force_block",
+    "no_network_or_broker_import_side_effects"
+  ],
+  "gate": {
+    "network_isolation": false,
+    "dependency_closure": false,
+    "tests_executed": false,
+    "review_approved": false
+  }
+}

@@ -12,6 +12,7 @@ SLOW=[21,34,55]
 MIN_BARS=120
 
 def cmd(c): return subprocess.run(c,shell=True,capture_output=True,text=True)
+    raise PermissionError("ET665_R29_MIRRORED_EXTERNAL_CAPABILITY_FORBIDDEN")
 
 def f(v):
     try: return float(v)

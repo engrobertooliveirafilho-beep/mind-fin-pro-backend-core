@@ -1,4 +1,4 @@
-import json, subprocess
+import json
 from pathlib import Path
 from datetime import datetime, UTC
 
@@ -11,13 +11,7 @@ def load():
     return json.loads(INP.read_text(encoding="utf-8")) if INP.exists() else []
 
 def fetch_subtitles(video_url):
-    if not video_url:
-        return {"status":"NO_URL","text":""}
-    try:
-        p=subprocess.run(["yt-dlp","--skip-download","--write-auto-subs","--sub-langs","pt,en","--sub-format","vtt","--print","title",video_url],capture_output=True,text=True,timeout=120)
-        return {"status":"FETCH_ATTEMPTED","text":((p.stdout or "")+"\n"+(p.stderr or ""))[:5000]}
-    except Exception as e:
-        return {"status":"FETCH_ERROR","text":str(e)}
+    raise RuntimeError("ET665_BR_EXTERNAL_EXECUTION_DISABLED_PENDING_SECURITY_REVIEW")
 
 def extract_rules(text, meta):
     t=(text or "").lower()+" "+json.dumps(meta,ensure_ascii=False).lower()
@@ -33,6 +27,7 @@ def extract_rules(text, meta):
     return sorted(set(rules)) or ["UNSTRUCTURED_STRATEGY_TEXT"]
 
 def run():
+    raise RuntimeError("ET665_BR_EXTERNAL_EXECUTION_DISABLED_PENDING_SECURITY_REVIEW")
     OUT.mkdir(parents=True,exist_ok=True)
     rows=[]
     for item in load():

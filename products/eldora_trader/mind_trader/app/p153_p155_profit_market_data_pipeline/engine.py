@@ -11,6 +11,7 @@ RAW=TMP/"raw"
 NORM=TMP/"normalized"
 
 def run_cmd(cmd):
+    raise PermissionError("ET665_R29_MIRRORED_EXTERNAL_CAPABILITY_FORBIDDEN")
     return subprocess.run(cmd,shell=True,capture_output=True,text=True)
 
 def parse_name(name):

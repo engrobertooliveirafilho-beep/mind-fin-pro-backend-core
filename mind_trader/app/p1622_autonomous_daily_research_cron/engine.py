@@ -1,4 +1,4 @@
-import json, subprocess
+import json
 from pathlib import Path
 from datetime import datetime, UTC
 
@@ -18,10 +18,10 @@ PIPELINE=[
 ]
 
 def run_module(module):
-    p=subprocess.run(["python","-m",module],capture_output=True,text=True,timeout=900)
-    return {"module":module,"returncode":p.returncode,"stdout":p.stdout[-2000:],"stderr":p.stderr[-2000:]}
+    raise RuntimeError("ET665_BR_EXTERNAL_EXECUTION_DISABLED_PENDING_SECURITY_REVIEW")
 
 def run():
+    raise RuntimeError("ET665_BR_EXTERNAL_EXECUTION_DISABLED_PENDING_SECURITY_REVIEW")
     OUT.mkdir(parents=True,exist_ok=True)
     results=[run_module(m) for m in PIPELINE]
     ok=all(x["returncode"]==0 for x in results)

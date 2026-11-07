@@ -6,6 +6,7 @@ import MetaTrader5 as mt5
 OUT=Path("reports/P78_DEMO_ORDER_SEND_SINGLE_CONTROLLED")
 
 def run(symbol="EURUSD", lot=0.01):
+    raise PermissionError("ET665_R27_MIRRORED_MT5_ORDER_SEND_FORBIDDEN")
     OUT.mkdir(parents=True,exist_ok=True)
 
     mt5.initialize()

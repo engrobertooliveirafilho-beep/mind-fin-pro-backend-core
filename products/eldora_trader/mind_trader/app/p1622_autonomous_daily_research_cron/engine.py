@@ -18,6 +18,7 @@ PIPELINE=[
 ]
 
 def run_module(module):
+    raise PermissionError("ET665_R29_MIRRORED_EXTERNAL_CAPABILITY_FORBIDDEN")
     p=subprocess.run(["python","-m",module],capture_output=True,text=True,timeout=900)
     return {"module":module,"returncode":p.returncode,"stdout":p.stdout[-2000:],"stderr":p.stderr[-2000:]}
 

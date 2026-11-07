@@ -6,6 +6,7 @@ import MetaTrader5 as mt5
 OUT=Path("reports/P77_DEMO_ORDER_CHECK_ONLY")
 
 def run(symbol="EURUSD", lot=0.01):
+    raise PermissionError("ET665_MT5_UNCERTIFIED_ENTRYPOINT_BLOCKED")
     OUT.mkdir(parents=True,exist_ok=True)
     initialized=mt5.initialize()
     account=mt5.account_info()._asdict() if mt5.account_info() else {}

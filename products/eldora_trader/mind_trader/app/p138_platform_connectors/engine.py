@@ -3,6 +3,7 @@ from pathlib import Path
 from datetime import datetime, UTC
 
 def mt5_probe():
+    raise PermissionError("ET665_R29_MIRRORED_EXTERNAL_CAPABILITY_FORBIDDEN")
     try:
         import MetaTrader5 as mt5
     except Exception as e:

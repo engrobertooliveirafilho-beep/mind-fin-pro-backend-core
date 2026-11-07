@@ -1,8 +1,37 @@
-import json
+import json, math
 from pathlib import Path
+
+def _invalid_context(trade, regime_report, genome):
+    if not all(isinstance(item, dict) for item in (trade, regime_report, genome)):
+        return True
+    numeric = ("risk_amount", "entry", "stop", "target", "loss_streak",
+               "daily_trades", "open_risk", "daily_pnl", "total_pnl")
+    for key in numeric:
+        if key in trade:
+            value = trade[key]
+            if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
+                return True
+    atr = regime_report.get("normalized_atr", 0)
+    if isinstance(atr, bool) or not isinstance(atr, (int, float)) or not math.isfinite(atr):
+        return True
+    if "entry" in trade and "stop" in trade and "target" in trade:
+        if not math.isfinite(trade["target"] - trade["entry"]) or not math.isfinite(trade["entry"] - trade["stop"]):
+            return True
+    if "open_risk" in trade and "risk_amount" in trade:
+        if not math.isfinite(trade["open_risk"] + trade["risk_amount"]):
+            return True
+    if "risk_amount" in trade and not math.isfinite(trade["risk_amount"] * 1.25):
+        return True
+    return False
+
+
+def _invalid_review(agent):
+    return {"agent": agent, "passed": False, "reasons": ["INVALID_OR_NONFINITE_REVIEW_CONTEXT"]}
+
 
 class DefenderAgent:
     def review(self, trade, regime_report, genome):
+        if _invalid_context(trade, regime_report, genome): return _invalid_review("DEFENDER")
         reasons=[]
         if trade.get("risk_amount",0) <= 0: reasons.append("INVALID_RISK")
         if trade.get("stop") is None: reasons.append("NO_STOP")
@@ -12,6 +41,7 @@ class DefenderAgent:
 
 class AttackerAgent:
     def review(self, trade, regime_report, genome):
+        if _invalid_context(trade, regime_report, genome): return _invalid_review("ATTACKER")
         reasons=[]
         rr=abs((trade.get("target",0)-trade.get("entry",0)) / (trade.get("entry",1)-trade.get("stop",trade.get("entry",1)))) if trade.get("stop") is not None and trade.get("entry") != trade.get("stop") else 0
         if rr < 1.2: reasons.append("POOR_RISK_REWARD")
@@ -22,6 +52,7 @@ class AttackerAgent:
 
 class FailureHunterAgent:
     def review(self, trade, regime_report, genome):
+        if _invalid_context(trade, regime_report, genome): return _invalid_review("FAILURE_HUNTER")
         reasons=[]
         if not genome.get("genome_id"): reasons.append("GENOME_ID_MISSING")
         if genome.get("edge_claim") not in ["NONE","NONE_UNTIL_PAPER_AND_LIVE_EVIDENCE"]: reasons.append("UNSUPPORTED_EDGE_CLAIM")
@@ -32,6 +63,7 @@ class FailureHunterAgent:
 
 class AdverseScenarioAgent:
     def review(self, trade, regime_report, genome):
+        if _invalid_context(trade, regime_report, genome): return _invalid_review("ADVERSE_SCENARIO")
         reasons=[]
         risk=float(trade.get("risk_amount",0))
         daily_pnl=float(trade.get("daily_pnl",0))

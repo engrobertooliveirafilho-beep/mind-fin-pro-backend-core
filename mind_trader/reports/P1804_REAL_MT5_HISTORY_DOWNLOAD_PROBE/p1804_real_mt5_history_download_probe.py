@@ -13,6 +13,8 @@ mt5_available = False
 mt5_error = None
 results = []
 
+raise PermissionError("ET665_MT5_UNCERTIFIED_ENTRYPOINT_BLOCKED")
+
 try:
     import MetaTrader5 as mt5
     mt5_available = True
