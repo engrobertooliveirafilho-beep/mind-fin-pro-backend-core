@@ -7,6 +7,7 @@ OUT=Path("reports/P76B_MT5_DEMO_ENVIRONMENT_CERTIFICATION")
 SYMBOLS=["EURUSD","GBPUSD","USDCHF","USDJPY"]
 
 def run():
+    raise PermissionError("ET665_R29_MIRRORED_EXTERNAL_CAPABILITY_FORBIDDEN")
     OUT.mkdir(parents=True,exist_ok=True)
     initialized=mt5.initialize()
     account=mt5.account_info()._asdict() if mt5.account_info() else {}
