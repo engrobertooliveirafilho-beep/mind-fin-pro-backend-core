@@ -36,6 +36,11 @@ class ExecutionGateway:
         self.paper_broker_ledger_path=paper_broker_ledger_path
 
     def submit_order(self, mode, trade_dict, regime_report, genome):
+        if not isinstance(mode, str):
+            return write_execution_ledger({"mode":"INVALID_TYPE","decision":"BLOCKED_INVALID_EXECUTION_MODE_TYPE","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
+
+        if not all(isinstance(value, dict) for value in (trade_dict, regime_report, genome)):
+            return write_execution_ledger({"mode":mode,"decision":"BLOCKED_INVALID_ORDER_INPUT_TYPE","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
         if mode in LIVE_MODE_TO_ACTION:
             lock=institutional_live_lock(LIVE_MODE_TO_ACTION[mode],{"mode":mode,"trade":trade_dict})
             return write_execution_ledger({"mode":mode,"decision":lock["decision"],"live_lock":lock,"production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
