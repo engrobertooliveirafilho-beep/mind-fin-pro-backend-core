@@ -3,6 +3,8 @@ import csv
 import importlib.util
 import json
 import math
+import subprocess
+import socket
 from pathlib import Path
 import pytest
 
@@ -36,6 +38,12 @@ def raw(path):
 def test_full_engine_offline_with_synthetic_dataset(path, engine_id, scratch, tmp_path, monkeypatch):
     monkeypatch.setenv("TEMP", str(tmp_path))
     monkeypatch.chdir(tmp_path)
+    def forbidden_external(*args, **kwargs):
+        raise AssertionError("ET665_MB_EXTERNAL_EXECUTION_FORBIDDEN")
+    monkeypatch.setattr(subprocess, "run", forbidden_external)
+    monkeypatch.setattr(subprocess, "Popen", forbidden_external)
+    monkeypatch.setattr(socket.socket, "connect", forbidden_external)
+    monkeypatch.setattr(socket.socket, "connect_ex", forbidden_external)
     spec = importlib.util.spec_from_file_location("et665_mb_" + engine_id, ROOT / path)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
@@ -81,3 +89,12 @@ def test_full_engine_offline_with_synthetic_dataset(path, engine_id, scratch, tm
     assert manifest["status"] == "STAGED_FOR_REVIEW_NOT_PUBLISHED"
     assert manifest["files"], "Report evidence must not be empty"
     assert not module.TMP.exists(), "Scratch cleanup required"
+
+@pytest.mark.parametrize("path,engine_id,scratch", CASES)
+def test_drive_write_is_blocked_by_real_command_guard(path, engine_id, scratch):
+    spec = importlib.util.spec_from_file_location("et665_mb_guard_" + engine_id, ROOT / path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    guard = getattr(module, "cmd", None) or getattr(module, "run_cmd")
+    with pytest.raises(PermissionError, match="ET665_DRIVE_HISTORICAL_WRITE_FORBIDDEN"):
+        guard('rclone copy "local_reports" "gdrive:historical/reports" --progress')
