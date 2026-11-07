@@ -42,7 +42,7 @@ def test_rclone_read_only_and_exit_failure(path):
 def test_no_shell_true_and_safe_cleanup(path):
     source = (ROOT / path).read_text(encoding="utf-8")
     tree = ast.parse(source)
-    assert "shell=True" not in source
+    assert not any(isinstance(n, ast.keyword) and n.arg == "shell" and isinstance(n.value, ast.Constant) and n.value.value is True for n in ast.walk(tree))
     mod = _load(path, "et665_safe_" + path.replace("/", "_"))
     with patch.object(mod, "TMP", Path("/")), pytest.raises(PermissionError, match="UNSAFE_TEMP"):
         mod.safe_cleanup()
