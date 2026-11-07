@@ -12,6 +12,8 @@ FILLINGS=[
 ]
 
 def check(symbol="EURUSD", lot=0.01):
+    # ET665.CM.2: offline-only until institutional DEMO isolation is certified.
+    raise PermissionError("ET665_MT5_UNCERTIFIED_ENTRYPOINT_BLOCKED")
     mt5.initialize()
     account=mt5.account_info()._asdict()
     terminal=mt5.terminal_info()._asdict()

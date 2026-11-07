@@ -6,6 +6,8 @@ import MetaTrader5 as mt5
 OUT=Path("reports/P79_DEMO_ORDER_AUDIT_POSITION_MONITOR")
 
 def run():
+    # ET665.CM.2: offline-only until institutional DEMO isolation is certified.
+    raise PermissionError("ET665_MT5_UNCERTIFIED_ENTRYPOINT_BLOCKED")
     OUT.mkdir(parents=True,exist_ok=True)
     mt5.initialize()
 

@@ -3,6 +3,7 @@ from pathlib import Path
 from datetime import datetime, UTC
 
 def mt5_probe():
+    raise PermissionError("ET665_MT5_UNCERTIFIED_ENTRYPOINT_BLOCKED")
     try:
         import MetaTrader5 as mt5
     except Exception as e:

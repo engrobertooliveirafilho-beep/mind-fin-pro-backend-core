@@ -1,19 +1,13 @@
 import json
 from pathlib import Path
 from datetime import datetime, UTC
-import MetaTrader5 as mt5
 
 OUT=Path("reports/P121_200X_AUTONOMOUS_DEMO_EVIDENCE_FACTORY")
 BLOCKS={"LIVE":"FORBIDDEN","REAL_BROKER":"DISABLED","REAL_ORDERS":"FORBIDDEN","FTMO_REAL":"FORBIDDEN","MT5_REAL":"FORBIDDEN"}
 
 def snapshot():
-    mt5.initialize()
-    account=mt5.account_info()._asdict() if mt5.account_info() else {}
-    terminal=mt5.terminal_info()._asdict() if mt5.terminal_info() else {}
-    positions=mt5.positions_get()
-    positions=[p._asdict() for p in positions] if positions else []
-    mt5.shutdown()
-    return account, terminal, positions
+    """No MT5 terminal access until independent security certification."""
+    raise RuntimeError("ET665_BN_MT5_CONNECTIVITY_DISABLED_PENDING_SECURITY_REVIEW")
 
 def mod(name, layer, extra=None):
     d={"module":name,"layer":layer,"status":"IMPLEMENTED",**BLOCKS}

@@ -1,4 +1,4 @@
-import json, hashlib
+import json, hashlib, math
 from pathlib import Path
 from datetime import datetime, UTC
 
@@ -52,16 +52,31 @@ def config_hash(config):
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
 def validate_ftmo_config(config):
+    if not isinstance(config, dict):
+        return {"valid": False, "reason": "INVALID_CONFIG_TYPE"}
     missing=[k for k in REQUIRED_FIELDS if k not in config]
     if missing:
         return {"valid":False,"reason":"MISSING_FIELDS","missing":missing}
     type_errors=[k for k,t in REQUIRED_FIELDS.items() if not isinstance(config[k],t)]
     if type_errors:
         return {"valid":False,"reason":"TYPE_ERRORS","fields":type_errors}
+    numeric_fields = [key for key, expected in REQUIRED_FIELDS.items() if expected == (int,float) or expected is int]
+    invalid_numeric = [
+        key for key in numeric_fields
+        if isinstance(config[key], bool) or not math.isfinite(config[key])
+    ]
+    if invalid_numeric:
+        return {"valid": False, "reason": "INVALID_NUMERIC_VALUES", "fields": invalid_numeric}
     numeric_positive=["account_size","profit_target","max_daily_loss","max_total_loss","minimum_trading_days","max_daily_trades","leverage"]
     invalid=[k for k in numeric_positive if config[k] <= 0]
     if invalid:
         return {"valid":False,"reason":"INVALID_NUMERIC_LIMITS","fields":invalid}
+    nonnegative_costs = ("commission", "spread", "slippage")
+    invalid_costs = [key for key in nonnegative_costs if config[key] < 0]
+    if invalid_costs:
+        return {"valid":False,"reason":"INVALID_TRADING_COSTS","fields":invalid_costs}
+    if config["max_position_size"] <= 0:
+        return {"valid":False,"reason":"INVALID_POSITION_SIZE"}
     if config["max_daily_loss"] > config["max_total_loss"]:
         return {"valid":False,"reason":"DAILY_LOSS_GT_TOTAL_LOSS"}
     if not config["allowed_symbols"]:
@@ -78,7 +93,10 @@ def load_ftmo_config(path="mind_trader/config/ftmo_ruleset.json"):
     p=Path(path)
     if not p.exists():
         return None, {"valid":False,"reason":"CONFIG_FILE_NOT_FOUND"}
-    cfg=json.loads(p.read_text(encoding="utf-8"))
+    try:
+        cfg=json.loads(p.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, ValueError):
+        return None, {"valid": False, "reason": "CONFIG_READ_OR_PARSE_FAILED"}
     return cfg, validate_ftmo_config(cfg)
 
 def audit_rule_application(trade, config, path="mind_trader/reports/P8.46_ftmo_rule_audit.json"):
