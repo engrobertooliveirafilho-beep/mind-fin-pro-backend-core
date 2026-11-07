@@ -130,7 +130,7 @@ def run():
     (report_dir/"dataset_results.json").write_text(json.dumps(results,indent=2,ensure_ascii=False),encoding="utf-8")
     (report_dir/"P15.3_P15.5_manifest.json").write_text(json.dumps(manifest,indent=2,ensure_ascii=False),encoding="utf-8")
 
-    run_cmd(f'rclone copy "{NORM}" "{REMOTE_NORM}" --progress')
+    # Normalized data stays in isolated scratch; never upload to historical Drive.
     from mind_trader.security.et665_cm6_evidence_stager import stage_engine_report
     stage_engine_report(report_dir, "p153_p155")  # Offline only; GitHub publication requires review.
     safe_cleanup()
