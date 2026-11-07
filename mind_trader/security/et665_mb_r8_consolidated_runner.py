@@ -24,8 +24,9 @@ TESTS = [
     "mind_trader/tests/security_review/test_et665_mb_r6_paper_fill_safety.py",
     "mind_trader/tests/security_review/test_et665_mb_r7_ftmo_cost_constraints.py",
     "mind_trader/tests/security_review/test_et665_mb_r9_adversarial_context_failclosed.py",
+    "mind_trader/tests/security_review/test_et665_mb_r11_ftmo_audit_failclosed.py",
 ]
-REQUIRED = 227
+REQUIRED = 250
 
 def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -89,7 +90,7 @@ def main():
         "governed_github_publication": "NOT_CERTIFIED",
     }
     evidence = {
-        "mission": "ET665.MB.R10", "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+        "mission": "ET665.MB.R11", "timestamp_utc": datetime.now(timezone.utc).isoformat(),
         "test_counts": counts, "pytest_exit_code": return_code,
         "required_p15_engine_ids": list(required_engines),
         "p15_integration_and_write_guard_confirmed": integrated,
