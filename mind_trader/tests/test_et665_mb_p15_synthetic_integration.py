@@ -88,6 +88,21 @@ def test_full_engine_offline_with_synthetic_dataset(path, engine_id, scratch, tm
     manifest = json.loads(staged[0].read_text(encoding="utf-8"))
     assert manifest["status"] == "STAGED_FOR_REVIEW_NOT_PUBLISHED"
     assert manifest["files"], "Report evidence must not be empty"
+    assert all(item["sha256"] and item["bytes"] > 0 for item in manifest["files"])
+    report_files = list((tmp_path / "reports").rglob("*.json"))
+    assert report_files, "Engine must emit JSON reports"
+    if engine_id == "p153_p155":
+        assert result["RAW_FILES"] == 1
+        assert result["NORMALIZED_FILES"] == 1
+        assert result["CERTIFIED_DATASETS"] == 1
+    elif engine_id == "p156_p1510":
+        assert result["DATASETS_TESTED"] == 1
+        assert result["BACKTESTS_RUN"] == 9
+    elif engine_id == "p1516":
+        assert result["BACKTESTS_RUN"] == 1
+        assert result["QUEUE_ITEMS_USED"] == 1
+    elif engine_id == "p1525b":
+        assert result["EDGES_RECONSTRUCTED"] == 1
     assert not module.TMP.exists(), "Scratch cleanup required"
 
 @pytest.mark.parametrize("path,engine_id,scratch", CASES)
