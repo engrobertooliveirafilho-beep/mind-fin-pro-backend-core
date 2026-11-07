@@ -16,8 +16,9 @@ TESTS = [
     "mind_trader/tests/test_et665_cm6_evidence_stager.py",
     "mind_trader/tests/test_et665_cm7_p15_offline_exports.py",
     "mind_trader/tests/test_et665_cm7_stager_integration.py",
+    "mind_trader/tests/test_et665_mb_p15_synthetic_integration.py",
 ]
-REQUIRED = 42
+REQUIRED = 46
 
 def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -49,7 +50,7 @@ def main():
     # comprehensive security review, or formal authorization.
     gates = {
         "focused_regressions": "PASS" if focused else "BLOCKED",
-        "p15_synthetic_end_to_end": "NOT_CERTIFIED",
+        "p15_synthetic_end_to_end": "PASS_SYNTHETIC" if focused else "BLOCKED",
         "complete_residual_inventory": "NOT_CERTIFIED",
         "independent_security_approval": "NOT_CERTIFIED",
         "governed_github_publication": "NOT_CERTIFIED",
