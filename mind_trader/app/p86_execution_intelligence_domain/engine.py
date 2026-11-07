@@ -7,6 +7,8 @@ OUT=Path("reports/P86_EXECUTION_INTELLIGENCE_DOMAIN")
 BLOCKS={"LIVE":"FORBIDDEN","REAL_BROKER":"DISABLED","REAL_ORDERS":"FORBIDDEN","FTMO_REAL":"FORBIDDEN","MT5_REAL":"FORBIDDEN"}
 
 def mt5_snapshot():
+    # ET665.BJ: fail closed until independent MT5 account/transport review.
+    raise RuntimeError("ET665_BJ_MT5_CONNECTIVITY_DISABLED_PENDING_SECURITY_REVIEW")
     mt5.initialize()
     account=mt5.account_info()._asdict() if mt5.account_info() else {}
     terminal=mt5.terminal_info()._asdict() if mt5.terminal_info() else {}
