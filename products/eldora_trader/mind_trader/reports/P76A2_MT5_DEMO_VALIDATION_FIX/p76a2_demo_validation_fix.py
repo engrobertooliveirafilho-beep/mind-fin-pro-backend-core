@@ -6,6 +6,7 @@ import MetaTrader5 as mt5
 OUT=Path("reports/P76A2_MT5_DEMO_VALIDATION_FIX")
 
 def run():
+    raise PermissionError("ET665_R29_MIRRORED_EXTERNAL_CAPABILITY_FORBIDDEN")
     OUT.mkdir(parents=True,exist_ok=True)
     initialized=mt5.initialize()
     info=mt5.account_info()
