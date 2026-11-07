@@ -36,6 +36,7 @@ def write_csv(path, rows):
         w.writerows(rows)
 
 def pull(count=500):
+    raise PermissionError("ET665_MT5_UNCERTIFIED_ENTRYPOINT_BLOCKED")
     report={"connected":False,"datasets":[],"errors":[]}
     try:
         import MetaTrader5 as mt5
