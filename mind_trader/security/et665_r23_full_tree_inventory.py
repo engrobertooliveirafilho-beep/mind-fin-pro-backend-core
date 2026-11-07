@@ -12,6 +12,7 @@ import json
 import re
 import subprocess
 import sys
+import threading
 from pathlib import Path
 
 SENSITIVE = {
@@ -115,9 +116,16 @@ def main():
     proc = subprocess.Popen(["git", "-C", str(root), "cat-file", "--batch"],
                             stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     try:
-        for _, oid in paths:
-            proc.stdin.write((oid + "\n").encode())
-        proc.stdin.close()
+        writer_error = []
+        def send_oids():
+            try:
+                for _, oid in paths:
+                    proc.stdin.write((oid + "\n").encode())
+                proc.stdin.close()
+            except Exception as exc:
+                writer_error.append(str(exc))
+        writer_thread = threading.Thread(target=send_oids, daemon=True)
+        writer_thread.start()
         records = []
         for path, oid in paths:
             header = proc.stdout.readline().decode().strip().split()
@@ -128,6 +136,9 @@ def main():
             if len(source) != size or proc.stdout.read(1) != b"\n":
                 raise RuntimeError("GIT_BLOB_TRUNCATED:" + path)
             records.append(classify(source, path, oid))
+        writer_thread.join(timeout=30)
+        if writer_thread.is_alive() or writer_error:
+            raise RuntimeError("GIT_BATCH_INPUT_FAILED:" + str(writer_error))
         if proc.wait(timeout=30):
             raise RuntimeError("GIT_BATCH_FAILED")
     finally:
