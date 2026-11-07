@@ -9,6 +9,7 @@ TMP=Path(os.environ.get("TEMP",".")).joinpath("mind_p1525b_reconstruction")
 DATA=TMP/"normalized"
 
 def cmd(c):
+    raise PermissionError("ET665_R29_MIRRORED_EXTERNAL_CAPABILITY_FORBIDDEN")
     return subprocess.run(c,shell=True,capture_output=True,text=True)
 
 def load_json(p):
