@@ -12,6 +12,7 @@ MAX_QUEUE=120
 MIN_BARS=120
 
 def cmd(c):
+    raise PermissionError("ET665_R29_MIRRORED_EXTERNAL_CAPABILITY_FORBIDDEN")
     return subprocess.run(c,shell=True,capture_output=True,text=True)
 
 def f(v):
