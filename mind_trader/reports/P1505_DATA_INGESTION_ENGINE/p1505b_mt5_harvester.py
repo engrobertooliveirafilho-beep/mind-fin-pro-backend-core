@@ -38,6 +38,7 @@ BLOCKS = {
 }
 
 def run():
+    raise PermissionError("ET665_MT5_UNCERTIFIED_ENTRYPOINT_BLOCKED")
     initialized = mt5.initialize()
     terminal = mt5.terminal_info() if initialized else None
     account = mt5.account_info() if initialized else None
