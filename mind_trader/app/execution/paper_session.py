@@ -104,11 +104,16 @@ class PaperTradingSessionManager:
         return {"allowed":True,"decision":"ALLOW_PAPER_TRADE","session_id":s["session_id"],"production":"BLOCKED"}
 
     def record_trade_result(self, pnl):
+        if isinstance(pnl, bool) or not isinstance(pnl, (int, float)) or not math.isfinite(pnl):
+            return {"decision":"BLOCK_RECORD_INVALID_PNL","production":"BLOCKED"}
         s=self._read_session()
         if not s or s.get("status")!="OPEN":
             return {"decision":"BLOCK_RECORD_NO_OPEN_SESSION","production":"BLOCKED"}
+        next_daily_pnl = s["daily_pnl"] + pnl
+        if not math.isfinite(next_daily_pnl):
+            return {"decision":"BLOCK_RECORD_INVALID_PNL","production":"BLOCKED"}
         s["trades"] += 1
-        s["daily_pnl"] += float(pnl)
+        s["daily_pnl"] = next_daily_pnl
         s["loss_streak"] = s["loss_streak"] + 1 if pnl < 0 else 0
         self._write_session(s)
         self._ledger({"type":"TRADE_RESULT","session_id":s["session_id"],"pnl":pnl,"daily_pnl":s["daily_pnl"],"trades":s["trades"]})
