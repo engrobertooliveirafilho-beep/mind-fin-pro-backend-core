@@ -71,3 +71,14 @@ Inspeção de código-fonte autenticada na branch de auditoria, sem inicializar 
 - TEST_GATE=NOT_EXECUTED: nenhum teste novo executado nesta atualização; 99/99 históricos não repetidos.
 - DRIVE_LEDGER_UPDATE=NOT_EXECUTED; CLOUD_PERSISTENCE_GATE=NOT_EXECUTED.
 - PHASE_B=OPEN; REAL_ORDERS=FORBIDDEN; FTMO_REAL=FORBIDDEN.
+
+
+## ET665.CM.2 — Controles mínimos publicados (2026-11-07)
+
+- P15.16, P15.25B, P15.3–P15.5 e P15.6–P15.10: rclone sem shell=True (argv com shlex), check=True, falhas propagadas; cópia de local para Drive histórico bloqueada por PermissionError; limpeza temporária com verificação do caminho esperado.
+- P77B e P79: entrypoints bloqueados em fail-closed antes de qualquer chamada MT5; não equivale a certificação DEMO. P77 e demais rotas MT5 seguem pendentes de isolamento institucional.
+- Regressão nova publicada: mind_trader/tests/test_et665_cm2_residual_guards.py (10 casos parametrizados: 4 transferência, 4 cleanup e 2 MT5). **Execução ainda NÃO confirmada**; não declarar PASS. Suíte histórica 99/99 não repetida.
+- Os bloqueios de escrita interrompem deliberadamente o fluxo antigo de exportação remota. Manifests/export_ready e promoção de estratégias não devem ser certificados pelo fluxo antigo. Requer destino de artefatos governado distinto do Drive histórico.
+- GitHub audit branch somente; sem merge em main. DRIVE_LEDGER_UPDATE=NOT_EXECUTED; CLOUD_PERSISTENCE_GATE=NOT_EXECUTED.
+
+PATCH_GATE=IMPLEMENTED_UNTESTED; TEST_GATE=NOT_EXECUTED; PHASE_B=OPEN; REAL_ORDERS=FORBIDDEN; FTMO_REAL=FORBIDDEN.
