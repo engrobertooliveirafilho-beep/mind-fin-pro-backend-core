@@ -1,4 +1,4 @@
-import json, uuid
+import json, uuid, math
 from pathlib import Path
 from datetime import datetime, UTC
 from mind_trader.app.engines.core import RiskGuardian, FTMOGuardian, FTMOConfig, TradeIntent
@@ -41,6 +41,17 @@ class ExecutionGateway:
 
         if not all(isinstance(value, dict) for value in (trade_dict, regime_report, genome)):
             return write_execution_ledger({"mode":mode,"decision":"BLOCKED_INVALID_ORDER_INPUT_TYPE","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
+        if mode in ALLOWED_MODES:
+            required_fields=("symbol","strategy_id","entry","target","risk_amount")
+            if any(field not in trade_dict for field in required_fields):
+                return write_execution_ledger({"mode":mode,"decision":"BLOCKED_MISSING_ORDER_FIELDS","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
+            if not isinstance(trade_dict["symbol"],str) or not trade_dict["symbol"].strip() or not isinstance(trade_dict["strategy_id"],str) or not trade_dict["strategy_id"].strip():
+                return write_execution_ledger({"mode":mode,"decision":"BLOCKED_INVALID_ORDER_FIELDS","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
+            numeric_fields=("entry","target","risk_amount")
+            if any(isinstance(trade_dict[field],bool) or not isinstance(trade_dict[field],(int,float)) or not math.isfinite(trade_dict[field]) for field in numeric_fields):
+                return write_execution_ledger({"mode":mode,"decision":"BLOCKED_INVALID_ORDER_FIELDS","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
+            if trade_dict["risk_amount"]<=0:
+                return write_execution_ledger({"mode":mode,"decision":"BLOCKED_INVALID_ORDER_FIELDS","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
         if mode in LIVE_MODE_TO_ACTION:
             lock=institutional_live_lock(LIVE_MODE_TO_ACTION[mode],{"mode":mode,"trade":trade_dict})
             return write_execution_ledger({"mode":mode,"decision":lock["decision"],"live_lock":lock,"production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
