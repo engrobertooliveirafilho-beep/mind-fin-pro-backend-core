@@ -84,7 +84,7 @@ try:
         "test_et665_r186_dependency_gates",
         "test_et665_r196_junit_identity_gate",
     }
-    observed = {(c.get("classname") or "").split(".")[-1] for c in cases}
+    observed = {part for c in cases for part in (c.get("classname") or "").split(".")}
     if not expected.issubset(observed):
         raise ValueError("JUnit missing one or more exact regression module classnames")
     if any(c.find("failure") is not None or c.find("error") is not None or c.find("skipped") is not None for c in cases):
