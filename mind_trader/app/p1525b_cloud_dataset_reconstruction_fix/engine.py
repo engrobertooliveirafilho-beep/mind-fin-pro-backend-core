@@ -1,5 +1,5 @@
 import csv,json,math,statistics,itertools,subprocess,os,shutil
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 from datetime import datetime,UTC
 
 EDGES=Path("reports/P15.17_EDGE_VALIDATION_MEGA_PACK/approved_edges.json")
@@ -19,12 +19,37 @@ def cmd(c):
 def load_json(p):
     return json.loads(p.read_text(encoding="utf-8")) if p.exists() else []
 
+def safe_dataset_path(name):
+    # Dataset metadata is untrusted: keep reads inside the normalized staging root.
+    if not isinstance(name, str) or not name.strip() or "\\x00" in name:
+        raise PermissionError("ET665_INVALID_DATASET_PATH")
+    relative = Path(name)
+    windows_relative = PureWindowsPath(name)
+    if (relative.is_absolute() or bool(relative.drive) or windows_relative.is_absolute()
+            or bool(windows_relative.drive) or ".." in relative.parts
+            or ".." in windows_relative.parts):
+        raise PermissionError("ET665_DATASET_PATH_ESCAPE_BLOCKED")
+    if DATA.is_symlink():
+        raise PermissionError("ET665_DATASET_ROOT_SYMLINK_BLOCKED")
+    root = DATA.resolve()
+    candidate = (root / relative).resolve()
+    if candidate == root or root not in candidate.parents:
+        raise PermissionError("ET665_DATASET_PATH_ESCAPE_BLOCKED")
+    current = DATA
+    for part in relative.parts:
+        current = current / part
+        if current.is_symlink():
+            raise PermissionError("ET665_DATASET_SYMLINK_BLOCKED")
+    if candidate.exists() and not candidate.is_file():
+        raise PermissionError("ET665_DATASET_NOT_FILE")
+    return candidate
+
 def f(v):
     try: return float(v)
     except: return 0.0
 
 def load_dataset(name):
-    p=DATA/name
+    p=safe_dataset_path(name)
     if not p.exists():
         return []
     with open(p,newline="",encoding="utf-8") as fh:
