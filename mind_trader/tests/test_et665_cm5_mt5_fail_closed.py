@@ -36,5 +36,8 @@ def test_mt5_function_blocked_before_connection(path, function):
 @pytest.mark.parametrize("path", TOP_LEVEL_GUARDS)
 def test_mt5_top_level_blocked_before_import(path):
     tree = ast.parse((ROOT / path).read_text(encoding="utf-8"))
-    assert tree.body and _guarded(tree.body[0])
+    body = list(tree.body)
+    if body and isinstance(body[0], ast.Expr) and isinstance(body[0].value, ast.Constant) and isinstance(body[0].value.value, str):
+        body.pop(0)  # A module docstring is metadata, not an executable statement.
+    assert body and _guarded(body[0])
     assert not any(isinstance(n, (ast.Import, ast.ImportFrom)) and any(a.name == "MetaTrader5" for a in n.names) for n in ast.walk(tree))
