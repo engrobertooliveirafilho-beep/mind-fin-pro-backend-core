@@ -359,3 +359,13 @@ def test_accepted_execution_without_embedded_broker_receipt_blocks(tmp_path):
     result = audit_four_ledgers(*paths)
     assert result["certified"] is False
     assert "BLOCK_MISSING_EMBEDDED_BROKER_RECEIPT" in result["findings"]
+
+
+def test_accepted_execution_with_non_object_broker_receipt_blocks(tmp_path):
+    paths = fixtures(tmp_path)
+    event = json.loads(paths[-1].read_text())
+    event["paper_broker"] = []
+    paths[-1].write_text(json.dumps(event) + "\n")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is False
+    assert "BLOCK_MISSING_EMBEDDED_BROKER_RECEIPT" in result["findings"]
