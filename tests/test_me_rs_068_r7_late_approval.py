@@ -1,5 +1,6 @@
 """ME-RS-068: isolated synthetic regression for late R4/R5 approvals."""
 import hashlib
+from contextlib import closing
 import importlib.util
 import json
 from pathlib import Path
@@ -33,7 +34,7 @@ class TestR7LateApproval(unittest.TestCase):
         self.approval.write_text(json.dumps(item) + "\n", encoding="utf-8")
 
     def rows(self):
-        with sqlite3.connect(self.db) as con:
+        with closing(sqlite3.connect(self.db)) as con:
             return con.execute("SELECT decision,authority FROM records").fetchall()
 
     def test_late_r4_mismatch(self):
