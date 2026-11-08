@@ -30,7 +30,7 @@ if [[ -n "$(git -C "$ROOT" ls-files --others --ignored --exclude-standard -- '*.
 (umask 077; mkdir "$EVIDENCE") || { echo "BLOCKED: cannot create fresh evidence directory" >&2; exit 29; }
 chmod 700 "$EVIDENCE"
 date -u +'%Y-%m-%dT%H:%M:%SZ' > "$EVIDENCE/started_utc.txt"
-printf '%s\\n' "$HEAD_ACTUAL" > "$EVIDENCE/commit.txt"
+echo "$HEAD_ACTUAL" > "$EVIDENCE/commit.txt"
 docker image inspect --format '{{.Id}}' "$IMAGE" > "$EVIDENCE/image_id.txt"
 FILES=(
   mind_trader/tests/security_review/test_et665_r180_p15_dataset_path_guards.py
