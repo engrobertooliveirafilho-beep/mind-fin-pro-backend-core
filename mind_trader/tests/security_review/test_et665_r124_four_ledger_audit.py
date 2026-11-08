@@ -280,3 +280,13 @@ def test_early_rejection_wrong_session_blocks(tmp_path):
     result = audit_four_ledgers(*paths)
     assert "BLOCK_EXECUTION_SESSION_MISMATCH" in result["findings"]
     assert result["certified"] is False
+
+
+def test_execution_and_embedded_broker_session_contradiction(tmp_path):
+    paths = fixtures(tmp_path)
+    event = json.loads(paths[-1].read_text())
+    event["session_id"] = "other-session"
+    paths[-1].write_text(json.dumps(event)+"\n")
+    result = audit_four_ledgers(*paths)
+    assert "BLOCK_EXECUTION_BROKER_SESSION_CONTRADICTION" in result["findings"]
+    assert result["operational_certified"] is False
