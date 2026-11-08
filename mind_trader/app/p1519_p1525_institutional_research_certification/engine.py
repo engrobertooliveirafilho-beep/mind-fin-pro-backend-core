@@ -100,7 +100,9 @@ def run():
             "total_return":round((curve[-1]-1),6) if curve else 0,
             "max_drawdown":round(max_drawdown(curve),6),
             "risk":risk_of_ruin(trades),
-            "status":"PAPER_CANDIDATE" if len(trades)>=20 else "RESEARCH_CANDIDATE",
+            "status":"RESEARCH_ONLY",
+            "research_eligibility":"PAPER_CANDIDATE" if len(trades)>=20 else "RESEARCH_CANDIDATE",
+            "independent_approval":False,
             "live":"FORBIDDEN",
             "real_orders":"FORBIDDEN"
         })
@@ -109,7 +111,7 @@ def run():
     for a,b in itertools.combinations(curves.keys(),2):
         correlations.append({"a":a,"b":b,"pearson_return_corr":corr(curves[a],curves[b])})
 
-    approved=[x for x in reconstructed if x["status"]=="PAPER_CANDIDATE"]
+    approved=[]  # ET665.R244: metric thresholds are not independent certification
     allocator={
         "trend":{"CSAN3":0.45,"IFIX":0.40,"SHUL4":0.15},
         "asymmetric_payoff":{"CSAN3":0.30,"IFIX":0.35,"SHUL4":0.35},
@@ -124,9 +126,10 @@ def run():
         "P15_22_PORTFOLIO_HEAT":"IMPLEMENTED",
         "P15_23_REGIME_DETECTION":"IMPLEMENTED_PROXY",
         "P15_24_DYNAMIC_ALLOCATOR":allocator,
-        "P15_25_CERTIFICATION":"PAPER_RESEARCH_CERTIFIED" if approved else "RESEARCH_ONLY",
+        "P15_25_CERTIFICATION":"RESEARCH_ONLY",
+        "INDEPENDENT_APPROVAL":"NOT_PROVEN",
         "APPROVED_EDGES":len(approved),
-        "EDGE":"PAPER_RESEARCH_CERTIFIED" if approved else "NOT_PROVEN",
+        "EDGE":"NOT_PROVEN",
         "CAUSALITY":"NOT_PROVEN",
         "LIVE":"FORBIDDEN",
         "REAL_BROKER":"DISABLED",
