@@ -16,7 +16,7 @@ def audit_four_ledgers(sqlite_path, session_path, broker_path, execution_path):
         session = json.loads(Path(session_path).read_text(encoding="utf-8"))
         events = [json.loads(line) for line in Path(execution_path).read_text(
             encoding="utf-8").splitlines() if line.strip()]
-        if not events or any(not isinstance(event, dict) for event in events):
+        if not isinstance(session, dict) or not events or any(not isinstance(event, dict) for event in events):
             raise ValueError("EMPTY_OR_INVALID_EXECUTION_LEDGER")
     except (OSError, ValueError, TypeError):
         return {**base, "certified": False, "operational_certified": False,
