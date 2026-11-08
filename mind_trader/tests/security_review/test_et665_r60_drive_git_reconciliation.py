@@ -26,7 +26,7 @@ def run_case(tmp_path, drive_rows, git_rows, mapping=None):
     if mapping:
         m = tmp_path / "mapping.csv"
         write_csv(m, ["drive_path", "git_path"], mapping)
-        args.extend(["--mapping", str(m)])
+        args.extend(["--mapping", str(m), "--expected-mapping-sha256", hashlib.sha256(m.read_bytes()).hexdigest()])
     p = subprocess.run(args, capture_output=True, text=True, timeout=15)
     return p, json.loads((o / "SUMMARY.json").read_text()) if o.exists() else None
 
