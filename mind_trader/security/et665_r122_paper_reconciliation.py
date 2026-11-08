@@ -67,6 +67,7 @@ def audit_paper_consistency(sqlite_path, session_path, broker_ledger_path):
                 or not isinstance(order.get("session_id"), str)
                 or not order.get("session_id")):
             findings.append("BLOCK_ACCEPTED_BROKER_WITHOUT_ORDER")
+            findings.append("BLOCK_UNCORRELATED_BROKER_EVENT")
             continue
         oid = order.get("capacity_order_id") if isinstance(order, dict) else None
         sid = order.get("session_id") if isinstance(order, dict) else None
