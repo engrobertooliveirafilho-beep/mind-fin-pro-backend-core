@@ -329,3 +329,23 @@ def test_non_paper_rejection_without_capacity_reference_does_not_mask_valid_pape
     result = audit_four_ledgers(*paths)
     assert result["certified"] is True
     assert result["operational_certified"] is False
+
+
+def test_non_paper_embedded_accepted_broker_receipt_blocks(tmp_path):
+    paths = fixtures(tmp_path)
+    broker = json.loads(paths[2].read_text())
+    event = {"mode": "LIVE", "decision": "REJECT_ORDER", "paper_broker": broker}
+    paths[-1].write_text(paths[-1].read_text() + json.dumps(event) + "\n")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is False
+    assert "BLOCK_NON_PAPER_EXECUTION_ACCEPTANCE" in result["findings"]
+
+
+def test_non_paper_rejected_broker_receipt_does_not_trigger_acceptance(tmp_path):
+    paths = fixtures(tmp_path)
+    event = {"mode": "LIVE", "decision": "REJECT_ORDER",
+             "paper_broker": {"decision": "PAPER_ORDER_REJECTED"}}
+    paths[-1].write_text(paths[-1].read_text() + json.dumps(event) + "\n")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is True
+    assert result["operational_certified"] is False
