@@ -110,3 +110,20 @@ def test_missing_execution_ledger_never_certifies_operational_gateway(tmp_path):
     result = audit_four_ledgers(*paths)
     assert result["certified"] is False
     assert result["operational_certified"] is False
+
+
+def test_non_object_session_fails_closed_without_exception(tmp_path):
+    paths = fixtures(tmp_path)
+    paths[1].write_text("[]")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is False
+    assert result["operational_certified"] is False
+    assert "BLOCK_EXECUTION_LEDGER_UNAVAILABLE" in result["findings"]
+
+
+def test_non_object_execution_event_fails_closed(tmp_path):
+    paths = fixtures(tmp_path)
+    paths[-1].write_text("[]\n")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is False
+    assert "BLOCK_EXECUTION_LEDGER_UNAVAILABLE" in result["findings"]
