@@ -49,14 +49,17 @@ class R7LineageContract(unittest.TestCase):
         self.approval = root / "approvals.jsonl"
         self.sample.write_bytes(self.raw)
 
-    def manifest(self, bad=False):
+    def manifest(self, bad=False, bad_r5=False):
         r4 = self.item["r4_sha256"]
         if bad:
             r4 = "0" * 64 if r4 != "0" * 64 else "1" * 64
+        r5 = self.item["r5_sha256"]
+        if bad_r5:
+            r5 = "0" * 64 if r5 != "0" * 64 else "1" * 64
         data = {
             "r6_sha256": hashlib.sha256(self.raw).hexdigest(),
             "r4_sha256": r4,
-            "r5_sha256": self.item["r5_sha256"],
+            "r5_sha256": r5,
             "decision": "APPROVED",
             "authority": "ISOLATED_TEST_ONLY",
         }
@@ -76,6 +79,19 @@ class R7LineageContract(unittest.TestCase):
         self.module.consume(self.sample, self.db, None, 1)
         self.assertEqual(self.rows(), [("PENDING", None)])
         self.manifest(bad=True)
+        with self.assertRaisesRegex(ValueError, "APPROVAL_LINEAGE_MISMATCH"):
+            self.module.consume(self.sample, self.db, self.approval, 1)
+        self.assertEqual(self.rows(), [("PENDING", None)])
+
+    def test_r5_mismatch_on_new_record_is_rejected(self):
+        self.manifest(bad_r5=True)
+        with self.assertRaisesRegex(ValueError, "APPROVAL_LINEAGE_MISMATCH"):
+            self.module.consume(self.sample, self.db, self.approval, 1)
+        self.assertEqual(self.rows(), [])
+
+    def test_r5_mismatch_on_existing_pending_is_explicitly_rejected(self):
+        self.module.consume(self.sample, self.db, None, 1)
+        self.manifest(bad_r5=True)
         with self.assertRaisesRegex(ValueError, "APPROVAL_LINEAGE_MISMATCH"):
             self.module.consume(self.sample, self.db, self.approval, 1)
         self.assertEqual(self.rows(), [("PENDING", None)])
