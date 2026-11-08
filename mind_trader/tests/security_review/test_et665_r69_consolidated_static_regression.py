@@ -42,11 +42,11 @@ class R69StaticRegression(unittest.TestCase):
         submit = next(n for n in ast.walk(tree) if isinstance(n, ast.FunctionDef) and n.name == "submit_order")
         conditions = [n.test for n in ast.walk(submit) if isinstance(n, ast.If)]
         self.assertTrue(any(
-            any(isinstance(n, ast.Compare) and any(isinstance(op, ast.Is) for op in n.ops)
+            any(isinstance(n, ast.Compare) and any(isinstance(op, ast.IsNot) for op in n.ops)
                 and any(isinstance(c, ast.Constant) and c.value is True for c in n.comparators)
                 for n in ast.walk(condition))
             for condition in conditions
-        ), "Gateway must compare PAPER fill to literal True")
+        ), "Gateway must reject PAPER fill when not literal True")
         self.assertIn("PAPER_ORDER_ACCEPTED", ast.unparse(submit))
         self.assertIn("PAPER_BROKER_NOT_ACCEPTED", ast.unparse(submit))
 
