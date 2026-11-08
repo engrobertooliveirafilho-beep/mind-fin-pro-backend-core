@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 # R187: operator-invoked only. No image pull, package install, external network, or credentials.
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd -P)"
 IMAGE="et665-pytest-offline:py312"
 EVIDENCE="${ET665_EVIDENCE_DIR:-$(dirname "$ROOT")/et665-r187-evidence}"
+EXPECTED_HEAD="${ET665_EXPECTED_HEAD:-}"
+if [[ ! "$EVIDENCE" = /* ]]; then echo "BLOCKED: evidence path must be absolute" >&2; exit 31; fi
+if [[ -z "$EXPECTED_HEAD" || ! "$EXPECTED_HEAD" =~ ^[0-9a-f]{40}$ ]]; then echo "BLOCKED: ET665_EXPECTED_HEAD must be a verified 40-character commit SHA" >&2; exit 32; fi
 # Resolve parent paths before containment checks; reject symlinked evidence targets.
 if [[ -L "$EVIDENCE" ]]; then echo "BLOCKED: symlinked evidence target" >&2; exit 27; fi
 EVIDENCE_PARENT="$(cd "$(dirname "$EVIDENCE")" && pwd -P)" || { echo "BLOCKED: evidence parent missing" >&2; exit 28; }
@@ -18,8 +21,11 @@ if ! command -v sha256sum >/dev/null 2>&1; then echo "BLOCKED: sha256sum unavail
 chmod 700 "$EVIDENCE"
 date -u +'%Y-%m-%dT%H:%M:%SZ' > "$EVIDENCE/started_utc.txt"
 if ! git -C "$ROOT" rev-parse --verify HEAD > "$EVIDENCE/commit.txt"; then echo "BLOCKED: checkout HEAD unavailable" >&2; exit 26; fi
+if [[ "$(cat "$EVIDENCE/commit.txt")" != "$EXPECTED_HEAD" ]]; then echo "BLOCKED: checkout commit differs from ET665_EXPECTED_HEAD" >&2; exit 33; fi
 if [[ -n "$(git -C "$ROOT" status --porcelain --untracked-files=no)" ]]; then echo "BLOCKED: tracked source checkout is dirty" >&2; exit 30; fi
 docker image inspect --format '{{.Id}}' "$IMAGE" > "$EVIDENCE/image_id.txt"
+# Prevent an unexpected Docker daemon/context from silently selecting a remote host.
+if [[ -n "${DOCKER_HOST:-}" || -n "${DOCKER_CONTEXT:-}" ]]; then echo "BLOCKED: explicit Docker remote/context override is not allowed" >&2; exit 34; fi
 FILES=(
   mind_trader/tests/security_review/test_et665_r180_p15_dataset_path_guards.py
   mind_trader/tests/security_review/test_et665_r182_p15_rclone_allowlist.py
