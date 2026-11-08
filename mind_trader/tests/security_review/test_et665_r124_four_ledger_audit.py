@@ -547,3 +547,21 @@ def test_non_string_broker_session_id_fails_closed_without_exception(tmp_path):
     result = audit_four_ledgers(*paths)
     assert result["certified"] is False
     assert "BLOCK_UNCORRELATED_BROKER_EVENT" in result["findings"]
+
+
+def test_non_string_sqlite_reservation_id_fails_closed(tmp_path):
+    paths = fixtures(tmp_path)
+    with sqlite3.connect(paths[0]) as conn:
+        conn.execute("UPDATE reservations SET order_id = 42")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is False
+    assert "BLOCK_INVALID_RESERVATION" in result["findings"]
+
+
+def test_non_string_sqlite_session_id_fails_closed(tmp_path):
+    paths = fixtures(tmp_path)
+    with sqlite3.connect(paths[0]) as conn:
+        conn.execute("UPDATE reservations SET session_id = 42")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is False
+    assert "BLOCK_INVALID_RESERVATION" in result["findings"]
