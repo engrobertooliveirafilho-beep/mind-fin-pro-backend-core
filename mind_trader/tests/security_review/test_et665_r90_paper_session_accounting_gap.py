@@ -1,6 +1,6 @@
-"""R90: regression reproducer for uncounted PAPER fills; no network/broker imports.
+"""R90: regression witness for previously uncounted PAPER fills.
 
-Expected to PASS when the documented gap is reproducible; NOT a security certification.
+After R113, unconfigured capacity must block instead of issuing orders.
 """
 import ast
 from datetime import datetime, UTC
@@ -26,7 +26,7 @@ def extract(path, name, namespace, class_name=None):
     return namespace[name] if class_name is None else namespace[class_name]
 
 class R90SessionAccountingGap(unittest.TestCase):
-    def test_repeated_fills_do_not_increment_session_trades(self):
+    def test_repeated_fills_without_capacity_gate_fail_closed(self):
         ns = {"json": json, "uuid": uuid, "datetime": datetime, "UTC": UTC,
               "Path": Path, "math": math,
               "ALLOWED_MODES": {"PAPER", "REPLAY", "MICRO_SIM"},
@@ -71,9 +71,9 @@ class R90SessionAccountingGap(unittest.TestCase):
             gateway.risk = SimpleNamespace(validate=lambda *args: (True, "OK"))
             gateway.adv = SimpleNamespace(review_trade=lambda *args: {"adversarial_passed": True, "decision": "OK"})
             decisions = [gateway.submit_order("PAPER", trade, {"regime": "DEFINED"}, {"genome_id": "offline"})["decision"] for _ in range(2)]
-            self.assertEqual(decisions, ["ACCEPT_SIMULATED_ORDER", "ACCEPT_SIMULATED_ORDER"])
+            self.assertEqual(decisions, ["REJECT_ORDER", "REJECT_ORDER"])
             self.assertEqual(session._read_session()["trades"], 0)
-            self.assertEqual(len(Path(gateway.paper_broker_ledger_path).read_text().splitlines()), 2)
+            self.assertFalse(Path(gateway.paper_broker_ledger_path).exists())
             self.assertEqual(len(Path(gateway.ledger_path).read_text().splitlines()), 2)
 
 if __name__ == "__main__":
