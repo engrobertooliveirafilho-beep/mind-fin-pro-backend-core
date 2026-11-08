@@ -16,7 +16,7 @@ def audit_paper_consistency(sqlite_path, session_path, broker_ledger_path):
                 "SELECT session_id, order_id, state FROM reservations"
             ).fetchall()
         session = json.loads(Path(session_path).read_text(encoding="utf-8"))
-        if not isinstance(session, dict) or not isinstance(session.get("session_id"), str):
+        if not isinstance(session, dict) or not isinstance(session.get("session_id"), str) or not session["session_id"].strip():
             raise ValueError("INVALID_SESSION")
         broker_events = []
         for line in Path(broker_ledger_path).read_text(encoding="utf-8").splitlines():
