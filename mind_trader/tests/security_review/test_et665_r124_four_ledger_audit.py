@@ -527,3 +527,23 @@ def test_rejected_non_paper_embedded_broker_live_claim_blocks(tmp_path):
     result = audit_four_ledgers(*paths)
     assert result["certified"] is False
     assert "BLOCK_NON_PAPER_EMBEDDED_BROKER_LIVE_CLAIM" in result["findings"]
+
+
+def test_non_string_broker_order_id_fails_closed_without_exception(tmp_path):
+    paths = fixtures(tmp_path)
+    receipt = json.loads(paths[2].read_text())
+    receipt["order"]["capacity_order_id"] = ["o1"]
+    paths[2].write_text(json.dumps(receipt) + "\n")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is False
+    assert "BLOCK_UNCORRELATED_BROKER_EVENT" in result["findings"]
+
+
+def test_non_string_broker_session_id_fails_closed_without_exception(tmp_path):
+    paths = fixtures(tmp_path)
+    receipt = json.loads(paths[2].read_text())
+    receipt["order"]["session_id"] = {"id": "s1"}
+    paths[2].write_text(json.dumps(receipt) + "\n")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is False
+    assert "BLOCK_UNCORRELATED_BROKER_EVENT" in result["findings"]
