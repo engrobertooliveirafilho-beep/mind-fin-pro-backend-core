@@ -13,7 +13,7 @@ OUT = ROOT / "mind_trader/audits/local_evidence/et665_r72"
 OUT.mkdir(parents=True, exist_ok=True)
 started = datetime.now(timezone.utc).isoformat()
 # Use interpreter isolation (-I), with explicit timeout and no inherited PYTHONPATH.
-tests = [TEST, TEST.parent / "test_et665_r77_paper_gateway_isolated.py", TEST.parent / "test_et665_r82_paper_broker_fill_isolated.py", TEST.parent / "test_et665_r84_paper_jsonl_integration.py", TEST.parent / "test_et665_r86_gateway_broker_jsonl.py", TEST.parent / "test_et665_r90_paper_session_accounting_gap.py", TEST.parent / "test_et665_r92_session_recording_contract.py", TEST.parent / "test_et665_r95_atomic_capacity.py", TEST.parent / "test_et665_r99_capacity_recovery.py", TEST.parent / "test_et665_r101_sqlite_process_crash.py", TEST.parent / "test_et665_r104_multiprocess_capacity.py", TEST.parent / "test_et665_r106_ledger_reconciliation.py", TEST.parent / "test_et665_r108_actual_broker_schema.py", TEST.parent / "test_et665_r110_offline_paper_correlation.py"]
+tests = [TEST, TEST.parent / "test_et665_r77_paper_gateway_isolated.py", TEST.parent / "test_et665_r82_paper_broker_fill_isolated.py", TEST.parent / "test_et665_r84_paper_jsonl_integration.py", TEST.parent / "test_et665_r86_gateway_broker_jsonl.py", TEST.parent / "test_et665_r90_paper_session_accounting_gap.py", TEST.parent / "test_et665_r92_session_recording_contract.py", TEST.parent / "test_et665_r95_atomic_capacity.py", TEST.parent / "test_et665_r99_capacity_recovery.py", TEST.parent / "test_et665_r101_sqlite_process_crash.py", TEST.parent / "test_et665_r104_multiprocess_capacity.py", TEST.parent / "test_et665_r106_ledger_reconciliation.py", TEST.parent / "test_et665_r108_actual_broker_schema.py", TEST.parent / "test_et665_r110_offline_paper_correlation.py", TEST.parent / "test_et665_r113_gateway_capacity_integration.py"]
 runs = []
 for test in tests:
     command = [sys.executable, "-I", str(test), "-v"]
@@ -28,7 +28,7 @@ result = {"exit_code": 0 if all(run["exit_code"] == 0 for run in runs) else 1,
           "timeout": any(run["timeout"] for run in runs),
           "runs": runs}
 result["timestamp_utc"] = started
-evidence_sources = tests + [TEST.parent / "et665_r95_atomic_capacity_prototype.py", Path(__file__)]
+evidence_sources = tests + [TEST.parent / "et665_r95_atomic_capacity_prototype.py", TEST.parent / "et665_r113_paper_capacity_gate.py", Path(__file__)]
 result["test_sha256"] = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in evidence_sources}
 result["python_version"] = sys.version.split()[0]
 result["command"] = ["python", "-I", "<each-pinned-test>", "-v"]
