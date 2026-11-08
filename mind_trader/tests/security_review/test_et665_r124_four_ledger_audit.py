@@ -369,3 +369,25 @@ def test_accepted_execution_with_non_object_broker_receipt_blocks(tmp_path):
     result = audit_four_ledgers(*paths)
     assert result["certified"] is False
     assert "BLOCK_MISSING_EMBEDDED_BROKER_RECEIPT" in result["findings"]
+
+
+def test_embedded_accepted_broker_live_routing_claim_blocks(tmp_path):
+    paths = fixtures(tmp_path)
+    event = json.loads(paths[-1].read_text())
+    event["paper_broker"]["real_broker_routing"] = "ENABLED"
+    paths[-1].write_text(json.dumps(event) + "\n")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is False
+    assert "BLOCK_EMBEDDED_BROKER_LIVE_ROUTING_CLAIM" in result["findings"]
+
+
+def test_embedded_accepted_broker_explicit_disabled_routing_allowed(tmp_path):
+    paths = fixtures(tmp_path)
+    event = json.loads(paths[-1].read_text())
+    event["paper_broker"]["real_broker_routing"] = "DISABLED"
+    event["paper_broker"]["production"] = "BLOCKED"
+    paths[2].write_text(json.dumps(event["paper_broker"]) + "\n")
+    paths[-1].write_text(json.dumps(event) + "\n")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is True
+    assert result["operational_certified"] is False
