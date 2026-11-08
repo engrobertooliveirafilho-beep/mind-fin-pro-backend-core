@@ -90,3 +90,23 @@ def test_duplicate_broker_event_blocks(tmp_path):
     broker.write_text(broker.read_text() * 2)
     result = mod.audit_paper_consistency(db, session, broker)
     assert "BLOCK_DUPLICATE_BROKER_EVENT" in result["findings"]
+
+
+def test_persisted_broker_claims_live_routing_blocks(tmp_path):
+    db, session, broker = fixtures(tmp_path)
+    receipt = json.loads(broker.read_text())
+    receipt["real_broker_routing"] = "ENABLED"
+    broker.write_text(json.dumps(receipt) + "\n")
+    result = mod.audit_paper_consistency(db, session, broker)
+    assert result["certified"] is False
+    assert "BLOCK_PERSISTED_BROKER_LIVE_ROUTING_CLAIM" in result["findings"]
+
+
+def test_persisted_broker_claims_external_identity_blocks(tmp_path):
+    db, session, broker = fixtures(tmp_path)
+    receipt = json.loads(broker.read_text())
+    receipt["broker"] = "MT5_REAL"
+    broker.write_text(json.dumps(receipt) + "\n")
+    result = mod.audit_paper_consistency(db, session, broker)
+    assert result["certified"] is False
+    assert "BLOCK_PERSISTED_BROKER_LIVE_ROUTING_CLAIM" in result["findings"]
