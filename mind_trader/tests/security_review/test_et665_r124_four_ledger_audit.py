@@ -214,3 +214,22 @@ def test_non_paper_filled_capacity_blocks(tmp_path):
     paths[-1].write_text(paths[-1].read_text() + json.dumps(event) + "\n")
     result = audit_four_ledgers(*paths)
     assert "BLOCK_NON_PAPER_EXECUTION_ACCEPTANCE" in result["findings"]
+
+
+def test_missing_order_id_detected_even_with_other_valid_acceptance(tmp_path):
+    paths = fixtures(tmp_path)
+    valid = json.loads(paths[-1].read_text())
+    uncorrelated = dict(valid)
+    uncorrelated.pop("capacity_order_id")
+    paths[-1].write_text(json.dumps(valid)+"\n"+json.dumps(uncorrelated)+"\n")
+    result = audit_four_ledgers(*paths)
+    assert "BLOCK_ACCEPTED_EXECUTION_UNCORRELATED" in result["findings"]
+
+
+def test_rejected_without_reservation_remains_compatible(tmp_path):
+    paths = fixtures(tmp_path)
+    reject = {"mode": "PAPER", "decision": "REJECT_ORDER"}
+    paths[-1].write_text(paths[-1].read_text()+json.dumps(reject)+"\n")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is True
+    assert result["operational_certified"] is False
