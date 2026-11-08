@@ -50,8 +50,15 @@ class R86GatewayBrokerJsonl(unittest.TestCase):
             obj = object.__new__(gateway_type)
             obj.ledger_path = str(Path(temp) / "execution.jsonl")
             obj.paper_broker_ledger_path = str(Path(temp) / "broker.jsonl")
-            obj.paper = SimpleNamespace(pre_trade_check=lambda *args: {"allowed": True, "decision": "ALLOW"},
+            obj.paper = SimpleNamespace(pre_trade_check=lambda *args: {"allowed": True, "decision": "ALLOW", "session_id": "offline"},
                                         ftmo_config_path=None)
+            class InMemoryCapacity:
+                def reserve_new(self, session_id, limit):
+                    return {"decision":"RESERVED","order_id":str(uuid.uuid4())}
+                def finalize(self, session_id, order_id, filled):
+                    return "FILLED" if filled is True else "REJECTED"
+            obj.paper_capacity = InMemoryCapacity()
+            obj.paper_capacity_max_daily_trades = 2
             obj.ftmo = SimpleNamespace(validate=lambda *args: (True, "OK"))
             obj.ftmo_config_valid = {"valid": True, "hash": "offline"}
             obj.ftmo_ruleset = {"version": "offline"}
