@@ -110,3 +110,23 @@ def test_persisted_broker_claims_external_identity_blocks(tmp_path):
     result = mod.audit_paper_consistency(db, session, broker)
     assert result["certified"] is False
     assert "BLOCK_PERSISTED_BROKER_LIVE_ROUTING_CLAIM" in result["findings"]
+
+
+def test_persisted_broker_order_claims_live_mode_blocks(tmp_path):
+    db, session, broker = fixtures(tmp_path)
+    receipt = json.loads(broker.read_text())
+    receipt["order"]["mode"] = "FTMO_REAL"
+    broker.write_text(json.dumps(receipt) + "\n")
+    result = mod.audit_paper_consistency(db, session, broker)
+    assert result["certified"] is False
+    assert "BLOCK_PERSISTED_BROKER_ORDER_LIVE_CLAIM" in result["findings"]
+
+
+def test_persisted_broker_order_claims_real_routing_blocks(tmp_path):
+    db, session, broker = fixtures(tmp_path)
+    receipt = json.loads(broker.read_text())
+    receipt["order"]["real_broker_routing"] = "ENABLED"
+    broker.write_text(json.dumps(receipt) + "\n")
+    result = mod.audit_paper_consistency(db, session, broker)
+    assert result["certified"] is False
+    assert "BLOCK_PERSISTED_BROKER_ORDER_LIVE_CLAIM" in result["findings"]
