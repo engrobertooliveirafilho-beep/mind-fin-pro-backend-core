@@ -28,7 +28,7 @@ def load_json(p):
 
 def safe_dataset_path(name):
     # Dataset metadata is untrusted: keep reads inside the normalized staging root.
-    if not isinstance(name, str) or not name.strip() or "\\x00" in name:
+    if not isinstance(name, str) or not name.strip() or "\x00" in name:
         raise PermissionError("ET665_INVALID_DATASET_PATH")
     relative = Path(name)
     windows_relative = PureWindowsPath(name)
