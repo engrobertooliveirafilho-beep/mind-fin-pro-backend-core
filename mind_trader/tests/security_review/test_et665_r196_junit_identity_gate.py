@@ -29,7 +29,7 @@ def validate(xml):
         return False
     if any(any(c.find(tag) is not None for tag in ("failure", "error", "skipped")) for c in cases):
         return False
-    observed = {c.attrib.get("classname", "").split(".")[-1] for c in cases}
+    observed = {part for c in cases for part in c.attrib.get("classname", "").split(".")}
     return set(MODULES).issubset(observed)
 
 def report(names=MODULES, **attrs):
@@ -43,6 +43,9 @@ class GateTests(unittest.TestCase):
     def test_missing_module(self): self.assertFalse(validate(report(MODULES[:-1])))
     def test_name_spoof(self): self.assertFalse(validate(report(["unrelated"] * 5).replace("test_safety", "test_r180_r182_r183_r184_r186")))
     def test_substring_spoof(self): self.assertFalse(validate(report(["fake_" + m for m in MODULES])))
+    def test_pytest_unittest_classname(self):
+        xml = report().replace('name="test_safety"', 'name="test_safety"').replace('" name="test_safety"', '.GateTests" name="test_safety"')
+        self.assertTrue(validate(xml))
     def test_skipped(self): self.assertFalse(validate(report(skipped="1")))
     def test_count_mismatch(self): self.assertFalse(validate(report(tests="99")))
     def test_invalid_xml(self):
