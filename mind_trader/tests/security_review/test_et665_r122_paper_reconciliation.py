@@ -190,3 +190,13 @@ def test_accepted_broker_without_order_blocks(tmp_path):
     result = mod.audit_paper_consistency(db, session, broker)
     assert result["certified"] is False
     assert "BLOCK_ACCEPTED_BROKER_WITHOUT_ORDER" in result["findings"]
+
+
+def test_accepted_broker_with_non_object_order_blocks(tmp_path):
+    db, session, broker = fixtures(tmp_path)
+    receipt = json.loads(broker.read_text())
+    receipt["order"] = ["s1", "o1"]
+    broker.write_text(json.dumps(receipt) + "\n")
+    result = mod.audit_paper_consistency(db, session, broker)
+    assert result["certified"] is False
+    assert "BLOCK_ACCEPTED_BROKER_WITHOUT_ORDER" in result["findings"]
