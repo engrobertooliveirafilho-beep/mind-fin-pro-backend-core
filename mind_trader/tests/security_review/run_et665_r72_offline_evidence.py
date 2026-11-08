@@ -13,16 +13,24 @@ OUT = ROOT / "mind_trader/audits/local_evidence/et665_r72"
 OUT.mkdir(parents=True, exist_ok=True)
 started = datetime.now(timezone.utc).isoformat()
 # Use interpreter isolation (-I), with explicit timeout and no inherited PYTHONPATH.
-command = [sys.executable, "-I", "-m", "unittest", "discover", "-s", str(TEST.parent), "-p", "test_et665_r*.py", "-v"]
-try:
-    proc = subprocess.run(command, cwd=ROOT, capture_output=True, text=True, timeout=90)
-    result = {"exit_code": proc.returncode, "stdout": proc.stdout, "stderr": proc.stderr, "timeout": False}
-except subprocess.TimeoutExpired as exc:
-    result = {"exit_code": 124, "stdout": (exc.stdout or b"").decode(errors="replace") if isinstance(exc.stdout, bytes) else (exc.stdout or ""), "stderr": (exc.stderr or b"").decode(errors="replace") if isinstance(exc.stderr, bytes) else (exc.stderr or ""), "timeout": True}
+tests = [TEST, TEST.parent / "test_et665_r77_paper_gateway_isolated.py"]
+runs = []
+for test in tests:
+    command = [sys.executable, "-I", str(test), "-v"]
+    try:
+        proc = subprocess.run(command, cwd=ROOT, capture_output=True, text=True, timeout=90)
+        runs.append({"test": test.name, "exit_code": proc.returncode, "stdout": proc.stdout, "stderr": proc.stderr, "timeout": False})
+    except subprocess.TimeoutExpired as exc:
+        runs.append({"test": test.name, "exit_code": 124, "stdout": (exc.stdout or b"").decode(errors="replace") if isinstance(exc.stdout, bytes) else (exc.stdout or ""), "stderr": (exc.stderr or b"").decode(errors="replace") if isinstance(exc.stderr, bytes) else (exc.stderr or ""), "timeout": True})
+result = {"exit_code": 0 if all(run["exit_code"] == 0 for run in runs) else 1,
+          "stdout": "\n".join(run["stdout"] for run in runs),
+          "stderr": "\n".join(run["stderr"] for run in runs),
+          "timeout": any(run["timeout"] for run in runs),
+          "runs": runs}
 result["timestamp_utc"] = started
-result["test_sha256"] = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(TEST.parent.glob("test_et665_r*.py"))}
+result["test_sha256"] = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in tests}
 result["python_version"] = sys.version.split()[0]
-result["command"] = ["python", "-I", "<repository-relative-test>", "-v"]
+result["command"] = ["python", "-I", "<each-pinned-test>", "-v"]
 (OUT / "result.json").write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 (OUT / "test.log").write_text(result["stdout"] + "\n" + result["stderr"], encoding="utf-8")
 suite = ET.Element("testsuite", name="ET665_R72_offline_static", tests="1", failures="0" if result["exit_code"] == 0 else "1", errors="0", timestamp=started)
