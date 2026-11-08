@@ -413,3 +413,13 @@ def test_embedded_broker_order_explicit_paper_mode_allowed(tmp_path):
     result = audit_four_ledgers(*paths)
     assert result["certified"] is True
     assert result["operational_certified"] is False
+
+
+def test_embedded_broker_order_production_claim_blocks(tmp_path):
+    paths = fixtures(tmp_path)
+    event = json.loads(paths[-1].read_text())
+    event["paper_broker"]["order"]["production"] = "ENABLED"
+    paths[-1].write_text(json.dumps(event) + "\n")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is False
+    assert "BLOCK_EMBEDDED_BROKER_ORDER_MODE_CONTRADICTION" in result["findings"]
