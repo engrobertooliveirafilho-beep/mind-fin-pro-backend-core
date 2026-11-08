@@ -15,7 +15,7 @@ def fixtures(tmp_path, state="FILLED", trades=1, accepted=True):
     with sqlite3.connect(db) as conn:
         conn.execute("CREATE TABLE reservations(session_id TEXT, order_id TEXT, state TEXT)")
         conn.execute("INSERT INTO reservations VALUES ('s1','o1',?)", (state,))
-    session.write_text(json.dumps({"session_id": "s1", "trades": trades}))
+    session.write_text(json.dumps({"session_id": "s1", "trades": trades, "status": "OPEN"}))
     event = {"decision": "PAPER_ORDER_ACCEPTED" if accepted else "PAPER_ORDER_REJECTED",
              "order": {"session_id": "s1", "capacity_order_id": "o1"},
              "fill": {"filled": accepted}}
@@ -64,3 +64,29 @@ def test_orphan_broker_event_blocks(tmp_path):
     broker.write_text(json.dumps(event) + "\n")
     result = mod.audit_paper_consistency(db, session, broker)
     assert "BLOCK_ORPHAN_BROKER_EVENT" in result["findings"]
+
+
+def test_empty_evidence_cannot_be_certified(tmp_path):
+    db, session, broker = fixtures(tmp_path, state="REJECTED", trades=0, accepted=False)
+    with sqlite3.connect(db) as conn:
+        conn.execute("DELETE FROM reservations")
+    broker.write_text("")
+    result = mod.audit_paper_consistency(db, session, broker)
+    assert result["certified"] is False
+    assert "BLOCK_NO_ORDER_LEVEL_EVIDENCE" in result["findings"]
+
+
+def test_invalid_session_status_blocks(tmp_path):
+    db, session, broker = fixtures(tmp_path)
+    payload = json.loads(session.read_text())
+    payload["status"] = "UNKNOWN"
+    session.write_text(json.dumps(payload))
+    result = mod.audit_paper_consistency(db, session, broker)
+    assert "BLOCK_INVALID_SESSION_STATUS" in result["findings"]
+
+
+def test_duplicate_broker_event_blocks(tmp_path):
+    db, session, broker = fixtures(tmp_path)
+    broker.write_text(broker.read_text() * 2)
+    result = mod.audit_paper_consistency(db, session, broker)
+    assert "BLOCK_DUPLICATE_BROKER_EVENT" in result["findings"]
