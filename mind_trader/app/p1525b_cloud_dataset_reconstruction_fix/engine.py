@@ -8,13 +8,13 @@ REMOTE_REPORTS="gdrive:mind-workspace/MIND_TRADER/P15_REAL_MARKET_DATA/reports/P
 TMP=Path(os.environ.get("TEMP",".")).joinpath("mind_p1525b_reconstruction")
 DATA=TMP/"normalized"
 
-def cmd(c):
-    # ET665.CM.2: allow read-only rclone with argv; prohibit historic Drive writes.
-    import shlex
-    args = shlex.split(c)
-    if len(args) < 4 or args[:2] != ["rclone", "copy"] or not args[2].startswith("gdrive:") or any(a.startswith("gdrive:") for a in args[3:]):
-        raise PermissionError("ET665_DRIVE_HISTORICAL_WRITE_FORBIDDEN")
-    return subprocess.run(args, shell=False, capture_output=True, text=True, check=True)
+def cmd(args):
+    # Only the exact approved remote-to-local read is permitted; pass argv directly.
+    # Avoid shell parsing because shlex can corrupt Windows paths containing backslashes.
+    expected = ["rclone", "copy", REMOTE_NORM, str(DATA), "--progress"]
+    if not isinstance(args, (list, tuple)) or list(args) != expected:
+        raise PermissionError("ET665_RCLONE_COMMAND_NOT_ALLOWLISTED")
+    return subprocess.run(list(args), shell=False, capture_output=True, text=True, check=True)
 
 def load_json(p):
     return json.loads(p.read_text(encoding="utf-8")) if p.exists() else []
@@ -129,7 +129,7 @@ def safe_cleanup():
 def run():
     if TMP.exists(): safe_cleanup()
     DATA.mkdir(parents=True,exist_ok=True)
-    cmd(f'rclone copy "{REMOTE_NORM}" "{DATA}" --progress')
+    cmd(["rclone", "copy", REMOTE_NORM, str(DATA), "--progress"])
 
     edges=load_json(EDGES)
     reconstructed=[]
