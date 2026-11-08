@@ -516,3 +516,14 @@ def test_rejected_non_paper_live_routing_claim_blocks(tmp_path):
     result = audit_four_ledgers(*paths)
     assert result["certified"] is False
     assert "BLOCK_NON_PAPER_LIVE_ROUTING_CLAIM" in result["findings"]
+
+
+def test_rejected_non_paper_embedded_broker_live_claim_blocks(tmp_path):
+    paths = fixtures(tmp_path)
+    event = {"mode": "LIVE", "decision": "REJECT_ORDER",
+             "paper_broker": {"decision": "PAPER_ORDER_REJECTED",
+                              "real_broker_routing": "ENABLED"}}
+    paths[-1].write_text(paths[-1].read_text() + json.dumps(event) + "\n")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is False
+    assert "BLOCK_NON_PAPER_EMBEDDED_BROKER_LIVE_CLAIM" in result["findings"]
