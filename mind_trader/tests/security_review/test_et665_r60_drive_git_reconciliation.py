@@ -53,3 +53,34 @@ def test_explicit_mapping(tmp_path):
 def test_duplicate_drive_path_rejected(tmp_path):
     p, summary = run_case(tmp_path, [row("a"), row("a")], [row("a")])
     assert p.returncode != 0 and summary is None
+
+
+def test_tampered_manifest_hash_rejected(tmp_path):
+    d, g, o = tmp_path / "drive.csv", tmp_path / "git.csv", tmp_path / "out"
+    cols = ["path", "sha256", "size_bytes"]
+    write_csv(d, cols, [row("a")])
+    write_csv(g, cols, [row("a")])
+    expected_drive = hashlib.sha256(d.read_bytes()).hexdigest()
+    write_csv(d, cols, [row("a", "b" * 64)])
+    p = subprocess.run([sys.executable, str(SCRIPT), "--git-manifest", str(g),
+        "--drive-manifest", str(d), "--output", str(o),
+        "--expected-git-manifest-sha256", hashlib.sha256(g.read_bytes()).hexdigest(),
+        "--expected-drive-manifest-sha256", expected_drive],
+        capture_output=True, text=True, timeout=15)
+    assert p.returncode != 0 and "INPUT_SHA256_MISMATCH" in (p.stderr + p.stdout)
+    assert not o.exists()
+
+
+def test_ambiguous_mapping_rejected(tmp_path):
+    p, summary = run_case(tmp_path,
+        [row("drive/a"), row("drive/b")], [row("git/a")],
+        [{"drive_path": "drive/a", "git_path": "git/a"},
+         {"drive_path": "drive/b", "git_path": "git/a"}])
+    assert p.returncode != 0 and summary is None
+    assert "AMBIGUOUS_MAPPING" in (p.stderr + p.stdout)
+
+
+def test_empty_manifest_rejected(tmp_path):
+    p, summary = run_case(tmp_path, [], [row("a")])
+    assert p.returncode != 0 and summary is None
+    assert "EMPTY_MANIFEST" in (p.stderr + p.stdout)
