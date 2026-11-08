@@ -84,3 +84,19 @@ def test_gateway_requires_internal_paper_broker_and_forbidden_live():
                    and any(isinstance(op, ast.NotEq) for op in n.ops)
                    and any(isinstance(v, ast.Constant) and v.value == expected for v in n.comparators)
                    for n in comparisons)
+
+
+def test_gateway_requires_explicit_broker_production_and_routing_lock():
+    tree = ast.parse(GATEWAY.read_text(encoding="utf-8"))
+    submit = next(n for n in ast.walk(tree)
+                  if isinstance(n, ast.FunctionDef) and n.name == "submit_order")
+    comparisons = [n for n in ast.walk(submit) if isinstance(n, ast.Compare)]
+    for field, expected in (("production", "BLOCKED"), ("real_broker_routing", "DISABLED")):
+        assert any(isinstance(n.left, ast.Call)
+                   and isinstance(n.left.func, ast.Attribute)
+                   and n.left.func.attr == "get"
+                   and n.left.args and isinstance(n.left.args[0], ast.Constant)
+                   and n.left.args[0].value == field
+                   and any(isinstance(op, ast.NotEq) for op in n.ops)
+                   and any(isinstance(v, ast.Constant) and v.value == expected for v in n.comparators)
+                   for n in comparisons)
