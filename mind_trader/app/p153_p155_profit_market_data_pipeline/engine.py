@@ -10,13 +10,12 @@ TMP=Path(os.environ.get("TEMP",".")).joinpath("mind_p15_market_data_runtime")
 RAW=TMP/"raw"
 NORM=TMP/"normalized"
 
-def run_cmd(cmd):
-    # ET665.CM.2: allow read-only rclone with argv; prohibit historic Drive writes.
-    import shlex
-    args = shlex.split(cmd)
-    if len(args) < 4 or args[:2] != ["rclone", "copy"] or not args[2].startswith("gdrive:") or any(a.startswith("gdrive:") for a in args[3:]):
-        raise PermissionError("ET665_DRIVE_HISTORICAL_WRITE_FORBIDDEN")
-    return subprocess.run(args, shell=False, capture_output=True, text=True, check=True)
+def run_cmd(args):
+    # Exact remote-to-local read only; argv preserves Windows paths without shell parsing.
+    expected = ["rclone", "copy", REMOTE_RAW, str(RAW), "--progress"]
+    if not isinstance(args, (list, tuple)) or list(args) != expected:
+        raise PermissionError("ET665_RCLONE_COMMAND_NOT_ALLOWLISTED")
+    return subprocess.run(list(args), shell=False, capture_output=True, text=True, check=True)
 
 def parse_name(name):
     stem=Path(name).stem
@@ -93,7 +92,7 @@ def run():
     if TMP.exists(): safe_cleanup()
     RAW.mkdir(parents=True,exist_ok=True); NORM.mkdir(parents=True,exist_ok=True)
 
-    dl=run_cmd(f'rclone copy "{REMOTE_RAW}" "{RAW}" --progress')
+    dl=run_cmd(["rclone", "copy", REMOTE_RAW, str(RAW), "--progress"])
     results=[]
     for p in RAW.glob("*.csv"):
         out,rows=normalize_file(p)
