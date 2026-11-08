@@ -37,7 +37,7 @@ def audit_four_ledgers(sqlite_path, session_path, broker_path, execution_path):
             continue
         if event.get("production") not in (None, "BLOCKED") or event.get("real_broker_routing") not in (None, "DISABLED"):
             findings.append("BLOCK_EXECUTION_LIVE_ROUTING_CLAIM")
-        if event.get("decision") == "ACCEPT_SIMULATED_ORDER" and event.get("paper_broker") is None:
+        if event.get("decision") == "ACCEPT_SIMULATED_ORDER" and not isinstance(event.get("paper_broker"), dict):
             findings.append("BLOCK_MISSING_EMBEDDED_BROKER_RECEIPT")
         if event.get("session_id") not in (None, session.get("session_id")):
             findings.append("BLOCK_EXECUTION_SESSION_MISMATCH")
