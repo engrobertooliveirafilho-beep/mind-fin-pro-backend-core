@@ -62,6 +62,8 @@ def audit_four_ledgers(sqlite_path, session_path, broker_path, execution_path):
                 findings.append("BLOCK_EMBEDDED_BROKER_ORDER_MISMATCH")
             if isinstance(broker_order, dict) and event.get("session_id") not in (None, broker_order.get("session_id")):
                 findings.append("BLOCK_EXECUTION_BROKER_SESSION_CONTRADICTION")
+            if isinstance(broker, dict) and (broker.get("production") not in (None, "BLOCKED") or broker.get("real_broker_routing") not in (None, "DISABLED")):
+                findings.append("BLOCK_EMBEDDED_BROKER_LIVE_ROUTING_CLAIM")
             if capacity != "FILLED" or not isinstance(broker, dict) or (
                 broker.get("decision") != "PAPER_ORDER_ACCEPTED"
                 or not isinstance(broker.get("fill"), dict)
