@@ -270,3 +270,13 @@ def test_uncorrelated_accepted_execution_with_wrong_session_blocks(tmp_path):
     result = audit_four_ledgers(*paths)
     assert "BLOCK_EXECUTION_SESSION_MISMATCH" in result["findings"]
     assert result["certified"] is False
+
+
+def test_early_rejection_wrong_session_blocks(tmp_path):
+    paths = fixtures(tmp_path)
+    event = {"mode": "PAPER", "decision": "REJECT_ORDER",
+             "session_id": "wrong-session"}
+    paths[-1].write_text(paths[-1].read_text() + json.dumps(event) + "\n")
+    result = audit_four_ledgers(*paths)
+    assert "BLOCK_EXECUTION_SESSION_MISMATCH" in result["findings"]
+    assert result["certified"] is False
