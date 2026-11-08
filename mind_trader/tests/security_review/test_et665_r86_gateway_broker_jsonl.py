@@ -69,7 +69,7 @@ class R86GatewayBrokerJsonl(unittest.TestCase):
             execution = [json.loads(x) for x in Path(obj.ledger_path).read_text().splitlines()]
             broker = [json.loads(x) for x in Path(obj.paper_broker_ledger_path).read_text().splitlines()]
             self.assertEqual(len(execution), 3)
-            self.assertEqual([x["decision"] for x in broker], ["PAPER_ORDER_ACCEPTED", "PAPER_ORDER_REJECTED_FILL"])
+            self.assertEqual([x["decision"] for x in broker], ["PAPER_ORDER_ACCEPTED", "PAPER_ORDER_REJECTED_INVALID_PAYLOAD"])
             self.assertEqual(execution[0]["paper_broker"]["paper_order_id"], broker[0]["paper_order_id"])
             self.assertEqual(execution[1]["paper_broker"]["paper_order_id"], broker[1]["paper_order_id"])
 
