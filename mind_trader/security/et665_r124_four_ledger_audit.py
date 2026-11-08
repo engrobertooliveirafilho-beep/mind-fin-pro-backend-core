@@ -81,7 +81,7 @@ def audit_four_ledgers(sqlite_path, session_path, broker_path, execution_path):
         for oid, embedded in accepted_embedded.items():
             if actual_broker.get(oid) != embedded:
                 findings.append("BLOCK_EMBEDDED_BROKER_LEDGER_MISMATCH")
-    except (OSError, ValueError, TypeError):
+    except (OSError, ValueError, TypeError, KeyError):
         findings.append("BLOCK_BROKER_LEDGER_RECHECK_UNAVAILABLE")
 
     try:
