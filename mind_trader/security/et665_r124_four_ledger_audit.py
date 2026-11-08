@@ -36,8 +36,8 @@ def audit_four_ledgers(sqlite_path, session_path, broker_path, execution_path):
         if event.get("session_id") not in (None, session.get("session_id")):
             findings.append("BLOCK_EXECUTION_SESSION_MISMATCH")
         oid = event.get("capacity_order_id")
-        if event.get("decision") == "ACCEPT_SIMULATED_ORDER" and (not isinstance(oid, str) or not oid):
-            findings.append("BLOCK_ACCEPTED_EXECUTION_UNCORRELATED")
+        if (event.get("decision") == "ACCEPT_SIMULATED_ORDER" or event.get("capacity_decision") == "FILLED") and (not isinstance(oid, str) or not oid):
+            findings.append("BLOCK_UNCORRELATED_FILLED_EXECUTION")
         if not isinstance(oid, str) or not oid:
             continue  # Early rejects need not have a reservation.
         if oid in seen:
