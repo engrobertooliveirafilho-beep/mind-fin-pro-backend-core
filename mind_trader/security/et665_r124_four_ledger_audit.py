@@ -28,7 +28,11 @@ def audit_four_ledgers(sqlite_path, session_path, broker_path, execution_path):
     accepted_embedded = {}
     for event in events:
         if event.get("mode") != "PAPER":
-            if event.get("decision") == "ACCEPT_SIMULATED_ORDER" or event.get("capacity_decision") == "FILLED" or event.get("capacity_order_id") is not None:
+            broker = event.get("paper_broker")
+            if (event.get("decision") == "ACCEPT_SIMULATED_ORDER"
+                    or event.get("capacity_decision") == "FILLED"
+                    or event.get("capacity_order_id") is not None
+                    or (isinstance(broker, dict) and broker.get("decision") == "PAPER_ORDER_ACCEPTED")):
                 findings.append("BLOCK_NON_PAPER_EXECUTION_ACCEPTANCE")
             continue
         if event.get("production") not in (None, "BLOCKED") or event.get("real_broker_routing") not in (None, "DISABLED"):
