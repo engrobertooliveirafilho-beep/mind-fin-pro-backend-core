@@ -3,13 +3,17 @@ set -Eeuo pipefail
 # R187: operator-invoked only. No image pull, package install, external network, or credentials.
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 IMAGE="et665-pytest-offline:py312"
-EVIDENCE="${ROOT}/.et665-r187-evidence"
+EVIDENCE="${ET665_EVIDENCE_DIR:-${ROOT}/.et665-r187-evidence}"
+# Evidence must be outside the read-only source mount to avoid nested writable mounts.
+case "$EVIDENCE/" in "$ROOT/"*) echo "BLOCKED: evidence directory must be outside repository" >&2; exit 24;; esac
+if [[ -e "$EVIDENCE" ]]; then echo "BLOCKED: evidence directory already exists; use a fresh path" >&2; exit 25; fi
 if ! command -v docker >/dev/null 2>&1; then echo "BLOCKED: Docker unavailable" >&2; exit 20; fi
 if ! docker image inspect "$IMAGE" >/dev/null 2>&1; then echo "BLOCKED: prebuilt local image $IMAGE unavailable; no pull attempted" >&2; exit 21; fi
 if ! command -v sha256sum >/dev/null 2>&1; then echo "BLOCKED: sha256sum unavailable" >&2; exit 22; fi
 mkdir -p "$EVIDENCE"
+chmod 700 "$EVIDENCE"
 date -u +'%Y-%m-%dT%H:%M:%SZ' > "$EVIDENCE/started_utc.txt"
-git -C "$ROOT" rev-parse HEAD > "$EVIDENCE/commit.txt"
+if ! git -C "$ROOT" rev-parse --verify HEAD > "$EVIDENCE/commit.txt"; then echo "BLOCKED: checkout HEAD unavailable" >&2; exit 26; fi
 docker image inspect --format '{{.Id}}' "$IMAGE" > "$EVIDENCE/image_id.txt"
 FILES=(
   mind_trader/tests/security_review/test_et665_r180_p15_dataset_path_guards.py
@@ -35,6 +39,6 @@ status=$?
 set -e
 printf '%s\n' "$status" > "$EVIDENCE/exit_code.txt"
 date -u +'%Y-%m-%dT%H:%M:%SZ' > "$EVIDENCE/finished_utc.txt"
-( cd "$EVIDENCE" && sha256sum *.txt *.log *.xml 2>/dev/null || true ) > "$EVIDENCE/evidence.sha256"
+( cd "$EVIDENCE" && find . -maxdepth 1 -type f ! -name evidence.sha256 -print0 | sort -z | xargs -0 -r sha256sum ) > "$EVIDENCE/evidence.sha256"
 if [[ "$status" -ne 0 ]]; then echo "R187 NOT CERTIFIED: pytest/docker exit $status"; exit "$status"; fi
 echo "R187 TESTS COMPLETED: review JUnit, isolation settings and independent evidence before certification."
