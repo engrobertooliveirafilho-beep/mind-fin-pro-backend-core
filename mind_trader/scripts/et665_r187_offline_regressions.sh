@@ -24,6 +24,7 @@ if [[ "$(docker context inspect --format '{{.Endpoints.docker.Host}}' 2>/dev/nul
 if ! docker image inspect "$IMAGE" >/dev/null 2>&1; then echo "BLOCKED: prebuilt local image $IMAGE unavailable; no pull attempted" >&2; exit 21; fi
 if ! command -v sha256sum >/dev/null 2>&1; then echo "BLOCKED: sha256sum unavailable" >&2; exit 22; fi
 if ! command -v python3 >/dev/null 2>&1; then echo "BLOCKED: python3 unavailable for JUnit validation" >&2; exit 38; fi
+if ! command -v timeout >/dev/null 2>&1; then echo "BLOCKED: timeout unavailable for bounded test execution" >&2; exit 45; fi
 # Validate immutable checkout BEFORE creating evidence output.
 HEAD_ACTUAL="$(git -C "$ROOT" rev-parse --verify HEAD)" || { echo "BLOCKED: checkout HEAD unavailable" >&2; exit 26; }
 if [[ "$HEAD_ACTUAL" != "$EXPECTED_HEAD" ]]; then echo "BLOCKED: checkout commit differs from ET665_EXPECTED_HEAD" >&2; exit 33; fi
@@ -52,7 +53,7 @@ printf '%s\n' "$IMAGE_ID" > "$EVIDENCE/image_id.txt"
 ( cd "$ROOT" && sha256sum "${FILES[@]}" ) > "$EVIDENCE/test_sources.sha256"
 # Do not pass secrets or the host network. Repo is read-only; only evidence output is writable.
 set +e
-docker run --rm --pull=never --network=none --read-only --cap-drop=ALL \
+timeout --signal=TERM --kill-after=15s 15m docker run --rm --pull=never --network=none --read-only --cap-drop=ALL \
   --security-opt=no-new-privileges --pids-limit=128 --memory=512m --cpus=1 \
   --user "$(id -u):$(id -g)" --tmpfs /tmp:rw,noexec,nosuid,size=128m \
   -e PYTHONDONTWRITEBYTECODE=1 -e PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
