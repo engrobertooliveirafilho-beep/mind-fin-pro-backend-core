@@ -29,6 +29,10 @@ def audit_paper_consistency(sqlite_path, session_path, broker_ledger_path):
         return {"certified": False, "findings": ["BLOCK_INPUT_UNAVAILABLE_OR_CORRUPT"],
                 "error_type": type(exc).__name__, "production": "BLOCKED"}
 
+    if not rows and not broker_events:
+        findings.append("BLOCK_NO_ORDER_LEVEL_EVIDENCE")
+    if session.get("status") not in ("OPEN", "CLOSED"):
+        findings.append("BLOCK_INVALID_SESSION_STATUS")
     if type(session.get("trades")) is not int or session["trades"] < 0:
         findings.append("BLOCK_INVALID_SESSION_TRADE_COUNT")
     reservations = {}
