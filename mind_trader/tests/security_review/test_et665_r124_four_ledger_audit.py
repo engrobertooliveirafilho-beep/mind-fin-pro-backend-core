@@ -423,3 +423,23 @@ def test_embedded_broker_order_production_claim_blocks(tmp_path):
     result = audit_four_ledgers(*paths)
     assert result["certified"] is False
     assert "BLOCK_EMBEDDED_BROKER_ORDER_MODE_CONTRADICTION" in result["findings"]
+
+
+def test_embedded_external_broker_identity_blocks(tmp_path):
+    paths = fixtures(tmp_path)
+    event = json.loads(paths[-1].read_text())
+    event["paper_broker"]["broker"] = "EXTERNAL"
+    paths[-1].write_text(json.dumps(event) + "\n")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is False
+    assert "BLOCK_EMBEDDED_BROKER_IDENTITY_CONTRADICTION" in result["findings"]
+
+
+def test_embedded_broker_live_allowed_claim_blocks(tmp_path):
+    paths = fixtures(tmp_path)
+    event = json.loads(paths[-1].read_text())
+    event["paper_broker"]["live"] = "ALLOWED"
+    paths[-1].write_text(json.dumps(event) + "\n")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is False
+    assert "BLOCK_EMBEDDED_BROKER_IDENTITY_CONTRADICTION" in result["findings"]
