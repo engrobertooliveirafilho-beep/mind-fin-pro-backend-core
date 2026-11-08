@@ -32,7 +32,7 @@ seen = set()
 input_counts = {}
 duplicates = 0
 
- for_src = []
+for_src = []
 for src in SOURCES:
     rows = load(src)
     input_counts[str(src)] = len(rows)
