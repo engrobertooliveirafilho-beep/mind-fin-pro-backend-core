@@ -25,6 +25,7 @@ def audit_four_ledgers(sqlite_path, session_path, broker_path, execution_path):
 
     seen = set()
     accepted_ids = set()
+    accepted_embedded = {}
     for event in events:
         if event.get("mode") != "PAPER":
             continue
@@ -43,6 +44,7 @@ def audit_four_ledgers(sqlite_path, session_path, broker_path, execution_path):
         broker = event.get("paper_broker")
         if decision == "ACCEPT_SIMULATED_ORDER":
             accepted_ids.add(oid)
+            accepted_embedded[oid] = broker
             broker_order = broker.get("order") if isinstance(broker, dict) else None
             if not isinstance(broker_order, dict) or broker_order.get("capacity_order_id") != oid or broker_order.get("session_id") != session.get("session_id"):
                 findings.append("BLOCK_EMBEDDED_BROKER_ORDER_MISMATCH")
@@ -54,6 +56,24 @@ def audit_four_ledgers(sqlite_path, session_path, broker_path, execution_path):
                 findings.append("BLOCK_EXECUTION_ACCEPTANCE_CONTRADICTION")
         elif capacity == "FILLED":
             findings.append("BLOCK_FILLED_EXECUTION_REJECTED")
+
+    try:
+        broker_events = [json.loads(line) for line in Path(broker_path).read_text(
+            encoding="utf-8").splitlines() if line.strip()]
+        actual_broker = {}
+        for broker_event in broker_events:
+            if not isinstance(broker_event, dict):
+                raise ValueError("INVALID_BROKER_EVENT")
+            order = broker_event.get("order")
+            if isinstance(order, dict) and order.get("session_id") == session.get("session_id"):
+                oid = order.get("capacity_order_id")
+                if isinstance(oid, str) and oid:
+                    actual_broker[oid] = broker_event
+        for oid, embedded in accepted_embedded.items():
+            if actual_broker.get(oid) != embedded:
+                findings.append("BLOCK_EMBEDDED_BROKER_LEDGER_MISMATCH")
+    except (OSError, ValueError, TypeError):
+        findings.append("BLOCK_BROKER_LEDGER_RECHECK_UNAVAILABLE")
 
     try:
         with sqlite3.connect(f"file:{Path(sqlite_path).resolve()}?mode=ro", uri=True) as db:
