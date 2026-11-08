@@ -70,3 +70,24 @@ def test_session_capacity_isolated(tmp_path):
     assert gate.reserve_new("session-A", 1)["decision"] == "RESERVED"
     assert gate.reserve_new("session-B", 1)["decision"] == "RESERVED"
     assert gate.reserve_new("session-A", 1)["decision"] == "BLOCK_CAPACITY"
+
+
+def test_connection_closed_on_success_and_exception(tmp_path):
+    import sqlite3
+    from unittest.mock import patch
+    path = tmp_path / "capacity.sqlite"
+    gate = PaperCapacityGate(path)
+    connections = []
+    class TrackedConnection(sqlite3.Connection):
+        def close(self):
+            connections.append("closed")
+            return super().close()
+    real_connect = sqlite3.connect
+    def tracked_connect(*args, **kwargs):
+        kwargs["factory"] = TrackedConnection
+        return real_connect(*args, **kwargs)
+    with patch.object(module.sqlite3, "connect", side_effect=tracked_connect):
+        assert gate.reserve_new("session-A", 1)["decision"] == "RESERVED"
+        assert gate.reserve_new("session-A", 1)["decision"] == "BLOCK_CAPACITY"
+        assert gate.remaining("session-A", 1) == 0
+    assert len(connections) == 3
