@@ -3,7 +3,7 @@ set -Eeuo pipefail
 # R187: operator-invoked only. No image pull, package install, external network, or credentials.
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 IMAGE="et665-pytest-offline:py312"
-EVIDENCE="${ET665_EVIDENCE_DIR:-${ROOT}/.et665-r187-evidence}"
+EVIDENCE="${ET665_EVIDENCE_DIR:-$(dirname "$ROOT")/et665-r187-evidence}"
 # Evidence must be outside the read-only source mount to avoid nested writable mounts.
 case "$EVIDENCE/" in "$ROOT/"*) echo "BLOCKED: evidence directory must be outside repository" >&2; exit 24;; esac
 if [[ -e "$EVIDENCE" ]]; then echo "BLOCKED: evidence directory already exists; use a fresh path" >&2; exit 25; fi
