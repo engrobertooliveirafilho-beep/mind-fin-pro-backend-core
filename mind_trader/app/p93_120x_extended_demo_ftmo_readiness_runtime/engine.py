@@ -14,7 +14,7 @@ def load(p):
     return json.loads(p.read_text(encoding="utf-8")) if p.exists() else []
 
 def module(name, extra=None):
-    d={"status":"IMPLEMENTED",**BLOCKS}
+    d={"status":"UNVERIFIED",**BLOCKS}
     if extra: d.update(extra)
     return d
 
@@ -41,16 +41,17 @@ def run():
 
     release="BLOCKED_PENDING_30_90_DAY_DEMO_EVIDENCE"
     report={
-        "STATUS":"P93_120X_EXTENDED_DEMO_FTMO_READINESS_RUNTIME_IMPLEMENTED",
-        "MODULES_IMPLEMENTED":28,
+        "STATUS":"UNVERIFIED_PENDING_OFFLINE_CERTIFICATION",
+        "MODULES_DECLARED":28,
+        "MODULES_CERTIFIED":0,
         "POSITIONS_MONITORED":len(positions),
         "PORTFOLIO_CANDIDATES":len(portfolio),
-        "DEMO_OPERATION_SUPERVISION":"IMPLEMENTED",
-        "EDGE_EVOLUTION_RUNTIME":"IMPLEMENTED",
-        "EXECUTION_INTELLIGENCE_V2":"IMPLEMENTED",
-        "FTMO_SURVIVAL_ENGINE":"IMPLEMENTED",
-        "SCALING_INTELLIGENCE":"IMPLEMENTED",
-        "FINAL_CERTIFICATION_LAYER":"IMPLEMENTED",
+        "DEMO_OPERATION_SUPERVISION":"UNVERIFIED",
+        "EDGE_EVOLUTION_RUNTIME":"UNVERIFIED",
+        "EXECUTION_INTELLIGENCE_V2":"UNVERIFIED",
+        "FTMO_SURVIVAL_ENGINE":"UNVERIFIED",
+        "SCALING_INTELLIGENCE":"UNVERIFIED",
+        "FINAL_CERTIFICATION_LAYER":"UNVERIFIED",
         "FTMO_RELEASE":release,
         "NEXT":"RUN_EXTENDED_DEMO_EVIDENCE_30_90_DAYS",
         **BLOCKS,
