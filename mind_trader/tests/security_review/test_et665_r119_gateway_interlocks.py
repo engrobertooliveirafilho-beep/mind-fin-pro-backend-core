@@ -36,3 +36,20 @@ def test_session_result_not_claimed_as_atomic_with_capacity():
     assert "def record_trade_result(" in source
     assert "capacity_order_id" not in source
     assert "BEGIN IMMEDIATE" not in source
+
+
+def test_gateway_validates_broker_receipt_session_and_capacity_id():
+    source = GATEWAY.read_text(encoding="utf-8")
+    tree = ast.parse(source)
+    submit = next(node for node in ast.walk(tree)
+                  if isinstance(node, ast.FunctionDef) and node.name == "submit_order")
+    checks = [node for node in ast.walk(submit) if isinstance(node, ast.Compare)]
+    def is_mismatch(node, field, expected):
+        return (isinstance(node.left, ast.Call) and isinstance(node.left.func, ast.Attribute)
+                and node.left.func.attr == "get"
+                and node.left.args and isinstance(node.left.args[0], ast.Constant)
+                and node.left.args[0].value == field
+                and any(isinstance(op, ast.NotEq) for op in node.ops)
+                and any(isinstance(v, ast.Name) and v.id == expected for v in node.comparators))
+    assert any(is_mismatch(node, "session_id", "session_id") for node in checks)
+    assert any(is_mismatch(node, "capacity_order_id", "capacity_order_id") for node in checks)
