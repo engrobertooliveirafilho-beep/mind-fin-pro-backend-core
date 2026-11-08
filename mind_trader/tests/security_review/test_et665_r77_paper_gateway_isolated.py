@@ -3,6 +3,7 @@
 Never imports trader modules, broker, MetaTrader5 or network libraries.
 """
 import ast
+import math
 from pathlib import Path
 from types import SimpleNamespace
 import unittest
@@ -32,6 +33,7 @@ class GatewayPaperContract(unittest.TestCase):
         ]:
             with self.subTest(response=broker_response):
                 namespace = {
+                    "math": math,
                     "ALLOWED_MODES": {"PAPER", "REPLAY", "MICRO_SIM"},
                     "LIVE_MODE_TO_ACTION": {},
                     "write_execution_ledger": ledger,
