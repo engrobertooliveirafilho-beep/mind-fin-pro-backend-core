@@ -31,6 +31,8 @@ def audit_four_ledgers(sqlite_path, session_path, broker_path, execution_path):
             if event.get("production") not in (None, "BLOCKED") or event.get("real_broker_routing") not in (None, "DISABLED"):
                 findings.append("BLOCK_NON_PAPER_LIVE_ROUTING_CLAIM")
             broker = event.get("paper_broker")
+            if isinstance(broker, dict) and (broker.get("production") not in (None, "BLOCKED") or broker.get("real_broker_routing") not in (None, "DISABLED") or broker.get("live") not in (None, "FORBIDDEN")):
+                findings.append("BLOCK_NON_PAPER_EMBEDDED_BROKER_LIVE_CLAIM")
             if (event.get("decision") == "ACCEPT_SIMULATED_ORDER"
                     or event.get("capacity_decision") == "FILLED"
                     or event.get("capacity_order_id") is not None
