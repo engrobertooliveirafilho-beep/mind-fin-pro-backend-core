@@ -33,10 +33,13 @@ result["python_version"] = sys.version.split()[0]
 result["command"] = ["python", "-I", "<each-pinned-test>", "-v"]
 (OUT / "result.json").write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 (OUT / "test.log").write_text(result["stdout"] + "\n" + result["stderr"], encoding="utf-8")
-suite = ET.Element("testsuite", name="ET665_R72_offline_static", tests="1", failures="0" if result["exit_code"] == 0 else "1", errors="0", timestamp=started)
-case = ET.SubElement(suite, "testcase", classname="et665_r72", name="static_regression_process")
-if result["exit_code"] != 0:
-    ET.SubElement(case, "failure", message="Static regression failed or timed out").text = result["stderr"][-10000:]
+suite = ET.Element("testsuite", name="ET665_R80_offline_regressions", tests=str(len(runs)),
+                   failures=str(sum(run["exit_code"] != 0 for run in runs)), errors="0", timestamp=started)
+for run in runs:
+    case = ET.SubElement(suite, "testcase", classname="et665_offline", name=run["test"])
+    ET.SubElement(case, "system-out").text = run["stdout"][-20000:]
+    if run["exit_code"] != 0:
+        ET.SubElement(case, "failure", message="Offline test process failed or timed out").text = run["stderr"][-20000:]
 ET.ElementTree(suite).write(OUT / "junit.xml", encoding="utf-8", xml_declaration=True)
 lines = []
 for name in ("result.json", "test.log", "junit.xml"):
