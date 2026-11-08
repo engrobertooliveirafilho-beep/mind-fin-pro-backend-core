@@ -19,7 +19,7 @@ def audit_four_ledgers(sqlite_path, session_path, broker_path, execution_path):
         if not events or any(not isinstance(event, dict) for event in events):
             raise ValueError("EMPTY_OR_INVALID_EXECUTION_LEDGER")
     except (OSError, ValueError, TypeError):
-        return {**base, "certified": False,
+        return {**base, "certified": False, "operational_certified": False,
                 "findings": sorted(set(findings + ["BLOCK_EXECUTION_LEDGER_UNAVAILABLE"])),
                 "scope": "OFFLINE_FOUR_LEDGER_ONLY"}
 
@@ -65,4 +65,5 @@ def audit_four_ledgers(sqlite_path, session_path, broker_path, execution_path):
     if base["certified"] and not seen:
         findings.append("BLOCK_MISSING_EXECUTION_CORRELATION")
     return {**base, "certified": not findings, "findings": sorted(set(findings)),
+            "operational_certified": False, "production": "BLOCKED",
             "scope": "OFFLINE_FOUR_LEDGER_ONLY", "execution_order_count": len(seen)}
