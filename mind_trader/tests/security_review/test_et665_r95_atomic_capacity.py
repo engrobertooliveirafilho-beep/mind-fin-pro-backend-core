@@ -3,7 +3,8 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 import tempfile
 import unittest
-from et665_r95_atomic_capacity_prototype import PaperCapacityPrototype
+import runpy
+PaperCapacityPrototype = runpy.run_path(str(Path(__file__).with_name("et665_r95_atomic_capacity_prototype.py")))["PaperCapacityPrototype"]
 
 class R95AtomicCapacity(unittest.TestCase):
     def test_concurrent_reservations_and_idempotent_fill(self):
