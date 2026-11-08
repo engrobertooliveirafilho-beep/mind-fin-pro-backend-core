@@ -565,3 +565,13 @@ def test_non_string_sqlite_session_id_fails_closed(tmp_path):
     result = audit_four_ledgers(*paths)
     assert result["certified"] is False
     assert "BLOCK_INVALID_RESERVATION" in result["findings"]
+
+
+def test_blank_session_identifier_fails_closed(tmp_path):
+    paths = fixtures(tmp_path)
+    session = json.loads(paths[1].read_text())
+    session["session_id"] = "   "
+    paths[1].write_text(json.dumps(session))
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is False
+    assert "BLOCK_INPUT_UNAVAILABLE_OR_CORRUPT" in result["findings"]
