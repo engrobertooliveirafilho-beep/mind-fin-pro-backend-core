@@ -37,41 +37,6 @@ def write_csv(path, rows):
 
 def pull(count=500):
     raise PermissionError("ET665_MT5_UNCERTIFIED_ENTRYPOINT_BLOCKED")
-    report={"connected":False,"datasets":[],"errors":[]}
-    try:
-        import MetaTrader5 as mt5
-        ok=mt5.initialize(path=MT5_PATH)
-        report["connected"]=bool(ok)
-        report["last_error"]=mt5.last_error()
-        if not ok:
-            return report
-
-        for symbol in SYMBOLS:
-            mt5.symbol_select(symbol, True)
-            for tf_name, tf_attr in TIMEFRAMES.items():
-                tf=getattr(mt5,tf_attr)
-                rates=mt5.copy_rates_from_pos(symbol,tf,0,count)
-                rows=normalize_rates(rates)
-                if not rows:
-                    report["errors"].append({"symbol":symbol,"timeframe":tf_name,"error":"NO_RATES"})
-                    continue
-                out=f"data/normalized/MT5_{symbol}_{tf_name}.csv"
-                write_csv(out,rows)
-                report["datasets"].append({
-                    "dataset_id":dataset_id(symbol,tf_name,len(rows)),
-                    "source":"MT5",
-                    "symbol":symbol,
-                    "timeframe":tf_name,
-                    "rows":len(rows),
-                    "path":out,
-                    "certification_required":True,
-                    "live":"FORBIDDEN",
-                    "real_broker":"DISABLED"
-                })
-        mt5.shutdown()
-    except Exception as e:
-        report["errors"].append({"error":str(e)})
-    return report
 
 def run():
     out=Path("reports/P13.9_MT5_HISTORICAL_DATA_PULLER")
