@@ -45,6 +45,16 @@ def audit_four_ledgers(sqlite_path, session_path, broker_path, execution_path):
         elif capacity == "FILLED":
             findings.append("BLOCK_FILLED_EXECUTION_REJECTED")
 
+    try:
+        with __import__("sqlite3").connect(f"file:{Path(sqlite_path).resolve()}?mode=ro", uri=True) as db:
+            filled_ids = {oid for sid, oid in db.execute(
+                "SELECT session_id, order_id FROM reservations WHERE state = 'FILLED'"
+            ) if sid == session.get("session_id")}
+    except (__import__("sqlite3").Error, OSError):
+        filled_ids = set()
+        findings.append("BLOCK_RESERVATION_RECHECK_UNAVAILABLE")
+    if filled_ids - seen:
+        findings.append("BLOCK_MISSING_EXECUTION_CORRELATION")
     if base["certified"] and not seen:
         findings.append("BLOCK_MISSING_EXECUTION_CORRELATION")
     return {**base, "certified": not findings, "findings": sorted(set(findings)),
