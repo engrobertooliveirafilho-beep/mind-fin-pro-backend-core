@@ -123,7 +123,7 @@ class ExecutionGateway:
                         if not isinstance(paper_broker,dict) or paper_broker.get("decision")!="PAPER_ORDER_ACCEPTED" or not isinstance(paper_broker.get("fill"),dict) or paper_broker["fill"].get("filled") is not True:
                             allowed=False
                             if capacity_decision=="RESERVED":
-                                capacity_decision="BLOCK_BROKER_UNCONFIRMED"
+                                capacity_decision="PAPER_BROKER_NOT_ACCEPTED"
                         else:
                             recorded=capacity.finalize(session_id,capacity_order_id,True)
                             if recorded!="FILLED":
