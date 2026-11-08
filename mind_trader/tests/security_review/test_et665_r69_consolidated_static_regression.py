@@ -28,7 +28,11 @@ class R69StaticRegression(unittest.TestCase):
                 tree = ast.parse(source(path))
                 functions = [n for n in tree.body if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef)) and n.name == name]
                 self.assertEqual(len(functions), 1)
-                first = functions[0].body[0]
+                statements = functions[0].body
+                if isinstance(statements[0], ast.Expr) and isinstance(statements[0].value, ast.Constant) and isinstance(statements[0].value.value, str):
+                    statements = statements[1:]  # A docstring is not executable connectivity.
+                self.assertTrue(statements)
+                first = statements[0]
                 self.assertIsInstance(first, ast.Raise)
                 self.assertIsInstance(first.exc, ast.Call)
                 self.assertIsInstance(first.exc.func, ast.Name)
