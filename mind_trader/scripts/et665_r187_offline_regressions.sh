@@ -16,7 +16,9 @@ case "$EVIDENCE/" in "$ROOT/"*) echo "BLOCKED: evidence directory must be outsid
 if [[ -e "$EVIDENCE" || -L "$EVIDENCE" ]]; then echo "BLOCKED: evidence directory already exists; use a fresh path" >&2; exit 25; fi
 # Prevent an unexpected Docker daemon/context from silently selecting a remote host.
 if [[ -n "${DOCKER_HOST:-}" || -n "${DOCKER_CONTEXT:-}" ]]; then echo "BLOCKED: explicit Docker remote/context override is not allowed" >&2; exit 34; fi
+if [[ "$(id -u)" == "0" ]]; then echo "BLOCKED: host execution as root prohibited" >&2; exit 35; fi
 if ! command -v docker >/dev/null 2>&1; then echo "BLOCKED: Docker unavailable" >&2; exit 20; fi
+if [[ "$(docker context inspect --format '{{.Endpoints.docker.Host}}' 2>/dev/null)" != "unix:///var/run/docker.sock" ]]; then echo "BLOCKED: Docker endpoint not approved local Unix socket" >&2; exit 36; fi
 if ! docker image inspect "$IMAGE" >/dev/null 2>&1; then echo "BLOCKED: prebuilt local image $IMAGE unavailable; no pull attempted" >&2; exit 21; fi
 if ! command -v sha256sum >/dev/null 2>&1; then echo "BLOCKED: sha256sum unavailable" >&2; exit 22; fi
 (umask 077; mkdir "$EVIDENCE") || { echo "BLOCKED: cannot create fresh evidence directory" >&2; exit 29; }
@@ -24,7 +26,7 @@ chmod 700 "$EVIDENCE"
 date -u +'%Y-%m-%dT%H:%M:%SZ' > "$EVIDENCE/started_utc.txt"
 if ! git -C "$ROOT" rev-parse --verify HEAD > "$EVIDENCE/commit.txt"; then echo "BLOCKED: checkout HEAD unavailable" >&2; exit 26; fi
 if [[ "$(cat "$EVIDENCE/commit.txt")" != "$EXPECTED_HEAD" ]]; then echo "BLOCKED: checkout commit differs from ET665_EXPECTED_HEAD" >&2; exit 33; fi
-if [[ -n "$(git -C "$ROOT" status --porcelain --untracked-files=no)" ]]; then echo "BLOCKED: tracked source checkout is dirty" >&2; exit 30; fi
+if [[ -n "$(git -C "$ROOT" status --porcelain)" ]]; then echo "BLOCKED: tracked source checkout is dirty" >&2; exit 30; fi
 docker image inspect --format '{{.Id}}' "$IMAGE" > "$EVIDENCE/image_id.txt"
 FILES=(
   mind_trader/tests/security_review/test_et665_r180_p15_dataset_path_guards.py
