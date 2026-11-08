@@ -13,7 +13,7 @@ OUT = ROOT / "mind_trader/audits/local_evidence/et665_r72"
 OUT.mkdir(parents=True, exist_ok=True)
 started = datetime.now(timezone.utc).isoformat()
 # Use interpreter isolation (-I), with explicit timeout and no inherited PYTHONPATH.
-tests = [TEST, TEST.parent / "test_et665_r77_paper_gateway_isolated.py", TEST.parent / "test_et665_r82_paper_broker_fill_isolated.py", TEST.parent / "test_et665_r84_paper_jsonl_integration.py", TEST.parent / "test_et665_r86_gateway_broker_jsonl.py", TEST.parent / "test_et665_r90_paper_session_accounting_gap.py", TEST.parent / "test_et665_r92_session_recording_contract.py", TEST.parent / "test_et665_r95_atomic_capacity.py", TEST.parent / "test_et665_r99_capacity_recovery.py"]
+tests = [TEST, TEST.parent / "test_et665_r77_paper_gateway_isolated.py", TEST.parent / "test_et665_r82_paper_broker_fill_isolated.py", TEST.parent / "test_et665_r84_paper_jsonl_integration.py", TEST.parent / "test_et665_r86_gateway_broker_jsonl.py", TEST.parent / "test_et665_r90_paper_session_accounting_gap.py", TEST.parent / "test_et665_r92_session_recording_contract.py", TEST.parent / "test_et665_r95_atomic_capacity.py", TEST.parent / "test_et665_r99_capacity_recovery.py", TEST.parent / "test_et665_r101_sqlite_process_crash.py"]
 runs = []
 for test in tests:
     command = [sys.executable, "-I", str(test), "-v"]
