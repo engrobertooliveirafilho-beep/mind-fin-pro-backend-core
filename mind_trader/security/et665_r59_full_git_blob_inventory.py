@@ -80,9 +80,18 @@ def main() -> int:
     )
     try:
         assert proc.stdin and proc.stdout
-        for oid in unique_oids:
-            proc.stdin.write((oid + "\n").encode("ascii"))
-        proc.stdin.close()
+        # Write concurrently with stdout consumption to avoid pipe-buffer deadlock.
+        import threading
+        writer_errors = []
+        def feed_oids():
+            try:
+                for oid in unique_oids:
+                    proc.stdin.write((oid + "\n").encode("ascii"))
+                proc.stdin.close()
+            except Exception as exc:
+                writer_errors.append(repr(exc))
+        writer = threading.Thread(target=feed_oids, name="git-cat-file-input", daemon=True)
+        writer.start()
         hashes = {}
         for oid in unique_oids:
             header = proc.stdout.readline().decode("ascii", "replace").strip().split()
@@ -100,6 +109,9 @@ def main() -> int:
             if proc.stdout.read(1) != b"\n":
                 raise RuntimeError("GIT_BLOB_TERMINATOR_MISSING:" + oid)
             hashes[oid] = (size, digest.hexdigest())
+        writer.join(timeout=120)
+        if writer.is_alive() or writer_errors:
+            raise RuntimeError("GIT_CAT_FILE_INPUT_FAILED:" + repr(writer_errors))
         rc = proc.wait(timeout=120)
         if rc:
             raise RuntimeError("GIT_CAT_FILE_FAILED:" + str(rc))
