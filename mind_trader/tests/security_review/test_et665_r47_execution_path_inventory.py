@@ -14,8 +14,8 @@ def load():
 
 
 def test_r47_detects_process_mt5_network_dynamic_and_parse_errors(tmp_path):
-    (tmp_path / "sample.py").write_text("import MetaTrader5 as mt5\\nimport subprocess\\nsubprocess.run(['echo'])\\nmt5.order_send({})\\nrequests.post('https://invalid.example')\\neval('1')\\n", encoding="utf-8")
-    (tmp_path / "broken.py").write_text("def broken(:\\n", encoding="utf-8")
+    (tmp_path / "sample.py").write_text("import MetaTrader5 as mt5\nimport subprocess\nsubprocess.run(['echo'])\nmt5.order_send({})\nrequests.post('https://invalid.example')\neval('1')\n", encoding="utf-8")
+    (tmp_path / "broken.py").write_text("def broken(:\n", encoding="utf-8")
     checked, findings = load().inventory(tmp_path)
     assert checked == 2
     cats = {x["category"] for x in findings}
@@ -25,7 +25,7 @@ def test_r47_detects_process_mt5_network_dynamic_and_parse_errors(tmp_path):
 
 def test_r47_no_runtime_execution_on_inspected_source(tmp_path):
     marker = tmp_path / "must_not_exist"
-    (tmp_path / "candidate.py").write_text("import pathlib\\npathlib.Path(" + repr(str(marker)) + ").write_text('bad')\\n")
+    (tmp_path / "candidate.py").write_text("import pathlib\npathlib.Path(" + repr(str(marker)) + ").write_text('bad')\n")
     checked, findings = load().inventory(tmp_path)
     assert checked == 1
     assert not marker.exists()
