@@ -95,3 +95,18 @@ def test_accepted_execution_without_filled_reservation_blocks(tmp_path):
     paths[-1].write_text(json.dumps(event)+"\n")
     result = audit_four_ledgers(*paths)
     assert "BLOCK_EXECUTION_ACCEPTED_WITHOUT_FILLED_RESERVATION" in result["findings"]
+
+
+def test_offline_consistency_never_certifies_operational_gateway(tmp_path):
+    result = audit_four_ledgers(*fixtures(tmp_path))
+    assert result["certified"] is True
+    assert result["operational_certified"] is False
+    assert result["production"] == "BLOCKED"
+
+
+def test_missing_execution_ledger_never_certifies_operational_gateway(tmp_path):
+    paths = fixtures(tmp_path)
+    paths[-1].unlink()
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is False
+    assert result["operational_certified"] is False
