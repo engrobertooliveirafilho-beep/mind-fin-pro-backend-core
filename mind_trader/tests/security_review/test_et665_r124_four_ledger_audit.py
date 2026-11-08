@@ -163,3 +163,19 @@ def test_embedded_broker_session_mismatch_blocks(tmp_path):
     paths[-1].write_text(json.dumps(event)+"\n")
     result = audit_four_ledgers(*paths)
     assert "BLOCK_EMBEDDED_BROKER_ORDER_MISMATCH" in result["findings"]
+
+
+def test_embedded_receipt_differs_from_persisted_broker_event(tmp_path):
+    paths = fixtures(tmp_path)
+    event = json.loads(paths[-1].read_text())
+    event["paper_broker"]["fill"]["price"] = 123.45
+    paths[-1].write_text(json.dumps(event)+"\n")
+    result = audit_four_ledgers(*paths)
+    assert "BLOCK_EMBEDDED_BROKER_LEDGER_MISMATCH" in result["findings"]
+
+
+def test_missing_persisted_broker_receipt_blocks(tmp_path):
+    paths = fixtures(tmp_path)
+    paths[2].write_text("")
+    result = audit_four_ledgers(*paths)
+    assert "BLOCK_EMBEDDED_BROKER_LEDGER_MISMATCH" in result["findings"]
