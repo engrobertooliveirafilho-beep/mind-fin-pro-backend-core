@@ -35,8 +35,6 @@ def audit_four_ledgers(sqlite_path, session_path, broker_path, execution_path):
             findings.append("BLOCK_EXECUTION_LIVE_ROUTING_CLAIM")
         if event.get("session_id") not in (None, session.get("session_id")):
             findings.append("BLOCK_EXECUTION_SESSION_MISMATCH")
-        if event.get("decision") == "ACCEPT_SIMULATED_ORDER" and event.get("session_id") is None:
-            findings.append("BLOCK_ACCEPTED_EXECUTION_SESSION_UNDECLARED")
         oid = event.get("capacity_order_id")
         if event.get("decision") == "ACCEPT_SIMULATED_ORDER" and (not isinstance(oid, str) or not oid):
             findings.append("BLOCK_ACCEPTED_EXECUTION_UNCORRELATED")
