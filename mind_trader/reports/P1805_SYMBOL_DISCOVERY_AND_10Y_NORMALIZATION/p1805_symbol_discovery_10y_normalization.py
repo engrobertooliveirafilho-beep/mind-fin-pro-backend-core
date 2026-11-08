@@ -68,25 +68,6 @@ symbol_discovery = []
 
 raise PermissionError("ET665_MT5_UNCERTIFIED_ENTRYPOINT_BLOCKED")
 
-try:
-    import MetaTrader5 as mt5
-    if mt5.initialize():
-        symbols = mt5.symbols_get()
-        names = [s.name for s in symbols] if symbols else []
-
-        targets = ["BTC", "NAS", "US100", "USTEC", "NDX", "NASDAQ", "CRYPTO", "BITCOIN"]
-        for n in names:
-            upper = n.upper()
-            if any(t in upper for t in targets):
-                symbol_discovery.append(n)
-
-        mt5.shutdown()
-except Exception as e:
-    errors.append({
-        "stage": "SYMBOL_DISCOVERY",
-        "error": str(e)
-    })
-
 report = {
     "STATUS": "P1805_SYMBOL_DISCOVERY_AND_10Y_NORMALIZATION_COMPLETED",
     "NORMALIZED_10Y_FILES": len(normalized),
