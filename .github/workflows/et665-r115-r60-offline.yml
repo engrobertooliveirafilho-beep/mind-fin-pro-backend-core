@@ -10,6 +10,9 @@ on:
       - '.github/workflows/et665-r115-r60-offline.yml'
       - 'mind_trader/tests/security_review/test_et665_r116_paper_capacity_regression.py'
       - 'mind_trader/tests/security_review/et665_r113_paper_capacity_gate.py'
+      - 'mind_trader/tests/security_review/test_et665_r119_gateway_interlocks.py'
+      - 'products/eldora_trader/mind_trader/app/execution/gateway.py'
+      - 'products/eldora_trader/mind_trader/app/execution/paper_session.py'
 permissions:
   contents: read
 jobs:
@@ -26,4 +29,4 @@ jobs:
       - name: Execute existing five offline R60 regressions
         run: |
           python -m pip install pytest
-          python -m pytest -q mind_trader/tests/security_review/test_et665_r60_drive_git_reconciliation.py mind_trader/tests/security_review/test_et665_r116_paper_capacity_regression.py
+          python -m pytest -q mind_trader/tests/security_review/test_et665_r60_drive_git_reconciliation.py mind_trader/tests/security_review/test_et665_r116_paper_capacity_regression.py mind_trader/tests/security_review/test_et665_r119_gateway_interlocks.py
