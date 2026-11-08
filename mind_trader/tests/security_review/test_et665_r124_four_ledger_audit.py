@@ -198,3 +198,19 @@ def test_unreserved_reject_without_live_routing_claim_allowed(tmp_path):
     result = audit_four_ledgers(*paths)
     assert result["certified"] is True
     assert result["operational_certified"] is False
+
+
+def test_non_paper_accepted_execution_blocks(tmp_path):
+    paths = fixtures(tmp_path)
+    event = {"mode": "LIVE", "decision": "ACCEPT_SIMULATED_ORDER"}
+    paths[-1].write_text(paths[-1].read_text() + json.dumps(event) + "\n")
+    result = audit_four_ledgers(*paths)
+    assert "BLOCK_NON_PAPER_EXECUTION_ACCEPTANCE" in result["findings"]
+
+
+def test_non_paper_filled_capacity_blocks(tmp_path):
+    paths = fixtures(tmp_path)
+    event = {"mode": "REAL", "decision": "REJECT_ORDER", "capacity_decision": "FILLED"}
+    paths[-1].write_text(paths[-1].read_text() + json.dumps(event) + "\n")
+    result = audit_four_ledgers(*paths)
+    assert "BLOCK_NON_PAPER_EXECUTION_ACCEPTANCE" in result["findings"]
