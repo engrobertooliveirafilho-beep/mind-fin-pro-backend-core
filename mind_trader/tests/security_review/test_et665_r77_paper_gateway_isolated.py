@@ -46,7 +46,14 @@ class GatewayPaperContract(unittest.TestCase):
                 obj = object.__new__(namespace["ExecutionGateway"])
                 obj.ledger_path = "unused"
                 obj.paper_broker_ledger_path = "unused"
-                obj.paper = SimpleNamespace(pre_trade_check=lambda *args: {"allowed": True, "decision": "ALLOW"}, ftmo_config_path="unused")
+                obj.paper = SimpleNamespace(pre_trade_check=lambda *args: {"allowed": True, "decision": "ALLOW", "session_id": "offline"}, ftmo_config_path="unused")
+                class InMemoryCapacity:
+                    def reserve_new(self, session_id, limit):
+                        return {"decision":"RESERVED","order_id":"offline-order"}
+                    def finalize(self, session_id, order_id, filled):
+                        return "FILLED" if filled is True else "REJECTED"
+                obj.paper_capacity = InMemoryCapacity()
+                obj.paper_capacity_max_daily_trades = 1
                 obj.ftmo = SimpleNamespace(validate=lambda *args: (True, "OK"))
                 obj.ftmo_config_valid = {"valid": True, "hash": "offline"}
                 obj.ftmo_ruleset = {"version": "offline"}
