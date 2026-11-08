@@ -10,8 +10,8 @@ def mt5_snapshot():
     raise RuntimeError("ET665_BJ_MT5_CONNECTIVITY_DISABLED_PENDING_SECURITY_REVIEW")
 
 def run():
-    OUT.mkdir(parents=True,exist_ok=True)
     account,terminal,positions,ticks=mt5_snapshot()
+    OUT.mkdir(parents=True,exist_ok=True)
 
     modules={
         "p86_01_order_lifecycle_engine.json":{"status":"READY","positions":len(positions),**BLOCKS},
