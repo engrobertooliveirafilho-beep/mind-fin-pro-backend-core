@@ -62,6 +62,33 @@ class TestR7LateApproval(unittest.TestCase):
             r7.consume(self.source, self.db, self.approval, 1)
         self.assertEqual(self.rows(), [])
 
+    def test_atomic_rollback_when_second_pending_approval_is_invalid(self):
+        second = dict(stage="R6", seq=2, r5_seq=2,
+                      r4_sha256="e"*64, r5_sha256="f"*64)
+        raw2 = (json.dumps(second) + "\n").encode()
+        self.source.write_bytes(self.raw + raw2)
+        r7.consume(self.source, self.db, None, 2)
+        first = dict(r6_sha256=hashlib.sha256(self.raw).hexdigest(),
+                     r4_sha256="a"*64, r5_sha256="b"*64,
+                     decision="APPROVED", authority="ISOLATED_TEST_ONLY")
+        bad_second = dict(r6_sha256=hashlib.sha256(raw2).hexdigest(),
+                          r4_sha256="0"*64, r5_sha256="f"*64,
+                          decision="APPROVED", authority="ISOLATED_TEST_ONLY")
+        self.approval.write_text(
+            json.dumps(first) + "\n" + json.dumps(bad_second) + "\n",
+            encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "APPROVAL_LINEAGE_MISMATCH"):
+            r7.consume(self.source, self.db, self.approval, 2)
+        self.assertEqual(self.rows(), [("PENDING", None), ("PENDING", None)])
+
+    def test_incomplete_manifest_rejected_without_promotion(self):
+        r7.consume(self.source, self.db, None, 1)
+        self.manifest()
+        self.approval.write_bytes(self.approval.read_bytes().rstrip(b"\n"))
+        with self.assertRaisesRegex(ValueError, "PARTIAL_APPROVAL_MANIFEST"):
+            r7.consume(self.source, self.db, self.approval, 1)
+        self.assertEqual(self.rows(), [("PENDING", None)])
+
     def test_valid_late_approval_and_replay(self):
         r7.consume(self.source, self.db, None, 1)
         self.manifest()
