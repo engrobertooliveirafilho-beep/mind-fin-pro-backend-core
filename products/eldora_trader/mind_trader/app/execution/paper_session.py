@@ -1,4 +1,4 @@
-import json, uuid
+import json, uuid, math
 from pathlib import Path
 from datetime import datetime, UTC
 from mind_trader.app.risk.ftmo_ruleset import load_ftmo_config
@@ -18,7 +18,32 @@ class PaperTradingSessionManager:
 
     def _read_session(self):
         if not self.session_path.exists(): return None
-        return json.loads(self.session_path.read_text(encoding="utf-8"))
+        try:
+            session = json.loads(self.session_path.read_text(encoding="utf-8"))
+        except (OSError, UnicodeError, ValueError):
+            return None
+        if not isinstance(session, dict):
+            return None
+        required = ("session_id", "status", "trades", "max_daily_trades", "daily_pnl",
+                    "max_daily_loss", "loss_streak", "ftmo_config_hash")
+        if any(key not in session for key in required):
+            return None
+        for key in ("trades", "max_daily_trades", "loss_streak"):
+            if type(session[key]) is not int or session[key] < 0:
+                return None
+        for key in ("daily_pnl", "max_daily_loss"):
+            value = session[key]
+            if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
+                return None
+        if session["max_daily_trades"] <= 0 or session["max_daily_loss"] <= 0:
+            return None
+        if not isinstance(session["session_id"], str) or not session["session_id"]:
+            return None
+        if session["status"] not in ("OPEN", "CLOSED"):
+            return None
+        if not isinstance(session["ftmo_config_hash"], str):
+            return None
+        return session
 
     def _ledger(self, event):
         self.ledger_path.parent.mkdir(parents=True,exist_ok=True)
@@ -33,6 +58,8 @@ class PaperTradingSessionManager:
         if not cfg or not val["valid"]:
             return {"decision":"BLOCK_SESSION_INVALID_FTMO_CONFIG","validation":val,"production":"BLOCKED"}
         existing=self._read_session()
+        if self.session_path.exists() and existing is None:
+            return {"decision":"BLOCK_CORRUPT_PAPER_SESSION","production":"BLOCKED"}
         if existing and existing.get("status")=="OPEN":
             return {"decision":"SESSION_ALREADY_OPEN","session":existing,"production":"BLOCKED"}
         s={
@@ -67,6 +94,8 @@ class PaperTradingSessionManager:
         return {"decision":"SESSION_CLOSED","session":s,"production":"BLOCKED"}
 
     def pre_trade_check(self, risk_amount):
+        if isinstance(risk_amount, bool) or not isinstance(risk_amount, (int, float)) or not math.isfinite(risk_amount) or risk_amount <= 0:
+            return {"allowed":False,"decision":"BLOCK_INVALID_RISK_AMOUNT","production":"BLOCKED"}
         s=self._read_session()
         if not s: return {"allowed":False,"decision":"BLOCK_NO_SESSION","production":"BLOCKED"}
         if s.get("status")!="OPEN": return {"allowed":False,"decision":"BLOCK_SESSION_CLOSED","production":"BLOCKED"}
@@ -75,11 +104,16 @@ class PaperTradingSessionManager:
         return {"allowed":True,"decision":"ALLOW_PAPER_TRADE","session_id":s["session_id"],"production":"BLOCKED"}
 
     def record_trade_result(self, pnl):
+        if isinstance(pnl, bool) or not isinstance(pnl, (int, float)) or not math.isfinite(pnl):
+            return {"decision":"BLOCK_RECORD_INVALID_PNL","production":"BLOCKED"}
         s=self._read_session()
         if not s or s.get("status")!="OPEN":
             return {"decision":"BLOCK_RECORD_NO_OPEN_SESSION","production":"BLOCKED"}
+        next_daily_pnl = s["daily_pnl"] + pnl
+        if not math.isfinite(next_daily_pnl):
+            return {"decision":"BLOCK_RECORD_INVALID_PNL","production":"BLOCKED"}
         s["trades"] += 1
-        s["daily_pnl"] += float(pnl)
+        s["daily_pnl"] = next_daily_pnl
         s["loss_streak"] = s["loss_streak"] + 1 if pnl < 0 else 0
         self._write_session(s)
         self._ledger({"type":"TRADE_RESULT","session_id":s["session_id"],"pnl":pnl,"daily_pnl":s["daily_pnl"],"trades":s["trades"]})
