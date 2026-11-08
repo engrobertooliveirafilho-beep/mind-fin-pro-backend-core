@@ -36,6 +36,8 @@ def audit_four_ledgers(sqlite_path, session_path, broker_path, execution_path):
         seen.add(oid)
         if event.get("session_id") not in (None, session.get("session_id")):
             findings.append("BLOCK_EXECUTION_SESSION_MISMATCH")
+        if event.get("production") not in (None, "BLOCKED") or event.get("real_broker_routing") not in (None, "DISABLED"):
+            findings.append("BLOCK_EXECUTION_LIVE_ROUTING_CLAIM")
         decision = event.get("decision")
         capacity = event.get("capacity_decision")
         broker = event.get("paper_broker")
@@ -58,6 +60,8 @@ def audit_four_ledgers(sqlite_path, session_path, broker_path, execution_path):
     except (sqlite3.Error, OSError):
         filled_ids = set()
         findings.append("BLOCK_RESERVATION_RECHECK_UNAVAILABLE")
+    if len(accepted_ids) != len([e for e in events if e.get("mode") == "PAPER" and e.get("decision") == "ACCEPT_SIMULATED_ORDER"]):
+        findings.append("BLOCK_ACCEPTED_EXECUTION_UNCORRELATED")
     if accepted_ids - filled_ids:
         findings.append("BLOCK_EXECUTION_ACCEPTED_WITHOUT_FILLED_RESERVATION")
     if filled_ids - accepted_ids:
