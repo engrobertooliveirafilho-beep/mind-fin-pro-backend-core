@@ -474,3 +474,13 @@ def test_unreserved_rejected_execution_with_filled_capacity_blocks(tmp_path):
     result = audit_four_ledgers(*paths)
     assert result["certified"] is False
     assert "BLOCK_FILLED_EXECUTION_REJECTED" in result["findings"]
+
+
+def test_unreserved_accepted_execution_without_filled_capacity_blocks(tmp_path):
+    paths = fixtures(tmp_path)
+    event = {"mode": "PAPER", "decision": "ACCEPT_SIMULATED_ORDER",
+             "capacity_decision": "RESERVED"}
+    paths[-1].write_text(paths[-1].read_text() + json.dumps(event) + "\n")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is False
+    assert "BLOCK_ACCEPTED_EXECUTION_WITHOUT_FILLED_CAPACITY" in result["findings"]
