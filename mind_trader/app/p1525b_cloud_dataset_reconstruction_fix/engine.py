@@ -140,7 +140,7 @@ def run():
         trades,curve=reconstruct(e)
         eid=f'{e["symbol"]}_{e["timeframe"]}_{e["strategy"]}_{e["fast"]}_{e["slow"]}'
         m=metrics(trades,curve)
-        status="PAPER_RESEARCH_CERTIFIED" if m["trades"]>=20 and m["profit_factor"]>=1.25 and m["recovery_factor"]>=1 else "RESEARCH_ONLY"
+        status="RESEARCH_ONLY"  # ET665.R241: independent certification required
         reconstructed.append({
             "edge_id":eid,
             "dataset":e["dataset"],
