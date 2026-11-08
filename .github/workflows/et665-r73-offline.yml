@@ -1,0 +1,31 @@
+name: ET665 R73 offline security regression
+on:
+  push:
+    branches:
+      - audit/et665-r68-regression-evidence-20261108
+    paths:
+      - mind_trader/tests/security_review/**
+      - .github/workflows/et665-r73-offline.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  static-offline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+      PYTHONNOUSERSITE: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Execute stdlib-only source regression
+        run: python3 -I mind_trader/tests/security_review/run_et665_r72_offline_evidence.py
+      - name: Publish evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: et665-r73-offline-evidence
+          path: mind_trader/audits/local_evidence/et665_r72/
+          if-no-files-found: warn
