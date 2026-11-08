@@ -74,8 +74,11 @@ def audit_four_ledgers(sqlite_path, session_path, broker_path, execution_path):
                 or broker["fill"].get("filled") is not True
             ):
                 findings.append("BLOCK_EXECUTION_ACCEPTANCE_CONTRADICTION")
-        elif capacity == "FILLED":
-            findings.append("BLOCK_FILLED_EXECUTION_REJECTED")
+        else:
+            if capacity == "FILLED":
+                findings.append("BLOCK_FILLED_EXECUTION_REJECTED")
+            if isinstance(broker, dict) and broker.get("decision") == "PAPER_ORDER_ACCEPTED":
+                findings.append("BLOCK_REJECTED_EXECUTION_WITH_ACCEPTED_BROKER")
 
     try:
         broker_events = [json.loads(line) for line in Path(broker_path).read_text(
