@@ -41,6 +41,7 @@ FILES=(
   mind_trader/tests/security_review/test_et665_r184_mt5_status_truth.py
   mind_trader/tests/security_review/test_et665_r186_dependency_gates.py
   mind_trader/tests/security_review/test_et665_r196_junit_identity_gate.py
+  mind_trader/scripts/et665_junit_evidence_gate.py
 )
 for f in "${FILES[@]}"; do
   if [[ ! -f "$ROOT/$f" ]]; then echo "BLOCKED: missing $f" >&2; exit 23; fi
@@ -59,7 +60,7 @@ timeout --signal=TERM --kill-after=15s 15m docker run --rm --pull=never --networ
   -e PYTHONDONTWRITEBYTECODE=1 -e PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
   -v "$ROOT:/workspace:ro" -v "$EVIDENCE:/evidence:rw" -w /workspace \
   --entrypoint python "$IMAGE_ID" -m pytest -q -p no:cacheprovider \
-  --junitxml=/evidence/junit.xml "${FILES[@]}" > "$EVIDENCE/pytest.stdout.log" 2> "$EVIDENCE/pytest.stderr.log"
+  --junitxml=/evidence/junit.xml "${FILES[@]:0:6}" > "$EVIDENCE/pytest.stdout.log" 2> "$EVIDENCE/pytest.stderr.log"
 status=$?
 set -e
 # Exit code zero is insufficient: require a nonempty, well-formed JUnit result.
@@ -67,38 +68,7 @@ if [[ "$status" -eq 0 ]]; then
   if [[ ! -s "$EVIDENCE/junit.xml" ]]; then
     echo "BLOCKED: Docker returned success without JUnit evidence" >&2
     status=39
-  elif ! python3 - "$EVIDENCE/junit.xml" <<'PY'
-import sys
-import xml.etree.ElementTree as ET
-try:
-    root = ET.parse(sys.argv[1]).getroot()
-    suites = [root] if root.tag == "testsuite" else list(root.findall(".//testsuite"))
-    tests = sum(int(x.get("tests", "0")) for x in suites)
-    failures = sum(int(x.get("failures", "0")) for x in suites)
-    errors = sum(int(x.get("errors", "0")) for x in suites)
-    skipped = sum(int(x.get("skipped", "0")) for x in suites)
-    cases = root.findall(".//testcase")
-    if root.tag not in ("testsuites", "testsuite") or not suites or tests < 1:
-        raise ValueError("missing or empty JUnit suites")
-    if tests != len(cases) or failures or errors or skipped:
-        raise ValueError("JUnit counts inconsistent or nonpassing/skipped tests")
-    expected = {
-        "test_et665_r180_p15_dataset_path_guards",
-        "test_et665_r182_p15_rclone_allowlist",
-        "test_et665_r183_p15_pipeline_rclone_allowlist",
-        "test_et665_r184_mt5_status_truth",
-        "test_et665_r186_dependency_gates",
-        "test_et665_r196_junit_identity_gate",
-    }
-    observed = {part for c in cases for part in (c.get("classname") or "").split(".")}
-    if not expected.issubset(observed):
-        raise ValueError("JUnit missing one or more exact regression module classnames")
-    if any(c.find("failure") is not None or c.find("error") is not None or c.find("skipped") is not None for c in cases):
-        raise ValueError("JUnit contains failed or skipped testcase")
-except (ET.ParseError, OSError, ValueError, TypeError) as exc:
-    print("BLOCKED: invalid or nonpassing JUnit evidence:", exc, file=sys.stderr)
-    sys.exit(1)
-PY
+  elif ! python3 "$ROOT/mind_trader/scripts/et665_junit_evidence_gate.py" "$EVIDENCE/junit.xml"
   then
     status=40
   fi
