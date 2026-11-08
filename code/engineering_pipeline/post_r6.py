@@ -52,6 +52,7 @@ def consume(source, db_path, approval_path=None, limit=1000):
         db.executescript("""CREATE TABLE IF NOT EXISTS cursor(id INTEGER PRIMARY KEY CHECK(id=1), source TEXT NOT NULL, offset INTEGER NOT NULL, prefix_sha256 TEXT NOT NULL, seq INTEGER NOT NULL);
         CREATE TABLE IF NOT EXISTS records(r6_sha256 TEXT PRIMARY KEY, seq INTEGER UNIQUE NOT NULL, r4_sha256 TEXT NOT NULL, r5_sha256 TEXT NOT NULL, decision TEXT NOT NULL CHECK(decision IN ('PENDING','APPROVED')), authority TEXT);
         """)
+        db.execute('BEGIN IMMEDIATE')
         cursor = db.execute('SELECT source,offset,prefix_sha256,seq FROM cursor WHERE id=1').fetchone()
         offset = cursor[1] if cursor else 0
         seq = cursor[3] if cursor else 0
@@ -66,7 +67,7 @@ def consume(source, db_path, approval_path=None, limit=1000):
             f.seek(offset)
             processed = 0
             promoted = 0
-            with db:
+            if True:
                 for digest, r4, r5 in db.execute("SELECT r6_sha256,r4_sha256,r5_sha256 FROM records WHERE decision='PENDING'"):
                     a = approved.get(digest)
                     if a:
@@ -93,6 +94,7 @@ def consume(source, db_path, approval_path=None, limit=1000):
                 f.seek(0)
                 prefix_hash = sha(f.read(offset))
                 db.execute('INSERT INTO cursor VALUES(1,?,?,?,?) ON CONFLICT(id) DO UPDATE SET offset=excluded.offset,prefix_sha256=excluded.prefix_sha256,seq=excluded.seq', (str(source),offset,prefix_hash,seq))
+        db.commit()
         totals = dict(db.execute('SELECT decision,COUNT(*) FROM records GROUP BY decision'))
         return {'processed':processed,'promoted':promoted,'total':seq,'approved':totals.get('APPROVED',0),'pending':totals.get('PENDING',0),'offset':offset,'source_bytes':source.stat().st_size,'time_unix':time.time()}
     finally:
