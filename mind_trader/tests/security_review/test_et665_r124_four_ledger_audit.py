@@ -77,3 +77,21 @@ def test_rejected_execution_cannot_mask_filled_reservation(tmp_path):
     result = audit_four_ledgers(*paths)
     assert result["certified"] is False
     assert "BLOCK_MISSING_EXECUTION_CORRELATION" in result["findings"]
+
+
+def test_execution_session_mismatch_blocks(tmp_path):
+    paths = fixtures(tmp_path)
+    event = json.loads(paths[-1].read_text())
+    event["session_id"] = "another-session"
+    paths[-1].write_text(json.dumps(event)+"\n")
+    result = audit_four_ledgers(*paths)
+    assert "BLOCK_EXECUTION_SESSION_MISMATCH" in result["findings"]
+
+
+def test_accepted_execution_without_filled_reservation_blocks(tmp_path):
+    paths = fixtures(tmp_path)
+    event = json.loads(paths[-1].read_text())
+    event["capacity_order_id"] = "orphan-accepted"
+    paths[-1].write_text(json.dumps(event)+"\n")
+    result = audit_four_ledgers(*paths)
+    assert "BLOCK_EXECUTION_ACCEPTED_WITHOUT_FILLED_RESERVATION" in result["findings"]
