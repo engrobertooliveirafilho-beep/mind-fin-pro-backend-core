@@ -56,3 +56,13 @@ def test_rejected_filled_order_blocks(tmp_path):
     event["decision"] = "REJECT_ORDER"
     paths[-1].write_text(json.dumps(event)+"\n")
     assert "BLOCK_FILLED_EXECUTION_REJECTED" in audit_four_ledgers(*paths)["findings"]
+
+
+def test_other_execution_cannot_mask_missing_filled_order(tmp_path):
+    paths = fixtures(tmp_path)
+    event = json.loads(paths[-1].read_text())
+    event["capacity_order_id"] = "different-order"
+    paths[-1].write_text(json.dumps(event)+"\n")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is False
+    assert "BLOCK_MISSING_EXECUTION_CORRELATION" in result["findings"]
