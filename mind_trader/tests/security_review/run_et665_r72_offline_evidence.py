@@ -13,14 +13,14 @@ OUT = ROOT / "mind_trader/audits/local_evidence/et665_r72"
 OUT.mkdir(parents=True, exist_ok=True)
 started = datetime.now(timezone.utc).isoformat()
 # Use interpreter isolation (-I), with explicit timeout and no inherited PYTHONPATH.
-command = [sys.executable, "-I", str(TEST), "-v"]
+command = [sys.executable, "-I", "-m", "unittest", "discover", "-s", str(TEST.parent), "-p", "test_et665_r*.py", "-v"]
 try:
     proc = subprocess.run(command, cwd=ROOT, capture_output=True, text=True, timeout=90)
     result = {"exit_code": proc.returncode, "stdout": proc.stdout, "stderr": proc.stderr, "timeout": False}
 except subprocess.TimeoutExpired as exc:
     result = {"exit_code": 124, "stdout": (exc.stdout or b"").decode(errors="replace") if isinstance(exc.stdout, bytes) else (exc.stdout or ""), "stderr": (exc.stderr or b"").decode(errors="replace") if isinstance(exc.stderr, bytes) else (exc.stderr or ""), "timeout": True}
 result["timestamp_utc"] = started
-result["test_sha256"] = hashlib.sha256(TEST.read_bytes()).hexdigest()
+result["test_sha256"] = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(TEST.parent.glob("test_et665_r*.py"))}
 result["python_version"] = sys.version.split()[0]
 result["command"] = ["python", "-I", "<repository-relative-test>", "-v"]
 (OUT / "result.json").write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
