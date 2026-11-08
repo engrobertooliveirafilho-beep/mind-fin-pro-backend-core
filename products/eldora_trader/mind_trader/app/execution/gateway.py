@@ -95,14 +95,50 @@ class ExecutionGateway:
 
         allowed=all(c["ok"] for c in checks)
         paper_broker=None
+        capacity_decision=None
+        capacity_order_id=None
         if allowed and mode=="PAPER":
-            paper_order={"symbol":trade.symbol,"side":trade_dict.get("side","BUY"),"entry":trade.entry,"stop":trade.stop,"target":trade.target,"risk_amount":trade.risk_amount,"strategy_id":trade.strategy_id}
-            paper_broker=paper_route_order(paper_order,ledger_path=self.paper_broker_ledger_path,ftmo_config_path=self.paper.ftmo_config_path)
-            if not isinstance(paper_broker,dict) or paper_broker.get("decision")!="PAPER_ORDER_ACCEPTED" or not isinstance(paper_broker.get("fill"),dict) or paper_broker["fill"].get("filled") is not True:
+            # Explicit fail-closed gate. The original gateway has no configured
+            # transaction coordinator; never route PAPER without one.
+            capacity=getattr(self,"paper_capacity",None)
+            limit=getattr(self,"paper_capacity_max_daily_trades",None)
+            session_id=session_check.get("session_id") if isinstance(session_check,dict) else None
+            if capacity is None or not callable(getattr(capacity,"reserve_new",None)) or not callable(getattr(capacity,"finalize",None)) or not isinstance(session_id,str) or not session_id:
                 allowed=False
-                checks.append({"layer":"PAPER_BROKER","ok":False,"reason":"PAPER_BROKER_NOT_ACCEPTED"})
+                capacity_decision="BLOCK_CAPACITY_UNCONFIGURED"
+            else:
+                try:
+                    reservation=capacity.reserve_new(session_id,limit)
+                    capacity_decision=reservation.get("decision") if isinstance(reservation,dict) else "BLOCK_CAPACITY_ERROR"
+                    capacity_order_id=reservation.get("order_id") if isinstance(reservation,dict) else None
+                    if capacity_decision!="RESERVED" or not isinstance(capacity_order_id,str) or not capacity_order_id:
+                        allowed=False
+                    else:
+                        paper_order={"symbol":trade.symbol,"side":trade_dict.get("side","BUY"),"entry":trade.entry,"stop":trade.stop,"target":trade.target,"risk_amount":trade.risk_amount,"strategy_id":trade.strategy_id,"session_id":session_id,"capacity_order_id":capacity_order_id}
+                        try:
+                            paper_broker=paper_route_order(paper_order,ledger_path=self.paper_broker_ledger_path,ftmo_config_path=self.paper.ftmo_config_path)
+                        except Exception:
+                            paper_broker=None
+                            capacity_decision="BLOCK_BROKER_UNKNOWN"
+                        if not isinstance(paper_broker,dict) or paper_broker.get("decision")!="PAPER_ORDER_ACCEPTED" or not isinstance(paper_broker.get("fill"),dict) or paper_broker["fill"].get("filled") is not True:
+                            allowed=False
+                            if capacity_decision=="RESERVED":
+                                capacity_decision="BLOCK_BROKER_UNCONFIRMED"
+                        else:
+                            recorded=capacity.finalize(session_id,capacity_order_id,True)
+                            if recorded!="FILLED":
+                                allowed=False
+                                capacity_decision="BLOCK_CAPACITY_FINALIZATION"
+                            else:
+                                capacity_decision="FILLED"
+                except Exception:
+                    allowed=False
+                    capacity_decision="BLOCK_CAPACITY_ERROR"
+            if not allowed:
+                checks.append({"layer":"PAPER_CAPACITY","ok":False,"reason":capacity_decision})
 
-        return write_execution_ledger({"mode":mode,"symbol":trade.symbol,"strategy_id":trade.strategy_id,"genome_id":genome.get("genome_id"),"regime":regime_report.get("regime"),"ftmo_config_version":self.ftmo_ruleset.get("version"),"ftmo_config_hash":self.ftmo_config_valid.get("hash"),"checks":checks,"paper_broker":paper_broker,"decision":"ACCEPT_SIMULATED_ORDER" if allowed else "REJECT_ORDER","order_status":"SIMULATED_ACCEPTED" if allowed else "SIMULATED_REJECTED","production":"BLOCKED","real_broker_routing":"DISABLED","edge_claim":"NONE"},self.ledger_path)
+        return write_execution_ledger({"mode":mode,"symbol":trade.symbol,"strategy_id":trade.strategy_id,"genome_id":genome.get("genome_id"),"regime":regime_report.get("regime"),"ftmo_config_version":self.ftmo_ruleset.get("version"),"ftmo_config_hash":self.ftmo_config_valid.get("hash"),"checks":checks,"paper_broker":paper_broker,"capacity_order_id":capacity_order_id,"capacity_decision":capacity_decision,"decision":"ACCEPT_SIMULATED_ORDER" if allowed else "REJECT_ORDER","order_status":"SIMULATED_ACCEPTED" if allowed else "SIMULATED_REJECTED","production":"BLOCKED","real_broker_routing":"DISABLED","edge_claim":"NONE"},self.ledger_path)
+
 
 def broker_contracts():
     return {"MT5":{"status":"CONTRACT_PLACEHOLDER_DISABLED_FOR_REAL_EXECUTION","allowed_modes":["PAPER","REPLAY","MICRO_SIM"]},"PROFIT":{"status":"CONTRACT_PLACEHOLDER_DISABLED_FOR_REAL_EXECUTION","allowed_modes":["PAPER","REPLAY","MICRO_SIM"]},"production":"BLOCKED"}
