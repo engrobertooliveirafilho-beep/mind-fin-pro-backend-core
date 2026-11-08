@@ -290,3 +290,23 @@ def test_execution_and_embedded_broker_session_contradiction(tmp_path):
     result = audit_four_ledgers(*paths)
     assert "BLOCK_EXECUTION_BROKER_SESSION_CONTRADICTION" in result["findings"]
     assert result["operational_certified"] is False
+
+
+def test_filled_capacity_without_order_id_blocks(tmp_path):
+    paths = fixtures(tmp_path)
+    event = {"mode": "PAPER", "decision": "REJECT_ORDER",
+             "capacity_decision": "FILLED"}
+    paths[-1].write_text(paths[-1].read_text() + json.dumps(event) + "\n")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is False
+    assert "BLOCK_UNCORRELATED_FILLED_EXECUTION" in result["findings"]
+
+
+def test_early_rejection_without_capacity_order_remains_allowed(tmp_path):
+    paths = fixtures(tmp_path)
+    event = {"mode": "PAPER", "decision": "REJECT_ORDER",
+             "capacity_decision": "BLOCK_CAPACITY_UNCONFIGURED"}
+    paths[-1].write_text(paths[-1].read_text() + json.dumps(event) + "\n")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is True
+    assert result["operational_certified"] is False
