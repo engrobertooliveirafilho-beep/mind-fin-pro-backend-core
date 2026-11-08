@@ -233,3 +233,21 @@ def test_rejected_without_reservation_remains_compatible(tmp_path):
     result = audit_four_ledgers(*paths)
     assert result["certified"] is True
     assert result["operational_certified"] is False
+
+
+def test_duplicate_persisted_broker_receipt_blocks(tmp_path):
+    paths = fixtures(tmp_path)
+    receipt = paths[2].read_text()
+    paths[2].write_text(receipt + receipt)
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is False
+    assert "BLOCK_DUPLICATE_PERSISTED_BROKER_RECEIPT" in result["findings"]
+
+
+def test_distinct_order_receipt_does_not_trigger_duplicate_finding(tmp_path):
+    paths = fixtures(tmp_path)
+    receipt = json.loads(paths[2].read_text())
+    receipt["order"]["capacity_order_id"] = "unrelated"
+    paths[2].write_text(paths[2].read_text() + json.dumps(receipt) + "\n")
+    result = audit_four_ledgers(*paths)
+    assert "BLOCK_DUPLICATE_PERSISTED_BROKER_RECEIPT" not in result["findings"]
