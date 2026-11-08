@@ -79,7 +79,8 @@ class R110Correlation(unittest.TestCase):
             ledger=Path(tmp)/"broker.jsonl"
             self.assertEqual(paper_submit_offline(store,"s","order-1",2,ledger,False),"BLOCK_UNCONFIRMED_FILL")
             self.assertEqual(paper_submit_offline(store,"s","order-1",2,ledger),"BLOCK_REPLAY_OR_CAPACITY")
-            self.assertFalse(ledger.exists())\n
+            self.assertFalse(ledger.exists())
+
     def test_invalid_ledger_does_not_release_reservation(self):
         with tempfile.TemporaryDirectory(prefix="et665_r110_") as tmp:
             store=Capacity(Path(tmp)/"capacity.sqlite")
