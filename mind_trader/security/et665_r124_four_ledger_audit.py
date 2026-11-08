@@ -65,6 +65,7 @@ def audit_four_ledgers(sqlite_path, session_path, broker_path, execution_path):
         broker_events = [json.loads(line) for line in Path(broker_path).read_text(
             encoding="utf-8").splitlines() if line.strip()]
         actual_broker = {}
+        duplicate_broker_ids = set()
         for broker_event in broker_events:
             if not isinstance(broker_event, dict):
                 raise ValueError("INVALID_BROKER_EVENT")
@@ -72,7 +73,11 @@ def audit_four_ledgers(sqlite_path, session_path, broker_path, execution_path):
             if isinstance(order, dict) and order.get("session_id") == session.get("session_id"):
                 oid = order.get("capacity_order_id")
                 if isinstance(oid, str) and oid:
+                    if oid in actual_broker:
+                        duplicate_broker_ids.add(oid)
                     actual_broker[oid] = broker_event
+        if duplicate_broker_ids:
+            findings.append("BLOCK_DUPLICATE_PERSISTED_BROKER_RECEIPT")
         for oid, embedded in accepted_embedded.items():
             if actual_broker.get(oid) != embedded:
                 findings.append("BLOCK_EMBEDDED_BROKER_LEDGER_MISMATCH")
