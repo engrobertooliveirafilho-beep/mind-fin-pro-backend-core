@@ -310,3 +310,22 @@ def test_early_rejection_without_capacity_order_remains_allowed(tmp_path):
     result = audit_four_ledgers(*paths)
     assert result["certified"] is True
     assert result["operational_certified"] is False
+
+
+def test_non_paper_rejection_with_capacity_order_id_blocks(tmp_path):
+    paths = fixtures(tmp_path)
+    event = {"mode": "LIVE", "decision": "REJECT_ORDER",
+             "capacity_order_id": "o1"}
+    paths[-1].write_text(paths[-1].read_text() + json.dumps(event) + "\n")
+    result = audit_four_ledgers(*paths)
+    assert "BLOCK_NON_PAPER_EXECUTION_ACCEPTANCE" in result["findings"]
+    assert result["certified"] is False
+
+
+def test_non_paper_rejection_without_capacity_reference_does_not_mask_valid_paper(tmp_path):
+    paths = fixtures(tmp_path)
+    event = {"mode": "LIVE", "decision": "REJECT_ORDER"}
+    paths[-1].write_text(paths[-1].read_text() + json.dumps(event) + "\n")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is True
+    assert result["operational_certified"] is False
