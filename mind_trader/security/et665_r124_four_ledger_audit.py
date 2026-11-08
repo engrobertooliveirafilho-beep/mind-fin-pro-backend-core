@@ -43,6 +43,9 @@ def audit_four_ledgers(sqlite_path, session_path, broker_path, execution_path):
         broker = event.get("paper_broker")
         if decision == "ACCEPT_SIMULATED_ORDER":
             accepted_ids.add(oid)
+            broker_order = broker.get("order") if isinstance(broker, dict) else None
+            if not isinstance(broker_order, dict) or broker_order.get("capacity_order_id") != oid or broker_order.get("session_id") != session.get("session_id"):
+                findings.append("BLOCK_EMBEDDED_BROKER_ORDER_MISMATCH")
             if capacity != "FILLED" or not isinstance(broker, dict) or (
                 broker.get("decision") != "PAPER_ORDER_ACCEPTED"
                 or not isinstance(broker.get("fill"), dict)
