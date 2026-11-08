@@ -206,7 +206,7 @@ def test_accepted_broker_with_empty_order_object_blocks(tmp_path):
     db, session, broker = fixtures(tmp_path)
     receipt = json.loads(broker.read_text())
     receipt["order"] = {}
-    broker.write_text(json.dumps(receipt) + "\\n")
+    broker.write_text(json.dumps(receipt) + "\n")
     result = mod.audit_paper_consistency(db, session, broker)
     assert result["certified"] is False
     assert "BLOCK_ACCEPTED_BROKER_WITHOUT_ORDER" in result["findings"]
@@ -216,7 +216,7 @@ def test_accepted_broker_with_incomplete_order_identity_blocks(tmp_path):
     db, session, broker = fixtures(tmp_path)
     receipt = json.loads(broker.read_text())
     receipt["order"] = {"session_id": "s1"}
-    broker.write_text(json.dumps(receipt) + "\\n")
+    broker.write_text(json.dumps(receipt) + "\n")
     result = mod.audit_paper_consistency(db, session, broker)
     assert result["certified"] is False
     assert "BLOCK_ACCEPTED_BROKER_WITHOUT_ORDER" in result["findings"]
