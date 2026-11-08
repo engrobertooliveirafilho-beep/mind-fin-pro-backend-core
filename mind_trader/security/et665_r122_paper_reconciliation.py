@@ -71,6 +71,8 @@ def audit_paper_consistency(sqlite_path, session_path, broker_ledger_path):
         seen.add(key)
         if key not in reservations:
             findings.append("BLOCK_ORPHAN_BROKER_EVENT")
+        if event.get("decision") not in ("PAPER_ORDER_ACCEPTED", "PAPER_ORDER_REJECTED", "PAPER_ORDER_REJECTED_INVALID_PAYLOAD", "PAPER_ORDER_REJECTED_FILL"):
+            findings.append("BLOCK_UNKNOWN_BROKER_DECISION")
         if event.get("decision") == "PAPER_ORDER_ACCEPTED":
             fill = event.get("fill")
             if not isinstance(fill, dict) or fill.get("filled") is not True:
