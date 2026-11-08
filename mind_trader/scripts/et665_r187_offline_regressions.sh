@@ -30,14 +30,9 @@ if [[ "$HEAD_ACTUAL" != "$EXPECTED_HEAD" ]]; then echo "BLOCKED: checkout commit
 if [[ -n "$(git -C "$ROOT" status --porcelain)" ]]; then echo "BLOCKED: checkout has tracked or untracked changes" >&2; exit 30; fi
 # Ignored Python modules could still shadow imported code; fail closed on ignored .py files.
 if [[ -n "$(git -C "$ROOT" ls-files --others --ignored --exclude-standard -- '*.py')" ]]; then echo "BLOCKED: ignored Python files in checkout" >&2; exit 37; fi
-(umask 077; mkdir "$EVIDENCE") || { echo "BLOCKED: cannot create fresh evidence directory" >&2; exit 29; }
-chmod 700 "$EVIDENCE"
-date -u +'%Y-%m-%dT%H:%M:%SZ' > "$EVIDENCE/started_utc.txt"
-echo "$HEAD_ACTUAL" > "$EVIDENCE/commit.txt"
 IMAGE_ID="$(docker image inspect --format '{{.Id}}' "$IMAGE")" || { echo "BLOCKED: cannot resolve local image ID" >&2; exit 41; }
 if [[ ! "$IMAGE_ID" =~ ^sha256:[0-9a-f]{64}$ ]]; then echo "BLOCKED: invalid local image ID" >&2; exit 42; fi
 if [[ "$IMAGE_ID" != "$EXPECTED_IMAGE_ID" ]]; then echo "BLOCKED: local image ID differs from independently approved ET665_EXPECTED_IMAGE_ID" >&2; exit 44; fi
-printf '%s\n' "$IMAGE_ID" > "$EVIDENCE/image_id.txt"
 FILES=(
   mind_trader/tests/security_review/test_et665_r180_p15_dataset_path_guards.py
   mind_trader/tests/security_review/test_et665_r182_p15_rclone_allowlist.py
@@ -49,6 +44,11 @@ FILES=(
 for f in "${FILES[@]}"; do
   if [[ ! -f "$ROOT/$f" ]]; then echo "BLOCKED: missing $f" >&2; exit 23; fi
 done
+(umask 077; mkdir "$EVIDENCE") || { echo "BLOCKED: cannot create fresh evidence directory" >&2; exit 29; }
+chmod 700 "$EVIDENCE"
+date -u +'%Y-%m-%dT%H:%M:%SZ' > "$EVIDENCE/started_utc.txt"
+echo "$HEAD_ACTUAL" > "$EVIDENCE/commit.txt"
+printf '%s\n' "$IMAGE_ID" > "$EVIDENCE/image_id.txt"
 ( cd "$ROOT" && sha256sum "${FILES[@]}" ) > "$EVIDENCE/test_sources.sha256"
 # Do not pass secrets or the host network. Repo is read-only; only evidence output is writable.
 set +e
