@@ -464,3 +464,13 @@ def test_unreserved_rejection_with_accepted_broker_receipt_blocks(tmp_path):
     result = audit_four_ledgers(*paths)
     assert result["certified"] is False
     assert "BLOCK_REJECTED_EXECUTION_WITH_ACCEPTED_BROKER" in result["findings"]
+
+
+def test_unreserved_rejected_execution_with_filled_capacity_blocks(tmp_path):
+    paths = fixtures(tmp_path)
+    reject = {"mode": "PAPER", "decision": "REJECT_ORDER",
+              "capacity_decision": "FILLED"}
+    paths[-1].write_text(paths[-1].read_text() + json.dumps(reject) + "\n")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is False
+    assert "BLOCK_FILLED_EXECUTION_REJECTED" in result["findings"]
