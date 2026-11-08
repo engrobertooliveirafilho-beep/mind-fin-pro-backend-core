@@ -32,7 +32,9 @@ if [[ -n "$(git -C "$ROOT" ls-files --others --ignored --exclude-standard -- '*.
 chmod 700 "$EVIDENCE"
 date -u +'%Y-%m-%dT%H:%M:%SZ' > "$EVIDENCE/started_utc.txt"
 echo "$HEAD_ACTUAL" > "$EVIDENCE/commit.txt"
-docker image inspect --format '{{.Id}}' "$IMAGE" > "$EVIDENCE/image_id.txt"
+IMAGE_ID="$(docker image inspect --format '{{.Id}}' "$IMAGE")" || { echo "BLOCKED: cannot resolve local image ID" >&2; exit 41; }
+if [[ ! "$IMAGE_ID" =~ ^sha256:[0-9a-f]{64}$ ]]; then echo "BLOCKED: invalid local image ID" >&2; exit 42; fi
+printf '%s\n' "$IMAGE_ID" > "$EVIDENCE/image_id.txt"
 FILES=(
   mind_trader/tests/security_review/test_et665_r180_p15_dataset_path_guards.py
   mind_trader/tests/security_review/test_et665_r182_p15_rclone_allowlist.py
@@ -52,7 +54,7 @@ docker run --rm --pull=never --network=none --read-only --cap-drop=ALL \
   --user "$(id -u):$(id -g)" --tmpfs /tmp:rw,noexec,nosuid,size=128m \
   -e PYTHONDONTWRITEBYTECODE=1 -e PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
   -v "$ROOT:/workspace:ro" -v "$EVIDENCE:/evidence:rw" -w /workspace \
-  "$IMAGE" python -m pytest -q -p no:cacheprovider \
+  --entrypoint python "$IMAGE_ID" -m pytest -q -p no:cacheprovider \
   --junitxml=/evidence/junit.xml "${FILES[@]}" > "$EVIDENCE/pytest.stdout.log" 2> "$EVIDENCE/pytest.stderr.log"
 status=$?
 set -e
