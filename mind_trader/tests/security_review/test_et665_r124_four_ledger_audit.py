@@ -145,3 +145,21 @@ def test_accepted_execution_missing_order_id_blocks(tmp_path):
     paths[-1].write_text(json.dumps(event)+"\n")
     result = audit_four_ledgers(*paths)
     assert "BLOCK_ACCEPTED_EXECUTION_UNCORRELATED" in result["findings"]
+
+
+def test_embedded_broker_order_mismatch_blocks(tmp_path):
+    paths = fixtures(tmp_path)
+    event = json.loads(paths[-1].read_text())
+    event["paper_broker"]["order"]["capacity_order_id"] = "other"
+    paths[-1].write_text(json.dumps(event)+"\n")
+    result = audit_four_ledgers(*paths)
+    assert "BLOCK_EMBEDDED_BROKER_ORDER_MISMATCH" in result["findings"]
+
+
+def test_embedded_broker_session_mismatch_blocks(tmp_path):
+    paths = fixtures(tmp_path)
+    event = json.loads(paths[-1].read_text())
+    event["paper_broker"]["order"]["session_id"] = "other"
+    paths[-1].write_text(json.dumps(event)+"\n")
+    result = audit_four_ledgers(*paths)
+    assert "BLOCK_EMBEDDED_BROKER_ORDER_MISMATCH" in result["findings"]
