@@ -391,3 +391,25 @@ def test_embedded_accepted_broker_explicit_disabled_routing_allowed(tmp_path):
     result = audit_four_ledgers(*paths)
     assert result["certified"] is True
     assert result["operational_certified"] is False
+
+
+def test_embedded_broker_order_live_mode_claim_blocks(tmp_path):
+    paths = fixtures(tmp_path)
+    event = json.loads(paths[-1].read_text())
+    event["paper_broker"]["order"]["mode"] = "LIVE"
+    paths[-1].write_text(json.dumps(event) + "\n")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is False
+    assert "BLOCK_EMBEDDED_BROKER_ORDER_MODE_CONTRADICTION" in result["findings"]
+
+
+def test_embedded_broker_order_explicit_paper_mode_allowed(tmp_path):
+    paths = fixtures(tmp_path)
+    event = json.loads(paths[-1].read_text())
+    event["paper_broker"]["order"]["mode"] = "PAPER"
+    event["paper_broker"]["order"]["real_broker_routing"] = "DISABLED"
+    paths[2].write_text(json.dumps(event["paper_broker"]) + "\n")
+    paths[-1].write_text(json.dumps(event) + "\n")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is True
+    assert result["operational_certified"] is False
