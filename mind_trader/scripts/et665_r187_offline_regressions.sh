@@ -21,12 +21,16 @@ if ! command -v docker >/dev/null 2>&1; then echo "BLOCKED: Docker unavailable" 
 if [[ "$(docker context inspect --format '{{.Endpoints.docker.Host}}' 2>/dev/null)" != "unix:///var/run/docker.sock" ]]; then echo "BLOCKED: Docker endpoint not approved local Unix socket" >&2; exit 36; fi
 if ! docker image inspect "$IMAGE" >/dev/null 2>&1; then echo "BLOCKED: prebuilt local image $IMAGE unavailable; no pull attempted" >&2; exit 21; fi
 if ! command -v sha256sum >/dev/null 2>&1; then echo "BLOCKED: sha256sum unavailable" >&2; exit 22; fi
+# Validate immutable checkout BEFORE creating evidence output.
+HEAD_ACTUAL="$(git -C "$ROOT" rev-parse --verify HEAD)" || { echo "BLOCKED: checkout HEAD unavailable" >&2; exit 26; }
+if [[ "$HEAD_ACTUAL" != "$EXPECTED_HEAD" ]]; then echo "BLOCKED: checkout commit differs from ET665_EXPECTED_HEAD" >&2; exit 33; fi
+if [[ -n "$(git -C "$ROOT" status --porcelain)" ]]; then echo "BLOCKED: checkout has tracked or untracked changes" >&2; exit 30; fi
+# Ignored Python modules could still shadow imported code; fail closed on ignored .py files.
+if [[ -n "$(git -C "$ROOT" ls-files --others --ignored --exclude-standard -- '*.py')" ]]; then echo "BLOCKED: ignored Python files in checkout" >&2; exit 37; fi
 (umask 077; mkdir "$EVIDENCE") || { echo "BLOCKED: cannot create fresh evidence directory" >&2; exit 29; }
 chmod 700 "$EVIDENCE"
 date -u +'%Y-%m-%dT%H:%M:%SZ' > "$EVIDENCE/started_utc.txt"
-if ! git -C "$ROOT" rev-parse --verify HEAD > "$EVIDENCE/commit.txt"; then echo "BLOCKED: checkout HEAD unavailable" >&2; exit 26; fi
-if [[ "$(cat "$EVIDENCE/commit.txt")" != "$EXPECTED_HEAD" ]]; then echo "BLOCKED: checkout commit differs from ET665_EXPECTED_HEAD" >&2; exit 33; fi
-if [[ -n "$(git -C "$ROOT" status --porcelain)" ]]; then echo "BLOCKED: tracked source checkout is dirty" >&2; exit 30; fi
+printf '%s\\n' "$HEAD_ACTUAL" > "$EVIDENCE/commit.txt"
 docker image inspect --format '{{.Id}}' "$IMAGE" > "$EVIDENCE/image_id.txt"
 FILES=(
   mind_trader/tests/security_review/test_et665_r180_p15_dataset_path_guards.py
