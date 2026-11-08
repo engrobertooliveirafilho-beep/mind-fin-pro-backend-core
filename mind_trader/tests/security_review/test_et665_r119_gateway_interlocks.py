@@ -100,3 +100,17 @@ def test_gateway_requires_explicit_broker_production_and_routing_lock():
                    and any(isinstance(op, ast.NotEq) for op in n.ops)
                    and any(isinstance(v, ast.Constant) and v.value == expected for v in n.comparators)
                    for n in comparisons)
+
+
+def test_gateway_rejects_broker_receipt_with_changed_order_fields():
+    tree = ast.parse(GATEWAY.read_text(encoding="utf-8"))
+    submit = next(n for n in ast.walk(tree)
+                  if isinstance(n, ast.FunctionDef) and n.name == "submit_order")
+    comparisons = [n for n in ast.walk(submit) if isinstance(n, ast.Compare)]
+    assert any(isinstance(n.left, ast.Call)
+               and isinstance(n.left.func, ast.Attribute)
+               and n.left.func.attr == "get"
+               and any(isinstance(v, ast.Subscript) and isinstance(v.value, ast.Name)
+                       and v.value.id == "paper_order" for v in n.comparators)
+               and any(isinstance(op, ast.NotEq) for op in n.ops)
+               for n in comparisons)
