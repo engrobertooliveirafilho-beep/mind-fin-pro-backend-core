@@ -21,7 +21,13 @@ class TestR67ResidualRoutes(unittest.TestCase):
                 tree = ast.parse((ROOT / relative).read_text(encoding="utf-8"))
                 methods = [node for node in tree.body if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name == name]
                 self.assertEqual(len(methods), 1)
-                first = methods[0].body[0]
+                body = methods[0].body
+                if (body and isinstance(body[0], ast.Expr)
+                        and isinstance(body[0].value, ast.Constant)
+                        and isinstance(body[0].value.value, str)):
+                    body = body[1:]
+                self.assertTrue(body, "guarded function body must not be empty")
+                first = body[0]
                 self.assertIsInstance(first, ast.Raise)
                 self.assertIsInstance(first.exc, ast.Call)
                 self.assertIsInstance(first.exc.func, ast.Name)
