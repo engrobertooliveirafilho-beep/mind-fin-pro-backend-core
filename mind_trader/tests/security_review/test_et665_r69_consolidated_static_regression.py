@@ -40,15 +40,27 @@ class R69StaticRegression(unittest.TestCase):
     def test_paper_gateway_requires_explicit_filled(self):
         tree = ast.parse(source(GATEWAY))
         submit = next(n for n in ast.walk(tree) if isinstance(n, ast.FunctionDef) and n.name == "submit_order")
-        conditions = [n.test for n in ast.walk(submit) if isinstance(n, ast.If)]
-        self.assertTrue(any(
-            any(isinstance(n, ast.Compare) and any(isinstance(op, ast.IsNot) for op in n.ops)
-                and any(isinstance(c, ast.Constant) and c.value is True for c in n.comparators)
-                for n in ast.walk(condition))
-            for condition in conditions
-        ), "Gateway must reject PAPER fill when not literal True")
-        self.assertIn("PAPER_ORDER_ACCEPTED", ast.unparse(submit))
-        self.assertIn("PAPER_BROKER_NOT_ACCEPTED", ast.unparse(submit))
+        guards = [n for n in ast.walk(submit) if isinstance(n, ast.If) and isinstance(n.test, ast.BoolOp) and isinstance(n.test.op, ast.Or)]
+        def has_fill_fail_closed(test):
+            return any(
+                isinstance(n, ast.Compare)
+                and isinstance(n.left, ast.Call)
+                and isinstance(n.left.func, ast.Attribute)
+                and n.left.func.attr == "get"
+                and len(n.left.args) == 1
+                and isinstance(n.left.args[0], ast.Constant)
+                and n.left.args[0].value == "filled"
+                and len(n.ops) == 1
+                and isinstance(n.ops[0], ast.IsNot)
+                and len(n.comparators) == 1
+                and isinstance(n.comparators[0], ast.Constant)
+                and n.comparators[0].value is True
+                for n in ast.walk(test)
+            )
+        self.assertTrue(any(has_fill_fail_closed(n.test) and
+            any(isinstance(v, ast.Constant) and v.value == "PAPER_ORDER_ACCEPTED" for v in ast.walk(n.test))
+            and any(isinstance(v, ast.Constant) and v.value == "PAPER_BROKER_NOT_ACCEPTED" for v in ast.walk(n))
+            for n in guards), "PAPER acceptance and fill rejection must share a fail-closed guard")
 
     def test_p1505j_parse_only_no_execution(self):
         tree = ast.parse(source(MERGER))
