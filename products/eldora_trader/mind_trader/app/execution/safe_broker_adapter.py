@@ -6,7 +6,7 @@ from mind_trader.app.security.institutional_live_lock import institutional_live_
 SUPPORTED_BROKERS={"MT5","PROFIT"}
 
 def broker_adapter_contract(broker):
-    if broker not in SUPPORTED_BROKERS:
+    if not isinstance(broker, str) or broker not in SUPPORTED_BROKERS:
         return {"decision":"BROKER_UNSUPPORTED","broker":broker,"production":"BLOCKED","edge_claim":"NONE"}
     return {
         "broker":broker,
@@ -20,7 +20,9 @@ def broker_adapter_contract(broker):
 
 def validate_order_payload(order):
     required=["symbol","side","entry","stop","target","risk_amount","strategy_id"]
-    missing=[k for k in required if k not in order or order[k] in [None,""]]
+    if not isinstance(order, dict):
+        return {"valid": False, "missing": required, "decision": "ORDER_PAYLOAD_INVALID"}
+    missing=[k for k in required if k not in order or order[k] is None or order[k] == ""]
     return {"valid":not missing,"missing":missing,"decision":"ORDER_PAYLOAD_OK" if not missing else "ORDER_PAYLOAD_INVALID"}
 
 def blocked_send_order(broker, order):
