@@ -34,6 +34,8 @@ def audit_four_ledgers(sqlite_path, session_path, broker_path, execution_path):
         if oid in seen:
             findings.append("BLOCK_DUPLICATE_EXECUTION_ORDER")
         seen.add(oid)
+        if event.get("session_id") not in (None, session.get("session_id")):
+            findings.append("BLOCK_EXECUTION_SESSION_MISMATCH")
         decision = event.get("decision")
         capacity = event.get("capacity_decision")
         broker = event.get("paper_broker")
@@ -56,6 +58,8 @@ def audit_four_ledgers(sqlite_path, session_path, broker_path, execution_path):
     except (sqlite3.Error, OSError):
         filled_ids = set()
         findings.append("BLOCK_RESERVATION_RECHECK_UNAVAILABLE")
+    if accepted_ids - filled_ids:
+        findings.append("BLOCK_EXECUTION_ACCEPTED_WITHOUT_FILLED_RESERVATION")
     if filled_ids - accepted_ids:
         findings.append("BLOCK_MISSING_EXECUTION_CORRELATION")
     if base["certified"] and not seen:
