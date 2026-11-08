@@ -28,7 +28,8 @@ result = {"exit_code": 0 if all(run["exit_code"] == 0 for run in runs) else 1,
           "timeout": any(run["timeout"] for run in runs),
           "runs": runs}
 result["timestamp_utc"] = started
-result["test_sha256"] = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in tests}
+evidence_sources = tests + [TEST.parent / "et665_r95_atomic_capacity_prototype.py", Path(__file__)]
+result["test_sha256"] = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in evidence_sources}
 result["python_version"] = sys.version.split()[0]
 result["command"] = ["python", "-I", "<each-pinned-test>", "-v"]
 (OUT / "result.json").write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
