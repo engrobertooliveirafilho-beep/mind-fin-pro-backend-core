@@ -70,8 +70,13 @@ try:
     failures = sum(int(x.get("failures", "0")) for x in suites)
     errors = sum(int(x.get("errors", "0")) for x in suites)
     skipped = sum(int(x.get("skipped", "0")) for x in suites)
-    if not suites or tests < 1 or failures or errors or skipped == tests:
-        raise ValueError("no passing test suite or failures/errors detected")
+    cases = root.findall(".//testcase")
+    if root.tag not in ("testsuites", "testsuite") or not suites or tests < 1:
+        raise ValueError("missing or empty JUnit suites")
+    if tests != len(cases) or failures or errors or skipped:
+        raise ValueError("JUnit counts inconsistent or nonpassing/skipped tests")
+    if any(c.find("failure") is not None or c.find("error") is not None or c.find("skipped") is not None for c in cases):
+        raise ValueError("JUnit contains failed or skipped testcase")
 except (ET.ParseError, OSError, ValueError, TypeError) as exc:
     print("BLOCKED: invalid or nonpassing JUnit evidence:", exc, file=sys.stderr)
     sys.exit(1)
