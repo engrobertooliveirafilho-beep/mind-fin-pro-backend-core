@@ -50,6 +50,11 @@ def audit_paper_consistency(sqlite_path, session_path, broker_ledger_path):
     seen = set()
     accepted = set()
     for event in broker_events:
+        if (event.get("production") not in (None, "BLOCKED")
+                or event.get("live") not in (None, "FORBIDDEN")
+                or event.get("real_broker_routing") not in (None, "DISABLED")
+                or event.get("broker") not in (None, "PAPER_INTERNAL")):
+            findings.append("BLOCK_PERSISTED_BROKER_LIVE_ROUTING_CLAIM")
         order = event.get("order")
         oid = order.get("capacity_order_id") if isinstance(order, dict) else None
         sid = order.get("session_id") if isinstance(order, dict) else None
