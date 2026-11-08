@@ -5,6 +5,7 @@ explicitly configured offline PAPER tests. SQLite ledger is not a production
 transaction coordinator: unknown outcomes retain capacity permanently.
 """
 import sqlite3
+from contextlib import contextmanager
 import uuid
 from pathlib import Path
 
@@ -19,10 +20,15 @@ class PaperCapacityGate:
                        "CHECK(state IN ('RESERVED','FILLED','REJECTED')), "
                        "PRIMARY KEY(session_id,order_id))")
 
+    @contextmanager
     def _db(self):
         db = sqlite3.connect(self.path, timeout=10, isolation_level=None)
-        db.execute("PRAGMA busy_timeout=10000")
-        return db
+        try:
+            db.execute("PRAGMA busy_timeout=10000")
+            with db:
+                yield db
+        finally:
+            db.close()
 
     def reserve_new(self, session_id, limit):
         if not isinstance(session_id,str) or not session_id or type(limit) is not int or limit<1:
