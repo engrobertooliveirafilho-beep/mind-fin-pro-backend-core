@@ -15,7 +15,7 @@ def paper_submit_offline(capacity, session, order_id, limit, ledger_path, simula
         return "BLOCK_INVALID_IDENTITY"
     if not isinstance(ledger_path,Path):
         return "BLOCK_INVALID_LEDGER"
-    state=capacity.reserve(session,order_id,limit)
+    # Refuse ambiguous retries before reservation; never simulate a second fill.\n    with capacity._db() as db:\n        existing=db.execute("SELECT state FROM orders WHERE session=? AND order_id=?",(session,order_id)).fetchone()\n    if existing:\n        return "BLOCK_REPLAY_OR_CAPACITY"\n    state=capacity.reserve(session,order_id,limit)
     if state!="RESERVED":
         return "BLOCK_REPLAY_OR_CAPACITY" if state=="FILLED" else state
     # Replayed RESERVED must never simulate a second fill.
@@ -68,7 +68,7 @@ class R110Correlation(unittest.TestCase):
             self.assertEqual(paper_submit_offline(store,"s","order-2",1,ledger),"BLOCK_CAPACITY")
             self.assertEqual(store.count("s"),0)
 
-    def test_invalid_ledger_does_not_release_reservation(self):
+    def test_retry_after_unconfirmed_fill_stays_blocked(self):\n        with tempfile.TemporaryDirectory(prefix="et665_r110_") as tmp:\n            store=Capacity(Path(tmp)/"capacity.sqlite")\n            ledger=Path(tmp)/"broker.jsonl"\n            self.assertEqual(paper_submit_offline(store,"s","order-1",2,ledger,False),"BLOCK_UNCONFIRMED_FILL")\n            self.assertEqual(paper_submit_offline(store,"s","order-1",2,ledger),"BLOCK_REPLAY_OR_CAPACITY")\n            self.assertFalse(ledger.exists())\n\n    def test_invalid_ledger_does_not_release_reservation(self):
         with tempfile.TemporaryDirectory(prefix="et665_r110_") as tmp:
             store=Capacity(Path(tmp)/"capacity.sqlite")
             ledger=Path(tmp)/"broker.jsonl"
