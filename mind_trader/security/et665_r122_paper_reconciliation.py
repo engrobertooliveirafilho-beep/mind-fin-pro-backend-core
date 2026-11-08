@@ -37,7 +37,7 @@ def audit_paper_consistency(sqlite_path, session_path, broker_ledger_path):
         findings.append("BLOCK_INVALID_SESSION_TRADE_COUNT")
     reservations = {}
     for sid, oid, state in rows:
-        if not sid or not oid or state not in ("RESERVED", "FILLED", "REJECTED"):
+        if not isinstance(sid, str) or not sid or not isinstance(oid, str) or not oid or state not in ("RESERVED", "FILLED", "REJECTED"):
             findings.append("BLOCK_INVALID_RESERVATION")
         if (sid, oid) in reservations:
             findings.append("BLOCK_DUPLICATE_RESERVATION")
