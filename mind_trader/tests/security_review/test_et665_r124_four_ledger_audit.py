@@ -251,3 +251,12 @@ def test_distinct_order_receipt_does_not_trigger_duplicate_finding(tmp_path):
     paths[2].write_text(paths[2].read_text() + json.dumps(receipt) + "\n")
     result = audit_four_ledgers(*paths)
     assert "BLOCK_DUPLICATE_PERSISTED_BROKER_RECEIPT" not in result["findings"]
+
+
+def test_malformed_broker_jsonl_fails_closed(tmp_path):
+    paths = fixtures(tmp_path)
+    paths[2].write_text("{invalid json\n")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is False
+    assert result["operational_certified"] is False
+    assert "BLOCK_BROKER_LEDGER_RECHECK_UNAVAILABLE" in result["findings"]
