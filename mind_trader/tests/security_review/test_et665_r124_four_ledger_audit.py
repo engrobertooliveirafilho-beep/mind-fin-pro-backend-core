@@ -495,3 +495,14 @@ def test_unreserved_accepted_execution_without_broker_fill_blocks(tmp_path):
     result = audit_four_ledgers(*paths)
     assert result["certified"] is False
     assert "BLOCK_ACCEPTED_EXECUTION_WITHOUT_CONFIRMED_BROKER_FILL" in result["findings"]
+
+
+def test_unreserved_accepted_broker_live_claim_blocks(tmp_path):
+    paths = fixtures(tmp_path)
+    event = {"mode": "PAPER", "decision": "ACCEPT_SIMULATED_ORDER",
+             "paper_broker": {"decision": "PAPER_ORDER_ACCEPTED",
+                              "live": "ALLOWED", "fill": {"filled": True}}}
+    paths[-1].write_text(paths[-1].read_text() + json.dumps(event) + "\n")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is False
+    assert "BLOCK_UNCORRELATED_ACCEPTED_BROKER_LIVE_CLAIM" in result["findings"]
