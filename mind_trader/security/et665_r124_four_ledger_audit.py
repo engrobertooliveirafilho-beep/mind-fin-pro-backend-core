@@ -4,6 +4,7 @@ This audit does not reconcile writes or authorize broker routing. It requires
 the existing SQLite/session/broker audit and a matching execution decision.
 """
 import json
+import sqlite3
 from pathlib import Path
 from et665_r122_paper_reconciliation import audit_paper_consistency
 
@@ -23,6 +24,7 @@ def audit_four_ledgers(sqlite_path, session_path, broker_path, execution_path):
                 "scope": "OFFLINE_FOUR_LEDGER_ONLY"}
 
     seen = set()
+    accepted_ids = set()
     for event in events:
         if event.get("mode") != "PAPER":
             continue
@@ -36,6 +38,7 @@ def audit_four_ledgers(sqlite_path, session_path, broker_path, execution_path):
         capacity = event.get("capacity_decision")
         broker = event.get("paper_broker")
         if decision == "ACCEPT_SIMULATED_ORDER":
+            accepted_ids.add(oid)
             if capacity != "FILLED" or not isinstance(broker, dict) or (
                 broker.get("decision") != "PAPER_ORDER_ACCEPTED"
                 or not isinstance(broker.get("fill"), dict)
@@ -46,14 +49,14 @@ def audit_four_ledgers(sqlite_path, session_path, broker_path, execution_path):
             findings.append("BLOCK_FILLED_EXECUTION_REJECTED")
 
     try:
-        with __import__("sqlite3").connect(f"file:{Path(sqlite_path).resolve()}?mode=ro", uri=True) as db:
+        with sqlite3.connect(f"file:{Path(sqlite_path).resolve()}?mode=ro", uri=True) as db:
             filled_ids = {oid for sid, oid in db.execute(
                 "SELECT session_id, order_id FROM reservations WHERE state = 'FILLED'"
             ) if sid == session.get("session_id")}
-    except (__import__("sqlite3").Error, OSError):
+    except (sqlite3.Error, OSError):
         filled_ids = set()
         findings.append("BLOCK_RESERVATION_RECHECK_UNAVAILABLE")
-    if filled_ids - seen:
+    if filled_ids - accepted_ids:
         findings.append("BLOCK_MISSING_EXECUTION_CORRELATION")
     if base["certified"] and not seen:
         findings.append("BLOCK_MISSING_EXECUTION_CORRELATION")
