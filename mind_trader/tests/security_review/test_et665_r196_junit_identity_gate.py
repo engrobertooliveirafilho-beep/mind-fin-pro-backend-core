@@ -8,6 +8,7 @@ MODULES = (
     "test_et665_r183_p15_pipeline_rclone_allowlist",
     "test_et665_r184_mt5_status_truth",
     "test_et665_r186_dependency_gates",
+    "test_et665_r196_junit_identity_gate",
 )
 
 def validate(xml):
@@ -41,7 +42,7 @@ def report(names=MODULES, **attrs):
 class GateTests(unittest.TestCase):
     def test_valid(self): self.assertTrue(validate(report()))
     def test_missing_module(self): self.assertFalse(validate(report(MODULES[:-1])))
-    def test_name_spoof(self): self.assertFalse(validate(report(["unrelated"] * 5).replace("test_safety", "test_r180_r182_r183_r184_r186")))
+    def test_name_spoof(self): self.assertFalse(validate(report(["unrelated"] * len(MODULES)).replace("test_safety", "test_r180_r182_r183_r184_r186_r196")))
     def test_substring_spoof(self): self.assertFalse(validate(report(["fake_" + m for m in MODULES])))
     def test_pytest_unittest_classname(self):
         xml = report().replace('name="test_safety"', 'name="test_safety"').replace('" name="test_safety"', '.GateTests" name="test_safety"')
