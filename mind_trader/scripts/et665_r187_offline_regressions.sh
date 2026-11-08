@@ -5,8 +5,10 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd -P)"
 IMAGE="et665-pytest-offline:py312"
 EVIDENCE="${ET665_EVIDENCE_DIR:-$(dirname "$ROOT")/et665-r187-evidence}"
 EXPECTED_HEAD="${ET665_EXPECTED_HEAD:-}"
+EXPECTED_IMAGE_ID="${ET665_EXPECTED_IMAGE_ID:-}"
 if [[ ! "$EVIDENCE" = /* ]]; then echo "BLOCKED: evidence path must be absolute" >&2; exit 31; fi
 if [[ -z "$EXPECTED_HEAD" || ! "$EXPECTED_HEAD" =~ ^[0-9a-f]{40}$ ]]; then echo "BLOCKED: ET665_EXPECTED_HEAD must be a verified 40-character commit SHA" >&2; exit 32; fi
+if [[ ! "$EXPECTED_IMAGE_ID" =~ ^sha256:[0-9a-f]{64}$ ]]; then echo "BLOCKED: ET665_EXPECTED_IMAGE_ID must be an independently approved sha256 image ID" >&2; exit 43; fi
 # Resolve parent paths before containment checks; reject symlinked evidence targets.
 if [[ -L "$EVIDENCE" ]]; then echo "BLOCKED: symlinked evidence target" >&2; exit 27; fi
 EVIDENCE_PARENT="$(cd "$(dirname "$EVIDENCE")" && pwd -P)" || { echo "BLOCKED: evidence parent missing" >&2; exit 28; }
@@ -34,6 +36,7 @@ date -u +'%Y-%m-%dT%H:%M:%SZ' > "$EVIDENCE/started_utc.txt"
 echo "$HEAD_ACTUAL" > "$EVIDENCE/commit.txt"
 IMAGE_ID="$(docker image inspect --format '{{.Id}}' "$IMAGE")" || { echo "BLOCKED: cannot resolve local image ID" >&2; exit 41; }
 if [[ ! "$IMAGE_ID" =~ ^sha256:[0-9a-f]{64}$ ]]; then echo "BLOCKED: invalid local image ID" >&2; exit 42; fi
+if [[ "$IMAGE_ID" != "$EXPECTED_IMAGE_ID" ]]; then echo "BLOCKED: local image ID differs from independently approved ET665_EXPECTED_IMAGE_ID" >&2; exit 44; fi
 printf '%s\n' "$IMAGE_ID" > "$EVIDENCE/image_id.txt"
 FILES=(
   mind_trader/tests/security_review/test_et665_r180_p15_dataset_path_guards.py
