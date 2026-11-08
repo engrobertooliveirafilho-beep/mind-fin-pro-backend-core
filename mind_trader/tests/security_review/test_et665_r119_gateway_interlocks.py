@@ -53,3 +53,18 @@ def test_gateway_validates_broker_receipt_session_and_capacity_id():
                 and any(isinstance(v, ast.Name) and v.id == expected for v in node.comparators))
     assert any(is_mismatch(node, "session_id", "session_id") for node in checks)
     assert any(is_mismatch(node, "capacity_order_id", "capacity_order_id") for node in checks)
+
+
+def test_gateway_rejects_broker_live_routing_claims():
+    tree = ast.parse(GATEWAY.read_text(encoding="utf-8"))
+    submit = next(n for n in ast.walk(tree)
+                  if isinstance(n, ast.FunctionDef) and n.name == "submit_order")
+    comparisons = [n for n in ast.walk(submit) if isinstance(n, ast.Compare)]
+    for field in ("real_broker_routing", "production", "mode"):
+        assert any(isinstance(n.left, ast.Call)
+                   and isinstance(n.left.func, ast.Attribute)
+                   and n.left.func.attr == "get"
+                   and n.left.args and isinstance(n.left.args[0], ast.Constant)
+                   and n.left.args[0].value == field
+                   and any(isinstance(op, ast.NotIn) for op in n.ops)
+                   for n in comparisons)
