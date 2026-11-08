@@ -160,3 +160,13 @@ def test_rejected_broker_with_confirmed_fill_blocks(tmp_path):
     result = mod.audit_paper_consistency(db, session, broker)
     assert result["certified"] is False
     assert "BLOCK_REJECTED_BROKER_WITH_CONFIRMED_FILL" in result["findings"]
+
+
+def test_rejected_broker_with_filled_status_blocks(tmp_path):
+    db, session, broker = fixtures(tmp_path, state="REJECTED", trades=0, accepted=False)
+    receipt = json.loads(broker.read_text())
+    receipt["order_status"] = "PAPER_FILLED_SIMULATED"
+    broker.write_text(json.dumps(receipt) + "\n")
+    result = mod.audit_paper_consistency(db, session, broker)
+    assert result["certified"] is False
+    assert "BLOCK_REJECTED_BROKER_WITH_FILLED_STATUS" in result["findings"]
