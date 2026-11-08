@@ -443,3 +443,14 @@ def test_embedded_broker_live_allowed_claim_blocks(tmp_path):
     result = audit_four_ledgers(*paths)
     assert result["certified"] is False
     assert "BLOCK_EMBEDDED_BROKER_IDENTITY_CONTRADICTION" in result["findings"]
+
+
+def test_rejected_execution_cannot_carry_accepted_broker_receipt(tmp_path):
+    paths = fixtures(tmp_path)
+    event = json.loads(paths[-1].read_text())
+    event["decision"] = "BLOCK_RISK"
+    event["capacity_decision"] = "REJECTED"
+    paths[-1].write_text(json.dumps(event) + "\n")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is False
+    assert "BLOCK_REJECTED_EXECUTION_WITH_ACCEPTED_BROKER" in result["findings"]
