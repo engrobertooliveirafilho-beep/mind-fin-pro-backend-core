@@ -127,3 +127,21 @@ def test_non_object_execution_event_fails_closed(tmp_path):
     result = audit_four_ledgers(*paths)
     assert result["certified"] is False
     assert "BLOCK_EXECUTION_LEDGER_UNAVAILABLE" in result["findings"]
+
+
+def test_live_routing_claim_blocks_offline_certification(tmp_path):
+    paths = fixtures(tmp_path)
+    event = json.loads(paths[-1].read_text())
+    event["real_broker_routing"] = "ENABLED"
+    paths[-1].write_text(json.dumps(event)+"\n")
+    result = audit_four_ledgers(*paths)
+    assert "BLOCK_EXECUTION_LIVE_ROUTING_CLAIM" in result["findings"]
+
+
+def test_accepted_execution_missing_order_id_blocks(tmp_path):
+    paths = fixtures(tmp_path)
+    event = json.loads(paths[-1].read_text())
+    event.pop("capacity_order_id")
+    paths[-1].write_text(json.dumps(event)+"\n")
+    result = audit_four_ledgers(*paths)
+    assert "BLOCK_ACCEPTED_EXECUTION_UNCORRELATED" in result["findings"]
