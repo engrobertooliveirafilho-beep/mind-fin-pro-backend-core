@@ -60,6 +60,15 @@ def audit_paper_consistency(sqlite_path, session_path, broker_ledger_path):
                 or order.get("production") not in (None, "BLOCKED")
                 or order.get("real_broker_routing") not in (None, "DISABLED")):
             findings.append("BLOCK_PERSISTED_BROKER_ORDER_LIVE_CLAIM")
+        if event.get("decision") == "PAPER_ORDER_ACCEPTED" and (
+                not isinstance(order, dict)
+                or not isinstance(order.get("capacity_order_id"), str)
+                or not order.get("capacity_order_id")
+                or not isinstance(order.get("session_id"), str)
+                or not order.get("session_id")):
+            findings.append("BLOCK_ACCEPTED_BROKER_WITHOUT_ORDER")
+            findings.append("BLOCK_UNCORRELATED_BROKER_EVENT")
+            continue
         oid = order.get("capacity_order_id") if isinstance(order, dict) else None
         sid = order.get("session_id") if isinstance(order, dict) else None
         if not isinstance(oid, str) or not oid or not isinstance(sid, str) or not sid:

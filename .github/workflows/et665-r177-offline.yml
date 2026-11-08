@@ -1,0 +1,14 @@
+name: ET665 R177 offline regression
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  r177-offline:
+    if: ${{ false }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Disabled — authorized execution is the existing offline Docker sandbox
+        run: |
+          echo "ET665_OFFLINE_DOCKER_REQUIRED"
+          exit 1
