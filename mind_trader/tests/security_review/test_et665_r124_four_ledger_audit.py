@@ -179,3 +179,22 @@ def test_missing_persisted_broker_receipt_blocks(tmp_path):
     paths[2].write_text("")
     result = audit_four_ledgers(*paths)
     assert "BLOCK_EMBEDDED_BROKER_LEDGER_MISMATCH" in result["findings"]
+
+
+def test_unreserved_reject_with_live_routing_claim_blocks(tmp_path):
+    paths = fixtures(tmp_path)
+    event = {"mode": "PAPER", "decision": "REJECT_ORDER",
+             "production": "ENABLED", "real_broker_routing": "ENABLED"}
+    paths[-1].write_text(paths[-1].read_text() + json.dumps(event) + "\n")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is False
+    assert "BLOCK_EXECUTION_LIVE_ROUTING_CLAIM" in result["findings"]
+
+
+def test_unreserved_reject_without_live_routing_claim_allowed(tmp_path):
+    paths = fixtures(tmp_path)
+    event = {"mode": "PAPER", "decision": "REJECT_ORDER", "production": "BLOCKED"}
+    paths[-1].write_text(paths[-1].read_text() + json.dumps(event) + "\n")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is True
+    assert result["operational_certified"] is False
