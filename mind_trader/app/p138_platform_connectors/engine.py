@@ -4,17 +4,6 @@ from datetime import datetime, UTC
 
 def mt5_probe():
     raise PermissionError("ET665_MT5_UNCERTIFIED_ENTRYPOINT_BLOCKED")
-    try:
-        import MetaTrader5 as mt5
-    except Exception as e:
-        return {"platform":"MT5","available":False,"reason":"MetaTrader5 python package not installed","error":str(e)}
-    try:
-        ok=mt5.initialize()
-        info=mt5.terminal_info() if ok else None
-        mt5.shutdown()
-        return {"platform":"MT5","available":bool(ok),"terminal_info":str(info),"reason":None if ok else "mt5.initialize failed"}
-    except Exception as e:
-        return {"platform":"MT5","available":False,"reason":"MT5 terminal connection failed","error":str(e)}
 
 def profit_probe(path="data/incoming/profit"):
     p=Path(path); p.mkdir(parents=True,exist_ok=True)
