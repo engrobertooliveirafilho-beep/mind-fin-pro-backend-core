@@ -57,7 +57,6 @@ class R113GatewayCapacity(unittest.TestCase):
         obj.adv=SimpleNamespace(review_trade=lambda *args:{"adversarial_passed":True,"decision":"OK"})
         obj.paper_capacity=Gate(Path(tmp)/"capacity.sqlite")
         obj.paper_capacity_max_daily_trades=1
-        ns["paper_capacity_gate"]=lambda gateway:gateway.paper_capacity
         return obj,ns
 
     def test_second_fill_blocked_before_paper_broker(self):
@@ -70,8 +69,8 @@ class R113GatewayCapacity(unittest.TestCase):
             self.assertEqual(first["decision"],"ACCEPT_SIMULATED_ORDER")
             self.assertEqual(second["decision"],"REJECT_ORDER")
             self.assertEqual(len(Path(obj.paper_broker_ledger_path).read_text().splitlines()),1)
-            self.assertEqual(first["paper_broker"]["session_id"],"offline")
-            self.assertEqual(first["paper_broker"]["capacity_order_id"],first["capacity_order_id"])
+            self.assertEqual(first["paper_broker"]["order"]["session_id"],"offline")
+            self.assertEqual(first["paper_broker"]["order"]["capacity_order_id"],first["capacity_order_id"])
             self.assertEqual(second["capacity_decision"],"BLOCK_CAPACITY")
 
     def test_unknown_ledger_write_blocks_and_keeps_reservation(self):
