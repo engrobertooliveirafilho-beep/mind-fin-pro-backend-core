@@ -66,3 +66,14 @@ def test_other_execution_cannot_mask_missing_filled_order(tmp_path):
     result = audit_four_ledgers(*paths)
     assert result["certified"] is False
     assert "BLOCK_MISSING_EXECUTION_CORRELATION" in result["findings"]
+
+
+def test_rejected_execution_cannot_mask_filled_reservation(tmp_path):
+    paths = fixtures(tmp_path)
+    event = json.loads(paths[-1].read_text())
+    event["decision"] = "REJECT_ORDER"
+    event["capacity_decision"] = "BLOCK_CAPACITY_ERROR"
+    paths[-1].write_text(json.dumps(event)+"\n")
+    result = audit_four_ledgers(*paths)
+    assert result["certified"] is False
+    assert "BLOCK_MISSING_EXECUTION_CORRELATION" in result["findings"]
