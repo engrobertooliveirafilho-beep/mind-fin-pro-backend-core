@@ -7,10 +7,22 @@ Optional mapping CSV: drive_path,git_path; unmapped entries remain unmatched.
 import argparse
 import csv
 import hashlib
+import io
 import json
+import os
+import re
+import tempfile
 from pathlib import Path
 
-SHA_COLUMNS = {"sha256"}
+HEX_SHA256 = re.compile(r"[0-9a-f]{64}", re.ASCII)
+SIZE_BYTES = re.compile(r"0|[1-9][0-9]*", re.ASCII)
+
+
+def validate_sha256(value, label):
+    if not HEX_SHA256.fullmatch(value.lower()):
+        raise ValueError("INVALID_SHA256:" + label)
+    return value.lower()
+
 def load_csv(path, required, key):
     with path.open("r", newline="", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
@@ -20,8 +32,13 @@ def load_csv(path, required, key):
         for number, row in enumerate(reader, 2):
             k = (row.get(key) or "").replace("\\", "/").strip()
             sha = (row.get("sha256") or "").strip().lower() if "sha256" in required else ""
-            if not k or k.startswith("/") or ".." in k.split("/") or (sha and (len(sha) != 64 or any(c not in "0123456789abcdef" for c in sha))):
+            if not k or k.startswith("/") or ".." in k.split("/") or ("sha256" in required and not HEX_SHA256.fullmatch(sha)):
                 raise ValueError("INVALID_RECORD:" + str(path) + ":" + str(number))
+            if "size_bytes" in required:
+                size = row.get("size_bytes") or ""
+                if not SIZE_BYTES.fullmatch(size):
+                    raise ValueError("INVALID_SIZE_BYTES:" + str(path) + ":" + str(number))
+                row["size_bytes"] = str(int(size))
             if k in result:
                 raise ValueError("DUPLICATE_PATH:" + str(path) + ":" + k)
             result[k] = row
@@ -37,11 +54,20 @@ def main():
     p.add_argument("--output", type=Path, required=True)
     p.add_argument("--expected-git-manifest-sha256", required=True)
     p.add_argument("--expected-drive-manifest-sha256", required=True)
+    p.add_argument("--expected-mapping-sha256")
     a = p.parse_args()
     for source in (a.git_manifest, a.drive_manifest):
         if not source.is_file():
             raise SystemExit("INPUT_NOT_FOUND:" + str(source))
-    for source, expected in ((a.git_manifest, a.expected_git_manifest_sha256), (a.drive_manifest, a.expected_drive_manifest_sha256)):
+    if bool(a.mapping) != bool(a.expected_mapping_sha256):
+        raise SystemExit("MAPPING_SHA256_REQUIRED_OR_UNEXPECTED")
+    sources = [(a.git_manifest, a.expected_git_manifest_sha256), (a.drive_manifest, a.expected_drive_manifest_sha256)]
+    if a.mapping:
+        if not a.mapping.is_file():
+            raise SystemExit("INPUT_NOT_FOUND:" + str(a.mapping))
+        sources.append((a.mapping, a.expected_mapping_sha256))
+    for source, expected in sources:
+        validate_sha256(expected, str(source))
         actual = hashlib.sha256(source.read_bytes()).hexdigest()
         if actual != expected.lower():
             raise SystemExit("INPUT_SHA256_MISMATCH:" + str(source))
@@ -77,11 +103,6 @@ def main():
     for gpath in sorted(git.keys() - used_git):
         records.append({"drive_path": "", "git_path": gpath, "status": "GIT_ONLY"})
     counts = {k: sum(r["status"] == k for r in records) for k in ("MATCH", "DRIVE_ONLY", "GIT_ONLY", "CONTENT_MISMATCH")}
-    a.output.mkdir(parents=True)
-    with (a.output / "RECONCILIATION.csv").open("w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=["drive_path", "git_path", "status"])
-        w.writeheader()
-        w.writerows(records)
     summary = {
         "schema": "ET665_R60_DRIVE_GIT_RECONCILIATION_V1",
         "drive_entries": len(drive), "git_entries": len(git), "counts": counts,
@@ -92,7 +113,20 @@ def main():
         "phase_b": "OPEN", "real_orders": "FORBIDDEN", "ftmo_real": "FORBIDDEN",
         "reconciliation_status": "MATCH" if counts["DRIVE_ONLY"] == counts["GIT_ONLY"] == counts["CONTENT_MISMATCH"] == 0 else "DIFFERENCES",
     }
-    (a.output / "SUMMARY.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
+    buffer = io.StringIO(newline="")
+    writer = csv.DictWriter(buffer, fieldnames=["drive_path", "git_path", "status"])
+    writer.writeheader()
+    writer.writerows(records)
+    if not a.output.parent.is_dir():
+        raise SystemExit("OUTPUT_PARENT_MISSING")
+    with tempfile.TemporaryDirectory(prefix="et665-r60-", dir=a.output.parent) as staging:
+        staged = Path(staging) / "result"
+        staged.mkdir()
+        (staged / "RECONCILIATION.csv").write_text(buffer.getvalue(), encoding="utf-8")
+        (staged / "SUMMARY.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
+        if a.output.exists():
+            raise SystemExit("OUTPUT_ALREADY_EXISTS")
+        os.rename(staged, a.output)
     print(json.dumps(summary, sort_keys=True))
     return 0 if summary["reconciliation_status"] == "MATCH" else 2
 
