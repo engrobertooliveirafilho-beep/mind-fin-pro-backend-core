@@ -1,5 +1,6 @@
 """ET665.CM.2 — isolated regression: no rclone/MT5 binaries needed."""
 import ast
+import subprocess
 import importlib.util
 from pathlib import Path
 from unittest.mock import patch, Mock
@@ -32,7 +33,7 @@ def test_rclone_read_only_and_exit_failure(path):
         kwargs = runner.call_args.kwargs
         assert kwargs["shell"] is False and kwargs["check"] is True
         assert runner.call_args.args[0][:2] == ["rclone", "copy"]
-    with patch.object(mod.subprocess, "run", side_effect=__import__("subprocess").CalledProcessError(9, ["rclone"])) , pytest.raises(__import__("subprocess").CalledProcessError):
+    with patch.object(mod.subprocess, "run", side_effect=subprocess.CalledProcessError(9, ["rclone"])) , pytest.raises(subprocess.CalledProcessError):
         command('rclone copy "gdrive:test/raw" "/tmp/et665_read"')
     with patch.object(mod.subprocess, "run") as runner, pytest.raises(PermissionError, match="HISTORICAL_WRITE"):
         command('rclone copy "/tmp/et665_write" "gdrive:test/reports" --progress')
