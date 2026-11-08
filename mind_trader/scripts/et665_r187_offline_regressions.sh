@@ -75,6 +75,10 @@ try:
         raise ValueError("missing or empty JUnit suites")
     if tests != len(cases) or failures or errors or skipped:
         raise ValueError("JUnit counts inconsistent or nonpassing/skipped tests")
+    expected = ("r180", "r182", "r183", "r184", "r186")
+    case_names = [((c.get("classname") or "") + " " + (c.get("name") or "")).lower() for c in cases]
+    if any(not any(token in name for name in case_names) for token in expected):
+        raise ValueError("JUnit missing one or more required regression modules")
     if any(c.find("failure") is not None or c.find("error") is not None or c.find("skipped") is not None for c in cases):
         raise ValueError("JUnit contains failed or skipped testcase")
 except (ET.ParseError, OSError, ValueError, TypeError) as exc:
