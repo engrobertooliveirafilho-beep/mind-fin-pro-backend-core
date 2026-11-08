@@ -29,7 +29,7 @@ def schema_audit():
             keys=[k.value for k in node.keys if isinstance(k,ast.Constant)]
             if "decision" in keys:
                 route_events.append(set(keys))
-    has_gateway_order_key=any(isinstance(n,ast.Constant) and n.value in ("paper_order_id","order_id") for n in ast.walk(submit))
+    has_gateway_order_key=any(isinstance(n,ast.Constant) and n.value=="capacity_order_id" for n in ast.walk(submit))
     return {"ledger_keys":ledger_keys,"route_events":route_events,"gateway_order_key":has_gateway_order_key}
 
 def reconcile_actual_broker_rows(rows, session, expected_filled_ids):
@@ -57,7 +57,7 @@ class R108ActualSchema(unittest.TestCase):
         schema=schema_audit()
         self.assertIn("paper_order_id",schema["ledger_keys"])
         self.assertIn("ts",schema["ledger_keys"])
-        self.assertFalse(schema["gateway_order_key"])
+        self.assertTrue(schema["gateway_order_key"])
         self.assertTrue(any("order_status" in keys for keys in schema["route_events"]))
 
     def test_actual_rows_fail_closed_without_session_join(self):
