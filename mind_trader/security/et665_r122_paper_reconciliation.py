@@ -1,0 +1,82 @@
+"""ET665.R122: read-only PAPER reconciliation. Never sends orders or repairs ledgers.
+
+A reservation with an uncertain outcome is always a blocker, not a reason to
+release capacity. Session trade counters cannot prove order-level settlement.
+"""
+import json
+import sqlite3
+from pathlib import Path
+
+
+def audit_paper_consistency(sqlite_path, session_path, broker_ledger_path):
+    findings = []
+    try:
+        with sqlite3.connect(f"file:{Path(sqlite_path).resolve()}?mode=ro", uri=True) as db:
+            rows = db.execute(
+                "SELECT session_id, order_id, state FROM reservations"
+            ).fetchall()
+        session = json.loads(Path(session_path).read_text(encoding="utf-8"))
+        if not isinstance(session, dict) or not isinstance(session.get("session_id"), str):
+            raise ValueError("INVALID_SESSION")
+        broker_events = []
+        for line in Path(broker_ledger_path).read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                event = json.loads(line)
+                if not isinstance(event, dict):
+                    raise ValueError("INVALID_BROKER_EVENT")
+                broker_events.append(event)
+    except (OSError, sqlite3.Error, ValueError, TypeError, json.JSONDecodeError) as exc:
+        return {"certified": False, "findings": ["BLOCK_INPUT_UNAVAILABLE_OR_CORRUPT"],
+                "error_type": type(exc).__name__, "production": "BLOCKED"}
+
+    if type(session.get("trades")) is not int or session["trades"] < 0:
+        findings.append("BLOCK_INVALID_SESSION_TRADE_COUNT")
+    reservations = {}
+    for sid, oid, state in rows:
+        if not sid or not oid or state not in ("RESERVED", "FILLED", "REJECTED"):
+            findings.append("BLOCK_INVALID_RESERVATION")
+        if (sid, oid) in reservations:
+            findings.append("BLOCK_DUPLICATE_RESERVATION")
+        reservations[(sid, oid)] = state
+        if sid != session["session_id"]:
+            findings.append("BLOCK_SESSION_MISMATCH")
+        if state == "RESERVED":
+            findings.append("BLOCK_UNCERTAIN_RESERVATION")
+
+    seen = set()
+    accepted = set()
+    for event in broker_events:
+        order = event.get("order")
+        oid = order.get("capacity_order_id") if isinstance(order, dict) else None
+        sid = order.get("session_id") if isinstance(order, dict) else None
+        if not oid or not sid:
+            findings.append("BLOCK_UNCORRELATED_BROKER_EVENT")
+            continue
+        key = (sid, oid)
+        if key in seen:
+            findings.append("BLOCK_DUPLICATE_BROKER_EVENT")
+        seen.add(key)
+        if key not in reservations:
+            findings.append("BLOCK_ORPHAN_BROKER_EVENT")
+        if event.get("decision") == "PAPER_ORDER_ACCEPTED":
+            fill = event.get("fill")
+            if not isinstance(fill, dict) or fill.get("filled") is not True:
+                findings.append("BLOCK_UNCONFIRMED_FILL")
+            else:
+                accepted.add(key)
+                if reservations.get(key) != "FILLED":
+                    findings.append("BLOCK_ACCEPTED_NOT_FINALIZED")
+        elif reservations.get(key) == "FILLED":
+            findings.append("BLOCK_FILLED_WITHOUT_ACCEPTANCE")
+
+    for key, state in reservations.items():
+        if state == "FILLED" and key not in accepted:
+            findings.append("BLOCK_FILLED_WITHOUT_BROKER_EVIDENCE")
+    if type(session.get("trades")) is int and session["trades"] != sum(
+        state == "FILLED" for (sid, _), state in reservations.items()
+        if sid == session["session_id"]
+    ):
+        findings.append("BLOCK_SESSION_TRADE_COUNT_MISMATCH")
+    return {"certified": not findings, "findings": sorted(set(findings)),
+            "reservation_count": len(rows), "broker_event_count": len(broker_events),
+            "production": "BLOCKED", "scope": "OFFLINE_SINGLE_SESSION_ONLY"}
