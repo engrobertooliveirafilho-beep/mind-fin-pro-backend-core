@@ -39,6 +39,7 @@ FILES=(
   mind_trader/tests/security_review/test_et665_r183_p15_pipeline_rclone_allowlist.py
   mind_trader/tests/security_review/test_et665_r184_mt5_status_truth.py
   mind_trader/tests/security_review/test_et665_r186_dependency_gates.py
+  mind_trader/tests/security_review/test_et665_r196_junit_identity_gate.py
 )
 for f in "${FILES[@]}"; do
   if [[ ! -f "$ROOT/$f" ]]; then echo "BLOCKED: missing $f" >&2; exit 23; fi
@@ -81,6 +82,7 @@ try:
         "test_et665_r183_p15_pipeline_rclone_allowlist",
         "test_et665_r184_mt5_status_truth",
         "test_et665_r186_dependency_gates",
+        "test_et665_r196_junit_identity_gate",
     }
     observed = {(c.get("classname") or "").split(".")[-1] for c in cases}
     if not expected.issubset(observed):
