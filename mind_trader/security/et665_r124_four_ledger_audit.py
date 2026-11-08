@@ -44,6 +44,8 @@ def audit_four_ledgers(sqlite_path, session_path, broker_path, execution_path):
         oid = event.get("capacity_order_id")
         if event.get("decision") == "ACCEPT_SIMULATED_ORDER" and (not isinstance(oid, str) or not oid):
             findings.append("BLOCK_ACCEPTED_EXECUTION_UNCORRELATED")
+        if event.get("decision") == "ACCEPT_SIMULATED_ORDER" and event.get("capacity_decision") != "FILLED":
+            findings.append("BLOCK_ACCEPTED_EXECUTION_WITHOUT_FILLED_CAPACITY")
         if event.get("capacity_decision") == "FILLED" and (not isinstance(oid, str) or not oid):
             findings.append("BLOCK_UNCORRELATED_FILLED_EXECUTION")
         if event.get("decision") != "ACCEPT_SIMULATED_ORDER" and isinstance(event.get("paper_broker"), dict) and event["paper_broker"].get("decision") == "PAPER_ORDER_ACCEPTED":
