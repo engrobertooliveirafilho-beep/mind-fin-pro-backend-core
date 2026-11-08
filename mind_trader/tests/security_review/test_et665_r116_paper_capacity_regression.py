@@ -91,3 +91,30 @@ def test_connection_closed_on_success_and_exception(tmp_path):
         assert gate.reserve_new("session-A", 1)["decision"] == "BLOCK_CAPACITY"
         assert gate.remaining("session-A", 1) == 0
     assert len(connections) == 3
+
+
+def test_cross_session_finalization_denied(tmp_path):
+    gate = PaperCapacityGate(tmp_path / "capacity.sqlite")
+    reservation = gate.reserve_new("session-A", 1)
+    order_id = reservation["order_id"]
+    assert gate.finalize("session-B", order_id, True) == "BLOCK_UNKNOWN_ORDER"
+    assert gate.reserve_new("session-A", 1)["decision"] == "BLOCK_CAPACITY"
+    assert gate.finalize("session-A", order_id, True) == "FILLED"
+
+
+def test_rejected_order_cannot_be_reclassified_filled(tmp_path):
+    gate = PaperCapacityGate(tmp_path / "capacity.sqlite")
+    reservation = gate.reserve_new("session-A", 1)
+    order_id = reservation["order_id"]
+    assert gate.finalize("session-A", order_id, False) == "REJECTED"
+    assert gate.finalize("session-A", order_id, True) == "REJECTED"
+    assert gate.reserve_new("session-A", 1)["decision"] == "RESERVED"
+
+
+def test_filled_order_cannot_be_reclassified_rejected(tmp_path):
+    gate = PaperCapacityGate(tmp_path / "capacity.sqlite")
+    reservation = gate.reserve_new("session-A", 1)
+    order_id = reservation["order_id"]
+    assert gate.finalize("session-A", order_id, True) == "FILLED"
+    assert gate.finalize("session-A", order_id, False) == "FILLED"
+    assert gate.reserve_new("session-A", 1)["decision"] == "BLOCK_CAPACITY"
