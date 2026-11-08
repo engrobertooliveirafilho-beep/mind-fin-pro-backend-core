@@ -21,6 +21,7 @@ if ! command -v docker >/dev/null 2>&1; then echo "BLOCKED: Docker unavailable" 
 if [[ "$(docker context inspect --format '{{.Endpoints.docker.Host}}' 2>/dev/null)" != "unix:///var/run/docker.sock" ]]; then echo "BLOCKED: Docker endpoint not approved local Unix socket" >&2; exit 36; fi
 if ! docker image inspect "$IMAGE" >/dev/null 2>&1; then echo "BLOCKED: prebuilt local image $IMAGE unavailable; no pull attempted" >&2; exit 21; fi
 if ! command -v sha256sum >/dev/null 2>&1; then echo "BLOCKED: sha256sum unavailable" >&2; exit 22; fi
+if ! command -v python3 >/dev/null 2>&1; then echo "BLOCKED: python3 unavailable for JUnit validation" >&2; exit 38; fi
 # Validate immutable checkout BEFORE creating evidence output.
 HEAD_ACTUAL="$(git -C "$ROOT" rev-parse --verify HEAD)" || { echo "BLOCKED: checkout HEAD unavailable" >&2; exit 26; }
 if [[ "$HEAD_ACTUAL" != "$EXPECTED_HEAD" ]]; then echo "BLOCKED: checkout commit differs from ET665_EXPECTED_HEAD" >&2; exit 33; fi
@@ -54,6 +55,31 @@ docker run --rm --pull=never --network=none --read-only --cap-drop=ALL \
   --junitxml=/evidence/junit.xml "${FILES[@]}" > "$EVIDENCE/pytest.stdout.log" 2> "$EVIDENCE/pytest.stderr.log"
 status=$?
 set -e
+# Exit code zero is insufficient: require a nonempty, well-formed JUnit result.
+if [[ "$status" -eq 0 ]]; then
+  if [[ ! -s "$EVIDENCE/junit.xml" ]]; then
+    echo "BLOCKED: Docker returned success without JUnit evidence" >&2
+    status=39
+  elif ! python3 - "$EVIDENCE/junit.xml" <<'PY'
+import sys
+import xml.etree.ElementTree as ET
+try:
+    root = ET.parse(sys.argv[1]).getroot()
+    suites = [root] if root.tag == "testsuite" else list(root.findall(".//testsuite"))
+    tests = sum(int(x.get("tests", "0")) for x in suites)
+    failures = sum(int(x.get("failures", "0")) for x in suites)
+    errors = sum(int(x.get("errors", "0")) for x in suites)
+    skipped = sum(int(x.get("skipped", "0")) for x in suites)
+    if not suites or tests < 1 or failures or errors or skipped == tests:
+        raise ValueError("no passing test suite or failures/errors detected")
+except (ET.ParseError, OSError, ValueError, TypeError) as exc:
+    print("BLOCKED: invalid or nonpassing JUnit evidence:", exc, file=sys.stderr)
+    sys.exit(1)
+PY
+  then
+    status=40
+  fi
+fi
 printf '%s\n' "$status" > "$EVIDENCE/exit_code.txt"
 date -u +'%Y-%m-%dT%H:%M:%SZ' > "$EVIDENCE/finished_utc.txt"
 ( cd "$EVIDENCE" && find . -maxdepth 1 -type f ! -name evidence.sha256 -print0 | sort -z | xargs -0 -r sha256sum ) > "$EVIDENCE/evidence.sha256"
