@@ -38,3 +38,35 @@ def test_unknown_or_invalid_requests_fail_closed(tmp_path):
     assert gate.reserve_new("session-A", True)["decision"] == "BLOCK_INVALID_CAPACITY"
     assert gate.finalize("session-A", "unknown", True) == "BLOCK_UNKNOWN_ORDER"
     assert gate.remaining("session-A", 0) == 0
+
+
+def test_parallel_reservations_never_exceed_limit(tmp_path):
+    from concurrent.futures import ThreadPoolExecutor
+    path = tmp_path / "capacity.sqlite"
+    PaperCapacityGate(path)
+    def reserve(_):
+        return PaperCapacityGate(path).reserve_new("session-A", 3)["decision"]
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        decisions = list(pool.map(reserve, range(12)))
+    assert decisions.count("RESERVED") == 3
+    assert decisions.count("BLOCK_CAPACITY") == 9
+    assert PaperCapacityGate(path).remaining("session-A", 3) == 0
+
+
+def test_reserved_capacity_survives_restart_after_unknown_outcome(tmp_path):
+    path = tmp_path / "capacity.sqlite"
+    gate = PaperCapacityGate(path)
+    reservation = gate.reserve_new("session-A", 1)
+    assert reservation["decision"] == "RESERVED"
+    del gate
+    restarted = PaperCapacityGate(path)
+    assert restarted.reserve_new("session-A", 1)["decision"] == "BLOCK_CAPACITY"
+    assert restarted.finalize("session-A", reservation["order_id"], True) == "FILLED"
+    assert PaperCapacityGate(path).reserve_new("session-A", 1)["decision"] == "BLOCK_CAPACITY"
+
+
+def test_session_capacity_isolated(tmp_path):
+    gate = PaperCapacityGate(tmp_path / "capacity.sqlite")
+    assert gate.reserve_new("session-A", 1)["decision"] == "RESERVED"
+    assert gate.reserve_new("session-B", 1)["decision"] == "RESERVED"
+    assert gate.reserve_new("session-A", 1)["decision"] == "BLOCK_CAPACITY"
