@@ -53,8 +53,17 @@ def sma(vals,n,i):
 def reconstruct(edge):
     rows=load_dataset(edge["dataset"])
     closes=[r["close"] for r in rows]
-    fast=int(edge["fast"]); slow=int(edge["slow"])
-    if fast <= 0 or slow <= 0 or fast >= slow:
+    def strict_window(value):
+        if isinstance(value, bool) or not isinstance(value, (int, str)):
+            raise ValueError("invalid SMA window configuration")
+        if isinstance(value, str) and (not value.isascii() or not value.isdecimal()):
+            raise ValueError("invalid SMA window configuration")
+        number = int(value)
+        if number <= 0:
+            raise ValueError("invalid SMA window configuration")
+        return number
+    fast=strict_window(edge["fast"]); slow=strict_window(edge["slow"])
+    if fast >= slow:
         raise ValueError("invalid SMA window configuration")
     pos=0; entry=0; entry_i=0; trades=[]; equity=1.0; curve=[]
     for i in range(slow+1,len(closes)):
