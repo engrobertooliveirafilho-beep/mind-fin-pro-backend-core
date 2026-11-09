@@ -39,8 +39,6 @@ class PaperTradingSessionManager:
             return None
         if session["trades"] > session["max_daily_trades"]:
             return None
-        if session["daily_pnl"] < -session["max_daily_loss"]:
-            return None
         if not isinstance(session["session_id"], str) or not session["session_id"]:
             return None
         if session["status"] not in ("OPEN", "CLOSED"):
@@ -109,6 +107,8 @@ class PaperTradingSessionManager:
         if s["max_daily_trades"] != cfg["max_daily_trades"] or s["max_daily_loss"] != cfg["max_daily_loss"]:
             return {"allowed":False,"decision":"BLOCK_PAPER_SESSION_LIMIT_TAMPERING","production":"BLOCKED"}
         if s["trades"] >= s["max_daily_trades"]: return {"allowed":False,"decision":"BLOCK_MAX_DAILY_TRADES","production":"BLOCKED"}
+        if s["daily_pnl"] < -s["max_daily_loss"]:
+            return {"allowed":False,"decision":"BLOCK_DAILY_LOSS_BREACHED","production":"BLOCKED"}
         # Only realized losses consume the daily loss allowance; profits do not.
         if max(0.0, -s["daily_pnl"]) + risk_amount > s["max_daily_loss"]:
             return {"allowed":False,"decision":"BLOCK_DAILY_LOSS_LIMIT","production":"BLOCKED"}
