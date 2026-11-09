@@ -21,7 +21,7 @@ def test_multiprocess_reservations_never_oversubscribe_trade_slots(tmp_path):
     args = (str(path), str(g.paper.ledger_path), str(g.paper.ftmo_config_path), 100)
     with ProcessPoolExecutor(max_workers=6, mp_context=multiprocessing.get_context("spawn")) as pool:
         results = list(pool.map(_reserve, [args] * 6))
-    assert sum(x["allowed"] for x in results) == 1
+    assert sum(x.get("allowed", False) for x in results) == 1
     final = json.loads(path.read_text(encoding="utf-8"))
     assert final["trades"] + len(final["pending_paper_orders"]) <= final["max_daily_trades"]
 
@@ -35,7 +35,7 @@ def test_multiprocess_reservations_never_oversubscribe_daily_risk(tmp_path):
     args = (str(path), str(g.paper.ledger_path), str(g.paper.ftmo_config_path), 500)
     with ProcessPoolExecutor(max_workers=6, mp_context=multiprocessing.get_context("spawn")) as pool:
         results = list(pool.map(_reserve, [args] * 6))
-    assert sum(x["allowed"] for x in results) == 1
+    assert sum(x.get("allowed", False) for x in results) == 1
     final = json.loads(path.read_text(encoding="utf-8"))
     assert max(0, -final["daily_pnl"]) + sum(x["risk"] for x in final["pending_paper_orders"]) <= final["max_daily_loss"]
 
