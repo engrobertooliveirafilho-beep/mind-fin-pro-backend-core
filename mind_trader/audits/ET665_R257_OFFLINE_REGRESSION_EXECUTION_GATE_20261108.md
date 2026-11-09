@@ -25,8 +25,9 @@ git rev-parse HEAD | Set-Content -Path (Join-Path $Evidence 'COMMIT.txt')
 docker image inspect $Image --format '{{.Id}}' | Set-Content -Path (Join-Path $Evidence 'IMAGE_ID.txt')
 $Repo=(Get-Location).Path
 $ArgsList=@('run','--rm','--pull=never','--network','none','--read-only','--cap-drop','ALL','--security-opt','no-new-privileges','--pids-limit','128','--memory','512m','--cpus','1','--tmpfs','/tmp:rw,noexec,nosuid,size=64m','--mount',"type=bind,source=$Repo,target=/work,readonly",'--workdir','/work','--env','PYTHONDONTWRITEBYTECODE=1',$Image,'python','-m','unittest','discover','-s','mind_trader/tests/security_review','-p','test_et665_r2*.py','-v')
-& docker @ArgsList 2>&1 | Tee-Object -FilePath (Join-Path $Evidence 'TEST_OUTPUT.txt')
+& docker @ArgsList *> (Join-Path $Evidence 'TEST_OUTPUT.txt')
 $ExitCode=$LASTEXITCODE
+Get-Content -Path (Join-Path $Evidence 'TEST_OUTPUT.txt') | Select-Object -Last 30
 "EXIT_CODE=$ExitCode" | Set-Content -Path (Join-Path $Evidence 'RESULT.txt')
 Get-FileHash (Join-Path $Evidence 'TEST_OUTPUT.txt') -Algorithm SHA256 | Format-List | Out-String | Set-Content -Path (Join-Path $Evidence 'SHA256.txt')
 if ($ExitCode -ne 0) { throw "FAIL_CLOSED: offline regression failed; evidence at $Evidence" }
