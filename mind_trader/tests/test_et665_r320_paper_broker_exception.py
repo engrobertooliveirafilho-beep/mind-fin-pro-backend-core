@@ -160,3 +160,17 @@ def test_tampered_paper_loss_limit_never_invokes_broker(tmp_path):
     broker.assert_not_called()
     assert result["session_check"]["decision"] == "BLOCK_PAPER_SESSION_LIMIT_TAMPERING"
     assert result["production"] == "BLOCKED"
+
+
+def test_tampered_lower_trade_limit_reports_tampering_not_quota(tmp_path):
+    g = gateway(tmp_path)
+    path = tmp_path / "session.json"
+    session = json.loads(path.read_text(encoding="utf-8"))
+    session["max_daily_trades"] = 1
+    session["trades"] = 1
+    path.write_text(json.dumps(session), encoding="utf-8")
+    with patch("mind_trader.app.execution.gateway.paper_route_order") as broker:
+        result = g.submit_order("PAPER", trade(), regime(), genome())
+    broker.assert_not_called()
+    assert result["session_check"]["decision"] == "BLOCK_PAPER_SESSION_LIMIT_TAMPERING"
+    assert result["production"] == "BLOCKED"
