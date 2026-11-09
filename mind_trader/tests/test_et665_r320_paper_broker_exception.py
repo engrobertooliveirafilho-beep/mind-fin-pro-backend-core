@@ -134,3 +134,29 @@ def test_paper_max_daily_trades_never_invokes_broker(tmp_path):
     assert result["decision"] == "BLOCKED_PAPER_SESSION"
     assert result["session_check"]["decision"] == "BLOCK_MAX_DAILY_TRADES"
     assert result["production"] == "BLOCKED"
+
+
+def test_tampered_paper_trade_limit_never_invokes_broker(tmp_path):
+    g = gateway(tmp_path)
+    path = tmp_path / "session.json"
+    session = json.loads(path.read_text(encoding="utf-8"))
+    session["max_daily_trades"] += 1000
+    path.write_text(json.dumps(session), encoding="utf-8")
+    with patch("mind_trader.app.execution.gateway.paper_route_order") as broker:
+        result = g.submit_order("PAPER", trade(), regime(), genome())
+    broker.assert_not_called()
+    assert result["session_check"]["decision"] == "BLOCK_PAPER_SESSION_LIMIT_TAMPERING"
+    assert result["production"] == "BLOCKED"
+
+
+def test_tampered_paper_loss_limit_never_invokes_broker(tmp_path):
+    g = gateway(tmp_path)
+    path = tmp_path / "session.json"
+    session = json.loads(path.read_text(encoding="utf-8"))
+    session["max_daily_loss"] *= 100
+    path.write_text(json.dumps(session), encoding="utf-8")
+    with patch("mind_trader.app.execution.gateway.paper_route_order") as broker:
+        result = g.submit_order("PAPER", trade(), regime(), genome())
+    broker.assert_not_called()
+    assert result["session_check"]["decision"] == "BLOCK_PAPER_SESSION_LIMIT_TAMPERING"
+    assert result["production"] == "BLOCKED"
