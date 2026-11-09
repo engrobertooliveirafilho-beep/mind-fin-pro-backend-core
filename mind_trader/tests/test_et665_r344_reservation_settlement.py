@@ -142,3 +142,26 @@ def test_malformed_closed_session_timestamp_fails_closed(tmp_path):
         path.write_text(json.dumps(state), encoding="utf-8")
         assert g.paper.open_session()["decision"] == "BLOCK_SESSION_INVALID_OPEN_TIMESTAMP"
         assert json.loads(path.read_text(encoding="utf-8")) == state
+
+
+def test_old_opening_date_but_closed_today_cannot_reset_quota(tmp_path):
+    g = gateway(tmp_path)
+    assert g.paper.close_session()["decision"] == "SESSION_CLOSED"
+    path = tmp_path / "session.json"
+    state = json.loads(path.read_text(encoding="utf-8"))
+    state["opened_at"] = "2000-01-01T00:00:00+00:00"
+    path.write_text(json.dumps(state), encoding="utf-8")
+    assert g.paper.open_session()["decision"] == "BLOCK_SAME_DAY_SESSION_RESET"
+    assert json.loads(path.read_text(encoding="utf-8")) == state
+
+
+def test_missing_close_timestamp_cannot_reset_quota(tmp_path):
+    g = gateway(tmp_path)
+    assert g.paper.close_session()["decision"] == "SESSION_CLOSED"
+    path = tmp_path / "session.json"
+    state = json.loads(path.read_text(encoding="utf-8"))
+    state["opened_at"] = "2000-01-01T00:00:00+00:00"
+    state.pop("closed_at")
+    path.write_text(json.dumps(state), encoding="utf-8")
+    assert g.paper.open_session()["decision"] == "BLOCK_SESSION_INVALID_CLOSE_TIMESTAMP"
+    assert json.loads(path.read_text(encoding="utf-8")) == state
