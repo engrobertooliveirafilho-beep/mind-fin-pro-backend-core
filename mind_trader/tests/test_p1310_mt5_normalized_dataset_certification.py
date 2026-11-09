@@ -5,9 +5,10 @@ def test_p1310_certify_all_returns_list():
 
 def test_p1310_manifest():
     m=run()
-    assert m["STATUS"]=="P13.10_MT5_NORMALIZED_DATASET_CERTIFICATION_IMPLEMENTED"
+    assert m["STATUS"]=="UNVERIFIED_PENDING_PROVENANCE_RECONCILIATION"
     assert m["REAL_ORDERS"]=="FORBIDDEN"
-    assert m["EXPORT_READY"] is True
+    assert m["EXPORT_READY"] is False
+    assert m["FILES_CERTIFIED"] == 0
 
 def test_p1310_certifies_existing_mt5_files():
     m=run()
