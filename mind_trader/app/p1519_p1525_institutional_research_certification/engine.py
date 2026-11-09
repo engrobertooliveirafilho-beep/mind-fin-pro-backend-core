@@ -98,9 +98,14 @@ def risk_of_ruin(trades):
     return {"risk_proxy":"LOW" if pf>=1.5 and max_streak<=5 else "MEDIUM","max_loss_streak":max_streak,"profit_factor":round(pf,4)}
 
 def corr(a,b):
-    n=min(len(a),len(b))
-    if n<3: return 0
-    x=a[:n]; y=b[:n]
+    # ET665.R255: position-based correlation cannot silently truncate samples.
+    if len(a) != len(b):
+        raise ValueError("unaligned correlation sample lengths")
+    if any(not isinstance(v, (int, float)) or isinstance(v, bool) or not math.isfinite(v) for v in itertools.chain(a, b)):
+        raise ValueError("invalid correlation return")
+    n=len(a)
+    if n<3: return None
+    x=a; y=b
     mx=sum(x)/n; my=sum(y)/n
     num=sum((x[i]-mx)*(y[i]-my) for i in range(n))
     dx=math.sqrt(sum((v-mx)**2 for v in x)); dy=math.sqrt(sum((v-my)**2 for v in y))
