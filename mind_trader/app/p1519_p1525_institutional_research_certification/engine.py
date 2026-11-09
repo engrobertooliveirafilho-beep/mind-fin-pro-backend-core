@@ -142,8 +142,10 @@ def run():
     reconstructed=[]
     curves={}
     for e in edges:
-        trades,curve=reconstruct(e)
         eid=f'{e["symbol"]}_{e["timeframe"]}_{e["strategy"]}_{e["fast"]}_{e["slow"]}'
+        if eid in curves:
+            raise ValueError("duplicate edge identifier in research input")
+        trades,curve=reconstruct(e)
         curves[eid]=[t["return"] for t in trades]
         reconstructed.append({
             "edge_id":eid,
