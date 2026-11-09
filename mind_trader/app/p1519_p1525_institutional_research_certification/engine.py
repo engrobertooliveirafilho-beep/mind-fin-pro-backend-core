@@ -7,7 +7,13 @@ DATA_DIR=Path("data/incoming/profit_real_backtests")
 LOCAL_NORM=Path("$env:TEMP")
 
 def load_json(p):
-    return json.loads(p.read_text(encoding="utf-8")) if p.exists() else []
+    # ET665.R276: missing or malformed authority input must never look like an empty approved set.
+    if not p.is_file():
+        raise FileNotFoundError("research edge input is missing")
+    edges = json.loads(p.read_text(encoding="utf-8"))
+    if not isinstance(edges, list) or any(not isinstance(edge, dict) for edge in edges):
+        raise ValueError("research edge input must be a list of objects")
+    return edges
 
 def f(v):
     # ET665.R251: reject malformed/nonfinite prices instead of silently coercing.
