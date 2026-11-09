@@ -82,6 +82,43 @@ class PostR6Offline(unittest.TestCase):
         self.assertEqual((result["processed"], result["total"]), (1, 1))
         self.assertEqual(len(self.state()), 1)
 
+    def test_conflicting_approvals_rejected_without_promotion(self):
+        post.consume(self.source, self.db, limit=4)
+        before = self.state()
+        a = self.approval(2)
+        b = dict(a, authority="different-authority")
+        path = self.root / "conflicting.jsonl"
+        path.write_text(json.dumps(a) + "\n" + json.dumps(b) + "\n", encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "CONFLICTING_APPROVAL"):
+            post.consume(self.source, self.db, path, limit=4)
+        self.assertEqual(self.state(), before)
+
+    def test_source_rebinding_rejected(self):
+        post.consume(self.source, self.db, limit=2)
+        before = self.state()
+        other = self.root / "alternate.jsonl"
+        other.write_bytes(self.source.read_bytes())
+        with self.assertRaisesRegex(ValueError, "SOURCE_BINDING_CHANGED"):
+            post.consume(other, self.db, limit=2)
+        self.assertEqual(self.state(), before)
+
+    def test_truncation_rejected_without_state_change(self):
+        post.consume(self.source, self.db, limit=3)
+        before = self.state()
+        self.source.write_bytes(self.raw[0])
+        with self.assertRaisesRegex(ValueError, "SOURCE_TRUNCATED"):
+            post.consume(self.source, self.db, limit=2)
+        self.assertEqual(self.state(), before)
+
+    def test_approval_manifest_partial_line_rejected(self):
+        post.consume(self.source, self.db, limit=4)
+        before = self.state()
+        path = self.root / "partial.jsonl"
+        path.write_bytes(json.dumps(self.approval(2)).encode())
+        with self.assertRaisesRegex(ValueError, "PARTIAL_APPROVAL_MANIFEST"):
+            post.consume(self.source, self.db, path, limit=4)
+        self.assertEqual(self.state(), before)
+
     def test_invalid_next_record_rolls_back(self):
         post.consume(self.source, self.db, limit=2)
         before = self.state()
