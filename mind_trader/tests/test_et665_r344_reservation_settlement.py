@@ -165,3 +165,15 @@ def test_missing_close_timestamp_cannot_reset_quota(tmp_path):
     path.write_text(json.dumps(state), encoding="utf-8")
     assert g.paper.open_session()["decision"] == "BLOCK_SESSION_INVALID_CLOSE_TIMESTAMP"
     assert json.loads(path.read_text(encoding="utf-8")) == state
+
+
+def test_future_close_timestamp_fails_closed(tmp_path):
+    g = gateway(tmp_path)
+    assert g.paper.close_session()["decision"] == "SESSION_CLOSED"
+    path = tmp_path / "session.json"
+    state = json.loads(path.read_text(encoding="utf-8"))
+    state["opened_at"] = "2000-01-01T00:00:00+00:00"
+    state["closed_at"] = "2999-01-01T00:00:00+00:00"
+    path.write_text(json.dumps(state), encoding="utf-8")
+    assert g.paper.open_session()["decision"] == "BLOCK_SESSION_FUTURE_CLOSE_TIMESTAMP"
+    assert json.loads(path.read_text(encoding="utf-8")) == state
