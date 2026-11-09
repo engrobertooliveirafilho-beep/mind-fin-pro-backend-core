@@ -211,6 +211,8 @@ class PaperTradingSessionManager:
         pending = s.get("pending_paper_orders", [])
         if pending:
             return {"decision":"BLOCK_RECORD_PENDING_RESERVATION_REQUIRES_SETTLEMENT_ID","production":"BLOCKED"}
+        if s["trades"] >= s["max_daily_trades"]:
+            return {"decision":"BLOCK_RECORD_TRADE_LIMIT","production":"BLOCKED"}
         s["trades"] += 1
         s["daily_pnl"] = next_daily_pnl
         s["loss_streak"] = s["loss_streak"] + 1 if pnl < 0 else 0
