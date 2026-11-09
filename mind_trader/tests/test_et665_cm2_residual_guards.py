@@ -28,16 +28,13 @@ def _load(path, name):
 def test_rclone_read_only_and_exit_failure(path):
     mod = _load(path, "et665_" + path.replace("/", "_"))
     command = getattr(mod, "run_cmd", None) or getattr(mod, "cmd")
-    with patch.object(mod.subprocess, "run", return_value=Mock(returncode=0)) as runner:
-        command('rclone copy "gdrive:test/raw" "/tmp/et665_read" --progress')
-        kwargs = runner.call_args.kwargs
-        assert kwargs["shell"] is False and kwargs["check"] is True
-        assert runner.call_args.args[0][:2] == ["rclone", "copy"]
-    with patch.object(mod.subprocess, "run", side_effect=subprocess.CalledProcessError(9, ["rclone"])) , pytest.raises(subprocess.CalledProcessError):
-        command('rclone copy "gdrive:test/raw" "/tmp/et665_read"')
-    with patch.object(mod.subprocess, "run") as runner, pytest.raises(PermissionError, match="HISTORICAL_WRITE"):
-        command('rclone copy "/tmp/et665_write" "gdrive:test/reports" --progress')
-    runner.assert_not_called()
+    # Arbitrary remote reads and all remote writes must fail before subprocess execution.
+    with patch.object(mod.subprocess, "run") as runner:
+        with pytest.raises(PermissionError, match="NOT_ALLOWLISTED"):
+            command('rclone copy "gdrive:test/raw" "/tmp/et665_read" --progress')
+        with pytest.raises(PermissionError):
+            command('rclone copy "/tmp/et665_write" "gdrive:test/reports" --progress')
+        runner.assert_not_called()
 
 @pytest.mark.parametrize("path", P15)
 def test_no_shell_true_and_safe_cleanup(path):

@@ -1,4 +1,5 @@
 from pathlib import Path
+import pytest
 from app.p139_mt5_historical_data_puller.engine import dataset_id, normalize_rates, run, TIMEFRAMES
 
 def test_p139_dataset_id():
@@ -12,7 +13,5 @@ def test_p139_normalize_empty():
     assert normalize_rates(None)==[]
 
 def test_p139_manifest():
-    m=run()
-    assert m["STATUS"]=="P13.9_MT5_HISTORICAL_DATA_PULLER_IMPLEMENTED"
-    assert m["REAL_ORDERS"]=="FORBIDDEN"
-    assert m["EXPORT_READY"] is True
+    with pytest.raises(PermissionError, match="ET665_MT5_UNCERTIFIED_ENTRYPOINT_BLOCKED"):
+        run()

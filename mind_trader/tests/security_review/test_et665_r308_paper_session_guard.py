@@ -1,12 +1,13 @@
 """R308 PAPER session behavioral regressions; no network or broker access."""
 import json
+from datetime import datetime, UTC
 
 from mind_trader.app.execution import paper_session as module
 
 
 def _manager(tmp_path, monkeypatch, pnl=0.0, config_hash="trusted"):
     monkeypatch.setattr(module, "load_ftmo_config", lambda _: (
-        {"max_daily_loss": 100.0}, {"valid": True, "hash": "trusted"}
+        {"max_daily_loss": 100.0, "max_daily_trades": 10}, {"valid": True, "hash": "trusted"}
     ))
     manager = module.PaperTradingSessionManager(
         str(tmp_path / "session.json"),
@@ -14,7 +15,7 @@ def _manager(tmp_path, monkeypatch, pnl=0.0, config_hash="trusted"):
         str(tmp_path / "rules.json"),
     )
     (tmp_path / "session.json").write_text(json.dumps({
-        "session_id": "paper-test", "status": "OPEN", "trades": 0,
+        "session_id": "paper-test", "status": "OPEN", "opened_at": datetime.now(UTC).isoformat(), "trades": 0,
         "max_daily_trades": 10, "daily_pnl": pnl, "max_daily_loss": 100.0,
         "loss_streak": 0, "ftmo_config_hash": config_hash,
     }), encoding="utf-8")
