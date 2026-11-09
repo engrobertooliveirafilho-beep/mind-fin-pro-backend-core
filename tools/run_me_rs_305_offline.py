@@ -2,6 +2,7 @@
 import argparse
 import hashlib
 import json
+import re
 from pathlib import Path
 import subprocess
 import sys
@@ -36,13 +37,15 @@ def main():
         timeout=120, check=False,
     )
     hashes_after = {name: digest(ROOT / name) for name in FILES}
-    ok = result.returncode == 0 and hashes_before == hashes_after and "Ran 10 tests" in result.stderr and "\nOK\n" in result.stderr
+    match = re.search(r"(?m)^Ran (\\d+) tests? in [0-9.]+s\\s*\\n\\s*OK\\s*$", result.stderr)
+    ok = result.returncode == 0 and hashes_before == hashes_after and match is not None and int(match.group(1)) == 10
     report = {
         "mission": "ME-RS-305",
         "scope": "SYNTHETIC_OFFLINE_ONLY",
         "certification": "NOT_CERTIFIED",
         "result": "PASS_SYNTHETIC" if ok else "FAIL_CLOSED",
         "returncode": result.returncode,
+        "test_count": int(match.group(1)) if match else None,
         "elapsed_seconds": round(time.time() - started, 3),
         "sha256_before": hashes_before,
         "sha256_after": hashes_after,
