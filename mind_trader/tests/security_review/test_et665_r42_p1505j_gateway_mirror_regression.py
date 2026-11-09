@@ -1,6 +1,5 @@
 """ET665.R42: offline static regressions; never import execution modules."""
 import ast
-import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -8,9 +7,7 @@ MIRROR = "products/eldora_trader/"
 
 
 def tracked_source(path):
-    return subprocess.check_output(
-        ["git", "-C", str(ROOT), "show", "HEAD:" + path], timeout=20
-    ).decode("utf-8-sig")
+    return (ROOT / path).read_text(encoding="utf-8-sig")
 
 
 def test_p1505j_both_copies_parse_and_match():
