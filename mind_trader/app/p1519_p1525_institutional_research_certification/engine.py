@@ -109,7 +109,7 @@ def corr(a,b):
     mx=sum(x)/n; my=sum(y)/n
     num=sum((x[i]-mx)*(y[i]-my) for i in range(n))
     dx=math.sqrt(sum((v-mx)**2 for v in x)); dy=math.sqrt(sum((v-my)**2 for v in y))
-    return round(num/(dx*dy),6) if dx and dy else 0
+    return round(num/(dx*dy),6) if dx and dy else None
 
 def run():
     edges=load_json(EDGES)
