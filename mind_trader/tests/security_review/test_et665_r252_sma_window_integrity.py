@@ -21,10 +21,11 @@ class SmaWindowIntegrity(unittest.TestCase):
                     with self.assertRaises(ValueError):
                         m.reconstruct({"dataset":"synthetic.csv","fast":fast,"slow":slow})
 
-    def test_valid_window_retains_empty_dataset_behavior(self):
+    def test_valid_window_rejects_insufficient_history(self):
         m = engine()
         with patch.object(m, "load_dataset", return_value=[]):
-            self.assertEqual(m.reconstruct({"dataset":"synthetic.csv","fast":5,"slow":21}), ([], []))
+            with self.assertRaisesRegex(ValueError, "insufficient dataset observations"):
+                m.reconstruct({"dataset":"synthetic.csv","fast":5,"slow":21})
 
 if __name__ == "__main__":
     unittest.main()
