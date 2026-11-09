@@ -41,6 +41,8 @@ def load_dataset(name):
                     raise ValueError("dataset contains duplicate CSV columns")
                 rows = []
                 for row in reader:
+                    if None in row or any(value is None for value in row.values()):
+                        raise ValueError("dataset CSV row has inconsistent field count")
                     close = f(row["close"])
                     if close <= 0:
                         raise ValueError("dataset close price must be positive")
