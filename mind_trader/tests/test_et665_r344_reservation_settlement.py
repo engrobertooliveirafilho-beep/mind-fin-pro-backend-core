@@ -73,7 +73,7 @@ def test_open_session_fails_closed_when_reservation_lock_exists(tmp_path):
 def test_rejected_paper_order_has_no_reservation_id(tmp_path):
     g = gateway(tmp_path)
     bad = trade()
-    bad["symbol"] = "INVALID_SYMBOL"
+    bad["stop"] = None
     result = g.submit_order("PAPER", bad, regime(), genome())
     assert result["decision"] != "ACCEPT_SIMULATED_ORDER"
     assert not result.get("paper_reservation_id")
