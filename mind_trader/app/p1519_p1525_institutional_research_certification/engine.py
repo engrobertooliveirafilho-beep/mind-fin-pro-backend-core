@@ -77,6 +77,11 @@ def max_drawdown(curve):
 
 def risk_of_ruin(trades):
     returns=[t["return"] for t in trades]
+    if not returns:
+        return {"risk_proxy":"UNKNOWN","max_loss_streak":0,"profit_factor":None}
+    for value in returns:
+        if not isinstance(value, (int, float)) or isinstance(value, bool) or not math.isfinite(value):
+            raise ValueError("invalid or nonfinite trade return")
     losses=[x for x in returns if x<0]
     wins=[x for x in returns if x>0]
     streak=0; max_streak=0
