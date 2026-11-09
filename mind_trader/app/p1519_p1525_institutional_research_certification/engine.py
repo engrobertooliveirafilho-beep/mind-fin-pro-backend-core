@@ -90,7 +90,11 @@ def risk_of_ruin(trades):
             streak+=1; max_streak=max(max_streak,streak)
         else:
             streak=0
-    pf=sum(wins)/abs(sum(losses)) if losses else 99
+    if not losses:
+        return {"risk_proxy":"UNKNOWN","max_loss_streak":max_streak,"profit_factor":None}
+    pf=sum(wins)/abs(sum(losses))
+    if not math.isfinite(pf):
+        raise ValueError("nonfinite profit factor")
     return {"risk_proxy":"LOW" if pf>=1.5 and max_streak<=5 else "MEDIUM","max_loss_streak":max_streak,"profit_factor":round(pf,4)}
 
 def corr(a,b):
