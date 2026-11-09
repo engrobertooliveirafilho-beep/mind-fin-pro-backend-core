@@ -14,11 +14,17 @@ def f(v):
     except: return 0.0
 
 def load_dataset(name):
-    candidates=[
-        Path("data/normalized")/name,
-        Path("data/incoming/profit_real_backtests")/name,
-        Path("reports")/name
-    ]
+    # ET665.R247: dataset references are untrusted; never read outside roots.
+    if not isinstance(name, str) or not name or Path(name).is_absolute():
+        raise ValueError("invalid dataset reference")
+    roots = [Path("data/normalized"), Path("data/incoming/profit_real_backtests"), Path("reports")]
+    candidates = []
+    for root in roots:
+        base = root.resolve()
+        target = (root / name).resolve()
+        if not target.is_relative_to(base):
+            raise ValueError("dataset path escapes approved root")
+        candidates.append(target)
     for p in candidates:
         if p.exists():
             with open(p,newline="",encoding="utf-8") as fh:
