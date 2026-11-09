@@ -1,6 +1,5 @@
 """ET665.R44: offline, non-executing mirror security invariants."""
 import ast
-import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -13,9 +12,7 @@ FILES = (
 
 
 def git_source(path):
-    return subprocess.check_output(
-        ["git", "-C", str(ROOT), "show", "HEAD:" + path], timeout=20
-    ).decode("utf-8-sig")
+    return (ROOT / path).read_text(encoding="utf-8-sig")
 
 
 def test_r44_mirrors_equal_and_parse():
