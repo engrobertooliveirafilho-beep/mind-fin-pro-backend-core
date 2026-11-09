@@ -36,3 +36,22 @@ def test_paper_broker_claimed_acceptance_without_fill_must_reject(tmp_path):
     assert result["production"] == "BLOCKED"
     assert result["real_broker_routing"] == "DISABLED"
     assert any(c["layer"] == "PAPER_BROKER" and c["ok"] is False for c in result["checks"])
+
+
+def test_closed_paper_session_never_invokes_broker(tmp_path):
+    g = gateway(tmp_path)
+    g.paper.close_session()
+    with patch("mind_trader.app.execution.gateway.paper_route_order") as broker:
+        result = g.submit_order("PAPER", trade(), regime(), genome())
+    broker.assert_not_called()
+    assert result["decision"] == "BLOCKED_PAPER_SESSION"
+    assert result["production"] == "BLOCKED"
+
+
+def test_live_mode_never_invokes_paper_broker(tmp_path):
+    g = gateway(tmp_path)
+    with patch("mind_trader.app.execution.gateway.paper_route_order") as broker:
+        result = g.submit_order("LIVE", trade(), regime(), genome())
+    broker.assert_not_called()
+    assert result["decision"] == "FORCE_BLOCK_LIVE_OR_PRODUCTION"
+    assert result["production"] == "BLOCKED"
