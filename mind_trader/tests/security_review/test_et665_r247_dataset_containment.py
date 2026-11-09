@@ -42,7 +42,7 @@ class DatasetContainment(unittest.TestCase):
             import os
             root = Path(temp) / "data/normalized"
             root.mkdir(parents=True)
-            (root / "synthetic.csv").write_text("close\\n101\\n102\\n", encoding="utf-8")
+            (root / "synthetic.csv").write_text("close\n101\n102\n", encoding="utf-8")
             before = Path.cwd()
             try:
                 os.chdir(temp)
