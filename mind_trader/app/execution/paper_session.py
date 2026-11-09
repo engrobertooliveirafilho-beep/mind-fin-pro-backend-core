@@ -98,17 +98,32 @@ class PaperTradingSessionManager:
         return {"decision":"SESSION_OPENED","session":s,"production":"BLOCKED"}
 
     def close_session(self, reason="MANUAL_CLOSE"):
-        s=self._read_session()
-        if not s or s.get("status")!="OPEN":
-            return {"decision":"NO_OPEN_SESSION","production":"BLOCKED"}
-        if s.get("pending_paper_orders"):
-            return {"decision":"BLOCK_CLOSE_PENDING_RESERVATIONS","production":"BLOCKED"}
-        s["status"]="CLOSED"
-        s["closed_at"]=_now()
-        s["close_reason"]=reason
-        self._write_session(s)
-        self._ledger({"type":"SESSION_CLOSED","session_id":s["session_id"],"reason":reason,"daily_pnl":s["daily_pnl"],"trades":s["trades"]})
-        return {"decision":"SESSION_CLOSED","session":s,"production":"BLOCKED"}
+        # Serialize lifecycle transitions with PAPER reservation and settlement.
+        lock_path = self.session_path.with_name(self.session_path.name + ".reserve.lock")
+        try:
+            fd = os.open(str(lock_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+        except OSError:
+            return {"decision":"BLOCK_CLOSE_RESERVATION_LOCKED","production":"BLOCKED"}
+        try:
+            os.close(fd)
+            s = self._read_session()
+            if not s or s.get("status") != "OPEN":
+                return {"decision":"NO_OPEN_SESSION","production":"BLOCKED"}
+            if s.get("pending_paper_orders"):
+                return {"decision":"BLOCK_CLOSE_PENDING_RESERVATIONS","production":"BLOCKED"}
+            s["status"] = "CLOSED"
+            s["closed_at"] = _now()
+            s["close_reason"] = reason
+            self._write_session(s)
+            self._ledger({"type":"SESSION_CLOSED","session_id":s["session_id"],"reason":reason,"daily_pnl":s["daily_pnl"],"trades":s["trades"]})
+            return {"decision":"SESSION_CLOSED","session":s,"production":"BLOCKED"}
+        except (OSError, ValueError, TypeError, KeyError):
+            return {"decision":"BLOCK_CLOSE_SESSION_ERROR","production":"BLOCKED"}
+        finally:
+            try:
+                lock_path.unlink()
+            except OSError:
+                pass
 
     def pre_trade_check(self, risk_amount):
         if isinstance(risk_amount, bool) or not isinstance(risk_amount, (int, float)) or not math.isfinite(risk_amount) or risk_amount <= 0:
