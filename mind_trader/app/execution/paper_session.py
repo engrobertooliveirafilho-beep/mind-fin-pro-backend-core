@@ -59,8 +59,6 @@ class PaperTradingSessionManager:
             return None
         if session["trades"] + len(pending) > session["max_daily_trades"]:
             return None
-        if max(0.0, -session["daily_pnl"]) + sum(x["risk"] for x in pending) > session["max_daily_loss"]:
-            return None
         if not isinstance(session["session_id"], str) or not session["session_id"]:
             return None
         if session["status"] not in ("OPEN", "CLOSED"):
