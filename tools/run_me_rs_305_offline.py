@@ -37,7 +37,7 @@ def main():
         timeout=120, check=False,
     )
     hashes_after = {name: digest(ROOT / name) for name in FILES}
-    match = re.search(r"(?m)^Ran (\\d+) tests? in [0-9.]+s\\s*\\n\\s*OK\\s*$", result.stderr)
+    match = re.search(r"(?m)^Ran (\d+) tests? in [0-9.]+s\s*\n\s*OK\s*$", result.stderr)
     ok = result.returncode == 0 and hashes_before == hashes_after and match is not None and int(match.group(1)) == 10
     report = {
         "mission": "ME-RS-305",
