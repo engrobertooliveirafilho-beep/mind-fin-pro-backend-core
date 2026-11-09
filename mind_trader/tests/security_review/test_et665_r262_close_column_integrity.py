@@ -39,7 +39,7 @@ class DatasetCloseIntegrity(unittest.TestCase):
     def test_nonpositive_prices(self):
         for value in ("0", "-1"):
             with self.subTest(value=value):
-                self.check_csv("close\\n" + value + "\\n", "must be positive")
+                self.check_csv(("close\\n" + value + "\\n").replace("\\n", "\n"), "must be positive")
 
     def test_positive_rows_retained(self):
         rows = self.check_csv("close\\n100.25\\n101.5\\n".replace("\\n", "\n"))
