@@ -17,6 +17,18 @@ class DatasetContainment(unittest.TestCase):
         with self.assertRaises(ValueError):
             engine().load_dataset("/tmp/forbidden.csv")
 
+    def test_windows_drive_path_rejected(self):
+        with self.assertRaises(ValueError):
+            engine().load_dataset("C:\\\\private\\\\trades.csv")
+
+    def test_windows_unc_path_rejected(self):
+        with self.assertRaises(ValueError):
+            engine().load_dataset("\\\\\\\\server\\\\share\\\\trades.csv")
+
+    def test_windows_backslash_traversal_rejected(self):
+        with self.assertRaises(ValueError):
+            engine().load_dataset("..\\\\private.csv")
+
     def test_parent_traversal_rejected(self):
         with self.assertRaises(ValueError):
             engine().load_dataset("../../private.csv")
