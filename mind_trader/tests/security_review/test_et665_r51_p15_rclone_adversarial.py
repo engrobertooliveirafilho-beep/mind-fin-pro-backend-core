@@ -43,8 +43,17 @@ def test_r51_rejects_drive_destinations_and_non_copy_commands(path):
 def test_r51_local_read_only_copy_uses_argv_not_shell(path):
     module = load_engine(path)
     wrapper = getattr(module, "run_cmd", None) or getattr(module, "cmd")
+    # R288: R51 legacy arbitrary string commands must remain denied. The
+    # production wrapper now accepts only its exact approved read-only argv.
     with patch.object(module.subprocess, "run") as runner:
-        wrapper('rclone copy "gdrive:history" "/tmp/local" --progress')
+        with pytest.raises(PermissionError):
+            wrapper('rclone copy "gdrive:history" "/tmp/local" --progress')
+        runner.assert_not_called()
+        source = module.REMOTE_RAW if hasattr(module, "REMOTE_RAW") else module.REMOTE_NORM
+        destination = module.RAW if hasattr(module, "RAW") else module.DATA
+        expected = ["rclone", "copy", source, str(destination), "--progress"]
+        wrapper(expected)
         runner.assert_called_once()
+        assert runner.call_args.args[0] == expected
         assert runner.call_args.kwargs["shell"] is False
         assert runner.call_args.kwargs["check"] is True
