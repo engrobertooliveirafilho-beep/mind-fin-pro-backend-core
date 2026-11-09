@@ -14,7 +14,7 @@ def test_second_paper_order_must_not_exceed_one_slot_without_settlement(tmp_path
     g = gateway(tmp_path)
     session_path = tmp_path / "session.json"
     session = json.loads(session_path.read_text(encoding="utf-8"))
-    session["max_daily_trades"] = 1
+    session["trades"] = session["max_daily_trades"] - 1
     session_path.write_text(json.dumps(session), encoding="utf-8")
     first = g.submit_order("PAPER", trade(), regime(), genome())
     assert first["decision"] == "ACCEPT_SIMULATED_ORDER"
@@ -27,7 +27,7 @@ def test_second_paper_order_must_respect_outstanding_risk(tmp_path):
     g = gateway(tmp_path)
     session_path = tmp_path / "session.json"
     session = json.loads(session_path.read_text(encoding="utf-8"))
-    session["max_daily_loss"] = 600
+    session["daily_pnl"] = -(session["max_daily_loss"] - 750)
     session_path.write_text(json.dumps(session), encoding="utf-8")
     first = g.submit_order("PAPER", trade(), regime(), genome())
     assert first["decision"] == "ACCEPT_SIMULATED_ORDER"
