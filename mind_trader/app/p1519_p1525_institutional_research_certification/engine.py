@@ -148,7 +148,7 @@ def run():
     reconstructed=[]
     curves={}
     for e in edges:
-        for field in ("symbol", "timeframe", "strategy", "dataset"):
+        for field in ("symbol", "timeframe", "strategy"):
             value = e.get(field)
             if not isinstance(value, str) or not value or value.strip() != value:
                 raise ValueError("invalid research edge metadata: " + field)
