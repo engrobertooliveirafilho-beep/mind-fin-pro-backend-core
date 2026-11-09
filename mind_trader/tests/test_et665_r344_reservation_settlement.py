@@ -25,3 +25,21 @@ def test_unknown_reservation_never_changes_accounting(tmp_path):
     before = (tmp_path / "session.json").read_bytes()
     assert g.paper.settle_paper_order("unknown", -100)["decision"] == "BLOCK_SETTLEMENT_UNKNOWN_OR_DUPLICATE_ID"
     assert (tmp_path / "session.json").read_bytes() == before
+
+
+def test_pending_reservation_prevents_session_close(tmp_path):
+    g = gateway(tmp_path)
+    assert g.submit_order("PAPER", trade(), regime(), genome())["decision"] == "ACCEPT_SIMULATED_ORDER"
+    result = g.paper.close_session()
+    assert result["decision"] == "BLOCK_CLOSE_PENDING_RESERVATIONS"
+    assert g.paper.daily_summary()["status"] == "OPEN"
+
+
+def test_pending_reservation_prevents_reopen_after_closed_state(tmp_path):
+    g = gateway(tmp_path)
+    assert g.submit_order("PAPER", trade(), regime(), genome())["decision"] == "ACCEPT_SIMULATED_ORDER"
+    path = tmp_path / "session.json"
+    state = json.loads(path.read_text(encoding="utf-8"))
+    state["status"] = "CLOSED"
+    path.write_text(json.dumps(state), encoding="utf-8")
+    assert g.paper.open_session()["decision"] == "BLOCK_SESSION_PENDING_RESERVATIONS"
