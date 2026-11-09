@@ -107,7 +107,7 @@ class ExecutionGateway:
         if allowed and mode=="PAPER":
             paper_order={"symbol":trade.symbol,"side":trade_dict.get("side","BUY"),"entry":trade.entry,"stop":trade.stop,"target":trade.target,"risk_amount":trade.risk_amount,"strategy_id":trade.strategy_id}
             paper_broker=paper_route_order(paper_order,ledger_path=self.paper_broker_ledger_path,ftmo_config_path=self.paper.ftmo_config_path)
-            if not isinstance(paper_broker,dict) or paper_broker.get("decision")!="PAPER_ORDER_ACCEPTED" or not isinstance(paper_broker.get("fill"),dict) or paper_broker["fill"].get("filled") is not True:
+            if not isinstance(paper_broker,dict) or paper_broker.get("decision")!="PAPER_ORDER_ACCEPTED" or not isinstance(paper_broker.get("fill"),dict) or paper_broker["fill"].get("filled") is not True or paper_broker.get("production")!="BLOCKED" or paper_broker.get("live")!="FORBIDDEN" or paper_broker.get("real_broker_routing")!="DISABLED":
                 allowed=False
                 checks.append({"layer":"PAPER_BROKER","ok":False,"reason":"PAPER_BROKER_NOT_ACCEPTED"})
 
