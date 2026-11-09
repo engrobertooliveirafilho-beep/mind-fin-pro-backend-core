@@ -21,6 +21,7 @@ def main():
     env = dict(os.environ)
     env["PYTHONPATH"] = str(root)
     env["PYTHONDONTWRITEBYTECODE"] = "1"
+    env["PYTEST_DISABLE_PLUGIN_AUTOLOAD"] = "1"
     cmd = [sys.executable, "-m", "pytest", "-q", "-ra", "--disable-warnings", *TESTS]
     try:
         completed = subprocess.run(cmd, cwd=root, env=env, capture_output=True, text=True, timeout=180)
@@ -32,12 +33,14 @@ def main():
     log_path = output / "pytest.log"
     log_path.write_text(log, encoding="utf-8")
     digest = hashlib.sha256(log_path.read_bytes()).hexdigest()
+    source_hashes = {name: hashlib.sha256((root / name).read_bytes()).hexdigest() for name in TESTS}
     report = {
         "phase": "ET665.R335", "utc": datetime.now(timezone.utc).isoformat(),
         "scope": "PAPER tests only", "real_orders": "FORBIDDEN",
         "command": cmd, "exit_code": result, "log_sha256": digest,
+        "test_source_sha256": source_hashes,
         "status": "PASS" if result == 0 else "FAIL_OR_BLOCKED",
-        "note": "Not a Docker isolation or global certification result.",
+        "note": "No network/process isolation is enforced by this runner. Not a Docker isolation or global certification result.",
     }
     (output / "report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
     print(json.dumps(report, indent=2))
