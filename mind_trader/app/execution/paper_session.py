@@ -1,4 +1,4 @@
-import json, uuid, math
+import json, uuid, math, os, tempfile
 from pathlib import Path
 from datetime import datetime, UTC
 from mind_trader.app.risk.ftmo_ruleset import load_ftmo_config
@@ -13,7 +13,16 @@ class PaperTradingSessionManager:
 
     def _write_session(self, s):
         self.session_path.parent.mkdir(parents=True,exist_ok=True)
-        self.session_path.write_text(json.dumps(s,ensure_ascii=False,indent=2),encoding="utf-8")
+        fd, temporary = tempfile.mkstemp(prefix=".paper_session_", dir=str(self.session_path.parent))
+        try:
+            with os.fdopen(fd, "w", encoding="utf-8") as stream:
+                json.dump(s, stream, ensure_ascii=False, indent=2)
+                stream.flush()
+                os.fsync(stream.fileno())
+            os.replace(temporary, self.session_path)
+        finally:
+            if os.path.exists(temporary):
+                os.unlink(temporary)
         return s
 
     def _read_session(self):
@@ -64,6 +73,8 @@ class PaperTradingSessionManager:
         existing=self._read_session()
         if self.session_path.exists() and existing is None:
             return {"decision":"BLOCK_CORRUPT_PAPER_SESSION","production":"BLOCKED"}
+        if existing and existing.get("pending_paper_orders"):
+            return {"decision":"BLOCK_SESSION_PENDING_RESERVATIONS","production":"BLOCKED"}
         if existing and existing.get("status")=="OPEN":
             return {"decision":"SESSION_ALREADY_OPEN","session":existing,"production":"BLOCKED"}
         s={
@@ -90,6 +101,8 @@ class PaperTradingSessionManager:
         s=self._read_session()
         if not s or s.get("status")!="OPEN":
             return {"decision":"NO_OPEN_SESSION","production":"BLOCKED"}
+        if s.get("pending_paper_orders"):
+            return {"decision":"BLOCK_CLOSE_PENDING_RESERVATIONS","production":"BLOCKED"}
         s["status"]="CLOSED"
         s["closed_at"]=_now()
         s["close_reason"]=reason
