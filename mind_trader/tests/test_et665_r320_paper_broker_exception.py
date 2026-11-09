@@ -97,3 +97,26 @@ def test_paper_session_config_drift_never_invokes_broker(tmp_path):
     assert result["decision"] == "BLOCKED_PAPER_SESSION"
     assert result["session_check"]["decision"] == "BLOCK_PAPER_SESSION_FTMO_CONFIG_DRIFT"
     assert result["production"] == "BLOCKED"
+
+
+def test_paper_daily_loss_limit_never_invokes_broker(tmp_path):
+    g = gateway(tmp_path)
+    order = trade()
+    order["risk_amount"] = 6000
+    with patch("mind_trader.app.execution.gateway.paper_route_order") as broker:
+        result = g.submit_order("PAPER", order, regime(), genome())
+    broker.assert_not_called()
+    assert result["decision"] == "BLOCKED_PAPER_SESSION"
+    assert result["session_check"]["decision"] == "BLOCK_DAILY_LOSS_LIMIT"
+    assert result["production"] == "BLOCKED"
+
+
+def test_paper_corrupt_session_never_invokes_broker(tmp_path):
+    g = gateway(tmp_path)
+    (tmp_path / "session.json").write_text("{invalid-json", encoding="utf-8")
+    with patch("mind_trader.app.execution.gateway.paper_route_order") as broker:
+        result = g.submit_order("PAPER", trade(), regime(), genome())
+    broker.assert_not_called()
+    assert result["decision"] == "BLOCKED_PAPER_SESSION"
+    assert result["session_check"]["decision"] == "BLOCK_NO_SESSION"
+    assert result["production"] == "BLOCKED"
