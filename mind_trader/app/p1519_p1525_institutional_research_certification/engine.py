@@ -167,7 +167,8 @@ def run():
             "max_drawdown":round(max_drawdown(curve),6),
             "risk":risk_of_ruin(trades),
             "status":"RESEARCH_ONLY",
-            "research_eligibility":"PAPER_CANDIDATE" if len(trades)>=20 else "RESEARCH_CANDIDATE",
+            "research_eligibility":"RESEARCH_ONLY_UNVERIFIED",
+            "paper_promotion_authorized":False,
             "independent_approval":False,
             "live":"FORBIDDEN",
             "real_orders":"FORBIDDEN"
