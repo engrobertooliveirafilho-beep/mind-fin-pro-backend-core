@@ -3,7 +3,6 @@ import importlib.util
 from pathlib import Path
 import tempfile
 import unittest
-from unittest.mock import patch
 
 ENGINE = Path(__file__).resolve().parents[2] / "app/p1519_p1525_institutional_research_certification/engine.py"
 
@@ -31,7 +30,7 @@ class DatasetContainment(unittest.TestCase):
             root = Path(temp) / "data/normalized"
             root.mkdir(parents=True)
             outside = Path(temp) / "private.csv"
-            outside.write_text("close\\n1\\n", encoding="utf-8")
+            outside.write_text("close\n1\n", encoding="utf-8")
             link = root / "escape.csv"
             try:
                 link.symlink_to(outside)
