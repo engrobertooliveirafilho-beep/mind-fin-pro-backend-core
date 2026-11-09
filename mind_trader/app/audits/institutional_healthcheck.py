@@ -39,7 +39,7 @@ def institutional_healthcheck(run_tests=False, expected_tests=141):
     pkg=build_runtime_evidence_package(expected_tests)
     blocks=assert_critical_blocks(pkg)
     ledger=verify_ledger()
-    decision="SYSTEM_HEALTH_OK" if tests["passed"] and blocks["passed"] else "SYSTEM_HEALTH_FAIL"
+    decision="SYSTEM_HEALTH_OK" if run_tests and tests["passed"] and blocks["passed"] and ledger.get("valid") is True else "SYSTEM_HEALTH_FAIL"
     return {
         "decision":decision,
         "tests":tests,
