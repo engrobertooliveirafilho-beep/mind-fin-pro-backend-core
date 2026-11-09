@@ -14,7 +14,7 @@ def engine():
     return module
 
 EDGE = {"dataset": "synthetic.csv", "fast": 2, "slow": 4}
-CROSSOVERS = [2, 1, 0, 1, 0, 1, 2, 1]
+CROSSOVERS = [2, 1, 0, 1, 0, 1, 2, 1, 0, 1, 2, 1]
 
 class NonfiniteReconstruction(unittest.TestCase):
     def test_overflowing_trade_return_rejected(self):
