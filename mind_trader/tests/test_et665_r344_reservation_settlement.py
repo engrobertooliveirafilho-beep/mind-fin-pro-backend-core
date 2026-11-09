@@ -55,3 +55,15 @@ def test_close_session_fails_closed_when_reservation_lock_exists(tmp_path):
         assert g.paper.daily_summary()["status"] == "OPEN"
     finally:
         lock.unlink()
+
+
+def test_open_session_fails_closed_when_reservation_lock_exists(tmp_path):
+    g = gateway(tmp_path)
+    assert g.paper.close_session()["decision"] == "SESSION_CLOSED"
+    lock = tmp_path / "session.json.reserve.lock"
+    lock.write_text("held", encoding="utf-8")
+    try:
+        assert g.paper.open_session()["decision"] == "BLOCK_OPEN_RESERVATION_LOCKED"
+        assert g.paper.daily_summary()["status"] == "CLOSED"
+    finally:
+        lock.unlink()
