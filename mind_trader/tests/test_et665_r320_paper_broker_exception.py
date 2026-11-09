@@ -55,3 +55,27 @@ def test_live_mode_never_invokes_paper_broker(tmp_path):
     broker.assert_not_called()
     assert result["decision"] == "FORCE_BLOCK_LIVE_OR_PRODUCTION"
     assert result["production"] == "BLOCKED"
+
+
+def test_broker_real_routing_claim_must_reject(tmp_path):
+    g = gateway(tmp_path)
+    broker_reply = {"decision": "PAPER_ORDER_ACCEPTED", "fill": {"filled": True},
+                    "production": "BLOCKED", "live": "FORBIDDEN",
+                    "real_broker_routing": "ENABLED"}
+    with patch("mind_trader.app.execution.gateway.paper_route_order", return_value=broker_reply):
+        result = g.submit_order("PAPER", trade(), regime(), genome())
+    assert result["decision"] == "REJECT_ORDER"
+    assert result["real_broker_routing"] == "DISABLED"
+    assert any(c["layer"] == "PAPER_BROKER" and c["ok"] is False for c in result["checks"])
+
+
+def test_broker_live_flag_must_reject(tmp_path):
+    g = gateway(tmp_path)
+    broker_reply = {"decision": "PAPER_ORDER_ACCEPTED", "fill": {"filled": True},
+                    "production": "BLOCKED", "live": "ENABLED",
+                    "real_broker_routing": "DISABLED"}
+    with patch("mind_trader.app.execution.gateway.paper_route_order", return_value=broker_reply):
+        result = g.submit_order("PAPER", trade(), regime(), genome())
+    assert result["decision"] == "REJECT_ORDER"
+    assert result["production"] == "BLOCKED"
+    assert any(c["layer"] == "PAPER_BROKER" and c["ok"] is False for c in result["checks"])
