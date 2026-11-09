@@ -37,6 +37,20 @@ class DatasetContainment(unittest.TestCase):
         with self.assertRaises(ValueError):
             engine().load_dataset(None)
 
+    def test_valid_relative_dataset_remains_readable(self):
+        with tempfile.TemporaryDirectory() as temp:
+            import os
+            root = Path(temp) / "data/normalized"
+            root.mkdir(parents=True)
+            (root / "synthetic.csv").write_text("close\\n101\\n102\\n", encoding="utf-8")
+            before = Path.cwd()
+            try:
+                os.chdir(temp)
+                rows = engine().load_dataset("synthetic.csv")
+                self.assertEqual([r["close"] for r in rows], [101.0, 102.0])
+            finally:
+                os.chdir(before)
+
     def test_symlink_escape_rejected(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp) / "data/normalized"
