@@ -225,30 +225,45 @@ class PaperTradingSessionManager:
                 pass
 
     def record_trade_result(self, pnl):
-        if isinstance(pnl, bool) or not isinstance(pnl, (int, float)) or not math.isfinite(pnl):
-            return {"decision":"BLOCK_RECORD_INVALID_PNL","production":"BLOCKED"}
-        s=self._read_session()
-        if not s or s.get("status")!="OPEN":
-            return {"decision":"BLOCK_RECORD_NO_OPEN_SESSION","production":"BLOCKED"}
-        cfg, validation = load_ftmo_config(self.ftmo_config_path)
-        if not cfg or not validation.get("valid") or validation.get("hash") != s["ftmo_config_hash"]:
-            return {"decision":"BLOCK_RECORD_FTMO_CONFIG_DRIFT","production":"BLOCKED"}
-        if s["max_daily_trades"] != cfg["max_daily_trades"] or s["max_daily_loss"] != cfg["max_daily_loss"]:
-            return {"decision":"BLOCK_RECORD_SESSION_LIMIT_TAMPERING","production":"BLOCKED"}
-        next_daily_pnl = s["daily_pnl"] + pnl
-        if not math.isfinite(next_daily_pnl):
-            return {"decision":"BLOCK_RECORD_INVALID_PNL","production":"BLOCKED"}
-        pending = s.get("pending_paper_orders", [])
-        if pending:
-            return {"decision":"BLOCK_RECORD_PENDING_RESERVATION_REQUIRES_SETTLEMENT_ID","production":"BLOCKED"}
-        if s["trades"] >= s["max_daily_trades"]:
-            return {"decision":"BLOCK_RECORD_TRADE_LIMIT","production":"BLOCKED"}
-        s["trades"] += 1
-        s["daily_pnl"] = next_daily_pnl
-        s["loss_streak"] = s["loss_streak"] + 1 if pnl < 0 else 0
-        self._write_session(s)
-        self._ledger({"type":"TRADE_RESULT","session_id":s["session_id"],"pnl":pnl,"daily_pnl":s["daily_pnl"],"trades":s["trades"]})
-        return {"decision":"TRADE_RECORDED","session":s,"production":"BLOCKED"}
+        """Legacy result accounting serialized with PAPER reservations and settlement."""
+        lock_path = self.session_path.with_name(self.session_path.name + ".reserve.lock")
+        try:
+            fd = os.open(str(lock_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+        except OSError:
+            return {"decision":"BLOCK_RECORD_RESERVATION_LOCKED","production":"BLOCKED"}
+        try:
+            os.close(fd)
+            if isinstance(pnl, bool) or not isinstance(pnl, (int, float)) or not math.isfinite(pnl):
+                return {"decision":"BLOCK_RECORD_INVALID_PNL","production":"BLOCKED"}
+            s=self._read_session()
+            if not s or s.get("status")!="OPEN":
+                return {"decision":"BLOCK_RECORD_NO_OPEN_SESSION","production":"BLOCKED"}
+            cfg, validation = load_ftmo_config(self.ftmo_config_path)
+            if not cfg or not validation.get("valid") or validation.get("hash") != s["ftmo_config_hash"]:
+                return {"decision":"BLOCK_RECORD_FTMO_CONFIG_DRIFT","production":"BLOCKED"}
+            if s["max_daily_trades"] != cfg["max_daily_trades"] or s["max_daily_loss"] != cfg["max_daily_loss"]:
+                return {"decision":"BLOCK_RECORD_SESSION_LIMIT_TAMPERING","production":"BLOCKED"}
+            next_daily_pnl = s["daily_pnl"] + pnl
+            if not math.isfinite(next_daily_pnl):
+                return {"decision":"BLOCK_RECORD_INVALID_PNL","production":"BLOCKED"}
+            pending = s.get("pending_paper_orders", [])
+            if pending:
+                return {"decision":"BLOCK_RECORD_PENDING_RESERVATION_REQUIRES_SETTLEMENT_ID","production":"BLOCKED"}
+            if s["trades"] >= s["max_daily_trades"]:
+                return {"decision":"BLOCK_RECORD_TRADE_LIMIT","production":"BLOCKED"}
+            s["trades"] += 1
+            s["daily_pnl"] = next_daily_pnl
+            s["loss_streak"] = s["loss_streak"] + 1 if pnl < 0 else 0
+            self._write_session(s)
+            self._ledger({"type":"TRADE_RESULT","session_id":s["session_id"],"pnl":pnl,"daily_pnl":s["daily_pnl"],"trades":s["trades"]})
+            return {"decision":"TRADE_RECORDED","session":s,"production":"BLOCKED"}
+        except (OSError, ValueError, TypeError, KeyError, OverflowError):
+            return {"decision":"BLOCK_RECORD_SESSION_ERROR","production":"BLOCKED"}
+        finally:
+            try:
+                lock_path.unlink()
+            except OSError:
+                pass
 
     def settle_paper_order(self, reservation_id, pnl):
         """Settle exactly one reserved PAPER fill under the interprocess lock."""
