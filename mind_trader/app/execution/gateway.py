@@ -105,6 +105,9 @@ class ExecutionGateway:
         allowed=all(c["ok"] for c in checks)
         paper_broker=None
         if allowed and mode=="PAPER":
+            reservation = self.paper.reserve_paper_order(trade.risk_amount)
+            if not reservation.get("allowed"):
+                return write_execution_ledger({"mode":mode,"decision":"BLOCKED_PAPER_SESSION","session_check":reservation,"production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
             paper_order={"symbol":trade.symbol,"side":trade_dict.get("side","BUY"),"entry":trade.entry,"stop":trade.stop,"target":trade.target,"risk_amount":trade.risk_amount,"strategy_id":trade.strategy_id}
             try:
                 paper_broker=paper_route_order(paper_order,ledger_path=self.paper_broker_ledger_path,ftmo_config_path=self.paper.ftmo_config_path)
@@ -113,6 +116,8 @@ class ExecutionGateway:
                 paper_broker={"decision":"PAPER_BROKER_EXCEPTION","production":"BLOCKED","live":"FORBIDDEN","real_broker_routing":"DISABLED"}
             if not isinstance(paper_broker,dict) or paper_broker.get("decision")!="PAPER_ORDER_ACCEPTED" or not isinstance(paper_broker.get("fill"),dict) or paper_broker["fill"].get("filled") is not True or paper_broker.get("production")!="BLOCKED" or paper_broker.get("live")!="FORBIDDEN" or paper_broker.get("real_broker_routing")!="DISABLED":
                 allowed=False
+                if not self.paper.release_paper_order(reservation["reservation_id"]):
+                    checks.append({"layer":"PAPER_RESERVATION","ok":False,"reason":"RESERVATION_RELEASE_FAILED_FAIL_CLOSED"})
                 checks.append({"layer":"PAPER_BROKER","ok":False,"reason":"PAPER_BROKER_EXCEPTION" if isinstance(paper_broker,dict) and paper_broker.get("decision")=="PAPER_BROKER_EXCEPTION" else "PAPER_BROKER_NOT_ACCEPTED"})
 
         return write_execution_ledger({"mode":mode,"symbol":trade.symbol,"strategy_id":trade.strategy_id,"genome_id":genome.get("genome_id"),"regime":regime_report.get("regime"),"ftmo_config_version":self.ftmo_ruleset.get("version"),"ftmo_config_hash":self.ftmo_config_valid.get("hash"),"checks":checks,"paper_broker":paper_broker,"decision":"ACCEPT_SIMULATED_ORDER" if allowed else "REJECT_ORDER","order_status":"SIMULATED_ACCEPTED" if allowed else "SIMULATED_REJECTED","production":"BLOCKED","real_broker_routing":"DISABLED","edge_claim":"NONE"},self.ledger_path)
