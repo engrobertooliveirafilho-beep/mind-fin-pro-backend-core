@@ -48,7 +48,18 @@ class PaperTradingSessionManager:
             return None
         if session["trades"] > session["max_daily_trades"]:
             return None
-        if "pending_paper_orders" in session and not isinstance(session["pending_paper_orders"], list):
+        pending = session.get("pending_paper_orders", [])
+        if not isinstance(pending, list):
+            return None
+        if any(not isinstance(x, dict) or not isinstance(x.get("id"), str) or not x["id"]
+               or isinstance(x.get("risk"), bool) or not isinstance(x.get("risk"), (int, float))
+               or not math.isfinite(x["risk"]) or x["risk"] <= 0 for x in pending):
+            return None
+        if len({x["id"] for x in pending}) != len(pending):
+            return None
+        if session["trades"] + len(pending) > session["max_daily_trades"]:
+            return None
+        if max(0.0, -session["daily_pnl"]) + sum(x["risk"] for x in pending) > session["max_daily_loss"]:
             return None
         if not isinstance(session["session_id"], str) or not session["session_id"]:
             return None
