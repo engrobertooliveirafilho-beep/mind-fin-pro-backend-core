@@ -10,8 +10,12 @@ TMP=Path(os.environ.get("TEMP",".")).joinpath("mind_p15_market_data_runtime")
 RAW=TMP/"raw"
 NORM=TMP/"normalized"
 
-def run_cmd(cmd):
-    return subprocess.run(cmd,shell=True,capture_output=True,text=True)
+def run_cmd(args):
+    # Exact remote-to-local read only; argv preserves Windows paths without shell parsing.
+    expected = ["rclone", "copy", REMOTE_RAW, str(RAW), "--progress"]
+    if not isinstance(args, (list, tuple)) or list(args) != expected:
+        raise PermissionError("ET665_RCLONE_COMMAND_NOT_ALLOWLISTED")
+    return subprocess.run(list(args), shell=False, capture_output=True, text=True, check=True)
 
 def parse_name(name):
     stem=Path(name).stem
@@ -77,11 +81,18 @@ def baseline(rows):
 def sha(p):
     return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 
+def safe_cleanup():
+    expected = Path(os.environ.get("TEMP", ".")).resolve()
+    if TMP.resolve() != expected / "mind_p15_market_data_runtime" or TMP.resolve() == Path.cwd().resolve():
+        raise PermissionError("ET665_UNSAFE_TEMP_PATH")
+    if TMP.exists():
+        shutil.rmtree(TMP)
+
 def run():
-    if TMP.exists(): shutil.rmtree(TMP,ignore_errors=True)
+    if TMP.exists(): safe_cleanup()
     RAW.mkdir(parents=True,exist_ok=True); NORM.mkdir(parents=True,exist_ok=True)
 
-    dl=run_cmd(f'rclone copy "{REMOTE_RAW}" "{RAW}" --progress')
+    dl=run_cmd(["rclone", "copy", REMOTE_RAW, str(RAW), "--progress"])
     results=[]
     for p in RAW.glob("*.csv"):
         out,rows=normalize_file(p)
@@ -118,9 +129,10 @@ def run():
     (report_dir/"dataset_results.json").write_text(json.dumps(results,indent=2,ensure_ascii=False),encoding="utf-8")
     (report_dir/"P15.3_P15.5_manifest.json").write_text(json.dumps(manifest,indent=2,ensure_ascii=False),encoding="utf-8")
 
-    run_cmd(f'rclone copy "{NORM}" "{REMOTE_NORM}" --progress')
-    run_cmd(f'rclone copy "{report_dir}" "{REMOTE_REPORTS}" --progress')
-    shutil.rmtree(TMP,ignore_errors=True)
+    # Normalized data stays in isolated scratch; never upload to historical Drive.
+    from mind_trader.security.et665_cm6_evidence_stager import stage_engine_report
+    stage_engine_report(report_dir, "p153_p155")  # Offline only; GitHub publication requires review.
+    safe_cleanup()
     return manifest
 
 if __name__=="__main__":

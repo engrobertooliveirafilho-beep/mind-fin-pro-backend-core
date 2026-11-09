@@ -3,13 +3,14 @@ from pathlib import Path
 from datetime import datetime, UTC
 
 FORBIDDEN_TARGETS={"LIVE","PRODUCTION","REAL_MONEY","FTMO_REAL"}
+ALLOWED_TARGETS=frozenset({"PAPER"})
 
 def promotion_authority(genome_id, validation_result, requested_target="PAPER"):
-    if requested_target in FORBIDDEN_TARGETS:
+    if not isinstance(requested_target,str) or requested_target not in ALLOWED_TARGETS:
         decision="FORCE_BLOCK_PROMOTION"
         allowed=False
-        reason="REAL_OR_LIVE_PROMOTION_FORBIDDEN"
-    elif validation_result.get("decision")=="PAPER_TRADING_APPROVED":
+        reason="TARGET_NOT_EXPLICITLY_ALLOWED"
+    elif isinstance(validation_result,dict) and validation_result.get("decision")=="PAPER_TRADING_APPROVED":
         decision="PROMOTE_TO_PAPER_RESEARCH_ONLY"
         allowed=True
         reason="VALIDATED_FOR_PAPER_SCOPE_ONLY"
@@ -22,7 +23,7 @@ def promotion_authority(genome_id, validation_result, requested_target="PAPER"):
         "authority":"P8.85_PROMOTION_AUTHORITY",
         "created_at":datetime.now(UTC).isoformat(),
         "genome_id":genome_id,
-        "requested_target":requested_target,
+        "requested_target":requested_target if isinstance(requested_target,str) else "INVALID_TARGET_TYPE",
         "allowed":allowed,
         "decision":decision,
         "reason":reason,

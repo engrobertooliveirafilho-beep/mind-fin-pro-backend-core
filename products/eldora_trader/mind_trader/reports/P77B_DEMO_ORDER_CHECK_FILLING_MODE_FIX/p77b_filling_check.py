@@ -12,6 +12,7 @@ FILLINGS=[
 ]
 
 def check(symbol="EURUSD", lot=0.01):
+    raise PermissionError("ET665_R29_MIRRORED_EXTERNAL_CAPABILITY_FORBIDDEN")
     mt5.initialize()
     account=mt5.account_info()._asdict()
     terminal=mt5.terminal_info()._asdict()

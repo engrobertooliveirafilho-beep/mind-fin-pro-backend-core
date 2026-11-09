@@ -36,6 +36,7 @@ def write_csv(path, rows):
         w.writerows(rows)
 
 def pull(count=500):
+    raise PermissionError("ET665_R29_MIRRORED_EXTERNAL_CAPABILITY_FORBIDDEN")
     report={"connected":False,"datasets":[],"errors":[]}
     try:
         import MetaTrader5 as mt5

@@ -1,28 +1,22 @@
 import json
 from pathlib import Path
 from datetime import datetime, UTC
-import MetaTrader5 as mt5
 
 OUT=Path("reports/P121_200X_AUTONOMOUS_DEMO_EVIDENCE_FACTORY")
 BLOCKS={"LIVE":"FORBIDDEN","REAL_BROKER":"DISABLED","REAL_ORDERS":"FORBIDDEN","FTMO_REAL":"FORBIDDEN","MT5_REAL":"FORBIDDEN"}
 
 def snapshot():
-    mt5.initialize()
-    account=mt5.account_info()._asdict() if mt5.account_info() else {}
-    terminal=mt5.terminal_info()._asdict() if mt5.terminal_info() else {}
-    positions=mt5.positions_get()
-    positions=[p._asdict() for p in positions] if positions else []
-    mt5.shutdown()
-    return account, terminal, positions
+    """No MT5 terminal access until independent security certification."""
+    raise RuntimeError("ET665_BN_MT5_CONNECTIVITY_DISABLED_PENDING_SECURITY_REVIEW")
 
 def mod(name, layer, extra=None):
-    d={"module":name,"layer":layer,"status":"IMPLEMENTED",**BLOCKS}
+    d={"module":name,"layer":layer,"status":"UNVERIFIED",**BLOCKS}
     if extra: d.update(extra)
     return d
 
 def run():
-    OUT.mkdir(parents=True,exist_ok=True)
     account, terminal, positions = snapshot()
+    OUT.mkdir(parents=True,exist_ok=True)
 
     layers={
         "P121_P140_DEMO_OPERATION_FACTORY":[
@@ -50,8 +44,9 @@ def run():
         (OUT/f"{layer.lower()}.json").write_text(json.dumps(payload,indent=2,ensure_ascii=False),encoding="utf-8")
 
     report={
-        "STATUS":"P121_200X_AUTONOMOUS_DEMO_EVIDENCE_FACTORY_IMPLEMENTED",
-        "MODULES_IMPLEMENTED":count,
+        "STATUS":"BLOCKED_PENDING_MT5_SECURITY_REVIEW",
+        "MODULES_DECLARED":count,
+        "MODULES_CERTIFIED":0,
         "ACCOUNT_LOGIN":account.get("login"),
         "ACCOUNT_SERVER":account.get("server"),
         "TERMINAL_CONNECTED":terminal.get("connected"),

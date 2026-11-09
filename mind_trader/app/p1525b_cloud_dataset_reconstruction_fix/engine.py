@@ -1,5 +1,5 @@
 import csv,json,math,statistics,itertools,subprocess,os,shutil
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 from datetime import datetime,UTC
 
 EDGES=Path("reports/P15.17_EDGE_VALIDATION_MEGA_PACK/approved_edges.json")
@@ -8,18 +8,48 @@ REMOTE_REPORTS="gdrive:mind-workspace/MIND_TRADER/P15_REAL_MARKET_DATA/reports/P
 TMP=Path(os.environ.get("TEMP",".")).joinpath("mind_p1525b_reconstruction")
 DATA=TMP/"normalized"
 
-def cmd(c):
-    return subprocess.run(c,shell=True,capture_output=True,text=True)
+def cmd(args):
+    # Only the exact approved remote-to-local read is permitted; pass argv directly.
+    # Avoid shell parsing because shlex can corrupt Windows paths containing backslashes.
+    expected = ["rclone", "copy", REMOTE_NORM, str(DATA), "--progress"]
+    if not isinstance(args, (list, tuple)) or list(args) != expected:
+        raise PermissionError("ET665_RCLONE_COMMAND_NOT_ALLOWLISTED")
+    return subprocess.run(list(args), shell=False, capture_output=True, text=True, check=True)
 
 def load_json(p):
     return json.loads(p.read_text(encoding="utf-8")) if p.exists() else []
+
+def safe_dataset_path(name):
+    # Dataset metadata is untrusted: keep reads inside the normalized staging root.
+    if not isinstance(name, str) or not name.strip() or "\x00" in name:
+        raise PermissionError("ET665_INVALID_DATASET_PATH")
+    relative = Path(name)
+    windows_relative = PureWindowsPath(name)
+    if (relative.is_absolute() or bool(relative.drive) or windows_relative.is_absolute()
+            or bool(windows_relative.drive) or ".." in relative.parts
+            or ".." in windows_relative.parts):
+        raise PermissionError("ET665_DATASET_PATH_ESCAPE_BLOCKED")
+    if DATA.is_symlink():
+        raise PermissionError("ET665_DATASET_ROOT_SYMLINK_BLOCKED")
+    root = DATA.resolve()
+    candidate = (root / relative).resolve()
+    if candidate == root or root not in candidate.parents:
+        raise PermissionError("ET665_DATASET_PATH_ESCAPE_BLOCKED")
+    current = DATA
+    for part in relative.parts:
+        current = current / part
+        if current.is_symlink():
+            raise PermissionError("ET665_DATASET_SYMLINK_BLOCKED")
+    if candidate.exists() and not candidate.is_file():
+        raise PermissionError("ET665_DATASET_NOT_FILE")
+    return candidate
 
 def f(v):
     try: return float(v)
     except: return 0.0
 
 def load_dataset(name):
-    p=DATA/name
+    p=safe_dataset_path(name)
     if not p.exists():
         return []
     with open(p,newline="",encoding="utf-8") as fh:
@@ -89,10 +119,17 @@ def corr(a,b):
     dx=math.sqrt(sum((v-mx)**2 for v in x)); dy=math.sqrt(sum((v-my)**2 for v in y))
     return round(num/(dx*dy),6) if dx and dy else 0
 
+def safe_cleanup():
+    expected = Path(os.environ.get("TEMP", ".")).resolve()
+    if TMP.resolve() != expected / "mind_p1525b_reconstruction" or TMP.resolve() == Path.cwd().resolve():
+        raise PermissionError("ET665_UNSAFE_TEMP_PATH")
+    if TMP.exists():
+        shutil.rmtree(TMP)
+
 def run():
-    if TMP.exists(): shutil.rmtree(TMP,ignore_errors=True)
+    if TMP.exists(): safe_cleanup()
     DATA.mkdir(parents=True,exist_ok=True)
-    cmd(f'rclone copy "{REMOTE_NORM}" "{DATA}" --progress')
+    cmd(["rclone", "copy", REMOTE_NORM, str(DATA), "--progress"])
 
     edges=load_json(EDGES)
     reconstructed=[]
@@ -103,7 +140,7 @@ def run():
         trades,curve=reconstruct(e)
         eid=f'{e["symbol"]}_{e["timeframe"]}_{e["strategy"]}_{e["fast"]}_{e["slow"]}'
         m=metrics(trades,curve)
-        status="PAPER_RESEARCH_CERTIFIED" if m["trades"]>=20 and m["profit_factor"]>=1.25 and m["recovery_factor"]>=1 else "RESEARCH_ONLY"
+        status="RESEARCH_ONLY"  # ET665.R241: independent certification required
         reconstructed.append({
             "edge_id":eid,
             "dataset":e["dataset"],
@@ -149,8 +186,9 @@ def run():
     (out/"correlations_cloud.json").write_text(json.dumps(correlations,indent=2,ensure_ascii=False),encoding="utf-8")
     (out/"institutional_certification_cloud_fix.json").write_text(json.dumps(report,indent=2,ensure_ascii=False),encoding="utf-8")
 
-    cmd(f'rclone copy "{out}" "{REMOTE_REPORTS}" --progress')
-    shutil.rmtree(TMP,ignore_errors=True)
+    from mind_trader.security.et665_cm6_evidence_stager import stage_engine_report
+    stage_engine_report(out, "p1525b")  # Offline only; GitHub publication requires review.
+    safe_cleanup()
     return report
 
 if __name__=="__main__":

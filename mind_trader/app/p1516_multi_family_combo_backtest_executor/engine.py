@@ -1,5 +1,5 @@
 import csv,json,statistics,random,subprocess,os,shutil,itertools,math
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 from datetime import datetime,UTC
 
 QUEUE=Path("reports/P15.15_WEB_RESEARCH_TO_BACKTEST_QUEUE/backtest_queue.json")
@@ -11,8 +11,13 @@ DATA=TMP/"normalized"
 MAX_QUEUE=120
 MIN_BARS=120
 
-def cmd(c):
-    return subprocess.run(c,shell=True,capture_output=True,text=True)
+def cmd(args):
+    # Only the exact approved remote-to-local read is permitted; pass argv directly.
+    # Avoid shell parsing because shlex can corrupt Windows paths containing backslashes.
+    expected = ["rclone", "copy", REMOTE_NORM, str(DATA), "--progress"]
+    if not isinstance(args, (list, tuple)) or list(args) != expected:
+        raise PermissionError("ET665_RCLONE_COMMAND_NOT_ALLOWLISTED")
+    return subprocess.run(list(args), shell=False, capture_output=True, text=True, check=True)
 
 def f(v):
     try: return float(v)
@@ -20,6 +25,31 @@ def f(v):
 
 def load_json(p):
     return json.loads(p.read_text(encoding="utf-8")) if p.exists() else []
+
+def safe_dataset_path(name):
+    # Dataset metadata is untrusted: keep reads inside the normalized staging root.
+    if not isinstance(name, str) or not name.strip() or "\x00" in name:
+        raise PermissionError("ET665_INVALID_DATASET_PATH")
+    relative = Path(name)
+    windows_relative = PureWindowsPath(name)
+    if (relative.is_absolute() or bool(relative.drive) or windows_relative.is_absolute()
+            or bool(windows_relative.drive) or ".." in relative.parts
+            or ".." in windows_relative.parts):
+        raise PermissionError("ET665_DATASET_PATH_ESCAPE_BLOCKED")
+    if DATA.is_symlink():
+        raise PermissionError("ET665_DATASET_ROOT_SYMLINK_BLOCKED")
+    root = DATA.resolve()
+    candidate = (root / relative).resolve()
+    if candidate == root or root not in candidate.parents:
+        raise PermissionError("ET665_DATASET_PATH_ESCAPE_BLOCKED")
+    current = DATA
+    for part in relative.parts:
+        current = current / part
+        if current.is_symlink():
+            raise PermissionError("ET665_DATASET_SYMLINK_BLOCKED")
+    if candidate.exists() and not candidate.is_file():
+        raise PermissionError("ET665_DATASET_NOT_FILE")
+    return candidate
 
 def load_csv(p):
     with open(p,newline="",encoding="utf-8") as fh:
@@ -135,17 +165,25 @@ def build_combos(queue):
             jobs.append((asset,tf,dataset,list(combo),"combo_3"))
     return jobs
 
+def safe_cleanup():
+    # Only the expected per-engine scratch folder can be removed.
+    expected = Path(os.environ.get("TEMP", ".")).resolve()
+    if TMP.resolve() != expected / "mind_p1516_combo_runtime" or TMP.resolve() == Path.cwd().resolve():
+        raise PermissionError("ET665_UNSAFE_TEMP_PATH")
+    if TMP.exists():
+        shutil.rmtree(TMP)
+
 def run():
-    if TMP.exists(): shutil.rmtree(TMP,ignore_errors=True)
+    if TMP.exists(): safe_cleanup()
     DATA.mkdir(parents=True,exist_ok=True)
-    cmd(f'rclone copy "{REMOTE_NORM}" "{DATA}" --progress')
+    cmd(["rclone", "copy", REMOTE_NORM, str(DATA), "--progress"])
 
     queue=load_json(QUEUE)
     jobs=build_combos(queue)
     results=[]
 
     for asset,tf,dataset,patterns,kind in jobs:
-        p=DATA/dataset
+        p=safe_dataset_path(dataset)
         if not p.exists(): continue
         rows=load_csv(p)
         if len(rows)<MIN_BARS: continue
@@ -188,8 +226,9 @@ def run():
     (out/"combo_backtest_results.json").write_text(json.dumps(results,indent=2,ensure_ascii=False),encoding="utf-8")
     (out/"combo_promoted_edges.json").write_text(json.dumps(promoted,indent=2,ensure_ascii=False),encoding="utf-8")
     (out/"P15.16_manifest.json").write_text(json.dumps(manifest,indent=2,ensure_ascii=False),encoding="utf-8")
-    cmd(f'rclone copy "{out}" "{REMOTE_REPORTS}" --progress')
-    shutil.rmtree(TMP,ignore_errors=True)
+    from mind_trader.security.et665_cm6_evidence_stager import stage_engine_report
+    stage_engine_report(out, "p1516")  # Offline only; GitHub publication requires review.
+    safe_cleanup()
     return manifest
 
 if __name__=="__main__":

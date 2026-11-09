@@ -1,29 +1,17 @@
 import json
 from pathlib import Path
 from datetime import datetime, UTC
-import MetaTrader5 as mt5
 
 OUT=Path("reports/P86_EXECUTION_INTELLIGENCE_DOMAIN")
 BLOCKS={"LIVE":"FORBIDDEN","REAL_BROKER":"DISABLED","REAL_ORDERS":"FORBIDDEN","FTMO_REAL":"FORBIDDEN","MT5_REAL":"FORBIDDEN"}
 
 def mt5_snapshot():
-    mt5.initialize()
-    account=mt5.account_info()._asdict() if mt5.account_info() else {}
-    terminal=mt5.terminal_info()._asdict() if mt5.terminal_info() else {}
-    positions=mt5.positions_get()
-    pos=[p._asdict() for p in positions] if positions else []
-    ticks={}
-    for s in ["EURUSD","GBPUSD","USDJPY","USDCHF"]:
-        mt5.symbol_select(s, True)
-        t=mt5.symbol_info_tick(s)
-        if t:
-            ticks[s]={"bid":t.bid,"ask":t.ask,"spread":round(t.ask-t.bid,8)}
-    mt5.shutdown()
-    return account,terminal,pos,ticks
+    """Fail closed: MT5 connectivity is prohibited pending independent review."""
+    raise RuntimeError("ET665_BJ_MT5_CONNECTIVITY_DISABLED_PENDING_SECURITY_REVIEW")
 
 def run():
-    OUT.mkdir(parents=True,exist_ok=True)
     account,terminal,positions,ticks=mt5_snapshot()
+    OUT.mkdir(parents=True,exist_ok=True)
 
     modules={
         "p86_01_order_lifecycle_engine.json":{"status":"READY","positions":len(positions),**BLOCKS},

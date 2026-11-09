@@ -38,6 +38,7 @@ BLOCKS = {
 }
 
 def run():
+    raise PermissionError("ET665_R29_MIRRORED_EXTERNAL_CAPABILITY_FORBIDDEN")
     initialized = mt5.initialize()
     terminal = mt5.terminal_info() if initialized else None
     account = mt5.account_info() if initialized else None

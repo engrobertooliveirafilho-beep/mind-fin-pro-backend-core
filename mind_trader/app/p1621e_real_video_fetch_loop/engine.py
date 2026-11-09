@@ -1,4 +1,4 @@
-import json, subprocess, re
+import json, re
 from pathlib import Path
 from datetime import datetime, UTC
 
@@ -11,22 +11,7 @@ def load_sources():
     return json.loads(SOURCES.read_text(encoding="utf-8")) if SOURCES.exists() else []
 
 def fetch_metadata(url, limit=5):
-    cmd=["yt-dlp","--flat-playlist","--dump-json",f"--playlist-end={limit}",url]
-    p=subprocess.run(cmd,capture_output=True,text=True,timeout=120)
-    rows=[]
-    for line in p.stdout.splitlines():
-        try:
-            j=json.loads(line)
-            rows.append({
-                "id":j.get("id"),
-                "title":j.get("title"),
-                "url":j.get("webpage_url") or j.get("url"),
-                "channel":j.get("channel") or j.get("uploader"),
-                "source_url":url
-            })
-        except Exception:
-            pass
-    return rows
+    raise RuntimeError("ET665_BR_EXTERNAL_EXECUTION_DISABLED_PENDING_SECURITY_REVIEW")
 
 def classify_text(text):
     t=(text or "").lower()
@@ -43,6 +28,7 @@ def classify_text(text):
     return {"assets":sorted(set(assets)),"families":sorted(set(families))}
 
 def run():
+    raise RuntimeError("ET665_BR_EXTERNAL_EXECUTION_DISABLED_PENDING_SECURITY_REVIEW")
     OUT.mkdir(parents=True,exist_ok=True)
     all_rows=[]
     errors=[]

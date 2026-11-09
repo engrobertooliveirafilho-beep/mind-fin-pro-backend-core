@@ -54,11 +54,7 @@ def edge_decay_detector(edges):
 def edge_revalidation_engine(edges):
     results=[]
     for e in edges:
-        approved=(
-            e.get("walk_forward_status")=="WALK_FORWARD_APPROVED" and
-            e.get("monte_carlo_status")=="MONTE_CARLO_APPROVED" and
-            e.get("decay_status")!="DECAY_WARNING"
-        )
+        approved=False  # R235: independent evidence required
         results.append({
             **e,
             "revalidation_status":"PAPER_RESEARCH_CERTIFIED" if approved else "RESEARCH_ONLY",

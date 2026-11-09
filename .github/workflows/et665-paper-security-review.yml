@@ -1,0 +1,17 @@
+# ET665.H: INERT security-review placeholder. No job may execute.
+# Do not enable without an approved offline sandbox, pinned dependencies and audit.
+name: ET665 PAPER security review (DISABLED)
+on:
+  workflow_dispatch:
+permissions: {}
+jobs:
+  paper-integration:
+    if: ${{ false }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions: {}
+    steps:
+      - name: Disabled until isolation and dependency closure are certified
+        run: |
+          echo "ET665_H_BLOCKED"
+          exit 1
