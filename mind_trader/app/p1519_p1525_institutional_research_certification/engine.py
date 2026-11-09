@@ -34,7 +34,16 @@ def load_dataset(name):
     for p in candidates:
         if p.exists():
             with open(p,newline="",encoding="utf-8") as fh:
-                return [{**r,"close":f(r.get("close",0))} for r in csv.DictReader(fh) if f(r.get("close",0))>0]
+                reader = csv.DictReader(fh)
+                if not reader.fieldnames or "close" not in reader.fieldnames:
+                    raise ValueError("dataset missing required close column")
+                rows = []
+                for row in reader:
+                    close = f(row["close"])
+                    if close <= 0:
+                        raise ValueError("dataset close price must be positive")
+                    rows.append({**row, "close": close})
+                return rows
     return []
 
 def sma(vals,n,i):
