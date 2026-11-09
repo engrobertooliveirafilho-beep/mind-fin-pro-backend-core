@@ -1,4 +1,5 @@
 """R320: fail-closed PAPER broker failure; offline only."""
+import json
 from unittest.mock import patch
 from mind_trader.tests.test_p896_gateway_paper_broker_integration import gateway, trade, regime, genome
 
@@ -12,6 +13,9 @@ def test_paper_broker_exception_must_reject_without_simulated_acceptance(tmp_pat
     assert result["real_broker_routing"] == "DISABLED"
     assert result["order_status"] == "SIMULATED_REJECTED"
     assert any(c["layer"] == "PAPER_BROKER" and c["ok"] is False for c in result["checks"])
+    events = [json.loads(line) for line in (tmp_path / "exec.jsonl").read_text(encoding="utf-8").splitlines()]
+    assert events[-1]["decision"] == "REJECT_ORDER"
+    assert events[-1]["paper_broker"]["decision"] == "PAPER_BROKER_EXCEPTION"
 
 
 def test_paper_broker_malformed_response_must_reject(tmp_path):
