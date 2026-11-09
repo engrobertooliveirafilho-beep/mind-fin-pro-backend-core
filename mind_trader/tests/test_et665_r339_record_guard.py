@@ -45,3 +45,14 @@ def test_breached_daily_loss_state_blocks_trade_and_result(tmp_path):
     result = g.paper.record_trade_result(-100)
     assert result["decision"] == "TRADE_RECORDED"
     assert result["session"]["daily_pnl"] == state["daily_pnl"] - 100
+
+
+def test_legacy_result_cannot_exceed_trade_quota(tmp_path):
+    g = gateway(tmp_path)
+    path = tmp_path / "session.json"
+    state = json.loads(path.read_text(encoding="utf-8"))
+    state["trades"] = state["max_daily_trades"]
+    path.write_text(json.dumps(state), encoding="utf-8")
+    result = g.paper.record_trade_result(-100)
+    assert result["decision"] == "BLOCK_RECORD_TRADE_LIMIT"
+    assert json.loads(path.read_text(encoding="utf-8")) == state
