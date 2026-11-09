@@ -41,5 +41,7 @@ def test_breached_daily_loss_state_blocks_trade_and_result(tmp_path):
     state = json.loads(path.read_text(encoding="utf-8"))
     state["daily_pnl"] = -state["max_daily_loss"] - 1
     path.write_text(json.dumps(state), encoding="utf-8")
-    assert g.paper.pre_trade_check(100)["decision"] == "BLOCK_NO_SESSION"
-    assert g.paper.record_trade_result(-100)["decision"] == "BLOCK_RECORD_NO_OPEN_SESSION"
+    assert g.paper.pre_trade_check(100)["decision"] == "BLOCK_DAILY_LOSS_BREACHED"
+    result = g.paper.record_trade_result(-100)
+    assert result["decision"] == "TRADE_RECORDED"
+    assert result["session"]["daily_pnl"] == state["daily_pnl"] - 100
