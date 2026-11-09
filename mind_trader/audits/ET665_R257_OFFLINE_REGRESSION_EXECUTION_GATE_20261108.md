@@ -27,7 +27,12 @@ $Repo=(Get-Location).Path
 $ArgsList=@('run','--rm','--pull=never','--network','none','--read-only','--cap-drop','ALL','--security-opt','no-new-privileges','--pids-limit','128','--memory','512m','--cpus','1','--tmpfs','/tmp:rw,noexec,nosuid,size=64m','--mount',"type=bind,source=$Repo,target=/work,readonly",'--workdir','/work','--env','PYTHONDONTWRITEBYTECODE=1',$Image,'python','-m','unittest','discover','-s','mind_trader/tests/security_review','-p','test_et665_r2*.py','-v')
 & docker @ArgsList *> (Join-Path $Evidence 'TEST_OUTPUT.txt')
 $ExitCode=$LASTEXITCODE
+$Log=Get-Content -Path (Join-Path $Evidence 'TEST_OUTPUT.txt') -Raw
 Get-Content -Path (Join-Path $Evidence 'TEST_OUTPUT.txt') | Select-Object -Last 30
+$Match=[regex]::Match($Log,'Ran\s+(\d+)\s+tests?\s+in\s+')
+$Count=if ($Match.Success) { [int]$Match.Groups[1].Value } else { 0 }
+"DISCOVERED_TESTS=$Count" | Set-Content -Path (Join-Path $Evidence 'TEST_COUNT.txt')
+if ($Count -eq 0) { $ExitCode=1 }
 "EXIT_CODE=$ExitCode" | Set-Content -Path (Join-Path $Evidence 'RESULT.txt')
 Get-FileHash (Join-Path $Evidence 'TEST_OUTPUT.txt') -Algorithm SHA256 | Format-List | Out-String | Set-Content -Path (Join-Path $Evidence 'SHA256.txt')
 if ($ExitCode -ne 0) { throw "FAIL_CLOSED: offline regression failed; evidence at $Evidence" }
