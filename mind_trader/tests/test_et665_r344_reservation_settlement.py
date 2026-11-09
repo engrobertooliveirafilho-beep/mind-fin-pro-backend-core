@@ -108,3 +108,14 @@ def test_same_day_session_reopen_cannot_reset_daily_limits(tmp_path):
     before = (tmp_path / "session.json").read_bytes()
     assert g.paper.open_session()["decision"] == "BLOCK_SAME_DAY_SESSION_RESET"
     assert (tmp_path / "session.json").read_bytes() == before
+
+
+def test_closed_session_without_open_timestamp_cannot_reset_limits(tmp_path):
+    g = gateway(tmp_path)
+    assert g.paper.close_session()["decision"] == "SESSION_CLOSED"
+    path = tmp_path / "session.json"
+    state = json.loads(path.read_text(encoding="utf-8"))
+    state.pop("opened_at", None)
+    path.write_text(json.dumps(state), encoding="utf-8")
+    assert g.paper.open_session()["decision"] == "BLOCK_SESSION_MISSING_OPEN_TIMESTAMP"
+    assert json.loads(path.read_text(encoding="utf-8")) == state
