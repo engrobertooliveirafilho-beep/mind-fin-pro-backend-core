@@ -32,6 +32,14 @@ class ExecutionGateway:
         self.ftmo=FTMOGuardian(ftmo_config_from_ruleset(cfg)) if cfg and val["valid"] else None
         self.adv=AdversarialValidationEngine()
         self.ledger_path=ledger_path
+        # Keep the historical default audit destination for normal runtime, but
+        # isolate FTMO audit output alongside explicitly redirected test ledgers.
+        default_ledger="mind_trader/logs/P8.41_EXECUTION_LEDGER.jsonl"
+        self.ftmo_audit_path=(
+            "mind_trader/reports/P8.46_ftmo_rule_audit.json"
+            if ledger_path==default_ledger
+            else str(Path(ledger_path).parent / "P8.46_ftmo_rule_audit.json")
+        )
         self.paper=PaperTradingSessionManager(paper_session_path,paper_day_ledger_path,ftmo_config_path)
         self.paper_broker_ledger_path=paper_broker_ledger_path
 
@@ -85,7 +93,7 @@ class ExecutionGateway:
 
         trade=TradeIntent(mode="FTMO_EVALUATION_SIMULATION_MODE",symbol=trade_dict["symbol"],strategy_id=trade_dict["strategy_id"],regime=regime_report.get("regime","UNDEFINED"),entry=trade_dict["entry"],stop=trade_dict.get("stop"),target=trade_dict["target"],risk_amount=trade_dict["risk_amount"],open_risk=trade_dict.get("open_risk",0),daily_pnl=trade_dict.get("daily_pnl",0),total_pnl=trade_dict.get("total_pnl",0),daily_trades=trade_dict.get("daily_trades",0),loss_streak=trade_dict.get("loss_streak",0),session_allowed=trade_dict.get("session_allowed",True),news_blocked=trade_dict.get("news_blocked",False))
 
-        rule_audit=audit_rule_application(trade_dict,self.ftmo_ruleset)
+        rule_audit=audit_rule_application(trade_dict,self.ftmo_ruleset,self.ftmo_audit_path)
         checks=[]
         ok,reason=self.risk.validate(trade); checks.append({"layer":"RISK","ok":ok,"reason":reason})
         fok,freason=self.ftmo.validate(trade); checks.append({"layer":"FTMO_RULESET","ok":fok and rule_audit["decision"]=="ALLOW_FTMO_SIMULATION","reason":freason,"config_hash":self.ftmo_config_valid.get("hash")})
