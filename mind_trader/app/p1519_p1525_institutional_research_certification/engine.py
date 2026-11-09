@@ -148,6 +148,10 @@ def run():
     reconstructed=[]
     curves={}
     for e in edges:
+        for field in ("symbol", "timeframe", "strategy", "dataset"):
+            value = e.get(field)
+            if not isinstance(value, str) or not value or value.strip() != value:
+                raise ValueError("invalid research edge metadata: " + field)
         eid=f'{e["symbol"]}_{e["timeframe"]}_{e["strategy"]}_{e["fast"]}_{e["slow"]}'
         if eid in curves:
             raise ValueError("duplicate edge identifier in research input")
