@@ -10,6 +10,7 @@ def test_settle_reserved_fill_once(tmp_path):
     pending = json.loads((tmp_path / "session.json").read_text(encoding="utf-8"))["pending_paper_orders"]
     assert len(pending) == 1
     token = pending[0]["id"]
+    assert accepted["paper_reservation_id"] == token
     result = g.paper.settle_paper_order(token, -100)
     assert result["decision"] == "PAPER_RESERVATION_SETTLED"
     assert result["session"]["trades"] == 1
@@ -67,3 +68,12 @@ def test_open_session_fails_closed_when_reservation_lock_exists(tmp_path):
         assert g.paper.daily_summary()["status"] == "CLOSED"
     finally:
         lock.unlink()
+
+
+def test_rejected_paper_order_has_no_reservation_id(tmp_path):
+    g = gateway(tmp_path)
+    bad = trade()
+    bad["symbol"] = "INVALID_SYMBOL"
+    result = g.submit_order("PAPER", bad, regime(), genome())
+    assert result["decision"] != "ACCEPT_SIMULATED_ORDER"
+    assert not result.get("paper_reservation_id")
