@@ -1,5 +1,5 @@
 import csv,json,math,statistics,itertools
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 from datetime import datetime,UTC
 
 EDGES=Path("reports/P15.17_EDGE_VALIDATION_MEGA_PACK/approved_edges.json")
@@ -15,7 +15,7 @@ def f(v):
 
 def load_dataset(name):
     # ET665.R247: dataset references are untrusted; never read outside roots.
-    if not isinstance(name, str) or not name or Path(name).is_absolute():
+    if not isinstance(name, str) or not name or Path(name).is_absolute() or PureWindowsPath(name).is_absolute() or "\\" in name:
         raise ValueError("invalid dataset reference")
     roots = [Path("data/normalized"), Path("data/incoming/profit_real_backtests"), Path("reports")]
     candidates = []
