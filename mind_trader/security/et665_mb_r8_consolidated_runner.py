@@ -60,6 +60,9 @@ def main():
     except OSError:
         output_text = "ET665_MB_PROCESS_FAILURE\\n"
         return_code = 126
+    except OSError:
+        output_text = "ET665_MB_PROCESS_FAILURE\\n"
+        return_code = 126
     (out / "execution.log").write_text(output_text, encoding="utf-8")
     counts = {"tests": 0, "failures": 0, "errors": 0, "skipped": 0}
     junit = out / "junit.xml"
