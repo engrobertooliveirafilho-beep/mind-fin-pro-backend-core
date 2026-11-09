@@ -31,6 +31,8 @@ def test_r314_gateway_fails_closed_on_broker_metadata(monkeypatch, tmp_path, ove
     gateway.paper = SimpleNamespace(
         ftmo_config_path=str(tmp_path / "ftmo_config.json"),
         pre_trade_check=lambda risk: {"allowed": True, "decision": "ALLOW_PAPER"},
+        reserve_paper_order=lambda risk: {"allowed": True, "decision": "PAPER_ORDER_RESERVED", "reservation_id": "r314-test-reservation"},
+        release_paper_order=lambda reservation_id: reservation_id == "r314-test-reservation",
     )
 
     monkeypatch.setattr(gw, "TradeIntent", lambda **kw: SimpleNamespace(**kw))
