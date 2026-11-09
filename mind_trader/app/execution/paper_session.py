@@ -39,6 +39,8 @@ class PaperTradingSessionManager:
             return None
         if session["trades"] > session["max_daily_trades"]:
             return None
+        if "pending_paper_orders" in session and not isinstance(session["pending_paper_orders"], list):
+            return None
         if not isinstance(session["session_id"], str) or not session["session_id"]:
             return None
         if session["status"] not in ("OPEN", "CLOSED"):
@@ -106,13 +108,78 @@ class PaperTradingSessionManager:
             return {"allowed":False,"decision":"BLOCK_PAPER_SESSION_FTMO_CONFIG_DRIFT","production":"BLOCKED"}
         if s["max_daily_trades"] != cfg["max_daily_trades"] or s["max_daily_loss"] != cfg["max_daily_loss"]:
             return {"allowed":False,"decision":"BLOCK_PAPER_SESSION_LIMIT_TAMPERING","production":"BLOCKED"}
-        if s["trades"] >= s["max_daily_trades"]: return {"allowed":False,"decision":"BLOCK_MAX_DAILY_TRADES","production":"BLOCKED"}
+        pending = s.get("pending_paper_orders", [])
+        if not isinstance(pending, list) or any(not isinstance(x, dict) or not isinstance(x.get("risk"), (int, float)) or isinstance(x.get("risk"), bool) or not math.isfinite(x["risk"]) or x["risk"] <= 0 or not isinstance(x.get("id"), str) for x in pending):
+            return {"allowed":False,"decision":"BLOCK_PAPER_RESERVATION_CORRUPT","production":"BLOCKED"}
+        if s["trades"] + len(pending) >= s["max_daily_trades"]: return {"allowed":False,"decision":"BLOCK_MAX_DAILY_TRADES","production":"BLOCKED"}
         if s["daily_pnl"] < -s["max_daily_loss"]:
             return {"allowed":False,"decision":"BLOCK_DAILY_LOSS_BREACHED","production":"BLOCKED"}
         # Only realized losses consume the daily loss allowance; profits do not.
-        if max(0.0, -s["daily_pnl"]) + risk_amount > s["max_daily_loss"]:
+        if max(0.0, -s["daily_pnl"]) + sum(x["risk"] for x in pending) + risk_amount > s["max_daily_loss"]:
             return {"allowed":False,"decision":"BLOCK_DAILY_LOSS_LIMIT","production":"BLOCKED"}
         return {"allowed":True,"decision":"ALLOW_PAPER_TRADE","session_id":s["session_id"],"production":"BLOCKED"}
+
+    def reserve_paper_order(self, risk_amount):
+        """Durable fail-closed reservation, serialized across processes via O_EXCL."""
+        import os
+        lock_path = self.session_path.with_name(self.session_path.name + ".reserve.lock")
+        lock_path.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            fd = os.open(str(lock_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+        except OSError:
+            return {"allowed":False,"decision":"BLOCK_PAPER_RESERVATION_LOCKED","production":"BLOCKED"}
+        try:
+            os.close(fd)
+            checked = self.pre_trade_check(risk_amount)
+            if not checked["allowed"]:
+                return checked
+            session = self._read_session()
+            pending = session.get("pending_paper_orders", [])
+            if not isinstance(pending, list) or any(not isinstance(x, dict) or not isinstance(x.get("risk"), (int, float)) or isinstance(x.get("risk"), bool) or not math.isfinite(x["risk"]) or x["risk"] <= 0 or not isinstance(x.get("id"), str) for x in pending):
+                return {"allowed":False,"decision":"BLOCK_PAPER_RESERVATION_CORRUPT","production":"BLOCKED"}
+            if session["trades"] + len(pending) >= session["max_daily_trades"]:
+                return {"allowed":False,"decision":"BLOCK_MAX_DAILY_TRADES","production":"BLOCKED"}
+            if max(0.0, -session["daily_pnl"]) + sum(x["risk"] for x in pending) + risk_amount > session["max_daily_loss"]:
+                return {"allowed":False,"decision":"BLOCK_DAILY_LOSS_LIMIT","production":"BLOCKED"}
+            token = str(uuid.uuid4())
+            pending.append({"id":token,"risk":risk_amount})
+            session["pending_paper_orders"] = pending
+            self._write_session(session)
+            return {"allowed":True,"decision":"PAPER_ORDER_RESERVED","reservation_id":token,"production":"BLOCKED"}
+        except (OSError, ValueError, TypeError, KeyError, OverflowError):
+            return {"allowed":False,"decision":"BLOCK_PAPER_RESERVATION_ERROR","production":"BLOCKED"}
+        finally:
+            try:
+                lock_path.unlink()
+            except OSError:
+                pass
+
+    def release_paper_order(self, reservation_id):
+        """Release only a rejected PAPER order; failures retain reservation (fail-closed)."""
+        import os
+        lock_path = self.session_path.with_name(self.session_path.name + ".reserve.lock")
+        try:
+            fd = os.open(str(lock_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+        except OSError:
+            return False
+        try:
+            os.close(fd)
+            session = self._read_session()
+            if not session:
+                return False
+            pending = session.get("pending_paper_orders", [])
+            if not isinstance(pending, list) or sum(x.get("id") == reservation_id for x in pending if isinstance(x, dict)) != 1:
+                return False
+            session["pending_paper_orders"] = [x for x in pending if x.get("id") != reservation_id]
+            self._write_session(session)
+            return True
+        except (OSError, ValueError, TypeError, KeyError):
+            return False
+        finally:
+            try:
+                lock_path.unlink()
+            except OSError:
+                pass
 
     def record_trade_result(self, pnl):
         if isinstance(pnl, bool) or not isinstance(pnl, (int, float)) or not math.isfinite(pnl):
