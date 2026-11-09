@@ -105,7 +105,16 @@ class PaperTradingSessionManager:
                     opened_day = opened.astimezone(UTC).date()
                 except (ValueError, TypeError, OverflowError):
                     return {"decision":"BLOCK_SESSION_INVALID_OPEN_TIMESTAMP","production":"BLOCKED"}
-                if opened_day >= datetime.now(UTC).date():
+                try:
+                    closed = datetime.fromisoformat(existing["closed_at"])
+                    if closed.tzinfo is None or closed.utcoffset() is None:
+                        raise ValueError("closing timestamp must be timezone-aware")
+                    closed_utc = closed.astimezone(UTC)
+                except (KeyError, ValueError, TypeError, OverflowError):
+                    return {"decision":"BLOCK_SESSION_INVALID_CLOSE_TIMESTAMP","production":"BLOCKED"}
+                if closed_utc < opened.astimezone(UTC):
+                    return {"decision":"BLOCK_SESSION_INVALID_CLOSE_TIMESTAMP","production":"BLOCKED"}
+                if opened_day >= datetime.now(UTC).date() or closed_utc.date() >= datetime.now(UTC).date():
                     return {"decision":"BLOCK_SAME_DAY_SESSION_RESET","production":"BLOCKED"}
             s={
                 "session_id":str(uuid.uuid4()),
