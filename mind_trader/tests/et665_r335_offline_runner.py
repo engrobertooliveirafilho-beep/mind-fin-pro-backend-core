@@ -11,6 +11,7 @@ TESTS = [
     "mind_trader/tests/test_p896_gateway_paper_broker_integration.py",
     "mind_trader/tests/test_et665_r320_paper_broker_exception.py",
     "mind_trader/tests/test_et665_r330_paper_reservation_gap.py",
+    "mind_trader/tests/test_et665_r339_record_guard.py",
 ]
 
 
