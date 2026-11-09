@@ -37,6 +37,10 @@ class PaperTradingSessionManager:
                 return None
         if session["max_daily_trades"] <= 0 or session["max_daily_loss"] <= 0:
             return None
+        if session["trades"] > session["max_daily_trades"]:
+            return None
+        if session["daily_pnl"] < -session["max_daily_loss"]:
+            return None
         if not isinstance(session["session_id"], str) or not session["session_id"]:
             return None
         if session["status"] not in ("OPEN", "CLOSED"):
