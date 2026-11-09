@@ -90,13 +90,21 @@ def reconstruct(edge):
             pos=1; entry=closes[i]; entry_i=i
         elif pos==1 and f0<s0 and f1>=s1:
             ret=(closes[i]/entry)-1
+            if not math.isfinite(ret):
+                raise ValueError("nonfinite reconstructed trade return")
             equity*=1+ret
+            if not math.isfinite(equity):
+                raise ValueError("nonfinite reconstructed equity")
             trades.append({"entry_index":entry_i,"exit_index":i,"entry_price":entry,"exit_price":closes[i],"return":ret,"equity":equity})
             curve.append(equity)
             pos=0
     if pos==1 and closes:
         ret=(closes[-1]/entry)-1
+        if not math.isfinite(ret):
+            raise ValueError("nonfinite reconstructed trade return")
         equity*=1+ret
+        if not math.isfinite(equity):
+            raise ValueError("nonfinite reconstructed equity")
         trades.append({"entry_index":entry_i,"exit_index":len(closes)-1,"entry_price":entry,"exit_price":closes[-1],"return":ret,"equity":equity})
         curve.append(equity)
     return trades,curve
