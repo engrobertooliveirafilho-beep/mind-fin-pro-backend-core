@@ -34,7 +34,7 @@ class DatasetCloseIntegrity(unittest.TestCase):
         self.check_csv("price\\n100\\n".replace("\\n", "\n"), "missing required close")
 
     def test_missing_cell(self):
-        self.check_csv("close\\n\\n100\\n".replace("\\n", "\n"), "invalid numeric dataset value")
+        self.check_csv("close,other\\n,first\\n100,second\\n".replace("\\n", "\n"), "invalid numeric dataset value")
 
     def test_nonpositive_prices(self):
         for value in ("0", "-1"):
