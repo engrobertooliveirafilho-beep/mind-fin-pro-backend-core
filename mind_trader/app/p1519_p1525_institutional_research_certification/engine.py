@@ -163,7 +163,8 @@ def run():
         "REAL_BROKER":"DISABLED",
         "REAL_ORDERS":"FORBIDDEN",
         "NEXT":"P16_AUTONOMOUS_RESEARCH_RUNTIME",
-        "EXPORT_READY":True,
+        "EXPORT_READY":False,
+        "CERTIFICATION_EVIDENCE":"NOT_EXECUTED_OR_INDEPENDENTLY_VERIFIED",
         "generated_at":datetime.now(UTC).isoformat()
     }
 
