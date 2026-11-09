@@ -178,6 +178,14 @@ class PaperTradingSessionManager:
         s=self._read_session()
         if not s: return {"allowed":False,"decision":"BLOCK_NO_SESSION","production":"BLOCKED"}
         if s.get("status")!="OPEN": return {"allowed":False,"decision":"BLOCK_SESSION_CLOSED","production":"BLOCKED"}
+        try:
+            opened = datetime.fromisoformat(s["opened_at"])
+            if opened.tzinfo is None or opened.utcoffset() is None:
+                raise ValueError("timezone required")
+            if opened.astimezone(UTC).date() != datetime.now(UTC).date():
+                return {"allowed":False,"decision":"BLOCK_PAPER_SESSION_DAY_MISMATCH","production":"BLOCKED"}
+        except (KeyError, ValueError, TypeError, OverflowError):
+            return {"allowed":False,"decision":"BLOCK_PAPER_SESSION_INVALID_OPEN_TIMESTAMP","production":"BLOCKED"}
         cfg, validation = load_ftmo_config(self.ftmo_config_path)
         if not cfg or not validation.get("valid") or validation.get("hash") != s["ftmo_config_hash"]:
             return {"allowed":False,"decision":"BLOCK_PAPER_SESSION_FTMO_CONFIG_DRIFT","production":"BLOCKED"}
