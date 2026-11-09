@@ -43,3 +43,15 @@ def test_pending_reservation_prevents_reopen_after_closed_state(tmp_path):
     state["status"] = "CLOSED"
     path.write_text(json.dumps(state), encoding="utf-8")
     assert g.paper.open_session()["decision"] == "BLOCK_SESSION_PENDING_RESERVATIONS"
+
+
+def test_close_session_fails_closed_when_reservation_lock_exists(tmp_path):
+    g = gateway(tmp_path)
+    lock = tmp_path / "session.json.reserve.lock"
+    lock.write_text("held", encoding="utf-8")
+    try:
+        result = g.paper.close_session()
+        assert result["decision"] == "BLOCK_CLOSE_RESERVATION_LOCKED"
+        assert g.paper.daily_summary()["status"] == "OPEN"
+    finally:
+        lock.unlink()
