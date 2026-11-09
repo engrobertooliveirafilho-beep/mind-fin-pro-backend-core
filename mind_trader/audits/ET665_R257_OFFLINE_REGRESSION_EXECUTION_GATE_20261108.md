@@ -1,6 +1,6 @@
 # ET665.R257 — Reproducible offline regression gate
 
-Date: 2026-11-08. Scope: draft PR #18 at commit `50f714ecdde007992696bd6f228895d12a631ccf` (R256). This is an **execution protocol**, not a test result.
+Date: 2026-11-09. Scope: reproducible frozen R257 snapshot at commit `1bdecd9cfa081ac984b8e3da1648544347d9f208` (contains R244–R257). This is an **execution protocol**, not a test result.
 
 ## Preconditions (fail closed)
 - Operator must have a local checkout at the pinned commit above, with no uncommitted changes. Do not use `main`, production or a live broker environment.
@@ -12,7 +12,7 @@ Date: 2026-11-08. Scope: draft PR #18 at commit `50f714ecdde007992696bd6f228895d
 
 ```powershell
 $ErrorActionPreference='Stop'
-$Expected='50f714ecdde007992696bd6f228895d12a631ccf'
+$Expected='1bdecd9cfa081ac984b8e3da1648544347d9f208'
 $Head=(git rev-parse HEAD).Trim()
 if ($Head -ne $Expected) { throw "FAIL_CLOSED: expected $Expected, got $Head" }
 if (git status --porcelain) { throw 'FAIL_CLOSED: working tree is dirty' }
