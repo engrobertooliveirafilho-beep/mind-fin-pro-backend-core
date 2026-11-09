@@ -4,8 +4,18 @@ from mind_trader.app.audits.runtime_evidence_package import build_runtime_eviden
 from mind_trader.app.audits.institutional_audit_ledger import verify_ledger
 
 def run_pytest_suite(test_path="mind_trader/tests"):
-    cmd=[sys.executable,"-m","pytest",test_path,"-q"]
-    p=subprocess.run(cmd,capture_output=True,text=True)
+    # Only the fixed local test suite is admitted; never accept arbitrary pytest targets.
+    if test_path != "mind_trader/tests":
+        raise PermissionError("ET665_HEALTHCHECK_TEST_PATH_NOT_ALLOWLISTED")
+    cmd=[sys.executable,"-m","pytest","mind_trader/tests","-q"]
+    env=dict(__import__("os").environ)
+    env.update(PYTEST_DISABLE_PLUGIN_AUTOLOAD="1", PYTHONDONTWRITEBYTECODE="1")
+    try:
+        p=subprocess.run(cmd,capture_output=True,text=True,check=False,timeout=180,env=env)
+    except subprocess.TimeoutExpired:
+        return {"returncode":124,"stdout":"","stderr":"ET665_HEALTHCHECK_TIMEOUT","passed":False}
+    except OSError:
+        return {"returncode":125,"stdout":"","stderr":"ET665_HEALTHCHECK_PROCESS_FAILURE","passed":False}
     return {
         "returncode":p.returncode,
         "stdout":p.stdout,
