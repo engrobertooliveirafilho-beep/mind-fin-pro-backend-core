@@ -1,0 +1,14 @@
+"""R320: fail-closed PAPER broker failure; offline only."""
+from unittest.mock import patch
+from mind_trader.tests.test_p896_gateway_paper_broker_integration import gateway, trade, regime, genome
+
+
+def test_paper_broker_exception_must_reject_without_simulated_acceptance(tmp_path):
+    g = gateway(tmp_path)
+    with patch("mind_trader.app.execution.gateway.paper_route_order", side_effect=RuntimeError("offline injected broker failure")):
+        result = g.submit_order("PAPER", trade(), regime(), genome())
+    assert result["decision"] == "REJECT_ORDER"
+    assert result["production"] == "BLOCKED"
+    assert result["real_broker_routing"] == "DISABLED"
+    assert result["order_status"] == "SIMULATED_REJECTED"
+    assert any(c["layer"] == "PAPER_BROKER" and c["ok"] is False for c in result["checks"])
