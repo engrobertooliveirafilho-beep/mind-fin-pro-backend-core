@@ -147,6 +147,8 @@ def corr(a,b):
         raise ValueError("invalid correlation return")
     n=len(a)
     if n<3: return None
+    if all(value == a[0] for value in a) or all(value == b[0] for value in b):
+        return None
     x=a; y=b
     mx=sum(x)/n; my=sum(y)/n
     num=sum((x[i]-mx)*(y[i]-my) for i in range(n))
