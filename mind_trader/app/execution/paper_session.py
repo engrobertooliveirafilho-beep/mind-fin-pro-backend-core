@@ -67,35 +67,50 @@ class PaperTradingSessionManager:
         return event
 
     def open_session(self, account_id="PAPER_FTMO_SIM"):
-        cfg,val=load_ftmo_config(self.ftmo_config_path)
-        if not cfg or not val["valid"]:
-            return {"decision":"BLOCK_SESSION_INVALID_FTMO_CONFIG","validation":val,"production":"BLOCKED"}
-        existing=self._read_session()
-        if self.session_path.exists() and existing is None:
-            return {"decision":"BLOCK_CORRUPT_PAPER_SESSION","production":"BLOCKED"}
-        if existing and existing.get("pending_paper_orders"):
-            return {"decision":"BLOCK_SESSION_PENDING_RESERVATIONS","production":"BLOCKED"}
-        if existing and existing.get("status")=="OPEN":
-            return {"decision":"SESSION_ALREADY_OPEN","session":existing,"production":"BLOCKED"}
-        s={
-            "session_id":str(uuid.uuid4()),
-            "account_id":account_id,
-            "status":"OPEN",
-            "opened_at":_now(),
-            "closed_at":None,
-            "daily_pnl":0.0,
-            "trades":0,
-            "loss_streak":0,
-            "max_daily_trades":cfg["max_daily_trades"],
-            "max_daily_loss":cfg["max_daily_loss"],
-            "profit_target":cfg["profit_target"],
-            "ftmo_config_hash":val["hash"],
-            "production":"BLOCKED",
-            "edge_claim":"NONE"
-        }
-        self._write_session(s)
-        self._ledger({"type":"SESSION_OPENED","session_id":s["session_id"],"ftmo_config_hash":val["hash"]})
-        return {"decision":"SESSION_OPENED","session":s,"production":"BLOCKED"}
+        # Protect creation/reopening against concurrent reservations and closes.
+        lock_path = self.session_path.with_name(self.session_path.name + ".reserve.lock")
+        lock_path.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            fd = os.open(str(lock_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+        except OSError:
+            return {"decision":"BLOCK_OPEN_RESERVATION_LOCKED","production":"BLOCKED"}
+        try:
+            os.close(fd)
+            cfg,val=load_ftmo_config(self.ftmo_config_path)
+            if not cfg or not val["valid"]:
+                return {"decision":"BLOCK_SESSION_INVALID_FTMO_CONFIG","validation":val,"production":"BLOCKED"}
+            existing=self._read_session()
+            if self.session_path.exists() and existing is None:
+                return {"decision":"BLOCK_CORRUPT_PAPER_SESSION","production":"BLOCKED"}
+            if existing and existing.get("pending_paper_orders"):
+                return {"decision":"BLOCK_SESSION_PENDING_RESERVATIONS","production":"BLOCKED"}
+            if existing and existing.get("status")=="OPEN":
+                return {"decision":"SESSION_ALREADY_OPEN","session":existing,"production":"BLOCKED"}
+            s={
+                "session_id":str(uuid.uuid4()),
+                "account_id":account_id,
+                "status":"OPEN",
+                "opened_at":_now(),
+                "closed_at":None,
+                "daily_pnl":0.0,
+                "trades":0,
+                "loss_streak":0,
+                "max_daily_trades":cfg["max_daily_trades"],
+                "max_daily_loss":cfg["max_daily_loss"],
+                "profit_target":cfg["profit_target"],
+                "ftmo_config_hash":val["hash"],
+                "production":"BLOCKED",
+                "edge_claim":"NONE"
+            }
+            self._write_session(s)
+            self._ledger({"type":"SESSION_OPENED","session_id":s["session_id"],"ftmo_config_hash":val["hash"]})
+            return {"decision":"SESSION_OPENED","session":s,"production":"BLOCKED"}
+    
+        finally:
+            try:
+                lock_path.unlink()
+            except OSError:
+                pass
 
     def close_session(self, reason="MANUAL_CLOSE"):
         # Serialize lifecycle transitions with PAPER reservation and settlement.
