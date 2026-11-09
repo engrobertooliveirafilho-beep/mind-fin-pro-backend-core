@@ -45,6 +45,8 @@ def reconstruct(edge):
     rows=load_dataset(edge["dataset"])
     closes=[r["close"] for r in rows]
     fast=int(edge["fast"]); slow=int(edge["slow"])
+    if fast <= 0 or slow <= 0 or fast >= slow:
+        raise ValueError("invalid SMA window configuration")
     pos=0; entry=0; entry_i=0; trades=[]; equity=1.0; curve=[]
     for i in range(slow+1,len(closes)):
         f0=sma(closes,fast,i); s0=sma(closes,slow,i)
