@@ -159,7 +159,9 @@ def run():
 
     correlations=[]
     for a,b in itertools.combinations(curves.keys(),2):
-        correlations.append({"a":a,"b":b,"pearson_return_corr":corr(curves[a],curves[b])})
+        # Trade sequence positions are not shared timestamps; correlation is unverified.
+        correlations.append({"a":a,"b":b,"pearson_return_corr":None,
+                             "evidence":"UNALIGNED_TRADE_TIMESTAMPS"})
 
     approved=[]  # ET665.R244: metric thresholds are not independent certification
     allocator={
