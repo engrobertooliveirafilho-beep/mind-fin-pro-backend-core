@@ -10,8 +10,14 @@ def load_json(p):
     return json.loads(p.read_text(encoding="utf-8")) if p.exists() else []
 
 def f(v):
-    try: return float(v)
-    except: return 0.0
+    # ET665.R251: reject malformed/nonfinite prices instead of silently coercing.
+    try:
+        number = float(v)
+    except (TypeError, ValueError, OverflowError) as exc:
+        raise ValueError("invalid numeric dataset value") from exc
+    if not math.isfinite(number):
+        raise ValueError("nonfinite numeric dataset value")
+    return number
 
 def load_dataset(name):
     # ET665.R247: dataset references are untrusted; never read outside roots.
