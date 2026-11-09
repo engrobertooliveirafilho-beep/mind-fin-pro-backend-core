@@ -44,7 +44,7 @@ def load_dataset(name):
                         raise ValueError("dataset close price must be positive")
                     rows.append({**row, "close": close})
                 return rows
-    return []
+    raise FileNotFoundError("dataset not found in approved roots")
 
 def sma(vals,n,i):
     if i<n: return None
