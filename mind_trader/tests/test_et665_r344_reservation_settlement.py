@@ -128,7 +128,7 @@ def test_future_dated_closed_session_cannot_reset_daily_limits(tmp_path):
     state = json.loads(path.read_text(encoding="utf-8"))
     state["opened_at"] = "2999-01-01T00:00:00+00:00"
     path.write_text(json.dumps(state), encoding="utf-8")
-    assert g.paper.open_session()["decision"] == "BLOCK_SAME_DAY_SESSION_RESET"
+    assert g.paper.open_session()["decision"] == "BLOCK_SESSION_INVALID_CLOSE_TIMESTAMP"
     assert json.loads(path.read_text(encoding="utf-8")) == state
 
 
