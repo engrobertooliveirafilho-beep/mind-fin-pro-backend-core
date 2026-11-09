@@ -95,6 +95,8 @@ class PaperTradingSessionManager:
                 return {"decision":"BLOCK_SESSION_PENDING_RESERVATIONS","production":"BLOCKED"}
             if existing and existing.get("status")=="OPEN":
                 return {"decision":"SESSION_ALREADY_OPEN","session":existing,"production":"BLOCKED"}
+            if existing and existing.get("status")=="CLOSED" and (not isinstance(existing.get("opened_at"), str) or not existing["opened_at"]):
+                return {"decision":"BLOCK_SESSION_MISSING_OPEN_TIMESTAMP","production":"BLOCKED"}
             if existing and existing.get("status")=="CLOSED" and str(existing.get("opened_at", ""))[:10] == _now()[:10]:
                 return {"decision":"BLOCK_SAME_DAY_SESSION_RESET","production":"BLOCKED"}
             s={
