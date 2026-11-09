@@ -116,6 +116,11 @@ class PaperTradingSessionManager:
         s=self._read_session()
         if not s or s.get("status")!="OPEN":
             return {"decision":"BLOCK_RECORD_NO_OPEN_SESSION","production":"BLOCKED"}
+        cfg, validation = load_ftmo_config(self.ftmo_config_path)
+        if not cfg or not validation.get("valid") or validation.get("hash") != s["ftmo_config_hash"]:
+            return {"decision":"BLOCK_RECORD_FTMO_CONFIG_DRIFT","production":"BLOCKED"}
+        if s["max_daily_trades"] != cfg["max_daily_trades"] or s["max_daily_loss"] != cfg["max_daily_loss"]:
+            return {"decision":"BLOCK_RECORD_SESSION_LIMIT_TAMPERING","production":"BLOCKED"}
         next_daily_pnl = s["daily_pnl"] + pnl
         if not math.isfinite(next_daily_pnl):
             return {"decision":"BLOCK_RECORD_INVALID_PNL","production":"BLOCKED"}
