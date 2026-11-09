@@ -99,3 +99,12 @@ def test_oversubscribed_reservation_count_fails_closed(tmp_path):
     path.write_text(json.dumps(state), encoding="utf-8")
     assert g.paper.pre_trade_check(100)["allowed"] is False
     assert g.paper.record_trade_result(-100)["decision"] == "BLOCK_RECORD_NO_OPEN_SESSION"
+
+
+def test_same_day_session_reopen_cannot_reset_daily_limits(tmp_path):
+    g = gateway(tmp_path)
+    assert g.paper.record_trade_result(-100)["decision"] == "TRADE_RECORDED"
+    assert g.paper.close_session()["decision"] == "SESSION_CLOSED"
+    before = (tmp_path / "session.json").read_bytes()
+    assert g.paper.open_session()["decision"] == "BLOCK_SAME_DAY_SESSION_RESET"
+    assert (tmp_path / "session.json").read_bytes() == before
