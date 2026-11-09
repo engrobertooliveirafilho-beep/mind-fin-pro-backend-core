@@ -177,3 +177,24 @@ def test_future_close_timestamp_fails_closed(tmp_path):
     path.write_text(json.dumps(state), encoding="utf-8")
     assert g.paper.open_session()["decision"] == "BLOCK_SESSION_FUTURE_CLOSE_TIMESTAMP"
     assert json.loads(path.read_text(encoding="utf-8")) == state
+
+
+def test_stale_open_session_cannot_accept_new_paper_reservations(tmp_path):
+    g = gateway(tmp_path)
+    path = tmp_path / "session.json"
+    state = json.loads(path.read_text(encoding="utf-8"))
+    state["opened_at"] = "2000-01-01T00:00:00+00:00"
+    path.write_text(json.dumps(state), encoding="utf-8")
+    assert g.paper.pre_trade_check(100)["decision"] == "BLOCK_PAPER_SESSION_DAY_MISMATCH"
+    assert g.paper.reserve_paper_order(100)["allowed"] is False
+    assert json.loads(path.read_text(encoding="utf-8")) == state
+
+
+def test_open_session_with_malformed_timestamp_blocks_new_reservations(tmp_path):
+    g = gateway(tmp_path)
+    path = tmp_path / "session.json"
+    state = json.loads(path.read_text(encoding="utf-8"))
+    state["opened_at"] = "invalid"
+    path.write_text(json.dumps(state), encoding="utf-8")
+    assert g.paper.pre_trade_check(100)["decision"] == "BLOCK_PAPER_SESSION_INVALID_OPEN_TIMESTAMP"
+    assert g.paper.reserve_paper_order(100)["allowed"] is False
