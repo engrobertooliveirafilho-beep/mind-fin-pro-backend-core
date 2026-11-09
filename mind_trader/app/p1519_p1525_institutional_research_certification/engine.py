@@ -79,6 +79,8 @@ def reconstruct(edge):
     fast=strict_window(edge["fast"]); slow=strict_window(edge["slow"])
     if fast >= slow:
         raise ValueError("invalid SMA window configuration")
+    if len(closes) < slow + 2:
+        raise ValueError("insufficient dataset observations for SMA reconstruction")
     pos=0; entry=0; entry_i=0; trades=[]; equity=1.0; curve=[]
     for i in range(slow+1,len(closes)):
         f0=sma(closes,fast,i); s0=sma(closes,slow,i)
