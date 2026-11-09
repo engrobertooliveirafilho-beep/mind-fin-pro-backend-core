@@ -77,3 +77,25 @@ def test_rejected_paper_order_has_no_reservation_id(tmp_path):
     result = g.submit_order("PAPER", bad, regime(), genome())
     assert result["decision"] != "ACCEPT_SIMULATED_ORDER"
     assert not result.get("paper_reservation_id")
+
+
+def test_duplicate_reservation_ids_fail_closed(tmp_path):
+    g = gateway(tmp_path)
+    path = tmp_path / "session.json"
+    state = json.loads(path.read_text(encoding="utf-8"))
+    state["pending_paper_orders"] = [{"id":"same","risk":100},{"id":"same","risk":100}]
+    path.write_text(json.dumps(state), encoding="utf-8")
+    assert g.paper.pre_trade_check(100)["allowed"] is False
+    assert g.paper.settle_paper_order("same", -100)["decision"] == "BLOCK_SETTLEMENT_NO_OPEN_SESSION"
+    assert json.loads(path.read_text(encoding="utf-8")) == state
+
+
+def test_oversubscribed_reservation_count_fails_closed(tmp_path):
+    g = gateway(tmp_path)
+    path = tmp_path / "session.json"
+    state = json.loads(path.read_text(encoding="utf-8"))
+    state["trades"] = state["max_daily_trades"] - 1
+    state["pending_paper_orders"] = [{"id":"a","risk":100},{"id":"b","risk":100}]
+    path.write_text(json.dumps(state), encoding="utf-8")
+    assert g.paper.pre_trade_check(100)["allowed"] is False
+    assert g.paper.record_trade_result(-100)["decision"] == "BLOCK_RECORD_NO_OPEN_SESSION"
