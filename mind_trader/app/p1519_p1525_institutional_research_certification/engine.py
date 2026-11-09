@@ -39,6 +39,8 @@ def load_dataset(name):
                     raise ValueError("dataset missing required close column")
                 if len(reader.fieldnames) != len(set(reader.fieldnames)):
                     raise ValueError("dataset contains duplicate CSV columns")
+                if any(not column or column.strip() != column for column in reader.fieldnames):
+                    raise ValueError("dataset contains invalid CSV column name")
                 rows = []
                 for row in reader:
                     if None in row or any(value is None for value in row.values()):
