@@ -84,3 +84,16 @@ def test_broker_live_flag_must_reject(tmp_path):
     assert result["decision"] == "REJECT_ORDER"
     assert result["production"] == "BLOCKED"
     assert any(c["layer"] == "PAPER_BROKER" and c["ok"] is False for c in result["checks"])
+
+
+def test_paper_session_config_drift_never_invokes_broker(tmp_path):
+    g = gateway(tmp_path)
+    session = json.loads((tmp_path / "session.json").read_text(encoding="utf-8"))
+    session["ftmo_config_hash"] = "invalid-offline-hash"
+    (tmp_path / "session.json").write_text(json.dumps(session), encoding="utf-8")
+    with patch("mind_trader.app.execution.gateway.paper_route_order") as broker:
+        result = g.submit_order("PAPER", trade(), regime(), genome())
+    broker.assert_not_called()
+    assert result["decision"] == "BLOCKED_PAPER_SESSION"
+    assert result["session_check"]["decision"] == "BLOCK_PAPER_SESSION_FTMO_CONFIG_DRIFT"
+    assert result["production"] == "BLOCKED"
