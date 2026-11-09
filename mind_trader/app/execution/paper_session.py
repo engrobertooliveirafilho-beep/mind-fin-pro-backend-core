@@ -114,6 +114,8 @@ class PaperTradingSessionManager:
                     return {"decision":"BLOCK_SESSION_INVALID_CLOSE_TIMESTAMP","production":"BLOCKED"}
                 if closed_utc < opened.astimezone(UTC):
                     return {"decision":"BLOCK_SESSION_INVALID_CLOSE_TIMESTAMP","production":"BLOCKED"}
+                if closed_utc > datetime.now(UTC):
+                    return {"decision":"BLOCK_SESSION_FUTURE_CLOSE_TIMESTAMP","production":"BLOCKED"}
                 if opened_day >= datetime.now(UTC).date() or closed_utc.date() >= datetime.now(UTC).date():
                     return {"decision":"BLOCK_SAME_DAY_SESSION_RESET","production":"BLOCKED"}
             s={
