@@ -37,6 +37,8 @@ def load_dataset(name):
                 reader = csv.DictReader(fh)
                 if not reader.fieldnames or "close" not in reader.fieldnames:
                     raise ValueError("dataset missing required close column")
+                if len(reader.fieldnames) != len(set(reader.fieldnames)):
+                    raise ValueError("dataset contains duplicate CSV columns")
                 rows = []
                 for row in reader:
                     close = f(row["close"])
