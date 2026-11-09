@@ -97,8 +97,16 @@ class PaperTradingSessionManager:
                 return {"decision":"SESSION_ALREADY_OPEN","session":existing,"production":"BLOCKED"}
             if existing and existing.get("status")=="CLOSED" and (not isinstance(existing.get("opened_at"), str) or not existing["opened_at"]):
                 return {"decision":"BLOCK_SESSION_MISSING_OPEN_TIMESTAMP","production":"BLOCKED"}
-            if existing and existing.get("status")=="CLOSED" and str(existing.get("opened_at", ""))[:10] >= _now()[:10]:
-                return {"decision":"BLOCK_SAME_DAY_SESSION_RESET","production":"BLOCKED"}
+            if existing and existing.get("status")=="CLOSED":
+                try:
+                    opened = datetime.fromisoformat(existing["opened_at"])
+                    if opened.tzinfo is None or opened.utcoffset() is None:
+                        raise ValueError("opening timestamp must be timezone-aware")
+                    opened_day = opened.astimezone(UTC).date()
+                except (ValueError, TypeError, OverflowError):
+                    return {"decision":"BLOCK_SESSION_INVALID_OPEN_TIMESTAMP","production":"BLOCKED"}
+                if opened_day >= datetime.now(UTC).date():
+                    return {"decision":"BLOCK_SAME_DAY_SESSION_RESET","production":"BLOCKED"}
             s={
                 "session_id":str(uuid.uuid4()),
                 "account_id":account_id,
