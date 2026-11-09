@@ -103,6 +103,8 @@ class PaperTradingSessionManager:
         cfg, validation = load_ftmo_config(self.ftmo_config_path)
         if not cfg or not validation.get("valid") or validation.get("hash") != s["ftmo_config_hash"]:
             return {"allowed":False,"decision":"BLOCK_PAPER_SESSION_FTMO_CONFIG_DRIFT","production":"BLOCKED"}
+        if s["max_daily_trades"] != cfg["max_daily_trades"] or s["max_daily_loss"] != cfg["max_daily_loss"]:
+            return {"allowed":False,"decision":"BLOCK_PAPER_SESSION_LIMIT_TAMPERING","production":"BLOCKED"}
         # Only realized losses consume the daily loss allowance; profits do not.
         if max(0.0, -s["daily_pnl"]) + risk_amount > s["max_daily_loss"]:
             return {"allowed":False,"decision":"BLOCK_DAILY_LOSS_LIMIT","production":"BLOCKED"}
