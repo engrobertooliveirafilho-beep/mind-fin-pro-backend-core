@@ -20,3 +20,16 @@ def test_second_paper_order_must_not_exceed_one_slot_without_settlement(tmp_path
     assert first["decision"] == "ACCEPT_SIMULATED_ORDER"
     second = g.submit_order("PAPER", trade(), regime(), genome())
     assert second["decision"] == "BLOCKED_PAPER_SESSION"
+
+
+@pytest.mark.xfail(strict=True, reason="ET665.R331: outstanding PAPER risk is not reserved atomically")
+def test_second_paper_order_must_respect_outstanding_risk(tmp_path):
+    g = gateway(tmp_path)
+    session_path = tmp_path / "session.json"
+    session = json.loads(session_path.read_text(encoding="utf-8"))
+    session["max_daily_loss"] = 600
+    session_path.write_text(json.dumps(session), encoding="utf-8")
+    first = g.submit_order("PAPER", trade(), regime(), genome())
+    assert first["decision"] == "ACCEPT_SIMULATED_ORDER"
+    second = g.submit_order("PAPER", trade(), regime(), genome())
+    assert second["decision"] == "BLOCKED_PAPER_SESSION"
