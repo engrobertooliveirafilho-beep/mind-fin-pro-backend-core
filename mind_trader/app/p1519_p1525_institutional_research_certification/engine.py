@@ -43,6 +43,8 @@ def load_dataset(name):
                     if close <= 0:
                         raise ValueError("dataset close price must be positive")
                     rows.append({**row, "close": close})
+                if not rows:
+                    raise ValueError("dataset contains no price observations")
                 return rows
     raise FileNotFoundError("dataset not found in approved roots")
 
