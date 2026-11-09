@@ -113,7 +113,7 @@ class ExecutionGateway:
                 paper_broker={"decision":"PAPER_BROKER_EXCEPTION","production":"BLOCKED","live":"FORBIDDEN","real_broker_routing":"DISABLED"}
             if not isinstance(paper_broker,dict) or paper_broker.get("decision")!="PAPER_ORDER_ACCEPTED" or not isinstance(paper_broker.get("fill"),dict) or paper_broker["fill"].get("filled") is not True or paper_broker.get("production")!="BLOCKED" or paper_broker.get("live")!="FORBIDDEN" or paper_broker.get("real_broker_routing")!="DISABLED":
                 allowed=False
-                checks.append({"layer":"PAPER_BROKER","ok":False,"reason":"PAPER_BROKER_NOT_ACCEPTED"})
+                checks.append({"layer":"PAPER_BROKER","ok":False,"reason":"PAPER_BROKER_EXCEPTION" if isinstance(paper_broker,dict) and paper_broker.get("decision")=="PAPER_BROKER_EXCEPTION" else "PAPER_BROKER_NOT_ACCEPTED"})
 
         return write_execution_ledger({"mode":mode,"symbol":trade.symbol,"strategy_id":trade.strategy_id,"genome_id":genome.get("genome_id"),"regime":regime_report.get("regime"),"ftmo_config_version":self.ftmo_ruleset.get("version"),"ftmo_config_hash":self.ftmo_config_valid.get("hash"),"checks":checks,"paper_broker":paper_broker,"decision":"ACCEPT_SIMULATED_ORDER" if allowed else "REJECT_ORDER","order_status":"SIMULATED_ACCEPTED" if allowed else "SIMULATED_REJECTED","production":"BLOCKED","real_broker_routing":"DISABLED","edge_claim":"NONE"},self.ledger_path)
 
