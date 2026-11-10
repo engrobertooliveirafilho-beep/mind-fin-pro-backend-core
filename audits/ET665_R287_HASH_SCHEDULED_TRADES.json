@@ -1,0 +1,34 @@
+{
+  "audit": "ET665.R287",
+  "date": "2026-11-10",
+  "source": {
+    "drive_file_id": "1N3fiXTa3Stl_WXjQZYObI3usSLf3MM8-",
+    "file": "p2403e_rebuild_de40_replay_series.py",
+    "summary_file_id": "1SSMXzawW8lqvk7_JWUQE4p9U-E7k4inb",
+    "historical_report_file_id": "12IpbH95cdfLVI9qRvDqUuevx_62uUgul"
+  },
+  "verified_code_behavior": [
+    "seed = sha256(edge_id + '|DE40|M15')",
+    "stride = 5 + (seed % 19)",
+    "offset = seed % stride",
+    "hold = 2 + (seed % 10)",
+    "entries selected by range(offset, len(candles)-hold-1, stride), not edge strategy signal",
+    "direction inherited from P2402 pool",
+    "pnl_r derived from OHLC exit-close versus entry-close divided by mean high-low range",
+    "pnl_r clipped to [-2.5,2.5]",
+    "max_trades = 220 per edge"
+  ],
+  "observed_historical_output": {
+    "candles_parsed": 5000,
+    "trade_rows_built": 4400,
+    "edges": 20,
+    "source_path": "mind_trader/data/raw/mt5/MT5_GER40_M15_raw.csv"
+  },
+  "correction_to_r286": "P2403E source code confirms historical OHLC path was MT5_GER40_M15_raw.csv; exact byte equivalence to recovered DE40 file remains unproven. Stronger issue: trade entry timing is hash-derived, not verified strategy signal.",
+  "certification": "INVALID_FOR_CAUSAL_WALK_FORWARD",
+  "reason": "OHLC-based PnL on hash-scheduled entries is not evidence of strategy alpha or out-of-sample causal signals",
+  "runtime_promotion_allowed": false,
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "next_required": "Recover actual P2402 candidate signal rules, replay on source-matched OHLC with strictly point-in-time signals, verify train/test boundaries, independently recompute PnL."
+}
