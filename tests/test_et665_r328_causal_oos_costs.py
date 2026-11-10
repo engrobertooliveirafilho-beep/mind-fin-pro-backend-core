@@ -204,6 +204,35 @@ class CausalOOSTests(unittest.TestCase):
         self.assertTrue(any("INVALID_CSV_SCHEMA" in issue or "IMMUTABLE_SNAPSHOT_REJECTED" in issue
                             for issue in result["issues"]))
 
+    def test_high_execution_costs_reverse_positive_expectancy(self):
+        rows = self.dataset()
+        for row in rows:
+            row[6], row[7], row[8] = "0.6", "0.5", "0.2"
+        result = self.evaluate(rows)
+        self.assertEqual(result["decision"], "RESEARCH_ONLY_OOS_METRICS_AVAILABLE")
+        self.assertAlmostEqual(result["windows"]["test"]["net_expectancy_r"], -0.3)
+        self.assertLess(result["windows"]["test"]["net_total_r"], 0)
+        self.assertFalse(result["runtime_promotion_allowed"])
+
+    def test_trade_crossing_train_boundary_is_purged(self):
+        rows = self.dataset()
+        signal = datetime(2025, 1, 31, 23, 58, tzinfo=timezone.utc)
+        rows[29] = self.row(30, "train-cross", signal=signal,
+                            entry=signal + timedelta(minutes=1),
+                            exit=signal + timedelta(minutes=5))
+        result = self.evaluate(rows)
+        self.assertIn("TRAIN_INSUFFICIENT_SAMPLES", result["issues"])
+        self.assertEqual(result["decision"], "BLOCKED")
+
+    def test_zero_gross_with_costs_is_net_loss(self):
+        rows = self.dataset()
+        for row in rows:
+            row[5] = "0"
+        result = self.evaluate(rows)
+        self.assertAlmostEqual(result["windows"]["test"]["net_expectancy_r"], -0.3)
+        self.assertAlmostEqual(result["windows"]["test"]["net_total_r"], -9.0)
+        self.assertFalse(result["real_execution_allowed"])
+
 
 if __name__ == "__main__":
     unittest.main()
