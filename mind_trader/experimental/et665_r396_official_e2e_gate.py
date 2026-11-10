@@ -16,6 +16,8 @@ def verify(root, manifest):
         return {"status": "FAIL_CLOSED", "errors": ["manifest must be object"], "hp19": 0, "phase_b": 0}
     counts = {}
     seen_runs = set()
+    # A manifest authored by the executor cannot attest its own historical identity.
+    # This structural gate deliberately never awards certification.
     for group, expected in (("hp19", 19), ("phase_b", 16)):
         entries = manifest.get(group)
         passed = 0
@@ -68,7 +70,7 @@ def verify(root, manifest):
                     seen_runs.add(run_key)
                     passed += 1
         counts[group] = passed
-    return {"status": "EVIDENCE_READY_FOR_HUMAN_REVIEW" if not errors and counts == {"hp19":19,"phase_b":16} else "FAIL_CLOSED",
+    return {"status": "STRUCTURAL_EVIDENCE_ONLY" if not errors and counts == {"hp19":19,"phase_b":16} else "FAIL_CLOSED",
             "hp19": counts["hp19"], "phase_b": counts["phase_b"], "errors": errors,
             "note": "No automatic historical equivalence or official certification."}
 
@@ -87,7 +89,7 @@ def main():
     except (OSError, ValueError) as exc:
         result = {"status":"FAIL_CLOSED","errors":[type(exc).__name__]}
     print(json.dumps(result, sort_keys=True))
-    return 0 if result["status"] == "EVIDENCE_READY_FOR_HUMAN_REVIEW" else 1
+    return 0 if result["status"] == "STRUCTURAL_EVIDENCE_ONLY" else 1
 
 if __name__ == "__main__":
     raise SystemExit(main())
