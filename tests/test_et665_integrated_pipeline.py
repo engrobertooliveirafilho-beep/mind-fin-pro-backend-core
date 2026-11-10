@@ -149,3 +149,29 @@ def test_actual_p2406_roster_cannot_reach_contextual_quorum():
         assert not d.allowed and d.votes==1 and d.reason=="QUORUM_NOT_REACHED"
         d=p6.build_ensemble(roster,1,.62,.40).vote(ctx)
         assert not d.allowed and d.reason=="FAMILY_CONCENTRATION_EXCEEDED"
+
+def test_ohlc_accepts_original_mt5_time_column():
+    rows=[{**row,"time":row["timestamp"]} for row in candles()]
+    for row in rows: row.pop("timestamp")
+    assert len(p3.validate_candles(rows))==4
+
+def test_currency_conversion_uses_last_completed_fx_bar_without_lookahead():
+    signal={"edge_id":"E3","signal_time":ts(1,0),"exit_time":ts(1,30),
+            "side":"BUY","stop_price":99,"exit_price":103}
+    fx=[{"timestamp":ts(1,15),"close":1.12},{"timestamp":ts(1,30),"close":1.99}]
+    s=spec(account_currency="USD",profit_currency="EUR",profit_to_account_fx=None,
+           conversion_adjustment_rate=.007)
+    t=p3.build_trade_candidates(candles(),[signal],s,fx_candles=fx)[0]
+    assert t["profit_to_account_fx"]==1.12
+    assert t["fx_source_timestamp"]==ts(1,30)
+    with pytest.raises(ValueError):
+        p3.build_trade_candidates(candles(),[signal],s,fx_candles=None)
+
+def test_canonical_eurusd_m15_fx_source():
+    path=ROOT/"mind_trader/data/raw/mt5/MT5_EURUSD_M15_raw.csv"
+    rows=list(csv.DictReader(open(path,encoding="utf-8")))
+    assert len(rows)==5000
+    assert rows[0]["time"]=="2026-04-08 22:00:00"
+    assert rows[-1]["time"]=="2026-06-19 23:45:00"
+    rate,source=p3._causal_fx_rate(rows,datetime.fromisoformat("2026-06-19T21:45:00"),15)
+    assert rate is not None and source=="2026-06-19T21:30:00"
