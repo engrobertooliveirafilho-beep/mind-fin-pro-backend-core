@@ -44,6 +44,8 @@ class SymlinkSwapTests(unittest.TestCase):
             self.assertEqual(result["issues"], ["ATOMIC_NOFOLLOW_UNAVAILABLE"])
 
     def test_regular_file_still_verifies(self):
+        if not hasattr(os, "O_NOFOLLOW"):
+            self.skipTest("Atomic no-follow unsupported; fail-closed is expected")
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "source.csv"
             data = b"edge_id,timestamp,pnl_r\na,1,1\n"
