@@ -4,7 +4,6 @@ Research-only. This validates declared CSV structure and computes net-R
 statistics in caller-defined chronological windows. It cannot independently
 prove signal causality, source authority, or runtime eligibility.
 """
-import hashlib
 import math
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -79,27 +78,14 @@ def evaluate_causal_oos_csv(
         result["issues"] = ["INVALID_WINDOW_CONFIGURATION"]
         return result
 
-    try:
-        path = Path(source)
-        if path.is_symlink() or not path.is_file():
-            result["issues"] = ["INVALID_SOURCE"]
-            return result
-        digest = hashlib.sha256(path.read_bytes()).hexdigest()
-    except (OSError, TypeError, ValueError):
-        result["issues"] = ["UNREADABLE_SOURCE"]
-        return result
-    result["source_sha256"] = digest
-    if not isinstance(expected_sha256, str) or len(expected_sha256) != 64:
-        result["issues"] = ["EXPECTED_SOURCE_SHA256_REQUIRED"]
-        return result
-    if digest.lower() != expected_sha256.lower():
-        result["issues"] = ["SOURCE_SHA256_MISMATCH"]
-        return result
-
     snapshot = snapshot_verified_csv(source, expected_sha256)
     if not snapshot["verified"]:
         result["issues"] = ["IMMUTABLE_SNAPSHOT_REJECTED"] + snapshot["issues"]
         return result
+    # The immutable reader verified the exact opened file descriptor against
+    # this digest; avoid a second path-based read (TOCTOU).
+    result["source_sha256"] = expected_sha256.lower()
+
     rows = snapshot["rows"]
     if not rows:
         result["issues"] = ["NO_TRADES"]
