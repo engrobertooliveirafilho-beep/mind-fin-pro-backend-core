@@ -50,7 +50,8 @@ def evaluate(root, manifest):
     agents = {k: verified(v) for k, v in doc["agents"].items()}
     return {"fronts_pass": sum(fronts.values()), "agents_pass": sum(agents.values()),
             "fronts_total": 16, "agents_total": 19,
-            "evidence_complete": all(fronts.values()) and all(agents.values()),\n            "certified": False,
+            "evidence_complete": all(fronts.values()) and all(agents.values()),
+            "certified": False,
             "real_component_hash_verified": True,
             "warning": "Hash-matched PASS evidence alone does not prove behavioral execution or independence."}
 
