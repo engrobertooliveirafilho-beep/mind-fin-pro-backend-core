@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 from .et665_r305_pinned_authority_gate import verify_pinned_manifest
 from .et665_r309_pure_correlation import analyze_paper_series
+from .et665_r315_immutable_csv_snapshot import snapshot_verified_csv
 
 QUARANTINED=frozenset({"de40_cycle_events.csv","p2403b_edge_trade_series.csv",
                        "p2403e_de40_edge_trade_series.csv"})
@@ -47,26 +48,23 @@ def analyze_verified_paper_csv(source, manifest, trusted_manifest_sha256, *, sou
     except (OSError,ValueError,TypeError,KeyError,UnicodeError):
         result["issues"]=["PROVENANCE_METADATA_INVALID"]
         return result
+    # Parse the exact verified byte snapshot, not a second read of source.
+    snapshot=snapshot_verified_csv(source,entry["sha256"])
+    if not snapshot["verified"]:
+        result["issues"]=snapshot["issues"]
+        return result
+    rows=[]
+    for index,row in enumerate(snapshot["rows"],1):
+        if index>MAX_ROWS:
+            result["issues"]=["ROW_LIMIT_EXCEEDED"]
+            return result
+        try:
+            pnl=float(row["pnl_r"])
+        except (ValueError,TypeError):
+            result["issues"]=["INVALID_PNL"]
+            return result
+        rows.append({"edge_id":row["edge_id"],"timestamp":row["timestamp"],"pnl_r":pnl})
     try:
-        with Path(source).open("r",encoding="utf-8-sig",newline="") as handle:
-            reader=csv.DictReader(handle,strict=True)
-            if reader.fieldnames is None or tuple(reader.fieldnames)!=EXPECTED:
-                result["issues"]=["INVALID_CSV_SCHEMA"]
-                return result
-            rows=[]
-            for index,row in enumerate(reader,1):
-                if index>MAX_ROWS:
-                    result["issues"]=["ROW_LIMIT_EXCEEDED"]
-                    return result
-                if None in row or any(v is None for v in row.values()):
-                    result["issues"]=["MALFORMED_CSV"]
-                    return result
-                try:
-                    pnl=float(row["pnl_r"])
-                except (ValueError,TypeError):
-                    result["issues"]=["INVALID_PNL"]
-                    return result
-                rows.append({"edge_id":row["edge_id"],"timestamp":row["timestamp"],"pnl_r":pnl})
         analysis=analyze_paper_series(rows)
         result.update({"issues":analysis["issues"],"pairs":analysis["pairs"],
                        "analysis_valid":analysis["analysis_valid"]})
