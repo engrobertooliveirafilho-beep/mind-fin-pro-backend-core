@@ -159,8 +159,12 @@ def evaluate_cost_aware_oos_csv(
         result["issues"] = ["OVERLAPPING_POSITIONS_REQUIRE_SEPARATE_MODEL"]
         return result
 
-    val_start = train_cut + timedelta(seconds=embargo_seconds)
-    test_start = validation_cut + timedelta(seconds=embargo_seconds)
+    try:
+        val_start = train_cut + timedelta(seconds=embargo_seconds)
+        test_start = validation_cut + timedelta(seconds=embargo_seconds)
+    except OverflowError:
+        result["issues"] = ["INVALID_WINDOW_CONFIGURATION"]
+        return result
     windows = {"train": [], "validation": [], "test": []}
     for row in parsed:
         if row["signal_time"] <= train_cut and row["exit_time"] <= train_cut:
