@@ -9,7 +9,7 @@ import os
 import stat
 from pathlib import Path
 
-def snapshot_verified_csv(source, expected_sha256, *, max_bytes=16_000_000):
+def snapshot_verified_csv(source, expected_sha256, *, max_bytes=16_000_000, expected_columns=None):
     result={"verified":False,"issues":[],"rows":[],"runtime_promotion_allowed":False}
     try:
         p=Path(source)
@@ -43,7 +43,11 @@ def snapshot_verified_csv(source, expected_sha256, *, max_bytes=16_000_000):
             return result
         stream=io.StringIO(payload.decode("utf-8-sig"),newline="")
         reader=csv.DictReader(stream,strict=True)
-        if reader.fieldnames!=["edge_id","timestamp","pnl_r"]:
+        allowed_columns = ["edge_id","timestamp","pnl_r"] if expected_columns is None else expected_columns
+        if not isinstance(allowed_columns, list) or not allowed_columns or not all(isinstance(x,str) and x for x in allowed_columns) or len(set(allowed_columns)) != len(allowed_columns):
+            result["issues"]=["INVALID_EXPECTED_COLUMNS"]
+            return result
+        if reader.fieldnames!=allowed_columns:
             result["issues"]=["INVALID_CSV_SCHEMA"]
             return result
         rows=[]
