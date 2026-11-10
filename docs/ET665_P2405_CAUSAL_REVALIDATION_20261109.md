@@ -30,16 +30,17 @@ FTMO_REAL=FORBIDDEN
 5. P2406's original runtime vote did not inspect context fields or direction and did not enforce the policy's family concentration cap. Its old test explicitly expected an empty context to approve a paper signal. The prior P2406 certificate is not valid for contextual voting.
 
 ## Integrated patch
-- P2403E: strict OHLC validation; actual strategy signals required as input; next-bar entry; spread, slippage, commission, financing and conversion adjustment separated; no hash-based trade generation.
+- P2403E: strict OHLC validation; actual strategy signals required as input; next-bar entry; spread, slippage, commission, financing and conversion adjustment separated; stop-risk sizing includes entry spread/slippage and requires an explicit stop-side spread assumption for SELL trades; no hash-based trade generation.
 - P2404: synchronized daily realized returns, explicit calendar, minimum observation gate and pairwise Pearson matrix.
 - P2405F: event-driven portfolio replay; fixed lot size per position; volume min/max/step; simultaneous entries share remaining aggregate risk capacity; chronological train/test with purge/embargo.
 - P2405E3: explicitly classified as candidate generation only; cannot certify performance or promote candidates.
 - P2406: session/regime/timeframe filtering, directional weighted confidence, unique edge quorum and family concentration cap.
+- Actual P2406 roster audit: 9 members occupy 9 unique session/regime/timeframe combinations, so the maximum context-matched vote count is 1 against quorum=3. The global family weight maximum is 34.066%, below 40%; however, within each isolated context the only active family's concentration is 100%. The current roster cannot satisfy contextual quorum and family concentration simultaneously.
 - All runtime-promotion and real-execution paths remain disabled.
 
 ## Test evidence
-- Local isolated suite: 11/11 PASS.
-- GitHub suite added at `tests/test_et665_integrated_pipeline.py`, including validation of the canonical 5,000-row OHLC file. GitHub Actions result remains pending.
+- Local isolated suite: 13/13 PASS.
+- GitHub suite added at `tests/test_et665_integrated_pipeline.py` (14 tests), including validation of the canonical 5,000-row OHLC file and the actual nine-member P2406 roster. GitHub Actions result remains pending.
 - Tests validate utility contracts and safety gates. They do not prove that the original P2402/P2405E3 candidate strategies generate valid signals or that broker costs/slippage are calibrated.
 
 ## Remaining blockers
