@@ -15,6 +15,8 @@ def build():
     execution=run()
     history=provenance()
     phase=phase_audit(Path("."),{"schema":"ET665.R365.v1","fronts":{}})
+    if execution["candidate_e2e_status"]!="PASS" or execution["cross_agent_decision"]!="HOLD_SPEND":
+        raise RuntimeError("unsafe cross-agent decision")
     if execution["candidate_executed"]!=19 or history["candidate_modules_executed"]!=19:
         raise RuntimeError("incomplete E2E execution")
     if execution["candidate_chain_sha256"]=="" or len(execution["candidate_chain_sha256"])!=64:
@@ -22,6 +24,8 @@ def build():
     if phase["verified"]!=0 or phase["total"]!=16 or set(phase["fronts"])!=set(FRONTS):
         raise RuntimeError("independent phase B evidence unexpectedly changed")
     independent=original_e2e_build()
+    if execution["cross_agent_decision"]!=independent["dependent_workflow"]["creative"]["recommendation"]:
+        raise RuntimeError("cross-agent decision mismatch")
     if execution["candidate_chain_sha256"]!=independent["orchestration"]["chain_sha256"]:
         raise RuntimeError("orchestration chain digest mismatch")
     if execution["input_sha256"]!=independent["input"]["input_sha256"]:
