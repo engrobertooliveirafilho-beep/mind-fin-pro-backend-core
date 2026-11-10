@@ -251,6 +251,17 @@ class CausalOOSTests(unittest.TestCase):
         result = self.evaluate(rows)
         self.assertIn("INVALID_TRADE_OR_PROVENANCE_METADATA", result["issues"])
 
+    def test_embargo_datetime_overflow_blocks_cleanly(self):
+        result = self.evaluate(
+            train_end="9999-12-29T00:00:00Z",
+            validation_end="9999-12-30T00:00:00Z",
+            test_end="9999-12-31T00:00:00Z",
+            embargo_seconds=31536000,
+        )
+        self.assertEqual(result["decision"], "BLOCKED")
+        self.assertIn("INVALID_WINDOW_CONFIGURATION", result["issues"])
+        self.assertFalse(result["real_execution_allowed"])
+
 
 if __name__ == "__main__":
     unittest.main()
