@@ -1,18 +1,23 @@
-"""Fail-closed pure scheduler extracted from Step450 findings; not wired into runtime."""
+"""Fail-closed pure scheduler; isolated adapter, not wired into runtime."""
+import math
 from typing import Iterable
 
 class DispatchRejected(ValueError):
     pass
 
+_ALLOWED_ROLES = {"orchestrator", "toolmaster", "researcher", "analyzer", "planner"}
+
 def allocate_shards(clusters: Iterable[dict], agents: Iterable[dict], fanout: int = 2):
-    clusters = list(clusters)
-    agents = list(agents)
+    clusters, agents = list(clusters), list(agents)
     if not isinstance(fanout, int) or isinstance(fanout, bool) or not 1 <= fanout <= 10:
         raise DispatchRejected("INVALID_FANOUT")
     if not clusters or not agents:
         raise DispatchRejected("EMPTY_TOPOLOGY")
-    cluster_ids = [c.get("cluster_id") for c in clusters]
-    agent_ids = [a.get("agent_id") for a in agents]
+    try:
+        cluster_ids = [c["cluster_id"] for c in clusters]
+        agent_ids = [a["agent_id"] for a in agents]
+    except (KeyError, TypeError):
+        raise DispatchRejected("INVALID_RECORD")
     if any(not isinstance(x, str) or not x.strip() for x in cluster_ids + agent_ids):
         raise DispatchRejected("INVALID_ID")
     if len(set(cluster_ids)) != len(cluster_ids):
@@ -20,26 +25,26 @@ def allocate_shards(clusters: Iterable[dict], agents: Iterable[dict], fanout: in
     if len(set(agent_ids)) != len(agent_ids):
         raise DispatchRejected("DUPLICATE_AGENT_ID")
     for c in clusters:
-        if not isinstance(c.get("capacity"), int) or isinstance(c.get("capacity"), bool) or c["capacity"] < 1:
+        cap, latency = c.get("capacity"), c.get("latency_ms")
+        if not isinstance(cap, int) or isinstance(cap, bool) or cap < 1:
             raise DispatchRejected("INVALID_CAPACITY")
-        if not isinstance(c.get("latency_ms"), (int, float)) or c["latency_ms"] < 0:
+        if isinstance(latency, bool) or not isinstance(latency, (int, float)) or not math.isfinite(latency) or latency < 0:
             raise DispatchRejected("INVALID_LATENCY")
     for a in agents:
-        if not isinstance(a.get("weight", 0.5), (int, float)) or not 0 <= a.get("weight", 0.5) <= 1:
+        weight, role = a.get("weight", 0.5), a.get("role")
+        if isinstance(weight, bool) or not isinstance(weight, (int, float)) or not math.isfinite(weight) or not 0 <= weight <= 1:
             raise DispatchRejected("INVALID_WEIGHT")
-    requested = len(agents) * fanout
-    available = sum(c["capacity"] for c in clusters)
-    if requested > available:
+        if role not in _ALLOWED_ROLES:
+            raise DispatchRejected("INVALID_ROLE")
+    if len(agents) * fanout > sum(c["capacity"] for c in clusters):
         raise DispatchRejected("INSUFFICIENT_CAPACITY")
     remaining = {c["cluster_id"]: c["capacity"] for c in clusters}
-    by_id = {c["cluster_id"]: c for c in clusters}
     assignments = []
     for agent in sorted(agents, key=lambda x: x["agent_id"]):
         for shard in range(1, fanout + 1):
             eligible = [c for c in clusters if remaining[c["cluster_id"]] > 0]
-            # Prefer available capacity while penalizing latency; stable ID tie-break.
             chosen = min(eligible, key=lambda c: (
-                -(remaining[c["cluster_id"]] / c["capacity"]) * (0.5 + agent.get("weight", 0.5)) / (1 + c["latency_ms"] / 100),
+                -(remaining[c["cluster_id"]] / c["capacity"]) / (1 + c["latency_ms"] / 100),
                 c["cluster_id"],
             ))
             cid = chosen["cluster_id"]
