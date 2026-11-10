@@ -1,4 +1,4 @@
-name: ET665 R327 offline CSV validator
+name: ET665 R327-R328 offline validator
 
 on:
   push:
@@ -14,6 +14,8 @@ on:
     paths:
       - "mind_trader/research/et665_r326_causal_walk_forward.py"
       - "tests/test_et665_r326_causal_walk_forward.py"
+      - "mind_trader/research/et665_r328_causal_oos_costs.py"
+      - "tests/test_et665_r328_causal_oos_costs.py"
       - ".github/workflows/et665-r327-offline.yml"
 
 permissions:
