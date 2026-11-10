@@ -19,8 +19,13 @@ def snapshot_verified_csv(source, expected_sha256, *, max_bytes=16_000_000):
         if not isinstance(expected_sha256,str) or len(expected_sha256)!=64 or any(c not in "0123456789abcdefABCDEF" for c in expected_sha256):
             result["issues"]=["EXPECTED_HASH_REQUIRED"]
             return result
+        # Fail closed on platforms without atomic no-follow support (including Windows).
+        # Do not silently fall back to a race-prone path check.
+        if not hasattr(os, "O_NOFOLLOW"):
+            result["issues"]=["ATOMIC_NOFOLLOW_UNAVAILABLE"]
+            return result
         # Reject a symlink substituted after path validation; read only the opened inode.
-        flags = os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0)
+        flags = os.O_RDONLY | os.O_NOFOLLOW
         fd = os.open(p, flags)
         with os.fdopen(fd, "rb") as handle:
             if not stat.S_ISREG(os.fstat(handle.fileno()).st_mode):
