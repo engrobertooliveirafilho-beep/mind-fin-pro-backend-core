@@ -21,7 +21,14 @@ HISTORICAL_FIRST_19 = (
 )
 
 def _canonical(value):
-    return value.replace("_", ".", 1) if isinstance(value, str) else value
+    """Map only explicitly authorized IDs; never guess separators."""
+    if not isinstance(value, str):
+        raise RuntimeError("invalid agent identity type")
+    aliases = {dotted.replace(".", "_", 1): dotted for dotted in HISTORICAL_FIRST_19}
+    aliases.update({dotted: dotted for dotted in HISTORICAL_FIRST_19})
+    if value not in aliases:
+        raise RuntimeError("unknown agent identity: " + value)
+    return aliases[value]
 
 def audit():
     expected = HISTORICAL_FIRST_19
