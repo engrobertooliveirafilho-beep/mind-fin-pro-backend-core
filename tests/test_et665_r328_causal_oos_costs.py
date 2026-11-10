@@ -8,7 +8,7 @@ from pathlib import Path
 
 from mind_trader.research.et665_r328_causal_oos_costs import (
     EXPECTED_COLUMNS,
-    evaluate_causal_oos_csv,
+    evaluate_cost_aware_oos_csv,
 )
 
 
@@ -181,6 +181,18 @@ class CausalOOSTests(unittest.TestCase):
         rows[0], rows[1] = rows[1], rows[0]
         result = self.evaluate(rows)
         self.assertIn("NONCHRONOLOGICAL_SIGNALS", result["issues"])
+
+    def test_multiple_edges_must_be_evaluated_separately(self):
+        rows = self.dataset()
+        rows[30][0] = "edge-b"
+        result = self.evaluate(rows)
+        self.assertIn("ONE_EDGE_PER_EVALUATION_REQUIRED", result["issues"])
+
+    def test_overlapping_positions_are_blocked(self):
+        rows = self.dataset()
+        rows[1][4] = (datetime(2025, 1, 1, tzinfo=timezone.utc) + timedelta(days=3)).isoformat()
+        result = self.evaluate(rows)
+        self.assertIn("OVERLAPPING_POSITIONS_REQUIRE_SEPARATE_MODEL", result["issues"])
 
     def test_wrong_schema_blocks(self):
         self.path.write_text("edge_id,signal_id\nx,y\n", encoding="utf-8")
