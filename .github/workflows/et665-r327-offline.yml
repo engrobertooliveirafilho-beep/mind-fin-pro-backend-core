@@ -1,0 +1,44 @@
+name: ET665 R327 offline CSV validator
+
+on:
+  push:
+    branches:
+      - audit/et665-r317-csv-guard-regressions
+    paths:
+      - "mind_trader/research/et665_r326_causal_walk_forward.py"
+      - "tests/test_et665_r326_causal_walk_forward.py"
+      - ".github/workflows/et665-r327-offline.yml"
+  pull_request:
+    paths:
+      - "mind_trader/research/et665_r326_causal_walk_forward.py"
+      - "tests/test_et665_r326_causal_walk_forward.py"
+      - ".github/workflows/et665-r327-offline.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  offline-docker:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout isolated branch
+        uses: actions/checkout@v4
+      - name: Pull pinned Python test image
+        run: docker pull python:3.11-slim
+      - name: Run adversarial suite without network or write access
+        run: |
+          docker run --rm \
+            --network none \
+            --read-only \
+            --tmpfs /tmp:rw,noexec,nosuid,size=64m \
+            --cap-drop ALL \
+            --security-opt no-new-privileges \
+            --pids-limit 128 \
+            --user 65534:65534 \
+            -e PYTHONDONTWRITEBYTECODE=1 \
+            -e PYTHONPATH=/workspace \
+            -v "${{ github.workspace }}:/workspace:ro" \
+            -w /workspace \
+            python:3.11-slim \
+            python -m unittest discover -s tests -p "test_et665_r326_causal_walk_forward.py" -v
