@@ -51,7 +51,7 @@ class SafeDispatchBehavior(unittest.TestCase):
 
     def test_error_and_stub_results_rejected(self):
         dispatch = load_dispatch()
-        for result in ({"error": "failed"}, {"status": "stub"}, {"not_implemented": True}, {}, None):
+        for result in ({"error": "failed"}, {"status": "stub"}, {"status": "ok", "mode": "stub"}, {"status": "not_implemented", "mode": "stub"}, {"not_implemented": True}, {}, None):
             with self.subTest(result=result):
                 fake = types.SimpleNamespace(run_dry=lambda payload: result)
                 with patch.object(dispatch, "import_module", return_value=fake):
