@@ -26,6 +26,7 @@ def run(root, manifest, output):
         if not isinstance(components,list) or not components:
             raise ValueError("empty component inventory")
         seen=set()
+        seen_sources=set()
         if len(components) != 19:
             raise ValueError("HP19 requires exactly 19 original components")
         for index,item in enumerate(components):
@@ -41,6 +42,9 @@ def run(root, manifest, output):
             component=component_path.resolve()
             if not component.is_relative_to(root) or not component.is_file() or component_path.is_symlink():
                 raise ValueError("unsafe component")
+            if component in seen_sources:
+                raise ValueError("reused component source cannot prove 19 historical motors")
+            seen_sources.add(component)
             if sha(component)!=expected:
                 raise ValueError("source hash mismatch")
             input_path = root / item["input"]
