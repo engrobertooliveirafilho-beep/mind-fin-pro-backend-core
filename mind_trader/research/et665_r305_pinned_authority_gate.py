@@ -12,7 +12,7 @@ _HEX = re.compile(r"^[0-9a-fA-F]{64}$")
 def verify_pinned_manifest(source, manifest, trusted_manifest_sha256, *, source_id):
     out = {"authority_integrity_verified":False,"source_integrity_verified":False,
            "causal_signal_verified":False,"runtime_promotion_allowed":False,
-           "status":"QUARANTINE","issues":[]}
+           "status":"QUARANTINE","issues":[],"verified_entry":None}
     if not isinstance(trusted_manifest_sha256,str) or not _HEX.fullmatch(trusted_manifest_sha256):
         out["issues"].append("TRUST_ANCHOR_REQUIRED")
         return out
@@ -57,6 +57,8 @@ def verify_pinned_manifest(source, manifest, trusted_manifest_sha256, *, source_
             out["issues"].append("SOURCE_HASH_MISMATCH")
             return out
         out["source_integrity_verified"]=True
+        # Return metadata from the same SHA-256-pinned manifest bytes.
+        out["verified_entry"]=dict(item)
     except (OSError,ValueError,TypeError,UnicodeError):
         out["issues"].append("MANIFEST_OR_SOURCE_UNREADABLE")
     return out
