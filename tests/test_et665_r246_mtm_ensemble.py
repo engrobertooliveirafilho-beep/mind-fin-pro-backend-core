@@ -55,3 +55,14 @@ def test_three_independent_families_feasible_not_certified():
 def test_same_family_rejected():
     rows = [member("A","F1"),member("B","F1"),member("C","F1")]
     assert ensemble_feasibility(rows)["feasible_contexts"] == 0
+
+def test_exit_bar_adverse_excursion_precedes_profitable_fill():
+    bars = [bar(0, 100, 100), bar(15, 100, 100), bar(30, 70, 105)]
+    out = floating_equity(bars, [position(exit_fill=101)], 1000, .01, 1)
+    assert out["equity_end"] == 1001
+    assert out["max_intrabar_adverse_drawdown_pct"] >= 3
+
+def test_entry_bar_does_not_apply_pre_entry_extreme():
+    bars = [bar(0, 10, 110), bar(15, 100, 100), bar(30, 101, 101)]
+    out = floating_equity(bars, [position()], 1000, .01, 1)
+    assert out["curve"][0]["floating_pnl"] == 0
