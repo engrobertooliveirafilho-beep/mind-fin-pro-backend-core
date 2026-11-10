@@ -10,6 +10,7 @@ from .et665_r309_pure_correlation import analyze_paper_series
 QUARANTINED=frozenset({"de40_cycle_events.csv","p2403b_edge_trade_series.csv",
                        "p2403e_de40_edge_trade_series.csv"})
 EXPECTED=("edge_id","timestamp","pnl_r")
+MAX_ROWS=100_000
 
 def analyze_verified_paper_csv(source, manifest, trusted_manifest_sha256, *, source_id):
     result={"status":"QUARANTINE","issues":[],"analysis_valid":False,
@@ -37,6 +38,9 @@ def analyze_verified_paper_csv(source, manifest, trusted_manifest_sha256, *, sou
         if any(token in generator+" "+lineage for token in ("p2403e","sha256_stride","hash_scheduled","synthetic_entry")):
             result["issues"]=["NONCAUSAL_GENERATOR_QUARANTINED"]
             return result
+        if not isinstance(entry.get("generator"),str) or not entry["generator"].strip() or not isinstance(entry.get("lineage"),str) or not entry["lineage"].strip():
+            result["issues"]=["GENERATOR_LINEAGE_REQUIRED"]
+            return result
         if entry.get("independent_review") is not True:
             result["issues"]=["INDEPENDENT_REVIEW_REQUIRED"]
             return result
@@ -50,7 +54,10 @@ def analyze_verified_paper_csv(source, manifest, trusted_manifest_sha256, *, sou
                 result["issues"]=["INVALID_CSV_SCHEMA"]
                 return result
             rows=[]
-            for row in reader:
+            for index,row in enumerate(reader,1):
+                if index>MAX_ROWS:
+                    result["issues"]=["ROW_LIMIT_EXCEEDED"]
+                    return result
                 if None in row or any(v is None for v in row.values()):
                     result["issues"]=["MALFORMED_CSV"]
                     return result
