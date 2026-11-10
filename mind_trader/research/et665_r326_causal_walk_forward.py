@@ -10,6 +10,8 @@ from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
+MAX_SOURCE_BYTES = 64 * 1024 * 1024
+
 
 def evaluate_csv(path, *, expected_sha256=None):
     result = {
@@ -25,6 +27,9 @@ def evaluate_csv(path, *, expected_sha256=None):
         result["issues"].append("INVALID_SOURCE")
         return result
     try:
+        if p.stat().st_size > MAX_SOURCE_BYTES:
+            result["issues"].append("SOURCE_TOO_LARGE")
+            return result
         digest = hashlib.sha256(p.read_bytes()).hexdigest()
     except OSError:
         result["issues"].append("UNREADABLE_OR_INVALID_SOURCE")
