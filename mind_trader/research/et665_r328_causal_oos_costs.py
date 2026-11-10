@@ -77,7 +77,7 @@ def evaluate_cost_aware_oos_csv(
         result["issues"] = ["INVALID_WINDOW_CONFIGURATION"]
         return result
 
-    snapshot = snapshot_verified_csv(source, expected_sha256)
+    snapshot = snapshot_verified_csv(source, expected_sha256, expected_columns=EXPECTED_COLUMNS)
     if not snapshot["verified"]:
         result["issues"] = ["IMMUTABLE_SNAPSHOT_REJECTED"] + snapshot["issues"]
         return result
