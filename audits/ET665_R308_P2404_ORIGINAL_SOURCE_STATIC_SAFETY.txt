@@ -1,0 +1,10 @@
+ET665.R308 | 2026-11-10 | P2404 ORIGINAL DRIVE SOURCE STATIC AUDIT
+Source: https://drive.google.com/file/d/1sdjZ11FpRSiR0iaaUtfqt-ueFpZNsdVC/view ; 8504 bytes fetched as /mnt/data/p2404_correlation_analyzer.py.
+Original tests: https://drive.google.com/file/d/1JDpdRyTSnT4pXB8lueiJS-Ugxs-3do2O/view ; 2201 bytes fetched as /mnt/data/test_p2404_correlation_analyzer.py.
+Executed python -m py_compile on both: exit 0.
+Executed python -m pytest -q /mnt/data/et665_r308/test_p2404_static_safety.py : 6 passed in 0.05s.
+IMPORTANT: These six tests ASSERT THE PRESENCE OF RISKS; PASS does not mean P2404 is safe or certified.
+Findings: script has no __main__ guard; executes reading source and writing output at module import; OUT.mkdir(parents=True, exist_ok=True) and module.write_text directly modify filesystem; Windows absolute paths hardcoded; lacks independently verified causal signals and pinned-manifest verification; historical P2403E entries were hash-scheduled. Original 5 tests depend on P2404_OUT and historical Windows artifact tree, not executed here.
+Action: quarantine original P2404 script, no import/execute, no runtime integration. Next: extract pure correlation functions into side-effect-free offline library, enforce trusted source gate before running with explicit output directory, write new independent tests.
+Ledger: ET-706 pending Google Docs edit permission; previous attempt ET-705 returned HTTP 403 PERMISSION_DENIED.
+PHASE B OPEN; 0/16 fronts certified; 0/19 HP19; 0/20 causal edges; PAPER_ONLY; REAL_ORDERS FORBIDDEN; FTMO_REAL FORBIDDEN; NO MERGE; R$0.
