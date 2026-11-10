@@ -1,0 +1,3 @@
+# HP19 R263 — Replay ledger reset vulnerability
+
+Offline execution: 3/3 adversarial tests PASS, demonstrating that deleting or renaming SQLite ledger permits identical signed evidence to be accepted again by R262; this does not certify HP19. Additional deny-only preflight tests 4/4 PASS for missing ledger, missing schema, symlink, and valid schema (still not certification). The preflight is not integrated with R262 and is not a complete fix: existing ledger replacement and trusted durable state remain unresolved. Source and logs preserved locally in `HP19_R263_OFFLINE_EVIDENCE.zip`. HP19=0/19. Main and production untouched.
