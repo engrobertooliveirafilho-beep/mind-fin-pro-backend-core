@@ -1,0 +1,5 @@
+# HP19 R253 — actual offline execution evidence (2026-11-10)
+
+Environment: local Python, archived R246 sources, no production or network activity required by tests. Command: `cd /mnt/data/HP19_R246 && python -m unittest discover -s tests -v`. Result: **5 tests run, 5 PASS, 0 failures**, 0.027 s. Cases: original 19 contract IDs/families, all 19 placeholders, correct hashes rejected as placeholders, tampered hash rejected, missing authority rejected. Additional execution: `python /mnt/data/hp19_original_contract_probe.py` yielded `{ "total": 20, "executed": 19, "generic": 19, "syntax": 20 }`; total includes one non-agent registry source. **This is original-source execution, not specialized functional behavior**.
+
+R252 tests targeting the *two original MultiAgentSystem variants* remain **NOT RUN**: the five recovered source files are stored on GitHub audit branch but not present in this local runtime. Do not interpret R253 as R252 PASS. HP19 certified 0/19. No changes to production/main or activation.
