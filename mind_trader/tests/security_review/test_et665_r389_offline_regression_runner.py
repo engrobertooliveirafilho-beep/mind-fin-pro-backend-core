@@ -28,7 +28,7 @@ class R389(unittest.TestCase):
         class Passed:
             returncode=0
             stdout=""
-            stderr="Ran 19 tests in 0.417s\\n\\nOK\\n"
+            stderr="Ran 19 tests in 0.417s\n\nOK\n"
         with tempfile.TemporaryDirectory() as d,patch.object(m.subprocess,"run",return_value=Passed()):
             r=m.run(d)
             self.assertEqual(r["status"],"PASS")
@@ -36,7 +36,7 @@ class R389(unittest.TestCase):
         class Empty:
             returncode=0
             stdout=""
-            stderr="Ran 0 tests in 0.001s\\n\\nOK\\n"
+            stderr="Ran 0 tests in 0.001s\n\nOK\n"
         with tempfile.TemporaryDirectory() as d,patch.object(m.subprocess,"run",return_value=Empty()):
             self.assertEqual(m.run(d)["status"],"FAIL_CLOSED")
     def test_timeout_retains_fail_closed_evidence(self):
