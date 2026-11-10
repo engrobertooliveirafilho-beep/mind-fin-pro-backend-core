@@ -1,0 +1,9 @@
+# ET665.R325 — P2405F historical walk-forward is hash-derived (2026-11-10)
+
+SOURCE: Google Drive original p2405f_factory_walk_forward_validation.py, file ID 1vVB0zl24EujGEXR6Be1a-E8bF1N1WctC; SHA-256 36df2f9be5814bfbcbe62eb8e3b0064129674973cbdb05921005378c557e2916.
+AST/source inspection: eval_cand creates seed from edge_id/family/pattern/risk_model/filter; pf, wr, exp, dd, samples, windows are calculated via rnd(seed + metric), which uses SHA-256 modulus. No OHLC/trade/equity input to this metric calculation. Therefore historical 544 'promoted' labels are not empirical walk-forward validation.
+LOCAL EXECUTION: 2 source-grounded tests PASS in 0.003 seconds (AST check of all six hash-derived metrics; repeated eval_cand output equality on fixed candidate). Tests were executed against AST-extracted functions from the exact original Drive source; original script was NOT executed because it creates directories and accesses Windows evidence paths at import time.
+AUTHORITY: reject any runtime/portfolio promotion based on P2405F historical promoted_edges.csv; P2405E3 is combinatorial candidate enumeration, not proof of performance. P2405B already records OPTIMIZED_POOL_BLOCKED. Need causal OHLC/trade-derived walk-forward, time-split embargo, costs, drawdown and OOS evidence before reconsideration.
+Docker integrated tests NOT executed in this step; no live trading, no merge, no production modification.
+Ledger Google Docs edit permission remains blocked (403). This report is queued for master ledger reconciliation.
+PHASE_B=OPEN | CERTIFIED=0/16 | HP19=0/19 | PAPER_ONLY | REAL_ORDERS=FORBIDDEN | FTMO_REAL=FORBIDDEN | COST=R$0
