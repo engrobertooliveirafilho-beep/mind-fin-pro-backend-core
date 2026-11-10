@@ -24,6 +24,21 @@ class R389(unittest.TestCase):
             stderr=""
         with tempfile.TemporaryDirectory() as d,patch.object(m.subprocess,"run",return_value=Fake()):
             self.assertEqual(m.run(d)["status"],"FAIL_CLOSED")
+    def test_valid_unittest_log_accepted(self):
+        class Passed:
+            returncode=0
+            stdout=""
+            stderr="Ran 19 tests in 0.417s\\n\\nOK\\n"
+        with tempfile.TemporaryDirectory() as d,patch.object(m.subprocess,"run",return_value=Passed()):
+            r=m.run(d)
+            self.assertEqual(r["status"],"PASS")
+    def test_zero_tests_not_accepted(self):
+        class Empty:
+            returncode=0
+            stdout=""
+            stderr="Ran 0 tests in 0.001s\\n\\nOK\\n"
+        with tempfile.TemporaryDirectory() as d,patch.object(m.subprocess,"run",return_value=Empty()):
+            self.assertEqual(m.run(d)["status"],"FAIL_CLOSED")
     def test_real_orders_forbidden(self):
         class Passed:
             returncode=0
