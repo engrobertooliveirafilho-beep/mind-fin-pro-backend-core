@@ -1,0 +1,9 @@
+# ET665.R444 / ET-718 — P2392 historical trade-record reconciliation
+Date 2026-11-10. New original Google Drive source: `de40_edge_walkforward_detail.csv` file ID `1_4CeT43xblX5lFVJC8w3QbaM9hDo6kXf`, SHA256 `3c646c299d2a2ddf103189658b637fb6a933a54c226a1ad00033f6486a3c21e1`. Original `summary.json` file ID `11kEakj1qQxW7p4YjF1G2Wy7Gr4TVf_za`. This is **new, previously uninspected timestamped historical trade-result evidence**, distinct from P2401 synthetic metrics.
+
+Local validation script `et665_r444_p2392_evidence_validator.py`, report `ET665_R444_P2392_RECONCILIATION.json`: **10/10 consistency checks PASS** on 2535 rows, 40 candidate IDs. Historical best candidate `P2391_8149352397`: 152 dated trade outcomes, 90 positive, 62 negative, net 21.252146 R, PF approx 1.715719, five nonoverlapping chronological candidate windows with counts 30,30,30,30,32. Duplicate candidate+timestamp=0. Summary reconciles to trade-level results. This validates **internal arithmetic and chronology only**, not signal provenance, actual fills, cost realism, independent OOS validation or true walk-forward methodology. Historical P2392 source implementation is not present in the inspected evidence folder. `empirical_certified=false` remains fail-closed.
+
+Follow-up: locate original P2391 strategy signal generator and P2363C DE40 dataset, verify raw source hashes and signal derivation, commission/spread/slippage and truly held-out testing, then wire into P2393 gate and HP19 under PAPER_ONLY. Do not promote historical best candidate.
+
+Canonical Google Docs ledger ET-718 append attempted separately. Isolated audit staging only.
+`PHASE_B=0/16 | HP19=0/19 | E2E=FALSE | PAPER_ONLY | REAL_ORDERS=FORBIDDEN | FTMO_REAL=FORBIDDEN | R$0`
