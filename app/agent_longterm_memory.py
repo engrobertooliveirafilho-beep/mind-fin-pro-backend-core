@@ -3,6 +3,7 @@
 The original in-memory API remains the default. Set db_path explicitly to enable
 cross-instance persistence; no implicit files or network access are created.
 """
+from contextlib import contextmanager
 from dataclasses import dataclass
 from pathlib import Path
 import sqlite3
@@ -22,9 +23,18 @@ class AgentLongTermMemory:
             self._db_path.parent.mkdir(parents=True, exist_ok=True)
             self._initialize_store()
 
+    @contextmanager
     def _connect(self):
         assert self._db_path is not None
-        return sqlite3.connect(str(self._db_path), timeout=5.0)
+        conn = sqlite3.connect(str(self._db_path), timeout=5.0)
+        try:
+            yield conn
+            conn.commit()
+        except Exception:
+            conn.rollback()
+            raise
+        finally:
+            conn.close()
 
     def _initialize_store(self) -> None:
         with self._connect() as conn:
