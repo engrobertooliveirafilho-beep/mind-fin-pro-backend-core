@@ -17,10 +17,14 @@ class R397Gate(unittest.TestCase):
         def rec(name):
             return {"path": name, "sha256": hashlib.sha256((self.root/name).read_bytes()).hexdigest()}
         def entry(prefix, n):
+            output = f"{prefix}-{n}-output.json"
+            log = f"{prefix}-{n}-execution.log"
+            (self.root/output).write_text(json.dumps({"id": f"{prefix}-{n}", "y": 2}))
+            (self.root/log).write_text(f"{prefix}-{n}: PASS")
             return {"historical_id": f"{prefix}-{n}", "status":"PASS", "mode":"PAPER",
                     "synthetic":False, "independent_review":True, "reviewer":"external-reviewer",
                     "source":rec("component.py"),"input":rec("input.json"),
-                    "output":rec("output.json"),"execution_log":rec("execution.log")}
+                    "output":rec(output),"execution_log":rec(log)}
         self.manifest={"hp19":[entry("HP",i) for i in range(19)],
                        "phase_b":[entry("B",i) for i in range(16)]}
 
@@ -29,6 +33,11 @@ class R397Gate(unittest.TestCase):
         self.assertEqual(result["status"],"EVIDENCE_READY_FOR_HUMAN_REVIEW")
         self.assertEqual((result["hp19"],result["phase_b"]),(19,16))
         self.assertIn("No automatic",result["note"])
+
+    def test_reused_output_log_fails(self):
+        self.manifest["hp19"][1]["output"] = self.manifest["hp19"][0]["output"]
+        self.manifest["hp19"][1]["execution_log"] = self.manifest["hp19"][0]["execution_log"]
+        self.assertEqual(verify(self.root,self.manifest)["status"],"FAIL_CLOSED")
 
     def test_missing_motor_fails(self):
         self.manifest["hp19"].pop()
@@ -43,7 +52,7 @@ class R397Gate(unittest.TestCase):
         self.assertEqual(verify(self.root,self.manifest)["status"],"FAIL_CLOSED")
 
     def test_tampered_output_fails(self):
-        (self.root/"output.json").write_text('{"y":999}')
+        (self.root/"HP-0-output.json").write_text('{"y":999}')
         self.assertEqual(verify(self.root,self.manifest)["status"],"FAIL_CLOSED")
 
     def test_missing_review_fails(self):
