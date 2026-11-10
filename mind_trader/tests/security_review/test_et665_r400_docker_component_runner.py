@@ -12,7 +12,7 @@ class DockerComponentGate(unittest.TestCase):
         self.addCleanup(self.tmp.cleanup)
         self.root=Path(self.tmp.name)
         for i in range(19):
-            (self.root/f"component_{i:02d}.py").write_text("import sys\\nprint(sys.stdin.read())\\n")
+            (self.root/f"component_{i:02d}.py").write_text("import sys\nprint(sys.stdin.read())\n")
         (self.root/"input.json").write_text('{"real":true}')
         def sha(p): return hashlib.sha256((self.root/p).read_bytes()).hexdigest()
         self.data={"components":[{"historical_id":f"HP19-{i:02d}","component":f"component_{i:02d}.py",
