@@ -63,7 +63,7 @@ class CausalOOSTests(unittest.TestCase):
             embargo_seconds=86400,
         )
         args.update(kwargs)
-        return evaluate_causal_oos_csv(self.path, digest, **args)
+        return evaluate_cost_aware_oos_csv(self.path, digest, **args)
 
     def test_three_chronological_windows_are_reported(self):
         result = self.evaluate()
@@ -78,19 +78,19 @@ class CausalOOSTests(unittest.TestCase):
 
     def test_hash_mismatch_blocks(self):
         self.write(self.dataset())
-        result = evaluate_causal_oos_csv(
+        result = evaluate_cost_aware_oos_csv(
             self.path, "0"*64, train_end=self.train_end,
             validation_end=self.validation_end, test_end=self.test_end,
         )
-        self.assertIn("SOURCE_HASH_MISMATCH", result["issues"])
+        self.assertIn("IMMUTABLE_SNAPSHOT_REJECTED", result["issues"])
 
     def test_missing_expected_hash_blocks(self):
         self.write(self.dataset())
-        result = evaluate_causal_oos_csv(
+        result = evaluate_cost_aware_oos_csv(
             self.path, None, train_end=self.train_end,
             validation_end=self.validation_end, test_end=self.test_end,
         )
-        self.assertIn("EXPECTED_HASH_REQUIRED", result["issues"])
+        self.assertIn("IMMUTABLE_SNAPSHOT_REJECTED", result["issues"])
 
     def test_invalid_window_order_blocks(self):
         result = self.evaluate(
@@ -197,7 +197,7 @@ class CausalOOSTests(unittest.TestCase):
     def test_wrong_schema_blocks(self):
         self.path.write_text("edge_id,signal_id\nx,y\n", encoding="utf-8")
         digest = hashlib.sha256(self.path.read_bytes()).hexdigest()
-        result = evaluate_causal_oos_csv(
+        result = evaluate_cost_aware_oos_csv(
             self.path, digest, train_end=self.train_end,
             validation_end=self.validation_end, test_end=self.test_end,
         )
