@@ -48,4 +48,12 @@ def run_agent(agent_id: str, payload: Any = None) -> dict:
         raise RuntimeError("agent returned failure or placeholder")
     if not result:
         raise RuntimeError("agent returned empty result")
+    # Identity is mandatory: a different agent must never impersonate the requested one.
+    claimed = result.get("agent_id")
+    if not isinstance(claimed, str) or claimed.replace(".", "_") != agent_id:
+        raise RuntimeError("agent identity mismatch or missing")
+    if result.get("status") != "processed":
+        raise RuntimeError("agent has not proved processing")
+    if result.get("real_orders") != "FORBIDDEN" or result.get("promotion_authorized") is not False:
+        raise RuntimeError("agent result lacks safety assertions")
     return result
