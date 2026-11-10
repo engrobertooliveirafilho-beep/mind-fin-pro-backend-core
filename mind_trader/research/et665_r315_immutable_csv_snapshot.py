@@ -5,6 +5,8 @@ Never certifies causality or enables trading.
 import hashlib
 import io
 import csv
+import os
+import stat
 from pathlib import Path
 
 def snapshot_verified_csv(source, expected_sha256, *, max_bytes=16_000_000):
@@ -17,7 +19,13 @@ def snapshot_verified_csv(source, expected_sha256, *, max_bytes=16_000_000):
         if not isinstance(expected_sha256,str) or len(expected_sha256)!=64 or any(c not in "0123456789abcdefABCDEF" for c in expected_sha256):
             result["issues"]=["EXPECTED_HASH_REQUIRED"]
             return result
-        with p.open("rb") as handle:
+        # Reject a symlink substituted after path validation; read only the opened inode.
+        flags = os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0)
+        fd = os.open(p, flags)
+        with os.fdopen(fd, "rb") as handle:
+            if not stat.S_ISREG(os.fstat(handle.fileno()).st_mode):
+                result["issues"]=["INVALID_SOURCE_PATH"]
+                return result
             payload=handle.read(max_bytes+1)
         if len(payload)>max_bytes:
             result["issues"]=["SOURCE_TOO_LARGE"]
