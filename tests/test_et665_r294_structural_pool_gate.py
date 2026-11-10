@@ -32,3 +32,17 @@ def test_correlation_gate_cannot_be_skipped():
     r=row(1);r["next_required"]="NONE"
     result=audit_structural_pool([r])
     assert "CORRELATION_GATE_MISSING" in result["issues"]
+
+def test_malformed_row_fail_closed():
+    r=audit_structural_pool([None])
+    assert r["issues"]==["MALFORMED_ROW"] and not r["runtime_promotion_allowed"]
+
+def test_unhashable_family_key_fail_closed():
+    r=row(1);r["family_key"]=[]
+    result=audit_structural_pool([r])
+    assert "INVALID_FAMILY_KEY_TYPE" in result["issues"]
+
+def test_unhashable_candidate_id_fail_closed():
+    r=row(1);r["candidate_id"]=[]
+    result=audit_structural_pool([r])
+    assert "INVALID_CANDIDATE_ID_TYPE" in result["issues"]
