@@ -3,7 +3,7 @@ import csv
 import hashlib
 import tempfile
 from pathlib import Path
-from mind_trader.scripts.et665_r341_s20_s21_causal_gate import validate, validate_file, validate_file
+from mind_trader.scripts.et665_r341_s20_s21_causal_gate import validate, validate_file
 
 BASE = dict(decision_id='d1', strategy_id='s1', symbol='EURUSD', decision_ts='100', signal_ts='101', price_ts='102', price='1.2', source_sha256='a'*64)
 class TestGate(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestGate(unittest.TestCase):
     def test_missing_snapshot_hash_rejected(self):
         with tempfile.TemporaryDirectory() as d:
             p = Path(d)/'sample.csv'
-            p.write_text('decision_id,strategy_id,symbol,decision_ts,signal_ts,price_ts,price,source_sha256\\n', encoding='utf-8')
+            p.write_text('decision_id,strategy_id,symbol,decision_ts,signal_ts,price_ts,price,source_sha256\n', encoding='utf-8')
             with self.assertRaisesRegex(ValueError,'expected_sha256_required'): validate_file(p, '')
     def test_mismatched_snapshot_hash_rejected(self):
         with tempfile.TemporaryDirectory() as d:
@@ -42,7 +42,7 @@ class TestGate(unittest.TestCase):
     def test_duplicate_csv_headers_rejected(self):
         with tempfile.TemporaryDirectory() as d:
             p = Path(d)/'sample.csv'
-            p.write_text('decision_id,decision_id,strategy_id,symbol,decision_ts,signal_ts,price_ts,price,source_sha256\\nx,y,s1,EURUSD,100,101,102,1.2,'+'a'*64+'\\n',encoding='utf-8')
+            p.write_text('decision_id,decision_id,strategy_id,symbol,decision_ts,signal_ts,price_ts,price,source_sha256\nx,y,s1,EURUSD,100,101,102,1.2,'+'a'*64+'\n',encoding='utf-8')
             sha=hashlib.sha256(p.read_bytes()).hexdigest()
             with self.assertRaisesRegex(ValueError,'duplicate_or_missing_header'): validate_file(p, sha)
     def test_valid_snapshot(self):
