@@ -11,11 +11,12 @@ class DockerComponentGate(unittest.TestCase):
         self.tmp=tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)
         self.root=Path(self.tmp.name)
-        (self.root/"component.py").write_text("import sys\nprint(sys.stdin.read())\n")
+        for i in range(19):
+            (self.root/f"component_{i:02d}.py").write_text("import sys\\nprint(sys.stdin.read())\\n")
         (self.root/"input.json").write_text('{"real":true}')
         def sha(p): return hashlib.sha256((self.root/p).read_bytes()).hexdigest()
-        self.data={"components":[{"historical_id":f"HP19-{i:02d}","component":"component.py",
-                  "sha256":sha("component.py"),"input":"input.json",
+        self.data={"components":[{"historical_id":f"HP19-{i:02d}","component":f"component_{i:02d}.py",
+                  "sha256":sha(f"component_{i:02d}.py"),"input":"input.json",
                   "input_sha256":sha("input.json"),
                   "expected_stdout_sha256":hashlib.sha256(b'{"real":true}\n').hexdigest()} for i in range(19)]}
         self.manifest=self.root/"manifest.json"
@@ -29,7 +30,7 @@ class DockerComponentGate(unittest.TestCase):
         self.assertEqual(result["status"],"FAIL_CLOSED")
         self.assertTrue((self.output/"r400_report.json").is_file())
     def test_hash_tamper_rejected(self):
-        (self.root/"component.py").write_text("print('changed')")
+        (self.root/"component_00.py").write_text("print('changed')")
         with patch("subprocess.run") as mocked:
             result=run(self.root,self.manifest,self.output)
         mocked.assert_not_called()
@@ -52,6 +53,14 @@ class DockerComponentGate(unittest.TestCase):
         self.assertIn("--pull",command)
         self.assertIn("never",command)
         self.assertEqual((self.output/"run_00.stdout").read_bytes(),Completed.stdout)
+    def test_reused_source_rejected(self):
+        self.data["components"][1]["component"]=self.data["components"][0]["component"]
+        self.data["components"][1]["sha256"]=self.data["components"][0]["sha256"]
+        self.save()
+        with patch("subprocess.run") as mocked:
+            result=run(self.root,self.manifest,self.output)
+        self.assertEqual(result["status"],"FAIL_CLOSED")
+
     def test_missing_expected_output_rejected(self):
         self.data["components"][0].pop("expected_stdout_sha256")
         self.save()
