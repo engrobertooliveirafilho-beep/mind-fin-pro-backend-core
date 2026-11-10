@@ -7,6 +7,8 @@ on:
     paths:
       - "mind_trader/research/et665_r326_causal_walk_forward.py"
       - "tests/test_et665_r326_causal_walk_forward.py"
+      - "mind_trader/research/et665_r328_causal_oos_costs.py"
+      - "tests/test_et665_r328_causal_oos_costs.py"
       - ".github/workflows/et665-r327-offline.yml"
   pull_request:
     paths:
@@ -41,4 +43,4 @@ jobs:
             -v "${{ github.workspace }}:/workspace:ro" \
             -w /workspace \
             python:3.11-slim \
-            python -m unittest discover -s tests -p "test_et665_r326_causal_walk_forward.py" -v
+            python -m unittest discover -s tests -p "test_et665_r32*.py" -v
