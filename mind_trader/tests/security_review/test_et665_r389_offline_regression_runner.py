@@ -4,7 +4,7 @@ from unittest.mock import patch
 from mind_trader.experimental import et665_r389_offline_regression_runner as m
 class R389(unittest.TestCase):
     def test_five_regression_modules(self):
-        self.assertEqual(len(m.MODULES),5)
+        self.assertEqual(len(m.MODULES),6)
         self.assertEqual(len(set(m.MODULES)),5)
     def test_failure_creates_evidence(self):
         class Failed:
