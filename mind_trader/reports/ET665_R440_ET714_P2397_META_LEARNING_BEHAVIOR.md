@@ -1,0 +1,5 @@
+# ET665.R440 ET-714 — P2397 Meta Learning Offline original behavior
+Date: 2026-11-10.
+Google Drive original source ID: 1HE5iseX8jfZnz2RQ3O2HlqBX_BfnMZIk. SHA256: d8c0c5cfecc630ab4be835a998662054eb81f52a991fc609d0aebedd71866c1b.
+Original embedded runtime extracted by AST, executed locally offline without broker. 4/4 behavioral cases PASS: PROMOTE_SCORE, OBSERVE_SCORE, REJECT and UNKNOWN all return allowed_for_runtime=false and allowed_for_research=true. Evidence ET665_R440_P2397_DIAGNOSTIC.json. P2397 produces rule-based research hypotheses and meta_memory CSV from prior scored edges; no model training, parameter update, or empirical learning performance proof is present in the inspected source. It is research-only, not a certified autonomous meta-learning agent. P2400 downstream mutates candidates based on earlier best promoted score. Historical P2401 metrics are synthetic. Do not count P2397 as one of HP19 functional certifications or Phase B 16/16. Official ledger update attempted separately, GitHub report is staging only.
+PHASE_B=0/16 HP19=0/19 E2E=FALSE PAPER_ONLY REAL_ORDERS=FORBIDDEN FTMO_REAL=FORBIDDEN R$0.
