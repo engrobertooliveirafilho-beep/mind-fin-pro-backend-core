@@ -18,14 +18,14 @@ Scope: historical P2405/P2405B/P2405C/P2405E3/P2405F source reconciliation; offl
 - Requires trade-level records with signal, entry and exit timestamps; gross PnL; spread, slippage and commission; logic/data/execution evidence hashes; review ID.
 - Uses R315 immutable, hash-pinned CSV snapshot; one verified descriptor snapshot is parsed.
 - Applies caller-defined chronological train/validation/test boundaries, embargo and purging of gap/cross-boundary trades.
-- Computes PF, win rate, expectancy and drawdown on net R after execution costs.
+- Evaluates one edge at a time; blocks mixed-edge CSVs and overlapping positions. Computes PF, win rate, expectancy and drawdown in realized-exit order on net R after execution costs.
 - Fails closed on missing evidence metadata, invalid hashes, duplicate signal IDs, nonchronological signals, impossible event order, nonfinite values, negative costs, invalid boundaries or insufficient samples.
 - Explicitly returns causal/provenance verification false and never allows runtime promotion or real execution.
 
 ## Regression and execution status
 
-- Added 19 R328 adversarial tests in `tests/test_et665_r328_causal_oos_costs.py`.
-- Updated the isolated Docker workflow to run the R326 and R328 test modules together (36 expected tests).
+- Added 21 R328 adversarial tests in `tests/test_et665_r328_causal_oos_costs.py`.
+- Updated the isolated Docker workflow to run the R326 and R328 test modules together (38 expected tests).
 - R327 Docker result supplied by operator: 17/17 PASS.
 - R328 suite is published but has NOT yet been executed in Docker. No R328 PASS is claimed.
 - No valid trade-level causal CSV with independently reviewable source lineage was recovered in this pass; R328 cannot be run against P2403E/P2405F synthetic/hash-derived outputs.
