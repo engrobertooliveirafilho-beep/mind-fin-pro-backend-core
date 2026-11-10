@@ -3,7 +3,7 @@
 Runs R384-R388 via unittest; stores exact command, output, status and SHA256.
 Never alters production, triggers workflows, or authorizes real orders.
 """
-import argparse,hashlib,json,os,subprocess,sys,tempfile
+import argparse,hashlib,json,os,re,subprocess,sys,tempfile
 from pathlib import Path
 
 MODULES=tuple(
@@ -14,6 +14,7 @@ MODULES=tuple(
         (386,"adversarial_chain"),
         (387,"chain_lineage_regression"),
         (388,"cross_agent_integrity"),
+        (389,"offline_regression_runner"),
     )
 )
 
@@ -30,7 +31,10 @@ def run(output_dir):
         temp=Path(handle.name)
     path=dest/"r389_tests.log"
     temp.replace(path)
-    passed=result.returncode==0 and "OK" in log and "FAILED" not in log
+    matches=re.findall(r"(?m)^Ran (\\d+) tests? in [0-9.]+s\\s*$",log)
+    passed=(result.returncode==0 and len(matches)==1
+            and int(matches[0])>=1 and bool(re.search(r"(?m)^OK\\s*$",log))
+            and "FAILED" not in log and "Traceback (most recent call last)" not in log)
     evidence={"schema":"ET665.R389.v1","status":"PASS" if passed else "FAIL_CLOSED",
               "exit_code":result.returncode,"command":cmd[1:],
               "log_sha256":hashlib.sha256(path.read_bytes()).hexdigest(),
