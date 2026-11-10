@@ -100,9 +100,11 @@ def evaluate_cost_aware_oos_csv(
             edge_id = row["edge_id"]
             signal_id = row["signal_id"]
             review_id = row["review_id"]
-            if not edge_id or edge_id.strip() != edge_id or not signal_id or signal_id in seen_ids:
+            if (not edge_id or edge_id.strip() != edge_id or not signal_id
+                    or signal_id.strip() != signal_id or not signal_id.strip()
+                    or signal_id in seen_ids):
                 raise ValueError("invalid or duplicate identifiers")
-            if not review_id or not review_id.strip():
+            if not review_id or review_id.strip() != review_id or not review_id.strip():
                 raise ValueError("review id required")
             seen_ids.add(signal_id)
             hashes = (
