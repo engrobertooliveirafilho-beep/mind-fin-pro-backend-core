@@ -25,6 +25,10 @@ class TestGate(unittest.TestCase):
     def test_nonmonotonic(self):
         with self.assertRaises(ValueError): validate([BASE, dict(BASE,decision_id='d2',decision_ts='90')])
     def test_bad_timestamp(self): self.reject(decision_ts='n/a')
+    def test_underscore_timestamp_rejected(self): self.reject(decision_ts='1_00')
+    def test_plus_timestamp_rejected(self): self.reject(decision_ts='+100')
+    def test_unicode_digit_timestamp_rejected(self): self.reject(decision_ts='١٠٠')
+    def test_infinite_price_rejected(self): self.reject(price='inf')
 
     def test_blank_none_rejected(self): self.reject(price=None)
     def test_padded_decision_id_rejected(self): self.reject(decision_id=' d1')
