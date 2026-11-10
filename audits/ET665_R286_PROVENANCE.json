@@ -1,0 +1,39 @@
+{
+  "audit": "ET665.R286",
+  "date": "2026-11-10",
+  "trade_csv": {
+    "file": "p2403e_de40_edge_trade_series.csv",
+    "sha256": "5504556b53caf6e80badc10f060f62a3f2f32e89d38772074f676a3f53521344",
+    "rows": 4400,
+    "edges": 20,
+    "symbol": "GER40",
+    "timeframe": "M15",
+    "entry_range": [
+      "2026-03-27 10:30:00",
+      "2026-06-15 13:00:00"
+    ],
+    "timezone": "UNSPECIFIED",
+    "original_candle_basename": "MT5_GER40_M15_raw.csv"
+  },
+  "recovered_ohlc": {
+    "file": "mind_ger40_5y_p2363b_DE40_M15_csv.bin",
+    "sha256": "e17ba75cfd508ecddd8b3f01dd313d5b65b51498462aa6faec43cee0eba2cec0",
+    "rows": 100000,
+    "symbol": "DE40",
+    "timeframe": "M15",
+    "time_range": [
+      "2021.10.28 21:30:00",
+      "2026.06.23 22:45:00"
+    ]
+  },
+  "findings": [
+    "OHLC source identity not proven",
+    "GER40 versus DE40 mapping not documented",
+    "No timezone in trade or OHLC timestamps",
+    "Signal causality and PnL independent replay not verified"
+  ],
+  "status": "QUARANTINE",
+  "runtime_promotion_allowed": false,
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN"
+}
