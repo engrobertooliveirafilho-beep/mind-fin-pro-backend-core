@@ -17,7 +17,8 @@ New-Item -ItemType Directory -Path $evidence -Force | Out-Null
 $paths = @(
  'mind_trader/app/p1519_p1525_institutional_research_certification/engine.py',
  'mind_trader/tests/security_review/test_et665_r332_causal_fill_gate.py',
- 'mind_trader/tests/security_review/test_et665_r334_synthetic_reconstruction_e2e.py'
+ 'mind_trader/tests/security_review/test_et665_r334_synthetic_reconstruction_e2e.py',
+ 'mind_trader/tests/security_review/test_et665_r338_report_pipeline_e2e.py'
 )
 $paths | ForEach-Object {
  $hash = Get-FileHash -Algorithm SHA256 -LiteralPath (Join-Path $root $_)
@@ -25,7 +26,7 @@ $paths | ForEach-Object {
 } | Set-Content -Encoding ASCII (Join-Path $evidence 'source_sha256.txt')
 $log = Join-Path $evidence 'unittest.log'
 # Docker image must already be cached; network is always disabled.
-& docker run --rm --pull never --network none --read-only --cap-drop ALL --security-opt no-new-privileges --pids-limit 128 --memory 256m --cpus 1 --tmpfs /tmp:rw,noexec,nosuid,size=32m --mount "type=bind,src=$root,dst=/work,readonly" --workdir /work python:3.11 python -B -m unittest -v mind_trader/tests/security_review/test_et665_r332_causal_fill_gate.py mind_trader/tests/security_review/test_et665_r334_synthetic_reconstruction_e2e.py 2>&1 | Tee-Object -FilePath $log
+& docker run --rm --pull never --network none --read-only --cap-drop ALL --security-opt no-new-privileges --pids-limit 128 --memory 256m --cpus 1 --tmpfs /tmp:rw,noexec,nosuid,size=32m --mount "type=bind,src=$root,dst=/work,readonly" --workdir /work python:3.11 python -B -m unittest -v mind_trader/tests/security_review/test_et665_r332_causal_fill_gate.py mind_trader/tests/security_review/test_et665_r334_synthetic_reconstruction_e2e.py mind_trader/tests/security_review/test_et665_r338_report_pipeline_e2e.py 2>&1 | Tee-Object -FilePath $log
 $exitCode = $LASTEXITCODE
 "$exitCode" | Set-Content -Encoding ASCII (Join-Path $evidence 'exit_code.txt')
 Get-ChildItem -File $evidence | Sort-Object Name | ForEach-Object {
