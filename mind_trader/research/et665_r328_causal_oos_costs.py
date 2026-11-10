@@ -46,7 +46,7 @@ def _metric_set(rows):
     }
 
 
-def evaluate_causal_oos_csv(
+def evaluate_cost_aware_oos_csv(
     source,
     expected_sha256,
     *,
@@ -146,6 +146,16 @@ def evaluate_causal_oos_csv(
     if parsed != sorted(parsed, key=lambda row: row["signal_time"]):
         result["issues"] = ["NONCHRONOLOGICAL_SIGNALS"]
         return result
+    if len({row["edge_id"] for row in parsed}) != 1:
+        result["issues"] = ["ONE_EDGE_PER_EVALUATION_REQUIRED"]
+        return result
+    by_entry = sorted(parsed, key=lambda row: row["entry_time"])
+    if any(
+        by_entry[index]["entry_time"] < by_entry[index - 1]["exit_time"]
+        for index in range(1, len(by_entry))
+    ):
+        result["issues"] = ["OVERLAPPING_POSITIONS_REQUIRE_SEPARATE_MODEL"]
+        return result
 
     val_start = train_cut + timedelta(seconds=embargo_seconds)
     test_start = validation_cut + timedelta(seconds=embargo_seconds)
@@ -163,7 +173,9 @@ def evaluate_causal_oos_csv(
         if len(window) < MIN_WINDOW_TRADES:
             result["issues"].append(name.upper() + "_INSUFFICIENT_SAMPLES")
             continue
-        result["windows"][name] = _metric_set(window)
+        # Equity/drawdown follow realized exits, not signal-generation order.
+        realized = sorted(window, key=lambda row: (row["exit_time"], row["signal_time"]))
+        result["windows"][name] = _metric_set(realized)
 
     result["issues"].extend([
         "SIGNAL_CAUSALITY_NOT_INDEPENDENTLY_VERIFIED",
