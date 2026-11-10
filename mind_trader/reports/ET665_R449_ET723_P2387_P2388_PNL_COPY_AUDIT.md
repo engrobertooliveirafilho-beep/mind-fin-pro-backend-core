@@ -1,0 +1,7 @@
+# ET665.R449 / ET-723 — P2387/P2388 exact historical PnL copying
+2026-11-10. NEW Drive originals: P2387 validated signals ID `1exmB0b-70RlcEhKXnJc6WbUAfxo3-Db_` SHA256 `0526917656c8b5818790b07d3cba354dce9368f6bb30f77ea3630ef8488eef0a`; bridge ready ID `1youoi0oLG7Lch3yrl5kPtroAMYEzkL9B` SHA256 `42ab3576929d54d15979e69f451b691dc17ca866f4db807a0f15c7bded33067d`; P2388 closed ID `1Pf2_6FlIm6YnnrF-rinRMBTJzh8i0KA-` SHA256 `beb0628520b26d908e5f2092db6046a9f02d4d2c8a9a3ffcdc2dda13c50987db`.
+
+**10/10 original-data assertions PASS**, 230/230 signal IDs joined uniquely with exact entry time/direction. For **all 230**, P2388 `pnl_r` is **byte-identical numeric text** to P2387 `realized_r_backtest`. P2388 close_reason always `PAPER_FORWARD_SIMULATED_CLOSE_FROM_BACKTEST_R`. P2387 bridge `order_type=PAPER_ONLY_SIMULATION`, `execution_permission=PAPER_ONLY_FILE_SIGNAL`, MT5 real permission DENIED, real orders FORBIDDEN. Signals claim source P2386B. This is **not independent forward execution**; P2390 claimed certification must not be promoted based on reused PnL.
+
+Local reproducible `et665_r449_p2387_p2388_audit.py`, evidence `ET665_R449_P2387_P2388_EXACT_PNL_LINEAGE.json`. Need actual P2386B signal generator, original price data, costs and independent time-held-out E2E, plus HP19 19/19. No production mutation. Ledger write attempted separately.
+`FASE_B=0/16 | HP19=0/19 | E2E=FALSE | PAPER_ONLY | REAL_ORDERS=FORBIDDEN | FTMO_REAL=FORBIDDEN | R$0`
