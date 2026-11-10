@@ -3,9 +3,9 @@ from pathlib import Path
 from unittest.mock import patch
 from mind_trader.experimental import et665_r389_offline_regression_runner as m
 class R389(unittest.TestCase):
-    def test_five_regression_modules(self):
+    def test_six_regression_modules(self):
         self.assertEqual(len(m.MODULES),6)
-        self.assertEqual(len(set(m.MODULES)),5)
+        self.assertEqual(len(set(m.MODULES)),6)
     def test_failure_creates_evidence(self):
         class Failed:
             returncode=1
@@ -27,7 +27,7 @@ class R389(unittest.TestCase):
     def test_real_orders_forbidden(self):
         class Passed:
             returncode=0
-            stdout="Ran 1 test\n\nOK"
+            stdout="Ran 1 test in 0.001s\n\nOK"
             stderr=""
         with tempfile.TemporaryDirectory() as d,patch.object(m.subprocess,"run",return_value=Passed()):
             r=m.run(d)
