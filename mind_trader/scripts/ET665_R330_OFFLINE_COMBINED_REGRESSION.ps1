@@ -5,20 +5,27 @@
 $ErrorActionPreference = 'Stop'
 $repo = 'https://github.com/engrobertooliveirafilho-beep/mind-fin-pro-backend-core.git'
 $sha = 'ead17d9fa5e623e69589bf02dc387ee4e1e1bb13'
-$root = 'D:\MIND_TEMP\ET665_R330_OFFLINE_REGRESSION'
+# Clone into a fresh unique directory. Never reuse or overwrite prior evidence/source.
+$runId = (Get-Date).ToUniversalTime().ToString('yyyyMMdd_HHmmss_fff') + '_' + [guid]::NewGuid().ToString('N').Substring(0,8)
+$root = Join-Path 'D:\MIND_TEMP\ET665_R330_OFFLINE_REGRESSION' $runId
 $src = Join-Path $root 'source'
 $evidence = Join-Path $root 'EVIDENCE'
-New-Item -ItemType Directory -Force -Path $root,$evidence | Out-Null
-if (-not (Test-Path (Join-Path $src '.git'))) { git clone --no-checkout $repo $src; if ($LASTEXITCODE -ne 0) { throw 'clone failed' } }
+New-Item -ItemType Directory -Path $root,$evidence | Out-Null
+git clone --no-checkout $repo $src
+if ($LASTEXITCODE -ne 0) { throw 'clone failed' }
 git -C $src fetch origin $sha
 if ($LASTEXITCODE -ne 0) { throw 'fetch failed' }
-$dirty = git -C $src status --porcelain
-if ($dirty) { throw 'source dirty; refusing to overwrite local files' }
+# Checkout is safe here because this is a newly created, exclusive clone.
 git -C $src checkout --detach $sha
 if ($LASTEXITCODE -ne 0) { throw 'checkout failed' }
+$dirty = git -C $src status --porcelain
+if ($LASTEXITCODE -ne 0 -or $dirty) { throw 'source dirty after checkout; aborting' }
 $actual = (git -C $src rev-parse HEAD).Trim()
 if ($actual -ne $sha) { throw "unexpected commit $actual" }
 $tests = @('tests/test_et665_r326_causal_walk_forward.py','tests/test_et665_r328_causal_oos_costs.py')
+# Refuse stale/incorrect test imports before starting Docker.
+$testText = Get-Content (Join-Path $src 'tests/test_et665_r328_causal_oos_costs.py') -Raw
+if ($testText -match '\bevaluate_causal_oos_csv\b' -or $testText -notmatch '\bevaluate_cost_aware_oos_csv\b') { throw 'R328 test/API mismatch; aborting' }
 foreach ($p in $tests) { if (-not (Test-Path (Join-Path $src $p))) { throw "missing $p" } }
 $files = @('mind_trader/research/et665_r326_causal_walk_forward.py','mind_trader/research/et665_r315_immutable_csv_snapshot.py','mind_trader/research/et665_r328_causal_oos_costs.py') + $tests
 Get-Item ($files | ForEach-Object { Join-Path $src $_ }) | Get-FileHash -Algorithm SHA256 | Select-Object Path,Hash | ConvertTo-Json -Depth 4 | Set-Content (Join-Path $evidence 'SOURCE_HASHES.json') -Encoding UTF8
