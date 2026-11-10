@@ -51,7 +51,7 @@ def analyze_verified_paper_csv(source, manifest, trusted_manifest_sha256, *, sou
     # Parse the exact verified byte snapshot, not a second read of source.
     snapshot=snapshot_verified_csv(source,entry["sha256"])
     if not snapshot["verified"]:
-        result["issues"]=snapshot["issues"]
+        result["issues"]=["MALFORMED_CSV"] if snapshot["issues"]==["INVALID_CSV_ROWS"] else snapshot["issues"]
         return result
     rows=[]
     for index,row in enumerate(snapshot["rows"],1):
