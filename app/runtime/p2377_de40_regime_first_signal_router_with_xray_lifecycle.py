@@ -201,58 +201,22 @@ def classify_regime(candles: List[Dict], i: int) -> Dict:
 
 
 def classify_lifecycle(event: Dict, context: Optional[Dict]) -> Dict:
+    """As-of-event classification only. Future outcome context is intentionally ignored.
+
+    Historical post-event MFE/MAE cannot establish a tradable lifecycle at time t.
+    Until a causal lifecycle classifier is certified, fail closed (score=0).
+    """
     event_type = event.get("event_type", "")
-    direction = event.get("direction", "")
-    post_mfe = fnum(context.get("post_mfe_atr")) if context else 0
-    post_mae = fnum(context.get("post_mae_atr")) if context else 0
-    efficiency = fnum(context.get("post_efficiency")) if context else 0
-    follow = context.get("post_followthrough", "") if context else ""
-
-    lifecycle = "UNCLASSIFIED"
-    score = 0
-
     if "SWEEP" in event_type:
-        if post_mfe >= 1.0 and efficiency >= 1.2:
-            lifecycle = "LIQUIDITY_REVERSAL_ENTRY"
-            score = 80
-        elif post_mae > post_mfe:
-            lifecycle = "FAILED_SWEEP"
-            score = 35
-        else:
-            lifecycle = "LIQUIDITY_TEST"
-            score = 55
-
+        lifecycle = "SWEEP_DETECTED_UNCONFIRMED"
     elif "DISPLACEMENT" in event_type:
-        if follow == "CONTINUATION" and post_mfe >= 1.0:
-            lifecycle = "INSTITUTIONAL_ENTRY_CONTINUATION"
-            score = 85
-        elif post_mae >= post_mfe:
-            lifecycle = "EXHAUSTION_OR_FAKE_DISPLACEMENT"
-            score = 40
-        else:
-            lifecycle = "DISPLACEMENT_RETEST_PENDING"
-            score = 65
-
+        lifecycle = "DISPLACEMENT_DETECTED_UNCONFIRMED"
     elif "RANGE_EXPANSION" in event_type:
-        if post_mfe >= 1.5:
-            lifecycle = "VOLATILITY_EXPANSION_CONTINUATION"
-            score = 75
-        else:
-            lifecycle = "VOLATILITY_SPIKE_UNRESOLVED"
-            score = 45
+        lifecycle = "RANGE_EXPANSION_DETECTED_UNCONFIRMED"
+    else:
+        lifecycle = "UNCLASSIFIED"
+    return {"lifecycle": lifecycle, "lifecycle_score": 0}
 
-    if direction == "BUY_INFERRED" and "DOWN" in event_type:
-        score -= 5
-    if direction == "SELL_INFERRED" and "UP" in event_type:
-        score -= 5
-
-    return {
-        "lifecycle": lifecycle,
-        "lifecycle_score": max(0, min(score, 100)),
-        "post_mfe_atr": post_mfe,
-        "post_mae_atr": post_mae,
-        "post_efficiency": efficiency,
-    }
 
 
 def recommended_families(regime: str, lifecycle: str, footprint: str, volatility: str) -> Dict:
@@ -304,7 +268,7 @@ def context_score(regime_score: float, lifecycle_score: float, event: Dict, cont
     volume_ratio = fnum(event.get("tick_volume_ratio_50"))
     body_atr = fnum(event.get("body_atr"))
     range_atr = fnum(event.get("range_atr"))
-    efficiency = fnum(context.get("post_efficiency")) if context else 0
+    # Future-window post_efficiency is an outcome label, not a decision feature.
 
     score = 0
     score += regime_score * 0.30
@@ -312,7 +276,6 @@ def context_score(regime_score: float, lifecycle_score: float, event: Dict, cont
     score += min(volume_ratio * 10, 15)
     score += min(body_atr * 8, 10)
     score += min(range_atr * 5, 10)
-    score += min(efficiency * 2, 10)
 
     return round(min(score, 100), 6)
 
@@ -381,9 +344,8 @@ def build_xray_router(events_path: Path, context_path: Path, dataset_root: Path,
         )
         score = context_score(regime["score"], lifecycle["lifecycle_score"], ev, ctx)
 
-        permission = "PAPER_CANDIDATE_ALLOWED" if score >= 70 else "OBSERVE_ONLY"
-        if score < 55:
-            permission = "BLOCK_LOW_CONTEXT_SCORE"
+        # Fail closed: no PAPER candidate without certified causal lifecycle.
+        permission = "BLOCK_UNCERTIFIED_CAUSAL_LIFECYCLE"
 
         row = {
             "symbol": ev.get("symbol", "DE40"),
@@ -414,11 +376,9 @@ def build_xray_router(events_path: Path, context_path: Path, dataset_root: Path,
         for k in ["sma20", "sma50", "sma100", "atr14", "rsi14", "distance_to_sma20_atr", "spread_sma20_sma50_atr"]:
             row[k] = regime.get(k, "")
 
-        for k in ["post_mfe_atr", "post_mae_atr", "post_efficiency"]:
-            row[k] = lifecycle.get(k, "")
-
         routed_rows.append(row)
 
+        # No ex-post outcome labels in any decision-facing router/library export.
         library_rows.append({
             "context_id": f"DE40::{tf}::{idx}",
             "symbol": "DE40",
@@ -431,10 +391,7 @@ def build_xray_router(events_path: Path, context_path: Path, dataset_root: Path,
             "lifecycle": row["lifecycle"],
             "recommended_families": row["recommended_families"],
             "context_score": row["context_score"],
-            "post_mfe_atr": row["post_mfe_atr"],
-            "post_mae_atr": row["post_mae_atr"],
-            "outcome_label": "FAVORABLE_AFTER_FOOTPRINT" if fnum(row["post_mfe_atr"]) > fnum(row["post_mae_atr"]) else "ADVERSE_AFTER_FOOTPRINT",
-            "memory_use": "STATISTICAL_CONTEXT_LIBRARY",
+            "memory_use": "AS_OF_EVENT_UNCERTIFIED_CONTEXT_LIBRARY",
         })
 
     grouped = defaultdict(list)
