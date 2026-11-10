@@ -1,7 +1,7 @@
-"""ET665.R332 — adversarial causal execution gate; PAPER only.
+"""ET665.R333 — causal SMA regression, no broker access.
 
-A signal formed at bar i close cannot fill at that same close.
-This test is expected to FAIL against the historical implementation.
+SMA at execution index i must use prices strictly before i.
+Changing the execution-bar close must not change either signal.
 """
 import importlib.util
 from pathlib import Path
@@ -11,28 +11,38 @@ from unittest.mock import patch
 ENGINE = Path(__file__).resolve().parents[2] / "app/p1519_p1525_institutional_research_certification/engine.py"
 
 def load_engine():
-    spec = importlib.util.spec_from_file_location("et665_r332_engine", ENGINE)
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod
+    spec = importlib.util.spec_from_file_location("et665_r333_engine", ENGINE)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
 
 class CausalFillGate(unittest.TestCase):
-    def test_signal_bar_cannot_be_execution_bar(self):
-        mod = load_engine()
-        prices = [100., 100., 100., 100., 100., 100., 110., 120., 120., 120.]
-        # For i=5, prior fast<=slow, current fast>slow: BUY signal.
-        # For i=7, prior fast>=slow, current fast<slow: SELL signal.
-        fast = {4: 0., 5: 2., 6: 2., 7: 0.}
-        slow = {4: 1., 5: 1., 6: 1., 7: 1.}
-        def indicator(_closes, window, i):
-            return (fast if window == 2 else slow).get(i, 1.)
+    def test_sma_excludes_current_and_future_bar(self):
+        module = load_engine()
+        closes = [10., 20., 30., 40., 50., 60., 70.]
+        for window in (2, 4):
+            for i in range(window, len(closes)):
+                original = module.sma(closes, window, i)
+                mutated = closes.copy()
+                for j in range(i, len(mutated)):
+                    mutated[j] = 1e6 + j
+                self.assertEqual(original, module.sma(mutated, window, i))
+
+    def test_reconstruct_uses_only_pre_fill_prices_for_signal(self):
+        module = load_engine()
+        observed = []
+        original = module.sma
+        def tracked(vals, window, i):
+            observed.append((window, i, tuple(vals[i-window:i])))
+            return original(vals, window, i)
         edge = {"dataset": "synthetic.csv", "fast": 2, "slow": 4}
-        with patch.object(mod, "load_dataset", return_value=[{"close": p} for p in prices]), patch.object(mod, "sma", side_effect=indicator):
-            trades, _ = mod.reconstruct(edge)
-        self.assertTrue(trades, "fixture must generate at least one trade")
-        for trade in trades:
-            self.assertGreaterEqual(trade["entry_index"], 6, "entry filled on signal close: lookahead")
-            self.assertGreaterEqual(trade["exit_index"], 8, "exit filled on signal close: lookahead")
+        rows = [{"close": float(v)} for v in [100, 99, 98, 97, 98, 99, 100, 99, 98, 97, 96, 95]]
+        with patch.object(module, "load_dataset", return_value=rows), patch.object(module, "sma", side_effect=tracked):
+            module.reconstruct(edge)
+        self.assertTrue(observed)
+        for window, index, history in observed:
+            self.assertEqual(history, tuple(r["close"] for r in rows[index-window:index]))
+            self.assertEqual(len(history), window)
 
 if __name__ == "__main__":
     unittest.main()
