@@ -14,6 +14,10 @@ def audit_structural_pool(rows, max_per_family=2, max_total=20):
         problems.append("FAMILY_CAP_EXCEEDED")
     if any(r.get("pool_status")!="DIVERSIFIED_SELECTED" for r in items):
         problems.append("POOL_STATUS_UNVERIFIED")
+    if any(r.get("mode") != "PAPER_ONLY" or r.get("real_orders") != "FORBIDDEN" or r.get("ftmo_real") != "FORBIDDEN" or str(r.get("real_execution_allowed")).lower() != "false" or str(r.get("runtime_allowed")).lower() != "false" for r in items):
+        problems.append("SAFETY_CONTRACT_INVALID")
+    if any(r.get("next_required") != "P2403_CORRELATION_ANALYZER" for r in items):
+        problems.append("CORRELATION_GATE_MISSING")
     if not items:
         problems.append("EMPTY_POOL")
     return {
