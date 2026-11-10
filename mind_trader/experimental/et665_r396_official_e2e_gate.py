@@ -50,8 +50,9 @@ def verify(root, manifest):
                     errors.append(prefix + f": {field} invalid path/hash")
                     valid = False
                     continue
-                target = (root / name).resolve()
-                if not target.is_relative_to(root) or not target.is_file() or target.is_symlink():
+                candidate = root / name
+                target = candidate.resolve()
+                if not target.is_relative_to(root) or not target.is_file() or candidate.is_symlink():
                     errors.append(prefix + f": {field} missing/unsafe file")
                     valid = False
                     continue
