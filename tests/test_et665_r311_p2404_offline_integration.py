@@ -7,7 +7,7 @@ def sample(tmp_path,body="edge_id,timestamp,pnl_r\nA,1,1\nA,2,2\nA,3,3\nB,1,2\nB
     source.write_text(body,encoding="utf-8")
     manifest=tmp_path/"manifest.json"
     manifest.write_text(json.dumps({"schema":"ET665_TRUSTED_SOURCE_MANIFEST_V1",
-      "sources":{"s1":{"source_kind":"CAUSAL_STRATEGY_REPLAY","independent_review":True,
+      "sources":{"s1":{"source_kind":"CAUSAL_STRATEGY_REPLAY","independent_review":True,"generator":"independent_replay_v1","lineage":"fixture_only",
       "sha256":hashlib.sha256(source.read_bytes()).hexdigest()}}}),encoding="utf-8")
     return source,manifest,hashlib.sha256(manifest.read_bytes()).hexdigest()
 
@@ -55,3 +55,17 @@ def test_renamed_p2403e_generator_rejected(tmp_path):
     man.write_text(json.dumps(doc))
     anchor=hashlib.sha256(man.read_bytes()).hexdigest()
     assert "NONCAUSAL_GENERATOR_QUARANTINED" in analyze_verified_paper_csv(src,man,anchor,source_id="s1")["issues"]
+
+def test_missing_generator_lineage_rejected(tmp_path):
+    src,man,_=sample(tmp_path)
+    doc=json.loads(man.read_text())
+    doc["sources"]["s1"].pop("generator")
+    man.write_text(json.dumps(doc))
+    anchor=hashlib.sha256(man.read_bytes()).hexdigest()
+    assert "GENERATOR_LINEAGE_REQUIRED" in analyze_verified_paper_csv(src,man,anchor,source_id="s1")["issues"]
+
+def test_row_limit_rejected(tmp_path,monkeypatch):
+    from mind_trader.research import et665_r311_p2404_offline_integration as mod
+    monkeypatch.setattr(mod,"MAX_ROWS",2)
+    src,man,anchor=sample(tmp_path)
+    assert "ROW_LIMIT_EXCEEDED" in analyze_verified_paper_csv(src,man,anchor,source_id="s1")["issues"]
