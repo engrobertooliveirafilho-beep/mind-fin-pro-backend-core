@@ -1,5 +1,4 @@
 import csv, sys
-import pandas as pd
 from pathlib import Path
 from datetime import datetime, timedelta, timezone
 import pytest
@@ -141,7 +140,7 @@ def test_sell_sizing_requires_stop_side_spread_and_includes_costs():
 
 def test_actual_p2406_roster_cannot_reach_contextual_quorum():
     roster_path=ROOT/"tests/fixtures/p2406_ensemble_roster.csv"
-    roster=pd.read_csv(roster_path).to_dict("records")
+    roster=list(csv.DictReader(open(roster_path,encoding="utf-8")))
     contexts={(r["session"],r["regime"],r["timeframe"]) for r in roster}
     assert len(contexts)==len(roster)==9
     for session,regime,timeframe in contexts:
