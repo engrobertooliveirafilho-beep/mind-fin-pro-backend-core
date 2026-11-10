@@ -18,6 +18,7 @@ def inspect(root, inventory):
         if not isinstance(items,list) or len(items)!=19:
             raise ValueError("expected 19 historical sources")
         seen=set()
+        seen_paths=set()
         for item in items:
             ident=item["historical_id"]
             rel=item["path"]
@@ -25,15 +26,18 @@ def inspect(root, inventory):
             if not isinstance(ident,str) or not ident or ident in seen:
                 raise ValueError("invalid or duplicate historical id")
             seen.add(ident)
-            if not isinstance(rel,str) or Path(rel).is_absolute():
+            if not isinstance(rel,str) or Path(rel).is_absolute() or not rel.endswith(".py"):
                 raise ValueError("unsafe source path")
             candidate=root/rel
             path=candidate.resolve()
-            if not path.is_relative_to(root) or not path.is_file() or candidate.is_symlink():
+            if not path.is_relative_to(root) or not path.is_file() or candidate.is_symlink() or any(p.is_symlink() for p in candidate.parents if p != root and p.is_relative_to(root)):
                 raise ValueError("missing or unsafe source")
+            if path in seen_paths:
+                raise ValueError("reused historical source: "+ident)
+            seen_paths.add(path)
             data=path.read_bytes()
             digest=hashlib.sha256(data).hexdigest()
-            if digest!=expected:
+            if not isinstance(expected,str) or len(expected)!=64 or digest!=expected.lower():
                 raise ValueError("source hash mismatch: "+ident)
             result["sources_found"]+=1
             result["sources_sha256_verified"]+=1
