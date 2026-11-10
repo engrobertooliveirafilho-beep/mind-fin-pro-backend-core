@@ -30,9 +30,14 @@ class R397Gate(unittest.TestCase):
 
     def test_complete_evidence_only_ready_for_review(self):
         result=verify(self.root,self.manifest)
-        self.assertEqual(result["status"],"EVIDENCE_READY_FOR_HUMAN_REVIEW")
+        self.assertEqual(result["status"],"STRUCTURAL_EVIDENCE_ONLY")
         self.assertEqual((result["hp19"],result["phase_b"]),(19,16))
         self.assertIn("No automatic",result["note"])
+
+    def test_self_asserted_review_never_certifies(self):
+        result=verify(self.root,self.manifest)
+        self.assertNotEqual(result["status"],"CERTIFIED")
+        self.assertEqual(result["status"],"STRUCTURAL_EVIDENCE_ONLY")
 
     def test_reused_output_log_fails(self):
         self.manifest["hp19"][1]["output"] = self.manifest["hp19"][0]["output"]
