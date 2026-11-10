@@ -19,6 +19,9 @@ def snapshot_verified_csv(source, expected_sha256, *, max_bytes=16_000_000):
         if not isinstance(expected_sha256,str) or len(expected_sha256)!=64 or any(c not in "0123456789abcdefABCDEF" for c in expected_sha256):
             result["issues"]=["EXPECTED_HASH_REQUIRED"]
             return result
+        if type(max_bytes) is not int or max_bytes < 1 or max_bytes > 16_000_000:
+            result["issues"]=["INVALID_SIZE_LIMIT"]
+            return result
         # Fail closed on platforms without atomic no-follow support (including Windows).
         # Do not silently fall back to a race-prone path check.
         if not hasattr(os, "O_NOFOLLOW"):
