@@ -1,6 +1,6 @@
 """ET665.R389: offline regression orchestrator with atomic evidence and fail-closed exit.
 
-Runs R384-R388 via unittest; stores exact command, output, status and SHA256.
+Runs R384-R389 via unittest; stores exact command, output, status and SHA256.
 Never alters production, triggers workflows, or authorizes real orders.
 """
 import argparse,hashlib,json,os,re,subprocess,sys,tempfile
@@ -41,11 +41,15 @@ def run(output_dir):
     path=dest/"r389_tests.log"
     temp.replace(path)
     matches=re.findall(r"(?m)^Ran (\d+) tests? in [0-9.]+s\s*$",log)
+    test_count=int(matches[0]) if len(matches)==1 else 0
     passed=(exit_code==0 and len(matches)==1
-            and int(matches[0])>=1 and bool(re.search(r"(?m)^OK\s*$",log))
-            and "FAILED" not in log and "Traceback (most recent call last)" not in log)
+            and test_count>=len(MODULES)
+            and bool(re.search(r"(?m)^OK\\s*$",log))
+            and "FAILED" not in log and "Traceback (most recent call last)" not in log
+            and not re.search(r"(?m)^.*\\.\\.\\. skipped ",log)
+            and not re.search(r"(?m)^OK \\(skipped=",log))
     evidence={"schema":"ET665.R389.v1","status":"PASS" if passed else "FAIL_CLOSED",
-              "exit_code":exit_code,"command":cmd[1:],
+              "exit_code":exit_code,"command":cmd[1:],"test_count":test_count,
               "log_sha256":hashlib.sha256(path.read_bytes()).hexdigest(),
               "test_modules":list(MODULES),
               "official_hp19_certified":0,"phase_b_certified":0,
