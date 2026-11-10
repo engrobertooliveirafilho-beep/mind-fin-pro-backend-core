@@ -23,6 +23,7 @@ def evaluate_trade_file(source, destination, windows=5):
                 entry = datetime.fromisoformat(record["entry_time"])
                 exit_time = datetime.fromisoformat(record["exit_time"])
                 pnl = float(record["pnl_r"])
+                if entry.tzinfo is None or exit_time.tzinfo is None: raise ValueError("TIMEZONE_REQUIRED")
                 if exit_time < entry or not math.isfinite(pnl): raise ValueError("INVALID_TRADE")
                 edge_id = record["edge_id"].strip()
                 if not edge_id: raise ValueError("EMPTY_EDGE_ID")
@@ -34,7 +35,7 @@ def evaluate_trade_file(source, destination, windows=5):
                 invalid.append({"line": number, "error": str(error)})
     edges = []
     for edge_id, trades in sorted(rows.items()):
-        trades.sort()
+        trades.sort(key=lambda t: t[0])
         for prev, nxt in zip(trades, trades[1:]):
             if prev[1] > nxt[0]:
                 invalid.append({"edge_id":edge_id,"error":"OVERLAPPING_TRADES"})
@@ -57,9 +58,13 @@ def evaluate_trade_file(source, destination, windows=5):
                           "expectancy_r":sum(p for _,_,p in part)/len(part),"max_dd_r":drawdown})
         edges.append({"edge_id":edge_id,"trades":len(trades),"folds":folds,
                       "status":"QUARANTINE","runtime_promotion_allowed":False})
+    if invalid:
+        for edge in edges:
+            edge["folds"] = []
+            edge["status"] = "INVALID_INPUT_QUARANTINE"
     result = {"source_sha256":hashlib.sha256(source.read_bytes()).hexdigest(),
               "edge_count":len(edges),"trade_count":sum(map(len,rows.values())),
-              "invalid_rows":invalid,"edges":edges,"runtime_promotion_allowed":False,
+              "invalid_rows":invalid,"valid_input":not bool(invalid),"edges":edges,"runtime_promotion_allowed":False,
               "method":"chronological nonoverlapping folds; no causal signal replay",
               "limitations":["canonical OHLC equivalence unverified","signal lookahead unverified"]}
     Path(destination).write_text(json.dumps(result,indent=2),encoding="utf-8")
