@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch
-from mind_trader.experimental.et665_r378_historical_route_provenance import audit,HISTORICAL_FIRST_19
+from mind_trader.experimental.et665_r378_historical_route_provenance import audit,HISTORICAL_FIRST_19,_canonical
 class R378(unittest.TestCase):
     def test_historical_route_match(self):
         r=audit()
@@ -14,6 +14,12 @@ class R378(unittest.TestCase):
     def test_dispatcher_tampering_rejected(self):
         with patch("mind_trader.experimental.et665_r378_historical_route_provenance.AGENT_MODULES",("fake",)*19):
             with self.assertRaises(RuntimeError):audit()
+    def test_both_identity_encodings(self):
+        for dotted in HISTORICAL_FIRST_19:
+            self.assertEqual(_canonical(dotted),dotted)
+            self.assertEqual(_canonical(dotted.replace(".", "_", 1)),dotted)
+    def test_unknown_identity_rejected(self):
+        with self.assertRaises(RuntimeError):_canonical("unlisted_agent")
     def test_historical_source_has_nineteen_unique_names(self):
         self.assertEqual(len(HISTORICAL_FIRST_19),19)
         self.assertEqual(len(set(HISTORICAL_FIRST_19)),19)
