@@ -14,12 +14,12 @@ def evaluate(tmp_path, records, windows=5):
         w=csv.DictWriter(f,fieldnames=FIELDS);w.writeheader();w.writerows(records)
     return evaluate_trade_file(src,tmp_path/"report.json",windows=windows)
 def test_duplicate_trade_rejected(tmp_path):
-    t=row("2026-01-01T10:00","2026-01-01T10:05")
+    t=row("2026-01-01T10:00+00:00","2026-01-01T10:05+00:00")
     r=evaluate(tmp_path,[t,t])
     assert r["trade_count"]==1 and any(x["error"]=="DUPLICATE_TRADE" for x in r["invalid_rows"])
     assert not r["runtime_promotion_allowed"]
 def test_overlapping_trades_flagged(tmp_path):
-    r=evaluate(tmp_path,[row("2026-01-01T10:00","2026-01-01T10:30"),row("2026-01-01T10:15","2026-01-01T10:40")])
+    r=evaluate(tmp_path,[row("2026-01-01T10:00","2026-01-01T10:30+00:00"),row("2026-01-01T10:15+00:00","2026-01-01T10:40+00:00")])
     assert any(x["error"]=="OVERLAPPING_TRADES" for x in r["invalid_rows"])
     assert not r["runtime_promotion_allowed"]
 def test_missing_edge_rejected(tmp_path):
