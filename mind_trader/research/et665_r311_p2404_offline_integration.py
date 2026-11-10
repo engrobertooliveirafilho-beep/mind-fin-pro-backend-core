@@ -33,7 +33,10 @@ def analyze_verified_paper_csv(source, manifest, trusted_manifest_sha256, *, sou
     # A pinned hash proves byte integrity, not independent provenance. Reject
     # historical generators by manifest metadata, even after file renaming.
     try:
-        entry=json.loads(Path(manifest).read_text(encoding="utf-8"))["sources"][source_id]
+        entry=checked["verified_entry"]
+        if not isinstance(entry,dict):
+            result["issues"]=["VERIFIED_METADATA_MISSING"]
+            return result
         generator=str(entry.get("generator","")).lower()
         lineage=str(entry.get("lineage","")).lower()
         if any(token in generator+" "+lineage for token in ("p2403e","sha256_stride","hash_scheduled","synthetic_entry")):
