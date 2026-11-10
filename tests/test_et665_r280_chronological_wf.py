@@ -3,7 +3,7 @@ import csv
 from pathlib import Path
 from mind_trader.research.et665_r278_chronological_wf import evaluate_trade_file
 
-FIELDS = ["edge_id","entry_time","exit_time","pnl_r","mode","real_orders","ftmo_real","real_execution_allowed"]
+FIELDS = ["signal_origin","strategy_rule_sha256","ohlc_sha256","timezone","edge_id","entry_time","exit_time","pnl_r","mode","real_orders","ftmo_real","real_execution_allowed"]
 
 def write_fixture(path: Path, records):
     with path.open("w", newline="", encoding="utf-8") as f:
@@ -13,7 +13,7 @@ def write_fixture(path: Path, records):
 
 def trade(edge, day, pnl, mode="PAPER_ONLY"):
     t = f"2026-01-{day:02d} 10:00:00+00:00"
-    return dict(edge_id=edge,entry_time=t,exit_time=f"2026-01-{day:02d} 10:15:00+00:00",
+    return dict(signal_origin="CAUSAL_STRATEGY_REPLAY",strategy_rule_sha256="a"*64,ohlc_sha256="b"*64,timezone="UTC",edge_id=edge,entry_time=t,exit_time=f"2026-01-{day:02d} 10:15:00+00:00",
                 pnl_r=pnl,mode=mode,real_orders="FORBIDDEN",
                 ftmo_real="FORBIDDEN",real_execution_allowed="False")
 
