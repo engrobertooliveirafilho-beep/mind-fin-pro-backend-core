@@ -13,8 +13,13 @@ def evaluate_trade_file(source, destination, windows=5):
     rows = defaultdict(list)
     invalid = []
     seen = set()
+    required = {"edge_id", "entry_time", "exit_time", "pnl_r", "mode", "real_orders", "ftmo_real", "real_execution_allowed"}
     with source.open(encoding="utf-8-sig", newline="") as handle:
-        for number, record in enumerate(csv.DictReader(handle), 2):
+        reader = csv.DictReader(handle)
+        headers = reader.fieldnames or []
+        if len(headers) != len(set(headers)) or not required.issubset(set(headers)):
+            raise ValueError("CSV_SCHEMA_INVALID")
+        for number, record in enumerate(reader, 2):
             try:
                 if record["mode"] != "PAPER_ONLY": raise ValueError("MODE_FORBIDDEN")
                 if record["real_orders"] != "FORBIDDEN": raise ValueError("REAL_ORDERS_FORBIDDEN")
@@ -58,6 +63,8 @@ def evaluate_trade_file(source, destination, windows=5):
                           "expectancy_r":sum(p for _,_,p in part)/len(part),"max_dd_r":drawdown})
         edges.append({"edge_id":edge_id,"trades":len(trades),"folds":folds,
                       "status":"QUARANTINE","runtime_promotion_allowed":False})
+    if not rows and not invalid:
+        invalid.append({"line": 1, "error": "EMPTY_DATASET"})
     if invalid:
         for edge in edges:
             edge["folds"] = []
