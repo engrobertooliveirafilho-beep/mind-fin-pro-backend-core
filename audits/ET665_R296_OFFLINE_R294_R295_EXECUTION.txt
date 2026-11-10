@@ -1,0 +1,7 @@
+ET665.R296 | 2026-11-10 | LOCAL OFFLINE TEST EXECUTION
+Source: manually reconstructed local copies of branch R295 structural gate and tests based on inspected published source. Git clone not available (DNS github.com resolution failure). This is NOT a byte-for-byte checkout verification.
+Command: cd /tmp/et665r295 && python -m pytest -q test_et665_r294_structural_pool_gate.py
+Result: 7 passed in 0.04s (pytest 9.0.2)
+Coverage: structural family cap, duplicate candidate, max pool size, empty pool, live-mode rejection, correlation-gate requirement, quarantine invariants.
+Limitations: reconstructed local copies, no full GitHub checkout, no CI, no original CSV replay, no causal strategy backtest.
+Certification: NOT GRANTED. Temporal correlation: NOT MEASURED. Runtime promotion: FORBIDDEN. REAL_ORDERS: FORBIDDEN. FTMO_REAL: FORBIDDEN. Cost R$0.
