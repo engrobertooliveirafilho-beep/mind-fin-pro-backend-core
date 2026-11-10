@@ -12,6 +12,11 @@ from pathlib import Path
 import sys
 
 DISPATCH_PATH = Path(__file__).with_name("et665_r340_safe_agent_dispatch.py")
+# Direct script invocation sets sys.path[0] to experimental/, not repository root.
+# Resolve the checkout explicitly; never import modules from arbitrary CWD.
+REPO_ROOT = Path(__file__).resolve().parents[2]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
 def load_dispatch():
     import importlib.util
