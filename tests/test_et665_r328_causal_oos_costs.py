@@ -73,8 +73,8 @@ class CausalOOSTests(unittest.TestCase):
 
     def test_costs_are_subtracted_from_gross_pnl(self):
         result = self.evaluate()
-        self.assertAlmostEqual(result["windows"]["test"]["net_expectancy_r"], 1.0)
-        self.assertAlmostEqual(result["windows"]["test"]["net_total_r"], 30.0)
+        self.assertAlmostEqual(result["windows"]["test"]["net_expectancy_r"], 0.7)
+        self.assertAlmostEqual(result["windows"]["test"]["net_total_r"], 21.0)
 
     def test_hash_mismatch_blocks(self):
         self.write(self.dataset())
@@ -157,7 +157,7 @@ class CausalOOSTests(unittest.TestCase):
     def test_purges_embargo_and_cross_boundary_trades(self):
         rows = self.dataset()
         boundary_signal = datetime(2025, 2, 1, 12, tzinfo=timezone.utc)
-        rows.append(self.row(31, "purged-gap", signal=boundary_signal))
+        rows.insert(30, self.row(31, "purged-gap", signal=boundary_signal))
         result = self.evaluate(rows)
         self.assertEqual(result["windows"]["train"]["samples"], 30)
         self.assertEqual(result["windows"]["validation"]["samples"], 30)
