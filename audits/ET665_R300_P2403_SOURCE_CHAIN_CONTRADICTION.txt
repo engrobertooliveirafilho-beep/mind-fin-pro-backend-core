@@ -1,0 +1,6 @@
+ET665.R300 | 2026-11-10 | DRIVE P2403 SOURCE CHAIN RECONCILIATION
+P2403 readiness audit: https://drive.google.com/file/d/1xoyjeckdZiv4gJ0DaEJDFwGPWWm3PCdi/view ; 20 edges; 0 series; replay required before correlation.
+P2403B repair audit: https://drive.google.com/file/d/1ohrHs0KgkWvI2tlwulXXBv1cOpDa8yBS/view ; claimed 99,998 candles parsed from P2384 de40_cycle_events.csv, 3,600 trades across 20 edges; CORRELATION_READY=True.
+P2403C later source validation audit: https://drive.google.com/file/d/1Uj27Ii8KDLkITrQ7QPnKQwFvZw4D9xBP/view ; same source de40_cycle_events.csv; headers time,cycle,previous_cycle,cycle_transition,timeframe,regime,session,footprint,lifecycle,atr,close; OHLC SCORE 2/5; VALID RATIO 0.0; DECISION INVALID_FOR_CORRELATION; CORRELATION_ALLOWED=False.
+Conclusion: P2403B readiness claim is superseded by P2403C invalid-source decision. Do NOT certify correlation or causal alpha based on 3,600 generated rows. Later P2403D/P2403E source chain requires independent causal strategy signal proof (prior R287 identified hash-scheduled entries).
+Status: QUARANTINE; PHASE B OPEN; 0/20 strategies causally certified; PAPER_ONLY; REAL_ORDERS FORBIDDEN; FTMO_REAL FORBIDDEN; NO MERGE; R$0.
