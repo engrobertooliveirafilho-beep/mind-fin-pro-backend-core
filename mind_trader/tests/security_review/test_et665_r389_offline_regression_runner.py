@@ -57,14 +57,14 @@ class R389(unittest.TestCase):
         class Incomplete:
             returncode=0
             stdout=""
-            stderr="Ran 1 test in 0.001s\\n\\nOK\\n"
+            stderr="Ran 1 test in 0.001s\n\nOK\n"
         with tempfile.TemporaryDirectory() as d,patch.object(m.subprocess,"run",return_value=Incomplete()):
             self.assertEqual(m.run(d)["status"],"FAIL_CLOSED")
     def test_skipped_tests_rejected(self):
         class Skipped:
             returncode=0
             stdout=""
-            stderr="Ran 19 tests in 0.001s\\n\\nOK (skipped=1)\\n"
+            stderr="Ran 19 tests in 0.001s\n\nOK (skipped=1)\n"
         with tempfile.TemporaryDirectory() as d,patch.object(m.subprocess,"run",return_value=Skipped()):
             self.assertEqual(m.run(d)["status"],"FAIL_CLOSED")
     def test_real_orders_forbidden(self):
