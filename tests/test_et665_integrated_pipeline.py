@@ -1,4 +1,5 @@
 import csv, sys
+import pandas as pd
 from pathlib import Path
 from datetime import datetime, timedelta, timezone
 import pytest
@@ -128,3 +129,24 @@ def test_family_concentration_and_opposing_vote_block():
 def test_p2406_never_enables_runtime():
     assert p6.runtime_allowed() is False
     assert p6.build_ensemble([]).vote(CTX).route=="OBSERVE_ONLY"
+
+def test_sell_sizing_requires_stop_side_spread_and_includes_costs():
+    signal={"edge_id":"E2","signal_time":ts(1,0),"exit_time":ts(1,30),
+            "side":"SELL","stop_price":104,"exit_price":102}
+    t=p3.build_trade_candidates(candles(),[signal],spec())[0]
+    assert t["spread_cost_per_lot"]==.30
+    assert t["risk_per_lot"]>(104-101)
+    with pytest.raises(ValueError):
+        p3.build_trade_candidates(candles(),[signal],spec(stop_spread_points=None))
+
+def test_actual_p2406_roster_cannot_reach_contextual_quorum():
+    roster_path=ROOT/"tests/fixtures/p2406_ensemble_roster.csv"
+    roster=pd.read_csv(roster_path).to_dict("records")
+    contexts={(r["session"],r["regime"],r["timeframe"]) for r in roster}
+    assert len(contexts)==len(roster)==9
+    for session,regime,timeframe in contexts:
+        ctx={"session":session,"regime":regime,"timeframe":timeframe,"direction":"BUY"}
+        d=p6.build_ensemble(roster,3,.62,.40).vote(ctx)
+        assert not d.allowed and d.votes==1 and d.reason=="QUORUM_NOT_REACHED"
+        d=p6.build_ensemble(roster,1,.62,.40).vote(ctx)
+        assert not d.allowed and d.reason=="FAMILY_CONCENTRATION_EXCEEDED"
