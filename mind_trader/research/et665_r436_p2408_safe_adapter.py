@@ -1,5 +1,10 @@
 """Fail-closed adapter for recovered P2408, PAPER only; no broker interface."""
-from et665_r434_context_consensus_gate import decide
+try:
+    from .et665_r434_context_consensus_gate import decide
+except ImportError:
+    if __package__:
+        raise
+    from et665_r434_context_consensus_gate import decide
 
 def dispatch_paper(context, votes, policy, original_dispatch, now=None):
     result = decide(context, votes, policy, now)
