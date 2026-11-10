@@ -15,6 +15,7 @@ def verify(root, manifest):
     if not isinstance(manifest, dict):
         return {"status": "FAIL_CLOSED", "errors": ["manifest must be object"], "hp19": 0, "phase_b": 0}
     counts = {}
+    seen_runs = set()
     for group, expected in (("hp19", 19), ("phase_b", 16)):
         entries = manifest.get(group)
         passed = 0
@@ -60,7 +61,12 @@ def verify(root, manifest):
                     errors.append(prefix + f": {field} SHA256 mismatch")
                     valid = False
             if valid:
-                passed += 1
+                run_key = (item['output']['path'], item['execution_log']['path'])
+                if run_key in seen_runs:
+                    errors.append(prefix + ': reused output/log cannot prove independent E2E')
+                else:
+                    seen_runs.add(run_key)
+                    passed += 1
         counts[group] = passed
     return {"status": "EVIDENCE_READY_FOR_HUMAN_REVIEW" if not errors and counts == {"hp19":19,"phase_b":16} else "FAIL_CLOSED",
             "hp19": counts["hp19"], "phase_b": counts["phase_b"], "errors": errors,
