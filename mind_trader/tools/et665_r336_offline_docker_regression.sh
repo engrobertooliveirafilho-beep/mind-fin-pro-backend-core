@@ -4,7 +4,7 @@ set -Eeuo pipefail
 umask 077
 ROOT="$(git rev-parse --show-toplevel)"
 cd "$ROOT"
-EVIDENCE="${1:-$ROOT/.et665_evidence/r336}"
+EVIDENCE="${1:-${TMPDIR:-/tmp}/et665_r336_evidence}"
 mkdir -p "$EVIDENCE"
 EVIDENCE="$(cd "$EVIDENCE" && pwd -P)"
 IMAGE="python:3.11"
