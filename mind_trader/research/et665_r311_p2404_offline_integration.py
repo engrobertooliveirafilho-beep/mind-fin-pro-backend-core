@@ -2,6 +2,7 @@
 No external I/O except reading explicitly supplied local files; no runtime or certification.
 """
 import csv
+import json
 from pathlib import Path
 from .et665_r305_pinned_authority_gate import verify_pinned_manifest
 from .et665_r309_pure_correlation import analyze_paper_series
@@ -26,6 +27,21 @@ def analyze_verified_paper_csv(source, manifest, trusted_manifest_sha256, *, sou
     result["source_integrity_verified"]=checked["source_integrity_verified"]
     if not checked["source_integrity_verified"]:
         result["issues"]=checked["issues"]
+        return result
+    # A pinned hash proves byte integrity, not independent provenance. Reject
+    # historical generators by manifest metadata, even after file renaming.
+    try:
+        entry=json.loads(Path(manifest).read_text(encoding="utf-8"))["sources"][source_id]
+        generator=str(entry.get("generator","")).lower()
+        lineage=str(entry.get("lineage","")).lower()
+        if any(token in generator+" "+lineage for token in ("p2403e","sha256_stride","hash_scheduled","synthetic_entry")):
+            result["issues"]=["NONCAUSAL_GENERATOR_QUARANTINED"]
+            return result
+        if entry.get("independent_review") is not True:
+            result["issues"]=["INDEPENDENT_REVIEW_REQUIRED"]
+            return result
+    except (OSError,ValueError,TypeError,KeyError,UnicodeError):
+        result["issues"]=["PROVENANCE_METADATA_INVALID"]
         return result
     try:
         with Path(source).open("r",encoding="utf-8-sig",newline="") as handle:
