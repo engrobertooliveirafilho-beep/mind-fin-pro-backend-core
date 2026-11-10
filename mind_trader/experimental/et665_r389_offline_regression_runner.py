@@ -31,9 +31,9 @@ def run(output_dir):
         temp=Path(handle.name)
     path=dest/"r389_tests.log"
     temp.replace(path)
-    matches=re.findall(r"(?m)^Ran (\\d+) tests? in [0-9.]+s\\s*$",log)
+    matches=re.findall(r"(?m)^Ran (\d+) tests? in [0-9.]+s\s*$",log)
     passed=(result.returncode==0 and len(matches)==1
-            and int(matches[0])>=1 and bool(re.search(r"(?m)^OK\\s*$",log))
+            and int(matches[0])>=1 and bool(re.search(r"(?m)^OK\s*$",log))
             and "FAILED" not in log and "Traceback (most recent call last)" not in log)
     evidence={"schema":"ET665.R389.v1","status":"PASS" if passed else "FAIL_CLOSED",
               "exit_code":result.returncode,"command":cmd[1:],
