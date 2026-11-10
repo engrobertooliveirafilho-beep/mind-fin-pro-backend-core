@@ -6,6 +6,7 @@ import argparse
 import hashlib
 import json
 import subprocess
+import re
 from pathlib import Path
 
 def sha(path):
@@ -15,6 +16,8 @@ def run(root, manifest, output):
     root = Path(root).resolve()
     output = Path(output).resolve()
     output.mkdir(parents=True, exist_ok=True)
+    if output.is_relative_to(root):
+        raise ValueError("evidence output must be outside source mount")
     report = {"status":"FAIL_CLOSED", "official_hp19_certified":0,
               "phase_b_certified":0, "runs":[]}
     try:
@@ -23,6 +26,8 @@ def run(root, manifest, output):
         if not isinstance(components,list) or not components:
             raise ValueError("empty component inventory")
         seen=set()
+        if len(components) != 19:
+            raise ValueError("HP19 requires exactly 19 original components")
         for index,item in enumerate(components):
             name=item["historical_id"]
             relative=item["component"]
@@ -30,20 +35,27 @@ def run(root, manifest, output):
             if not isinstance(name,str) or not name or name in seen:
                 raise ValueError("duplicate/missing historical id")
             seen.add(name)
-            component=(root/relative).resolve()
-            if not component.is_relative_to(root) or not component.is_file() or component.is_symlink():
+            if not isinstance(relative,str) or not relative.endswith(".py") or Path(relative).is_absolute():
+                raise ValueError("component must be relative Python source")
+            component_path = root / relative
+            component=component_path.resolve()
+            if not component.is_relative_to(root) or not component.is_file() or component_path.is_symlink():
                 raise ValueError("unsafe component")
             if sha(component)!=expected:
                 raise ValueError("source hash mismatch")
-            input_file=(root/item["input"]).resolve()
-            if not input_file.is_relative_to(root) or not input_file.is_file() or input_file.is_symlink():
+            input_path = root / item["input"]
+            input_file=input_path.resolve()
+            if not input_file.is_relative_to(root) or not input_file.is_file() or input_path.is_symlink():
                 raise ValueError("unsafe input")
             if sha(input_file)!=item["input_sha256"]:
                 raise ValueError("input hash mismatch")
+            expected_output=item.get("expected_stdout_sha256")
+            if not isinstance(expected_output,str) or not re.fullmatch(r"[a-fA-F0-9]{64}",expected_output):
+                raise ValueError("independent expected stdout SHA256 required")
             # No host network, no host writes, no Docker socket, no broker secrets.
             command=["docker","run","--rm","--network","none","--read-only",
                      "--cap-drop","ALL","--security-opt","no-new-privileges",
-                     "--pids-limit","64","--memory","256m","--cpus","1",
+                     "--pull","never","--pids-limit","64","--memory","256m","--cpus","1",
                      "--user","65534:65534",
                      "--mount",f"type=bind,src={root},dst=/work,readonly",
                      "--workdir","/work","python:3.11-alpine",
@@ -54,7 +66,7 @@ def run(root, manifest, output):
                        "source_sha256":sha(component),"input_sha256":sha(input_file),
                        "stdout_sha256":hashlib.sha256(result.stdout).hexdigest(),
                        "stderr_sha256":hashlib.sha256(result.stderr).hexdigest(),
-                       "status":"EXECUTED_UNCERTIFIED" if result.returncode==0 and result.stdout else "FAIL_CLOSED"}
+                       "status":"EXECUTED_UNCERTIFIED" if result.returncode==0 and hashlib.sha256(result.stdout).hexdigest()==expected_output.lower() else "FAIL_CLOSED"}
                 # Preserve actual bytes; a hash alone does not prove behavior.
                 (output/f"run_{index:02d}.stdout").write_bytes(result.stdout)
                 (output/f"run_{index:02d}.stderr").write_bytes(result.stderr)
