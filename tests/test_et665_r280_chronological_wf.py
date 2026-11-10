@@ -12,8 +12,8 @@ def write_fixture(path: Path, records):
         w.writerows(records)
 
 def trade(edge, day, pnl, mode="PAPER_ONLY"):
-    t = f"2026-01-{day:02d} 10:00:00"
-    return dict(edge_id=edge,entry_time=t,exit_time=f"2026-01-{day:02d} 10:15:00",
+    t = f"2026-01-{day:02d} 10:00:00+00:00"
+    return dict(edge_id=edge,entry_time=t,exit_time=f"2026-01-{day:02d} 10:15:00+00:00",
                 pnl_r=pnl,mode=mode,real_orders="FORBIDDEN",
                 ftmo_real="FORBIDDEN",real_execution_allowed="False")
 
