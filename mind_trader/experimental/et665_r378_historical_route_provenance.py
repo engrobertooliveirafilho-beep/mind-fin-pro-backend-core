@@ -21,7 +21,7 @@ HISTORICAL_FIRST_19 = (
 )
 
 def _canonical(value):
-    return value.replace("_", ".") if isinstance(value, str) else value
+    return value.replace("_", ".", 1) if isinstance(value, str) else value
 
 def audit():
     expected = HISTORICAL_FIRST_19
