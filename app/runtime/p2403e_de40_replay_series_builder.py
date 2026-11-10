@@ -23,6 +23,7 @@ class ContractSpec:
     conversion_adjustment_rate: float=0.0
     financing_per_lot_per_day: float|None=None
     price_basis: str="BID"
+    stop_spread_points: float|None=None
 
     def validate(self):
         vals=(self.point_size,self.contract_size,self.profit_to_account_fx,self.volume_min,self.volume_max,self.volume_step)
@@ -34,6 +35,8 @@ class ContractSpec:
             raise ValueError("Invalid slippage/conversion adjustment")
         if self.price_basis!="BID":
             raise ValueError("Only BID-based MT5 OHLC is supported")
+        if self.stop_spread_points is not None and self.stop_spread_points<0:
+            raise ValueError("Invalid stop spread assumption")
         if self.account_currency!=self.profit_currency and self.profit_to_account_fx==1.0:
             raise ValueError("Explicit FX conversion rate required when currencies differ")
 
@@ -81,12 +84,15 @@ def build_trade_candidates(candles,signals,spec:ContractSpec):
         if side=="BUY":
             entry_fill=entry_bid+entry_spread+slip; exit_fill=exit_bid-slip
             execution_quote=(exit_fill-entry_fill)*spec.contract_size
-            risk_quote=(entry_bid-stop)*spec.contract_size
+            risk_quote=(entry_fill-stop+slip)*spec.contract_size
             spread_cost=entry_spread*spec.contract_size*spec.profit_to_account_fx
         else:
             entry_fill=entry_bid-slip; exit_fill=exit_bid+exit_spread+slip
             execution_quote=(entry_fill-exit_fill)*spec.contract_size
-            risk_quote=(stop-entry_bid)*spec.contract_size
+            if spec.stop_spread_points is None:
+                raise ValueError("Explicit stop_spread_points required for SELL risk sizing")
+            stop_ask=stop+spec.stop_spread_points*spec.point_size
+            risk_quote=(stop_ask+slip-entry_fill)*spec.contract_size
             spread_cost=exit_spread*spec.contract_size*spec.profit_to_account_fx
         execution_pnl=execution_quote*spec.profit_to_account_fx
         raw_gross=((exit_bid-entry_bid) if side=="BUY" else (entry_bid-exit_bid))*spec.contract_size*spec.profit_to_account_fx
