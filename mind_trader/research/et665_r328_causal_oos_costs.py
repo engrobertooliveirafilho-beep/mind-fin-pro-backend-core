@@ -6,7 +6,6 @@ prove signal causality, source authority, or runtime eligibility.
 """
 import math
 from datetime import datetime, timedelta, timezone
-from pathlib import Path
 
 from .et665_r315_immutable_csv_snapshot import snapshot_verified_csv
 
