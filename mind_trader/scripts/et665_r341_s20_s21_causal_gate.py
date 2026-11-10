@@ -2,6 +2,8 @@
 import csv
 import hashlib
 import json
+import re
+import math
 from pathlib import Path
 
 REQUIRED = {'decision_id', 'strategy_id', 'symbol', 'decision_ts', 'signal_ts', 'price_ts', 'price', 'source_sha256'}
@@ -21,12 +23,14 @@ def validate(rows):
         symbol = row['symbol'].strip().upper()
         if symbol != row['symbol']:
             raise ValueError('noncanonical_symbol')
+        if any(re.fullmatch(r'[0-9]+', row[k], flags=re.ASCII) is None for k in ('decision_ts', 'signal_ts', 'price_ts')):
+            raise ValueError('noncanonical_timestamp')
         try:
             d, s, p = (int(row[k]) for k in ('decision_ts', 'signal_ts', 'price_ts'))
             price = float(row['price'])
         except (TypeError, ValueError, OverflowError):
             raise ValueError('invalid_numeric')
-        if not (0 < d <= s <= p and price > 0 and price < float('inf')):
+        if not (0 < d <= s <= p and math.isfinite(price) and price > 0):
             raise ValueError('causality_or_price')
         if symbol in last and d < last[symbol]:
             raise ValueError('nonmonotonic_decision')
