@@ -50,7 +50,7 @@ def evaluate(root, manifest):
     agents = {k: verified(v) for k, v in doc["agents"].items()}
     return {"fronts_pass": sum(fronts.values()), "agents_pass": sum(agents.values()),
             "fronts_total": 16, "agents_total": 19,
-            "certified": all(fronts.values()) and all(agents.values()),
+            "evidence_complete": all(fronts.values()) and all(agents.values()),\n            "certified": False,
             "real_component_hash_verified": True,
             "warning": "Hash-matched PASS evidence alone does not prove behavioral execution or independence."}
 
@@ -63,7 +63,7 @@ def main(argv=None):
     try:
         result = evaluate(*args)
         print(json.dumps(result, sort_keys=True))
-        return 0 if result["certified"] else 1
+        return 0 if result["evidence_complete"] else 1
     except (OSError, ValueError, TypeError, KeyError, json.JSONDecodeError) as exc:
         print(json.dumps({"certified": False, "error": str(exc)}))
         return 1
