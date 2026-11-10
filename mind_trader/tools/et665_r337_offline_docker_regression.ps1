@@ -21,7 +21,11 @@ $paths = @(
  'mind_trader/tests/security_review/test_et665_r338_report_pipeline_e2e.py',
  'mind_trader/tests/security_review/test_et665_r339_fail_closed_adversarial.py',
  'mind_trader/tests/security_review/test_et665_r341_dispatch_behavior.py',
- 'mind_trader/experimental/et665_r340_safe_agent_dispatch.py'
+ 'mind_trader/experimental/et665_r340_safe_agent_dispatch.py',
+ 'mind_trader/experimental/et665_r343_cashflow.py',
+ 'mind_trader/experimental/et665_r346_real_agent_gate.py',
+ 'mind_trader/tests/security_review/test_et665_r343_cashflow_component.py',
+ 'mind_trader/tests/security_review/test_et665_r347_output_hash_integrity.py'
 )
 $paths | ForEach-Object {
  $hash = Get-FileHash -Algorithm SHA256 -LiteralPath (Join-Path $root $_)
@@ -29,7 +33,7 @@ $paths | ForEach-Object {
 } | Set-Content -Encoding ASCII (Join-Path $evidence 'source_sha256.txt')
 $log = Join-Path $evidence 'unittest.log'
 # Docker image must already be cached; network is always disabled.
-& docker run --rm --pull never --network none --read-only --cap-drop ALL --security-opt no-new-privileges --pids-limit 128 --memory 256m --cpus 1 --tmpfs /tmp:rw,noexec,nosuid,size=32m --mount "type=bind,src=$root,dst=/work,readonly" --workdir /work python:3.11 python -B -m unittest -v mind_trader/tests/security_review/test_et665_r332_causal_fill_gate.py mind_trader/tests/security_review/test_et665_r334_synthetic_reconstruction_e2e.py mind_trader/tests/security_review/test_et665_r338_report_pipeline_e2e.py mind_trader/tests/security_review/test_et665_r339_fail_closed_adversarial.py mind_trader/tests/security_review/test_et665_r341_dispatch_behavior.py 2>&1 | Tee-Object -FilePath $log
+& docker run --rm --pull never --network none --read-only --cap-drop ALL --security-opt no-new-privileges --pids-limit 128 --memory 256m --cpus 1 --tmpfs /tmp:rw,noexec,nosuid,size=32m --mount "type=bind,src=$root,dst=/work,readonly" --workdir /work python:3.11 python -B -m unittest -v mind_trader/tests/security_review/test_et665_r332_causal_fill_gate.py mind_trader/tests/security_review/test_et665_r334_synthetic_reconstruction_e2e.py mind_trader/tests/security_review/test_et665_r338_report_pipeline_e2e.py mind_trader/tests/security_review/test_et665_r339_fail_closed_adversarial.py mind_trader/tests/security_review/test_et665_r341_dispatch_behavior.py mind_trader/tests/security_review/test_et665_r343_cashflow_component.py mind_trader/tests/security_review/test_et665_r347_output_hash_integrity.py 2>&1 | Tee-Object -FilePath $log
 $exitCode = $LASTEXITCODE
 "$exitCode" | Set-Content -Encoding ASCII (Join-Path $evidence 'exit_code.txt')
 Get-ChildItem -File $evidence | Sort-Object Name | ForEach-Object {
