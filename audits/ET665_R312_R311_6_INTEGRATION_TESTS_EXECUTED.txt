@@ -1,0 +1,8 @@
+ET665.R312 | 2026-11-10 | R311 INTEGRATION TESTS EXECUTED
+GitHub blobs: R305 982efefda3876383596e990f9e9b38d27c8f9d5f; R309 42691031a8fa573422852ce269d789c78a8ffde8; R311 e59b0fc34855541579cbda92d8d390ddba96566b; R311 tests 50c6ae44c1439c4b8c2fe8d99af132d529376b38.
+Reconstructed connector-fetched sources in /mnt/data/et665_r312; not authenticated checkout.
+Command: cd /mnt/data/et665_r312 && PYTHONPATH=. python -m pytest -q tests/test_et665_r311_p2404_offline_integration.py
+Observed: ...... [100%]; 6 passed in 0.05s; log /mnt/data/ET665_R312_TEST_LOG.txt.
+Scope: source hash, missing manifest trust anchor, P2403E quarantine, duplicate CSV headers, malformed CSV, offline Pearson/Spearman calculation with no certification.
+Limitations: tests use self-generated trust anchors, not independently reviewed authority. Filename-based P2403E quarantine is not content provenance. Full repository CI and causal strategy replay remain pending.
+Ledger ET-708 pending: Docs V1 write previously HTTP 403. PHASE B OPEN; 0/16 fronts; 0/19 HP19; 0/20 causal strategies; PAPER_ONLY; REAL_ORDERS FORBIDDEN; FTMO_REAL FORBIDDEN; NO MERGE; R$0.
