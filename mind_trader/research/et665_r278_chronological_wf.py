@@ -23,7 +23,7 @@ def evaluate_trade_file(source, destination, windows=5):
                 entry = datetime.fromisoformat(record["entry_time"])
                 exit_time = datetime.fromisoformat(record["exit_time"])
                 pnl = float(record["pnl_r"])
-                if entry.tzinfo is None or exit_time.tzinfo is None: raise ValueError("TIMEZONE_REQUIRED")
+                if entry.tzinfo is None or exit_time.tzinfo is None or entry.utcoffset() is None or exit_time.utcoffset() is None: raise ValueError("TIMEZONE_REQUIRED")
                 if exit_time < entry or not math.isfinite(pnl): raise ValueError("INVALID_TRADE")
                 edge_id = record["edge_id"].strip()
                 if not edge_id: raise ValueError("EMPTY_EDGE_ID")
@@ -31,7 +31,7 @@ def evaluate_trade_file(source, destination, windows=5):
                 if trade_key in seen: raise ValueError("DUPLICATE_TRADE")
                 seen.add(trade_key)
                 rows[edge_id].append((entry, exit_time, pnl))
-            except (AssertionError, KeyError, ValueError) as error:
+            except (AssertionError, KeyError, ValueError, TypeError, AttributeError, OverflowError) as error:
                 invalid.append({"line": number, "error": str(error)})
     edges = []
     for edge_id, trades in sorted(rows.items()):
