@@ -1,0 +1,8 @@
+ET665.R313 | 2026-11-10 | PROVENANCE QUARANTINE HARDENING
+Code update commit 8f0efe954dcf155228620784daef6cf20f198e15; tests update 9d0af41945901e9360028ea169c0952fda2ef2df.
+Offline local reproduction: /mnt/data/et665_r312 (reconstructed from connector-fetched GitHub files; NOT an authenticated full checkout).
+Command: cd /mnt/data/et665_r312 && PYTHONPATH=. python -m pytest -q tests/test_et665_r311_p2404_offline_integration.py
+Observed: 8 passed in 0.06s.
+Fixed: reject known noncausal generator metadata (p2403e, sha256_stride, hash_scheduled, synthetic_entry), including renamed source files; require manifest independent_review=True. Historical named CSVs still quarantined.
+Limitations: independent_review is a self-asserted field in a caller-supplied manifest, not an independently authenticated reviewer signature; source can omit known generator lineage. Therefore NO causal certification, NO runtime promotion, NO security signoff.
+Ledger ET-709 pending Docs edit permission 403. 0/16 fronts; 0/19 HP19; 0/20 causal strategies. PAPER_ONLY; REAL_ORDERS FORBIDDEN; FTMO_REAL FORBIDDEN; NO MERGE; R$0.
