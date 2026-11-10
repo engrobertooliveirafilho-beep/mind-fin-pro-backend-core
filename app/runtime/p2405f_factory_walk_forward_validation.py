@@ -82,6 +82,9 @@ def walk_forward(trades,folds=3,train_fraction=.5,min_train_trades=30,min_pf=1.0
                 "closed_trades":0,"rejected_entries":0,"max_concurrent_positions":0,"max_open_risk_fraction_observed":0.0}
             ledger=[]; rejected=[]
         results.append({"fold":k+1,"train_end":split.isoformat(),"test_end":test_end.isoformat(),
+            "train_exit_cutoff":(split-embargo).isoformat(),"test_entry_floor":(split+embargo).isoformat(),
+            "max_train_exit":max((_dt(t["exit_time"]) for t in train),default=None).isoformat() if train else None,
+            "min_test_entry":min((_dt(t["entry_time"]) for t in test),default=None).isoformat() if test else None,
             "embargo_minutes":embargo_minutes,"train_events":len(train),"test_events":len(oos),
             "selected_edges":selected,"oos_metrics":_metrics(oos),"portfolio":portfolio,
             "oos_ledger":ledger,"rejected_entries":rejected})
