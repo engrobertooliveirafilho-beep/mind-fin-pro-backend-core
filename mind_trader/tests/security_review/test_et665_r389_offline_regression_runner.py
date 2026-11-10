@@ -76,4 +76,32 @@ class R389(unittest.TestCase):
             r=m.run(d)
             self.assertEqual(r["real_orders"],"FORBIDDEN")
             self.assertEqual(r["official_hp19_certified"],0)
+
+    def test_stdout_success_with_skips_rejected(self):
+        class Skipped:
+            returncode=0
+            stdout="Ran 19 tests in 0.001s\n\nOK (skipped=1)\n"
+            stderr=""
+        with tempfile.TemporaryDirectory() as d,patch.object(m.subprocess,"run",return_value=Skipped()):
+            self.assertEqual(m.run(d)["status"],"FAIL_CLOSED")
+    def test_verbose_skip_marker_rejected(self):
+        class Skipped:
+            returncode=0
+            stdout=""
+            stderr="test_something ... skipped 'unavailable'\nRan 19 tests in 0.001s\n\nOK\n"
+        with tempfile.TemporaryDirectory() as d,patch.object(m.subprocess,"run",return_value=Skipped()):
+            self.assertEqual(m.run(d)["status"],"FAIL_CLOSED")
+    def test_valid_success_evidence_hash_matches_log(self):
+        import hashlib,json
+        class Passed:
+            returncode=0
+            stdout=""
+            stderr="Ran 19 tests in 0.417s\n\nOK\n"
+        with tempfile.TemporaryDirectory() as d,patch.object(m.subprocess,"run",return_value=Passed()):
+            r=m.run(d)
+            self.assertEqual(r["status"],"PASS")
+            log=(Path(d)/"r389_tests.log").read_bytes()
+            self.assertEqual(r["log_sha256"],hashlib.sha256(log).hexdigest())
+            self.assertEqual(json.loads((Path(d)/"r389_evidence.json").read_text())["status"],"PASS")
+
 if __name__=="__main__":unittest.main()
