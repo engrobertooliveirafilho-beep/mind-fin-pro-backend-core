@@ -82,7 +82,7 @@ class CausalOOSTests(unittest.TestCase):
             self.path, "0"*64, train_end=self.train_end,
             validation_end=self.validation_end, test_end=self.test_end,
         )
-        self.assertIn("SOURCE_SHA256_MISMATCH", result["issues"])
+        self.assertIn("SOURCE_HASH_MISMATCH", result["issues"])
 
     def test_missing_expected_hash_blocks(self):
         self.write(self.dataset())
@@ -90,7 +90,7 @@ class CausalOOSTests(unittest.TestCase):
             self.path, None, train_end=self.train_end,
             validation_end=self.validation_end, test_end=self.test_end,
         )
-        self.assertIn("EXPECTED_SOURCE_SHA256_REQUIRED", result["issues"])
+        self.assertIn("EXPECTED_HASH_REQUIRED", result["issues"])
 
     def test_invalid_window_order_blocks(self):
         result = self.evaluate(
