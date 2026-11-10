@@ -2,7 +2,7 @@
 import pytest
 from mind_trader.research.et665_r278_chronological_wf import evaluate_trade_file
 
-HEADER="edge_id,entry_time,exit_time,pnl_r,mode,real_orders,ftmo_real,real_execution_allowed\n"
+HEADER="signal_origin,strategy_rule_sha256,ohlc_sha256,timezone,edge_id,entry_time,exit_time,pnl_r,mode,real_orders,ftmo_real,real_execution_allowed\n"
 def evaluate(tmp_path, text):
     src=tmp_path/"input.csv";src.write_text(text,encoding="utf-8")
     return evaluate_trade_file(src,tmp_path/"out.json")
