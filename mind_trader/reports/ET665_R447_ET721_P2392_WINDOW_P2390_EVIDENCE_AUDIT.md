@@ -1,0 +1,7 @@
+# ET665.R447 / ET-721 — P2392 event-count window partition audit; P2390 evidence inventory
+Date 2026-11-10. P2392 original detailed CSV Drive ID `1_4CeT43xblX5lFVJC8w3QbaM9hDo6kXf`, SHA256 `3c646c299d2a2ddf103189658b637fb6a933a54c226a1ad00033f6486a3c21e1`. Offline **6/6 assertions PASS** over **2535 rows and 40 candidate IDs**: all have five chronological, nonoverlapping windows; first four windows for every candidate have exactly the same number of events; last window has equal or greater number. This establishes **event-count-based partition structure**. It does **not** prove independent training, validation, test, embargo/purging, or out-of-sample certification. Recovered P2392 evidence folder has no original generator script.
+
+New upstream P2390 folder Drive ID `1IHZWLq7HfEbBEEsldVw4PbgJu3357aMq` contains exactly three artifacts: `summary.json` (ID `10oCkwSFZ1eyyXDlsvm--I7tHT9DfFfBl`), `pytest_output.txt` (ID `1n1fPvEPhm5ZMOCn-w1mCVtBVdgzgzfc-`), `AUDIT_FINAL.txt` (ID `1aSdgcXr3LJYHaTyazzeZQVSk6gz9oBjg`). Summary claims 230 PAPER signals, PF 1.543464, net 24.099759 R, 9 tests; pytest file only `......... [100%]` without names, source, signal or fill log. Claims are **historical metadata only**, not independently reproducible E2E proof. Do not mark P2390 or P2392 empirically certified.
+
+Evidence local `ET665_R447_P2392_WINDOW_AUDIT.json`. Ledger write attempted separately. No main/production modifications.
+`PHASE_B=0/16 | HP19=0/19 | E2E=FALSE | PAPER_ONLY | REAL_ORDERS=FORBIDDEN | FTMO_REAL=FORBIDDEN | R$0`
