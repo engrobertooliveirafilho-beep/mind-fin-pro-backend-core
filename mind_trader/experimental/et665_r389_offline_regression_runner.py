@@ -33,7 +33,7 @@ def run(output_dir):
         stderr=getattr(exc,"stderr",None) or ""
         def as_text(value):
             return value.decode("utf-8","replace") if isinstance(value,bytes) else str(value)
-        log=as_text(stdout)+as_text(stderr)+"\\nEXECUTION_ERROR: "+type(exc).__name__+"\\n"
+        log=as_text(stdout)+as_text(stderr)+"\nEXECUTION_ERROR: "+type(exc).__name__+"\n"
     with tempfile.NamedTemporaryFile(mode="w",encoding="utf-8",dir=dest,
                                       prefix=".r389-",delete=False) as handle:
         handle.write(log)
