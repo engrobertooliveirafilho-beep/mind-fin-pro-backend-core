@@ -1,0 +1,6 @@
+# ET665.R445 / ET-719 — P2391→P2392 original event lineage reconciliation
+2026-11-10. New Drive source `de40_p2391_promoted_detail_events.csv`, file ID `1vTByPz0N8avas_xTwbCaMDyfOGL6U1gK`, SHA256 `2fff8165f8e3c0562e675b477d4b94d7530dc845de8c99f5e33c688fcfe27cf3`; compared with original P2392 `de40_edge_walkforward_detail.csv` file ID `1_4CeT43xblX5lFVJC8w3QbaM9hDo6kXf`, SHA256 `3c646c299d2a2ddf103189658b637fb6a933a54c226a1ad00033f6486a3c21e1`.
+
+Executed local cross-file reconciliation: **7/7 assertions PASS**, **2535/2535 exact candidate_id+time matches** across 40 candidates, no duplicate keys in either file, all directions and context keys match, 152 events for best candidate P2391_8149352397. This establishes a complete **record-level linkage** between P2391 and P2392, not strategy-generated signal authenticity, original OHLC data provenance, costs or independent out-of-sample proof. Original P2391 source generator still not recovered; E2E false. Evidence `ET665_R445_P2391_P2392_PROVENANCE.json`, local executable `et665_r445_p2391_p2392_reconcile.py`.
+
+Keep P2393, P2395, P2396, P2408 fail-closed, no strategy promotion. Canonical ledger write attempted separately. `PHASE_B=0/16 | HP19=0/19 | E2E=FALSE | MAIN=INTACTA | PAPER_ONLY | REAL_ORDERS=FORBIDDEN | FTMO_REAL=FORBIDDEN | R$0`
