@@ -10,10 +10,13 @@ def evaluate_trade_file(source, destination, windows=5):
     if not isinstance(windows, int) or isinstance(windows, bool) or windows < 2 or windows > 100:
         raise ValueError("windows must be an integer from 2 to 100")
     source = Path(source)
+    # Known P2403E outputs are hash-scheduled pseudo-signals; reject by schema provenance.
+    if source.name.lower() == "p2403e_de40_edge_trade_series.csv":
+        raise ValueError("HASH_SCHEDULED_P2403E_SOURCE_FORBIDDEN")
     rows = defaultdict(list)
     invalid = []
     seen = set()
-    required = {"edge_id", "entry_time", "exit_time", "pnl_r", "mode", "real_orders", "ftmo_real", "real_execution_allowed"}
+    required = {"signal_origin", "strategy_rule_sha256", "ohlc_sha256", "timezone", "edge_id", "entry_time", "exit_time", "pnl_r", "mode", "real_orders", "ftmo_real", "real_execution_allowed"}
     with source.open(encoding="utf-8-sig", newline="") as handle:
         reader = csv.DictReader(handle)
         headers = reader.fieldnames or []
@@ -21,6 +24,9 @@ def evaluate_trade_file(source, destination, windows=5):
             raise ValueError("CSV_SCHEMA_INVALID")
         for number, record in enumerate(reader, 2):
             try:
+                if record["signal_origin"] != "CAUSAL_STRATEGY_REPLAY": raise ValueError("UNVERIFIED_SIGNAL_ORIGIN")
+                if not all(len(record[k]) == 64 and all(ch in "0123456789abcdef" for ch in record[k].lower()) for k in ("strategy_rule_sha256", "ohlc_sha256")): raise ValueError("PROVENANCE_HASH_REQUIRED")
+                if not record["timezone"].strip(): raise ValueError("TIMEZONE_PROVENANCE_REQUIRED")
                 if record["mode"] != "PAPER_ONLY": raise ValueError("MODE_FORBIDDEN")
                 if record["real_orders"] != "FORBIDDEN": raise ValueError("REAL_ORDERS_FORBIDDEN")
                 if record["ftmo_real"] != "FORBIDDEN": raise ValueError("FTMO_REAL_FORBIDDEN")
@@ -72,7 +78,7 @@ def evaluate_trade_file(source, destination, windows=5):
     result = {"source_sha256":hashlib.sha256(source.read_bytes()).hexdigest(),
               "edge_count":len(edges),"trade_count":sum(map(len,rows.values())),
               "invalid_rows":invalid,"valid_input":not bool(invalid),"edges":edges,"runtime_promotion_allowed":False,
-              "method":"chronological nonoverlapping folds; no causal signal replay",
-              "limitations":["canonical OHLC equivalence unverified","signal lookahead unverified"]}
+              "method":"chronological nonoverlapping folds; declared provenance only, not independent causal replay",
+              "limitations":["provenance fields are declarations, not independently verified","signal lookahead unverified","no independent PnL replay"]}
     Path(destination).write_text(json.dumps(result,indent=2),encoding="utf-8")
     return result
