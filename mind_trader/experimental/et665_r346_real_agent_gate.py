@@ -33,8 +33,13 @@ def verify_one(name, payload, dispatch):
         raise RuntimeError("component identity missing or incorrect")
     if result.get("input_sha256") != payload["input_sha256"]:
         raise RuntimeError("input lineage not proven")
-    if not isinstance(result.get("output_sha256"), str) or len(result["output_sha256"]) != 64:
-        raise RuntimeError("output lineage not proven")
+    output = result.get("output")
+    if not isinstance(output, dict) or not output:
+        raise RuntimeError("concrete output payload missing")
+    serialized = json.dumps(output, sort_keys=True, separators=(",", ":"), allow_nan=False).encode()
+    expected_hash = hashlib.sha256(serialized).hexdigest()
+    if result.get("output_sha256") != expected_hash:
+        raise RuntimeError("output hash does not match concrete output")
     if not isinstance(result.get("processed_items"), int) or result["processed_items"] < 1:
         raise RuntimeError("no real processing evidence")
     return {"agent_id": name, "source_sha256": hashlib.sha256(source).hexdigest(),
