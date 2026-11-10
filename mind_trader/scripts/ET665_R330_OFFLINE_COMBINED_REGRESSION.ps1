@@ -4,7 +4,7 @@
 # No merge, no production, no broker, no real orders.
 $ErrorActionPreference = 'Stop'
 $repo = 'https://github.com/engrobertooliveirafilho-beep/mind-fin-pro-backend-core.git'
-$sha = '22d9d2c52d02a62c9100a47fec6c80af7bee6d97'
+$sha = '52f5d1897dc8939fc52eddd5e8f2abc83b78a719'
 # Clone into a fresh unique directory. Never reuse or overwrite prior evidence/source.
 $runId = (Get-Date).ToUniversalTime().ToString('yyyyMMdd_HHmmss_fff') + '_' + [guid]::NewGuid().ToString('N').Substring(0,8)
 $root = Join-Path 'D:\MIND_TEMP\ET665_R330_OFFLINE_REGRESSION' $runId
@@ -36,7 +36,7 @@ if ($LASTEXITCODE -ne 0) { throw 'python:3.11 image absent; offline test aborted
 $log = Join-Path $evidence 'PYTEST.log'
 docker run --rm --network none --read-only --cap-drop ALL --security-opt no-new-privileges --pids-limit 128 --memory 512m --cpus 1 --tmpfs /tmp:rw,noexec,nosuid,size=64m -v "${src}:/work:ro" -w /work -e PYTHONDONTWRITEBYTECODE=1 -e PYTHONPATH=/work python:3.11 python -m unittest -v tests.test_et665_r326_causal_walk_forward tests.test_et665_r328_causal_oos_costs 2>&1 | Tee-Object -FilePath $log
 $exit = $LASTEXITCODE
-@{r='R330';exit_code=$exit;completed_utc=(Get-Date).ToUniversalTime().ToString('o');source_commit=$actual;expected_tests=44;scope='unittest regression only, no market evidence, no certification'} | ConvertTo-Json | Set-Content (Join-Path $evidence 'RESULT.json') -Encoding UTF8
+@{r='R330';exit_code=$exit;completed_utc=(Get-Date).ToUniversalTime().ToString('o');source_commit=$actual;expected_tests=45;scope='unittest regression only, no market evidence, no certification'} | ConvertTo-Json | Set-Content (Join-Path $evidence 'RESULT.json') -Encoding UTF8
 Get-ChildItem -File $evidence | Where-Object Name -ne 'EVIDENCE_SHA256.csv' | Get-FileHash -Algorithm SHA256 | Select-Object Path,Hash | Export-Csv (Join-Path $evidence 'EVIDENCE_SHA256.csv') -NoTypeInformation -Encoding UTF8
-Write-Host "R336 EXIT=$exit EVIDENCE=$evidence"
+Write-Host "R338 EXIT=$exit EVIDENCE=$evidence"
 if ($exit -ne 0) { throw 'regressions failed; do not certify' }
