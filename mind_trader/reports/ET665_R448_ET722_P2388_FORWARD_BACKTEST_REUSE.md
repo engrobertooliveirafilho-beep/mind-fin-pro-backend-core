@@ -1,0 +1,7 @@
+# ET665.R448 / ET-722 — P2388 simulated forward audit
+2026-11-10. New original Drive P2388 folder `1MPQg--gaUxQgf3gfA5TZ7WgqrQgRsO8w`. Sources: closed 230 records `1Pf2_6FlIm6YnnrF-rinRMBTJzh8i0KA-` SHA256 beb0628520b26d908e5f2092db6046a9f02d4d2c8a9a3ffcdc2dda13c50987db; equity curve `1e5RlpadFQEN-eLIElWMQoh2R6k0NLy7G` SHA256 153260739b6697dbffe82c4d9863f6785c83ba53b8c8bb9bfae17db61fc0e57b; stats `1rbnSJ1o7okM_g5pnX_0fDbL8XImQpZTe` SHA256 60ef395426a181d577aec187df8b7c06495769622e41e25ee4e3e4d187ac8926.
+
+Executed original-data reconciliation: **10/10 PASS**; 230/230 `close_reason=PAPER_FORWARD_SIMULATED_CLOSE_FROM_BACKTEST_R`; sum PnL and equity curve both exactly 24.099759 R, same as P2390 baseline; 230/230 PAPER_ONLY, MT5 real permission DENIED, real_execution_allowed False. **New material finding: P2388 'forward' reuses backtest R for simulated closes. It does not establish independent paper-forward performance or real fill execution.** P2390's 9 tests and 230 signals are historical claims; do not treat as independently certified E2E. No changes to production or real orders.
+
+Executable local audit `et665_r448_p2388_reconcile.py`, evidence `ET665_R448_P2388_FORWARD_AUDIT.json`. Next: locate independent original P2386B signal derivation and P2387 paper bridge source; require time-isolated raw OHLC and realistic cost model. Ledger append attempted separately.
+`FASE_B=0/16 | HP19=0/19 | E2E=FALSE | PAPER_ONLY | REAL_ORDERS=FORBIDDEN | FTMO_REAL=FORBIDDEN | R$0`
