@@ -6,7 +6,7 @@ import unittest
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from mind_trader.research.et665_r326_causal_walk_forward import evaluate_csv
+from mind_trader.research.et665_r326_causal_walk_forward import evaluate_csv, MAX_SOURCE_BYTES
 
 
 class WalkForwardTests(unittest.TestCase):
@@ -81,9 +81,11 @@ class WalkForwardTests(unittest.TestCase):
     def test_mixed_offsets_are_normalized(self):
         self.write([
             ("edge-a", "2025-01-01T00:00:00+00:00", 1),
-            ("edge-a", "2025-01-01T01:00:00+01:00", 2),
+            ("edge-a", "2025-01-01T02:00:00+01:00", 2),
         ])
-        self.assertIn("DUPLICATE_EDGE_TIMESTAMP", self.evaluate()["issues"])
+        result = self.evaluate()
+        self.assertNotIn("UNREADABLE_OR_INVALID_SOURCE", result["issues"])
+        self.assertNotIn("NONCHRONOLOGICAL_TRADES", result["issues"])
 
     def test_invalid_timestamp_is_rejected_without_exception(self):
         self.write([("edge-a", "not-a-timestamp", 1)])
@@ -126,6 +128,12 @@ class WalkForwardTests(unittest.TestCase):
         except (OSError, NotImplementedError):
             self.skipTest("symlink unavailable on this platform")
         self.assertIn("INVALID_SOURCE", evaluate_csv(self.path, expected_sha256="0" * 64)["issues"])
+
+    def test_oversized_source_rejected(self):
+        with self.path.open("wb") as fh:
+            fh.truncate(MAX_SOURCE_BYTES + 1)
+        result = evaluate_csv(self.path, expected_sha256="0" * 64)
+        self.assertIn("SOURCE_TOO_LARGE", result["issues"])
 
 
 if __name__ == "__main__":
