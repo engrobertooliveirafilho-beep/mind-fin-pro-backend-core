@@ -17,7 +17,7 @@ class DockerComponentGate(unittest.TestCase):
         self.data={"components":[{"historical_id":f"HP19-{i:02d}","component":"component.py",
                   "sha256":sha("component.py"),"input":"input.json",
                   "input_sha256":sha("input.json"),
-                  "expected_stdout_sha256":hashlib.sha256(b'{"real":true}\\n').hexdigest()} for i in range(19)]}
+                  "expected_stdout_sha256":hashlib.sha256(b'{"real":true}\n').hexdigest()} for i in range(19)]}
         self.manifest=self.root/"manifest.json"
         self.output=Path(self.tmp.name).parent/(self.root.name+"-evidence")
         self.addCleanup(lambda: __import__("shutil").rmtree(self.output,ignore_errors=True))
