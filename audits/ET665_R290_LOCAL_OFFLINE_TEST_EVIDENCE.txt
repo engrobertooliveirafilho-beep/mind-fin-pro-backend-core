@@ -1,0 +1,14 @@
+ET665.R290 LOCAL OFFLINE REGRESSION EVIDENCE
+Date: 2026-11-10
+Scope: R289 integrity verifier only, using copies of the published source and tests.
+Command: python -m pytest -q test_et665_r289_evidence_integrity.py
+Result: 4 passed in 0.04s (pytest 9.0.2)
+Verifier source SHA256: b31cd0798e8234b0bb85f2f874dfc237f4828edf7180ca77c249de4dff515737
+Test source SHA256: fd424b708b3e5360bbb0c629ed5114f121856e4d2b76276d10eccfcb9fb4d39e
+CI: NOT RUN
+Full regression suite: NOT RUN
+Causal OHLC replay: NOT VERIFIED
+Promotion: FORBIDDEN
+Real orders: FORBIDDEN
+FTMO real: FORBIDDEN
+Cost: R$0
