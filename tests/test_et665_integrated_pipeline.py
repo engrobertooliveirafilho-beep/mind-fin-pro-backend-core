@@ -98,6 +98,8 @@ def test_walk_forward_is_chronological_and_embargoed():
     for fold in result:
         assert datetime.fromisoformat(fold["train_end"])<datetime.fromisoformat(fold["test_end"])
         assert fold["embargo_minutes"]==45
+        assert datetime.fromisoformat(fold["max_train_exit"]) < datetime.fromisoformat(fold["train_exit_cutoff"])
+        assert datetime.fromisoformat(fold["min_test_entry"]) >= datetime.fromisoformat(fold["test_entry_floor"])
 
 def member(eid,family,direction="BUY",weight=.34,session="EU",regime="TREND",tf="M15"):
     return {"edge_id":eid,"family":family,"direction":direction,"ensemble_weight":weight,
@@ -174,4 +176,4 @@ def test_canonical_eurusd_m15_fx_source():
     assert rows[0]["time"]=="2026-04-08 22:00:00"
     assert rows[-1]["time"]=="2026-06-19 23:45:00"
     rate,source=p3._causal_fx_rate(rows,datetime.fromisoformat("2026-06-19T21:45:00"),15)
-    assert rate is not None and source=="2026-06-19T21:30:00"
+    assert rate is not None and source=="2026-06-19T21:45:00"
