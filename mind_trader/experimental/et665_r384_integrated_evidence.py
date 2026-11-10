@@ -6,6 +6,7 @@ historical Drive provenance and all 16 independent certification blockers.
 import argparse,hashlib,json
 from pathlib import Path
 from mind_trader.experimental.et665_r377_e2e_phase_b_report import run
+from mind_trader.experimental.et665_r364_evidence_builder import build as original_e2e_build
 from mind_trader.experimental.et665_r383_original_19_provenance import audit as provenance
 from mind_trader.experimental.et665_r365_phase_b_evidence_gate import FRONTS,audit as phase_audit
 from app.agents._et665_r356_common import digest
@@ -20,6 +21,13 @@ def build():
         raise RuntimeError("invalid chain hash")
     if phase["verified"]!=0 or phase["total"]!=16 or set(phase["fronts"])!=set(FRONTS):
         raise RuntimeError("independent phase B evidence unexpectedly changed")
+    independent=original_e2e_build()
+    if execution["candidate_chain_sha256"]!=independent["orchestration"]["chain_sha256"]:
+        raise RuntimeError("orchestration chain digest mismatch")
+    if execution["input_sha256"]!=independent["input"]["input_sha256"]:
+        raise RuntimeError("input lineage mismatch")
+    if len(execution["candidate_outputs"])!=19:
+        raise RuntimeError("incomplete agent output list")
     outputs={x["agent_id"]:x["output_sha256"] for x in execution["candidate_outputs"]}
     if len(outputs)!=19 or any(outputs.get(x["agent_id"])!=x["candidate_output_sha256"] for x in history["records"]):
         raise RuntimeError("historical provenance and execution disagree")
