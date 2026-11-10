@@ -26,7 +26,7 @@ FTMO_REAL=FORBIDDEN
 - The current adapter assumes BID-based MT5 OHLC. Confirm the exact price basis and FTMO server symbol specification before any broker-specific certification.
 
 ## Historical certification defects found
-1. P2403E historical script did not generate strategy signals. It generated trade rows by deterministic hash-derived stride and holding period, then assigned returns from future close-to-close movement. This is synthetic replay, not execution of the candidate strategy rules.
+1. P2403E historical script did not generate strategy signals. It generated 4,400 trade rows by deterministic hash-derived stride and holding period, then assigned returns from future close-to-close movement. This is synthetic replay, not execution of the candidate strategy rules. The prior 4,400-row replay and all portfolio/correlation/walk-forward metrics derived from it are invalid as strategy-performance evidence.
 2. P2404 computed correlations from those synthetic P2403E rows, aligning entry timestamps and filling absent timestamps with zero. The resulting historical certificate is not evidence of causal strategy-return correlation.
 3. P2405E3 generated candidate combinations and novelty/priority scores. This is candidate enumeration, not performance validation.
 4. P2405F historical script generated PF, win rate, expectancy, drawdown, sample size and passed-window counts from deterministic hash-based pseudo-random values. Its historical certification is invalid as behavioral performance evidence.
@@ -34,16 +34,16 @@ FTMO_REAL=FORBIDDEN
 
 ## Integrated patch
 - P2403E: strict OHLC validation; actual strategy signals required as input; next-bar entry; spread, slippage, commission, financing and conversion adjustment separated; stop-risk sizing includes entry spread/slippage and requires an explicit stop-side spread assumption for SELL trades; no hash-based trade generation.
-- P2404: synchronized daily realized returns, explicit calendar, minimum observation gate and pairwise Pearson matrix.
-- P2405F: event-driven portfolio replay; fixed lot size per position; volume min/max/step; simultaneous entries share remaining aggregate risk capacity; chronological train/test with purge/embargo.
+- P2404: synchronized daily realized returns, explicit calendar, minimum observation gate and pairwise Pearson matrix. This is realized-return correlation, not intratrade mark-to-market correlation; actual edge return paths are still required.
+- P2405F: event-driven portfolio replay; fixed lot size per position; volume min/max/step; simultaneous entries share remaining aggregate risk capacity; chronological train/test with explicit purge/embargo boundaries. Drawdown is realized-equity drawdown only; intratrade floating drawdown requires bar-by-bar position marks.
 - P2405E3: explicitly classified as candidate generation only; cannot certify performance or promote candidates.
 - P2406: session/regime/timeframe filtering, directional weighted confidence, unique edge quorum and family concentration cap.
 - Actual P2406 roster audit: 9 members occupy 9 unique session/regime/timeframe combinations, so the maximum context-matched vote count is 1 against quorum=3. The global family weight maximum is 34.066%, below 40%; however, within each isolated context the only active family's concentration is 100%. The current roster cannot satisfy contextual quorum and family concentration simultaneously.
 - All runtime-promotion and real-execution paths remain disabled.
 
 ## Test evidence
-- Local isolated suite: 15/15 PASS.
-- GitHub suite added at `tests/test_et665_integrated_pipeline.py` (17 tests), including canonical GER40 and EURUSD source checks, causal FX no-lookahead, stop-side spread sizing and the actual nine-member P2406 roster. GitHub Actions result remains pending.
+- Local isolated utility suite: 15/15 PASS.
+- GitHub suite added at `tests/test_et665_integrated_pipeline.py` (17 tests), including canonical GER40 and EURUSD source checks, causal FX no-lookahead, stop-side spread sizing, walk-forward purge boundaries and the actual nine-member P2406 roster. GitHub Actions has no workflow run or status for this head commit; CI is unverified.
 - Tests validate utility contracts and safety gates. They do not prove that the original P2402/P2405E3 candidate strategies generate valid signals or that broker costs/slippage are calibrated.
 
 ## Remaining blockers
@@ -51,7 +51,7 @@ FTMO_REAL=FORBIDDEN
 2. Confirm exact FTMO MT5 server, account currency, symbol contract specification, point/tick size and volume limits.
 3. Obtain execution/quote evidence to calibrate slippage and validate historical spread semantics.
 4. Recover/derive EURUSD coverage for 2026-03-27 through 2026-04-08 where account currency is USD and profit currency is EUR; use the recovered M15 series causally for the remaining overlap.
-5. Run the new pipeline on actual strategy signals, then complete independent review and GitHub Actions.
+5. Recover/implement strategy signals and per-bar mark-to-market paths; run actual portfolio equity, floating drawdown, correlation and walk-forward on those signals, then complete independent review.
 6. Record the BLOCKED status in the Drive Master Ledger when write permission is restored. No certification approval is requested or claimed.
 
 ## Safety decision
