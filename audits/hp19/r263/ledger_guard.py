@@ -1,4 +1,4 @@
-"""R285: deny-only preflight for an existing SQLite replay ledger."""
+"""R287: deny-only preflight for an existing SQLite replay ledger."""
 import sqlite3
 from pathlib import Path
 
@@ -7,9 +7,10 @@ class LedgerRejected(ValueError):
 
 def require_existing_ledger(path):
     path = Path(path).absolute()
-    if path.is_symlink() or not path.is_file():
+    # Reject symlinks in any path component, not just the final SQLite file.
+    # Path.is_file() follows ancestor symlinks, which otherwise bypasses R285.
+    if any(part.is_symlink() for part in (path, *path.parents)) or not path.is_file():
         raise LedgerRejected('LEDGER_MISSING_OR_UNSAFE')
-    # SQLite URI metacharacters (#, ?) must be percent-encoded.
     uri = path.as_uri() + '?mode=ro'
     try:
         with sqlite3.connect(uri, uri=True) as conn:
