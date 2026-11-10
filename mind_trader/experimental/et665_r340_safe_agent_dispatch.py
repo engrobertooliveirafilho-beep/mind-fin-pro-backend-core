@@ -44,7 +44,7 @@ def run_agent(agent_id: str, payload: Any = None) -> dict:
         raise RuntimeError("invalid agent result type")
     if any(key in result for key in ("error", "not_implemented", "stub")):
         raise RuntimeError("agent returned error or placeholder")
-    if result.get("status") in ("error", "stub", "not_implemented"):
+    if result.get("status") in ("error", "stub", "not_implemented") or result.get("mode") == "stub":
         raise RuntimeError("agent returned failure or placeholder")
     if not result:
         raise RuntimeError("agent returned empty result")
