@@ -32,6 +32,17 @@ class SymlinkSwapTests(unittest.TestCase):
             self.assertFalse(result["runtime_promotion_allowed"])
             self.assertEqual(result["issues"], ["SOURCE_UNREADABLE"])
 
+    def test_no_atomic_nofollow_fails_closed(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "source.csv"
+            data = b"edge_id,timestamp,pnl_r\\na,1,1\\n"
+            path.write_bytes(data)
+            with patch("mind_trader.research.et665_r315_immutable_csv_snapshot.os", spec=[]):
+                result = snapshot_verified_csv(path, hashlib.sha256(data).hexdigest())
+            self.assertFalse(result["verified"])
+            self.assertFalse(result["runtime_promotion_allowed"])
+            self.assertEqual(result["issues"], ["ATOMIC_NOFOLLOW_UNAVAILABLE"])
+
     def test_regular_file_still_verifies(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "source.csv"
