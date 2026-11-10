@@ -2,9 +2,9 @@
 import csv
 from mind_trader.research.et665_r278_chronological_wf import evaluate_trade_file
 
-FIELDS=("edge_id","entry_time","exit_time","pnl_r","mode","real_orders","ftmo_real","real_execution_allowed")
+FIELDS=("signal_origin","strategy_rule_sha256","ohlc_sha256","timezone","edge_id","entry_time","exit_time","pnl_r","mode","real_orders","ftmo_real","real_execution_allowed")
 def row(entry,exit_,edge="E"):
-    return dict(edge_id=edge,entry_time=entry,exit_time=exit_,pnl_r="1",
+    return dict(signal_origin="CAUSAL_STRATEGY_REPLAY",strategy_rule_sha256="a"*64,ohlc_sha256="b"*64,timezone="UTC",edge_id=edge,entry_time=entry,exit_time=exit_,pnl_r="1",
                 mode="PAPER_ONLY",real_orders="FORBIDDEN",ftmo_real="FORBIDDEN",
                 real_execution_allowed="False")
 def run(tmp_path,records):
