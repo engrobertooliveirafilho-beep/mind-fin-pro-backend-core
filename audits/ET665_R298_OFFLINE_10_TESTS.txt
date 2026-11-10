@@ -1,0 +1,9 @@
+ET665.R298 | 2026-11-10 | OFFLINE LOCAL TEST EXECUTION
+Tests: R294-R297 structural pool gate (10 tests).
+Execution: PYTHONPATH=. python -m pytest -q tests/test_et665_r294_structural_pool_gate.py
+Result: 10 passed in 0.05s; pytest 9.0.2.
+Code provenance: copied by transcription from GitHub connector fetch of branch files; NOT a byte-for-byte authenticated Git checkout.
+Environment: local isolated Python, no broker connection. Git clone blocked: DNS github.com could not resolve.
+Validated: structural caps, duplicates, empty pool, LIVE rejection, P2403 correlation gate, malformed rows, unhashable keys.
+NOT validated: full repository CI, P2403 temporal correlation, independent causal OHLC replay, runtime promotion.
+Status: QUARANTINE. PHASE_B OPEN. REAL_ORDERS FORBIDDEN. FTMO_REAL FORBIDDEN. NO MERGE. R$0.
