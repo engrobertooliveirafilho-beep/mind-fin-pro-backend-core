@@ -1,0 +1,7 @@
+ET665.R299 | 2026-11-10 | DRIVE ORIGINAL P2402 CSV READ-ONLY AUDIT
+Source: https://drive.google.com/file/d/1a8P59i_r9XmyXal-IFH2cD3FgkrGkA1E/view
+Read using authenticated Google Drive connector; 15,674 characters; CSV 41 columns; 20 records.
+Checked by in-memory JS parser: 20 unique candidate_id, 14 distinct family_key in SELECTED CSV, maximum 2 per family, zero mismatches across mode=PAPER_ONLY, real_orders=FORBIDDEN, ftmo_real=FORBIDDEN, real_execution_allowed=False, runtime_allowed=False, pool_status=DIVERSIFIED_SELECTED, next_required=P2403_CORRELATION_ANALYZER.
+IMPORTANT NEW RECONCILIATION: P2402 AUDIT_FINAL reports 18 FAMILIES, whereas the final selected 20-row CSV contains 14 distinct family_key. The report's 18 corresponds to representatives across 29 structural clusters, not necessarily the final 20 selection. Do not describe the selected pool as 18 families.
+Validation type: in-memory static CSV structure and safety check; NOT a Python checkout regression; NOT correlation or causal replay; NOT runtime certification.
+PHASE_B OPEN; PAPER_ONLY; REAL_ORDERS FORBIDDEN; FTMO_REAL FORBIDDEN; RUNTIME PROMOTION FALSE; NO MERGE; R$0.
