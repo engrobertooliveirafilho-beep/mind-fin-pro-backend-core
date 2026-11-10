@@ -1,0 +1,9 @@
+ET665.R310 | 2026-11-10 | R309 OFFLINE TEST EXECUTION
+GitHub source: mind_trader/research/et665_r309_pure_correlation.py blob 42691031a8fa573422852ce269d789c78a8ffde8
+GitHub tests: tests/test_et665_r309_pure_correlation.py blob 6503d1d921e9471eee555861598c581ab0760d07
+Exact connector-visible source/test contents reconstructed in /mnt/data/et665_r310, not authenticated git checkout.
+Command: cd /mnt/data/et665_r310 && PYTHONPATH=. python -m pytest -q tests/test_et665_r309_pure_correlation.py
+Observed: ...... [100%] ; 6 passed in 0.04s.
+Scope: Pearson aligned synthetic rows, duplicate rejection, nonfinite rejection, malformed rejection, empty rejection, constant series returns undefined correlation.
+Limitations: isolated unit tests only; P2404 original still quarantined, R309 not wired into trusted provenance or runtime; 0 causal edges certified. No CI or full repo integration.
+Ledger ET-707 pending: Google Docs editor permission previously 403. PAPER_ONLY; REAL_ORDERS FORBIDDEN; FTMO_REAL FORBIDDEN; NO MERGE; R$0.
