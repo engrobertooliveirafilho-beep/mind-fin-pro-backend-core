@@ -14,11 +14,13 @@ class DockerComponentGate(unittest.TestCase):
         (self.root/"component.py").write_text("import sys\nprint(sys.stdin.read())\n")
         (self.root/"input.json").write_text('{"real":true}')
         def sha(p): return hashlib.sha256((self.root/p).read_bytes()).hexdigest()
-        self.data={"components":[{"historical_id":"HP19-01","component":"component.py",
+        self.data={"components":[{"historical_id":f"HP19-{i:02d}","component":"component.py",
                   "sha256":sha("component.py"),"input":"input.json",
-                  "input_sha256":sha("input.json")}]}
+                  "input_sha256":sha("input.json"),
+                  "expected_stdout_sha256":hashlib.sha256(b'{"real":true}\\n').hexdigest()} for i in range(19)]}
         self.manifest=self.root/"manifest.json"
-        self.output=self.root/"evidence"
+        self.output=Path(self.tmp.name).parent/(self.root.name+"-evidence")
+        self.addCleanup(lambda: __import__("shutil").rmtree(self.output,ignore_errors=True))
         self.save()
     def save(self): self.manifest.write_text(json.dumps(self.data))
     def test_missing_docker_fails_closed(self):
@@ -47,7 +49,17 @@ class DockerComponentGate(unittest.TestCase):
         self.assertIn("none",command)
         self.assertIn("--read-only",command)
         self.assertIn("--cap-drop",command)
+        self.assertIn("--pull",command)
+        self.assertIn("never",command)
         self.assertEqual((self.output/"run_00.stdout").read_bytes(),Completed.stdout)
+    def test_missing_expected_output_rejected(self):
+        self.data["components"][0].pop("expected_stdout_sha256")
+        self.save()
+        with patch("subprocess.run") as mocked:
+            result=run(self.root,self.manifest,self.output)
+        mocked.assert_not_called()
+        self.assertEqual(result["status"],"FAIL_CLOSED")
+
     def test_duplicate_id_rejected(self):
         self.data["components"].append(dict(self.data["components"][0]))
         self.save()
