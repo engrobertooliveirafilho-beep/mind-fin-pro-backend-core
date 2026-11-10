@@ -19,7 +19,10 @@ FTMO_REAL=FORBIDDEN
 - FTMO's published information states index CFDs are commission-free: https://ftmo.com/en/blog/zero-commissions-on-indices/
 - FTMO's 2026-07-28 trading update describes a 0.7% currency-conversion adjustment when profit currency differs from account currency, including GER40.cash (EUR profit currency) in a USD account: https://ftmo.com/en/blog/trading-updates/trading-update-28-jul-2026/
 - The 5,000-row series ends 2026-06-19, before the 2026-07-28 conversion update. Do not apply the later adjustment retrospectively.
-- The raw bars include variable spread. The patch converts spread points using explicit `point_size`. It requires an explicit FX conversion factor, commission schedule, financing schedule for overnight positions, and slippage assumption. Slippage is not measured by this OHLC dataset.
+- The raw bars include variable spread. The patch converts spread points using explicit `point_size`. It requires explicit commission, financing and slippage inputs; slippage is not measured by OHLC and has no zero-cost default.
+- Canonical EURUSD M15 file: `mind_trader/data/raw/mt5/MT5_EURUSD_M15_raw.csv`; 5,000 rows; 2026-04-08 22:00 through 2026-06-19 23:45; GitHub blob SHA `9bde7a21aeabd514d871eb8d5c739231cd853b4e`.
+- P2403E now accepts the original MT5 `time` column and can use the last completed EURUSD M15 candle at or before the trade exit. The EURUSD series begins 2026-04-08, so it does not cover the first part of the GER40 sample (2026-03-27 through 2026-04-08); USD-account conversion for that interval remains blocked unless another causal FX source is recovered.
+- The adapter requires an explicit currency-conversion adjustment when account and profit currencies differ; it does not apply the post-2026-07-28 FTMO adjustment retrospectively.
 - The current adapter assumes BID-based MT5 OHLC. Confirm the exact price basis and FTMO server symbol specification before any broker-specific certification.
 
 ## Historical certification defects found
@@ -39,15 +42,15 @@ FTMO_REAL=FORBIDDEN
 - All runtime-promotion and real-execution paths remain disabled.
 
 ## Test evidence
-- Local isolated suite: 13/13 PASS.
-- GitHub suite added at `tests/test_et665_integrated_pipeline.py` (14 tests), including validation of the canonical 5,000-row OHLC file and the actual nine-member P2406 roster. GitHub Actions result remains pending.
+- Local isolated suite: 15/15 PASS.
+- GitHub suite added at `tests/test_et665_integrated_pipeline.py` (17 tests), including canonical GER40 and EURUSD source checks, causal FX no-lookahead, stop-side spread sizing and the actual nine-member P2406 roster. GitHub Actions result remains pending.
 - Tests validate utility contracts and safety gates. They do not prove that the original P2402/P2405E3 candidate strategies generate valid signals or that broker costs/slippage are calibrated.
 
 ## Remaining blockers
 1. Recover or implement explicit strategy signal rules for each candidate pattern; the old P2403E hash-stride replay is rejected.
 2. Confirm exact FTMO MT5 server, account currency, symbol contract specification, point/tick size and volume limits.
 3. Obtain execution/quote evidence to calibrate slippage and validate historical spread semantics.
-4. Recover/derive timestamp-matched EURUSD conversion series where account currency is USD and profit currency is EUR.
+4. Recover/derive EURUSD coverage for 2026-03-27 through 2026-04-08 where account currency is USD and profit currency is EUR; use the recovered M15 series causally for the remaining overlap.
 5. Run the new pipeline on actual strategy signals, then complete independent review and GitHub Actions.
 6. Record the BLOCKED status in the Drive Master Ledger when write permission is restored. No certification approval is requested or claimed.
 
