@@ -1,0 +1,10 @@
+ET665.R304 | 2026-11-10 | OFFLINE REGRESSION EXECUTION
+GitHub sources fetched from branch audit/et665-r278-quarantine-wf-offline:
+mind_trader/research/et665_r303_content_provenance_gate.py blob ff91ef21bfee36088b9639f91bb64fc7bcf42af7
+tests/test_et665_r303_content_provenance_gate.py blob b895af901181dc7fe22483309f94ee22f78ffa5e
+Reconstructed exact displayed source into /mnt/data/et665_r304.
+Command: PYTHONPATH=. python -m pytest -q tests/test_et665_r303_content_provenance_gate.py
+Observed stdout: ....... [100%] ; 7 passed in 0.05s.
+Coverage: renamed tampered source, no authority, matching hash not causality, altered bytes, invalid digest, missing file, symlink.
+Limitations: local test copy, not authenticated git checkout or full repository CI. Caller-provided authority_verified=True remains self-asserted; content SHA alone is insufficient for causal provenance.
+PHASE_B OPEN; PAPER_ONLY; REAL_ORDERS FORBIDDEN; FTMO_REAL FORBIDDEN; RUNTIME PROMOTION FALSE; NO MERGE; R$0.
