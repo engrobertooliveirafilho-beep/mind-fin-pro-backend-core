@@ -46,10 +46,12 @@ def snapshot_verified_csv(source, expected_sha256, *, max_bytes=16_000_000):
         if reader.fieldnames!=["edge_id","timestamp","pnl_r"]:
             result["issues"]=["INVALID_CSV_SCHEMA"]
             return result
-        rows=list(reader)
-        if len(rows)>100_000 or any(None in row or None in row.values() for row in rows):
-            result["issues"]=["INVALID_CSV_ROWS"]
-            return result
+        rows=[]
+        for row in reader:
+            if len(rows)>=100_000 or None in row or None in row.values():
+                result["issues"]=["INVALID_CSV_ROWS"]
+                return result
+            rows.append(row)
         result["verified"]=True
         result["rows"]=rows
     except (OSError,UnicodeError,csv.Error,ValueError,TypeError):
