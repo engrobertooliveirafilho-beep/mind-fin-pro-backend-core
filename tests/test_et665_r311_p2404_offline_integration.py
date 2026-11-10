@@ -7,7 +7,7 @@ def sample(tmp_path,body="edge_id,timestamp,pnl_r\nA,1,1\nA,2,2\nA,3,3\nB,1,2\nB
     source.write_text(body,encoding="utf-8")
     manifest=tmp_path/"manifest.json"
     manifest.write_text(json.dumps({"schema":"ET665_TRUSTED_SOURCE_MANIFEST_V1",
-      "sources":{"s1":{"source_kind":"CAUSAL_STRATEGY_REPLAY",
+      "sources":{"s1":{"source_kind":"CAUSAL_STRATEGY_REPLAY","independent_review":True,
       "sha256":hashlib.sha256(source.read_bytes()).hexdigest()}}}),encoding="utf-8")
     return source,manifest,hashlib.sha256(manifest.read_bytes()).hexdigest()
 
@@ -39,3 +39,19 @@ def test_duplicate_csv_header_rejected(tmp_path):
 def test_malformed_row_rejected(tmp_path):
     src,man,anchor=sample(tmp_path,"edge_id,timestamp,pnl_r\nA,1,1,EXTRA\n")
     assert "MALFORMED_CSV" in analyze_verified_paper_csv(src,man,anchor,source_id="s1")["issues"]
+
+def test_missing_independent_review_rejected(tmp_path):
+    src,man,_=sample(tmp_path)
+    doc=json.loads(man.read_text())
+    doc["sources"]["s1"].pop("independent_review")
+    man.write_text(json.dumps(doc))
+    anchor=hashlib.sha256(man.read_bytes()).hexdigest()
+    assert "INDEPENDENT_REVIEW_REQUIRED" in analyze_verified_paper_csv(src,man,anchor,source_id="s1")["issues"]
+
+def test_renamed_p2403e_generator_rejected(tmp_path):
+    src,man,_=sample(tmp_path)
+    doc=json.loads(man.read_text())
+    doc["sources"]["s1"]["generator"]="p2403e_rebuild_de40_replay_series.py"
+    man.write_text(json.dumps(doc))
+    anchor=hashlib.sha256(man.read_bytes()).hexdigest()
+    assert "NONCAUSAL_GENERATOR_QUARANTINED" in analyze_verified_paper_csv(src,man,anchor,source_id="s1")["issues"]
