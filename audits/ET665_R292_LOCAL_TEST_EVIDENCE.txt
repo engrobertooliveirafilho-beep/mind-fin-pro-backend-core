@@ -1,0 +1,12 @@
+ET665.R292 LOCAL OFFLINE TEST EVIDENCE
+Date: 2026-11-10
+Scope: copied GitHub branch evaluator et665_r278_chronological_wf.py and test files R280, R281 (R291 corrected fixture).
+Command: PYTHONPATH=. python -m pytest -q tests/test_et665_r280_chronological_wf.py tests/test_et665_r281_wf_adversarial.py
+Result: 8 passed in 0.05s
+Environment: local isolated Python; no broker or network access.
+GitHub Actions CI: NOT RUN.
+Remaining R283-R288 suite: NOT RUN.
+Causal signal validation: NOT VERIFIED.
+Runtime promotion: FORBIDDEN.
+Real orders: FORBIDDEN.
+FTMO real: FORBIDDEN.
