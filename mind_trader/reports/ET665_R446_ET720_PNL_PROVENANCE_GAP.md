@@ -1,0 +1,8 @@
+# ET665.R446 / ET-720 — P2391→P2392 PnL lineage break
+Executed offline on two **original** Drive CSVs, not simulated fixtures. P2391 file ID `1vTByPz0N8avas_xTwbCaMDyfOGL6U1gK`, SHA256 `2fff8165f8e3c0562e675b477d4b94d7530dc845de8c99f5e33c688fcfe27cf3`. P2392 file ID `1_4CeT43xblX5lFVJC8w3QbaM9hDo6kXf`, SHA256 `3c646c299d2a2ddf103189658b637fb6a933a54c226a1ad00033f6486a3c21e1`.
+
+**8/8 structural checks PASS**: 2535/2535 candidate+timestamp identities match. However P2391 contains only candidate/time/context/direction (no `realized_r`, OHLC, entry/exit, spread, slippage, commission). P2392 adds `realized_r` without any price/fill/cost columns. **Thus the 21.252145 R claimed for the promoted candidate cannot be independently reconstructed from the P2391 source event file.** This is a proof-of-provenance gap, **not proof that PnL was fabricated**. Find the actual P2392 generator, P2363C raw dataset and fill/cost model before accepting PnL or walk-forward certification.
+
+Local executable `/mnt/data/et665_r446_pnl_lineage_audit.py`, evidence `/mnt/data/ET665_R446_PNL_LINEAGE_AUDIT.json`. Original historical P2391 summary claims 99998 events and 4288 candidates (40 promoted), while the inspected P2391 exported event file contains only 2535 selected rows; do not equate it with full original market data. Keep all strategy promotions blocked. Ledger write attempted separately.
+
+`FASE_B=0/16 | HP19=0/19 | E2E=FALSE | PAPER_ONLY | REAL_ORDERS=FORBIDDEN | FTMO_REAL=FORBIDDEN | R$0`
