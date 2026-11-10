@@ -53,10 +53,24 @@ class R389(unittest.TestCase):
             self.assertEqual(r["exit_code"],127)
             self.assertEqual(r["status"],"FAIL_CLOSED")
             self.assertTrue((Path(d)/"r389_tests.log").exists())
+    def test_too_few_tests_rejected(self):
+        class Incomplete:
+            returncode=0
+            stdout=""
+            stderr="Ran 1 test in 0.001s\\n\\nOK\\n"
+        with tempfile.TemporaryDirectory() as d,patch.object(m.subprocess,"run",return_value=Incomplete()):
+            self.assertEqual(m.run(d)["status"],"FAIL_CLOSED")
+    def test_skipped_tests_rejected(self):
+        class Skipped:
+            returncode=0
+            stdout=""
+            stderr="Ran 19 tests in 0.001s\\n\\nOK (skipped=1)\\n"
+        with tempfile.TemporaryDirectory() as d,patch.object(m.subprocess,"run",return_value=Skipped()):
+            self.assertEqual(m.run(d)["status"],"FAIL_CLOSED")
     def test_real_orders_forbidden(self):
         class Passed:
             returncode=0
-            stdout="Ran 1 test in 0.001s\n\nOK"
+            stdout="Ran 19 tests in 0.001s\n\nOK"
             stderr=""
         with tempfile.TemporaryDirectory() as d,patch.object(m.subprocess,"run",return_value=Passed()):
             r=m.run(d)
