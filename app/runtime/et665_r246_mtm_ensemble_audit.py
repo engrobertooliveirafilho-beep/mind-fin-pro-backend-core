@@ -71,6 +71,17 @@ def floating_equity(bars, positions, initial_equity, point_size, contract_size):
     maximum_dd = 0.0
     curve = []
     for t, low, high, spread in ordered:
+        # Existing positions experience the adverse excursion BEFORE exit fills.
+        # Do not mark new entries against a bar's pre-entry extremes.
+        pre_exit_floating = 0.0
+        for p in active.values():
+            mark = low if p["side"] == "BUY" else high + spread * point
+            sign = 1 if p["side"] == "BUY" else -1
+            pre_exit_floating += sign * (mark - float(p["entry_fill"])) * float(p["lots"]) * contract * float(p["fx_rate"])
+            pre_exit_floating -= float(p["exit_cost_cash"])
+        adverse_equity = cash + pre_exit_floating
+        peak = max(peak, adverse_equity)
+        maximum_dd = max(maximum_dd, (peak - adverse_equity) / peak)
         for i, p in ends[t]:
             if i not in active:
                 raise ValueError("Exit without active position")
@@ -83,6 +94,9 @@ def floating_equity(bars, positions, initial_equity, point_size, contract_size):
             active[i] = p
         floating = 0.0
         for p in active.values():
+            # Entries are not assigned intrabar excursions before their fill.
+            if _time(p["entry_time"]) == t:
+                continue
             mark = low if p["side"] == "BUY" else high + spread * point
             sign = 1 if p["side"] == "BUY" else -1
             floating += sign * (mark - float(p["entry_fill"])) * float(p["lots"]) * contract * float(p["fx_rate"])
