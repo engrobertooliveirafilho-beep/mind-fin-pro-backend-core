@@ -1,0 +1,58 @@
+name: ET665 R390 isolated offline regression
+on:
+  push:
+    branches:
+      - audit/et665-r388-manifest-snapshot-20261110
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  pinned-manifest-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Execute offline tests without third-party installs
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -I - <<'PY'
+          import ast, pathlib
+          files = [
+              "mind_trader/research/et665_r305_pinned_authority_gate.py",
+              "mind_trader/research/et665_r309_pure_correlation.py",
+              "mind_trader/research/et665_r311_p2404_offline_integration.py",
+              "mind_trader/research/et665_r315_immutable_csv_snapshot.py",
+              "tests/test_et665_r388_manifest_snapshot.py",
+          ]
+          for file in files:
+              ast.parse(pathlib.Path(file).read_text(encoding="utf-8"), filename=file)
+          print("AST_PARSE_PASS", len(files))
+          PY
+      - name: Execute targeted behavioral regression
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib, json, tempfile
+          from pathlib import Path
+          from mind_trader.research.et665_r311_p2404_offline_integration import analyze_verified_paper_csv
+          with tempfile.TemporaryDirectory() as temp:
+              base=Path(temp)
+              source=base/"candidate.csv"
+              source.write_text("edge_id,timestamp,pnl_r\nA,1,1\nA,2,2\nA,3,3\nB,1,2\nB,2,4\nB,3,6\n",encoding="utf-8")
+              manifest=base/"manifest.json"
+              entry={"source_kind":"CAUSAL_STRATEGY_REPLAY","sha256":hashlib.sha256(source.read_bytes()).hexdigest(),"generator":"independent_replay_v1","lineage":"fixture_only","independent_review":True}
+              manifest.write_text(json.dumps({"schema":"ET665_TRUSTED_SOURCE_MANIFEST_V1","sources":{"s1":entry}}),encoding="utf-8")
+              anchor=hashlib.sha256(manifest.read_bytes()).hexdigest()
+              result=analyze_verified_paper_csv(source,manifest,anchor,source_id="s1")
+              assert result["analysis_valid"] and len(result["pairs"])==1
+              assert result["authority_integrity_verified"] and result["source_integrity_verified"]
+              assert not result["causal_signal_verified"] and not result["runtime_promotion_allowed"]
+              source.write_text(source.read_text()+"A,4,1\n",encoding="utf-8")
+              denied=analyze_verified_paper_csv(source,manifest,anchor,source_id="s1")
+              assert "SOURCE_HASH_MISMATCH" in denied["issues"]
+              print("PAPER_E2E_FIXTURE_PASS; TAMPER_REJECT_PASS; REAL_COMPONENT_NOT_PROVEN")
+          PY
