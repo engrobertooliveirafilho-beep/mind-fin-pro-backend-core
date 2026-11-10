@@ -1,0 +1,8 @@
+ET665.R302 | 2026-11-10 | OFFLINE LOCAL TEST EXECUTION
+Command: cd /mnt/data/et665_r302 && python -m pytest -q tests/test_et665_r301_replay_source_gate.py
+Result: 5 passed in 0.04s.
+Environment: isolated Python; no broker or MT5; no production.
+Provenance: source and tests reconstructed verbatim from the R301 GitHub create_file payloads in the conversation, not from an authenticated checkout. Git clone failed: github.com DNS resolution unavailable.
+Coverage: rejects P2403B historical replay, P2403E hash-scheduled replay, P2384 cycle events as OHLC; requires declared independent signal and OHLC checks; never grants causal certification or runtime promotion.
+Known limitation: source filename checks can be bypassed by renaming a file. Boolean provenance flags are caller assertions, not cryptographic verification. Therefore these 5 passing tests do NOT prove full source authenticity or causal trading signals. Follow-up must enforce content hashes and independently verified rule execution before any correlation claim.
+PHASE_B OPEN; 0/20 STRATEGIES CERTIFIED; PAPER_ONLY; REAL_ORDERS FORBIDDEN; FTMO_REAL FORBIDDEN; NO MERGE; COST R$0.
