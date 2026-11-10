@@ -233,6 +233,24 @@ class CausalOOSTests(unittest.TestCase):
         self.assertAlmostEqual(result["windows"]["test"]["net_total_r"], -9.0)
         self.assertFalse(result["real_execution_allowed"])
 
+    def test_whitespace_signal_id_blocks(self):
+        rows = self.dataset()
+        rows[0][1] = "  "
+        result = self.evaluate(rows)
+        self.assertIn("INVALID_TRADE_OR_PROVENANCE_METADATA", result["issues"])
+
+    def test_padded_signal_id_blocks(self):
+        rows = self.dataset()
+        rows[0][1] = " train-0 "
+        result = self.evaluate(rows)
+        self.assertIn("INVALID_TRADE_OR_PROVENANCE_METADATA", result["issues"])
+
+    def test_padded_review_id_blocks(self):
+        rows = self.dataset()
+        rows[0][12] = " review-1 "
+        result = self.evaluate(rows)
+        self.assertIn("INVALID_TRADE_OR_PROVENANCE_METADATA", result["issues"])
+
 
 if __name__ == "__main__":
     unittest.main()
