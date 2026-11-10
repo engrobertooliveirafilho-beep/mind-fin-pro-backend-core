@@ -26,7 +26,7 @@ class SafeDispatchBehavior(unittest.TestCase):
             module = types.ModuleType("app.agents." + name)
             def run_dry(payload, agent=name):
                 calls.append((agent, payload))
-                return {"agent_id": agent, "processed": payload["component"], "status": "processed"}
+                return {"agent_id": agent, "processed": payload["component"], "status": "processed", "real_orders": "FORBIDDEN", "promotion_authorized": False}
             module.run_dry = run_dry
             fake_modules["app.agents." + name] = module
         with patch.dict(sys.modules, fake_modules):
@@ -51,7 +51,7 @@ class SafeDispatchBehavior(unittest.TestCase):
 
     def test_error_and_stub_results_rejected(self):
         dispatch = load_dispatch()
-        for result in ({"error": "failed"}, {"status": "stub"}, {"status": "ok", "mode": "stub"}, {"status": "not_implemented", "mode": "stub"}, {"not_implemented": True}, {}, None):
+        for result in ({"error": "failed"}, {"agent_id": "wrong.agent", "status": "processed", "real_orders": "FORBIDDEN", "promotion_authorized": False}, {"status": "stub"}, {"status": "ok", "mode": "stub"}, {"status": "not_implemented", "mode": "stub"}, {"not_implemented": True}, {}, None):
             with self.subTest(result=result):
                 fake = types.SimpleNamespace(run_dry=lambda payload: result)
                 with patch.object(dispatch, "import_module", return_value=fake):
