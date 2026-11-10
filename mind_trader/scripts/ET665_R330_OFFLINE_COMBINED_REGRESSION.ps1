@@ -25,7 +25,7 @@ if ($actual -ne $sha) { throw "unexpected commit $actual" }
 $tests = @('tests/test_et665_r326_causal_walk_forward.py','tests/test_et665_r328_causal_oos_costs.py')
 # Refuse stale/incorrect test imports before starting Docker.
 $testText = Get-Content (Join-Path $src 'tests/test_et665_r328_causal_oos_costs.py') -Raw
-if ($testText -match '\bevaluate_causal_oos_csv\b' -or $testText -notmatch '\bevaluate_cost_aware_oos_csv\b') { throw 'R328 test/API mismatch; aborting' }
+if ($testText -match 'evaluate_causal_oos_csv' -or $testText -notmatch 'evaluate_cost_aware_oos_csv') { throw 'R328 test/API mismatch; aborting' }
 foreach ($p in $tests) { if (-not (Test-Path (Join-Path $src $p))) { throw "missing $p" } }
 $files = @('mind_trader/research/et665_r326_causal_walk_forward.py','mind_trader/research/et665_r315_immutable_csv_snapshot.py','mind_trader/research/et665_r328_causal_oos_costs.py') + $tests
 Get-Item ($files | ForEach-Object { Join-Path $src $_ }) | Get-FileHash -Algorithm SHA256 | Select-Object Path,Hash | ConvertTo-Json -Depth 4 | Set-Content (Join-Path $evidence 'SOURCE_HASHES.json') -Encoding UTF8
