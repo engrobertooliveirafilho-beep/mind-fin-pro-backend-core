@@ -50,7 +50,7 @@ class ExecutionGateway:
         if not all(isinstance(value, dict) for value in (trade_dict, regime_report, genome)):
             return write_execution_ledger({"mode":mode,"decision":"BLOCKED_INVALID_ORDER_INPUT_TYPE","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
         if mode in ALLOWED_MODES:
-            required_fields=("symbol","strategy_id","entry","target","risk_amount")
+            required_fields=("symbol","strategy_id","entry","target","risk_amount","client_order_id")
             if any(field not in trade_dict for field in required_fields):
                 return write_execution_ledger({"mode":mode,"decision":"BLOCKED_MISSING_ORDER_FIELDS","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
             if not isinstance(trade_dict["symbol"],str) or not trade_dict["symbol"].strip() or not isinstance(trade_dict["strategy_id"],str) or not trade_dict["strategy_id"].strip():
@@ -58,6 +58,8 @@ class ExecutionGateway:
             numeric_fields=("entry","target","risk_amount")
             if any(isinstance(trade_dict[field],bool) or not isinstance(trade_dict[field],(int,float)) or not math.isfinite(trade_dict[field]) for field in numeric_fields):
                 return write_execution_ledger({"mode":mode,"decision":"BLOCKED_INVALID_ORDER_FIELDS","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
+            if not isinstance(trade_dict["client_order_id"],str) or not trade_dict["client_order_id"].strip() or len(trade_dict["client_order_id"])>128:
+                return write_execution_ledger({"mode":mode,"decision":"BLOCKED_INVALID_CLIENT_ORDER_ID","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
             if trade_dict["risk_amount"]<=0:
                 return write_execution_ledger({"mode":mode,"decision":"BLOCKED_INVALID_ORDER_FIELDS","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
             optional_numeric=("stop","open_risk","daily_pnl","total_pnl")
@@ -105,7 +107,7 @@ class ExecutionGateway:
         allowed=all(c["ok"] for c in checks)
         paper_broker=None
         if allowed and mode=="PAPER":
-            reservation = self.paper.reserve_paper_order(trade.risk_amount)
+            reservation = self.paper.reserve_paper_order(trade.risk_amount, trade_dict["client_order_id"])
             if not reservation.get("allowed"):
                 return write_execution_ledger({"mode":mode,"decision":"BLOCKED_PAPER_SESSION","session_check":reservation,"production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
             paper_order={"symbol":trade.symbol,"side":trade_dict.get("side","BUY"),"entry":trade.entry,"stop":trade.stop,"target":trade.target,"risk_amount":trade.risk_amount,"strategy_id":trade.strategy_id}
