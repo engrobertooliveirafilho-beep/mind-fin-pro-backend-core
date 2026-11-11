@@ -89,6 +89,10 @@ class ExecutionGateway:
         if not self.ftmo or not self.ftmo_config_valid.get("valid"):
             return write_execution_ledger({"mode":mode,"decision":"BLOCKED_INVALID_FTMO_CONFIG","ftmo_config_validation":self.ftmo_config_valid,"production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
 
+        if mode=="PAPER":
+            reconciliation=self.paper.reconcile_paper_fills(self.paper_broker_ledger_path)
+            if reconciliation.get("decision")!="PAPER_RECONCILIATION_CLEAN":
+                return write_execution_ledger({"mode":mode,"decision":"BLOCKED_PAPER_RECONCILIATION","reconciliation":reconciliation,"production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
         session_check=self.paper.pre_trade_check(trade_dict.get("risk_amount",0))
         if mode=="PAPER" and not session_check["allowed"]:
             return write_execution_ledger({"mode":mode,"decision":"BLOCKED_PAPER_SESSION","session_check":session_check,"production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
@@ -110,7 +114,7 @@ class ExecutionGateway:
             reservation = self.paper.reserve_paper_order(trade.risk_amount, trade_dict["client_order_id"])
             if not reservation.get("allowed"):
                 return write_execution_ledger({"mode":mode,"decision":"BLOCKED_PAPER_SESSION","session_check":reservation,"production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
-            paper_order={"symbol":trade.symbol,"side":trade_dict.get("side","BUY"),"entry":trade.entry,"stop":trade.stop,"target":trade.target,"risk_amount":trade.risk_amount,"strategy_id":trade.strategy_id}
+            paper_order={"client_order_id":trade_dict["client_order_id"],"reservation_id":reservation["reservation_id"],"symbol":trade.symbol,"side":trade_dict.get("side","BUY"),"entry":trade.entry,"stop":trade.stop,"target":trade.target,"risk_amount":trade.risk_amount,"strategy_id":trade.strategy_id}
             try:
                 paper_broker=paper_route_order(paper_order,ledger_path=self.paper_broker_ledger_path,ftmo_config_path=self.paper.ftmo_config_path)
             except Exception:
