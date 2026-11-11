@@ -361,6 +361,45 @@ class PaperTradingSessionManager:
             except OSError:
                 pass
 
+    def reconcile_paper_fills(self, broker_ledger_path):
+        """Read-only reconciliation. Ambiguous fills block new PAPER orders."""
+        try:
+            session = self._read_session()
+            if not session or session.get("status") != "OPEN":
+                return {"decision":"BLOCK_RECONCILIATION_NO_SESSION","production":"BLOCKED"}
+            pending = session.get("pending_paper_orders", [])
+            if not isinstance(pending, list):
+                return {"decision":"BLOCK_RECONCILIATION_CORRUPT_SESSION","production":"BLOCKED"}
+            path = Path(broker_ledger_path)
+            rows = []
+            if path.exists():
+                for line in path.read_text(encoding="utf-8").splitlines():
+                    if line.strip():
+                        record = json.loads(line)
+                        if not isinstance(record, dict):
+                            raise ValueError("invalid broker record")
+                        rows.append(record)
+            accepted = [row for row in rows if row.get("decision") == "PAPER_ORDER_ACCEPTED"]
+            counts = {}
+            for row in accepted:
+                order = row.get("order")
+                if not isinstance(order, dict):
+                    raise ValueError("accepted record without order")
+                token = order.get("reservation_id")
+                if not isinstance(token, str) or not token:
+                    return {"decision":"BLOCK_UNCORRELATED_BROKER_FILL","production":"BLOCKED"}
+                counts[token] = counts.get(token, 0) + 1
+            if any(count > 1 for count in counts.values()):
+                return {"decision":"BLOCK_DUPLICATE_BROKER_FILL","production":"BLOCKED"}
+            pending_ids = {item["id"] for item in pending}
+            if any(token in pending_ids for token in counts):
+                return {"decision":"BLOCK_UNSETTLED_BROKER_FILL","production":"BLOCKED"}
+            if pending:
+                return {"decision":"BLOCK_PENDING_PAPER_RESERVATIONS","production":"BLOCKED"}
+            return {"decision":"PAPER_RECONCILIATION_CLEAN","production":"BLOCKED"}
+        except (OSError, ValueError, TypeError, KeyError, UnicodeError):
+            return {"decision":"BLOCK_RECONCILIATION_LEDGER_ERROR","production":"BLOCKED"}
+
     def daily_summary(self):
         s=self._read_session()
         if not s:
