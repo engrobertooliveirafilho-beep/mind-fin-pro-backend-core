@@ -1,6 +1,6 @@
 $ErrorActionPreference='Stop'
 $repo=(Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path
-$root=Join-Path $env:TEMP 'ET665_R347_COMPONENT_E2E'
+$root=Join-Path $env:TEMP ('ET665_R347_COMPONENT_E2E_' + [guid]::NewGuid().ToString('N'))
 $module=Join-Path $root 'mind_trader\scripts'
 $tests=Join-Path $root 'mind_trader\tests'
 New-Item -ItemType Directory -Force $module,$tests | Out-Null
@@ -22,7 +22,7 @@ $env:PYTHONPATH=$root
 try {
   Push-Location $root
   try {
-    python -m unittest discover -s mind_trader/tests -t . -p 'test_et665_r*_*.py' -v
+    python -m unittest mind_trader.tests.test_et665_r341_s20_s21_causal_gate mind_trader.tests.test_et665_r347_real_component_e2e -v
     if($LASTEXITCODE -ne 0){throw "R347 FAIL exit=$LASTEXITCODE"}
     Write-Host 'R347 TESTS PASS: structural and executable E2E unit suite'
   } finally {Pop-Location}
