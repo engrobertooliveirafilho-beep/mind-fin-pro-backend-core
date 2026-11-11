@@ -361,6 +361,71 @@ class PaperTradingSessionManager:
             except OSError:
                 pass
 
+    def recover_interrupted_paper_fills(self, broker_ledger_path):
+        """Atomically acknowledge durable simulated fills, without inventing PnL or re-routing."""
+        lock_path = self.session_path.with_name(self.session_path.name + ".reserve.lock")
+        try:
+            fd = os.open(str(lock_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+        except OSError:
+            return {"decision":"BLOCK_RECOVERY_LOCKED","production":"BLOCKED"}
+        try:
+            os.close(fd)
+            session = self._read_session()
+            if not session or session.get("status") != "OPEN":
+                return {"decision":"BLOCK_RECOVERY_NO_SESSION","production":"BLOCKED"}
+            pending = session.get("pending_paper_orders", [])
+            if not isinstance(pending, list):
+                return {"decision":"BLOCK_RECOVERY_INVALID_PENDING","production":"BLOCKED"}
+            path = Path(broker_ledger_path)
+            if not path.exists():
+                return {"decision":"BLOCK_RECOVERY_NO_BROKER_LEDGER","production":"BLOCKED"}
+            fills = {}
+            for line in path.read_text(encoding="utf-8").splitlines():
+                if not line.strip():
+                    continue
+                row = json.loads(line)
+                if not isinstance(row, dict):
+                    raise ValueError("invalid ledger record")
+                if row.get("decision") != "PAPER_ORDER_ACCEPTED":
+                    continue
+                order = row.get("order")
+                fill = row.get("fill")
+                if not isinstance(order, dict) or not isinstance(fill, dict) or fill.get("filled") is not True:
+                    return {"decision":"BLOCK_RECOVERY_INVALID_FILL","production":"BLOCKED"}
+                token = order.get("reservation_id")
+                client_id = order.get("client_order_id")
+                if not isinstance(token, str) or not token or not isinstance(client_id, str) or not client_id:
+                    return {"decision":"BLOCK_RECOVERY_UNCORRELATED_FILL","production":"BLOCKED"}
+                if token in fills:
+                    return {"decision":"BLOCK_RECOVERY_DUPLICATE_FILL","production":"BLOCKED"}
+                fills[token] = client_id
+            changed = 0
+            updated = []
+            for item in pending:
+                entry = dict(item)
+                token = entry["id"]
+                if token in fills:
+                    if entry.get("client_order_id") != fills[token]:
+                        return {"decision":"BLOCK_RECOVERY_ID_MISMATCH","production":"BLOCKED"}
+                    if entry.get("fill_recovered") is not True:
+                        entry["fill_recovered"] = True
+                        changed += 1
+                updated.append(entry)
+            if any(token not in {item["id"] for item in pending} for token in fills):
+                return {"decision":"BLOCK_RECOVERY_UNKNOWN_FILL","production":"BLOCKED"}
+            if changed:
+                session["pending_paper_orders"] = updated
+                self._write_session(session)
+            return {"decision":"PAPER_FILLS_ACKNOWLEDGED" if changed else "PAPER_RECOVERY_NO_CHANGE",
+                    "acknowledged":changed,"pending_settlement":len(updated),"production":"BLOCKED"}
+        except (OSError, ValueError, TypeError, KeyError, UnicodeError):
+            return {"decision":"BLOCK_RECOVERY_WRITE_OR_LEDGER_ERROR","production":"BLOCKED"}
+        finally:
+            try:
+                lock_path.unlink()
+            except OSError:
+                pass
+
     def reconcile_paper_fills(self, broker_ledger_path):
         """Read-only reconciliation. Ambiguous fills block new PAPER orders."""
         try:
