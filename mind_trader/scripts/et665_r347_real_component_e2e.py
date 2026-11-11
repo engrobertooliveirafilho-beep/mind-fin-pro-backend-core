@@ -10,7 +10,10 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-from et665_r341_s20_s21_causal_gate import validate_file
+try:
+    from .et665_r341_s20_s21_causal_gate import validate_file
+except ImportError:
+    from et665_r341_s20_s21_causal_gate import validate_file
 
 def run(csv_path: Path, expected_sha256: str, evidence_path: Path):
     if not isinstance(expected_sha256, str) or len(expected_sha256) != 64 or any(c not in "0123456789abcdef" for c in expected_sha256):
