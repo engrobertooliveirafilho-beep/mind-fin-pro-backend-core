@@ -1,0 +1,35 @@
+name: ET665 R347 exact-source offline runtime
+on:
+  pull_request:
+    paths:
+      - 'mind_trader/scripts/et665_r341_s20_s21_causal_gate.py'
+      - 'mind_trader/scripts/et665_r347_real_component_e2e.py'
+      - 'mind_trader/tests/test_et665_r341_s20_s21_causal_gate.py'
+      - 'mind_trader/tests/test_et665_r347_real_component_e2e.py'
+      - '.github/workflows/et665-r347-runtime.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-source-offline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify exact source blobs and execute all 23 R341/R347 tests in network-disabled container
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object mind_trader/scripts/et665_r341_s20_s21_causal_gate.py)" = "2022b8b4d0b57bda7ce91557faf3c0118824b34c"
+          test "$(git hash-object mind_trader/scripts/et665_r347_real_component_e2e.py)" = "6de1cc19718df772c62f0f3fc311e828683838a1"
+          test "$(git hash-object mind_trader/tests/test_et665_r347_real_component_e2e.py)" = "de9713f378b887bb4dfa7485469b7e9a5e93afd0"
+          docker run --rm --network none --read-only --cap-drop ALL --security-opt no-new-privileges --tmpfs /tmp:rw,noexec,nosuid,size=64m -e PYTHONDONTWRITEBYTECODE=1 -v "$PWD:/src:ro" -w /src python:3.11-slim python -m unittest mind_trader.tests.test_et665_r341_s20_s21_causal_gate mind_trader.tests.test_et665_r347_real_component_e2e -v 2>&1 | tee et665-r347-runtime.log
+      - name: Preserve runtime log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: et665-r347-runtime-log
+          path: et665-r347-runtime.log
+          if-no-files-found: warn
