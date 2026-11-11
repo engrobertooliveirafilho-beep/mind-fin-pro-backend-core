@@ -202,9 +202,11 @@ class PaperTradingSessionManager:
             return {"allowed":False,"decision":"BLOCK_DAILY_LOSS_LIMIT","production":"BLOCKED"}
         return {"allowed":True,"decision":"ALLOW_PAPER_TRADE","session_id":s["session_id"],"production":"BLOCKED"}
 
-    def reserve_paper_order(self, risk_amount):
+    def reserve_paper_order(self, risk_amount, client_order_id=None):
         """Durable fail-closed reservation, serialized across processes via O_EXCL."""
         import os
+        if not isinstance(client_order_id, str) or not client_order_id.strip() or len(client_order_id) > 128:
+            return {"allowed":False,"decision":"BLOCK_MISSING_CLIENT_ORDER_ID","production":"BLOCKED"}
         lock_path = self.session_path.with_name(self.session_path.name + ".reserve.lock")
         lock_path.parent.mkdir(parents=True, exist_ok=True)
         try:
@@ -213,6 +215,14 @@ class PaperTradingSessionManager:
             return {"allowed":False,"decision":"BLOCK_PAPER_RESERVATION_LOCKED","production":"BLOCKED"}
         try:
             os.close(fd)
+            session_before = self._read_session()
+            if not session_before or session_before.get("status") != "OPEN":
+                return {"allowed":False,"decision":"BLOCK_NO_SESSION","production":"BLOCKED"}
+            known = session_before.get("client_order_ids", [])
+            if not isinstance(known, list) or any(not isinstance(x,str) for x in known):
+                return {"allowed":False,"decision":"BLOCK_CORRUPT_ORDER_IDS","production":"BLOCKED"}
+            if client_order_id in known:
+                return {"allowed":False,"decision":"BLOCK_DUPLICATE_CLIENT_ORDER_ID","production":"BLOCKED"}
             checked = self.pre_trade_check(risk_amount)
             if not checked["allowed"]:
                 return checked
@@ -225,7 +235,8 @@ class PaperTradingSessionManager:
             if max(0.0, -session["daily_pnl"]) + sum(x["risk"] for x in pending) + risk_amount > session["max_daily_loss"]:
                 return {"allowed":False,"decision":"BLOCK_DAILY_LOSS_LIMIT","production":"BLOCKED"}
             token = str(uuid.uuid4())
-            pending.append({"id":token,"risk":risk_amount})
+            pending.append({"id":token,"risk":risk_amount,"client_order_id":client_order_id})
+            session["client_order_ids"] = known + [client_order_id]
             session["pending_paper_orders"] = pending
             self._write_session(session)
             return {"allowed":True,"decision":"PAPER_ORDER_RESERVED","reservation_id":token,"production":"BLOCKED"}
