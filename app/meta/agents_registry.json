@@ -1,0 +1,10 @@
+{
+  "schema_version": "hp19-quarantine-v1",
+  "authority": "ISOLATED_DENY_ALL_NOT_HISTORICAL_REGISTRY",
+  "source_drive_id": "1r_CUAAzaqF2-FSARGiHVN5CFHlAlAfmw",
+  "historical_agents_observed": 81,
+  "historical_active_true": 52,
+  "historical_auto_activate_true": 81,
+  "activation_policy": "DENY_ALL_UNTIL_INDIVIDUAL_EVIDENCE",
+  "agents": []
+}
