@@ -6,7 +6,11 @@ from mind_trader.app.backtest.p2405_paper_gateway import (
 from mind_trader.app.backtest.p2405_paper_settlement import settle_historical_paper_exit
 
 
-class MandatoryFinancialGatewayTests(M8GatewayE2E):
+import unittest
+
+class MandatoryFinancialGatewayTests(unittest.TestCase):
+    def setUp(self):
+        M8GatewayE2E.setUp(self)
     def test_legacy_replay_without_units_blocked(self):
         result=replay_candidate_to_paper(self.candidate,self.gateway,
             risk_amount=10,stop_distance=1,regime_report=self.regime,
