@@ -53,7 +53,9 @@ class FinancialContractTests(unittest.TestCase):
         self.assertEqual(self.check(commission_per_unit_per_side=-1)["reason"],"INVALID_COSTS")
 
 
-class StrictFinancialReplayTests(M8GatewayE2E):
+class StrictFinancialReplayTests(unittest.TestCase):
+    def setUp(self):
+        M8GatewayE2E.setUp(self)
     def test_under_reserve_never_reaches_broker(self):
         result=replay_financially_verified_candidate(self.candidate,self.gateway,
             quantity=100,quote_to_account_rate=1,contract_multiplier=1,
