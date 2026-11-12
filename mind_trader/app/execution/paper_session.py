@@ -3,6 +3,29 @@ from pathlib import Path
 from datetime import datetime, UTC
 from mind_trader.app.risk.ftmo_ruleset import load_ftmo_config
 
+# ET665.R400.3 — Linux-only interprocess advisory lock.
+# The descriptor remains open for the entire critical section.
+# The kernel releases flock automatically when the process dies.
+import fcntl as _et665_fcntl
+
+def _et665_acquire_lock(path):
+    descriptor = os.open(str(path), os.O_CREAT | os.O_RDWR, 0o600)
+    try:
+        _et665_fcntl.flock(
+            descriptor,
+            _et665_fcntl.LOCK_EX | _et665_fcntl.LOCK_NB
+        )
+    except BaseException:
+        os.close(descriptor)
+        raise
+    return descriptor
+
+def _et665_release_lock(descriptor):
+    try:
+        _et665_fcntl.flock(descriptor, _et665_fcntl.LOCK_UN)
+    finally:
+        os.close(descriptor)
+
 def _now(): return datetime.now(UTC).isoformat()
 
 class PaperTradingSessionManager:
@@ -80,11 +103,11 @@ class PaperTradingSessionManager:
         lock_path = self.session_path.with_name(self.session_path.name + ".reserve.lock")
         lock_path.parent.mkdir(parents=True, exist_ok=True)
         try:
-            fd = os.open(str(lock_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+            fd = _et665_acquire_lock(lock_path)
         except OSError:
             return {"decision":"BLOCK_OPEN_RESERVATION_LOCKED","production":"BLOCKED"}
         try:
-            os.close(fd)
+            pass  # ET665: lock held until finally
             cfg,val=load_ftmo_config(self.ftmo_config_path)
             if not cfg or not val["valid"]:
                 return {"decision":"BLOCK_SESSION_INVALID_FTMO_CONFIG","validation":val,"production":"BLOCKED"}
@@ -140,7 +163,7 @@ class PaperTradingSessionManager:
     
         finally:
             try:
-                lock_path.unlink()
+                _et665_release_lock(fd)
             except OSError:
                 pass
 
@@ -148,11 +171,11 @@ class PaperTradingSessionManager:
         # Serialize lifecycle transitions with PAPER reservation and settlement.
         lock_path = self.session_path.with_name(self.session_path.name + ".reserve.lock")
         try:
-            fd = os.open(str(lock_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+            fd = _et665_acquire_lock(lock_path)
         except OSError:
             return {"decision":"BLOCK_CLOSE_RESERVATION_LOCKED","production":"BLOCKED"}
         try:
-            os.close(fd)
+            pass  # ET665: lock held until finally
             s = self._read_session()
             if not s or s.get("status") != "OPEN":
                 return {"decision":"NO_OPEN_SESSION","production":"BLOCKED"}
@@ -168,7 +191,7 @@ class PaperTradingSessionManager:
             return {"decision":"BLOCK_CLOSE_SESSION_ERROR","production":"BLOCKED"}
         finally:
             try:
-                lock_path.unlink()
+                _et665_release_lock(fd)
             except OSError:
                 pass
 
@@ -210,11 +233,11 @@ class PaperTradingSessionManager:
         lock_path = self.session_path.with_name(self.session_path.name + ".reserve.lock")
         lock_path.parent.mkdir(parents=True, exist_ok=True)
         try:
-            fd = os.open(str(lock_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+            fd = _et665_acquire_lock(lock_path)
         except OSError:
             return {"allowed":False,"decision":"BLOCK_PAPER_RESERVATION_LOCKED","production":"BLOCKED"}
         try:
-            os.close(fd)
+            pass  # ET665: lock held until finally
             session_before = self._read_session()
             if not session_before or session_before.get("status") != "OPEN":
                 return {"allowed":False,"decision":"BLOCK_NO_SESSION","production":"BLOCKED"}
@@ -244,7 +267,7 @@ class PaperTradingSessionManager:
             return {"allowed":False,"decision":"BLOCK_PAPER_RESERVATION_ERROR","production":"BLOCKED"}
         finally:
             try:
-                lock_path.unlink()
+                _et665_release_lock(fd)
             except OSError:
                 pass
 
@@ -253,11 +276,11 @@ class PaperTradingSessionManager:
         import os
         lock_path = self.session_path.with_name(self.session_path.name + ".reserve.lock")
         try:
-            fd = os.open(str(lock_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+            fd = _et665_acquire_lock(lock_path)
         except OSError:
             return False
         try:
-            os.close(fd)
+            pass  # ET665: lock held until finally
             session = self._read_session()
             if not session:
                 return False
@@ -271,7 +294,7 @@ class PaperTradingSessionManager:
             return False
         finally:
             try:
-                lock_path.unlink()
+                _et665_release_lock(fd)
             except OSError:
                 pass
 
@@ -279,11 +302,11 @@ class PaperTradingSessionManager:
         """Legacy result accounting serialized with PAPER reservations and settlement."""
         lock_path = self.session_path.with_name(self.session_path.name + ".reserve.lock")
         try:
-            fd = os.open(str(lock_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+            fd = _et665_acquire_lock(lock_path)
         except OSError:
             return {"decision":"BLOCK_RECORD_RESERVATION_LOCKED","production":"BLOCKED"}
         try:
-            os.close(fd)
+            pass  # ET665: lock held until finally
             if isinstance(pnl, bool) or not isinstance(pnl, (int, float)) or not math.isfinite(pnl):
                 return {"decision":"BLOCK_RECORD_INVALID_PNL","production":"BLOCKED"}
             s=self._read_session()
@@ -312,7 +335,7 @@ class PaperTradingSessionManager:
             return {"decision":"BLOCK_RECORD_SESSION_ERROR","production":"BLOCKED"}
         finally:
             try:
-                lock_path.unlink()
+                _et665_release_lock(fd)
             except OSError:
                 pass
 
@@ -323,11 +346,11 @@ class PaperTradingSessionManager:
             return {"decision":"BLOCK_SETTLEMENT_INVALID_INPUT","production":"BLOCKED"}
         lock_path = self.session_path.with_name(self.session_path.name + ".reserve.lock")
         try:
-            fd = os.open(str(lock_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+            fd = _et665_acquire_lock(lock_path)
         except OSError:
             return {"decision":"BLOCK_PAPER_RESERVATION_LOCKED","production":"BLOCKED"}
         try:
-            os.close(fd)
+            pass  # ET665: lock held until finally
             s = self._read_session()
             if not s or s.get("status") != "OPEN":
                 return {"decision":"BLOCK_SETTLEMENT_NO_OPEN_SESSION","production":"BLOCKED"}
@@ -357,7 +380,7 @@ class PaperTradingSessionManager:
             return {"decision":"BLOCK_SETTLEMENT_ERROR","production":"BLOCKED"}
         finally:
             try:
-                lock_path.unlink()
+                _et665_release_lock(fd)
             except OSError:
                 pass
 
@@ -365,11 +388,11 @@ class PaperTradingSessionManager:
         """Atomically acknowledge durable simulated fills, without inventing PnL or re-routing."""
         lock_path = self.session_path.with_name(self.session_path.name + ".reserve.lock")
         try:
-            fd = os.open(str(lock_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+            fd = _et665_acquire_lock(lock_path)
         except OSError:
             return {"decision":"BLOCK_RECOVERY_LOCKED","production":"BLOCKED"}
         try:
-            os.close(fd)
+            pass  # ET665: lock held until finally
             session = self._read_session()
             if not session or session.get("status") != "OPEN":
                 return {"decision":"BLOCK_RECOVERY_NO_SESSION","production":"BLOCKED"}
@@ -422,7 +445,7 @@ class PaperTradingSessionManager:
             return {"decision":"BLOCK_RECOVERY_WRITE_OR_LEDGER_ERROR","production":"BLOCKED"}
         finally:
             try:
-                lock_path.unlink()
+                _et665_release_lock(fd)
             except OSError:
                 pass
 
