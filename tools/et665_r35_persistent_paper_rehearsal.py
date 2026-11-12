@@ -8,9 +8,11 @@ import hashlib
 import json
 import math
 import time
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from tests.test_et665_m8_gateway_e2e import M8GatewayE2E
 from mind_trader.app.backtest.p2405_paper_gateway import replay_financially_verified_candidate
 from mind_trader.app.backtest.p2405_paper_settlement import settle_historical_paper_exit
