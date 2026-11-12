@@ -115,3 +115,41 @@ def replay_candidate_to_paper(candidate, gateway, *, risk_amount, stop_distance,
     result["candidate_id"] = candidate["candidate_id"]
     result["mode"] = "PAPER"
     return emit()
+
+
+def replay_financially_verified_candidate(candidate, gateway, *,
+                                         quantity, quote_to_account_rate,
+                                         contract_multiplier, risk_amount,
+                                         stop_distance, reward_multiple=2.5,
+                                         regime_report=None, genome=None,
+                                         authorize_offline_replay=False):
+    """Strict PAPER entrypoint. Requires explicit financial unit contract."""
+    from mind_trader.app.risk.paper_financial_contract import verify_paper_financial_contract
+    blocked={"decision":"BLOCK_FINANCIAL_REPLAY","production":"BLOCKED",
+             "real_broker_routing":"DISABLED","reservation_id":None}
+    if not authorize_offline_replay or not isinstance(gateway,ExecutionGateway):
+        return dict(blocked,reason="NOT_AUTHORIZED")
+    if not isinstance(candidate,dict) or candidate.get("side") not in ("BUY","SELL"):
+        return dict(blocked,reason="INVALID_CANDIDATE")
+    costs=candidate.get("costs")
+    if not isinstance(costs,dict) or not all(type(costs.get(k)) in (int,float) and math.isfinite(costs[k]) and costs[k]>=0 for k in ("spread","slippage","commission")):
+        return dict(blocked,reason="INVALID_COSTS")
+    if not all(_positive(v) for v in (candidate.get("simulated_fill"),risk_amount,stop_distance,reward_multiple)):
+        return dict(blocked,reason="INVALID_INPUT")
+    side=candidate["side"]
+    friction=costs["spread"]/2+costs["slippage"]
+    raw_entry=candidate["simulated_fill"]-friction if side=="BUY" else candidate["simulated_fill"]+friction
+    stop=raw_entry-stop_distance if side=="BUY" else raw_entry+stop_distance
+    contract=verify_paper_financial_contract(side=side,entry_fill=candidate["simulated_fill"],
+        stop=stop,quantity=quantity,quote_to_account_rate=quote_to_account_rate,
+        contract_multiplier=contract_multiplier,commission_per_unit_per_side=costs["commission"],
+        spread=costs["spread"],slippage=costs["slippage"],reserved_risk_account=risk_amount)
+    if contract["decision"]!="FINANCIAL_CONTRACT_VALIDATED":
+        return dict(blocked,reason=contract.get("reason"),financial_contract=contract)
+    # Do not bypass the existing M8 integrity, regime, FTMO and broker gates.
+    result=replay_candidate_to_paper(candidate,gateway,risk_amount=risk_amount,
+        stop_distance=stop_distance,reward_multiple=reward_multiple,
+        regime_report=regime_report,genome=genome,
+        authorize_offline_replay=True)
+    result["financial_contract"]=contract
+    return result
