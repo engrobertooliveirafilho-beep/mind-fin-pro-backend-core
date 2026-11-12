@@ -129,7 +129,8 @@ def replay_financially_verified_candidate(candidate, gateway, *,
                                          contract_multiplier, risk_amount,
                                          stop_distance, reward_multiple=2.5,
                                          regime_report=None, genome=None,
-                                         authorize_offline_replay=False):
+                                         authorize_offline_replay=False,
+                                         telemetry_path=None):
     """Strict PAPER entrypoint. Requires explicit financial unit contract."""
     from mind_trader.app.risk.paper_financial_contract import verify_paper_financial_contract
     blocked={"decision":"BLOCK_FINANCIAL_REPLAY","production":"BLOCKED",
@@ -159,6 +160,7 @@ def replay_financially_verified_candidate(candidate, gateway, *,
         regime_report=regime_report,genome=genome,
         authorize_offline_replay=True,quantity=quantity,
         quote_to_account_rate=quote_to_account_rate,
-        contract_multiplier=contract_multiplier)
+        contract_multiplier=contract_multiplier,
+        telemetry_path=telemetry_path)
     result["financial_contract"]=contract
     return result
