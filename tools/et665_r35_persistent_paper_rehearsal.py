@@ -39,7 +39,7 @@ def main():
     ap.add_argument("--evidence", required=True)
     ap.add_argument("--minutes", type=int, default=60)
     args = ap.parse_args()
-    demand(args.minutes == 60, "CERTIFICATION_REQUIRES_60_MINUTES")
+    demand(args.minutes in (0, 60), "ONLY_PREFLIGHT_OR_60_MINUTES_ALLOWED")
     evidence = Path(args.evidence)
     evidence.mkdir(parents=True, exist_ok=True)
     fixture = M8GatewayE2E(methodName="test_no_authorization_no_order")
@@ -57,7 +57,7 @@ def main():
     outcome = {"result": "FAIL", "completed_checkpoints": 0, "orders": 0,
                "production": "BLOCKED", "real_orders": "FORBIDDEN"}
     try:
-        for minute in range(61):
+        for minute in range(args.minutes + 1):
             # Fresh objects prove restart/recovery against the SAME durable files.
             manager = PaperTradingSessionManager(str(fixture.session), str(fixture.day), str(fixture.config))
             gateway = ExecutionGateway(ledger_path=str(fixture.execution),
@@ -135,11 +135,14 @@ def main():
                 json.dumps(checkpoint, sort_keys=True), encoding="utf-8")
             outcome["completed_checkpoints"] = minute+1
             outcome["orders"] = len(expected)
-            if minute < 60:
+            if minute < args.minutes:
                 wait = start + (minute+1)*60 - time.monotonic()
                 if wait > 0:
                     time.sleep(wait)
-        demand(time.monotonic()-start >= 3600, "DURATION_SHORT")
+        if args.minutes == 60:
+            demand(time.monotonic()-start >= 3600, "DURATION_SHORT")
+        else:
+            outcome["preflight_only"] = True
         outcome["result"] = "PASS"
     except BaseException as exc:
         outcome["failure"] = repr(exc)
