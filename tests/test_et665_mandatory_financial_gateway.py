@@ -1,6 +1,6 @@
 """Fail-closed migration checks for mandatory PAPER financial units."""
 import json
-from tests.test_et665_m8_gateway_e2e import M8GatewayE2E
+import tests.test_et665_m8_gateway_e2e as m8fixture
 from mind_trader.app.backtest.p2405_paper_gateway import (
     replay_candidate_to_paper,replay_financially_verified_candidate)
 from mind_trader.app.backtest.p2405_paper_settlement import settle_historical_paper_exit
@@ -10,7 +10,7 @@ import unittest
 
 class MandatoryFinancialGatewayTests(unittest.TestCase):
     def setUp(self):
-        M8GatewayE2E.setUp(self)
+        m8fixture.M8GatewayE2E.setUp(self)
     def test_legacy_replay_without_units_blocked(self):
         result=replay_candidate_to_paper(self.candidate,self.gateway,
             risk_amount=10,stop_distance=1,regime_report=self.regime,
