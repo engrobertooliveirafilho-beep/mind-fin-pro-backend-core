@@ -1,4 +1,6 @@
 import unittest
+from tests.test_et665_m8_gateway_e2e import M8GatewayE2E
+from mind_trader.app.backtest.p2405_paper_gateway import replay_financially_verified_candidate
 from mind_trader.app.risk.paper_financial_contract import verify_paper_financial_contract
 
 
@@ -49,6 +51,24 @@ class FinancialContractTests(unittest.TestCase):
         self.assertEqual(self.check(quantity=0)["reason"],"INVALID_POSITIVE_UNITS")
         self.assertEqual(self.check(quote_to_account_rate=0)["reason"],"INVALID_POSITIVE_UNITS")
         self.assertEqual(self.check(commission_per_unit_per_side=-1)["reason"],"INVALID_COSTS")
+
+
+class StrictFinancialReplayTests(M8GatewayE2E):
+    def test_under_reserve_never_reaches_broker(self):
+        result=replay_financially_verified_candidate(self.candidate,self.gateway,
+            quantity=100,quote_to_account_rate=1,contract_multiplier=1,
+            risk_amount=10,stop_distance=1,regime_report=self.regime,
+            genome=self.genome,authorize_offline_replay=True)
+        self.assertEqual(result["reason"],"UNDER_RESERVED_STOP_LOSS",result)
+        self.assertFalse(self.broker.exists())
+
+    def test_verified_replay_accepts_with_adequate_reserve(self):
+        result=replay_financially_verified_candidate(self.candidate,self.gateway,
+            quantity=1,quote_to_account_rate=1,contract_multiplier=1,
+            risk_amount=10,stop_distance=1,regime_report=self.regime,
+            genome=self.genome,authorize_offline_replay=True)
+        self.assertEqual(result["decision"],"ACCEPT_SIMULATED_ORDER",result)
+        self.assertEqual(result["financial_contract"]["decision"],"FINANCIAL_CONTRACT_VALIDATED")
 
 
 if __name__=="__main__":
