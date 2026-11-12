@@ -2,7 +2,7 @@ import json
 import unittest
 from pathlib import Path
 from tests.test_et665_m8_gateway_e2e import M8GatewayE2E
-from mind_trader.app.backtest.p2405_paper_gateway import replay_candidate_to_paper
+from mind_trader.app.backtest.p2405_paper_gateway import replay_financially_verified_candidate
 from mind_trader.app.backtest.p2405_paper_settlement import settle_historical_paper_exit
 from mind_trader.app.execution.paper_session import PaperTradingSessionManager
 
@@ -10,8 +10,8 @@ from mind_trader.app.execution.paper_session import PaperTradingSessionManager
 class M9SettlementTests(unittest.TestCase):
     def setUp(self):
         M8GatewayE2E.setUp(self)
-        self.accepted = replay_candidate_to_paper(
-            self.candidate,self.gateway,risk_amount=10,stop_distance=1,
+        self.accepted = replay_financially_verified_candidate(
+            self.candidate,self.gateway,quantity=2,quote_to_account_rate=1,contract_multiplier=1,risk_amount=10,stop_distance=1,
             reward_multiple=2.5,regime_report=self.regime,genome=self.genome,
             authorize_offline_replay=True)
         self.assertEqual(self.accepted["decision"],"ACCEPT_SIMULATED_ORDER",self.accepted)

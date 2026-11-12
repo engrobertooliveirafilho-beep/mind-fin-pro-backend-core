@@ -1,0 +1,14 @@
+{
+  "mission": "ET665.R433",
+  "base_branch": "origin/et665/paper-financial-mandatory-gate",
+  "patch_branch": "audit/et665-r433-m9-financial-fix-20261112_172918",
+  "original_sha256": "20972ED2A5ADB9EEAA658AB20D0084F354A74C7FB6F2AAE1728C12775925DBA5",
+  "patched_sha256": "9BB5F6A352D0CDD06F950DADABAFC3B25477585FD964B8D3EE926ADDDBDFAD3F",
+  "docker_test_executions": 19,
+  "distinct_tests": 15,
+  "tests_failed": 0,
+  "certification": "R432_DOCKER_OFFLINE_PASS",
+  "global_certification": "PENDING",
+  "production": "BLOCKED",
+  "real_orders": "FORBIDDEN"
+}
