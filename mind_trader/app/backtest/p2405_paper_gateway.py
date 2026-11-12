@@ -5,6 +5,7 @@ replay; the existing ExecutionGateway remains the sole risk/broker authority.
 """
 import json
 import math
+import hashlib
 from pathlib import Path
 
 from mind_trader.app.execution.gateway import ExecutionGateway
@@ -75,8 +76,18 @@ def replay_candidate_to_paper(candidate, gateway, *, risk_amount, stop_distance,
     ):
         result["reason"] = "COST_CONFIG_DRIFT"
         return emit()
-    price = float(candidate["simulated_fill"])
+    canonical = {k:v for k,v in candidate.items() if k != "candidate_id"}
+    digest = hashlib.sha256(json.dumps(canonical,sort_keys=True,separators=(",",":")).encode()).hexdigest()
+    if digest != candidate["candidate_id"]:
+        result["reason"] = "CANDIDATE_INTEGRITY_MISMATCH"
+        return emit()
     side = candidate["side"]
+    friction = float(candidate["costs"]["spread"]) / 2 + float(candidate["costs"]["slippage"])
+    # M7 price already includes entry friction; gateway applies it exactly once.
+    price = float(candidate["simulated_fill"]) - friction if side == "BUY" else float(candidate["simulated_fill"]) + friction
+    if not _positive(price):
+        result["reason"] = "INVALID_RAW_ENTRY"
+        return emit()
     stop = price - stop_distance if side == "BUY" else price + stop_distance
     target = price + stop_distance * reward_multiple if side == "BUY" else price - stop_distance * reward_multiple
     if not _positive(stop) or not _positive(target):
