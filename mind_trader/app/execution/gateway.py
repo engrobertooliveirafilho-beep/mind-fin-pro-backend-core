@@ -122,7 +122,12 @@ class ExecutionGateway:
                 paper_broker={"decision":"PAPER_BROKER_EXCEPTION","production":"BLOCKED","live":"FORBIDDEN","real_broker_routing":"DISABLED"}
             if not isinstance(paper_broker,dict) or paper_broker.get("decision")!="PAPER_ORDER_ACCEPTED" or not isinstance(paper_broker.get("fill"),dict) or paper_broker["fill"].get("filled") is not True or paper_broker.get("production")!="BLOCKED" or paper_broker.get("live")!="FORBIDDEN" or paper_broker.get("real_broker_routing")!="DISABLED":
                 allowed=False
-                if not self.paper.release_paper_order(reservation["reservation_id"]):
+                # An exception may occur AFTER a durable broker fill. Never release
+                # its reservation until the broker journal has been reconciled.
+                broker_exception = isinstance(paper_broker, dict) and paper_broker.get("decision") == "PAPER_BROKER_EXCEPTION"
+                if broker_exception:
+                    checks.append({"layer":"PAPER_RESERVATION","ok":False,"reason":"AMBIGUOUS_BROKER_RESULT_RESERVATION_RETAINED"})
+                elif not self.paper.release_paper_order(reservation["reservation_id"]):
                     checks.append({"layer":"PAPER_RESERVATION","ok":False,"reason":"RESERVATION_RELEASE_FAILED_FAIL_CLOSED"})
                 checks.append({"layer":"PAPER_BROKER","ok":False,"reason":"PAPER_BROKER_EXCEPTION" if isinstance(paper_broker,dict) and paper_broker.get("decision")=="PAPER_BROKER_EXCEPTION" else "PAPER_BROKER_NOT_ACCEPTED"})
 
