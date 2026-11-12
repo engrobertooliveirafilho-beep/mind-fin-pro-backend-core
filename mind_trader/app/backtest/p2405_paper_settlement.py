@@ -97,3 +97,37 @@ def settle_historical_paper_exit(manager, *, broker_ledger_path, reservation_id,
     except OSError:
         return dict(result, evidence_write="FAILED_SESSION_SETTLEMENT_IS_AUTHORITATIVE")
     return result
+
+
+def settle_selected_historical_exit(manager, *, broker_ledger_path, reservation_id,
+                                    symbol, timeframe, db_path, entry_ts,
+                                    quantity, quote_to_account_rate,
+                                    settlement_evidence_path, authorize_offline_replay=False):
+    """Select causal stop/target exit from durable PAPER order, then settle."""
+    from mind_trader.app.backtest.p2405_historical_exit import select_historical_exit
+    blocked = {"decision":"BLOCK_M10_EXIT","production":"BLOCKED","real_broker_routing":"DISABLED"}
+    if not authorize_offline_replay:
+        return dict(blocked,reason="REPLAY_NOT_AUTHORIZED")
+    try:
+        rows=[json.loads(line) for line in Path(broker_ledger_path).read_text(encoding="utf-8").splitlines() if line.strip()]
+        matches=[r for r in rows if r.get("decision")=="PAPER_ORDER_ACCEPTED" and isinstance(r.get("order"),dict) and r["order"].get("reservation_id")==reservation_id]
+        if len(matches)!=1:
+            return dict(blocked,reason="BROKER_FILL_NOT_UNIQUE")
+        order=matches[0]["order"]
+        if order.get("symbol") != symbol:
+            return dict(blocked,reason="SYMBOL_MISMATCH")
+        selected=select_historical_exit(symbol,timeframe,db_path,fill_ts=entry_ts,
+                                        side=order["side"],stop=order["stop"],target=order["target"])
+    except (OSError,ValueError,KeyError,TypeError,UnicodeError) as exc:
+        return dict(blocked,reason="INVALID_HISTORICAL_EXIT",detail=type(exc).__name__)
+    if selected["decision"]!="M10_HISTORICAL_EXIT_SELECTED":
+        return dict(blocked,reason="NO_EXIT_YET")
+    result=settle_historical_paper_exit(manager,broker_ledger_path=broker_ledger_path,
+        reservation_id=reservation_id,entry_ts=entry_ts,exit_ts=selected["exit_ts"],
+        exit_close=selected["exit_close"],quantity=quantity,
+        quote_to_account_rate=quote_to_account_rate,
+        settlement_evidence_path=settlement_evidence_path,
+        authorize_offline_replay=True)
+    if result.get("decision")=="M9_HISTORICAL_PAPER_SETTLED":
+        result["exit_reason"]=selected["exit_reason"]
+    return result
