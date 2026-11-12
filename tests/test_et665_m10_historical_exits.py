@@ -95,5 +95,28 @@ class M10HistoricalExits(unittest.TestCase):
         self.assertEqual(json.loads(self.session.read_text())["trades"],1)
 
 
+    def test_sell_net_pnl(self):
+        self.candidate=next(e for e in self.research["events"] if e["side"]=="SELL")
+        self.entry_ts=self.candidate["fill_ts"]
+        accepted=replay_candidate_to_paper(self.candidate,self.gateway,risk_amount=10,
+            stop_distance=1,reward_multiple=2.5,regime_report=self.regime,
+            genome=self.genome,authorize_offline_replay=True)
+        self.assertEqual(accepted["decision"],"ACCEPT_SIMULATED_ORDER",accepted)
+        row=json.loads(self.broker.read_text().splitlines()[-1])
+        order=row["order"]
+        price=order["entry"]
+        self.history("SELL",order["stop"],order["target"],
+                     (price,price+0.2,price-3,price-2.8))
+        restarted=PaperTradingSessionManager(str(self.session),str(self.day),str(self.config))
+        result=settle_selected_historical_exit(restarted,broker_ledger_path=str(self.broker),
+            reservation_id=accepted["reservation_id"],symbol="EURUSD",timeframe="M1",
+            db_path=str(self.db),entry_ts=self.entry_ts,quantity=2,
+            quote_to_account_rate=1,settlement_evidence_path=self.root/"sell.json",
+            authorize_offline_replay=True)
+        self.assertEqual(result["decision"],"M9_HISTORICAL_PAPER_SETTLED",result)
+        self.assertEqual(result["exit_reason"],"TARGET")
+        self.assertAlmostEqual(result["net_account"],(result["entry_fill"]-result["exit_fill"])*2-2)
+
+
 if __name__=="__main__":
     unittest.main()
