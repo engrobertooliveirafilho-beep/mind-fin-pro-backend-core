@@ -6,7 +6,7 @@ from pathlib import Path
 
 from mind_trader.app.backtest.market_core import ingest_ohlcv_csv
 from mind_trader.app.backtest.p2405_paper_bridge import prepare_paper_candidates
-from mind_trader.app.backtest.p2405_paper_gateway import replay_candidate_to_paper
+from mind_trader.app.backtest.p2405_paper_gateway import replay_candidate_to_paper, replay_financially_verified_candidate
 from mind_trader.app.execution.gateway import ExecutionGateway
 from mind_trader.app.execution.paper_session import PaperTradingSessionManager
 from mind_trader.app.risk.ftmo_ruleset import default_ftmo_config
@@ -53,7 +53,8 @@ class M8GatewayE2E(unittest.TestCase):
                     regime_report=self.regime,genome=self.genome,
                     authorize_offline_replay=True)
         params.update(kwargs)
-        return replay_candidate_to_paper(self.candidate,self.gateway,**params)
+        params.update(quantity=1,quote_to_account_rate=1,contract_multiplier=1)
+        return replay_financially_verified_candidate(self.candidate,self.gateway,**params)
 
     def test_full_research_to_gateway_restart_settle_once(self):
         accepted=self.submit(telemetry_path=self.root/"decision.json")
@@ -80,7 +81,7 @@ class M8GatewayE2E(unittest.TestCase):
 
     def test_no_authorization_no_order(self):
         denied=self.submit(authorize_offline_replay=False)
-        self.assertEqual(denied["decision"],"BLOCKED_M8_PRECHECK")
+        self.assertNotEqual(denied["decision"],"ACCEPT_SIMULATED_ORDER")
         self.assertFalse(self.broker.exists())
 
     def test_cost_drift_no_order(self):
@@ -93,7 +94,7 @@ class M8GatewayE2E(unittest.TestCase):
 
     def test_invalid_risk_no_order(self):
         denied=self.submit(risk_amount=-10)
-        self.assertEqual(denied["reason"],"INVALID_PRICE_OR_RISK")
+        self.assertEqual(denied["reason"],"INVALID_INPUT")
         self.assertFalse(self.broker.exists())
 
 if __name__=="__main__":

@@ -1,0 +1,45 @@
+{
+  "dossier_set_id": "ET665_R41_20261112_EVIDENCE_SCOPED",
+  "period_start": "2026-11-08",
+  "period_end": "2026-11-12",
+  "temporal_precision": "day",
+  "project": "ELDORA_TRADER",
+  "source": "chat and attached R4 audit/triage, GitHub commits",
+  "last_checkpoint": "R41",
+  "inventory": {
+    "verified_pairs": 127004,
+    "quarantined": 43,
+    "certification": "BLOCKED"
+  },
+  "github": {
+    "branch": "et665/paper-financial-mandatory-gate",
+    "pr": 34,
+    "last_audit_commit": "f5bef5fe28583a2359646358dd84c43671940296"
+  },
+  "implemented": [
+    "R38 research guards",
+    "R40 research guards",
+    "R39 archived five originals"
+  ],
+  "tested": [
+    "R37 local 7/7 historical",
+    "R34 Docker 20/20 historical",
+    "R35 preflight historical"
+  ],
+  "not_certified": [
+    "R35 full 60 minute",
+    "R38/R40 Docker",
+    "R41 four additional sources",
+    "HP19 19 runtime implementations"
+  ],
+  "next_macro_step": "R35 60-minute PAPER rehearsal and R38/R40/M8/M9 Docker regression; evidence and reconciliation",
+  "restrictions": [
+    "PAPER_ONLY",
+    "REAL_ORDERS_FORBIDDEN",
+    "FTMO_REAL_FORBIDDEN",
+    "NO_MERGE",
+    "R$0"
+  ],
+  "cloud_persistence": "NOT_EXECUTED",
+  "scope_limitation": "partial accessible history; no full account history audit"
+}

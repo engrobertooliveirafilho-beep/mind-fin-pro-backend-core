@@ -89,7 +89,33 @@ class ExecutionGateway:
         if not self.ftmo or not self.ftmo_config_valid.get("valid"):
             return write_execution_ledger({"mode":mode,"decision":"BLOCKED_INVALID_FTMO_CONFIG","ftmo_config_validation":self.ftmo_config_valid,"production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
 
+        financial_contract = None
         if mode=="PAPER":
+            from mind_trader.app.risk.paper_financial_contract import verify_paper_financial_contract
+            financial_fields=("quantity","quote_to_account_rate","contract_multiplier")
+            if any(k not in trade_dict for k in financial_fields):
+                return write_execution_ledger({"mode":mode,"decision":"BLOCKED_MISSING_FINANCIAL_CONTRACT","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
+            side=trade_dict.get("side")
+            stop=trade_dict.get("stop")
+            entry=trade_dict.get("entry")
+            if side not in ("BUY","SELL") or type(entry) not in (int,float) or not math.isfinite(entry):
+                return write_execution_ledger({"mode":mode,"decision":"BLOCKED_INVALID_FINANCIAL_ENTRY","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
+            cfg=self.ftmo_ruleset
+            if not isinstance(cfg,dict) or not self.ftmo_config_valid.get("valid"):
+                return write_execution_ledger({"mode":mode,"decision":"BLOCKED_INVALID_FINANCIAL_CONFIG","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
+            friction=cfg["spread"]/2+cfg["slippage"]
+            expected_fill=entry+friction if side=="BUY" else entry-friction
+            financial_contract=verify_paper_financial_contract(
+                side=side,entry_fill=expected_fill,stop=stop,
+                quantity=trade_dict["quantity"],
+                quote_to_account_rate=trade_dict["quote_to_account_rate"],
+                contract_multiplier=trade_dict["contract_multiplier"],
+                commission_per_unit_per_side=cfg["commission"],
+                spread=cfg["spread"],slippage=cfg["slippage"],
+                reserved_risk_account=trade_dict["risk_amount"])
+            if financial_contract.get("decision")!="FINANCIAL_CONTRACT_VALIDATED":
+                return write_execution_ledger({"mode":mode,"decision":"BLOCKED_FINANCIAL_CONTRACT",
+                    "financial_contract":financial_contract,"production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
             reconciliation=self.paper.reconcile_paper_fills(self.paper_broker_ledger_path)
             if reconciliation.get("decision")!="PAPER_RECONCILIATION_CLEAN":
                 return write_execution_ledger({"mode":mode,"decision":"BLOCKED_PAPER_RECONCILIATION","reconciliation":reconciliation,"production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
@@ -114,7 +140,7 @@ class ExecutionGateway:
             reservation = self.paper.reserve_paper_order(trade.risk_amount, trade_dict["client_order_id"])
             if not reservation.get("allowed"):
                 return write_execution_ledger({"mode":mode,"decision":"BLOCKED_PAPER_SESSION","session_check":reservation,"production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
-            paper_order={"client_order_id":trade_dict["client_order_id"],"reservation_id":reservation["reservation_id"],"symbol":trade.symbol,"side":trade_dict.get("side","BUY"),"entry":trade.entry,"stop":trade.stop,"target":trade.target,"risk_amount":trade.risk_amount,"strategy_id":trade.strategy_id}
+            paper_order={"client_order_id":trade_dict["client_order_id"],"reservation_id":reservation["reservation_id"],"symbol":trade.symbol,"side":trade_dict.get("side","BUY"),"entry":trade.entry,"stop":trade.stop,"target":trade.target,"risk_amount":trade.risk_amount,"strategy_id":trade.strategy_id,"quantity":trade_dict["quantity"],"quote_to_account_rate":trade_dict["quote_to_account_rate"],"contract_multiplier":trade_dict["contract_multiplier"],"financial_contract":financial_contract}
             try:
                 paper_broker=paper_route_order(paper_order,ledger_path=self.paper_broker_ledger_path,ftmo_config_path=self.paper.ftmo_config_path)
             except Exception:

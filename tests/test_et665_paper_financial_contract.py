@@ -1,5 +1,5 @@
 import unittest
-from tests.test_et665_m8_gateway_e2e import M8GatewayE2E
+import tests.test_et665_m8_gateway_e2e as m8fixture
 from mind_trader.app.backtest.p2405_paper_gateway import replay_financially_verified_candidate
 from mind_trader.app.risk.paper_financial_contract import verify_paper_financial_contract
 
@@ -53,7 +53,9 @@ class FinancialContractTests(unittest.TestCase):
         self.assertEqual(self.check(commission_per_unit_per_side=-1)["reason"],"INVALID_COSTS")
 
 
-class StrictFinancialReplayTests(M8GatewayE2E):
+class StrictFinancialReplayTests(unittest.TestCase):
+    def setUp(self):
+        m8fixture.M8GatewayE2E.setUp(self)
     def test_under_reserve_never_reaches_broker(self):
         result=replay_financially_verified_candidate(self.candidate,self.gateway,
             quantity=100,quote_to_account_rate=1,contract_multiplier=1,

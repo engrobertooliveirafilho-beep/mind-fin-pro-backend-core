@@ -51,6 +51,17 @@ def settle_historical_paper_exit(manager, *, broker_ledger_path, reservation_id,
     side = order.get("side")
     if side not in ("BUY", "SELL"):
         return dict(blocked, reason="INVALID_SIDE")
+    # Durable broker record is the financial authority; caller cannot change
+    # quantity, contract multiplier or quote/account conversion at settlement.
+    if not all(_positive(order.get(k)) for k in ("quantity","contract_multiplier","quote_to_account_rate")):
+        return dict(blocked,reason="MISSING_DURABLE_FINANCIAL_UNITS")
+    if not math.isclose(quantity,order["quantity"],rel_tol=1e-12,abs_tol=1e-12):
+        return dict(blocked,reason="SETTLEMENT_QUANTITY_MISMATCH")
+    if not math.isclose(quote_to_account_rate,order["quote_to_account_rate"],rel_tol=1e-12,abs_tol=1e-12):
+        return dict(blocked,reason="SETTLEMENT_FX_MISMATCH")
+    multiplier=order["contract_multiplier"]
+    if not isinstance(order.get("financial_contract"),dict) or order["financial_contract"].get("decision")!="FINANCIAL_CONTRACT_VALIDATED":
+        return dict(blocked,reason="MISSING_DURABLE_FINANCIAL_CONTRACT")
     cfg, validation = __import__("mind_trader.app.risk.ftmo_ruleset",fromlist=["load_ftmo_config"]).load_ftmo_config(manager.ftmo_config_path)
     if not cfg or not validation.get("valid") or not all(
         type(cfg.get(k)) in (int, float) and math.isfinite(cfg[k]) and cfg[k] >= 0
@@ -65,8 +76,8 @@ def settle_historical_paper_exit(manager, *, broker_ledger_path, reservation_id,
     if not _positive(exit_price):
         return dict(blocked, reason="INVALID_EXIT_FILL")
     signed_move = exit_price - fill["fill_price"] if side == "BUY" else fill["fill_price"] - exit_price
-    gross_quote = signed_move * quantity
-    commission_quote = 2 * cfg["commission"] * quantity
+    gross_quote = signed_move * quantity * multiplier
+    commission_quote = 2 * cfg["commission"] * quantity * multiplier
     net_account = (gross_quote - commission_quote) * quote_to_account_rate
     if not math.isfinite(net_account):
         return dict(blocked, reason="NONFINITE_NET_PNL")
@@ -86,7 +97,7 @@ def settle_historical_paper_exit(manager, *, broker_ledger_path, reservation_id,
               "real_broker_routing": "DISABLED", "reservation_id": reservation_id,
               "entry_ts": entry_ts, "exit_ts": exit_ts, "entry_fill": fill["fill_price"],
               "exit_close": exit_close, "exit_fill": exit_price,
-              "quantity": quantity, "quote_to_account_rate": quote_to_account_rate,
+              "quantity": quantity, "contract_multiplier": multiplier, "quote_to_account_rate": quote_to_account_rate,
               "gross_quote": gross_quote, "commission_quote": commission_quote,
               "net_account": net_account, "costs": {k:cfg[k] for k in ("spread","slippage","commission")}}
     # Evidence is supplementary: a failed write must NOT trigger a second settlement.

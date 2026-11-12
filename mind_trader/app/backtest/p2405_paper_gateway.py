@@ -18,7 +18,8 @@ def _positive(value):
 def replay_candidate_to_paper(candidate, gateway, *, risk_amount, stop_distance,
                               reward_multiple=2.5, regime_report=None,
                               genome=None, authorize_offline_replay=False,
-                              telemetry_path=None):
+                              telemetry_path=None, quantity=None, quote_to_account_rate=None,
+                              contract_multiplier=None):
     """Replay ONE historical candidate, fail closed on any missing evidence.
 
     No settlement is fabricated: closing a PAPER position requires a separately
@@ -107,6 +108,12 @@ def replay_candidate_to_paper(candidate, gateway, *, risk_amount, stop_distance,
         "open_risk": sum(x["risk"] for x in state.get("pending_paper_orders", [])),
         "session_allowed": True, "news_blocked": False,
     }
+    if quantity is not None:
+        trade["quantity"] = quantity
+    if quote_to_account_rate is not None:
+        trade["quote_to_account_rate"] = quote_to_account_rate
+    if contract_multiplier is not None:
+        trade["contract_multiplier"] = contract_multiplier
     response = gateway.submit_order("PAPER", trade, regime_report, genome)
     result["decision"] = response.get("decision", "BLOCKED_GATEWAY_NO_DECISION")
     result["gateway_execution_id"] = response.get("execution_id")
@@ -122,7 +129,8 @@ def replay_financially_verified_candidate(candidate, gateway, *,
                                          contract_multiplier, risk_amount,
                                          stop_distance, reward_multiple=2.5,
                                          regime_report=None, genome=None,
-                                         authorize_offline_replay=False):
+                                         authorize_offline_replay=False,
+                                         telemetry_path=None):
     """Strict PAPER entrypoint. Requires explicit financial unit contract."""
     from mind_trader.app.risk.paper_financial_contract import verify_paper_financial_contract
     blocked={"decision":"BLOCK_FINANCIAL_REPLAY","production":"BLOCKED",
@@ -150,6 +158,9 @@ def replay_financially_verified_candidate(candidate, gateway, *,
     result=replay_candidate_to_paper(candidate,gateway,risk_amount=risk_amount,
         stop_distance=stop_distance,reward_multiple=reward_multiple,
         regime_report=regime_report,genome=genome,
-        authorize_offline_replay=True)
+        authorize_offline_replay=True,quantity=quantity,
+        quote_to_account_rate=quote_to_account_rate,
+        contract_multiplier=contract_multiplier,
+        telemetry_path=telemetry_path)
     result["financial_contract"]=contract
     return result

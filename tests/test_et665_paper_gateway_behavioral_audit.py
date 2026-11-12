@@ -2,18 +2,19 @@
 import json
 import unittest
 from pathlib import Path
-from tests.test_et665_m8_gateway_e2e import M8GatewayE2E
+import tests.test_et665_m8_gateway_e2e as m8fixture
 from mind_trader.app.execution.gateway import ExecutionGateway
 from mind_trader.app.execution.paper_session import PaperTradingSessionManager
 
 
 class PaperGatewayBehavioralAudit(unittest.TestCase):
     def setUp(self):
-        M8GatewayE2E.setUp(self)
+        m8fixture.M8GatewayE2E.setUp(self)
 
     def submit(self, gateway=None):
-        from mind_trader.app.backtest.p2405_paper_gateway import replay_candidate_to_paper
-        return replay_candidate_to_paper(self.candidate,gateway or self.gateway,
+        from mind_trader.app.backtest.p2405_paper_gateway import replay_financially_verified_candidate
+        return replay_financially_verified_candidate(self.candidate,gateway or self.gateway,
+            quantity=1,quote_to_account_rate=1,contract_multiplier=1,
             risk_amount=10,stop_distance=1,reward_multiple=2.5,
             regime_report=self.regime,genome=self.genome,
             authorize_offline_replay=True)

@@ -1,0 +1,46 @@
+{
+  "mission": "ET665.R39",
+  "source_of_truth": "Google Drive",
+  "target": "isolated GitHub research archive",
+  "execution_allowed": false,
+  "certified": false,
+  "policy": "PAPER_ONLY | REAL_ORDERS=FORBIDDEN | FTMO_REAL=FORBIDDEN",
+  "notes": [
+    "Archived sources are untrusted and must never be imported into execution gateway.",
+    "P2131 declares PASS for some checks without corresponding behavior verification.",
+    "P2405C has import-time side effects, absolute Windows paths and a hardcoded runtime stub.",
+    "R38 guarded adapters remain separate; source archive is not an integration approval."
+  ],
+  "files": [
+    {
+      "name": "p2131_2150_ftmo_paper_compliance_assurance.py",
+      "drive_id": "1H9D-4H0_gshbcDmiPCIGtbnXr-r-L5aI",
+      "sha256": "6fb467bf967bdae911d8ba8342483bbb468310b45af645ea19fc49bd00c0a819",
+      "github_path": "research/historical_sources/et665_r39/p2131_2150_ftmo_paper_compliance_assurance.py"
+    },
+    {
+      "name": "p2405c_portfolio_risk_engine.py",
+      "drive_id": "1ZGlLSOrJHhDW_qxYvxInyov9OUTncZBe",
+      "sha256": "a4ce613985b56866c6831c6065c88a8d92ec587fbfbc7176bbab9e5c0b8c5fb4",
+      "github_path": "research/historical_sources/et665_r39/p2405c_portfolio_risk_engine.py"
+    },
+    {
+      "name": "p2357_context_edge_walk_forward_validator.py",
+      "drive_id": "1BZQDAp16WzhjpOoPxfKSm91qXssUqO51",
+      "sha256": "60226e68496bd1e0b9046b75b012d9c93280c610eb5a0f221b9d39ae725c2340",
+      "github_path": "research/historical_sources/et665_r39/p2357_context_edge_walk_forward_validator.py"
+    },
+    {
+      "name": "p2358_anti_overfit_context_edge_validator.py",
+      "drive_id": "1OMIXdReeSYrQT2wCvtZ5HkctUlR-hfcV",
+      "sha256": "78335fd6e16f7bee396870822fe97f8fbe423c038f96d81ff880a46f5a2f8570",
+      "github_path": "research/historical_sources/et665_r39/p2358_anti_overfit_context_edge_validator.py"
+    },
+    {
+      "name": "p2359_real_correlation_exposure_engine.py",
+      "drive_id": "1HnNKyUrm-u-WPhDu04YORX5fprOYuQtp",
+      "sha256": "3f170e2ef8c7dc0b04e65b1798fc57a5747d8ce6f3d41756c762c747111e0ced",
+      "github_path": "research/historical_sources/et665_r39/p2359_real_correlation_exposure_engine.py"
+    }
+  ]
+}
