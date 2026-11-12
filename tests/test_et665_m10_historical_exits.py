@@ -118,5 +118,22 @@ class M10HistoricalExits(unittest.TestCase):
         self.assertAlmostEqual(result["net_account"],(result["entry_fill"]-result["exit_fill"])*2-2)
 
 
+    def test_future_suffix_cannot_change_first_exit(self):
+        first=(100,103,98,101)
+        result=self.history("BUY",99,102,first)
+        self.assertEqual(result["exit_reason"],"STOP")
+        later=(150,155,145,151)
+        second=self.history("BUY",99,102,first,later)
+        self.assertEqual(second,result)
+
+    def test_candidate_tampering_blocks_without_broker_fill(self):
+        tampered=dict(self.candidate,simulated_fill=self.candidate["simulated_fill"]+1)
+        result=replay_candidate_to_paper(tampered,self.gateway,risk_amount=10,
+            stop_distance=1,reward_multiple=2.5,regime_report=self.regime,
+            genome=self.genome,authorize_offline_replay=True)
+        self.assertEqual(result["reason"],"CANDIDATE_INTEGRITY_MISMATCH")
+        self.assertFalse(self.broker.exists())
+
+
 if __name__=="__main__":
     unittest.main()
