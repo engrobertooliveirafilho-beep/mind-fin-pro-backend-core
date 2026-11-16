@@ -3,7 +3,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
-from mind_trader.app.engines.core import DualModeEngine, TradeIntent, FTMOGuardian, RiskGuardian
+from mind_trader.app.engines.core import DualModeEngine, TradeIntent, FTMOGuardian, RiskGuardian, Ledger
 
 
 def intent(mode="FTMO_SIMULATION_MODE", symbol="EURUSD"):
@@ -17,6 +17,41 @@ class PublishedSourceSyntaxTests(unittest.TestCase):
     def test_runtime_compiles_from_repository_bytes(self):
         source = Path(__file__).resolve().parents[1] / "mind_trader" / "app" / "engines" / "core.py"
         compile(source.read_bytes(), str(source), "exec")
+
+
+class LedgerBoundaryTests(unittest.TestCase):
+    def test_direct_nan_event_does_not_write(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "ledger.jsonl"
+            ledger = Ledger(str(path))
+            with self.assertRaisesRegex(ValueError, "INVALID_LEDGER_EVENT"):
+                ledger.write({"risk": float("nan")})
+            self.assertFalse(path.exists())
+
+    def test_direct_infinite_event_does_not_write(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "ledger.jsonl"
+            ledger = Ledger(str(path))
+            with self.assertRaisesRegex(ValueError, "INVALID_LEDGER_EVENT"):
+                ledger.write({"risk": float("inf")})
+            self.assertFalse(path.exists())
+
+    def test_direct_invalid_object_does_not_write(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "ledger.jsonl"
+            ledger = Ledger(str(path))
+            with self.assertRaisesRegex(ValueError, "INVALID_LEDGER_EVENT"):
+                ledger.write({"risk": object()})
+            self.assertFalse(path.exists())
+
+    def test_writer_does_not_mutate_input(self):
+        with tempfile.TemporaryDirectory() as directory:
+            ledger = Ledger(str(Path(directory) / "ledger.jsonl"))
+            event = {"symbol": "EURUSD"}
+            result = ledger.write(event)
+            self.assertEqual(event, {"symbol": "EURUSD"})
+            self.assertEqual(result["symbol"], "EURUSD")
+            self.assertIn("id", result)
 
 
 class LegacyWriterSafetyTests(unittest.TestCase):
