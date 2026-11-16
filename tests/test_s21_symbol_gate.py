@@ -2,13 +2,14 @@ import hashlib
 import unittest
 from app.runtime.s21_symbol_gate import S21Blocked, admit_paper_decision
 SOURCE = b'attested-fixture'
+ROW = b'attested-row'
 SHA = hashlib.sha256(SOURCE).hexdigest()
-BASE = {'symbol':'eurusd','asset':'EURUSD','source_dataset_id':'DATA-1','source_row_hash':'a'*64,
+BASE = {'symbol':'eurusd','asset':'EURUSD','source_dataset_id':'DATA-1','source_row_hash':hashlib.sha256(ROW).hexdigest(),
         'timestamp_utc':'2026-08-11T12:00:00Z','day':'2026-08-11','tick':1,
         'decision_direction':'HOLD','mode':'PAPER_ONLY','real_orders_allowed':False}
 class GateTests(unittest.TestCase):
     def admit(self, **updates):
-        return admit_paper_decision({**BASE, **updates},source_bytes=SOURCE,source_sha256=SHA)
+        return admit_paper_decision({**BASE, **updates},source_bytes=SOURCE,source_sha256=SHA,source_row_bytes=ROW)
     def blocked(self, reason, **updates):
         with self.assertRaisesRegex(S21Blocked,reason):self.admit(**updates)
     def test_valid(self):
@@ -25,5 +26,10 @@ class GateTests(unittest.TestCase):
     def test_invalid_direction(self):self.blocked('INVALID_DIRECTION',decision_direction='CLOSE')
     def test_source_tamper(self):
         with self.assertRaisesRegex(S21Blocked,'SOURCE_HASH_MISMATCH'):
-            admit_paper_decision(BASE,source_bytes=b'tampered',source_sha256=SHA)
+            admit_paper_decision(BASE,source_bytes=b'tampered',source_sha256=SHA,source_row_bytes=ROW)
+    def test_forged_row_hash(self):
+        self.blocked('ROW_HASH_MISMATCH', source_row_hash='0'*64)
+    def test_tampered_row_bytes(self):
+        with self.assertRaisesRegex(S21Blocked,'ROW_HASH_MISMATCH'):
+            admit_paper_decision(BASE,source_bytes=SOURCE,source_sha256=SHA,source_row_bytes=b'tampered')
 if __name__=='__main__':unittest.main()
