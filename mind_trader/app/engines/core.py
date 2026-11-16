@@ -1,6 +1,6 @@
 from dataclasses import dataclass, asdict
 from datetime import datetime, UTC
-import json, uuid, os
+import json, uuid, os, math
 
 @dataclass
 class FTMOConfig:
@@ -44,7 +44,7 @@ class Ledger:
 
 class RiskGuardian:
     def validate(self, trade):
-        if trade.stop is None: return False, "NO_STOP_BLOCKED"
+        if any(not isinstance(v, (int, float)) or isinstance(v, bool) or not math.isfinite(v) for v in (trade.entry, trade.target, trade.risk_amount, trade.open_risk, trade.daily_pnl, trade.total_pnl)):\n            return False, "INVALID_NUMERIC_INPUT"\n        if trade.stop is not None and (not isinstance(trade.stop, (int, float)) or isinstance(trade.stop, bool) or not math.isfinite(trade.stop)):\n            return False, "INVALID_NUMERIC_INPUT"\n        if trade.stop is None: return False, "NO_STOP_BLOCKED"
         if trade.risk_amount <= 0: return False, "INVALID_RISK"
         if trade.entry == trade.stop: return False, "ZERO_STOP_DISTANCE"
         return True, "RISK_OK"
@@ -55,9 +55,9 @@ class FTMOGuardian:
     def validate(self, trade):
         checks = []
         if trade.symbol not in self.config.allowed_symbols: checks.append("SYMBOL_NOT_ALLOWED")
-        if trade.stop is None: checks.append("NO_STOP")
-        if abs(trade.daily_pnl) + trade.risk_amount > self.config.max_daily_loss: checks.append("DAILY_LOSS_LIMIT_RISK")
-        if abs(trade.total_pnl) + trade.risk_amount > self.config.max_total_loss: checks.append("TOTAL_LOSS_LIMIT_RISK")
+        if trade.stop is None: checks.append("NO_STOP")\n        if any(not isinstance(v, (int, float)) or isinstance(v, bool) or not math.isfinite(v) for v in (trade.risk_amount, trade.daily_pnl, trade.total_pnl)):\n            return False, ["INVALID_NUMERIC_INPUT"]
+        if max(0.0, -trade.daily_pnl) + trade.risk_amount > self.config.max_daily_loss: checks.append("DAILY_LOSS_LIMIT_RISK")
+        if max(0.0, -trade.total_pnl) + trade.risk_amount > self.config.max_total_loss: checks.append("TOTAL_LOSS_LIMIT_RISK")
         if trade.daily_trades >= self.config.max_daily_trades: checks.append("MAX_DAILY_TRADES")
         if not trade.session_allowed: checks.append("SESSION_NOT_ALLOWED")
         if trade.news_blocked and self.config.restricted_news_events: checks.append("RESTRICTED_NEWS_EVENT")
