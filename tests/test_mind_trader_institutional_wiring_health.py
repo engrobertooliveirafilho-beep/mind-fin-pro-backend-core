@@ -145,6 +145,15 @@ class WiringHealthTests(unittest.TestCase):
         self.assertEqual(result["status"], "DEGRADED")
         self.assertEqual(calls, [])
 
+    def test_fail_or_pending_engine_response_is_not_success(self):
+        for status in ("FAIL", "PENDING", "NOT_READY", "fail"):
+            with self.subTest(status=status):
+                module = SimpleNamespace(health=lambda: {"status": "operational"}, run=lambda payload: {"status": status})
+                with patch.object(wiring, "MODULES", ["example.module"]), patch.object(wiring.importlib, "import_module", return_value=module):
+                    result = wiring.run_institutional_wiring({})
+                self.assertEqual(result["status"], "DEGRADED")
+                self.assertEqual(result["runs_ok"], 0)
+
     def test_health_reports_degraded(self):
         with patch.object(wiring, "MODULES", ["missing.module"]), patch.object(wiring.importlib, "import_module", side_effect=ImportError("missing")):
             result = wiring.health()
