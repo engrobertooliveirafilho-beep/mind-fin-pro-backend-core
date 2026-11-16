@@ -44,6 +44,17 @@ asset_memory = defaultdict(lambda: {
 
 for s in specialists:
     asset = s.get("asset")
+    # S21 lineage: only preserve a symbol explicitly present in the source.
+    # An asset label alone is not an attested market symbol.
+    symbol = s.get("symbol")
+    if symbol is not None:
+        if not isinstance(symbol, str) or not symbol.strip() or not all(
+            c.isascii() and (c.isalnum() or c in "._-") for c in symbol.strip()
+        ):
+            raise ValueError("INVALID_SOURCE_SYMBOL")
+        symbol = symbol.strip().upper()
+        if isinstance(asset, str) and asset.strip().upper() != symbol:
+            raise ValueError("ASSET_SYMBOL_CONFLICT")
     tf = s.get("timeframe")
     edge_id = s.get("edge_id")
     sid = s.get("specialist_id")
@@ -119,6 +130,7 @@ for s in specialists:
     row = {
         "specialist_id": sid,
         "asset": asset,
+        "symbol": symbol,
         "timeframe": tf,
         "family": family,
         "profile": s.get("profile"),
