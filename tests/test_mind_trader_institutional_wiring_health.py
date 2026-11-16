@@ -59,6 +59,29 @@ class WiringHealthTests(unittest.TestCase):
         self.assertEqual(result["status"], "operational")
         self.assertEqual(calls, [{"mode": "PAPER_ONLY"}])
 
+    def test_internal_type_error_does_not_rerun_engine(self):
+        calls = []
+        def failing_run(payload):
+            calls.append(payload)
+            raise TypeError("internal failure")
+        module = SimpleNamespace(health=lambda: {"status": "operational"}, run=failing_run)
+        with patch.object(wiring, "MODULES", ["example.module"]), patch.object(wiring.importlib, "import_module", return_value=module):
+            result = wiring.run_institutional_wiring({"mode": "PAPER_ONLY"})
+        self.assertEqual(result["status"], "DEGRADED")
+        self.assertEqual(len(calls), 1)
+        self.assertIn("run_error=", result["results"][0]["error"])
+
+    def test_no_argument_run_supported(self):
+        calls = []
+        def zero_arg_run():
+            calls.append(True)
+            return {"ok": True}
+        module = SimpleNamespace(health=lambda: {"status": "operational"}, run=zero_arg_run)
+        with patch.object(wiring, "MODULES", ["example.module"]), patch.object(wiring.importlib, "import_module", return_value=module):
+            result = wiring.run_institutional_wiring({})
+        self.assertEqual(result["status"], "operational")
+        self.assertEqual(len(calls), 1)
+
     def test_health_reports_degraded(self):
         with patch.object(wiring, "MODULES", ["missing.module"]), patch.object(wiring.importlib, "import_module", side_effect=ImportError("missing")):
             result = wiring.health()
