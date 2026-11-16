@@ -77,6 +77,49 @@ class LegacyWriterSafetyTests(unittest.TestCase):
                 engine.process_trade(trade)
             self.assertFalse((Path(directory) / "logs" / "FTMO_SIMULATION_LEDGER.jsonl").exists())
 
+    def test_open_risk_consumes_daily_loss_budget(self):
+        trade = intent()
+        trade.open_risk = 4995.0
+        ok, reasons = FTMOGuardian().validate(trade)
+        self.assertFalse(ok)
+        self.assertIn("DAILY_LOSS_LIMIT_RISK", reasons)
+
+    def test_open_risk_consumes_total_loss_budget(self):
+        trade = intent()
+        trade.open_risk = 9995.0
+        ok, reasons = FTMOGuardian().validate(trade)
+        self.assertFalse(ok)
+        self.assertIn("TOTAL_LOSS_LIMIT_RISK", reasons)
+
+    def test_open_risk_exact_daily_threshold(self):
+        trade = intent()
+        trade.open_risk = 4990.0
+        ok, reasons = FTMOGuardian().validate(trade)
+        self.assertTrue(ok, reasons)
+
+    def test_negative_open_risk_rejected(self):
+        trade = intent()
+        trade.open_risk = -1.0
+        ok, reason = RiskGuardian().validate(trade)
+        self.assertFalse(ok)
+        self.assertEqual(reason, "INVALID_OPEN_RISK")
+
+    def test_negative_daily_trades_rejected(self):
+        trade = intent()
+        trade.daily_trades = -1
+        ok, reasons = FTMOGuardian().validate(trade)
+        self.assertFalse(ok)
+        self.assertIn("INVALID_COUNTER", reasons)
+
+    def test_nan_open_risk_rejected_before_write(self):
+        with tempfile.TemporaryDirectory() as directory:
+            engine = DualModeEngine(base=directory)
+            trade = intent()
+            trade.open_risk = float("nan")
+            with self.assertRaisesRegex(ValueError, "INVALID_NUMERIC_INPUT"):
+                engine.process_trade(trade)
+            self.assertFalse((Path(directory) / "logs" / "FTMO_SIMULATION_LEDGER.jsonl").exists())
+
     def test_empty_symbol_rejected_before_write(self):
         with tempfile.TemporaryDirectory() as directory:
             engine = DualModeEngine(base=directory)
