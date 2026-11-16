@@ -13,6 +13,12 @@ def intent(mode="FTMO_SIMULATION_MODE", symbol="EURUSD"):
         daily_trades=0, loss_streak=0)
 
 
+class PublishedSourceSyntaxTests(unittest.TestCase):
+    def test_runtime_compiles_from_repository_bytes(self):
+        source = Path(__file__).resolve().parents[1] / "mind_trader" / "app" / "engines" / "core.py"
+        compile(source.read_bytes(), str(source), "exec")
+
+
 class LegacyWriterSafetyTests(unittest.TestCase):
     def test_ftmo_simulation_persists_symbol_in_jsonl(self):
         with tempfile.TemporaryDirectory() as directory:
