@@ -112,5 +112,14 @@ class WiringStatusTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'PAPER_PAYLOAD_DICT_REQUIRED'):
                 wiring.run_institutional_wiring(['not a dict'])
 
+    def test_missing_run_entrypoint_degraded_in_execution(self):
+        fake = SimpleNamespace(health=lambda: {'ok': True})
+        with patch.object(wiring, 'MODULES', ['fixture.module']):
+            with patch.object(wiring.importlib, 'import_module', return_value=fake):
+                result = wiring.run_institutional_wiring({})
+        self.assertEqual(result['imports_ok'], 1)
+        self.assertEqual(result['runs_ok'], 0)
+        self.assertEqual(result['status'], 'DEGRADED')
+
 if __name__ == '__main__':
     unittest.main()
