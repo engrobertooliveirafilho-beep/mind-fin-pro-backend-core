@@ -17,7 +17,7 @@ MODULES = [
     "app.modules.usde_core.scientific_ledger",
 ]
 
-def run_institutional_wiring(payload: dict | None = None) -> dict:
+def run_institutional_wiring(payload: dict | None = None, *, execute: bool = True) -> dict:
     payload = payload or {}
     results = []
 
@@ -50,7 +50,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
                 except Exception as e:
                     row["error"] += f"health_error={e};"
 
-            if hasattr(m, "run"):
+            if execute and hasattr(m, "run"):
                 try:
                     signature = inspect.signature(m.run)
                     try:
@@ -88,7 +88,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
     }
 
 def health() -> dict:
-    r = run_institutional_wiring({})
+    r = run_institutional_wiring({}, execute=False)
     return {
         "status": r["status"],
         "modules_total": r["modules_total"],
