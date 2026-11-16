@@ -129,6 +129,22 @@ class WiringHealthTests(unittest.TestCase):
         self.assertEqual(result["status"], "DEGRADED")
         self.assertEqual(calls, [])
 
+    def test_unhealthy_motor_is_never_executed(self):
+        calls = []
+        module = SimpleNamespace(health=lambda: {"status": "DEGRADED"}, run=lambda payload: calls.append(payload))
+        with patch.object(wiring, "MODULES", ["example.module"]), patch.object(wiring.importlib, "import_module", return_value=module):
+            result = wiring.run_institutional_wiring({})
+        self.assertEqual(result["status"], "DEGRADED")
+        self.assertEqual(calls, [])
+
+    def test_missing_health_motor_is_never_executed(self):
+        calls = []
+        module = SimpleNamespace(run=lambda payload: calls.append(payload))
+        with patch.object(wiring, "MODULES", ["example.module"]), patch.object(wiring.importlib, "import_module", return_value=module):
+            result = wiring.run_institutional_wiring({})
+        self.assertEqual(result["status"], "DEGRADED")
+        self.assertEqual(calls, [])
+
     def test_health_reports_degraded(self):
         with patch.object(wiring, "MODULES", ["missing.module"]), patch.object(wiring.importlib, "import_module", side_effect=ImportError("missing")):
             result = wiring.health()
