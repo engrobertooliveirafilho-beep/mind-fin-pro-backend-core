@@ -51,6 +51,8 @@ class RiskGuardian:
         if trade.stop is None: return False, "NO_STOP_BLOCKED"
         if trade.risk_amount <= 0: return False, "INVALID_RISK"
         if trade.entry == trade.stop: return False, "ZERO_STOP_DISTANCE"
+        if trade.open_risk < 0: return False, "INVALID_OPEN_RISK"
+        if trade.daily_trades < 0 or trade.loss_streak < 0: return False, "INVALID_COUNTER"
         return True, "RISK_OK"
 
 class FTMOGuardian:
@@ -60,10 +62,12 @@ class FTMOGuardian:
         checks = []
         if trade.symbol not in self.config.allowed_symbols: checks.append("SYMBOL_NOT_ALLOWED")
         if trade.stop is None: checks.append("NO_STOP")
-        if any(not isinstance(v, (int, float)) or isinstance(v, bool) or not math.isfinite(v) for v in (trade.risk_amount, trade.daily_pnl, trade.total_pnl)):
+        if any(not isinstance(v, (int, float)) or isinstance(v, bool) or not math.isfinite(v) for v in (trade.risk_amount, trade.open_risk, trade.daily_pnl, trade.total_pnl)):
             return False, ["INVALID_NUMERIC_INPUT"]
-        if max(0.0, -trade.daily_pnl) + trade.risk_amount > self.config.max_daily_loss: checks.append("DAILY_LOSS_LIMIT_RISK")
-        if max(0.0, -trade.total_pnl) + trade.risk_amount > self.config.max_total_loss: checks.append("TOTAL_LOSS_LIMIT_RISK")
+        if trade.open_risk < 0: checks.append("INVALID_OPEN_RISK")
+        if trade.daily_trades < 0 or trade.loss_streak < 0: checks.append("INVALID_COUNTER")
+        if max(0.0, -trade.daily_pnl) + trade.open_risk + trade.risk_amount > self.config.max_daily_loss: checks.append("DAILY_LOSS_LIMIT_RISK")
+        if max(0.0, -trade.total_pnl) + trade.open_risk + trade.risk_amount > self.config.max_total_loss: checks.append("TOTAL_LOSS_LIMIT_RISK")
         if trade.daily_trades >= self.config.max_daily_trades: checks.append("MAX_DAILY_TRADES")
         if not trade.session_allowed: checks.append("SESSION_NOT_ALLOWED")
         if trade.news_blocked and self.config.restricted_news_events: checks.append("RESTRICTED_NEWS_EVENT")
