@@ -36,11 +36,18 @@ class Ledger:
         self.path = path
         os.makedirs(os.path.dirname(path), exist_ok=True)
     def write(self, event):
-        event["id"] = str(uuid.uuid4())
-        event["ts"] = datetime.now(UTC).isoformat()
+        if not isinstance(event, dict):
+            raise ValueError("INVALID_LEDGER_EVENT")
+        record = dict(event)
+        record["id"] = str(uuid.uuid4())
+        record["ts"] = datetime.now(UTC).isoformat()
+        try:
+            line = json.dumps(record, ensure_ascii=False, allow_nan=False) + "\n"
+        except (TypeError, ValueError) as exc:
+            raise ValueError("INVALID_LEDGER_EVENT") from exc
         with open(self.path, "a", encoding="utf-8") as f:
-            f.write(json.dumps(event, ensure_ascii=False) + "\n")
-        return event
+            f.write(line)
+        return record
 
 def _valid_counters(trade):
     return all(type(value) is int and value >= 0 for value in (trade.daily_trades, trade.loss_streak))
