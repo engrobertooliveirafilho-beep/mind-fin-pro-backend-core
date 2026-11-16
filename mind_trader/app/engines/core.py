@@ -79,6 +79,11 @@ class DualModeEngine:
         self.risk = RiskGuardian()
         self.ftmo_guard = FTMOGuardian()
     def process_trade(self, trade):
+        # Legacy engine is restricted to offline research and FTMO simulation.
+        if not isinstance(trade, TradeIntent) or trade.mode not in ("RESEARCH_MAX_RETURN_MODE", "FTMO_SIMULATION_MODE"):
+            raise ValueError("PAPER_ONLY_MODE_REQUIRED")
+        if not isinstance(trade.symbol, str) or not trade.symbol.strip():
+            raise ValueError("SYMBOL_REQUIRED")
         risk_ok, risk_reason = self.risk.validate(trade)
         ftmo_ok, ftmo_reason = self.ftmo_guard.validate(trade)
         event = asdict(trade) | {"risk_ok":risk_ok,"risk_reason":risk_reason,"ftmo_ok":ftmo_ok,"ftmo_reason":ftmo_reason,"decision":"OPERAR_SIMULADO" if risk_ok and ftmo_ok else "NAO_OPERAR"}
