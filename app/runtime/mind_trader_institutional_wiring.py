@@ -54,7 +54,8 @@ def run_institutional_wiring(payload: dict | None = None, *, execute: bool = Tru
                 except Exception as e:
                     row["error"] += f"health_error={e};"
 
-            if execute and hasattr(m, "run"):
+            # Never execute a motor whose health contract is missing or unhealthy.
+            if execute and row["health_ok"] and hasattr(m, "run"):
                 try:
                     signature = inspect.signature(m.run)
                     parameters = list(signature.parameters.values())
