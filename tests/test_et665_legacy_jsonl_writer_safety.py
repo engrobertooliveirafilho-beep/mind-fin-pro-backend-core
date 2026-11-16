@@ -120,6 +120,38 @@ class LegacyWriterSafetyTests(unittest.TestCase):
                 engine.process_trade(trade)
             self.assertFalse((Path(directory) / "logs" / "FTMO_SIMULATION_LEDGER.jsonl").exists())
 
+    def test_nan_counter_rejected_before_write(self):
+        with tempfile.TemporaryDirectory() as directory:
+            engine = DualModeEngine(base=directory)
+            trade = intent()
+            trade.daily_trades = float("nan")
+            with self.assertRaisesRegex(ValueError, "INVALID_COUNTER"):
+                engine.process_trade(trade)
+            self.assertFalse((Path(directory) / "logs" / "FTMO_SIMULATION_LEDGER.jsonl").exists())
+
+    def test_float_counter_rejected_before_write(self):
+        with tempfile.TemporaryDirectory() as directory:
+            engine = DualModeEngine(base=directory)
+            trade = intent()
+            trade.loss_streak = 1.5
+            with self.assertRaisesRegex(ValueError, "INVALID_COUNTER"):
+                engine.process_trade(trade)
+
+    def test_boolean_counter_rejected(self):
+        trade = intent()
+        trade.daily_trades = True
+        ok, reasons = FTMOGuardian().validate(trade)
+        self.assertFalse(ok)
+        self.assertIn("INVALID_COUNTER", reasons)
+
+    def test_negative_counter_rejected_before_write(self):
+        with tempfile.TemporaryDirectory() as directory:
+            engine = DualModeEngine(base=directory)
+            trade = intent()
+            trade.daily_trades = -1
+            with self.assertRaisesRegex(ValueError, "INVALID_COUNTER"):
+                engine.process_trade(trade)
+
     def test_empty_symbol_rejected_before_write(self):
         with tempfile.TemporaryDirectory() as directory:
             engine = DualModeEngine(base=directory)
