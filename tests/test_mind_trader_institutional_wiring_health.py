@@ -82,6 +82,19 @@ class WiringHealthTests(unittest.TestCase):
         self.assertEqual(result["status"], "operational")
         self.assertEqual(len(calls), 1)
 
+    def test_live_execution_rejected_before_import(self):
+        for payload in ({"mode": "LIVE"}, {"execution_mode": "FTMO_REAL"}, {"real_orders": True}):
+            with self.subTest(payload=payload), patch.object(wiring.importlib, "import_module") as importer:
+                result = wiring.run_institutional_wiring(payload)
+                self.assertEqual(result["status"], "BLOCKED")
+                importer.assert_not_called()
+
+    def test_non_dict_payload_rejected_before_import(self):
+        with patch.object(wiring.importlib, "import_module") as importer:
+            result = wiring.run_institutional_wiring("LIVE")
+            self.assertEqual(result["error"], "INVALID_PAYLOAD")
+            importer.assert_not_called()
+
     def test_health_reports_degraded(self):
         with patch.object(wiring, "MODULES", ["missing.module"]), patch.object(wiring.importlib, "import_module", side_effect=ImportError("missing")):
             result = wiring.health()
