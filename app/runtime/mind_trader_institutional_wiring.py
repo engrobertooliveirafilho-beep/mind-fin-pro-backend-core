@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import importlib
+import inspect
 from datetime import datetime, timezone
 
 MODULES = [
@@ -51,10 +52,14 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
 
             if hasattr(m, "run"):
                 try:
+                    signature = inspect.signature(m.run)
                     try:
-                        r = m.run(payload)
+                        signature.bind(payload)
                     except TypeError:
+                        signature.bind()
                         r = m.run()
+                    else:
+                        r = m.run(payload)
                     row["run_ok"] = r is not None and not (isinstance(r, dict) and (r.get("status") in ("DEGRADED", "ERROR", "FAILED") or r.get("ok") is False))
                     if not row["run_ok"]:
                         row["error"] += "run_unhealthy;"
