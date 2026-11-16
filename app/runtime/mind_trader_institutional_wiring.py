@@ -16,7 +16,7 @@ MODULES = [
     "app.modules.usde_core.scientific_ledger",
 ]
 
-def run_institutional_wiring(payload: dict | None = None) -> dict:
+def run_institutional_wiring(payload: dict | None = None, *, execute: bool = True) -> dict:
     payload = payload or {}
     results = []
 
@@ -47,7 +47,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
                 except Exception as e:
                     row["error"] += f"health_error={e};"
 
-            if hasattr(m, "run"):
+            if execute and hasattr(m, "run"):
                 try:
                     try:
                         r = m.run(payload)
@@ -66,7 +66,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
 
     return {
         "program": "MIND_TRADER_INSTITUTIONAL_WIRING",
-        "status": "operational" if results and all(row["import_ok"] and row["run_ok"] and row["health_ok"] and not row["error"] for row in results) else "DEGRADED",
+        "status": "operational" if results and all(row["import_ok"] and (row["run_ok"] if execute else True) and row["health_ok"] and not row["error"] for row in results) else "DEGRADED",
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "mode": "PAPER_ONLY",
         "real_orders": "FORBIDDEN",
@@ -79,7 +79,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
     }
 
 def health() -> dict:
-    r = run_institutional_wiring({})
+    r = run_institutional_wiring({}, execute=False)
     return {
         "status": r["status"],
         "modules_total": r["modules_total"],
