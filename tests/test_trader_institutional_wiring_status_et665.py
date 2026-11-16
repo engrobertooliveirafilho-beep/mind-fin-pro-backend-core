@@ -63,5 +63,17 @@ class WiringStatusTests(unittest.TestCase):
         self.assertEqual(result['status'], 'DEGRADED')
         self.assertEqual(result['modules_total'], 0)
 
+    def test_internal_type_error_does_not_retry_run(self):
+        calls = []
+        def broken_run(_payload):
+            calls.append(1)
+            raise TypeError('internal bug')
+        fake = SimpleNamespace(run=broken_run)
+        with patch.object(wiring, 'MODULES', ['fixture.module']):
+            with patch.object(wiring.importlib, 'import_module', return_value=fake):
+                result = wiring.run_institutional_wiring({})
+        self.assertEqual(len(calls), 1)
+        self.assertEqual(result['status'], 'DEGRADED')
+
 if __name__ == '__main__':
     unittest.main()
