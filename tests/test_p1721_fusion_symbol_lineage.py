@@ -66,5 +66,27 @@ class FusionSymbolTests(unittest.TestCase):
             self.assertIn("INVALID_SPECIALISTS_SOURCE", result.stderr)
             self.assertFalse((Path(td) / OUTPUT).exists())
 
+    def test_corrupt_json_blocks(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = Path(td) / INPUT
+            path.parent.mkdir(parents=True)
+            path.write_text("{invalid-json", encoding="utf-8")
+            result = subprocess.run([sys.executable, "-B", str(SCRIPT)], cwd=td,
+                                    capture_output=True, text=True, timeout=15)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn("SPECIALISTS_SOURCE_UNAVAILABLE", result.stderr)
+            self.assertFalse((Path(td) / OUTPUT).exists())
+
+    def test_nondict_specialist_blocks(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = Path(td) / INPUT
+            path.parent.mkdir(parents=True)
+            path.write_text('[{"asset": "EURUSD"}, null]', encoding="utf-8")
+            result = subprocess.run([sys.executable, "-B", str(SCRIPT)], cwd=td,
+                                    capture_output=True, text=True, timeout=15)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn("INVALID_SPECIALISTS_SOURCE", result.stderr)
+            self.assertFalse((Path(td) / OUTPUT).exists())
+
 if __name__ == "__main__":
     unittest.main()
