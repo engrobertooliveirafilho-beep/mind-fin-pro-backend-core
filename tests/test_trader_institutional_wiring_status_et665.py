@@ -121,5 +121,21 @@ class WiringStatusTests(unittest.TestCase):
         self.assertEqual(result['runs_ok'], 0)
         self.assertEqual(result['status'], 'DEGRADED')
 
+    def test_blocked_run_result_never_operational(self):
+        fake = SimpleNamespace(run=lambda _payload: {'status': 'BLOCKED'})
+        with patch.object(wiring, 'MODULES', ['fixture.module']):
+            with patch.object(wiring.importlib, 'import_module', return_value=fake):
+                result = wiring.run_institutional_wiring({})
+        self.assertEqual(result['status'], 'DEGRADED')
+        self.assertEqual(result['runs_ok'], 0)
+
+    def test_pending_run_result_never_operational(self):
+        fake = SimpleNamespace(run=lambda _payload: {'status': 'PENDING'})
+        with patch.object(wiring, 'MODULES', ['fixture.module']):
+            with patch.object(wiring.importlib, 'import_module', return_value=fake):
+                result = wiring.run_institutional_wiring({})
+        self.assertEqual(result['status'], 'DEGRADED')
+        self.assertEqual(result['runs_ok'], 0)
+
 if __name__ == '__main__':
     unittest.main()
