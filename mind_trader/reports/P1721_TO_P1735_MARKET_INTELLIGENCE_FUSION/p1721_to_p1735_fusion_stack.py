@@ -18,7 +18,14 @@ def load(p, default=[]):
     except Exception:
         return default
 
-specialists = load(SPECIALISTS)
+# The mandatory specialist source must not silently degrade into an empty,
+# apparently successful fusion report on missing/corrupt data.
+try:
+    specialists = json.loads(SPECIALISTS.read_text(encoding="utf-8"))
+except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+    raise ValueError("SPECIALISTS_SOURCE_UNAVAILABLE") from exc
+if not isinstance(specialists, list) or not specialists or not all(isinstance(row, dict) for row in specialists):
+    raise ValueError("INVALID_SPECIALISTS_SOURCE")
 conf = load(CONF)
 payoff = load(PAYOFF)
 candles = load(CANDLES)
