@@ -57,5 +57,11 @@ class WiringStatusTests(unittest.TestCase):
         self.assertEqual(result['status'], 'DEGRADED')
         self.assertEqual(result['runs_ok'], 0)
 
+    def test_empty_registry_degraded(self):
+        with patch.object(wiring, 'MODULES', []):
+            result = wiring.run_institutional_wiring({})
+        self.assertEqual(result['status'], 'DEGRADED')
+        self.assertEqual(result['modules_total'], 0)
+
 if __name__ == '__main__':
     unittest.main()
