@@ -12,9 +12,9 @@ def _sha(value: object) -> str:
         raise S21Blocked('INVALID_SHA256')
     return value.lower()
 
-def admit_paper_decision(record: dict, *, source_bytes: bytes, source_sha256: str) -> dict:
+def admit_paper_decision(record: dict, *, source_bytes: bytes, source_sha256: str, source_row_bytes: bytes) -> dict:
     """Validate lineage and return an immutable-by-copy PAPER envelope; never guess a symbol."""
-    if not isinstance(record, dict) or not isinstance(source_bytes, bytes):
+    if not isinstance(record, dict) or not isinstance(source_bytes, bytes) or not isinstance(source_row_bytes, bytes):
         raise S21Blocked('INVALID_INPUT')
     if hashlib.sha256(source_bytes).hexdigest() != _sha(source_sha256):
         raise S21Blocked('SOURCE_HASH_MISMATCH')
@@ -33,6 +33,8 @@ def admit_paper_decision(record: dict, *, source_bytes: bytes, source_sha256: st
     if not isinstance(dataset, str) or not dataset.strip():
         raise S21Blocked('MISSING_DATASET_ID')
     row_hash = _sha(record.get('source_row_hash'))
+    if hashlib.sha256(source_row_bytes).hexdigest() != row_hash:
+        raise S21Blocked('ROW_HASH_MISMATCH')
     try:
         dt = datetime.fromisoformat(record['timestamp_utc'].replace('Z', '+00:00'))
     except (KeyError, AttributeError, ValueError, TypeError) as exc:
