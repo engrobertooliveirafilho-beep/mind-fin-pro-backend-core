@@ -2,7 +2,7 @@ import hashlib
 import unittest
 from app.runtime.s21_symbol_gate import S21Blocked, admit_paper_decision
 ROW = b'attested-row'
-SOURCE = b'header\\n' + ROW + b'\\nfooter\\n'
+SOURCE = b'header' + bytes([10]) + ROW + bytes([10]) + b'footer' + bytes([10])
 SHA = hashlib.sha256(SOURCE).hexdigest()
 BASE = {'symbol':'eurusd','asset':'EURUSD','source_dataset_id':'DATA-1','source_row_hash':hashlib.sha256(ROW).hexdigest(),
         'timestamp_utc':'2026-08-11T12:00:00Z','day':'2026-08-11','tick':1,
@@ -38,7 +38,7 @@ class GateTests(unittest.TestCase):
             admit_paper_decision({**BASE, 'source_row_hash':hashlib.sha256(unrelated).hexdigest()},
                 source_bytes=SOURCE,source_sha256=SHA,source_row_bytes=unrelated)
     def test_duplicate_row_rejected(self):
-        duplicate_source = ROW + b'\\n' + ROW + b'\\n'
+        duplicate_source = ROW + bytes([10]) + ROW + bytes([10])
         with self.assertRaisesRegex(S21Blocked,'SOURCE_ROW_NOT_UNIQUE_OR_ABSENT'):
             admit_paper_decision(BASE,source_bytes=duplicate_source,
                 source_sha256=hashlib.sha256(duplicate_source).hexdigest(),source_row_bytes=ROW)
