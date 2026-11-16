@@ -137,5 +137,21 @@ class WiringStatusTests(unittest.TestCase):
         self.assertEqual(result['status'], 'DEGRADED')
         self.assertEqual(result['runs_ok'], 0)
 
+    def test_health_without_health_entrypoint_is_degraded(self):
+        fake = SimpleNamespace(run=lambda payload: {'ok': True})
+        with patch.object(wiring, 'MODULES', ['fixture.module']):
+            with patch.object(wiring.importlib, 'import_module', return_value=fake):
+                result = wiring.health()
+        self.assertEqual(result['status'], 'DEGRADED')
+        self.assertEqual(result['health_ok'], 0)
+
+    def test_health_requires_affirmative_health_response(self):
+        fake = SimpleNamespace(health=lambda: {'ok': True})
+        with patch.object(wiring, 'MODULES', ['fixture.module']):
+            with patch.object(wiring.importlib, 'import_module', return_value=fake):
+                result = wiring.health()
+        self.assertEqual(result['status'], 'operational')
+        self.assertEqual(result['health_ok'], 1)
+
 if __name__ == '__main__':
     unittest.main()
