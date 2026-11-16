@@ -42,6 +42,23 @@ class WiringHealthTests(unittest.TestCase):
         self.assertEqual(result["status"], "DEGRADED")
         self.assertEqual(result["runs_ok"], 0)
 
+    def test_health_does_not_execute_engines(self):
+        calls = []
+        module = SimpleNamespace(health=lambda: {"status": "operational"}, run=lambda payload: calls.append(payload))
+        with patch.object(wiring, "MODULES", ["example.module"]), patch.object(wiring.importlib, "import_module", return_value=module):
+            result = wiring.health()
+        self.assertEqual(result["status"], "operational")
+        self.assertEqual(result["runs_ok"], 0)
+        self.assertEqual(calls, [])
+
+    def test_explicit_run_still_executes_engines(self):
+        calls = []
+        module = SimpleNamespace(health=lambda: {"status": "operational"}, run=lambda payload: (calls.append(payload), {"ok": True})[1])
+        with patch.object(wiring, "MODULES", ["example.module"]), patch.object(wiring.importlib, "import_module", return_value=module):
+            result = wiring.run_institutional_wiring({"mode": "PAPER_ONLY"})
+        self.assertEqual(result["status"], "operational")
+        self.assertEqual(calls, [{"mode": "PAPER_ONLY"}])
+
     def test_health_reports_degraded(self):
         with patch.object(wiring, "MODULES", ["missing.module"]), patch.object(wiring.importlib, "import_module", side_effect=ImportError("missing")):
             result = wiring.health()
