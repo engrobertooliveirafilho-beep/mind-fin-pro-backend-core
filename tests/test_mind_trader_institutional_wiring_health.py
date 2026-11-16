@@ -107,6 +107,28 @@ class WiringHealthTests(unittest.TestCase):
                 self.assertEqual(wiring.run_institutional_wiring(payload)["error"], "INVALID_PAYLOAD")
                 importer.assert_not_called()
 
+    def test_cycles_engine_uses_integer_default(self):
+        calls = []
+        def run(cycles=30):
+            calls.append(cycles)
+            return {"status": "PASS"}
+        module = SimpleNamespace(health=lambda: {"status": "operational"}, run=run)
+        with patch.object(wiring, "MODULES", ["example.module"]), patch.object(wiring.importlib, "import_module", return_value=module):
+            result = wiring.run_institutional_wiring({})
+        self.assertEqual(result["status"], "operational")
+        self.assertEqual(calls, [30])
+
+    def test_cycles_engine_rejects_invalid_cycle_count(self):
+        calls = []
+        def run(cycles=30):
+            calls.append(cycles)
+            return {"status": "PASS"}
+        module = SimpleNamespace(health=lambda: {"status": "operational"}, run=run)
+        with patch.object(wiring, "MODULES", ["example.module"]), patch.object(wiring.importlib, "import_module", return_value=module):
+            result = wiring.run_institutional_wiring({"cycles": "LIVE"})
+        self.assertEqual(result["status"], "DEGRADED")
+        self.assertEqual(calls, [])
+
     def test_health_reports_degraded(self):
         with patch.object(wiring, "MODULES", ["missing.module"]), patch.object(wiring.importlib, "import_module", side_effect=ImportError("missing")):
             result = wiring.health()
