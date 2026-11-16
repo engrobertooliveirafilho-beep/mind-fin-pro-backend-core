@@ -57,13 +57,21 @@ def run_institutional_wiring(payload: dict | None = None, *, execute: bool = Tru
             if execute and hasattr(m, "run"):
                 try:
                     signature = inspect.signature(m.run)
-                    try:
-                        signature.bind(payload)
-                    except TypeError:
-                        signature.bind()
-                        r = m.run()
+                    parameters = list(signature.parameters.values())
+                    # Historical simulation engines expose run(cycles=N), not run(payload).
+                    if len(parameters) == 1 and parameters[0].name == "cycles":
+                        cycles = payload.get("cycles", parameters[0].default)
+                        if type(cycles) is not int or not 1 <= cycles <= 1000:
+                            raise ValueError("INVALID_SIMULATION_CYCLES")
+                        r = m.run(cycles=cycles)
                     else:
-                        r = m.run(payload)
+                        try:
+                            signature.bind(payload)
+                        except TypeError:
+                            signature.bind()
+                            r = m.run()
+                        else:
+                            r = m.run(payload)
                     row["run_ok"] = r is not None and not (isinstance(r, dict) and (r.get("error") or r.get("status") in ("DEGRADED", "ERROR", "FAILED", "BLOCKED")))
                     row["run_result_type"] = type(r).__name__
                     row["run_result"] = r if isinstance(r, (dict, list, str, int, float, bool)) else str(r)
