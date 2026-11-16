@@ -42,7 +42,9 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
             if hasattr(m, "health"):
                 try:
                     h = m.health()
-                    row["health_ok"] = isinstance(h, dict)
+                    row["health_ok"] = isinstance(h, dict) and h.get("status", "operational") == "operational" and h.get("ok", True) is True
+                    if not row["health_ok"]:
+                        row["error"] += "health_unhealthy;"
                     row["health"] = h
                 except Exception as e:
                     row["error"] += f"health_error={e};"
@@ -53,7 +55,9 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
                         r = m.run(payload)
                     except TypeError:
                         r = m.run()
-                    row["run_ok"] = r is not None
+                    row["run_ok"] = r is not None and not (isinstance(r, dict) and (r.get("status") in ("DEGRADED", "ERROR", "FAILED") or r.get("ok") is False))
+                    if not row["run_ok"]:
+                        row["error"] += "run_unhealthy;"
                     row["run_result_type"] = type(r).__name__
                     row["run_result"] = r if isinstance(r, (dict, list, str, int, float, bool)) else str(r)
                 except Exception as e:
