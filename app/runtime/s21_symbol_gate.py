@@ -32,13 +32,12 @@ def admit_paper_decision(record: dict, *, source_bytes: bytes, source_sha256: st
     dataset = record.get('source_dataset_id')
     if not isinstance(dataset, str) or not dataset.strip():
         raise S21Blocked('MISSING_DATASET_ID')
-    # A matching row hash is insufficient unless those exact bytes occur
-    # as a complete line in the attested dataset. Reject ambiguous duplicates.
-    if not source_row_bytes or source_bytes.splitlines().count(source_row_bytes) != 1:
-        raise S21Blocked('SOURCE_ROW_NOT_UNIQUE_OR_ABSENT')
     row_hash = _sha(record.get('source_row_hash'))
     if hashlib.sha256(source_row_bytes).hexdigest() != row_hash:
         raise S21Blocked('ROW_HASH_MISMATCH')
+    # Bind the verified row bytes to exactly one complete dataset line.
+    if not source_row_bytes or source_bytes.splitlines().count(source_row_bytes) != 1:
+        raise S21Blocked('SOURCE_ROW_NOT_UNIQUE_OR_ABSENT')
     try:
         dt = datetime.fromisoformat(record['timestamp_utc'].replace('Z', '+00:00'))
     except (KeyError, AttributeError, ValueError, TypeError) as exc:
