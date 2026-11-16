@@ -42,6 +42,9 @@ class Ledger:
             f.write(json.dumps(event, ensure_ascii=False) + "\n")
         return event
 
+def _valid_counters(trade):
+    return all(type(value) is int and value >= 0 for value in (trade.daily_trades, trade.loss_streak))
+
 class RiskGuardian:
     def validate(self, trade):
         if any(not isinstance(v, (int, float)) or isinstance(v, bool) or not math.isfinite(v) for v in (trade.entry, trade.target, trade.risk_amount, trade.open_risk, trade.daily_pnl, trade.total_pnl)):
@@ -52,7 +55,7 @@ class RiskGuardian:
         if trade.risk_amount <= 0: return False, "INVALID_RISK"
         if trade.entry == trade.stop: return False, "ZERO_STOP_DISTANCE"
         if trade.open_risk < 0: return False, "INVALID_OPEN_RISK"
-        if trade.daily_trades < 0 or trade.loss_streak < 0: return False, "INVALID_COUNTER"
+        if not _valid_counters(trade): return False, "INVALID_COUNTER"
         return True, "RISK_OK"
 
 class FTMOGuardian:
@@ -65,7 +68,7 @@ class FTMOGuardian:
         if any(not isinstance(v, (int, float)) or isinstance(v, bool) or not math.isfinite(v) for v in (trade.risk_amount, trade.open_risk, trade.daily_pnl, trade.total_pnl)):
             return False, ["INVALID_NUMERIC_INPUT"]
         if trade.open_risk < 0: checks.append("INVALID_OPEN_RISK")
-        if trade.daily_trades < 0 or trade.loss_streak < 0: checks.append("INVALID_COUNTER")
+        if not _valid_counters(trade): return False, ["INVALID_COUNTER"]
         if max(0.0, -trade.daily_pnl) + trade.open_risk + trade.risk_amount > self.config.max_daily_loss: checks.append("DAILY_LOSS_LIMIT_RISK")
         if max(0.0, -trade.total_pnl) + trade.open_risk + trade.risk_amount > self.config.max_total_loss: checks.append("TOTAL_LOSS_LIMIT_RISK")
         if trade.daily_trades >= self.config.max_daily_trades: checks.append("MAX_DAILY_TRADES")
@@ -96,6 +99,8 @@ class DualModeEngine:
             raise ValueError("SYMBOL_REQUIRED")
         if any(not isinstance(v, (int, float)) or isinstance(v, bool) or not math.isfinite(v) for v in (trade.entry, trade.target, trade.risk_amount, trade.open_risk, trade.daily_pnl, trade.total_pnl)) or (trade.stop is not None and (not isinstance(trade.stop, (int, float)) or isinstance(trade.stop, bool) or not math.isfinite(trade.stop))):
             raise ValueError("INVALID_NUMERIC_INPUT")
+        if not _valid_counters(trade):
+            raise ValueError("INVALID_COUNTER")
         risk_ok, risk_reason = self.risk.validate(trade)
         ftmo_ok, ftmo_reason = self.ftmo_guard.validate(trade)
         event = asdict(trade) | {"risk_ok":risk_ok,"risk_reason":risk_reason,"ftmo_ok":ftmo_ok,"ftmo_reason":ftmo_reason,"decision":"OPERAR_SIMULADO" if risk_ok and ftmo_ok else "NAO_OPERAR"}
