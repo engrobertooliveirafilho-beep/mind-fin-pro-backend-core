@@ -84,7 +84,7 @@ class DualModeEngine:
             raise ValueError("PAPER_ONLY_MODE_REQUIRED")
         if not isinstance(trade.symbol, str) or not trade.symbol.strip():
             raise ValueError("SYMBOL_REQUIRED")
-        risk_ok, risk_reason = self.risk.validate(trade)
+        if any(not isinstance(v, (int, float)) or isinstance(v, bool) or not math.isfinite(v) for v in (trade.entry, trade.target, trade.risk_amount, trade.open_risk, trade.daily_pnl, trade.total_pnl)) or (trade.stop is not None and (not isinstance(trade.stop, (int, float)) or isinstance(trade.stop, bool) or not math.isfinite(trade.stop))):\n            raise ValueError("INVALID_NUMERIC_INPUT")\n        risk_ok, risk_reason = self.risk.validate(trade)
         ftmo_ok, ftmo_reason = self.ftmo_guard.validate(trade)
         event = asdict(trade) | {"risk_ok":risk_ok,"risk_reason":risk_reason,"ftmo_ok":ftmo_ok,"ftmo_reason":ftmo_reason,"decision":"OPERAR_SIMULADO" if risk_ok and ftmo_ok else "NAO_OPERAR"}
         return (self.research if trade.mode=="RESEARCH_MAX_RETURN_MODE" else self.ftmo).write(event)
