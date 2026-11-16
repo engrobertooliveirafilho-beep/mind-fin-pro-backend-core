@@ -19,6 +19,11 @@ MODULES = [
 
 def run_institutional_wiring(payload: dict | None = None, *, execute: bool = True) -> dict:
     payload = payload or {}
+    if not isinstance(payload, dict):
+        return {"status": "BLOCKED", "error": "INVALID_PAYLOAD", "mode": "PAPER_ONLY", "real_orders": "FORBIDDEN", "ftmo_real": "FORBIDDEN"}
+    forbidden = {"LIVE", "REAL", "FTMO_REAL", "REAL_ORDERS"}
+    if any(str(payload.get(k, "")).upper() in forbidden for k in ("mode", "execution_mode", "account_mode")) or any(payload.get(k) is True for k in ("real_orders", "live", "ftmo_real")):
+        return {"status": "BLOCKED", "error": "LIVE_EXECUTION_FORBIDDEN", "mode": "PAPER_ONLY", "real_orders": "FORBIDDEN", "ftmo_real": "FORBIDDEN"}
     results = []
 
     for name in MODULES:
