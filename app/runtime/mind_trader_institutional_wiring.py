@@ -69,7 +69,7 @@ def run_institutional_wiring(payload: dict | None = None, *, execute: bool = Tru
                         r = m.run()
                     else:
                         r = m.run(payload)
-                    row["run_ok"] = r is not None and not (isinstance(r, dict) and (r.get("status") in ("DEGRADED", "ERROR", "FAILED") or r.get("ok") is False))
+                    row["run_ok"] = r is not None and not (isinstance(r, dict) and (r.get("status") not in (None, "operational", "OK", "SUCCESS") or r.get("ok") is False))
                     if not row["run_ok"]:
                         row["error"] += "run_unhealthy;"
                     row["run_result_type"] = type(r).__name__
