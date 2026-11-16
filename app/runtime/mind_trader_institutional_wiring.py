@@ -84,7 +84,7 @@ def run_institutional_wiring(payload: dict | None = None, *, execute: bool = Tru
 
     return {
         "program": "MIND_TRADER_INSTITUTIONAL_WIRING",
-        "status": "operational" if bool(results) and all(row["import_ok"] and not row["error"] and (not execute or row["run_ok"]) for row in results) else "DEGRADED",
+        "status": "operational" if bool(results) and all(row["import_ok"] and not row["error"] and (row["run_ok"] if execute else row["health_ok"]) for row in results) else "DEGRADED",
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "mode": "PAPER_ONLY",
         "real_orders": "FORBIDDEN",
