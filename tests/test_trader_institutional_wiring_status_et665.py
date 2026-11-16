@@ -92,5 +92,25 @@ class WiringStatusTests(unittest.TestCase):
                 result = wiring.health()
         self.assertEqual(result['status'], 'DEGRADED')
 
+    def test_live_mode_rejected_before_module_import(self):
+        with patch.object(wiring.importlib, 'import_module', side_effect=AssertionError('import attempted')):
+            with self.assertRaisesRegex(ValueError, 'PAPER_ONLY_REQUIRED'):
+                wiring.run_institutional_wiring({'mode': 'LIVE'})
+
+    def test_real_orders_rejected_before_module_import(self):
+        with patch.object(wiring.importlib, 'import_module', side_effect=AssertionError('import attempted')):
+            with self.assertRaisesRegex(ValueError, 'REAL_ORDERS_FORBIDDEN'):
+                wiring.run_institutional_wiring({'real_orders_allowed': True})
+
+    def test_ftmo_real_rejected_before_module_import(self):
+        with patch.object(wiring.importlib, 'import_module', side_effect=AssertionError('import attempted')):
+            with self.assertRaisesRegex(ValueError, 'FTMO_REAL_FORBIDDEN'):
+                wiring.run_institutional_wiring({'ftmo_real': True})
+
+    def test_nondict_payload_rejected_before_module_import(self):
+        with patch.object(wiring.importlib, 'import_module', side_effect=AssertionError('import attempted')):
+            with self.assertRaisesRegex(ValueError, 'PAPER_PAYLOAD_DICT_REQUIRED'):
+                wiring.run_institutional_wiring(['not a dict'])
+
 if __name__ == '__main__':
     unittest.main()
