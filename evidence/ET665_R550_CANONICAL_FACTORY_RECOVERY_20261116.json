@@ -1,0 +1,76 @@
+{
+  "mission": "ET665.R550",
+  "date": "2026-11-16",
+  "scope": "Recover exact Drive-authoritative Trader institutional wiring factory, add a fail-closed PAPER composition gate, and add focused regressions.",
+  "source_authority": {
+    "drive_file_id": "1artlloaPVPYf1jxd5wB9rp3nW3EnhRAT",
+    "drive_path": "C_USERS_MINDFIN/Desktop/mind-fin-pro-backend-core/app/runtime/mind_trader_institutional_wiring.py",
+    "drive_parent_chain": [
+      "C_USERS_MINDFIN/1XzQKJ3z8FYjr56vXGT3kxuwCluqQvyap",
+      "Desktop/1wISNGq-0xO7NRE_Yf_BudKzF9f23KetY",
+      "mind-fin-pro-backend-core/1d7HpKGzRDfcoaIuKWSBZLO_lTiK_dRKl",
+      "app/1ExqPNOfQk7VdjwwT7Og3n8AMGlq93ehE",
+      "runtime/1reS1MuuzDVLhXmaB2et9yf9BVO6maH7J"
+    ],
+    "bytes": 6371,
+    "sha256": "3e4a66308fdf69beec2a1de3309c68a14f8ad285787cd63eaf56a0fb237b7c42",
+    "github_blob_sha1": "2b94d6b979aa67f0846bf2ba66def95df2f46175",
+    "byte_identity": "PASS",
+    "main_before": {
+      "commit": "1b5916fbdc8c90173061315400abb92f3bbbb13a",
+      "file_blob_sha1": "c4cb0cb6759c2df6c7c6717d5708372c0b7c26b4",
+      "file_sha256": "7135a64f27780a369aa2be77d30b732bbbf06316fa592069bc39cbf8a5d77f21",
+      "bytes": 3164
+    }
+  },
+  "dependency_audit": {
+    "required_import_paths_present_on_main": "12/12",
+    "module_inventory": 10,
+    "module_level_run_entrypoints": 2,
+    "simulation_entrypoints": [
+      "app.runtime.p2224_2226_institutional_core.run",
+      "app.runtime.p2227_2229_advanced_layer.run"
+    ],
+    "observed_network_or_order_send_calls_in_audited_sources": 0,
+    "note": "Other modules contain file-writing functions, but they are not module-level run entrypoints called by the recovered factory's run_institutional_wiring(). Do not infer full runtime E2E from this static audit."
+  },
+  "defect_found": {
+    "area": "FTMO config contract",
+    "finding": "load_ftmo_config returns (config, validation) and can return (None, invalid) when config is absent; the recovered factory stores the tuple but does not reject invalid validation.",
+    "correction": "Add trader_paper_factory_guard.create_verified_paper_runtime() to fail closed on missing/invalid/non-simulation config, negative or non-finite costs, config drift, incomplete 10-module/2-simulation health, and non-PAPER broker flags.",
+    "original_source_preserved": true
+  },
+  "tests": {
+    "file": "tests/test_trader_paper_factory_guard.py",
+    "cases": 17,
+    "result": "17 passed",
+    "execution": "Local Python pytest against exact recovered source; imported dependency functions and health snapshot were stubbed to isolate the factory contract. The actual 10 production modules were not executed in this test run.",
+    "exit_code": 0
+  },
+  "changed_files": [
+    "app/runtime/mind_trader_institutional_wiring.py",
+    "app/runtime/trader_paper_factory_guard.py",
+    "tests/test_trader_paper_factory_guard.py",
+    "evidence/ET665_R550_CANONICAL_FACTORY_RECOVERY_20261116.json"
+  ],
+  "safety": {
+    "paper_only": true,
+    "real_orders": false,
+    "ftmo_real": false,
+    "main_modified": false,
+    "production_modified": false,
+    "drive_originals_modified": false,
+    "merge": false,
+    "deploy": false,
+    "cost_brl": 0
+  },
+  "certification": {
+    "canonical_factory_source_recovered": true,
+    "byte_identity_verified": true,
+    "strict_paper_guard_unit_tests": "17/17 PASS",
+    "actual_module_execution": "PENDING",
+    "writer_dispatch_integration": "PENDING",
+    "s20_s21_e2e": false
+  },
+  "next_action": "Run the exact source and guard against the real 10-module dependency set in an offline checkout, capture import/run results and file-write side effects, then integrate the verified composition with the existing R549 PAPER writer bridge without promoting to real execution."
+}
