@@ -1,4 +1,4 @@
-import json, uuid
+import json, uuid, math
 from pathlib import Path
 from datetime import datetime, UTC
 from mind_trader.app.risk.ftmo_ruleset import load_ftmo_config
@@ -67,14 +67,21 @@ class PaperTradingSessionManager:
         return {"decision":"SESSION_CLOSED","session":s,"production":"BLOCKED"}
 
     def pre_trade_check(self, risk_amount):
+        if type(risk_amount) not in (int,float) or not math.isfinite(risk_amount) or risk_amount<=0:
+            return {"allowed":False,"decision":"BLOCK_INVALID_RISK","production":"BLOCKED"}
         s=self._read_session()
         if not s: return {"allowed":False,"decision":"BLOCK_NO_SESSION","production":"BLOCKED"}
         if s.get("status")!="OPEN": return {"allowed":False,"decision":"BLOCK_SESSION_CLOSED","production":"BLOCKED"}
-        if s["trades"] >= s["max_daily_trades"]: return {"allowed":False,"decision":"BLOCK_MAX_DAILY_TRADES","production":"BLOCKED"}
-        if max(0,-s["daily_pnl"]) + risk_amount > s["max_daily_loss"]: return {"allowed":False,"decision":"BLOCK_DAILY_LOSS_LIMIT","production":"BLOCKED"}
+        cfg,val=load_ftmo_config(self.ftmo_config_path)
+        if not val["valid"] or s.get("ftmo_config_hash")!=val.get("hash"):
+            return {"allowed":False,"decision":"BLOCK_SESSION_CONFIG_CHANGED","production":"BLOCKED"}
+        if s["trades"] >= min(s["max_daily_trades"],cfg["max_daily_trades"]): return {"allowed":False,"decision":"BLOCK_MAX_DAILY_TRADES","production":"BLOCKED"}
+        if max(0,-s["daily_pnl"]) + risk_amount > min(s["max_daily_loss"],cfg["max_daily_loss"]): return {"allowed":False,"decision":"BLOCK_DAILY_LOSS_LIMIT","production":"BLOCKED"}
         return {"allowed":True,"decision":"ALLOW_PAPER_TRADE","session_id":s["session_id"],"production":"BLOCKED"}
 
     def record_trade_result(self, pnl):
+        if type(pnl) not in (int,float) or not math.isfinite(pnl):
+            return {"decision":"BLOCK_INVALID_PNL","production":"BLOCKED"}
         s=self._read_session()
         if not s or s.get("status")!="OPEN":
             return {"decision":"BLOCK_RECORD_NO_OPEN_SESSION","production":"BLOCKED"}
