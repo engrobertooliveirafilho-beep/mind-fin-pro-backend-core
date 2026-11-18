@@ -37,8 +37,8 @@ class AdverseScenarioAgent:
         daily_pnl=float(trade.get("daily_pnl",0))
         total_pnl=float(trade.get("total_pnl",0))
         simulated_slippage_loss=risk*1.25
-        if abs(daily_pnl) + simulated_slippage_loss > 5000: reasons.append("ADVERSE_DAILY_LIMIT_BREACH")
-        if abs(total_pnl) + simulated_slippage_loss > 10000: reasons.append("ADVERSE_TOTAL_LIMIT_BREACH")
+        if max(0,-daily_pnl) + simulated_slippage_loss > 5000: reasons.append("ADVERSE_DAILY_LIMIT_BREACH")
+        if max(0,-total_pnl) + simulated_slippage_loss > 10000: reasons.append("ADVERSE_TOTAL_LIMIT_BREACH")
         if regime_report.get("normalized_atr",0) > 0.02: reasons.append("EXTREME_VOLATILITY")
         passed=not reasons
         return {"agent":"ADVERSE_SCENARIO","passed":passed,"reasons":reasons or ["SURVIVED_BASIC_ADVERSE_SCENARIO"]}
