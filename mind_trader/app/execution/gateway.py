@@ -1,4 +1,4 @@
-import json, uuid
+import json, uuid, math
 from pathlib import Path
 from datetime import datetime, UTC
 from mind_trader.app.engines.core import RiskGuardian, FTMOGuardian, FTMOConfig, TradeIntent
@@ -36,6 +36,8 @@ class ExecutionGateway:
         self.paper_broker_ledger_path=paper_broker_ledger_path
 
     def submit_order(self, mode, trade_dict, regime_report, genome):
+        if not isinstance(mode,str):
+            return write_execution_ledger({"decision":"BLOCKED_UNKNOWN_EXECUTION_MODE","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
         if mode in LIVE_MODE_TO_ACTION:
             lock=institutional_live_lock(LIVE_MODE_TO_ACTION[mode],{"mode":mode,"trade":trade_dict})
             return write_execution_ledger({"mode":mode,"decision":lock["decision"],"live_lock":lock,"production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
@@ -45,6 +47,24 @@ class ExecutionGateway:
 
         if not self.ftmo or not self.ftmo_config_valid.get("valid"):
             return write_execution_ledger({"mode":mode,"decision":"BLOCKED_INVALID_FTMO_CONFIG","ftmo_config_validation":self.ftmo_config_valid,"production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
+
+        # Reject malformed inputs before session arithmetic or downstream routing.
+        if not isinstance(trade_dict, dict) or not isinstance(regime_report, dict) or not isinstance(genome, dict):
+            return write_execution_ledger({"mode":mode,"decision":"REJECT_ORDER","reason":"INVALID_INPUT","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
+        if any(type(trade_dict.get(k, default)) is not bool for k, default in (("session_allowed",True),("news_blocked",False))):
+            return write_execution_ledger({"mode":mode,"decision":"REJECT_ORDER","reason":"INVALID_POLICY_FLAG","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
+        for k in ("symbol","strategy_id"):
+            if not isinstance(trade_dict.get(k),str) or not trade_dict[k].strip():
+                return write_execution_ledger({"mode":mode,"decision":"REJECT_ORDER","reason":"INVALID_IDENTITY","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
+        for k in ("entry","target","risk_amount","stop","open_risk","daily_pnl","total_pnl"):
+            v=trade_dict.get(k,0 if k in ("open_risk","daily_pnl","total_pnl") else None)
+            if k=="stop" and v is None: continue
+            if type(v) not in (int,float) or not math.isfinite(v):
+                return write_execution_ledger({"mode":mode,"decision":"REJECT_ORDER","reason":"INVALID_NUMERIC_INPUT","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
+        if any(type(trade_dict.get(k,0)) is not int or trade_dict.get(k,0)<0 for k in ("daily_trades","loss_streak")):
+            return write_execution_ledger({"mode":mode,"decision":"REJECT_ORDER","reason":"INVALID_COUNTER","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
+        if mode=="PAPER" and (not isinstance(trade_dict.get("side","BUY"),str) or trade_dict.get("side","BUY").upper() not in ("BUY","SELL")):
+            return write_execution_ledger({"mode":mode,"decision":"REJECT_ORDER","reason":"INVALID_SIDE","production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
 
         session_check=self.paper.pre_trade_check(trade_dict.get("risk_amount",0))
         if mode=="PAPER" and not session_check["allowed"]:
@@ -66,6 +86,8 @@ class ExecutionGateway:
             paper_order={"symbol":trade.symbol,"side":trade_dict.get("side","BUY"),"entry":trade.entry,"stop":trade.stop,"target":trade.target,"risk_amount":trade.risk_amount,"strategy_id":trade.strategy_id}
             paper_broker=paper_route_order(paper_order,ledger_path=self.paper_broker_ledger_path,ftmo_config_path=self.paper.ftmo_config_path)
 
+        if allowed and mode=="PAPER":
+            allowed=isinstance(paper_broker,dict) and paper_broker.get("decision")=="PAPER_ORDER_ACCEPTED" and paper_broker.get("order_status")=="PAPER_FILLED_SIMULATED"
         return write_execution_ledger({"mode":mode,"symbol":trade.symbol,"strategy_id":trade.strategy_id,"genome_id":genome.get("genome_id"),"regime":regime_report.get("regime"),"ftmo_config_version":self.ftmo_ruleset.get("version"),"ftmo_config_hash":self.ftmo_config_valid.get("hash"),"checks":checks,"paper_broker":paper_broker,"decision":"ACCEPT_SIMULATED_ORDER" if allowed else "REJECT_ORDER","order_status":"SIMULATED_ACCEPTED" if allowed else "SIMULATED_REJECTED","production":"BLOCKED","real_broker_routing":"DISABLED","edge_claim":"NONE"},self.ledger_path)
 
 def broker_contracts():
