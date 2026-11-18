@@ -1,4 +1,4 @@
-import json, hashlib
+import json, hashlib, math
 from pathlib import Path
 from datetime import datetime, UTC
 
@@ -52,12 +52,19 @@ def config_hash(config):
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
 def validate_ftmo_config(config):
+    if not isinstance(config, dict):
+        return {"valid":False,"reason":"INVALID_CONFIG_OBJECT"}
     missing=[k for k in REQUIRED_FIELDS if k not in config]
     if missing:
         return {"valid":False,"reason":"MISSING_FIELDS","missing":missing}
-    type_errors=[k for k,t in REQUIRED_FIELDS.items() if not isinstance(config[k],t)]
+    type_errors=[k for k,t in REQUIRED_FIELDS.items() if not isinstance(config[k],t) or (t is not bool and isinstance(config[k],bool))]
     if type_errors:
         return {"valid":False,"reason":"TYPE_ERRORS","fields":type_errors}
+    nonfinite=[k for k,t in REQUIRED_FIELDS.items() if t in (int,(int,float)) and not math.isfinite(config[k])]
+    if nonfinite:
+        return {"valid":False,"reason":"NONFINITE_NUMERIC_LIMITS","fields":nonfinite}
+    if any(config[k]<0 for k in ("commission","spread","slippage")) or config["max_position_size"]<=0:
+        return {"valid":False,"reason":"INVALID_COST_OR_POSITION_LIMIT"}
     numeric_positive=["account_size","profit_target","max_daily_loss","max_total_loss","minimum_trading_days","max_daily_trades","leverage"]
     invalid=[k for k in numeric_positive if config[k] <= 0]
     if invalid:
@@ -78,7 +85,10 @@ def load_ftmo_config(path="mind_trader/config/ftmo_ruleset.json"):
     p=Path(path)
     if not p.exists():
         return None, {"valid":False,"reason":"CONFIG_FILE_NOT_FOUND"}
-    cfg=json.loads(p.read_text(encoding="utf-8"))
+    try:
+        cfg=json.loads(p.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, ValueError):
+        return None, {"valid":False,"reason":"CONFIG_READ_ERROR"}
     return cfg, validate_ftmo_config(cfg)
 
 def audit_rule_application(trade, config, path="mind_trader/reports/P8.46_ftmo_rule_audit.json"):
@@ -93,8 +103,8 @@ def audit_rule_application(trade, config, path="mind_trader/reports/P8.46_ftmo_r
             "symbol_allowed":trade.get("symbol") in config.get("allowed_symbols",[]),
             "symbol_not_restricted":trade.get("symbol") not in config.get("restricted_symbols",[]),
             "daily_trades_ok":trade.get("daily_trades",0) < config.get("max_daily_trades",0),
-            "risk_inside_daily_limit":max(0,-trade.get("daily_pnl",0))+trade.get("risk_amount",0) <= config.get("max_daily_loss",0),
-            "risk_inside_total_limit":max(0,-trade.get("total_pnl",0))+trade.get("risk_amount",0) <= config.get("max_total_loss",0),
+            "risk_inside_daily_limit":max(0,-trade.get("daily_pnl",0))+trade.get("open_risk",0)+trade.get("risk_amount",0) <= config.get("max_daily_loss",0),
+            "risk_inside_total_limit":max(0,-trade.get("total_pnl",0))+trade.get("open_risk",0)+trade.get("risk_amount",0) <= config.get("max_total_loss",0),
             "has_stop":trade.get("stop") is not None
         },
         "production":"BLOCKED",
