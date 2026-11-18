@@ -71,7 +71,7 @@ class PaperTradingSessionManager:
         if not s: return {"allowed":False,"decision":"BLOCK_NO_SESSION","production":"BLOCKED"}
         if s.get("status")!="OPEN": return {"allowed":False,"decision":"BLOCK_SESSION_CLOSED","production":"BLOCKED"}
         if s["trades"] >= s["max_daily_trades"]: return {"allowed":False,"decision":"BLOCK_MAX_DAILY_TRADES","production":"BLOCKED"}
-        if abs(s["daily_pnl"]) + risk_amount > s["max_daily_loss"]: return {"allowed":False,"decision":"BLOCK_DAILY_LOSS_LIMIT","production":"BLOCKED"}
+        if max(0,-s["daily_pnl"]) + risk_amount > s["max_daily_loss"]: return {"allowed":False,"decision":"BLOCK_DAILY_LOSS_LIMIT","production":"BLOCKED"}
         return {"allowed":True,"decision":"ALLOW_PAPER_TRADE","session_id":s["session_id"],"production":"BLOCKED"}
 
     def record_trade_result(self, pnl):
