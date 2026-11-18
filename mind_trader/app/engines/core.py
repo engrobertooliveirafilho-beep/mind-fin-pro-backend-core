@@ -108,6 +108,8 @@ class DualModeEngine:
             raise ValueError("INVALID_NUMERIC_INPUT")
         if not _valid_counters(trade):
             raise ValueError("INVALID_COUNTER")
+        if type(trade.session_allowed) is not bool or type(trade.news_blocked) is not bool:
+            raise ValueError("INVALID_POLICY_FLAG")
         risk_ok, risk_reason = self.risk.validate(trade)
         ftmo_ok, ftmo_reason = self.ftmo_guard.validate(trade)
         event = asdict(trade) | {"risk_ok":risk_ok,"risk_reason":risk_reason,"ftmo_ok":ftmo_ok,"ftmo_reason":ftmo_reason,"decision":"OPERAR_SIMULADO" if risk_ok and ftmo_ok else "NAO_OPERAR"}
