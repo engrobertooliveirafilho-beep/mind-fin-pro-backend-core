@@ -93,8 +93,8 @@ def audit_rule_application(trade, config, path="mind_trader/reports/P8.46_ftmo_r
             "symbol_allowed":trade.get("symbol") in config.get("allowed_symbols",[]),
             "symbol_not_restricted":trade.get("symbol") not in config.get("restricted_symbols",[]),
             "daily_trades_ok":trade.get("daily_trades",0) < config.get("max_daily_trades",0),
-            "risk_inside_daily_limit":abs(trade.get("daily_pnl",0))+trade.get("risk_amount",0) <= config.get("max_daily_loss",0),
-            "risk_inside_total_limit":abs(trade.get("total_pnl",0))+trade.get("risk_amount",0) <= config.get("max_total_loss",0),
+            "risk_inside_daily_limit":max(0,-trade.get("daily_pnl",0))+trade.get("risk_amount",0) <= config.get("max_daily_loss",0),
+            "risk_inside_total_limit":max(0,-trade.get("total_pnl",0))+trade.get("risk_amount",0) <= config.get("max_total_loss",0),
             "has_stop":trade.get("stop") is not None
         },
         "production":"BLOCKED",
