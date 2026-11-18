@@ -30,7 +30,7 @@ class ExecutionGateway:
         self.ftmo_config_valid=val
         self.ftmo_ruleset=cfg
         self.ftmo=FTMOGuardian(ftmo_config_from_ruleset(cfg)) if cfg and val["valid"] else None
-        self.adv=AdversarialValidationEngine()
+        self.adv=AdversarialValidationEngine(cfg["max_daily_loss"],cfg["max_total_loss"]) if self.ftmo else None
         self.ledger_path=ledger_path
         self.paper=PaperTradingSessionManager(paper_session_path,paper_day_ledger_path,ftmo_config_path)
         self.paper_broker_ledger_path=paper_broker_ledger_path
