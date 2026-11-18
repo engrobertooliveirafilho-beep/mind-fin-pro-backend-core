@@ -100,7 +100,7 @@ class DualModeEngine:
         self.ftmo_guard = FTMOGuardian()
     def process_trade(self, trade):
         # Legacy engine is restricted to offline research and FTMO simulation.
-        if not isinstance(trade, TradeIntent) or trade.mode not in ("RESEARCH_MAX_RETURN_MODE", "FTMO_SIMULATION_MODE"):
+        if not isinstance(trade, TradeIntent) or trade.mode not in ("RESEARCH_MAX_RETURN_MODE", "FTMO_SIMULATION_MODE", "FTMO_EVALUATION_SIMULATION_MODE"):
             raise ValueError("PAPER_ONLY_MODE_REQUIRED")
         if not isinstance(trade.symbol, str) or not trade.symbol.strip():
             raise ValueError("SYMBOL_REQUIRED")
