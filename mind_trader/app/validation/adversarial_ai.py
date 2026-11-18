@@ -31,21 +31,24 @@ class FailureHunterAgent:
         return {"agent":"FAILURE_HUNTER","passed":passed,"reasons":reasons or ["NO_STRUCTURAL_FAILURE_FOUND"]}
 
 class AdverseScenarioAgent:
+    def __init__(self, max_daily_loss=5000, max_total_loss=10000):
+        self.max_daily_loss=max_daily_loss
+        self.max_total_loss=max_total_loss
     def review(self, trade, regime_report, genome):
         reasons=[]
         risk=float(trade.get("risk_amount",0))
         daily_pnl=float(trade.get("daily_pnl",0))
         total_pnl=float(trade.get("total_pnl",0))
         simulated_slippage_loss=risk*1.25
-        if max(0,-daily_pnl) + simulated_slippage_loss > 5000: reasons.append("ADVERSE_DAILY_LIMIT_BREACH")
-        if max(0,-total_pnl) + simulated_slippage_loss > 10000: reasons.append("ADVERSE_TOTAL_LIMIT_BREACH")
+        if max(0,-daily_pnl) + trade.get("open_risk",0) + simulated_slippage_loss > self.max_daily_loss: reasons.append("ADVERSE_DAILY_LIMIT_BREACH")
+        if max(0,-total_pnl) + trade.get("open_risk",0) + simulated_slippage_loss > self.max_total_loss: reasons.append("ADVERSE_TOTAL_LIMIT_BREACH")
         if regime_report.get("normalized_atr",0) > 0.02: reasons.append("EXTREME_VOLATILITY")
         passed=not reasons
         return {"agent":"ADVERSE_SCENARIO","passed":passed,"reasons":reasons or ["SURVIVED_BASIC_ADVERSE_SCENARIO"]}
 
 class AdversarialValidationEngine:
-    def __init__(self):
-        self.agents=[DefenderAgent(),AttackerAgent(),FailureHunterAgent(),AdverseScenarioAgent()]
+    def __init__(self, max_daily_loss=5000, max_total_loss=10000):
+        self.agents=[DefenderAgent(),AttackerAgent(),FailureHunterAgent(),AdverseScenarioAgent(max_daily_loss,max_total_loss)]
 
     def review_trade(self, trade, regime_report, genome):
         reviews=[a.review(trade,regime_report,genome) for a in self.agents]
