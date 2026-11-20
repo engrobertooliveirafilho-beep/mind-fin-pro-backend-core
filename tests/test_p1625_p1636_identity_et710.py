@@ -65,6 +65,21 @@ class TestHistoricalIdentity(unittest.TestCase):
                     self.assertIs(brain["ORDER_SENT"], False)
                     self.assertEqual(brain["REAL_ORDERS"], "FORBIDDEN")
 
+    def test_buy_opportunity_rejected(self):
+        result, report = self.execute((INPUTS[1], lambda rows: rows[0].update(decision="BUY")))
+        self.assertNotEqual(result.returncode, 0)
+        self.assertFalse(report)
+
+    def test_sent_opportunity_rejected(self):
+        result, report = self.execute((INPUTS[1], lambda rows: rows[0].update(ORDER_SENT=True)))
+        self.assertNotEqual(result.returncode, 0)
+        self.assertFalse(report)
+
+    def test_missing_decision_rejected(self):
+        result, report = self.execute((INPUTS[1], lambda rows: rows[0].update(decision=None)))
+        self.assertNotEqual(result.returncode, 0)
+        self.assertFalse(report)
+
     def test_orphan_opportunity(self):
         result, report = self.execute((INPUTS[1], lambda rows: rows[0].update(specialist_id="UNKNOWN")))
         self.assertNotEqual(result.returncode, 0)
