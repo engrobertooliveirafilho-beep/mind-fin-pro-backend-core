@@ -28,6 +28,24 @@ class TestP1506(unittest.TestCase):
                 report = json.loads(output.read_text(encoding="utf-8"))
                 self.assertEqual(report["VALID_EDGES"], 1)
                 self.assertFalse(report["ORDER_SENT"])
+    def test_canonical_p1505_historical_integration(self):
+        import os
+        canonical = Path(os.environ.get("ELDORA_P1505_CANONICAL", "/mnt/data/p1505n_edge_trade_metrics.json"))
+        if not canonical.is_file():
+            self.skipTest("original P1505 metrics not available on this runner")
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            target = root / "reports/P1505_DATA_INGESTION_ENGINE/p1505n_edge_trade_metrics.json"
+            target.parent.mkdir(parents=True)
+            target.write_bytes(canonical.read_bytes())
+            cp = subprocess.run([sys.executable, str(SOURCE)], cwd=td, capture_output=True, text=True)
+            self.assertEqual(cp.returncode, 0, cp.stderr)
+            report = json.loads((target.parent / "p1506_convergence_payoff_scalp_report.json").read_text(encoding="utf-8"))
+            ranked = json.loads((target.parent / "p1506_ranked_convergence_payoff_edges.json").read_text(encoding="utf-8"))
+            self.assertEqual(report["INPUT_EDGES"], 245)
+            self.assertEqual(report["VALID_EDGES"], 106)
+            self.assertEqual(report["SCALP_CANDIDATES"], 58)
+            self.assertTrue(all(edge["ORDER_SENT"] is False and edge["FTMO_REAL"] == "FORBIDDEN" for edge in ranked))
     def test_valid(self): self.check(accepted=True)
     def test_empty(self): self.check(lambda rows: rows.clear())
     def test_duplicate(self): self.check(lambda rows: rows.append(dict(rows[0])))
