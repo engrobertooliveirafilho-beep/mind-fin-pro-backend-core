@@ -40,6 +40,16 @@ class TestET731(unittest.TestCase):
         self.assertIn("invalid specialist metric", self.run_case("profit_factor_real", float("inf")))
     def test_nan_holding(self):
         self.assertIn("invalid specialist metric", self.run_case("avg_holding_bars", float("nan")))
+    def test_negative_payoff(self):
+        self.assertIn("negative specialist risk or holding metric", self.run_case("payoff_ratio_real", -1))
+    def test_negative_profit_factor(self):
+        self.assertIn("negative specialist risk or holding metric", self.run_case("profit_factor_real", -1))
+    def test_negative_holding(self):
+        self.assertIn("negative specialist risk or holding metric", self.run_case("avg_holding_bars", -1))
+    def test_entry_hour_outside_session(self):
+        self.assertIn("invalid specialist entry hour", self.run_case("best_entry_hour", 24))
+    def test_fractional_entry_hour(self):
+        self.assertIn("invalid specialist entry hour", self.run_case("best_entry_hour", 2.5))
     def test_infinite_entry_hour(self):
         self.assertIn("invalid specialist metric", self.run_case("best_entry_hour", float("inf")))
 
