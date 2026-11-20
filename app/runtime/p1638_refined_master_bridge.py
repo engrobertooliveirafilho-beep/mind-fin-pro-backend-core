@@ -1,5 +1,4 @@
 """P1638 proposed bridge (not recovered original). Offline, read-only and fail-closed."""
-from decimal import Decimal, InvalidOperation
 from .p1637_session_threshold_gate import reconcile
 
 def bridge(refined, sessions, report, master):
@@ -14,7 +13,10 @@ def bridge(refined, sessions, report, master):
     if not isinstance(master.get('BEST_CURRENT_OPPORTUNITY'), dict):
         raise ValueError('missing master best')
     best = master['BEST_CURRENT_OPPORTUNITY']
-    if best.get('specialist_id') != top.get('specialist_id'):
+    # Specialist identity alone is insufficient: verify the market and timeframe
+    # before treating independent historical snapshots as reconciled.
+    if any(not isinstance(best.get(key), str) or not best[key] or best[key] != top.get(key)
+           for key in ('specialist_id', 'asset', 'timeframe')):
         return {'status':'RECONCILIATION_CONFLICT','p1637':evidence,
                 'order_send_allowed':False,'promotion_allowed':False,'e2e_certified':False}
     return {'status':'P1638_BRIDGE_OFFLINE_ONLY','specialist_id':top['specialist_id'],
