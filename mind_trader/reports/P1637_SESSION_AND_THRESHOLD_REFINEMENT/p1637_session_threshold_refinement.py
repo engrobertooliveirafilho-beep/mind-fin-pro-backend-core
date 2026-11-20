@@ -16,6 +16,9 @@ def load(p):
 
 conf = load(CONF)
 opps = load(OPPS)
+if not isinstance(conf, list) or not conf or not isinstance(opps, list) or not opps:
+    raise RuntimeError("Missing or invalid historical input; refusing empty success")
+OUT.mkdir(parents=True, exist_ok=True)
 
 def session_from_hour(h):
     h = int(h)
@@ -29,7 +32,9 @@ def session_from_hour(h):
         return "LONDON_NY_OVERLAP"
     if 17 <= h <= 20:
         return "NEW_YORK"
-    return "POST_NY"
+    if 21 <= h <= 23:
+        return "POST_NY"
+    raise ValueError("Invalid trading hour")
 
 session_stats = defaultdict(lambda: {
     "samples":0,
