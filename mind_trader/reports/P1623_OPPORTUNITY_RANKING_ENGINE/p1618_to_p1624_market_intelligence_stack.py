@@ -15,9 +15,6 @@ OUT1622 = Path("reports/P1622_SPECIALIST_KNOWLEDGE_BASE")
 OUT1623 = Path("reports/P1623_OPPORTUNITY_RANKING_ENGINE")
 OUT1624 = Path("reports/P1624_SEASONALITY_ENGINE")
 
-for p in [OUT1618,OUT1619,OUT1620,OUT1621,OUT1622,OUT1623,OUT1624]:
-    p.mkdir(parents=True, exist_ok=True)
-
 def load_json(p, default):
     try:
         return json.loads(p.read_text(encoding="utf-8"))
@@ -25,13 +22,18 @@ def load_json(p, default):
         return default
 
 specialists = load_json(SPECIALISTS, [])
+if not isinstance(specialists, list) or not specialists:
+    raise ValueError("original specialist library unavailable or empty")
+feature_files = sorted(FEATURES.glob("*_features.csv"))
+if not feature_files:
+    raise ValueError("original OHLC feature CSV files unavailable; no empty success")
 
 structure_rows = []
 candle_rows = []
 confluence_rows = []
 seasonality_rows = []
 
-for f in FEATURES.glob("*_features.csv"):
+for f in feature_files:
     try:
         df = pd.read_csv(f)
         if len(df) < 100:
@@ -164,7 +166,13 @@ for f in FEATURES.glob("*_features.csv"):
         })
 
     except Exception as e:
-        structure_rows.append({"file":str(f),"status":"ERROR","error":str(e)})
+        raise ValueError(f"invalid feature file {f}: {e}") from e
+
+if not confluence_rows:
+    raise ValueError("no valid OHLC feature rows; market intelligence not generated")
+
+for p in [OUT1618,OUT1619,OUT1620,OUT1621,OUT1622,OUT1623,OUT1624]:
+    p.mkdir(parents=True, exist_ok=True)
 
 asset_intel = defaultdict(lambda: {
     "asset":None,"specialists":0,"best_score":0,"best_payoff":0,
@@ -237,7 +245,7 @@ for s in specialists:
         "opportunity_score":round(opportunity_score,6),
         "session":c.get("session"),
         "hour":c.get("hour"),
-        "decision":"WATCH_ONLY" if opportunity_score < 85 else "ELITE_CANDIDATE",
+        "decision":"WATCH_ONLY",
         "ORDER_SENT":False,
         "REAL_ORDERS":"FORBIDDEN",
         "FTMO_REAL":"FORBIDDEN",
