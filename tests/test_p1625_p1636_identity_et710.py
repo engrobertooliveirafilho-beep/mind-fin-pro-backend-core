@@ -59,6 +59,7 @@ class TestHistoricalIdentity(unittest.TestCase):
             self.assertEqual(master["P1632_CANDLE_STATUS"], "NOT_IMPLEMENTED_NO_SOURCE_FEATURES")
             self.assertEqual(master["P1636_SELF_LEARNING_STATUS"], "PLAN_ONLY_NOT_EXECUTED")
             self.assertIs(master["E2E_CERTIFIED"], False)
+            self.assertEqual(master["MASTER_BRAIN_DECISION"]["REASON"], "RESEARCH_ONLY_NO_E2E_CERTIFICATION_OR_REAL_ORDER_AUTHORIZATION")
 
     def test_no_score_based_promotion(self):
         for score in (85, 99.9):
