@@ -7,14 +7,24 @@ def audit(counts):
     if not isinstance(counts, dict) or not counts:
         raise ValueError('missing market structure library')
     total=0
+    canonical=set()
     for key,value in counts.items():
         if not isinstance(key,str) or not key.strip() or type(value) is not int or value < 0:
             raise ValueError('invalid market structure count')
+        normalized=key.strip().casefold()
+        if normalized in canonical:
+            raise ValueError('ambiguous normalized pattern')
+        canonical.add(normalized)
         total+=value
     return {'status':'P1630_HISTORICAL_COUNTS_RECONCILED','patterns':len(counts),'observations':total,'signals_validated':False,'order_send_allowed':False,'promotion_allowed':False,'e2e_certified':False}
 
 def audit_file(path):
-    raw=Path(path).read_bytes()
+    source=Path(path)
+    if not source.is_file() or source.stat().st_size > 20_000_000:
+        raise ValueError('missing or oversized source')
+    raw=source.read_bytes()
+    if not raw:
+        raise ValueError('empty source')
     def pairs_unique(pairs):
         obj={}
         for key,value in pairs:
