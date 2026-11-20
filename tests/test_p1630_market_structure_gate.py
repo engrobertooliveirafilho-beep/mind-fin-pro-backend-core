@@ -29,3 +29,15 @@ class TestP1630(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             p=Path(d)/'x.json';p.write_text('{"A":1}')
             self.assertEqual(len(audit_file(p)['source_sha256']),64)
+    def test_casefold_collision(self):
+        with self.assertRaises(ValueError):audit({'ABC':1,'abc':2})
+    def test_whitespace_collision(self):
+        with self.assertRaises(ValueError):audit({'ABC':1,' ABC ':2})
+    def test_empty_source(self):
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/'empty.json';p.write_bytes(b'')
+            with self.assertRaises(ValueError):audit_file(p)
+    def test_historical_source(self):
+        report=audit_file('/mnt/data/p1630_market_structure_library.json')
+        self.assertEqual(report['patterns'],187)
+        self.assertEqual(report['observations'],393)
