@@ -1,3 +1,4 @@
+import math
 MODE="PAPER_ONLY"
 REAL_ORDERS="FORBIDDEN"
 FTMO_REAL="FORBIDDEN"
@@ -15,7 +16,8 @@ def edge_hold(edge):
 
 def edge_signal(edge, ft):
     fam=edge.get("family","")
-    direction=edge.get("direction","BUY_PAPER")
+    direction=edge.get("direction")
+    if direction not in ("BUY_PAPER","SELL_PAPER"): return False
     if edge.get("session") and edge["session"]!=ft["session"]:
         return False
     if edge.get("regime") and edge["regime"] not in [ft["trend"],ft["regime"],"BALANCE"]:
@@ -34,9 +36,17 @@ def edge_signal(edge, ft):
         return ft["regime"]=="LOW_VOL" or ft["wick_ratio"]>=0.42
     if fam in ["MICROSTRUCTURE","CANDLE"]:
         return ft["body_ratio"]>=0.45 or ft["wick_ratio"]>=0.45
-    return True
+    return False
 
 def simulate_fill(edge, candles, features, i, spread_r=0.03, slippage_r=0.02, commission_r=0.01):
+    if not isinstance(edge,dict) or edge.get("direction") not in ("BUY_PAPER","SELL_PAPER"):
+        return None
+    if not isinstance(candles,list) or not isinstance(features,dict): return None
+    try:
+        costs=(float(spread_r),float(slippage_r),float(commission_r))
+        if not all(math.isfinite(v) and v>=0 for v in costs): return None
+        if not isinstance(i,int) or i<0: return None
+    except (TypeError,ValueError,OverflowError): return None
     hold=edge_hold(edge)
     entry_i=i+1
     exit_i=entry_i+hold
