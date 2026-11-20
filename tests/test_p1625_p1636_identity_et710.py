@@ -9,7 +9,7 @@ import tempfile
 import unittest
 
 SOURCE = Path(__file__).resolve().parents[1] / "mind_trader/reports/P1636_SELF_LEARNING_RESEARCH_LOOP/p1625_to_p1636_intelligence_stack.py"
-ROOT = Path(os.environ.get("ELDORA_HISTORICAL_DIR", "/mnt/data"))
+ROOT = Path(os.environ.get("ELDORA_HISTORICAL_DIR", "/mnt/data/et709_canonical"))
 INPUTS = [
     "reports/P1610_SPECIALIST_LIBRARY/specialist_library.json",
     "reports/P1623_OPPORTUNITY_RANKING_ENGINE/opportunity_ranking.json",
