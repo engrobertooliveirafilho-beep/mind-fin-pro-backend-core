@@ -11,10 +11,14 @@ TRADES = Path("reports/P1505_DATA_INGESTION_ENGINE/p1505n_trade_level_trades.jso
 OUT_BASE = Path("reports")
 
 def load(p, default):
+    # Mandatory historical inputs: never certify an empty or incomplete replay.
     try:
-        return json.loads(p.read_text(encoding="utf-8"))
-    except Exception:
-        return default
+        obj = json.loads(p.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as exc:
+        raise ValueError(f"required historical input unavailable or invalid: {p}") from exc
+    if not isinstance(obj, list) or not obj or not all(isinstance(row, dict) for row in obj):
+        raise ValueError(f"required historical input must be a nonempty list of records: {p}")
+    return obj
 
 specialists = load(SPECIALISTS, [])
 opps = load(OPPS, [])
