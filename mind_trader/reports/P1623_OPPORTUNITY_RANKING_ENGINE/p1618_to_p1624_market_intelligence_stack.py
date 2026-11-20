@@ -34,11 +34,12 @@ candle_rows = []
 confluence_rows = []
 seasonality_rows = []
 
+seen_market_keys = set()
 for f in feature_files:
     try:
         df = pd.read_csv(f)
         if len(df) < 100:
-            continue
+            raise ValueError(f"insufficient OHLC candles: {f}")
 
         df["time"] = pd.to_datetime(df["time"], errors="coerce", dayfirst=True)
         if df["time"].isna().any() or not df["time"].is_monotonic_increasing or df["time"].duplicated().any():
@@ -64,6 +65,10 @@ for f in feature_files:
         parts = name.split("_")
         asset = parts[0]
         timeframe = parts[1] if len(parts) > 1 else "UNKNOWN"
+        market_key = (asset, timeframe)
+        if market_key in seen_market_keys:
+            raise ValueError(f"duplicate OHLC market identity: {market_key}")
+        seen_market_keys.add(market_key)
 
         df["swing_high"] = df["high"].rolling(5, center=True).max() == df["high"]  # confirmed only after two future bars
         df["swing_low"] = df["low"].rolling(5, center=True).min() == df["low"]  # confirmed only after two future bars
