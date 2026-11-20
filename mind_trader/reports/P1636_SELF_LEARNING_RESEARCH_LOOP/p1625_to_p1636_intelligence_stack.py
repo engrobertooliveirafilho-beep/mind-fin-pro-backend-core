@@ -141,30 +141,34 @@ for trade in trades:
         if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
             raise ValueError(f"invalid historical trade metric: {metric}")
 
-# P1628 — Payoff forensics
+# P1628 — Payoff forensics: MAE=0 has undefined risk-normalized R.
 payoff_by_edge = defaultdict(list)
+payoff_total = defaultdict(int)
+payoff_zero_mae = defaultdict(int)
 for t in trades:
-    edge = t.get("edge_id")
-    pnl = float(t.get("pnl_pct") or 0)
-    mae = abs(float(t.get("mae_pct") or 0.0001))
-    r = pnl / max(mae, 0.0001)
-    payoff_by_edge[edge].append(r)
+    edge = t["edge_id"]
+    payoff_total[edge] += 1
+    mae = abs(float(t["mae_pct"]))
+    if mae == 0:
+        payoff_zero_mae[edge] += 1
+        continue
+    payoff_by_edge[edge].append(float(t["pnl_pct"]) / mae)
 
 payoff_library = []
-for edge, rs in payoff_by_edge.items():
-    if not rs:
-        continue
-    rs_sorted = sorted(rs)
+for edge, total in payoff_total.items():
+    rs_sorted = sorted(payoff_by_edge[edge])
     n = len(rs_sorted)
     payoff_library.append({
         "edge_id": edge,
-        "trades": n,
-        "avg_R": round(sum(rs_sorted)/n, 6),
-        "max_R": round(max(rs_sorted), 6),
-        "p50_R": round(rs_sorted[int(n*0.50)], 6),
+        "trades": total,
+        "valid_R_samples": n,
+        "undefined_R_zero_mae": payoff_zero_mae[edge],
+        "avg_R": round(sum(rs_sorted)/n, 6) if n else None,
+        "max_R": round(max(rs_sorted), 6) if n else None,
+        "p50_R": round(rs_sorted[int(n*0.50)], 6) if n else None,
         "p80_R": round(rs_sorted[int(n*0.80)-1], 6) if n >= 5 else None,
         "p90_R": round(rs_sorted[int(n*0.90)-1], 6) if n >= 10 else None,
-        "status": "PAYOFF_FORENSICS_REGISTERED"
+        "status": "PAYOFF_FORENSICS_PARTIAL_UNDEFINED_R" if payoff_zero_mae[edge] else "PAYOFF_FORENSICS_REGISTERED"
     })
 
 # P1629 — Trade DNA
