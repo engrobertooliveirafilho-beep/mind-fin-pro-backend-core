@@ -22,7 +22,7 @@ class TestET715(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         if not all((ROOT / p).is_file() for p in INPUTS):
-            raise unittest.SkipTest("canonical historical inputs missing; no synthetic substitution")
+            raise AssertionError("canonical historical inputs unavailable; certification blocked")
 
     def execute(self, mutate=None):
         with tempfile.TemporaryDirectory() as directory:
