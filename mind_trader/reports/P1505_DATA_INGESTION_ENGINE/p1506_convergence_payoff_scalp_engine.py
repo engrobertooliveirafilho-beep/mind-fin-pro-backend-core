@@ -25,11 +25,13 @@ seen = set()
 for e in rows:
     if not isinstance(e, dict) or not isinstance(e.get("asset"), str) or not e["asset"].strip() or not isinstance(e.get("timeframe"), str):
         raise ValueError("invalid P1505 edge identity")
-    identity = (e["asset"], e["timeframe"], e.get("family"), e.get("profile"))
+    identity = e.get("edge_id")
+    if not isinstance(identity, str) or not identity.strip():
+        raise ValueError("missing canonical P1505 edge_id")
     if identity in seen:
         raise ValueError("duplicate P1505 edge identity")
     seen.add(identity)
-    if e.get("ORDER_SENT") is not False or any(e.get(k) != "FORBIDDEN" for k in ("REAL_ORDERS", "FTMO_REAL", "MT5_REAL")):
+    if e.get("ORDER_SENT", False) is not False or any(e.get(k) != "FORBIDDEN" for k in ("REAL_ORDERS", "FTMO_REAL", "MT5_REAL")):
         raise ValueError("unsafe P1505 edge flags")
     for metric in ("trades", "payoff_ratio_real", "expectancy_per_trade_real", "profit_factor_real", "win_rate", "avg_holding_bars"):
         value = e.get(metric)
