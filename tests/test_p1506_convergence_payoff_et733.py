@@ -8,7 +8,7 @@ import tempfile
 import unittest
 
 SOURCE = Path(__file__).resolve().parents[1] / "mind_trader/reports/P1505_DATA_INGESTION_ENGINE/p1506_convergence_payoff_scalp_engine.py"
-BASE = {"asset":"XAUUSD","timeframe":"M5","family":"alpha","profile":"paper","trades":20,"payoff_ratio_real":2.2,"expectancy_per_trade_real":0.1,"profit_factor_real":1.8,"win_rate":0.6,"avg_holding_bars":3,"ORDER_SENT":False,"REAL_ORDERS":"FORBIDDEN","FTMO_REAL":"FORBIDDEN","MT5_REAL":"FORBIDDEN"}
+BASE = {"asset":"XAUUSD","timeframe":"M5","family":"alpha","profile":"paper","edge_id":"canonical-test-edge","trades":20,"payoff_ratio_real":2.2,"expectancy_per_trade_real":0.1,"profit_factor_real":1.8,"win_rate":0.6,"avg_holding_bars":3,"ORDER_SENT":False,"REAL_ORDERS":"FORBIDDEN","FTMO_REAL":"FORBIDDEN","MT5_REAL":"FORBIDDEN"}
 
 class TestP1506(unittest.TestCase):
     def check(self, mutation=None, accepted=False):
