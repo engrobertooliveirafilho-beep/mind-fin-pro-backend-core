@@ -56,6 +56,16 @@ class HistoricalBridgeRegression(unittest.TestCase):
         rows=copy.deepcopy(self.rows)
         rows[2]['specialist_id']=rows[1]['specialist_id']
         with self.assertRaises(ValueError):bridge(rows,self.sessions,self.report,self.master)
+    def test_master_best_candidate_must_be_watch_only(self):
+        m=copy.deepcopy(self.master)
+        m['BEST_CURRENT_OPPORTUNITY']['decision']='BUY'
+        with self.assertRaises(ValueError):
+            bridge(self.rows,self.sessions,self.report,m)
+    def test_master_best_requires_explicit_decision(self):
+        m=copy.deepcopy(self.master)
+        del m['BEST_CURRENT_OPPORTUNITY']['decision']
+        with self.assertRaises(ValueError):
+            bridge(self.rows,self.sessions,self.report,m)
     def test_unsafe_master_rejected(self):
         m=copy.deepcopy(self.master);m['ORDER_SENT']=True
         with self.assertRaises(ValueError):bridge(self.rows,self.sessions,self.report,m)
