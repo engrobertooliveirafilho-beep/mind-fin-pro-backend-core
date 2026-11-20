@@ -40,6 +40,14 @@ for f in feature_files:
             continue
 
         df["time"] = pd.to_datetime(df["time"], errors="coerce", dayfirst=True)
+        if df["time"].isna().any() or not df["time"].is_monotonic_increasing or df["time"].duplicated().any():
+            raise ValueError("invalid or nonchronological OHLC timestamps")
+        for column in ("open", "high", "low", "close"):
+            df[column] = pd.to_numeric(df[column], errors="coerce")
+        if df[["open", "high", "low", "close"]].isna().any().any():
+            raise ValueError("missing or nonnumeric OHLC prices")
+        if ((df["high"] < df[["open", "close", "low"]].max(axis=1)) | (df["low"] > df[["open", "close", "high"]].min(axis=1))).any():
+            raise ValueError("inconsistent OHLC price bounds")
         df = df.dropna(subset=["time","open","high","low","close"]).reset_index(drop=True)
 
         name = f.stem.replace("_features","")
