@@ -13,6 +13,8 @@ def bridge(refined, sessions, report, master):
     if not isinstance(master.get('BEST_CURRENT_OPPORTUNITY'), dict):
         raise ValueError('missing master best')
     best = master['BEST_CURRENT_OPPORTUNITY']
+    if best.get('decision') != 'WATCH_ONLY':
+        raise ValueError('unsafe master best opportunity decision')
     # Specialist identity alone is insufficient: verify the market and timeframe
     # before treating independent historical snapshots as reconciled.
     if any(not isinstance(best.get(key), str) or not best[key] or best[key] != top.get(key)
