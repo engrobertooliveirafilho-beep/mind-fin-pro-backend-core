@@ -71,6 +71,9 @@ for e in rows:
         scalp_bonus
     )
 
+    if not math.isfinite(deployment_score):
+        raise ValueError("nonfinite P1506 deployment score")
+
     edge = {
         **e,
         "convergence_points": convergence,
@@ -124,8 +127,8 @@ report = {
 }
 
 OUT.mkdir(parents=True, exist_ok=True)
-RANKED.write_text(json.dumps(ranked, indent=2, ensure_ascii=False), encoding="utf-8")
-REPORT.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
+RANKED.write_text(json.dumps(ranked, indent=2, ensure_ascii=False, allow_nan=False), encoding="utf-8")
+REPORT.write_text(json.dumps(report, indent=2, ensure_ascii=False, allow_nan=False), encoding="utf-8")
 
 print(json.dumps({
     "STATUS": report["STATUS"],
