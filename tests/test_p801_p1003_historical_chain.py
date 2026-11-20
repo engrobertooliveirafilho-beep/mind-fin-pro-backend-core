@@ -18,6 +18,8 @@ class HistoricalChain(unittest.TestCase):
   recovery=assess(read('p1003_recovery_report.json'),master,{})
   scheduler=validate(read('p1000_scheduler_report.json'),read('latest_daily_run.json'),master)
   self.assertEqual(release['certification'],'BLOCKED_RISK')
+  self.assertEqual({v[0] for v in release['risk_audit']['violations']},{'asset','timeframe','family'})
+  self.assertEqual(len(release['risk_audit']['violations']),3)
   self.assertEqual(master['certification'],'BLOCKED_UPSTREAM')
   self.assertEqual(health['HEALTH'],'RED')
   self.assertFalse(recovery['automatic_rerun_allowed'])
