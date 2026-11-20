@@ -212,6 +212,8 @@ for f in feature_files:
 
 if not confluence_rows:
     raise ValueError("no valid OHLC feature rows; market intelligence not generated")
+if not any((s.get("asset"), s.get("timeframe")) in {(c["asset"], c["timeframe"]) for c in confluence_rows} for s in specialists):
+    raise ValueError("no specialist matched any OHLC market identity; cannot certify opportunities")
 
 for p in [OUT1618,OUT1619,OUT1620,OUT1621,OUT1622,OUT1623,OUT1624]:
     p.mkdir(parents=True, exist_ok=True)
