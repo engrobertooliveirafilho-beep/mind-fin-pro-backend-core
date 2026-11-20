@@ -211,7 +211,7 @@ top = patterns[0] if patterns else None
 brain = {
     "STATUS": "P1635_MASTER_PORTFOLIO_BRAIN_COMPLETED",
     "BEST_CURRENT_OPPORTUNITY": top,
-    "DECISION": "WATCH_ONLY" if not top or float(top.get("opportunity_score") or 0) < 85 else "ELITE_DEMO_CANDIDATE",
+    "DECISION": "WATCH_ONLY",
     "REASON": "REAL_ORDERS_FORBIDDEN_AND_CONFLUENCE_THRESHOLD_NOT_MET",
     "ORDER_SENT": False,
     "REAL_ORDERS": "FORBIDDEN",
