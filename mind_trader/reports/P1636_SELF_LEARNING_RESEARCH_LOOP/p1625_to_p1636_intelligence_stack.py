@@ -69,8 +69,8 @@ for s in specialists:
         "specialist_id": s.get("specialist_id"),
         "macro_alignment": "PENDING_HIGHER_TF_REAL_LINK",
         "current_tf_confluence": score,
-        "mtf_alignment_score": min(100, score + 10 if tf in ["H4","D1"] else score),
-        "status": "MTF_CONFIRMATION_REGISTERED",
+        "mtf_alignment_score": None,
+        "status": "MTF_UNVERIFIED_HIGHER_TF_LINK_MISSING",
         "REAL_ORDERS": "FORBIDDEN",
         "FTMO_REAL": "FORBIDDEN",
         "MT5_REAL": "FORBIDDEN"
