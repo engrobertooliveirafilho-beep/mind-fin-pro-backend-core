@@ -13,6 +13,33 @@ SOURCE = Path(__file__).resolve().parents[1] / "mind_trader/reports/P1623_OPPORT
 ORIGINAL = Path(os.environ.get("ELDORA_HISTORICAL_DIR", "/mnt/data/et709_canonical")) / "reports/P1610_SPECIALIST_LIBRARY/specialist_library.json"
 
 class TestSevenEngineIntegration(unittest.TestCase):
+    def test_unmatched_market_fails_closed(self):
+        if not ORIGINAL.is_file():
+            raise AssertionError("canonical specialist library unavailable")
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            p = root / "reports/P1610_SPECIALIST_LIBRARY/specialist_library.json"
+            p.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(ORIGINAL, p)
+            f = root / "data/features/UNMATCHED_M99_features.csv"
+            f.parent.mkdir(parents=True, exist_ok=True)
+            n = 130
+            df = pd.DataFrame({
+                "time": pd.date_range("2025-01-01", periods=n, freq="5min"),
+                "open": [100.0]*n, "high": [101.0]*n,
+                "low": [99.0]*n, "close": [100.5]*n,
+                "ema_21": [100.0]*n, "ema_55": [99.0]*n,
+                "donchian_high_20": [102.0]*n, "donchian_low_20": [98.0]*n,
+                "rsi_14": [50.0]*n, "bb_position": [.5]*n,
+                "macd": [1.0]*n, "macd_signal": [0.0]*n,
+                "fibo_zone": ["NONE"]*n,
+            })
+            df.to_csv(f, index=False)
+            cp = subprocess.run([sys.executable, str(SOURCE)], cwd=root, capture_output=True, text=True)
+            self.assertNotEqual(cp.returncode, 0)
+            self.assertIn("no specialist matched any OHLC market identity", cp.stderr)
+            self.assertFalse((root / "reports/P1623_OPPORTUNITY_RANKING_ENGINE/p1623_master_market_intelligence_report.json").exists())
+
     def test_seven_engines_paper_only(self):
         if not ORIGINAL.is_file():
             raise AssertionError("canonical specialist library unavailable")
