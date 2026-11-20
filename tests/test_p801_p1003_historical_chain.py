@@ -1,7 +1,7 @@
 """Offline integration regression with original Drive reports; never sends orders."""
 import json,os,unittest
 from pathlib import Path
-from app.runtime.p801_release_interlock import from_files
+from app.runtime.p801_release_interlock import release_gate
 from app.runtime.p1001_master_interlock import gate
 from app.runtime.p1002_health_reconciler import reconcile
 from app.runtime.p1003_recovery_interlock import assess
@@ -12,7 +12,7 @@ class HistoricalChain(unittest.TestCase):
  def test_blocked_chain(self):
   root=Path(os.environ['ELDORA_HISTORICAL_DIR'])
   read=lambda name:json.loads((root/name).read_text(encoding='utf-8'))
-  release=from_files(root)
+  release=release_gate(read('p601_700_allocation.json'),read('p601_700_master_report.json'),read('p701_supervised_edges.json'),read('p801_release_gate.json'))
   master=gate(read('master_daily_report.json'),release)
   health=reconcile(read('p1002_health_report.json'),master)
   recovery=assess(read('p1003_recovery_report.json'),master,{})
