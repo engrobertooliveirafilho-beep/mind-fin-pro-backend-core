@@ -47,11 +47,11 @@ for f in feature_files:
         asset = parts[0]
         timeframe = parts[1] if len(parts) > 1 else "UNKNOWN"
 
-        df["swing_high"] = df["high"].rolling(5, center=True).max() == df["high"]
-        df["swing_low"] = df["low"].rolling(5, center=True).min() == df["low"]
+        df["swing_high"] = df["high"].rolling(5, center=True).max() == df["high"]  # confirmed only after two future bars
+        df["swing_low"] = df["low"].rolling(5, center=True).min() == df["low"]  # confirmed only after two future bars
 
-        df["prev_swing_high"] = df["high"].where(df["swing_high"]).ffill().shift(1)
-        df["prev_swing_low"] = df["low"].where(df["swing_low"]).ffill().shift(1)
+        df["prev_swing_high"] = df["high"].where(df["swing_high"]).ffill().shift(3)
+        df["prev_swing_low"] = df["low"].where(df["swing_low"]).ffill().shift(3)
 
         df["bos_bull"] = (df["close"] > df["prev_swing_high"]).astype(int)
         df["bos_bear"] = (df["close"] < df["prev_swing_low"]).astype(int)
