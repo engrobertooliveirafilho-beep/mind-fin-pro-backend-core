@@ -44,6 +44,10 @@ for specialist in specialists:
             raise ValueError(f"invalid specialist metric: {metric}")
     if not 0 <= specialist["deployment_score"] <= 100:
         raise ValueError("specialist deployment score out of bounds")
+    if specialist["payoff_ratio_real"] < 0 or specialist["profit_factor_real"] < 0 or specialist["avg_holding_bars"] < 0:
+        raise ValueError("negative specialist risk or holding metric")
+    if specialist["best_entry_hour"] != int(specialist["best_entry_hour"]) or not 0 <= specialist["best_entry_hour"] <= 23:
+        raise ValueError("invalid specialist entry hour")
 feature_files = sorted(FEATURES.glob("*_features.csv"))
 if not feature_files:
     raise ValueError("original OHLC feature CSV files unavailable; no empty success")
