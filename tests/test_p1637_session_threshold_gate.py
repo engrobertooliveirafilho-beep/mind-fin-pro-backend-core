@@ -29,3 +29,11 @@ class TestP1637(unittest.TestCase):
     def test_report_mismatch(self):
         r=row();p=report(r);p['OPPORTUNITIES_REFINED']=2
         with self.assertRaises(ValueError):reconcile([r],[{}],p)
+
+    def test_report_aggregate_schema(self):
+        r=row();r.update(deployment_score=100,confluence_score=100,refined_opportunity_score=97,refined_decision='ELITE_CANDIDATE')
+        p=report(r);p['ELITE_CANDIDATES']=1
+        self.assertEqual(reconcile([r],[{}],p)['rows'],1)
+    def test_reject_aggregate_tampering(self):
+        r=row();p=report(r);p['DEMO_CANDIDATES']=1
+        with self.assertRaises(ValueError):reconcile([r],[{}],p)
