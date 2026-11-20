@@ -26,6 +26,6 @@ def reconcile(rows,sessions,report):
         if previous is not None and raw>previous:raise ValueError('unsorted')
         previous=raw
         if decision in counts:counts[decision]+=1
-    if report.get('OPPORTUNITIES_REFINED')!=len(rows) or report.get('SESSIONS_REGISTERED')!=len(sessions) or any(report.get(k)!=v for k,v in counts.items()):raise ValueError('totals mismatch')
+    if report.get('OPPORTUNITIES_REFINED')!=len(rows) or report.get('SESSIONS_REGISTERED')!=len(sessions) or any(report.get(k)!=v for k,v in (({'ELITE_CANDIDATE':'ELITE_CANDIDATES','DEMO_CANDIDATE':'DEMO_CANDIDATES','WATCH_HIGH_PRIORITY':'WATCH_HIGH_PRIORITY'}[key],value) for key,value in counts.items())):raise ValueError('totals mismatch')
     if report.get('TOP10_REFINED')!=rows[:10] or report.get('ORDER_SENT') is not False or any(report.get(k)!='FORBIDDEN' for k in ('REAL_ORDERS','FTMO_REAL','MT5_REAL')):raise ValueError('unsafe report')
     return {'status':'HISTORICAL_RECONCILED','rows':len(rows),'sessions':len(sessions),'promotion_allowed':False,'order_send_allowed':False,'e2e_certified':False}
