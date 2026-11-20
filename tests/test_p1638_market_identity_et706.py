@@ -41,6 +41,21 @@ class HistoricalBridgeRegression(unittest.TestCase):
         m['BEST_CURRENT_OPPORTUNITY'].update({k:self.rows[0][k] for k in ('specialist_id','asset','timeframe')})
         m['BEST_CURRENT_OPPORTUNITY']['timeframe']='M1'
         self.assertEqual(bridge(self.rows,self.sessions,self.report,m)['status'],'RECONCILIATION_CONFLICT')
+    def test_historical_winner_is_rank_two(self):
+        r=bridge(self.rows,self.sessions,self.report,self.master)
+        self.assertEqual(r['historical_best_refined_rank'],2)
+        self.assertEqual(r['refined_top_specialist_id'],self.rows[0]['specialist_id'])
+        self.assertFalse(r['order_send_allowed'])
+    def test_unknown_historical_identity_no_rank(self):
+        m=copy.deepcopy(self.master)
+        m['BEST_CURRENT_OPPORTUNITY']['specialist_id']='UNKNOWN'
+        r=bridge(self.rows,self.sessions,self.report,m)
+        self.assertIsNone(r['historical_best_refined_rank'])
+        self.assertFalse(r['promotion_allowed'])
+    def test_ambiguous_identity_rejected(self):
+        rows=copy.deepcopy(self.rows)
+        rows[2]['specialist_id']=rows[1]['specialist_id']
+        with self.assertRaises(ValueError):bridge(rows,self.sessions,self.report,self.master)
     def test_unsafe_master_rejected(self):
         m=copy.deepcopy(self.master);m['ORDER_SENT']=True
         with self.assertRaises(ValueError):bridge(self.rows,self.sessions,self.report,m)
