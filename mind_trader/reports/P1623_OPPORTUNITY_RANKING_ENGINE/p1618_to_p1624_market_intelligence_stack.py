@@ -1,5 +1,6 @@
 import json
 import pandas as pd
+import numpy as np
 from pathlib import Path
 from datetime import datetime, UTC
 from collections import defaultdict
@@ -46,6 +47,15 @@ for f in feature_files:
             df[column] = pd.to_numeric(df[column], errors="coerce")
         if df[["open", "high", "low", "close"]].isna().any().any():
             raise ValueError("missing or nonnumeric OHLC prices")
+        required_numeric = ("open", "high", "low", "close", "ema_21", "ema_55", "donchian_high_20", "donchian_low_20", "rsi_14", "bb_position", "macd", "macd_signal")
+        if any(column not in df.columns for column in required_numeric):
+            raise ValueError("missing required OHLC or indicator feature columns")
+        for column in required_numeric:
+            df[column] = pd.to_numeric(df[column], errors="coerce")
+        if not np.isfinite(df[list(required_numeric)].to_numpy(dtype=float)).all():
+            raise ValueError("nonfinite OHLC or indicator feature values")
+        if (df[["open", "high", "low", "close"]] <= 0).any().any():
+            raise ValueError("nonpositive OHLC prices")
         if ((df["high"] < df[["open", "close", "low"]].max(axis=1)) | (df["low"] > df[["open", "close", "high"]].min(axis=1))).any():
             raise ValueError("inconsistent OHLC price bounds")
         df = df.dropna(subset=["time","open","high","low","close"]).reset_index(drop=True)
