@@ -1,4 +1,4 @@
-import tempfile, unittest
+import os, tempfile, unittest
 from pathlib import Path
 from app.runtime.p1630_market_structure_gate import audit, audit_file
 
@@ -38,6 +38,9 @@ class TestP1630(unittest.TestCase):
             p=Path(d)/'empty.json';p.write_bytes(b'')
             with self.assertRaises(ValueError):audit_file(p)
     def test_historical_source(self):
-        report=audit_file('/mnt/data/p1630_market_structure_library.json')
+        source=os.environ.get('P1630_HISTORICAL_SOURCE')
+        if not source:
+            self.skipTest('P1630_HISTORICAL_SOURCE not supplied')
+        report=audit_file(source)
         self.assertEqual(report['patterns'],187)
         self.assertEqual(report['observations'],393)
