@@ -38,7 +38,7 @@ for specialist in specialists:
         raise ValueError("invalid specialist market identity")
     if specialist.get("ORDER_SENT") is not False or any(specialist.get(flag) != "FORBIDDEN" for flag in ("REAL_ORDERS", "FTMO_REAL", "MT5_REAL")):
         raise ValueError("unsafe specialist execution flags")
-    for metric in ("deployment_score", "payoff_ratio_real"):
+    for metric in ("deployment_score", "payoff_ratio_real", "expectancy_per_trade_real", "profit_factor_real", "avg_holding_bars", "best_entry_hour"):
         value = specialist.get(metric)
         if isinstance(value, bool) or not isinstance(value, (int, float)) or not np.isfinite(value):
             raise ValueError(f"invalid specialist metric: {metric}")
