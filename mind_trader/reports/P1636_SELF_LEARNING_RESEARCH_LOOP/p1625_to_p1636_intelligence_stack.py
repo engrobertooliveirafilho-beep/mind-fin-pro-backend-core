@@ -54,6 +54,21 @@ for opportunity in opps:
         if not opportunity.get(field) or opportunity[field] != specialist.get(field):
             raise ValueError(f"opportunity market identity mismatch: {field}")
 
+# Validate market snapshots before they can influence research scoring.
+seen_confluence = set()
+for snapshot in conf:
+    market = (snapshot.get("asset"), snapshot.get("timeframe"))
+    if not all(isinstance(v, str) and v.strip() for v in market) or market in seen_confluence:
+        raise ValueError("duplicate or invalid confluence market identity")
+    seen_confluence.add(market)
+    for flag in ("REAL_ORDERS", "FTMO_REAL", "MT5_REAL"):
+        if snapshot.get(flag) != "FORBIDDEN":
+            raise ValueError(f"unsafe confluence safety flag: {flag}")
+    for metric in ("confluence_score", "structure_score", "candle_score", "indicator_score"):
+        value = snapshot.get(metric)
+        if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or not 0 <= value <= 100:
+            raise ValueError(f"invalid confluence metric: {metric}")
+
 conf_map = {(c.get("asset"), c.get("timeframe")): c for c in conf}
 
 # P1625 — Multi-timeframe confirmation
