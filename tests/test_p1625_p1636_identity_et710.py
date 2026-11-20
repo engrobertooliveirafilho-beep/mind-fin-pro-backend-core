@@ -45,6 +45,26 @@ class TestHistoricalIdentity(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertTrue(report)
 
+    def test_no_score_based_promotion(self):
+        for score in (85, 99.9):
+            with self.subTest(score=score):
+                with tempfile.TemporaryDirectory() as directory:
+                    root = Path(directory)
+                    for name in INPUTS:
+                        dest = root / name
+                        dest.parent.mkdir(parents=True, exist_ok=True)
+                        shutil.copyfile(ROOT / name, dest)
+                    dest = root / INPUTS[1]
+                    rows = json.loads(dest.read_text(encoding="utf-8"))
+                    rows[0]["opportunity_score"] = score
+                    dest.write_text(json.dumps(rows), encoding="utf-8")
+                    result = subprocess.run([sys.executable, str(SOURCE)], cwd=root, capture_output=True, text=True)
+                    self.assertEqual(result.returncode, 0, result.stderr)
+                    brain = json.loads((root / "reports/P1635_MASTER_PORTFOLIO_BRAIN/p1635_master_portfolio_brain.json").read_text(encoding="utf-8"))
+                    self.assertEqual(brain["DECISION"], "WATCH_ONLY")
+                    self.assertIs(brain["ORDER_SENT"], False)
+                    self.assertEqual(brain["REAL_ORDERS"], "FORBIDDEN")
+
     def test_orphan_opportunity(self):
         result, report = self.execute((INPUTS[1], lambda rows: rows[0].update(specialist_id="UNKNOWN")))
         self.assertNotEqual(result.returncode, 0)
