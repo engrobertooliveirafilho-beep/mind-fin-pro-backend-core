@@ -21,7 +21,7 @@ class TestMTFUnverified(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         if not all((ROOT / name).is_file() for name in INPUTS):
-            raise unittest.SkipTest("historical canonical inputs missing")
+            raise AssertionError("canonical historical inputs unavailable; certification blocked")
 
     def test_canonical_mtf_not_certified(self):
         with tempfile.TemporaryDirectory() as directory:
