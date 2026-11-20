@@ -1,4 +1,5 @@
 import json
+import math
 from pathlib import Path
 from datetime import datetime, UTC
 
@@ -13,10 +14,29 @@ def load(p):
     except Exception:
         return []
 
+if not SRC.is_file():
+    raise ValueError("P1505 original input unavailable")
 rows = load(SRC)
+if not isinstance(rows, list) or not rows:
+    raise ValueError("P1505 original input invalid or empty")
 
 ranked = []
+seen = set()
 for e in rows:
+    if not isinstance(e, dict) or not isinstance(e.get("asset"), str) or not e["asset"].strip() or not isinstance(e.get("timeframe"), str):
+        raise ValueError("invalid P1505 edge identity")
+    identity = (e["asset"], e["timeframe"], e.get("family"), e.get("profile"))
+    if identity in seen:
+        raise ValueError("duplicate P1505 edge identity")
+    seen.add(identity)
+    if e.get("ORDER_SENT") is not False or any(e.get(k) != "FORBIDDEN" for k in ("REAL_ORDERS", "FTMO_REAL", "MT5_REAL")):
+        raise ValueError("unsafe P1505 edge flags")
+    for metric in ("trades", "payoff_ratio_real", "expectancy_per_trade_real", "profit_factor_real", "win_rate", "avg_holding_bars"):
+        value = e.get(metric)
+        if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
+            raise ValueError(f"invalid P1505 metric: {metric}")
+    if e["trades"] < 0 or e["trades"] != int(e["trades"]) or not 0 <= e["win_rate"] <= 1 or e["avg_holding_bars"] < 0:
+        raise ValueError("P1505 metric out of bounds")
     trades = int(e.get("trades") or 0)
     payoff = float(e.get("payoff_ratio_real") or 0)
     exp = float(e.get("expectancy_per_trade_real") or 0)
@@ -74,6 +94,9 @@ ranked = sorted(
     reverse=True
 )
 
+if not ranked:
+    raise ValueError("no eligible P1505 edges; ranking not completed")
+
 best_by_asset = {}
 for e in ranked:
     a = e["asset"]
@@ -98,6 +121,7 @@ report = {
     "generated_at": datetime.now(UTC).isoformat()
 }
 
+OUT.mkdir(parents=True, exist_ok=True)
 RANKED.write_text(json.dumps(ranked, indent=2, ensure_ascii=False), encoding="utf-8")
 REPORT.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
 
