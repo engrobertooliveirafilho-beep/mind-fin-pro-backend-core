@@ -11,9 +11,9 @@ def bridge(refined, sessions, report, master):
     if not refined or any(row.get('refined_decision') != 'WATCH_ONLY' for row in refined):
         raise ValueError('promotion requires separate certification')
     top = refined[0]
-    if not isinstance(master.get('BEST'), dict):
+    if not isinstance(master.get('BEST_CURRENT_OPPORTUNITY'), dict):
         raise ValueError('missing master best')
-    best = master['BEST']
+    best = master['BEST_CURRENT_OPPORTUNITY']
     if best.get('specialist_id') != top.get('specialist_id'):
         return {'status':'RECONCILIATION_CONFLICT','p1637':evidence,
                 'order_send_allowed':False,'promotion_allowed':False,'e2e_certified':False}
