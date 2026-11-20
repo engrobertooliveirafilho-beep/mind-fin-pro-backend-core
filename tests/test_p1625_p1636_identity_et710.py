@@ -21,7 +21,7 @@ class TestHistoricalIdentity(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         if not all((ROOT / f).is_file() for f in INPUTS):
-            raise unittest.SkipTest("original historical inputs unavailable; no synthetic substitution")
+            raise AssertionError("canonical historical inputs unavailable; certification blocked")
 
     def execute(self, change=None):
         with tempfile.TemporaryDirectory() as directory:
