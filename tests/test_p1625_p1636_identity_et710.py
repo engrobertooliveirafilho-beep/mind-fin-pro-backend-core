@@ -44,6 +44,21 @@ class TestHistoricalIdentity(unittest.TestCase):
         result, report = self.execute()
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertTrue(report)
+        # A generated report is not a functional certification of empty libraries.
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for name in INPUTS:
+                dest = root / name
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(ROOT / name, dest)
+            result = subprocess.run([sys.executable, str(SOURCE)], cwd=root, capture_output=True, text=True)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            master = json.loads((root / "reports/P1636_SELF_LEARNING_RESEARCH_LOOP/p1625_to_p1636_master_report.json").read_text(encoding="utf-8"))
+            self.assertEqual(master["STATUS"], "P1625_TO_P1636_PARTIAL_RESEARCH_ONLY")
+            self.assertEqual(master["P1631_FIBONACCI_STATUS"], "NOT_IMPLEMENTED_NO_SOURCE_FEATURES")
+            self.assertEqual(master["P1632_CANDLE_STATUS"], "NOT_IMPLEMENTED_NO_SOURCE_FEATURES")
+            self.assertEqual(master["P1636_SELF_LEARNING_STATUS"], "PLAN_ONLY_NOT_EXECUTED")
+            self.assertIs(master["E2E_CERTIFIED"], False)
 
     def test_no_score_based_promotion(self):
         for score in (85, 99.9):
