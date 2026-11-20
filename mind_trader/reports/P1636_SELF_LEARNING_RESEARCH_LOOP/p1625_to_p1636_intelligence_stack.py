@@ -129,6 +129,18 @@ for ses, d in session_stats.items():
         "status": "SESSION_INTELLIGENCE_REGISTERED"
     })
 
+# P1628 provenance: reject unsafe or malformed trade samples before payoff computation.
+for trade in trades:
+    if not isinstance(trade.get("edge_id"), str) or not trade["edge_id"].strip():
+        raise ValueError("invalid historical trade edge identity")
+    for flag in ("REAL_ORDERS", "FTMO_REAL", "MT5_REAL"):
+        if trade.get(flag) != "FORBIDDEN":
+            raise ValueError(f"unsafe historical trade safety flag: {flag}")
+    for metric in ("pnl_pct", "mae_pct"):
+        value = trade.get(metric)
+        if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
+            raise ValueError(f"invalid historical trade metric: {metric}")
+
 # P1628 — Payoff forensics
 payoff_by_edge = defaultdict(list)
 for t in trades:
