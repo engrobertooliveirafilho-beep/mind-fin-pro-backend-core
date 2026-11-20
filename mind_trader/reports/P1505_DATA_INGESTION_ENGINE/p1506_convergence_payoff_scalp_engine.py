@@ -23,7 +23,7 @@ if not isinstance(rows, list) or not rows:
 ranked = []
 seen = set()
 for e in rows:
-    if not isinstance(e, dict) or not isinstance(e.get("asset"), str) or not e["asset"].strip() or not isinstance(e.get("timeframe"), str):
+    if not isinstance(e, dict) or not isinstance(e.get("asset"), str) or not e["asset"].strip() or e.get("timeframe") not in {"M1", "M5", "M15", "M30", "H1", "H4", "D1"}:
         raise ValueError("invalid P1505 edge identity")
     identity = e.get("edge_id")
     if not isinstance(identity, str) or not identity.strip():
