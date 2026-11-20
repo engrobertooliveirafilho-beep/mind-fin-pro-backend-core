@@ -1,4 +1,5 @@
 import json
+import math
 from pathlib import Path
 from datetime import datetime, UTC
 from collections import defaultdict
@@ -39,6 +40,13 @@ for opportunity in opps:
     if sid not in ids or sid in seen_opportunities:
         raise ValueError("orphan or duplicate opportunity specialist identity")
     seen_opportunities.add(sid)
+    for flag in ("REAL_ORDERS", "FTMO_REAL", "MT5_REAL"):
+        if opportunity.get(flag) != "FORBIDDEN":
+            raise ValueError(f"unsafe historical opportunity safety flag: {flag}")
+    for metric in ("opportunity_score", "deployment_score", "confluence_score"):
+        value = opportunity.get(metric)
+        if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
+            raise ValueError(f"invalid historical opportunity metric: {metric}")
     if opportunity.get("decision") != "WATCH_ONLY" or opportunity.get("ORDER_SENT") is not False:
         raise ValueError("unsafe historical opportunity decision or order state")
     specialist = ids[sid]
