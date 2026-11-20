@@ -25,6 +25,25 @@ opps = load(OPPS, [])
 conf = load(CONF, [])
 trades = load(TRADES, [])
 
+# P1636 provenance: a ranked opportunity must identify the registered specialist
+# and its exact market. Historical trades may contain other research edges.
+ids = {}
+for specialist in specialists:
+    sid = specialist.get("specialist_id")
+    if not isinstance(sid, str) or not sid or sid in ids:
+        raise ValueError("duplicate or missing specialist identity")
+    ids[sid] = specialist
+seen_opportunities = set()
+for opportunity in opps:
+    sid = opportunity.get("specialist_id")
+    if sid not in ids or sid in seen_opportunities:
+        raise ValueError("orphan or duplicate opportunity specialist identity")
+    seen_opportunities.add(sid)
+    specialist = ids[sid]
+    for field in ("asset", "timeframe"):
+        if not opportunity.get(field) or opportunity[field] != specialist.get(field):
+            raise ValueError(f"opportunity market identity mismatch: {field}")
+
 conf_map = {(c.get("asset"), c.get("timeframe")): c for c in conf}
 
 # P1625 — Multi-timeframe confirmation
