@@ -61,6 +61,21 @@ class TestET715(unittest.TestCase):
         self.assertNotEqual(cp.returncode, 0)
         self.assertFalse(report)
 
+    def test_negative_score_rejected(self):
+        cp, report = self.execute(lambda row: row.update(opportunity_score=-0.01))
+        self.assertNotEqual(cp.returncode, 0)
+        self.assertFalse(report)
+
+    def test_score_above_hundred_rejected(self):
+        cp, report = self.execute(lambda row: row.update(opportunity_score=100.01))
+        self.assertNotEqual(cp.returncode, 0)
+        self.assertFalse(report)
+
+    def test_score_hundred_accepted(self):
+        cp, report = self.execute(lambda row: row.update(opportunity_score=100))
+        self.assertEqual(cp.returncode, 0, cp.stderr)
+        self.assertTrue(report)
+
     def test_missing_ftmo_block(self):
         cp, report = self.execute(lambda row: row.pop("FTMO_REAL"))
         self.assertNotEqual(cp.returncode, 0)
