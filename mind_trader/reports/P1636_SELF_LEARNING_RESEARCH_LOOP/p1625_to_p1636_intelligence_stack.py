@@ -45,7 +45,7 @@ for opportunity in opps:
             raise ValueError(f"unsafe historical opportunity safety flag: {flag}")
     for metric in ("opportunity_score", "deployment_score", "confluence_score"):
         value = opportunity.get(metric)
-        if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
+        if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or not 0 <= value <= 100:
             raise ValueError(f"invalid historical opportunity metric: {metric}")
     if opportunity.get("decision") != "WATCH_ONLY" or opportunity.get("ORDER_SENT") is not False:
         raise ValueError("unsafe historical opportunity decision or order state")
