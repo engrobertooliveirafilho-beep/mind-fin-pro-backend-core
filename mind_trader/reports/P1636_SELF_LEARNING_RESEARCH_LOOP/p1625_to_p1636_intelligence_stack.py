@@ -39,6 +39,8 @@ for opportunity in opps:
     if sid not in ids or sid in seen_opportunities:
         raise ValueError("orphan or duplicate opportunity specialist identity")
     seen_opportunities.add(sid)
+    if opportunity.get("decision") != "WATCH_ONLY" or opportunity.get("ORDER_SENT") is not False:
+        raise ValueError("unsafe historical opportunity decision or order state")
     specialist = ids[sid]
     for field in ("asset", "timeframe"):
         if not opportunity.get(field) or opportunity[field] != specialist.get(field):
