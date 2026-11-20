@@ -48,6 +48,8 @@ class TestP1506(unittest.TestCase):
             self.assertTrue(all(edge["ORDER_SENT"] is False and edge["FTMO_REAL"] == "FORBIDDEN" for edge in ranked))
     def test_score_overflow_rejected(self):
         self.check(lambda rows: rows[0].update(payoff_ratio_real=1e308, profit_factor_real=1e308, expectancy_per_trade_real=1e308))
+    def test_unknown_timeframe(self): self.check(lambda rows: rows[0].update(timeframe="M2"))
+    def test_blank_timeframe(self): self.check(lambda rows: rows[0].update(timeframe=" "))
     def test_valid(self): self.check(accepted=True)
     def test_empty(self): self.check(lambda rows: rows.clear())
     def test_duplicate(self): self.check(lambda rows: rows.append(dict(rows[0])))
