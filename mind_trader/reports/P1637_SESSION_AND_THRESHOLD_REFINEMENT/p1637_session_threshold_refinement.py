@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 from datetime import datetime, UTC
 from collections import defaultdict
+from math import isfinite
 
 CONF = Path("reports/P1620_CONFLUENCE_ENGINE/confluence_snapshot.json")
 OPPS = Path("reports/P1623_OPPORTUNITY_RANKING_ENGINE/opportunity_ranking.json")
@@ -21,7 +22,8 @@ if not isinstance(conf, list) or not conf or not isinstance(opps, list) or not o
 OUT.mkdir(parents=True, exist_ok=True)
 
 def session_from_hour(h):
-    h = int(h)
+    if type(h) is not int or not 0 <= h <= 23:
+        raise ValueError("Invalid trading hour")
     if 0 <= h <= 6:
         return "ASIA"
     if 7 <= h <= 9:
@@ -47,7 +49,9 @@ session_stats = defaultdict(lambda: {
 for c in conf:
     h = c.get("hour",0)
     s = session_from_hour(h)
-    score = float(c.get("confluence_score") or 0)
+    score = float(c.get("confluence_score"))
+    if not isfinite(score) or not 0 <= score <= 100:
+        raise ValueError("Invalid confluence score")
 
     session_stats[s]["samples"] += 1
     session_stats[s]["avg_confluence"] += score
@@ -70,11 +74,13 @@ for s,d in session_stats.items():
 
 refined_opps = []
 for o in opps:
-    h = int(o.get("hour") or 0)
+    h = o.get("hour")
     session = session_from_hour(h)
 
     deployment = float(o.get("deployment_score") or 0)
-    confluence = float(o.get("confluence_score") or 0)
+    confluence = float(o.get("confluence_score"))
+    if not all(isfinite(v) and 0 <= v <= 100 for v in (deployment, confluence)):
+        raise ValueError("Invalid opportunity score")
 
     session_bonus = 0
     if session in ["LONDON_OPEN","LONDON_NY_OVERLAP","NEW_YORK"]:
