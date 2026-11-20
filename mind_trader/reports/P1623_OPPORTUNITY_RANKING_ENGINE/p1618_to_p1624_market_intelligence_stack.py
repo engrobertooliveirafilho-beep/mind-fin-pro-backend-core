@@ -25,6 +25,25 @@ def load_json(p, default):
 specialists = load_json(SPECIALISTS, [])
 if not isinstance(specialists, list) or not specialists:
     raise ValueError("original specialist library unavailable or empty")
+# Fail closed on unsafe, duplicate or nonfinite specialist provenance.
+seen_specialists = set()
+for specialist in specialists:
+    if not isinstance(specialist, dict):
+        raise ValueError("invalid specialist record")
+    identity = specialist.get("specialist_id")
+    if not isinstance(identity, str) or not identity.strip() or identity in seen_specialists:
+        raise ValueError("missing or duplicate specialist identity")
+    seen_specialists.add(identity)
+    if not all(isinstance(specialist.get(key), str) and specialist[key].strip() for key in ("asset", "timeframe", "family", "profile")):
+        raise ValueError("invalid specialist market identity")
+    if specialist.get("ORDER_SENT") is not False or any(specialist.get(flag) != "FORBIDDEN" for flag in ("REAL_ORDERS", "FTMO_REAL", "MT5_REAL")):
+        raise ValueError("unsafe specialist execution flags")
+    for metric in ("deployment_score", "payoff_ratio_real"):
+        value = specialist.get(metric)
+        if isinstance(value, bool) or not isinstance(value, (int, float)) or not np.isfinite(value):
+            raise ValueError(f"invalid specialist metric: {metric}")
+    if not 0 <= specialist["deployment_score"] <= 100:
+        raise ValueError("specialist deployment score out of bounds")
 feature_files = sorted(FEATURES.glob("*_features.csv"))
 if not feature_files:
     raise ValueError("original OHLC feature CSV files unavailable; no empty success")
