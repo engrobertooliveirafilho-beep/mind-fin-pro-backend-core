@@ -469,12 +469,34 @@ class RuntimePersistence:
 
     def save(self, payload: Dict[str, Any]) -> None:
         assert_no_financial_execution()
-        self.path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+        # Atomic replacement prevents a crash from truncating the last
+        # successfully committed PAPER snapshot.
+        import tempfile
+        serialized = json.dumps(payload, indent=2, ensure_ascii=False, allow_nan=False)
+        temporary = None
+        try:
+            with tempfile.NamedTemporaryFile(
+                mode="w", encoding="utf-8", dir=self.path.parent,
+                prefix=self.path.name + ".", suffix=".tmp", delete=False
+            ) as stream:
+                temporary = Path(stream.name)
+                stream.write(serialized)
+                stream.flush()
+                os.fsync(stream.fileno())
+            os.replace(temporary, self.path)
+            temporary = None
+        finally:
+            if temporary is not None:
+                temporary.unlink(missing_ok=True)
 
     def load(self) -> Dict[str, Any]:
+        assert_no_financial_execution()
         if not self.path.exists():
             return {}
-        return json.loads(self.path.read_text(encoding="utf-8"))
+        loaded = json.loads(self.path.read_text(encoding="utf-8"))
+        if not isinstance(loaded, dict):
+            raise ValueError("INVALID_PAPER_RUNTIME_SNAPSHOT")
+        return loaded
 
 
 def load_portfolio(path: str) -> List[Dict[str, Any]]:
