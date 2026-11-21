@@ -32,7 +32,7 @@ def decide_signal(signal: dict, context: dict) -> dict:
             "strategy": signal.get("strategy"),
             "context_edge": context_edge,
             "targeting": target,
-            "final_decision": "BLOCK_SIGNAL_TARGET_BELOW_2R",
+            "final_decision": ("BLOCK_SIGNAL_TARGET_BELOW_2R" if target.get("decision") == "BLOCK_TARGET_BELOW_2R" else "BLOCK_SIGNAL_INVALID_TARGET"),
             "paper_lot": 0.0,
             "mode": "PAPER_ONLY",
             "real_orders": "FORBIDDEN",
