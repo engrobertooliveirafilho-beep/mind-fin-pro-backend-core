@@ -28,10 +28,13 @@ def enforce_paper_only() -> Dict[str, str]:
 
 
 def assert_no_financial_execution() -> None:
-    locks = enforce_paper_only()
-    for k, v in ABSOLUTE_LOCKS.items():
-        if locks.get(k) != v:
+    # Do not overwrite an unsafe pre-existing mode before inspecting it.
+    # This detects explicit hostile environment configuration fail-closed.
+    for k, expected in ABSOLUTE_LOCKS.items():
+        observed = os.environ.get(k)
+        if observed is not None and observed != expected:
             raise RuntimeError(f"{k}_LOCK_BREACH")
+    enforce_paper_only()
 
 
 def load_json(path: str) -> Any:
@@ -65,12 +68,13 @@ class Scheduler:
 class Supervisor:
     def evaluate(self, deps: Dict[str, Any]) -> AutoDecision:
         assert_no_financial_execution()
-        ok = all(deps[k].get("status") == "PASS" for k in deps)
+        required = ("p2071", "p2081", "p2091")
+        ok = all(isinstance(deps.get(k), dict) and deps[k].get("status") == "PASS" for k in required)
         return AutoDecision(
             "P2102_SUPERVISOR",
             "PASS" if ok else "FAIL",
             "SUPERVISOR_DEPENDENCIES_OK" if ok else "SUPERVISOR_DEPENDENCY_FAIL",
-            {"dependencies": {k: deps[k].get("status") for k in deps}},
+            {"dependencies": {k: deps.get(k, {}).get("status") if isinstance(deps.get(k), dict) else None for k in required}},
         )
 
 
