@@ -85,3 +85,40 @@ def test_p2111_inventory_is_not_functional_certification(tmp_path):
     assert result.payload["runtime_modules"] == 1
     assert result.status == "FAIL"
     assert result.reason == "CAPABILITY_DISCOVERY_INCOMPLETE"
+
+def test_p2113_rejects_empty_and_syntax_invalid_modules(tmp_path):
+    from app.runtime.p2111_2120_maximum_technical_capacity import MissingComponentsAudit
+    expected = [
+        "p2071_2080_realtime_paper_runtime.py",
+        "p2081_2090_realtime_portfolio_governance.py",
+        "p2091_2100_realtime_intelligence_layer.py",
+        "p2101_2110_autonomous_paper_operations.py",
+    ]
+    runtime = tmp_path / "app" / "runtime"
+    runtime.mkdir(parents=True)
+    (runtime / expected[0]).write_text("", encoding="utf-8")
+    (runtime / expected[1]).write_text("def broken(:", encoding="utf-8")
+    (runtime / expected[2]).write_text("def available(): return 1", encoding="utf-8")
+    decision = MissingComponentsAudit().evaluate(str(tmp_path))
+    assert decision.status == "FAIL"
+    assert decision.payload["syntax_checked"] == 1
+    assert len(decision.payload["invalid"]) == 2
+    assert len(decision.payload["missing"]) == 1
+
+
+def test_p2113_does_not_certify_even_syntax_valid_modules(tmp_path):
+    from app.runtime.p2111_2120_maximum_technical_capacity import MissingComponentsAudit
+    runtime = tmp_path / "app" / "runtime"
+    runtime.mkdir(parents=True)
+    for name in (
+        "p2071_2080_realtime_paper_runtime.py",
+        "p2081_2090_realtime_portfolio_governance.py",
+        "p2091_2100_realtime_intelligence_layer.py",
+        "p2101_2110_autonomous_paper_operations.py",
+    ):
+        (runtime / name).write_text("def stub(): return None", encoding="utf-8")
+    decision = MissingComponentsAudit().evaluate(str(tmp_path))
+    assert decision.payload["syntax_checked"] == 4
+    assert decision.payload["missing"] == []
+    assert decision.payload["invalid"] == []
+    assert decision.status == "FAIL"
