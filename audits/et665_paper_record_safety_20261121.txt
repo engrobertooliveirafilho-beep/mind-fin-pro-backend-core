@@ -1,0 +1,10 @@
+ET665 PAPER record-path regression / 2026-11-21
+GitHub branch: engineering/et665-p2071-paper-safety-20261121
+Published source fix: 1576798ade3057cc8904eb0547e07116332dd0cf
+Published tests: b50c21e0b51e1f8ce181cae9eaf2d73b97306211
+Local test command: cd /mnt/data/et665_session_validation && PYTHONPATH=. python -m unittest discover -s tests -p 'test*.py' -v
+Result: 20 tests executed; 20 PASS; 0 failures; 0.024 seconds.
+Local evidence: regression_record_20261121.log SHA256 385305de27f1319cde40aa9081c2e57079804411c45f691ef4d7c354e56d9a73.
+Safety: block record on config drift or corrupted session; permit settlement at daily trade count cap.
+Caveat: locally equivalent logic only, not exact GitHub blob; no P2071 E2E run, no broker execution, no certification of original ledger.
+PAPER_ONLY=TRUE | REAL_ORDERS=FORBIDDEN | MAIN=INTACT | E2E_CERTIFIED=FALSE | COST=R$0
