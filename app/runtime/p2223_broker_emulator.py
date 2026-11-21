@@ -26,13 +26,15 @@ class RiskEngine:
         self.equity = 100000
         self.peak = self.equity
         self.halted = False
+        self.session_start_equity = self.equity
 
     def check(self, pnl):
         self.equity += pnl
         self.peak = max(self.peak, self.equity)
         drawdown = (self.peak - self.equity) / self.peak
 
-        if drawdown > self.max_drawdown:
+        session_loss = (self.session_start_equity - self.equity) / self.session_start_equity
+        if drawdown > self.max_drawdown or session_loss > self.daily_loss_limit:
             self.halted = True
             return "KILLED"
         return "OK"
