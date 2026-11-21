@@ -708,6 +708,8 @@ def load_portfolio(path: str) -> List[Dict[str, Any]]:
     # Historical P2067 weights are not proof of an executable allocation.
     # Validate any supplied allocation; do not silently normalize residuals.
     weight_present = ["normalized_weight" in item for item in candidates]
+    if isinstance(raw, dict) and "declared_reserve" in raw and not any(weight_present):
+        raise ValueError("P2067_RESERVE_WITHOUT_WEIGHTS")
     if any(weight_present):
         if not all(weight_present):
             raise ValueError("P2067_PARTIAL_ALLOCATION")
