@@ -14,15 +14,19 @@ def institutional_targets(ctx: dict) -> dict:
     except (TypeError, ValueError, OverflowError):
         return {"approved":False,"decision":"BLOCK_INVALID_INPUT","mode":"PAPER_ONLY","real_orders":"FORBIDDEN","ftmo_real":"FORBIDDEN"}
     side=str(ctx["side"]).upper()
-    swing_high=number("swing_high", entry)
-    swing_low=number("swing_low", entry)
-    atr=number("atr", 0)
-    session_high=number("session_high", swing_high)
-    session_low=number("session_low", swing_low)
-    liquidity_high=number("liquidity_high", session_high)
-    liquidity_low=number("liquidity_low", session_low)
-    vwap=number("vwap", entry)
-    round_number=number("round_number", entry)
+    try:
+        swing_high=number("swing_high", entry)
+        swing_low=number("swing_low", entry)
+        atr=number("atr", 0)
+        session_high=number("session_high", swing_high)
+        session_low=number("session_low", swing_low)
+        liquidity_high=number("liquidity_high", session_high)
+        liquidity_low=number("liquidity_low", session_low)
+        vwap=number("vwap", entry)
+        round_number=number("round_number", entry)
+    
+    except (TypeError, ValueError, OverflowError):
+        return {"approved":False,"decision":"BLOCK_INVALID_INPUT","mode":"PAPER_ONLY","real_orders":"FORBIDDEN","ftmo_real":"FORBIDDEN"}
 
     if not all(math.isfinite(v) for v in (entry,stop,swing_high,swing_low,atr,session_high,session_low,liquidity_high,liquidity_low,vwap,round_number)):
         return {"approved":False,"decision":"BLOCK_INVALID_NUMERIC","mode":"PAPER_ONLY","real_orders":"FORBIDDEN","ftmo_real":"FORBIDDEN"}
