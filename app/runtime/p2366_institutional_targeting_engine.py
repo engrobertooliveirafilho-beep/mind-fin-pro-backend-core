@@ -1,4 +1,5 @@
 from __future__ import annotations
+import math
 
 def institutional_targets(ctx: dict) -> dict:
     def number(key, fallback):
@@ -18,6 +19,8 @@ def institutional_targets(ctx: dict) -> dict:
     vwap=number("vwap", entry)
     round_number=number("round_number", entry)
 
+    if not all(math.isfinite(v) for v in (entry,stop,swing_high,swing_low,atr,session_high,session_low,liquidity_high,liquidity_low,vwap,round_number)):
+        return {"approved":False,"decision":"BLOCK_INVALID_NUMERIC","mode":"PAPER_ONLY","real_orders":"FORBIDDEN","ftmo_real":"FORBIDDEN"}
     risk=abs(entry-stop)
     if side not in ("BUY", "SELL") or risk<=0:
         return {"approved":False,"decision":"BLOCK_INVALID_RISK","mode":"PAPER_ONLY","real_orders":"FORBIDDEN"}
@@ -55,9 +58,10 @@ def institutional_targets(ctx: dict) -> dict:
         partial_1=entry-risk
         partial_2=entry-risk*2
 
+    raw_rr=rr
     rr=round(rr,2)
 
-    if rr < 2:
+    if raw_rr < 2:
         decision="BLOCK_TARGET_BELOW_2R"
     elif rr < 3:
         decision="APPROVED_STANDARD"
@@ -75,7 +79,7 @@ def institutional_targets(ctx: dict) -> dict:
         "rr":rr,
         "partial_1R":round(partial_1,4),
         "partial_2R":round(partial_2,4),
-        "approved":rr>=2,
+        "approved":raw_rr>=2,
         "decision":decision,
         "target_sources":"FIBO|LIQUIDITY|SESSION_HIGH_LOW|VWAP|ATR|ROUND_NUMBER",
         "target_min_rr":2.0,
