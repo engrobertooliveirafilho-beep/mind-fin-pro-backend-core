@@ -41,3 +41,14 @@ def test_nonfinite_json_snapshot_rejected(tmp_path, token):
     path.write_text('{"equity": ' + token + '}', encoding="utf-8")
     with pytest.raises(ValueError, match="NONFINITE_PAPER_RUNTIME_SNAPSHOT"):
         RuntimePersistence(str(path)).load()
+
+@pytest.mark.parametrize("payload", [
+    '{"equity":100,"equity":1}',
+    '{"executor":{"risk_locked":true,"risk_locked":false}}',
+    '{"positions":[{"id":"PAPER_1","id":"PAPER_2"}]}',
+])
+def test_duplicate_json_keys_fail_closed(tmp_path, payload):
+    path = tmp_path / "runtime_state.json"
+    path.write_text(payload, encoding="utf-8")
+    with pytest.raises(ValueError, match="DUPLICATE_PAPER_SNAPSHOT_KEY"):
+        RuntimePersistence(str(path)).load()
