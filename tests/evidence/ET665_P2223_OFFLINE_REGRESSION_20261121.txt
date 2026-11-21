@@ -1,0 +1,16 @@
+ET665 P2223 PAPER BROKER EMULATOR — OFFLINE REGRESSION EVIDENCE
+Date: 2026-11-21
+Scope: locally reconstructed copy of published P2223 implementation; NOT an exact GitHub checkout.
+Command: python -m unittest discover -s tests -v
+Tests: 6; PASS: 6; FAIL: 0; ERROR: 0
+Covered: invalid side; invalid volumes; pre-halted risk; valid simulated BUY; persistent risk kill; zero-peak guard.
+Source branch: engineering/et665-institutional-wiring-health-20261121
+Source code commit: c74f410a6dfaa6caf3e82a17eea40a52ef537da3
+Tests commit: 4da9597edee807d9c2a171b03620ed5a44ae91f3
+Drive: 00302_tests_test_p2223_broker_emulator.py item 1DHFavdc5Vs1h2EZtIhl_f6uuqa0NEjs2 resolved as folder with zero direct children; no historical tests recovered.
+Limitations: no checkout parity verification, no historical-suite certification, no broker access, no E2E certification.
+PAPER_ONLY=TRUE
+REAL_ORDERS=FORBIDDEN
+MAIN=INTACTA
+E2E_CERTIFIED=FALSE
+CUSTO=R$0
