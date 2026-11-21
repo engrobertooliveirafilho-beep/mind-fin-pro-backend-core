@@ -6,9 +6,11 @@ on:
     paths:
       - 'app/runtime/p2614_real_fill_replay/**'
       - 'tests/test_p2614_*.py'
-      - 'tests/test_trader_1_001_exporter_static.py'
+      - 'tests/test_trader_1_001_exporter_static.py tests/test_p2923_robustness.py'
       - 'recovery/original/trader_1_001_r2_r1/**'
       - 'recovery/candidate/trader_1_001/**'
+      - 'app/runtime/p2923_robustness.py'
+      - 'tests/test_p2923_robustness.py'
       - '.github/workflows/p2614-replay-regression.yml'
   workflow_dispatch:
 permissions:
