@@ -327,10 +327,16 @@ class PortfolioEvolution:
 
 def certify(decisions: List[IntelligenceDecision]) -> IntelligenceDecision:
     failed = [d.component for d in decisions if d.status != "PASS"]
+    required = {f"P{i}_" for i in range(2091, 2100)}
+    present = [d.component for d in decisions]
+    complete = len(present) == 9 and len(set(present)) == 9 and all(
+        any(component.startswith(prefix) for component in present) for prefix in required
+    )
+    ok = complete and not failed
     return IntelligenceDecision(
         "P2100_INTELLIGENCE_CERTIFICATION",
-        "PASS" if not failed else "FAIL",
-        "REALTIME_INTELLIGENCE_LAYER_CERTIFIED" if not failed else "INTELLIGENCE_LAYER_NOT_CERTIFIED",
+        "PASS" if ok else "FAIL",
+        "REALTIME_INTELLIGENCE_LAYER_CERTIFIED" if ok else "INTELLIGENCE_LAYER_NOT_CERTIFIED",
         {
             "failed_components": failed,
             "passed_components": [d.component for d in decisions if d.status == "PASS"],
