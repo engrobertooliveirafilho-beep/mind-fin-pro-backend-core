@@ -23,7 +23,7 @@ class Tests(unittest.TestCase):
   with self.assertRaises(ContractRejected):validate_payload(a)
  def test_object(self):
   with self.assertRaises(ContractRejected):validate_payload({'x':object()})
- def test_good_response_not_certified(self):self.assertFalse(certify_response('sec.sentinel',{'agent_id':'sec.sentinel','status':'ok'})['functional_certified'])
+ def test_good_response_not_certified(self):self.assertFalse(certify_response('sec.sentinel',{'agent_id':'sec.sentinel','status':'ok','mode':'dry_run'})['functional_certified'])
  def test_stub(self):
   with self.assertRaises(ContractRejected):certify_response('sec.sentinel',{'agent_id':'sec.sentinel','status':'not_implemented','mode':'stub'})
  def test_mismatch(self):
@@ -32,4 +32,16 @@ class Tests(unittest.TestCase):
   with self.assertRaises(ContractRejected):certify_response('sec.sentinel',{'agent_id':'sec.sentinel','status':'ok','mode':'live'})
  def test_error(self):
   with self.assertRaises(ContractRejected):certify_response('sec.sentinel',{'agent_id':'sec.sentinel','status':'ok','error':'bad'})
+ def test_missing_mode(self):
+  with self.assertRaises(ContractRejected):certify_response('sec.sentinel',{'agent_id':'sec.sentinel','status':'ok'})
+ def test_unknown_mode(self):
+  with self.assertRaises(ContractRejected):certify_response('sec.sentinel',{'agent_id':'sec.sentinel','status':'ok','mode':'paper_live'})
+ def test_broker_order(self):
+  with self.assertRaises(ContractRejected):validate_payload({'broker_order':False})
+ def test_submit_order_nested(self):
+  with self.assertRaises(ContractRejected):validate_payload({'nested':{'submit_order':None}})
+ def test_withdraw_funds(self):
+  with self.assertRaises(ContractRejected):validate_payload({'withdraw_funds':0})
+ def test_dry_run_response(self):
+  self.assertTrue(certify_response('sec.sentinel',{'agent_id':'sec.sentinel','status':'ok','mode':'dry_run'})['contract_valid'])
 if __name__=='__main__':unittest.main()
