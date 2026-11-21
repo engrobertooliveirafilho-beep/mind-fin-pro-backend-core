@@ -29,10 +29,12 @@ def enforce_paper_only() -> Dict[str, str]:
 
 
 def assert_no_financial_execution() -> None:
-    locks = enforce_paper_only()
-    for k, v in ABSOLUTE_LOCKS.items():
-        if locks.get(k) != v:
+    # Never hide an unsafe caller environment by overwriting it first.
+    for k, expected in ABSOLUTE_LOCKS.items():
+        observed = os.environ.get(k)
+        if observed is not None and observed != expected:
             raise RuntimeError(f"{k}_LOCK_BREACH")
+    enforce_paper_only()
 
 
 def load_json(path: str) -> Any:
@@ -79,7 +81,15 @@ class CertifiedBlockAudit:
             status = data.get("status")
             readiness = data.get("readiness")
             results[key] = {"status": status, "readiness": readiness, "path": deps[key]}
-            if status != expected:
+            # Upstream status alone is not behavioral certification.
+            # Current P2111/P2120 deliberately remains NOT_CERTIFIED.
+            if status != expected or readiness != {
+                "p2071": "REALTIME_PAPER_RUNTIME_CERTIFIED",
+                "p2081": "REALTIME_PORTFOLIO_GOVERNANCE_CERTIFIED",
+                "p2091": "REALTIME_INTELLIGENCE_LAYER_CERTIFIED",
+                "p2101": "AUTONOMOUS_PAPER_OPERATIONS_CERTIFIED",
+                "p2111": "MAXIMUM_TECHNICAL_CAPACITY_CERTIFIED",
+            }[key] or key == "p2111":
                 failures.append(key)
 
         return AuditDecision(
@@ -331,7 +341,7 @@ def run_p2121_plus(repo: str, dependencies: Dict[str, str], output_dir: str) -> 
         "mission_status": mission_status,
         "decisions": [asdict(d) for d in decisions],
         "final_state": {
-            "p2071_to_p2120": "CERTIFIED",
+            "p2071_to_p2120": "CERTIFIED" if all_pass else "NOT_CERTIFIED",
             "continuous_audit": "CERTIFIED" if all_pass else "NOT_CERTIFIED",
             "known_critical_gaps": final_cert.payload["known_critical_gaps"],
             "paper_only": True,
@@ -368,7 +378,7 @@ def run_p2121_plus(repo: str, dependencies: Dict[str, str], output_dir: str) -> 
 
 ## CONCLUSION
 P2121+ continuous max capacity audit completed.
-P2071→P2120 remains certified.
+P2071→P2120 certification remains conditional on independently verified evidence.
 No real orders.
 No broker execution.
 No financial execution.
