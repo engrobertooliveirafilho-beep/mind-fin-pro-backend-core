@@ -1,5 +1,6 @@
 import unittest
 from fastapi import HTTPException
+from pydantic import ValidationError
 from app.cognition.math_advanced_step453.engine import MathRequest,FinancePayload,AlgebraPayload,ProofPayload,solve_math
 class Step453Tests(unittest.TestCase):
     def test_npv(self):
@@ -15,7 +16,7 @@ class Step453Tests(unittest.TestCase):
         with self.assertRaises(HTTPException) as c:solve_math(MathRequest(mode='finance'))
         self.assertEqual(c.exception.status_code,422)
     def test_nan_rejected(self):
-        with self.assertRaises(HTTPException):solve_math(MathRequest(mode='finance',finance=FinancePayload(rate=float('nan'),cashflows=[1])))
+        with self.assertRaises(ValidationError):solve_math(MathRequest(mode='finance',finance=FinancePayload(rate=float('nan'),cashflows=[1])))
     def test_inf_algebra_rejected(self):
         with self.assertRaises(HTTPException):solve_math(MathRequest(mode='algebra',algebra=AlgebraPayload(a=float('inf'),b=2)))
     def test_utc(self):
