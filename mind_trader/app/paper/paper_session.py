@@ -64,7 +64,10 @@ class PaperTradingSessionManager:
             if not related or related[0].get("type") != "SESSION_OPENED":
                 return False
             # Reconcile the complete event sequence, not just its final snapshot.
+            if session.get("account_id") != "PAPER_FTMO_SIM":
+                return False
             count = 0
+            loss_streak = 0
             pnl = 0.0
             closed = False
             for index, event in enumerate(related):
@@ -80,6 +83,7 @@ class PaperTradingSessionManager:
                     if type(value) not in (int,float) or not math.isfinite(value):
                         return False
                     count += 1
+                    loss_streak = loss_streak + 1 if value < 0 else 0
                     pnl += float(value)
                     if not math.isfinite(pnl) or event.get("trades") != count or event.get("daily_pnl") != pnl:
                         return False
@@ -89,7 +93,8 @@ class PaperTradingSessionManager:
                     closed = True
                 else:
                     return False
-            if session.get("trades") != count or session.get("daily_pnl") != pnl:
+            if (session.get("trades") != count or session.get("daily_pnl") != pnl or
+                session.get("loss_streak") != loss_streak):
                 return False
             last = related[-1]
             if last.get("type") == "SESSION_OPENED":
