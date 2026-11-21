@@ -188,8 +188,18 @@ class RealtimeFeatureBuilder:
 
 
 class SignalRuntime:
+    # Until the original RealDNA strategy adapters are recovered and reconciled,
+    # only the explicitly implemented RANGE_REVERSION logic may emit signals.
+    SUPPORTED_STRATEGIES = {"RANGE_REVERSION"}
+
     def __init__(self, specialists: List[Dict[str, Any]]):
-        self.specialists = specialists[:3]
+        self.specialists = list(specialists)
+        self.unsupported_specialists = [
+            str(spec.get("id") or spec.get("specialist_id"))
+            for spec in self.specialists
+            if str(spec.get("logic_type") or spec.get("type") or spec.get("strategy_type") or "").upper()
+            not in self.SUPPORTED_STRATEGIES
+        ]
 
     def generate(self, frame: FeatureFrame) -> List[PaperSignal]:
         assert_no_financial_execution()
@@ -198,7 +208,9 @@ class SignalRuntime:
 
         for idx, spec in enumerate(self.specialists):
             sid = str(spec.get("id") or spec.get("specialist_id") or f"REALDNA_{idx+1}")
-            typ = str(spec.get("type") or spec.get("strategy_type") or "RANGE_REVERSION")
+            typ = str(spec.get("logic_type") or spec.get("type") or spec.get("strategy_type") or "").upper()
+            if typ not in self.SUPPORTED_STRATEGIES:
+                continue
 
             side = "HOLD"
             confidence = 0.0
@@ -432,20 +444,31 @@ class RuntimePersistence:
 
 def load_portfolio(path: str) -> List[Dict[str, Any]]:
     p = Path(path)
-
     if not p.exists():
         raise FileNotFoundError(path)
-
     raw = json.loads(p.read_text(encoding="utf-8"))
-
-    if isinstance(raw, list):
-        return raw
-
-    for key in ["specialists", "final_specialists", "portfolio", "locked_specialists"]:
-        if isinstance(raw.get(key), list):
-            return raw[key]
-
-    return [{"id": "XAUUSD_M1_REALDNA_0004", "type": "RANGE_REVERSION"}]
+    candidates = raw if isinstance(raw, list) else None
+    if isinstance(raw, dict):
+        for key in ["specialists", "final_specialists", "portfolio", "locked_specialists"]:
+            if isinstance(raw.get(key), list):
+                candidates = raw[key]
+                break
+    if not isinstance(candidates, list) or not candidates:
+        raise ValueError("REALDNA_PORTFOLIO_MISSING_OR_EMPTY")
+    seen = set()
+    for index, specialist in enumerate(candidates):
+        if not isinstance(specialist, dict):
+            raise ValueError(f"REALDNA_SPECIALIST_INVALID:{index}")
+        sid = str(specialist.get("id") or specialist.get("specialist_id") or "").strip()
+        if not sid:
+            raise ValueError(f"REALDNA_SPECIALIST_ID_MISSING:{index}")
+        if sid in seen:
+            raise ValueError(f"REALDNA_SPECIALIST_ID_DUPLICATE:{sid}")
+        seen.add(sid)
+        strategy = str(specialist.get("logic_type") or specialist.get("type") or specialist.get("strategy_type") or "").strip()
+        if not strategy:
+            raise ValueError(f"REALDNA_SPECIALIST_STRATEGY_MISSING:{sid}")
+    return candidates
 
 
 def promote_p2080_if_ready(mission_status: Dict[str, str]) -> Dict[str, str]:
@@ -489,7 +512,7 @@ def run_p2071_2080(
     mission_status = {
         "P2071_REALTIME_DATA_FEED_BRIDGE": "PASS_SIMULATED_ONLY",
         "P2072_REALTIME_FEATURE_BUILDER": "PASS",
-        "P2073_SIGNAL_RUNTIME": "PASS",
+        "P2073_SIGNAL_RUNTIME": "FAIL" if signal_runtime.unsupported_specialists else "PASS",
         "P2074_PAPER_PORTFOLIO_EXECUTOR": "PASS",
         "P2075_RUNTIME_MONITOR": "PASS",
         "P2076_EXTENDED_RUNTIME_VALIDATION": "PENDING",
