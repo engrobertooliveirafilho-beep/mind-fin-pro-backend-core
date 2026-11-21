@@ -122,3 +122,20 @@ def test_p2113_does_not_certify_even_syntax_valid_modules(tmp_path):
     assert decision.payload["missing"] == []
     assert decision.payload["invalid"] == []
     assert decision.status == "FAIL"
+
+def test_p2111_json_rejects_duplicate_certification_fields(tmp_path):
+    import pytest
+    from app.runtime.p2111_2120_maximum_technical_capacity import load_json
+    path = tmp_path / "cert.json"
+    path.write_text('{"status":"PASS","status":"FAIL"}', encoding="utf-8")
+    with pytest.raises(ValueError, match="P2111_DUPLICATE_JSON_KEY"):
+        load_json(str(path))
+
+
+def test_p2111_json_rejects_nonfinite_certification_numbers(tmp_path):
+    import pytest
+    from app.runtime.p2111_2120_maximum_technical_capacity import load_json
+    path = tmp_path / "cert.json"
+    path.write_text('{"drawdown":NaN}', encoding="utf-8")
+    with pytest.raises(ValueError, match="P2111_NONFINITE_JSON_NUMBER"):
+        load_json(str(path))
