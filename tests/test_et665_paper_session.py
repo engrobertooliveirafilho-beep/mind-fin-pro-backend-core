@@ -45,5 +45,24 @@ class TestSession(unittest.TestCase):
         self.assertEqual(self.s.close_session()["decision"], "SESSION_CLOSED")
         self.assertFalse(self.s.pre_trade_check(100)["allowed"])
 
+    def test_ftmo_config_drift_blocks_trade(self):
+        config_path = Path(self.s.ftmo_config_path)
+        config = json.loads(config_path.read_text())
+        config["max_daily_loss"] = 4500
+        config_path.write_text(json.dumps(config))
+        self.assertEqual(self.s.pre_trade_check(100)["decision"], "BLOCK_FTMO_CONFIG_CHANGED")
+
+    def test_corrupt_trade_counter_blocks_trade(self):
+        state = self.s._read_session()
+        state["trades"] = -1
+        self.s._write_session(state)
+        self.assertEqual(self.s.pre_trade_check(100)["decision"], "BLOCK_INVALID_SESSION_STATE")
+
+    def test_corrupt_daily_limit_blocks_trade(self):
+        state = self.s._read_session()
+        state["max_daily_loss"] = 999999
+        self.s._write_session(state)
+        self.assertEqual(self.s.pre_trade_check(100)["decision"], "BLOCK_INVALID_SESSION_STATE")
+
 if __name__ == "__main__":
     unittest.main()
