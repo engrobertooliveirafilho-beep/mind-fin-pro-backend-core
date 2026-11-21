@@ -43,3 +43,13 @@ class TestAuthority(unittest.TestCase):
         s,c=fixtures()
         d=json.loads(s);d["s20_symbol_present"]=True
         with self.assertRaises(ValueError):m.audit_authority(json.dumps(d).encode(),c)
+
+class TestFactoryVsWriter(unittest.TestCase):
+    def test_factory_evidence_never_proves_writer(self):
+        s,c=fixtures()
+        result=m.audit_authority(s,c)
+        self.assertFalse(result["writer_bytes_verified"])
+        self.assertFalse(result["factory_bytes_verified"])
+    def test_unverified_factory_bytes_rejected(self):
+        s,c=fixtures()
+        with self.assertRaises(ValueError): m.audit_authority(s,c,b"fake factory")
