@@ -111,4 +111,3 @@ def execute_multimodal(request: MultimodalExecuteRequest) -> MultimodalExecuteRe
             "engine": "multimodal_executor_step456",
         },
     )
-
