@@ -696,6 +696,9 @@ def load_portfolio(path: str) -> List[Dict[str, Any]]:
     for index, specialist in enumerate(candidates):
         if not isinstance(specialist, dict):
             raise ValueError(f"REALDNA_SPECIALIST_INVALID:{index}")
+        if (specialist.get("id") and specialist.get("specialist_id")
+                and specialist["id"] != specialist["specialist_id"]):
+            raise ValueError(f"REALDNA_SPECIALIST_ID_CONFLICT:{index}")
         sid = str(specialist.get("id") or specialist.get("specialist_id") or "").strip()
         if not sid:
             raise ValueError(f"REALDNA_SPECIALIST_ID_MISSING:{index}")
