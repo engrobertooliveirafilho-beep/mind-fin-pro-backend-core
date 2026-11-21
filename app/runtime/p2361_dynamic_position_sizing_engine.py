@@ -5,7 +5,7 @@ def dynamic_paper_lot(ctx: dict) -> dict:
     score = float(ctx.get("institutional_score", 0))
     payoff = float(ctx.get("expected_payoff", 0))
     drawdown = float(ctx.get("current_drawdown", 0))
-    correlation_ok = bool(ctx.get("correlation_ok", True))
+    correlation_ok = ctx.get("correlation_ok") is True
     last_trade_loss = bool(ctx.get("last_trade_loss", False))
     rebuild_after_profit = bool(ctx.get("rebuild_after_profit", False))
 
