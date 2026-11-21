@@ -28,3 +28,26 @@ def test_p2120_blocks_synthetic_only_maximum_capacity_claim():
     d = certify(decisions)
     assert d.status == "FAIL"
     assert d.reason == "MAXIMUM_CAPACITY_NOT_CERTIFIED"
+
+def test_p2120_failure_never_reports_certified_capability_flags(tmp_path, monkeypatch):
+    import json
+    from pathlib import Path
+    from app.runtime.p2111_2120_maximum_technical_capacity import run_p2111_2120
+    repo = tmp_path / "repo"
+    (repo / "app" / "runtime").mkdir(parents=True)
+    (repo / "tests").mkdir()
+    (repo / "app" / "runtime" / "probe.py").write_text("x=1")
+    (repo / "tests" / "test_probe.py").write_text("def test_probe(): assert True")
+    for name in ("p2071", "p2081", "p2091", "p2101", "portfolio"):
+        (tmp_path / (name + ".json")).write_text(json.dumps({"status": "FAIL"}))
+    result = run_p2111_2120(
+        str(repo), str(tmp_path / "portfolio.json"),
+        *(str(tmp_path / (name + ".json")) for name in ("p2071", "p2081", "p2091", "p2101")),
+        str(tmp_path / "out"),
+    )
+    assert result["status"] == "FAIL"
+    assert result["readiness"] == "NOT_CERTIFIED"
+    for flag in ("runtime_resilient", "runtime_autonomous", "runtime_observable",
+                 "runtime_auditable", "runtime_recoverable", "runtime_scalable",
+                 "runtime_governable"):
+        assert result["final_state"][flag] is False
