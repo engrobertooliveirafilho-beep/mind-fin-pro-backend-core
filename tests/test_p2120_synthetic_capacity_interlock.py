@@ -51,3 +51,23 @@ def test_p2120_failure_never_reports_certified_capability_flags(tmp_path, monkey
                  "runtime_auditable", "runtime_recoverable", "runtime_scalable",
                  "runtime_governable"):
         assert result["final_state"][flag] is False
+
+def test_gap_audit_rejects_bare_pass_without_certification_proof():
+    deps = {key: {"status": "PASS"} for key in ("p2071", "p2081", "p2091", "p2101")}
+    decision = CapabilityGapAudit().evaluate(deps)
+    assert decision.status == "FAIL"
+    assert set(decision.payload["gaps"]) == set(deps)
+
+
+def test_gap_audit_rejects_simulation_only_p2080():
+    deps = {
+        "p2071": {"status": "PASS",
+                  "readiness": "SIMULATED_PAPER_RUNTIME_VALIDATED_REALTIME_FEED_NOT_CERTIFIED",
+                  "mission_status": {"P2080_REALTIME_RUNTIME_CERTIFICATION": "PASS_SIMULATION_SCOPE_ONLY"}},
+        "p2081": {"status": "PASS", "readiness": "REALTIME_PORTFOLIO_GOVERNANCE_CERTIFIED"},
+        "p2091": {"status": "PASS", "readiness": "REALTIME_INTELLIGENCE_LAYER_CERTIFIED"},
+        "p2101": {"status": "PASS", "readiness": "AUTONOMOUS_PAPER_OPERATIONS_CERTIFIED"},
+    }
+    decision = CapabilityGapAudit().evaluate(deps)
+    assert decision.status == "FAIL"
+    assert decision.payload["gaps"] == ["p2071"]
