@@ -31,8 +31,8 @@ def institutional_targets(ctx: dict) -> dict:
     if not all(math.isfinite(v) for v in (entry,stop,swing_high,swing_low,atr,session_high,session_low,liquidity_high,liquidity_low,vwap,round_number)):
         return {"approved":False,"decision":"BLOCK_INVALID_NUMERIC","mode":"PAPER_ONLY","real_orders":"FORBIDDEN","ftmo_real":"FORBIDDEN"}
     risk=abs(entry-stop)
-    if side not in ("BUY", "SELL") or risk<=0 or (side=="BUY" and stop>=entry) or (side=="SELL" and stop<=entry):
-        return {"approved":False,"decision":"BLOCK_INVALID_RISK","mode":"PAPER_ONLY","real_orders":"FORBIDDEN"}
+    if side not in ("BUY", "SELL") or not math.isfinite(risk) or risk<=0 or entry<=0 or stop<=0 or atr<0 or (side=="BUY" and stop>=entry) or (side=="SELL" and stop<=entry):
+        return {"approved":False,"decision":"BLOCK_INVALID_RISK","mode":"PAPER_ONLY","real_orders":"FORBIDDEN","ftmo_real":"FORBIDDEN"}
 
     move=abs(swing_high-swing_low)
 
@@ -67,6 +67,8 @@ def institutional_targets(ctx: dict) -> dict:
         partial_1=entry-risk
         partial_2=entry-risk*2
 
+    if not all(math.isfinite(x) for x in (move, target, rr, partial_1, partial_2)) or target<=0:
+        return {"approved":False,"decision":"BLOCK_NUMERIC_OVERFLOW","mode":"PAPER_ONLY","real_orders":"FORBIDDEN","ftmo_real":"FORBIDDEN"}
     raw_rr=rr
     rr=round(rr,2)
 
