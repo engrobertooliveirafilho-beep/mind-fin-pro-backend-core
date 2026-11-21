@@ -603,19 +603,13 @@ def run_p2071_2080(
     if loaded.get("cycles") == cycles:
         mission_status["P2079_RUNTIME_PERSISTENCE"] = "PASS"
 
-    if loaded.get("executor", {}).get("final_equity") == executor.equity:
-        mission_status["P2078_RECOVERY_VALIDATION"] = "PASS"
+    # Reading back equity does not restore the position book, risk locks,
+    # last event timestamp, or an interrupted runtime.
+    # P2078 remains PENDING until a real restart/recovery replay is verified.
 
-    feed2 = RealtimeDataFeedBridge(seed_price=2400.0)
-    f2 = RealtimeFeatureBuilder()
-    frames2 = 0
-
-    for _ in range(100):
-        frames2 += 1
-        f2.update(feed2.next_tick())
-
-    if frames2 == 100:
-        mission_status["P2077_MULTI_SESSION_RUNTIME"] = "PASS"
+    # A second synthetic feed loop is not proof of distinct sessions,
+    # durable session boundaries, or uninterrupted PAPER continuity.
+    # P2077 remains PENDING until a multi-session integration test exists.
 
     if cycles >= 1000 and len(all_frames) == cycles:
         mission_status["P2076_EXTENDED_RUNTIME_VALIDATION"] = "PASS"
