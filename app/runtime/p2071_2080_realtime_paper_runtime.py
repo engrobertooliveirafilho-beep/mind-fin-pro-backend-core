@@ -721,6 +721,17 @@ def load_portfolio(path: str) -> List[Dict[str, Any]]:
         if not strategy:
             raise ValueError(f"REALDNA_SPECIALIST_STRATEGY_MISSING:{sid}")
     # Historical P2067 weights are not proof of an executable allocation.
+    # Reject contradictory dual weight fields before evaluating either policy.
+    from decimal import Decimal, InvalidOperation
+    for item in candidates:
+        if "portfolio_weight" in item and "normalized_weight" in item:
+            try:
+                a = Decimal(str(item["portfolio_weight"]))
+                b = Decimal(str(item["normalized_weight"]))
+                if not a.is_finite() or not b.is_finite() or a != b:
+                    raise ValueError("P2067_CONFLICTING_WEIGHT_ALIASES")
+            except (InvalidOperation, TypeError, ValueError) as exc:
+                raise ValueError("P2067_CONFLICTING_WEIGHT_ALIASES") from exc
     # Validate any supplied allocation; do not silently normalize residuals.
     weight_present = ["normalized_weight" in item for item in candidates]
     if isinstance(raw, dict) and "declared_reserve" in raw and not any(weight_present):
