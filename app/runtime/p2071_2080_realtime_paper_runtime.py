@@ -242,6 +242,10 @@ class PaperPortfolioExecutor:
         self.seq = 0
 
     def unrealized_pnl(self, price: float) -> float:
+        if type(price) not in (int, float) or not math.isfinite(price) or price <= 0:
+            raise ValueError("invalid paper mark price")
+        if any(pos.side not in ("BUY", "SELL") for pos in self.positions.values()):
+            raise ValueError("invalid existing paper side")
         total = 0.0
         for pos in self.positions.values():
             if pos.side == "BUY":
@@ -301,6 +305,8 @@ class PaperPortfolioExecutor:
 
         if type(frame.mid) not in (int, float) or not math.isfinite(frame.mid) or frame.mid <= 0:
             raise ValueError("invalid paper mark price")
+        if any(pos.side not in ("BUY", "SELL") for pos in self.positions.values()):
+            raise ValueError("invalid existing paper side")
         to_close = []
 
         for pid, pos in self.positions.items():
