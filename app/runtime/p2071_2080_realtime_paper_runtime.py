@@ -676,10 +676,12 @@ def load_portfolio(path: str) -> List[Dict[str, Any]]:
     )
     candidates = raw if isinstance(raw, list) else None
     if isinstance(raw, dict):
-        for key in ["specialists", "final_specialists", "portfolio", "locked_specialists"]:
-            if isinstance(raw.get(key), list):
-                candidates = raw[key]
-                break
+        aliases = ["specialists", "final_specialists", "portfolio", "locked_specialists"]
+        present = [key for key in aliases if key in raw]
+        if len(present) > 1:
+            raise ValueError("AMBIGUOUS_REALDNA_PORTFOLIO_ROOT")
+        if present:
+            candidates = raw[present[0]] if isinstance(raw[present[0]], list) else None
     if not isinstance(candidates, list) or not candidates:
         raise ValueError("REALDNA_PORTFOLIO_MISSING_OR_EMPTY")
     seen = set()
