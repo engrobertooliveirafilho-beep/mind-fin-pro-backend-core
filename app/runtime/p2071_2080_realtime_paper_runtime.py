@@ -635,9 +635,17 @@ class RuntimePersistence:
             return {}
         def reject_nonfinite(token: str) -> None:
             raise ValueError("NONFINITE_PAPER_RUNTIME_SNAPSHOT")
+        def reject_duplicate_keys(pairs):
+            result = {}
+            for key, value in pairs:
+                if key in result:
+                    raise ValueError("DUPLICATE_PAPER_SNAPSHOT_KEY")
+                result[key] = value
+            return result
         loaded = json.loads(
             self.path.read_text(encoding="utf-8"),
             parse_constant=reject_nonfinite,
+            object_pairs_hook=reject_duplicate_keys,
         )
         if not isinstance(loaded, dict):
             raise ValueError("INVALID_PAPER_RUNTIME_SNAPSHOT")
