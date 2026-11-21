@@ -1,0 +1,11 @@
+ET665 PAPER event identity / 2026-11-21
+Drive P8 audit recovered: MIND_TRADER_P8_AUDITORIA_PROFUNDA_2026-08-04.docx (ID 1mYoNWU4sooo1qZ5foWpkLOWELwL-3riF). It reports 300 historical tests based on conversation outputs, without independent repository inspection or confirmed upload/deployment; NOT current E2E certification.
+GitHub source commit: e86e2dfb977f460303f111c76f994ac580a0c9e3
+GitHub tests commit: 24af155d2ae251d86ca4ee1de0044c9ff577d4e8
+Offline local run: cd /mnt/data/et665_session_validation && PYTHONPATH=. python -m unittest discover -s tests -p 'test*.py' -v
+Result: 39/39 PASS; 0 failures.
+Evidence log: /mnt/data/et665_session_validation/regression_identity_20261121.log
+Evidence SHA256: 9131c87a81b6a51e0e0de27134a2b56d5570a653c4a416e9f7cc39e9ba08a4c8
+Scope: all event IDs present, unique, nonblank; session IDs present; cross-session malformed events fail closed.
+Certification limit: equivalent local code, not exact GitHub blob; no cryptographic chain, dual-file transaction, P2071/S20/S21 E2E, no real orders.
+PAPER_ONLY=TRUE | REAL_ORDERS=FORBIDDEN | MAIN=INTACT | E2E_CERTIFIED=FALSE | COST=R$0
