@@ -116,6 +116,7 @@ class PaperTradingSessionManager:
             sessions = {}
             ids = set()
             total = 0.0
+            active_session = None
             for line in lines:
                 event = json.loads(line)
                 if not isinstance(event, dict):
@@ -126,11 +127,12 @@ class PaperTradingSessionManager:
                     return None
                 ids.add(eid)
                 if kind == "SESSION_OPENED":
-                    if sid in sessions or not isinstance(event.get("ftmo_config_hash"), str):
+                    if active_session is not None or sid in sessions or not isinstance(event.get("ftmo_config_hash"), str):
                         return None
                     sessions[sid] = [0, 0.0, False]
+                    active_session = sid
                 elif kind == "TRADE_RESULT":
-                    if sid not in sessions or sessions[sid][2]:
+                    if sid != active_session or sid not in sessions or sessions[sid][2]:
                         return None
                     pnl = event.get("pnl")
                     if type(pnl) not in (int, float) or not math.isfinite(pnl):
@@ -149,6 +151,7 @@ class PaperTradingSessionManager:
                         event.get("daily_pnl") != sessions[sid][1]):
                         return None
                     sessions[sid][2] = True
+                    active_session = None
                 else:
                     return None
             return total
