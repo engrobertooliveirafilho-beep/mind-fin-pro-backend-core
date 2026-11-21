@@ -44,13 +44,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
                 if callable(v) and not isinstance(v, type) and not k.startswith("_")
             ]
 
-            if hasattr(m, "health"):
-                try:
-                    h = m.health()
-                    row["health_ok"] = isinstance(h, dict)
-                    row["health"] = h
-                except Exception as e:
-                    row["error"] += f"health_error={e};"
+            # Do not call imported health() functions: discovery must be side-effect-free.
 
             # Execution intentionally unavailable until a verified allowlist exists.
 
