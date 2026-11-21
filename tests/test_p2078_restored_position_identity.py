@@ -61,6 +61,7 @@ def test_realized_equity_must_match_closed_trade_journal(tampered_equity):
     executor.mark_to_market(FeatureFrame(ts=120, symbol="XAUUSD", mid=106, spread=0.2, return_1=0, volatility_20=0, body_to_range=0, rsi_14=50, stoch_14=50, close_position=0.5))
     state = executor.export_state()
     state["equity"] = tampered_equity
+    state["peak_equity"] = max(state["peak_equity"], tampered_equity)
     with pytest.raises(ValueError, match="PAPER_EXECUTOR_EQUITY_RECONCILIATION_FAILED"):
         PaperPortfolioExecutor.restore_state(state)
 
@@ -70,3 +71,19 @@ def test_restored_peak_cannot_understate_realized_equity(peak):
     state["peak_equity"] = peak
     with pytest.raises(ValueError, match="INVALID_PAPER_EXECUTOR_PEAK_EQUITY"):
         PaperPortfolioExecutor.restore_state(state)
+
+@pytest.mark.parametrize("position_id", ["PAPER_1000000", "PAPER_1000001"])
+def test_seven_digit_paper_position_id_roundtrip(position_id):
+    state = _state()
+    state["seq"] = int(position_id[6:])
+    state["positions"][0]["position_id"] = position_id
+    assert PaperPortfolioExecutor.restore_state(state).export_state() == state
+
+def test_seven_digit_closed_paper_position_id_roundtrip():
+    executor = PaperPortfolioExecutor()
+    executor.seq = 999999
+    executor.on_signal(PaperSignal(ts=100, symbol="XAUUSD", specialist_id="S1", side="BUY", confidence=0.9, reason="TEST"), 100)
+    executor.mark_to_market(FeatureFrame(ts=120, symbol="XAUUSD", mid=106, spread=0.2, return_1=0, volatility_20=0, body_to_range=0, rsi_14=50, stoch_14=50, close_position=0.5))
+    state = executor.export_state()
+    assert state["closed"][0]["position"]["position_id"] == "PAPER_1000000"
+    assert PaperPortfolioExecutor.restore_state(state).export_state() == state
