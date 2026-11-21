@@ -84,5 +84,13 @@ class TestSession(unittest.TestCase):
         self.s._write_session(state)
         self.assertEqual(self.s.record_trade_result(-10)["decision"], "TRADE_RECORDED")
 
+    def test_cumulative_pnl_overflow_no_mutation(self):
+        self.assertEqual(self.s.record_trade_result(1e308)["decision"], "TRADE_RECORDED")
+        self.assertEqual(self.s.record_trade_result(1e308)["decision"], "BLOCK_PNL_OVERFLOW")
+        self.assertEqual(self.s.daily_summary()["trades"], 1)
+        self.assertEqual(self.s.daily_summary()["daily_pnl"], 1e308)
+        events = [json.loads(line) for line in Path(self.s.ledger_path).read_text().splitlines()]
+        self.assertEqual(len(events), 2)
+
 if __name__ == "__main__":
     unittest.main()
