@@ -1,21 +1,21 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import List, Dict, Any, Literal
 
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 
 router = APIRouter()
 
 
 class RegionConfig(BaseModel):
-    name: str
-    base_latency_ms: float = Field(..., ge=0)
-    write_capacity_rps: float = Field(..., gt=0)
+    name: str = Field(..., min_length=1, max_length=128)
+    base_latency_ms: float = Field(..., ge=0, le=100000000, allow_inf_nan=False)
+    write_capacity_rps: float = Field(..., gt=0, le=100000000, allow_inf_nan=False)
 
 
 class ReplicationPlanRequest(BaseModel):
-    regions: List[RegionConfig]
-    global_write_rate_rps: float = Field(..., gt=0)
+    regions: List[RegionConfig] = Field(..., min_length=1, max_length=1000)
+    global_write_rate_rps: float = Field(..., gt=0, le=100000000, allow_inf_nan=False)
     consistency_mode: Literal["strong", "eventual"] = "eventual"
 
 
@@ -52,6 +52,8 @@ def _estimate_lag(base_latency_ms: float, load_factor: float, consistency_mode: 
 
 @router.post("/plan", response_model=ReplicationPlanResponse)
 def plan_replication(request: ReplicationPlanRequest) -> ReplicationPlanResponse:
+    if len({r.name for r in request.regions}) != len(request.regions):
+        raise HTTPException(status_code=422, detail='duplicate region name')
     total_capacity = sum(r.write_capacity_rps for r in request.regions)
     if total_capacity <= 0:
         raise ValueError("Total capacity must be positive.")
@@ -88,7 +90,7 @@ def plan_replication(request: ReplicationPlanRequest) -> ReplicationPlanResponse
         notes=notes,
         meta={
             "version": "step442-v1",
-            "created_at": datetime.utcnow().isoformat() + "Z",
+            "created_at": datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
             "engine": "replication_planner_stub_step442",
         },
     )
