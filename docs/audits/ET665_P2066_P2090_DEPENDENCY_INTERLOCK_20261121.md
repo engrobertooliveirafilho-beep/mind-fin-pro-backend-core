@@ -55,3 +55,9 @@ COST_BRL=0
 - Historical deployment decision: APPROVED_FOR_PAPER_ONLY_SIMULATION_REVIEW; real orders, broker connections, MT5 order sending and financial execution forbidden.
 - Reconciliation: HISTORICAL_P2151_READINESS_ASSERTED=TRUE; UNDERLYING_CERTIFICATION_JSON_VERIFIED=FALSE; CURRENT_E2E_CERTIFIED=FALSE.
 - Follow-up is to locate and inspect the exact seven certification JSON artifacts and their original source/dependency hashes, then run offline tests. Do not promote historical PASS to current certification.
+
+## Drive original evidence recovery — P2062 and P2151 (2026-11-21)
+- Drive cat_evidence_0000168.stdout.txt ID 1Sw-ag7j4aEZDFXzb4Vzod_lAttCIhkVx: recovered machine-readable historical P2062_REAL_LOGIC_BACKTEST_ENGINE output, status PASS, RESEARCH_ONLY, 5 specialists, 50,000 rows, 3 validated / 2 failed, with detailed sampled trades for XAUUSD_M1_REALDNA_0004. This is more granular than the previously recovered dossier; source code and raw OHLC CSV remain unverified.
+- Drive cat_evidence_0000206.stdout.txt ID 1C7Dz3GqJERFT3_VATxRqLtCcWLl63ML1: recovered historical P2151+ program completion output, including exact output paths for final JSON, gate review, ZIP package and dossier. It is an execution output record, not independently retrieved underlying certification JSON.
+- The Drive console_output_P2151_PLUS.txt ID 1O5DWAb54UL-EzWSd2jr8xhiVrqUdHf1A contains seven reported certification hashes. These are unverified declarations until actual certification files are recovered and hashed.
+- RECOVERED_P2062_MACHINE_OUTPUT=TRUE; RECOVERED_P2151_OUTPUT_PATHS=TRUE; ORIGINAL_P2062_CODE_VERIFIED=FALSE; ORIGINAL_P2151_FINAL_JSON_VERIFIED=FALSE; CURRENT_E2E_CERTIFIED=FALSE.
