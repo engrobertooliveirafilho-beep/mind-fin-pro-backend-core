@@ -9,7 +9,7 @@ def _frame(ts):
 
 def test_same_day_older_mark_rejected_without_state_change():
     ex = PaperPortfolioExecutor()
-    assert ex.on_signal(_signal(100)) is not None
+    assert ex.on_signal(_signal(100), 100.0) is not None
     ex.mark_to_market(_frame(120))
     before = (ex.equity, ex._last_event_ts, ex._peak_equity, len(ex.positions))
     with pytest.raises(ValueError, match="OUT_OF_ORDER_PAPER_MARK"):
@@ -19,13 +19,13 @@ def test_same_day_older_mark_rejected_without_state_change():
 def test_same_day_older_signal_rejected():
     ex = PaperPortfolioExecutor()
     ex.mark_to_market(_frame(120))
-    assert ex.on_signal(_signal(110)) is None
+    assert ex.on_signal(_signal(110), 100.0) is None
     assert not ex.positions
 
 def test_equal_timestamp_signal_allowed_after_mark():
     ex = PaperPortfolioExecutor()
     ex.mark_to_market(_frame(120))
-    assert ex.on_signal(_signal(120)) is not None
+    assert ex.on_signal(_signal(120), 100.0) is not None
 
 def test_next_day_mark_allowed():
     ex = PaperPortfolioExecutor()
