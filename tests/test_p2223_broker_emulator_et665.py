@@ -52,4 +52,25 @@ class BrokerEmulatorSafetyTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError,'halted'):
             broker.execute_order('BUY',1)
         self.assertEqual(broker.trades,[])
+    def test_killed_risk_cannot_mutate_equity(self):
+        broker=BrokerEmulator()
+        broker.risk.check(-3100)
+        equity=broker.risk.equity
+        with self.assertRaisesRegex(RuntimeError,'halted'):
+            broker.risk.check(99999)
+        self.assertEqual(broker.risk.equity,equity)
+    def test_nonfinite_pnl_rejected_without_mutation(self):
+        for pnl in (float('nan'),float('inf'),float('-inf'),True,'100'):
+            with self.subTest(pnl=pnl):
+                broker=BrokerEmulator()
+                with self.assertRaises(ValueError):
+                    broker.risk.check(pnl)
+                self.assertEqual(broker.risk.equity,100000)
+    def test_preexisting_session_loss_blocks_order(self):
+        broker=BrokerEmulator()
+        broker.risk.equity=96000
+        broker.risk.peak=100000
+        with self.assertRaisesRegex(RuntimeError,'halted'):
+            broker.execute_order('BUY',1)
+        self.assertEqual(broker.trades,[])
 if __name__=='__main__':unittest.main()
