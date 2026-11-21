@@ -171,3 +171,17 @@ def test_contract_rejects_conflicting_aliases():
         reconcile_p2067_weights([
             {"id": "A", "specialist_id": "B", "normalized_weight": 1}
         ])
+
+@pytest.mark.parametrize("historical,normalized", [
+    (0.4, 0.5), ("NaN", 0.5), (True, 1.0), (None, 0.5),
+])
+def test_loader_rejects_conflicting_weight_aliases(tmp_path, historical, normalized):
+    import json
+    from app.runtime.p2071_2080_realtime_paper_runtime import load_portfolio
+    path = tmp_path / "portfolio.json"
+    path.write_text(json.dumps({"specialists": [
+        {"id": "A", "logic_type": "RANGE_REVERSION",
+         "portfolio_weight": historical, "normalized_weight": normalized},
+    ]}), encoding="utf-8")
+    with pytest.raises(ValueError, match="P2067_CONFLICTING_WEIGHT_ALIASES"):
+        load_portfolio(str(path))
