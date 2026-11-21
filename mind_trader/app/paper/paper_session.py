@@ -112,8 +112,6 @@ class PaperTradingSessionManager:
             or not math.isfinite(s["max_daily_loss"])
             or s["max_daily_loss"] != cfg["max_daily_loss"]):
             return {"decision":"BLOCK_INVALID_SESSION_STATE","production":"BLOCKED"}
-        if s["trades"] >= s["max_daily_trades"]:
-            return {"decision":"BLOCK_MAX_DAILY_TRADES","production":"BLOCKED"}
         if type(pnl) not in (int,float) or not math.isfinite(pnl):
             return {"decision":"BLOCK_INVALID_PNL","production":"BLOCKED"}
         if type(s.get("daily_pnl")) not in (int,float) or not math.isfinite(s["daily_pnl"]):
