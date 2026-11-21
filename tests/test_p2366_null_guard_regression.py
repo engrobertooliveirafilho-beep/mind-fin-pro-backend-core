@@ -37,6 +37,18 @@ class InstitutionalTargetsRegression(unittest.TestCase):
         out = institutional_targets(self.base(side="HOLD"))
         self.assertFalse(out["approved"])
 
+    def test_nan_is_blocked(self):
+        out = institutional_targets(self.base(atr=float("nan")))
+        self.assertFalse(out["approved"])
+        self.assertEqual(out["decision"], "BLOCK_INVALID_NUMERIC")
+
+    def test_rounded_two_r_must_not_pass(self):
+        out = institutional_targets(self.base(swing_high=100, swing_low=100,
+            atr=0, session_high=103.999, liquidity_high=103.999,
+            vwap=100, round_number=100))
+        self.assertFalse(out["approved"])
+        self.assertEqual(out["decision"], "BLOCK_TARGET_BELOW_2R")
+
     def test_no_real_orders(self):
         out = institutional_targets(self.base())
         self.assertEqual(out["real_orders"], "FORBIDDEN")
