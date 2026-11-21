@@ -32,5 +32,18 @@ class TestLedgerReconciliation(unittest.TestCase):
         self.s.ledger_path.write_text("{")
         self.assertEqual(self.s.open_session()["decision"], "BLOCK_LEDGER_MISMATCH")
 
+    def test_forged_last_event_cannot_hide_corrupt_history(self):
+        self.s.record_trade_result(10)
+        events = [json.loads(line) for line in self.s.ledger_path.read_text().splitlines()]
+        events[1]["pnl"] = 999
+        self.s.ledger_path.write_text("".join(json.dumps(event)+"\n" for event in events))
+        self.assertEqual(self.s.pre_trade_check(100)["decision"], "BLOCK_LEDGER_MISMATCH")
+
+    def test_duplicate_result_event_rejected(self):
+        self.s.record_trade_result(10)
+        lines = self.s.ledger_path.read_text().splitlines()
+        self.s.ledger_path.write_text("\n".join(lines+[lines[-1]])+"\n")
+        self.assertEqual(self.s.pre_trade_check(100)["decision"], "BLOCK_LEDGER_MISMATCH")
+
 if __name__ == "__main__":
     unittest.main()
