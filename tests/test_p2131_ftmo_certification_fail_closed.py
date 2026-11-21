@@ -74,3 +74,23 @@ class FtmoDeclarationSafetyTests(unittest.TestCase):
                 os.chdir(old)
         self.assertIn(str(p), result["invalid_dependencies"])
         self.assertEqual(result["status"], "FAIL")
+    def test_midrun_lock_drift_aborts_evidence_write(self):
+        import os
+        with tempfile.TemporaryDirectory() as tmp:
+            old = os.getcwd()
+            try:
+                os.chdir(tmp)
+                original = ftmo.load_json
+                def tamper(path):
+                    os.environ["REAL_ORDERS"] = "ALLOWED"
+                    return original(path)
+                p = Path("data/runtime/P2071_2080/evidence/P2071_2080_FINAL_CERTIFICATION.json")
+                p.parent.mkdir(parents=True)
+                p.write_text('{"status":"PASS"}', encoding="utf-8")
+                with patch.object(ftmo, "load_json", side_effect=tamper):
+                    with self.assertRaisesRegex(RuntimeError, "LOCK_BREACH"):
+                        ftmo.run_p2131_2150(output_dir="out")
+                self.assertFalse(Path("out/P2131_2150_FINAL_CERTIFICATION.json").exists())
+            finally:
+                os.chdir(old)
+                os.environ["REAL_ORDERS"] = "FORBIDDEN"
