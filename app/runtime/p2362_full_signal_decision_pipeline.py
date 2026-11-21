@@ -64,7 +64,10 @@ def decide_signal(signal: dict, context: dict) -> dict:
     signal["expected_payoff"] = observed_payoff
 
     precheck = precheck_before_mt5_emit(signal, context)
-    if not isinstance(precheck, dict) or precheck.get("emit_allowed") is not True:
+    if (not isinstance(precheck, dict) or precheck.get("emit_allowed") is not True
+            or precheck.get("mode") != "PAPER_ONLY"
+            or precheck.get("real_orders") != "FORBIDDEN"
+            or precheck.get("ftmo_real") != "FORBIDDEN"):
         return {
             "symbol": signal.get("symbol"), "side": signal.get("side"),
             "strategy": signal.get("strategy"), "context_edge": context_edge,
@@ -93,7 +96,10 @@ def decide_signal(signal: dict, context: dict) -> dict:
         paper_lot = 0.0
     if isinstance(raw_lot, bool) or not math.isfinite(paper_lot) or paper_lot <= 0:
         paper_lot = 0.0
-    final_emit = isinstance(precheck, dict) and precheck.get("emit_allowed") is True and paper_lot > 0
+    final_emit = (precheck.get("emit_allowed") is True and paper_lot > 0
+                  and isinstance(sizing, dict) and sizing.get("mode") == "PAPER_ONLY"
+                  and sizing.get("real_orders") == "FORBIDDEN"
+                  and sizing.get("ftmo_real") == "FORBIDDEN")
 
     return {
         "symbol": signal.get("symbol"),
