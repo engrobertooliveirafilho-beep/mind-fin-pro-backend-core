@@ -1,7 +1,7 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import List, Dict, Any, Literal
 
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 
 router = APIRouter()
@@ -10,16 +10,16 @@ PolicyMode = Literal["conservative", "balanced", "aggressive"]
 
 
 class ModelUsage(BaseModel):
-    model_name: str
-    rpm_current: int = Field(..., ge=0)
-    tpm_current: int = Field(..., ge=0)
-    error_rate: float = Field(..., ge=0.0, le=1.0)
-    latency_ms_avg: float = Field(..., ge=0.0)
+    model_name: str = Field(..., min_length=1, max_length=128)
+    rpm_current: int = Field(..., ge=0, le=100000000)
+    tpm_current: int = Field(..., ge=0, le=1000000000)
+    error_rate: float = Field(..., ge=0.0, le=1.0, allow_inf_nan=False)
+    latency_ms_avg: float = Field(..., ge=0.0, le=1000000000, allow_inf_nan=False)
 
 
 class RateLimitRequest(BaseModel):
     policy: PolicyMode = "balanced"
-    models: List[ModelUsage]
+    models: List[ModelUsage] = Field(..., max_length=1000)
 
 
 class ModelRateLimitDecision(BaseModel):
@@ -91,6 +91,8 @@ def _decide_for_model(policy: PolicyMode, usage: ModelUsage) -> ModelRateLimitDe
 
 @router.post("/evaluate", response_model=RateLimitResponse)
 def evaluate_rate_limits(request: RateLimitRequest) -> RateLimitResponse:
+    if len({m.model_name for m in request.models}) != len(request.models):
+        raise HTTPException(status_code=422, detail='duplicate model_name')
     decisions = [
         _decide_for_model(request.policy, m)
         for m in request.models
@@ -100,7 +102,7 @@ def evaluate_rate_limits(request: RateLimitRequest) -> RateLimitResponse:
         decisions=decisions,
         meta={
             "version": "step443-v1",
-            "created_at": datetime.utcnow().isoformat() + "Z",
+            "created_at": datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
             "engine": "rate_limit_policy_step443",
         },
     )
