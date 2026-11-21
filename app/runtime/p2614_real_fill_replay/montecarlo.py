@@ -1,10 +1,18 @@
 import math
 import random
 
+def _finite_number(value):
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        return False
+    try:
+        return math.isfinite(float(value))
+    except (OverflowError, TypeError, ValueError):
+        return False
+
 def monte_carlo_from_trades(trades, initial_capital=100.0, risk_pct=0.01, runs=500):
-    if isinstance(initial_capital, bool) or not isinstance(initial_capital, (int, float)) or not math.isfinite(initial_capital) or initial_capital <= 0:
+    if not _finite_number(initial_capital) or initial_capital <= 0:
         raise ValueError("INVALID_INITIAL_CAPITAL")
-    if isinstance(risk_pct, bool) or not isinstance(risk_pct, (int, float)) or not math.isfinite(risk_pct) or not 0 <= risk_pct <= 1:
+    if not _finite_number(risk_pct) or not 0 <= risk_pct <= 1:
         raise ValueError("INVALID_RISK_PCT")
     if isinstance(runs, bool) or not isinstance(runs, int) or runs < 1:
         raise ValueError("INVALID_RUN_COUNT")
@@ -16,7 +24,7 @@ def monte_carlo_from_trades(trades, initial_capital=100.0, risk_pct=0.01, runs=5
         if not isinstance(trade, dict) or "r" not in trade:
             raise ValueError(f"INVALID_TRADE_RECORD:{index}")
         value = trade["r"]
-        if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
+        if not _finite_number(value):
             raise ValueError(f"INVALID_TRADE_R:{index}")
         rs.append(float(value))
 
