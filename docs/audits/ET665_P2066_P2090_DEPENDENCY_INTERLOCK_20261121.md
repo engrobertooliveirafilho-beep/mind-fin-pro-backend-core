@@ -41,3 +41,9 @@ COST_BRL=0
 - Therefore the earlier statement that **all** P2081 historical PASS claims contradict P2080 must be narrowed: the P2080B historical PASS exists. Provenance/ordering of the exact consumed JSON and behavioral replay remain unverified; the present patched branch deliberately leaves P2074 risk/fill validation PENDING.
 - Additional current branch fix: P2074 now rejects cross-symbol marks and invalid mid/spread before changing risk state; 12 parametrized regression cases published, not yet executed.
 - HISTORICAL_P2080B_PASS=DOCUMENTED; CURRENT_P2080_E2E_CERTIFIED=FALSE; P2090_CURRENT_CERTIFIED=FALSE.
+
+## P2078 integrated PAPER restoration — 2026-11-21
+- Runtime now persists `executor_snapshot` and restores it with `PaperPortfolioExecutor.restore_state`, checking complete round-trip equality and marked equity.
+- Code commit `7945a4410a0659435e98bfae3ce770c350ae51da`; test commit `0b1a4c794251a8cb1b5d02db330d3843302f332e`.
+- `P2079` persistence PASS is restricted to serialized readback equality; `P2078` remains PENDING because no independent interrupted-process replay was executed.
+- Current branch regression execution: BLOCKED (no local GitHub checkout through DNS; no verified workflow); E2E_CERTIFIED=FALSE.
