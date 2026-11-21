@@ -169,8 +169,13 @@ class RealtimeFeatureBuilder:
         avg_gain = statistics.mean(gains) if gains else 0.0
         avg_loss = statistics.mean(losses) if losses else 0.0
 
-        rs = avg_gain / avg_loss if avg_loss > 0 else 100
-        rsi = 100 - (100 / (1 + rs))
+        if avg_gain == 0 and avg_loss == 0:
+            rsi = 50.0
+        elif avg_loss == 0:
+            rsi = 100.0
+        else:
+            rs = avg_gain / avg_loss
+            rsi = 100 - (100 / (1 + rs))
         stoch = close_position * 100
 
         return FeatureFrame(
@@ -627,7 +632,7 @@ P2071_2080B_CERTIFICATION_DRAWDOWN_REPAIR
 {json.dumps(final["absolute_restrictions"], indent=2, ensure_ascii=False)}
 
 ## CONCLUSION
-P2071→P2080 certified as consolidated PAPER_ONLY realtime infrastructure runtime.
+P2071→P2080 status is restricted to simulation evidence only; no realtime market feed certification.
 No real orders.
 No broker execution.
 No financial execution.
