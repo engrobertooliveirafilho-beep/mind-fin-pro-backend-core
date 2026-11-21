@@ -35,6 +35,8 @@ def run_agent(agent_id, payload=None, *, loader=None):
     if payload is None: payload={}
     if type(payload) is not dict: raise AgentDispatchError('payload must be dict')
     _validate(payload)
+    if 'mode' in payload and payload['mode'] != 'dry_run':
+        raise AgentDispatchError('unsafe requested mode')
     module_name='app.agents.'+agent_id.replace('.','_',1)
     try:
         module=(loader or import_module)(module_name)
