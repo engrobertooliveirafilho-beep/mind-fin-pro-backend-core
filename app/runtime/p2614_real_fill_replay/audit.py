@@ -1,21 +1,49 @@
+import math
+
 def audit_trades(trades):
-    errors=[]
-    seen=set()
-    for t in trades:
-        if t["entry_i"] <= t["signal_i"]:
+    errors = []
+    if not isinstance(trades, (list, tuple)):
+        return {"errors": ["INVALID_TRADES_COLLECTION"], "passed": False, "error_count": 1}
+
+    seen = set()
+    required = ("signal_i", "entry_i", "exit_i", "edge_id", "capital_before", "capital_after", "pnl_usd", "r", "real_execution_allowed")
+    for index, trade in enumerate(trades):
+        if not isinstance(trade, dict):
+            errors.append(f"INVALID_TRADE_RECORD:{index}")
+            continue
+        missing = [key for key in required if key not in trade]
+        if missing:
+            errors.append(f"MISSING_FIELDS:{index}:{','.join(missing)}")
+            continue
+
+        signal_i, entry_i, exit_i = trade["signal_i"], trade["entry_i"], trade["exit_i"]
+        indices = (signal_i, entry_i, exit_i)
+        if any(isinstance(value, bool) or not isinstance(value, int) or value < 0 for value in indices):
+            errors.append(f"INVALID_BAR_INDEX:{index}")
+        elif entry_i <= signal_i:
             errors.append("LOOKAHEAD_OR_SAME_BAR_ENTRY")
-        if t["exit_i"] <= t["entry_i"]:
+        elif exit_i <= entry_i:
             errors.append("INVALID_EXIT_ORDER")
-        key=(t["edge_id"],t["entry_i"],t["exit_i"])
-        if key in seen:
-            errors.append("DUPLICATE_TRADE")
-        seen.add(key)
-        if t.get("real_execution_allowed") is not False:
+
+        edge_id = trade["edge_id"]
+        if not isinstance(edge_id, str) or not edge_id.strip():
+            errors.append(f"INVALID_EDGE_ID:{index}")
+        else:
+            key = (edge_id, entry_i, exit_i)
+            if key in seen:
+                errors.append("DUPLICATE_TRADE")
+            seen.add(key)
+
+        if trade.get("real_execution_allowed") is not False:
             errors.append("REAL_EXEC_FLAG_NOT_FALSE")
-        if t["capital_after"]<=0:
-            errors.append("NEGATIVE_OR_ZERO_CAPITAL")
-    return {
-        "errors":errors,
-        "passed":len(errors)==0,
-        "error_count":len(errors)
-    }
+
+        for field in ("capital_before", "capital_after", "pnl_usd", "r"):
+            value = trade[field]
+            if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
+                errors.append(f"INVALID_NUMERIC:{index}:{field}")
+        for field in ("capital_before", "capital_after"):
+            value = trade[field]
+            if isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value) and value <= 0:
+                errors.append("NEGATIVE_OR_ZERO_CAPITAL")
+
+    return {"errors": errors, "passed": len(errors) == 0, "error_count": len(errors)}
