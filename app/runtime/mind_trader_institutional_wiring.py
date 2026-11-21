@@ -1,6 +1,7 @@
 from __future__ import annotations
 
-import importlib
+import ast
+from pathlib import Path
 from datetime import datetime, timezone
 
 MODULES = [
@@ -16,73 +17,62 @@ MODULES = [
     "app.modules.usde_core.scientific_ledger",
 ]
 
+def _inspect_source(name: str) -> dict:
+    # Static AST inspection only: importing a module can execute arbitrary
+    # module-level code, so discovery must not import or invoke project code.
+    root = Path(__file__).resolve().parents[2]
+    source = (root / (name.replace(".", "/") + ".py")).resolve()
+    try:
+        source.relative_to(root)
+    except ValueError:
+        return {"module": name, "source_ok": False, "error": "PATH_OUTSIDE_PROJECT"}
+    try:
+        text = source.read_text(encoding="utf-8")
+        tree = ast.parse(text, filename=str(source))
+    except FileNotFoundError:
+        return {"module": name, "source_ok": False, "error": "SOURCE_NOT_FOUND"}
+    except (OSError, UnicodeError, SyntaxError) as exc:
+        return {"module": name, "source_ok": False, "error": f"SOURCE_INVALID:{exc}"}
+    return {
+        "module": name,
+        "source_ok": True,
+        "classes": [n.name for n in tree.body if isinstance(n, ast.ClassDef)],
+        "functions": [n.name for n in tree.body if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef)) and not n.name.startswith("_")],
+        "import_performed": False,
+        "execution_performed": False,
+    }
+
 def run_institutional_wiring(payload: dict | None = None) -> dict:
-    # Wiring is discovery-only until an execution contract is certified.
-    # Importing a module never authorizes invoking its run() entry point.
     if payload is None:
         payload = {}
     if not isinstance(payload, dict):
-        raise ValueError('INVALID_PAYLOAD')
-    results = []
-
-    for name in MODULES:
-        row = {
-            "module": name,
-            "import_ok": False,
-            "run_ok": False,
-            "health_ok": False,
-            "classes": [],
-            "functions": [],
-            "error": "",
-        }
-        try:
-            m = importlib.import_module(name)
-            row["import_ok"] = True
-            row["classes"] = [k for k, v in vars(m).items() if isinstance(v, type)]
-            row["functions"] = [
-                k for k, v in vars(m).items()
-                if callable(v) and not isinstance(v, type) and not k.startswith("_")
-            ]
-
-            # Do not call imported health() functions: discovery must be side-effect-free.
-
-            # Execution intentionally unavailable until a verified allowlist exists.
-
-        except Exception as e:
-            row["error"] = str(e)
-
-        results.append(row)
-
+        raise ValueError("INVALID_PAYLOAD")
+    results = [_inspect_source(name) for name in MODULES]
+    source_ok = sum(row["source_ok"] for row in results)
     return {
         "program": "MIND_TRADER_INSTITUTIONAL_WIRING",
-        "status": "IMPORTS_OK_UNCERTIFIED" if all(row["import_ok"] for row in results) else "DEGRADED",
+        "status": "SOURCE_INSPECTION_OK_UNCERTIFIED" if source_ok == len(results) else "DEGRADED",
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "mode": "PAPER_ONLY",
         "real_orders": "FORBIDDEN",
         "ftmo_real": "FORBIDDEN",
         "modules_total": len(results),
-        "imports_ok": sum(1 for r in results if r["import_ok"]),
-        "runs_ok": sum(1 for r in results if r["run_ok"]),
+        "imports_ok": 0,
+        "source_inspections_ok": source_ok,
+        "runs_ok": 0,
         "execution_performed": False,
-        "health_ok": sum(1 for r in results if r["health_ok"]),
+        "health_ok": 0,
         "results": results,
     }
 
 def health() -> dict:
-    # Read-only inspection: health checks must never execute module.run().
-    # Importability is not proof of functional readiness.
-    results = []
-    for name in MODULES:
-        try:
-            importlib.import_module(name)
-            results.append({"module": name, "import_ok": True})
-        except Exception as exc:
-            results.append({"module": name, "import_ok": False, "error": str(exc)})
-    imports_ok = sum(row["import_ok"] for row in results)
+    results = [_inspect_source(name) for name in MODULES]
+    source_ok = sum(row["source_ok"] for row in results)
     return {
-        "status": "IMPORTS_OK_UNCERTIFIED" if imports_ok == len(MODULES) else "DEGRADED",
-        "modules_total": len(MODULES),
-        "imports_ok": imports_ok,
+        "status": "SOURCE_INSPECTION_OK_UNCERTIFIED" if source_ok == len(results) else "DEGRADED",
+        "modules_total": len(results),
+        "imports_ok": 0,
+        "source_inspections_ok": source_ok,
         "runs_ok": 0,
         "health_ok": 0,
         "execution_performed": False,
