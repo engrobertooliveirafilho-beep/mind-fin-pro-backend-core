@@ -43,13 +43,44 @@ def load_json(path: str) -> Any:
 
 
 def extract_specialists(raw: Any) -> List[Dict[str, Any]]:
-    if isinstance(raw, list):
-        return raw
+    specialists = raw if isinstance(raw, list) else None
     if isinstance(raw, dict):
         for key in ["specialists", "final_specialists", "portfolio", "locked_specialists"]:
             if isinstance(raw.get(key), list):
-                return raw[key]
-    return [{"id": "XAUUSD_M1_REALDNA_0004", "type": "RANGE_REVERSION"}]
+                specialists = raw[key]
+                break
+    if not isinstance(specialists, list) or len(specialists) != 3:
+        raise ValueError("REALDNA_PORTFOLIO_MUST_CONTAIN_EXACTLY_3_SPECIALISTS")
+
+    seen = set()
+    total_weight = 0.0
+    for spec in specialists:
+        if not isinstance(spec, dict):
+            raise ValueError("REALDNA_SPECIALIST_RECORD_INVALID")
+        sid = spec.get("specialist_id") or spec.get("id")
+        weight = spec.get("portfolio_weight")
+        if not isinstance(sid, str) or not sid.strip() or sid in seen:
+            raise ValueError("REALDNA_SPECIALIST_ID_INVALID_OR_DUPLICATE")
+        seen.add(sid)
+        if not isinstance(spec.get("logic_type"), str) or not spec["logic_type"].strip():
+            raise ValueError(f"REALDNA_LOGIC_TYPE_MISSING:{sid}")
+        if type(weight) not in (int, float) or not math.isfinite(weight) or not 0 < weight <= 1:
+            raise ValueError(f"REALDNA_WEIGHT_INVALID:{sid}")
+        if spec.get("final_locked") is not True:
+            raise ValueError(f"REALDNA_SPECIALIST_NOT_LOCKED:{sid}")
+        locks = {
+            "real_orders": "FORBIDDEN",
+            "live_trading": False,
+            "broker_execution": "DISABLED",
+            "financial_execution": "DISABLED",
+            "ftmo_real": "FORBIDDEN",
+        }
+        if any(spec.get(k) != v for k, v in locks.items()):
+            raise ValueError(f"REALDNA_FINANCIAL_LOCK_INVALID:{sid}")
+        total_weight += float(weight)
+    if total_weight > 1.000001:
+        raise ValueError("REALDNA_PORTFOLIO_WEIGHT_SUM_EXCEEDS_1")
+    return specialists
 
 
 def spec_id(spec: Dict[str, Any], idx: int) -> str:
@@ -148,24 +179,33 @@ class PerformanceAttribution:
         assert_no_financial_execution()
         m = p2071.get("metrics", {})
         pnl = float(m.get("paper_mark_to_market_pnl", m.get("paper_realized_pnl", 0.0)))
-        n = max(len(specialists), 1)
-        per_spec = pnl / n
-
+        raw_attribution = m.get("specialist_pnl")
+        expected_ids = {spec_id(spec, idx) for idx, spec in enumerate(specialists)}
+        valid_map = isinstance(raw_attribution, dict) and set(raw_attribution) == expected_ids
         attribution = {}
-        for idx, spec in enumerate(specialists):
-            sid = spec_id(spec, idx)
-            attribution[sid] = round(per_spec, 6)
-
-        ok = len(attribution) >= 3
+        if valid_map:
+            for sid, value in raw_attribution.items():
+                if type(value) not in (int, float) or not math.isfinite(value):
+                    valid_map = False
+                    break
+                attribution[sid] = round(float(value), 6)
+        attribution_sum = round(sum(attribution.values()), 6)
+        reconciled = valid_map and abs(attribution_sum - pnl) <= max(0.01, abs(pnl) * 0.000001)
+        ok = len(expected_ids) == 3 and reconciled
+        reason = "ATTRIBUTION_OK" if ok else (
+            "SPECIALIST_ATTRIBUTION_MISSING_OR_INVALID" if not valid_map else
+            "SPECIALIST_ATTRIBUTION_DOES_NOT_RECONCILE"
+        )
 
         return IntelligenceDecision(
             "P2094_PERFORMANCE_ATTRIBUTION",
             "PASS" if ok else "FAIL",
-            "ATTRIBUTION_OK" if ok else "ATTRIBUTION_FAIL",
+            reason,
             {
                 "portfolio_pnl": round(pnl, 6),
-                "attribution": attribution,
-                "attribution_sum": round(sum(attribution.values()), 6),
+                "attribution": attribution if valid_map else {},
+                "attribution_sum": attribution_sum if valid_map else None,
+                "reconciled": reconciled,
             },
         )
 
@@ -210,21 +250,45 @@ class SpecialistRankingEvolution:
 
         for idx, spec in enumerate(specialists):
             sid = spec_id(spec, idx)
-            base_score = float(spec.get("score", 100 - idx))
-            rank_score = base_score + max(0, 3 - idx) * 10
-            ranking.append({"specialist_id": sid, "rank": idx + 1, "score": round(rank_score, 6)})
+            total_pnl = spec.get("total_pnl")
+            max_drawdown = spec.get("max_drawdown")
+            winrate = spec.get("winrate")
+            if (
+                type(total_pnl) not in (int, float) or not math.isfinite(total_pnl) or
+                type(max_drawdown) not in (int, float) or not math.isfinite(max_drawdown) or
+                type(winrate) not in (int, float) or not math.isfinite(winrate)
+            ):
+                return IntelligenceDecision(
+                    "P2096_SPECIALIST_RANKING_EVOLUTION",
+                    "FAIL",
+                    "SPECIALIST_PERFORMANCE_EVIDENCE_MISSING",
+                    {"specialist_id": sid},
+                )
+            ranking.append({
+                "specialist_id": sid,
+                "rank": 0,
+                "score": round(float(total_pnl), 6),
+                "ranking_basis": "HISTORICAL_TOTAL_PNL",
+                "winrate": round(float(winrate), 6),
+                "max_drawdown": round(float(max_drawdown), 8),
+                "portfolio_weight": round(float(spec["portfolio_weight"]), 8),
+            })
 
-        ranking = sorted(ranking, key=lambda x: x["score"], reverse=True)
+        ranking = sorted(
+            ranking,
+            key=lambda x: (x["score"], x["max_drawdown"]),
+            reverse=True,
+        )
         for i, item in enumerate(ranking):
             item["rank"] = i + 1
 
-        ok = len(ranking) >= 3 and ranking[0]["score"] >= ranking[-1]["score"]
+        ok = len(ranking) == 3
 
         return IntelligenceDecision(
             "P2096_SPECIALIST_RANKING_EVOLUTION",
             "PASS" if ok else "FAIL",
             "RANKING_EVOLUTION_OK" if ok else "RANKING_EVOLUTION_FAIL",
-            {"ranking": ranking},
+            {"ranking": ranking, "ranking_basis": "HISTORICAL_TOTAL_PNL"},
         )
 
 
