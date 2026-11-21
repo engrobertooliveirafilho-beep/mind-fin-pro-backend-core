@@ -375,7 +375,7 @@ def build_xray_router(events_path: Path, context_path: Path, dataset_root: Path,
         lifecycle = classify_lifecycle(ev, ctx)
         router = recommended_families(
             regime["regime"],
-            lifecycle["lifecycle"],
+            "UNCLASSIFIED",  # post-event lifecycle cannot route contemporaneous signals
             ev.get("event_type", ""),
             regime["volatility"],
         )
