@@ -1,5 +1,13 @@
 import math
 
+def _finite_number(value):
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        return False
+    try:
+        return math.isfinite(float(value))
+    except (OverflowError, TypeError, ValueError):
+        return False
+
 def audit_trades(trades):
     errors = []
     if not isinstance(trades, (list, tuple)):
@@ -18,7 +26,8 @@ def audit_trades(trades):
 
         signal_i, entry_i, exit_i = trade["signal_i"], trade["entry_i"], trade["exit_i"]
         indices = (signal_i, entry_i, exit_i)
-        if any(isinstance(value, bool) or not isinstance(value, int) or value < 0 for value in indices):
+        valid_indices = all(type(value) is int and value >= 0 for value in indices)
+        if not valid_indices:
             errors.append(f"INVALID_BAR_INDEX:{index}")
         elif entry_i <= signal_i:
             errors.append("LOOKAHEAD_OR_SAME_BAR_ENTRY")
@@ -28,7 +37,7 @@ def audit_trades(trades):
         edge_id = trade["edge_id"]
         if not isinstance(edge_id, str) or not edge_id.strip():
             errors.append(f"INVALID_EDGE_ID:{index}")
-        else:
+        elif valid_indices:
             key = (edge_id, entry_i, exit_i)
             if key in seen:
                 errors.append("DUPLICATE_TRADE")
@@ -38,12 +47,11 @@ def audit_trades(trades):
             errors.append("REAL_EXEC_FLAG_NOT_FALSE")
 
         for field in ("capital_before", "capital_after", "pnl_usd", "r"):
-            value = trade[field]
-            if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
+            if not _finite_number(trade[field]):
                 errors.append(f"INVALID_NUMERIC:{index}:{field}")
         for field in ("capital_before", "capital_after"):
             value = trade[field]
-            if isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value) and value <= 0:
+            if _finite_number(value) and value <= 0:
                 errors.append("NEGATIVE_OR_ZERO_CAPITAL")
 
     return {"errors": errors, "passed": len(errors) == 0, "error_count": len(errors)}
