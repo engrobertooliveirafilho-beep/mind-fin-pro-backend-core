@@ -69,7 +69,15 @@ def decide_signal(signal: dict, context: dict) -> dict:
         "rebuild_after_profit": context.get("rebuild_after_profit", False),
     })
 
-    final_emit = precheck.get("emit_allowed") is True and float(sizing["recommended_paper_lot"]) > 0
+    # Untrusted sizing outputs must never become an emission authorization.
+    try:
+        raw_lot = sizing.get("recommended_paper_lot") if isinstance(sizing, dict) else None
+        paper_lot = float(raw_lot)
+    except (TypeError, ValueError, OverflowError):
+        paper_lot = 0.0
+    if isinstance(raw_lot, bool) or not math.isfinite(paper_lot) or paper_lot <= 0:
+        paper_lot = 0.0
+    final_emit = isinstance(precheck, dict) and precheck.get("emit_allowed") is True and paper_lot > 0
 
     return {
         "symbol": signal.get("symbol"),
@@ -80,7 +88,7 @@ def decide_signal(signal: dict, context: dict) -> dict:
         "precheck": precheck,
         "sizing": sizing,
         "final_decision": "EMIT_TO_MT5_PAPER" if final_emit else "BLOCK_SIGNAL",
-        "paper_lot": sizing["recommended_paper_lot"] if final_emit else 0.0,
+        "paper_lot": paper_lot if final_emit else 0.0,
         "mode": "PAPER_ONLY",
         "real_orders": "FORBIDDEN",
         "ftmo_real": "FORBIDDEN",
