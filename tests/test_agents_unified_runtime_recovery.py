@@ -50,6 +50,14 @@ class DispatchTests(unittest.TestCase):
             return {'agent_id':'sec.sentinel','status':'ok','mode':'dry_run'}
         run_agent('sec.sentinel',payload,loader=lambda _:SimpleNamespace(run_dry=mutate))
         self.assertEqual(payload['rows'][0]['symbol'],'EURUSD')
+    def test_live_mode_rejected(self):
+        with self.assertRaises(AgentDispatchError):run_agent('sec.sentinel',{'mode':'live'},loader=self.loader)
+    def test_real_mode_rejected(self):
+        with self.assertRaises(AgentDispatchError):run_agent('sec.sentinel',{'mode':'real'},loader=self.loader)
+    def test_dry_mode_accepted(self):
+        self.assertEqual(run_agent('sec.sentinel',{'mode':'dry_run'},loader=self.loader)['mode'],'dry_run')
+    def test_nonstring_mode_rejected(self):
+        with self.assertRaises(AgentDispatchError):run_agent('sec.sentinel',{'mode':None},loader=self.loader)
     def test_missing_module(self):
         with self.assertRaises(AgentDispatchError):run_agent('sec.sentinel',loader=lambda _:(_ for _ in ()).throw(ImportError()))
 if __name__=='__main__':unittest.main()
