@@ -10,6 +10,12 @@ def causal_context_thresholds(df: pd.DataFrame, *, warmup: int = 200) -> pd.Data
     if df.empty or df["time"].isna().any() or not df["time"].is_monotonic_increasing or df["time"].duplicated().any():
         raise ValueError("chronology invalid")
     result = df.copy()
+    try:
+        result["time"] = pd.to_datetime(result["time"], errors="raise", utc=True)
+    except (TypeError, ValueError, OverflowError) as exc:
+        raise ValueError("invalid timestamp") from exc
+    if result["time"].isna().any() or not result["time"].is_monotonic_increasing or result["time"].duplicated().any():
+        raise ValueError("chronology invalid after timestamp parsing")
     for col in ("close", "high", "low"):
         result[col] = pd.to_numeric(result[col], errors="raise")
         if result[col].isna().any() or not result[col].map(lambda v: pd.notna(v) and abs(v) != float("inf")).all():
