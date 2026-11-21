@@ -125,15 +125,7 @@ def run(patched_path: Path, outdir: Path, baseline_expectancy: float, baseline_p
     evaluated = []
 
     # P2381 historical patches lack independent causal replay certification.
-    # No legacy row can enter performance or promotion calculations.
-    for r in []:
-        x = dict(r)
-        x["patch_replay_decision"] = classify(x)
-        x["mode"] = MODE
-        x["real_orders"] = REAL_ORDERS
-        x["ftmo_real"] = FTMO_REAL
-        x["warning"] = "REPLAY_AFTER_PATCH_IS_PAPER_ONLY"
-        evaluated.append(x)
+    # Preserve source for audit; no rows are eligible for replay or promotion.
 
     results = [fnum(x.get("realized_r")) for x in evaluated]
     wins = [x for x in results if x > 0]
