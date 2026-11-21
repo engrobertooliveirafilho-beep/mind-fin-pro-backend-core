@@ -1,0 +1,12 @@
+ET665 2026-11-21 PAPER historical event sequence / offline regression
+Drive source reviewed: MIND_TRADER_P8_AUDITORIA_PROFUNDA_2026-08-04.docx (file ID 1mYoNWU4sooo1qZ5foWpkLOWELwL-3riF); original audit explicitly does not establish direct repository inspection or GitHub push/deployment.
+GitHub full-sequence fix: 1214107c78a25c8e35a152a418777ee44ce318f6.
+GitHub historical tamper tests: c0dba3f38026af0155e37d4eca5fa0fc127cb473.
+GitHub direct config validation fix: 6c576fdb7aeafef32b5c2c5acefa9be0e0f06db7.
+GitHub config regression: a6c8dd67de422b497f6767d7ff376a8b193d00dc.
+Local offline command: PYTHONPATH=. python -m unittest discover -s tests -p 'test*.py' -v
+Local result: Ran 36 tests in 0.051s; OK.
+Log: /mnt/data/et665_session_validation/history_regression_20261121.log
+Log SHA256: a179ca31b900bfc5d9da494832a52c3a16df6b6d5030d1f8363218b0c208c74d
+Limitations: local code semantically equivalent but NOT byte-identical to GitHub published files. Historical ledger lacks cryptographic hash chain and transactional atomicity. No exact GitHub blob test run, no S20/S21 or P2071 full E2E. No certification or production promotion.
+PAPER_ONLY=TRUE | REAL_ORDERS=FORBIDDEN | MAIN=INTACT | E2E_CERTIFIED=FALSE | COST=R$0
