@@ -197,9 +197,27 @@ def run_p2131_2150(output_dir="data/runtime/P2131_2150/evidence"):
         p2131_to_2139_ok and p2141_to_2147_ok
     )
 
-    mission_status["P2150_OPERATIONAL_READINESS_CERTIFICATION"] = decision(
-        all(v == "PASS" for v in mission_status.values() if v != "PENDING")
+    # Declarations and dependency files do not prove behavioral FTMO checks.
+    # Keep unexecuted scenarios explicitly unverified (fail closed).
+    unverified = (
+        "P2132_DAILY_LOSS_GUARD_DECLARATION",
+        "P2133_TOTAL_LOSS_GUARD_DECLARATION",
+        "P2134_PROFIT_TARGET_TRACKER_DECLARATION",
+        "P2135_TRADING_DAYS_VALIDATOR_DECLARATION",
+        "P2136_POSITION_SIZING_COMPLIANCE_AUDIT",
+        "P2137_SESSION_MARKET_HOURS_COMPLIANCE_AUDIT",
+        "P2138_RUNTIME_RISK_KILL_SWITCH_AUDIT",
+        "P2139_COMPLIANCE_REPLAY_VALIDATION_AUDIT_ONLY",
+        "P2143_STATE_RECOVERY_STRESS_AUDIT",
+        "P2144_LONG_RUN_STABILITY_AUDIT",
+        "P2146_LOGGING_TRACEABILITY_AUDIT",
+        "P2149_CONTINUOUS_MONITORING_VALIDATION",
     )
+    for gate in unverified:
+        mission_status[gate] = "UNVERIFIED"
+    mission_status["P2140_FTMO_PAPER_COMPLIANCE_CERTIFICATION"] = "PENDING"
+    mission_status["P2148_COMPLIANCE_REGRESSION_SUITE"] = "PENDING"
+    mission_status["P2150_OPERATIONAL_READINESS_CERTIFICATION"] = "PENDING"
 
     all_pass = all(v == "PASS" for v in mission_status.values())
 
