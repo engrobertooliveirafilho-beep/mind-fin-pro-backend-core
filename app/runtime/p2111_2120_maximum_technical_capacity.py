@@ -42,7 +42,22 @@ def load_json(path: str) -> Any:
     p = Path(path)
     if not p.exists():
         raise FileNotFoundError(path)
-    return json.loads(p.read_text(encoding="utf-8"))
+    def unique_keys(pairs):
+        obj = {}
+        for key, value in pairs:
+            if key in obj:
+                raise ValueError("P2111_DUPLICATE_JSON_KEY")
+            obj[key] = value
+        return obj
+
+    def reject_nonfinite(value):
+        raise ValueError("P2111_NONFINITE_JSON_NUMBER")
+
+    return json.loads(
+        p.read_text(encoding="utf-8"),
+        object_pairs_hook=unique_keys,
+        parse_constant=reject_nonfinite,
+    )
 
 
 @dataclass
