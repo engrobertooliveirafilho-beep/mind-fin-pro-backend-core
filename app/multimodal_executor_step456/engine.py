@@ -1,7 +1,7 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import List, Dict, Any, Literal
 
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 
 router = APIRouter()
@@ -18,7 +18,7 @@ class MultimodalChannel(BaseModel):
 
 class MultimodalExecuteRequest(BaseModel):
     session_id: str
-    channels: List[MultimodalChannel]
+    channels: List[MultimodalChannel] = Field(..., max_length=128)
 
 
 class ChannelRoute(BaseModel):
@@ -73,7 +73,11 @@ def _estimate_tokens(size_bytes: int, modality: Modality) -> int:
 def execute_multimodal(request: MultimodalExecuteRequest) -> MultimodalExecuteResponse:
     routes: List[ChannelRoute] = []
 
+    seen = set()
     for ch in request.channels:
+        if not ch.channel_id or ch.channel_id in seen:
+            raise HTTPException(status_code=422, detail='duplicate or empty channel_id')
+        seen.add(ch.channel_id)
         pipeline = _pipeline_for_modality(ch.modality)
         latency_class = _latency_class_for_modality(ch.modality)
         est_tokens = _estimate_tokens(ch.size_bytes, ch.modality)
@@ -103,7 +107,7 @@ def execute_multimodal(request: MultimodalExecuteRequest) -> MultimodalExecuteRe
         stats=stats,
         meta={
             "version": "step456-v1",
-            "created_at": datetime.utcnow().isoformat() + "Z",
+            "created_at": datetime.now(timezone.utc).isoformat().replace('+00:00','Z'),
             "engine": "multimodal_executor_step456",
         },
     )
