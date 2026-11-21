@@ -20,6 +20,7 @@ def _validate(value, seen=None, depth=0):
             if type(value) is dict:
                 for k,v in value.items():
                     if type(k) is not str or k.casefold() in DENIED: raise AgentDispatchError('forbidden key')
+                    if k.casefold() == 'mode' and v != 'dry_run': raise AgentDispatchError('unsafe requested mode')
                     _validate(v,seen,depth+1)
             else:
                 for v in value: _validate(v,seen,depth+1)
