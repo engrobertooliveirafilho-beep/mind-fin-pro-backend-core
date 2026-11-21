@@ -84,4 +84,17 @@ class BrokerEmulatorSafetyTests(unittest.TestCase):
         result=run_simulation(1)
         self.assertEqual(result['total_trades'],1)
         self.assertEqual(result['mode'],'BROKER_EMULATOR_SIMULATION_ONLY')
+    def test_direct_check_cannot_reset_prebreached_session(self):
+        broker=BrokerEmulator()
+        broker.risk.equity=96000
+        with self.assertRaisesRegex(RuntimeError,'halted'):
+            broker.risk.check(5000)
+        self.assertEqual(broker.risk.equity,96000)
+        self.assertTrue(broker.risk.halted)
+    def test_nonfinite_risk_baseline_fails_closed(self):
+        broker=BrokerEmulator()
+        broker.risk.peak=float('nan')
+        with self.assertRaisesRegex(RuntimeError,'baseline'):
+            broker.risk.check(1)
+        self.assertTrue(broker.risk.halted)
 if __name__=='__main__':unittest.main()
