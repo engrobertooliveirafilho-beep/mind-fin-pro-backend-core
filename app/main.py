@@ -970,6 +970,8 @@ app.include_router(_step455_plan_router, prefix="/step455/vector-index", tags=["
 app.include_router(_step456_route_router, prefix="/step456/multimodal", tags=["step456-routing"])
 from app.embeddings.internal_embeddings_step454.engine import router as _step454_embed_router
 app.include_router(_step454_embed_router, prefix="/step454/embeddings", tags=["step454-hash-vectors"])
+from app.cognition.math_advanced_step453.engine import router as _step453_math_router
+app.include_router(_step453_math_router, prefix="/step453/math", tags=["step453-offline-math"])
 
 
 # RunPod GPU Cloud routes
