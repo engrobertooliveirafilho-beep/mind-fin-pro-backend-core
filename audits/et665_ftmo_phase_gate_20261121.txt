@@ -1,0 +1,11 @@
+ET665 FTMO phase authorization gate — 2026-11-21
+Reproduced before patch: validate_ftmo_config(default_ftmo_config() with phase='live') returned valid=True.
+Published source commit 499c02866eaa7ab043cfd3c8ccdb6e43a129e1a8.
+Published tests commit d29ed4f0d4556b03f996cc0b2a60e3c835a1532a.
+Offline local regression: PYTHONPATH=. python -m unittest discover -s tests -p 'test*.py' -v
+Result: Ran 49 tests in 0.055s; OK.
+Log: /mnt/data/et665_session_validation/phase_gate_20261121.log
+SHA256: 4bc712474558c06f145b905fffb66ca24a616c765db5f4a2595340f6abca705a
+Drive historical P8 audit (file ID 1mYoNWU4sooo1qZ5foWpkLOWELwL-3riF) identifies P8.46 FTMO ruleset, P8.47 gateway, P8.48 PAPER session, P8.92 live lock, P8.94 broker adapter. Historical reported test counts are not independent current E2E certification.
+Certification caveat: local semantically equivalent source not byte-identical to published GitHub module; 49 tests do not certify GitHub exact bytes or P2071/S20/S21 E2E.
+PAPER_ONLY=TRUE | REAL_ORDERS=FORBIDDEN | MAIN=INTACT | E2E_CERTIFIED=FALSE | COST=R$0
