@@ -289,14 +289,19 @@ class PaperPortfolioExecutor:
             sl = price + risk
             tp = price - reward
 
+        sl = round(sl, 5)
+        tp = round(tp, 5)
+        if sl <= 0 or tp <= 0 or sl == price or tp == price:
+            raise ValueError("invalid rounded paper stop or take-profit")
+
         pos = PaperPosition(
             position_id=f"PAPER_{self.seq:06d}",
             symbol=signal.symbol,
             specialist_id=signal.specialist_id,
             side=signal.side,
             entry=price,
-            sl=round(sl, 5),
-            tp=round(tp, 5),
+            sl=sl,
+            tp=tp,
             qty=1.0,
             open_ts=signal.ts,
         )
