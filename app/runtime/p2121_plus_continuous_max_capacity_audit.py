@@ -38,10 +38,34 @@ def assert_no_financial_execution() -> None:
 
 
 def load_json(path: str) -> Any:
+    import math
     p = Path(path)
     if not p.exists():
         raise FileNotFoundError(path)
-    return json.loads(p.read_text(encoding="utf-8"))
+
+    def unique_keys(pairs):
+        obj = {}
+        for key, value in pairs:
+            if key in obj:
+                raise ValueError("P2121_DUPLICATE_JSON_KEY")
+            obj[key] = value
+        return obj
+
+    def finite_float(value):
+        parsed = float(value)
+        if not math.isfinite(parsed):
+            raise ValueError("P2121_NONFINITE_JSON_NUMBER")
+        return parsed
+
+    def reject_constant(value):
+        raise ValueError("P2121_NONFINITE_JSON_NUMBER")
+
+    return json.loads(
+        p.read_text(encoding="utf-8"),
+        object_pairs_hook=unique_keys,
+        parse_float=finite_float,
+        parse_constant=reject_constant,
+    )
 
 
 def sha256_file(path: str) -> str:
