@@ -18,7 +18,7 @@ class Step455Tests(unittest.TestCase):
         from pydantic import ValidationError
         with self.assertRaises(ValidationError):VectorIndexPlanRequest(total_vectors=0)
     def test_shard_limit_rejected(self):
-        with self.assertRaisesRegex(ValueError,'safe offline limit'):
+        with self.assertRaisesRegex(Exception,'safe offline limit'):
             plan_vector_index(VectorIndexPlanRequest(total_vectors=4097,max_shard_size=1))
     def test_shard_limit_accepted(self):
         r=plan_vector_index(VectorIndexPlanRequest(total_vectors=4096,max_shard_size=1))
@@ -26,4 +26,9 @@ class Step455Tests(unittest.TestCase):
     def test_timestamp_timezone(self):
         r=plan_vector_index(VectorIndexPlanRequest(total_vectors=1))
         self.assertTrue(r.meta['created_at'].endswith('Z'))
+    def test_http_status_for_limit(self):
+        from fastapi import HTTPException
+        with self.assertRaises(HTTPException) as caught:
+            plan_vector_index(VectorIndexPlanRequest(total_vectors=4097,max_shard_size=1))
+        self.assertEqual(caught.exception.status_code,422)
 if __name__=='__main__':unittest.main()
