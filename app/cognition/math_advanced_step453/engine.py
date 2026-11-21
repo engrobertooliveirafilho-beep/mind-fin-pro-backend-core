@@ -1,7 +1,8 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import List, Dict, Any, Literal, Optional
+from math import isfinite
 
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 
 router = APIRouter()
@@ -11,7 +12,7 @@ MathMode = Literal["finance", "algebra", "proof"]
 
 class FinancePayload(BaseModel):
     rate: float = Field(..., gt=-1.0)
-    cashflows: List[float]
+    cashflows: List[float] = Field(..., max_length=4096)
 
 
 class AlgebraPayload(BaseModel):
@@ -20,8 +21,8 @@ class AlgebraPayload(BaseModel):
 
 
 class ProofPayload(BaseModel):
-    statement: str
-    assumptions: List[str] = []
+    statement: str = Field(..., min_length=1, max_length=4096)
+    assumptions: List[str] = Field(default_factory=list, max_length=128)
 
 
 class MathRequest(BaseModel):
@@ -72,8 +73,15 @@ def _build_proof_outline(statement: str, assumptions: List[str]) -> Dict[str, An
 def solve_math(request: MathRequest) -> MathResponse:
     if request.mode == "finance":
         if not request.finance:
-            raise ValueError("finance payload required for mode=finance")
-        npv_value = _npv(request.finance.rate, request.finance.cashflows)
+            raise HTTPException(status_code=422, detail='finance payload required')
+        if not isfinite(request.finance.rate) or any(not isfinite(cf) for cf in request.finance.cashflows):
+            raise HTTPException(status_code=422, detail='nonfinite finance input')
+        try:
+            npv_value = _npv(request.finance.rate, request.finance.cashflows)
+        except (OverflowError, ZeroDivisionError):
+            raise HTTPException(status_code=422, detail='finance arithmetic overflow')
+        if not isfinite(npv_value):
+            raise HTTPException(status_code=422, detail='nonfinite NPV')
         result = {
             "npv": round(npv_value, 4),
             "rate": request.finance.rate,
@@ -83,14 +91,18 @@ def solve_math(request: MathRequest) -> MathResponse:
 
     elif request.mode == "algebra":
         if not request.algebra:
-            raise ValueError("algebra payload required for mode=algebra")
+            raise HTTPException(status_code=422, detail='algebra payload required')
+        if not all(isfinite(v) for v in (request.algebra.a, request.algebra.b)):
+            raise HTTPException(status_code=422, detail='nonfinite algebra input')
         sol = _solve_linear(request.algebra.a, request.algebra.b)
+        if 'x' in sol and not isfinite(sol['x']):
+            raise HTTPException(status_code=422, detail='nonfinite algebra solution')
         result = {"equation": f"{request.algebra.a} * x + {request.algebra.b} = 0", **sol}
         explanation = "Resolvida equacao linear simples ax + b = 0."
 
     else:  # proof
         if not request.proof:
-            raise ValueError("proof payload required for mode=proof")
+            raise HTTPException(status_code=422, detail='proof payload required')
         outline = _build_proof_outline(request.proof.statement, request.proof.assumptions)
         result = {"outline": outline}
         explanation = "Gerado esqueleto de prova estruturada (nao formal)."
@@ -101,7 +113,7 @@ def solve_math(request: MathRequest) -> MathResponse:
         explanation=explanation,
         meta={
             "version": "step453-v1",
-            "created_at": datetime.utcnow().isoformat() + "Z",
+            "created_at": datetime.now(timezone.utc).isoformat().replace('+00:00','Z'),
             "engine": "math_advanced_step453",
         },
     )
