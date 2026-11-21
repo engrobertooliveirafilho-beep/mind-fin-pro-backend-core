@@ -89,3 +89,13 @@ def test_loader_rejects_reserve_without_weights(tmp_path):
     ]}), encoding="utf-8")
     with pytest.raises(ValueError, match="P2067_RESERVE_WITHOUT_WEIGHTS"):
         load_portfolio(str(path))
+
+def test_loader_rejects_conflicting_specialist_identity_without_weights(tmp_path):
+    import json
+    from app.runtime.p2071_2080_realtime_paper_runtime import load_portfolio
+    path = tmp_path / "portfolio.json"
+    path.write_text(json.dumps({"specialists": [
+        {"id": "A", "specialist_id": "B", "logic_type": "RANGE_REVERSION"},
+    ]}), encoding="utf-8")
+    with pytest.raises(ValueError, match="REALDNA_SPECIALIST_ID_CONFLICT"):
+        load_portfolio(str(path))
