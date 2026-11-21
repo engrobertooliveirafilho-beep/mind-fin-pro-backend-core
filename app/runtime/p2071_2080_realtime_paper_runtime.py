@@ -261,6 +261,8 @@ class PaperPortfolioExecutor:
         self.positions: Dict[str, PaperPosition] = {}
         self.closed: List[Dict[str, Any]] = []
         self.seq = 0
+        self._peak_equity = float(initial_equity)
+        self._risk_locked = False
 
     def unrealized_pnl(self, price: float) -> float:
         total = 0.0
@@ -292,9 +294,12 @@ class PaperPortfolioExecutor:
         # Include open-position losses in the admission gate. A new order
         # must not be admitted on stale realized equity alone.
         marked_equity = self.current_equity(price)
+        self._peak_equity = max(self._peak_equity, marked_equity)
         if marked_equity <= self._day_start_equity * 0.99:
-            return None
-        if marked_equity <= self.initial_equity * 0.97:
+            self._risk_locked = True
+        if marked_equity <= self._peak_equity * 0.97:
+            self._risk_locked = True
+        if self._risk_locked:
             return None
 
         # No specialist may open more than one position concurrently.
@@ -332,6 +337,11 @@ class PaperPortfolioExecutor:
 
     def mark_to_market(self, frame: FeatureFrame) -> None:
         assert_no_financial_execution()
+        if not math.isfinite(frame.mid) or frame.mid <= 0:
+            raise ValueError("INVALID_PAPER_MARK_PRICE")
+        self._peak_equity = max(self._peak_equity, self.current_equity(frame.mid))
+        if self.current_equity(frame.mid) <= self._peak_equity * 0.97:
+            self._risk_locked = True
 
         to_close = []
 
