@@ -279,8 +279,8 @@ class PaperPortfolioExecutor:
 
         self.seq += 1
 
-        risk = 3.0
-        reward = 6.0
+        risk = min(3.0, price * 0.25)
+        reward = 2.0 * risk
 
         if signal.side == "BUY":
             sl = price - risk
