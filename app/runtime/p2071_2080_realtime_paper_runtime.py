@@ -705,7 +705,14 @@ def load_portfolio(path: str) -> List[Dict[str, Any]]:
         if sid in seen:
             raise ValueError(f"REALDNA_SPECIALIST_ID_DUPLICATE:{sid}")
         seen.add(sid)
-        strategy = str(specialist.get("logic_type") or specialist.get("type") or specialist.get("strategy_type") or "").strip()
+        strategies = [
+            str(specialist[key]).strip().upper()
+            for key in ("logic_type", "type", "strategy_type")
+            if key in specialist and specialist[key] is not None
+        ]
+        if len(set(strategies)) > 1:
+            raise ValueError(f"REALDNA_SPECIALIST_STRATEGY_CONFLICT:{sid}")
+        strategy = strategies[0] if strategies else ""
         if not strategy:
             raise ValueError(f"REALDNA_SPECIALIST_STRATEGY_MISSING:{sid}")
     # Historical P2067 weights are not proof of an executable allocation.
