@@ -82,3 +82,16 @@ COST_BRL=0
 - P2066–P2070 source: Drive cat_evidence_0000179.stdout.txt, ID 1RbNbuapKwXaqP4KPY62Au4wOvFgBLerB. P2067 historical portfolio weights named normalized_weight are 0.500000, 0.249856, 0.164287, totaling 0.914143 (91.4143%). Residual 0.085857 (8.5857%) is not allocated. Do not silently renormalize or infer intended cash buffer.
 - Executed local Decimal arithmetic checks: trade aggregate PASS; PnL aggregate PASS; weights sum-to-one FAIL. Local evidence /mnt/data/et665_p2065_p2067_reconciliation.json; isolated historical arithmetic only, not code regression or current E2E.
 - P2067_WEIGHT_NORMALIZATION_CONSISTENT=FALSE; P2065_AGGREGATE_ARITHMETIC_VERIFIED=TRUE; ORIGINAL_PORTFOLIO_WEIGHTS_JSON_VERIFIED=FALSE; E2E_CERTIFIED=FALSE.
+
+## Direct Drive audit chain recovery — 2026-11-21
+
+Read the original Drive audit files directly, not only their names:
+
+| Stage | Drive ID | Original recorded status | Evidence limit |
+|---|---|---|---|
+| P2071–P2080 | `1fo3wvD_8WjmPlLi6GAHr60V3LIhD-34_` | `FAIL / NOT_CERTIFIED`, P2080 `PENDING` | 1,500 frames, 4,329 signals, 411 closed trades, PAPER PnL -969.3669; drawdown_abs recorded as 0.0 |
+| P2081–P2090 | `1oWQwpzBIYmuDjJc6pK1KOPu84fPFXQX5` | `PASS / REALTIME_PORTFOLIO_GOVERNANCE_CERTIFIED` | Explicitly depends on P2071–P2080 certification JSON; does not resolve upstream FAIL |
+| P2091–P2100 | `1eXcqrsWhPDS3Uw6NrW5kNpVfTJOSZxsm` | `PASS / REALTIME_INTELLIGENCE_LAYER_CERTIFIED` | Historical ranking/metadata promotion, not current integrated runtime evidence |
+| P2101–P2110 | `1y2riZF5_I7JWazaJNTS77JVHgIUHlJnG` | `PASS / AUTONOMOUS_PAPER_OPERATIONS_CERTIFIED` | Snapshot restart_count=1, recovery_count=1; not a verified external crash/restart test |
+
+**Reconciliation decision:** Preserve original recorded PASS values as historical claims, but **deny transitive E2E certification** until the upstream P2080 dependency and current code are independently exercised and certified. No historical PASS authorizes real trading or PAPER deployment. Original Drive sources remain read-only.
