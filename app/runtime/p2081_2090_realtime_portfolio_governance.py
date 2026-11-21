@@ -67,15 +67,44 @@ def load_json(path: str) -> Any:
 
 
 def extract_specialists(raw: Any) -> List[Dict[str, Any]]:
-    if isinstance(raw, list):
-        return raw
-
+    specialists = raw if isinstance(raw, list) else None
     if isinstance(raw, dict):
         for key in ["specialists", "final_specialists", "portfolio", "locked_specialists"]:
             if isinstance(raw.get(key), list):
-                return raw[key]
+                specialists = raw[key]
+                break
+    if not isinstance(specialists, list) or len(specialists) != 3:
+        raise ValueError("REALDNA_PORTFOLIO_MUST_CONTAIN_EXACTLY_3_SPECIALISTS")
 
-    return [{"id": "XAUUSD_M1_REALDNA_0004", "type": "RANGE_REVERSION"}]
+    seen = set()
+    total_weight = 0.0
+    for spec in specialists:
+        if not isinstance(spec, dict):
+            raise ValueError("REALDNA_SPECIALIST_RECORD_INVALID")
+        sid = spec.get("specialist_id") or spec.get("id")
+        weight = spec.get("portfolio_weight")
+        if not isinstance(sid, str) or not sid.strip() or sid in seen:
+            raise ValueError("REALDNA_SPECIALIST_ID_INVALID_OR_DUPLICATE")
+        seen.add(sid)
+        if not isinstance(spec.get("logic_type"), str) or not spec["logic_type"].strip():
+            raise ValueError(f"REALDNA_LOGIC_TYPE_MISSING:{sid}")
+        if type(weight) not in (int, float) or not math.isfinite(weight) or not 0 < weight <= 1:
+            raise ValueError(f"REALDNA_WEIGHT_INVALID:{sid}")
+        if spec.get("final_locked") is not True:
+            raise ValueError(f"REALDNA_SPECIALIST_NOT_LOCKED:{sid}")
+        locks = {
+            "real_orders": "FORBIDDEN",
+            "live_trading": False,
+            "broker_execution": "DISABLED",
+            "financial_execution": "DISABLED",
+            "ftmo_real": "FORBIDDEN",
+        }
+        if any(spec.get(k) != v for k, v in locks.items()):
+            raise ValueError(f"REALDNA_FINANCIAL_LOCK_INVALID:{sid}")
+        total_weight += float(weight)
+    if total_weight > 1.000001:
+        raise ValueError("REALDNA_PORTFOLIO_WEIGHT_SUM_EXCEEDS_1")
+    return specialists
 
 
 def extract_runtime_metrics(raw: Dict[str, Any]) -> Dict[str, Any]:
@@ -162,17 +191,30 @@ class RiskEngine:
     def evaluate(self, runtime: Dict[str, Any]) -> GovernanceDecision:
         assert_no_financial_execution()
 
-        max_drawdown_pct = -0.05
+        max_drawdown_pct = -0.03
+        max_daily_loss_pct = -0.01
         current_dd = runtime["drawdown_pct"]
-        ok = current_dd >= max_drawdown_pct
+        daily_loss_pct = runtime.get("daily_loss_pct")
+        drawdown_ok = current_dd >= max_drawdown_pct
+        daily_loss_present = type(daily_loss_pct) in (int, float) and math.isfinite(daily_loss_pct)
+        daily_loss_ok = daily_loss_present and daily_loss_pct >= max_daily_loss_pct
+        ok = drawdown_ok and daily_loss_ok
+        reason = (
+            "RISK_WITHIN_LIMITS" if ok else
+            "DAILY_LOSS_METRIC_MISSING" if not daily_loss_present else
+            "DAILY_LOSS_LIMIT_BREACH" if not daily_loss_ok else
+            "DRAWDOWN_LIMIT_BREACH"
+        )
 
         return GovernanceDecision(
             component="P2084_RISK_ENGINE",
             status="PASS" if ok else "FAIL",
-            reason="RISK_WITHIN_LIMITS" if ok else "DRAWDOWN_LIMIT_BREACH",
+            reason=reason,
             payload={
                 "drawdown_pct": current_dd,
                 "max_drawdown_pct": max_drawdown_pct,
+                "daily_loss_pct": daily_loss_pct,
+                "max_daily_loss_pct": max_daily_loss_pct,
                 "drawdown_abs": runtime["drawdown_abs"],
             },
         )
@@ -183,14 +225,22 @@ class PortfolioRebalancing:
         assert_no_financial_execution()
 
         n = len(specialists)
-        target_weight = round(1 / max(n, 1), 8)
         allocation = {}
+        for spec in specialists:
+            sid = str(spec.get("specialist_id") or spec.get("id"))
+            weight = spec.get("portfolio_weight")
+            if type(weight) not in (int, float) or not math.isfinite(weight) or not 0 < weight <= 1:
+                return GovernanceDecision(
+                    component="P2085_PORTFOLIO_REBALANCING",
+                    status="FAIL",
+                    reason="INVALID_LOCKED_PORTFOLIO_WEIGHT",
+                    payload={"specialist_id": sid, "portfolio_weight": weight},
+                )
+            allocation[sid] = round(float(weight), 8)
 
-        for idx, spec in enumerate(specialists):
-            sid = str(spec.get("id") or spec.get("specialist_id") or f"REALDNA_{idx+1}")
-            allocation[sid] = target_weight
-
-        ok = n >= 3 and abs(sum(allocation.values()) - 1.0) <= 0.0001
+        allocation_sum = sum(allocation.values())
+        cash_reserve_weight = round(1.0 - allocation_sum, 8)
+        ok = n == 3 and allocation_sum <= 1.000001 and cash_reserve_weight >= -0.000001
 
         return GovernanceDecision(
             component="P2085_PORTFOLIO_REBALANCING",
@@ -199,7 +249,8 @@ class PortfolioRebalancing:
             payload={
                 "specialists": n,
                 "allocation": allocation,
-                "allocation_sum": round(sum(allocation.values()), 8),
+                "allocation_sum": round(allocation_sum, 8),
+                "cash_reserve_weight": cash_reserve_weight,
             },
         )
 
@@ -209,15 +260,24 @@ class CapitalAllocation:
         assert_no_financial_execution()
 
         n = len(specialists)
-        per_specialist = equity / max(n, 1)
-
         allocation = {}
+        weight_sum = 0.0
+        for spec in specialists:
+            sid = str(spec.get("specialist_id") or spec.get("id"))
+            weight = spec.get("portfolio_weight")
+            if type(weight) not in (int, float) or not math.isfinite(weight) or not 0 < weight <= 1:
+                return GovernanceDecision(
+                    component="P2086_CAPITAL_ALLOCATION",
+                    status="FAIL",
+                    reason="INVALID_LOCKED_PORTFOLIO_WEIGHT",
+                    payload={"specialist_id": sid, "portfolio_weight": weight},
+                )
+            allocation[sid] = round(equity * float(weight), 2)
+            weight_sum += float(weight)
 
-        for idx, spec in enumerate(specialists):
-            sid = str(spec.get("id") or spec.get("specialist_id") or f"REALDNA_{idx+1}")
-            allocation[sid] = round(per_specialist, 2)
-
-        ok = n >= 3 and equity > 0
+        reserve_weight = max(0.0, 1.0 - weight_sum)
+        reserve_capital = round(equity * reserve_weight, 2)
+        ok = n == 3 and equity > 0 and weight_sum <= 1.000001
 
         return GovernanceDecision(
             component="P2086_CAPITAL_ALLOCATION",
@@ -226,8 +286,11 @@ class CapitalAllocation:
             payload={
                 "equity": round(equity, 2),
                 "specialists": n,
-                "capital_per_specialist": round(per_specialist, 2),
                 "allocation": allocation,
+                "allocation_weight_sum": round(weight_sum, 8),
+                "reserve_weight": round(reserve_weight, 8),
+                "reserve_capital": reserve_capital,
+                "allocated_capital": round(sum(allocation.values()), 2),
             },
         )
 
