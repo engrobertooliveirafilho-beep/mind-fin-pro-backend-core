@@ -63,3 +63,10 @@ def test_realized_equity_must_match_closed_trade_journal(tampered_equity):
     state["equity"] = tampered_equity
     with pytest.raises(ValueError, match="PAPER_EXECUTOR_EQUITY_RECONCILIATION_FAILED"):
         PaperPortfolioExecutor.restore_state(state)
+
+@pytest.mark.parametrize("peak", [0.01, 99999.0])
+def test_restored_peak_cannot_understate_realized_equity(peak):
+    state = PaperPortfolioExecutor().export_state()
+    state["peak_equity"] = peak
+    with pytest.raises(ValueError, match="INVALID_PAPER_EXECUTOR_PEAK_EQUITY"):
+        PaperPortfolioExecutor.restore_state(state)
