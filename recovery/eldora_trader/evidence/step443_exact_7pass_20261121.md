@@ -11,3 +11,7 @@ Exact Git blob verification via `git hash-object`:
 Validated: balanced and conservative decisions, error throttling, duplicate model rejection, NaN/Infinity rejection, UTC. **Scope:** policy recommendation only; not a real API rate limiter, no main application boot or live provider calls.
 
 `MAIN=INTACTA | PAPER_ONLY=TRUE | REAL_ORDERS=FORBIDDEN | E2E_CERTIFIED=FALSE | COST=R$0`
+
+## Post-certification change (2026-11-21)
+
+The original 7/7 PASS and blob hashes above apply **only to the prior revision**. Subsequent fix commit `029c2f5797357a110ef565a2da50c2df14ef309c` changed zero-RPM/TPM behavior; new tests commit `b5e1a067c9f5519a2e73231548e75232098340d3`. Three isolated arithmetic assertions passed, **not a canonical regression**. Current STEP443 certification is **OPEN** until exact-source 9-test rerun. Do not count the historical 7/7 as certification of the new HEAD.
