@@ -33,4 +33,15 @@ class TestLineage(unittest.TestCase):
     def test_invalid_row(self):
         with self.assertRaises(ValueError): validate_decision(None)
 
+    def test_fake_source_hash(self):
+        with self.assertRaises(ValueError): validate_decision(row(source_row_hash='fake'))
+    def test_non_utc_timestamp(self):
+        with self.assertRaises(ValueError): validate_decision(row(timestamp_utc='2026-08-07T00:00:00+03:00'))
+    def test_mismatched_day(self):
+        with self.assertRaises(ValueError): validate_decision(row(day='2026-08-08'))
+    def test_non_numeric_tick(self):
+        with self.assertRaises(ValueError): validate_decision(row(tick='x'))
+    def test_symbol_path_injection(self):
+        with self.assertRaises(ValueError): validate_decision(row(symbol='../EURUSD'))
+
 if __name__ == '__main__': unittest.main()
