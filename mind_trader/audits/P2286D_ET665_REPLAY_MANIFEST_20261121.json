@@ -1,0 +1,14 @@
+{
+  "source":{"drive_id":"1pU_YUjc6Swhgq3c4BOo3CeFHKSeWyQmw","sha256":"ab57b28317c0a8a21d5621354e459265ff299e453bca23dc966a082747e14736"},
+  "datasets":[
+    {"name":"MT5_GER40_H1_features.csv","drive_id":"19SqsLE8VITXohLnrwKvwiMvfSDys7qxK","rows":50000,"sha256":"ae4217d5df8b75c66e3b80ece50599d53e58cff4029feec18de5227a396faaca"},
+    {"name":"MT5_GER40_M15_raw.csv","drive_id":"1nBp7u69OaSTCorsCzivoObtv-vtuQYQs","rows":5000,"sha256":"ea117d0e564c806c3bbbcb1519d899a63644a113bd840c29ffbc4c241075188c"}
+  ],
+  "adapter_sha256":"71647a017df1b011600d8c8205fe24419a6b5f3663696eae8642327523c9f256",
+  "tests_sha256":"01c73a7acd2e6dd585bdc459ab635075ea5fc274f46c1d0a605344429719c0e7",
+  "tests_passed":8,
+  "mode":"PAPER_RESEARCH_ONLY",
+  "real_orders":"FORBIDDEN",
+  "ftmo_real":"FORBIDDEN",
+  "profitability_certified":false
+}
