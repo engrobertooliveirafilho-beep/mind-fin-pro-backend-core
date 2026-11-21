@@ -1,21 +1,25 @@
 from __future__ import annotations
 
 def institutional_targets(ctx: dict) -> dict:
-    entry=float(ctx["entry"])
+    def number(key, fallback):
+        value = ctx.get(key)
+        return float(fallback if value is None else value)
+
+    entry=number("entry", 0)
     stop=float(ctx["stop"])
     side=str(ctx["side"]).upper()
-    swing_high=float(ctx.get("swing_high", entry))
-    swing_low=float(ctx.get("swing_low", entry))
-    atr=float(ctx.get("atr", 0))
-    session_high=float(ctx.get("session_high", swing_high))
-    session_low=float(ctx.get("session_low", swing_low))
-    liquidity_high=float(ctx.get("liquidity_high", session_high))
-    liquidity_low=float(ctx.get("liquidity_low", session_low))
-    vwap=float(ctx.get("vwap", entry))
-    round_number=float(ctx.get("round_number", entry))
+    swing_high=number("swing_high", entry)
+    swing_low=number("swing_low", entry)
+    atr=number("atr", 0)
+    session_high=number("session_high", swing_high)
+    session_low=number("session_low", swing_low)
+    liquidity_high=number("liquidity_high", session_high)
+    liquidity_low=number("liquidity_low", session_low)
+    vwap=number("vwap", entry)
+    round_number=number("round_number", entry)
 
     risk=abs(entry-stop)
-    if risk<=0:
+    if side not in ("BUY", "SELL") or risk<=0:
         return {"approved":False,"decision":"BLOCK_INVALID_RISK","mode":"PAPER_ONLY","real_orders":"FORBIDDEN"}
 
     move=abs(swing_high-swing_low)
