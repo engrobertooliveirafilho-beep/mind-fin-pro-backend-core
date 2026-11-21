@@ -45,3 +45,32 @@ class FtmoDeclarationSafetyTests(unittest.TestCase):
             ftmo.assert_locks()
             self.assertEqual(os.environ["REAL_ORDERS"], "FORBIDDEN")
             self.assertEqual(os.environ["FTMO_REAL"], "FORBIDDEN")
+    def test_malformed_dependency_fails_closed(self):
+        import os
+        with tempfile.TemporaryDirectory() as tmp:
+            old = os.getcwd()
+            try:
+                os.chdir(tmp)
+                p = Path("data/runtime/P2071_2080/evidence/P2071_2080_FINAL_CERTIFICATION.json")
+                p.parent.mkdir(parents=True)
+                p.write_text("{invalid-json", encoding="utf-8")
+                result = ftmo.run_p2131_2150(output_dir="out")
+            finally:
+                os.chdir(old)
+        self.assertIn(str(p), result["invalid_dependencies"])
+        self.assertEqual(result["dependencies"]["p2071"]["status"], "INVALID")
+        self.assertEqual(result["status"], "FAIL")
+    def test_nonobject_dependency_fails_closed(self):
+        import os
+        with tempfile.TemporaryDirectory() as tmp:
+            old = os.getcwd()
+            try:
+                os.chdir(tmp)
+                p = Path("data/runtime/P2071_2080/evidence/P2071_2080_FINAL_CERTIFICATION.json")
+                p.parent.mkdir(parents=True)
+                p.write_text("[]", encoding="utf-8")
+                result = ftmo.run_p2131_2150(output_dir="out")
+            finally:
+                os.chdir(old)
+        self.assertIn(str(p), result["invalid_dependencies"])
+        self.assertEqual(result["status"], "FAIL")
