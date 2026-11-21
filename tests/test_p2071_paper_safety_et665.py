@@ -85,5 +85,28 @@ class TestP2071PaperSafety(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.engine.unrealized_pnl(101)
 
+    def test_cross_symbol_mark_does_not_close(self):
+        self.engine.on_signal(self.signal("BUY"), 100)
+        foreign = self.frame(106)
+        foreign.symbol = "EURUSD"
+        self.engine.mark_to_market(foreign)
+        self.assertEqual(len(self.engine.positions), 1)
+        self.assertEqual(len(self.engine.closed), 0)
+        self.assertEqual(self.engine.equity, 100000.0)
+
+    def test_confidence_out_of_range(self):
+        for confidence in (-0.01, 1.01):
+            with self.subTest(confidence=confidence):
+                with self.assertRaises(ValueError):
+                    self.engine.on_signal(self.signal(confidence=confidence), 100)
+        self.assertEqual(self.engine.seq, 0)
+
+    def test_blank_symbol_rejected(self):
+        signal = self.signal()
+        signal.symbol = " "
+        with self.assertRaises(ValueError):
+            self.engine.on_signal(signal, 100)
+        self.assertEqual(len(self.engine.positions), 0)
+
 if __name__ == "__main__":
     unittest.main()
