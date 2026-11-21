@@ -156,7 +156,7 @@ def run_p2131_2150(output_dir="data/runtime/P2131_2150/evidence"):
         "P2139_COMPLIANCE_REPLAY_VALIDATION_AUDIT_ONLY": "PASS",
         "P2140_FTMO_PAPER_COMPLIANCE_CERTIFICATION": "PENDING",
 
-        "P2141_DATA_INTEGRITY_AUDIT": decision(not missing),
+        "P2141_DATA_INTEGRITY_AUDIT": decision(not missing and not invalid),
         "P2142_METRICS_CONSISTENCY_AUDIT": decision(not missing and not invalid),
         "P2143_STATE_RECOVERY_STRESS_AUDIT": "PASS",
         "P2144_LONG_RUN_STABILITY_AUDIT": "PASS",
@@ -167,40 +167,6 @@ def run_p2131_2150(output_dir="data/runtime/P2131_2150/evidence"):
         "P2149_CONTINUOUS_MONITORING_VALIDATION": "PASS",
         "P2150_OPERATIONAL_READINESS_CERTIFICATION": "PENDING",
     }
-
-    p2131_to_2139_ok = all(
-        mission_status[k] == "PASS"
-        for k in [
-            "P2131_FTMO_RULE_FRAMEWORK_AUDIT",
-            "P2132_DAILY_LOSS_GUARD_DECLARATION",
-            "P2133_TOTAL_LOSS_GUARD_DECLARATION",
-            "P2134_PROFIT_TARGET_TRACKER_DECLARATION",
-            "P2135_TRADING_DAYS_VALIDATOR_DECLARATION",
-            "P2136_POSITION_SIZING_COMPLIANCE_AUDIT",
-            "P2137_SESSION_MARKET_HOURS_COMPLIANCE_AUDIT",
-            "P2138_RUNTIME_RISK_KILL_SWITCH_AUDIT",
-            "P2139_COMPLIANCE_REPLAY_VALIDATION_AUDIT_ONLY",
-        ]
-    )
-
-    mission_status["P2140_FTMO_PAPER_COMPLIANCE_CERTIFICATION"] = decision(p2131_to_2139_ok)
-
-    p2141_to_2147_ok = all(
-        mission_status[k] == "PASS"
-        for k in [
-            "P2141_DATA_INTEGRITY_AUDIT",
-            "P2142_METRICS_CONSISTENCY_AUDIT",
-            "P2143_STATE_RECOVERY_STRESS_AUDIT",
-            "P2144_LONG_RUN_STABILITY_AUDIT",
-            "P2145_CONFIGURATION_DRIFT_DETECTION",
-            "P2146_LOGGING_TRACEABILITY_AUDIT",
-            "P2147_EVIDENCE_CHAIN_VERIFICATION",
-        ]
-    )
-
-    mission_status["P2148_COMPLIANCE_REGRESSION_SUITE"] = decision(
-        p2131_to_2139_ok and p2141_to_2147_ok
-    )
 
     # Declarations and dependency files do not prove behavioral FTMO checks.
     # Keep unexecuted scenarios explicitly unverified (fail closed).
@@ -287,7 +253,7 @@ P2131_2150_FTMO_PAPER_COMPLIANCE_AND_OPERATIONAL_ASSURANCE
 {json.dumps(result["absolute_restrictions"], indent=2, ensure_ascii=False)}
 
 ## CONCLUSION
-P2131→P2150 completed as FTMO PAPER compliance audit and operational assurance program.
+P2131→P2150 remains NOT CERTIFIED: behavioral evidence and PAPER integration are required.
 No real orders.
 No broker execution.
 No financial execution.
