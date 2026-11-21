@@ -11,6 +11,7 @@ def replay_chronological(edges, candles, features, simulate_fill, *, initial_cap
     capital = peak = float(initial_capital)
     pending, busy, trades, curve, daily = [], set(), [], [], {}
     seq = 0
+    max_portfolio_risk_pct = 0.05
     def settle(bar):
         nonlocal capital, peak
         while pending and pending[0][0] <= bar:
@@ -38,6 +39,9 @@ def replay_chronological(edges, candles, features, simulate_fill, *, initial_cap
                 raise ValueError("invalid fill chronology")
             r = float(fill["r"])
             if not math.isfinite(r): raise ValueError("invalid R")
+            reserved = sum(item[2]["risk_usd"] for item in pending)
+            if reserved + capital * risk_pct > capital * max_portfolio_risk_pct + 1e-10:
+                continue
             fill = dict(fill, edge_id=eid, risk_usd=capital*risk_pct,
                         capital_before=round(capital, 6))
             heapq.heappush(pending, (exit_, seq, fill))
@@ -47,6 +51,8 @@ def replay_chronological(edges, candles, features, simulate_fill, *, initial_cap
         curve.append({"bar": i, "capital": round(capital, 6),
                       "dd_pct": round((peak-capital)/peak*100, 6)})
     settle(len(candles))
+    curve.append({"bar": len(candles), "capital": round(capital, 6),
+                  "dd_pct": round((peak-capital)/peak*100, 6)})
     return {"initial_capital_usd": initial_capital, "final_capital_usd": round(capital, 6),
             "trades": len(trades), "max_dd_pct": max([x["dd_pct"] for x in trades], default=0),
             "real_execution_allowed": False}, curve, trades
