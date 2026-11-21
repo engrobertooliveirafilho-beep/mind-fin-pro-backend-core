@@ -79,13 +79,24 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
     }
 
 def health() -> dict:
-    r = run_institutional_wiring({})
+    # Read-only inspection: health checks must never execute module.run().
+    # Importability is not proof of functional readiness.
+    results = []
+    for name in MODULES:
+        try:
+            importlib.import_module(name)
+            results.append({"module": name, "import_ok": True})
+        except Exception as exc:
+            results.append({"module": name, "import_ok": False, "error": str(exc)})
+    imports_ok = sum(row["import_ok"] for row in results)
     return {
-        "status": "operational" if r["imports_ok"] == r["modules_total"] else "DEGRADED",
-        "modules_total": r["modules_total"],
-        "imports_ok": r["imports_ok"],
-        "runs_ok": r["runs_ok"],
-        "health_ok": r["health_ok"],
+        "status": "IMPORTS_OK_UNCERTIFIED" if imports_ok == len(MODULES) else "DEGRADED",
+        "modules_total": len(MODULES),
+        "imports_ok": imports_ok,
+        "runs_ok": 0,
+        "health_ok": 0,
+        "execution_performed": False,
+        "results": results,
     }
 
 def run(payload: dict | None = None) -> dict:
