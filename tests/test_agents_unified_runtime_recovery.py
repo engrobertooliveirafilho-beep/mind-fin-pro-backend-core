@@ -30,6 +30,12 @@ class DispatchTests(unittest.TestCase):
         with self.assertRaises(AgentDispatchError):run_agent('sec.sentinel',payload,loader=self.loader)
     def test_missing_mode(self):
         with self.assertRaises(AgentDispatchError):run_agent('sec.sentinel',loader=lambda _:SimpleNamespace(run_dry=lambda p:{'agent_id':'sec.sentinel','status':'ok'}))
+    def test_nonfinite_input(self):
+        with self.assertRaises(AgentDispatchError):run_agent('sec.sentinel',{'price':float('nan')},loader=self.loader)
+    def test_nonfinite_output(self):
+        with self.assertRaises(AgentDispatchError):run_agent('sec.sentinel',loader=lambda _:SimpleNamespace(run_dry=lambda p:{'agent_id':'sec.sentinel','status':'ok','mode':'dry_run','price':float('inf')}))
+    def test_real_execution_in_response(self):
+        with self.assertRaises(AgentDispatchError):run_agent('sec.sentinel',loader=lambda _:SimpleNamespace(run_dry=lambda p:{'agent_id':'sec.sentinel','status':'ok','mode':'dry_run','submit_order':True}))
     def test_missing_module(self):
         with self.assertRaises(AgentDispatchError):run_agent('sec.sentinel',loader=lambda _:(_ for _ in ()).throw(ImportError()))
 if __name__=='__main__':unittest.main()
