@@ -16,9 +16,22 @@ class GatewayTest(unittest.TestCase):
         config.write_text(json.dumps(default_ftmo_config()))
         self.session=PaperTradingSessionManager(str(root/"session.json"),str(root/"ledger.jsonl"),str(config))
         self.session.open_session()
-        self.intent={"mode":"PAPER","account_id":"PAPER_FTMO_SIM","side":"BUY","symbol":"EURUSD","risk_amount":100,"stop":1.1}
+        self.intent={"mode":"PAPER","account_id":"PAPER_FTMO_SIM","side":"BUY","symbol":"EURUSD","risk_amount":100,"stop":1.1,"account_total_pnl":0.0}
     def decide(self,**kwargs):
         return evaluate_paper_intent(self.session,{**self.intent,**kwargs},str(self.audit))
+    def test_missing_account_total_blocks(self):
+        intent=dict(self.intent)
+        intent.pop("account_total_pnl")
+        result=evaluate_paper_intent(self.session,intent,str(self.audit))
+        self.assertEqual(result["decision"],"BLOCK_TOTAL_PNL_UNVERIFIED")
+        self.assertFalse(self.audit.exists())
+
+    def test_nonfinite_account_total_blocks(self):
+        self.assertEqual(self.decide(account_total_pnl=float("nan"))["decision"],"BLOCK_TOTAL_PNL_UNVERIFIED")
+
+    def test_cumulative_loss_blocks_even_when_daily_loss_is_zero(self):
+        self.assertEqual(self.decide(account_total_pnl=-9950)["decision"],"BLOCK_FTMO_RULES")
+
     def test_valid_paper_intent(self):
         self.assertEqual(self.decide()["decision"],"ALLOW_PAPER_INTENT")
     def test_real_account_blocked_without_audit(self):
