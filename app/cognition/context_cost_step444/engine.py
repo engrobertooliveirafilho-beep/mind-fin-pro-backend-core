@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import List, Dict, Any, Literal
 
 from fastapi import APIRouter
@@ -10,16 +10,16 @@ Strategy = Literal["priority_first", "cheap_first"]
 
 
 class ContextSegment(BaseModel):
-    segment_id: str
-    tokens: int = Field(..., gt=0)
+    segment_id: str = Field(..., min_length=1, max_length=128)
+    tokens: int = Field(..., gt=0, le=100000000)
     priority: int = Field(..., ge=1, le=10)
-    cost_per_1k: float = Field(..., gt=0.0)
+    cost_per_1k: float = Field(..., gt=0.0, le=1000000, allow_inf_nan=False)
 
 
 class BalanceRequest(BaseModel):
-    segments: List[ContextSegment]
-    max_tokens: int = Field(..., gt=0)
-    max_cost: float = Field(..., gt=0.0)
+    segments: List[ContextSegment] = Field(..., max_length=10000)
+    max_tokens: int = Field(..., gt=0, le=100000000)
+    max_cost: float = Field(..., gt=0.0, le=1000000, allow_inf_nan=False)
     strategy: Strategy = "priority_first"
 
 
@@ -133,7 +133,7 @@ def balance_context(request: BalanceRequest) -> BalanceResponse:
         totals=totals,
         meta={
             "version": "step444-v1",
-            "created_at": datetime.utcnow().isoformat() + "Z",
+            "created_at": datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
             "engine": "context_cost_balancer_step444",
         },
     )
