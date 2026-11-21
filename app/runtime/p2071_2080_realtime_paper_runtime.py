@@ -102,6 +102,7 @@ class PaperPosition:
 class RealtimeDataFeedBridge:
     def __init__(self, symbol: str = "XAUUSD", seed_price: float = 2400.0):
         self.symbol = symbol
+        self.source = "SYNTHETIC_DETERMINISTIC"
         self.price = seed_price
         self.ts = int(time.time())
         self.i = 0
@@ -610,6 +611,8 @@ def run_p2071_2080(
             "trough_equity": snap["trough_equity"],
             "drawdown_abs": snap["drawdown_abs"],
             "drawdown_pct": snap["drawdown_pct"],
+            "max_drawdown_abs": snap["max_drawdown_abs"],
+            "max_drawdown_pct": snap["max_drawdown_pct"],
             "equity_points": snap["equity_points"],
         },
         "evidence_files": {
