@@ -1,0 +1,32 @@
+ET665 — P2071–P2080 recovery and reconciliation — 2026-11-21
+
+DRIVE ORIGINAL PACKAGE
+Folder: P2071_2080_PACKAGE_FINAL.zip (Drive folder ID 19bZwbfUODpCHSBE_-qfCzcL41zpM0h3x; created 2026-09-04).
+Files recovered: run_p2071_2080.py; runtime_state.json; console_output.txt; P2071_2080_AUDIT.md; P2071_2080_FINAL_CERTIFICATION.json; p2071_2080_realtime_paper_runtime.py; test_p2071_2080_realtime_paper_runtime.py.
+Original final audit and console output: status FAIL, readiness NOT_CERTIFIED; P2071–P2079 marked PASS, P2080 left PENDING. Original test run: 1 passed, 1 failed because run_p2071_2080 returned FAIL. The package used a deterministic sine/cosine synthetic tick generator, not an external live market-data connector. Original final drawdown_abs was 0.0 despite negative realized PnL, because monitor snapshot was not sampled through the run.
+Original historical P2071 package code and test were materialized to /mnt/data and preserved as recovery basis.
+
+CORRECTIONS PUBLISHED TO GITHUB BRANCH
+Branch: engineering/et665-p2071-paper-safety-20261121
+Runtime source commits: b5f0557a8bc349a6838fb0387f6449bdb9101ce2 and 34ee3770775560c1e77a95b4108b61bb9c3b8f2c.
+Regression tests commit: 93c1cbc6203f938bd93a61f3d87069c2eb3ad949.
+Corrections: P2080 now certifies simulation scope only; P2071 feed marked PASS_SIMULATED_ONLY; maximum peak-to-trough drawdown calculated across equity points; second 100-cycle segment exercises feature, signal, executor and monitor path; final state persisted after second segment; P2080 promotion requires all prior gates.
+Runtime explicitly reports data_source=SYNTHETIC_DETERMINISTIC and realtime_feed_certified=false. It does NOT claim a live feed or full real-time certification.
+
+LOCAL REGRESSION
+Patched recovered Drive source executed offline against a test fixture reconstructed from three specialist IDs and strategy labels reported by the historical P2066–P2070 evidence (the original RealDNA JSON itself was not recovered).
+Result: 7/7 PASS.
+Log: /mnt/data/P2071_2080_recovered_regression_20261121.log
+Log SHA256: eae2088e1f4b9503cd3bd993ff9ac6b1418fdbc7b50e99d0cc5bc861db5934a7
+Patched recovered source SHA256: 6eeea8526af1e4208f2a783a8c542ba07f7c7a8e63a157ca43142e5075e0959c
+Patched test SHA256: dd931c92ea7b13178f7ea707551a61c563ebf260d982968f6e6fc925d5afcb43
+Local result: PASS_SIMULATION_SCOPE_ONLY; readiness SIMULATED_PAPER_RUNTIME_VALIDATED_REALTIME_FEED_NOT_CERTIFIED; 1200 primary cycles + 100 secondary simulation cycles; 3459 signals; 372 closed trades; 3 open positions; realized equity 99143.75368; realized PnL -856.24632; max drawdown 804.42633. No financial orders.
+
+OTHER DRIVE CAPABILITY INVENTORY
+P2066–P2070 evidence file cat_evidence_0000179.stdout.txt (ID 1RbNbuapKwXaqP4KPY62Au4wOvFgBLerB) reports 3 locked specialists, 28,721 trades, portfolio PnL 2167.37, weighted winrate 52.9195%, worst drawdown -1.080484%; weights 0.5, 0.249856, 0.164287. It explicitly notes diversification score 3 is a structural proxy; true correlation requires per-specialist equity time series.
+P2091–P2100 audit (ID 1eXcqrsWhPDS3Uw6NrW5kNpVfTJOSZxsm) reports analytics, portfolio intelligence, regime analytics, attribution, behavior, ranking, auto-retirement, metadata promotion and portfolio evolution. Ranking: REALDNA_0004 130, REALDNA_0003 119, REALDNA_0001 108. Historical evidence only; corresponding executable package not yet recovered.
+P2121+ console evidence (ID 1lYt3-b25Wx3w7uBIBDQDp_0DmDOB2rgl) reports package/evidence checks for P2071–P2120 and continuous-capacity certification. These are recorded historical outputs, not independent current verification of all packages.
+
+CERTIFICATION BOUNDARY
+Current branch changes were published and read back via GitHub. The 7/7 run executed the recovered Drive source patched locally, not the exact GitHub blob; GitHub Actions returned no workflow runs for the regression commit. Therefore exact-byte GitHub execution, external real-time feed integration, original RealDNA JSON recovery, broker/FTMO E2E and overall E2E certification remain FALSE.
+MAIN unchanged. PAPER_ONLY=TRUE. REAL_ORDERS=FORBIDDEN. LIVE_TRADING=FALSE. BROKER_EXECUTION=DISABLED. FTMO_REAL=FORBIDDEN. COST=R$0.
