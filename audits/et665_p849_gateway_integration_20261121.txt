@@ -1,0 +1,11 @@
+ET665 P8.49 PAPER/FTMO integration evidence — 2026-11-21
+Source of historical scope: Drive MIND_TRADER_P8_AUDITORIA_PROFUNDA_2026-08-04.docx (ID 1mYoNWU4sooo1qZ5foWpkLOWELwL-3riF), P8.46 FTMO ruleset, P8.47 gateway, P8.48 PAPER session, P8.49 gateway/session integration. Historical reported test counts are not current certification.
+Source: mind_trader/app/paper/paper_ftmo_gateway.py, commit a6d44b290777d76abecf050a7c1c55c8a4a14e92, GitHub blob 9ed1ed995a7334b65a5ba4632aaef1cd6b9edb96.
+Tests: tests/test_et665_paper_ftmo_gateway.py, commit 281523c67c281124e771ea20c044d5985288d367, GitHub blob e620e079c18eb0fef19f54a1b8e072bedbca7efc.
+Local integration executed: PYTHONPATH=. python -m unittest discover -s tests -p 'test*.py' -q
+Result: 57/57 PASS; 0 failures; 0.061s.
+Log: /mnt/data/et665_session_validation/gateway_regression_20261121.log
+Log SHA256: 7fdcb2ca1047cdb3cfc556749fc121d1d28c39df044ce31e46ae6c4db3fe5d5c
+Safety: no broker imports or dispatch; requires PAPER mode and PAPER_FTMO_SIM, open session gate, FTMO symbol/risk/stop checks.
+Limitations: local equivalent implementation, NOT exact-byte execution of GitHub files; no original P8.49 source recovered, so new bridge is a compatible implementation based on historical contract, not verified original. total_pnl currently proxies daily_pnl; lifetime FTMO loss cap not independently validated. P2071/S20/S21 and historical E2E NOT certified. No production promotion.
+PAPER_ONLY=TRUE | REAL_ORDERS=FORBIDDEN | FTMO_REAL=FORBIDDEN | MAIN=INTACT | E2E_CERTIFIED=FALSE | COST=R$0
