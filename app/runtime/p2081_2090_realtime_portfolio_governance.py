@@ -240,8 +240,8 @@ class PortfolioRebalancing:
             allocation[sid] = round(float(weight), 8)
 
         allocation_sum = sum(allocation.values())
-        cash_reserve_weight = round(1.0 - allocation_sum, 8)
-        ok = n == 3 and allocation_sum <= 1.000001 and cash_reserve_weight >= -0.000001
+        unallocated_weight = round(1.0 - allocation_sum, 8)
+        ok = n == 3 and allocation_sum <= 1.000001 and unallocated_weight >= -0.000001
 
         return GovernanceDecision(
             component="P2085_PORTFOLIO_REBALANCING",
@@ -251,7 +251,7 @@ class PortfolioRebalancing:
                 "specialists": n,
                 "allocation": allocation,
                 "allocation_sum": round(allocation_sum, 8),
-                "cash_reserve_weight": cash_reserve_weight,
+                "unallocated_weight": unallocated_weight,
             },
         )
 
@@ -276,8 +276,8 @@ class CapitalAllocation:
             allocation[sid] = round(equity * float(weight), 2)
             weight_sum += float(weight)
 
-        reserve_weight = max(0.0, 1.0 - weight_sum)
-        reserve_capital = round(equity * reserve_weight, 2)
+        unallocated_weight = max(0.0, 1.0 - weight_sum)
+        unallocated_capital = round(equity * unallocated_weight, 2)
         ok = n == 3 and equity > 0 and weight_sum <= 1.000001
 
         return GovernanceDecision(
@@ -289,8 +289,8 @@ class CapitalAllocation:
                 "specialists": n,
                 "allocation": allocation,
                 "allocation_weight_sum": round(weight_sum, 8),
-                "reserve_weight": round(reserve_weight, 8),
-                "reserve_capital": reserve_capital,
+                "unallocated_weight": round(unallocated_weight, 8),
+                "unallocated_capital": unallocated_capital,
                 "allocated_capital": round(sum(allocation.values()), 2),
             },
         )
