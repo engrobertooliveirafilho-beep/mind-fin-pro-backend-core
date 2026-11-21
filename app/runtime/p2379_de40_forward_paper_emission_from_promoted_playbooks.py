@@ -14,7 +14,8 @@ FTMO_REAL = "FORBIDDEN"
 
 
 def sniff(path: Path) -> str:
-    first = path.read_text(encoding="utf-8-sig", errors="ignore")[:4096].splitlines()[0]
+    with path.open("r", encoding="utf-8-sig", errors="ignore", newline="") as stream:
+        first = stream.readline(4096)
     return ";" if first.count(";") > first.count(",") else ","
 
 
@@ -69,7 +70,9 @@ def create_signal(row: Dict, source_type: str, idx: int) -> Dict:
     rr = fnum(row.get("avg_rr_possible_proxy"), 2.0)
     rr_policy = "RR_5_INSTITUTIONAL" if rr >= 5 else "RR_3_PRIORITY" if rr >= 3 else "RR_2_STANDARD"
 
-    signal_status = "PAPER_SIGNAL_READY" if direction != "NO_DIRECTION" and tier != "OBSERVATION_PAPER" else "PAPER_OBSERVE_ONLY"
+    # P2377/P2378 historical promotions used future outcome labels.
+    # No forward emission without a separately certified causal replay.
+    signal_status = "PAPER_OBSERVE_ONLY"
 
     return {
         "signal_id": f"P2379_{source_type}_{idx:06d}",
@@ -96,10 +99,10 @@ def create_signal(row: Dict, source_type: str, idx: int) -> Dict:
         "avg_mfe_atr": row.get("avg_mfe_atr", ""),
         "avg_mae_atr": row.get("avg_mae_atr", ""),
         "signal_status": signal_status,
-        "execution_permission": "PAPER_ONLY_FILE_SIGNAL",
+        "execution_permission": "DENIED_PENDING_CAUSAL_REPLAY",
         "mt5_real_permission": "DENIED",
         "ftmo_real_permission": "DENIED",
-        "reason": "PROMOTED_CONTEXTUAL_PLAYBOOK_FORWARD_PAPER_CANDIDATE",
+        "reason": "HISTORICAL_PROMOTION_NOT_CAUSALLY_CERTIFIED",
         "warning": "THIS_IS_NOT_A_REAL_ORDER",
     }
 
@@ -160,13 +163,13 @@ def run(playbooks_path: Path, contexts_path: Path, sequences_path: Path, outdir:
         "observe_only": len(observe),
         "paper_signal_bus_rows": len(ready[:500]),
         "permission_model": {
-            "paper_signal": "ALLOWED",
+            "paper_signal": "FORBIDDEN_PENDING_CAUSAL_REPLAY",
             "mt5_real_order": "FORBIDDEN",
             "ftmo_real_order": "FORBIDDEN",
             "live_execution": "FORBIDDEN",
         },
-        "status": "CERTIFIED",
-        "certification": "P2379_FORWARD_PAPER_EMISSION_CERTIFIED",
+        "status": "BLOCKED_PENDING_CAUSAL_REPLAY",
+        "certification": "NOT_CERTIFIED",
         "next": "P2380_DE40_FORWARD_PAPER_FEEDBACK_LOOP_AND_PNL_TRACKING",
         "outputs": {k: str(v) for k, v in files.items()},
         "warning": "NO_REAL_ORDER_PERMISSION_CREATED",
