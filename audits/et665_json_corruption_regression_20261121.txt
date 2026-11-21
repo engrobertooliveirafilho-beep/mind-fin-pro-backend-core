@@ -1,0 +1,12 @@
+ET665 2026-11-21 — FTMO/PAPER JSON corruption hardening
+GitHub isolated branch: engineering/et665-p2071-paper-safety-20261121
+FTMO loader commit 81ece4956c5e142ded942d552de0ca201f60c9ef; PAPER session reader/reopen commit cf5c9884f786fb9001a998b9c70c6876cd052f26.
+GitHub test commits: 7c7a41c6730c7cff7640be438d8db7ddbda1c846, cb1682b3ac395519d36801e5559474cfe59a6551.
+Local isolated analogous implementation: /mnt/data/et665_session_validation.
+Execution: PYTHONPATH=. python -m unittest discover -s tests -p 'test*.py' -v
+Result: 25/25 PASS; 0 failures; 0.033s.
+Log: /mnt/data/et665_session_validation/full_local_20261121.log
+Log SHA256: 649f9f430f7d170e75036a77168098dad8413db922e0f934cb0f24d510ab6675
+Scope: malformed JSON FTMO, non-object FTMO, corrupted PAPER session, non-object session, prior local FTMO/PAPER safety regressions.
+Provenance limitation: local files not byte-identical to published GitHub sources; tests do not certify exact GitHub blobs or P2071 integration; original ledgers not reconciled.
+PAPER_ONLY=TRUE | REAL_ORDERS=FORBIDDEN | MAIN=INTACT | E2E_CERTIFIED=FALSE | COST=R$0
