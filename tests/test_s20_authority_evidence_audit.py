@@ -53,3 +53,16 @@ class TestFactoryVsWriter(unittest.TestCase):
     def test_unverified_factory_bytes_rejected(self):
         s,c=fixtures()
         with self.assertRaises(ValueError): m.audit_authority(s,c,b"fake factory")
+
+class TestOriginalDriveEvidence(unittest.TestCase):
+    def test_historical_original_bytes_and_certificate(self):
+        root = pathlib.Path(__file__).resolve().parents[1] / "tests" / "fixtures"
+        original = (root / "s20_canonical_factory_authority_spec_20260810.json").read_bytes()
+        certificate = (root / "s20_canonical_factory_authority_certificate_20260810.json").read_bytes()
+        import hashlib
+        self.assertEqual(hashlib.sha256(original).hexdigest().upper(), m.EXPECTED_SPEC_SHA)
+        result = m.audit_authority(original, certificate)
+        self.assertTrue(result["evidence_consistent"])
+        self.assertFalse(result["factory_bytes_verified"])
+        self.assertFalse(result["writer_bytes_verified"])
+        self.assertFalse(result["s21_certified"])
