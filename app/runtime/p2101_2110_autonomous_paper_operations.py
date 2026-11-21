@@ -105,12 +105,12 @@ class AutoRecovery:
         recovered["runtime_status"] = "RECOVERED"
         recovered["heartbeat"] = int(time.time())
         recovered["recovery_count"] = recovered.get("recovery_count", 0) + 1
-        ok = recovered["runtime_status"] == "RECOVERED" and recovered["heartbeat"] > 0
+        # This is a synthetic state rewrite, not a verified process recovery.
         return AutoDecision(
             "P2104_AUTO_RECOVERY",
-            "PASS" if ok else "FAIL",
-            "AUTO_RECOVERY_OK" if ok else "AUTO_RECOVERY_FAIL",
-            {"input": broken_state, "recovered": recovered},
+            "FAIL",
+            "RECOVERY_SIMULATION_ONLY_NOT_EXECUTED",
+            {"input": broken_state, "recovered": recovered, "simulation_only": True},
         )
 
 
@@ -121,12 +121,12 @@ class AutoRestart:
         restarted["runtime_status"] = "RUNNING"
         restarted["restart_count"] = restarted.get("restart_count", 0) + 1
         restarted["heartbeat"] = int(time.time())
-        ok = restarted["runtime_status"] == "RUNNING" and restarted["restart_count"] >= 1
+        # Updating a dictionary does not prove a runtime was restarted.
         return AutoDecision(
             "P2105_AUTO_RESTART",
-            "PASS" if ok else "FAIL",
-            "AUTO_RESTART_OK" if ok else "AUTO_RESTART_FAIL",
-            {"restarted": restarted},
+            "FAIL",
+            "RESTART_SIMULATION_ONLY_NOT_EXECUTED",
+            {"restarted": restarted, "simulation_only": True},
         )
 
 
