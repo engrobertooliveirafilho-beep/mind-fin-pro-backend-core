@@ -47,3 +47,11 @@ COST_BRL=0
 - Code commit `7945a4410a0659435e98bfae3ce770c350ae51da`; test commit `0b1a4c794251a8cb1b5d02db330d3843302f332e`.
 - `P2079` persistence PASS is restricted to serialized readback equality; `P2078` remains PENDING because no independent interrupted-process replay was executed.
 - Current branch regression execution: BLOCKED (no local GitHub checkout through DNS; no verified workflow); E2E_CERTIFIED=FALSE.
+
+## Drive reconciliation — P2151+ readiness dossier (2026-11-21 discovery)
+- Original Drive document: P2151_PLUS_READINESS_DOSSIER.md, file ID 1nQcgBkC1wRe9rlphS574m_A0e0W0Ms6e (read directly).
+- It asserts historical PASS for seven blocks: P2071_2080, P2081_2090, P2091_2100, P2101_2110, P2111_2120, P2121_PLUS, P2131_2150. Each points to a distinct data/runtime/*/evidence/*_FINAL_CERTIFICATION.json.
+- This is **documentary evidence of prior assertions only**; those seven underlying certification JSON artifacts, exact source hashes, current integration and full regression runs were NOT retrieved or independently verified in this mission.
+- Historical deployment decision: APPROVED_FOR_PAPER_ONLY_SIMULATION_REVIEW; real orders, broker connections, MT5 order sending and financial execution forbidden.
+- Reconciliation: HISTORICAL_P2151_READINESS_ASSERTED=TRUE; UNDERLYING_CERTIFICATION_JSON_VERIFIED=FALSE; CURRENT_E2E_CERTIFIED=FALSE.
+- Follow-up is to locate and inspect the exact seven certification JSON artifacts and their original source/dependency hashes, then run offline tests. Do not promote historical PASS to current certification.
