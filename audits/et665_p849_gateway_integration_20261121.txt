@@ -48,3 +48,10 @@ Source commit d5e628d62d1aabbdb97879e23398a99841f85497; test commit 9b132d1a01c5
 New gate blocks opening new PAPER sessions when prior cumulative account ledger is invalid, while preserving legacy BLOCK_LEDGER_MISMATCH for corruption in the most recent session.
 Drive search identified historical DOSSIE_AUDITORIA_MIND_TRADER_P2003J_P2070_2026-08-04.pdf ID 1CGBpxYazN9XUoyY2_QM4V-b9lxSEj4fl; source still needs detailed examination before capability certification.
 LIMIT: local code not byte-identical to GitHub published source; 70 PASS is local suite only, NOT published exact-byte E2E certification. Main untouched, real orders forbidden.
+
+2026-11-21 DIRECT PRE-TRADE TOTAL LOSS GATE
+Source commit 41e770eaf812bdc83da1f8629ce5da1e3ee46cec; new tests c46a966c9cc82a542212a52b2b3ae1cef310b5c5; reconciled prior test expectations d7f8ef56405c57a1e6c2c96d2c84492690d2f250 and 383c953515f8fe4a193ccee63b81a89ba08bb141.
+Executed local 73/73 PASS, 0 failures, 0.097s; /mnt/data/et665_session_validation/direct_total_loss_20261121.log SHA256 0bd7db435a0f4f75e415e7ae5a25a49765dadb4c16ef2572316020cd8f46b3c9.
+Drive dossie P2003J-P2070 (ID 1CGBpxYazN9XUoyY2_QM4V-b9lxSEj4fl) confirms reported P2066-P2070 PASS, 3 locked specialists, weighted win rate 52.9195%, PnL 2167.37, drawdown -1.080484%; explicitly states P2071-P2075 execution NOT evidenced in original chat. Historical values are reported, not independently validated.
+Direct pre_trade_check now checks account_total_pnl across sessions, blocks unverifiable history and total-loss breaches. This closes bypass where gateway checked cumulative loss but direct session API did not.
+LIMIT: local regression suite is analogous to GitHub source, not exact-byte; P2071 historical E2E and strategy promotion NOT certified. PAPER_ONLY, no live orders, main intact.
