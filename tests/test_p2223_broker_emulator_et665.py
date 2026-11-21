@@ -106,4 +106,20 @@ class BrokerEmulatorSafetyTests(unittest.TestCase):
             broker.risk.check(1e308)
         self.assertEqual(broker.risk.equity,1e308)
         self.assertTrue(broker.risk.halted)
+    def test_invalid_market_price_rejected_without_trade(self):
+        broker=BrokerEmulator()
+        broker.market.tick=lambda: float('nan')
+        with self.assertRaisesRegex(RuntimeError,'market price'):
+            broker.execute_order('BUY',1)
+        self.assertEqual(broker.trades,[])
+        self.assertEqual(broker.risk.equity,100000)
+    def test_nonpositive_execution_price_rejected_without_trade(self):
+        broker=BrokerEmulator()
+        broker.market.tick=lambda: 0.01
+        from unittest.mock import patch
+        with patch('app.runtime.p2223_broker_emulator.random.uniform',return_value=-0.1):
+            with self.assertRaisesRegex(RuntimeError,'execution price'):
+                broker.execute_order('BUY',1)
+        self.assertEqual(broker.trades,[])
+        self.assertEqual(broker.risk.equity,100000)
 if __name__=='__main__':unittest.main()
