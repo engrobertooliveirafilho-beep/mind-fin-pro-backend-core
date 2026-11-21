@@ -264,8 +264,10 @@ class PaperPortfolioExecutor:
             raise ValueError("invalid paper side")
         if type(price) not in (int, float) or not math.isfinite(price) or price <= 0:
             raise ValueError("invalid paper entry price")
-        if type(signal.confidence) not in (int, float) or not math.isfinite(signal.confidence):
+        if type(signal.confidence) not in (int, float) or not math.isfinite(signal.confidence) or not 0 <= signal.confidence <= 1:
             raise ValueError("invalid paper confidence")
+        if not isinstance(signal.symbol, str) or not signal.symbol.strip():
+            raise ValueError("invalid paper symbol")
 
         if signal.confidence < 0.55:
             return None
@@ -305,11 +307,15 @@ class PaperPortfolioExecutor:
 
         if type(frame.mid) not in (int, float) or not math.isfinite(frame.mid) or frame.mid <= 0:
             raise ValueError("invalid paper mark price")
+        if not isinstance(frame.symbol, str) or not frame.symbol.strip():
+            raise ValueError("invalid paper mark symbol")
         if any(pos.side not in ("BUY", "SELL") for pos in self.positions.values()):
             raise ValueError("invalid existing paper side")
         to_close = []
 
         for pid, pos in self.positions.items():
+            if pos.symbol != frame.symbol:
+                continue
             price = frame.mid
             if pos.side not in ("BUY", "SELL"):
                 raise ValueError("invalid existing paper side")
