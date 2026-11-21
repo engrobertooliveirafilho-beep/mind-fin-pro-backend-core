@@ -51,7 +51,7 @@ def decide_signal(signal: dict, context: dict) -> dict:
         "rebuild_after_profit": context.get("rebuild_after_profit", False),
     })
 
-    final_emit = bool(precheck["emit_allowed"]) and float(sizing["recommended_paper_lot"]) > 0
+    final_emit = precheck.get("emit_allowed") is True and float(sizing["recommended_paper_lot"]) > 0
 
     return {
         "symbol": signal.get("symbol"),
