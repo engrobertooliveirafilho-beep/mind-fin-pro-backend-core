@@ -21,6 +21,10 @@ LOCKS = {
 
 
 def enforce():
+    invalid = {k: os.environ[k] for k, v in LOCKS.items()
+               if k in os.environ and os.environ[k] != v}
+    if invalid:
+        raise RuntimeError(f"LOCK_BREACH: {invalid}")
     for k, v in LOCKS.items():
         os.environ[k] = v
     return dict(LOCKS)
