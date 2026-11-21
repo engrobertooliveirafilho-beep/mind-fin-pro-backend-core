@@ -72,8 +72,10 @@ def _decide_for_model(policy: PolicyMode, usage: ModelUsage) -> ModelRateLimitDe
     penalty = _penalty_factor(usage.error_rate, usage.latency_ms_avg)
     factor = base_mult * penalty
 
-    rpm_limit = max(1, int(usage.rpm_current * factor) or 1)
-    tpm_limit = max(1, int(usage.tpm_current * factor) or 1)
+    # A zero observed usage is not evidence of a safe nonzero provider quota.
+    # This endpoint emits planning hints only; it must never invent capacity.
+    rpm_limit = max(0, int(usage.rpm_current * factor))
+    tpm_limit = max(0, int(usage.tpm_current * factor))
     status = _status_from_factor(factor)
     reason = (
         f"policy={policy}, error_rate={usage.error_rate:.3f}, "
