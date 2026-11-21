@@ -1,3 +1,4 @@
+# P2923 offline research engine; execution and promotion are permanently disabled.
 """P2923 robustness engine. Offline research only; never promotes or executes."""
 import math
 import random
