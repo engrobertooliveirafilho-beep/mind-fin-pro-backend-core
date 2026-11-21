@@ -14,7 +14,7 @@ class TestOverlap(unittest.TestCase):
                 f.write(json.dumps({'type':'SESSION_OPENED','session_id':'forged','event_id':'forged-event','ftmo_config_hash':'a'*64})+'\n')
             self.assertIsNone(m.account_total_pnl())
             intent={'mode':'PAPER','account_id':'PAPER_FTMO_SIM','side':'BUY','symbol':'EURUSD','risk_amount':100,'stop':1.1}
-            self.assertEqual(evaluate_paper_intent(m,intent,str(p/'audit.json'))['decision'],'BLOCK_TOTAL_PNL_UNVERIFIED')
+            self.assertEqual(evaluate_paper_intent(m,intent,str(p/'audit.json'))['decision'],'BLOCK_ACCOUNT_LEDGER_UNVERIFIED')
     def test_sequential_sessions_allowed(self):
         with tempfile.TemporaryDirectory() as tmp:
             p=Path(tmp); c=p/'config.json'; c.write_text(json.dumps(default_ftmo_config()))
