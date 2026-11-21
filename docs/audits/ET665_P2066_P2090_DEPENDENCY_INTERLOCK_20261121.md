@@ -61,3 +61,12 @@ COST_BRL=0
 - Drive cat_evidence_0000206.stdout.txt ID 1C7Dz3GqJERFT3_VATxRqLtCcWLl63ML1: recovered historical P2151+ program completion output, including exact output paths for final JSON, gate review, ZIP package and dossier. It is an execution output record, not independently retrieved underlying certification JSON.
 - The Drive console_output_P2151_PLUS.txt ID 1O5DWAb54UL-EzWSd2jr8xhiVrqUdHf1A contains seven reported certification hashes. These are unverified declarations until actual certification files are recovered and hashed.
 - RECOVERED_P2062_MACHINE_OUTPUT=TRUE; RECOVERED_P2151_OUTPUT_PATHS=TRUE; ORIGINAL_P2062_CODE_VERIFIED=FALSE; ORIGINAL_P2151_FINAL_JSON_VERIFIED=FALSE; CURRENT_E2E_CERTIFIED=FALSE.
+
+## P2061B → P2062 specialist-level historical reconciliation (Drive machine outputs)
+- P2061B original stdout: cat_evidence_0000167.stdout.txt (Drive 1yoMkOATDHTyw5h3RME9hCysoTOt025z2), generated 2026-06-18T08:37:34Z. Factory generated five DNA logic types: TREND_PULLBACK, MOMENTUM, MEAN_REVERSION, RANGE_REVERSION, VOLATILITY_BREAKOUT. Declared output data/specialists/P2061B/REAL_LOGIC_SPECIALISTS.json (original JSON not yet recovered).
+- P2062 original stdout: cat_evidence_0000168.stdout.txt (Drive 1Sw-ag7j4aEZDFXzb4Vzod_lAttCIhkVx). Historical 50,000-row research-only backtest.
+- VALIDATED: XAUUSD_M1_REALDNA_0004 RANGE_REVERSION (15,847 trades; PnL +1269.77); XAUUSD_M1_REALDNA_0003 MEAN_REVERSION (5,742; +541.53); XAUUSD_M1_REALDNA_0001 TREND_PULLBACK (7,132; +356.07).
+- REJECTED: XAUUSD_M1_REALDNA_0005 VOLATILITY_BREAKOUT (19,842; -1023.18); XAUUSD_M1_REALDNA_0002 MOMENTUM (25,157; -1247.68).
+- Reconciled validated aggregate PnL = +2167.37 (1269.77+541.53+356.07), matching prior P2066–P2070 historical dossier; rejected strategies MUST NOT be silently promoted.
+- These are recovered historical results, not independently replayed tests. GitHub default-branch search for exact P2062 engine identifier returned no matching file; does not prove absence in other branches or Drive.
+- P2061B_FACTORY_OUTPUT_RECOVERED=TRUE; P2062_FIVE_SPECIALIST_RESULTS_RECOVERED=TRUE; ORIGINAL_DNA_JSON_RECOVERED=FALSE; P2062_ENGINE_SOURCE_RECOVERED=FALSE; P2062_REPLAY_CERTIFIED=FALSE.
