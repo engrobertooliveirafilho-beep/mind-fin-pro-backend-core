@@ -43,6 +43,13 @@ class BrokerEmulator:
         self.trades = []
 
     def execute_order(self, side, volume):
+        # Simulation-only: reject malformed intentions before changing any state.
+        if side not in ("BUY", "SELL"):
+            raise ValueError("unsupported simulated order side")
+        if type(volume) is not int or volume <= 0:
+            raise ValueError("simulated order volume must be a positive integer")
+        if self.risk.equity <= 0 or (self.risk.peak - self.risk.equity) / self.risk.peak > self.risk.max_drawdown:
+            raise RuntimeError("simulated risk engine halted")
         price = self.market.tick()
 
         # Slippage simulation
