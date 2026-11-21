@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import hashlib
 from collections import defaultdict, deque
 from pathlib import Path
 from typing import Dict, List
@@ -15,7 +16,8 @@ FTMO_REAL = "FORBIDDEN"
 
 
 def sniff(path: Path) -> str:
-    first = path.read_text(encoding="utf-8-sig", errors="ignore")[:4096].splitlines()[0]
+    with path.open("r", encoding="utf-8-sig", errors="ignore", newline="") as stream:
+        first = stream.readline(4096)
     return ";" if first.count(";") > first.count(",") else ","
 
 
@@ -220,7 +222,7 @@ def build_playbooks(rows: List[Dict]) -> List[Dict]:
             decision = "REJECT_PLAYBOOK"
 
         out.append({
-            "playbook_id": "PB_" + str(abs(hash(key)))[:10],
+            "playbook_id": "PB_" + hashlib.sha256(json.dumps(key, ensure_ascii=False).encode("utf-8")).hexdigest()[:16],
             "timeframe": key[0],
             "session": key[1],
             "regime": key[2],
@@ -288,6 +290,12 @@ def run(router_candidates: Path, context_library: Path, outdir: Path) -> Dict:
     )
 
     playbooks = build_playbooks(scored)
+
+    # Historical router inputs are contaminated by post-event features. Keep all
+    # proxy results research-only until a fresh causal walk-forward is certified.
+    for group in context_groups + sequence_groups + playbooks:
+        if group["promotion_decision"].startswith("PROMOTE_"):
+            group["promotion_decision"] = "OBSERVE_RESEARCH_ONLY"
 
     promoted_contexts = [x for x in context_groups if x["promotion_decision"] == "PROMOTE_CONTEXT"]
     observed_contexts = [x for x in context_groups if x["promotion_decision"] == "OBSERVE_CONTEXT"]
@@ -357,8 +365,8 @@ def run(router_candidates: Path, context_library: Path, outdir: Path) -> Dict:
             "PROMOTION_GATE",
             "PAPER_ONLY_PERMISSION",
         ],
-        "status": "CERTIFIED",
-        "certification": "P2378_ROUTER_BACKTEST_SEQUENCE_PLAYBOOK_PROMOTION_GATE_CERTIFIED",
+        "status": "RESEARCH_ONLY_PENDING_CAUSAL_REPLAY",
+        "certification": "NOT_CERTIFIED",
         "next": "P2379_DE40_FORWARD_PAPER_EMISSION_FROM_PROMOTED_PLAYBOOKS",
         "outputs": {k: str(v) for k, v in files.items()},
         "warning": "NO_REAL_ORDER_PERMISSION_CREATED",
