@@ -314,7 +314,7 @@ class PaperPortfolioExecutor:
             raise ValueError("INVALID_PAPER_EXECUTOR_STATE")
         # A high-water mark cannot be below the current realized balance.
         # Otherwise the restored drawdown lock can be silently weakened.
-        if peak < equity:
+        if peak < max(initial, equity):
             raise ValueError("INVALID_PAPER_EXECUTOR_PEAK_EQUITY")
         restored = cls(initial_equity=float(initial))
         restored.equity = float(equity)
