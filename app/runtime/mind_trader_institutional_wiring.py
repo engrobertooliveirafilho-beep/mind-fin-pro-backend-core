@@ -88,13 +88,25 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
     }
 
 def health() -> dict:
-    r = run_institutional_wiring({})
+    """Non-executing module probe; never dispatch PAPER engines during health checks."""
+    imports_ok = 0
+    health_ok = 0
+    for name in MODULES:
+        try:
+            module = importlib.import_module(name)
+            imports_ok += 1
+            probe = getattr(module, "health", None)
+            if callable(probe) and isinstance(probe(), dict):
+                health_ok += 1
+        except Exception:
+            continue
     return {
-        "status": r["status"],
-        "modules_total": r["modules_total"],
-        "imports_ok": r["imports_ok"],
-        "runs_ok": r["runs_ok"],
-        "health_ok": r["health_ok"],
+        "status": "operational" if imports_ok == len(MODULES) and health_ok == len(MODULES) and bool(MODULES) else "DEGRADED",
+        "modules_total": len(MODULES),
+        "imports_ok": imports_ok,
+        "runs_ok": 0,
+        "health_ok": health_ok,
+        "execution_scope": "NON_EXECUTING_HEALTH_PROBE",
     }
 
 def run(payload: dict | None = None) -> dict:
