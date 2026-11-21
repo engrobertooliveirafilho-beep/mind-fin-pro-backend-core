@@ -43,7 +43,11 @@ class RiskEngine:
                 or (self.session_start_equity - self.equity) / self.session_start_equity > self.daily_loss_limit):
             self.halted = True
             raise RuntimeError("simulated risk engine halted")
-        self.equity += pnl
+        next_equity = self.equity + pnl
+        if not math.isfinite(next_equity):
+            self.halted = True
+            raise RuntimeError("simulated equity overflow")
+        self.equity = next_equity
         self.peak = max(self.peak, self.equity)
         drawdown = (self.peak - self.equity) / self.peak
 
