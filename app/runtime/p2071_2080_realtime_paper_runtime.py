@@ -335,8 +335,12 @@ class PaperPortfolioExecutor:
 
     def mark_to_market(self, frame: FeatureFrame) -> None:
         assert_no_financial_execution()
-        if not math.isfinite(frame.mid) or frame.mid <= 0:
+        if frame.symbol != "XAUUSD":
+            raise ValueError("INVALID_PAPER_MARK_SYMBOL")
+        if not isinstance(frame.mid, (int, float)) or isinstance(frame.mid, bool) or not math.isfinite(frame.mid) or frame.mid <= 0:
             raise ValueError("INVALID_PAPER_MARK_PRICE")
+        if not isinstance(frame.spread, (int, float)) or isinstance(frame.spread, bool) or not math.isfinite(frame.spread) or frame.spread < 0:
+            raise ValueError("INVALID_PAPER_MARK_SPREAD")
         if not isinstance(frame.ts, int) or isinstance(frame.ts, bool) or frame.ts < 0:
             raise ValueError("INVALID_PAPER_MARK_TIMESTAMP")
         frame_day = frame.ts // 86400
