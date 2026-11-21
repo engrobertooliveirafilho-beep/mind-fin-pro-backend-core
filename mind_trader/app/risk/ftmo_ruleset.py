@@ -1,4 +1,4 @@
-import json, hashlib
+import json, hashlib, math
 from pathlib import Path
 from datetime import datetime, UTC
 
@@ -58,6 +58,12 @@ def validate_ftmo_config(config):
     type_errors=[k for k,t in REQUIRED_FIELDS.items() if not isinstance(config[k],t)]
     if type_errors:
         return {"valid":False,"reason":"TYPE_ERRORS","fields":type_errors}
+    if any(type(config[k]) is bool for k,t in REQUIRED_FIELDS.items() if isinstance(t,tuple) and config[k] is not None):
+        return {"valid":False,"reason":"BOOLEAN_NUMERIC_FIELD"}
+    if any(not math.isfinite(config[k]) for k,t in REQUIRED_FIELDS.items() if isinstance(t,tuple)):
+        return {"valid":False,"reason":"NONFINITE_NUMERIC_FIELD"}
+    if any(config[k] < 0 for k in ("max_position_size","commission","spread","slippage")):
+        return {"valid":False,"reason":"NEGATIVE_NUMERIC_FIELD"}
     numeric_positive=["account_size","profit_target","max_daily_loss","max_total_loss","minimum_trading_days","max_daily_trades","leverage"]
     invalid=[k for k in numeric_positive if config[k] <= 0]
     if invalid:
@@ -83,6 +89,10 @@ def load_ftmo_config(path="mind_trader/config/ftmo_ruleset.json"):
 
 def audit_rule_application(trade, config, path="mind_trader/reports/P8.46_ftmo_rule_audit.json"):
     validation=validate_ftmo_config(config)
+    risk=trade.get("risk_amount")
+    daily=trade.get("daily_pnl",0)
+    total=trade.get("total_pnl",0)
+    numeric_ok=all(type(v) in (int,float) and math.isfinite(v) for v in (risk,daily,total)) and risk >= 0
     report={
         "audit_ts":datetime.now(UTC).isoformat(),
         "config_validation":validation,
@@ -93,8 +103,8 @@ def audit_rule_application(trade, config, path="mind_trader/reports/P8.46_ftmo_r
             "symbol_allowed":trade.get("symbol") in config.get("allowed_symbols",[]),
             "symbol_not_restricted":trade.get("symbol") not in config.get("restricted_symbols",[]),
             "daily_trades_ok":trade.get("daily_trades",0) < config.get("max_daily_trades",0),
-            "risk_inside_daily_limit":abs(trade.get("daily_pnl",0))+trade.get("risk_amount",0) <= config.get("max_daily_loss",0),
-            "risk_inside_total_limit":abs(trade.get("total_pnl",0))+trade.get("risk_amount",0) <= config.get("max_total_loss",0),
+            "risk_inside_daily_limit":numeric_ok and max(0,-daily)+risk <= config.get("max_daily_loss",0),
+            "risk_inside_total_limit":numeric_ok and max(0,-total)+risk <= config.get("max_total_loss",0),
             "has_stop":trade.get("stop") is not None
         },
         "production":"BLOCKED",
