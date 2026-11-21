@@ -1,0 +1,26 @@
+{
+  "mode":"PAPER_RESEARCH_ONLY",
+  "real_orders":"FORBIDDEN",
+  "strategy":"TREND_PULLBACK",
+  "fast_ma":9,
+  "cost_units":"price units per side; hypothetical, not broker-calibrated",
+  "datasets":{
+    "GER40_H1":[
+      {"cost_per_side_price_units":0,"rows":50000,"trades":951,"wins":341,"losses":610,"gross_pnl":-4628.88,"total_cost":0,"net_pnl":-4628.88,"profit_factor":0.94302149,"max_drawdown":9196.98},
+      {"cost_per_side_price_units":0.5,"rows":50000,"trades":951,"wins":340,"losses":610,"gross_pnl":-4628.88,"total_cost":951,"net_pnl":-5579.88,"profit_factor":0.93182719,"max_drawdown":9803.98},
+      {"cost_per_side_price_units":1,"rows":50000,"trades":951,"wins":338,"losses":613,"gross_pnl":-4628.88,"total_cost":1902,"net_pnl":-6530.88,"profit_factor":0.92080043,"max_drawdown":10410.98},
+      {"cost_per_side_price_units":2,"rows":50000,"trades":951,"wins":333,"losses":617,"gross_pnl":-4628.88,"total_cost":3804,"net_pnl":-8432.88,"profit_factor":0.89923918,"max_drawdown":11624.98},
+      {"cost_per_side_price_units":5,"rows":50000,"trades":951,"wins":325,"losses":626,"gross_pnl":-4628.88,"total_cost":9510,"net_pnl":-14138.88,"profit_factor":0.83829351,"max_drawdown":15266.98}
+    ],
+    "GER40_M15":[
+      {"cost_per_side_price_units":0,"rows":5000,"trades":93,"wins":36,"losses":57,"gross_pnl":1541.3,"total_cost":0,"net_pnl":1541.3,"profit_factor":1.22651187,"max_drawdown":1745.8},
+      {"cost_per_side_price_units":0.5,"rows":5000,"trades":93,"wins":36,"losses":57,"gross_pnl":1541.3,"total_cost":93,"net_pnl":1448.3,"profit_factor":1.2110763,"max_drawdown":1773.8},
+      {"cost_per_side_price_units":1,"rows":5000,"trades":93,"wins":36,"losses":57,"gross_pnl":1541.3,"total_cost":186,"net_pnl":1355.3,"profit_factor":1.19589506,"max_drawdown":1801.8},
+      {"cost_per_side_price_units":2,"rows":5000,"trades":93,"wins":36,"losses":57,"gross_pnl":1541.3,"total_cost":372,"net_pnl":1169.3,"profit_factor":1.16627089,"max_drawdown":1857.8},
+      {"cost_per_side_price_units":5,"rows":5000,"trades":93,"wins":36,"losses":57,"gross_pnl":1541.3,"total_cost":930,"net_pnl":611.3,"profit_factor":1.08289376,"max_drawdown":2088.7}
+    ]
+  },
+  "terminal_position_closed":true,
+  "profitability_certified":false,
+  "promotion":"FORBIDDEN_PENDING_OOS_COST_CALIBRATION_AND_POSITION_SIZING"
+}
