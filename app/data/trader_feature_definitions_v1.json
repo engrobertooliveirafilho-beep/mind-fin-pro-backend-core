@@ -1,0 +1,380 @@
+[
+  {
+    "feature": "return_1",
+    "family": "RETURNS",
+    "dtype": "float64",
+    "window": 1,
+    "min_history": 2,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "log_return_1",
+    "family": "RETURNS",
+    "dtype": "float64",
+    "window": 1,
+    "min_history": 2,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "return_5",
+    "family": "RETURNS",
+    "dtype": "float64",
+    "window": 5,
+    "min_history": 6,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "return_15",
+    "family": "RETURNS",
+    "dtype": "float64",
+    "window": 15,
+    "min_history": 16,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "true_range",
+    "family": "RANGE",
+    "dtype": "float64",
+    "window": 1,
+    "min_history": 2,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "atr_14",
+    "family": "VOLATILITY",
+    "dtype": "float64",
+    "window": 14,
+    "min_history": 15,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "rolling_volatility_20",
+    "family": "VOLATILITY",
+    "dtype": "float64",
+    "window": 20,
+    "min_history": 21,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "rolling_volatility_60",
+    "family": "VOLATILITY",
+    "dtype": "float64",
+    "window": 60,
+    "min_history": 61,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "sma_20",
+    "family": "TREND",
+    "dtype": "float64",
+    "window": 20,
+    "min_history": 20,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "sma_50",
+    "family": "TREND",
+    "dtype": "float64",
+    "window": 50,
+    "min_history": 50,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "sma_200",
+    "family": "TREND",
+    "dtype": "float64",
+    "window": 200,
+    "min_history": 200,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "ema_20",
+    "family": "TREND",
+    "dtype": "float64",
+    "window": 20,
+    "min_history": 20,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "ema_50",
+    "family": "TREND",
+    "dtype": "float64",
+    "window": 50,
+    "min_history": 50,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "rsi_14",
+    "family": "MOMENTUM",
+    "dtype": "float64",
+    "window": 14,
+    "min_history": 15,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "momentum_10",
+    "family": "MOMENTUM",
+    "dtype": "float64",
+    "window": 10,
+    "min_history": 11,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "roc_20",
+    "family": "MOMENTUM",
+    "dtype": "float64",
+    "window": 20,
+    "min_history": 21,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "rolling_high_20",
+    "family": "RANGE",
+    "dtype": "float64",
+    "window": 20,
+    "min_history": 20,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "rolling_low_20",
+    "family": "RANGE",
+    "dtype": "float64",
+    "window": 20,
+    "min_history": 20,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "range_position_20",
+    "family": "RANGE",
+    "dtype": "float64",
+    "window": 20,
+    "min_history": 20,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "candle_body",
+    "family": "PRICE",
+    "dtype": "float64",
+    "window": 1,
+    "min_history": 1,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "upper_wick",
+    "family": "PRICE",
+    "dtype": "float64",
+    "window": 1,
+    "min_history": 1,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "lower_wick",
+    "family": "PRICE",
+    "dtype": "float64",
+    "window": 1,
+    "min_history": 1,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "candle_range",
+    "family": "PRICE",
+    "dtype": "float64",
+    "window": 1,
+    "min_history": 1,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "body_to_range",
+    "family": "PRICE",
+    "dtype": "float64",
+    "window": 1,
+    "min_history": 1,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "tick_volume_zscore_20",
+    "family": "VOLUME",
+    "dtype": "float64",
+    "window": 20,
+    "min_history": 20,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "tick_volume_ratio_20",
+    "family": "VOLUME",
+    "dtype": "float64",
+    "window": 20,
+    "min_history": 20,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "spread_normalized",
+    "family": "SPREAD",
+    "dtype": "float64",
+    "window": 1,
+    "min_history": 1,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "spread_zscore_20",
+    "family": "SPREAD",
+    "dtype": "float64",
+    "window": 20,
+    "min_history": 20,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "hour_utc",
+    "family": "TIME",
+    "dtype": "int8",
+    "window": 1,
+    "min_history": 1,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "minute_utc",
+    "family": "TIME",
+    "dtype": "int8",
+    "window": 1,
+    "min_history": 1,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "day_of_week",
+    "family": "TIME",
+    "dtype": "int8",
+    "window": 1,
+    "min_history": 1,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "month",
+    "family": "TIME",
+    "dtype": "int8",
+    "window": 1,
+    "min_history": 1,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "session",
+    "family": "SESSION",
+    "dtype": "string",
+    "window": 1,
+    "min_history": 1,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "is_london",
+    "family": "SESSION",
+    "dtype": "bool",
+    "window": 1,
+    "min_history": 1,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "is_new_york",
+    "family": "SESSION",
+    "dtype": "bool",
+    "window": 1,
+    "min_history": 1,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "missing_bar_flag",
+    "family": "DATA_QUALITY",
+    "dtype": "bool",
+    "window": 1,
+    "min_history": 2,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "duplicate_timestamp_flag",
+    "family": "DATA_QUALITY",
+    "dtype": "bool",
+    "window": 1,
+    "min_history": 1,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "outlier_return_flag",
+    "family": "DATA_QUALITY",
+    "dtype": "bool",
+    "window": 100,
+    "min_history": 101,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "zero_range_flag",
+    "family": "DATA_QUALITY",
+    "dtype": "bool",
+    "window": 1,
+    "min_history": 1,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "volatility_ratio_20_60",
+    "family": "REGIME_PRIMITIVES",
+    "dtype": "float64",
+    "window": 60,
+    "min_history": 61,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "trend_distance_sma_50",
+    "family": "REGIME_PRIMITIVES",
+    "dtype": "float64",
+    "window": 50,
+    "min_history": 50,
+    "lag": 0,
+    "future_offset": 0
+  },
+  {
+    "feature": "trend_distance_sma_200",
+    "family": "REGIME_PRIMITIVES",
+    "dtype": "float64",
+    "window": 200,
+    "min_history": 200,
+    "lag": 0,
+    "future_offset": 0
+  }
+]
