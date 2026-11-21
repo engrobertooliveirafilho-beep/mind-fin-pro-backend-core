@@ -15,6 +15,7 @@ class FtmoDeclarationSafetyTests(unittest.TestCase):
             finally:
                 os.chdir(old)
         self.assertEqual(result["status"], "FAIL")
+        self.assertEqual(result["mission_status"]["P2142_METRICS_CONSISTENCY_AUDIT"], "FAIL")
         self.assertEqual(result["readiness"], "NOT_CERTIFIED")
         self.assertEqual(result["mission_status"]["P2140_FTMO_PAPER_COMPLIANCE_CERTIFICATION"], "PENDING")
         self.assertEqual(result["mission_status"]["P2150_OPERATIONAL_READINESS_CERTIFICATION"], "PENDING")
