@@ -53,6 +53,13 @@ class PaperTradingSessionManager:
             if not lines:
                 return False
             events = [json.loads(line) for line in lines]
+            # Validate every event identity, including events from earlier sessions.
+            event_ids = [e.get("event_id") for e in events if isinstance(e, dict)]
+            if (len(event_ids) != len(events) or
+                any(not isinstance(i, str) or not i for i in event_ids) or
+                len(set(event_ids)) != len(event_ids) or
+                any(not isinstance(e.get("session_id"), str) or not e["session_id"] for e in events)):
+                return False
             related = [e for e in events if isinstance(e,dict) and e.get("session_id") == session.get("session_id")]
             if not related or related[0].get("type") != "SESSION_OPENED":
                 return False
