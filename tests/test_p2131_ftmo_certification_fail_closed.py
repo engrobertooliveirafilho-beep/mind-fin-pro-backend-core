@@ -17,6 +17,8 @@ class FtmoDeclarationSafetyTests(unittest.TestCase):
         self.assertEqual(result["status"], "FAIL")
         self.assertEqual(result["mission_status"]["P2142_METRICS_CONSISTENCY_AUDIT"], "FAIL")
         self.assertEqual(result["readiness"], "NOT_CERTIFIED")
+        self.assertEqual(result["mission_status"]["P2141_DATA_INTEGRITY_AUDIT"], "FAIL")
+        self.assertEqual(result["mission_status"]["P2148_COMPLIANCE_REGRESSION_SUITE"], "PENDING")
         self.assertEqual(result["mission_status"]["P2140_FTMO_PAPER_COMPLIANCE_CERTIFICATION"], "PENDING")
         self.assertEqual(result["mission_status"]["P2150_OPERATIONAL_READINESS_CERTIFICATION"], "PENDING")
     def test_declaration_not_behavioral_certification(self):
