@@ -21,6 +21,15 @@ class P2366AdversarialTests(unittest.TestCase):
         r = institutional_targets({"side":"SELL","entry":-1,"stop":-0.5})
         self.assertFalse(r["approved"])
 
+    def test_boolean_numeric_fields_block(self):
+        base = {"side": "BUY", "entry": 100, "stop": 99, "atr": 1}
+        for field in ("entry", "stop", "atr", "swing_high", "liquidity_low"):
+            with self.subTest(field=field):
+                result = institutional_targets(dict(base, **{field: True}))
+                self.assertFalse(result["approved"])
+                self.assertEqual(result["real_orders"], "FORBIDDEN")
+                self.assertEqual(result["ftmo_real"], "FORBIDDEN")
+
     def test_extreme_target_overflow_blocks(self):
         r = institutional_targets({"side":"BUY","entry":100,"stop":99,
                                    "swing_high":1.7e308,"swing_low":0})
