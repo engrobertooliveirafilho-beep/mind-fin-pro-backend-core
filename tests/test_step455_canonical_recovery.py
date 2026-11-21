@@ -1,6 +1,6 @@
 """STEP455 original planner: bounded, offline-only integration checks."""
 import unittest
-from app.step455_vector_index.engine import VectorIndexPlanRequest,plan_vector_index
+from app.embeddings.vector_index_step455.engine import VectorIndexPlanRequest,plan_vector_index
 
 class Step455Tests(unittest.TestCase):
     def test_one_shard(self):
