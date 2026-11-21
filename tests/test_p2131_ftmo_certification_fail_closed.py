@@ -94,3 +94,9 @@ class FtmoDeclarationSafetyTests(unittest.TestCase):
             finally:
                 os.chdir(old)
                 os.environ["REAL_ORDERS"] = "FORBIDDEN"
+    def test_public_enforce_rejects_unsafe_configuration(self):
+        import os
+        with patch.dict(os.environ, {"FTMO_REAL": "ALLOWED"}):
+            with self.assertRaisesRegex(RuntimeError, "LOCK_BREACH"):
+                ftmo.enforce()
+            self.assertEqual(os.environ["FTMO_REAL"], "ALLOWED")
