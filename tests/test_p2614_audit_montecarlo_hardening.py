@@ -42,3 +42,15 @@ def test_montecarlo_nonfinite_r_rejected():
 
 def test_montecarlo_empty_trades_is_deterministic():
     assert monte_carlo_from_trades([], initial_capital=100, runs=10) == {"runs": 0, "p50_final": 100.0, "p95_dd": 0.0}
+
+def test_audit_unhashable_indices_fail_closed():
+    result = audit_trades([{**BASE, "entry_i": []}])
+    assert result["passed"] is False and "INVALID_BAR_INDEX:0" in result["errors"]
+
+def test_audit_overflow_integer_rejected_without_exception():
+    result = audit_trades([{**BASE, "r": 10**10000}])
+    assert result["passed"] is False and "INVALID_NUMERIC:0:r" in result["errors"]
+
+def test_montecarlo_overflow_integer_rejected_without_exception():
+    with pytest.raises(ValueError, match="INVALID_TRADE_R"):
+        monte_carlo_from_trades([{"r": 10**10000}])
