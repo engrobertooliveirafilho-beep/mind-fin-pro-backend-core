@@ -1,0 +1,10 @@
+ET665 P2614 original fill engine regression
+Date: 2026-11-21
+Environment: local Python 3.13, offline
+Command: cd /mnt/data/p2614_integration && python -m unittest discover -s tests -v
+Result: Ran 14 tests in 0.022s; OK; 14 PASS, 0 FAIL.
+Composition: 10 fill validation + 4 original execution/replay integration.
+Original Drive execution.py source retained read-only; GitHub branch copy patched.
+GitHub code commit: 84e656de42565c19e7eecca24aecccccc1bb9875
+GitHub test commit: 0b0c5a31630e54330eb0cd5df49c1fdd6fc09ace
+No live broker, no real orders, no CI certification. Synthetic test fixtures; historical dataset E2E pending.
