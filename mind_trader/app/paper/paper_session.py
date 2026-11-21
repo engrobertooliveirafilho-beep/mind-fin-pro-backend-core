@@ -165,6 +165,11 @@ class PaperTradingSessionManager:
         s = self._read_session()
         if not s:
             return {"decision":"NO_SESSION_SUMMARY","production":"BLOCKED"}
+        required = ("session_id","status","daily_pnl","trades","loss_streak","ftmo_config_hash")
+        if any(key not in s for key in required) or s.get("status") not in ("OPEN","CLOSED"):
+            return {"decision":"BLOCK_INVALID_SESSION_STATE","production":"BLOCKED"}
+        if not self._ledger_consistent(s):
+            return {"decision":"BLOCK_LEDGER_MISMATCH","production":"BLOCKED"}
         return {"decision":"DAILY_SUMMARY","session_id":s["session_id"],
                 "status":s["status"],"daily_pnl":s["daily_pnl"],"trades":s["trades"],
                 "loss_streak":s["loss_streak"],"ftmo_config_hash":s["ftmo_config_hash"],
