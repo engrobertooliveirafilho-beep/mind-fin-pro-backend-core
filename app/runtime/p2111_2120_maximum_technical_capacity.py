@@ -73,7 +73,7 @@ class CapabilityGapAudit:
     def evaluate(self, deps: Dict[str, Any]) -> CapacityDecision:
         assert_no_financial_execution()
         required = ["p2071", "p2081", "p2091", "p2101"]
-        gaps = [k for k in required if deps[k].get("status") != "PASS"]
+        gaps = [k for k in required if not isinstance(deps.get(k), dict) or deps[k].get("status") != "PASS"]
         return CapacityDecision(
             "P2112_CAPABILITY_GAP_AUDIT",
             "PASS" if not gaps else "FAIL",
@@ -198,10 +198,20 @@ class ScaleValidation:
 def certify(decisions: List[CapacityDecision]) -> CapacityDecision:
     assert_no_financial_execution()
     failed = [d.component for d in decisions if d.status != "PASS"]
+    required = {f"P{i}_" for i in range(2111, 2120)}
+    present = [d.component for d in decisions]
+    complete = len(present) == 9 and len(set(present)) == 9 and all(
+        any(component.startswith(prefix) for component in present) for prefix in required
+    )
+    # P2118 currently models four sequential shards, not actual parallel execution.
+    # P2119 computes a synthetic checksum, not a validated scale workload.
+    # Neither supports a maximum-capacity certification.
+    evidence_sufficient = False
+    ok = complete and not failed and evidence_sufficient
     return CapacityDecision(
         "P2120_MAXIMUM_CAPACITY_CERTIFICATION",
-        "PASS" if not failed else "FAIL",
-        "MAXIMUM_TECHNICAL_CAPACITY_CERTIFIED" if not failed else "MAXIMUM_CAPACITY_NOT_CERTIFIED",
+        "PASS" if ok else "FAIL",
+        "MAXIMUM_TECHNICAL_CAPACITY_CERTIFIED" if ok else "MAXIMUM_CAPACITY_NOT_CERTIFIED",
         {
             "failed_components": failed,
             "passed_components": [d.component for d in decisions if d.status == "PASS"],
