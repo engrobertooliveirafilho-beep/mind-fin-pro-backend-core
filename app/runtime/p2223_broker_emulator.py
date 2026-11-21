@@ -1,5 +1,6 @@
 from __future__ import annotations
 import json
+import math
 import random
 import time
 from pathlib import Path
@@ -25,15 +26,23 @@ class RiskEngine:
         self.daily_loss_limit = 0.03
         self.equity = 100000
         self.peak = self.equity
+        self.initial_equity = self.equity
+        self.killed = False
 
     def check(self, pnl):
+        if self.killed:
+            return "KILLED"
+        if not isinstance(pnl, (int, float)) or not math.isfinite(pnl):
+            raise ValueError("non-finite PnL")
         self.equity += pnl
         self.peak = max(self.peak, self.equity)
         drawdown = (self.peak - self.equity) / self.peak
-
-        if drawdown > self.max_drawdown:
-            return "KILLED"
-        return "OK"
+        # No session calendar is supplied; this is a conservative
+        # session-wide loss cap, NOT certified FTMO daily reset logic.
+        session_loss = (self.initial_equity - self.equity) / self.initial_equity
+        if drawdown > self.max_drawdown or session_loss > self.daily_loss_limit:
+            self.killed = True
+        return "KILLED" if self.killed else "OK"
 
 
 class BrokerEmulator:
@@ -43,6 +52,12 @@ class BrokerEmulator:
         self.trades = []
 
     def execute_order(self, side, volume):
+        if self.risk.killed:
+            raise RuntimeError("PAPER_RISK_KILL_SWITCH")
+        if side not in ("BUY", "SELL"):
+            raise ValueError("invalid PAPER order side")
+        if isinstance(volume, bool) or not isinstance(volume, (int, float)) or not math.isfinite(volume) or volume <= 0:
+            raise ValueError("invalid PAPER order volume")
         price = self.market.tick()
 
         # Slippage simulation
@@ -85,7 +100,7 @@ def run_simulation(cycles=50):
             break
 
     return {
-        "status": "PASS",
+        "status": "KILLED" if broker.risk.killed else "SIMULATED",
         "trades": broker.trades,
         "final_equity": broker.risk.equity,
         "total_trades": len(broker.trades),
