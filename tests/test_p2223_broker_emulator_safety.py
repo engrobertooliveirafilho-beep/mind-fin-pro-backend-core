@@ -40,3 +40,14 @@ class BrokerEmulatorSafetyTests(unittest.TestCase):
             r=run_simulation(cycles=1)
         self.assertEqual(r["status"],"SIMULATED")
         self.assertEqual(r["total_trades"],1)
+    def test_reject_insolvent_equity(self):
+        r=RiskEngine()
+        self.assertEqual(r.check(-100000),"KILLED")
+        self.assertTrue(r.killed)
+        self.assertEqual(r.equity,100000)
+    def test_reject_overflowed_equity(self):
+        r=RiskEngine()
+        self.assertEqual(r.check(1e308),"OK")
+        self.assertEqual(r.check(1e308),"KILLED")
+        self.assertTrue(r.killed)
+        self.assertTrue(__import__("math").isfinite(r.equity))
