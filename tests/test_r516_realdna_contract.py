@@ -119,7 +119,7 @@ class TestRealDNAContract(unittest.TestCase):
         result = p2081.PortfolioRebalancing().evaluate(REALDNA)
         self.assertEqual(result.status, "PASS")
         self.assertAlmostEqual(result.payload["allocation_sum"], 0.914143, places=8)
-        self.assertAlmostEqual(result.payload["cash_reserve_weight"], 0.085857, places=8)
+        self.assertAlmostEqual(result.payload["unallocated_weight"], 0.085857, places=8)
         self.assertAlmostEqual(
             result.payload["allocation"]["XAUUSD_M1_REALDNA_0004"], 0.5, places=8
         )
@@ -132,7 +132,7 @@ class TestRealDNAContract(unittest.TestCase):
             "XAUUSD_M1_REALDNA_0003": 24985.6,
             "XAUUSD_M1_REALDNA_0001": 16428.7,
         })
-        self.assertEqual(result.payload["reserve_capital"], 8585.7)
+        self.assertEqual(result.payload["unallocated_capital"], 8585.7)
 
     def test_risk_engine_enforces_p2067_three_percent_drawdown(self):
         result = p2081.RiskEngine().evaluate({
