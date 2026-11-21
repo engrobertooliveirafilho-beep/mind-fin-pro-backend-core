@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import List, Dict, Any
 
 from fastapi import APIRouter
@@ -13,8 +13,8 @@ class BranchConfig(BaseModel):
 
 
 class ParallelReasoningRequest(BaseModel):
-    topic: str
-    config: BranchConfig = BranchConfig()
+    topic: str = Field(..., min_length=1, max_length=4096)
+    config: BranchConfig = Field(default_factory=BranchConfig)
 
 
 class BranchStep(BaseModel):
@@ -82,7 +82,7 @@ def run_parallel_reasoning(request: ParallelReasoningRequest) -> ParallelReasoni
         branches=traces,
         meta={
             "version": "step451-v1",
-            "created_at": datetime.utcnow().isoformat() + "Z",
+            "created_at": datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
             "engine": "parallel_reasoning_step451",
             "branches": branches_count,
             "depth": depth,
