@@ -31,3 +31,6 @@ class Step443Tests(unittest.TestCase):
         r=evaluate_rate_limits(RateLimitRequest(models=[usage(rpm=0,tpm=100)]))
         self.assertEqual(r.decisions[0].rpm_limit,0)
         self.assertEqual(r.decisions[0].tpm_limit,100)
+    def test_zero_quota_throttles_even_under_aggressive_policy(self):
+        r=evaluate_rate_limits(RateLimitRequest(policy='aggressive',models=[usage(rpm=0,tpm=100)]))
+        self.assertEqual(r.decisions[0].status,'throttle')
