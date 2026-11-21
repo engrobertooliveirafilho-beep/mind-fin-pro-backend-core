@@ -18,7 +18,23 @@ MODULES = [
 ]
 
 def run_institutional_wiring(payload: dict | None = None) -> dict:
-    payload = payload or {}
+    if payload is None:
+        payload = {}
+    elif not isinstance(payload, dict):
+        raise TypeError("PAPER wiring payload must be a dictionary")
+    if not MODULES:
+        return {
+            "program": "MIND_TRADER_INSTITUTIONAL_WIRING",
+            "status": "DEGRADED",
+            "mode": "PAPER_ONLY",
+            "real_orders": "FORBIDDEN",
+            "ftmo_real": "FORBIDDEN",
+            "modules_total": 0,
+            "imports_ok": 0,
+            "runs_ok": 0,
+            "health_ok": 0,
+            "results": [],
+        }
     results = []
 
     for name in MODULES:
