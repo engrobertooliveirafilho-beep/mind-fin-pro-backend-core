@@ -64,6 +64,16 @@ def decide_signal(signal: dict, context: dict) -> dict:
     signal["expected_payoff"] = observed_payoff
 
     precheck = precheck_before_mt5_emit(signal, context)
+    if not isinstance(precheck, dict) or precheck.get("emit_allowed") is not True:
+        return {
+            "symbol": signal.get("symbol"), "side": signal.get("side"),
+            "strategy": signal.get("strategy"), "context_edge": context_edge,
+            "targeting": target,
+            "precheck": precheck if isinstance(precheck, dict) else None,
+            "final_decision": "BLOCK_PRECHECK",
+            "paper_lot": 0.0, "mode": "PAPER_ONLY",
+            "real_orders": "FORBIDDEN", "ftmo_real": "FORBIDDEN",
+        }
 
     sizing = dynamic_paper_lot({
         "base_lot": signal.get("base_lot", 0.01),
