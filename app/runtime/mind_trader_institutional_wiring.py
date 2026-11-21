@@ -64,24 +64,28 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
 
         results.append(row)
 
+    imports_ok = sum(1 for r in results if r["import_ok"])
+    runs_ok = sum(1 for r in results if r["run_ok"])
+    health_ok = sum(1 for r in results if r["health_ok"])
+    status = "operational" if imports_ok == len(results) and runs_ok == len(results) and all(not r["error"] for r in results) else "DEGRADED"
     return {
         "program": "MIND_TRADER_INSTITUTIONAL_WIRING",
-        "status": "operational",
+        "status": status,
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "mode": "PAPER_ONLY",
         "real_orders": "FORBIDDEN",
         "ftmo_real": "FORBIDDEN",
         "modules_total": len(results),
-        "imports_ok": sum(1 for r in results if r["import_ok"]),
-        "runs_ok": sum(1 for r in results if r["run_ok"]),
-        "health_ok": sum(1 for r in results if r["health_ok"]),
+        "imports_ok": imports_ok,
+        "runs_ok": runs_ok,
+        "health_ok": health_ok,
         "results": results,
     }
 
 def health() -> dict:
     r = run_institutional_wiring({})
     return {
-        "status": "operational" if r["imports_ok"] == r["modules_total"] else "DEGRADED",
+        "status": r["status"],
         "modules_total": r["modules_total"],
         "imports_ok": r["imports_ok"],
         "runs_ok": r["runs_ok"],
