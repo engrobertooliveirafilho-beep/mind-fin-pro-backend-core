@@ -1,0 +1,26 @@
+{
+  "checkpoint": "P2919A_TO_P2919E",
+  "created_at": "2026-07-12T16:50:43.035017+00:00",
+  "state": "LONG_RUN_VALIDATION_COMPLETE",
+  "next": "P2920_FTMO_DATA_COVERAGE_EXPANSION_FOR_REMAINING_SYMBOLS",
+  "audit_sha256": "1995c2a37bccbfbf3c31919eea0b2b4973324cc0e35b15a508e9d6954cf5b04d",
+  "hard_locks": {
+    "BACKTEST": true,
+    "PAPER_ONLY": true,
+    "LIVE": "FORBIDDEN",
+    "REAL": "FORBIDDEN",
+    "PRODUCTION": "FORBIDDEN"
+  },
+  "summary": {
+    "input_specialists": 2000,
+    "evaluated": 2000,
+    "missing_datasets": 0,
+    "core_survivors": 407,
+    "observe": 261,
+    "rejected": 1332,
+    "portfolio_selected": 37,
+    "high_correlation_pairs": 754,
+    "prop_compliance_decision": "PAPER_COMPLIANCE_PASS",
+    "prop_violations": 0
+  }
+}
