@@ -656,7 +656,20 @@ def load_portfolio(path: str) -> List[Dict[str, Any]]:
     p = Path(path)
     if not p.exists():
         raise FileNotFoundError(path)
-    raw = json.loads(p.read_text(encoding="utf-8"))
+    def reject_nonfinite(token: str) -> None:
+        raise ValueError("NONFINITE_REALDNA_PORTFOLIO")
+    def reject_duplicate_keys(pairs):
+        result = {}
+        for key, value in pairs:
+            if key in result:
+                raise ValueError("DUPLICATE_REALDNA_PORTFOLIO_KEY")
+            result[key] = value
+        return result
+    raw = json.loads(
+        p.read_text(encoding="utf-8"),
+        parse_constant=reject_nonfinite,
+        object_pairs_hook=reject_duplicate_keys,
+    )
     candidates = raw if isinstance(raw, list) else None
     if isinstance(raw, dict):
         for key in ["specialists", "final_specialists", "portfolio", "locked_specialists"]:
