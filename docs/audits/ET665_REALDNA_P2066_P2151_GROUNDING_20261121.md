@@ -33,3 +33,10 @@ P2080_E2E_CERTIFIED=FALSE
 PAPER_ONLY=TRUE
 REAL_ORDERS=FORBIDDEN
 COST_BRL=0
+
+## Incremental evidence — 2026-11-21
+- The original REALDNA JSON was opened from the existing local mounted artifact and SHA-256 verified against the recorded Drive digest: 039647f3e5903821eeb3eaf63d7f767d9dad9c58c0b775254249f5e611f0f356 (PASS).
+- JSON parse PASS; top-level array contains exactly three original specialists: XAUUSD_M1_REALDNA_0004, XAUUSD_M1_REALDNA_0003, XAUUSD_M1_REALDNA_0001.
+- Isolated P2101 Scheduler contract checks executed locally: 4/4 PASS. This validates only the extracted scheduler decision logic, not the full repository suite or end-to-end runtime.
+- P2101 now refuses to certify declared scheduling intervals as executed scheduling.
+- No GitHub Actions execution, complete pytest run or FTMO operational certification claimed.
