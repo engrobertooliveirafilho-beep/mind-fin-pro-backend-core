@@ -378,7 +378,16 @@ class PaperPortfolioExecutor:
                     or record["qty"] > cls.MAX_PAPER_QTY
                     or not isinstance(record.get("open_ts"), int)
                     or isinstance(record.get("open_ts"), bool)
-                    or record["open_ts"] < 0 or record["open_ts"] > entry["close_ts"]):
+                    or record["open_ts"] < 0 or record["open_ts"] > entry["close_ts"]
+                    or (record["side"] == "BUY" and not record["sl"] < record["entry"] < record["tp"])
+                    or (record["side"] == "SELL" and not record["tp"] < record["entry"] < record["sl"])
+                    or abs(
+                        entry["pnl"] - (
+                            (entry["exit"] - record["entry"]) * record["qty"]
+                            if record["side"] == "BUY"
+                            else (record["entry"] - entry["exit"]) * record["qty"]
+                        )
+                    ) > 0.000011):
                 raise ValueError("INVALID_PAPER_EXECUTOR_CLOSED_POSITION")
             closed_ids.add(pid)
         if seq < len(restored.positions) + len(state["closed"]):
