@@ -714,16 +714,23 @@ def run_p2071_2080(
             "closed_positions": executor.closed,
         },
         "monitor": snap,
+        "executor_snapshot": executor.export_state(),
     }
 
     persistence.save(state)
     loaded = persistence.load()
 
-    if loaded.get("cycles") == cycles:
+    if loaded == state:
         mission_status["P2079_RUNTIME_PERSISTENCE"] = "PASS"
 
-    # Reading back equity does not restore the position book, risk locks,
-    # last event timestamp, or an interrupted runtime.
+    # Restore the complete PAPER executor, not merely its equity number.
+    # This checks serialization compatibility; crash/restart certification
+    # still requires a separate process interruption and replay.
+    recovered = PaperPortfolioExecutor.restore_state(loaded["executor_snapshot"])
+    if recovered.export_state() != executor.export_state():
+        raise RuntimeError("PAPER_EXECUTOR_RESTORE_MISMATCH")
+    if recovered.current_equity(all_frames[-1]["mid"] if all_frames else 2400.0) != executor.current_equity(all_frames[-1]["mid"] if all_frames else 2400.0):
+        raise RuntimeError("PAPER_EXECUTOR_RESTORED_EQUITY_MISMATCH")
     # P2078 remains PENDING until a real restart/recovery replay is verified.
 
     # A second synthetic feed loop is not proof of distinct sessions,
