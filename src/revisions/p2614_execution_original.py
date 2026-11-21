@@ -1,3 +1,5 @@
+import math
+
 MODE="PAPER_ONLY"
 REAL_ORDERS="FORBIDDEN"
 FTMO_REAL="FORBIDDEN"
@@ -37,6 +39,13 @@ def edge_signal(edge, ft):
     return True
 
 def simulate_fill(edge, candles, features, i, spread_r=0.03, slippage_r=0.02, commission_r=0.01):
+    if edge.get("direction") not in ("BUY_PAPER", "SELL_PAPER"):
+        raise ValueError("PAPER direction required")
+    for label, value in (("spread", spread_r), ("slippage", slippage_r), ("commission", commission_r)):
+        if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or value < 0:
+            raise ValueError("invalid " + label)
+    if type(i) is not int or i < 0 or i >= len(candles):
+        raise ValueError("invalid signal index")
     hold=edge_hold(edge)
     entry_i=i+1
     exit_i=entry_i+hold
@@ -48,6 +57,9 @@ def simulate_fill(edge, candles, features, i, spread_r=0.03, slippage_r=0.02, co
 
     entry=candles[entry_i]
     exitc=candles[exit_i]
+    for label, value in (("entry_open", entry.get("open")), ("exit_close", exitc.get("close")), ("atr", ft.get("atr"))):
+        if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or value <= 0:
+            raise ValueError("invalid " + label)
     raw=(exitc["close"]-entry["open"])/entry["open"]
     if edge["direction"]=="SELL_PAPER":
         raw=-raw
