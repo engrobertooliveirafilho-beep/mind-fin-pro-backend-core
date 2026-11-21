@@ -56,7 +56,7 @@ class TestSession(unittest.TestCase):
         state = self.s._read_session()
         state["trades"] = -1
         self.s._write_session(state)
-        self.assertEqual(self.s.pre_trade_check(100)["decision"], "BLOCK_INVALID_SESSION_STATE")
+        self.assertEqual(self.s.pre_trade_check(100)["decision"], "BLOCK_LEDGER_MISMATCH")
 
     def test_corrupt_daily_limit_blocks_trade(self):
         state = self.s._read_session()
@@ -76,12 +76,12 @@ class TestSession(unittest.TestCase):
         state = self.s._read_session()
         state["trades"] = -1
         self.s._write_session(state)
-        self.assertEqual(self.s.record_trade_result(-10)["decision"], "BLOCK_INVALID_SESSION_STATE")
+        self.assertEqual(self.s.record_trade_result(-10)["decision"], "BLOCK_LEDGER_MISMATCH")
 
     def test_last_allowed_trade_can_settle(self):
         state = self.s._read_session()
-        state["trades"] = state["max_daily_trades"]
-        self.s._write_session(state)
+        for _ in range(state["max_daily_trades"]):
+            self.assertEqual(self.s.record_trade_result(-10)["decision"], "TRADE_RECORDED")
         self.assertEqual(self.s.record_trade_result(-10)["decision"], "TRADE_RECORDED")
 
     def test_cumulative_pnl_overflow_no_mutation(self):
