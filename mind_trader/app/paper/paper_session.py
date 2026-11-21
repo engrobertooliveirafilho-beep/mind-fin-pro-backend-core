@@ -32,7 +32,11 @@ class PaperTradingSessionManager:
     def _read_session(self):
         if not self.session_path.exists():
             return None
-        return json.loads(self.session_path.read_text(encoding="utf-8"))
+        try:
+            data = json.loads(self.session_path.read_text(encoding="utf-8"))
+        except (OSError, UnicodeError, json.JSONDecodeError):
+            return {"status":"CORRUPT"}
+        return data if isinstance(data,dict) else {"status":"CORRUPT"}
 
     def _ledger(self, event):
         self.ledger_path.parent.mkdir(parents=True, exist_ok=True)
@@ -47,8 +51,9 @@ class PaperTradingSessionManager:
         if not cfg or not val["valid"]:
             return {"decision":"BLOCK_SESSION_INVALID_FTMO_CONFIG","validation":val,"production":"BLOCKED"}
         existing = self._read_session()
-        if existing and existing.get("status") == "OPEN":
-            return {"decision":"SESSION_ALREADY_OPEN","session":existing,"production":"BLOCKED"}
+        if existing and existing.get("status") != "CLOSED":
+            return {"decision":"SESSION_ALREADY_OPEN" if existing.get("status") == "OPEN" else "BLOCK_INVALID_SESSION_STATE",
+                    "session":existing,"production":"BLOCKED"}
         s = {"session_id":str(uuid.uuid4()),"account_id":account_id,"status":"OPEN",
              "opened_at":_now(),"closed_at":None,"daily_pnl":0.0,"trades":0,
              "loss_streak":0,"max_daily_trades":cfg["max_daily_trades"],
