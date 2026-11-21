@@ -102,6 +102,7 @@ class PaperPosition:
 class RealtimeDataFeedBridge:
     def __init__(self, symbol: str = "XAUUSD", seed_price: float = 2400.0):
         self.symbol = symbol
+        self.source = "SYNTHETIC_DETERMINISTIC"
         self.price = seed_price
         self.ts = int(time.time())
         self.i = 0
@@ -187,8 +188,18 @@ class RealtimeFeatureBuilder:
 
 
 class SignalRuntime:
+    # Only the explicitly implemented strategy may emit signals until the
+    # original RealDNA adapters are recovered and reconciled.
+    SUPPORTED_STRATEGIES = {"RANGE_REVERSION"}
+
     def __init__(self, specialists: List[Dict[str, Any]]):
-        self.specialists = specialists[:3]
+        self.specialists = list(specialists)
+        self.unsupported_specialists = [
+            str(spec.get("id") or spec.get("specialist_id"))
+            for spec in self.specialists
+            if str(spec.get("logic_type") or spec.get("type") or spec.get("strategy_type") or "").upper()
+            not in self.SUPPORTED_STRATEGIES
+        ]
 
     def generate(self, frame: FeatureFrame) -> List[PaperSignal]:
         assert_no_financial_execution()
@@ -197,7 +208,9 @@ class SignalRuntime:
 
         for idx, spec in enumerate(self.specialists):
             sid = str(spec.get("id") or spec.get("specialist_id") or f"REALDNA_{idx+1}")
-            typ = str(spec.get("type") or spec.get("strategy_type") or "RANGE_REVERSION")
+            typ = str(spec.get("logic_type") or spec.get("type") or spec.get("strategy_type") or "").upper()
+            if typ not in self.SUPPORTED_STRATEGIES:
+                continue
 
             side = "HOLD"
             confidence = 0.0
@@ -388,25 +401,35 @@ class RuntimePersistence:
 
 def load_portfolio(path: str) -> List[Dict[str, Any]]:
     p = Path(path)
-
     if not p.exists():
         raise FileNotFoundError(path)
-
     raw = json.loads(p.read_text(encoding="utf-8"))
-
-    if isinstance(raw, list):
-        return raw
-
-    for key in ["specialists", "final_specialists", "portfolio", "locked_specialists"]:
-        if isinstance(raw.get(key), list):
-            return raw[key]
-
-    return [{"id": "XAUUSD_M1_REALDNA_0004", "type": "RANGE_REVERSION"}]
+    candidates = raw if isinstance(raw, list) else None
+    if isinstance(raw, dict):
+        for key in ["specialists", "final_specialists", "portfolio", "locked_specialists"]:
+            if isinstance(raw.get(key), list):
+                candidates = raw[key]
+                break
+    if not isinstance(candidates, list) or not candidates:
+        raise ValueError("REALDNA_PORTFOLIO_MISSING_OR_EMPTY")
+    seen = set()
+    for index, specialist in enumerate(candidates):
+        if not isinstance(specialist, dict):
+            raise ValueError(f"REALDNA_SPECIALIST_INVALID:{index}")
+        sid = str(specialist.get("id") or specialist.get("specialist_id") or "").strip()
+        if not sid:
+            raise ValueError(f"REALDNA_SPECIALIST_ID_MISSING:{index}")
+        if sid in seen:
+            raise ValueError(f"REALDNA_SPECIALIST_ID_DUPLICATE:{sid}")
+        seen.add(sid)
+        strategy = str(specialist.get("logic_type") or specialist.get("type") or specialist.get("strategy_type") or "").strip()
+        if not strategy:
+            raise ValueError(f"REALDNA_SPECIALIST_STRATEGY_MISSING:{sid}")
+    return candidates
 
 
 def promote_p2080_if_ready(mission_status: Dict[str, str]) -> Dict[str, str]:
     required = [
-        "P2071_REALTIME_DATA_FEED_BRIDGE",
         "P2072_REALTIME_FEATURE_BUILDER",
         "P2073_SIGNAL_RUNTIME",
         "P2074_PAPER_PORTFOLIO_EXECUTOR",
@@ -416,12 +439,11 @@ def promote_p2080_if_ready(mission_status: Dict[str, str]) -> Dict[str, str]:
         "P2078_RECOVERY_VALIDATION",
         "P2079_RUNTIME_PERSISTENCE",
     ]
-
-    if all(mission_status.get(x) == "PASS" for x in required):
-        mission_status["P2080_REALTIME_RUNTIME_CERTIFICATION"] = "PASS"
-    else:
-        mission_status["P2080_REALTIME_RUNTIME_CERTIFICATION"] = "FAIL"
-
+    simulated_feed = mission_status.get("P2071_REALTIME_DATA_FEED_BRIDGE") == "PASS_SIMULATED_ONLY"
+    prior_pass = all(mission_status.get(key) == "PASS" for key in required)
+    mission_status["P2080_REALTIME_RUNTIME_CERTIFICATION"] = (
+        "PASS_SIMULATION_SCOPE_ONLY" if simulated_feed and prior_pass else "FAIL"
+    )
     return mission_status
 
 
@@ -445,9 +467,9 @@ def run_p2071_2080(
     persistence = RuntimePersistence(str(output / "runtime_state.json"))
 
     mission_status = {
-        "P2071_REALTIME_DATA_FEED_BRIDGE": "PASS",
+        "P2071_REALTIME_DATA_FEED_BRIDGE": "PASS_SIMULATED_ONLY",
         "P2072_REALTIME_FEATURE_BUILDER": "PASS",
-        "P2073_SIGNAL_RUNTIME": "PASS",
+        "P2073_SIGNAL_RUNTIME": "FAIL" if signal_runtime.unsupported_specialists else "PASS",
         "P2074_PAPER_PORTFOLIO_EXECUTOR": "PASS",
         "P2075_RUNTIME_MONITOR": "PASS",
         "P2076_EXTENDED_RUNTIME_VALIDATION": "PENDING",
@@ -522,13 +544,15 @@ def run_p2071_2080(
 
     mission_status = promote_p2080_if_ready(mission_status)
 
-    all_pass = all(v == "PASS" for v in mission_status.values())
+    all_pass = all(v in ("PASS", "PASS_SIMULATED_ONLY", "PASS_SIMULATION_SCOPE_ONLY") for v in mission_status.values())
 
     final = {
         "program": "P2071_2080_REALTIME_PAPER_INFRASTRUCTURE",
         "patch": "P2071_2080B_CERTIFICATION_DRAWDOWN_REPAIR",
-        "status": "PASS" if all_pass else "FAIL",
-        "readiness": "REALTIME_PAPER_RUNTIME_CERTIFIED" if all_pass else "NOT_CERTIFIED",
+        "status": "PASS_SIMULATION_SCOPE_ONLY" if all_pass else "FAIL",
+        "readiness": "SIMULATED_PAPER_RUNTIME_VALIDATED_REALTIME_FEED_NOT_CERTIFIED" if all_pass else "NOT_CERTIFIED",
+        "data_source": feed.source,
+        "realtime_feed_certified": False,
         "absolute_restrictions": enforce_paper_only(),
         "mission_status": mission_status,
         "metrics": {
