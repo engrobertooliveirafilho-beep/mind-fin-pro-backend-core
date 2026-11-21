@@ -1,0 +1,11 @@
+ET665 PAPER account isolation / 2026-11-21
+GitHub source patch: 96db363c7194f36e262135bdb016cd35b4e82628
+GitHub test patch: 093d8989e552b59c52c2df791192785e14c98170
+Local offline equivalent implementation: 42/42 PASS, 0 failures, 0.057 seconds.
+Command: PYTHONPATH=. python -m unittest discover -s tests -p 'test*.py' -v
+Evidence log: /mnt/data/et665_session_validation/account_isolation_20261121.log
+SHA256: 201ee8c9bc8c12a96df818db6005ca8c185be43faa5bda04b47244573bb75861
+Drive historical P8 audit recovered and read: 1mYoNWU4sooo1qZ5foWpkLOWELwL-3riF. P8.46 versioned FTMO ruleset (116 reported passed), P8.47 FTMO gateway integration (119), P8.48 Paper session (127), P8.49 Gateway + paper session (132), P8.50 Daily research runner (135), P8.59 real market data connector (163), P8.64 dataset lineage (181), P8.85 promotion authority (249), P8.92 institutional live lock (276), P8.94 safe broker adapter (283). These are historical reported cumulative tests, NOT new verified test executions or independently certified modules.
+Safety: open_session only accepts PAPER_FTMO_SIM, rejects arbitrary real or empty account IDs without creating session or ledger files.
+Limitations: local module not byte-identical to GitHub published source; P2071 integration, exact GitHub execution, atomic session/ledger, historical S20/S21 remain uncertified.
+PAPER_ONLY=TRUE | REAL_ORDERS=FORBIDDEN | MAIN=INTACT | E2E_CERTIFIED=FALSE | COST=R$0
