@@ -460,7 +460,7 @@ class PaperPortfolioExecutor:
         reward = 6.0
         # An admitted PAPER trade must remain representable by the
         # snapshot restore contract (positive stop and target).
-        if price <= reward:
+        if (signal.side == "BUY" and price <= risk) or (signal.side == "SELL" and price <= reward):
             return None
 
         self.seq += 1
