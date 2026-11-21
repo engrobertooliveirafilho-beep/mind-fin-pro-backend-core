@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import List, Dict, Any
 
 from fastapi import APIRouter
@@ -15,8 +15,8 @@ class ReflexionIteration(BaseModel):
 
 
 class ReflexionRequest(BaseModel):
-    topic: str
-    initial_thought: str
+    topic: str = Field(..., min_length=1, max_length=4096)
+    initial_thought: str = Field(..., min_length=1, max_length=4096)
     max_rounds: int = Field(3, ge=1, le=8)
 
 
@@ -44,6 +44,9 @@ def _improve_thought(thought: str, critique: str, round_id: int) -> str:
 def run_reflexion_loop(request: ReflexionRequest) -> ReflexionResponse:
     iterations: List[ReflexionIteration] = []
     current_thought = request.initial_thought.strip()
+    if not current_thought:
+        from fastapi import HTTPException
+        raise HTTPException(status_code=422, detail='initial_thought must not be blank')
     rounds = max(1, min(request.max_rounds, 8))
 
     for r in range(1, rounds + 1):
@@ -70,7 +73,7 @@ def run_reflexion_loop(request: ReflexionRequest) -> ReflexionResponse:
         final_summary=final_summary,
         meta={
             "version": "step446-v1",
-            "created_at": datetime.utcnow().isoformat() + "Z",
+            "created_at": datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
             "engine": "reflexion_loop_step446",
             "rounds": rounds,
         },
