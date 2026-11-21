@@ -331,7 +331,7 @@ class PaperPortfolioExecutor:
             raise ValueError("invalid paper mark symbol")
         if any(pos.side not in ("BUY", "SELL") for pos in self.positions.values()):
             raise ValueError("invalid existing paper side")
-        if any(type(pos.qty) not in (int, float) or not math.isfinite(pos.qty) or pos.qty <= 0 for pos in self.positions.values()):
+        if any(type(pos.qty) not in (int, float) or not math.isfinite(pos.qty) or pos.qty <= 0 or pos.qty > self.max_position_size for pos in self.positions.values()):
             raise ValueError("invalid paper position quantity")
         to_close = []
 
