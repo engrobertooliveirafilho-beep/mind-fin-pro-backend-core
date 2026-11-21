@@ -392,6 +392,12 @@ class PaperPortfolioExecutor:
             closed_ids.add(pid)
         if seq < len(restored.positions) + len(state["closed"]):
             raise ValueError("INVALID_PAPER_EXECUTOR_SEQUENCE")
+        realized_equity = float(initial) + sum(entry["pnl"] for entry in state["closed"])
+        # Realized equity must reconcile to the closed-trade journal. The
+        # executor rounds individual PnL entries to five decimal places.
+        if not math.isclose(float(equity), realized_equity, rel_tol=0.0,
+                            abs_tol=0.000011 * max(1, len(state["closed"]))):
+            raise ValueError("PAPER_EXECUTOR_EQUITY_RECONCILIATION_FAILED")
         restored.closed = state["closed"]
         return restored
 
