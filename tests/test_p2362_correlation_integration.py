@@ -33,6 +33,14 @@ class PipelineCorrelationIntegrationTests(unittest.TestCase):
         result = decide_signal(self.signal, dict(self.context, correlation_ok=False))
         self.assertEqual(result["final_decision"], "BLOCK_SIGNAL")
 
+    def test_truthy_precheck_cannot_emit(self):
+        with patch("app.runtime.p2362_full_signal_decision_pipeline.precheck_before_mt5_emit",
+                   return_value={"emit_allowed": "false", "institutional_score": 95}):
+            result = decide_signal(self.signal, dict(self.context, correlation_ok=True))
+        self.assertEqual(result["final_decision"], "BLOCK_SIGNAL")
+        self.assertEqual(result["paper_lot"], 0)
+        self.assertEqual(result["real_orders"], "FORBIDDEN")
+
     def test_explicit_true_can_emit_paper(self):
         result = decide_signal(self.signal, dict(self.context, correlation_ok=True))
         self.assertEqual(result["final_decision"], "EMIT_TO_MT5_PAPER")
