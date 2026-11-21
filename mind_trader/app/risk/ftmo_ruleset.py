@@ -93,6 +93,11 @@ def audit_rule_application(trade, config, path="mind_trader/reports/P8.46_ftmo_r
     daily=trade.get("daily_pnl",0)
     total=trade.get("total_pnl",0)
     numeric_ok=all(type(v) in (int,float) and math.isfinite(v) for v in (risk,daily,total)) and risk >= 0
+    trade_count=trade.get("daily_trades",0)
+    stop=trade.get("stop")
+    trade_valid=(numeric_ok and risk > 0
+                 and type(trade_count) is int and trade_count >= 0
+                 and type(stop) in (int,float) and math.isfinite(stop) and stop > 0)
     report={
         "audit_ts":datetime.now(UTC).isoformat(),
         "config_validation":validation,
@@ -102,10 +107,10 @@ def audit_rule_application(trade, config, path="mind_trader/reports/P8.46_ftmo_r
         "checks":{
             "symbol_allowed":trade.get("symbol") in config.get("allowed_symbols",[]),
             "symbol_not_restricted":trade.get("symbol") not in config.get("restricted_symbols",[]),
-            "daily_trades_ok":trade.get("daily_trades",0) < config.get("max_daily_trades",0),
+            "daily_trades_ok":trade_valid and trade_count < config.get("max_daily_trades",0),
             "risk_inside_daily_limit":numeric_ok and max(0,-daily)+risk <= config.get("max_daily_loss",0),
             "risk_inside_total_limit":numeric_ok and max(0,-total)+risk <= config.get("max_total_loss",0),
-            "has_stop":trade.get("stop") is not None
+            "has_stop":trade_valid
         },
         "production":"BLOCKED",
         "edge_claim":"NONE"
