@@ -2,7 +2,7 @@ from datetime import datetime, timezone
 from math import ceil
 from typing import Dict, Any, Literal
 
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 
 router = APIRouter()
@@ -53,7 +53,7 @@ def _estimate_bytes_mb(vectors: int, dim: int, mode: CompressionMode) -> float:
 def plan_vector_index(request: VectorIndexPlanRequest) -> VectorIndexPlanResponse:
     shards_count = ceil(request.total_vectors / request.max_shard_size)
     if shards_count > 4096:
-        raise ValueError('shard plan exceeds safe offline limit (4096)')
+        raise HTTPException(status_code=422, detail='shard plan exceeds safe offline limit (4096)')
     layout: Dict[str, ShardLayout] = {}
     remaining = request.total_vectors
     total_bytes = 0.0
