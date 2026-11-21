@@ -61,6 +61,22 @@ class TestP2071PaperSafety(unittest.TestCase):
             self.assertEqual(len(self.engine.closed), 0)
         pos.qty = 1.0
 
+    def test_low_price_paper_stop_and_target_positive(self):
+        for side in ("BUY", "SELL"):
+            with self.subTest(side=side):
+                engine = runtime.PaperPortfolioExecutor()
+                pos = engine.on_signal(self.signal(side), 1.1)
+                self.assertGreater(pos.sl, 0)
+                self.assertGreater(pos.tp, 0)
+                self.assertNotEqual(pos.sl, pos.entry)
+                self.assertNotEqual(pos.tp, pos.entry)
+
+    def test_tiny_price_rejected_without_position_mutation(self):
+        with self.assertRaises(ValueError):
+            self.engine.on_signal(self.signal("SELL"), 0.000001)
+        self.assertEqual(self.engine.seq, 0)
+        self.assertEqual(len(self.engine.positions), 0)
+
     def test_valid_buy_tp(self):
         self.engine.on_signal(self.signal("BUY"), 100)
         self.engine.mark_to_market(self.frame(106))
