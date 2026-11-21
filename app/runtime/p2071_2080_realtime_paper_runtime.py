@@ -388,6 +388,15 @@ class RuntimeMonitor:
 
         drawdown_abs = mark_equity - peak
         drawdown_pct = 0.0 if peak == 0 else drawdown_abs / peak
+        running_peak = self.initial_equity
+        max_drawdown_abs = 0.0
+        max_drawdown_pct = 0.0
+        for point in self.equity_curve:
+            running_peak = max(running_peak, point)
+            dd_abs = max(0.0, running_peak - point)
+            dd_pct = 0.0 if running_peak == 0 else dd_abs / running_peak
+            max_drawdown_abs = max(max_drawdown_abs, dd_abs)
+            max_drawdown_pct = max(max_drawdown_pct, dd_pct)
 
         return {
             "equity": round(mark_equity, 5),
@@ -398,6 +407,8 @@ class RuntimeMonitor:
             "trough_equity": round(trough, 5),
             "drawdown_abs": round(drawdown_abs, 5),
             "drawdown_pct": round(drawdown_pct, 8),
+            "max_drawdown_abs": round(max_drawdown_abs, 5),
+            "max_drawdown_pct": round(max_drawdown_pct, 8),
             "events": len(self.events),
             "equity_points": len(self.equity_curve),
         }
@@ -438,7 +449,6 @@ def load_portfolio(path: str) -> List[Dict[str, Any]]:
 
 def promote_p2080_if_ready(mission_status: Dict[str, str]) -> Dict[str, str]:
     required = [
-        "P2071_REALTIME_DATA_FEED_BRIDGE",
         "P2072_REALTIME_FEATURE_BUILDER",
         "P2073_SIGNAL_RUNTIME",
         "P2074_PAPER_PORTFOLIO_EXECUTOR",
@@ -448,12 +458,11 @@ def promote_p2080_if_ready(mission_status: Dict[str, str]) -> Dict[str, str]:
         "P2078_RECOVERY_VALIDATION",
         "P2079_RUNTIME_PERSISTENCE",
     ]
-
-    if all(mission_status.get(x) == "PASS" for x in required):
-        mission_status["P2080_REALTIME_RUNTIME_CERTIFICATION"] = "PASS"
-    else:
-        mission_status["P2080_REALTIME_RUNTIME_CERTIFICATION"] = "FAIL"
-
+    simulated_feed = mission_status.get("P2071_REALTIME_DATA_FEED_BRIDGE") == "PASS_SIMULATED_ONLY"
+    prior_pass = all(mission_status.get(key) == "PASS" for key in required)
+    mission_status["P2080_REALTIME_RUNTIME_CERTIFICATION"] = (
+        "PASS_SIMULATION_SCOPE_ONLY" if simulated_feed and prior_pass else "FAIL"
+    )
     return mission_status
 
 
@@ -477,7 +486,7 @@ def run_p2071_2080(
     persistence = RuntimePersistence(str(output / "runtime_state.json"))
 
     mission_status = {
-        "P2071_REALTIME_DATA_FEED_BRIDGE": "PASS",
+        "P2071_REALTIME_DATA_FEED_BRIDGE": "PASS_SIMULATED_ONLY",
         "P2072_REALTIME_FEATURE_BUILDER": "PASS",
         "P2073_SIGNAL_RUNTIME": "PASS",
         "P2074_PAPER_PORTFOLIO_EXECUTOR": "PASS",
@@ -543,24 +552,47 @@ def run_p2071_2080(
     frames2 = 0
 
     for _ in range(100):
+        tick2 = feed2.next_tick()
+        frame2 = f2.update(tick2)
+        signals2 = signal_runtime.generate(frame2)
+        executor.mark_to_market(frame2)
+        for sig2 in signals2:
+            pos2 = executor.on_signal(sig2, frame2.mid)
+            if pos2:
+                monitor.event("PAPER_POSITION_OPENED", asdict(pos2))
+        monitor.snapshot(executor, current_price=frame2.mid)
         frames2 += 1
-        f2.update(feed2.next_tick())
 
-    if frames2 == 100:
+    if frames2 == 100 and len(f2.history) == 100:
         mission_status["P2077_MULTI_SESSION_RUNTIME"] = "PASS"
 
+    # Re-persist after the second simulation segment; validate the final state.
+    snap = monitor.snapshot(executor, current_price=frame2.mid if frames2 else None)
+    state["executor"]["final_equity"] = executor.equity
+    state["executor"]["mark_to_market_equity"] = snap["equity"]
+    state["executor"]["open_positions"] = [asdict(x) for x in executor.positions.values()]
+    state["executor"]["closed_positions"] = executor.closed
+    state["monitor"] = snap
+    state["multi_session_frames"] = frames2
+    persistence.save(state)
+    loaded = persistence.load()
     if cycles >= 1000 and len(all_frames) == cycles:
         mission_status["P2076_EXTENDED_RUNTIME_VALIDATION"] = "PASS"
+    if loaded.get("cycles") == cycles and loaded.get("multi_session_frames") == 100:
+        mission_status["P2079_RUNTIME_PERSISTENCE"] = "PASS"
+    if loaded.get("executor", {}).get("final_equity") == executor.equity:
+        mission_status["P2078_RECOVERY_VALIDATION"] = "PASS"
 
     mission_status = promote_p2080_if_ready(mission_status)
-
-    all_pass = all(v == "PASS" for v in mission_status.values())
+    all_pass = all(v in ("PASS", "PASS_SIMULATED_ONLY", "PASS_SIMULATION_SCOPE_ONLY") for v in mission_status.values())
 
     final = {
         "program": "P2071_2080_REALTIME_PAPER_INFRASTRUCTURE",
         "patch": "P2071_2080B_CERTIFICATION_DRAWDOWN_REPAIR",
-        "status": "PASS" if all_pass else "FAIL",
-        "readiness": "REALTIME_PAPER_RUNTIME_CERTIFIED" if all_pass else "NOT_CERTIFIED",
+        "status": "PASS_SIMULATION_SCOPE_ONLY" if all_pass else "FAIL",
+        "readiness": "SIMULATED_PAPER_RUNTIME_VALIDATED_REALTIME_FEED_NOT_CERTIFIED" if all_pass else "NOT_CERTIFIED",
+        "data_source": "SYNTHETIC_DETERMINISTIC",
+        "realtime_feed_certified": False,
         "absolute_restrictions": enforce_paper_only(),
         "mission_status": mission_status,
         "metrics": {
@@ -620,7 +652,7 @@ P2071_2080B_CERTIFICATION_DRAWDOWN_REPAIR
 {json.dumps(final["absolute_restrictions"], indent=2, ensure_ascii=False)}
 
 ## CONCLUSION
-P2071→P2080 certified as consolidated PAPER_ONLY realtime infrastructure runtime.
+P2071→P2080 simulation scope validated only. The data source is synthetic deterministic; no external real-time market feed was integrated or certified.
 No real orders.
 No broker execution.
 No financial execution.
