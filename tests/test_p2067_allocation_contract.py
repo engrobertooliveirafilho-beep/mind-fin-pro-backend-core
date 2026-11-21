@@ -151,3 +151,23 @@ def test_loader_accepts_matching_id_aliases(tmp_path):
         {"id": "A", "specialist_id": "A", "logic_type": "RANGE_REVERSION"},
     ]}), encoding="utf-8")
     assert len(load_portfolio(str(path))) == 1
+
+@pytest.mark.parametrize("bad_alias", [None, 0, False, "", " A "])
+def test_contract_rejects_invalid_secondary_alias(bad_alias):
+    with pytest.raises(ValueError, match="P2067_INVALID_SPECIALIST"):
+        reconcile_p2067_weights([
+            {"id": "A", "specialist_id": bad_alias, "normalized_weight": 1}
+        ])
+
+
+def test_contract_accepts_matching_aliases():
+    assert reconcile_p2067_weights([
+        {"id": "A", "specialist_id": "A", "normalized_weight": 1}
+    ])["specialists"] == 1
+
+
+def test_contract_rejects_conflicting_aliases():
+    with pytest.raises(ValueError, match="P2067_CONFLICTING_SPECIALIST_ID"):
+        reconcile_p2067_weights([
+            {"id": "A", "specialist_id": "B", "normalized_weight": 1}
+        ])
