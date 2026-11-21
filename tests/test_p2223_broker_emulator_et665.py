@@ -1,6 +1,6 @@
 """Offline regressions for the original P2223 simulation-only broker emulator."""
 import unittest
-from app.runtime.p2223_broker_emulator import BrokerEmulator
+from app.runtime.p2223_broker_emulator import BrokerEmulator, run_simulation
 
 class BrokerEmulatorSafetyTests(unittest.TestCase):
     def test_invalid_side_rejected_without_market_mutation(self):
@@ -73,4 +73,15 @@ class BrokerEmulatorSafetyTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError,'halted'):
             broker.execute_order('BUY',1)
         self.assertEqual(broker.trades,[])
+    def test_simulation_rejects_invalid_cycles(self):
+        for cycles in (True, 1.5, '10', None):
+            with self.subTest(cycles=cycles), self.assertRaises(TypeError):
+                run_simulation(cycles)
+        for cycles in (-1, 0, 10001):
+            with self.subTest(cycles=cycles), self.assertRaises(ValueError):
+                run_simulation(cycles)
+    def test_simulation_one_cycle(self):
+        result=run_simulation(1)
+        self.assertEqual(result['total_trades'],1)
+        self.assertEqual(result['mode'],'BROKER_EMULATOR_SIMULATION_ONLY')
 if __name__=='__main__':unittest.main()
