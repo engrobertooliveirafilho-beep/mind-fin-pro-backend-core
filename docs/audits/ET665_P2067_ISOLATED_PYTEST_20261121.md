@@ -28,3 +28,17 @@ Executed `python -m pytest -q test_contract.py` in an offline local directory co
 ```
 
 Evidence path in execution container: `/mnt/data/et665_r_current/pytest.log`. This does **not** certify the P2071 loader, the latest GitHub test suite, the historical P2070 JSON, or end-to-end trading. No live orders.
+
+## Executed offline P2067 contract — 16 cases (2026-11-21)
+
+Direct Python execution in an isolated local directory using a transcription of the current published P2067 allocation module. The 16 locally authored test cases are **not** the complete GitHub test suite and do **not** execute the P2071 loader.
+
+```
+PYTHONPATH=. python -m pytest -q tests/test_contract.py
+................                                                         [100%]
+16 passed in 0.04s
+```
+
+SHA-256 of locally transcribed module: `ff24c23f798f2c7487be5211061eaf7dd2cc668b7957cbab69758db899f36d9d`. Local log: `/mnt/data/et665_p2067_20261121/pytest.log`. Source text was inspected via connected GitHub, but independent byte-for-byte verification of the remote blob was not performed. E2E remains blocked.
+
+Drive original dossier inspected: `DOSSIE_AUDITORIA_MIND_TRADER_P2003J_P2070_2026-08-04.pdf` (Drive ID `1CGBpxYazN9XUoyY2_QM4V-b9lxSEj4fl`), which explicitly describes historical P2066–P2070 PASS and notes no confirmed P2071–P2075 execution at its snapshot.
