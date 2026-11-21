@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import hashlib
 from collections import defaultdict
 from pathlib import Path
 from typing import Dict, List, Optional
@@ -15,7 +16,8 @@ FTMO_REAL = "FORBIDDEN"
 
 
 def sniff(path: Path) -> str:
-    first = path.read_text(encoding="utf-8-sig", errors="ignore")[:4096].splitlines()[0]
+    with path.open("r", encoding="utf-8-sig", errors="ignore", newline="") as stream:
+        first = stream.readline(4096)
     return ";" if first.count(";") > first.count(",") else ","
 
 
@@ -88,7 +90,8 @@ def atr(candles: List[Dict], i: int, p: int = 14):
 def index_for_signal(signal: Dict, candles: List[Dict]) -> int:
     # P2379 emits template signals, not live timestamp-bound orders.
     # Use deterministic replay anchor from profile/timeframe to evaluate PAPER-only behavior.
-    base = abs(hash(signal.get("signal_id", ""))) % max(1, len(candles) - 300)
+    digest = hashlib.sha256(str(signal.get("signal_id", "")).encode("utf-8")).digest()
+    base = int.from_bytes(digest[:8], "big") % max(1, len(candles) - 300)
     return max(120, min(base, len(candles) - 100))
 
 
@@ -274,6 +277,14 @@ def run(signal_bus: Path, dataset_root: Path, outdir: Path) -> Dict:
     feedback_rows = []
 
     for sig in signals:
+        # P2379 historical signals have no causal replay attestation.
+        # Do not turn arbitrary replay anchors into certified feedback/PnL.
+        row = dict(sig)
+        row.update({"paper_result": "SKIPPED_UNCERTIFIED_CAUSAL_INPUT",
+                    "realized_r": 0, "feedback_status": "SKIPPED",
+                    "mode": MODE, "real_orders": REAL_ORDERS, "ftmo_real": FTMO_REAL})
+        feedback_rows.append(row)
+        continue
         tf = sig.get("timeframe", "")
         if tf not in dataset_cache:
             p = dataset_for_tf(dataset_root, tf)
@@ -369,8 +380,8 @@ def run(signal_bus: Path, dataset_root: Path, outdir: Path) -> Dict:
             "live_execution": "FORBIDDEN",
             "mt5_real_order": "FORBIDDEN",
         },
-        "status": "CERTIFIED",
-        "certification": "P2380_FORWARD_PAPER_FEEDBACK_LOOP_CERTIFIED",
+        "status": "BLOCKED_PENDING_CAUSAL_REPLAY",
+        "certification": "NOT_CERTIFIED",
         "next": "P2381_DE40_LOSS_LESSON_AUTO_PATCH_AND_MEMORY_GRAPH",
         "outputs": {k: str(v) for k, v in files.items()},
         "warning": "PAPER_FEEDBACK_ONLY_NO_REAL_ORDER_PERMISSION",
