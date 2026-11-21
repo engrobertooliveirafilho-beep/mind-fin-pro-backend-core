@@ -73,7 +73,31 @@ class CapabilityGapAudit:
     def evaluate(self, deps: Dict[str, Any]) -> CapacityDecision:
         assert_no_financial_execution()
         required = ["p2071", "p2081", "p2091", "p2101"]
-        gaps = [k for k in required if not isinstance(deps.get(k), dict) or deps[k].get("status") != "PASS"]
+        # A bare PASS string is not proof of an upstream certification.
+        # P2071's simulated-feed readiness must never promote downstream stages.
+        expected_readiness = {
+            "p2081": "REALTIME_PORTFOLIO_GOVERNANCE_CERTIFIED",
+            "p2091": "REALTIME_INTELLIGENCE_LAYER_CERTIFIED",
+            "p2101": "AUTONOMOUS_PAPER_OPERATIONS_CERTIFIED",
+        }
+        gaps = []
+        for key in required:
+            item = deps.get(key)
+            if not isinstance(item, dict) or item.get("status") != "PASS":
+                gaps.append(key)
+            elif key == "p2071":
+                missions = item.get("mission_status")
+                if (
+                    not isinstance(missions, dict)
+                    or missions.get("P2080_REALTIME_RUNTIME_CERTIFICATION") != "PASS"
+                    or item.get("readiness") in (
+                        None, "NOT_CERTIFIED",
+                        "SIMULATED_PAPER_RUNTIME_VALIDATED_REALTIME_FEED_NOT_CERTIFIED",
+                    )
+                ):
+                    gaps.append(key)
+            elif item.get("readiness") != expected_readiness[key]:
+                gaps.append(key)
         return CapacityDecision(
             "P2112_CAPABILITY_GAP_AUDIT",
             "PASS" if not gaps else "FAIL",
