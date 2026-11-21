@@ -1,0 +1,10 @@
+ET665 — R19 FTMO and PAPER session recovery — 2026-11-21
+Original Drive sources: ftmo_ruleset.py ID 1LHDZsL1tcUoA7BLJQ6pqWE5MCCPRzMDj; paper_session.py ID 1hhydWqJ-DaQxGC8fSRJ7_v6hHr4ym-nk.
+Original SHA256: ftmo_ruleset.py 6c632690f53172bc82a79f8687af7c572833cdc6c7a54953178997828b9cf542; paper_session.py a99e37c3073fb6c561b207bac0a8e898ae4954cdc45bde76d0d8a50384c807eb.
+Confirmed original fail-open reproductions (5/5): negative risk allowed; NaN risk allowed; NaN PnL recorded; NaN account config valid; negative trade risk accepted by FTMO audit.
+Isolated corrected copies SHA256: FTMO 55f36210b53ac676c7d85b4e7496cbc9f84ffbbb17187fa341892bcb4d7fe8d5; session ae8e98c49007b1e7831c8afb758ef59c7ee035c835c37152037873b060841906.
+Offline isolated corrected module tests: 11/11 PASS, 0.015s. Tests: negative/NaN risk, NaN PnL, NaN config, negative risk audit, valid risk, valid audit, gain not counted as loss, loss boundary, negative spread, infinite slippage.
+GitHub original FTMO module corrected in this isolated branch: mind_trader/app/risk/ftmo_ruleset.py.
+Historical paper_session.py source NOT found at canonical GitHub path: only an isolated corrected copy was tested; no session integration/certification claim.
+No original runtime integration tests, no historical OOS proof, no FTMO real authorization.
+PAPER_ONLY=TRUE | REAL_ORDERS=FORBIDDEN | MAIN=INTACT | E2E_CERTIFIED=FALSE | COST=R$0
