@@ -1,0 +1,32 @@
+{
+  "phase": "TRADER_1_001_R2_R1_SYMBOL_EXIST_HOTFIX",
+  "status": "CERTIFIED",
+  "created_at": "2026-07-17T00:40:39.2419878Z",
+  "root_cause": "MQL5_SYMBOL_EXIST_REQUIRES_SECOND_BOOL_REFERENCE_PARAMETER",
+  "repair": {
+    "original_call": "SymbolExist(canonical)",
+    "repaired_call": "SymbolExist(canonical, isCustomSymbol)",
+    "atomic_backup": "C:\\Users\\MindFin\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Scripts\\MIND\\TRADER_1_001_FTMO_M1_SATURATION_EXPORT.mq5.before_symbol_exist_hotfix_20260716_214032.bak",
+    "rollback_required": false
+  },
+  "compilation": {
+    "process_exit_code": 1,
+    "errors": 0,
+    "warnings": 0,
+    "ex5_exists": true
+  },
+  "artifacts": {
+    "mq5": "C:\\Users\\MindFin\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Scripts\\MIND\\TRADER_1_001_FTMO_M1_SATURATION_EXPORT.mq5",
+    "mq5_sha256": "EE4FA0A7FDD127D04B736F0A963198192F531FC4EAF0056DEEA51AE1812D1E5F",
+    "ex5": "C:\\Users\\MindFin\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Scripts\\MIND\\TRADER_1_001_FTMO_M1_SATURATION_EXPORT.ex5",
+    "ex5_sha256": "7DEFB52581D2B13085C3B42813C5484E7C095D8CCBA76E8C5B99C9A0043375BA",
+    "compile_log": "D:\\MIND_TEMP\\TRADER_1_001_EXPORTER_R2_20260716_213617\\evidence\\TRADER_1_001_COMPILE_HOTFIX_20260716_214032.log"
+  },
+  "scope": {
+    "assets": 58,
+    "master_timeframe": "M1",
+    "mode": "BACKTEST_PAPER_ONLY",
+    "live_real": "FORBIDDEN"
+  },
+  "next": "EXECUTE_EXPORTER_ON_AUTHENTICATED_FTMO_TERMINAL"
+}
