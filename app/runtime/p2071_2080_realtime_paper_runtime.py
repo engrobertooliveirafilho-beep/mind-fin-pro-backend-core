@@ -590,7 +590,12 @@ class RuntimePersistence:
         assert_no_financial_execution()
         if not self.path.exists():
             return {}
-        loaded = json.loads(self.path.read_text(encoding="utf-8"))
+        def reject_nonfinite(token: str) -> None:
+            raise ValueError("NONFINITE_PAPER_RUNTIME_SNAPSHOT")
+        loaded = json.loads(
+            self.path.read_text(encoding="utf-8"),
+            parse_constant=reject_nonfinite,
+        )
         if not isinstance(loaded, dict):
             raise ValueError("INVALID_PAPER_RUNTIME_SNAPSHOT")
         return loaded
