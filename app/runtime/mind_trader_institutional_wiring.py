@@ -51,16 +51,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
                 except Exception as e:
                     row["error"] += f"health_error={e};"
 
-            if False and hasattr(m, "run"):  # fail-closed: no certified execution allowlist
-                try:
-                    # TypeError may arise inside a side-effectful run().
-                    # Do not retry: it could execute the module twice.
-                    r = m.run(payload)
-                    row["run_ok"] = r is not None
-                    row["run_result_type"] = type(r).__name__
-                    row["run_result"] = r if isinstance(r, (dict, list, str, int, float, bool)) else str(r)
-                except Exception as e:
-                    row["error"] += f"run_error={e};"
+            # Execution intentionally unavailable until a verified allowlist exists.
 
         except Exception as e:
             row["error"] = str(e)
