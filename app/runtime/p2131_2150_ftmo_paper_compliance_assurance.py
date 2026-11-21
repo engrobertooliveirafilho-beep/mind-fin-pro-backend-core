@@ -155,7 +155,7 @@ def run_p2131_2150(output_dir="data/runtime/P2131_2150/evidence"):
     evidence_missing = [p for p in evidence_files if not Path(p).exists()]
 
     mission_status = {
-        "P2131_FTMO_RULE_FRAMEWORK_AUDIT": decision(not missing and not invalid),
+        "P2131_FTMO_RULE_FRAMEWORK_AUDIT": "UNVERIFIED",
         "P2132_DAILY_LOSS_GUARD_DECLARATION": "PASS",
         "P2133_TOTAL_LOSS_GUARD_DECLARATION": "PASS",
         "P2134_PROFIT_TARGET_TRACKER_DECLARATION": "PASS",
@@ -166,13 +166,13 @@ def run_p2131_2150(output_dir="data/runtime/P2131_2150/evidence"):
         "P2139_COMPLIANCE_REPLAY_VALIDATION_AUDIT_ONLY": "PASS",
         "P2140_FTMO_PAPER_COMPLIANCE_CERTIFICATION": "PENDING",
 
-        "P2141_DATA_INTEGRITY_AUDIT": decision(not missing and not invalid),
-        "P2142_METRICS_CONSISTENCY_AUDIT": decision(not missing and not invalid),
+        "P2141_DATA_INTEGRITY_AUDIT": decision(not missing and not invalid) if (missing or invalid) else "UNVERIFIED",
+        "P2142_METRICS_CONSISTENCY_AUDIT": decision(not missing and not invalid) if (missing or invalid) else "UNVERIFIED",
         "P2143_STATE_RECOVERY_STRESS_AUDIT": "PASS",
         "P2144_LONG_RUN_STABILITY_AUDIT": "PASS",
         "P2145_CONFIGURATION_DRIFT_DETECTION": decision(not lock_drift),
         "P2146_LOGGING_TRACEABILITY_AUDIT": "PASS",
-        "P2147_EVIDENCE_CHAIN_VERIFICATION": decision(not evidence_missing),
+        "P2147_EVIDENCE_CHAIN_VERIFICATION": decision(not evidence_missing) if evidence_missing else "UNVERIFIED",
         "P2148_COMPLIANCE_REGRESSION_SUITE": "PENDING",
         "P2149_CONTINUOUS_MONITORING_VALIDATION": "PASS",
         "P2150_OPERATIONAL_READINESS_CERTIFICATION": "PENDING",
