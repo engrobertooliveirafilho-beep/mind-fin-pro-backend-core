@@ -1,0 +1,10 @@
+ET665 / 2026-11-21 / PAPER session config drift safety
+Original PAPER session recovered from Drive file 1hhydWqJ-DaQxGC8fSRJ7_v6hHr4ym-nk.
+Published source patch: mind_trader/app/paper/paper_session.py (commit 00c0c29d287d9263676cd1b00e36b8d0f060c25f).
+Published three regression cases: tests/test_et665_paper_session.py (commit 02256963775805cb1c57c92bf20309d3e9f6ef6c).
+Offline local analogous implementation: /mnt/data/et665_session_validation.
+Command: PYTHONPATH=. python -m unittest discover -s tests -p 'test*.py' -v
+Result: Ran 17 tests in 0.019s, OK. New cases: FTMO config drift, negative trade count, tampered loss limit.
+Log: /mnt/data/et665_session_validation/regression_drift_20261121.log.
+Limitations: local implementation differs from published GitHub blobs; 17/17 is local analogous regression only. Exact published blob execution, P2071 integration, crash-safe ledger reconciliation, historical E2E all unverified.
+PAPER_ONLY=TRUE; REAL_ORDERS=FORBIDDEN; MAIN=INTACT; E2E_CERTIFIED=FALSE; COST=R$0.
