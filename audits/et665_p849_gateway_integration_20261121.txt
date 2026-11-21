@@ -41,3 +41,10 @@ GitHub P2071 source commit 4587246067ec73b28d964f69215f3b302851e8c4, readback bl
 GitHub P2071 tests commit 57326b1611220f8ee1cba668f603767da8119b5d, readback blob d43a7b0c1f9b8fd921bafb4e65dfa91ee6329aa6.
 Fix: multiply BUY/SELL unrealized and realized PnL by position qty, reject nonpositive, nonfinite, boolean and nonnumeric qty before any partial close. Three regressions published.
 NO NEW RUNTIME TEST EXECUTED: container cannot resolve raw.githubusercontent.com; GitHub connector allows read/write but not local byte-identical test materialization. Previously reported 67/67 tests are local PAPER session suite, not proof of new P2071 patch. E2E_CERTIFIED=FALSE.
+
+2026-11-21 HISTORY GATE
+Local offline regression: 70 tests PASS, 0 failures, 0.091s; /mnt/data/et665_session_validation/history_open_gate_20261121.log; SHA256 7cbe16f8486eb1a439671254616556774ea56bd88110e607c4dd0c1fb223302f.
+Source commit d5e628d62d1aabbdb97879e23398a99841f85497; test commit 9b132d1a01c5bcf5546d2de3e2aa930b19c0d2c2. Both files verified via GitHub readback.
+New gate blocks opening new PAPER sessions when prior cumulative account ledger is invalid, while preserving legacy BLOCK_LEDGER_MISMATCH for corruption in the most recent session.
+Drive search identified historical DOSSIE_AUDITORIA_MIND_TRADER_P2003J_P2070_2026-08-04.pdf ID 1CGBpxYazN9XUoyY2_QM4V-b9lxSEj4fl; source still needs detailed examination before capability certification.
+LIMIT: local code not byte-identical to GitHub published source; 70 PASS is local suite only, NOT published exact-byte E2E certification. Main untouched, real orders forbidden.
