@@ -69,7 +69,7 @@ class StrategyEcoSystem:
         # prune weak
         self.strategies = self.strategies[:3]
 
-        return self.strategies
+        return [dict(item) for item in self.strategies]
 
 
 # ============================================================
