@@ -1,0 +1,74 @@
+{
+  "scope": "READ_ONLY_SOURCE_INSPECTION",
+  "repository": "engrobertooliveirafilho-beep/mind-fin-pro-backend-core",
+  "source_ref": "main",
+  "modules_total": 10,
+  "module_level_run_found": 2,
+  "module_level_health_found": 0,
+  "modules": [
+    {
+      "module": "p2223_broker_emulator",
+      "blob_sha": "82753f342b86d8f339df73e2852f296051e74317",
+      "module_level_run": false,
+      "module_level_health": false
+    },
+    {
+      "module": "p2224_2226_institutional_core",
+      "blob_sha": "bf7c8a58fdde1d5a6c1da09f8897c09613224484",
+      "module_level_run": true,
+      "module_level_health": false
+    },
+    {
+      "module": "p2227_2229_advanced_layer",
+      "blob_sha": "260e74aec2980325793c50914253fe0c1bcca273",
+      "module_level_run": true,
+      "module_level_health": false
+    },
+    {
+      "module": "p2131_2150_ftmo_paper_compliance_assurance",
+      "blob_sha": "09b957212096666273974faeb31e45461ebffba7",
+      "module_level_run": false,
+      "module_level_health": false
+    },
+    {
+      "module": "p2081_2090_realtime_portfolio_governance",
+      "blob_sha": "204e4607e62c9514de4cce0304c2d2571a4706c2",
+      "module_level_run": false,
+      "module_level_health": false
+    },
+    {
+      "module": "p2091_2100_realtime_intelligence_layer",
+      "blob_sha": "9be50011751bd04c01a1f6a8f72a3ce9799b98bb",
+      "module_level_run": false,
+      "module_level_health": false
+    },
+    {
+      "module": "p2071_2080_realtime_paper_runtime",
+      "blob_sha": "586f403803ea0e81c28b5f18537f0943e0bcde62",
+      "module_level_run": false,
+      "module_level_health": false
+    },
+    {
+      "module": "p19_governance_layer",
+      "blob_sha": "6e75b7f2c9e40b9a48645a75c141893abada0e82",
+      "module_level_run": false,
+      "module_level_health": false
+    },
+    {
+      "module": "capability_usage_ledger",
+      "blob_sha": "44c96775a08cb78769da81e6e4fffbb1e303466c",
+      "module_level_run": false,
+      "module_level_health": false
+    },
+    {
+      "module": "usde_core.scientific_ledger",
+      "blob_sha": "c274abbce8927162f5a4c503b5ec54b97a961fb6",
+      "module_level_run": false,
+      "module_level_health": false
+    }
+  ],
+  "interpretation": "The wiring expects run() for all modules but 8/10 do not expose a module-level run. Current health() requires health() on all 10 but none exposes a module-level health. Operational status is therefore not an appropriate integration certification. Inventory is static only; no E2E.",
+  "paper_only": true,
+  "real_orders": "FORBIDDEN",
+  "e2e_certified": false
+}
