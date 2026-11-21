@@ -33,3 +33,11 @@ P2090_GOVERNANCE_CERTIFIED=FALSE
 PAPER_ONLY=TRUE
 REAL_ORDERS=FORBIDDEN
 COST_BRL=0
+
+## Chronological correction — P2071–P2080B discovered on Drive
+- New source recovered: Drive console_output_P2071_2080B.txt, ID 1KYxzOPfi2VjwZs2TwIMQThapJ_fL278n; matching updated P2071_2080_AUDIT.md ID 18YH2y48oGqICHluabKydr318hvxAXMst.
+- Both explicitly identify patch P2071_2080B_CERTIFICATION_DRAWDOWN_REPAIR and historical PASS for P2071–P2080, superseding the earlier FAIL/PENDING audit for that *historical version*.
+- 1500 synthetic cycles; 4329 signals; 411 closed trades; 3 open; initial equity 100000; final realized 99030.6331; marked equity 99046.94686; current drawdown -953.05314; trough 99026.36134. These are historical simulation metrics, not current certified broker execution.
+- Therefore the earlier statement that **all** P2081 historical PASS claims contradict P2080 must be narrowed: the P2080B historical PASS exists. Provenance/ordering of the exact consumed JSON and behavioral replay remain unverified; the present patched branch deliberately leaves P2074 risk/fill validation PENDING.
+- Additional current branch fix: P2074 now rejects cross-symbol marks and invalid mid/spread before changing risk state; 12 parametrized regression cases published, not yet executed.
+- HISTORICAL_P2080B_PASS=DOCUMENTED; CURRENT_P2080_E2E_CERTIFIED=FALSE; P2090_CURRENT_CERTIFIED=FALSE.
