@@ -58,3 +58,15 @@ def test_p2121_strict_certification_json(tmp_path, payload, code):
     path.write_text(payload, encoding="utf-8")
     with pytest.raises(ValueError, match=code):
         load_json(str(path))
+
+def test_p2122_rejects_nonempty_tampered_package(tmp_path, monkeypatch):
+    from app.runtime.p2121_plus_continuous_max_capacity_audit import PackageIntegrityAudit
+    for key, expected in ABSOLUTE_LOCKS.items():
+        monkeypatch.setenv(key, expected)
+    package = tmp_path / "data/runtime/P2071_2080/P2071_2080_PACKAGE_FINAL.zip"
+    package.parent.mkdir(parents=True)
+    package.write_bytes(b"tampered-not-a-verified-archive")
+    decision = PackageIntegrityAudit().evaluate(str(tmp_path))
+    assert decision.status == "FAIL"
+    assert str(package.relative_to(tmp_path)) in decision.payload["mismatched"]
+    assert len(decision.payload["missing"]) == 4
