@@ -21,9 +21,9 @@ def evaluate_paper_intent(session, intent, audit_path):
     gate=session.pre_trade_check(risk)
     if not gate.get("allowed"):
         return {"allowed":False,"decision":gate["decision"],"production":"BLOCKED"}
-    audit=audit_rule_application({
+    # Do not substitute daily P&L for cumulative FTMO account P&L.\n    total_pnl=intent.get("account_total_pnl")\n    if type(total_pnl) not in (int,float) or not math.isfinite(total_pnl):\n        return {"allowed":False,"decision":"BLOCK_TOTAL_PNL_UNVERIFIED","production":"BLOCKED"}\n    audit=audit_rule_application({
         "symbol":intent["symbol"],"risk_amount":risk,
-        "daily_pnl":state["daily_pnl"],"total_pnl":state["daily_pnl"],
+        "daily_pnl":state["daily_pnl"],"total_pnl":total_pnl,
         "daily_trades":state["trades"],"stop":intent.get("stop")
     },cfg,path=audit_path)
     if audit["decision"] != "ALLOW_FTMO_SIMULATION":
