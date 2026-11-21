@@ -658,6 +658,8 @@ def run_p2071_2080(
     cycles: int = 1500,
 ) -> Dict[str, Any]:
     assert_no_financial_execution()
+    if not isinstance(cycles, int) or isinstance(cycles, bool) or cycles <= 0:
+        raise ValueError("INVALID_PAPER_RUNTIME_CYCLES")
 
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
