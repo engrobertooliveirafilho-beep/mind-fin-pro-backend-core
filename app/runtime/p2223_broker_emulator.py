@@ -1,6 +1,7 @@
 from __future__ import annotations
 import json
 import random
+import math
 import time
 from pathlib import Path
 
@@ -29,6 +30,13 @@ class RiskEngine:
         self.session_start_equity = self.equity
 
     def check(self, pnl):
+        if self.halted:
+            raise RuntimeError("simulated risk engine halted")
+        if type(pnl) not in (int, float) or not math.isfinite(pnl):
+            raise ValueError("invalid simulated pnl")
+        if self.session_start_equity <= 0 or self.peak <= 0:
+            self.halted = True
+            raise RuntimeError("invalid simulated risk baseline")
         self.equity += pnl
         self.peak = max(self.peak, self.equity)
         drawdown = (self.peak - self.equity) / self.peak
@@ -52,7 +60,7 @@ class BrokerEmulator:
             raise ValueError("unsupported simulated order side")
         if type(volume) is not int or volume <= 0:
             raise ValueError("simulated order volume must be a positive integer")
-        if self.risk.halted or self.risk.equity <= 0 or self.risk.peak <= 0 or (self.risk.peak - self.risk.equity) / self.risk.peak > self.risk.max_drawdown:
+        if self.risk.halted or self.risk.equity <= 0 or self.risk.peak <= 0 or self.risk.session_start_equity <= 0 or (self.risk.peak - self.risk.equity) / self.risk.peak > self.risk.max_drawdown or (self.risk.session_start_equity - self.risk.equity) / self.risk.session_start_equity > self.risk.daily_loss_limit:
             raise RuntimeError("simulated risk engine halted")
         price = self.market.tick()
 
