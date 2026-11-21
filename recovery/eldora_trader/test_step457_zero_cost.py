@@ -1,0 +1,20 @@
+import unittest
+from step457_zero_cost import evaluate_gpu_scaling, ScalingRejected
+class Tests(unittest.TestCase):
+    def test_zero(self):self.assertEqual(evaluate_gpu_scaling(queue_length=0,current_instances=0,requested_instances=0)['action'],'NO_OP')
+    def test_queue(self):self.assertEqual(evaluate_gpu_scaling(queue_length=100,current_instances=0,requested_instances=0)['action'],'NO_OP')
+    def test_never_execute(self):self.assertFalse(evaluate_gpu_scaling(queue_length=1,current_instances=0,requested_instances=0)['authorized_to_execute'])
+    def test_provision(self):
+        with self.assertRaises(ScalingRejected):evaluate_gpu_scaling(queue_length=1,current_instances=0,requested_instances=1)
+    def test_increase(self):
+        with self.assertRaises(ScalingRejected):evaluate_gpu_scaling(queue_length=1,current_instances=1,requested_instances=2)
+    def test_negative(self):
+        with self.assertRaises(ScalingRejected):evaluate_gpu_scaling(queue_length=-1,current_instances=0,requested_instances=0)
+    def test_bool(self):
+        with self.assertRaises(ScalingRejected):evaluate_gpu_scaling(queue_length=True,current_instances=0,requested_instances=0)
+    def test_nonzero_budget(self):
+        with self.assertRaises(ScalingRejected):evaluate_gpu_scaling(queue_length=0,current_instances=0,requested_instances=0,cost_limit_brl=1)
+    def test_bool_budget(self):
+        with self.assertRaises(ScalingRejected):evaluate_gpu_scaling(queue_length=0,current_instances=0,requested_instances=0,cost_limit_brl=True)
+    def test_decrease_not_executed(self):self.assertFalse(evaluate_gpu_scaling(queue_length=0,current_instances=2,requested_instances=1)['authorized_to_execute'])
+if __name__=='__main__':unittest.main()
