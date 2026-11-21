@@ -222,6 +222,11 @@ class PaperTradingSessionManager:
             return {"allowed":False,"decision":"BLOCK_MAX_DAILY_TRADES","production":"BLOCKED"}
         if max(0,-s["daily_pnl"]) + risk_amount > s["max_daily_loss"]:
             return {"allowed":False,"decision":"BLOCK_DAILY_LOSS_LIMIT","production":"BLOCKED"}
+        account_pnl = self.account_total_pnl()
+        if type(account_pnl) not in (int,float) or not math.isfinite(account_pnl):
+            return {"allowed":False,"decision":"BLOCK_ACCOUNT_LEDGER_UNVERIFIED","production":"BLOCKED"}
+        if max(0,-account_pnl) + risk_amount > cfg["max_total_loss"]:
+            return {"allowed":False,"decision":"BLOCK_TOTAL_LOSS_LIMIT","production":"BLOCKED"}
         return {"allowed":True,"decision":"ALLOW_PAPER_TRADE",
                 "session_id":s["session_id"],"production":"BLOCKED"}
 
