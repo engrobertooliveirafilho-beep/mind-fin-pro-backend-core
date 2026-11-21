@@ -17,4 +17,13 @@ class Step455Tests(unittest.TestCase):
     def test_no_vectors_rejected(self):
         from pydantic import ValidationError
         with self.assertRaises(ValidationError):VectorIndexPlanRequest(total_vectors=0)
+    def test_shard_limit_rejected(self):
+        with self.assertRaisesRegex(ValueError,'safe offline limit'):
+            plan_vector_index(VectorIndexPlanRequest(total_vectors=4097,max_shard_size=1))
+    def test_shard_limit_accepted(self):
+        r=plan_vector_index(VectorIndexPlanRequest(total_vectors=4096,max_shard_size=1))
+        self.assertEqual(r.shards_count,4096)
+    def test_timestamp_timezone(self):
+        r=plan_vector_index(VectorIndexPlanRequest(total_vectors=1))
+        self.assertTrue(r.meta['created_at'].endswith('Z'))
 if __name__=='__main__':unittest.main()
