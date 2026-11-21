@@ -4,7 +4,7 @@ import math
 class ContractRejected(ValueError):
     pass
 
-FORBIDDEN = {'real_orders','live_trading','execute_trade','gpu_provision','ftmo_real','place_order','send_order'}
+FORBIDDEN = {'real_orders','live_trading','execute_trade','gpu_provision','ftmo_real','place_order','send_order','broker_order','submit_order','withdraw_funds'}
 
 def validate_payload(payload):
     if type(payload) is not dict:
@@ -32,7 +32,7 @@ def validate_payload(payload):
 def certify_response(agent_id,result):
     if type(agent_id) is not str or not agent_id:raise ContractRejected('invalid agent id')
     if type(result) is not dict or result.get('agent_id')!=agent_id:raise ContractRejected('identity mismatch')
-    if result.get('status')!='ok' or result.get('mode') in ('stub','live','real') or 'error' in result:
+    if result.get('status')!='ok' or result.get('mode') != 'dry_run' or 'error' in result:
         raise ContractRejected('not functional dry-run evidence')
     validate_payload(result)
     return {'agent_id':agent_id,'contract_valid':True,'functional_certified':False,'e2e_certified':False}
