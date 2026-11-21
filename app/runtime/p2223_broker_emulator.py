@@ -73,10 +73,14 @@ class BrokerEmulator:
         if self.risk.halted or self.risk.equity <= 0 or self.risk.peak <= 0 or self.risk.session_start_equity <= 0 or (self.risk.peak - self.risk.equity) / self.risk.peak > self.risk.max_drawdown or (self.risk.session_start_equity - self.risk.equity) / self.risk.session_start_equity > self.risk.daily_loss_limit:
             raise RuntimeError("simulated risk engine halted")
         price = self.market.tick()
+        if type(price) not in (int, float) or not math.isfinite(price) or price <= 0:
+            raise RuntimeError("invalid simulated market price")
 
         # Slippage simulation
         slippage = random.uniform(-0.1, 0.1)
         exec_price = price + slippage
+        if not math.isfinite(exec_price) or exec_price <= 0:
+            raise RuntimeError("invalid simulated execution price")
 
         pnl = 0
         if side == "BUY":
