@@ -13,7 +13,8 @@ FTMO_REAL = "FORBIDDEN"
 
 
 def sniff(path: Path) -> str:
-    first = path.read_text(encoding="utf-8-sig", errors="ignore")[:4096].splitlines()[0]
+    with path.open("r", encoding="utf-8-sig", errors="ignore", newline="") as stream:
+        first = stream.readline(4096)
     return ";" if first.count(";") > first.count(",") else ","
 
 
@@ -123,7 +124,9 @@ def run(patched_path: Path, outdir: Path, baseline_expectancy: float, baseline_p
     rows = load_csv(patched_path)
     evaluated = []
 
-    for r in rows:
+    # P2381 historical patches lack independent causal replay certification.
+    # No legacy row can enter performance or promotion calculations.
+    for r in []:
         x = dict(r)
         x["patch_replay_decision"] = classify(x)
         x["mode"] = MODE
@@ -199,7 +202,7 @@ def run(patched_path: Path, outdir: Path, baseline_expectancy: float, baseline_p
     write_csv(files["promoted_groups"], promoted_groups)
     write_csv(files["observed_groups"], observed_groups)
 
-    success = expectancy > 0 and pf > 1.0 and dd < baseline_dd * 0.70
+    success = bool(evaluated) and expectancy > 0 and pf > 1.0 and dd < baseline_dd * 0.70
 
     payload = {
         "mission": MISSION,
@@ -231,8 +234,8 @@ def run(patched_path: Path, outdir: Path, baseline_expectancy: float, baseline_p
         "promoted_groups_after_patch": len(promoted_groups),
         "observed_groups_after_patch": len(observed_groups),
         "success": success,
-        "status": "CERTIFIED",
-        "certification": "P2382_REPLAY_AFTER_LOSS_PATCH_CERTIFIED",
+        "status": "BLOCKED_PENDING_CAUSAL_REPLAY",
+        "certification": "NOT_CERTIFIED",
         "next": "P2383_WALK_FORWARD_AFTER_PATCH" if success else "P2382A_SECOND_LOSS_PATCH_HARDENING",
         "outputs": {k: str(v) for k, v in files.items()},
         "warning": "PATCH_REPLAY_IS_PAPER_ONLY_NO_REAL_ORDER_PERMISSION",
