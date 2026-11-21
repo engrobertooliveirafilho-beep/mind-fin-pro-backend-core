@@ -281,13 +281,15 @@ def run_p2111_2120(
         "decisions": [asdict(d) for d in decisions],
         "final_state": {
             "known_critical_gaps": final_cert.payload["known_critical_gaps"],
-            "runtime_resilient": True,
-            "runtime_autonomous": True,
-            "runtime_observable": True,
-            "runtime_auditable": True,
-            "runtime_recoverable": True,
-            "runtime_scalable": True,
-            "runtime_governable": True,
+            # These are certification claims, not measured capability flags.
+            # Never assert them when P2120 remains FAIL.
+            "runtime_resilient": all_pass,
+            "runtime_autonomous": all_pass,
+            "runtime_observable": all_pass,
+            "runtime_auditable": all_pass,
+            "runtime_recoverable": all_pass,
+            "runtime_scalable": all_pass,
+            "runtime_governable": all_pass,
             "financial_execution": "DISABLED",
             "broker_execution": "DISABLED",
             "real_orders": "FORBIDDEN",
