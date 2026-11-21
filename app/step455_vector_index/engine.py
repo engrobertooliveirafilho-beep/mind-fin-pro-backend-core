@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from math import ceil
 from typing import Dict, Any, Literal
 
@@ -52,6 +52,8 @@ def _estimate_bytes_mb(vectors: int, dim: int, mode: CompressionMode) -> float:
 @router.post("/plan", response_model=VectorIndexPlanResponse)
 def plan_vector_index(request: VectorIndexPlanRequest) -> VectorIndexPlanResponse:
     shards_count = ceil(request.total_vectors / request.max_shard_size)
+    if shards_count > 4096:
+        raise ValueError('shard plan exceeds safe offline limit (4096)')
     layout: Dict[str, ShardLayout] = {}
     remaining = request.total_vectors
     total_bytes = 0.0
@@ -80,7 +82,7 @@ def plan_vector_index(request: VectorIndexPlanRequest) -> VectorIndexPlanRespons
         layout=layout,
         meta={
             "version": "step455-v1",
-            "created_at": datetime.utcnow().isoformat() + "Z",
+            "created_at": datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
             "engine": "vector_index_step455_planner",
         },
     )
