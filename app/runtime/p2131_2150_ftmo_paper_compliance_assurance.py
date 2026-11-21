@@ -202,7 +202,7 @@ def run_p2131_2150(output_dir="data/runtime/P2131_2150/evidence"):
         "program": "P2131_2150_FTMO_PAPER_COMPLIANCE_AND_OPERATIONAL_ASSURANCE",
         "status": "PASS" if all_pass else "FAIL",
         "readiness": "FTMO_PAPER_COMPLIANCE_AND_OPERATIONAL_ASSURANCE_CERTIFIED" if all_pass else "NOT_CERTIFIED",
-        "absolute_restrictions": enforce(),
+        "absolute_restrictions": dict(LOCKS),
         "mission_status": mission_status,
         "dependencies": loaded,
         "dependency_hashes": hashes,
@@ -224,6 +224,13 @@ def run_p2131_2150(output_dir="data/runtime/P2131_2150/evidence"):
         },
         "next_block": "P2151_PLUS_READINESS_DOSSIER_AND_DEPLOYMENT_GATE_REVIEW",
     }
+
+    # Recheck the execution locks before writing audit artifacts.
+    # Do not erase mid-run drift by calling enforce() in the result.
+    final_lock_drift = {k: os.environ.get(k) for k, v in LOCKS.items()
+                        if os.environ.get(k) != v}
+    if final_lock_drift:
+        raise RuntimeError(f"LOCK_BREACH: {final_lock_drift}")
 
     (out / "P2131_2150_FINAL_CERTIFICATION.json").write_text(
         json.dumps(result, indent=2, ensure_ascii=False),
