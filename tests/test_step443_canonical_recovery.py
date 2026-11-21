@@ -23,3 +23,11 @@ class Step443Tests(unittest.TestCase):
         with self.assertRaises(ValidationError):usage(latency=float('inf'))
     def test_utc(self):
         self.assertTrue(evaluate_rate_limits(RateLimitRequest(models=[])).meta['created_at'].endswith('Z'))
+    def test_zero_usage_does_not_invent_quota(self):
+        r=evaluate_rate_limits(RateLimitRequest(models=[usage(rpm=0,tpm=0)]))
+        self.assertEqual(r.decisions[0].rpm_limit,0)
+        self.assertEqual(r.decisions[0].tpm_limit,0)
+    def test_zero_rpm_independent_of_tpm(self):
+        r=evaluate_rate_limits(RateLimitRequest(models=[usage(rpm=0,tpm=100)]))
+        self.assertEqual(r.decisions[0].rpm_limit,0)
+        self.assertEqual(r.decisions[0].tpm_limit,100)
