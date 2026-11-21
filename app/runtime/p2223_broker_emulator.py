@@ -34,9 +34,15 @@ class RiskEngine:
             raise RuntimeError("simulated risk engine halted")
         if type(pnl) not in (int, float) or not math.isfinite(pnl):
             raise ValueError("invalid simulated pnl")
-        if self.session_start_equity <= 0 or self.peak <= 0:
+        if (self.session_start_equity <= 0 or self.peak <= 0
+                or not all(math.isfinite(v) for v in (self.equity, self.peak, self.session_start_equity))):
             self.halted = True
             raise RuntimeError("invalid simulated risk baseline")
+        if (self.equity <= 0
+                or (self.peak - self.equity) / self.peak > self.max_drawdown
+                or (self.session_start_equity - self.equity) / self.session_start_equity > self.daily_loss_limit):
+            self.halted = True
+            raise RuntimeError("simulated risk engine halted")
         self.equity += pnl
         self.peak = max(self.peak, self.equity)
         drawdown = (self.peak - self.equity) / self.peak
