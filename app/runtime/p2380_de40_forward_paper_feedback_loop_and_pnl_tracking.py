@@ -273,43 +273,18 @@ def run(signal_bus: Path, dataset_root: Path, outdir: Path) -> Dict:
     outdir.mkdir(parents=True, exist_ok=True)
 
     signals = load_csv(signal_bus)
-    dataset_cache = {}
+    # All P2379 inputs remain untrusted until a causal, time-bound replay exists.
+    # Preserve research rows but never fabricate feedback or promote strategies.
     feedback_rows = []
-
     for sig in signals:
-        # P2379 historical signals have no causal replay attestation.
-        # Do not turn arbitrary replay anchors into certified feedback/PnL.
         row = dict(sig)
-        row.update({"paper_result": "SKIPPED_UNCERTIFIED_CAUSAL_INPUT",
-                    "realized_r": 0, "feedback_status": "SKIPPED",
-                    "mode": MODE, "real_orders": REAL_ORDERS, "ftmo_real": FTMO_REAL})
-        feedback_rows.append(row)
-        continue
-        tf = sig.get("timeframe", "")
-        if tf not in dataset_cache:
-            p = dataset_for_tf(dataset_root, tf)
-            dataset_cache[tf] = load_candles(p, None) if p else []
-
-        candles = dataset_cache.get(tf, [])
-        if not candles:
-            row = dict(sig)
-            row.update({
-                "paper_result": "SKIPPED_NO_DATASET",
-                "realized_r": 0,
-                "feedback_status": "SKIPPED",
-            })
-            feedback_rows.append(row)
-            continue
-
-        result = simulate_feedback(sig, candles)
-        row = dict(sig)
-        row.update(result)
         row.update({
-            "feedback_status": "EVALUATED",
+            "paper_result": "SKIPPED_UNCERTIFIED_CAUSAL_INPUT",
+            "realized_r": 0,
+            "feedback_status": "SKIPPED",
             "mode": MODE,
             "real_orders": REAL_ORDERS,
             "ftmo_real": FTMO_REAL,
-            "warning": "PAPER_FEEDBACK_PROXY_NOT_REAL_PNL",
         })
         feedback_rows.append(row)
 
