@@ -132,11 +132,13 @@ class AutoDiagnostics:
     def evaluate(self, deps: Dict[str, Any], runtime_state: Dict[str, Any]) -> AutoDecision:
         assert_no_financial_execution()
         diagnostics = {
-            "p2071_certified": deps["p2071"].get("status") == "PASS",
-            "p2081_certified": deps["p2081"].get("status") == "PASS",
-            "p2091_certified": deps["p2091"].get("status") == "PASS",
-            "runtime_heartbeat": runtime_state.get("heartbeat", 0) > 0,
-            "locks_valid": enforce_paper_only() == ABSOLUTE_LOCKS,
+            "p2071_certified": isinstance(deps.get("p2071"), dict) and deps["p2071"].get("status") == "PASS",
+            "p2081_certified": isinstance(deps.get("p2081"), dict) and deps["p2081"].get("status") == "PASS",
+            "p2091_certified": isinstance(deps.get("p2091"), dict) and deps["p2091"].get("status") == "PASS",
+            "runtime_heartbeat": isinstance(runtime_state.get("heartbeat"), (int, float))
+                and not isinstance(runtime_state.get("heartbeat"), bool)
+                and runtime_state["heartbeat"] > 0,
+            "locks_valid": all(os.environ.get(k) == v for k, v in ABSOLUTE_LOCKS.items()),
         }
         ok = all(diagnostics.values())
         return AutoDecision(
