@@ -1,0 +1,35 @@
+{
+  "phase": "P2922_R1_ADAPTIVE_PATTERN_DNA_FACTORY",
+  "status": "CERTIFIED",
+  "created_at": "2026-07-16T07:09:56.6594172Z",
+  "root_cause": "STATIC_PATTERN_THRESHOLD_EXCLUDED_ALL_GROUPS",
+  "gate_policy": {
+    "strong_static_gate_preserved": true,
+    "adaptive_minimum_samples": 10,
+    "adaptive_minimum_unique_events": 3,
+    "adaptive_state": "OBSERVATION_ONLY",
+    "automatic_promotion": false,
+    "capital_allocation": 0.0
+  },
+  "results": {
+    "canonical_records": 3569,
+    "patterns": 622,
+    "strong_candidates": 0,
+    "adaptive_candidates": 114,
+    "dna_candidates": 114,
+    "mature_dna": 0,
+    "developing_dna": 0,
+    "observe_dna": 114,
+    "specialists": 114,
+    "walk_forward_passed": 1
+  },
+  "hard_locks": {
+    "backtest": true,
+    "paper_only": true,
+    "live": "FORBIDDEN",
+    "real_execution": "FORBIDDEN",
+    "automatic_promotion": false,
+    "capital_allocation": 0.0
+  },
+  "next": "P2923_ROBUSTNESS_MONTE_CARLO_AND_REGIME_VALIDATION"
+}
