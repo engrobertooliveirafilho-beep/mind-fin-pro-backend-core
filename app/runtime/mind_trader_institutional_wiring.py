@@ -17,7 +17,11 @@ MODULES = [
 ]
 
 def run_institutional_wiring(payload: dict | None = None) -> dict:
+    # Wiring is discovery-only until an execution contract is certified.
+    # Importing a module never authorizes invoking its run() entry point.
     payload = payload or {}
+    if not isinstance(payload, dict):
+        raise ValueError('INVALID_PAYLOAD')
     results = []
 
     for name in MODULES:
@@ -47,7 +51,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
                 except Exception as e:
                     row["error"] += f"health_error={e};"
 
-            if hasattr(m, "run"):
+            if False and hasattr(m, "run"):  # fail-closed: no certified execution allowlist
                 try:
                     # TypeError may arise inside a side-effectful run().
                     # Do not retry: it could execute the module twice.
@@ -73,6 +77,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
         "modules_total": len(results),
         "imports_ok": sum(1 for r in results if r["import_ok"]),
         "runs_ok": sum(1 for r in results if r["run_ok"]),
+        "execution_performed": False,
         "health_ok": sum(1 for r in results if r["health_ok"]),
         "results": results,
     }
