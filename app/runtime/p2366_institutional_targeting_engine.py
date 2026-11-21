@@ -4,6 +4,8 @@ import math
 def institutional_targets(ctx: dict) -> dict:
     def number(key, fallback):
         value = ctx.get(key)
+        if isinstance(value, bool):
+            raise TypeError("boolean is not a price")
         return float(fallback if value is None else value)
 
     if not isinstance(ctx, dict) or any(ctx.get(k) is None for k in ("entry", "stop", "side")):
