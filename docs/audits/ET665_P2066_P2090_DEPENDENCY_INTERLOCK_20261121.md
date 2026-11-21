@@ -95,3 +95,9 @@ Read the original Drive audit files directly, not only their names:
 | P2101–P2110 | `1y2riZF5_I7JWazaJNTS77JVHgIUHlJnG` | `PASS / AUTONOMOUS_PAPER_OPERATIONS_CERTIFIED` | Snapshot restart_count=1, recovery_count=1; not a verified external crash/restart test |
 
 **Reconciliation decision:** Preserve original recorded PASS values as historical claims, but **deny transitive E2E certification** until the upstream P2080 dependency and current code are independently exercised and certified. No historical PASS authorizes real trading or PAPER deployment. Original Drive sources remain read-only.
+
+## P2112 isolated offline execution — 2026-11-21
+
+Executed Python pytest against a manually reproduced copy of the **current P2112 CapabilityGapAudit.evaluate decision logic**, inspected from branch source, with no broker, network, or financial execution. Result: **9 passed in 0.04s**. Cases: missing dependencies, bare PASS claims, simulated-only P2080, structurally complete hypothetical certification, and five invalid P2071 variants. Local evidence: `/mnt/data/et665_p2112_regression/pytest.log`. This is **isolated logic validation**, not a byte-identical full-module run, not a GitHub CI result, and **not E2E certification**.
+
+Recovered Drive code map `capability_code_map.txt` (Drive ID `1uOzlFbkFOBizIgECN2sXyvINJZENNh5B`) identifies historical `app/runtime/p2071_2080_realtime_paper_runtime.py`, `app/runtime/p2111_2120_maximum_technical_capacity.py`, and the runtime execution governor steps `retrieve_context → rank_memory → decide_next_action → execute → record_evidence`. The map is **file/line evidence**, not recovered original source bytes and not proof of functional execution.
