@@ -58,7 +58,7 @@ def validate_ftmo_config(config):
     type_errors=[k for k,t in REQUIRED_FIELDS.items() if not isinstance(config[k],t)]
     if type_errors:
         return {"valid":False,"reason":"TYPE_ERRORS","fields":type_errors}
-    if any(type(config[k]) is bool for k,t in REQUIRED_FIELDS.items() if isinstance(t,tuple) and config[k] is not None):
+    if any(type(config[k]) is bool for k,t in REQUIRED_FIELDS.items() if (isinstance(t,tuple) or t is int) and config[k] is not None):
         return {"valid":False,"reason":"BOOLEAN_NUMERIC_FIELD"}
     if any(not math.isfinite(config[k]) for k,t in REQUIRED_FIELDS.items() if isinstance(t,tuple)):
         return {"valid":False,"reason":"NONFINITE_NUMERIC_FIELD"}
@@ -72,6 +72,10 @@ def validate_ftmo_config(config):
         return {"valid":False,"reason":"DAILY_LOSS_GT_TOTAL_LOSS"}
     if not config["allowed_symbols"]:
         return {"valid":False,"reason":"NO_ALLOWED_SYMBOLS"}
+    if any(not isinstance(symbol,str) or not symbol.strip() for symbol in config["allowed_symbols"]):
+        return {"valid":False,"reason":"INVALID_ALLOWED_SYMBOL"}
+    if any(not isinstance(symbol,str) or not symbol.strip() for symbol in config["restricted_symbols"]):
+        return {"valid":False,"reason":"INVALID_RESTRICTED_SYMBOL"}
     return {"valid":True,"reason":"FTMO_CONFIG_OK","hash":config_hash(config),"version":config["version"]}
 
 def save_default_ftmo_config(path="mind_trader/config/ftmo_ruleset.json"):
