@@ -28,9 +28,9 @@ class AccountReplayTest(unittest.TestCase):
         events=[json.loads(x) for x in self.s.ledger_path.read_text().splitlines()]
         events[1]['pnl']=-9999
         self.s.ledger_path.write_text(''.join(json.dumps(x)+'\n' for x in events))
-        self.assertEqual(self.check()['decision'],'BLOCK_TOTAL_PNL_UNVERIFIED')
+        self.assertEqual(self.check()['decision'],'BLOCK_ACCOUNT_LEDGER_UNVERIFIED')
     def test_prior_session_total_loss_blocks(self):
         self.s.record_trade_result(-4999);self.s.close_session();self.s.open_session()
         self.s.record_trade_result(-4999);self.s.close_session();self.s.open_session()
-        self.assertEqual(self.check()['decision'],'BLOCK_FTMO_RULES')
+        self.assertEqual(self.check()['decision'],'BLOCK_TOTAL_LOSS_LIMIT')
 if __name__=='__main__':unittest.main()
