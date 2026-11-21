@@ -353,8 +353,10 @@ class PaperPortfolioExecutor:
         # The next PAPER id must exceed every restored position id. A
         # corrupted sequence could otherwise silently overwrite an open trade.
         for pid in ids:
-            if (not pid.startswith("PAPER_") or len(pid) != 12
-                    or not pid[6:].isdigit() or int(pid[6:]) > seq):
+            suffix = pid[6:] if pid.startswith("PAPER_") else ""
+            if (not suffix.isascii() or not suffix.isdecimal()
+                    or len(suffix) < 6 or int(suffix) < 1
+                    or pid != f"PAPER_{int(suffix):06d}" or int(suffix) > seq):
                 raise ValueError("INVALID_PAPER_EXECUTOR_SEQUENCE")
         for entry in state["closed"]:
             if (not isinstance(entry, dict) or not isinstance(entry.get("position"), dict)
@@ -370,9 +372,11 @@ class PaperPortfolioExecutor:
         for entry in state["closed"]:
             record = entry["position"]
             pid = record.get("position_id")
-            if (not isinstance(pid, str) or not pid.startswith("PAPER_")
-                    or len(pid) != 12 or not pid[6:].isdigit()
-                    or int(pid[6:]) > seq or pid in ids or pid in closed_ids
+            suffix = pid[6:] if isinstance(pid, str) and pid.startswith("PAPER_") else ""
+            if (not suffix.isascii() or not suffix.isdecimal()
+                    or len(suffix) < 6 or int(suffix) < 1
+                    or pid != f"PAPER_{int(suffix):06d}"
+                    or int(suffix) > seq or pid in ids or pid in closed_ids
                     or record.get("status") != "CLOSED"
                     or record.get("symbol") != "XAUUSD"
                     or record.get("side") not in ("BUY", "SELL")
