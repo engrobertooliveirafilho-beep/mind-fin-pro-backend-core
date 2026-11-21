@@ -972,6 +972,8 @@ from app.embeddings.internal_embeddings_step454.engine import router as _step454
 app.include_router(_step454_embed_router, prefix="/step454/embeddings", tags=["step454-hash-vectors"])
 from app.cognition.math_advanced_step453.engine import router as _step453_math_router
 app.include_router(_step453_math_router, prefix="/step453/math", tags=["step453-offline-math"])
+from app.cognition.parallel_reasoning_step451.engine import router as _step451_trace_router
+app.include_router(_step451_trace_router, prefix="/step451/branch-traces", tags=["step451-deterministic-traces"])
 
 
 # RunPod GPU Cloud routes
