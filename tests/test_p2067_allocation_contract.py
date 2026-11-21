@@ -130,3 +130,24 @@ def test_loader_rejects_invalid_specialist_identifier(tmp_path, invalid_id):
     ]}), encoding="utf-8")
     with pytest.raises(ValueError, match="REALDNA_SPECIALIST_ID_INVALID"):
         load_portfolio(str(path))
+
+@pytest.mark.parametrize("invalid_alias", [0, False, "", " A ", None])
+def test_loader_rejects_invalid_secondary_id_alias(tmp_path, invalid_alias):
+    import json
+    from app.runtime.p2071_2080_realtime_paper_runtime import load_portfolio
+    path = tmp_path / "portfolio.json"
+    path.write_text(json.dumps({"specialists": [
+        {"id": "A", "specialist_id": invalid_alias, "logic_type": "RANGE_REVERSION"},
+    ]}), encoding="utf-8")
+    with pytest.raises(ValueError, match="REALDNA_SPECIALIST_ID_INVALID"):
+        load_portfolio(str(path))
+
+
+def test_loader_accepts_matching_id_aliases(tmp_path):
+    import json
+    from app.runtime.p2071_2080_realtime_paper_runtime import load_portfolio
+    path = tmp_path / "portfolio.json"
+    path.write_text(json.dumps({"specialists": [
+        {"id": "A", "specialist_id": "A", "logic_type": "RANGE_REVERSION"},
+    ]}), encoding="utf-8")
+    assert len(load_portfolio(str(path))) == 1
