@@ -27,10 +27,15 @@ def enforce():
 
 
 def assert_locks():
-    current = enforce()
-    invalid = {k: current.get(k) for k, v in LOCKS.items() if current.get(k) != v}
+    # Never silently overwrite a hostile execution configuration.
+    # Missing keys can be set to the PAPER-safe defaults.
+    invalid = {k: os.environ.get(k) for k, v in LOCKS.items()
+               if k in os.environ and os.environ[k] != v}
     if invalid:
         raise RuntimeError(f"LOCK_BREACH: {invalid}")
+    current = enforce()
+    if any(current[k] != v for k, v in LOCKS.items()):
+        raise RuntimeError("LOCK_BREACH: unsafe defaults")
 
 
 def load_json(path: str):
