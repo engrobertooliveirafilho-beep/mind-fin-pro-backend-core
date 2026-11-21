@@ -252,6 +252,9 @@ class PaperPortfolioExecutor:
     MAX_PAPER_QTY = 0.01
 
     def __init__(self, initial_equity: float = 100000.0):
+        if (not isinstance(initial_equity, (int, float)) or isinstance(initial_equity, bool)
+                or not math.isfinite(initial_equity) or initial_equity <= 0):
+            raise ValueError("INVALID_PAPER_INITIAL_EQUITY")
         self.initial_equity = initial_equity
         self.equity = initial_equity
         self.positions: Dict[str, PaperPosition] = {}
