@@ -213,9 +213,11 @@ def certify(decisions: List[AutoDecision]) -> AutoDecision:
     assert_no_financial_execution()
     failed = [d.component for d in decisions if d.status != "PASS"]
     required = {f"P{step}_" for step in range(2101, 2110)}
-    present = {d.component for d in decisions}
-    complete = all(any(component.startswith(prefix) for component in present) for prefix in required)
-    ok = bool(decisions) and complete and not failed
+    present = [d.component for d in decisions]
+    complete = len(present) == 9 and len(set(present)) == 9 and all(
+        any(component.startswith(prefix) for component in present) for prefix in required
+    )
+    ok = complete and not failed
     return AutoDecision(
         "P2110_AUTONOMOUS_CERTIFICATION",
         "PASS" if ok else "FAIL",
