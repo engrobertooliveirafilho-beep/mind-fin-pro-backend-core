@@ -45,7 +45,7 @@ class TestP2071PaperSafety(unittest.TestCase):
 
     def test_position_quantity_scales_realized_pnl(self):
         pos = self.engine.on_signal(self.signal(), 100)
-        pos.qty = 2.5
+        pos.qty = 0.005
         self.engine.mark_to_market(self.frame(106))
         self.assertEqual(self.engine.equity, 100000.03)
         self.assertEqual(self.engine.closed[0]["pnl"], 0.03)
@@ -59,7 +59,7 @@ class TestP2071PaperSafety(unittest.TestCase):
                     self.engine.mark_to_market(self.frame(106))
             self.assertEqual(self.engine.equity, 100000.0)
             self.assertEqual(len(self.engine.closed), 0)
-        pos.qty = 1.0
+        pos.qty = 0.01
 
     def test_low_price_paper_stop_and_target_positive(self):
         for side in ("BUY", "SELL"):
