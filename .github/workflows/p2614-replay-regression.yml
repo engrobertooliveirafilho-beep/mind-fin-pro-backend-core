@@ -6,7 +6,8 @@ on:
     paths:
       - 'app/runtime/p2614_real_fill_replay/**'
       - 'tests/test_p2614_*.py'
-      - 'tests/test_trader_1_001_exporter_static.py tests/test_p2923_robustness.py'
+      - 'tests/test_trader_1_001_exporter_static.py'
+      - 'tests/test_p2923_robustness.py'
       - 'recovery/original/trader_1_001_r2_r1/**'
       - 'recovery/candidate/trader_1_001/**'
       - 'app/runtime/p2923_robustness.py'
@@ -31,4 +32,4 @@ jobs:
       - name: Install test runner
         run: python -m pip install --disable-pip-version-check pytest
       - name: Run P2614 regression suite
-        run: python -m pytest -q tests/test_p2614_replay_chronology.py tests/test_p2614_replay_failclosed.py tests/test_p2614_audit_montecarlo_hardening.py tests/test_trader_1_001_exporter_static.py
+        run: python -m pytest -q tests/test_p2614_replay_chronology.py tests/test_p2614_replay_failclosed.py tests/test_p2614_audit_montecarlo_hardening.py tests/test_trader_1_001_exporter_static.py tests/test_p2923_robustness.py
