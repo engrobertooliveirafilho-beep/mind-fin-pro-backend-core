@@ -5,7 +5,7 @@ import json
 EXPECTED_FACTORY_SHA = "3E4A66308FDF69BEEC2A1DE3309C68A14F8AD285787CD63EAF56A0FB237B7C42"
 EXPECTED_SPEC_SHA = "05A8F32790126A0005F5560C9EDD128FCC6C7CBB77B40833CE340E2FDE1CEF16"
 
-def audit_authority(spec_bytes, certificate_bytes, writer_bytes=None):
+def audit_authority(spec_bytes, certificate_bytes, factory_bytes=None):
     if not isinstance(spec_bytes, bytes) or not isinstance(certificate_bytes, bytes):
         raise ValueError("original evidence bytes required")
     spec = json.loads(spec_bytes)
@@ -26,8 +26,8 @@ def audit_authority(spec_bytes, certificate_bytes, writer_bytes=None):
         raise ValueError("historical symbol state inconsistent")
     if cert.get("s20_symbol_present") is not False:
         raise ValueError("certificate symbol state inconsistent")
-    if writer_bytes is None:
-        return {"evidence_consistent":True,"writer_bytes_verified":False,"runtime_allowed":False,"s21_certified":False}
-    if not isinstance(writer_bytes, bytes) or hashlib.sha256(writer_bytes).hexdigest().upper() != EXPECTED_FACTORY_SHA:
-        raise ValueError("canonical writer bytes mismatch")
-    return {"evidence_consistent":True,"writer_bytes_verified":True,"runtime_allowed":False,"s21_certified":False}
+    if factory_bytes is None:
+        return {"evidence_consistent":True,"factory_bytes_verified":False,"writer_bytes_verified":False,"runtime_allowed":False,"s21_certified":False}
+    if not isinstance(factory_bytes, bytes) or hashlib.sha256(factory_bytes).hexdigest().upper() != EXPECTED_FACTORY_SHA:
+        raise ValueError("canonical factory bytes mismatch")
+    return {"evidence_consistent":True,"factory_bytes_verified":True,"writer_bytes_verified":False,"runtime_allowed":False,"s21_certified":False}
