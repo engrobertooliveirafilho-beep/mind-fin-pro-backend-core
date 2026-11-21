@@ -289,9 +289,12 @@ class PaperPortfolioExecutor:
         if not hasattr(self, "_paper_day") or self._paper_day != day:
             self._paper_day = day
             self._day_start_equity = self.equity
-        if self.equity <= self._day_start_equity * 0.99:
+        # Include open-position losses in the admission gate. A new order
+        # must not be admitted on stale realized equity alone.
+        marked_equity = self.current_equity(price)
+        if marked_equity <= self._day_start_equity * 0.99:
             return None
-        if self.equity <= self.initial_equity * 0.97:
+        if marked_equity <= self.initial_equity * 0.97:
             return None
 
         # No specialist may open more than one position concurrently.
