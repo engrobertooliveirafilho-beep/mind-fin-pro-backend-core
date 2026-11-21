@@ -23,6 +23,10 @@ class InstitutionalWiringSafetyTests(unittest.TestCase):
     def test_invalid_payload_rejected(self):
         with self.assertRaisesRegex(ValueError, "INVALID_PAYLOAD"):
             wiring.run_institutional_wiring("unsafe")
+        for invalid in ("", 0, False, []):
+            with self.subTest(invalid=invalid):
+                with self.assertRaisesRegex(ValueError, "INVALID_PAYLOAD"):
+                    wiring.run_institutional_wiring(invalid)
 
     def test_import_error_degrades_without_execution(self):
         with patch.object(wiring, "MODULES", ["missing_motor"]):
