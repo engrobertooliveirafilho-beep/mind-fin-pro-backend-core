@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, Any
 
 from fastapi import APIRouter
@@ -8,9 +8,9 @@ router = APIRouter()
 
 
 class Metrics(BaseModel):
-    cpu: float = Field(..., ge=0, le=100)
-    memory: float = Field(..., ge=0, le=100)
-    latency_ms: float = Field(..., ge=0)
+    cpu: float = Field(..., ge=0, le=100, allow_inf_nan=False)
+    memory: float = Field(..., ge=0, le=100, allow_inf_nan=False)
+    latency_ms: float = Field(..., ge=0, le=1000000000, allow_inf_nan=False)
 
 
 class AutoscalingDecision(BaseModel):
@@ -40,7 +40,7 @@ def _decide_scale(metrics: Metrics) -> AutoscalingDecision:
         rationale=rationale,
         meta={
             "version": "step441-v1",
-            "created_at": datetime.utcnow().isoformat() + "Z",
+            "created_at": datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
             "engine": "autoscaling_policy_stub_step441",
         },
     )
