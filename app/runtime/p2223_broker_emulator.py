@@ -25,6 +25,7 @@ class RiskEngine:
         self.daily_loss_limit = 0.03
         self.equity = 100000
         self.peak = self.equity
+        self.halted = False
 
     def check(self, pnl):
         self.equity += pnl
@@ -32,6 +33,7 @@ class RiskEngine:
         drawdown = (self.peak - self.equity) / self.peak
 
         if drawdown > self.max_drawdown:
+            self.halted = True
             return "KILLED"
         return "OK"
 
@@ -48,7 +50,7 @@ class BrokerEmulator:
             raise ValueError("unsupported simulated order side")
         if type(volume) is not int or volume <= 0:
             raise ValueError("simulated order volume must be a positive integer")
-        if self.risk.equity <= 0 or (self.risk.peak - self.risk.equity) / self.risk.peak > self.risk.max_drawdown:
+        if self.risk.halted or self.risk.equity <= 0 or self.risk.peak <= 0 or (self.risk.peak - self.risk.equity) / self.risk.peak > self.risk.max_drawdown:
             raise RuntimeError("simulated risk engine halted")
         price = self.market.tick()
 
