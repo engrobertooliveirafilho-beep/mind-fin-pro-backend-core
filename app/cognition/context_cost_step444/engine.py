@@ -1,7 +1,7 @@
 from datetime import datetime, timezone
 from typing import List, Dict, Any, Literal
 
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 
 router = APIRouter()
@@ -51,6 +51,8 @@ def _estimate_cost(tokens: int, cost_per_1k: float) -> float:
 
 @router.post("/balance", response_model=BalanceResponse)
 def balance_context(request: BalanceRequest) -> BalanceResponse:
+    if len({s.segment_id for s in request.segments}) != len(request.segments):
+        raise HTTPException(status_code=422, detail='duplicate segment_id')
     remaining_tokens = request.max_tokens
     remaining_cost = request.max_cost
 
@@ -89,6 +91,9 @@ def balance_context(request: BalanceRequest) -> BalanceResponse:
 
         # tenta parcial
         max_tokens_by_budget = int((remaining_cost / seg.cost_per_1k) * 1000.0)
+        # Guard against floating-point rounding allocating beyond remaining budget.
+        while max_tokens_by_budget > 0 and _estimate_cost(max_tokens_by_budget, seg.cost_per_1k) > remaining_cost:
+            max_tokens_by_budget -= 1
         partial_tokens = min(remaining_tokens, max_tokens_by_budget)
 
         if partial_tokens > 0:
