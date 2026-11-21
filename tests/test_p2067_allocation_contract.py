@@ -99,3 +99,23 @@ def test_loader_rejects_conflicting_specialist_identity_without_weights(tmp_path
     ]}), encoding="utf-8")
     with pytest.raises(ValueError, match="REALDNA_SPECIALIST_ID_CONFLICT"):
         load_portfolio(str(path))
+
+def test_loader_rejects_conflicting_strategy_aliases(tmp_path):
+    import json
+    from app.runtime.p2071_2080_realtime_paper_runtime import load_portfolio
+    path = tmp_path / "portfolio.json"
+    path.write_text(json.dumps({"specialists": [
+        {"id": "A", "logic_type": "RANGE_REVERSION", "strategy_type": "MOMENTUM"},
+    ]}), encoding="utf-8")
+    with pytest.raises(ValueError, match="REALDNA_SPECIALIST_STRATEGY_CONFLICT"):
+        load_portfolio(str(path))
+
+
+def test_loader_accepts_equivalent_strategy_aliases(tmp_path):
+    import json
+    from app.runtime.p2071_2080_realtime_paper_runtime import load_portfolio
+    path = tmp_path / "portfolio.json"
+    path.write_text(json.dumps({"specialists": [
+        {"id": "A", "logic_type": "range_reversion", "strategy_type": "RANGE_REVERSION"},
+    ]}), encoding="utf-8")
+    assert len(load_portfolio(str(path))) == 1
