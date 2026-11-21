@@ -12,7 +12,8 @@ FTMO_REAL = "FORBIDDEN"
 
 
 def sniff(path: Path) -> str:
-    first = path.read_text(encoding="utf-8-sig", errors="ignore")[:2048].splitlines()[0]
+    with path.open("r", encoding="utf-8-sig", errors="ignore", newline="") as stream:
+        first = stream.readline(2048)
     return ";" if first.count(";") > first.count(",") else ","
 
 
