@@ -763,10 +763,27 @@ def run_p2071_2080(
     if not isinstance(cycles, int) or isinstance(cycles, bool) or cycles <= 0:
         raise ValueError("INVALID_PAPER_RUNTIME_CYCLES")
 
+    specialists = load_portfolio(portfolio_path)
+    # Historical P2070 uses portfolio_weight, not normalized_weight.
+    # Keep the original readable for audit, but never admit an undeclared
+    # allocation residual into PAPER execution.
+    historical_weights = ["portfolio_weight" in item for item in specialists]
+    if any(historical_weights):
+        if not all(historical_weights):
+            raise ValueError("P2067_PARTIAL_HISTORICAL_ALLOCATION")
+        from app.runtime.p2067_allocation_contract import reconcile_p2067_weights
+        historical_rows = [
+            {
+                "specialist_id": item.get("specialist_id") or item.get("id"),
+                "normalized_weight": item["portfolio_weight"],
+            }
+            for item in specialists
+        ]
+        # No reserve policy is declared in the preserved original list.
+        reconcile_p2067_weights(historical_rows)
+
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
-
-    specialists = load_portfolio(portfolio_path)
 
     feed = RealtimeDataFeedBridge()
     features = RealtimeFeatureBuilder()
