@@ -710,11 +710,17 @@ def load_portfolio(path: str) -> List[Dict[str, Any]]:
         if sid in seen:
             raise ValueError(f"REALDNA_SPECIALIST_ID_DUPLICATE:{sid}")
         seen.add(sid)
-        strategies = [
-            str(specialist[key]).strip().upper()
-            for key in ("logic_type", "type", "strategy_type")
-            if key in specialist and specialist[key] is not None
+        strategy_aliases = [
+            specialist[key] for key in ("logic_type", "type", "strategy_type")
+            if key in specialist
         ]
+        if any(
+            not isinstance(value, str) or not value.strip()
+            or value != value.strip()
+            for value in strategy_aliases
+        ):
+            raise ValueError(f"REALDNA_SPECIALIST_STRATEGY_INVALID:{sid}")
+        strategies = [value.upper() for value in strategy_aliases]
         if len(set(strategies)) > 1:
             raise ValueError(f"REALDNA_SPECIALIST_STRATEGY_CONFLICT:{sid}")
         strategy = strategies[0] if strategies else ""
