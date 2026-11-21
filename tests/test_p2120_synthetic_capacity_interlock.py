@@ -148,3 +148,17 @@ def test_p2111_json_rejects_exponent_overflow(tmp_path):
         path.write_text('{"equity":' + number + '}', encoding="utf-8")
         with pytest.raises(ValueError, match="P2111_NONFINITE_JSON_NUMBER"):
             load_json(str(path))
+
+def test_p2118_serial_shards_are_not_parallel_certification():
+    from app.runtime.p2111_2120_maximum_technical_capacity import ParallelExecution
+    decision = ParallelExecution().evaluate()
+    assert len(decision.payload["shards"]) == 4
+    assert decision.status == "FAIL"
+
+
+def test_p2119_checksum_is_not_scalability_certification():
+    from app.runtime.p2111_2120_maximum_technical_capacity import ScaleValidation
+    decision = ScaleValidation().evaluate()
+    assert decision.payload["scale_units"] == 50000
+    assert len(decision.payload["checksum"]) == 64
+    assert decision.status == "FAIL"
