@@ -43,13 +43,28 @@ def load_json(path: str) -> Any:
 
 
 def extract_specialists(raw: Any) -> List[Dict[str, Any]]:
-    if isinstance(raw, list):
-        return raw
+    candidates = raw if isinstance(raw, list) else None
     if isinstance(raw, dict):
         for key in ["specialists", "final_specialists", "portfolio", "locked_specialists"]:
-            if isinstance(raw.get(key), list):
-                return raw[key]
-    return [{"id": "XAUUSD_M1_REALDNA_0004", "type": "RANGE_REVERSION"}]
+            value = raw.get(key)
+            if isinstance(value, list):
+                candidates = value
+                break
+    if not isinstance(candidates, list) or not candidates:
+        raise ValueError("REALDNA_SPECIALISTS_MISSING_OR_EMPTY")
+    if any(not isinstance(item, dict) for item in candidates):
+        raise ValueError("REALDNA_SPECIALIST_ENTRY_INVALID")
+    normalized = []
+    seen = set()
+    for index, item in enumerate(candidates):
+        sid = str(item.get("id") or item.get("specialist_id") or "").strip()
+        if not sid:
+            raise ValueError(f"REALDNA_SPECIALIST_ID_MISSING:{index}")
+        if sid in seen:
+            raise ValueError(f"REALDNA_SPECIALIST_ID_DUPLICATE:{sid}")
+        seen.add(sid)
+        normalized.append(item)
+    return normalized
 
 
 def spec_id(spec: Dict[str, Any], idx: int) -> str:
@@ -148,24 +163,28 @@ class PerformanceAttribution:
         assert_no_financial_execution()
         m = p2071.get("metrics", {})
         pnl = float(m.get("paper_mark_to_market_pnl", m.get("paper_realized_pnl", 0.0)))
-        n = max(len(specialists), 1)
-        per_spec = pnl / n
-
+        # Portfolio-level PnL cannot be assigned equally to specialists without
+        # trade-level ownership evidence. Fail closed rather than fabricate attribution.
         attribution = {}
         for idx, spec in enumerate(specialists):
             sid = spec_id(spec, idx)
-            attribution[sid] = round(per_spec, 6)
+            if "realized_pnl" in spec or "paper_pnl" in spec:
+                attribution[sid] = round(float(spec.get("realized_pnl", spec.get("paper_pnl"))), 6)
 
-        ok = len(attribution) >= 3
+        complete = len(attribution) == len(specialists) and len(specialists) >= 3
+        attribution_sum = round(sum(attribution.values()), 6) if complete else None
+        reconciles = complete and abs(attribution_sum - pnl) <= max(0.01, abs(pnl) * 1e-6)
+        ok = bool(reconciles)
 
         return IntelligenceDecision(
             "P2094_PERFORMANCE_ATTRIBUTION",
             "PASS" if ok else "FAIL",
-            "ATTRIBUTION_OK" if ok else "ATTRIBUTION_FAIL",
+            "ATTRIBUTION_RECONCILED" if ok else "SPECIALIST_LEVEL_PNL_EVIDENCE_MISSING_OR_UNRECONCILED",
             {
                 "portfolio_pnl": round(pnl, 6),
                 "attribution": attribution,
-                "attribution_sum": round(sum(attribution.values()), 6),
+                "attribution_sum": attribution_sum,
+                "reconciles_to_portfolio_pnl": bool(reconciles),
             },
         )
 
@@ -210,9 +229,22 @@ class SpecialistRankingEvolution:
 
         for idx, spec in enumerate(specialists):
             sid = spec_id(spec, idx)
-            base_score = float(spec.get("score", 100 - idx))
-            rank_score = base_score + max(0, 3 - idx) * 10
-            ranking.append({"specialist_id": sid, "rank": idx + 1, "score": round(rank_score, 6)})
+            if "score" not in spec:
+                return IntelligenceDecision(
+                    "P2096_SPECIALIST_RANKING_EVOLUTION",
+                    "FAIL",
+                    "SPECIALIST_EVIDENCE_SCORE_MISSING",
+                    {"specialist_id": sid, "index": idx},
+                )
+            base_score = float(spec["score"])
+            if not math.isfinite(base_score):
+                return IntelligenceDecision(
+                    "P2096_SPECIALIST_RANKING_EVOLUTION",
+                    "FAIL",
+                    "SPECIALIST_EVIDENCE_SCORE_INVALID",
+                    {"specialist_id": sid, "index": idx},
+                )
+            ranking.append({"specialist_id": sid, "rank": 0, "score": round(base_score, 6)})
 
         ranking = sorted(ranking, key=lambda x: x["score"], reverse=True)
         for i, item in enumerate(ranking):
