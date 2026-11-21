@@ -1,0 +1,62 @@
+{
+  "revision": "ET665.R516",
+  "date": "2026-11-21",
+  "branch": "engineering/et665-r516-realdna-governance-20261121",
+  "base_commit": "88f9db4f28185b3e45561df631a0b37b1df24141",
+  "validated_head": "82198d31d3fe79b4f276707b4a5cb7bc8f9c14a7",
+  "main_head": "1b5916fbdc8c90173061315400abb92f3bbbb13a",
+  "realdna": {
+    "drive_id": "1SydyWbGewyTFdZBnXcCy6pLuMP-C3wor",
+    "sha256": "039647f3e5903821eeb3eaf63d7f767d9dad9c58c0b775254249f5e611f0f356",
+    "specialists": 3,
+    "weights": {
+      "XAUUSD_M1_REALDNA_0004": 0.5,
+      "XAUUSD_M1_REALDNA_0003": 0.249856,
+      "XAUUSD_M1_REALDNA_0001": 0.164287
+    },
+    "weight_sum": 0.914143,
+    "unallocated_weight": 0.085857
+  },
+  "risk_limits": {
+    "source_drive_id": "1RbNbuapKwXaqP4KPY62Au4wOvFgBLerB",
+    "max_position_size_per_specialist": 0.01,
+    "max_daily_loss_pct": 0.01,
+    "max_total_drawdown_pct": 0.03
+  },
+  "historical_runtime": {
+    "drive_id": "198OnfOMQQnKtrwh38eQ20UAb66Pb9oxH",
+    "sha256": "1ccb6d95ba90c4de3a5bb7131dd4d51a5d3a43c2d77517c1a0e7db34418be2ec",
+    "cycles": 1500,
+    "signals": 4329,
+    "closed_trades": 411,
+    "open_positions": 3,
+    "closed_trades_per_specialist": 137,
+    "position_qty": 1
+  },
+  "tests": {
+    "workflow_run_id": 44944980506,
+    "compile_modules_pass": 3,
+    "p2071_safety_pass": 22,
+    "r516_contract_pass": 16,
+    "total_pass": 38,
+    "total_fail": 0,
+    "scope": "isolated offline safety and contract regressions only"
+  },
+  "gates": {
+    "mean_reversion_source": "MISSING",
+    "trend_pullback_source": "MISSING",
+    "specialist_pnl_telemetry": "MISSING",
+    "daily_loss_telemetry": "MISSING",
+    "external_read_only_feed": "NOT_INTEGRATED",
+    "full_e2e": "NOT_CERTIFIED",
+    "drive_master_ledger": "403_PERMISSION_DENIED"
+  },
+  "controls": {
+    "main_modified": false,
+    "merge": false,
+    "production_deployed": false,
+    "real_orders": false,
+    "paper_only": true,
+    "cost_brl": 0
+  }
+}
