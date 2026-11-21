@@ -15,7 +15,8 @@ FTMO_REAL = "FORBIDDEN"
 
 
 def sniff(path: Path) -> str:
-    first = path.read_text(encoding="utf-8-sig", errors="ignore")[:4096].splitlines()[0]
+    with path.open("r", encoding="utf-8-sig", errors="ignore", newline="") as stream:
+        first = stream.readline(4096)
     return ";" if first.count(";") > first.count(",") else ","
 
 
@@ -234,7 +235,8 @@ def run(feedback_path: Path, outdir: Path) -> Dict:
     outdir.mkdir(parents=True, exist_ok=True)
 
     rows = load_csv(feedback_path)
-    evaluated = [x for x in rows if x.get("feedback_status") == "EVALUATED"]
+    # Historical P2380 feedback is not causally attested; never learn from it.
+    evaluated = []
     losses = [x for x in evaluated if fnum(x.get("realized_r")) < 0]
     wins = [x for x in evaluated if fnum(x.get("realized_r")) > 0]
 
@@ -307,8 +309,8 @@ def run(feedback_path: Path, outdir: Path) -> Dict:
             "PLAYBOOK_DECAY_ENGINE",
             "PATCHED_REPLAY_CANDIDATES",
         ],
-        "status": "CERTIFIED",
-        "certification": "P2381_LOSS_LESSON_AUTO_PATCH_AND_MEMORY_GRAPH_CERTIFIED",
+        "status": "BLOCKED_PENDING_CAUSAL_REPLAY",
+        "certification": "NOT_CERTIFIED",
         "next": "P2382_DE40_REPLAY_AFTER_LOSS_PATCH",
         "outputs": {k: str(v) for k, v in files.items()},
         "warning": "PATCH_ONLY_AFFECTS_PAPER_SELECTION_NO_REAL_ORDER_PERMISSION",
