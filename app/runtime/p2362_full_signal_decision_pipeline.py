@@ -7,19 +7,22 @@ from app.runtime.p2366_institutional_targeting_engine import institutional_targe
 
 def decide_signal(signal: dict, context: dict) -> dict:
     context_edge = classify_context_edge(context)
+    def fallback(*values):
+        return next((v for v in values if v is not None), None)
+
     target = institutional_targets({
         "side": signal.get("side"),
-        "entry": signal.get("entry", context.get("entry")),
-        "stop": signal.get("stop", context.get("stop")),
-        "swing_high": context.get("swing_high") or context.get("entry") or signal.get("entry"),
-        "swing_low": context.get("swing_low") or context.get("entry") or signal.get("entry"),
-        "atr": context.get("atr") or 0,
-        "session_high": context.get("session_high") or context.get("swing_high") or context.get("entry") or signal.get("entry"),
-        "session_low": context.get("session_low") or context.get("swing_low") or context.get("entry") or signal.get("entry"),
-        "liquidity_high": context.get("liquidity_high") or context.get("session_high") or context.get("swing_high") or context.get("entry") or signal.get("entry"),
-        "liquidity_low": context.get("liquidity_low") or context.get("session_low") or context.get("swing_low") or context.get("entry") or signal.get("entry"),
-        "vwap": context.get("vwap") or context.get("entry") or signal.get("entry"),
-        "round_number": context.get("round_number") or context.get("entry") or signal.get("entry"),
+        "entry": fallback(signal.get("entry"), context.get("entry")),
+        "stop": fallback(signal.get("stop"), context.get("stop")),
+        "swing_high": fallback(context.get("swing_high"), context.get("entry"), signal.get("entry")),
+        "swing_low": fallback(context.get("swing_low"), context.get("entry"), signal.get("entry")),
+        "atr": fallback(context.get("atr"), 0),
+        "session_high": fallback(context.get("session_high"), context.get("swing_high"), context.get("entry"), signal.get("entry")),
+        "session_low": fallback(context.get("session_low"), context.get("swing_low"), context.get("entry"), signal.get("entry")),
+        "liquidity_high": fallback(context.get("liquidity_high"), context.get("session_high"), context.get("swing_high"), context.get("entry"), signal.get("entry")),
+        "liquidity_low": fallback(context.get("liquidity_low"), context.get("session_low"), context.get("swing_low"), context.get("entry"), signal.get("entry")),
+        "vwap": fallback(context.get("vwap"), context.get("entry"), signal.get("entry")),
+        "round_number": fallback(context.get("round_number"), context.get("entry"), signal.get("entry")),
     })
 
     if not target.get("approved", False):
