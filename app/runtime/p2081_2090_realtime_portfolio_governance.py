@@ -317,11 +317,17 @@ def certify_governance(decisions: List[GovernanceDecision]) -> GovernanceDecisio
     assert_no_financial_execution()
 
     failed = [x.component for x in decisions if x.status != "PASS"]
+    present = [x.component for x in decisions]
+    required = {f"P{i}_" for i in range(2081, 2090)}
+    complete = len(present) == 9 and len(set(present)) == 9 and all(
+        any(component.startswith(prefix) for component in present) for prefix in required
+    )
+    ok = complete and not failed
 
     return GovernanceDecision(
         component="P2090_GOVERNANCE_CERTIFICATION",
-        status="PASS" if not failed else "FAIL",
-        reason="REALTIME_PORTFOLIO_GOVERNANCE_CERTIFIED" if not failed else "GOVERNANCE_NOT_CERTIFIED",
+        status="PASS" if ok else "FAIL",
+        reason="REALTIME_PORTFOLIO_GOVERNANCE_CERTIFIED" if ok else "GOVERNANCE_NOT_CERTIFIED",
         payload={
             "failed_components": failed,
             "passed_components": [x.component for x in decisions if x.status == "PASS"],
