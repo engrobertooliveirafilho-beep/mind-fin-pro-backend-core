@@ -102,6 +102,18 @@ class PaperTradingSessionManager:
         s = self._read_session()
         if not s or s.get("status") != "OPEN":
             return {"decision":"BLOCK_RECORD_NO_OPEN_SESSION","production":"BLOCKED"}
+        cfg, validation = load_ftmo_config(self.ftmo_config_path)
+        if not cfg or not validation["valid"] or validation["hash"] != s.get("ftmo_config_hash"):
+            return {"decision":"BLOCK_FTMO_CONFIG_CHANGED","production":"BLOCKED"}
+        if (type(s.get("trades")) is not int or s["trades"] < 0
+            or type(s.get("max_daily_trades")) is not int
+            or s["max_daily_trades"] != cfg["max_daily_trades"]
+            or type(s.get("max_daily_loss")) not in (int,float)
+            or not math.isfinite(s["max_daily_loss"])
+            or s["max_daily_loss"] != cfg["max_daily_loss"]):
+            return {"decision":"BLOCK_INVALID_SESSION_STATE","production":"BLOCKED"}
+        if s["trades"] >= s["max_daily_trades"]:
+            return {"decision":"BLOCK_MAX_DAILY_TRADES","production":"BLOCKED"}
         if type(pnl) not in (int,float) or not math.isfinite(pnl):
             return {"decision":"BLOCK_INVALID_PNL","production":"BLOCKED"}
         if type(s.get("daily_pnl")) not in (int,float) or not math.isfinite(s["daily_pnl"]):
