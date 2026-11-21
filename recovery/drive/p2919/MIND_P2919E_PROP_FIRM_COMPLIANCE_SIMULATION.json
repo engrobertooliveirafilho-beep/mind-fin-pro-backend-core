@@ -1,0 +1,21 @@
+{
+  "phase": "P2919E_PROP_FIRM_COMPLIANCE_SIMULATION",
+  "status": "COMPLETE",
+  "created_at": "2026-07-12T16:50:43.035017+00:00",
+  "note": "Internal conservative proxy. Not a claim of current official FTMO rules.",
+  "simulation": {
+    "model": "INTERNAL_CONSERVATIVE_PROP_FIRM_PROXY",
+    "starting_balance": 100000.0,
+    "ending_balance": 126897.08191531694,
+    "net_profit": 26897.081915316943,
+    "trades": 3700,
+    "daily_loss_limit_pct": 4.0,
+    "total_loss_limit_pct": 8.0,
+    "risk_per_trade_pct": 0.25,
+    "max_drawdown_currency": 1675.4616895595245,
+    "violations": [],
+    "violation_count": 0,
+    "decision": "PAPER_COMPLIANCE_PASS",
+    "live_real": "FORBIDDEN"
+  }
+}
