@@ -982,6 +982,8 @@ from app.cognition.strategic_summary_step448.engine import router as _step448_su
 app.include_router(_step448_summary_router, prefix="/step448/strategic-summary", tags=["step448-priority-ranking"])
 from app.cognition.self_critique_step447.engine import router as _step447_critique_router
 app.include_router(_step447_critique_router, prefix="/step447/self-critique", tags=["step447-heuristic-only"])
+from app.cognition.reflexion_step446.engine import router as _step446_reflexion_router
+app.include_router(_step446_reflexion_router, prefix="/step446/reflexion", tags=["step446-template-only"])
 
 
 # RunPod GPU Cloud routes
