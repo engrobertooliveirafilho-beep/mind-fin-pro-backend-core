@@ -256,6 +256,13 @@ class PaperPortfolioExecutor:
     def on_signal(self, signal: PaperSignal, price: float) -> Optional[PaperPosition]:
         assert_no_financial_execution()
 
+        if signal.side not in ("BUY", "SELL"):
+            raise ValueError("invalid paper side")
+        if type(price) not in (int, float) or not math.isfinite(price) or price <= 0:
+            raise ValueError("invalid paper entry price")
+        if type(signal.confidence) not in (int, float) or not math.isfinite(signal.confidence):
+            raise ValueError("invalid paper confidence")
+
         if signal.confidence < 0.55:
             return None
 
@@ -292,10 +299,14 @@ class PaperPortfolioExecutor:
     def mark_to_market(self, frame: FeatureFrame) -> None:
         assert_no_financial_execution()
 
+        if type(frame.mid) not in (int, float) or not math.isfinite(frame.mid) or frame.mid <= 0:
+            raise ValueError("invalid paper mark price")
         to_close = []
 
         for pid, pos in self.positions.items():
             price = frame.mid
+            if pos.side not in ("BUY", "SELL"):
+                raise ValueError("invalid existing paper side")
 
             if pos.side == "BUY":
                 pnl = price - pos.entry
