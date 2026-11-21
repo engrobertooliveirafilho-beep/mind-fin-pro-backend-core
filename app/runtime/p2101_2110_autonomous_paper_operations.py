@@ -83,7 +83,9 @@ class Watchdog:
         assert_no_financial_execution()
         checks = {
             "paper_only_locks": True,
-            "heartbeat_present": runtime_state.get("heartbeat", 0) > 0,
+            "heartbeat_present": isinstance(runtime_state.get("heartbeat"), (int, float))
+                and not isinstance(runtime_state.get("heartbeat"), bool)
+                and runtime_state["heartbeat"] > 0,
             "runtime_status_valid": runtime_state.get("runtime_status") in ["RUNNING", "RECOVERED", "READY"],
             "broker_execution_blocked": os.environ.get("BROKER_EXECUTION") == "DISABLED",
         }
