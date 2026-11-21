@@ -42,3 +42,15 @@ PYTHONPATH=. python -m pytest -q tests/test_contract.py
 SHA-256 of locally transcribed module: `ff24c23f798f2c7487be5211061eaf7dd2cc668b7957cbab69758db899f36d9d`. Local log: `/mnt/data/et665_p2067_20261121/pytest.log`. Source text was inspected via connected GitHub, but independent byte-for-byte verification of the remote blob was not performed. E2E remains blocked.
 
 Drive original dossier inspected: `DOSSIE_AUDITORIA_MIND_TRADER_P2003J_P2070_2026-08-04.pdf` (Drive ID `1CGBpxYazN9XUoyY2_QM4V-b9lxSEj4fl`), which explicitly describes historical P2066–P2070 PASS and notes no confirmed P2071–P2075 execution at its snapshot.
+
+## 2026-11-21 — P2071 loader isolated integration checks
+
+Offline `pytest` executed against a manually copied `load_portfolio` function from the connected GitHub branch, with the byte-identical P2067 contract module (Git blob SHA `8707bda64cb176f4581a07daf747888219011528`, verified locally with `git hash-object`). This is **not** a full runtime checkout or a full runtime test.
+
+```
+PYTHONPATH=. python -m pytest -q tests/test_loader.py
+..................                                                       [100%]
+18 passed in 0.07s
+```
+
+Local log `/mnt/data/et665_loader_validation/pytest.log`. Tests include invalid secondary aliases, conflicting identity and strategy aliases, historical undeclared allocation residual, explicitly declared reserve, partial weights, reserve without weights, and legacy unweighted portfolio. Historical P2070 JSON was not recovered, so compatibility with that exact artifact remains unverified.
