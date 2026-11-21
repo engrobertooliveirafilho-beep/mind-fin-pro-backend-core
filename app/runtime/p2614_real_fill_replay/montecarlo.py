@@ -29,13 +29,15 @@ def monte_carlo_from_trades(trades, initial_capital=100.0, risk_pct=0.01, runs=5
         rs.append(float(value))
 
     if not rs:
-        return {"runs": 0, "p50_final": float(initial_capital), "p95_dd": 0.0}
+        return {"method": "bootstrap_with_replacement", "runs": 0,
+                "p05_final": float(initial_capital), "p50_final": float(initial_capital),
+                "p95_final": float(initial_capital), "p50_dd": 0.0, "p95_dd": 0.0}
 
     finals = []
     dds = []
     for seed in range(runs):
-        sample = rs[:]
-        random.Random(seed).shuffle(sample)
+        rng = random.Random(seed)
+        sample = [rng.choice(rs) for _ in range(len(rs))]
         capital = float(initial_capital)
         peak = capital
         max_dd = 0.0
@@ -50,11 +52,13 @@ def monte_carlo_from_trades(trades, initial_capital=100.0, risk_pct=0.01, runs=5
 
     finals.sort()
     dds.sort()
+    percentile = lambda values, p: values[min(math.ceil((len(values) - 1) * p), len(values) - 1)]
     return {
+        "method": "bootstrap_with_replacement",
         "runs": runs,
-        "p05_final": round(finals[min(int(runs * 0.05), runs - 1)], 6),
-        "p50_final": round(finals[min(int(runs * 0.50), runs - 1)], 6),
-        "p95_final": round(finals[min(int(runs * 0.95), runs - 1)], 6),
-        "p50_dd": round(dds[min(int(runs * 0.50), runs - 1)], 6),
-        "p95_dd": round(dds[min(int(runs * 0.95), runs - 1)], 6),
+        "p05_final": round(percentile(finals, 0.05), 6),
+        "p50_final": round(percentile(finals, 0.50), 6),
+        "p95_final": round(percentile(finals, 0.95), 6),
+        "p50_dd": round(percentile(dds, 0.50), 6),
+        "p95_dd": round(percentile(dds, 0.95), 6),
     }
