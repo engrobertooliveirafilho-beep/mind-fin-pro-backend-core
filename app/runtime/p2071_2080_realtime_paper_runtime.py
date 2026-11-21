@@ -343,6 +343,18 @@ class PaperPortfolioExecutor:
             ids.add(pos.position_id)
             specialists.add(pos.specialist_id)
             restored.positions[pos.position_id] = pos
+        for entry in state["closed"]:
+            if (not isinstance(entry, dict) or not isinstance(entry.get("position"), dict)
+                    or not finite_positive(entry.get("exit"))
+                    or not isinstance(entry.get("pnl"), (int, float))
+                    or isinstance(entry.get("pnl"), bool) or not math.isfinite(entry["pnl"])
+                    or not isinstance(entry.get("close_ts"), int)
+                    or isinstance(entry.get("close_ts"), bool)
+                    or entry["close_ts"] < 0
+                    or last_ts is None or entry["close_ts"] > last_ts):
+                raise ValueError("INVALID_PAPER_EXECUTOR_CLOSED_POSITION")
+        if seq < len(restored.positions) + len(state["closed"]):
+            raise ValueError("INVALID_PAPER_EXECUTOR_SEQUENCE")
         restored.closed = state["closed"]
         return restored
 
