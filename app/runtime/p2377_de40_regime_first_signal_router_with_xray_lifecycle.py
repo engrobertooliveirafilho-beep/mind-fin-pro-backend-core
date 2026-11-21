@@ -18,8 +18,8 @@ TIMEFRAMES = ["M1", "M5", "M15", "M30", "H1", "H4", "D1"]
 
 
 def sniff(path: Path) -> str:
-    text = path.read_text(encoding="utf-8-sig", errors="ignore")[:4096]
-    first = text.splitlines()[0] if text.splitlines() else ""
+    with path.open("r", encoding="utf-8-sig", errors="ignore", newline="") as stream:
+        first = stream.readline(4096)
     return ";" if first.count(";") > first.count(",") else ","
 
 
@@ -379,7 +379,9 @@ def build_xray_router(events_path: Path, context_path: Path, dataset_root: Path,
             ev.get("event_type", ""),
             regime["volatility"],
         )
-        score = context_score(regime["score"], lifecycle["lifecycle_score"], ev, ctx)
+        # Post-event outcomes are research labels, never live-time permission inputs.
+        # Historical lifecycle remains available in the statistical context library.
+        score = context_score(regime["score"], 0.0, ev, None)
 
         permission = "PAPER_CANDIDATE_ALLOWED" if score >= 70 else "OBSERVE_ONLY"
         if score < 55:
