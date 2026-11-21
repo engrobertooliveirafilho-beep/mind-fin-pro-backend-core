@@ -705,6 +705,16 @@ def load_portfolio(path: str) -> List[Dict[str, Any]]:
         strategy = str(specialist.get("logic_type") or specialist.get("type") or specialist.get("strategy_type") or "").strip()
         if not strategy:
             raise ValueError(f"REALDNA_SPECIALIST_STRATEGY_MISSING:{sid}")
+    # Historical P2067 weights are not proof of an executable allocation.
+    # Validate any supplied allocation; do not silently normalize residuals.
+    weight_present = ["normalized_weight" in item for item in candidates]
+    if any(weight_present):
+        if not all(weight_present):
+            raise ValueError("P2067_PARTIAL_ALLOCATION")
+        if not isinstance(raw, dict):
+            raise ValueError("P2067_RESERVE_DECLARATION_REQUIRED")
+        from app.runtime.p2067_allocation_contract import reconcile_p2067_weights
+        reconcile_p2067_weights(candidates, declared_reserve=raw.get("declared_reserve"))
     return candidates
 
 
