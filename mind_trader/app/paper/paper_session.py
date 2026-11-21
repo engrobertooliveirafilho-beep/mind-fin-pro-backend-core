@@ -116,8 +116,11 @@ class PaperTradingSessionManager:
             return {"decision":"BLOCK_INVALID_PNL","production":"BLOCKED"}
         if type(s.get("daily_pnl")) not in (int,float) or not math.isfinite(s["daily_pnl"]):
             return {"decision":"BLOCK_INVALID_SESSION_PNL","production":"BLOCKED"}
+        next_daily_pnl = s["daily_pnl"] + float(pnl)
+        if not math.isfinite(next_daily_pnl):
+            return {"decision":"BLOCK_PNL_OVERFLOW","production":"BLOCKED"}
         s["trades"] += 1
-        s["daily_pnl"] += float(pnl)
+        s["daily_pnl"] = next_daily_pnl
         s["loss_streak"] = s["loss_streak"] + 1 if pnl < 0 else 0
         self._write_session(s)
         self._ledger({"type":"TRADE_RESULT","session_id":s["session_id"],
