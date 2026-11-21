@@ -105,3 +105,12 @@ Recovered Drive code map `capability_code_map.txt` (Drive ID `1uOzlFbkFOBizIgECN
 ## P2111 discovery regression — isolated offline run
 
 Three tests executed locally in Python 3 using a manually reproduced copy of the current P2111 `CapabilityDiscovery.evaluate` body (security assertion replaced by a no-op solely in the isolated harness): **3 passed in 0.04s**. Cases: empty repository, inventory with runtime and test files, and runtime without tests. Evidence log: `/mnt/data/et665_p2111_validation/pytest.log`. The run **does not** establish byte-identical module testing, full-repository pytest, integrated certification, or broker isolation. Original GitHub source and Drive sources were not modified.
+
+## Historical downstream recovery — P2121 through P2151+ (2026-11-21)
+
+Read directly from Drive (originals unchanged):
+- `console_output_P2121_PLUS.txt` (ID `1lYt3-b25Wx3w7uBIBDQDp_0DmDOB2rgl`): historical 10 mission PASS claims, P2121 certified-block audit through P2130 continuous maximum-capacity certification. Lists SHA-256 package hashes, but these hashes have **not** been independently recomputed against original packages.
+- `console_output_P2131_2150.txt` (ID `1kp-mzgC3WnU38TYZzGYkVlOF8-Qz6vuS`): historical 20 mission PASS claims, P2131 FTMO rule framework through P2150 operational readiness. Explicit `SIMULATION_COMPLIANCE_AUDIT_ONLY`; simulated guards are `GUARD_REQUIRED_AND_DECLARED`, **not** live risk-guard behavioral proof.
+- `P2151_PLUS_READINESS_DOSSIER.md` (ID `1nQcgBkC1wRe9rlphS574m_A0e0W0Ms6e`): historical `PAPER_ONLY_SIMULATION_REVIEW_READY` declaration, and `REAL_ACCOUNT`, `BROKER_EXECUTION`, `MT5_ORDER_SEND`, `FTMO_REAL` explicitly forbidden.
+
+Dependency conflict: P2121/P2151+ declare upstream P2071 and P2111 certified, whereas independently recovered P2071 audit reports FAIL/NOT_CERTIFIED and current P2111–P2120 code deliberately fails P2111/P2113/P2118/P2119/P2120 absent behavioral proof. **Therefore all downstream PASS values are historical, not current transitive E2E certification.** No downstream runtime was executed or promoted. Preserve originals as Drive source of truth; keep GitHub main intact and PAPER_ONLY locks.
