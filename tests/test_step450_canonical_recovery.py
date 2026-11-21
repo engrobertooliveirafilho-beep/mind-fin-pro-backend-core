@@ -19,6 +19,10 @@ class Step450Tests(unittest.TestCase):
     def test_empty_clusters(self):
         with self.assertRaises(ValidationError):req(clusters=[])
     def test_nonfinite_latency(self):
-        with self.assertRaises(HTTPException):run_distributed_agents(req(clusters=[ClusterConfig(cluster_id='c',capacity=1,latency_ms=float('inf'))]))
+        with self.assertRaises(ValidationError):req(clusters=[ClusterConfig(cluster_id='c',capacity=1,latency_ms=float('inf'))])
     def test_utc(self):
         self.assertTrue(run_distributed_agents(req()).meta['created_at'].endswith('Z'))
+    def test_capacity_bound(self):
+        with self.assertRaises(ValidationError):ClusterConfig(cluster_id='c',capacity=1000000001,latency_ms=1)
+    def test_weight_nan(self):
+        with self.assertRaises(ValidationError):DistributedAgentConfig(agent_id='a',role='planner',weight=float('nan'))
