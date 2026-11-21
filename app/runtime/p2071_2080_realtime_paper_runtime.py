@@ -280,9 +280,13 @@ class PaperPortfolioExecutor:
     def on_signal(self, signal: PaperSignal, price: float) -> Optional[PaperPosition]:
         assert_no_financial_execution()
 
-        if signal.side not in ("BUY", "SELL") or not math.isfinite(price) or price <= 0:
+        if signal.side not in ("BUY", "SELL") or not isinstance(price, (int, float)) or isinstance(price, bool) or not math.isfinite(price) or price <= 0:
             return None
-        if not math.isfinite(signal.confidence) or signal.confidence < 0.55:
+        if not isinstance(signal.confidence, (int, float)) or isinstance(signal.confidence, bool) or not math.isfinite(signal.confidence) or not (0.55 <= signal.confidence <= 1.0):
+            return None
+        if not isinstance(signal.symbol, str) or signal.symbol != "XAUUSD":
+            return None
+        if not isinstance(signal.specialist_id, str) or not signal.specialist_id.strip():
             return None
 
         # Historical P2067 risk limits: daily 1%, total drawdown 3%.
