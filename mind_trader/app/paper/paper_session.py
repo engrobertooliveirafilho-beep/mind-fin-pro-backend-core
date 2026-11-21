@@ -103,6 +103,8 @@ class PaperTradingSessionManager:
             return False
 
     def open_session(self, account_id="PAPER_FTMO_SIM"):
+        if account_id != "PAPER_FTMO_SIM":
+            return {"decision":"BLOCK_NON_PAPER_ACCOUNT","production":"BLOCKED"}
         cfg, val = load_ftmo_config(self.ftmo_config_path)
         if not cfg or not val["valid"]:
             return {"decision":"BLOCK_SESSION_INVALID_FTMO_CONFIG","validation":val,"production":"BLOCKED"}
