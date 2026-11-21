@@ -34,3 +34,10 @@ def test_corrupt_snapshot_fails_closed(tmp_path):
     path.write_text('{"equity":', encoding="utf-8")
     with pytest.raises(json.JSONDecodeError):
         RuntimePersistence(str(path)).load()
+
+@pytest.mark.parametrize("token", ["NaN", "Infinity", "-Infinity"])
+def test_nonfinite_json_snapshot_rejected(tmp_path, token):
+    path = tmp_path / "runtime_state.json"
+    path.write_text('{"equity": ' + token + '}', encoding="utf-8")
+    with pytest.raises(ValueError, match="NONFINITE_PAPER_RUNTIME_SNAPSHOT"):
+        RuntimePersistence(str(path)).load()
