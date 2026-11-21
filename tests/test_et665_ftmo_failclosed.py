@@ -42,5 +42,14 @@ class TestFTMOFailClosed(unittest.TestCase):
     def test_negative_spread(self):
         self.assertFalse(validate_ftmo_config(dict(self.config, spread=-1))["valid"])
 
+    def test_boolean_integer_limit(self):
+        self.assertFalse(validate_ftmo_config(dict(self.config, max_daily_trades=True))["valid"])
+    def test_blank_allowed_symbol(self):
+        self.assertFalse(validate_ftmo_config(dict(self.config, allowed_symbols=[""]))["valid"])
+    def test_invalid_restricted_symbol_type(self):
+        self.assertFalse(validate_ftmo_config(dict(self.config, restricted_symbols=[123]))["valid"])
+    def test_default_config_still_valid(self):
+        self.assertTrue(validate_ftmo_config(self.config)["valid"])
+
 if __name__ == "__main__":
     unittest.main()
