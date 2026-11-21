@@ -34,3 +34,37 @@ def test_overallocated_portfolio_rejected():
 def test_duplicate_specialist_rejected():
     with pytest.raises(ValueError, match="P2067_INVALID_SPECIALIST"):
         reconcile_p2067_weights([{"specialist_id": "A", "normalized_weight": 0.5}, {"specialist_id": "A", "normalized_weight": 0.5}])
+
+def test_portfolio_loader_rejects_historical_undeclared_residual(tmp_path):
+    import json
+    from app.runtime.p2071_2080_realtime_paper_runtime import load_portfolio
+    path = tmp_path / "portfolio.json"
+    path.write_text(json.dumps({"specialists": [
+        {"specialist_id": row["specialist_id"], "logic_type": "RANGE_REVERSION",
+         "normalized_weight": row["normalized_weight"]} for row in HISTORICAL
+    ]}), encoding="utf-8")
+    with pytest.raises(ValueError, match="P2067_UNDECLARED_RESIDUAL"):
+        load_portfolio(str(path))
+
+
+def test_portfolio_loader_accepts_explicit_reserve(tmp_path):
+    import json
+    from app.runtime.p2071_2080_realtime_paper_runtime import load_portfolio
+    path = tmp_path / "portfolio.json"
+    path.write_text(json.dumps({"declared_reserve": "0.085857", "specialists": [
+        {"specialist_id": row["specialist_id"], "logic_type": "RANGE_REVERSION",
+         "normalized_weight": row["normalized_weight"]} for row in HISTORICAL
+    ]}), encoding="utf-8")
+    assert len(load_portfolio(str(path))) == 3
+
+
+def test_portfolio_loader_rejects_partial_weights(tmp_path):
+    import json
+    from app.runtime.p2071_2080_realtime_paper_runtime import load_portfolio
+    path = tmp_path / "portfolio.json"
+    path.write_text(json.dumps({"specialists": [
+        {"specialist_id": "A", "logic_type": "RANGE_REVERSION", "normalized_weight": 0.5},
+        {"specialist_id": "B", "logic_type": "RANGE_REVERSION"},
+    ]}), encoding="utf-8")
+    with pytest.raises(ValueError, match="P2067_PARTIAL_ALLOCATION"):
+        load_portfolio(str(path))
