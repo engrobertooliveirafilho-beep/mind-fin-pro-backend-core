@@ -139,3 +139,12 @@ def test_p2111_json_rejects_nonfinite_certification_numbers(tmp_path):
     path.write_text('{"drawdown":NaN}', encoding="utf-8")
     with pytest.raises(ValueError, match="P2111_NONFINITE_JSON_NUMBER"):
         load_json(str(path))
+
+def test_p2111_json_rejects_exponent_overflow(tmp_path):
+    import pytest
+    from app.runtime.p2111_2120_maximum_technical_capacity import load_json
+    path = tmp_path / "cert.json"
+    for number in ("1e999", "-1e999", "9.9e9999"):
+        path.write_text('{"equity":' + number + '}', encoding="utf-8")
+        with pytest.raises(ValueError, match="P2111_NONFINITE_JSON_NUMBER"):
+            load_json(str(path))
