@@ -107,6 +107,54 @@ class PaperTradingSessionManager:
         except (OSError, UnicodeError, ValueError, TypeError):
             return False
 
+    def account_total_pnl(self):
+        """Replay every PAPER session; None means historical account P&L is unverified."""
+        try:
+            lines = self.ledger_path.read_text(encoding="utf-8").splitlines()
+            if not lines:
+                return None
+            sessions = {}
+            ids = set()
+            total = 0.0
+            for line in lines:
+                event = json.loads(line)
+                if not isinstance(event, dict):
+                    return None
+                eid, sid, kind = event.get("event_id"), event.get("session_id"), event.get("type")
+                if (not isinstance(eid, str) or not eid or eid in ids or
+                    not isinstance(sid, str) or not sid):
+                    return None
+                ids.add(eid)
+                if kind == "SESSION_OPENED":
+                    if sid in sessions or not isinstance(event.get("ftmo_config_hash"), str):
+                        return None
+                    sessions[sid] = [0, 0.0, False]
+                elif kind == "TRADE_RESULT":
+                    if sid not in sessions or sessions[sid][2]:
+                        return None
+                    pnl = event.get("pnl")
+                    if type(pnl) not in (int, float) or not math.isfinite(pnl):
+                        return None
+                    sessions[sid][0] += 1
+                    sessions[sid][1] += float(pnl)
+                    total += float(pnl)
+                    if (not math.isfinite(total) or not math.isfinite(sessions[sid][1]) or
+                        event.get("trades") != sessions[sid][0] or
+                        event.get("daily_pnl") != sessions[sid][1]):
+                        return None
+                elif kind == "SESSION_CLOSED":
+                    if sid not in sessions or sessions[sid][2]:
+                        return None
+                    if (event.get("trades") != sessions[sid][0] or
+                        event.get("daily_pnl") != sessions[sid][1]):
+                        return None
+                    sessions[sid][2] = True
+                else:
+                    return None
+            return total
+        except (OSError, UnicodeError, ValueError, TypeError):
+            return None
+
     def open_session(self, account_id="PAPER_FTMO_SIM"):
         if account_id != "PAPER_FTMO_SIM":
             return {"decision":"BLOCK_NON_PAPER_ACCOUNT","production":"BLOCKED"}
