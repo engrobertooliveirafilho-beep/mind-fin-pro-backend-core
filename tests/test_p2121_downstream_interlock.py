@@ -45,3 +45,16 @@ def test_p2121_p2111_cannot_be_promoted_by_unverified_pass(tmp_path, monkeypatch
     decision = CertifiedBlockAudit().evaluate(deps)
     assert decision.status == "FAIL"
     assert decision.payload["failures"] == ["p2111"]
+
+@pytest.mark.parametrize("payload,code", [
+    ('{"status":"PASS","status":"FAIL"}', "P2121_DUPLICATE_JSON_KEY"),
+    ('{"x":NaN}', "P2121_NONFINITE_JSON_NUMBER"),
+    ('{"x":Infinity}', "P2121_NONFINITE_JSON_NUMBER"),
+    ('{"x":1e999}', "P2121_NONFINITE_JSON_NUMBER"),
+])
+def test_p2121_strict_certification_json(tmp_path, payload, code):
+    from app.runtime.p2121_plus_continuous_max_capacity_audit import load_json
+    path = tmp_path / "evidence.json"
+    path.write_text(payload, encoding="utf-8")
+    with pytest.raises(ValueError, match=code):
+        load_json(str(path))
