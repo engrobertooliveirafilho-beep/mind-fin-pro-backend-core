@@ -15,6 +15,18 @@ class TestOverlap(unittest.TestCase):
             self.assertIsNone(m.account_total_pnl())
             intent={'mode':'PAPER','account_id':'PAPER_FTMO_SIM','side':'BUY','symbol':'EURUSD','risk_amount':100,'stop':1.1}
             self.assertEqual(evaluate_paper_intent(m,intent,str(p/'audit.json'))['decision'],'BLOCK_ACCOUNT_LEDGER_UNVERIFIED')
+    def test_close_of_nonactive_session_rejected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            p=Path(tmp); c=p/'config.json'; c.write_text(json.dumps(default_ftmo_config()))
+            m=PaperTradingSessionManager(str(p/'session.json'),str(p/'ledger.jsonl'),str(c))
+            m.open_session(); first=m._read_session()['session_id']; m.close_session()
+            m.open_session()
+            with m.ledger_path.open('a') as f:
+                f.write(json.dumps({'type':'SESSION_CLOSED','session_id':first,'event_id':'forged-close',
+                                    'trades':0,'daily_pnl':0})+'\\n')
+            self.assertIsNone(m.account_total_pnl())
+            self.assertEqual(m.pre_trade_check(100)['decision'],'BLOCK_ACCOUNT_LEDGER_UNVERIFIED')
+
     def test_sequential_sessions_allowed(self):
         with tempfile.TemporaryDirectory() as tmp:
             p=Path(tmp); c=p/'config.json'; c.write_text(json.dumps(default_ftmo_config()))
