@@ -71,3 +71,17 @@ def test_gap_audit_rejects_simulation_only_p2080():
     decision = CapabilityGapAudit().evaluate(deps)
     assert decision.status == "FAIL"
     assert decision.payload["gaps"] == ["p2071"]
+
+def test_p2111_inventory_is_not_functional_certification(tmp_path):
+    from app.runtime.p2111_2120_maximum_technical_capacity import CapabilityDiscovery
+    root = tmp_path / "repo"
+    (root / "app" / "runtime").mkdir(parents=True)
+    (root / "tests").mkdir()
+    (root / "app" / "runtime" / "runtime.py").write_text("x = 1")
+    (root / "tests" / "test_runtime.py").write_text("def test_x(): assert True")
+    result = CapabilityDiscovery().evaluate(str(root))
+    assert result.payload["python_files"] == 2
+    assert result.payload["tests"] == 1
+    assert result.payload["runtime_modules"] == 1
+    assert result.status == "FAIL"
+    assert result.reason == "CAPABILITY_DISCOVERY_INCOMPLETE"
