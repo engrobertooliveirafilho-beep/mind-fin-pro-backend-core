@@ -56,6 +56,34 @@ class PaperTradingSessionManager:
             related = [e for e in events if isinstance(e,dict) and e.get("session_id") == session.get("session_id")]
             if not related or related[0].get("type") != "SESSION_OPENED":
                 return False
+            # Reconcile the complete event sequence, not just its final snapshot.
+            count = 0
+            pnl = 0.0
+            closed = False
+            for index, event in enumerate(related):
+                kind = event.get("type")
+                if index == 0:
+                    if kind != "SESSION_OPENED" or event.get("ftmo_config_hash") != session.get("ftmo_config_hash"):
+                        return False
+                    continue
+                if closed:
+                    return False
+                if kind == "TRADE_RESULT":
+                    value = event.get("pnl")
+                    if type(value) not in (int,float) or not math.isfinite(value):
+                        return False
+                    count += 1
+                    pnl += float(value)
+                    if not math.isfinite(pnl) or event.get("trades") != count or event.get("daily_pnl") != pnl:
+                        return False
+                elif kind == "SESSION_CLOSED":
+                    if event.get("trades") != count or event.get("daily_pnl") != pnl:
+                        return False
+                    closed = True
+                else:
+                    return False
+            if session.get("trades") != count or session.get("daily_pnl") != pnl:
+                return False
             last = related[-1]
             if last.get("type") == "SESSION_OPENED":
                 return session.get("status") == "OPEN" and session.get("trades") == 0 and session.get("daily_pnl") == 0
