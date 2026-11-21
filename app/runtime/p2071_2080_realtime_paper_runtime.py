@@ -696,13 +696,15 @@ def load_portfolio(path: str) -> List[Dict[str, Any]]:
     for index, specialist in enumerate(candidates):
         if not isinstance(specialist, dict):
             raise ValueError(f"REALDNA_SPECIALIST_INVALID:{index}")
-        if (specialist.get("id") and specialist.get("specialist_id")
-                and specialist["id"] != specialist["specialist_id"]):
-            raise ValueError(f"REALDNA_SPECIALIST_ID_CONFLICT:{index}")
-        identifier = specialist.get("id") or specialist.get("specialist_id")
-        if not isinstance(identifier, str) or not identifier.strip() or identifier != identifier.strip():
+        identifiers = [specialist[key] for key in ("id", "specialist_id") if key in specialist]
+        if not identifiers or any(
+            not isinstance(value, str) or not value.strip() or value != value.strip()
+            for value in identifiers
+        ):
             raise ValueError(f"REALDNA_SPECIALIST_ID_INVALID:{index}")
-        sid = identifier
+        if len(set(identifiers)) != 1:
+            raise ValueError(f"REALDNA_SPECIALIST_ID_CONFLICT:{index}")
+        sid = identifiers[0]
         if not sid:
             raise ValueError(f"REALDNA_SPECIALIST_ID_MISSING:{index}")
         if sid in seen:
