@@ -81,15 +81,21 @@ def run_p2131_2150(output_dir="data/runtime/P2131_2150/evidence"):
         if not Path(p).exists():
             missing.append(p)
             continue
-        data = load_json(p)
-        loaded[k] = {
-            "path": p,
-            "status": data.get("status"),
-            "readiness": data.get("readiness"),
-        }
-        hashes[k] = sha256(p)
-        if data.get("status") != "PASS":
+        try:
+            data = load_json(p)
+            if not isinstance(data, dict):
+                raise ValueError("dependency certification must be an object")
+            hashes[k] = sha256(p)
+            loaded[k] = {
+                "path": p,
+                "status": data.get("status"),
+                "readiness": data.get("readiness"),
+            }
+            if data.get("status") != "PASS":
+                invalid.append(p)
+        except (OSError, ValueError, TypeError, UnicodeError):
             invalid.append(p)
+            loaded[k] = {"path": p, "status": "INVALID", "readiness": "NOT_CERTIFIED"}
 
     lock_drift = {k: os.environ.get(k) for k, v in LOCKS.items() if os.environ.get(k) != v}
 
