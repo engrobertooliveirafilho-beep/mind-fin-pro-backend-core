@@ -312,6 +312,10 @@ class PaperPortfolioExecutor:
             raise ValueError("INVALID_PAPER_EXECUTOR_STATE")
         if day is not None and (not finite_positive(day_start) or last_ts is None or last_ts // 86400 != day):
             raise ValueError("INVALID_PAPER_EXECUTOR_STATE")
+        # A high-water mark cannot be below the current realized balance.
+        # Otherwise the restored drawdown lock can be silently weakened.
+        if peak < equity:
+            raise ValueError("INVALID_PAPER_EXECUTOR_PEAK_EQUITY")
         restored = cls(initial_equity=float(initial))
         restored.equity = float(equity)
         restored._peak_equity = float(peak)
