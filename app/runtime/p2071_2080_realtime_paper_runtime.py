@@ -188,8 +188,17 @@ class RealtimeFeatureBuilder:
 
 
 class SignalRuntime:
+    SUPPORTED_LOGIC_TYPES = {"RANGE_REVERSION"}
+
     def __init__(self, specialists: List[Dict[str, Any]]):
         self.specialists = specialists[:3]
+        for spec in self.specialists:
+            logic_type = spec.get("logic_type") or spec.get("strategy_type") or spec.get("type")
+            sid = spec.get("specialist_id") or spec.get("id") or "UNKNOWN"
+            if logic_type not in self.SUPPORTED_LOGIC_TYPES:
+                raise NotImplementedError(
+                    f"REALDNA_LOGIC_NOT_RECOVERED:{sid}:{logic_type}"
+                )
 
     def generate(self, frame: FeatureFrame) -> List[PaperSignal]:
         assert_no_financial_execution()
@@ -197,8 +206,8 @@ class SignalRuntime:
         signals: List[PaperSignal] = []
 
         for idx, spec in enumerate(self.specialists):
-            sid = str(spec.get("id") or spec.get("specialist_id") or f"REALDNA_{idx+1}")
-            typ = str(spec.get("type") or spec.get("strategy_type") or "RANGE_REVERSION")
+            sid = str(spec.get("specialist_id") or spec.get("id"))
+            typ = str(spec.get("logic_type") or spec.get("strategy_type") or spec.get("type"))
 
             side = "HOLD"
             confidence = 0.0
@@ -431,21 +440,55 @@ class RuntimePersistence:
 
 
 def load_portfolio(path: str) -> List[Dict[str, Any]]:
+    """Load the locked RealDNA portfolio without fabricating fallback specialists."""
     p = Path(path)
-
-    if not p.exists():
+    if not p.is_file():
         raise FileNotFoundError(path)
 
     raw = json.loads(p.read_text(encoding="utf-8"))
+    specialists = raw if isinstance(raw, list) else None
+    if isinstance(raw, dict):
+        for key in ["specialists", "final_specialists", "portfolio", "locked_specialists"]:
+            if isinstance(raw.get(key), list):
+                specialists = raw[key]
+                break
 
-    if isinstance(raw, list):
-        return raw
+    if not isinstance(specialists, list) or len(specialists) != 3:
+        raise ValueError("REALDNA_PORTFOLIO_MUST_CONTAIN_EXACTLY_3_SPECIALISTS")
 
-    for key in ["specialists", "final_specialists", "portfolio", "locked_specialists"]:
-        if isinstance(raw.get(key), list):
-            return raw[key]
+    seen = set()
+    total_weight = 0.0
+    for idx, spec in enumerate(specialists):
+        if not isinstance(spec, dict):
+            raise ValueError(f"REALDNA_SPECIALIST_{idx}_INVALID")
+        sid = spec.get("specialist_id") or spec.get("id")
+        logic_type = spec.get("logic_type") or spec.get("strategy_type") or spec.get("type")
+        weight = spec.get("portfolio_weight")
+        if not isinstance(sid, str) or not sid.strip() or sid in seen:
+            raise ValueError(f"REALDNA_SPECIALIST_{idx}_ID_INVALID_OR_DUPLICATE")
+        seen.add(sid)
+        if not isinstance(logic_type, str) or not logic_type.strip():
+            raise ValueError(f"REALDNA_SPECIALIST_{sid}_LOGIC_TYPE_MISSING")
+        if type(weight) not in (int, float) or not math.isfinite(weight) or not 0 < weight <= 1:
+            raise ValueError(f"REALDNA_SPECIALIST_{sid}_WEIGHT_INVALID")
+        if spec.get("final_locked") is not True:
+            raise ValueError(f"REALDNA_SPECIALIST_{sid}_NOT_LOCKED")
+        if spec.get("deployment_scope") != "PAPER_ONLY_REAL_MARKET_DATA":
+            raise ValueError(f"REALDNA_SPECIALIST_{sid}_DEPLOYMENT_SCOPE_INVALID")
+        required_locks = {
+            "real_orders": "FORBIDDEN",
+            "live_trading": False,
+            "broker_execution": "DISABLED",
+            "financial_execution": "DISABLED",
+            "ftmo_real": "FORBIDDEN",
+        }
+        if any(spec.get(k) != v for k, v in required_locks.items()):
+            raise ValueError(f"REALDNA_SPECIALIST_{sid}_FINANCIAL_LOCK_INVALID")
+        total_weight += float(weight)
 
-    return [{"id": "XAUUSD_M1_REALDNA_0004", "type": "RANGE_REVERSION"}]
+    if total_weight > 1.000001:
+        raise ValueError("REALDNA_PORTFOLIO_WEIGHT_SUM_EXCEEDS_1")
+    return specialists
 
 
 def promote_p2080_if_ready(mission_status: Dict[str, str]) -> Dict[str, str]:
