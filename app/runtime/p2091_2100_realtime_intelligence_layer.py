@@ -110,21 +110,26 @@ class PortfolioIntelligence:
         assert_no_financial_execution()
         gov = p2081.get("governance_metrics", {})
         n = len(specialists)
+        pnl = float(gov.get("paper_mark_to_market_pnl", 0.0))
         score = 0
-        score += 25 if n >= 3 else 0
-        score += 25 if float(gov.get("equity", 0)) > 0 else 0
-        score += 25 if int(gov.get("runtime_cycles", 0)) >= 1000 else 0
-        score += 25 if float(gov.get("drawdown_pct", -1)) >= -0.05 else 0
+        score += 20 if n >= 3 else 0
+        score += 20 if float(gov.get("equity", 0)) > 0 else 0
+        score += 20 if int(gov.get("runtime_cycles", 0)) >= 1000 else 0
+        score += 20 if float(gov.get("drawdown_pct", -1)) >= -0.05 else 0
+        score += 20 if pnl > 0 else 0
+        ok = score == 100
 
         return IntelligenceDecision(
             "P2092_PORTFOLIO_INTELLIGENCE",
-            "PASS" if score >= 75 else "FAIL",
-            "PORTFOLIO_INTELLIGENCE_OK" if score >= 75 else "PORTFOLIO_INTELLIGENCE_WEAK",
+            "PASS" if ok else "FAIL",
+            "PORTFOLIO_INTELLIGENCE_OK" if ok else "PORTFOLIO_INTELLIGENCE_WEAK",
             {
                 "specialists": n,
                 "intelligence_score": score,
                 "governance_equity": gov.get("equity"),
                 "governance_drawdown_pct": gov.get("drawdown_pct"),
+                "governance_paper_pnl": pnl,
+                "profitability_gate": "PASS" if pnl > 0 else "FAIL",
             },
         )
 
@@ -207,7 +212,7 @@ class BehaviorAnalysis:
         if closed <= 0:
             behavior = "INACTIVE"
 
-        ok = behavior == "NORMAL" or behavior == "OVERACTIVE"
+        ok = behavior == "NORMAL"
 
         return IntelligenceDecision(
             "P2095_BEHAVIOR_ANALYSIS",
