@@ -27,3 +27,10 @@ Executed locally: 65/65 PASS (0.070 seconds); /mnt/data/et665_session_validation
 The previous GitHub gateway had literal backslash-n tokens embedded in code and was syntactically invalid; corrected in commit c48476e.
 Current replay validates historical event IDs, session ordering, per-session counters and cumulative P&L; caller-provided total cannot override ledger.
 LIMITS: all sessions assumed same PAPER account because historical SESSION_OPENED lacks account ID; no cryptographic integrity chain, no atomic writes, no byte-identical GitHub runtime execution. Therefore E2E_CERTIFIED=FALSE.
+
+2026-11-21 REPLAY SESSION OVERLAP FIX
+Source commit 4de0a096508934c2f3c75282438427c15f4bb575; test commit 8789a92a2853ffe5b88d42e7f68ebae616bea762.
+Local 67/67 PASS, 0 failures, 0.074s; evidence /mnt/data/et665_session_validation/overlap_20261121.log; SHA256 0c5712fe3a9a56e2a09c68e5d73e97bc4b58c481cd528ba5c0d31207859a6089.
+P8 original historical audit inspected: app/backtest/market_core.py, app/engines/correlation_authority.py, app/engines/causality_authority.py, app/validation/walk_forward_authority.py, app/execution/paper_fill_model.py, app/security/institutional_live_lock.py are named as historically created/altered; NOT certified current code. Drive originals unchanged.
+Fail closed if a SESSION_OPENED event appears before the preceding session is closed, or trade/close event belongs to a different active session.
+Evidence limit: local analogous suite, not byte-identical GitHub runtime; no cryptographic chain or atomicity. E2E_CERTIFIED=FALSE.
