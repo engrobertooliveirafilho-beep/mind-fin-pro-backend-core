@@ -61,5 +61,29 @@ class TestP2071PaperSafety(unittest.TestCase):
             self.engine.mark_to_market(self.frame(106))
         self.assertEqual(len(self.engine.positions), 1)
 
+    def test_invalid_second_position_no_partial_close(self):
+        first = self.engine.on_signal(self.signal("BUY"), 100)
+        second = self.engine.on_signal(self.signal("SELL"), 100)
+        second.side = "UNKNOWN"
+        with self.assertRaises(ValueError):
+            self.engine.mark_to_market(self.frame(106))
+        self.assertEqual(len(self.engine.positions), 2)
+        self.assertEqual(len(self.engine.closed), 0)
+        self.assertEqual(self.engine.equity, 100000.0)
+        self.assertEqual(first.status, "OPEN")
+
+    def test_unrealized_pnl_rejects_invalid_price(self):
+        self.engine.on_signal(self.signal(), 100)
+        for price in (float("nan"), float("inf"), -1, 0, True):
+            with self.subTest(price=price):
+                with self.assertRaises(ValueError):
+                    self.engine.unrealized_pnl(price)
+
+    def test_unrealized_pnl_rejects_invalid_side(self):
+        pos = self.engine.on_signal(self.signal(), 100)
+        pos.side = "UNKNOWN"
+        with self.assertRaises(ValueError):
+            self.engine.unrealized_pnl(101)
+
 if __name__ == "__main__":
     unittest.main()
