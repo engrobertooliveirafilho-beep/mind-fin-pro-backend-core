@@ -70,6 +70,10 @@ class StrategyEvolutionEngine:
 # ============================================================
 
 def run(cycles=30):
+    if type(cycles) is not int:
+        raise TypeError("cycles must be an integer")
+    if not 1 <= cycles <= 10000:
+        raise ValueError("cycles out of bounds")
     book = OrderBookSimulator()
     twin = MarketDigitalTwin()
     evo = StrategyEvolutionEngine()
