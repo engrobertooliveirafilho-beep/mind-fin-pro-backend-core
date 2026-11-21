@@ -100,3 +100,28 @@ class FtmoDeclarationSafetyTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "LOCK_BREACH"):
                 ftmo.enforce()
             self.assertEqual(os.environ["FTMO_REAL"], "ALLOWED")
+    def test_six_self_declared_pass_files_cannot_certify_integrity(self):
+        import os
+        blocks = ("P2071_2080", "P2081_2090", "P2091_2100",
+                  "P2101_2110", "P2111_2120", "P2121_PLUS")
+        with tempfile.TemporaryDirectory() as tmp:
+            old = os.getcwd()
+            try:
+                os.chdir(tmp)
+                for block in blocks:
+                    evidence = Path("data/runtime") / block / "evidence"
+                    evidence.mkdir(parents=True, exist_ok=True)
+                    (evidence / (block + "_FINAL_CERTIFICATION.json")).write_text(
+                        '{"status":"PASS","readiness":"CERTIFIED"}', encoding="utf-8")
+                    (evidence / (block + "_AUDIT.md")).write_text(
+                        "# Self-declared PASS", encoding="utf-8")
+                result = ftmo.run_p2131_2150(output_dir="out")
+            finally:
+                os.chdir(old)
+        self.assertEqual(result["missing_dependencies"], [])
+        self.assertEqual(result["invalid_dependencies"], [])
+        self.assertEqual(result["mission_status"]["P2131_FTMO_RULE_FRAMEWORK_AUDIT"], "UNVERIFIED")
+        self.assertEqual(result["mission_status"]["P2141_DATA_INTEGRITY_AUDIT"], "UNVERIFIED")
+        self.assertEqual(result["mission_status"]["P2142_METRICS_CONSISTENCY_AUDIT"], "UNVERIFIED")
+        self.assertEqual(result["mission_status"]["P2147_EVIDENCE_CHAIN_VERIFICATION"], "UNVERIFIED")
+        self.assertEqual(result["readiness"], "NOT_CERTIFIED")
