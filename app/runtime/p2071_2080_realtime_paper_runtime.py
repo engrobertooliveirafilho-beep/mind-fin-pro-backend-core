@@ -282,6 +282,21 @@ class PaperPortfolioExecutor:
         if not math.isfinite(signal.confidence) or signal.confidence < 0.55:
             return None
 
+        # Historical P2067 risk limits: daily 1%, total drawdown 3%.
+        # Without an external session clock, the simulated UTC day is derived
+        # from the signal timestamp; do not interpret this as broker validation.
+        day = int(signal.ts) // 86400
+        if not hasattr(self, "_paper_day") or self._paper_day != day:
+            self._paper_day = day
+            self._day_start_equity = self.equity
+        if self.equity <= self._day_start_equity * 0.99:
+            return None
+        if self.equity <= self.initial_equity * 0.97:
+            return None
+
+        # No specialist may open more than one position concurrently.
+        if any(p.specialist_id == signal.specialist_id for p in self.positions.values()):
+            return None
         if len(self.positions) >= 3:
             return None
 
