@@ -22,7 +22,7 @@ def institutional_targets(ctx: dict) -> dict:
     if not all(math.isfinite(v) for v in (entry,stop,swing_high,swing_low,atr,session_high,session_low,liquidity_high,liquidity_low,vwap,round_number)):
         return {"approved":False,"decision":"BLOCK_INVALID_NUMERIC","mode":"PAPER_ONLY","real_orders":"FORBIDDEN","ftmo_real":"FORBIDDEN"}
     risk=abs(entry-stop)
-    if side not in ("BUY", "SELL") or risk<=0:
+    if side not in ("BUY", "SELL") or risk<=0 or (side=="BUY" and stop>=entry) or (side=="SELL" and stop<=entry):
         return {"approved":False,"decision":"BLOCK_INVALID_RISK","mode":"PAPER_ONLY","real_orders":"FORBIDDEN"}
 
     move=abs(swing_high-swing_low)
