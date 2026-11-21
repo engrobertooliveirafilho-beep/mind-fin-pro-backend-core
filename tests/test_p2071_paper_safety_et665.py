@@ -37,6 +37,30 @@ class TestP2071PaperSafety(unittest.TestCase):
             with self.subTest(confidence=confidence):
                 with self.assertRaises(ValueError):
                     self.engine.on_signal(self.signal(confidence=confidence), 100)
+    def test_position_quantity_scales_unrealized_pnl(self):
+        pos = self.engine.on_signal(self.signal(), 100)
+        pos.qty = 2.5
+        self.assertEqual(self.engine.unrealized_pnl(102), 5.0)
+        self.assertEqual(self.engine.current_equity(102), 100005.0)
+
+    def test_position_quantity_scales_realized_pnl(self):
+        pos = self.engine.on_signal(self.signal(), 100)
+        pos.qty = 2.5
+        self.engine.mark_to_market(self.frame(106))
+        self.assertEqual(self.engine.equity, 100015.0)
+        self.assertEqual(self.engine.closed[0]["pnl"], 15.0)
+
+    def test_invalid_quantity_blocks_without_partial_close(self):
+        pos = self.engine.on_signal(self.signal(), 100)
+        for qty in (0, -1, float("nan"), float("inf"), True, "2"):
+            pos.qty = qty
+            with self.subTest(qty=qty):
+                with self.assertRaises(ValueError):
+                    self.engine.mark_to_market(self.frame(106))
+            self.assertEqual(self.engine.equity, 100000.0)
+            self.assertEqual(len(self.engine.closed), 0)
+        pos.qty = 1.0
+
     def test_valid_buy_tp(self):
         self.engine.on_signal(self.signal("BUY"), 100)
         self.engine.mark_to_market(self.frame(106))
