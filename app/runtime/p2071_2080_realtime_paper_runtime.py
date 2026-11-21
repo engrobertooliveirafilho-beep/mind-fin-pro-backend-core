@@ -288,7 +288,11 @@ class PaperPortfolioExecutor:
         # Historical P2067 risk limits: daily 1%, total drawdown 3%.
         # Without an external session clock, the simulated UTC day is derived
         # from the signal timestamp; do not interpret this as broker validation.
-        day = int(signal.ts) // 86400
+        if not isinstance(signal.ts, int) or isinstance(signal.ts, bool) or signal.ts < 0:
+            return None
+        day = signal.ts // 86400
+        if hasattr(self, "_paper_day") and day < self._paper_day:
+            return None  # Reject out-of-order sessions.
         if not hasattr(self, "_paper_day") or self._paper_day != day:
             self._paper_day = day
             self._day_start_equity = self.equity
@@ -344,6 +348,8 @@ class PaperPortfolioExecutor:
         self._peak_equity = max(self._peak_equity, self.current_equity(frame.mid))
         if self.current_equity(frame.mid) <= self._peak_equity * 0.97:
             self._risk_locked = True
+        if hasattr(self, "_day_start_equity") and self.current_equity(frame.mid) <= self._day_start_equity * 0.99:
+            self._daily_risk_locked = True
 
         to_close = []
 
