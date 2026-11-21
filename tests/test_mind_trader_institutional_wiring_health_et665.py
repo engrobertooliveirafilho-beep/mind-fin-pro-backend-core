@@ -49,5 +49,16 @@ class WiringHealthTests(unittest.TestCase):
             result=wiring.run_institutional_wiring({})
         self.assertEqual(Legacy.calls,1)
         self.assertEqual(result['status'],'operational')
+    def test_empty_registry_cannot_report_operational(self):
+        with patch.object(wiring,'MODULES',[]):
+            result=wiring.run_institutional_wiring({})
+        self.assertEqual(result['status'],'DEGRADED')
+        self.assertEqual(result['real_orders'],'FORBIDDEN')
+        self.assertEqual(result['runs_ok'],0)
+    def test_malformed_payload_rejected_before_import(self):
+        with patch.object(wiring.importlib,'import_module') as importer:
+            with self.assertRaises(TypeError):
+                wiring.run_institutional_wiring('not a dict')
+            importer.assert_not_called()
 if __name__=='__main__':
     unittest.main()
