@@ -963,6 +963,11 @@ app.include_router(mind_trader_institutional_router)
 
 # P2338X15 Mind Trader bulk capability router
 app.include_router(mind_trader_bulk_capability_router)
+# Recovered offline-only planning routes (STEP455/456).
+from app.embeddings.vector_index_step455.engine import router as _step455_plan_router
+from app.multimodal_executor_step456.engine import router as _step456_route_router
+app.include_router(_step455_plan_router, prefix="/step455/vector-index", tags=["step455-planning"])
+app.include_router(_step456_route_router, prefix="/step456/multimodal", tags=["step456-routing"])
 
 
 # RunPod GPU Cloud routes
