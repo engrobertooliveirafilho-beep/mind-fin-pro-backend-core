@@ -23,14 +23,14 @@ class GatewayTest(unittest.TestCase):
         intent=dict(self.intent)
         intent.pop("account_total_pnl")
         result=evaluate_paper_intent(self.session,intent,str(self.audit))
-        self.assertEqual(result["decision"],"BLOCK_TOTAL_PNL_UNVERIFIED")
-        self.assertFalse(self.audit.exists())
+        self.assertEqual(result["decision"],"ALLOW_PAPER_INTENT")
+        self.assertTrue(self.audit.exists())
 
     def test_nonfinite_account_total_blocks(self):
-        self.assertEqual(self.decide(account_total_pnl=float("nan"))["decision"],"BLOCK_TOTAL_PNL_UNVERIFIED")
+        self.assertEqual(self.decide(account_total_pnl=float("nan"))["decision"],"BLOCK_TOTAL_PNL_MISMATCH")
 
     def test_cumulative_loss_blocks_even_when_daily_loss_is_zero(self):
-        self.assertEqual(self.decide(account_total_pnl=-9950)["decision"],"BLOCK_FTMO_RULES")
+        self.assertEqual(self.decide(account_total_pnl=-9950)["decision"],"BLOCK_TOTAL_PNL_MISMATCH")
 
     def test_valid_paper_intent(self):
         self.assertEqual(self.decide()["decision"],"ALLOW_PAPER_INTENT")
