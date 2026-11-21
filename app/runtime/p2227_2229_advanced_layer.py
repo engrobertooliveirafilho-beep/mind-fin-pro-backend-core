@@ -77,6 +77,10 @@ class StrategyEcoSystem:
 # ============================================================
 
 def run(cycles=40):
+    if type(cycles) is not int:
+        raise TypeError("cycles must be an integer")
+    if not 1 <= cycles <= 10000:
+        raise ValueError("cycles out of bounds")
     price = 100.0
 
     crisis = CrisisEngine()
