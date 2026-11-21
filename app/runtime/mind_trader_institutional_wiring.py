@@ -19,7 +19,8 @@ MODULES = [
 def run_institutional_wiring(payload: dict | None = None) -> dict:
     # Wiring is discovery-only until an execution contract is certified.
     # Importing a module never authorizes invoking its run() entry point.
-    payload = payload or {}
+    if payload is None:
+        payload = {}
     if not isinstance(payload, dict):
         raise ValueError('INVALID_PAYLOAD')
     results = []
