@@ -46,11 +46,34 @@ class PaperTradingSessionManager:
             f.write(json.dumps(event, ensure_ascii=False, allow_nan=False) + "\n")
         return event
 
+    def _ledger_consistent(self, session):
+        """Fail closed when the latest ledger event and session snapshot disagree."""
+        try:
+            lines = self.ledger_path.read_text(encoding="utf-8").splitlines()
+            if not lines:
+                return False
+            events = [json.loads(line) for line in lines]
+            related = [e for e in events if isinstance(e,dict) and e.get("session_id") == session.get("session_id")]
+            if not related or related[0].get("type") != "SESSION_OPENED":
+                return False
+            last = related[-1]
+            if last.get("type") == "SESSION_OPENED":
+                return session.get("status") == "OPEN" and session.get("trades") == 0 and session.get("daily_pnl") == 0
+            if last.get("type") == "TRADE_RESULT":
+                return session.get("status") == "OPEN" and last.get("trades") == session.get("trades") and last.get("daily_pnl") == session.get("daily_pnl")
+            if last.get("type") == "SESSION_CLOSED":
+                return session.get("status") == "CLOSED" and last.get("trades") == session.get("trades") and last.get("daily_pnl") == session.get("daily_pnl")
+            return False
+        except (OSError, UnicodeError, ValueError, TypeError):
+            return False
+
     def open_session(self, account_id="PAPER_FTMO_SIM"):
         cfg, val = load_ftmo_config(self.ftmo_config_path)
         if not cfg or not val["valid"]:
             return {"decision":"BLOCK_SESSION_INVALID_FTMO_CONFIG","validation":val,"production":"BLOCKED"}
         existing = self._read_session()
+        if existing and existing.get("status") == "CLOSED" and not self._ledger_consistent(existing):
+            return {"decision":"BLOCK_LEDGER_MISMATCH","production":"BLOCKED"}
         if existing and existing.get("status") != "CLOSED":
             return {"decision":"SESSION_ALREADY_OPEN" if existing.get("status") == "OPEN" else "BLOCK_INVALID_SESSION_STATE",
                     "session":existing,"production":"BLOCKED"}
@@ -68,6 +91,8 @@ class PaperTradingSessionManager:
         s = self._read_session()
         if not s or s.get("status") != "OPEN":
             return {"decision":"NO_OPEN_SESSION","production":"BLOCKED"}
+        if not self._ledger_consistent(s):
+            return {"decision":"BLOCK_LEDGER_MISMATCH","production":"BLOCKED"}
         s["status"] = "CLOSED"
         s["closed_at"] = _now()
         s["close_reason"] = reason
@@ -82,6 +107,8 @@ class PaperTradingSessionManager:
             return {"allowed":False,"decision":"BLOCK_NO_SESSION","production":"BLOCKED"}
         if s.get("status") != "OPEN":
             return {"allowed":False,"decision":"BLOCK_SESSION_CLOSED","production":"BLOCKED"}
+        if not self._ledger_consistent(s):
+            return {"allowed":False,"decision":"BLOCK_LEDGER_MISMATCH","production":"BLOCKED"}
         cfg, validation = load_ftmo_config(self.ftmo_config_path)
         if not cfg or not validation["valid"] or validation["hash"] != s.get("ftmo_config_hash"):
             return {"allowed":False,"decision":"BLOCK_FTMO_CONFIG_CHANGED","production":"BLOCKED"}
@@ -107,6 +134,8 @@ class PaperTradingSessionManager:
         s = self._read_session()
         if not s or s.get("status") != "OPEN":
             return {"decision":"BLOCK_RECORD_NO_OPEN_SESSION","production":"BLOCKED"}
+        if not self._ledger_consistent(s):
+            return {"decision":"BLOCK_LEDGER_MISMATCH","production":"BLOCKED"}
         cfg, validation = load_ftmo_config(self.ftmo_config_path)
         if not cfg or not validation["valid"] or validation["hash"] != s.get("ftmo_config_hash"):
             return {"decision":"BLOCK_FTMO_CONFIG_CHANGED","production":"BLOCKED"}
