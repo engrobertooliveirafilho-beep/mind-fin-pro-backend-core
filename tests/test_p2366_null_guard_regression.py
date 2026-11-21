@@ -49,6 +49,16 @@ class InstitutionalTargetsRegression(unittest.TestCase):
         self.assertFalse(out["approved"])
         self.assertEqual(out["decision"], "BLOCK_TARGET_BELOW_2R")
 
+    def test_buy_stop_above_entry_is_blocked(self):
+        out = institutional_targets(self.base(stop=102))
+        self.assertFalse(out["approved"])
+        self.assertEqual(out["decision"], "BLOCK_INVALID_RISK")
+
+    def test_sell_stop_below_entry_is_blocked(self):
+        out = institutional_targets(self.base(side="SELL", stop=98))
+        self.assertFalse(out["approved"])
+        self.assertEqual(out["decision"], "BLOCK_INVALID_RISK")
+
     def test_no_real_orders(self):
         out = institutional_targets(self.base())
         self.assertEqual(out["real_orders"], "FORBIDDEN")
