@@ -1,0 +1,12 @@
+ET665 2026-11-21 — PAPER session/ledger reconciliation
+Scope: recovered P8.48 PAPER session; last-event ledger consistency guard.
+GitHub source commit: 3c909859430f104d7d6a0509e155d462ab3ef7d6
+Regression update commit: 73e46fc9a2289657cfcb9d65f469635ff83f3842
+Four new test cases commit: d3299c08a8c10c5e68437ba1abe31129d2b4d76b
+Local analogous corrected module: /mnt/data/et665_session_validation/mind_trader/app/paper/paper_session.py
+Execution: PYTHONPATH=. python -m unittest discover -s tests -p 'test*.py' -v
+Result: 29 tests executed, 29 PASS, 0 failures.
+Log: /mnt/data/et665_session_validation/ledger_reconcile_20261121.log
+Cases: missing ledger blocks trade; truncated ledger blocks record; divergent PnL blocks close; corrupt closed-session ledger blocks reopen.
+Safety limitation: last-event reconciliation only, not complete historical ledger hash-chain or atomic transaction; original GitHub blobs not executed locally; P2071 and S20/S21 E2E remain uncertified.
+PAPER_ONLY=TRUE | REAL_ORDERS=FORBIDDEN | MAIN=INTACT | E2E_CERTIFIED=FALSE | COST=R$0
