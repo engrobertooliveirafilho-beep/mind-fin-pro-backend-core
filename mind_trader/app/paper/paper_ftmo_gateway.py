@@ -21,7 +21,15 @@ def evaluate_paper_intent(session, intent, audit_path):
     gate=session.pre_trade_check(risk)
     if not gate.get("allowed"):
         return {"allowed":False,"decision":gate["decision"],"production":"BLOCKED"}
-    # Do not substitute daily P&L for cumulative FTMO account P&L.\n    total_pnl=intent.get("account_total_pnl")\n    if type(total_pnl) not in (int,float) or not math.isfinite(total_pnl):\n        return {"allowed":False,"decision":"BLOCK_TOTAL_PNL_UNVERIFIED","production":"BLOCKED"}\n    audit=audit_rule_application({
+    # Derive cumulative account P&L from ledger; never trust a caller's number.
+    total_pnl=session.account_total_pnl()
+    if type(total_pnl) not in (int,float) or not math.isfinite(total_pnl):
+        return {"allowed":False,"decision":"BLOCK_TOTAL_PNL_UNVERIFIED","production":"BLOCKED"}
+    claimed_total=intent.get("account_total_pnl")
+    if claimed_total is not None and (type(claimed_total) not in (int,float) or
+                                      not math.isfinite(claimed_total) or claimed_total != total_pnl):
+        return {"allowed":False,"decision":"BLOCK_TOTAL_PNL_MISMATCH","production":"BLOCKED"}
+    audit=audit_rule_application({
         "symbol":intent["symbol"],"risk_amount":risk,
         "daily_pnl":state["daily_pnl"],"total_pnl":total_pnl,
         "daily_trades":state["trades"],"stop":intent.get("stop")
