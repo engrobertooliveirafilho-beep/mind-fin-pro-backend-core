@@ -1,7 +1,8 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import List, Dict, Any, Literal
+from math import isfinite
 
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 
 router = APIRouter()
@@ -10,21 +11,21 @@ AgentRole = Literal["orchestrator", "toolmaster", "researcher", "analyzer", "pla
 
 
 class ClusterConfig(BaseModel):
-    cluster_id: str
+    cluster_id: str = Field(..., min_length=1, max_length=128)
     capacity: int = Field(..., ge=1)
     latency_ms: float = Field(..., ge=0.0)
 
 
 class DistributedAgentConfig(BaseModel):
-    agent_id: str
+    agent_id: str = Field(..., min_length=1, max_length=128)
     role: AgentRole
     weight: float = Field(0.5, ge=0.0, le=1.0)
 
 
 class DistributedRequest(BaseModel):
-    task: str
-    clusters: List[ClusterConfig]
-    agents: List[DistributedAgentConfig]
+    task: str = Field(..., min_length=1, max_length=4096)
+    clusters: List[ClusterConfig] = Field(..., min_length=1, max_length=128)
+    agents: List[DistributedAgentConfig] = Field(..., min_length=1, max_length=128)
     fanout: int = Field(2, ge=1, le=10)
 
 
@@ -63,11 +64,17 @@ def run_distributed_agents(request: DistributedRequest) -> DistributedResponse:
             },
             meta={
                 "version": "step450-v1",
-                "created_at": datetime.utcnow().isoformat() + "Z",
+                "created_at": datetime.now(timezone.utc).isoformat().replace('+00:00','Z'),
                 "engine": "distributed_agents_step450",
             },
         )
 
+    if len({c.cluster_id for c in request.clusters}) != len(request.clusters):
+        raise HTTPException(status_code=422, detail='duplicate cluster_id')
+    if len({a.agent_id for a in request.agents}) != len(request.agents):
+        raise HTTPException(status_code=422, detail='duplicate agent_id')
+    if any(not isfinite(c.latency_ms) for c in request.clusters) or any(not isfinite(a.weight) for a in request.agents):
+        raise HTTPException(status_code=422, detail='nonfinite metrics')
     total_capacity = sum(c.capacity for c in request.clusters) or 1
     cluster_scores: Dict[str, float] = {
         c.cluster_id: _cluster_base_score(c, total_capacity)
@@ -112,7 +119,7 @@ def run_distributed_agents(request: DistributedRequest) -> DistributedResponse:
         stats=stats,
         meta={
             "version": "step450-v1",
-            "created_at": datetime.utcnow().isoformat() + "Z",
+            "created_at": datetime.now(timezone.utc).isoformat().replace('+00:00','Z'),
             "engine": "distributed_agents_step450",
         },
     )
