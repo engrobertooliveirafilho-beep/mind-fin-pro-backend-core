@@ -345,6 +345,15 @@ class PaperPortfolioExecutor:
         assert_no_financial_execution()
         if not math.isfinite(frame.mid) or frame.mid <= 0:
             raise ValueError("INVALID_PAPER_MARK_PRICE")
+        if not isinstance(frame.ts, int) or isinstance(frame.ts, bool) or frame.ts < 0:
+            raise ValueError("INVALID_PAPER_MARK_TIMESTAMP")
+        frame_day = frame.ts // 86400
+        if hasattr(self, "_paper_day") and frame_day < self._paper_day:
+            raise ValueError("OUT_OF_ORDER_PAPER_MARK")
+        if not hasattr(self, "_paper_day") or frame_day != self._paper_day:
+            self._paper_day = frame_day
+            self._day_start_equity = self.current_equity(frame.mid)
+            self._daily_risk_locked = False
         self._peak_equity = max(self._peak_equity, self.current_equity(frame.mid))
         if self.current_equity(frame.mid) <= self._peak_equity * 0.97:
             self._risk_locked = True
