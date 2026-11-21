@@ -252,6 +252,9 @@ class SignalRuntime:
 
 
 class PaperPortfolioExecutor:
+    # Historical P2067 paper-only micro-size ceiling; not a broker lot contract.
+    MAX_PAPER_QTY = 0.01
+
     def __init__(self, initial_equity: float = 100000.0):
         self.initial_equity = initial_equity
         self.equity = initial_equity
@@ -263,9 +266,9 @@ class PaperPortfolioExecutor:
         total = 0.0
         for pos in self.positions.values():
             if pos.side == "BUY":
-                total += price - pos.entry
+                total += (price - pos.entry) * pos.qty
             else:
-                total += pos.entry - price
+                total += (pos.entry - price) * pos.qty
         return total
 
     def current_equity(self, price: float) -> float:
@@ -274,7 +277,9 @@ class PaperPortfolioExecutor:
     def on_signal(self, signal: PaperSignal, price: float) -> Optional[PaperPosition]:
         assert_no_financial_execution()
 
-        if signal.confidence < 0.55:
+        if signal.side not in ("BUY", "SELL") or not math.isfinite(price) or price <= 0:
+            return None
+        if not math.isfinite(signal.confidence) or signal.confidence < 0.55:
             return None
 
         if len(self.positions) >= 3:
@@ -300,7 +305,7 @@ class PaperPortfolioExecutor:
             entry=price,
             sl=round(sl, 5),
             tp=round(tp, 5),
-            qty=1.0,
+            qty=self.MAX_PAPER_QTY,
             open_ts=signal.ts,
         )
 
@@ -316,10 +321,10 @@ class PaperPortfolioExecutor:
             price = frame.mid
 
             if pos.side == "BUY":
-                pnl = price - pos.entry
+                pnl = (price - pos.entry) * pos.qty
                 hit = price <= pos.sl or price >= pos.tp
             else:
-                pnl = pos.entry - price
+                pnl = (pos.entry - price) * pos.qty
                 hit = price >= pos.sl or price <= pos.tp
 
             if hit:
@@ -488,7 +493,7 @@ def run_p2071_2080(
         "P2071_REALTIME_DATA_FEED_BRIDGE": "PASS_SIMULATED_ONLY",
         "P2072_REALTIME_FEATURE_BUILDER": "PASS",
         "P2073_SIGNAL_RUNTIME": "FAIL" if signal_runtime.unsupported_specialists else "PASS",
-        "P2074_PAPER_PORTFOLIO_EXECUTOR": "PASS",
+        "P2074_PAPER_PORTFOLIO_EXECUTOR": "PENDING_RISK_AND_FILL_VALIDATION",
         "P2075_RUNTIME_MONITOR": "PASS",
         "P2076_EXTENDED_RUNTIME_VALIDATION": "PENDING",
         "P2077_MULTI_SESSION_RUNTIME": "PENDING",
