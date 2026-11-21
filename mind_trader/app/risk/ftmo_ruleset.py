@@ -52,6 +52,8 @@ def config_hash(config):
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
 def validate_ftmo_config(config):
+    if not isinstance(config,dict):
+        return {"valid":False,"reason":"CONFIG_NOT_OBJECT"}
     missing=[k for k in REQUIRED_FIELDS if k not in config]
     if missing:
         return {"valid":False,"reason":"MISSING_FIELDS","missing":missing}
