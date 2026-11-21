@@ -1,0 +1,30 @@
+{
+  "run_id": "20260810_111839",
+  "generated_utc": "2026-08-10T14:20:37.2221155Z",
+  "canonical_factory": {
+    "file": "D:\\MIND_TEMP\\TRADER_CANONICAL_R2_R2_C_EMPTY_RECONSTRUCTION_20260803_065150\\reconstructed\\C_USERS_MINDFIN\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\mind_trader_institutional_wiring.py",
+    "sha256": "3E4A66308FDF69BEEC2A1DE3309C68A14F8AD285787CD63EAF56A0FB237B7C42"
+  },
+  "factory_method_candidates": 5,
+  "return_rows": 4,
+  "alias_rows": 10,
+  "resolved_return_callables": 2,
+  "concrete_definitions": 2,
+  "canonical_writer_resolved": true,
+  "canonical_writer": {
+    "class": "run_institutional_wiring",
+    "file": "D:\\MIND_TEMP\\TRADER_CANONICAL_R2_R2_C_EMPTY_RECONSTRUCTION_20260803_065150\\reconstructed\\C_USERS_MINDFIN\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\mind_trader_institutional_wiring.py",
+    "sha256": "3E4A66308FDF69BEEC2A1DE3309C68A14F8AD285787CD63EAF56A0FB237B7C42",
+    "symbol_capable": false,
+    "writer_capable": true
+  },
+  "s20_symbol_present": false,
+  "authority_mode": "CANONICAL_WRITER_INSTANCE_RESOLVED_SYMBOL_INCAPABLE",
+  "gap_classification": "CANONICAL_WRITER_REQUIRES_SYMBOL_SCHEMA_REMEDIATION",
+  "next": "TRADER.S21-R13-R2D-R6-R6_CONTROLLED_WRITER_SCHEMA_PATCH_SPEC",
+  "source_mutation": false,
+  "runtime_started": false,
+  "broker_connection": false,
+  "order_execution": false,
+  "live_real": "FORBIDDEN"
+}
