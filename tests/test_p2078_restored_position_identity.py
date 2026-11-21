@@ -39,3 +39,17 @@ def test_valid_closed_position_roundtrip():
     executor.mark_to_market(frame)
     state = executor.export_state()
     assert PaperPortfolioExecutor.restore_state(state).export_state() == state
+
+@pytest.mark.parametrize("field,value", [
+    ("pnl", 999.0),
+    ("pnl", -999.0),
+    ("exit", 101.0),
+])
+def test_closed_trade_accounting_mismatch_rejected(field, value):
+    executor = PaperPortfolioExecutor()
+    executor.on_signal(PaperSignal(ts=100, symbol="XAUUSD", specialist_id="S1", side="BUY", confidence=0.9, reason="TEST"), 100)
+    executor.mark_to_market(FeatureFrame(ts=120, symbol="XAUUSD", mid=106, spread=0.2, return_1=0, volatility_20=0, body_to_range=0, rsi_14=50, stoch_14=50, close_position=0.5))
+    state = executor.export_state()
+    state["closed"][0][field] = value
+    with pytest.raises(ValueError, match="INVALID_PAPER_EXECUTOR_CLOSED_POSITION"):
+        PaperPortfolioExecutor.restore_state(state)
