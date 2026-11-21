@@ -11,3 +11,7 @@ Historical source preserved commit `287a27ab10770bdeefc8effaf827d27f920da591`; f
 **Scope:** static autoscaling recommendations only, not actual infrastructure control. Module intentionally unmounted. No production, paid resources or orders affected.
 
 `PAPER_ONLY=TRUE | REAL_ORDERS=FORBIDDEN | MAIN=INTACTA | E2E_CERTIFIED=FALSE | COST=R$0`
+
+## Exact-source reconciliation and certification (2026-11-21)
+
+Reconstructed the **current GitHub source** in isolated Python 3.13 and verified `git hash-object app/infra/autoscaling_policy_step441/engine.py` = `d5472ee6eb27ab510c54243f2261edd976be5ad2`, matching GitHub. Executed isolated FastAPI TestClient: **9/9 PASS** (CPU expansion, latency expansion, downscale, hold, negative CPU, CPU over 100, negative latency, latency above bound, UTC). Local log SHA-256: `f087df3c0857b4fb2ec49570f28199f13aa4d3f3aaa4806ad48eebd020df8a5b`. This supersedes the earlier byte-integrity discrepancy for the **current engine only**; historical original hash discrepancy remains documented. Not a full-app E2E certification; module remains unmounted.
