@@ -6,8 +6,13 @@ def institutional_targets(ctx: dict) -> dict:
         value = ctx.get(key)
         return float(fallback if value is None else value)
 
-    entry=number("entry", 0)
-    stop=float(ctx["stop"])
+    if not isinstance(ctx, dict) or any(ctx.get(k) is None for k in ("entry", "stop", "side")):
+        return {"approved":False,"decision":"BLOCK_INVALID_INPUT","mode":"PAPER_ONLY","real_orders":"FORBIDDEN","ftmo_real":"FORBIDDEN"}
+    try:
+        entry=number("entry", 0)
+        stop=number("stop", 0)
+    except (TypeError, ValueError, OverflowError):
+        return {"approved":False,"decision":"BLOCK_INVALID_INPUT","mode":"PAPER_ONLY","real_orders":"FORBIDDEN","ftmo_real":"FORBIDDEN"}
     side=str(ctx["side"]).upper()
     swing_high=number("swing_high", entry)
     swing_low=number("swing_low", entry)
