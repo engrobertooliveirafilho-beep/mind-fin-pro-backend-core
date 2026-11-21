@@ -157,7 +157,7 @@ def run_p2131_2150(output_dir="data/runtime/P2131_2150/evidence"):
         "P2140_FTMO_PAPER_COMPLIANCE_CERTIFICATION": "PENDING",
 
         "P2141_DATA_INTEGRITY_AUDIT": decision(not missing),
-        "P2142_METRICS_CONSISTENCY_AUDIT": decision(not invalid),
+        "P2142_METRICS_CONSISTENCY_AUDIT": decision(not missing and not invalid),
         "P2143_STATE_RECOVERY_STRESS_AUDIT": "PASS",
         "P2144_LONG_RUN_STABILITY_AUDIT": "PASS",
         "P2145_CONFIGURATION_DRIFT_DETECTION": decision(not lock_drift),
