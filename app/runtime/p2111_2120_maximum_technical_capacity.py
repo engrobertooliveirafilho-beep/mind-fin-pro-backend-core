@@ -38,6 +38,14 @@ def assert_no_financial_execution() -> None:
     enforce_paper_only()
 
 
+def _strict_finite_float(value: str) -> float:
+    import math
+    parsed = float(value)
+    if not math.isfinite(parsed):
+        raise ValueError("P2111_NONFINITE_JSON_NUMBER")
+    return parsed
+
+
 def load_json(path: str) -> Any:
     p = Path(path)
     if not p.exists():
@@ -57,6 +65,7 @@ def load_json(path: str) -> Any:
         p.read_text(encoding="utf-8"),
         object_pairs_hook=unique_keys,
         parse_constant=reject_nonfinite,
+        parse_float=lambda value: _strict_finite_float(value),
     )
 
 
