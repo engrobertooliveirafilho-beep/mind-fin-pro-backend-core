@@ -67,13 +67,14 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
             if hasattr(m, "run"):
                 try:
                     signature = inspect.signature(m.run)
-                    try:
+                    parameters = list(signature.parameters.values())
+                    if parameters and parameters[0].name in ("payload", "request", "context"):
                         signature.bind(payload)
-                    except TypeError:
-                        signature.bind()
+                        r = m.run(payload)
+                    elif not parameters:
                         r = m.run()
                     else:
-                        r = m.run(payload)
+                        raise TypeError("UNSUPPORTED_RUN_CONTRACT: explicit adapter required")
                     row["run_ok"] = r is not None
                     row["run_result_type"] = type(r).__name__
                     row["run_result"] = r if isinstance(r, (dict, list, str, int, float, bool)) else str(r)
