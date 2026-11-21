@@ -30,25 +30,13 @@ def enforce_paper_only() -> Dict[str, str]:
 
 
 def assert_no_financial_execution() -> None:
-    locks = enforce_paper_only()
-    if locks["MIND_MODE"] != "PAPER_ONLY":
-        raise RuntimeError("MIND_MODE_LOCK_BREACH")
-    if locks["REAL_ORDERS"] != "FORBIDDEN":
-        raise RuntimeError("REAL_ORDER_LOCK_BREACH")
-    if locks["LIVE_TRADING"] != "FALSE":
-        raise RuntimeError("LIVE_TRADING_LOCK_BREACH")
-    if locks["BROKER_EXECUTION"] != "DISABLED":
-        raise RuntimeError("BROKER_EXECUTION_LOCK_BREACH")
-    if locks["FINANCIAL_EXECUTION"] != "DISABLED":
-        raise RuntimeError("FINANCIAL_EXECUTION_LOCK_BREACH")
-    if locks["FTMO_REAL"] != "FORBIDDEN":
-        raise RuntimeError("FTMO_REAL_LOCK_BREACH")
-    if locks["SEND_ORDER"] != "BLOCKED":
-        raise RuntimeError("SEND_ORDER_LOCK_BREACH")
-    if locks["MT5_ORDER_SEND"] != "BLOCKED":
-        raise RuntimeError("MT5_ORDER_SEND_LOCK_BREACH")
-    if locks["BROKER_API_CALL"] != "BLOCKED":
-        raise RuntimeError("BROKER_API_CALL_LOCK_BREACH")
+    # Inspect existing modes before initializing missing PAPER_ONLY locks.
+    # Overwriting an unsafe value first would conceal a lock breach.
+    for key, expected in ABSOLUTE_LOCKS.items():
+        observed = os.environ.get(key)
+        if observed is not None and observed != expected:
+            raise RuntimeError(f"{key}_LOCK_BREACH")
+    enforce_paper_only()
 
 
 @dataclass
