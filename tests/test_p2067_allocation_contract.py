@@ -68,3 +68,24 @@ def test_portfolio_loader_rejects_partial_weights(tmp_path):
     ]}), encoding="utf-8")
     with pytest.raises(ValueError, match="P2067_PARTIAL_ALLOCATION"):
         load_portfolio(str(path))
+
+def test_allocation_accepts_id_alias():
+    rows = [{"id": "A", "normalized_weight": 1.0}]
+    assert reconcile_p2067_weights(rows)["specialists"] == 1
+
+
+def test_conflicting_id_aliases_fail_closed():
+    rows = [{"id": "A", "specialist_id": "B", "normalized_weight": 1.0}]
+    with pytest.raises(ValueError, match="P2067_CONFLICTING_SPECIALIST_ID"):
+        reconcile_p2067_weights(rows)
+
+
+def test_loader_rejects_reserve_without_weights(tmp_path):
+    import json
+    from app.runtime.p2071_2080_realtime_paper_runtime import load_portfolio
+    path = tmp_path / "portfolio.json"
+    path.write_text(json.dumps({"declared_reserve": 0.1, "specialists": [
+        {"id": "A", "logic_type": "RANGE_REVERSION"},
+    ]}), encoding="utf-8")
+    with pytest.raises(ValueError, match="P2067_RESERVE_WITHOUT_WEIGHTS"):
+        load_portfolio(str(path))
