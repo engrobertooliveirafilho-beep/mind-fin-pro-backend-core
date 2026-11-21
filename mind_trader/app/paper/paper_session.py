@@ -167,6 +167,8 @@ class PaperTradingSessionManager:
         existing = self._read_session()
         if existing and existing.get("status") == "CLOSED" and not self._ledger_consistent(existing):
             return {"decision":"BLOCK_LEDGER_MISMATCH","production":"BLOCKED"}
+        if self.ledger_path.exists() and self.account_total_pnl() is None:
+            return {"decision":"BLOCK_ACCOUNT_LEDGER_UNVERIFIED","production":"BLOCKED"}
         if existing and existing.get("status") != "CLOSED":
             return {"decision":"SESSION_ALREADY_OPEN" if existing.get("status") == "OPEN" else "BLOCK_INVALID_SESSION_STATE",
                     "session":existing,"production":"BLOCKED"}
