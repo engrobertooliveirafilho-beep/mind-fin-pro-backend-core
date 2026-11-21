@@ -44,4 +44,12 @@ class BrokerEmulatorSafetyTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError,'halted'):
             broker.execute_order('BUY',1)
         self.assertEqual(broker.trades,[])
+    def test_session_loss_limit_enforced_before_drawdown_limit(self):
+        broker=BrokerEmulator()
+        self.assertEqual(broker.risk.check(-3100),'KILLED')
+        self.assertTrue(broker.risk.halted)
+        self.assertLess((broker.risk.peak-broker.risk.equity)/broker.risk.peak,broker.risk.max_drawdown)
+        with self.assertRaisesRegex(RuntimeError,'halted'):
+            broker.execute_order('BUY',1)
+        self.assertEqual(broker.trades,[])
 if __name__=='__main__':unittest.main()
