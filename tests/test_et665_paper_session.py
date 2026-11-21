@@ -92,5 +92,14 @@ class TestSession(unittest.TestCase):
         events = [json.loads(line) for line in Path(self.s.ledger_path).read_text().splitlines()]
         self.assertEqual(len(events), 2)
 
+    def test_corrupt_session_blocks_reopen(self):
+        Path(self.s.session_path).write_text("{", encoding="utf-8")
+        self.assertEqual(self.s.open_session()["decision"], "BLOCK_INVALID_SESSION_STATE")
+        self.assertEqual(self.s.pre_trade_check(100)["decision"], "BLOCK_SESSION_CLOSED")
+
+    def test_non_object_session_blocks_reopen(self):
+        Path(self.s.session_path).write_text("[]", encoding="utf-8")
+        self.assertEqual(self.s.open_session()["decision"], "BLOCK_INVALID_SESSION_STATE")
+
 if __name__ == "__main__":
     unittest.main()
