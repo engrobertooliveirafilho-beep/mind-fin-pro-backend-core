@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import List, Dict, Any, Literal, Optional
 
 from fastapi import APIRouter
@@ -10,16 +10,16 @@ TagType = Literal["risk", "opportunity", "execution", "finance", "other"]
 
 
 class StrategicPoint(BaseModel):
-    text: str
+    text: str = Field(..., min_length=1, max_length=4096)
     tag: TagType = "other"
     weight: float = Field(0.5, ge=0.0, le=1.0)
 
 
 class SummaryRequest(BaseModel):
-    topic: str
-    points: List[StrategicPoint]
+    topic: str = Field(..., min_length=1, max_length=4096)
+    points: List[StrategicPoint] = Field(..., max_length=2048)
     max_items: int = Field(5, ge=1, le=20)
-    focus_tags: Optional[List[TagType]] = None
+    focus_tags: Optional[List[TagType]] = Field(None, max_length=5)
 
 
 class SummaryItem(BaseModel):
@@ -63,23 +63,22 @@ def run_strategic_summary(request: SummaryRequest) -> SummaryResponse:
             },
             meta={
                 "version": "step448-v1",
-                "created_at": datetime.utcnow().isoformat() + "Z",
+                "created_at": datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
                 "engine": "strategic_summary_step448",
             },
         )
 
     filtered = _filter_points(request.points, request.focus_tags)
-    if not filtered:
-        filtered = request.points
+    # Empty focus matches stay empty; never silently ignore the user's filter.
 
     normalized_map = _normalize_weights(filtered)
-    sorted_points = sorted(filtered, key=lambda p: p.weight, reverse=True)
+    sorted_points = sorted(enumerate(filtered), key=lambda pair: pair[1].weight, reverse=True)
 
-    selected = sorted_points[: request.max_items]
+    selected_indices = {idx for idx, _ in sorted_points[: request.max_items]}
     items: List[SummaryItem] = []
 
-    for p in sorted_points:
-        included = p in selected
+    for idx, p in sorted_points:
+        included = idx in selected_indices
         reason = "selected_by_weight"
         if not included:
             reason = "dropped_low_priority"
@@ -109,7 +108,7 @@ def run_strategic_summary(request: SummaryRequest) -> SummaryResponse:
         stats=stats,
         meta={
             "version": "step448-v1",
-            "created_at": datetime.utcnow().isoformat() + "Z",
+            "created_at": datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
             "engine": "strategic_summary_step448",
         },
     )
