@@ -27,3 +27,12 @@ class InstitutionalWiringSafetyTests(unittest.TestCase):
             result=wiring.run_institutional_wiring({})
         self.assertEqual(result["status"],"IMPORTS_OK_UNCERTIFIED")
         self.assertEqual(result["runs_ok"],0)
+    def test_typeerror_does_not_retry_run(self):
+        from unittest.mock import Mock
+        module=Mock()
+        module.run.side_effect=TypeError("internal failure after side effect")
+        with patch.object(wiring,"MODULES",["fake.module"]), patch.object(wiring.importlib,"import_module",return_value=module):
+            result=wiring.run_institutional_wiring({"mode":"PAPER_ONLY"})
+        self.assertFalse(result["results"][0]["run_ok"])
+        self.assertIn("run_error=",result["results"][0]["error"])
+        module.run.assert_called_once_with({"mode":"PAPER_ONLY"})
