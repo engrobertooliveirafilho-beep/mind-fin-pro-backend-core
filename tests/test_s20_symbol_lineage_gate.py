@@ -1,5 +1,11 @@
 import unittest
-from s20_symbol_lineage_gate import validate_decision, append_immutable, digest
+import importlib.util
+import pathlib
+p = pathlib.Path(__file__).resolve().parents[1] / 'src' / 'revisions' / 's20_symbol_lineage_gate.py'
+spec = importlib.util.spec_from_file_location('s20_symbol_lineage_gate', p)
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+validate_decision, append_immutable, digest = module.validate_decision, module.append_immutable, module.digest
 
 def row(**kw):
     r = dict(day='2026-08-07', tick='1', symbol='EURUSD', timestamp_utc='2026-08-07T00:00:00Z', source_dataset_id='MT5-1', source_row_hash='a'*64, mode='PAPER_ONLY', real_execution_allowed=False)
