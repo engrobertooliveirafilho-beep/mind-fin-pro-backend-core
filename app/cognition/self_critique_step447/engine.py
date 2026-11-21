@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import List, Dict, Any, Literal, Optional
 
 from fastapi import APIRouter
@@ -10,8 +10,8 @@ Severity = Literal["low", "medium", "high"]
 
 
 class SelfCritiqueRequest(BaseModel):
-    output: str
-    context: Optional[str] = None
+    output: str = Field(..., min_length=1, max_length=16384)
+    context: Optional[str] = Field(None, max_length=8192)
     severity: Severity = "medium"
 
 
@@ -37,7 +37,7 @@ def _basic_checks(output: str, context: Optional[str], severity: Severity) -> Li
         issues.append(CritiqueItem(code=code, message=msg, severity=sev))
 
     if len(text) < 40:
-        add("too_short", "Resposta muito curta, deveria detalhar mais implicacoes praticas.", max(severity, "medium"))  # type: ignore[arg-type]
+        add("too_short", "Resposta muito curta, deveria detalhar mais implicacoes praticas.", ("high" if severity == "high" else "medium"))
 
     if "risco" not in text.lower() and (context or "").lower().find("finan") != -1:
         add("no_risk", "Resposta nao considera riscos financeiros explicitamente.", severity)
@@ -100,7 +100,7 @@ def run_self_critique(request: SelfCritiqueRequest) -> SelfCritiqueResponse:
         quality_score=quality,
         meta={
             "version": "step447-v1",
-            "created_at": datetime.utcnow().isoformat() + "Z",
+            "created_at": datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
             "engine": "self_critique_step447",
         },
     )
