@@ -92,6 +92,10 @@ class BrokerEmulator:
 
 
 def run_simulation(cycles=50):
+    if type(cycles) is not int:
+        raise TypeError("cycles must be an integer")
+    if not 1 <= cycles <= 10000:
+        raise ValueError("cycles out of bounds")
     broker = BrokerEmulator()
 
     for i in range(cycles):
