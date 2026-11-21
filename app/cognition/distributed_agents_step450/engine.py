@@ -12,14 +12,14 @@ AgentRole = Literal["orchestrator", "toolmaster", "researcher", "analyzer", "pla
 
 class ClusterConfig(BaseModel):
     cluster_id: str = Field(..., min_length=1, max_length=128)
-    capacity: int = Field(..., ge=1)
-    latency_ms: float = Field(..., ge=0.0)
+    capacity: int = Field(..., ge=1, le=1000000000)
+    latency_ms: float = Field(..., ge=0.0, le=1000000000, allow_inf_nan=False)
 
 
 class DistributedAgentConfig(BaseModel):
     agent_id: str = Field(..., min_length=1, max_length=128)
     role: AgentRole
-    weight: float = Field(0.5, ge=0.0, le=1.0)
+    weight: float = Field(0.5, ge=0.0, le=1.0, allow_inf_nan=False)
 
 
 class DistributedRequest(BaseModel):
@@ -83,8 +83,7 @@ def run_distributed_agents(request: DistributedRequest) -> DistributedResponse:
 
     assignments: List[AgentAssignment] = []
 
-    # Para cada agente, atribui sempre ao melhor cluster (maior score base),
-    # replicando em ate anout shards logicos.
+    # Deterministic allocation plan only; no agent execution or network dispatch.
     best_cluster_id = {
         a.agent_id: max(request.clusters, key=lambda c: cluster_scores[c.cluster_id]).cluster_id
         for a in request.agents
