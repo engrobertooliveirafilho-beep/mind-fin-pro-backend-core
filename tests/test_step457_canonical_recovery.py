@@ -16,4 +16,15 @@ class Step457RecoveryTests(unittest.TestCase):
     def test_invalid_numeric_rejected(self):
         with self.assertRaises((ValueError,TypeError,OverflowError)):
             run_autoscale(queue_length='not-a-number')
+    def test_nan_rejected(self):
+        with self.assertRaises(ValueError):run_autoscale(avg_latency_ms=float('nan'))
+    def test_inf_rejected(self):
+        with self.assertRaises(ValueError):run_autoscale(target_latency_ms=float('inf'))
+    def test_inverted_capacity_rejected(self):
+        with self.assertRaises(ValueError):run_autoscale(min_instances=5,max_instances=2)
+    def test_zero_max_capacity_respected(self):
+        with self.assertRaises(ValueError):run_autoscale(max_instances=0)
+    def test_unknown_parameter_rejected(self):
+        with self.assertRaises(ValueError):run_autoscale(provision_gpu=True)
 if __name__=='__main__':unittest.main()
+
