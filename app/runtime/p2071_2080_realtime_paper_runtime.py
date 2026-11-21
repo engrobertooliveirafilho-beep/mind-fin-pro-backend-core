@@ -228,10 +228,9 @@ class SignalRuntime:
                 confidence = 0.62
                 reason = "RANGE_REVERSION_HIGH_RSI"
 
-            elif abs(frame.return_1) > 0.00025 and frame.volatility_20 > 0.25:
-                side = "BUY" if frame.return_1 > 0 else "SELL"
-                confidence = 0.54
-                reason = "VOLATILITY_MOMENTUM"
+            # VOLATILITY_MOMENTUM previously emitted confidence 0.54, below
+            # the executor's 0.55 admission threshold. Do not emit a
+            # non-executable signal or invent an unvalidated edge.
 
             if side != "HOLD":
                 signals.append(
