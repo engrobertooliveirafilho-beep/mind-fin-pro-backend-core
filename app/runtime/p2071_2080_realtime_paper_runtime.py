@@ -290,7 +290,7 @@ class PaperPortfolioExecutor:
         if len(self.positions) >= 3:
             return None
 
-        self.seq += 1
+        next_seq = self.seq + 1
 
         risk = min(3.0, price * 0.25)
         reward = 2.0 * risk
@@ -307,6 +307,7 @@ class PaperPortfolioExecutor:
         if sl <= 0 or tp <= 0 or sl == price or tp == price:
             raise ValueError("invalid rounded paper stop or take-profit")
 
+        self.seq = next_seq
         pos = PaperPosition(
             position_id=f"PAPER_{self.seq:06d}",
             symbol=signal.symbol,
