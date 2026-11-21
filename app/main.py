@@ -976,6 +976,8 @@ from app.cognition.parallel_reasoning_step451.engine import router as _step451_t
 app.include_router(_step451_trace_router, prefix="/step451/branch-traces", tags=["step451-deterministic-traces"])
 from app.cognition.distributed_agents_step450.engine import router as _step450_assign_router
 app.include_router(_step450_assign_router, prefix="/step450/agent-assignments", tags=["step450-planning-only"])
+from app.cognition.hierarchical_planner_step449.engine import router as _step449_plan_router
+app.include_router(_step449_plan_router, prefix="/step449/hierarchy", tags=["step449-template-planning"])
 
 
 # RunPod GPU Cloud routes
