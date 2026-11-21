@@ -305,9 +305,7 @@ def run_p2111_2120(
     output_dir: str,
 ) -> Dict[str, Any]:
     assert_no_financial_execution()
-    output = Path(output_dir)
-    output.mkdir(parents=True, exist_ok=True)
-
+    # Validate every input before creating an output directory or probe file.
     deps = {
         "portfolio": load_json(portfolio_path),
         "p2071": load_json(p2071_certification_path),
@@ -315,6 +313,9 @@ def run_p2111_2120(
         "p2091": load_json(p2091_certification_path),
         "p2101": load_json(p2101_certification_path),
     }
+
+    output = Path(output_dir)
+    output.mkdir(parents=True, exist_ok=True)
 
     decisions: List[CapacityDecision] = []
     decisions.append(CapabilityDiscovery().evaluate(repo))
