@@ -55,3 +55,10 @@ Executed local 73/73 PASS, 0 failures, 0.097s; /mnt/data/et665_session_validatio
 Drive dossie P2003J-P2070 (ID 1CGBpxYazN9XUoyY2_QM4V-b9lxSEj4fl) confirms reported P2066-P2070 PASS, 3 locked specialists, weighted win rate 52.9195%, PnL 2167.37, drawdown -1.080484%; explicitly states P2071-P2075 execution NOT evidenced in original chat. Historical values are reported, not independently validated.
 Direct pre_trade_check now checks account_total_pnl across sessions, blocks unverifiable history and total-loss breaches. This closes bypass where gateway checked cumulative loss but direct session API did not.
 LIMIT: local regression suite is analogous to GitHub source, not exact-byte; P2071 historical E2E and strategy promotion NOT certified. PAPER_ONLY, no live orders, main intact.
+
+2026-11-21 FORGED CLOSURE REJECTION
+Source 4bf12356ee1f5377ac1439f75051146bd4402471; test 7caadfdc87b2a178bd87faa34575ba9520b08c70.
+Replayed SESSION_CLOSED must match active_session, not merely a previously opened and closed session. Reject forged closure and fail closed in pre_trade_check.
+Local analogous offline suite 74/74 PASS, 0 failures, 0.113s; /mnt/data/et665_session_validation/forged_closure_20261121.log; SHA256 0fe2d5aa18f7a1078a722dd976745dcb58a8206cbc5575f2146114767c42e7f1.
+Drive query P2071_2075 yielded historical P2003J-P2070 audit copies and conversational dossies, not independently certified P2071-P2075 code; avoid inventing completion.
+Exact GitHub-byte test execution and E2E remain pending. No real trading or production changes.
