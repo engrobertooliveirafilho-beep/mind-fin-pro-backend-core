@@ -699,7 +699,10 @@ def load_portfolio(path: str) -> List[Dict[str, Any]]:
         if (specialist.get("id") and specialist.get("specialist_id")
                 and specialist["id"] != specialist["specialist_id"]):
             raise ValueError(f"REALDNA_SPECIALIST_ID_CONFLICT:{index}")
-        sid = str(specialist.get("id") or specialist.get("specialist_id") or "").strip()
+        identifier = specialist.get("id") or specialist.get("specialist_id")
+        if not isinstance(identifier, str) or not identifier.strip() or identifier != identifier.strip():
+            raise ValueError(f"REALDNA_SPECIALIST_ID_INVALID:{index}")
+        sid = identifier
         if not sid:
             raise ValueError(f"REALDNA_SPECIALIST_ID_MISSING:{index}")
         if sid in seen:
