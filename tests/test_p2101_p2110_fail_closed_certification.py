@@ -29,3 +29,13 @@ def test_certification_rejects_missing_steps_even_if_all_present_pass():
 def test_certification_accepts_complete_nine_step_pass_only():
     decisions = [_decision(f"P{i}_TEST", "PASS") for i in range(2101, 2110)]
     assert certify(decisions).status == "PASS"
+
+def test_certification_rejects_duplicate_step_even_with_nine_decisions():
+    decisions = [_decision(f"P{i}_TEST", "PASS") for i in range(2101, 2110)]
+    decisions[-1] = _decision("P2108_DUPLICATE", "PASS")
+    assert certify(decisions).status == "FAIL"
+
+def test_certification_rejects_surplus_step_even_when_all_required_pass():
+    decisions = [_decision(f"P{i}_TEST", "PASS") for i in range(2101, 2110)]
+    decisions.append(_decision("P2101_SURPLUS", "PASS"))
+    assert certify(decisions).status == "FAIL"
