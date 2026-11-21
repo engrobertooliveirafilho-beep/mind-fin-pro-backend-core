@@ -1,0 +1,14 @@
+ET665 PAPER loss streak and account persistence integrity / 2026-11-21
+Source commit: e2d3125910d95be01b68c38e41fef05d44bc62d4
+Tests commit: 40e16471f5805e176088741b910cdbdaff699b6f
+Local execution: cd /mnt/data/et665_session_validation && PYTHONPATH=. python -m unittest discover -s tests -p 'test*.py' -v
+Ran 45 tests in 0.052s; OK (45/45).
+Evidence: /mnt/data/et665_session_validation/regression_streak_20261121.log
+SHA256: 34f13a1489de1534a39709e23867dca8ddf95f70f465c85dfa0a3b8fdb08bfd9
+Local source git blob: b69cdca0a08c0e79ac0abefbef6d7bf5e46561af
+GitHub source blob: a875c7cbdc7cb3f54aac263401580a72f54b9800
+BLOBS DIFFER: tests prove local equivalent implementation, NOT exact published GitHub code.
+Drive P8 audit (1mYoNWU4sooo1qZ5foWpkLOWELwL-3riF) describes P8.46 FTMO, P8.48 PAPER, P8.49 gateway integration, P8.85 promotion, P8.92 live lock, P8.94 broker adapter; historical counts are reported evidence, not independent current certification.
+New checks: persisted session account_id PAPER_FTMO_SIM; recompute loss_streak from each TRADE_RESULT; reject snapshot tampering.
+Pending: byte-identical GitHub execution, full atomic session/ledger, P2071 and S20/S21 E2E, no real orders.
+PAPER_ONLY=TRUE | REAL_ORDERS=FORBIDDEN | MAIN=INTACT | E2E_CERTIFIED=FALSE | COST=R$0
