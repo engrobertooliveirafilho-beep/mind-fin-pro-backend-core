@@ -33,3 +33,18 @@ def test_historical_pnl_not_misused_as_current_runtime_pnl():
     portfolio = load_portfolio(str(SOURCE))
     assert [x["total_pnl"] for x in portfolio] == [1269.77, 541.53, 356.07]
     assert all("paper_pnl" not in x and "realized_pnl" not in x for x in portfolio)
+
+
+def test_original_historical_weights_fail_closed_before_paper_execution(tmp_path):
+    import pytest
+    from app.runtime.p2071_2080_realtime_paper_runtime import run_p2071_2080
+    output = tmp_path / "must_not_exist"
+    with pytest.raises(ValueError, match="P2067_UNDECLARED_RESIDUAL"):
+        run_p2071_2080(str(SOURCE), str(output), cycles=1)
+    assert not output.exists()
+
+
+def test_historical_weights_are_distinct_from_normalized_weight():
+    portfolio = load_portfolio(str(SOURCE))
+    assert all("portfolio_weight" in item for item in portfolio)
+    assert all("normalized_weight" not in item for item in portfolio)
