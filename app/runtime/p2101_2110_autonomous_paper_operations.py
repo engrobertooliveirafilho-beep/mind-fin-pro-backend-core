@@ -150,11 +150,13 @@ class AutoHealing:
         for key, valid in diagnostics.items():
             if not valid:
                 healing_actions.append(f"HEAL_{key.upper()}")
-        ok = True
+        # Reporting a suggested HEAL_* action is not evidence that healing
+        # happened. Fail closed until diagnostics actually pass.
+        ok = not healing_actions
         return AutoDecision(
             "P2107_AUTO_HEALING",
             "PASS" if ok else "FAIL",
-            "AUTO_HEALING_POLICY_READY",
+            "AUTO_HEALING_POLICY_READY" if ok else "AUTO_HEALING_NOT_EXECUTED",
             {
                 "healing_actions": healing_actions,
                 "policy": "PAPER_ONLY_SAFE_HEALING_NO_BROKER_NO_REAL_ORDER",
@@ -171,7 +173,7 @@ class AutoReporting:
             "pass_count": len([d for d in decisions if d.status == "PASS"]),
             "fail_count": len([d for d in decisions if d.status != "PASS"]),
         }
-        ok = report["components"] > 0
+        ok = report["components"] > 0 and report["fail_count"] == 0
         return AutoDecision(
             "P2108_AUTO_REPORTING",
             "PASS" if ok else "FAIL",
@@ -206,10 +208,14 @@ class AutonomousRuntime:
 def certify(decisions: List[AutoDecision]) -> AutoDecision:
     assert_no_financial_execution()
     failed = [d.component for d in decisions if d.status != "PASS"]
+    required = {f"P{step}_" for step in range(2101, 2110)}
+    present = {d.component for d in decisions}
+    complete = all(any(component.startswith(prefix) for component in present) for prefix in required)
+    ok = bool(decisions) and complete and not failed
     return AutoDecision(
         "P2110_AUTONOMOUS_CERTIFICATION",
-        "PASS" if not failed else "FAIL",
-        "AUTONOMOUS_PAPER_OPERATIONS_CERTIFIED" if not failed else "AUTONOMOUS_CERTIFICATION_FAIL",
+        "PASS" if ok else "FAIL",
+        "AUTONOMOUS_PAPER_OPERATIONS_CERTIFIED" if ok else "AUTONOMOUS_CERTIFICATION_FAIL",
         {
             "failed_components": failed,
             "passed_components": [d.component for d in decisions if d.status == "PASS"],
