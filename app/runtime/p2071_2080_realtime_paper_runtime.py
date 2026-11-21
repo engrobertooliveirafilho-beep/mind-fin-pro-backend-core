@@ -346,6 +346,12 @@ class PaperPortfolioExecutor:
             ids.add(pos.position_id)
             specialists.add(pos.specialist_id)
             restored.positions[pos.position_id] = pos
+        # The next PAPER id must exceed every restored position id. A
+        # corrupted sequence could otherwise silently overwrite an open trade.
+        for pid in ids:
+            if (not pid.startswith("PAPER_") or len(pid) != 12
+                    or not pid[6:].isdigit() or int(pid[6:]) > seq):
+                raise ValueError("INVALID_PAPER_EXECUTOR_SEQUENCE")
         for entry in state["closed"]:
             if (not isinstance(entry, dict) or not isinstance(entry.get("position"), dict)
                     or not finite_positive(entry.get("exit"))
@@ -356,6 +362,25 @@ class PaperPortfolioExecutor:
                     or entry["close_ts"] < 0
                     or last_ts is None or entry["close_ts"] > last_ts):
                 raise ValueError("INVALID_PAPER_EXECUTOR_CLOSED_POSITION")
+        closed_ids = set()
+        for entry in state["closed"]:
+            record = entry["position"]
+            pid = record.get("position_id")
+            if (not isinstance(pid, str) or not pid.startswith("PAPER_")
+                    or len(pid) != 12 or not pid[6:].isdigit()
+                    or int(pid[6:]) > seq or pid in ids or pid in closed_ids
+                    or record.get("status") != "CLOSED"
+                    or record.get("symbol") != "XAUUSD"
+                    or record.get("side") not in ("BUY", "SELL")
+                    or not isinstance(record.get("specialist_id"), str)
+                    or not record["specialist_id"]
+                    or not all(finite_positive(record.get(key)) for key in ("entry", "sl", "tp", "qty"))
+                    or record["qty"] > cls.MAX_PAPER_QTY
+                    or not isinstance(record.get("open_ts"), int)
+                    or isinstance(record.get("open_ts"), bool)
+                    or record["open_ts"] < 0 or record["open_ts"] > entry["close_ts"]):
+                raise ValueError("INVALID_PAPER_EXECUTOR_CLOSED_POSITION")
+            closed_ids.add(pid)
         if seq < len(restored.positions) + len(state["closed"]):
             raise ValueError("INVALID_PAPER_EXECUTOR_SEQUENCE")
         restored.closed = state["closed"]
