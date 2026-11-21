@@ -27,4 +27,3 @@ class Step457RecoveryTests(unittest.TestCase):
     def test_unknown_parameter_rejected(self):
         with self.assertRaises(ValueError):run_autoscale(provision_gpu=True)
 if __name__=='__main__':unittest.main()
-
