@@ -1,4 +1,5 @@
-from datetime import datetime
+from datetime import datetime, timezone
+from hashlib import sha256
 from typing import List, Dict, Any, Optional
 
 from fastapi import APIRouter
@@ -16,10 +17,10 @@ class HierarchyNode(BaseModel):
 
 
 class HierarchicalPlanRequest(BaseModel):
-    goal: str
+    goal: str = Field(..., min_length=1, max_length=4096)
     depth: int = Field(3, ge=1, le=3)
-    memory_key: Optional[str] = None
-    context: Optional[str] = None
+    memory_key: Optional[str] = Field(None, max_length=128)
+    context: Optional[str] = Field(None, max_length=8192)
 
 
 class HierarchicalPlanResponse(BaseModel):
@@ -87,7 +88,7 @@ def plan_hierarchy(request: HierarchicalPlanRequest) -> HierarchicalPlanResponse
     nodes = _build_nodes(request.goal, depth, request.context)
 
     snapshot = {
-        "memory_key": request.memory_key or f"hp-{abs(hash(request.goal)) % 10_000}",
+        "memory_key": request.memory_key or f"hp-{int.from_bytes(sha256(request.goal.encode('utf-8')).digest()[:8], 'big') % 10_000:04d}",
         "nodes_count": len(nodes),
         "depth": depth,
     }
@@ -99,7 +100,7 @@ def plan_hierarchy(request: HierarchicalPlanRequest) -> HierarchicalPlanResponse
         memory_snapshot=snapshot,
         meta={
             "version": "step449-v1",
-            "created_at": datetime.utcnow().isoformat() + "Z",
+            "created_at": datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
             "engine": "hierarchical_planner_step449",
         },
     )
