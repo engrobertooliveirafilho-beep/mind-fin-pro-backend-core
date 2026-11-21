@@ -62,3 +62,9 @@ Replayed SESSION_CLOSED must match active_session, not merely a previously opene
 Local analogous offline suite 74/74 PASS, 0 failures, 0.113s; /mnt/data/et665_session_validation/forged_closure_20261121.log; SHA256 0fe2d5aa18f7a1078a722dd976745dcb58a8206cbc5575f2146114767c42e7f1.
 Drive query P2071_2075 yielded historical P2003J-P2070 audit copies and conversational dossies, not independently certified P2071-P2075 code; avoid inventing completion.
 Exact GitHub-byte test execution and E2E remain pending. No real trading or production changes.
+
+2026-11-21 P2071 LOW-PRICE SL/TP REPAIR
+P2071 code commits ef86d4272ebe416948af3bba7944e4bf1691f3ab and 11f46e6c84f96f4ead8e409b6ae9f37758c32a60; regression commit b6b18a9e855a59e07ab908b87650bb1a206ce762.
+Existing fixed absolute risk 3.0 and reward 6.0 produced nonpositive BUY SL or SELL TP at low instrument price. Now risk=min(3.0, price*0.25), reward=2*risk; reject rounded SL/TP <=0 or equal to entry before position creation. At price 100 legacy behavior unchanged; at price 1.1 PAPER stop/target positive.
+Drive P2003J-P2070 dossie 1CGBpxYazN9XUoyY2_QM4V-b9lxSEj4fl identifies final RealDNA artifact data/specialists/P2066_2070/PORTFOLIO_FINAL_LOCKED_REALDNA.json, three specialists and P2071_PAPER_ONLY_REALTIME_DATA_FEED_BRIDGE as next unproven mission. Artifact path is a historical reference, not independently recovered executable.
+Tests published, NOT EXECUTED in this turn; no new PASS count, exact-byte E2E pending. No production, broker, real FTMO or main changes.
