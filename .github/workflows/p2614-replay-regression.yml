@@ -1,0 +1,29 @@
+name: P2614 isolated replay regression
+on:
+  push:
+    branches:
+      - engineering/p2614-replay-failclosed-20261120
+    paths:
+      - 'app/runtime/p2614_real_fill_replay/**'
+      - 'tests/test_p2614_*.py'
+      - '.github/workflows/p2614-replay-regression.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  p2614-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout isolated branch
+        uses: actions/checkout@v4
+        with:
+          ref: engineering/p2614-replay-failclosed-20261120
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install test runner
+        run: python -m pip install --disable-pip-version-check pytest
+      - name: Run P2614 regression suite
+        run: python -m pytest -q tests/test_p2614_replay_chronology.py tests/test_p2614_replay_failclosed.py tests/test_p2614_audit_montecarlo_hardening.py
