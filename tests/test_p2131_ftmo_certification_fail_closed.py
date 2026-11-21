@@ -32,3 +32,15 @@ class FtmoDeclarationSafetyTests(unittest.TestCase):
         self.assertEqual(result["mission_status"]["P2132_DAILY_LOSS_GUARD_DECLARATION"], "UNVERIFIED")
         self.assertEqual(result["mission_status"]["P2138_RUNTIME_RISK_KILL_SWITCH_AUDIT"], "UNVERIFIED")
         self.assertEqual(result["final_state"]["ftmo_paper_compliance"], "NOT_CERTIFIED")
+    def test_unsafe_real_order_environment_rejected_before_write(self):
+        import os
+        with patch.dict(os.environ, {"REAL_ORDERS":"ALLOWED"}):
+            with self.assertRaisesRegex(RuntimeError, "LOCK_BREACH"):
+                ftmo.assert_locks()
+            self.assertEqual(os.environ["REAL_ORDERS"], "ALLOWED")
+    def test_safe_environment_accepted(self):
+        import os
+        with patch.dict(os.environ, {}, clear=True):
+            ftmo.assert_locks()
+            self.assertEqual(os.environ["REAL_ORDERS"], "FORBIDDEN")
+            self.assertEqual(os.environ["FTMO_REAL"], "FORBIDDEN")
