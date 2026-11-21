@@ -1,10 +1,16 @@
 from __future__ import annotations
+import math
 
 def dynamic_paper_lot(ctx: dict) -> dict:
     base_lot = float(ctx.get("base_lot", 0.01))
     score = float(ctx.get("institutional_score", 0))
     payoff = float(ctx.get("expected_payoff", 0))
     drawdown = float(ctx.get("current_drawdown", 0))
+    if not all(math.isfinite(x) for x in (base_lot, score, payoff, drawdown)) or base_lot <= 0 or drawdown < 0:
+        return {"base_lot": 0.0, "lot_multiplier": 0.0, "recommended_paper_lot": 0.0,
+                "reason": "INVALID_SIZING_INPUT", "mode": "PAPER_ONLY",
+                "real_orders": "FORBIDDEN", "ftmo_real": "FORBIDDEN",
+                "rule": "NEVER_ADD_TO_LOSER_ONLY_SCALE_BY_SCORE_AND_REBUILD_AFTER_PROFIT"}
     correlation_ok = ctx.get("correlation_ok") is True
     last_trade_loss = bool(ctx.get("last_trade_loss", False))
     rebuild_after_profit = bool(ctx.get("rebuild_after_profit", False))
