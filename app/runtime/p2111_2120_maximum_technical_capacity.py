@@ -117,12 +117,33 @@ class MissingComponentsAudit:
             "app/runtime/p2091_2100_realtime_intelligence_layer.py",
             "app/runtime/p2101_2110_autonomous_paper_operations.py",
         ]
-        missing = [x for x in expected if not (Path(repo) / x).exists()]
+        import ast
+        missing = []
+        invalid = []
+        for relative in expected:
+            path = Path(repo) / relative
+            if not path.is_file():
+                missing.append(relative)
+                continue
+            try:
+                tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
+                # Parsing proves only syntax and the presence of a concrete
+                # implementation body, not that the module behaves correctly.
+                definitions = [
+                    node for node in tree.body
+                    if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef))
+                ]
+                if not definitions:
+                    invalid.append(relative)
+            except (OSError, UnicodeError, SyntaxError, ValueError):
+                invalid.append(relative)
+        # Source inventory is never sufficient to certify functional completeness.
         return CapacityDecision(
             "P2113_MISSING_COMPONENTS_AUDIT",
-            "PASS" if not missing else "FAIL",
-            "NO_MISSING_CRITICAL_COMPONENTS" if not missing else "MISSING_COMPONENTS_FOUND",
-            {"expected": expected, "missing": missing},
+            "FAIL",
+            "COMPONENTS_NOT_FUNCTIONALLY_CERTIFIED",
+            {"expected": expected, "missing": missing, "invalid": invalid,
+             "syntax_checked": len(expected) - len(missing) - len(invalid)},
         )
 
 
