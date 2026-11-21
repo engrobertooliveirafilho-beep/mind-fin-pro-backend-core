@@ -34,6 +34,19 @@ class P2365CausalThresholdTests(unittest.TestCase):
             with self.subTest(field=field), self.assertRaises(ValueError):
                 causal_context_thresholds(bad)
 
+    def test_invalid_timestamp_blocks(self):
+        bad = self.df.copy()
+        bad["time"] = bad["time"].astype(str)
+        bad.loc[220, "time"] = "not-a-date"
+        with self.assertRaises(ValueError):
+            causal_context_thresholds(bad)
+
+    def test_timestamp_normalization(self):
+        frame = self.df.copy()
+        frame["time"] = frame["time"].astype(str)
+        result = causal_context_thresholds(frame)
+        self.assertTrue(pd.api.types.is_datetime64_any_dtype(result["time"]))
+
     def test_nonfinite_prices_block(self):
         bad = self.df.copy()
         bad.loc[220, "close"] = float("inf")
