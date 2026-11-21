@@ -14,6 +14,8 @@ def causal_context_thresholds(df: pd.DataFrame, *, warmup: int = 200) -> pd.Data
         result[col] = pd.to_numeric(result[col], errors="raise")
         if result[col].isna().any() or not result[col].map(lambda v: pd.notna(v) and abs(v) != float("inf")).all():
             raise ValueError("nonfinite OHLC")
+    if (result["close"] <= 0).any() or (result["high"] < result["low"]).any() or (result["high"] < result["close"]).any() or (result["low"] > result["close"]).any():
+        raise ValueError("invalid OHLC geometry")
     returns = result["close"].pct_change(fill_method=None)
     volatility = returns.rolling(20).std()
     result["vol_q30"] = volatility.expanding(min_periods=warmup).quantile(0.30).shift(1)
