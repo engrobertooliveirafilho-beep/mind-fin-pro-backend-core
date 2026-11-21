@@ -978,6 +978,8 @@ from app.cognition.distributed_agents_step450.engine import router as _step450_a
 app.include_router(_step450_assign_router, prefix="/step450/agent-assignments", tags=["step450-planning-only"])
 from app.cognition.hierarchical_planner_step449.engine import router as _step449_plan_router
 app.include_router(_step449_plan_router, prefix="/step449/hierarchy", tags=["step449-template-planning"])
+from app.cognition.strategic_summary_step448.engine import router as _step448_summary_router
+app.include_router(_step448_summary_router, prefix="/step448/strategic-summary", tags=["step448-priority-ranking"])
 
 
 # RunPod GPU Cloud routes
