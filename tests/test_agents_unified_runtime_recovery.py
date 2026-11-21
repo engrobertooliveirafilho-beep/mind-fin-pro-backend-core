@@ -36,6 +36,20 @@ class DispatchTests(unittest.TestCase):
         with self.assertRaises(AgentDispatchError):run_agent('sec.sentinel',loader=lambda _:SimpleNamespace(run_dry=lambda p:{'agent_id':'sec.sentinel','status':'ok','mode':'dry_run','price':float('inf')}))
     def test_real_execution_in_response(self):
         with self.assertRaises(AgentDispatchError):run_agent('sec.sentinel',loader=lambda _:SimpleNamespace(run_dry=lambda p:{'agent_id':'sec.sentinel','status':'ok','mode':'dry_run','submit_order':True}))
+    def test_nested_payload_isolation(self):
+        payload={'nested':{'price':100}}
+        def mutate(p):
+            p['nested']['price']=999
+            return {'agent_id':'sec.sentinel','status':'ok','mode':'dry_run'}
+        run_agent('sec.sentinel',payload,loader=lambda _:SimpleNamespace(run_dry=mutate))
+        self.assertEqual(payload['nested']['price'],100)
+    def test_nested_list_isolation(self):
+        payload={'rows':[{'symbol':'EURUSD'}]}
+        def mutate(p):
+            p['rows'][0]['symbol']='XAUUSD'
+            return {'agent_id':'sec.sentinel','status':'ok','mode':'dry_run'}
+        run_agent('sec.sentinel',payload,loader=lambda _:SimpleNamespace(run_dry=mutate))
+        self.assertEqual(payload['rows'][0]['symbol'],'EURUSD')
     def test_missing_module(self):
         with self.assertRaises(AgentDispatchError):run_agent('sec.sentinel',loader=lambda _:(_ for _ in ()).throw(ImportError()))
 if __name__=='__main__':unittest.main()
