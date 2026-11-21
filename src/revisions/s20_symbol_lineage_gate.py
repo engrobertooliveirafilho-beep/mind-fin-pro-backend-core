@@ -16,7 +16,7 @@ def validate_decision(row):
         raise ValueError('PAPER governance violation')
     if row['symbol'] != row['symbol'].strip() or any(c.isspace() for c in row['symbol']):
         raise ValueError('invalid symbol')
-    if not re.fullmatch(r'[A-Za-z0-9._/-]{1,40}', row['symbol']):
+    if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,39}', row['symbol']):
         raise ValueError('invalid symbol format')
     if not re.fullmatch(r'[0-9a-fA-F]{64}', row['source_row_hash']):
         raise ValueError('invalid source SHA256')
