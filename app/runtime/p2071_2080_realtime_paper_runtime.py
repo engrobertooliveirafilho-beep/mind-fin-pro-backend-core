@@ -367,8 +367,19 @@ class RuntimeMonitor:
         peak = max(self.equity_curve) if self.equity_curve else self.initial_equity
         trough = min(self.equity_curve) if self.equity_curve else self.initial_equity
 
-        drawdown_abs = mark_equity - peak
-        drawdown_pct = 0.0 if peak == 0 else drawdown_abs / peak
+        # Preserve the signed, current drawdown for backward compatibility and
+        # expose the true worst peak-to-trough drawdown over the full equity path.
+        drawdown_abs = min(0.0, mark_equity - peak)
+        drawdown_pct = 0.0 if peak <= 0 else drawdown_abs / peak
+        running_peak = self.equity_curve[0]
+        max_drawdown_abs = 0.0
+        max_drawdown_pct = 0.0
+        for point in self.equity_curve:
+            running_peak = max(running_peak, point)
+            if running_peak > 0:
+                decline = max(0.0, running_peak - point)
+                max_drawdown_abs = max(max_drawdown_abs, decline)
+                max_drawdown_pct = max(max_drawdown_pct, decline / running_peak)
 
         return {
             "equity": round(mark_equity, 5),
@@ -379,6 +390,8 @@ class RuntimeMonitor:
             "trough_equity": round(trough, 5),
             "drawdown_abs": round(drawdown_abs, 5),
             "drawdown_pct": round(drawdown_pct, 8),
+            "max_drawdown_abs": round(max_drawdown_abs, 5),
+            "max_drawdown_pct": round(max_drawdown_pct, 8),
             "events": len(self.events),
             "equity_points": len(self.equity_curve),
         }
@@ -570,6 +583,8 @@ def run_p2071_2080(
             "trough_equity": snap["trough_equity"],
             "drawdown_abs": snap["drawdown_abs"],
             "drawdown_pct": snap["drawdown_pct"],
+            "max_drawdown_abs": snap["max_drawdown_abs"],
+            "max_drawdown_pct": snap["max_drawdown_pct"],
             "equity_points": snap["equity_points"],
         },
         "evidence_files": {
