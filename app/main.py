@@ -986,6 +986,8 @@ from app.cognition.reflexion_step446.engine import router as _step446_reflexion_
 app.include_router(_step446_reflexion_router, prefix="/step446/reflexion", tags=["step446-template-only"])
 from app.observability.llm_profiler_step445.engine import router as _step445_profiler_router
 app.include_router(_step445_profiler_router, prefix="/step445/llm-profiler", tags=["step445-aggregate-only"])
+from app.cognition.context_cost_step444.engine import router as _step444_context_router
+app.include_router(_step444_context_router, prefix="/step444/context-cost", tags=["step444-budget-planning-only"])
 
 
 # RunPod GPU Cloud routes
