@@ -17,3 +17,13 @@ Fix: remove unsafe substitution of daily_pnl for total_pnl; require finite accou
 Remaining authority gap: account_total_pnl is caller-provided, not independently attested by a cross-session account ledger; no certification of lifetime loss accounting. No actual order execution.
 New Drive P8.94-P8.100 inventory: safe broker adapter, paper broker adapter, gateway paper broker, paper fill model, FTMO paper costs, gateway FTMO cost integration, Paper Research v1 release. The historical audit reports 283→300 cumulative passes, but did not inspect repo independently. Source implementations still require discovery and behavioral verification.
 Exact GitHub byte-level test execution pending; local tests are analogous. E2E_CERTIFIED=FALSE.
+
+2026-11-21 ACCOUNT REPLAY CORRECTION
+Session source commit: 3bb1ffa3dac5b8532f2ff40790ca6bc2b4a1d867
+Gateway source commit: c48476e5416f4ac0a22c2692d49df6727077e505
+Existing tests updated: 4f3cde479133b3bd1c7f279b50ed6e156d35c6fe
+Five new replay tests: 69ae8bba185aa8c3d0f31a50e085ed0fc2998f4d
+Executed locally: 65/65 PASS (0.070 seconds); /mnt/data/et665_session_validation/account_replay_20261121.log
+The previous GitHub gateway had literal backslash-n tokens embedded in code and was syntactically invalid; corrected in commit c48476e.
+Current replay validates historical event IDs, session ordering, per-session counters and cumulative P&L; caller-provided total cannot override ledger.
+LIMITS: all sessions assumed same PAPER account because historical SESSION_OPENED lacks account ID; no cryptographic integrity chain, no atomic writes, no byte-identical GitHub runtime execution. Therefore E2E_CERTIFIED=FALSE.
