@@ -39,20 +39,20 @@ class TestP2071PaperSafety(unittest.TestCase):
                     self.engine.on_signal(self.signal(confidence=confidence), 100)
     def test_position_quantity_scales_unrealized_pnl(self):
         pos = self.engine.on_signal(self.signal(), 100)
-        pos.qty = 2.5
-        self.assertEqual(self.engine.unrealized_pnl(102), 5.0)
-        self.assertEqual(self.engine.current_equity(102), 100005.0)
+        pos.qty = 0.005
+        self.assertEqual(self.engine.unrealized_pnl(102), 0.01)
+        self.assertEqual(self.engine.current_equity(102), 100000.01)
 
     def test_position_quantity_scales_realized_pnl(self):
         pos = self.engine.on_signal(self.signal(), 100)
         pos.qty = 2.5
         self.engine.mark_to_market(self.frame(106))
-        self.assertEqual(self.engine.equity, 100015.0)
-        self.assertEqual(self.engine.closed[0]["pnl"], 15.0)
+        self.assertEqual(self.engine.equity, 100000.03)
+        self.assertEqual(self.engine.closed[0]["pnl"], 0.03)
 
     def test_invalid_quantity_blocks_without_partial_close(self):
         pos = self.engine.on_signal(self.signal(), 100)
-        for qty in (0, -1, float("nan"), float("inf"), True, "2"):
+        for qty in (0, -1, 0.010001, float("nan"), float("inf"), True, "2"):
             pos.qty = qty
             with self.subTest(qty=qty):
                 with self.assertRaises(ValueError):
@@ -77,15 +77,29 @@ class TestP2071PaperSafety(unittest.TestCase):
         self.assertEqual(self.engine.seq, 0)
         self.assertEqual(len(self.engine.positions), 0)
 
+    def test_default_position_size_respects_p2067_micro_cap(self):
+        pos = self.engine.on_signal(self.signal(), 100)
+        self.assertEqual(pos.qty, 0.01)
+        self.assertLessEqual(pos.qty, self.engine.max_position_size)
+
+    def test_oversized_existing_position_blocks_without_partial_close(self):
+        pos = self.engine.on_signal(self.signal(), 100)
+        pos.qty = 0.010001
+        with self.assertRaises(ValueError):
+            self.engine.mark_to_market(self.frame(106))
+        self.assertEqual(len(self.engine.positions), 1)
+        self.assertEqual(len(self.engine.closed), 0)
+        self.assertEqual(self.engine.equity, 100000.0)
+
     def test_valid_buy_tp(self):
         self.engine.on_signal(self.signal("BUY"), 100)
         self.engine.mark_to_market(self.frame(106))
-        self.assertEqual(self.engine.equity, 100006.0)
+        self.assertEqual(self.engine.equity, 100000.06)
         self.assertEqual(len(self.engine.closed), 1)
     def test_valid_sell_tp(self):
         self.engine.on_signal(self.signal("SELL"), 100)
         self.engine.mark_to_market(self.frame(94))
-        self.assertEqual(self.engine.equity, 100006.0)
+        self.assertEqual(self.engine.equity, 100000.06)
     def test_invalid_mark_does_not_close_position(self):
         self.engine.on_signal(self.signal(), 100)
         for price in (float("nan"), float("inf"), -1, 0, True):
