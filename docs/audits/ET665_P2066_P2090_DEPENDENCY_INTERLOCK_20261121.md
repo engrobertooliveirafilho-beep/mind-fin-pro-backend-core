@@ -70,3 +70,9 @@ COST_BRL=0
 - Reconciled validated aggregate PnL = +2167.37 (1269.77+541.53+356.07), matching prior P2066–P2070 historical dossier; rejected strategies MUST NOT be silently promoted.
 - These are recovered historical results, not independently replayed tests. GitHub default-branch search for exact P2062 engine identifier returned no matching file; does not prove absence in other branches or Drive.
 - P2061B_FACTORY_OUTPUT_RECOVERED=TRUE; P2062_FIVE_SPECIALIST_RESULTS_RECOVERED=TRUE; ORIGINAL_DNA_JSON_RECOVERED=FALSE; P2062_ENGINE_SOURCE_RECOVERED=FALSE; P2062_REPLAY_CERTIFIED=FALSE.
+
+## Newly recovered chronological P2063G → P2064 original machine outputs
+- P2063G original stdout Drive ID 14amX7y7kAxGBaIRTnUMT0_t34kl9JnnE: historical FINAL_REAL_LOGIC_CERTIFICATION PASS, three final locked specialists, output data/specialists/P2063/REAL_LOGIC_FINAL_LOCKED_SPECIALISTS.json. Ranks: REALDNA_0004 RANGE_REVERSION score 325, REALDNA_0003 MEAN_REVERSION score 291, REALDNA_0001 TREND_PULLBACK score 280. Five historical gates marked true for each: walk_forward, monte_carlo, spread, slippage, regime.
+- P2064 original stdout Drive ID 10FjXI5QTv83jJwVm1iUGW5RZEN_RvjeA: historical REAL_MARKET_PAPER_RUNTIME PASS on source data/features/P2060/XAUUSD_M1_50000_FEATURES_200_WITH_OHLC.csv, 3 passed, 0 failed, 50,000 rows. Top REALDNA_0004 15,847 paper trades, final equity 101269.77 from 100000, total PnL 1269.77. The output includes event samples.
+- These are historical outputs; original P2063 JSON and P2064 OHLC feature CSV not yet fetched/hashed/replayed. Current P2073 runtime only implements RANGE_REVERSION; MEAN_REVERSION and TREND_PULLBACK adapters remain missing. Do not treat the P2063G historical five gates as current test execution.
+- P2063G_OUTPUT_RECOVERED=TRUE; P2064_OUTPUT_RECOVERED=TRUE; ORIGINAL_P2064_OHLC_RECOVERED=FALSE; CURRENT_THREE_ENGINE_E2E_CERTIFIED=FALSE.
