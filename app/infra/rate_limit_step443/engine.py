@@ -77,6 +77,8 @@ def _decide_for_model(policy: PolicyMode, usage: ModelUsage) -> ModelRateLimitDe
     rpm_limit = max(0, int(usage.rpm_current * factor))
     tpm_limit = max(0, int(usage.tpm_current * factor))
     status = _status_from_factor(factor)
+    if usage.rpm_current == 0 or usage.tpm_current == 0:
+        status = 'throttle'
     reason = (
         f"policy={policy}, error_rate={usage.error_rate:.3f}, "
         f"latency_ms={usage.latency_ms_avg:.1f}, factor={factor:.2f}"
