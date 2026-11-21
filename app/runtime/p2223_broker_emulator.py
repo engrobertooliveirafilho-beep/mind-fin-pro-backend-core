@@ -34,7 +34,11 @@ class RiskEngine:
             return "KILLED"
         if not isinstance(pnl, (int, float)) or not math.isfinite(pnl):
             raise ValueError("non-finite PnL")
-        self.equity += pnl
+        next_equity = self.equity + pnl
+        if not math.isfinite(next_equity) or next_equity <= 0:
+            self.killed = True
+            return "KILLED"
+        self.equity = next_equity
         self.peak = max(self.peak, self.equity)
         drawdown = (self.peak - self.equity) / self.peak
         # No session calendar is supplied; this is a conservative
