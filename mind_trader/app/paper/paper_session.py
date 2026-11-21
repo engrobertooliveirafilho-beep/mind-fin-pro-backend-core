@@ -145,7 +145,7 @@ class PaperTradingSessionManager:
                         event.get("daily_pnl") != sessions[sid][1]):
                         return None
                 elif kind == "SESSION_CLOSED":
-                    if sid not in sessions or sessions[sid][2]:
+                    if sid != active_session or sid not in sessions or sessions[sid][2]:
                         return None
                     if (event.get("trades") != sessions[sid][0] or
                         event.get("daily_pnl") != sessions[sid][1]):
