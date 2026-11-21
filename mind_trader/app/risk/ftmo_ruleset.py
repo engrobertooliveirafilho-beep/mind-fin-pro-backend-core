@@ -88,7 +88,12 @@ def load_ftmo_config(path="mind_trader/config/ftmo_ruleset.json"):
     p=Path(path)
     if not p.exists():
         return None, {"valid":False,"reason":"CONFIG_FILE_NOT_FOUND"}
-    cfg=json.loads(p.read_text(encoding="utf-8"))
+    try:
+        cfg=json.loads(p.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        return None, {"valid":False,"reason":"CONFIG_UNREADABLE"}
+    if not isinstance(cfg,dict):
+        return None, {"valid":False,"reason":"CONFIG_NOT_OBJECT"}
     return cfg, validate_ftmo_config(cfg)
 
 def audit_rule_application(trade, config, path="mind_trader/reports/P8.46_ftmo_rule_audit.json"):
