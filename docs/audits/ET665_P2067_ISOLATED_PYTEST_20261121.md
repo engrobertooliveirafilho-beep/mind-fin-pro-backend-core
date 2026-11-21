@@ -17,3 +17,14 @@ Local source SHA256:
 IMPORTANT: hashes are of the local reconstruction; they have NOT been verified byte-for-byte against connected GitHub files. This test is evidence of isolated behavior only. The P2067 historical 0.085857 residual remains undeclared in its original Drive record. No automatic normalization or promotion is authorized.
 
 PAPER_ONLY=TRUE | REAL_ORDERS=FORBIDDEN | E2E_CERTIFIED=FALSE
+
+## Follow-up execution (2026-11-21)
+
+Executed `python -m pytest -q test_contract.py` in an offline local directory containing a **manual reproduction** of the current P2067 contract and 10 tests, not a GitHub checkout or byte-identical published test file. Output:
+
+```
+..........                                                               [100%]
+10 passed in 0.04s
+```
+
+Evidence path in execution container: `/mnt/data/et665_r_current/pytest.log`. This does **not** certify the P2071 loader, the latest GitHub test suite, the historical P2070 JSON, or end-to-end trading. No live orders.
