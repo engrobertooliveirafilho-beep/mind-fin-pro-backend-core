@@ -282,6 +282,8 @@ class PaperPortfolioExecutor:
         # from the signal timestamp; do not interpret this as broker validation.
         if not isinstance(signal.ts, int) or isinstance(signal.ts, bool) or signal.ts < 0:
             return None
+        if hasattr(self, "_last_event_ts") and signal.ts < self._last_event_ts:
+            return None  # Reject retroactive signals within the same UTC day.
         day = signal.ts // 86400
         if hasattr(self, "_paper_day") and day < self._paper_day:
             return None  # Reject out-of-order sessions.
@@ -331,6 +333,7 @@ class PaperPortfolioExecutor:
         )
 
         self.positions[pos.position_id] = pos
+        self._last_event_ts = signal.ts
         return pos
 
     def mark_to_market(self, frame: FeatureFrame) -> None:
@@ -343,6 +346,8 @@ class PaperPortfolioExecutor:
             raise ValueError("INVALID_PAPER_MARK_SPREAD")
         if not isinstance(frame.ts, int) or isinstance(frame.ts, bool) or frame.ts < 0:
             raise ValueError("INVALID_PAPER_MARK_TIMESTAMP")
+        if hasattr(self, "_last_event_ts") and frame.ts < self._last_event_ts:
+            raise ValueError("OUT_OF_ORDER_PAPER_MARK")
         frame_day = frame.ts // 86400
         if hasattr(self, "_paper_day") and frame_day < self._paper_day:
             raise ValueError("OUT_OF_ORDER_PAPER_MARK")
@@ -356,6 +361,7 @@ class PaperPortfolioExecutor:
         if hasattr(self, "_day_start_equity") and self.current_equity(frame.mid) <= self._day_start_equity * 0.99:
             self._daily_risk_locked = True
 
+        self._last_event_ts = frame.ts
         to_close = []
 
         for pid, pos in self.positions.items():
