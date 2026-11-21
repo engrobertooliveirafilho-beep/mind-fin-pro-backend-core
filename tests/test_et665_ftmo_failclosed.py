@@ -67,5 +67,10 @@ class TestFTMOFailClosed(unittest.TestCase):
         self.assertIsNone(cfg)
         self.assertEqual(status["reason"], "CONFIG_NOT_OBJECT")
 
+    def test_direct_non_object_config_validation(self):
+        from mind_trader.app.risk.ftmo_ruleset import validate_ftmo_config
+        self.assertEqual(validate_ftmo_config([])["reason"], "CONFIG_NOT_OBJECT")
+        self.assertEqual(validate_ftmo_config(None)["reason"], "CONFIG_NOT_OBJECT")
+
 if __name__ == "__main__":
     unittest.main()
