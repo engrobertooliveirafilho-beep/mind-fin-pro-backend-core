@@ -136,21 +136,35 @@ class PackageIntegrityAudit:
             "data/runtime/P2111_2120/P2111_2120_PACKAGE_FINAL.zip",
         ]
 
+        # Reference digests recovered from the original Drive P2121 console evidence.
+        expected_sha256 = {
+            "data/runtime/P2071_2080/P2071_2080_PACKAGE_FINAL.zip": "45ecce3cfe3fdc0c33bbc4399cf1e3041fb89eb493db8f095cd1af70c46fb1ef",
+            "data/runtime/P2081_2090/P2081_2090_PACKAGE_FINAL.zip": "d4fdf2b6984f3a0188b1c9d833046836c0d1f10ca61091d3a925d270055ee41b",
+            "data/runtime/P2091_2100/P2091_2100_PACKAGE_FINAL.zip": "905ad7375deb93742df4f8ea822ca9413f11c43c756b6b493d4efb9ff0569fb0",
+            "data/runtime/P2101_2110/P2101_2110_PACKAGE_FINAL.zip": "d7e464c1aa79204f98b8357034b945c832b93a1fbc0a50bfb6e2ecc25e3d1c0d",
+            "data/runtime/P2111_2120/P2111_2120_PACKAGE_FINAL.zip": "d2d190ee37afd7a0d3aab669773bf53e206fec37d49edf46a01651ed5ffeb857",
+        }
         found = {}
         missing = []
+        mismatched = []
 
         for package in packages:
             p = Path(repo) / package
-            if p.exists() and p.stat().st_size > 0:
-                found[package] = {"bytes": p.stat().st_size, "sha256": sha256_file(str(p))}
+            if p.is_file() and p.stat().st_size > 0:
+                digest = sha256_file(str(p))
+                found[package] = {"bytes": p.stat().st_size, "sha256": digest}
+                if digest != expected_sha256[package]:
+                    mismatched.append(package)
             else:
                 missing.append(package)
 
+        ok = not missing and not mismatched
         return AuditDecision(
             "P2122_PACKAGE_INTEGRITY_AUDIT",
-            "PASS" if not missing else "FAIL",
-            "ALL_PACKAGES_PRESENT" if not missing else "PACKAGE_MISSING",
-            {"packages": found, "missing": missing},
+            "PASS" if ok else "FAIL",
+            "HISTORICAL_PACKAGE_DIGESTS_MATCH" if ok else "PACKAGE_MISSING_OR_HASH_MISMATCH",
+            {"packages": found, "missing": missing, "mismatched": mismatched,
+             "digest_reference": "DRIVE_P2121_CONSOLE_HISTORICAL_UNVERIFIED"},
         )
 
 
