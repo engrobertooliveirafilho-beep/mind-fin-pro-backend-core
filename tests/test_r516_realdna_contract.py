@@ -107,6 +107,22 @@ class TestRealDNAContract(unittest.TestCase):
         engine = p2071.SignalRuntime([REALDNA[0]])
         self.assertEqual(engine.SUPPORTED_LOGIC_TYPES, {"RANGE_REVERSION"})
 
+    def test_paper_executor_obeys_p2067_micro_position_cap(self):
+        engine = p2071.PaperPortfolioExecutor()
+        position = engine.on_signal(
+            p2071.PaperSignal(
+                ts=1, symbol="XAUUSD", specialist_id="range",
+                side="BUY", confidence=0.9, reason="offline"
+            ),
+            100.0,
+        )
+        self.assertEqual(position.qty, 0.01)
+        self.assertLessEqual(position.qty, 0.01)
+
+    def test_paper_executor_rejects_position_cap_above_p2067_limit(self):
+        with self.assertRaisesRegex(ValueError, "P2067_MAX_POSITION_SIZE"):
+            p2071.PaperPortfolioExecutor(max_position_size=0.0101)
+
     def test_governance_extractor_rejects_missing_portfolio(self):
         with self.assertRaisesRegex(ValueError, "EXACTLY_3_SPECIALISTS"):
             p2081.extract_specialists({"unexpected": []})
