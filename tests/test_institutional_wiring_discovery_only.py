@@ -1,49 +1,63 @@
-import sys
-import types
+import tempfile
 import unittest
+from pathlib import Path
 from unittest.mock import patch
 
 from app.runtime import mind_trader_institutional_wiring as wiring
 
 
 class InstitutionalWiringSafetyTests(unittest.TestCase):
-    def test_run_never_invokes_imported_module_run(self):
-        called = []
-        module = types.ModuleType("paper_test_motor")
-        module.run = lambda payload: called.append(payload)
-        module.health = lambda: (_ for _ in ()).throw(AssertionError("health called"))
-        with patch.object(wiring, "MODULES", ["paper_test_motor"]):
-            with patch.object(wiring.importlib, "import_module", return_value=module):
-                result = wiring.run_institutional_wiring({"intent": "PAPER"})
-        self.assertEqual(called, [])
-        self.assertEqual(result["runs_ok"], 0)
-        self.assertFalse(result["execution_performed"])
-        self.assertEqual(result["status"], "IMPORTS_OK_UNCERTIFIED")
+    def _project(self, source):
+        tmp = tempfile.TemporaryDirectory()
+        root = Path(tmp.name)
+        runtime = root / "app" / "runtime"
+        runtime.mkdir(parents=True)
+        (runtime / "wiring.py").write_text("# fixture", encoding="utf-8")
+        (runtime / "paper_motor.py").write_text(source, encoding="utf-8")
+        self.addCleanup(tmp.cleanup)
+        return root / "app" / "runtime" / "wiring.py"
 
-    def test_discovery_never_invokes_module_health(self):
-        called = []
-        module = types.ModuleType("health_side_effect_motor")
-        module.health = lambda: called.append("health")
-        with patch.object(wiring, "MODULES", ["health_side_effect_motor"]):
-            with patch.object(wiring.importlib, "import_module", return_value=module):
-                result = wiring.run_institutional_wiring({})
-        self.assertEqual(called, [])
-        self.assertEqual(result["health_ok"], 0)
+    def test_discovery_is_static_and_never_imports_or_executes(self):
+        fake_file = self._project(
+            "CALLS = []\ndef run(payload):\n    CALLS.append(payload)\n"
+            "def health():\n    CALLS.append('health')\nclass Motor: pass\n"
+        )
+        with patch.object(wiring, "__file__", str(fake_file)), patch.object(wiring, "MODULES", ["app.runtime.paper_motor"]):
+            result = wiring.run_institutional_wiring({"intent": "PAPER"})
+        self.assertEqual(result["status"], "SOURCE_INSPECTION_OK_UNCERTIFIED")
+        self.assertEqual(result["source_inspections_ok"], 1)
+        self.assertEqual(result["imports_ok"], 0)
         self.assertFalse(result["execution_performed"])
+        self.assertEqual(result["results"][0]["functions"], ["run", "health"])
+        self.assertEqual(result["results"][0]["classes"], ["Motor"])
+        self.assertFalse(result["results"][0]["import_performed"])
+        self.assertFalse(hasattr(wiring, "importlib"))
+
+    def test_missing_source_degrades(self):
+        fake_file = self._project("# no motor file")
+        with patch.object(wiring, "__file__", str(fake_file)), patch.object(wiring, "MODULES", ["app.runtime.absent"]):
+            result = wiring.run_institutional_wiring({})
+        self.assertEqual(result["status"], "DEGRADED")
+        self.assertEqual(result["results"][0]["error"], "SOURCE_NOT_FOUND")
+
+    def test_invalid_python_source_degrades(self):
+        fake_file = self._project("def broken(:\n pass\n")
+        with patch.object(wiring, "__file__", str(fake_file)), patch.object(wiring, "MODULES", ["app.runtime.paper_motor"]):
+            result = wiring.run_institutional_wiring({})
+        self.assertEqual(result["status"], "DEGRADED")
+        self.assertTrue(result["results"][0]["error"].startswith("SOURCE_INVALID:"))
 
     def test_invalid_payload_rejected(self):
-        with self.assertRaisesRegex(ValueError, "INVALID_PAYLOAD"):
-            wiring.run_institutional_wiring("unsafe")
-        for invalid in ("", 0, False, []):
+        for invalid in ("unsafe", "", 0, False, []):
             with self.subTest(invalid=invalid):
                 with self.assertRaisesRegex(ValueError, "INVALID_PAYLOAD"):
                     wiring.run_institutional_wiring(invalid)
 
-    def test_import_error_degrades_without_execution(self):
-        with patch.object(wiring, "MODULES", ["missing_motor"]):
-            with patch.object(wiring.importlib, "import_module", side_effect=ImportError("not found")):
-                result = wiring.run_institutional_wiring({})
-        self.assertEqual(result["status"], "DEGRADED")
+    def test_health_is_static_and_uncertified(self):
+        fake_file = self._project("def run(): pass\n")
+        with patch.object(wiring, "__file__", str(fake_file)), patch.object(wiring, "MODULES", ["app.runtime.paper_motor"]):
+            result = wiring.health()
+        self.assertEqual(result["status"], "SOURCE_INSPECTION_OK_UNCERTIFIED")
         self.assertEqual(result["runs_ok"], 0)
         self.assertFalse(result["execution_performed"])
 
