@@ -59,6 +59,19 @@ class InstitutionalTargetsRegression(unittest.TestCase):
         self.assertFalse(out["approved"])
         self.assertEqual(out["decision"], "BLOCK_INVALID_RISK")
 
+    def test_missing_entry_is_blocked(self):
+        ctx = self.base()
+        del ctx["entry"]
+        self.assertEqual(institutional_targets(ctx)["decision"], "BLOCK_INVALID_INPUT")
+
+    def test_missing_stop_is_blocked(self):
+        ctx = self.base()
+        del ctx["stop"]
+        self.assertEqual(institutional_targets(ctx)["decision"], "BLOCK_INVALID_INPUT")
+
+    def test_malformed_stop_is_blocked(self):
+        self.assertEqual(institutional_targets(self.base(stop="bad"))["decision"], "BLOCK_INVALID_INPUT")
+
     def test_no_real_orders(self):
         out = institutional_targets(self.base())
         self.assertEqual(out["real_orders"], "FORBIDDEN")
