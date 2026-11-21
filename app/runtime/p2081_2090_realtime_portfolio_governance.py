@@ -67,19 +67,38 @@ def load_json(path: str) -> Any:
 
 
 def extract_specialists(raw: Any) -> List[Dict[str, Any]]:
-    if isinstance(raw, list):
-        return raw
-
+    candidates = raw if isinstance(raw, list) else None
     if isinstance(raw, dict):
         for key in ["specialists", "final_specialists", "portfolio", "locked_specialists"]:
             if isinstance(raw.get(key), list):
-                return raw[key]
-
-    return [{"id": "XAUUSD_M1_REALDNA_0004", "type": "RANGE_REVERSION"}]
+                candidates = raw[key]
+                break
+    if not isinstance(candidates, list) or not candidates:
+        raise ValueError("REALDNA_SPECIALISTS_MISSING_OR_EMPTY")
+    seen = set()
+    for index, specialist in enumerate(candidates):
+        if not isinstance(specialist, dict):
+            raise ValueError(f"REALDNA_SPECIALIST_INVALID:{index}")
+        sid = str(specialist.get("id") or specialist.get("specialist_id") or "").strip()
+        if not sid:
+            raise ValueError(f"REALDNA_SPECIALIST_ID_MISSING:{index}")
+        if sid in seen:
+            raise ValueError(f"REALDNA_SPECIALIST_ID_DUPLICATE:{sid}")
+        seen.add(sid)
+    return candidates
 
 
 def extract_runtime_metrics(raw: Dict[str, Any]) -> Dict[str, Any]:
-    metrics = raw.get("metrics", {}) if isinstance(raw, dict) else {}
+    if not isinstance(raw, dict) or not isinstance(raw.get("metrics"), dict):
+        raise ValueError("P2071_RUNTIME_METRICS_MISSING")
+    metrics = raw["metrics"]
+    required = ["cycles", "frames_built", "signals_generated", "closed_trades",
+                "open_positions", "initial_equity", "final_mark_to_market_equity",
+                "paper_mark_to_market_pnl", "drawdown_pct", "drawdown_abs",
+                "peak_equity", "trough_equity"]
+    missing = [key for key in required if key not in metrics]
+    if missing:
+        raise ValueError("P2071_RUNTIME_METRICS_INCOMPLETE:" + ",".join(missing))
 
     return {
         "cycles": int(metrics.get("cycles", 0)),
