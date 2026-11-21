@@ -30,4 +30,18 @@ class BrokerEmulatorSafetyTests(unittest.TestCase):
         trade=broker.execute_order('BUY',1)
         self.assertEqual(trade['side'],'BUY')
         self.assertEqual(len(broker.trades),1)
+    def test_risk_kill_latches_and_blocks_future_orders(self):
+        broker=BrokerEmulator()
+        self.assertEqual(broker.risk.check(-6000),'KILLED')
+        self.assertTrue(broker.risk.halted)
+        broker.risk.equity=broker.risk.peak
+        with self.assertRaisesRegex(RuntimeError,'halted'):
+            broker.execute_order('BUY',1)
+        self.assertEqual(broker.trades,[])
+    def test_zero_peak_rejected_before_division(self):
+        broker=BrokerEmulator()
+        broker.risk.peak=0
+        with self.assertRaisesRegex(RuntimeError,'halted'):
+            broker.execute_order('BUY',1)
+        self.assertEqual(broker.trades,[])
 if __name__=='__main__':unittest.main()
