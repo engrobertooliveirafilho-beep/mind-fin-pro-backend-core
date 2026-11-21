@@ -6,6 +6,12 @@ from app.runtime.p2361_dynamic_position_sizing_engine import dynamic_paper_lot
 from app.runtime.p2366_institutional_targeting_engine import institutional_targets
 
 def decide_signal(signal: dict, context: dict) -> dict:
+    # Invalid envelopes cannot reach context classification or targeting.
+    if not isinstance(signal, dict) or not isinstance(context, dict):
+        return {
+            "final_decision": "BLOCK_INVALID_ENVELOPE", "paper_lot": 0.0,
+            "mode": "PAPER_ONLY", "real_orders": "FORBIDDEN", "ftmo_real": "FORBIDDEN",
+        }
     context_edge = classify_context_edge(context)
     def fallback(*values):
         return next((v for v in values if v is not None), None)
