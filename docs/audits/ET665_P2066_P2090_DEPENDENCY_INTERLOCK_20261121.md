@@ -76,3 +76,9 @@ COST_BRL=0
 - P2064 original stdout Drive ID 10FjXI5QTv83jJwVm1iUGW5RZEN_RvjeA: historical REAL_MARKET_PAPER_RUNTIME PASS on source data/features/P2060/XAUUSD_M1_50000_FEATURES_200_WITH_OHLC.csv, 3 passed, 0 failed, 50,000 rows. Top REALDNA_0004 15,847 paper trades, final equity 101269.77 from 100000, total PnL 1269.77. The output includes event samples.
 - These are historical outputs; original P2063 JSON and P2064 OHLC feature CSV not yet fetched/hashed/replayed. Current P2073 runtime only implements RANGE_REVERSION; MEAN_REVERSION and TREND_PULLBACK adapters remain missing. Do not treat the P2063G historical five gates as current test execution.
 - P2063G_OUTPUT_RECOVERED=TRUE; P2064_OUTPUT_RECOVERED=TRUE; ORIGINAL_P2064_OHLC_RECOVERED=FALSE; CURRENT_THREE_ENGINE_E2E_CERTIFIED=FALSE.
+
+## P2065/P2067 machine-evidence reconciliation — executed arithmetic check
+- P2065 source: Drive cat_evidence_0000178.stdout.txt, ID 1UpiLFA6HoCdJjnqpWTc3XbcGqMzcAmMK; historical PAPER 50,000 rows, 3 passed, 0 failed. Trades 15,847+5,742+7,132 = 28,721; PnL 1269.77+541.53+356.07 = 2167.37.
+- P2066–P2070 source: Drive cat_evidence_0000179.stdout.txt, ID 1RbNbuapKwXaqP4KPY62Au4wOvFgBLerB. P2067 historical portfolio weights named normalized_weight are 0.500000, 0.249856, 0.164287, totaling 0.914143 (91.4143%). Residual 0.085857 (8.5857%) is not allocated. Do not silently renormalize or infer intended cash buffer.
+- Executed local Decimal arithmetic checks: trade aggregate PASS; PnL aggregate PASS; weights sum-to-one FAIL. Local evidence /mnt/data/et665_p2065_p2067_reconciliation.json; isolated historical arithmetic only, not code regression or current E2E.
+- P2067_WEIGHT_NORMALIZATION_CONSISTENT=FALSE; P2065_AGGREGATE_ARITHMETIC_VERIFIED=TRUE; ORIGINAL_PORTFOLIO_WEIGHTS_JSON_VERIFIED=FALSE; E2E_CERTIFIED=FALSE.
