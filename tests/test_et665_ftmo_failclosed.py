@@ -51,5 +51,21 @@ class TestFTMOFailClosed(unittest.TestCase):
     def test_default_config_still_valid(self):
         self.assertTrue(validate_ftmo_config(self.config)["valid"])
 
+    def test_malformed_config_file(self):
+        from mind_trader.app.risk.ftmo_ruleset import load_ftmo_config
+        bad = Path(self.temp.name) / "bad.json"
+        bad.write_text("{")
+        cfg, status = load_ftmo_config(bad)
+        self.assertIsNone(cfg)
+        self.assertEqual(status["reason"], "CONFIG_UNREADABLE")
+
+    def test_non_object_config_file(self):
+        from mind_trader.app.risk.ftmo_ruleset import load_ftmo_config
+        bad = Path(self.temp.name) / "bad.json"
+        bad.write_text("[]")
+        cfg, status = load_ftmo_config(bad)
+        self.assertIsNone(cfg)
+        self.assertEqual(status["reason"], "CONFIG_NOT_OBJECT")
+
 if __name__ == "__main__":
     unittest.main()
