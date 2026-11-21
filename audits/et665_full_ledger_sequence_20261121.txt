@@ -1,0 +1,8 @@
+ET665 PAPER ledger full sequence hardening / 2026-11-21
+Drive historical audit: MIND_TRADER_P8_AUDITORIA_PROFUNDA_2026-08-04.docx ID 1mYoNWU4sooo1qZ5foWpkLOWELwL-3riF. Source explicitly states evidence from reported pytest output, with no direct local repo inspection and no proven GitHub push/deploy during that historical audit. Therefore historical audit is NOT independent runtime E2E certification.
+Source patch: 1214107c78a25c8e35a152a418777ee44ce318f6.
+Regression source: c0dba3f38026af0155e37d4eca5fa0fc127cb473.
+Correction: reconcile each TRADE_RESULT event count and cumulative PnL, enforce SESSION_OPENED hash and terminal SESSION_CLOSED, reject duplicated and tampered historical events even when latest snapshot matches.
+Evidence: GitHub readback of source and tests; no new runtime execution in this turn. Tests are PUBLISHED but NOT EXECUTED against exact GitHub blobs.
+Caveats: no cryptographic hash chain, concurrency control, transactional dual-file commit, P2071 E2E, S20/S21 causal provenance. No promotion.
+PAPER_ONLY=TRUE | REAL_ORDERS=FORBIDDEN | MAIN=INTACT | E2E_CERTIFIED=FALSE | COST=R$0
