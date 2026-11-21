@@ -244,9 +244,12 @@ class SignalRuntime:
 
 
 class PaperPortfolioExecutor:
-    def __init__(self, initial_equity: float = 100000.0):
+    def __init__(self, initial_equity: float = 100000.0, max_position_size: float = 0.01):
+        if type(max_position_size) not in (int, float) or not math.isfinite(max_position_size) or not 0 < max_position_size <= 0.01:
+            raise ValueError("P2067_MAX_POSITION_SIZE_MUST_BE_WITHIN_0_01")
         self.initial_equity = initial_equity
         self.equity = initial_equity
+        self.max_position_size = float(max_position_size)
         self.positions: Dict[str, PaperPosition] = {}
         self.closed: List[Dict[str, Any]] = []
         self.seq = 0
@@ -256,7 +259,7 @@ class PaperPortfolioExecutor:
             raise ValueError("invalid paper mark price")
         if any(pos.side not in ("BUY", "SELL") for pos in self.positions.values()):
             raise ValueError("invalid existing paper side")
-        if any(type(pos.qty) not in (int, float) or not math.isfinite(pos.qty) or pos.qty <= 0 for pos in self.positions.values()):
+        if any(type(pos.qty) not in (int, float) or not math.isfinite(pos.qty) or pos.qty <= 0 or pos.qty > self.max_position_size for pos in self.positions.values()):
             raise ValueError("invalid paper position quantity")
         total = 0.0
         for pos in self.positions.values():
@@ -312,7 +315,7 @@ class PaperPortfolioExecutor:
             entry=price,
             sl=sl,
             tp=tp,
-            qty=1.0,
+            qty=self.max_position_size,
             open_ts=signal.ts,
         )
 
