@@ -1,0 +1,43 @@
+name: R516 RealDNA contract regressions
+
+on:
+  push:
+    branches:
+      - engineering/et665-r516-realdna-governance-20261121
+    paths:
+      - "app/runtime/p2071_2080_realtime_paper_runtime.py"
+      - "app/runtime/p2081_2090_realtime_portfolio_governance.py"
+      - "app/runtime/p2091_2100_realtime_intelligence_layer.py"
+      - "tests/test_p2071_paper_safety_et665.py"
+      - "tests/test_r516_realdna_contract.py"
+      - ".github/workflows/r516-realdna-contract-tests.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  offline-paper-regressions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout only audited runtime and tests
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            app/runtime/p2071_2080_realtime_paper_runtime.py
+            app/runtime/p2081_2090_realtime_portfolio_governance.py
+            app/runtime/p2091_2100_realtime_intelligence_layer.py
+            tests/test_p2071_paper_safety_et665.py
+            tests/test_r516_realdna_contract.py
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile audited modules
+        run: |
+          python -m py_compile app/runtime/p2071_2080_realtime_paper_runtime.py
+          python -m py_compile app/runtime/p2081_2090_realtime_portfolio_governance.py
+          python -m py_compile app/runtime/p2091_2100_realtime_intelligence_layer.py
+      - name: Run P2071 PAPER safety regressions
+        run: python -m unittest discover -s tests -p "test_p2071_paper_safety_et665.py" -v
+      - name: Run R516 RealDNA contract regressions
+        run: python -m unittest discover -s tests -p "test_r516_realdna_contract.py" -v
