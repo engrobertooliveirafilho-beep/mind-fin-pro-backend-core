@@ -243,7 +243,8 @@ class ParallelExecution:
         for shard in range(4):
             checksum = sum((i + shard) % 19 for i in range(25000))
             tasks.append({"shard": shard, "checksum": checksum})
-        ok = len(tasks) == 4 and all(x["checksum"] > 0 for x in tasks)
+        # Four serial shards demonstrate deterministic checksums, not concurrency.
+        ok = False
         return CapacityDecision(
             "P2118_PARALLEL_EXECUTION",
             "PASS" if ok else "FAIL",
@@ -257,7 +258,8 @@ class ScaleValidation:
         assert_no_financial_execution()
         scale_units = 50000
         checksum = hashlib.sha256(str(sum(i % 23 for i in range(scale_units))).encode()).hexdigest()
-        ok = scale_units >= 50000 and len(checksum) == 64
+        # A checksum-only probe is not a measured scale workload.
+        ok = False
         return CapacityDecision(
             "P2119_SCALE_VALIDATION",
             "PASS" if ok else "FAIL",
