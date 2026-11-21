@@ -1,0 +1,12 @@
+ET665 PAPER daily summary fail-closed — 2026-11-21
+Source correction: 91ce8248c8146ed6cf7d918bfa3265f2c37dd8d4
+Four regression tests: 7c1fefdbb486a9dba0e7a92844ab254f5de443fd
+Reproduction: malformed session JSON caused KeyError('session_id') in daily_summary.
+Fix: required-field and status validation, plus latest-ledger-event consistency before summary.
+Local offline command: cd /mnt/data/et665_session_validation && PYTHONPATH=. python -m unittest discover -s tests -p 'test*.py' -v
+Result: Ran 33 tests in 0.041s, OK (33/33).
+Evidence: /mnt/data/et665_session_validation/summary_regression_20261121.log
+Evidence SHA256: 25d0ae300e0d397529dbe98089893b12cff3d8f2a1869b99b85de3eca2f7b3fc
+Drive recovery: original FTMO file ID 1LHDZsL1tcUoA7BLJQ6pqWE5MCCPRzMDj; PAPER session ID 1hhydWqJ-DaQxGC8fSRJ7_v6hHr4ym-nk; historical P8 deep audit docx ID 1mYoNWU4sooo1qZ5foWpkLOWELwL-3riF located, not yet content reconciled.
+Certification scope: locally equivalent implementation only, GitHub exact-byte execution not established; no P2071 integration or historical ledger E2E.
+PAPER_ONLY=TRUE | REAL_ORDERS=FORBIDDEN | MAIN=INTACT | E2E_CERTIFIED=FALSE | COST=R$0
