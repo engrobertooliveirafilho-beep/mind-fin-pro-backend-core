@@ -11,7 +11,7 @@ class InstitutionalWiringSafetyTests(unittest.TestCase):
         called = []
         module = types.ModuleType("paper_test_motor")
         module.run = lambda payload: called.append(payload)
-        module.health = lambda: {"status": "OK"}
+        module.health = lambda: (_ for _ in ()).throw(AssertionError("health called"))
         with patch.object(wiring, "MODULES", ["paper_test_motor"]):
             with patch.object(wiring.importlib, "import_module", return_value=module):
                 result = wiring.run_institutional_wiring({"intent": "PAPER"})
@@ -19,6 +19,17 @@ class InstitutionalWiringSafetyTests(unittest.TestCase):
         self.assertEqual(result["runs_ok"], 0)
         self.assertFalse(result["execution_performed"])
         self.assertEqual(result["status"], "IMPORTS_OK_UNCERTIFIED")
+
+    def test_discovery_never_invokes_module_health(self):
+        called = []
+        module = types.ModuleType("health_side_effect_motor")
+        module.health = lambda: called.append("health")
+        with patch.object(wiring, "MODULES", ["health_side_effect_motor"]):
+            with patch.object(wiring.importlib, "import_module", return_value=module):
+                result = wiring.run_institutional_wiring({})
+        self.assertEqual(called, [])
+        self.assertEqual(result["health_ok"], 0)
+        self.assertFalse(result["execution_performed"])
 
     def test_invalid_payload_rejected(self):
         with self.assertRaisesRegex(ValueError, "INVALID_PAYLOAD"):
