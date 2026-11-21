@@ -1,0 +1,9 @@
+ET665 — Offline local FTMO/PAPER integration evidence — 2026-11-21
+Test execution: PYTHONPATH=. python -m unittest discover -s tests -p 'test*.py' -v
+Working tree: /mnt/data/et665_session_validation
+Result: Ran 14 tests in 0.018s; OK (14/14 PASS)
+Composition: 8 session tests + 6 FTMO/session integration tests.
+Modules: corrected local copies of FTMO and session recovered from Drive. No live broker, no orders.
+Evidence: /mnt/data/et665_session_validation/combined_20261121.log (local only).
+LIMITATION: Local copies not cryptographically proven equivalent to branch GitHub blobs; no P2071 runtime in this run; no historical end-to-end certification.
+PAPER_ONLY=TRUE | REAL_ORDERS=FORBIDDEN | MAIN=INTACT | E2E_CERTIFIED=FALSE | COST=R$0
