@@ -10,11 +10,17 @@ def reconcile_p2067_weights(rows, *, declared_reserve=None):
     for row in rows:
         if not isinstance(row, dict):
             raise ValueError("P2067_INVALID_ALLOCATION")
-        sid = row.get("specialist_id") or row.get("id")
-        if not isinstance(sid, str) or not sid.strip() or sid in seen:
+        aliases = [row[key] for key in ("id", "specialist_id") if key in row]
+        if not aliases or any(
+            not isinstance(value, str) or not value.strip() or value != value.strip()
+            for value in aliases
+        ):
             raise ValueError("P2067_INVALID_SPECIALIST")
-        if row.get("specialist_id") and row.get("id") and row["specialist_id"] != row["id"]:
+        if len(set(aliases)) != 1:
             raise ValueError("P2067_CONFLICTING_SPECIALIST_ID")
+        sid = aliases[0]
+        if sid in seen:
+            raise ValueError("P2067_INVALID_SPECIALIST")
         seen.add(sid)
         value = row.get("normalized_weight")
         if isinstance(value, bool) or not isinstance(value, (int, float, str, Decimal)):
