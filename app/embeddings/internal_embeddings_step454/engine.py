@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import List, Dict, Any
 
 from fastapi import APIRouter
@@ -8,8 +8,8 @@ router = APIRouter()
 
 
 class EmbedRequest(BaseModel):
-    text: str
-    namespace: str = "default"
+    text: str = Field(..., max_length=65536)
+    namespace: str = Field('default', min_length=1, max_length=128)
     dim: int = Field(32, ge=8, le=256)
 
 
@@ -54,7 +54,7 @@ def embed_internal(request: EmbedRequest) -> EmbedResponse:
         checksum=checksum,
         meta={
             "version": "step454-v1",
-            "created_at": datetime.utcnow().isoformat() + "Z",
+            "created_at": datetime.now(timezone.utc).isoformat().replace('+00:00','Z'),
             "engine": "internal_embeddings_step454",
         },
     )
