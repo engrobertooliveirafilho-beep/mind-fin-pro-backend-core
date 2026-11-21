@@ -261,6 +261,91 @@ class PaperPortfolioExecutor:
         self._risk_locked = False
         self._daily_risk_locked = False
 
+    def export_state(self) -> Dict[str, Any]:
+        assert_no_financial_execution()
+        return {
+            "schema": "PAPER_EXECUTOR_STATE_V1",
+            "initial_equity": self.initial_equity,
+            "equity": self.equity,
+            "seq": self.seq,
+            "positions": [asdict(p) for p in self.positions.values()],
+            "closed": self.closed,
+            "peak_equity": self._peak_equity,
+            "risk_locked": self._risk_locked,
+            "daily_risk_locked": self._daily_risk_locked,
+            "paper_day": getattr(self, "_paper_day", None),
+            "day_start_equity": getattr(self, "_day_start_equity", None),
+            "last_event_ts": getattr(self, "_last_event_ts", None),
+        }
+
+    @classmethod
+    def restore_state(cls, state: Dict[str, Any]) -> "PaperPortfolioExecutor":
+        assert_no_financial_execution()
+        if not isinstance(state, dict) or state.get("schema") != "PAPER_EXECUTOR_STATE_V1":
+            raise ValueError("INVALID_PAPER_EXECUTOR_STATE")
+        def finite_positive(value):
+            return (isinstance(value, (int, float)) and not isinstance(value, bool)
+                    and math.isfinite(value) and value > 0)
+        initial = state.get("initial_equity")
+        equity = state.get("equity")
+        peak = state.get("peak_equity")
+        day_start = state.get("day_start_equity")
+        seq = state.get("seq")
+        day = state.get("paper_day")
+        last_ts = state.get("last_event_ts")
+        if (not all(finite_positive(v) for v in (initial, equity, peak))
+                or not isinstance(seq, int) or isinstance(seq, bool) or seq < 0
+                or not isinstance(state.get("risk_locked"), bool)
+                or not isinstance(state.get("daily_risk_locked"), bool)
+                or not isinstance(state.get("positions"), list)
+                or not isinstance(state.get("closed"), list)
+                or len(state["positions"]) > 3):
+            raise ValueError("INVALID_PAPER_EXECUTOR_STATE")
+        if day is not None and (not isinstance(day, int) or isinstance(day, bool) or day < 0):
+            raise ValueError("INVALID_PAPER_EXECUTOR_STATE")
+        if last_ts is not None and (not isinstance(last_ts, int) or isinstance(last_ts, bool) or last_ts < 0):
+            raise ValueError("INVALID_PAPER_EXECUTOR_STATE")
+        if day is None and (day_start is not None or last_ts is not None):
+            raise ValueError("INVALID_PAPER_EXECUTOR_STATE")
+        if day is not None and (not finite_positive(day_start) or last_ts is None or last_ts // 86400 != day):
+            raise ValueError("INVALID_PAPER_EXECUTOR_STATE")
+        restored = cls(initial_equity=float(initial))
+        restored.equity = float(equity)
+        restored._peak_equity = float(peak)
+        restored._risk_locked = state["risk_locked"]
+        restored._daily_risk_locked = state["daily_risk_locked"]
+        restored.seq = seq
+        if day is not None:
+            restored._paper_day = day
+            restored._day_start_equity = float(day_start)
+            restored._last_event_ts = last_ts
+        ids = set()
+        specialists = set()
+        for item in state["positions"]:
+            if not isinstance(item, dict):
+                raise ValueError("INVALID_PAPER_EXECUTOR_POSITION")
+            try:
+                pos = PaperPosition(**item)
+            except (TypeError, ValueError) as exc:
+                raise ValueError("INVALID_PAPER_EXECUTOR_POSITION") from exc
+            if (pos.status != "OPEN" or pos.symbol != "XAUUSD"
+                    or pos.side not in ("BUY", "SELL")
+                    or not isinstance(pos.position_id, str) or not pos.position_id
+                    or not isinstance(pos.specialist_id, str) or not pos.specialist_id
+                    or pos.position_id in ids or pos.specialist_id in specialists
+                    or not all(finite_positive(v) for v in (pos.entry, pos.sl, pos.tp, pos.qty))
+                    or pos.qty > cls.MAX_PAPER_QTY
+                    or not isinstance(pos.open_ts, int) or isinstance(pos.open_ts, bool)
+                    or pos.open_ts < 0 or last_ts is None or pos.open_ts > last_ts
+                    or (pos.side == "BUY" and not pos.sl < pos.entry < pos.tp)
+                    or (pos.side == "SELL" and not pos.tp < pos.entry < pos.sl)):
+                raise ValueError("INVALID_PAPER_EXECUTOR_POSITION")
+            ids.add(pos.position_id)
+            specialists.add(pos.specialist_id)
+            restored.positions[pos.position_id] = pos
+        restored.closed = state["closed"]
+        return restored
+
     def unrealized_pnl(self, price: float) -> float:
         total = 0.0
         for pos in self.positions.values():
