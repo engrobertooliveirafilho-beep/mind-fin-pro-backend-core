@@ -16,6 +16,6 @@ Recovered the P2614 package from Drive: loader, features, execution, replay, aud
 ## CI evidence
 Dedicated GitHub Actions workflow run: `44930224203`, commit `efbd9b92a29583a881629ba33ff0fee2e3bb21df`.
 Result: **38 tests passed**, workflow conclusion `success`.
-This run covered P2614 chronology/fail-closed/audit/Monte Carlo and Trader.1.001 static exporter safety tests. P2923 tests were added in a later commit and are covered by the subsequent workflow run.
+This run covered P2614 chronology/fail-closed/audit/Monte Carlo and Trader.1.001 static exporter safety tests. P2923 was added in a later commit; workflow run `44930924216` passed **48/48 tests**, including P2923 block-bootstrap/regime gates.
 
 `PAPER_ONLY=TRUE | REAL_ORDERS=FORBIDDEN | FTMO_REAL=FORBIDDEN | MAIN=INTACTA | PRODUCTION=INTACTA | E2E_CERTIFIED=FALSE | COST=R$0`
