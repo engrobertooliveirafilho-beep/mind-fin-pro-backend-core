@@ -60,7 +60,9 @@ class CapabilityDiscovery:
         files = list(root.rglob("*.py"))
         tests = list((root / "tests").rglob("test_*.py")) if (root / "tests").exists() else []
         runtime = list((root / "app" / "runtime").rglob("*.py")) if (root / "app" / "runtime").exists() else []
-        ok = len(files) > 0 and len(tests) > 0 and len(runtime) > 0
+        # File presence is inventory evidence, not executable capability proof.
+        # P2111 discovery may report inventory, but never certify functionality.
+        ok = False
         return CapacityDecision(
             "P2111_CAPABILITY_DISCOVERY",
             "PASS" if ok else "FAIL",
