@@ -46,7 +46,7 @@ def decide_signal(signal: dict, context: dict) -> dict:
         "institutional_score": precheck.get("institutional_score", 0),
         "expected_payoff": signal.get("expected_payoff", 0),
         "current_drawdown": context.get("current_drawdown", 0),
-        "correlation_ok": context.get("correlation_ok", True),
+        "correlation_ok": context.get("correlation_ok") is True,
         "last_trade_loss": context.get("last_loss", False),
         "rebuild_after_profit": context.get("rebuild_after_profit", False),
     })
