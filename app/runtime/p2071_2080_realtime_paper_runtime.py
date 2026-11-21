@@ -126,6 +126,15 @@ class RealtimeFeatureBuilder:
 
     def update(self, tick: MarketTick) -> FeatureFrame:
         assert_no_financial_execution()
+        if tick.symbol != "XAUUSD" or not isinstance(tick.ts, int) or isinstance(tick.ts, bool) or tick.ts < 0:
+            raise ValueError("INVALID_PAPER_FEED_IDENTITY")
+        for value in (tick.bid, tick.ask, tick.last, tick.volume):
+            if not isinstance(value, (int, float)) or isinstance(value, bool) or not math.isfinite(value):
+                raise ValueError("INVALID_PAPER_FEED_VALUE")
+        if tick.bid <= 0 or tick.ask < tick.bid or tick.last <= 0 or tick.volume < 0:
+            raise ValueError("INVALID_PAPER_FEED_QUOTE")
+        if self.history and tick.ts <= self.history[-1].ts:
+            raise ValueError("OUT_OF_ORDER_PAPER_FEED")
 
         self.history.append(tick)
         self.history = self.history[-200:]
