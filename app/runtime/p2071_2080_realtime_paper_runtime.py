@@ -263,6 +263,7 @@ class PaperPortfolioExecutor:
         self.seq = 0
         self._peak_equity = float(initial_equity)
         self._risk_locked = False
+        self._daily_risk_locked = False
 
     def unrealized_pnl(self, price: float) -> float:
         total = 0.0
@@ -291,15 +292,16 @@ class PaperPortfolioExecutor:
         if not hasattr(self, "_paper_day") or self._paper_day != day:
             self._paper_day = day
             self._day_start_equity = self.equity
+            self._daily_risk_locked = False
         # Include open-position losses in the admission gate. A new order
         # must not be admitted on stale realized equity alone.
         marked_equity = self.current_equity(price)
         self._peak_equity = max(self._peak_equity, marked_equity)
         if marked_equity <= self._day_start_equity * 0.99:
-            self._risk_locked = True
+            self._daily_risk_locked = True
         if marked_equity <= self._peak_equity * 0.97:
             self._risk_locked = True
-        if self._risk_locked:
+        if self._risk_locked or self._daily_risk_locked:
             return None
 
         # No specialist may open more than one position concurrently.
