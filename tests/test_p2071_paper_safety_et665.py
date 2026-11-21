@@ -141,6 +141,31 @@ class TestP2071PaperSafety(unittest.TestCase):
                     self.engine.on_signal(self.signal(confidence=confidence), 100)
         self.assertEqual(self.engine.seq, 0)
 
+    def test_max_drawdown_tracks_peak_to_trough_not_only_final_equity(self):
+        engine = runtime.PaperPortfolioExecutor()
+        monitor = runtime.RuntimeMonitor(initial_equity=engine.initial_equity)
+        monitor.record_equity(100000.0)
+        monitor.record_equity(100100.0)
+        monitor.record_equity(99900.0)
+        snapshot = monitor.snapshot(engine)
+        self.assertEqual(snapshot["max_drawdown_abs"], 200.0)
+        self.assertGreater(snapshot["max_drawdown_pct"], 0)
+
+    def test_p2080_never_claims_external_realtime_feed(self):
+        statuses = {
+            "P2071_REALTIME_DATA_FEED_BRIDGE": "PASS_SIMULATED_ONLY",
+            "P2072_REALTIME_FEATURE_BUILDER": "PASS",
+            "P2073_SIGNAL_RUNTIME": "PASS",
+            "P2074_PAPER_PORTFOLIO_EXECUTOR": "PASS",
+            "P2075_RUNTIME_MONITOR": "PASS",
+            "P2076_EXTENDED_RUNTIME_VALIDATION": "PASS",
+            "P2077_MULTI_SESSION_RUNTIME": "PASS",
+            "P2078_RECOVERY_VALIDATION": "PASS",
+            "P2079_RUNTIME_PERSISTENCE": "PASS",
+        }
+        result = runtime.promote_p2080_if_ready(statuses)
+        self.assertEqual(result["P2080_REALTIME_RUNTIME_CERTIFICATION"], "PASS_SIMULATION_SCOPE_ONLY")
+
     def test_blank_symbol_rejected(self):
         signal = self.signal()
         signal.symbol = " "
