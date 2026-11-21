@@ -1,0 +1,26 @@
+{
+  "certification_id": "TRADER-S21-R13-R2D-R6-R5-R2-20260810_111839",
+  "generated_utc": "2026-08-10T14:20:37.6220639Z",
+  "status": "CANONICAL_WRITER_INSTANCE_RESOLUTION_COMPLETE",
+  "authority_mode": "CANONICAL_WRITER_INSTANCE_RESOLVED_SYMBOL_INCAPABLE",
+  "gap_classification": "CANONICAL_WRITER_REQUIRES_SYMBOL_SCHEMA_REMEDIATION",
+  "authority_spec_sha256": "05A8F32790126A0005F5560C9EDD128FCC6C7CBB77B40833CE340E2FDE1CEF16",
+  "canonical_factory_sha256": "3E4A66308FDF69BEEC2A1DE3309C68A14F8AD285787CD63EAF56A0FB237B7C42",
+  "canonical_writer_resolved": true,
+  "s20_symbol_present": false,
+  "safety": {
+    "source_mutation": false,
+    "runtime_started": false,
+    "broker_connection": false,
+    "order_execution": false,
+    "live_real": "FORBIDDEN",
+    "host_termination": "FORBIDDEN"
+  },
+  "readiness": {
+    "decision_symbol_map_built": false,
+    "realized_outcome_ledger_built": false,
+    "s21_certified": false,
+    "ready_for_s22": false,
+    "next": "TRADER.S21-R13-R2D-R6-R6_CONTROLLED_WRITER_SCHEMA_PATCH_SPEC"
+  }
+}
