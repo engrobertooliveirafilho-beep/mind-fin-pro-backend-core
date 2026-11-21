@@ -63,7 +63,7 @@ class StrategyEvolutionEngine:
         # prune worst
         self.strategies = self.strategies[:3]
 
-        return self.strategies
+        return [dict(item) for item in self.strategies]
 
 # ============================================================
 # INTEGRATED RUNTIME
