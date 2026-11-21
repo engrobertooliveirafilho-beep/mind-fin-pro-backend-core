@@ -9,3 +9,11 @@ Log SHA256: 7fdcb2ca1047cdb3cfc556749fc121d1d28c39df044ce31e46ae6c4db3fe5d5c
 Safety: no broker imports or dispatch; requires PAPER mode and PAPER_FTMO_SIM, open session gate, FTMO symbol/risk/stop checks.
 Limitations: local equivalent implementation, NOT exact-byte execution of GitHub files; no original P8.49 source recovered, so new bridge is a compatible implementation based on historical contract, not verified original. total_pnl currently proxies daily_pnl; lifetime FTMO loss cap not independently validated. P2071/S20/S21 and historical E2E NOT certified. No production promotion.
 PAPER_ONLY=TRUE | REAL_ORDERS=FORBIDDEN | FTMO_REAL=FORBIDDEN | MAIN=INTACT | E2E_CERTIFIED=FALSE | COST=R$0
+
+2026-11-21 CONTINUATION — cumulative FTMO loss gate
+Source fix commit a9fef5a19af4f72877fabfd79d644f7d91e90975; tests commit 21b3aba316e99affc6287e7ef9c3a89ec553ed2a.
+Local offline suite: 60/60 PASS, 0 failures, 0.068s; /mnt/data/et665_session_validation/total_pnl_20261121.log SHA256 ca5b18cc68c074edb2dfce49d578e7a1d0aa85b94b8873057523dc95280aea4a.
+Fix: remove unsafe substitution of daily_pnl for total_pnl; require finite account_total_pnl in PAPER intent and reject cumulative FTMO loss breaches.
+Remaining authority gap: account_total_pnl is caller-provided, not independently attested by a cross-session account ledger; no certification of lifetime loss accounting. No actual order execution.
+New Drive P8.94-P8.100 inventory: safe broker adapter, paper broker adapter, gateway paper broker, paper fill model, FTMO paper costs, gateway FTMO cost integration, Paper Research v1 release. The historical audit reports 283→300 cumulative passes, but did not inspect repo independently. Source implementations still require discovery and behavioral verification.
+Exact GitHub byte-level test execution pending; local tests are analogous. E2E_CERTIFIED=FALSE.
