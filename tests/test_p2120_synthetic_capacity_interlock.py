@@ -162,3 +162,23 @@ def test_p2119_checksum_is_not_scalability_certification():
     assert decision.payload["scale_units"] == 50000
     assert len(decision.payload["checksum"]) == 64
     assert decision.status == "FAIL"
+
+def test_p2111_invalid_evidence_creates_no_output_directory(tmp_path):
+    import pytest
+    from app.runtime.p2111_2120_maximum_technical_capacity import run_p2111_2120
+    missing = str(tmp_path / "missing.json")
+    output = tmp_path / "must_not_exist"
+    with pytest.raises(FileNotFoundError):
+        run_p2111_2120(str(tmp_path), missing, missing, missing, missing, missing, str(output))
+    assert not output.exists()
+
+
+def test_p2111_malformed_evidence_creates_no_output_directory(tmp_path):
+    import pytest
+    from app.runtime.p2111_2120_maximum_technical_capacity import run_p2111_2120
+    malformed = tmp_path / "malformed.json"
+    malformed.write_text('{"status":"PASS","status":"FAIL"}', encoding="utf-8")
+    output = tmp_path / "must_not_exist"
+    with pytest.raises(ValueError, match="P2111_DUPLICATE_JSON_KEY"):
+        run_p2111_2120(str(tmp_path), *(str(malformed) for _ in range(5)), str(output))
+    assert not output.exists()
