@@ -62,7 +62,9 @@ class Scheduler:
             "reporting_interval_cycles": 25,
             "mode": "PAPER_ONLY_AUTONOMOUS"
         }
-        return AutoDecision("P2101_SCHEDULER", "PASS", "SCHEDULER_READY", schedule)
+        # Declared intervals are configuration, not evidence of scheduled execution.
+        schedule["execution_verified"] = False
+        return AutoDecision("P2101_SCHEDULER", "FAIL", "SCHEDULER_NOT_EXECUTED", schedule)
 
 
 class Supervisor:
