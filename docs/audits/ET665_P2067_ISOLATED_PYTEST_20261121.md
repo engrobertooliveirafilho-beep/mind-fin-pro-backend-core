@@ -54,3 +54,9 @@ PYTHONPATH=. python -m pytest -q tests/test_loader.py
 ```
 
 Local log `/mnt/data/et665_loader_validation/pytest.log`. Tests include invalid secondary aliases, conflicting identity and strategy aliases, historical undeclared allocation residual, explicitly declared reserve, partial weights, reserve without weights, and legacy unweighted portfolio. Historical P2070 JSON was not recovered, so compatibility with that exact artifact remains unverified.
+
+## Drive historical audit reconciliation — P2071→P2080
+
+The original Drive artifact `P2071_2080_AUDIT.md` (Drive ID `1fo3wvD_8WjmPlLi6GAHr60V3LIhD-34_`) was read directly. It records `STATUS=FAIL`, `READINESS=NOT_CERTIFIED`, `P2080_REALTIME_RUNTIME_CERTIFICATION=PENDING`, 1,500 frames, 4,329 signals, 411 closed PAPER trades, 3 open positions, final equity 99,030.6331 and paper PnL -969.3669. The artifact reports drawdown_abs=0.0, which cannot independently substantiate drawdown correctness. Historical stage PASS entries are **not** equivalent to integrated P2080 certification.
+
+The present branch adds fail-closed admission for historical `portfolio_weight` allocations before PAPER output, and guards invalid strategy aliases. These newer corrections are published but **not** yet proven by full-repository regression. No historical P2080 certification may be inferred.
