@@ -39,8 +39,23 @@ def decide_signal(signal: dict, context: dict) -> dict:
             "ftmo_real": "FORBIDDEN",
         }
 
+    # The target is a geometric opportunity, not independently verified expectancy.
+    # Never inflate an explicit strategy expectancy using the target RR.
+    import math
     signal = dict(signal)
-    signal["expected_payoff"] = max(float(signal.get("expected_payoff", 0)), float(target.get("rr", 0)))
+    try:
+        observed_payoff = float(signal.get("expected_payoff", 0))
+    except (TypeError, ValueError, OverflowError):
+        observed_payoff = float("nan")
+    if isinstance(signal.get("expected_payoff"), bool) or not math.isfinite(observed_payoff) or observed_payoff < 0:
+        return {
+            "symbol": signal.get("symbol"), "side": signal.get("side"),
+            "strategy": signal.get("strategy"), "context_edge": context_edge,
+            "targeting": target, "final_decision": "BLOCK_INVALID_EXPECTANCY",
+            "paper_lot": 0.0, "mode": "PAPER_ONLY",
+            "real_orders": "FORBIDDEN", "ftmo_real": "FORBIDDEN",
+        }
+    signal["expected_payoff"] = observed_payoff
 
     precheck = precheck_before_mt5_emit(signal, context)
 
