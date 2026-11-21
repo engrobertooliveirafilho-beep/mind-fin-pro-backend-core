@@ -185,3 +185,14 @@ def test_loader_rejects_conflicting_weight_aliases(tmp_path, historical, normali
     ]}), encoding="utf-8")
     with pytest.raises(ValueError, match="P2067_CONFLICTING_WEIGHT_ALIASES"):
         load_portfolio(str(path))
+
+@pytest.mark.parametrize("bad_strategy", [123, True, None, "", " RANGE_REVERSION "])
+def test_loader_rejects_invalid_strategy_alias(tmp_path, bad_strategy):
+    import json
+    from app.runtime.p2071_2080_realtime_paper_runtime import load_portfolio
+    path = tmp_path / "portfolio.json"
+    path.write_text(json.dumps({"specialists": [
+        {"id": "A", "logic_type": "RANGE_REVERSION", "strategy_type": bad_strategy},
+    ]}), encoding="utf-8")
+    with pytest.raises(ValueError, match="REALDNA_SPECIALIST_STRATEGY_INVALID"):
+        load_portfolio(str(path))
