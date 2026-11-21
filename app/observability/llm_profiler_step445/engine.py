@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import List, Dict, Any, Literal
 
 from fastapi import APIRouter
@@ -10,16 +10,16 @@ TuningHint = Literal["ok", "watch", "degrade"]
 
 
 class LLMCallSample(BaseModel):
-    model_name: str
-    latency_ms: float = Field(..., ge=0.0)
-    tokens_prompt: int = Field(..., ge=0)
-    tokens_completion: int = Field(..., ge=0)
+    model_name: str = Field(..., min_length=1, max_length=128)
+    latency_ms: float = Field(..., ge=0.0, le=1000000000, allow_inf_nan=False)
+    tokens_prompt: int = Field(..., ge=0, le=1000000000)
+    tokens_completion: int = Field(..., ge=0, le=1000000000)
     success: bool = True
 
 
 class ProfileRequest(BaseModel):
-    window_id: str
-    samples: List[LLMCallSample]
+    window_id: str = Field(..., min_length=1, max_length=128)
+    samples: List[LLMCallSample] = Field(..., max_length=10000)
 
 
 class ModelProfile(BaseModel):
@@ -104,7 +104,7 @@ def profile_llm_usage(request: ProfileRequest) -> ProfileResponse:
         models=profiles,
         meta={
             "version": "step445-v1",
-            "created_at": datetime.utcnow().isoformat() + "Z",
+            "created_at": datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
             "engine": "llm_profiler_step445",
             "models_count": len(profiles),
         },
