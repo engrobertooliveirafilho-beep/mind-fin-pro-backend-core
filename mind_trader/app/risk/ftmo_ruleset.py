@@ -70,6 +70,8 @@ def validate_ftmo_config(config):
     invalid=[k for k in numeric_positive if config[k] <= 0]
     if invalid:
         return {"valid":False,"reason":"INVALID_NUMERIC_LIMITS","fields":invalid}
+    if config["phase"] != "simulation":
+        return {"valid":False,"reason":"NON_SIMULATION_PHASE_FORBIDDEN"}
     if config["max_daily_loss"] > config["max_total_loss"]:
         return {"valid":False,"reason":"DAILY_LOSS_GT_TOTAL_LOSS"}
     if not config["allowed_symbols"]:
