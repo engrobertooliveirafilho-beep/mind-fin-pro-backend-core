@@ -246,12 +246,14 @@ class PaperPortfolioExecutor:
             raise ValueError("invalid paper mark price")
         if any(pos.side not in ("BUY", "SELL") for pos in self.positions.values()):
             raise ValueError("invalid existing paper side")
+        if any(type(pos.qty) not in (int, float) or not math.isfinite(pos.qty) or pos.qty <= 0 for pos in self.positions.values()):
+            raise ValueError("invalid paper position quantity")
         total = 0.0
         for pos in self.positions.values():
             if pos.side == "BUY":
-                total += price - pos.entry
+                total += (price - pos.entry) * pos.qty
             else:
-                total += pos.entry - price
+                total += (pos.entry - price) * pos.qty
         return total
 
     def current_equity(self, price: float) -> float:
@@ -311,6 +313,8 @@ class PaperPortfolioExecutor:
             raise ValueError("invalid paper mark symbol")
         if any(pos.side not in ("BUY", "SELL") for pos in self.positions.values()):
             raise ValueError("invalid existing paper side")
+        if any(type(pos.qty) not in (int, float) or not math.isfinite(pos.qty) or pos.qty <= 0 for pos in self.positions.values()):
+            raise ValueError("invalid paper position quantity")
         to_close = []
 
         for pid, pos in self.positions.items():
@@ -321,10 +325,10 @@ class PaperPortfolioExecutor:
                 raise ValueError("invalid existing paper side")
 
             if pos.side == "BUY":
-                pnl = price - pos.entry
+                pnl = (price - pos.entry) * pos.qty
                 hit = price <= pos.sl or price >= pos.tp
             else:
-                pnl = pos.entry - price
+                pnl = (pos.entry - price) * pos.qty
                 hit = price >= pos.sl or price <= pos.tp
 
             if hit:
