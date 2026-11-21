@@ -97,4 +97,13 @@ class BrokerEmulatorSafetyTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError,'baseline'):
             broker.risk.check(1)
         self.assertTrue(broker.risk.halted)
+    def test_equity_overflow_halts_without_mutation(self):
+        broker=BrokerEmulator()
+        broker.risk.equity=1e308
+        broker.risk.peak=1e308
+        broker.risk.session_start_equity=1e308
+        with self.assertRaisesRegex(RuntimeError,'overflow'):
+            broker.risk.check(1e308)
+        self.assertEqual(broker.risk.equity,1e308)
+        self.assertTrue(broker.risk.halted)
 if __name__=='__main__':unittest.main()
