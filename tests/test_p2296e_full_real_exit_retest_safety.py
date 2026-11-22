@@ -43,3 +43,18 @@ def test_unknown_strategy_parameters_fail_closed(field, value, code):
     q[field] = value
     with pytest.raises(ValueError, match=code):
         _functions()["simulate"]([], q)
+
+@pytest.mark.parametrize("bad", [float("nan"), float("inf"), -float("inf"), True, "1"])
+def test_metrics_reject_nonfinite_or_non_numeric_pnl(bad):
+    with pytest.raises(ValueError, match="P2296E_INVALID_TRADE_PNL"):
+        _functions()["metrics"]([1.0] * 29 + [bad])
+
+@pytest.mark.parametrize("pnl", [1.0, -1.0, 0.0])
+def test_metrics_never_fabricates_profit_factor_without_both_sides(pnl):
+    assert _functions()["metrics"]([pnl] * 30) is None
+
+def test_metrics_valid_mixed_outcomes():
+    result = _functions()["metrics"]([2.0] * 15 + [-1.0] * 15)
+    assert result["pf"] == 2.0
+    assert result["payoff"] == 2.0
+    assert result["trades"] == 30
