@@ -66,3 +66,19 @@ def test_crisis_shock_bounds_fail_closed(monkeypatch, event, bad):
     monkeypatch.setattr("app.runtime.p2227_2229_advanced_layer.random.uniform", lambda a, b: bad)
     with pytest.raises(RuntimeError, match="P2227_INVALID_CRISIS_SHOCK"):
         CrisisEngine().simulate_crisis(100.0)
+
+@pytest.mark.parametrize("field,value,shocks", [
+    ("VOLATILITY", 0.1, (0.0, 0.0, -1.0)),
+    ("RISK_SENTIMENT", 0.1, (0.0, -2.0, 0.0)),
+    ("RISK_SENTIMENT", 99.9, (0.0, 2.0, 0.0)),
+    ("USD_INDEX", 0.1, (-0.5, 0.0, 0.0)),
+])
+def test_macro_invalid_state_rejected_atomically(monkeypatch, field, value, shocks):
+    twin = MacroMarketTwin()
+    twin.world[field] = value
+    initial = dict(twin.world)
+    seq = iter(shocks)
+    monkeypatch.setattr("app.runtime.p2227_2229_advanced_layer.random.uniform", lambda a, b: next(seq))
+    with pytest.raises(RuntimeError, match="P2228_INVALID_MACRO_STATE"):
+        twin.step()
+    assert twin.world == initial
