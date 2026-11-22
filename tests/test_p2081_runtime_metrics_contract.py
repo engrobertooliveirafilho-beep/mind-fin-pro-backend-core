@@ -24,10 +24,18 @@ def test_valid_paper_metrics():
     ("paper_mark_to_market_pnl", float("nan"), "P2071_RUNTIME_METRIC_INVALID"),
     ("final_mark_to_market_equity", float("inf"), "P2071_RUNTIME_METRIC_INVALID"),
     ("initial_equity", 0, "P2071_RUNTIME_EQUITY_INVALID"),
-    ("drawdown_abs", -1, "P2071_RUNTIME_DRAWDOWN_INVALID"),
+    ("drawdown_abs", 1, "P2071_RUNTIME_DRAWDOWN_INVALID"),
 ])
 def test_invalid_paper_metrics_rejected(key, value, error):
     payload = baseline()
     payload["metrics"][key] = value
     with pytest.raises(ValueError, match=error):
         extract_runtime_metrics(payload)
+
+def test_signed_drawdown_from_original_p2071_is_preserved():
+    payload = baseline()
+    payload["metrics"]["drawdown_abs"] = -953.05314
+    payload["metrics"]["drawdown_pct"] = -0.00953053
+    actual = extract_runtime_metrics(payload)
+    assert actual["drawdown_abs"] == -953.05314
+    assert actual["drawdown_pct"] == -0.00953053
