@@ -66,7 +66,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
 
     return {
         "program": "MIND_TRADER_INSTITUTIONAL_WIRING",
-        "status": "operational",
+        "status": "NOT_CERTIFIED",
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "mode": "PAPER_ONLY",
         "real_orders": "FORBIDDEN",
@@ -79,13 +79,15 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
     }
 
 def health() -> dict:
-    r = run_institutional_wiring({})
+    # Health checks must not execute arbitrary imported trading modules.
+    # No prior successful run evidence is available from this entrypoint.
     return {
-        "status": "operational" if r["imports_ok"] == r["modules_total"] else "DEGRADED",
-        "modules_total": r["modules_total"],
-        "imports_ok": r["imports_ok"],
-        "runs_ok": r["runs_ok"],
-        "health_ok": r["health_ok"],
+        "status": "NOT_CERTIFIED",
+        "modules_total": len(MODULES),
+        "imports_ok": None,
+        "runs_ok": None,
+        "health_ok": None,
+        "reason": "RUNTIME_EVIDENCE_NOT_VERIFIED",
     }
 
 def run(payload: dict | None = None) -> dict:
