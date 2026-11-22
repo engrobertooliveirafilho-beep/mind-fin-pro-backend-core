@@ -142,3 +142,11 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Published `tests/test_ftmo_paper_integrated.py` `22e556bb`: PAPER pretrade -> open -> V5 bar -> V4 exit -> equity + day rollover; invalid OHLC must not advance day.
 - **2/2 PASS** locally with recovered original dependencies and adapted package imports, `PYTHONPATH=/mnt/data/et_integrated python -m unittest discover -s /mnt/data/et_integrated/tests -v`. This is an isolated reconstructed test tree, not a clean GitHub checkout. Test code was copied from the published tests; source was reconstructed from recovered originals plus previously published V4 correction.
 - No broker calls, real orders, production mutation or merge. Full regression/CI, original SHA lineage for adapted files, broader agents/steps integration and E2E remain open.
+
+
+## FTMO V4/V5 malformed input regression — 2026-11-22
+- Verified recovered original V4/V5 and PAPER dependencies from Drive; existing package-local GitHub sources read back before patch.
+- V4 `process_bar` formerly leaked `KeyError` or `TypeError` for malformed input; hardened to return `ValueError` without mutating account, commit `6c809a67fe612a0ef47592c827003de597113e7d`.
+- Existing integrated regression extended with four malformed inputs (null, empty, missing keys, nonnumeric OHLC), commit `061b805a9f5ac2596d5765064c757dcab3151eef`.
+- Local reconstructed package regression: first run **2 PASS / 1 ERROR** because local V5 was stale (not matching published GitHub source); replaced local V5 with current published source, reran **3/3 PASS** in `/mnt/data/et_integrated` using `PYTHONPATH=. python -m unittest discover -s tests -v`. The test validates V5 fail-closed and account immutability, not clean GitHub checkout or E2E.
+- No real orders, merge or production changes. Broader regressions and runtime certification remain open.
