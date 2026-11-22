@@ -14,8 +14,11 @@ class OrderBookSimulator:
 
     def update_book(self):
         move = random.uniform(-0.5, 0.5)
-        self.bid += move
-        self.ask += move
+        next_bid = self.bid + move
+        next_ask = self.ask + move
+        if not (math.isfinite(next_bid) and math.isfinite(next_ask) and 0 < next_bid < next_ask):
+            raise RuntimeError("P2224_INVALID_BOOK")
+        self.bid, self.ask = next_bid, next_ask
         return {
             "bid": round(self.bid, 2),
             "ask": round(self.ask, 2),
@@ -36,9 +39,14 @@ class MarketDigitalTwin:
         }
 
     def step(self):
-        for k in self.assets:
+        updated = {}
+        for k, price in self.assets.items():
             shock = random.uniform(-1, 1) * 0.5
-            self.assets[k] += shock
+            next_price = price + shock
+            if not math.isfinite(next_price) or next_price <= 0:
+                raise RuntimeError("P2225_INVALID_MARKET_PRICE")
+            updated[k] = next_price
+        self.assets = updated
         return {k: round(v, 2) for k, v in self.assets.items()}
 
 # ============================================================
