@@ -3,7 +3,7 @@ Drive original: 1Bk-gkLSKK2d2k4DawfhcGLYdOTjSTlcW.
 PAPER only; no broker connectivity. Requires original V4 and portfolio dependencies.
 """
 from datetime import date
-from ftmo_paper_guard import D
+from .ftmo_paper_guard import D
 from app.runtime.ftmo_execution_v4 import ExecutionV4
 
 
