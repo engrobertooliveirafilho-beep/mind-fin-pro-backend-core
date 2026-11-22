@@ -8,6 +8,15 @@ class PaperEngineExecution(unittest.TestCase):
     def test_original_497_executes_but_blocked(self):
         with self.assertRaisesRegex(MockDataBlocked, 'HISTORICAL_MOCK_DATA'):
             execute_paper_pipeline(get_business_pipeline_snapshot)
+    def test_original_provenance_denied_before_invocation(self):
+        calls=[]
+        def get_business_pipeline_snapshot():
+            calls.append('executed')
+            return {'version':'step497-v1'}
+        get_business_pipeline_snapshot.__module__='recovered.finance_steps.step497_pipeline_engine_original'
+        with self.assertRaisesRegex(MockDataBlocked,'HISTORICAL_MOCK_DATA'):
+            execute_paper_pipeline(get_business_pipeline_snapshot)
+        self.assertEqual(calls,[])
     def test_original_497_metadata(self):
         payload=get_business_pipeline_snapshot()
         self.assertEqual(payload['version'],'step497-v1')
