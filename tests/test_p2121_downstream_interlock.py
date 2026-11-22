@@ -80,3 +80,23 @@ def test_p2121_missing_dependency_does_not_create_artifacts(tmp_path, monkeypatc
     with pytest.raises(FileNotFoundError):
         run_p2121_plus(str(tmp_path), deps, str(output))
     assert not output.exists()
+
+def test_p2127_file_presence_is_not_test_execution(tmp_path, monkeypatch):
+    from app.runtime.p2121_plus_continuous_max_capacity_audit import RegressionTestAudit
+    for key, expected in ABSOLUTE_LOCKS.items():
+        monkeypatch.setenv(key, expected)
+    paths = [
+        "tests/test_p2071_2080_realtime_paper_runtime.py",
+        "tests/test_p2081_2090_realtime_portfolio_governance.py",
+        "tests/test_p2091_2100_realtime_intelligence_layer.py",
+        "tests/test_p2101_2110_autonomous_paper_operations.py",
+        "tests/test_p2111_2120_maximum_technical_capacity.py",
+    ]
+    for path in paths:
+        target = tmp_path / path
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text("def test_placeholder(): pass", encoding="utf-8")
+    decision = RegressionTestAudit().evaluate(str(tmp_path))
+    assert decision.status == "FAIL"
+    assert decision.reason == "REGRESSION_EXECUTION_NOT_VERIFIED"
+    assert decision.payload["execution_verified"] is False
