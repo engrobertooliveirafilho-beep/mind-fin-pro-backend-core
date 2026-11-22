@@ -441,3 +441,10 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Added `tests/test_finance_eight_original_stubs.py` commit `ad653925d92f5d5796669895d8bd7a58a965ec26`: loads all eight preserved sources, checks `APPROVED_STUB`, exact Drive IDs, and zero certified STEPs.
 - Executed local `python -m unittest discover -s tests -v` in `/mnt/data/finance_verify`: **23/23 PASS, 0 FAIL, 0.003s**. Log `/mnt/data/finance_eight_stubs_20261122.log`. Local originals reconstructed from exact Drive text returned in this session; no authenticated clean GitHub checkout, so no CI/E2E certification.
 - Result: 8/13 finance registry STEPs confirmed as **not implemented**, not certified. Other 5 still not certified. Main and production unchanged, PAPER_ONLY, REAL_ORDERS=FORBIDDEN, COST=R$0.
+
+
+## STEP177 recovered: static status route, not finance motor — 2026-11-22
+- Reopened Drive original ID `1YOOmivVjSXxWMvJ0jVj2g70Bza0M2WVW`. Drive connector provided an attached 242-byte `engine_step177.py` rather than inline text; inspected the actual mounted attachment at `/mnt/data/engine_step177.py`.
+- Original module declares FastAPI `APIRouter` and `GET /mind/step/177`; handler returns only `{"version":"step177-v1","step":177,"status":"active"}`. No risk, broker, finance calculations, order execution, or real runtime certification. Published text-normalized preservation at `recovered/finance_steps/step177_static_status_route_original.py`, commit `951d32272b644a3664cd880e39817afb6dd2181f`.
+- Added two static AST tests `tests/test_step177_static_route_evidence.py` commit `48086935390b4bac9f57264ec3fbd2010b2f6dfd`; executed both locally against the original attached Drive file: **2/2 PASS, 0 FAIL**, `/mnt/data/step177_static_20261122.log`. Tests do not execute route, certify deployment, or test finance trading.
+- Of the 13 finance registry STEPs, eight are original approved stubs and STEP177 is status-only. STEP210 is creative domain; STEP239 missing in historical ledger; STEP497 and STEP498 are mock-dependent. All 13 remain functionally uncertified for finance. PAPER_ONLY, MAIN=INTACTA, E2E_CERTIFIED=FALSE, COST=R$0.
