@@ -34,3 +34,14 @@ class V6RiskTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.e.process_bar({pid:dict(open=100,high=105,low=95,close=100,target=120)},day='2026-10-30')
         self.assertEqual(self.p.account.day,date(2026,10,29))
+
+    def test_empty_bar_after_prior_halt_is_not_new_intrabar_breach(self):
+        self.p.account.balance=D(90000)
+        self.p.account.equity=D(90000)
+        self.p.account.halted=True
+        before=len(self.p.audit)
+        result=self.e.process_bar({})
+        self.assertTrue(result['halted'])
+        self.assertFalse(result['intrabar_breach'])
+        self.assertEqual(len(self.p.audit),before)
+        self.assertEqual(result['real_orders'],0)
