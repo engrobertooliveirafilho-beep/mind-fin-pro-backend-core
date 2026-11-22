@@ -72,7 +72,7 @@ class StrategyEcoSystem:
         ]
 
     def evolve(self, macro_signal):
-        if not isinstance(macro_signal, dict) or isinstance(macro_signal.get("VOLATILITY"), bool) or not isinstance(macro_signal.get("VOLATILITY"), (int, float)) or not math.isfinite(macro_signal["VOLATILITY"]):
+        if not isinstance(macro_signal, dict) or isinstance(macro_signal.get("VOLATILITY"), bool) or not isinstance(macro_signal.get("VOLATILITY"), (int, float)) or not math.isfinite(macro_signal["VOLATILITY"]) or macro_signal["VOLATILITY"] < 0:
             raise ValueError("P2229_INVALID_MACRO_SIGNAL")
         updated = []
         for s in self.strategies:
