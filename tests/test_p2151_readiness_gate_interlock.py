@@ -48,3 +48,17 @@ def test_p2151_historical_pass_is_not_e2e_authority(tmp_path, monkeypatch):
     assert not result["failed"]
     assert result["status"] == "FAIL"
     assert result["gate_review"]["deployment_decision"] == "BLOCKED"
+
+@pytest.mark.parametrize("payload,code", [
+    ('{"status":"PASS","status":"FAIL"}', "P2151_DUPLICATE_JSON_KEY"),
+    ('{"x":NaN}', "P2151_NONFINITE_JSON_NUMBER"),
+    ('{"x":Infinity}', "P2151_NONFINITE_JSON_NUMBER"),
+    ('{"x":1e999}', "P2151_NONFINITE_JSON_NUMBER"),
+    ('["PASS"]', "P2151_INVALID_CERTIFICATION_OBJECT"),
+])
+def test_p2151_rejects_ambiguous_certification(tmp_path, payload, code):
+    from app.runtime.p2151_plus_readiness_dossier_gate_review import load
+    path=tmp_path/"cert.json"
+    path.write_text(payload,encoding="utf-8")
+    with pytest.raises(ValueError,match=code):
+        load(str(path))
