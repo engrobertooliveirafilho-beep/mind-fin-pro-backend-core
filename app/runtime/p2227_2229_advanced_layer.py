@@ -17,12 +17,13 @@ class CrisisEngine:
         if event not in ("NONE", "CRASH", "SPIKE", "LIQUIDITY_DRAIN"):
             raise RuntimeError("P2227_INVALID_CRISIS_EVENT")
 
-        if event == "CRASH":
-            price *= (1 - random.uniform(0.05, 0.2))
-        elif event == "SPIKE":
-            price *= (1 + random.uniform(0.03, 0.15))
-        elif event == "LIQUIDITY_DRAIN":
-            price *= (1 + random.uniform(-0.02, 0.02))
+        bounds = {"CRASH": (0.05, 0.2), "SPIKE": (0.03, 0.15), "LIQUIDITY_DRAIN": (-0.02, 0.02)}
+        if event in bounds:
+            low, high = bounds[event]
+            shock = random.uniform(low, high)
+            if isinstance(shock, bool) or not isinstance(shock, (int, float)) or not math.isfinite(shock) or not low <= shock <= high:
+                raise RuntimeError("P2227_INVALID_CRISIS_SHOCK")
+            price *= 1 - shock if event == "CRASH" else 1 + shock
 
         if not math.isfinite(price) or price < 0.005:
             raise RuntimeError("P2227_INVALID_CRISIS_PRICE")
