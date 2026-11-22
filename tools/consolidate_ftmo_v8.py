@@ -21,8 +21,10 @@ GATES=('canonical_runtime_hash_verified','all_motors_reconciled',
 def run(source, out, *, package_root=None):
     source=Path(source).resolve()
     out=Path(out).resolve()
-    if source == out or source in out.parents:
-        raise ValueError('output must not modify source tree')
+    if source == out or source in out.parents or out in source.parents:
+        raise ValueError('output must be separate from source tree and its ancestors')
+    if out.exists() and any(out.iterdir()):
+        raise ValueError('output must be an empty directory; existing evidence is immutable')
     if not source.is_dir():
         raise ValueError('source directory does not exist')
     out.mkdir(parents=True,exist_ok=True)
