@@ -187,3 +187,30 @@ def test_p2087_never_overwrites_conflicting_checkpoint(tmp_path, monkeypatch):
         PortfolioRecovery().evaluate({"program":"different_state","cycles":1501},str(directory))
     assert checkpoint.read_bytes()==original
     assert not (directory/"governance_state.json.tmp").exists()
+
+def test_p2087_idempotent_rerun_preserves_checkpoint_mtime(tmp_path, monkeypatch):
+    from app.runtime.p2081_2090_realtime_portfolio_governance import PortfolioRecovery, ABSOLUTE_LOCKS
+    for k,v in ABSOLUTE_LOCKS.items():
+        monkeypatch.setenv(k,v)
+    state={"program":"P2081_2090","runtime":{"cycles":1500}}
+    directory=tmp_path/"checkpoints"
+    PortfolioRecovery().evaluate(state,str(directory))
+    checkpoint=directory/"governance_state.json"
+    before=checkpoint.stat().st_mtime_ns
+    decision=PortfolioRecovery().evaluate(state,str(directory))
+    assert checkpoint.stat().st_mtime_ns==before
+    assert decision.payload["durable_checkpoint_verified"] is True
+
+
+def test_p2087_rejects_symlink_checkpoint(tmp_path, monkeypatch):
+    from app.runtime.p2081_2090_realtime_portfolio_governance import PortfolioRecovery, ABSOLUTE_LOCKS
+    for k,v in ABSOLUTE_LOCKS.items():
+        monkeypatch.setenv(k,v)
+    directory=tmp_path/"checkpoints"
+    directory.mkdir()
+    target=tmp_path/"historical.json"
+    target.write_text("untouched")
+    (directory/"governance_state.json").symlink_to(target)
+    with pytest.raises(RuntimeError, match="P2087_UNSAFE_CHECKPOINT_SYMLINK"):
+        PortfolioRecovery().evaluate({"program":"P2081_2090"},str(directory))
+    assert target.read_text()=="untouched"
