@@ -41,7 +41,7 @@ class MarketDigitalTwin:
     def step(self):
         updated = {}
         for k, price in self.assets.items():
-            shock = random.uniform(-1, 1) * 0.5
+            shock = random.uniform(-1, 1) * min(0.5, price * 0.1)
             next_price = price + shock
             if not math.isfinite(next_price) or next_price <= 0:
                 raise RuntimeError("P2225_INVALID_MARKET_PRICE")
@@ -82,7 +82,7 @@ class StrategyEvolutionEngine:
 # ============================================================
 
 def run(cycles=30):
-    if type(cycles) is not int or cycles < 1:
+    if type(cycles) is not int or not 1 <= cycles <= 10000:
         raise ValueError("P2224_INVALID_CYCLES")
     book = OrderBookSimulator()
     twin = MarketDigitalTwin()
