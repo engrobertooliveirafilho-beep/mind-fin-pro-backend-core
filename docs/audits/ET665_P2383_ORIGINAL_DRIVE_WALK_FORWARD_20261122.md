@@ -220,3 +220,10 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Ran one isolated timeout-injection regression against matching reconstructed V8 code with `unittest.mock.patch(subprocess.run)`: **PASS**, returncode 124, all 3 evidence files persisted, `ftmo_release=BLOCKED`, `real_orders=0`. Added published regression to `tests/test_consolidate_ftmo_v8_safety.py`, commit `4e665df0f216876fbfaa0562853add468ef92fab`. Published version not run from a clean GitHub checkout.
 - Drive search for `FTMO_PROFILE_V3`, `TRADER_CAPABILITIES`, `TRADER_MOTORS` found only previously known empty profile folder and older dossiês; no new executable motor, STEP or agent certified.
 - Original Drive immutable, main and production untouched; PAPER only, FTMO release blocked.
+
+
+## Portfolio direct rollover atomicity — 2026-11-22
+- Confirmed original Drive `portfolio_runtime.py` ID `1Oy1Si3--NtCJPpo2FYqCckYrN0b2Fbqd` and GitHub isolated runtime. Direct `PaperPortfolio.new_day` previously called `_mark_all()` before validating the day; rejected old or datetime dates could mutate equity/risk halt.
+- Corrected existing `app/runtime/portfolio_runtime.py` to reject `type(day) is not date` and `day <= account.day` before marking. Commit `be0491cc29f27885ffc8dd91bf34bc2d0956e9a8`.
+- Added three tests in `tests/test_ftmo_portfolio_direct_rollover.py` commit `e80904145ed933981132c2b17373526d1f1e9306`: datetime rejection without equity/audit mutation, earlier date rejection without mutation, valid rollover re-marks open position.
+- Executed in reconstructed local `/mnt/data/et_integrated`: `PYTHONPATH=. python -m unittest discover -s original_tests -q` **31/31 PASS** and `PYTHONPATH=. python -m unittest discover -s tests -q` **18/18 PASS**, total **49/49 PASS**. Not a clean checkout or E2E certification. PAPER_ONLY; main/production/Drive unchanged.
