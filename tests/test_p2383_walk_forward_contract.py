@@ -3,7 +3,9 @@ from app.runtime.p2383_walk_forward_contract import chronological_folds
 
 def rows(n=500):
     return [{"signal_id":f"S{i:04d}","entry_time":f"2025-01-{1+i//24:02d} {i%24:02d}:00:00",
-             "realized_r":(-1.0 if i%3==0 else 2.0),"family":"F"} for i in range(n)]
+             "realized_r":(-1.0 if i%3==0 else 2.0),"family":"F",
+             "mode":"PAPER_ONLY","real_orders":"FORBIDDEN","ftmo_real":"FORBIDDEN",
+             "warning":"PAPER_FEEDBACK_PROXY_NOT_REAL_PNL"} for i in range(n)]
 
 def test_full_population_splits_into_five_strict_folds():
     r=chronological_folds(rows(),source_mission="P2380_DE40_FORWARD_PAPER_FEEDBACK_LOOP_AND_PNL_TRACKING")
@@ -40,7 +42,7 @@ def test_nonfinite_outcome_rejected():
 
 def test_partial_safety_metadata_rejected():
     x = rows()
-    x[0]["mode"] = "PAPER_ONLY"
+    del x[0]["ftmo_real"]
     with pytest.raises(ValueError, match="INCOMPLETE_PAPER_SAFETY"):
         chronological_folds(x, source_mission="P2380_DE40_FORWARD_PAPER_FEEDBACK_LOOP_AND_PNL_TRACKING")
 
@@ -77,9 +79,9 @@ def test_equal_timestamp_inside_one_fold_allowed():
 
 def test_mixed_canonical_and_legacy_schema_rejected():
     x = rows()
-    x[0].update(mode="PAPER_ONLY", real_orders="FORBIDDEN",
-                ftmo_real="FORBIDDEN", warning="PAPER_FEEDBACK_PROXY_NOT_REAL_PNL")
-    with pytest.raises(ValueError, match="MIXED_PAPER_SAFETY_SCHEMA"):
+    for key in ("mode", "real_orders", "ftmo_real", "warning"):
+        del x[0][key]
+    with pytest.raises(ValueError, match="INCOMPLETE_PAPER_SAFETY"):
         chronological_folds(x, source_mission="P2380_DE40_FORWARD_PAPER_FEEDBACK_LOOP_AND_PNL_TRACKING")
 
 
@@ -88,4 +90,13 @@ def test_malformed_signal_id_rejected(bad_id):
     x = rows()
     x[0]["signal_id"] = bad_id
     with pytest.raises(ValueError, match="DUPLICATE_OR_MISSING_SIGNAL_ID"):
+        chronological_folds(x, source_mission="P2380_DE40_FORWARD_PAPER_FEEDBACK_LOOP_AND_PNL_TRACKING")
+
+
+def test_entire_population_without_paper_safety_rejected():
+    x = rows()
+    for row in x:
+        for key in ("mode", "real_orders", "ftmo_real", "warning"):
+            del row[key]
+    with pytest.raises(ValueError, match="INCOMPLETE_PAPER_SAFETY"):
         chronological_folds(x, source_mission="P2380_DE40_FORWARD_PAPER_FEEDBACK_LOOP_AND_PNL_TRACKING")
