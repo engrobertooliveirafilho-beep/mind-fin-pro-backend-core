@@ -73,3 +73,19 @@ def test_equal_timestamp_inside_one_fold_allowed():
     x[251]["entry_time"] = x[250]["entry_time"]
     result = chronological_folds(x, source_mission="P2380_DE40_FORWARD_PAPER_FEEDBACK_LOOP_AND_PNL_TRACKING")
     assert len(result["folds"]) == 5
+
+
+def test_mixed_canonical_and_legacy_schema_rejected():
+    x = rows()
+    x[0].update(mode="PAPER_ONLY", real_orders="FORBIDDEN",
+                ftmo_real="FORBIDDEN", warning="PAPER_FEEDBACK_PROXY_NOT_REAL_PNL")
+    with pytest.raises(ValueError, match="MIXED_PAPER_SAFETY_SCHEMA"):
+        chronological_folds(x, source_mission="P2380_DE40_FORWARD_PAPER_FEEDBACK_LOOP_AND_PNL_TRACKING")
+
+
+@pytest.mark.parametrize("bad_id", [[], {}, 123, " ", None])
+def test_malformed_signal_id_rejected(bad_id):
+    x = rows()
+    x[0]["signal_id"] = bad_id
+    with pytest.raises(ValueError, match="DUPLICATE_OR_MISSING_SIGNAL_ID"):
+        chronological_folds(x, source_mission="P2380_DE40_FORWARD_PAPER_FEEDBACK_LOOP_AND_PNL_TRACKING")
