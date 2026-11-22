@@ -266,7 +266,9 @@ class PortfolioRecovery:
         serialized = json.dumps(governance_state, ensure_ascii=False)
         restored = json.loads(serialized)
 
-        ok = restored.get("program") == governance_state.get("program")
+        # A matching program label does not prove recovery of runtime,
+        # specialists, locks or other governance state.
+        ok = restored == governance_state
 
         return GovernanceDecision(
             component="P2087_PORTFOLIO_RECOVERY",
