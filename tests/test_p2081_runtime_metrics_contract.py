@@ -85,3 +85,16 @@ def test_p2081_missing_inputs_do_not_create_evidence(tmp_path, monkeypatch):
         run_p2081_2090(str(tmp_path/"missing_portfolio.json"),
                        str(tmp_path/"missing_certification.json"), str(out))
     assert not out.exists()
+
+def test_p2087_roundtrip_requires_entire_state(monkeypatch):
+    from app.runtime.p2081_2090_realtime_portfolio_governance import (
+        PortfolioRecovery, ABSOLUTE_LOCKS,
+    )
+    for k,v in ABSOLUTE_LOCKS.items():
+        monkeypatch.setenv(k,v)
+    state={"program":"P2081_2090_REALTIME_PORTFOLIO_GOVERNANCE",
+           "runtime":{"cycles":1500,"drawdown_pct":-0.00953053},
+           "specialists":3,"locks":dict(ABSOLUTE_LOCKS)}
+    decision=PortfolioRecovery().evaluate(state)
+    assert decision.status == "PASS"
+    assert decision.payload["restored_program"] == state["program"]
