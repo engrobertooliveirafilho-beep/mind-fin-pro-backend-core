@@ -60,12 +60,22 @@ class PaperAccount:
         self.equity=self.balance+D(unrealized_pnl)
         return self.check()
     def close_paper_trade(self, side, entry, exit_price, quantity, point_value, commission=0, slippage_cost=0):
-        if self.halted:raise RuntimeError('PAPER risk halt')
-        if side not in ('BUY','SELL') or D(quantity)<=0 or D(point_value)<=0:raise ValueError('invalid trade')
-        direction=D(1) if side=='BUY' else D(-1)
-        pnl=(D(exit_price)-D(entry))*direction*D(quantity)*D(point_value)-D(commission)-D(slippage_cost)
-        if D(commission)<0 or D(slippage_cost)<0:raise ValueError('invalid costs')
-        self.balance+=pnl;self.equity=self.balance;self.trades+=1;self.check()
+        if self.halted: raise RuntimeError('PAPER risk halt')
+        if side not in ('BUY', 'SELL'): raise ValueError('invalid trade side')
+        try:
+            values = [D(v) for v in (entry, exit_price, quantity, point_value, commission, slippage_cost)]
+        except (TypeError, ValueError, ArithmeticError) as exc:
+            raise ValueError('invalid trade numeric input') from exc
+        en, ex, qty, pv, fee, slip = values
+        if not all(v.is_finite() for v in values) or min(en, ex, qty, pv) <= 0 or min(fee, slip) < 0:
+            raise ValueError('invalid trade numeric input')
+        direction = D(1) if side == 'BUY' else D(-1)
+        pnl = (ex - en) * direction * qty * pv - fee - slip
+        if not pnl.is_finite(): raise ValueError('nonfinite PAPER pnl')
+        self.balance += pnl
+        self.equity = self.balance
+        self.trades += 1
+        self.check()
         return pnl
     def target_reached(self):
         return self.balance>=self.rules.initial_balance*(D(1)+self.rules.profit_target_fraction) and not self.halted
