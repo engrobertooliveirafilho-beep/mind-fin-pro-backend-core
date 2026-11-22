@@ -81,5 +81,5 @@ def paper_signal(row, candle, action, *, seen_keys, daily_count, edge_daily_coun
     if key in seen_keys or ("CANDLE", parsed.isoformat()) in seen_keys:
         raise ValueError("P2299_DUPLICATE_CANDLE")
     return {"status": "PAPER_OBSERVATION_ONLY", "symbol": "GER40", "action": action,
-            "candle": parsed.isoformat(), "dedup_key": key, "lot_reference": "0.01",
+            "candle": parsed.isoformat(), "dedup_key": key, "global_candle_key": ("CANDLE", parsed.isoformat()), "lot_reference": "0.01",
             "broker_order": None, "real_orders": "FORBIDDEN"}
