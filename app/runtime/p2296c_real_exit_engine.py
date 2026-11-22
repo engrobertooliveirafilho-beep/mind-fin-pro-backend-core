@@ -80,7 +80,7 @@ def simulate(rows,exit_model):
         exit_reason=None
         exit_i=None
 
-        for j in range(i+1,min(i+1+max_hold,len(rows))):
+        for j in range(i+1,min(i+max_hold+1,len(rows))):
             hi=rows[j]["high"]
             lo=rows[j]["low"]
 
