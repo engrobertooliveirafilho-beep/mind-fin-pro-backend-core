@@ -168,3 +168,10 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Corrected source rejects non-boolean `paper_tests_pass` and non-mapping evidence, preserving required keys and explicit boolean semantics; `app/runtime/certification_gate_v7.py` commit `3557bdb176b1a7261d23373cffa56c435db98459`.
 - Published original 6 tests plus 3 adversarial cases `tests/test_certification_gate_v7.py` commit `0ed74ff36a7e409253fd7a9fe2e2ba77c06ddc73`. Local original-plus-patched **9/9 PASS** `python -m unittest -q test_certification_gate_v7` in `/mnt/data/et_v7_lab`; source is adapted for package path in GitHub, not clean-checkout CI.
 - `release_authorized` is an evidence-gate boolean only; does not authorize real broker orders. Required evidence is not complete; E2E_CERTIFIED=FALSE. No main merge or production mutation.
+
+
+## FTMO V8 historical consolidation recovery — 2026-11-22
+- Newly located Drive folder `CONSOLIDATION_V8` ID `1qVZorwqL7O5r_tka_WMczlKKmxigRFJF`; original script `consolidate_v8.py` ID `1f3D5QtQSKFyYQMopRujfzjiT1Sydah6q`, consolidation ledger ID `1Yxvu-v_zTeUOEjw1UhbxS4-73-Chz5B9`.
+- Original V8 was hard-coded to an old isolated `eldora_ftmo_v7` directory, with outputs written beside the script. Published adapted `tools/consolidate_ftmo_v8.py` commit `8bff81e019984c35bce3a2154101812c09d05041`: explicit source/out/package-root, rejects output inside source, rejects missing modules/tests and preserves `ftmo_release=BLOCKED`.
+- Local isolated equivalent `/mnt/data/et_v8_lab/consolidate_v8.py` executed against reconstructed V4–V7 source/tests with package-root `/mnt/data/et_integrated`: **37/37 PASS**, 7 modules, 5 test files; same-tree output attempt rejected (exit 1). This was not a clean checkout of published V8.
+- Original Drive V8 manifest labels its seven modules `isolated_paper_candidate_not_canonical`; no authority to claim runtime certification. No main merge, production change, paid resource or real orders.
