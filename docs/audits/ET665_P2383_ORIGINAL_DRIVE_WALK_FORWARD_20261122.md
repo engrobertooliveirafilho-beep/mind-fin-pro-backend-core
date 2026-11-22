@@ -77,3 +77,14 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 ### Additional isolated logic verification
 - Executed the six new negative cases in an independent Python harness reproducing the new validation logic: **6/6 PASS**.
 - This verifies only the extracted guard logic, NOT the published module in an authenticated checkout and NOT the entire P2383 test suite. Historical original-CSV integration is not reexecuted in this pass.
+
+
+## 2026-11-21 strict PAPER-only and original CSV revalidation
+- Found a remaining fail-open gap: 500-row populations with *no* PAPER-only metadata were previously accepted because the earlier code supported legacy synthetic fixtures.
+- Corrected P2383 to require all four safety fields on every row: `mode=PAPER_ONLY`, `real_orders=FORBIDDEN`, `ftmo_real=FORBIDDEN`, `warning=PAPER_FEEDBACK_PROXY_NOT_REAL_PNL`. Missing, partial, mixed or unsafe fields fail closed.
+- Updated synthetic unit fixtures to carry canonical PAPER safety fields and added a metadata-free-population rejection test.
+- **Actual isolated Python execution** in local reconstructed files: `P2380_FEEDBACK_CSV=/mnt/data/de40_forward_paper_feedback_all.csv PYTHONPATH=/mnt/data/p2383_validation pytest -q /mnt/data/p2383_validation/tests/test_contract.py /mnt/data/p2383_validation/tests/test_original.py` => **23 passed in 0.08s** (22 unit cases plus 1 original-Drive CSV integration).
+- Original Drive CSV SHA-256 verified: `31aa0c813150b249aa6c653971dbb5f9766b6905c642807e81796d455bd4c197`, 500 rows, five chronological folds of 50 test rows, strict boundaries.
+- The executed files are locally reconstructed from connector-read GitHub source and test text, **not a clean authenticated Git checkout**. Thus isolated contract/data integration is PASS, repository checkout CI/E2E remains uncertified.
+- GitHub commits: strict safety source `83ace1b6e4fdf54350cd3a054867337576286477`; updated tests `ff3e809c0ac59313810d0019c4a7de4a7688d328`.
+- P2381 engine original source not recovered; P2381/P2382 survivor selection remains blocked from strategy promotion. PAPER_ONLY; MAIN and production intact; no orders or cost.
