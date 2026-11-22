@@ -25,3 +25,10 @@ class PaperFinanceHTTP(unittest.TestCase):
         self.assertEqual(self.client.post('/paper/finance/order',json={}).status_code,404)
     def test_original_unprotected_route_not_mounted(self):
         self.assertEqual(self.client.get('/biz/pipeline/snapshot').status_code,404)
+
+    def test_router_does_not_import_original_mock_engine(self):
+        import inspect
+        from app.runtime import paper_finance_routes
+        source=inspect.getsource(paper_finance_routes)
+        self.assertNotIn('from recovered.finance_steps',source)
+        self.assertNotIn('import recovered.finance_steps',source)
