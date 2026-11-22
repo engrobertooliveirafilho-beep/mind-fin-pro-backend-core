@@ -32,3 +32,15 @@ def test_wiring_summary_does_not_claim_operational():
     ]
     assert "NOT_CERTIFIED" in status_values
     assert "operational" not in status_values
+
+def test_public_wiring_does_not_import_or_execute_modules(monkeypatch):
+    from app.runtime import mind_trader_institutional_wiring as wiring
+    def forbidden(*args, **kwargs):
+        raise AssertionError("unverified runtime was invoked")
+    monkeypatch.setattr(wiring.importlib, "import_module", forbidden)
+    monkeypatch.setattr(wiring, "_unsafe_legacy_institutional_wiring_disabled", forbidden)
+    result = wiring.run({"symbol":"XAUUSD"})
+    assert result["status"] == "NOT_CERTIFIED"
+    assert result["reason"] == "RUNTIME_CALL_GRAPH_NOT_CERTIFIED"
+    assert result["runs_ok"] is None
+    assert result["modules_total"] == len(wiring.MODULES)
