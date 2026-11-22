@@ -268,15 +268,20 @@ class PortfolioRecovery:
 
         # A matching program label does not prove recovery of runtime,
         # specialists, locks or other governance state.
-        ok = restored == governance_state
-
+        roundtrip_valid = restored == governance_state
+        # JSON in-memory roundtrip is not durable checkpoint recovery.
+        # Never certify a process restart or recovered state without an
+        # independently verified checkpoint read and runtime rehydration.
         return GovernanceDecision(
             component="P2087_PORTFOLIO_RECOVERY",
-            status="PASS" if ok else "FAIL",
-            reason="RECOVERY_OK" if ok else "RECOVERY_FAIL",
+            status="FAIL",
+            reason="DURABLE_RECOVERY_NOT_EXECUTED",
             payload={
                 "serialized_bytes": len(serialized.encode("utf-8")),
                 "restored_program": restored.get("program"),
+                "in_memory_roundtrip_valid": roundtrip_valid,
+                "durable_checkpoint_verified": False,
+                "runtime_rehydration_verified": False,
             },
         )
 
