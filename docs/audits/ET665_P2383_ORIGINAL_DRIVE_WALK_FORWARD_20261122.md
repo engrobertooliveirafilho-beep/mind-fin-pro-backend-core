@@ -52,3 +52,12 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Its five recorded windows are not a valid monotonic chronological partition: window 1 start 2025-05-12 > end 2025-04-22; window 3 start 2025-09-30 > end 2022-10-12; window 5 start 2026-04-07 > end 2025-03-06. Window 2 begins 2022-08-18 after the purported first window, and window 4 begins 2022-11-10 before window 2 ends 2025-10-31. Therefore the old `chronological_5_window_walk_forward` label is unsupported by its window ledger.
 - Historical run recorded 227 groups, 227 rejected, 0 promoted, 0 observed. It must not be used as proof of walk-forward validation.
 - The new P2383 execution in this audit supersedes that run's population/split methodology only: complete P2380 CSV, SHA-256 verified, 250-row initial train, five strict future windows. It still does not certify edge performance or permit promotion.
+
+
+## 2026-11-21 hardening follow-up (isolated verification)
+- Hardened `app/runtime/p2383_walk_forward_contract.py`: reject partial safety metadata; reject any LIVE/allowed real orders/FTMO or real-PnL warning when canonical safety fields exist; reject equal timestamps across train/test and test/test boundaries.
+- Seven new regression cases added to `tests/test_p2383_walk_forward_contract.py` (1 partial safety, 4 unsafe fields, 1 boundary tie, 1 internal tie).
+- Verified in an isolated local Python reconstruction of the published module and its 15 unit-test cases: `python -m pytest -q tests/test_contract.py` => **15 passed in 0.06s**. This is a manually transcribed isolated mirror, NOT an authenticated Git checkout test and NOT original-Drive integration reexecution.
+- Original Drive integration test `tests/test_p2383_original_drive_population.py` remains unexecuted in this follow-up; no P2381 source code recovered, no train-only replay, no performance certification.
+- GitHub published source commit `92cd5f8f7024bb8037b029cc6d62afd6b65bac8d`; regression commit `508d0c25dfcfb150a89a973a322ba4d8d20bab3a`.
+- Scope: PAPER_ONLY; no merge, production, real orders, FTMO real, or paid infrastructure.
