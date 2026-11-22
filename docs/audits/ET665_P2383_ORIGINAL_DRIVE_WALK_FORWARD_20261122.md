@@ -88,3 +88,10 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - The executed files are locally reconstructed from connector-read GitHub source and test text, **not a clean authenticated Git checkout**. Thus isolated contract/data integration is PASS, repository checkout CI/E2E remains uncertified.
 - GitHub commits: strict safety source `83ace1b6e4fdf54350cd3a054867337576286477`; updated tests `ff3e809c0ac59313810d0019c4a7de4a7688d328`.
 - P2381 engine original source not recovered; P2381/P2382 survivor selection remains blocked from strategy promotion. PAPER_ONLY; MAIN and production intact; no orders or cost.
+
+
+## Cross-project Drive recovery: MIND agents and STEP 520
+- Re-read canonical registry from Drive file `1IGBrD8FL3CLfVMngnG0rA765KlaZKfoD`: 81 agent records, 81 unique IDs, 412 STEP references covering 166 distinct STEP IDs, 50 agents with no step_ids, 52 with `active=true`, 81 with `auto_run=true`, 26 with `governance_rules.human_approval_required=true`. These are **catalog flags only**, not verified executable agent health or authorization.
+- Re-read STEP520 source Drive file `1ijSuxuIXJFlX8M5KrfMgVgoUQiACQ90-`: original `ComplianceEngine.check` explicitly returns `allowed=True` for any action not listed in `blocked_actions`. Original test `1obWpiLt-x4U6puExfxPQu-ENWos-nBBL` expects an arbitrary `qualquer_coisa` action to pass. This is fail-open and cannot be treated as a secure compliance gate.
+- Do not wire STEP520 original to PAPER gateway or agent execution. A separate default-deny remediation and independent approval-verifier contract are required before runtime certification.
+- P2381 original executable code remains unrecovered; no claim that catalog flags or historical log `CERTIFIED` imply working engines.
