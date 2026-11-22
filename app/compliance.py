@@ -20,6 +20,8 @@ class ComplianceDecision:
 class ComplianceEngine:
     """Declarative STEP520 policy with default deny and invariant real-order ban."""
 
+    PAPER_ACTIONS = frozenset({"paper_feedback", "paper_replay", "paper_validate"})
+
     FORBIDDEN = frozenset({
         "real_order", "live_order", "ftmo_real", "place_order",
         "mt5_real_order", "broker_live_execution",
@@ -41,6 +43,8 @@ class ComplianceEngine:
         if not isinstance(action, str) or not action.strip():
             return ComplianceDecision(False, "Ação ausente ou inválida.", "safety")
         action = action.strip()
+        if action not in self.PAPER_ACTIONS:
+            return ComplianceDecision(False, "Ação fora do escopo PAPER.", "safety")
         if action in self.FORBIDDEN or action.lower().startswith(("real_", "live_", "ftmo_real")):
             return ComplianceDecision(False, "Execução real proibida.", "safety")
         if event.get("mode") != "PAPER_ONLY" or event.get("real_orders") != "FORBIDDEN" or event.get("ftmo_real") != "FORBIDDEN":
@@ -52,7 +56,9 @@ class ComplianceEngine:
                 return ComplianceDecision(False, "Política inválida.", str(policy_name))
             blocked = cfg.get("blocked_actions", [])
             allowed = cfg.get("allowed_actions", [])
-            if not isinstance(blocked, (list, tuple, set)) or not isinstance(allowed, (list, tuple, set)):
+            if (not isinstance(blocked, (list, tuple, set)) or not isinstance(allowed, (list, tuple, set))
+                    or any(not isinstance(x, str) for x in blocked)
+                    or any(not isinstance(x, str) for x in allowed)):
                 return ComplianceDecision(False, "Lista de ações inválida.", str(policy_name))
             if action in blocked:
                 return ComplianceDecision(False, cfg.get("reason", "Ação bloqueada."), str(policy_name))
