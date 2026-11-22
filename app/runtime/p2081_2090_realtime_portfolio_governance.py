@@ -272,6 +272,9 @@ class PortfolioRecovery:
         # may use a disposable directory without polluting the workspace.
         with tempfile.TemporaryDirectory(prefix="p2087_paper_checkpoint_") as disposable:
             directory = Path(checkpoint_dir) if checkpoint_dir is not None else Path(disposable)
+            # Reject directory redirection, including symlinked parents.
+            if any(part.is_symlink() for part in (directory, *directory.parents)):
+                raise RuntimeError("P2087_UNSAFE_CHECKPOINT_DIRECTORY")
             directory.mkdir(parents=True, exist_ok=True)
             checkpoint = directory / "governance_state.json"
             temporary = directory / "governance_state.json.tmp"
