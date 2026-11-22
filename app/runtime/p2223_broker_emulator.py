@@ -67,6 +67,18 @@ class BrokerEmulator:
         # Slippage simulation
         slippage = random.uniform(-0.1, 0.1)
         exec_price = price + slippage
+        if (
+            not isinstance(price, (int, float))
+            or isinstance(price, bool)
+            or not math.isfinite(price)
+            or price <= 0
+            or not math.isfinite(slippage)
+            or not math.isfinite(exec_price)
+            or exec_price <= 0
+        ):
+            self.killed = True
+            self.risk.killed = True
+            raise RuntimeError("P2223_INVALID_MARKET_EXECUTION")
 
         pnl = 0
         if side == "BUY":
