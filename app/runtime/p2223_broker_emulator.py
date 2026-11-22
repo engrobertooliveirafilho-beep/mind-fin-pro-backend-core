@@ -56,7 +56,8 @@ class BrokerEmulator:
         self.killed = False
 
     def execute_order(self, side, volume):
-        if self.killed:
+        if self.killed or self.risk.killed:
+            self.killed = True
             raise RuntimeError("P2223_RISK_KILL_LATCHED")
         if side not in ("BUY", "SELL"):
             raise ValueError("P2223_INVALID_SIDE")
