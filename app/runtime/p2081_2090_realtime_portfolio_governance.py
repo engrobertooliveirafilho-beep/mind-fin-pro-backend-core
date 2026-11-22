@@ -4,6 +4,7 @@ import json
 import os
 import time
 import statistics
+import math
 from pathlib import Path
 from dataclasses import dataclass, asdict
 from typing import Dict, List, Any
@@ -77,6 +78,22 @@ def extract_runtime_metrics(raw: Dict[str, Any]) -> Dict[str, Any]:
     missing = [key for key in required if key not in metrics]
     if missing:
         raise ValueError("P2071_RUNTIME_METRICS_INCOMPLETE:" + ",".join(missing))
+
+    # Prevent NaN/Infinity and coerced fractional counters from entering
+    # risk governance decisions or falsely satisfying thresholds.
+    for key in required:
+        value = metrics[key]
+        if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
+            raise ValueError("P2071_RUNTIME_METRIC_INVALID:" + key)
+    for key in ("cycles", "frames_built", "signals_generated", "closed_trades", "open_positions"):
+        value = metrics[key]
+        if value < 0 or int(value) != value:
+            raise ValueError("P2071_RUNTIME_COUNTER_INVALID:" + key)
+    for key in ("initial_equity", "final_mark_to_market_equity", "peak_equity", "trough_equity"):
+        if metrics[key] <= 0:
+            raise ValueError("P2071_RUNTIME_EQUITY_INVALID:" + key)
+    if metrics["drawdown_pct"] < 0 or metrics["drawdown_abs"] < 0:
+        raise ValueError("P2071_RUNTIME_DRAWDOWN_INVALID")
 
     return {
         "cycles": int(metrics.get("cycles", 0)),
