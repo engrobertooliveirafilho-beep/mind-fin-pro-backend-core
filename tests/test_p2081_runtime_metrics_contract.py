@@ -170,3 +170,20 @@ def test_p2085_p2086_preserve_certified_non_equal_weights(monkeypatch):
     assert rebalance.payload["allocation"]=={"s1":0.5,"s2":0.3,"s3":0.2}
     assert capital.status=="PASS"
     assert capital.payload["allocation"]=={"s1":50000.,"s2":30000.,"s3":20000.}
+
+def test_p2087_never_overwrites_conflicting_checkpoint(tmp_path, monkeypatch):
+    import json
+    from app.runtime.p2081_2090_realtime_portfolio_governance import (
+        PortfolioRecovery, ABSOLUTE_LOCKS,
+    )
+    for k,v in ABSOLUTE_LOCKS.items():
+        monkeypatch.setenv(k,v)
+    directory=tmp_path/"checkpoints"
+    directory.mkdir()
+    checkpoint=directory/"governance_state.json"
+    original=json.dumps({"program":"historical_state","cycles":1500}).encode("utf-8")
+    checkpoint.write_bytes(original)
+    with pytest.raises(RuntimeError, match="P2087_EXISTING_CHECKPOINT_CONFLICT"):
+        PortfolioRecovery().evaluate({"program":"different_state","cycles":1501},str(directory))
+    assert checkpoint.read_bytes()==original
+    assert not (directory/"governance_state.json.tmp").exists()
