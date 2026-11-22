@@ -216,3 +216,15 @@ def test_p2087_rejects_symlink_checkpoint(tmp_path, monkeypatch):
     with pytest.raises(RuntimeError, match="P2087_UNSAFE_CHECKPOINT_SYMLINK"):
         PortfolioRecovery().evaluate({"program":"P2081_2090"},str(directory))
     assert target.read_text()=="untouched"
+
+def test_p2087_rejects_symlinked_checkpoint_directory(tmp_path, monkeypatch):
+    from app.runtime.p2081_2090_realtime_portfolio_governance import PortfolioRecovery, ABSOLUTE_LOCKS
+    for k,v in ABSOLUTE_LOCKS.items():
+        monkeypatch.setenv(k,v)
+    real_dir=tmp_path/"real"
+    real_dir.mkdir()
+    link_dir=tmp_path/"link"
+    link_dir.symlink_to(real_dir, target_is_directory=True)
+    with pytest.raises(RuntimeError, match="P2087_UNSAFE_CHECKPOINT_DIRECTORY"):
+        PortfolioRecovery().evaluate({"program":"P2081_2090"},str(link_dir))
+    assert not list(real_dir.iterdir())
