@@ -36,3 +36,18 @@ def test_historical_exit_models_are_distinct():
         assert trades
         signatures.append(tuple((t["exit_reason"], t["exit"]) for t in trades))
     assert len(set(signatures)) >= 2
+
+def test_import_has_no_dataset_or_evidence_side_effects(monkeypatch, tmp_path):
+    import importlib.util
+    import pathlib
+    original_exists = pathlib.Path.exists
+    def no_dataset(self):
+        if self.name == "MT5_GER40_H1_features.csv":
+            return False
+        return original_exists(self)
+    monkeypatch.setattr(pathlib.Path, "exists", no_dataset)
+    spec = importlib.util.spec_from_file_location("isolated_p2296c", SOURCE)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    assert callable(module.simulate)
+    assert callable(module.main)
