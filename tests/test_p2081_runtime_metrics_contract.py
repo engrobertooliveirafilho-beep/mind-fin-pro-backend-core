@@ -8,7 +8,7 @@ def baseline():
         "cycles": 1000, "frames_built": 1000, "signals_generated": 30,
         "closed_trades": 12, "open_positions": 0, "initial_equity": 100000.,
         "final_mark_to_market_equity": 100500., "paper_mark_to_market_pnl": 500.,
-        "drawdown_pct": 0.01, "drawdown_abs": 1000., "peak_equity": 101000.,
+        "drawdown_pct": -0.01, "drawdown_abs": -1000., "peak_equity": 101000.,
         "trough_equity": 99000.,
     }}
 
