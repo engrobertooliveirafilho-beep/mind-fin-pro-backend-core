@@ -59,7 +59,7 @@ def test_normalized_shocks_keep_eurusd_positive(monkeypatch):
     monkeypatch.setattr("app.runtime.p2224_2226_institutional_core.random.uniform", lambda a, b: -1.0)
     for _ in range(100):
         values = twin.step()
-        assert values["EURUSD"] >= 0
+        assert values["EURUSD"] > 0
         assert twin.assets["EURUSD"] > 0
 
 def test_default_run_is_stable_with_maximum_negative_shocks(monkeypatch):
@@ -96,3 +96,13 @@ def test_strategy_rejects_malformed_mutations(monkeypatch, bad):
     with pytest.raises(RuntimeError, match="P2226_INVALID_STRATEGY_MUTATION"):
         engine.evolve()
     assert engine.strategies == initial
+
+def test_eurusd_display_zero_rejected_atomically(monkeypatch):
+    from app.runtime.p2224_2226_institutional_core import MarketDigitalTwin
+    twin = MarketDigitalTwin()
+    twin.assets["EURUSD"] = 0.000001
+    before = dict(twin.assets)
+    monkeypatch.setattr("app.runtime.p2224_2226_institutional_core.random.uniform", lambda a, b: -1.0)
+    with pytest.raises(RuntimeError, match="P2225_INVALID_DISPLAY_PRICE"):
+        twin.step()
+    assert twin.assets == before
