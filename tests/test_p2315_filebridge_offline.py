@@ -22,3 +22,14 @@ def test_reject_invalid_signal(signal):
 @pytest.mark.parametrize("exists,backup",[(True,SIGNAL),(False,"WRONG")])
 def test_cannot_claim_clear_without_matching_backup(exists,backup):
     with pytest.raises(ValueError):reconcile_clear(SIGNAL,after_exists=exists,backup_content=backup)
+
+def test_original_p2316_fresh_signal_parses_without_authorizing_order():
+    content="GER40,BUY,0.01,P2316_34f0bb1186de,2026-06-22T14:47:30"
+    signal=parse_paper_signal(content)
+    assert signal.signal_id=="P2316_34f0bb1186de"
+    assert signal.symbol=="GER40"
+
+@pytest.mark.parametrize("bad_id",["P2316_", "P2316_34f0bb1186dg", "P2317_34f0bb1186de", "P2316_34f0bb1186de_EXTRA"])
+def test_unverified_signal_ids_rejected(bad_id):
+    with pytest.raises(ValueError):
+        parse_paper_signal(f"GER40,BUY,0.01,{bad_id},2026-06-22T14:47:30")
