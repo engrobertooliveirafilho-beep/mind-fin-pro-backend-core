@@ -315,3 +315,10 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Remaining `177,210,239,497,498` lack verified implementation from current search; do not assert absence, mark NOT_YET_VERIFIED. No finance STEP certified.
 - Published read-only `app/runtime/finance_step_reconciliation.py` commit `16af5d45dc6b92a5ad00b21044ef58f9f4777ead` and `tests/test_finance_step_reconciliation.py` commit `8945df7edf8b0927d403c0d3f13c8eda71b643b3`. Separate local prototype ran **10/10 PASS**; **published GitHub test file was not executed in a clean checkout**. Guard always returns certified=false, rejects source identity mismatches.
 - Drive unchanged, main/production untouched, PAPER_ONLY, REAL_ORDERS=FORBIDDEN, E2E_CERTIFIED=FALSE, COST=R$0.
+
+
+## Original unified agent runtime dispatch collision — 2026-11-22
+- Recovered and read original Drive `app/meta/agents_unified_runtime.py` ID `1IsM5-lotyUzmYQg8Ibvsy7VFz1xkr2E-` (4,587 characters). It imports `run_dry, describe_capabilities` repeatedly from dozens of agents, overwriting globals. `run_agent(agent_id,payload)` computes `mod=agent_id.replace('.', '_')` but never uses it, then invokes `globals().get('run_dry')`; agent identity does not determine handler. Exceptions are returned as error dictionaries, not fail-closed denials.
+- Published isolated `app/runtime/agents_unified_dispatch_safe.py` commit `2543c7496683f2a887ca5305e157962ef28138d8`, with explicit per-ID handler mapping and PAPER certification allowlist; denies unknown, uncertified or missing handlers, with no dynamic imports. Published `tests/test_agents_unified_dispatch_safe.py` commit `c131fc5e6bf7f1f940bf62c0d3777e175d59d03f`.
+- Executed local Python unittest on identical reconstructed contents: **8 tests, 8 PASS**. Not a clean checkout or E2E, no production loader replaced; original Drive unchanged.
+- STEP 177/210/239/497/498 still require verified implementations; no agent activated. MAIN=INTACTA, PAPER_ONLY, REAL_ORDERS=FORBIDDEN, E2E_CERTIFIED=FALSE, COST=R$0.
