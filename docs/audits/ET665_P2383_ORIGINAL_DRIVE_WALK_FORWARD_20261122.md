@@ -150,3 +150,11 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Existing integrated regression extended with four malformed inputs (null, empty, missing keys, nonnumeric OHLC), commit `061b805a9f5ac2596d5765064c757dcab3151eef`.
 - Local reconstructed package regression: first run **2 PASS / 1 ERROR** because local V5 was stale (not matching published GitHub source); replaced local V5 with current published source, reran **3/3 PASS** in `/mnt/data/et_integrated` using `PYTHONPATH=. python -m unittest discover -s tests -v`. The test validates V5 fail-closed and account immutability, not clean GitHub checkout or E2E.
 - No real orders, merge or production changes. Broader regressions and runtime certification remain open.
+
+
+## FTMO ExecutionV6 — historical recovery and intrabar fix
+- Recovered original `ftmo_execution_v6.py` Drive ID `170YBYAeaNHlrG8mmCCP_U5-J-6lSPfs2` and original V6 tests `1pCAHOOYDc79c1LyJvf1X8L03Ri8cQakN` from folder `1HKIhxsTAqjrPVL72Mg0wLLSpv1I_q2o8`.
+- Found bug: original V6 derived `intrabar_breach` by scanning a sliding audit window, so an old breach could be reported as the current bar's event. Replaced with a per-call `breach` flag. Hardened malformed bar/day inputs and adapted imports to existing PAPER package.
+- Published `app/runtime/ftmo_execution_v6.py` commit `27e4a3330cfa1167fc34679d31b7443f7ef3895e` and `tests/test_ftmo_execution_v6_intrabar.py` commit `ed3e3431215d9048c5c861ab0b40af87a24c8dcf`.
+- Local isolated reconstruction `/mnt/data/et_integrated`: **31/31 PASS** original historical V4/V5/V6/Portfolio tests (8+8+5+10) and **3/3 PASS** existing integrated tests, via `PYTHONPATH=. python -m unittest discover -s original_tests -q` and `PYTHONPATH=. python -m unittest discover -s tests -q`. The three new V6 regression cases were published but were not yet executed against a clean GitHub checkout.
+- V6 remains conservative OHLC worst-case proxy, not a tick-level reconstruction or FTMO E2E certification. PAPER only; main and production unchanged.
