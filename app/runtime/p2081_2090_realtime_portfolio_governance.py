@@ -92,7 +92,9 @@ def extract_runtime_metrics(raw: Dict[str, Any]) -> Dict[str, Any]:
     for key in ("initial_equity", "final_mark_to_market_equity", "peak_equity", "trough_equity"):
         if metrics[key] <= 0:
             raise ValueError("P2071_RUNTIME_EQUITY_INVALID:" + key)
-    if metrics["drawdown_pct"] < 0 or metrics["drawdown_abs"] < 0:
+    # P2071 emits signed current drawdown (<= 0), unlike max drawdown
+    # magnitude (>= 0). Preserve its historical contract.
+    if metrics["drawdown_pct"] > 0 or metrics["drawdown_abs"] > 0:
         raise ValueError("P2071_RUNTIME_DRAWDOWN_INVALID")
 
     return {
