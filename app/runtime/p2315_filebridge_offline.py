@@ -26,7 +26,7 @@ def parse_paper_signal(content):
         lot=Decimal(lot_text)
     except InvalidOperation:
         raise ValueError("INVALID_LOT") from None
-    if lot!=Decimal("0.01") or not signal_id.startswith("P2311_"):
+    if lot!=Decimal("0.01") or not (signal_id=="P2311_ACTIVE_TEST" or (signal_id.startswith("P2316_") and len(signal_id)==18 and all(c in "0123456789abcdef" for c in signal_id[6:]))):
         raise ValueError("UNAUTHORIZED_LOT_OR_SIGNAL")
     if not timestamp or len(timestamp)!=19 or timestamp[10]!="T":
         raise ValueError("INVALID_TIMESTAMP")
