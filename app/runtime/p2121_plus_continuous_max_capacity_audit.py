@@ -29,17 +29,43 @@ def enforce_paper_only() -> Dict[str, str]:
 
 
 def assert_no_financial_execution() -> None:
-    locks = enforce_paper_only()
-    for k, v in ABSOLUTE_LOCKS.items():
-        if locks.get(k) != v:
+    # Never hide an unsafe caller environment by overwriting it first.
+    for k, expected in ABSOLUTE_LOCKS.items():
+        observed = os.environ.get(k)
+        if observed is not None and observed != expected:
             raise RuntimeError(f"{k}_LOCK_BREACH")
+    enforce_paper_only()
 
 
 def load_json(path: str) -> Any:
+    import math
     p = Path(path)
     if not p.exists():
         raise FileNotFoundError(path)
-    return json.loads(p.read_text(encoding="utf-8"))
+
+    def unique_keys(pairs):
+        obj = {}
+        for key, value in pairs:
+            if key in obj:
+                raise ValueError("P2121_DUPLICATE_JSON_KEY")
+            obj[key] = value
+        return obj
+
+    def finite_float(value):
+        parsed = float(value)
+        if not math.isfinite(parsed):
+            raise ValueError("P2121_NONFINITE_JSON_NUMBER")
+        return parsed
+
+    def reject_constant(value):
+        raise ValueError("P2121_NONFINITE_JSON_NUMBER")
+
+    return json.loads(
+        p.read_text(encoding="utf-8"),
+        object_pairs_hook=unique_keys,
+        parse_float=finite_float,
+        parse_constant=reject_constant,
+    )
 
 
 def sha256_file(path: str) -> str:
@@ -79,7 +105,15 @@ class CertifiedBlockAudit:
             status = data.get("status")
             readiness = data.get("readiness")
             results[key] = {"status": status, "readiness": readiness, "path": deps[key]}
-            if status != expected:
+            # Upstream status alone is not behavioral certification.
+            # Current P2111/P2120 deliberately remains NOT_CERTIFIED.
+            if status != expected or readiness != {
+                "p2071": "REALTIME_PAPER_RUNTIME_CERTIFIED",
+                "p2081": "REALTIME_PORTFOLIO_GOVERNANCE_CERTIFIED",
+                "p2091": "REALTIME_INTELLIGENCE_LAYER_CERTIFIED",
+                "p2101": "AUTONOMOUS_PAPER_OPERATIONS_CERTIFIED",
+                "p2111": "MAXIMUM_TECHNICAL_CAPACITY_CERTIFIED",
+            }[key] or key == "p2111":
                 failures.append(key)
 
         return AuditDecision(
@@ -102,21 +136,35 @@ class PackageIntegrityAudit:
             "data/runtime/P2111_2120/P2111_2120_PACKAGE_FINAL.zip",
         ]
 
+        # Reference digests recovered from the original Drive P2121 console evidence.
+        expected_sha256 = {
+            "data/runtime/P2071_2080/P2071_2080_PACKAGE_FINAL.zip": "45ecce3cfe3fdc0c33bbc4399cf1e3041fb89eb493db8f095cd1af70c46fb1ef",
+            "data/runtime/P2081_2090/P2081_2090_PACKAGE_FINAL.zip": "d4fdf2b6984f3a0188b1c9d833046836c0d1f10ca61091d3a925d270055ee41b",
+            "data/runtime/P2091_2100/P2091_2100_PACKAGE_FINAL.zip": "905ad7375deb93742df4f8ea822ca9413f11c43c756b6b493d4efb9ff0569fb0",
+            "data/runtime/P2101_2110/P2101_2110_PACKAGE_FINAL.zip": "d7e464c1aa79204f98b8357034b945c832b93a1fbc0a50bfb6e2ecc25e3d1c0d",
+            "data/runtime/P2111_2120/P2111_2120_PACKAGE_FINAL.zip": "d2d190ee37afd7a0d3aab669773bf53e206fec37d49edf46a01651ed5ffeb857",
+        }
         found = {}
         missing = []
+        mismatched = []
 
         for package in packages:
             p = Path(repo) / package
-            if p.exists() and p.stat().st_size > 0:
-                found[package] = {"bytes": p.stat().st_size, "sha256": sha256_file(str(p))}
+            if p.is_file() and p.stat().st_size > 0:
+                digest = sha256_file(str(p))
+                found[package] = {"bytes": p.stat().st_size, "sha256": digest}
+                if digest != expected_sha256[package]:
+                    mismatched.append(package)
             else:
                 missing.append(package)
 
+        ok = not missing and not mismatched
         return AuditDecision(
             "P2122_PACKAGE_INTEGRITY_AUDIT",
-            "PASS" if not missing else "FAIL",
-            "ALL_PACKAGES_PRESENT" if not missing else "PACKAGE_MISSING",
-            {"packages": found, "missing": missing},
+            "PASS" if ok else "FAIL",
+            "HISTORICAL_PACKAGE_DIGESTS_MATCH" if ok else "PACKAGE_MISSING_OR_HASH_MISMATCH",
+            {"packages": found, "missing": missing, "mismatched": mismatched,
+             "digest_reference": "DRIVE_P2121_CONSOLE_HISTORICAL_UNVERIFIED"},
         )
 
 
@@ -239,11 +287,12 @@ class RegressionTestAudit:
 
         missing = [x for x in tests if not (Path(repo) / x).exists()]
 
+        # File existence is not evidence that tests were executed or passed.
         return AuditDecision(
             "P2127_REGRESSION_TEST_AUDIT",
-            "PASS" if not missing else "FAIL",
-            "REGRESSION_TEST_FILES_PRESENT" if not missing else "REGRESSION_TEST_FILES_MISSING",
-            {"expected_tests": tests, "missing": missing},
+            "FAIL",
+            "REGRESSION_EXECUTION_NOT_VERIFIED" if not missing else "REGRESSION_TEST_FILES_MISSING",
+            {"expected_tests": tests, "missing": missing, "execution_verified": False},
         )
 
 
@@ -301,12 +350,14 @@ def certify(decisions: List[AuditDecision]) -> AuditDecision:
 def run_p2121_plus(repo: str, dependencies: Dict[str, str], output_dir: str) -> Dict[str, Any]:
     assert_no_financial_execution()
 
+    # Fail closed before creating evidence directories for missing or malformed dependencies.
+    first_decision = CertifiedBlockAudit().evaluate(dependencies)
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
 
     decisions: List[AuditDecision] = []
 
-    decisions.append(CertifiedBlockAudit().evaluate(dependencies))
+    decisions.append(first_decision)
     decisions.append(PackageIntegrityAudit().evaluate(repo))
     decisions.append(LockRegressionAudit().evaluate())
     decisions.append(RuntimeModuleAudit().evaluate(repo))
@@ -331,7 +382,7 @@ def run_p2121_plus(repo: str, dependencies: Dict[str, str], output_dir: str) -> 
         "mission_status": mission_status,
         "decisions": [asdict(d) for d in decisions],
         "final_state": {
-            "p2071_to_p2120": "CERTIFIED",
+            "p2071_to_p2120": "CERTIFIED" if all_pass else "NOT_CERTIFIED",
             "continuous_audit": "CERTIFIED" if all_pass else "NOT_CERTIFIED",
             "known_critical_gaps": final_cert.payload["known_critical_gaps"],
             "paper_only": True,
@@ -368,7 +419,7 @@ def run_p2121_plus(repo: str, dependencies: Dict[str, str], output_dir: str) -> 
 
 ## CONCLUSION
 P2121+ continuous max capacity audit completed.
-P2071→P2120 remains certified.
+P2071→P2120 certification remains conditional on independently verified evidence.
 No real orders.
 No broker execution.
 No financial execution.

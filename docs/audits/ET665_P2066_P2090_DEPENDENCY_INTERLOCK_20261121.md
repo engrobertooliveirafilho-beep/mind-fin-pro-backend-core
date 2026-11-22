@@ -1,0 +1,116 @@
+# ET665 — Evidence reconciliation P2066–P2090, 2026-11-21
+
+## Drive primary evidence (read directly)
+- Original P2066–P2070 readiness JSON: Drive file 1ehwUddbLPDcsERWuH5o7PNJJ3_QFMvD7, timestamp 2026-06-18. Historical 3-specialist portfolio, P2067 fixed paper micro-size 0.01, daily loss 1%, total drawdown 3%.
+- P2071–P2080 audit: Drive file 1fo3wvD_8WjmPlLi6GAHr60V3LIhD-34_. Historical status FAIL, P2080 PENDING, 1500 cycles, 4329 signals, 411 closed trades, P&L -969.3669; historical drawdown_abs reported 0.0 and is not credible as maximum drawdown.
+- P2081–P2090 audit: Drive file 1oWQwpzBIYmuDjJc6pK1KOPu84fPFXQX5. Historical status PASS, claimed governance certification, but explicitly consumes P2071–P2080 certification file as dependency. Its metrics report mark-to-market P&L -953.05314 and drawdown -0.00953053. Historical P2081–P2090 PASS **cannot override** the upstream P2080 FAIL/PENDING.
+- Search hits for strategy names and agents were mostly console/evidence/inventory references, not authenticated original strategy adapter source. Do not count those as recovered motors or agents.
+
+## Branch technical changes
+- Paper quantity capped at 0.01 (synthetic unit, not broker lot certification).
+- Realized/unrealized P&L quantity-weighted.
+- Invalid signal side and nonfinite prices/confidence rejected.
+- Daily realized loss gate 1%, total loss gate 3%, one position per specialist, max three positions.
+- Admission now uses marked-to-market equity for unrealized losses.
+- Boundary RSI tests and peak-to-trough drawdown correction.
+- Regression tests committed but not yet run on the complete GitHub branch.
+
+## Remaining critical defects / gates
+- Current risk admission is a simplified check, not a certified P2067 risk engine. Full intraday high-water marks, persistent sessions, mark-to-market breach response, spread, slippage, commission, fill mechanics, symbol/contract sizing, and execution cost attribution remain unverified.
+- Original MEAN_REVERSION and TREND_PULLBACK strategy adapters not recovered; fail closed.
+- P2081–P2090 governance cannot be certified while P2080 and its real-time feed remain uncertified.
+- Current data feed synthetic only. No broker or real-order execution.
+- Container cannot resolve github.com, so branch code has not been run in local Docker or pytest; do not report test PASS.
+
+## Status
+GITHUB_BRANCH_PATCHED=TRUE
+GITHUB_READBACK=TRUE
+TESTS_PUBLISHED=TRUE
+TESTS_EXECUTED=FALSE
+P2067_RISK_CERTIFIED=FALSE
+P2080_E2E_CERTIFIED=FALSE
+P2090_GOVERNANCE_CERTIFIED=FALSE
+PAPER_ONLY=TRUE
+REAL_ORDERS=FORBIDDEN
+COST_BRL=0
+
+## Chronological correction — P2071–P2080B discovered on Drive
+- New source recovered: Drive console_output_P2071_2080B.txt, ID 1KYxzOPfi2VjwZs2TwIMQThapJ_fL278n; matching updated P2071_2080_AUDIT.md ID 18YH2y48oGqICHluabKydr318hvxAXMst.
+- Both explicitly identify patch P2071_2080B_CERTIFICATION_DRAWDOWN_REPAIR and historical PASS for P2071–P2080, superseding the earlier FAIL/PENDING audit for that *historical version*.
+- 1500 synthetic cycles; 4329 signals; 411 closed trades; 3 open; initial equity 100000; final realized 99030.6331; marked equity 99046.94686; current drawdown -953.05314; trough 99026.36134. These are historical simulation metrics, not current certified broker execution.
+- Therefore the earlier statement that **all** P2081 historical PASS claims contradict P2080 must be narrowed: the P2080B historical PASS exists. Provenance/ordering of the exact consumed JSON and behavioral replay remain unverified; the present patched branch deliberately leaves P2074 risk/fill validation PENDING.
+- Additional current branch fix: P2074 now rejects cross-symbol marks and invalid mid/spread before changing risk state; 12 parametrized regression cases published, not yet executed.
+- HISTORICAL_P2080B_PASS=DOCUMENTED; CURRENT_P2080_E2E_CERTIFIED=FALSE; P2090_CURRENT_CERTIFIED=FALSE.
+
+## P2078 integrated PAPER restoration — 2026-11-21
+- Runtime now persists `executor_snapshot` and restores it with `PaperPortfolioExecutor.restore_state`, checking complete round-trip equality and marked equity.
+- Code commit `7945a4410a0659435e98bfae3ce770c350ae51da`; test commit `0b1a4c794251a8cb1b5d02db330d3843302f332e`.
+- `P2079` persistence PASS is restricted to serialized readback equality; `P2078` remains PENDING because no independent interrupted-process replay was executed.
+- Current branch regression execution: BLOCKED (no local GitHub checkout through DNS; no verified workflow); E2E_CERTIFIED=FALSE.
+
+## Drive reconciliation — P2151+ readiness dossier (2026-11-21 discovery)
+- Original Drive document: P2151_PLUS_READINESS_DOSSIER.md, file ID 1nQcgBkC1wRe9rlphS574m_A0e0W0Ms6e (read directly).
+- It asserts historical PASS for seven blocks: P2071_2080, P2081_2090, P2091_2100, P2101_2110, P2111_2120, P2121_PLUS, P2131_2150. Each points to a distinct data/runtime/*/evidence/*_FINAL_CERTIFICATION.json.
+- This is **documentary evidence of prior assertions only**; those seven underlying certification JSON artifacts, exact source hashes, current integration and full regression runs were NOT retrieved or independently verified in this mission.
+- Historical deployment decision: APPROVED_FOR_PAPER_ONLY_SIMULATION_REVIEW; real orders, broker connections, MT5 order sending and financial execution forbidden.
+- Reconciliation: HISTORICAL_P2151_READINESS_ASSERTED=TRUE; UNDERLYING_CERTIFICATION_JSON_VERIFIED=FALSE; CURRENT_E2E_CERTIFIED=FALSE.
+- Follow-up is to locate and inspect the exact seven certification JSON artifacts and their original source/dependency hashes, then run offline tests. Do not promote historical PASS to current certification.
+
+## Drive original evidence recovery — P2062 and P2151 (2026-11-21)
+- Drive cat_evidence_0000168.stdout.txt ID 1Sw-ag7j4aEZDFXzb4Vzod_lAttCIhkVx: recovered machine-readable historical P2062_REAL_LOGIC_BACKTEST_ENGINE output, status PASS, RESEARCH_ONLY, 5 specialists, 50,000 rows, 3 validated / 2 failed, with detailed sampled trades for XAUUSD_M1_REALDNA_0004. This is more granular than the previously recovered dossier; source code and raw OHLC CSV remain unverified.
+- Drive cat_evidence_0000206.stdout.txt ID 1C7Dz3GqJERFT3_VATxRqLtCcWLl63ML1: recovered historical P2151+ program completion output, including exact output paths for final JSON, gate review, ZIP package and dossier. It is an execution output record, not independently retrieved underlying certification JSON.
+- The Drive console_output_P2151_PLUS.txt ID 1O5DWAb54UL-EzWSd2jr8xhiVrqUdHf1A contains seven reported certification hashes. These are unverified declarations until actual certification files are recovered and hashed.
+- RECOVERED_P2062_MACHINE_OUTPUT=TRUE; RECOVERED_P2151_OUTPUT_PATHS=TRUE; ORIGINAL_P2062_CODE_VERIFIED=FALSE; ORIGINAL_P2151_FINAL_JSON_VERIFIED=FALSE; CURRENT_E2E_CERTIFIED=FALSE.
+
+## P2061B → P2062 specialist-level historical reconciliation (Drive machine outputs)
+- P2061B original stdout: cat_evidence_0000167.stdout.txt (Drive 1yoMkOATDHTyw5h3RME9hCysoTOt025z2), generated 2026-06-18T08:37:34Z. Factory generated five DNA logic types: TREND_PULLBACK, MOMENTUM, MEAN_REVERSION, RANGE_REVERSION, VOLATILITY_BREAKOUT. Declared output data/specialists/P2061B/REAL_LOGIC_SPECIALISTS.json (original JSON not yet recovered).
+- P2062 original stdout: cat_evidence_0000168.stdout.txt (Drive 1Sw-ag7j4aEZDFXzb4Vzod_lAttCIhkVx). Historical 50,000-row research-only backtest.
+- VALIDATED: XAUUSD_M1_REALDNA_0004 RANGE_REVERSION (15,847 trades; PnL +1269.77); XAUUSD_M1_REALDNA_0003 MEAN_REVERSION (5,742; +541.53); XAUUSD_M1_REALDNA_0001 TREND_PULLBACK (7,132; +356.07).
+- REJECTED: XAUUSD_M1_REALDNA_0005 VOLATILITY_BREAKOUT (19,842; -1023.18); XAUUSD_M1_REALDNA_0002 MOMENTUM (25,157; -1247.68).
+- Reconciled validated aggregate PnL = +2167.37 (1269.77+541.53+356.07), matching prior P2066–P2070 historical dossier; rejected strategies MUST NOT be silently promoted.
+- These are recovered historical results, not independently replayed tests. GitHub default-branch search for exact P2062 engine identifier returned no matching file; does not prove absence in other branches or Drive.
+- P2061B_FACTORY_OUTPUT_RECOVERED=TRUE; P2062_FIVE_SPECIALIST_RESULTS_RECOVERED=TRUE; ORIGINAL_DNA_JSON_RECOVERED=FALSE; P2062_ENGINE_SOURCE_RECOVERED=FALSE; P2062_REPLAY_CERTIFIED=FALSE.
+
+## Newly recovered chronological P2063G → P2064 original machine outputs
+- P2063G original stdout Drive ID 14amX7y7kAxGBaIRTnUMT0_t34kl9JnnE: historical FINAL_REAL_LOGIC_CERTIFICATION PASS, three final locked specialists, output data/specialists/P2063/REAL_LOGIC_FINAL_LOCKED_SPECIALISTS.json. Ranks: REALDNA_0004 RANGE_REVERSION score 325, REALDNA_0003 MEAN_REVERSION score 291, REALDNA_0001 TREND_PULLBACK score 280. Five historical gates marked true for each: walk_forward, monte_carlo, spread, slippage, regime.
+- P2064 original stdout Drive ID 10FjXI5QTv83jJwVm1iUGW5RZEN_RvjeA: historical REAL_MARKET_PAPER_RUNTIME PASS on source data/features/P2060/XAUUSD_M1_50000_FEATURES_200_WITH_OHLC.csv, 3 passed, 0 failed, 50,000 rows. Top REALDNA_0004 15,847 paper trades, final equity 101269.77 from 100000, total PnL 1269.77. The output includes event samples.
+- These are historical outputs; original P2063 JSON and P2064 OHLC feature CSV not yet fetched/hashed/replayed. Current P2073 runtime only implements RANGE_REVERSION; MEAN_REVERSION and TREND_PULLBACK adapters remain missing. Do not treat the P2063G historical five gates as current test execution.
+- P2063G_OUTPUT_RECOVERED=TRUE; P2064_OUTPUT_RECOVERED=TRUE; ORIGINAL_P2064_OHLC_RECOVERED=FALSE; CURRENT_THREE_ENGINE_E2E_CERTIFIED=FALSE.
+
+## P2065/P2067 machine-evidence reconciliation — executed arithmetic check
+- P2065 source: Drive cat_evidence_0000178.stdout.txt, ID 1UpiLFA6HoCdJjnqpWTc3XbcGqMzcAmMK; historical PAPER 50,000 rows, 3 passed, 0 failed. Trades 15,847+5,742+7,132 = 28,721; PnL 1269.77+541.53+356.07 = 2167.37.
+- P2066–P2070 source: Drive cat_evidence_0000179.stdout.txt, ID 1RbNbuapKwXaqP4KPY62Au4wOvFgBLerB. P2067 historical portfolio weights named normalized_weight are 0.500000, 0.249856, 0.164287, totaling 0.914143 (91.4143%). Residual 0.085857 (8.5857%) is not allocated. Do not silently renormalize or infer intended cash buffer.
+- Executed local Decimal arithmetic checks: trade aggregate PASS; PnL aggregate PASS; weights sum-to-one FAIL. Local evidence /mnt/data/et665_p2065_p2067_reconciliation.json; isolated historical arithmetic only, not code regression or current E2E.
+- P2067_WEIGHT_NORMALIZATION_CONSISTENT=FALSE; P2065_AGGREGATE_ARITHMETIC_VERIFIED=TRUE; ORIGINAL_PORTFOLIO_WEIGHTS_JSON_VERIFIED=FALSE; E2E_CERTIFIED=FALSE.
+
+## Direct Drive audit chain recovery — 2026-11-21
+
+Read the original Drive audit files directly, not only their names:
+
+| Stage | Drive ID | Original recorded status | Evidence limit |
+|---|---|---|---|
+| P2071–P2080 | `1fo3wvD_8WjmPlLi6GAHr60V3LIhD-34_` | `FAIL / NOT_CERTIFIED`, P2080 `PENDING` | 1,500 frames, 4,329 signals, 411 closed trades, PAPER PnL -969.3669; drawdown_abs recorded as 0.0 |
+| P2081–P2090 | `1oWQwpzBIYmuDjJc6pK1KOPu84fPFXQX5` | `PASS / REALTIME_PORTFOLIO_GOVERNANCE_CERTIFIED` | Explicitly depends on P2071–P2080 certification JSON; does not resolve upstream FAIL |
+| P2091–P2100 | `1eXcqrsWhPDS3Uw6NrW5kNpVfTJOSZxsm` | `PASS / REALTIME_INTELLIGENCE_LAYER_CERTIFIED` | Historical ranking/metadata promotion, not current integrated runtime evidence |
+| P2101–P2110 | `1y2riZF5_I7JWazaJNTS77JVHgIUHlJnG` | `PASS / AUTONOMOUS_PAPER_OPERATIONS_CERTIFIED` | Snapshot restart_count=1, recovery_count=1; not a verified external crash/restart test |
+
+**Reconciliation decision:** Preserve original recorded PASS values as historical claims, but **deny transitive E2E certification** until the upstream P2080 dependency and current code are independently exercised and certified. No historical PASS authorizes real trading or PAPER deployment. Original Drive sources remain read-only.
+
+## P2112 isolated offline execution — 2026-11-21
+
+Executed Python pytest against a manually reproduced copy of the **current P2112 CapabilityGapAudit.evaluate decision logic**, inspected from branch source, with no broker, network, or financial execution. Result: **9 passed in 0.04s**. Cases: missing dependencies, bare PASS claims, simulated-only P2080, structurally complete hypothetical certification, and five invalid P2071 variants. Local evidence: `/mnt/data/et665_p2112_regression/pytest.log`. This is **isolated logic validation**, not a byte-identical full-module run, not a GitHub CI result, and **not E2E certification**.
+
+Recovered Drive code map `capability_code_map.txt` (Drive ID `1uOzlFbkFOBizIgECN2sXyvINJZENNh5B`) identifies historical `app/runtime/p2071_2080_realtime_paper_runtime.py`, `app/runtime/p2111_2120_maximum_technical_capacity.py`, and the runtime execution governor steps `retrieve_context → rank_memory → decide_next_action → execute → record_evidence`. The map is **file/line evidence**, not recovered original source bytes and not proof of functional execution.
+
+## P2111 discovery regression — isolated offline run
+
+Three tests executed locally in Python 3 using a manually reproduced copy of the current P2111 `CapabilityDiscovery.evaluate` body (security assertion replaced by a no-op solely in the isolated harness): **3 passed in 0.04s**. Cases: empty repository, inventory with runtime and test files, and runtime without tests. Evidence log: `/mnt/data/et665_p2111_validation/pytest.log`. The run **does not** establish byte-identical module testing, full-repository pytest, integrated certification, or broker isolation. Original GitHub source and Drive sources were not modified.
+
+## Historical downstream recovery — P2121 through P2151+ (2026-11-21)
+
+Read directly from Drive (originals unchanged):
+- `console_output_P2121_PLUS.txt` (ID `1lYt3-b25Wx3w7uBIBDQDp_0DmDOB2rgl`): historical 10 mission PASS claims, P2121 certified-block audit through P2130 continuous maximum-capacity certification. Lists SHA-256 package hashes, but these hashes have **not** been independently recomputed against original packages.
+- `console_output_P2131_2150.txt` (ID `1kp-mzgC3WnU38TYZzGYkVlOF8-Qz6vuS`): historical 20 mission PASS claims, P2131 FTMO rule framework through P2150 operational readiness. Explicit `SIMULATION_COMPLIANCE_AUDIT_ONLY`; simulated guards are `GUARD_REQUIRED_AND_DECLARED`, **not** live risk-guard behavioral proof.
+- `P2151_PLUS_READINESS_DOSSIER.md` (ID `1nQcgBkC1wRe9rlphS574m_A0e0W0Ms6e`): historical `PAPER_ONLY_SIMULATION_REVIEW_READY` declaration, and `REAL_ACCOUNT`, `BROKER_EXECUTION`, `MT5_ORDER_SEND`, `FTMO_REAL` explicitly forbidden.
+
+Dependency conflict: P2121/P2151+ declare upstream P2071 and P2111 certified, whereas independently recovered P2071 audit reports FAIL/NOT_CERTIFIED and current P2111–P2120 code deliberately fails P2111/P2113/P2118/P2119/P2120 absent behavioral proof. **Therefore all downstream PASS values are historical, not current transitive E2E certification.** No downstream runtime was executed or promoted. Preserve originals as Drive source of truth; keep GitHub main intact and PAPER_ONLY locks.

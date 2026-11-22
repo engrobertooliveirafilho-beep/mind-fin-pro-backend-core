@@ -1,0 +1,71 @@
+"""Source-isolated tests: original P2296C has historical import-time I/O."""
+import ast
+from pathlib import Path
+import pytest
+
+SOURCE = Path(__file__).resolve().parents[1] / "app/runtime/p2296c_real_exit_engine.py"
+
+def _functions():
+    tree = ast.parse(SOURCE.read_text(encoding="utf-8"))
+    module = ast.Module(body=[n for n in tree.body if isinstance(n, ast.FunctionDef)], type_ignores=[])
+    ns = {}
+    exec(compile(module, str(SOURCE), "exec"), ns)
+    return ns
+
+def _rows():
+    base = {"open": 100, "high": 101, "low": 99, "close": 100, "atr_14": 1,
+            "body_pct": 0.8, "spread_state": "NORMAL", "trend_21_55": "UP"}
+    rows = [dict(base, time=str(i)) for i in range(40)]
+    rows[20]["close"] = 99
+    return rows
+
+def test_time_exit_is_reachable():
+    trades = _functions()["simulate"](_rows(), "TIME_EXIT")
+    assert trades and trades[0]["exit_reason"] == "TIME_EXIT"
+
+@pytest.mark.parametrize("model", ["UNKNOWN", "", None, "FTMO_REAL"])
+def test_invalid_exit_models_fail_closed(model):
+    with pytest.raises(ValueError, match="P2296C_INVALID_EXIT_MODEL"):
+        _functions()["simulate"](_rows(), model)
+
+def test_historical_exit_models_are_distinct():
+    simulate = _functions()["simulate"]
+    signatures = []
+    for model in ("TIME_EXIT", "ATR_TARGET", "RR_2_TO_1"):
+        trades = simulate(_rows(), model)
+        assert trades
+        signatures.append(tuple((t["exit_reason"], t["exit"]) for t in trades))
+    assert len(set(signatures)) >= 2
+
+def test_import_has_no_dataset_or_evidence_side_effects(monkeypatch, tmp_path):
+    import importlib.util
+    import pathlib
+    original_exists = pathlib.Path.exists
+    def no_dataset(self):
+        if self.name == "MT5_GER40_H1_features.csv":
+            return False
+        return original_exists(self)
+    monkeypatch.setattr(pathlib.Path, "exists", no_dataset)
+    spec = importlib.util.spec_from_file_location("isolated_p2296c", SOURCE)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    assert callable(module.simulate)
+    assert callable(module.main)
+
+@pytest.mark.parametrize("field,value,code", [
+    ("open", float("nan"), "P2296C_INVALID_MARKET_ROW"),
+    ("close", float("inf"), "P2296C_INVALID_MARKET_ROW"),
+    ("atr_14", -1, "P2296C_INVALID_ATR"),
+    ("low", 102, "P2296C_INVALID_OHLC"),
+    ("high", 98, "P2296C_INVALID_OHLC"),
+    ("body_pct", True, "P2296C_INVALID_MARKET_ROW"),
+])
+def test_malformed_market_rows_fail_closed(field, value, code):
+    rows = _rows()
+    rows[25][field] = value
+    with pytest.raises(ValueError, match=code):
+        _functions()["simulate"](rows, "TIME_EXIT")
+
+def test_invalid_row_collection_rejected():
+    with pytest.raises(ValueError, match="P2296C_INVALID_ROWS"):
+        _functions()["simulate"](None, "TIME_EXIT")

@@ -1,5 +1,5 @@
 from __future__ import annotations
-import json, random
+import json, random, math
 from pathlib import Path
 
 # ============================================================
@@ -11,16 +11,26 @@ class CrisisEngine:
         self.shock = 0.02
 
     def simulate_crisis(self, price):
+        if isinstance(price, bool) or not isinstance(price, (int, float)) or not math.isfinite(price) or price <= 0:
+            raise ValueError("P2227_INVALID_PRICE")
         event = random.choice(["NONE","CRASH","SPIKE","LIQUIDITY_DRAIN"])
+        if event not in ("NONE", "CRASH", "SPIKE", "LIQUIDITY_DRAIN"):
+            raise RuntimeError("P2227_INVALID_CRISIS_EVENT")
 
-        if event == "CRASH":
-            price *= (1 - random.uniform(0.05, 0.2))
-        elif event == "SPIKE":
-            price *= (1 + random.uniform(0.03, 0.15))
-        elif event == "LIQUIDITY_DRAIN":
-            price *= (1 + random.uniform(-0.02, 0.02))
+        bounds = {"CRASH": (0.05, 0.2), "SPIKE": (0.03, 0.15), "LIQUIDITY_DRAIN": (-0.02, 0.02)}
+        if event in bounds:
+            low, high = bounds[event]
+            shock = random.uniform(low, high)
+            if isinstance(shock, bool) or not isinstance(shock, (int, float)) or not math.isfinite(shock) or not low <= shock <= high:
+                raise RuntimeError("P2227_INVALID_CRISIS_SHOCK")
+            price *= 1 - shock if event == "CRASH" else 1 + shock
 
-        return round(price, 2), event
+        if not math.isfinite(price) or price < 0.005:
+            raise RuntimeError("P2227_INVALID_CRISIS_PRICE")
+        rounded_price = round(price, 2)
+        if rounded_price <= 0:
+            raise RuntimeError("P2227_INVALID_CRISIS_PRICE")
+        return rounded_price, event
 
 
 # ============================================================
@@ -36,10 +46,16 @@ class MacroMarketTwin:
         }
 
     def step(self):
-        self.world["USD_INDEX"] += random.uniform(-0.5, 0.5)
-        self.world["RISK_SENTIMENT"] += random.uniform(-2, 2)
-        self.world["VOLATILITY"] += random.uniform(-1, 1)
-
+        updated = {}
+        for name, bounds in (("USD_INDEX", (-0.5, 0.5)), ("RISK_SENTIMENT", (-2, 2)), ("VOLATILITY", (-1, 1))):
+            move = random.uniform(*bounds)
+            if isinstance(move, bool) or not isinstance(move, (int, float)) or not math.isfinite(move) or not bounds[0] <= move <= bounds[1]:
+                raise RuntimeError("P2228_INVALID_MACRO_SHOCK")
+            value = self.world[name] + move
+            if not math.isfinite(value) or (name == "USD_INDEX" and value <= 0) or (name == "RISK_SENTIMENT" and not 0 <= value <= 100) or (name == "VOLATILITY" and value < 0):
+                raise RuntimeError("P2228_INVALID_MACRO_STATE")
+            updated[name] = value
+        self.world = updated
         return {k: round(v, 2) for k, v in self.world.items()}
 
 
@@ -56,20 +72,25 @@ class StrategyEcoSystem:
         ]
 
     def evolve(self, macro_signal):
+        if not isinstance(macro_signal, dict) or isinstance(macro_signal.get("VOLATILITY"), bool) or not isinstance(macro_signal.get("VOLATILITY"), (int, float)) or not math.isfinite(macro_signal["VOLATILITY"]) or macro_signal["VOLATILITY"] < 0:
+            raise ValueError("P2229_INVALID_MACRO_SIGNAL")
+        updated = []
         for s in self.strategies:
             mutation = random.uniform(-3, 3)
+            if isinstance(mutation, bool) or not isinstance(mutation, (int, float)) or not math.isfinite(mutation) or not -3 <= mutation <= 3:
+                raise RuntimeError("P2229_INVALID_MUTATION")
 
             # macro influence
             macro_bias = (macro_signal["VOLATILITY"] / 50)
 
-            s["score"] += mutation - macro_bias
+            score = s["score"] + mutation - macro_bias
+            if not math.isfinite(score):
+                raise RuntimeError("P2229_INVALID_SCORE")
+            updated.append({**s, "score": score})
 
-        self.strategies.sort(key=lambda x: x["score"], reverse=True)
-
-        # prune weak
-        self.strategies = self.strategies[:3]
-
-        return self.strategies
+        updated.sort(key=lambda x: x["score"], reverse=True)
+        self.strategies = updated[:3]
+        return [dict(s) for s in self.strategies]
 
 
 # ============================================================
@@ -77,6 +98,8 @@ class StrategyEcoSystem:
 # ============================================================
 
 def run(cycles=40):
+    if type(cycles) is not int or not 1 <= cycles <= 10000:
+        raise ValueError("P2227_INVALID_CYCLES")
     price = 100.0
 
     crisis = CrisisEngine()
@@ -99,7 +122,7 @@ def run(cycles=40):
         })
 
     return {
-        "status":"PASS",
+        "status":"SIMULATION_ONLY_NOT_CERTIFIED",
         "mode":"ADVANCED_SIMULATION_LAYER",
         "cycles": cycles,
         "sample": log[:3],

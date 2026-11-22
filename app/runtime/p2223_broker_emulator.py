@@ -1,5 +1,6 @@
 from __future__ import annotations
 import json
+import math
 import random
 import time
 from pathlib import Path
@@ -25,13 +26,25 @@ class RiskEngine:
         self.daily_loss_limit = 0.03
         self.equity = 100000
         self.peak = self.equity
+        self.day_start_equity = self.equity
+        self.killed = False
 
     def check(self, pnl):
-        self.equity += pnl
+        if self.killed:
+            return "KILLED"
+        if isinstance(pnl, bool) or not isinstance(pnl, (int, float)) or not math.isfinite(pnl):
+            self.killed = True
+            return "KILLED"
+        next_equity = self.equity + pnl
+        if not math.isfinite(next_equity) or next_equity <= 0:
+            self.killed = True
+            return "KILLED"
+        self.equity = next_equity
         self.peak = max(self.peak, self.equity)
         drawdown = (self.peak - self.equity) / self.peak
-
-        if drawdown > self.max_drawdown:
+        daily_loss = (self.day_start_equity - self.equity) / self.day_start_equity
+        if drawdown >= self.max_drawdown or daily_loss >= self.daily_loss_limit:
+            self.killed = True
             return "KILLED"
         return "OK"
 
@@ -41,13 +54,37 @@ class BrokerEmulator:
         self.market = MarketDataEngine()
         self.risk = RiskEngine()
         self.trades = []
+        self.killed = False
 
     def execute_order(self, side, volume):
+        if self.killed or self.risk.killed:
+            self.killed = True
+            raise RuntimeError("P2223_RISK_KILL_LATCHED")
+        if side not in ("BUY", "SELL"):
+            raise ValueError("P2223_INVALID_SIDE")
+        if isinstance(volume, bool) or not isinstance(volume, (int, float)) or not math.isfinite(volume) or volume <= 0:
+            raise ValueError("P2223_INVALID_VOLUME")
         price = self.market.tick()
 
         # Slippage simulation
         slippage = random.uniform(-0.1, 0.1)
+        if (
+            not isinstance(price, (int, float))
+            or isinstance(price, bool)
+            or not math.isfinite(price)
+            or price <= 0
+            or not isinstance(slippage, (int, float))
+            or isinstance(slippage, bool)
+            or not math.isfinite(slippage)
+        ):
+            self.killed = True
+            self.risk.killed = True
+            raise RuntimeError("P2223_INVALID_MARKET_EXECUTION")
         exec_price = price + slippage
+        if not math.isfinite(exec_price) or exec_price <= 0:
+            self.killed = True
+            self.risk.killed = True
+            raise RuntimeError("P2223_INVALID_MARKET_EXECUTION")
 
         pnl = 0
         if side == "BUY":
@@ -55,7 +92,16 @@ class BrokerEmulator:
         else:
             pnl = random.uniform(-60, 140)
 
+        # Reject invalid simulated PnL before updating risk state or recording a trade.
+        if isinstance(pnl, bool) or not isinstance(pnl, (int, float)) or not math.isfinite(pnl):
+            self.killed = True
+            self.risk.killed = True
+            raise RuntimeError("P2223_INVALID_EXECUTION_PNL")
+
         risk_status = self.risk.check(pnl)
+
+        if risk_status == "KILLED":
+            self.killed = True
 
         trade = {
             "side": side,
@@ -73,6 +119,8 @@ class BrokerEmulator:
 
 
 def run_simulation(cycles=50):
+    if type(cycles) is not int or cycles < 1:
+        raise ValueError("P2223_INVALID_CYCLES")
     broker = BrokerEmulator()
 
     for i in range(cycles):
@@ -85,7 +133,7 @@ def run_simulation(cycles=50):
             break
 
     return {
-        "status": "PASS",
+        "status": "SIMULATION_ONLY_NOT_CERTIFIED",
         "trades": broker.trades,
         "final_equity": broker.risk.equity,
         "total_trades": len(broker.trades),

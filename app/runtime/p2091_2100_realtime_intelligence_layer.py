@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import math
 import os
 import time
 import statistics
@@ -29,10 +30,12 @@ def enforce_paper_only() -> Dict[str, str]:
 
 
 def assert_no_financial_execution() -> None:
-    locks = enforce_paper_only()
-    for k, v in ABSOLUTE_LOCKS.items():
-        if locks.get(k) != v:
+    # Validate before enforcement: never silently mask an unsafe mode.
+    for k, expected in ABSOLUTE_LOCKS.items():
+        observed = os.environ.get(k)
+        if observed is not None and observed != expected:
             raise RuntimeError(f"{k}_LOCK_BREACH")
+    enforce_paper_only()
 
 
 def load_json(path: str) -> Any:
@@ -43,13 +46,25 @@ def load_json(path: str) -> Any:
 
 
 def extract_specialists(raw: Any) -> List[Dict[str, Any]]:
-    if isinstance(raw, list):
-        return raw
+    candidates = raw if isinstance(raw, list) else None
     if isinstance(raw, dict):
         for key in ["specialists", "final_specialists", "portfolio", "locked_specialists"]:
             if isinstance(raw.get(key), list):
-                return raw[key]
-    return [{"id": "XAUUSD_M1_REALDNA_0004", "type": "RANGE_REVERSION"}]
+                candidates = raw[key]
+                break
+    if not isinstance(candidates, list) or not candidates:
+        raise ValueError("REALDNA_SPECIALISTS_MISSING_OR_EMPTY")
+    seen = set()
+    for index, specialist in enumerate(candidates):
+        if not isinstance(specialist, dict):
+            raise ValueError(f"REALDNA_SPECIALIST_INVALID:{index}")
+        sid = str(specialist.get("id") or specialist.get("specialist_id") or "").strip()
+        if not sid:
+            raise ValueError(f"REALDNA_SPECIALIST_ID_MISSING:{index}")
+        if sid in seen:
+            raise ValueError(f"REALDNA_SPECIALIST_ID_DUPLICATE:{sid}")
+        seen.add(sid)
+    return candidates
 
 
 def spec_id(spec: Dict[str, Any], idx: int) -> str:
@@ -94,21 +109,26 @@ class PortfolioIntelligence:
         assert_no_financial_execution()
         gov = p2081.get("governance_metrics", {})
         n = len(specialists)
+        pnl = float(gov.get("paper_mark_to_market_pnl", 0.0))
         score = 0
-        score += 25 if n >= 3 else 0
-        score += 25 if float(gov.get("equity", 0)) > 0 else 0
-        score += 25 if int(gov.get("runtime_cycles", 0)) >= 1000 else 0
-        score += 25 if float(gov.get("drawdown_pct", -1)) >= -0.05 else 0
+        score += 20 if n >= 3 else 0
+        score += 20 if float(gov.get("equity", 0)) > 0 else 0
+        score += 20 if int(gov.get("runtime_cycles", 0)) >= 1000 else 0
+        score += 20 if float(gov.get("drawdown_pct", -1)) >= -0.05 else 0
+        score += 20 if pnl > 0 else 0
+        ok = score == 100
 
         return IntelligenceDecision(
             "P2092_PORTFOLIO_INTELLIGENCE",
-            "PASS" if score >= 75 else "FAIL",
-            "PORTFOLIO_INTELLIGENCE_OK" if score >= 75 else "PORTFOLIO_INTELLIGENCE_WEAK",
+            "PASS" if ok else "FAIL",
+            "PORTFOLIO_INTELLIGENCE_OK" if ok else "PORTFOLIO_INTELLIGENCE_WEAK",
             {
                 "specialists": n,
                 "intelligence_score": score,
                 "governance_equity": gov.get("equity"),
                 "governance_drawdown_pct": gov.get("drawdown_pct"),
+                "governance_paper_pnl": pnl,
+                "profitability_gate": "PASS" if pnl > 0 else "FAIL",
             },
         )
 
@@ -148,25 +168,21 @@ class PerformanceAttribution:
         assert_no_financial_execution()
         m = p2071.get("metrics", {})
         pnl = float(m.get("paper_mark_to_market_pnl", m.get("paper_realized_pnl", 0.0)))
-        n = max(len(specialists), 1)
-        per_spec = pnl / n
-
+        # Portfolio-level PnL cannot be split across specialists without trade-level ownership evidence.
         attribution = {}
         for idx, spec in enumerate(specialists):
             sid = spec_id(spec, idx)
-            attribution[sid] = round(per_spec, 6)
-
-        ok = len(attribution) >= 3
-
+            if "realized_pnl" in spec or "paper_pnl" in spec:
+                attribution[sid] = round(float(spec.get("realized_pnl", spec.get("paper_pnl"))), 6)
+        complete = len(attribution) == len(specialists) and len(specialists) >= 3
+        attribution_sum = round(sum(attribution.values()), 6) if complete else None
+        reconciles = complete and abs(attribution_sum - pnl) <= max(0.01, abs(pnl) * 1e-6)
+        ok = bool(reconciles)
         return IntelligenceDecision(
-            "P2094_PERFORMANCE_ATTRIBUTION",
-            "PASS" if ok else "FAIL",
-            "ATTRIBUTION_OK" if ok else "ATTRIBUTION_FAIL",
-            {
-                "portfolio_pnl": round(pnl, 6),
-                "attribution": attribution,
-                "attribution_sum": round(sum(attribution.values()), 6),
-            },
+            "P2094_PERFORMANCE_ATTRIBUTION", "PASS" if ok else "FAIL",
+            "ATTRIBUTION_RECONCILED" if ok else "SPECIALIST_LEVEL_PNL_EVIDENCE_MISSING_OR_UNRECONCILED",
+            {"portfolio_pnl": round(pnl, 6), "attribution": attribution,
+             "attribution_sum": attribution_sum, "reconciles_to_portfolio_pnl": bool(reconciles)},
         )
 
 
@@ -187,7 +203,7 @@ class BehaviorAnalysis:
         if closed <= 0:
             behavior = "INACTIVE"
 
-        ok = behavior == "NORMAL" or behavior == "OVERACTIVE"
+        ok = behavior == "NORMAL"
 
         return IntelligenceDecision(
             "P2095_BEHAVIOR_ANALYSIS",
@@ -210,9 +226,20 @@ class SpecialistRankingEvolution:
 
         for idx, spec in enumerate(specialists):
             sid = spec_id(spec, idx)
-            base_score = float(spec.get("score", 100 - idx))
-            rank_score = base_score + max(0, 3 - idx) * 10
-            ranking.append({"specialist_id": sid, "rank": idx + 1, "score": round(rank_score, 6)})
+            if "score" not in spec:
+                return IntelligenceDecision(
+                    "P2096_SPECIALIST_RANKING_EVOLUTION", "FAIL",
+                    "SPECIALIST_EVIDENCE_SCORE_MISSING",
+                    {"specialist_id": sid, "index": idx},
+                )
+            base_score = float(spec["score"])
+            if not math.isfinite(base_score):
+                return IntelligenceDecision(
+                    "P2096_SPECIALIST_RANKING_EVOLUTION", "FAIL",
+                    "SPECIALIST_EVIDENCE_SCORE_INVALID",
+                    {"specialist_id": sid, "index": idx},
+                )
+            ranking.append({"specialist_id": sid, "rank": 0, "score": round(base_score, 6)})
 
         ranking = sorted(ranking, key=lambda x: x["score"], reverse=True)
         for i, item in enumerate(ranking):
@@ -300,10 +327,16 @@ class PortfolioEvolution:
 
 def certify(decisions: List[IntelligenceDecision]) -> IntelligenceDecision:
     failed = [d.component for d in decisions if d.status != "PASS"]
+    required = {f"P{i}_" for i in range(2091, 2100)}
+    present = [d.component for d in decisions]
+    complete = len(present) == 9 and len(set(present)) == 9 and all(
+        any(component.startswith(prefix) for component in present) for prefix in required
+    )
+    ok = complete and not failed
     return IntelligenceDecision(
         "P2100_INTELLIGENCE_CERTIFICATION",
-        "PASS" if not failed else "FAIL",
-        "REALTIME_INTELLIGENCE_LAYER_CERTIFIED" if not failed else "INTELLIGENCE_LAYER_NOT_CERTIFIED",
+        "PASS" if ok else "FAIL",
+        "REALTIME_INTELLIGENCE_LAYER_CERTIFIED" if ok else "INTELLIGENCE_LAYER_NOT_CERTIFIED",
         {
             "failed_components": failed,
             "passed_components": [d.component for d in decisions if d.status == "PASS"],
@@ -321,7 +354,6 @@ def run_p2091_2100(
     assert_no_financial_execution()
 
     output = Path(output_dir)
-    output.mkdir(parents=True, exist_ok=True)
 
     portfolio = load_json(portfolio_path)
     p2071 = load_json(p2071_certification_path)
@@ -331,7 +363,19 @@ def run_p2091_2100(
         raise RuntimeError("P2071_2080_NOT_CERTIFIED")
     if p2081.get("status") != "PASS":
         raise RuntimeError("P2081_2090_NOT_CERTIFIED")
+    if p2071.get("readiness") != "REALTIME_PAPER_RUNTIME_CERTIFIED":
+        raise RuntimeError("P2071_2080_READINESS_INVALID")
+    if p2081.get("readiness") != "REALTIME_PORTFOLIO_GOVERNANCE_CERTIFIED":
+        raise RuntimeError("P2081_2090_READINESS_INVALID")
+    if p2081.get("input_dependencies", {}).get("p2071_2080_certification") != p2071_certification_path:
+        raise RuntimeError("P2081_2090_UPSTREAM_PROVENANCE_MISMATCH")
 
+    # Reuse the upstream P2081 metric contract: never let coercion of
+    # untrusted P2071 counters or NaN/Infinity bypass risk governance.
+    from app.runtime.p2081_2090_realtime_portfolio_governance import extract_runtime_metrics
+    validated_metrics = extract_runtime_metrics(p2071)
+    p2071 = dict(p2071)
+    p2071["metrics"] = {**p2071["metrics"], **validated_metrics}
     specialists = extract_specialists(portfolio)
 
     decisions: List[IntelligenceDecision] = []
@@ -380,6 +424,7 @@ def run_p2091_2100(
         "next_block": "P2101_2110_AUTONOMOUS_PAPER_OPERATIONS",
     }
 
+    output.mkdir(parents=True, exist_ok=True)
     final_path = output / "P2091_2100_FINAL_CERTIFICATION.json"
     audit_path = output / "P2091_2100_AUDIT.md"
     state_path = output / "P2091_2100_INTELLIGENCE_STATE.json"

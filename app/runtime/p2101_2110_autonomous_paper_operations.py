@@ -28,10 +28,13 @@ def enforce_paper_only() -> Dict[str, str]:
 
 
 def assert_no_financial_execution() -> None:
-    locks = enforce_paper_only()
-    for k, v in ABSOLUTE_LOCKS.items():
-        if locks.get(k) != v:
+    # Do not overwrite an unsafe pre-existing mode before inspecting it.
+    # This detects explicit hostile environment configuration fail-closed.
+    for k, expected in ABSOLUTE_LOCKS.items():
+        observed = os.environ.get(k)
+        if observed is not None and observed != expected:
             raise RuntimeError(f"{k}_LOCK_BREACH")
+    enforce_paper_only()
 
 
 def load_json(path: str) -> Any:
@@ -59,18 +62,21 @@ class Scheduler:
             "reporting_interval_cycles": 25,
             "mode": "PAPER_ONLY_AUTONOMOUS"
         }
-        return AutoDecision("P2101_SCHEDULER", "PASS", "SCHEDULER_READY", schedule)
+        # Declared intervals are configuration, not evidence of scheduled execution.
+        schedule["execution_verified"] = False
+        return AutoDecision("P2101_SCHEDULER", "FAIL", "SCHEDULER_NOT_EXECUTED", schedule)
 
 
 class Supervisor:
     def evaluate(self, deps: Dict[str, Any]) -> AutoDecision:
         assert_no_financial_execution()
-        ok = all(deps[k].get("status") == "PASS" for k in deps)
+        required = ("p2071", "p2081", "p2091")
+        ok = all(isinstance(deps.get(k), dict) and deps[k].get("status") == "PASS" for k in required)
         return AutoDecision(
             "P2102_SUPERVISOR",
             "PASS" if ok else "FAIL",
             "SUPERVISOR_DEPENDENCIES_OK" if ok else "SUPERVISOR_DEPENDENCY_FAIL",
-            {"dependencies": {k: deps[k].get("status") for k in deps}},
+            {"dependencies": {k: deps.get(k, {}).get("status") if isinstance(deps.get(k), dict) else None for k in required}},
         )
 
 
@@ -79,7 +85,9 @@ class Watchdog:
         assert_no_financial_execution()
         checks = {
             "paper_only_locks": True,
-            "heartbeat_present": runtime_state.get("heartbeat", 0) > 0,
+            "heartbeat_present": isinstance(runtime_state.get("heartbeat"), (int, float))
+                and not isinstance(runtime_state.get("heartbeat"), bool)
+                and runtime_state["heartbeat"] > 0,
             "runtime_status_valid": runtime_state.get("runtime_status") in ["RUNNING", "RECOVERED", "READY"],
             "broker_execution_blocked": os.environ.get("BROKER_EXECUTION") == "DISABLED",
         }
@@ -99,12 +107,12 @@ class AutoRecovery:
         recovered["runtime_status"] = "RECOVERED"
         recovered["heartbeat"] = int(time.time())
         recovered["recovery_count"] = recovered.get("recovery_count", 0) + 1
-        ok = recovered["runtime_status"] == "RECOVERED" and recovered["heartbeat"] > 0
+        # This is a synthetic state rewrite, not a verified process recovery.
         return AutoDecision(
             "P2104_AUTO_RECOVERY",
-            "PASS" if ok else "FAIL",
-            "AUTO_RECOVERY_OK" if ok else "AUTO_RECOVERY_FAIL",
-            {"input": broken_state, "recovered": recovered},
+            "FAIL",
+            "RECOVERY_SIMULATION_ONLY_NOT_EXECUTED",
+            {"input": broken_state, "recovered": recovered, "simulation_only": True},
         )
 
 
@@ -115,12 +123,12 @@ class AutoRestart:
         restarted["runtime_status"] = "RUNNING"
         restarted["restart_count"] = restarted.get("restart_count", 0) + 1
         restarted["heartbeat"] = int(time.time())
-        ok = restarted["runtime_status"] == "RUNNING" and restarted["restart_count"] >= 1
+        # Updating a dictionary does not prove a runtime was restarted.
         return AutoDecision(
             "P2105_AUTO_RESTART",
-            "PASS" if ok else "FAIL",
-            "AUTO_RESTART_OK" if ok else "AUTO_RESTART_FAIL",
-            {"restarted": restarted},
+            "FAIL",
+            "RESTART_SIMULATION_ONLY_NOT_EXECUTED",
+            {"restarted": restarted, "simulation_only": True},
         )
 
 
@@ -128,11 +136,13 @@ class AutoDiagnostics:
     def evaluate(self, deps: Dict[str, Any], runtime_state: Dict[str, Any]) -> AutoDecision:
         assert_no_financial_execution()
         diagnostics = {
-            "p2071_certified": deps["p2071"].get("status") == "PASS",
-            "p2081_certified": deps["p2081"].get("status") == "PASS",
-            "p2091_certified": deps["p2091"].get("status") == "PASS",
-            "runtime_heartbeat": runtime_state.get("heartbeat", 0) > 0,
-            "locks_valid": enforce_paper_only() == ABSOLUTE_LOCKS,
+            "p2071_certified": isinstance(deps.get("p2071"), dict) and deps["p2071"].get("status") == "PASS",
+            "p2081_certified": isinstance(deps.get("p2081"), dict) and deps["p2081"].get("status") == "PASS",
+            "p2091_certified": isinstance(deps.get("p2091"), dict) and deps["p2091"].get("status") == "PASS",
+            "runtime_heartbeat": isinstance(runtime_state.get("heartbeat"), (int, float))
+                and not isinstance(runtime_state.get("heartbeat"), bool)
+                and runtime_state["heartbeat"] > 0,
+            "locks_valid": all(os.environ.get(k) == v for k, v in ABSOLUTE_LOCKS.items()),
         }
         ok = all(diagnostics.values())
         return AutoDecision(
@@ -150,11 +160,13 @@ class AutoHealing:
         for key, valid in diagnostics.items():
             if not valid:
                 healing_actions.append(f"HEAL_{key.upper()}")
-        ok = True
+        # Reporting a suggested HEAL_* action is not evidence that healing
+        # happened. Fail closed until diagnostics actually pass.
+        ok = not healing_actions
         return AutoDecision(
             "P2107_AUTO_HEALING",
             "PASS" if ok else "FAIL",
-            "AUTO_HEALING_POLICY_READY",
+            "AUTO_HEALING_POLICY_READY" if ok else "AUTO_HEALING_NOT_EXECUTED",
             {
                 "healing_actions": healing_actions,
                 "policy": "PAPER_ONLY_SAFE_HEALING_NO_BROKER_NO_REAL_ORDER",
@@ -171,7 +183,7 @@ class AutoReporting:
             "pass_count": len([d for d in decisions if d.status == "PASS"]),
             "fail_count": len([d for d in decisions if d.status != "PASS"]),
         }
-        ok = report["components"] > 0
+        ok = report["components"] > 0 and report["fail_count"] == 0
         return AutoDecision(
             "P2108_AUTO_REPORTING",
             "PASS" if ok else "FAIL",
@@ -206,10 +218,16 @@ class AutonomousRuntime:
 def certify(decisions: List[AutoDecision]) -> AutoDecision:
     assert_no_financial_execution()
     failed = [d.component for d in decisions if d.status != "PASS"]
+    required = {f"P{step}_" for step in range(2101, 2110)}
+    present = [d.component for d in decisions]
+    complete = len(present) == 9 and len(set(present)) == 9 and all(
+        any(component.startswith(prefix) for component in present) for prefix in required
+    )
+    ok = complete and not failed
     return AutoDecision(
         "P2110_AUTONOMOUS_CERTIFICATION",
-        "PASS" if not failed else "FAIL",
-        "AUTONOMOUS_PAPER_OPERATIONS_CERTIFIED" if not failed else "AUTONOMOUS_CERTIFICATION_FAIL",
+        "PASS" if ok else "FAIL",
+        "AUTONOMOUS_PAPER_OPERATIONS_CERTIFIED" if ok else "AUTONOMOUS_CERTIFICATION_FAIL",
         {
             "failed_components": failed,
             "passed_components": [d.component for d in decisions if d.status == "PASS"],
@@ -230,12 +248,27 @@ def run_p2101_2110(
     assert_no_financial_execution()
 
     output = Path(output_dir)
-    output.mkdir(parents=True, exist_ok=True)
 
     portfolio = load_json(portfolio_path)
     p2071 = load_json(p2071_certification_path)
     p2081 = load_json(p2081_certification_path)
     p2091 = load_json(p2091_certification_path)
+
+    # Preflight must reject fabricated or unrelated upstream certifications.
+    required = (
+        (p2071, "REALTIME_PAPER_RUNTIME_CERTIFIED", "P2071"),
+        (p2081, "REALTIME_PORTFOLIO_GOVERNANCE_CERTIFIED", "P2081"),
+        (p2091, "REALTIME_INTELLIGENCE_LAYER_CERTIFIED", "P2091"),
+    )
+    for document, readiness, label in required:
+        if not isinstance(document, dict) or document.get("status") != "PASS" or document.get("readiness") != readiness:
+            raise RuntimeError(label + "_UPSTREAM_NOT_CERTIFIED")
+    if p2081.get("input_dependencies", {}).get("p2071_2080_certification") != p2071_certification_path:
+        raise RuntimeError("P2081_UPSTREAM_PROVENANCE_MISMATCH")
+    p2091_deps = p2091.get("input_dependencies", {})
+    if (p2091_deps.get("p2071_2080") != p2071_certification_path or
+            p2091_deps.get("p2081_2090") != p2081_certification_path):
+        raise RuntimeError("P2091_UPSTREAM_PROVENANCE_MISMATCH")
 
     deps = {
         "p2071": p2071,
@@ -273,10 +306,15 @@ def run_p2101_2110(
 
     restarted_state = restart.payload["restarted"]
 
-    diagnostics = AutoDiagnostics().evaluate(deps, restarted_state)
+    # A simulated restart is not operational evidence. Diagnose the
+    # observed runtime, and carry simulation failure into downstream gates.
+    diagnostics = AutoDiagnostics().evaluate(deps, runtime_state)
     decisions.append(diagnostics)
 
-    decisions.append(AutoHealing().evaluate(diagnostics.payload))
+    healing_inputs = dict(diagnostics.payload)
+    healing_inputs["recovery_executed"] = recovery.status == "PASS"
+    healing_inputs["restart_executed"] = restart.status == "PASS"
+    decisions.append(AutoHealing().evaluate(healing_inputs))
     decisions.append(AutoReporting().evaluate(decisions))
     decisions.append(AutonomousRuntime().evaluate(decisions))
 
@@ -310,6 +348,7 @@ def run_p2101_2110(
         "next_block": "P2111_2120_MAXIMUM_TECHNICAL_CAPACITY_PROGRAM",
     }
 
+    output.mkdir(parents=True, exist_ok=True)
     final_path = output / "P2101_2110_FINAL_CERTIFICATION.json"
     audit_path = output / "P2101_2110_AUDIT.md"
     state_path = output / "P2101_2110_AUTONOMOUS_STATE.json"

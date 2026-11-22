@@ -1,0 +1,72 @@
+"""Read-only reconciliation of 13 finance STEPs from MIND agent registry."""
+FINANCE_STEPS=(124,136,139,154,170,177,190,210,211,239,281,497,498)
+DRIVE_STUBS={
+124:"1F9MfIvzFhb4awCEWjcsawTEgtlmLjT5m",
+136:"130Y9fZW_3mxb7i-hbHzDdcK0fKjYBDne",
+139:"178we-IFCNAwy_vWNTRXBaC-rcbzAFgR0",
+154:"16wZkGPqt-oTLW-RWIEQ1K12Kiycg_3Ws",
+170:"1ARqGyiPOXpzGqtYjnnzy8u3iKRd3dZAH",
+190:"15Lk7VouGO0myTlUFxJgze61NB6Xr2lXO",
+211:"1yB_j0ash_XHcQwvwN3ldJu82g_Qay7fT",
+281:"1mNWkT4r9sCXR972wZCG4fP9ipbJMfnrN",
+}
+import ast
+
+def _literal_assignments(source):
+    try:
+        tree=ast.parse(source)
+    except SyntaxError as exc:
+        raise ValueError("invalid STEP Python source") from exc
+    assignments={}
+    for node in ast.walk(tree):
+        if not isinstance(node, (ast.Assign, ast.AnnAssign, ast.AugAssign, ast.NamedExpr)):
+            continue
+        targets = node.targets if isinstance(node, ast.Assign) else [node.target]
+        for target in targets:
+            metadata_names = [child.id for child in ast.walk(target)
+                              if isinstance(child, ast.Name)
+                              and child.id in ("STEP_ID", "STEP_STATUS")]
+            if metadata_names and not isinstance(target, ast.Name):
+                raise ValueError("unsupported STEP metadata target")
+            if isinstance(target, ast.Name) and target.id in ("STEP_ID", "STEP_STATUS"):
+                if not any(node is top for top in tree.body) or not isinstance(node, ast.Assign):
+                    raise ValueError("unsupported STEP metadata mutation")
+                if target.id in assignments:
+                    raise ValueError("duplicate STEP metadata")
+                try:
+                    assignments[target.id] = ast.literal_eval(node.value)
+                except (ValueError, TypeError, MemoryError, RecursionError) as exc:
+                    raise ValueError("nonliteral STEP metadata") from exc
+    return assignments,tree
+
+def reconcile_finance_steps(source_by_step):
+    if not isinstance(source_by_step,dict):
+        raise TypeError("source mapping required")
+    if any(type(k) is not int or k not in FINANCE_STEPS or not isinstance(v,str)
+           for k,v in source_by_step.items()):
+        raise ValueError("invalid STEP source")
+    results=[]
+    for step in FINANCE_STEPS:
+        source=source_by_step.get(step)
+        if source is None:
+            state="NOT_YET_VERIFIED"
+        else:
+            metadata,tree=_literal_assignments(source)
+            if type(metadata.get("STEP_ID")) is not int or metadata["STEP_ID"] != step:
+                raise ValueError("STEP identity mismatch")
+            approved=(metadata.get("STEP_STATUS") == "approved_stub")
+            docstring=ast.get_docstring(tree,clean=False) or ""
+            has_original_marker="A lógica REAL deste STEP deve ser implementada" in docstring
+            # A stub must contain only its docstring and literal metadata.
+            safe_shape = all(
+                (isinstance(node, ast.Expr) and isinstance(node.value, ast.Constant)
+                 and isinstance(node.value.value, str))
+                or (isinstance(node, ast.Assign) and len(node.targets) == 1
+                    and isinstance(node.targets[0], ast.Name)
+                    and node.targets[0].id in ("STEP_ID", "STEP_STATUS"))
+                for node in tree.body
+            )
+            state="APPROVED_STUB" if approved and has_original_marker and safe_shape else "REQUIRES_CODE_REVIEW"
+        results.append({"step_id":step,"state":state,
+                        "drive_source_id":DRIVE_STUBS.get(step),"certified":False})
+    return results

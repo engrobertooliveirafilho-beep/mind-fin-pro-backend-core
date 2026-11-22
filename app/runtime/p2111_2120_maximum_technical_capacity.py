@@ -30,17 +30,43 @@ def enforce_paper_only() -> Dict[str, str]:
 
 
 def assert_no_financial_execution() -> None:
-    locks = enforce_paper_only()
-    for k, v in ABSOLUTE_LOCKS.items():
-        if locks.get(k) != v:
+    # Validate before enforcement: never silently mask an unsafe mode.
+    for k, expected in ABSOLUTE_LOCKS.items():
+        observed = os.environ.get(k)
+        if observed is not None and observed != expected:
             raise RuntimeError(f"{k}_LOCK_BREACH")
+    enforce_paper_only()
+
+
+def _strict_finite_float(value: str) -> float:
+    import math
+    parsed = float(value)
+    if not math.isfinite(parsed):
+        raise ValueError("P2111_NONFINITE_JSON_NUMBER")
+    return parsed
 
 
 def load_json(path: str) -> Any:
     p = Path(path)
     if not p.exists():
         raise FileNotFoundError(path)
-    return json.loads(p.read_text(encoding="utf-8"))
+    def unique_keys(pairs):
+        obj = {}
+        for key, value in pairs:
+            if key in obj:
+                raise ValueError("P2111_DUPLICATE_JSON_KEY")
+            obj[key] = value
+        return obj
+
+    def reject_nonfinite(value):
+        raise ValueError("P2111_NONFINITE_JSON_NUMBER")
+
+    return json.loads(
+        p.read_text(encoding="utf-8"),
+        object_pairs_hook=unique_keys,
+        parse_constant=reject_nonfinite,
+        parse_float=lambda value: _strict_finite_float(value),
+    )
 
 
 @dataclass
@@ -58,7 +84,9 @@ class CapabilityDiscovery:
         files = list(root.rglob("*.py"))
         tests = list((root / "tests").rglob("test_*.py")) if (root / "tests").exists() else []
         runtime = list((root / "app" / "runtime").rglob("*.py")) if (root / "app" / "runtime").exists() else []
-        ok = len(files) > 0 and len(tests) > 0 and len(runtime) > 0
+        # File presence is inventory evidence, not executable capability proof.
+        # P2111 discovery may report inventory, but never certify functionality.
+        ok = False
         return CapacityDecision(
             "P2111_CAPABILITY_DISCOVERY",
             "PASS" if ok else "FAIL",
@@ -71,7 +99,31 @@ class CapabilityGapAudit:
     def evaluate(self, deps: Dict[str, Any]) -> CapacityDecision:
         assert_no_financial_execution()
         required = ["p2071", "p2081", "p2091", "p2101"]
-        gaps = [k for k in required if deps[k].get("status") != "PASS"]
+        # A bare PASS string is not proof of an upstream certification.
+        # P2071's simulated-feed readiness must never promote downstream stages.
+        expected_readiness = {
+            "p2081": "REALTIME_PORTFOLIO_GOVERNANCE_CERTIFIED",
+            "p2091": "REALTIME_INTELLIGENCE_LAYER_CERTIFIED",
+            "p2101": "AUTONOMOUS_PAPER_OPERATIONS_CERTIFIED",
+        }
+        gaps = []
+        for key in required:
+            item = deps.get(key)
+            if not isinstance(item, dict) or item.get("status") != "PASS":
+                gaps.append(key)
+            elif key == "p2071":
+                missions = item.get("mission_status")
+                if (
+                    not isinstance(missions, dict)
+                    or missions.get("P2080_REALTIME_RUNTIME_CERTIFICATION") != "PASS"
+                    or item.get("readiness") in (
+                        None, "NOT_CERTIFIED",
+                        "SIMULATED_PAPER_RUNTIME_VALIDATED_REALTIME_FEED_NOT_CERTIFIED",
+                    )
+                ):
+                    gaps.append(key)
+            elif item.get("readiness") != expected_readiness[key]:
+                gaps.append(key)
         return CapacityDecision(
             "P2112_CAPABILITY_GAP_AUDIT",
             "PASS" if not gaps else "FAIL",
@@ -89,12 +141,33 @@ class MissingComponentsAudit:
             "app/runtime/p2091_2100_realtime_intelligence_layer.py",
             "app/runtime/p2101_2110_autonomous_paper_operations.py",
         ]
-        missing = [x for x in expected if not (Path(repo) / x).exists()]
+        import ast
+        missing = []
+        invalid = []
+        for relative in expected:
+            path = Path(repo) / relative
+            if not path.is_file():
+                missing.append(relative)
+                continue
+            try:
+                tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
+                # Parsing proves only syntax and the presence of a concrete
+                # implementation body, not that the module behaves correctly.
+                definitions = [
+                    node for node in tree.body
+                    if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef))
+                ]
+                if not definitions:
+                    invalid.append(relative)
+            except (OSError, UnicodeError, SyntaxError, ValueError):
+                invalid.append(relative)
+        # Source inventory is never sufficient to certify functional completeness.
         return CapacityDecision(
             "P2113_MISSING_COMPONENTS_AUDIT",
-            "PASS" if not missing else "FAIL",
-            "NO_MISSING_CRITICAL_COMPONENTS" if not missing else "MISSING_COMPONENTS_FOUND",
-            {"expected": expected, "missing": missing},
+            "FAIL",
+            "COMPONENTS_NOT_FUNCTIONALLY_CERTIFIED",
+            {"expected": expected, "missing": missing, "invalid": invalid,
+             "syntax_checked": len(expected) - len(missing) - len(invalid)},
         )
 
 
@@ -170,7 +243,8 @@ class ParallelExecution:
         for shard in range(4):
             checksum = sum((i + shard) % 19 for i in range(25000))
             tasks.append({"shard": shard, "checksum": checksum})
-        ok = len(tasks) == 4 and all(x["checksum"] > 0 for x in tasks)
+        # Four serial shards demonstrate deterministic checksums, not concurrency.
+        ok = False
         return CapacityDecision(
             "P2118_PARALLEL_EXECUTION",
             "PASS" if ok else "FAIL",
@@ -184,7 +258,8 @@ class ScaleValidation:
         assert_no_financial_execution()
         scale_units = 50000
         checksum = hashlib.sha256(str(sum(i % 23 for i in range(scale_units))).encode()).hexdigest()
-        ok = scale_units >= 50000 and len(checksum) == 64
+        # A checksum-only probe is not a measured scale workload.
+        ok = False
         return CapacityDecision(
             "P2119_SCALE_VALIDATION",
             "PASS" if ok else "FAIL",
@@ -196,10 +271,20 @@ class ScaleValidation:
 def certify(decisions: List[CapacityDecision]) -> CapacityDecision:
     assert_no_financial_execution()
     failed = [d.component for d in decisions if d.status != "PASS"]
+    required = {f"P{i}_" for i in range(2111, 2120)}
+    present = [d.component for d in decisions]
+    complete = len(present) == 9 and len(set(present)) == 9 and all(
+        any(component.startswith(prefix) for component in present) for prefix in required
+    )
+    # P2118 currently models four sequential shards, not actual parallel execution.
+    # P2119 computes a synthetic checksum, not a validated scale workload.
+    # Neither supports a maximum-capacity certification.
+    evidence_sufficient = False
+    ok = complete and not failed and evidence_sufficient
     return CapacityDecision(
         "P2120_MAXIMUM_CAPACITY_CERTIFICATION",
-        "PASS" if not failed else "FAIL",
-        "MAXIMUM_TECHNICAL_CAPACITY_CERTIFIED" if not failed else "MAXIMUM_CAPACITY_NOT_CERTIFIED",
+        "PASS" if ok else "FAIL",
+        "MAXIMUM_TECHNICAL_CAPACITY_CERTIFIED" if ok else "MAXIMUM_CAPACITY_NOT_CERTIFIED",
         {
             "failed_components": failed,
             "passed_components": [d.component for d in decisions if d.status == "PASS"],
@@ -220,9 +305,7 @@ def run_p2111_2120(
     output_dir: str,
 ) -> Dict[str, Any]:
     assert_no_financial_execution()
-    output = Path(output_dir)
-    output.mkdir(parents=True, exist_ok=True)
-
+    # Validate every input before creating an output directory or probe file.
     deps = {
         "portfolio": load_json(portfolio_path),
         "p2071": load_json(p2071_certification_path),
@@ -230,6 +313,9 @@ def run_p2111_2120(
         "p2091": load_json(p2091_certification_path),
         "p2101": load_json(p2101_certification_path),
     }
+
+    output = Path(output_dir)
+    output.mkdir(parents=True, exist_ok=True)
 
     decisions: List[CapacityDecision] = []
     decisions.append(CapabilityDiscovery().evaluate(repo))
@@ -269,13 +355,15 @@ def run_p2111_2120(
         "decisions": [asdict(d) for d in decisions],
         "final_state": {
             "known_critical_gaps": final_cert.payload["known_critical_gaps"],
-            "runtime_resilient": True,
-            "runtime_autonomous": True,
-            "runtime_observable": True,
-            "runtime_auditable": True,
-            "runtime_recoverable": True,
-            "runtime_scalable": True,
-            "runtime_governable": True,
+            # These are certification claims, not measured capability flags.
+            # Never assert them when P2120 remains FAIL.
+            "runtime_resilient": all_pass,
+            "runtime_autonomous": all_pass,
+            "runtime_observable": all_pass,
+            "runtime_auditable": all_pass,
+            "runtime_recoverable": all_pass,
+            "runtime_scalable": all_pass,
+            "runtime_governable": all_pass,
             "financial_execution": "DISABLED",
             "broker_execution": "DISABLED",
             "real_orders": "FORBIDDEN",
