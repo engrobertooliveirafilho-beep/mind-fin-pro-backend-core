@@ -276,15 +276,19 @@ class PortfolioRecovery:
             temporary = directory / "governance_state.json.tmp"
             # A prior checkpoint is immutable evidence. A different state
             # must not silently overwrite it and erase recovery provenance.
+            if checkpoint.is_symlink() or temporary.is_symlink():
+                raise RuntimeError("P2087_UNSAFE_CHECKPOINT_SYMLINK")
             if checkpoint.exists():
                 existing = checkpoint.read_bytes()
                 if hashlib.sha256(existing).hexdigest() != expected_sha256:
                     raise RuntimeError("P2087_EXISTING_CHECKPOINT_CONFLICT")
-            with temporary.open("wb") as stream:
-                stream.write(encoded)
-                stream.flush()
-                os.fsync(stream.fileno())
-            os.replace(temporary, checkpoint)
+                # Idempotent rerun: preserve original checkpoint inode and mtime.
+            else:
+                with temporary.open("xb") as stream:
+                    stream.write(encoded)
+                    stream.flush()
+                    os.fsync(stream.fileno())
+                os.replace(temporary, checkpoint)
             disk_bytes = checkpoint.read_bytes()
             restored = json.loads(disk_bytes.decode("utf-8"))
             checkpoint_verified = (
