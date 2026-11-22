@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-import importlib
-from datetime import datetime, timezone
 
 MODULES = [
     "app.runtime.p2223_broker_emulator",
@@ -35,67 +33,9 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
 
 
 def _unsafe_legacy_institutional_wiring_disabled(payload: dict | None = None) -> dict:
-    # Historical implementation retained for audit; never invoked by public entrypoints.
-    payload = payload or {}
-    results = []
+    # Historical source remains recoverable in Git history. Never invoke.
+    raise RuntimeError("UNVERIFIED_TRADER_WIRING_DISABLED")
 
-    for name in MODULES:
-        row = {
-            "module": name,
-            "import_ok": False,
-            "run_ok": False,
-            "health_ok": False,
-            "classes": [],
-            "functions": [],
-            "error": "",
-        }
-        try:
-            m = importlib.import_module(name)
-            row["import_ok"] = True
-            row["classes"] = [k for k, v in vars(m).items() if isinstance(v, type)]
-            row["functions"] = [
-                k for k, v in vars(m).items()
-                if callable(v) and not isinstance(v, type) and not k.startswith("_")
-            ]
-
-            if hasattr(m, "health"):
-                try:
-                    h = m.health()
-                    row["health_ok"] = isinstance(h, dict)
-                    row["health"] = h
-                except Exception as e:
-                    row["error"] += f"health_error={e};"
-
-            if hasattr(m, "run"):
-                try:
-                    try:
-                        r = m.run(payload)
-                    except TypeError:
-                        r = m.run()
-                    row["run_ok"] = r is not None
-                    row["run_result_type"] = type(r).__name__
-                    row["run_result"] = r if isinstance(r, (dict, list, str, int, float, bool)) else str(r)
-                except Exception as e:
-                    row["error"] += f"run_error={e};"
-
-        except Exception as e:
-            row["error"] = str(e)
-
-        results.append(row)
-
-    return {
-        "program": "MIND_TRADER_INSTITUTIONAL_WIRING",
-        "status": "NOT_CERTIFIED",
-        "timestamp": datetime.now(timezone.utc).isoformat(),
-        "mode": "PAPER_ONLY",
-        "real_orders": "FORBIDDEN",
-        "ftmo_real": "FORBIDDEN",
-        "modules_total": len(results),
-        "imports_ok": sum(1 for r in results if r["import_ok"]),
-        "runs_ok": sum(1 for r in results if r["run_ok"]),
-        "health_ok": sum(1 for r in results if r["health_ok"]),
-        "results": results,
-    }
 
 def health() -> dict:
     # Health checks must not execute arbitrary imported trading modules.
