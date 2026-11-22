@@ -306,10 +306,15 @@ def run_p2101_2110(
 
     restarted_state = restart.payload["restarted"]
 
-    diagnostics = AutoDiagnostics().evaluate(deps, restarted_state)
+    # A simulated restart is not operational evidence. Diagnose the
+    # observed runtime, and carry simulation failure into downstream gates.
+    diagnostics = AutoDiagnostics().evaluate(deps, runtime_state)
     decisions.append(diagnostics)
 
-    decisions.append(AutoHealing().evaluate(diagnostics.payload))
+    healing_inputs = dict(diagnostics.payload)
+    healing_inputs["recovery_executed"] = recovery.status == "PASS"
+    healing_inputs["restart_executed"] = restart.status == "PASS"
+    decisions.append(AutoHealing().evaluate(healing_inputs))
     decisions.append(AutoReporting().evaluate(decisions))
     decisions.append(AutonomousRuntime().evaluate(decisions))
 
