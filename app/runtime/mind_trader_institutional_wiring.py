@@ -17,6 +17,25 @@ MODULES = [
 ]
 
 def run_institutional_wiring(payload: dict | None = None) -> dict:
+    # The historical factory includes arbitrary run()/health() hooks.
+    # Until its call graph and symbol lineage are certified, neither may run.
+    return {
+        "program": "MIND_TRADER_INSTITUTIONAL_WIRING",
+        "status": "NOT_CERTIFIED",
+        "mode": "PAPER_ONLY",
+        "real_orders": "FORBIDDEN",
+        "ftmo_real": "FORBIDDEN",
+        "modules_total": len(MODULES),
+        "imports_ok": None,
+        "runs_ok": None,
+        "health_ok": None,
+        "reason": "RUNTIME_CALL_GRAPH_NOT_CERTIFIED",
+        "modules": list(MODULES),
+    }
+
+
+def _unsafe_legacy_institutional_wiring_disabled(payload: dict | None = None) -> dict:
+    # Historical implementation retained for audit; never invoked by public entrypoints.
     payload = payload or {}
     results = []
 
