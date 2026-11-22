@@ -25,9 +25,10 @@ def chronological_folds(rows, *, source_mission, test_windows=5, initial_train_f
         raise ValueError("P2383_REQUIRES_COMPLETE_500_ROW_POPULATION")
     if test_windows!=5 or initial_train_fraction!=0.5:
         raise ValueError("P2383_POLICY_MISMATCH")
-    seen=set(); normalized=[]
+    seen=set(); normalized=[]; safety_presence=set()
     for row in rows:
-        if not isinstance(row,dict) or not row.get("signal_id") or row["signal_id"] in seen:
+        if (not isinstance(row,dict) or type(row.get("signal_id")) is not str
+                or not row["signal_id"].strip() or row["signal_id"] in seen):
             raise ValueError("P2383_DUPLICATE_OR_MISSING_SIGNAL_ID")
         seen.add(row["signal_id"])
         # Fail closed for the canonical Drive feedback schema. Legacy synthetic
@@ -35,6 +36,7 @@ def chronological_folds(rows, *, source_mission, test_windows=5, initial_train_f
         # partial metadata must be rejected rather than silently accepted.
         safety = ("mode", "real_orders", "ftmo_real", "warning")
         present = [name for name in safety if name in row]
+        safety_presence.add(bool(present))
         if present and len(present) != len(safety):
             raise ValueError("P2383_INCOMPLETE_PAPER_SAFETY_METADATA")
         if present and (row["mode"] != REQUIRED_MODE
@@ -49,6 +51,8 @@ def chronological_folds(rows, *, source_mission, test_windows=5, initial_train_f
         if realized!=realized or realized in (float("inf"),float("-inf")):
             raise ValueError("P2383_INVALID_REALIZED_R")
         normalized.append((_parse_time(row["entry_time"]),row))
+    if len(safety_presence) != 1:
+        raise ValueError("P2383_MIXED_PAPER_SAFETY_SCHEMA")
     normalized.sort(key=lambda item:(item[0],item[1]["signal_id"]))
     if len({t for t,_ in normalized})<test_windows+1:
         raise ValueError("P2383_INSUFFICIENT_TIME_POINTS")
