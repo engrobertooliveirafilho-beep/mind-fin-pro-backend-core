@@ -42,7 +42,8 @@ class ComplianceEngine:
         action = event.get("action")
         if not isinstance(action, str) or not action.strip():
             return ComplianceDecision(False, "Ação ausente ou inválida.", "safety")
-        action = action.strip()
+        if action != action.strip():
+            return ComplianceDecision(False, "Ação não canônica.", "safety")
         if action not in self.PAPER_ACTIONS:
             return ComplianceDecision(False, "Ação fora do escopo PAPER.", "safety")
         if action in self.FORBIDDEN or action.lower().startswith(("real_", "live_", "ftmo_real")):
