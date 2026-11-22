@@ -331,3 +331,10 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Found Drive STEP 210 implementation candidate `app/modules/step210_creative_dna_engine/engine.py` ID `1ox_InxmXUh8Hvu8xLghE5WN7FgFY4ldd`, defining `CreativeDNAEngine` for creative brand DNA; existence is **not** proof it implements the finance agent's expected STEP 210 semantics.
 - Found historical STEP 497 FastAPI endpoint test `tests/step497_business_pipeline/test_step497.py` ID `1lcExxpuVNWGAHAlCBl4uuUHg9UL4Yb4v`, expects `/biz/pipeline/snapshot`; STEP 498 test `tests/step498_ceo_assistant/test_step498.py` ID `1e6HRfxCR1fAaDDNPSdKZTx-0F3tpkUbI`, expects `/ceo/assistant/briefing`. Tests alone do not prove live endpoints or passed execution. STEP 177 and 239 implementations still unverified.
 - PAPER_ONLY, REAL_ORDERS=FORBIDDEN, MAIN=INTACTA, PRODUCTION=INTACTA, E2E_CERTIFIED=FALSE, COST=R$0.
+
+
+## STEP177 original engine recovered — 2026-11-22
+- Drive folder `step177` ID `1jA7QyGMFafunKbn8pWJsrSKhJooMAOuk` contains original `engine_step177.py` ID `1YOOmivVjSXxWMvJ0jVj2g70Bza0M2WVW`. Recovered exact 242-byte source and parsed AST locally: FastAPI `GET /mind/step/177` handler `run_step_177` returns only literal `{'version':'step177-v1','step':177,'status':'active'}`. No domain computation demonstrated. Thus STEP177 is now SOURCE_FOUND_STATIC_METADATA_ENDPOINT, **not certified**.
+- Published standalone read-only AST audit `app/runtime/step177_source_audit.py` commit `c3c08d2ebfd5dff7fc45009358b85927f8a23f5d` and portable regressions `tests/test_step177_source_audit.py` commit `269ebd2581eb133a5710ee6c9ec6dd8b743d9fb0`. Eight tests executed locally **8/8 PASS**; not clean GitHub checkout or FastAPI integration.
+- Finance STEP inventory: 8 confirmed approved stubs (124/136/139/154/170/190/211/281), 177 static metadata endpoint, 210 creative DNA source candidate, 497/498 historical endpoint tests; 239 unresolved. **0/13 certified**. Registry and route metadata do not authorize agent execution.
+- Drive read-only, main and production unchanged; PAPER_ONLY, REAL_ORDERS=FORBIDDEN, E2E_CERTIFIED=FALSE, COST=R$0.
