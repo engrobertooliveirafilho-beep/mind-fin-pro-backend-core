@@ -40,3 +40,22 @@ def test_simulation_never_claims_certification():
     result = run_simulation(1)
     assert result["status"] == "SIMULATION_ONLY_NOT_CERTIFIED"
     assert result["mode"] == "BROKER_EMULATOR_SIMULATION_ONLY"
+
+
+def test_daily_loss_limit_latches_even_below_max_drawdown():
+    from app.runtime.p2223_broker_emulator import RiskEngine
+    risk = RiskEngine()
+    assert risk.check(-3000) == "KILLED"
+    assert risk.killed is True
+    before = risk.equity
+    assert risk.check(1000) == "KILLED"
+    assert risk.equity == before
+
+
+@pytest.mark.parametrize("bad_pnl", [math.nan, math.inf, -math.inf, True, "5"])
+def test_invalid_pnl_latches_risk(bad_pnl):
+    from app.runtime.p2223_broker_emulator import RiskEngine
+    risk = RiskEngine()
+    assert risk.check(bad_pnl) == "KILLED"
+    assert risk.killed is True
+    assert risk.equity == 100000
