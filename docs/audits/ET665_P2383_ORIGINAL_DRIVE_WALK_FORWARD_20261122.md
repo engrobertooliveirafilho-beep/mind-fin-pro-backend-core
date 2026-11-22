@@ -398,3 +398,10 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Updated existing regressions commit `09e89e5a4e9b48bd49a1d5d4c60407febb810c26` to expect fail-closed denial, plus two adversarial unknown-engine no-invocation tests.
 - Executed local reconstructed workspace `/mnt/data/et_step_runtime` using `python -m unittest discover -s tests -p 'test_*py' -v`: **17/17 PASS, 0 FAIL, 0.036 seconds**. Local workspace still contains simplified STEP497 source and does not represent clean checkout of exact GitHub branch; new two published tests not included in this 17-test local run. No E2E certification.
 - Main, production and Drive originals unchanged. PAPER_ONLY=TRUE, REAL_ORDERS=FORBIDDEN, FTMO_REAL=FORBIDDEN, E2E_CERTIFIED=FALSE, COST=R$0.
+
+
+## PAPER router import-side-effect hardening — 2026-11-22
+- Audited existing isolated `app/runtime/paper_finance_routes.py`: it imported the original STEP497 mock engine at module import time even though its endpoint always rejected the result. Removed import and engine invocation entirely; both endpoints now return explicit HTTP 503 before loading unverified engines. Commit `b0e4eeab6aa59607867c4f8e0db2c2e97aba0b2d`.
+- Added HTTP regression to existing `tests/test_paper_finance_routes_http.py` to assert original mock-engine import is absent, commit `45dbcbd840b99e163b2567b64e90821f42631c06`.
+- Executed local `python -m unittest discover -s tests -p 'test_*.py' -v` in `/mnt/data/et_step_runtime`: **18/18 PASS, 0 FAIL, 0.029s**, log `/mnt/data/ET665_20261122_paper_http_regression.log`. Local test workspace uses simplified recovered STEP497 file, not clean exact GitHub checkout; HTTP router no longer imports it. No E2E claim.
+- Original Drive STEP493/495/496/497/498 are mock data; no real metrics or certified live decisioning introduced. Main and production untouched, PAPER_ONLY, REAL_ORDERS=FORBIDDEN, FTMO_REAL=FORBIDDEN, COST=R$0.
