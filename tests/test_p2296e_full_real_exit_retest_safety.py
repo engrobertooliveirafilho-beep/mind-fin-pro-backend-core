@@ -31,3 +31,15 @@ def test_unknown_exit_models_rejected(model):
     q = {"exit_model": model, "family": "VWAP_REVERSION", "confirmation": "SESSION_REQUIRED"}
     with pytest.raises(ValueError, match="P2296E_INVALID_EXIT_MODEL"):
         _functions()["simulate"]([], q)
+
+@pytest.mark.parametrize("field,value,code", [
+    ("family", "UNKNOWN", "P2296E_INVALID_FAMILY"),
+    ("family", "FTMO_REAL", "P2296E_INVALID_FAMILY"),
+    ("confirmation", "UNKNOWN", "P2296E_INVALID_CONFIRMATION"),
+    ("confirmation", None, "P2296E_INVALID_CONFIRMATION"),
+])
+def test_unknown_strategy_parameters_fail_closed(field, value, code):
+    q = {"exit_model": "TIME_EXIT", "family": "VWAP_REVERSION", "confirmation": "SESSION_REQUIRED"}
+    q[field] = value
+    with pytest.raises(ValueError, match=code):
+        _functions()["simulate"]([], q)
