@@ -68,3 +68,16 @@ def test_symbolized_writer_row_rejects_dispatch_day_conflict():
             {"day": 2, "tick": 1},
             {"symbol": "XAUUSD", "day": 1, "tick": 1},
         )
+
+
+@pytest.mark.parametrize("field", ["day", "tick"])
+@pytest.mark.parametrize("alias", [True, 1.0])
+@pytest.mark.parametrize("stage", ["dispatch", "decision"])
+def test_reject_python_numeric_identity_aliases(field, alias, stage):
+    from app.runtime.trader_symbol_lineage_contract import build_symbolized_decision_row
+    replay = {"symbol": "XAUUSD", "day": 1, "tick": 1}
+    dispatch = {"day": 1, "tick": 1}
+    decision = {"symbol": "XAUUSD", "day": 1, "tick": 1}
+    (dispatch if stage == "dispatch" else decision)[field] = alias
+    with pytest.raises(SymbolLineageError, match="S21_LINEAGE_IDENTITY_CONFLICT"):
+        build_symbolized_decision_row(replay, dispatch, decision)
