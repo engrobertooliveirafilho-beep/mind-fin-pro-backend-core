@@ -39,7 +39,7 @@ class ExecutionV6(ExecutionV5):
         account=self.portfolio.account
         daily_floor=max(account.day_start_balance,account.day_start_equity)-account.rules.initial_balance*account.rules.daily_loss_fraction
         total_floor=account.rules.initial_balance*(D(1)-account.rules.max_loss_fraction)
-        breach = account.balance+worst <= max(daily_floor,total_floor)
+        breach = bool(validated) and account.balance+worst <= max(daily_floor,total_floor)
         if breach:
             account.halted=True
             self.portfolio.audit.append({'event':'INTRABAR_RISK_BREACH','worst_equity':str(account.balance+worst)})
