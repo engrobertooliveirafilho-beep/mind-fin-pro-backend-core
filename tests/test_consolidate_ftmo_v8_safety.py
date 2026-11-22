@@ -36,3 +36,20 @@ class ConsolidationSafetyTests(unittest.TestCase):
         out=self.root/'empty-output'
         self.assertEqual(run(self.source,out),2)
         self.assertIn('"ftmo_release": "BLOCKED"',(out/'CONSOLIDATION_V8.json').read_text())
+
+    def test_timeout_persists_blocked_evidence(self):
+        import json
+        import subprocess
+        from unittest.mock import patch
+        from tools.consolidate_ftmo_v8 import REQUIRED
+        for name in REQUIRED:
+            (self.source/name).write_text('pass\\n')
+        (self.source/'test_dummy.py').write_text('import unittest\\nclass T(unittest.TestCase):\\n def test_a(self): pass\\n')
+        out=self.root/'timeout-output'
+        with patch.object(subprocess,'run',side_effect=subprocess.TimeoutExpired(['python','-m','unittest'],90)):
+            self.assertEqual(run(self.source,out),124)
+        audit=json.loads((out/'CONSOLIDATION_V8.json').read_text())
+        self.assertEqual(audit['regression_returncode'],124)
+        self.assertEqual(audit['ftmo_release'],'BLOCKED')
+        self.assertEqual(audit['real_orders'],0)
+        self.assertIn('exceeded 90 seconds',(out/'REGRESSION_V8.txt').read_text())
