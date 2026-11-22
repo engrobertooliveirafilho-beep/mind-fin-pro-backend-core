@@ -27,10 +27,37 @@ def sha(path):
     return h.hexdigest()
 
 def load(path):
+    import math
     p=Path(path)
     if not p.exists():
         raise FileNotFoundError(path)
-    return json.loads(p.read_text(encoding="utf-8"))
+
+    def unique_keys(pairs):
+        result={}
+        for key,value in pairs:
+            if key in result:
+                raise ValueError("P2151_DUPLICATE_JSON_KEY")
+            result[key]=value
+        return result
+
+    def finite_float(value):
+        parsed=float(value)
+        if not math.isfinite(parsed):
+            raise ValueError("P2151_NONFINITE_JSON_NUMBER")
+        return parsed
+
+    def reject_constant(value):
+        raise ValueError("P2151_NONFINITE_JSON_NUMBER")
+
+    data=json.loads(
+        p.read_text(encoding="utf-8"),
+        object_pairs_hook=unique_keys,
+        parse_float=finite_float,
+        parse_constant=reject_constant,
+    )
+    if not isinstance(data,dict):
+        raise ValueError("P2151_INVALID_CERTIFICATION_OBJECT")
+    return data
 
 def run_p2151_plus(output_dir="data/runtime/P2151_PLUS/evidence"):
     # Fail closed on unsafe caller settings; never overwrite evidence of drift.
