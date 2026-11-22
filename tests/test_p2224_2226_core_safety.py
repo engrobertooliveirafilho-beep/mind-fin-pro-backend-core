@@ -24,3 +24,20 @@ def test_integrated_log_preserves_first_cycle(monkeypatch):
     result = run(3)
     assert result["log_sample"][0]["strategies"][0]["score"] == 51.0
     assert result["final_strategies"][0]["score"] == 53.0
+
+def test_book_rejects_nonpositive_bid_without_mutation(monkeypatch):
+    from app.runtime.p2224_2226_institutional_core import OrderBookSimulator
+    book = OrderBookSimulator()
+    monkeypatch.setattr("app.runtime.p2224_2226_institutional_core.random.uniform", lambda a, b: -200.0)
+    with pytest.raises(RuntimeError, match="P2224_INVALID_BOOK"):
+        book.update_book()
+    assert (book.bid, book.ask) == (100.0, 100.2)
+
+def test_market_rejects_negative_eurusd_atomically(monkeypatch):
+    from app.runtime.p2224_2226_institutional_core import MarketDigitalTwin
+    twin = MarketDigitalTwin()
+    before = dict(twin.assets)
+    monkeypatch.setattr("app.runtime.p2224_2226_institutional_core.random.uniform", lambda a, b: -10.0)
+    with pytest.raises(RuntimeError, match="P2225_INVALID_MARKET_PRICE"):
+        twin.step()
+    assert twin.assets == before
