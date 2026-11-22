@@ -84,8 +84,6 @@ def simulate(rows,q):
     trades=[]
     max_hold=8
     exit_model=q["exit_model"]
-    if exit_model not in ("TIME_EXIT", "ATR_TARGET", "RR_2_TO_1"):
-        raise ValueError("P2296E_INVALID_EXIT_MODEL")
     if q.get("confirmation") not in ("SESSION_REQUIRED", "VOLATILITY_REQUIRED", "MTF_REQUIRED"):
         raise ValueError("P2296E_INVALID_CONFIRMATION")
     if q.get("family") not in ("BOLLINGER_MEAN_REVERSION", "ATR_VOLATILITY_BREAKOUT", "DONCHIAN_BREAKOUT", "PREVIOUS_HIGH_LOW_BREAKOUT", "OPENING_RANGE_BREAKOUT", "MTF_ALIGNED_PULLBACK", "VWAP_TREND_CONTINUATION", "TIME_EXIT_TREND_FOLLOW", "VWAP_REVERSION", "LIQUIDITY_SWEEP_REVERSAL"):
@@ -166,13 +164,18 @@ def simulate(rows,q):
     return trades
 
 def metrics(trades):
+    import math
+    if not isinstance(trades, (list, tuple)) or any(isinstance(x, bool) or not isinstance(x, (int, float)) or not math.isfinite(x) for x in trades):
+        raise ValueError("P2296E_INVALID_TRADE_PNL")
     if len(trades)<30:
         return None
     wins=[x for x in trades if x>0]
     losses=[x for x in trades if x<0]
     gw=sum(wins)
     gl=abs(sum(losses))
-    pf=gw/gl if gl else 999
+    if not wins or not losses or gl <= 0:
+        return None
+    pf=gw/gl
     wr=len(wins)/len(trades)*100
     payoff=(sum(wins)/len(wins))/(abs(sum(losses)/len(losses))) if wins and losses else 0
     return {
