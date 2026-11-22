@@ -63,7 +63,12 @@ def build_symbolized_decision_row(
         upstream = replay.get(key)
         if upstream is None or isinstance(upstream, bool) or not isinstance(upstream, int) or upstream < 0:
             raise SymbolLineageError("S21_REPLAY_IDENTITY_INVALID")
-        if dispatch.get(key) != upstream or decision.get(key) != upstream:
+        if (
+            type(dispatch.get(key)) is not int
+            or type(decision.get(key)) is not int
+            or dispatch[key] != upstream
+            or decision[key] != upstream
+        ):
             raise SymbolLineageError("S21_LINEAGE_IDENTITY_CONFLICT")
         row[key] = upstream
     row["symbol"] = symbol
