@@ -1,7 +1,7 @@
 import pytest
 from app.runtime.p2224_2226_institutional_core import run, StrategyEvolutionEngine
 
-@pytest.mark.parametrize("cycles", [0, -1, True, 1.5, "3"])
+@pytest.mark.parametrize("cycles", [0, -1, True, 1.5, "3", 10001])
 def test_invalid_cycles_fail_closed(cycles):
     with pytest.raises(ValueError, match="P2224_INVALID_CYCLES"):
         run(cycles)
@@ -51,3 +51,19 @@ def test_strategy_nan_mutation_is_atomic(monkeypatch):
     with pytest.raises(RuntimeError, match="P2226_INVALID_STRATEGY_SCORE"):
         engine.evolve()
     assert engine.strategies == original
+
+
+def test_normalized_shocks_keep_eurusd_positive(monkeypatch):
+    from app.runtime.p2224_2226_institutional_core import MarketDigitalTwin
+    twin = MarketDigitalTwin()
+    monkeypatch.setattr("app.runtime.p2224_2226_institutional_core.random.uniform", lambda a, b: -1.0)
+    for _ in range(100):
+        values = twin.step()
+        assert values["EURUSD"] >= 0
+        assert twin.assets["EURUSD"] > 0
+
+def test_default_run_is_stable_with_maximum_negative_shocks(monkeypatch):
+    monkeypatch.setattr("app.runtime.p2224_2226_institutional_core.random.uniform", lambda a, b: -1.0)
+    result = run()
+    assert result["cycles"] == 30
+    assert result["status"] == "SIMULATION_ONLY_NOT_CERTIFIED"
