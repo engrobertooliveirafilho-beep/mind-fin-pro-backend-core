@@ -354,7 +354,6 @@ def run_p2091_2100(
     assert_no_financial_execution()
 
     output = Path(output_dir)
-    output.mkdir(parents=True, exist_ok=True)
 
     portfolio = load_json(portfolio_path)
     p2071 = load_json(p2071_certification_path)
@@ -364,6 +363,12 @@ def run_p2091_2100(
         raise RuntimeError("P2071_2080_NOT_CERTIFIED")
     if p2081.get("status") != "PASS":
         raise RuntimeError("P2081_2090_NOT_CERTIFIED")
+    if p2071.get("readiness") != "REALTIME_PAPER_RUNTIME_CERTIFIED":
+        raise RuntimeError("P2071_2080_READINESS_INVALID")
+    if p2081.get("readiness") != "REALTIME_PORTFOLIO_GOVERNANCE_CERTIFIED":
+        raise RuntimeError("P2081_2090_READINESS_INVALID")
+    if p2081.get("input_dependencies", {}).get("p2071_2080_certification") != p2071_certification_path:
+        raise RuntimeError("P2081_2090_UPSTREAM_PROVENANCE_MISMATCH")
 
     specialists = extract_specialists(portfolio)
 
@@ -413,6 +418,7 @@ def run_p2091_2100(
         "next_block": "P2101_2110_AUTONOMOUS_PAPER_OPERATIONS",
     }
 
+    output.mkdir(parents=True, exist_ok=True)
     final_path = output / "P2091_2100_FINAL_CERTIFICATION.json"
     audit_path = output / "P2091_2100_AUDIT.md"
     state_path = output / "P2091_2100_INTELLIGENCE_STATE.json"
