@@ -51,3 +51,15 @@ def test_duplicate_candle_rejected(rows):
 def test_daily_limits(rows,daily,edge):
     with pytest.raises(ValueError,match="P2299_DAILY_LIMIT"):
         paper_signal(rows[0],{"symbol":"GER40","timeframe":"H1","closed":True,"timestamp":"2026-06-22T12:00:00+00:00"},"SELL",seen_keys=set(),daily_count=daily,edge_daily_count=edge)
+
+def test_global_candle_lock_blocks_other_edge(rows):
+    candle={"symbol":"GER40","timeframe":"H1","closed":True,"timestamp":"2026-06-22T12:00:00+00:00"}
+    with pytest.raises(ValueError,match="P2299_DUPLICATE_CANDLE"):
+        paper_signal(rows[1],candle,"BUY",seen_keys={("CANDLE","2026-06-22T12:00:00+00:00")},daily_count=1,edge_daily_count=0)
+
+@pytest.mark.parametrize("key,bad", [("lot","100"),("symbol","EURUSD"),("max_trades_day",100),("candle_lock","OPEN_H1")])
+def test_direct_signal_cannot_bypass_plan_validation(rows,key,bad):
+    rows[0][key]=bad
+    candle={"symbol":"GER40","timeframe":"H1","closed":True,"timestamp":"2026-06-22T12:00:00+00:00"}
+    with pytest.raises(ValueError):
+        paper_signal(rows[0],candle,"BUY",seen_keys=set(),daily_count=0,edge_daily_count=0)
