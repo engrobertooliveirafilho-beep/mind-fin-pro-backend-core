@@ -14,6 +14,8 @@ class OrderBookSimulator:
 
     def update_book(self):
         move = random.uniform(-0.5, 0.5)
+        if isinstance(move, bool) or not isinstance(move, (int, float)) or not math.isfinite(move) or not -0.5 <= move <= 0.5:
+            raise RuntimeError("P2224_INVALID_BOOK_SHOCK")
         next_bid = self.bid + move
         next_ask = self.ask + move
         if not (math.isfinite(next_bid) and math.isfinite(next_ask) and 0 < next_bid < next_ask):
@@ -41,7 +43,10 @@ class MarketDigitalTwin:
     def step(self):
         updated = {}
         for k, price in self.assets.items():
-            shock = random.uniform(-1, 1) * min(0.5, price * 0.1)
+            raw_shock = random.uniform(-1, 1)
+            if isinstance(raw_shock, bool) or not isinstance(raw_shock, (int, float)) or not math.isfinite(raw_shock) or not -1 <= raw_shock <= 1:
+                raise RuntimeError("P2225_INVALID_MARKET_SHOCK")
+            shock = raw_shock * min(0.5, price * 0.1)
             next_price = price + shock
             if not math.isfinite(next_price) or next_price <= 0:
                 raise RuntimeError("P2225_INVALID_MARKET_PRICE")
@@ -65,6 +70,8 @@ class StrategyEvolutionEngine:
         updated = []
         for s in self.strategies:
             mutation = random.uniform(-5, 5)
+            if isinstance(mutation, bool) or not isinstance(mutation, (int, float)) or not math.isfinite(mutation) or not -5 <= mutation <= 5:
+                raise RuntimeError("P2226_INVALID_STRATEGY_MUTATION")
             score = s["score"] + mutation
             if not math.isfinite(score):
                 raise RuntimeError("P2226_INVALID_STRATEGY_SCORE")
