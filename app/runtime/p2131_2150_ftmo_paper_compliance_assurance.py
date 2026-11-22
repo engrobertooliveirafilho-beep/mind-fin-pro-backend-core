@@ -27,10 +27,12 @@ def enforce():
 
 
 def assert_locks():
-    current = enforce()
-    invalid = {k: current.get(k) for k, v in LOCKS.items() if current.get(k) != v}
+    # Do not silently overwrite a live/unsafe environment before checking it.
+    invalid = {k: os.environ.get(k) for k, v in LOCKS.items()
+               if os.environ.get(k) is not None and os.environ.get(k) != v}
     if invalid:
         raise RuntimeError(f"LOCK_BREACH: {invalid}")
+    enforce()
 
 
 def load_json(path: str):
@@ -56,7 +58,6 @@ def run_p2131_2150(output_dir="data/runtime/P2131_2150/evidence"):
     assert_locks()
 
     out = Path(output_dir)
-    out.mkdir(parents=True, exist_ok=True)
 
     deps = {
         "p2071": "data/runtime/P2071_2080/evidence/P2071_2080_FINAL_CERTIFICATION.json",
@@ -83,7 +84,15 @@ def run_p2131_2150(output_dir="data/runtime/P2131_2150/evidence"):
             "readiness": data.get("readiness"),
         }
         hashes[k] = sha256(p)
-        if data.get("status") != "PASS":
+        expected_readiness = {
+            "p2071": "REALTIME_PAPER_RUNTIME_CERTIFIED",
+            "p2081": "REALTIME_PORTFOLIO_GOVERNANCE_CERTIFIED",
+            "p2091": "REALTIME_INTELLIGENCE_LAYER_CERTIFIED",
+            "p2101": "AUTONOMOUS_PAPER_OPERATIONS_CERTIFIED",
+            "p2111": "MAXIMUM_TECHNICAL_CAPACITY_CERTIFIED",
+            "p2121": "CONTINUOUS_MAX_CAPACITY_CERTIFIED",
+        }[k]
+        if data.get("status") != "PASS" or data.get("readiness") != expected_readiness:
             invalid.append(p)
 
     lock_drift = {k: os.environ.get(k) for k, v in LOCKS.items() if os.environ.get(k) != v}
@@ -139,27 +148,30 @@ def run_p2131_2150(output_dir="data/runtime/P2131_2150/evidence"):
 
     evidence_missing = [p for p in evidence_files if not Path(p).exists()]
 
+    # Declaration-only scenarios do not prove functioning risk guards.
+    # Keep downstream FTMO and operational certifications blocked pending
+    # behavioral PAPER tests and verified evidence.
     mission_status = {
         "P2131_FTMO_RULE_FRAMEWORK_AUDIT": decision(not missing and not invalid),
-        "P2132_DAILY_LOSS_GUARD_DECLARATION": "PASS",
-        "P2133_TOTAL_LOSS_GUARD_DECLARATION": "PASS",
+        "P2132_DAILY_LOSS_GUARD_DECLARATION": "FAIL",
+        "P2133_TOTAL_LOSS_GUARD_DECLARATION": "FAIL",
         "P2134_PROFIT_TARGET_TRACKER_DECLARATION": "PASS",
         "P2135_TRADING_DAYS_VALIDATOR_DECLARATION": "PASS",
         "P2136_POSITION_SIZING_COMPLIANCE_AUDIT": "PASS",
         "P2137_SESSION_MARKET_HOURS_COMPLIANCE_AUDIT": "PASS",
-        "P2138_RUNTIME_RISK_KILL_SWITCH_AUDIT": "PASS",
-        "P2139_COMPLIANCE_REPLAY_VALIDATION_AUDIT_ONLY": "PASS",
+        "P2138_RUNTIME_RISK_KILL_SWITCH_AUDIT": "FAIL",
+        "P2139_COMPLIANCE_REPLAY_VALIDATION_AUDIT_ONLY": "FAIL",
         "P2140_FTMO_PAPER_COMPLIANCE_CERTIFICATION": "PENDING",
 
         "P2141_DATA_INTEGRITY_AUDIT": decision(not missing),
         "P2142_METRICS_CONSISTENCY_AUDIT": decision(not invalid),
-        "P2143_STATE_RECOVERY_STRESS_AUDIT": "PASS",
-        "P2144_LONG_RUN_STABILITY_AUDIT": "PASS",
+        "P2143_STATE_RECOVERY_STRESS_AUDIT": "FAIL",
+        "P2144_LONG_RUN_STABILITY_AUDIT": "FAIL",
         "P2145_CONFIGURATION_DRIFT_DETECTION": decision(not lock_drift),
         "P2146_LOGGING_TRACEABILITY_AUDIT": "PASS",
         "P2147_EVIDENCE_CHAIN_VERIFICATION": decision(not evidence_missing),
         "P2148_COMPLIANCE_REGRESSION_SUITE": "PENDING",
-        "P2149_CONTINUOUS_MONITORING_VALIDATION": "PASS",
+        "P2149_CONTINUOUS_MONITORING_VALIDATION": "FAIL",
         "P2150_OPERATIONAL_READINESS_CERTIFICATION": "PENDING",
     }
 
@@ -230,6 +242,7 @@ def run_p2131_2150(output_dir="data/runtime/P2131_2150/evidence"):
         "next_block": "P2151_PLUS_READINESS_DOSSIER_AND_DEPLOYMENT_GATE_REVIEW",
     }
 
+    out.mkdir(parents=True, exist_ok=True)
     (out / "P2131_2150_FINAL_CERTIFICATION.json").write_text(
         json.dumps(result, indent=2, ensure_ascii=False),
         encoding="utf-8",
