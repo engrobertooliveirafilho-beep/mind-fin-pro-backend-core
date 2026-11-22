@@ -10,19 +10,27 @@ int OnInit()
 {
    Print(PREFIX+"EA_INITIALIZED MODE=SIM_BROKER REAL_ORDERS=FORBIDDEN");
    if(TimerSeconds < 1) return INIT_PARAMETERS_INCORRECT;
-   EnsureLedgerHeader();
+   if(!EnsureLedgerHeader()) return INIT_FAILED;
    EventSetTimer(TimerSeconds);
    return INIT_SUCCEEDED;
 }
 void OnDeinit(const int reason) { EventKillTimer(); }
 string T(string s) { StringTrimLeft(s); StringTrimRight(s); return s; }
-void EnsureLedgerHeader()
+bool EnsureLedgerHeader()
 {
-   if(FileIsExist(LedgerFileName, FILE_COMMON)) return;
+   if(FileIsExist(LedgerFileName, FILE_COMMON)) return true;
    int h=FileOpen(LedgerFileName,FILE_WRITE|FILE_TXT|FILE_ANSI|FILE_COMMON);
-   if(h==INVALID_HANDLE) { Print(PREFIX+"LEDGER_HEADER_FAIL"); return; }
-   FileWriteString(h,"server_time,symbol,side,lot,entry_price,tag,status,mode,magic,raw\n");
+   if(h==INVALID_HANDLE) { Print(PREFIX+"LEDGER_HEADER_FAIL"); return false; }
+   string header="server_time,symbol,side,lot,entry_price,tag,status,mode,magic,raw\n";
+   uint n=FileWriteString(h,header);
+   FileFlush(h);
    FileClose(h);
+   return n==StringLen(header);
+}
+string CsvField(string value)
+{
+   StringReplace(value,"\"","\"\"");
+   return "\""+value+"\"";
 }
 bool SimAccept(string symbol,string side,double lot,double price,string tag,string raw)
 {
@@ -30,9 +38,9 @@ bool SimAccept(string symbol,string side,double lot,double price,string tag,stri
    if(h==INVALID_HANDLE) { Print(PREFIX+"SIM_LEDGER_OPEN_FAIL"); return false; }
    FileSeek(h,0,SEEK_END);
    string row=TimeToString(TimeCurrent(),TIME_DATE|TIME_SECONDS)+","+
-      symbol+","+side+","+DoubleToString(lot,2)+","+
+      CsvField(symbol)+","+side+","+DoubleToString(lot,2)+","+
       DoubleToString(price,(int)SymbolInfoInteger(symbol,SYMBOL_DIGITS))+","+
-      tag+",ACCEPTED,SIM_BROKER,"+IntegerToString(MagicNumber)+","+raw+"\n";
+      CsvField(tag)+",ACCEPTED,SIM_BROKER,"+IntegerToString(MagicNumber)+","+CsvField(raw)+"\n";
    uint written=FileWriteString(h,row);
    FileFlush(h);
    FileClose(h);
@@ -61,8 +69,13 @@ void OnTimer()
    // Strict lot syntax; StringToDouble alone accepts malformed values as zero.
    if(lot_raw=="" || StringFind(lot_raw,"e")>=0 || StringFind(lot_raw,"E")>=0)
    { Print(PREFIX+"LOT_REJECT"); return; }
+   for(int i=0;i<StringLen(lot_raw);i++)
+   {
+      ushort c=StringGetCharacter(lot_raw,i);
+      if(!((c>=48 && c<=57) || c==46)) { Print(PREFIX+"LOT_REJECT"); return; }
+   }
    double lot=StringToDouble(lot_raw);
-   if(!MathIsValidNumber(lot) || lot<=0.0)
+   if(!MathIsValidNumber(lot) || lot<=0.0 || NormalizeDouble(lot,2)<=0.0)
    { Print(PREFIX+"LOT_REJECT"); return; }
    if(!SymbolSelect(symbol,true))
    { Print(PREFIX+"SYMBOL_SELECT_REJECT"); return; }
