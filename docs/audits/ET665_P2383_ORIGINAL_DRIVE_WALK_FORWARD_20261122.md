@@ -105,3 +105,13 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - **27/27 PASS, 0.05 s** in local isolated Python harness `/mnt/data/step520_validation`, with reconstructed source matching functional logic. Direct GitHub raw checkout unavailable due DNS/network error. This does NOT certify clean checkout or E2E.
 - GitHub readback verified source and tests exist on branch; MAIN/production unchanged; originals read-only; no paid services.
 - Further action: integrate only with proven PAPER gateway once its canonical source and tests are recovered; never treat STEP520 as a live-trading authorization layer.
+
+
+## STEP520 adversarial policy escalation fix (2026-11-21)
+- Discovered that custom policy `allowed_actions` could authorize arbitrary actions (e.g. `send_trade`, `broker_send`) because the prior hardening only banned a fixed list/prefix of real-order action names. Custom policy values with malformed entries were also insufficiently validated.
+- Corrected original-recovered `app/compliance.py` on isolated PR branch: enforce a fixed canonical set `paper_feedback/paper_replay/paper_validate` independent of custom policy, reject whitespace/noncanonical actions, reject malformed allow/block lists and non-string entries.
+- Added nine parametrized regression cases in `tests/test_step520_paper_compliance.py` (5 custom action escalation, 4 malformed policies).
+- Commits: source `0f33144290e4f1eada2eec24f7b9325a0c2eea27`, tests `8dfe4eec51a91d63f570156b5e03e27cfda508df`, normalization correction `7428da34d57ca4fc5705b984688e5f9c3f8387d2`.
+- **Execution evidence:** 12/12 independent adversarial policy logic checks PASS in Python. The published module's full pytest suite was **not executed in this turn**. Do not conflate independent checks with checked-out source regression certification.
+- Google Drive searches for `gateway_paper.py`, `paper_execution_gateway`, `test_paper_gateway` returned no direct file matches; this does not prove nonexistence across all Drive/GitHub histories. No gateway integration performed.
+- MAIN/production intact; PAPER_ONLY; REAL_ORDERS and FTMO_REAL forbidden; no promotion, merge or paid service.
