@@ -92,6 +92,15 @@ def extract_runtime_metrics(raw: Dict[str, Any]) -> Dict[str, Any]:
     for key in ("initial_equity", "final_mark_to_market_equity", "peak_equity", "trough_equity"):
         if metrics[key] <= 0:
             raise ValueError("P2071_RUNTIME_EQUITY_INVALID:" + key)
+    # Historical peak-to-trough drawdown is required: a later recovery
+    # must not conceal an earlier risk-limit breach.
+    historical_dd = metrics.get("max_drawdown_pct")
+    if isinstance(historical_dd, bool) or not isinstance(historical_dd, (int, float)) or not math.isfinite(historical_dd):
+        raise ValueError("P2071_MAX_DRAWDOWN_MISSING_OR_INVALID")
+    if historical_dd < 0 or historical_dd > 1:
+        raise ValueError("P2071_MAX_DRAWDOWN_OUT_OF_RANGE")
+    if historical_dd + 1e-8 < abs(metrics["drawdown_pct"]):
+        raise ValueError("P2071_MAX_DRAWDOWN_INCONSISTENT")
     # P2071 emits signed current drawdown (<= 0), unlike max drawdown
     # magnitude (>= 0). Preserve its historical contract.
     if metrics["drawdown_pct"] > 0 or metrics["drawdown_abs"] > 0:
@@ -110,6 +119,7 @@ def extract_runtime_metrics(raw: Dict[str, Any]) -> Dict[str, Any]:
         "paper_mark_to_market_pnl": float(metrics.get("paper_mark_to_market_pnl", 0.0)),
         "drawdown_pct": float(metrics.get("drawdown_pct", 0.0)),
         "drawdown_abs": float(metrics.get("drawdown_abs", 0.0)),
+        "max_drawdown_pct": float(metrics["max_drawdown_pct"]),
         "peak_equity": float(metrics.get("peak_equity", 100000.0)),
         "trough_equity": float(metrics.get("trough_equity", 100000.0)),
     }
@@ -180,7 +190,7 @@ class RiskEngine:
 
         max_drawdown_pct = -0.05
         current_dd = runtime["drawdown_pct"]
-        ok = current_dd >= max_drawdown_pct
+        ok = current_dd >= max_drawdown_pct and runtime["max_drawdown_pct"] <= abs(max_drawdown_pct)
 
         return GovernanceDecision(
             component="P2084_RISK_ENGINE",
@@ -189,6 +199,7 @@ class RiskEngine:
             payload={
                 "drawdown_pct": current_dd,
                 "max_drawdown_pct": max_drawdown_pct,
+                "observed_max_drawdown_pct": runtime["max_drawdown_pct"],
                 "drawdown_abs": runtime["drawdown_abs"],
             },
         )
@@ -283,7 +294,7 @@ class AnomalyDetection:
         if runtime["open_positions"] > 3:
             anomalies.append("EXPOSURE_OVER_LIMIT")
 
-        if runtime["drawdown_pct"] < -0.05:
+        if runtime["drawdown_pct"] < -0.05 or runtime["max_drawdown_pct"] > 0.05:
             anomalies.append("DRAWDOWN_OVER_LIMIT")
 
         if runtime["final_mark_to_market_equity"] <= 0:
