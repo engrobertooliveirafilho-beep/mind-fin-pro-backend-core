@@ -230,3 +230,26 @@ def test_p2087_rejects_symlinked_checkpoint_directory(tmp_path, monkeypatch):
     with pytest.raises(RuntimeError, match="P2087_UNSAFE_CHECKPOINT_DIRECTORY"):
         PortfolioRecovery().evaluate({"program":"P2081_2090"},str(link_dir))
     assert not list(real_dir.iterdir())
+
+def test_p2087_rejects_orphaned_temporary_file(tmp_path, monkeypatch):
+    from app.runtime.p2081_2090_realtime_portfolio_governance import PortfolioRecovery, ABSOLUTE_LOCKS
+    for k,v in ABSOLUTE_LOCKS.items():
+        monkeypatch.setenv(k,v)
+    directory=tmp_path/"checkpoints"
+    directory.mkdir()
+    orphan=directory/"governance_state.json.tmp"
+    orphan.write_text("preserve this historical orphan")
+    with pytest.raises(RuntimeError, match="P2087_UNSAFE_CHECKPOINT_ENTRY"):
+        PortfolioRecovery().evaluate({"program":"P2081_2090"},str(directory))
+    assert orphan.read_text()=="preserve this historical orphan"
+
+
+def test_p2087_rejects_nonregular_checkpoint_entry(tmp_path, monkeypatch):
+    from app.runtime.p2081_2090_realtime_portfolio_governance import PortfolioRecovery, ABSOLUTE_LOCKS
+    for k,v in ABSOLUTE_LOCKS.items():
+        monkeypatch.setenv(k,v)
+    directory=tmp_path/"checkpoints"
+    directory.mkdir()
+    (directory/"governance_state.json").mkdir()
+    with pytest.raises(RuntimeError, match="P2087_UNSAFE_CHECKPOINT_ENTRY"):
+        PortfolioRecovery().evaluate({"program":"P2081_2090"},str(directory))
