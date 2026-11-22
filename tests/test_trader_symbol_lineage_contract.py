@@ -38,3 +38,33 @@ def test_reject_writer_missing_symbol():
 def test_writer_rejects_invalid_symbol_even_when_equal(symbol):
     with pytest.raises(SymbolLineageError):
         validate_writer_symbol({"symbol": symbol}, {"symbol": symbol})
+
+
+def test_symbolized_writer_row_preserves_lineage_and_sources():
+    from app.runtime.trader_symbol_lineage_contract import build_symbolized_decision_row
+    replay = {"symbol": "XAUUSD", "day": 2, "tick": 3}
+    dispatch = {"day": 2, "tick": 3}
+    decision = {"symbol": "XAUUSD", "day": 2, "tick": 3, "direction": "BUY"}
+    assert build_symbolized_decision_row(replay, dispatch, decision) == decision
+    assert "symbol" not in dispatch
+
+
+@pytest.mark.parametrize("tick", [-1, None, True, 1.5, "1"])
+def test_symbolized_writer_row_rejects_invalid_tick(tick):
+    from app.runtime.trader_symbol_lineage_contract import build_symbolized_decision_row
+    with pytest.raises(SymbolLineageError, match="S21_REPLAY_IDENTITY_INVALID"):
+        build_symbolized_decision_row(
+            {"symbol": "XAUUSD", "day": 1, "tick": tick},
+            {"day": 1, "tick": tick},
+            {"symbol": "XAUUSD", "day": 1, "tick": tick},
+        )
+
+
+def test_symbolized_writer_row_rejects_dispatch_day_conflict():
+    from app.runtime.trader_symbol_lineage_contract import build_symbolized_decision_row
+    with pytest.raises(SymbolLineageError, match="S21_LINEAGE_IDENTITY_CONFLICT"):
+        build_symbolized_decision_row(
+            {"symbol": "XAUUSD", "day": 1, "tick": 1},
+            {"day": 2, "tick": 1},
+            {"symbol": "XAUUSD", "day": 1, "tick": 1},
+        )
