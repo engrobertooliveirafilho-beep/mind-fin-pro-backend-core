@@ -125,3 +125,12 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - After patch, **10/10 PASS** (8 original V4 tests + 2 adversarial tests), `python -m unittest -v test_execution_v4 test_execution_v4_atomic`, local `/mnt/data/et_v4_lab`, 0.002 s. No real orders.
 - Published recovered/patched source `app/runtime/ftmo_execution_v4.py` commit `bc81023e95f68245b5abc3076ca7611334b27471`; new tests `tests/test_ftmo_execution_v4_atomic.py` commit `a2652bd6bfac7a0372a8ffc73717b21f22defd4a`.
 - **Scope limit:** Tests executed with original Drive module at top-level in isolated staging; GitHub module is under `app.runtime` and its external original dependencies have not yet been published or integrated into canonical package. No clean-checkout CI or E2E certification. Source recovered and behavioral fix PASS offline; integration pending.
+
+
+## FTMO ExecutionV5 recovery / input validation (2026-11-22)
+- Drive EXECUTION_V5 folder `1jRNxehoemCaRppPcQHMbR2J9S3wCj5fl`; recovered original `ftmo_execution_v5.py` file `1Bk-gkLSKK2d2k4DawfhcGLYdOTjSTlcW`, V4 and dependencies (see ET-019). Original SHA256 `644df62eb0289a6bcce83113d78d316255d6e6862c2a06c077b440d017fce2f4` from original V5 manifest `1DcBiBsQAGvbWd-sgB-c--9K6U--2j732`.
+- Published `app/runtime/ftmo_execution_v5.py` commit `0ecb01dae3d40bb5c1ee735493968f0e33247252`; `tests/test_ftmo_execution_v5_rollover.py` commit `1d49ac53811d6a4da1b5e4902bbecf18dfed57d7`.
+- Fix: prevalidate OHLC, day type and chronology before `new_day`; invalid input does not mutate day. Source was reconstructed from original Drive V5, not a byte-identical copy.
+- Local isolated harness `/mnt/data/eldora_v5_validation` with original Drive dependencies: **5/5 PASS** for invalid bar, missing target, invalid day, valid rollover and reversal. These tests exercised a manually reconstructed local V5 implementation, not a GitHub clean checkout.
+- Original V4 Drive regression independently rerun in this turn: **8/8 PASS** `python -m unittest -q test_execution_v4` with original Drive files.
+- No broker calls, real orders, production deployment or main merge. Full V4/V5 dependency packaging and end-to-end tests remain pending; E2E_CERTIFIED=FALSE.
