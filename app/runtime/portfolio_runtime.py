@@ -66,6 +66,9 @@ class PaperPortfolio:
         self.audit.append({'event':'CLOSE','id':pid,'pnl':str(pnl)})
         return pnl
     def new_day(self,day):
+        # Validate chronology before any equity/audit mutation, including direct callers.
+        if type(day) is not date or day <= self.account.day:
+            raise ValueError('day must be a later calendar date')
         self._mark_all()
         self.account.new_day(day)
         self.audit.append({'event':'NEW_DAY','day':day.isoformat(),'equity':str(self.account.equity)})
