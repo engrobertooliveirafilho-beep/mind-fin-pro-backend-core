@@ -32,3 +32,9 @@ def test_reject_writer_conflict():
 def test_reject_writer_missing_symbol():
     with pytest.raises(SymbolLineageError, match="S21_DISPATCH_SYMBOL_MISSING"):
         validate_writer_symbol({}, {"symbol": "XAUUSD"})
+
+
+@pytest.mark.parametrize("symbol", [" XAUUSD", "XAUUSD ", "XAU/USD", "XAU USD", "é", ""])
+def test_writer_rejects_invalid_symbol_even_when_equal(symbol):
+    with pytest.raises(SymbolLineageError):
+        validate_writer_symbol({"symbol": symbol}, {"symbol": symbol})
