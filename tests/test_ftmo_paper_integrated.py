@@ -29,3 +29,12 @@ class IntegratedPaperTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             ExecutionV5(p).process_bar({a:dict(open=100,high=99,low=101,close=100,target=110)},day=date(2026,10,30))
         self.assertEqual(p.account.day,date(2026,10,29))
+
+    def test_malformed_bar_is_fail_closed_without_mutation(self):
+        p=PaperPortfolio(Rules(D(100000),D('.05'),D('.10'),D('.10')),date(2026,10,29))
+        a=p.open(OrderIntent('BUY',D(100),D(95),D(1),D(1)))
+        before=(p.account.balance,p.account.equity,len(p.audit),p.account.day)
+        for bad in [None, {}, {'open': 100}, {'open':'not-a-number','high':101,'low':99,'close':100,'target':110}]:
+            with self.assertRaises(ValueError):
+                ExecutionV5(p).process_bar({a:bad})
+            self.assertEqual((p.account.balance,p.account.equity,len(p.audit),p.account.day),before)
