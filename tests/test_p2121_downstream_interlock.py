@@ -70,3 +70,13 @@ def test_p2122_rejects_nonempty_tampered_package(tmp_path, monkeypatch):
     assert decision.status == "FAIL"
     assert str(package.relative_to(tmp_path)) in decision.payload["mismatched"]
     assert len(decision.payload["missing"]) == 4
+
+def test_p2121_missing_dependency_does_not_create_artifacts(tmp_path, monkeypatch):
+    from app.runtime.p2121_plus_continuous_max_capacity_audit import run_p2121_plus
+    for key, expected in ABSOLUTE_LOCKS.items():
+        monkeypatch.setenv(key, expected)
+    deps = {key: str(tmp_path / "absent.json") for key in ("p2071", "p2081", "p2091", "p2101", "p2111")}
+    output = tmp_path / "must_not_exist"
+    with pytest.raises(FileNotFoundError):
+        run_p2121_plus(str(tmp_path), deps, str(output))
+    assert not output.exists()
