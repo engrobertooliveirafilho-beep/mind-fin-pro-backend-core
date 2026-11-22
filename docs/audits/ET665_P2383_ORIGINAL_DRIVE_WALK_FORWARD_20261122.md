@@ -212,3 +212,11 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Local reconstructed package `/mnt/data/et_integrated`: `PYTHONPATH=. python -m unittest discover -s tests -q` **15/15 PASS** (existing 12 + 3 V5 day-contract tests); no clean GitHub checkout or E2E.
 - Deep Drive folder `FTMO_CERTIFICATION` ID `1o1scbwKgSwZx0pFHbP97rVVLCeSvTACn` revealed additional child `FTMO_PROFILE_V3_20261121` ID `1kkmtUckX3QI0l9AoKIltaiusPV9j2ubt`; folder listing currently empty, **no verified profile implementation or rule update**. The FTMO rules-current gate remains false.
 - Reused historical V2–V8 engines and controls rather than creating duplicate runtime. Original Drive files read-only, isolated branch only; no real orders, merge or production changes.
+
+
+## V8 timeout evidence preservation and 46/46 reconstructed regressions — 2026-11-22
+- Reexecuted existing historical and integrated tests in reconstructed `/mnt/data/et_integrated`: `PYTHONPATH=. python -m unittest discover -s original_tests -q` **31/31 PASS**, and `PYTHONPATH=. python -m unittest discover -s tests -q` **15/15 PASS**, total **46/46**. This is not clean checkout or E2E.
+- Discovered V8 `subprocess.run(...,timeout=90)` raised `TimeoutExpired` before writing audit and SHA manifest. Fixed `tools/consolidate_ftmo_v8.py` to record timeout as blocked returncode 124 and persist `REGRESSION_V8.txt`, `CONSOLIDATION_V8.json`, `SHA256_V8.json`; commit `e03658119721847fa74314f3d5fd44d2533c21e9`.
+- Ran one isolated timeout-injection regression against matching reconstructed V8 code with `unittest.mock.patch(subprocess.run)`: **PASS**, returncode 124, all 3 evidence files persisted, `ftmo_release=BLOCKED`, `real_orders=0`. Added published regression to `tests/test_consolidate_ftmo_v8_safety.py`, commit `4e665df0f216876fbfaa0562853add468ef92fab`. Published version not run from a clean GitHub checkout.
+- Drive search for `FTMO_PROFILE_V3`, `TRADER_CAPABILITIES`, `TRADER_MOTORS` found only previously known empty profile folder and older dossiês; no new executable motor, STEP or agent certified.
+- Original Drive immutable, main and production untouched; PAPER only, FTMO release blocked.
