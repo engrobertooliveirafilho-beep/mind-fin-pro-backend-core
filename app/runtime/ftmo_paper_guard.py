@@ -25,6 +25,7 @@ class PaperAccount:
             raise ValueError('invalid rules')
         return cls(rules,rules.initial_balance,rules.initial_balance,day,rules.initial_balance,rules.initial_balance)
     def new_day(self, day):
+        if type(day) is not date: raise ValueError('day must be a calendar date')
         if day <= self.day: raise ValueError('day must advance')
         self.day=day
         self.day_start_balance=self.balance
