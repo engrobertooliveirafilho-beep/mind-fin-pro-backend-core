@@ -73,3 +73,15 @@ def test_p2089_runs_behavioral_failure_scenarios(monkeypatch):
     assert len(result.payload) == 4
     assert all(result.payload.values())
     assert result.reason == "BEHAVIORAL_FAILURE_SIMULATION_OK"
+
+def test_p2081_missing_inputs_do_not_create_evidence(tmp_path, monkeypatch):
+    from app.runtime.p2081_2090_realtime_portfolio_governance import (
+        run_p2081_2090, ABSOLUTE_LOCKS,
+    )
+    for k,v in ABSOLUTE_LOCKS.items():
+        monkeypatch.setenv(k,v)
+    out=tmp_path/"must_not_exist"
+    with pytest.raises(FileNotFoundError):
+        run_p2081_2090(str(tmp_path/"missing_portfolio.json"),
+                       str(tmp_path/"missing_certification.json"), str(out))
+    assert not out.exists()
