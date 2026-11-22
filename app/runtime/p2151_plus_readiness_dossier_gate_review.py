@@ -129,8 +129,10 @@ def run_p2151_plus(output_dir="data/runtime/P2151_PLUS/evidence"):
         "P2153_GATE_POLICY_REVIEW": "PASS",
         "P2154_ALLOWED_ENVIRONMENT_DECLARATION": "PASS",
         "P2155_FORBIDDEN_ENVIRONMENT_DECLARATION": "PASS",
-        "P2156_FINANCIAL_LOCK_RECONFIRMATION": "PASS" if enforce()==LOCKS else "FAIL",
-        "P2157_EVIDENCE_HASH_REGISTRY": "PASS" if len(hashes)==len(deps) else "FAIL",
+        "P2156_FINANCIAL_LOCK_RECONFIRMATION": "PASS" if all(os.environ.get(k)==v for k,v in LOCKS.items()) else "FAIL",
+        # Computed hashes without independently trusted reference hashes are inventory,
+        # not integrity certification.
+        "P2157_EVIDENCE_HASH_REGISTRY": "FAIL",
         "P2158_EXECUTIVE_SUMMARY_GENERATION": "PASS",
         "P2159_DEPLOYMENT_GATE_DECISION": "PASS" if gate_review["deployment_decision"]!="BLOCKED" else "FAIL",
         "P2160_READINESS_DOSSIER_CERTIFICATION": "PENDING",
