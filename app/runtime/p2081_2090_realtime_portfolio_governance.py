@@ -262,7 +262,7 @@ class CapitalAllocation:
 
 
 class PortfolioRecovery:
-    def evaluate(self, governance_state: Dict[str, Any]) -> GovernanceDecision:
+    def evaluate(self, governance_state: Dict[str, Any], checkpoint_dir: str | None = None) -> GovernanceDecision:
         assert_no_financial_execution()
         # Prove a real disk write, fsync, independent disk read and SHA-256.
         # This does NOT prove that a terminated process was restarted.
@@ -271,12 +271,18 @@ class PortfolioRecovery:
         expected_sha256 = hashlib.sha256(encoded).hexdigest()
         checkpoint_verified = False
         restored = None
-        with tempfile.TemporaryDirectory(prefix="p2087_paper_checkpoint_") as directory:
-            checkpoint = Path(directory) / "governance_state.json"
-            with checkpoint.open("wb") as stream:
+        # Production PAPER path retains the checkpoint; isolated unit calls
+        # may use a disposable directory without polluting the workspace.
+        with tempfile.TemporaryDirectory(prefix="p2087_paper_checkpoint_") as disposable:
+            directory = Path(checkpoint_dir) if checkpoint_dir is not None else Path(disposable)
+            directory.mkdir(parents=True, exist_ok=True)
+            checkpoint = directory / "governance_state.json"
+            temporary = directory / "governance_state.json.tmp"
+            with temporary.open("wb") as stream:
                 stream.write(encoded)
                 stream.flush()
                 os.fsync(stream.fileno())
+            os.replace(temporary, checkpoint)
             disk_bytes = checkpoint.read_bytes()
             restored = json.loads(disk_bytes.decode("utf-8"))
             checkpoint_verified = (
@@ -421,7 +427,7 @@ def run_p2081_2090(
         "locks": enforce_paper_only(),
     }
 
-    decisions.append(PortfolioRecovery().evaluate(governance_state))
+    decisions.append(PortfolioRecovery().evaluate(governance_state, str(output / "checkpoints")))
     decisions.append(AnomalyDetection().evaluate(runtime))
     decisions.append(FailureSimulation().evaluate(runtime))
 
