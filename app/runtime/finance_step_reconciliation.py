@@ -18,16 +18,19 @@ def _literal_assignments(source):
     except SyntaxError as exc:
         raise ValueError("invalid STEP Python source") from exc
     assignments={}
-    for node in tree.body:
-        if not isinstance(node,ast.Assign):
+    for node in ast.walk(tree):
+        if not isinstance(node, (ast.Assign, ast.AnnAssign, ast.AugAssign, ast.NamedExpr)):
             continue
-        for target in node.targets:
-            if isinstance(target,ast.Name) and target.id in ("STEP_ID","STEP_STATUS"):
+        targets = node.targets if isinstance(node, ast.Assign) else [node.target]
+        for target in targets:
+            if isinstance(target, ast.Name) and target.id in ("STEP_ID", "STEP_STATUS"):
+                if not any(node is top for top in tree.body) or not isinstance(node, ast.Assign):
+                    raise ValueError("unsupported STEP metadata mutation")
                 if target.id in assignments:
                     raise ValueError("duplicate STEP metadata")
                 try:
-                    assignments[target.id]=ast.literal_eval(node.value)
-                except (ValueError,TypeError,MemoryError,RecursionError) as exc:
+                    assignments[target.id] = ast.literal_eval(node.value)
+                except (ValueError, TypeError, MemoryError, RecursionError) as exc:
                     raise ValueError("nonliteral STEP metadata") from exc
     return assignments,tree
 
@@ -47,12 +50,8 @@ def reconcile_finance_steps(source_by_step):
             if type(metadata.get("STEP_ID")) is not int or metadata["STEP_ID"] != step:
                 raise ValueError("STEP identity mismatch")
             approved=(metadata.get("STEP_STATUS") == "approved_stub")
-            has_original_marker=any(
-                isinstance(node,ast.Expr) and isinstance(node.value,ast.Constant)
-                and isinstance(node.value.value,str)
-                and "A lógica REAL deste STEP deve ser implementada" in node.value.value
-                for node in tree.body
-            )
+            docstring=ast.get_docstring(tree,clean=False) or ""
+            has_original_marker="A lógica REAL deste STEP deve ser implementada" in docstring
             state="APPROVED_STUB" if approved and has_original_marker else "REQUIRES_CODE_REVIEW"
         results.append({"step_id":step,"state":state,
                         "drive_source_id":DRIVE_STUBS.get(step),"certified":False})
