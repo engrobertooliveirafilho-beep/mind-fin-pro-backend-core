@@ -29,3 +29,20 @@ def test_p2101_rejects_false_upstream_chain_without_artifacts(tmp_path, monkeypa
     with pytest.raises(RuntimeError, match="UPSTREAM"):
         run_p2101_2110(str(portfolio),str(p2071),str(p2081),str(p2091),str(out))
     assert not out.exists()
+
+def test_simulated_recovery_cannot_be_reported_as_healed(monkeypatch):
+    from app.runtime.p2101_2110_autonomous_paper_operations import (
+        AutoRecovery, AutoRestart, AutoHealing,
+    )
+    for k,v in ABSOLUTE_LOCKS.items():
+        monkeypatch.setenv(k,v)
+    recovery=AutoRecovery().evaluate({"runtime_status":"FAULTED","heartbeat":0,"recovery_count":0})
+    restart=AutoRestart().evaluate(recovery.payload["recovered"])
+    assert recovery.status == "FAIL"
+    assert restart.status == "FAIL"
+    healing=AutoHealing().evaluate({"locks_valid":True,
+        "recovery_executed":recovery.status=="PASS",
+        "restart_executed":restart.status=="PASS"})
+    assert healing.status == "FAIL"
+    assert "HEAL_RECOVERY_EXECUTED" in healing.payload["healing_actions"]
+    assert "HEAL_RESTART_EXECUTED" in healing.payload["healing_actions"]
