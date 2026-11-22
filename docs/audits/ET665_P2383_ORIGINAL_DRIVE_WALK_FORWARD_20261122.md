@@ -307,3 +307,11 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Published standalone AST-based STEP evidence inspector `app/runtime/step_source_evidence_gate.py` commit `e2446f64285f07ce2d01124234a3ef744e5d7255`. Explicitly rejects mismatched STEP IDs and malformed sources; marks approved stubs NOT_IMPLEMENTED; even `implemented` declarations are not automatically certified.
 - Nine isolated Python tests **9/9 PASS** executed locally before publication; published `tests/test_step_source_evidence_gate.py` commit `1d6ff7023059500a809704fc300614fcb9c55c59`. No complete clean checkout, no agent loader integration, no E2E.
 - Original Drive read-only, main and production intact, PAPER_ONLY, REAL_ORDERS=FORBIDDEN, COST=R$0.
+
+
+## Finance STEP reconciliation — 2026-11-22
+- Source-of-truth: MIND registry Drive `1IGBrD8FL3CLfVMngnG0rA765KlaZKfoD`, finance agent references 13 STEPs `124,136,139,154,170,177,190,210,211,239,281,497,498`.
+- Independently reopened Drive original sources: `139`=`178we-IFCNAwy_vWNTRXBaC-rcbzAFgR0`, `154`=`16wZkGPqt-oTLW-RWIEQ1K12Kiycg_3Ws`, `190`=`15Lk7VouGO0myTlUFxJgze61NB6Xr2lXO`, `211`=`1yB_j0ash_XHcQwvwN3ldJu82g_Qay7fT`, `281`=`1mNWkT4r9sCXR972wZCG4fP9ipbJMfnrN`. All explicitly declare `STEP_STATUS="approved_stub"` and that real logic is pending. With previous 124/136/170, **8/13 confirmed nonfunctional approved stubs**.
+- Remaining `177,210,239,497,498` lack verified implementation from current search; do not assert absence, mark NOT_YET_VERIFIED. No finance STEP certified.
+- Published read-only `app/runtime/finance_step_reconciliation.py` commit `16af5d45dc6b92a5ad00b21044ef58f9f4777ead` and `tests/test_finance_step_reconciliation.py` commit `8945df7edf8b0927d403c0d3f13c8eda71b643b3`. Separate local prototype ran **10/10 PASS**; **published GitHub test file was not executed in a clean checkout**. Guard always returns certified=false, rejects source identity mismatches.
+- Drive unchanged, main/production untouched, PAPER_ONLY, REAL_ORDERS=FORBIDDEN, E2E_CERTIFIED=FALSE, COST=R$0.
