@@ -35,10 +35,11 @@ class RiskEngine:
         if isinstance(pnl, bool) or not isinstance(pnl, (int, float)) or not math.isfinite(pnl):
             self.killed = True
             return "KILLED"
-        self.equity += pnl
-        if not math.isfinite(self.equity) or self.equity <= 0:
+        next_equity = self.equity + pnl
+        if not math.isfinite(next_equity) or next_equity <= 0:
             self.killed = True
             return "KILLED"
+        self.equity = next_equity
         self.peak = max(self.peak, self.equity)
         drawdown = (self.peak - self.equity) / self.peak
         daily_loss = (self.day_start_equity - self.equity) / self.day_start_equity
