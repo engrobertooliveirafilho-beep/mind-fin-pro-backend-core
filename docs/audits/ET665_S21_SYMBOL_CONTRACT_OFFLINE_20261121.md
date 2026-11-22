@@ -16,3 +16,10 @@
 ## Certification boundary
 This tests the isolated source copied from GitHub; it does NOT test the original canonical writer, institutional factory, full S20 replay, realized outcome ledger, or S21 E2E. Do not change historical S20 ledger or claim certification.
 `PAPER_ONLY=TRUE | REAL_ORDERS=FORBIDDEN | E2E_CERTIFIED=FALSE | COST=R$0`
+
+
+## 2026-11-22 — strict numeric identity hardening
+- Code commit `da940460d7fef943e91bd32b44c3180b07ba4d36`: reject boolean and floating-point `day`/`tick` aliases in dispatch and decision, even when numerically equal to the replay integer.
+- Regression commit `731155302a951cfcb8007996306a0e097fbf73ab`: eight adversarial combinations of field, stage, and alias.
+- Offline reconstructed-function test: `9 passed in 0.04s`, log `/mnt/data/et665_s21_identity/pytest.log`, SHA256 `1af40c49f25815cc43199390723eca0ea305a38da96d85981d7ae68d66a97f6f`.
+- **Scope:** locally reproduced algorithm; original repository import and full suite not executed (GitHub network DNS unavailable in local container). No E2E certification.
