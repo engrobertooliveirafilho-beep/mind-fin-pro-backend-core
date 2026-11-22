@@ -22,7 +22,7 @@ def test_invalid_volume_never_ticks(volume, monkeypatch):
 def test_risk_kill_latched(monkeypatch):
     broker = BrokerEmulator()
     monkeypatch.setattr(broker.market, "tick", lambda: 100.0)
-    monkeypatch.setattr("app.runtime.p2223_broker_emulator.random.uniform", lambda a, b: -10000.0)
+    monkeypatch.setattr("app.runtime.p2223_broker_emulator.random.uniform", lambda a, b: 0.0 if a == -0.1 else -10000.0)
     first = broker.execute_order("BUY", 1)
     assert first["risk"] == "KILLED"
     with pytest.raises(RuntimeError, match="P2223_RISK_KILL_LATCHED"):
@@ -59,3 +59,24 @@ def test_invalid_pnl_latches_risk(bad_pnl):
     assert risk.check(bad_pnl) == "KILLED"
     assert risk.killed is True
     assert risk.equity == 100000
+
+
+@pytest.mark.parametrize("price,slippage", [
+    (math.nan, 0.0),
+    (math.inf, 0.0),
+    (-1.0, 0.0),
+    (100.0, math.inf),
+    (100.0, -101.0),
+])
+def test_invalid_market_execution_latches_without_trade(price, slippage, monkeypatch):
+    broker = BrokerEmulator()
+    monkeypatch.setattr(broker.market, "tick", lambda: price)
+    monkeypatch.setattr(
+        "app.runtime.p2223_broker_emulator.random.uniform",
+        lambda a, b: slippage,
+    )
+    with pytest.raises(RuntimeError, match="P2223_INVALID_MARKET_EXECUTION"):
+        broker.execute_order("BUY", 1)
+    assert broker.killed and broker.risk.killed
+    assert broker.trades == []
+    assert broker.risk.equity == 100000
