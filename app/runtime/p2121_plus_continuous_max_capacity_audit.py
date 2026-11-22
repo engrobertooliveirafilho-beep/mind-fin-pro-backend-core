@@ -287,11 +287,12 @@ class RegressionTestAudit:
 
         missing = [x for x in tests if not (Path(repo) / x).exists()]
 
+        # File existence is not evidence that tests were executed or passed.
         return AuditDecision(
             "P2127_REGRESSION_TEST_AUDIT",
-            "PASS" if not missing else "FAIL",
-            "REGRESSION_TEST_FILES_PRESENT" if not missing else "REGRESSION_TEST_FILES_MISSING",
-            {"expected_tests": tests, "missing": missing},
+            "FAIL",
+            "REGRESSION_EXECUTION_NOT_VERIFIED" if not missing else "REGRESSION_TEST_FILES_MISSING",
+            {"expected_tests": tests, "missing": missing, "execution_verified": False},
         )
 
 
