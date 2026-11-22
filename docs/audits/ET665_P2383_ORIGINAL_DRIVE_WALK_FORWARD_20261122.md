@@ -419,3 +419,10 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Executed `python -m unittest discover -s tests -v` in isolated `/mnt/data/finance_verify`: **15/15 PASS, 0 FAIL, 0.001s**. Evidence `/mnt/data/finance_step_ast_regression_20261122.log`. Test workspace reconstructed from latest published AST implementation and 15-test suite, not downloaded from a clean authenticated GitHub checkout; do not equate with CI or full E2E certification.
 - Tests cover STEP139 original approved-stub semantics, exact AST STEP_ID, rejection of 1399 spoof, comment spoof, duplicate metadata, dynamic assignment, and all 13 registry slots. This is read-only reconciliation, not finance motor execution.
 - PAPER_ONLY, MAIN=INTACTA, PRODUCTION=INTACTA, REAL_ORDERS=FORBIDDEN, FTMO_REAL=FORBIDDEN, E2E_CERTIFIED=FALSE, COST=R$0.
+
+
+## Finance STEP metadata integrity hardening — 2026-11-22
+- Inspected exact published finance reconciliation code. Previous AST validation only inspected top-level `Assign`, ignored `AnnAssign`, `AugAssign`, and nested metadata writes, and treated any top-level string expression as authentic stub docstring.
+- Updated `app/runtime/finance_step_reconciliation.py` in isolated branch, commit `3a94f5c9ed1529f904fe30aecf38d5340018ee5f`: walks AST for metadata mutations, rejects non-top-level and non-simple assignments, and checks actual module docstring via `ast.get_docstring`.
+- Added four adversarial regressions, commit `246b4d297d3c29df0e52330fd71b9760ed7ea9df`. Local Python isolated run `python -m unittest discover -s tests -v` **19/19 PASS, 0 FAIL**. Log `/mnt/data/finance_step_ast_hardening_20261122.log`. Local source reconstructed from published implementation and modified, not an authenticated clean GitHub checkout; do not claim branch CI or E2E.
+- All 13 finance agent STEP slots remain uncertified; this validates read-only classification only. Original Drive remains read-only; MAIN=INTACTA, PAPER_ONLY, REAL_ORDERS=FORBIDDEN, FTMO_REAL=FORBIDDEN, E2E_CERTIFIED=FALSE, COST=R$0.
