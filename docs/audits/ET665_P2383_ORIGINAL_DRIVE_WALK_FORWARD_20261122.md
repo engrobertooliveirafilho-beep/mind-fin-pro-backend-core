@@ -299,3 +299,11 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Implemented PAPER-only fail-closed `app/runtime/trader_agent_evidence_gate.py` commit `94d5c210fcb087aba16998d5a4898a5e5eebeaba`: registry metadata alone never certifies an agent. Requires positive runtime health, implemented STEPs, offline tests, PAPER integration and human approval. Rejects strings used as boolean flags.
 - Added `tests/test_trader_agent_evidence_gate.py` commit `4e939420b030e8d9ee16692f4583403d5d310eb9`; executed 8/8 PASS in isolated Python offline environment. **Not integrated into live agent loader**; this is a standalone certification guard, not proof of agent runtime or E2E.
 - No original Drive changes, no real orders, no main/production mutation. PAPER_ONLY; E2E_CERTIFIED=FALSE; COST=R$0.
+
+
+## Finance STEPs 124/136/170 recovered as nonfunctional stubs — 2026-11-22
+- Read actual original Drive text `step124_approved_stub.py` ID `1F9MfIvzFhb4awCEWjcsawTEgtlmLjT5m`, `step136_approved_stub.py` ID `130Y9fZW_3mxb7i-hbHzDdcK0fKjYBDne`, and `step170_approved_stub.py` ID `1ARqGyiPOXpzGqtYjnnzy8u3iKRd3dZAH`. Each declares `STEP_STATUS="approved_stub"` and explicitly states real logic must be implemented later. Administrative approval is not functionality.
+- Reconciled with finance agent registry ID `1IGBrD8FL3CLfVMngnG0rA765KlaZKfoD`: these three are among its 13 referenced STEPs; finance agent cannot be certified on registry metadata.
+- Published standalone AST-based STEP evidence inspector `app/runtime/step_source_evidence_gate.py` commit `e2446f64285f07ce2d01124234a3ef744e5d7255`. Explicitly rejects mismatched STEP IDs and malformed sources; marks approved stubs NOT_IMPLEMENTED; even `implemented` declarations are not automatically certified.
+- Nine isolated Python tests **9/9 PASS** executed locally before publication; published `tests/test_step_source_evidence_gate.py` commit `1d6ff7023059500a809704fc300614fcb9c55c59`. No complete clean checkout, no agent loader integration, no E2E.
+- Original Drive read-only, main and production intact, PAPER_ONLY, REAL_ORDERS=FORBIDDEN, COST=R$0.
