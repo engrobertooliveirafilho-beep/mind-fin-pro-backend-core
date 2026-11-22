@@ -12,11 +12,16 @@ class ExecutionV4:
 
     def process_bar(self, bars):
         """bars: id -> {open, high, low, close, target}; pessimistic SL-first if both hit."""
-        if set(bars) != set(self.portfolio.positions):
+        if not isinstance(bars, dict) or set(bars) != set(self.portfolio.positions):
             raise ValueError('complete bars required')
         validated = {}
         for pid, bar in bars.items():
-            vals = {k: D(bar[k]) for k in ('open','high','low','close','target')}
+            if not isinstance(bar, dict):
+                raise ValueError('invalid bar')
+            try:
+                vals = {k: D(bar[k]) for k in ('open','high','low','close','target')}
+            except (KeyError, TypeError, ValueError, ArithmeticError) as exc:
+                raise ValueError('invalid bar') from exc
             if not all(v.is_finite() and v > 0 for v in vals.values()):
                 raise ValueError('invalid bar')
             if vals['low'] > min(vals['open'],vals['close']) or vals['high'] < max(vals['open'],vals['close']):
