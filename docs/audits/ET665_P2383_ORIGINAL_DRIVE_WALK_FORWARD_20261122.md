@@ -134,3 +134,11 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Local isolated harness `/mnt/data/eldora_v5_validation` with original Drive dependencies: **5/5 PASS** for invalid bar, missing target, invalid day, valid rollover and reversal. These tests exercised a manually reconstructed local V5 implementation, not a GitHub clean checkout.
 - Original V4 Drive regression independently rerun in this turn: **8/8 PASS** `python -m unittest -q test_execution_v4` with original Drive files.
 - No broker calls, real orders, production deployment or main merge. Full V4/V5 dependency packaging and end-to-end tests remain pending; E2E_CERTIFIED=FALSE.
+
+
+## FTMO PAPER V2/V3/V4/V5 package integration (2026-11-22)
+- Recovered from Drive V5 folder `1jRNxehoemCaRppPcQHMbR2J9S3wCj5fl`: `ftmo_paper_guard.py` ID `1ugE_FFCfZPeSNJZmcxCxRJcNpFsd2QLk`, `ftmo_pretrade_v2.py` ID `1qqfIh-m-SciCThEyk2p5bSLmL75vpTLR`, `portfolio_runtime.py` ID `1Oy1Si3--NtCJPpo2FYqCckYrN0b2Fbqd`.
+- Published recovered package-local implementations with relative imports: `app/runtime/ftmo_paper_guard.py` `ed63e92a`, `app/runtime/ftmo_pretrade_v2.py` `b17c2d56`, `app/runtime/portfolio_runtime.py` `ffe62b80`. V4 import wiring `a5923a06`, V5 wiring `5444de84`. These are adapted copies, not byte-identical Drive originals.
+- Published `tests/test_ftmo_paper_integrated.py` `22e556bb`: PAPER pretrade -> open -> V5 bar -> V4 exit -> equity + day rollover; invalid OHLC must not advance day.
+- **2/2 PASS** locally with recovered original dependencies and adapted package imports, `PYTHONPATH=/mnt/data/et_integrated python -m unittest discover -s /mnt/data/et_integrated/tests -v`. This is an isolated reconstructed test tree, not a clean GitHub checkout. Test code was copied from the published tests; source was reconstructed from recovered originals plus previously published V4 correction.
+- No broker calls, real orders, production mutation or merge. Full regression/CI, original SHA lineage for adapted files, broader agents/steps integration and E2E remain open.
