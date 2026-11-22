@@ -26,13 +26,24 @@ class RiskEngine:
         self.daily_loss_limit = 0.03
         self.equity = 100000
         self.peak = self.equity
+        self.day_start_equity = self.equity
+        self.killed = False
 
     def check(self, pnl):
+        if self.killed:
+            return "KILLED"
+        if isinstance(pnl, bool) or not isinstance(pnl, (int, float)) or not math.isfinite(pnl):
+            self.killed = True
+            return "KILLED"
         self.equity += pnl
+        if not math.isfinite(self.equity) or self.equity <= 0:
+            self.killed = True
+            return "KILLED"
         self.peak = max(self.peak, self.equity)
         drawdown = (self.peak - self.equity) / self.peak
-
-        if drawdown > self.max_drawdown:
+        daily_loss = (self.day_start_equity - self.equity) / self.day_start_equity
+        if drawdown >= self.max_drawdown or daily_loss >= self.daily_loss_limit:
+            self.killed = True
             return "KILLED"
         return "OK"
 
