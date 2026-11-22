@@ -183,3 +183,10 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Published `tests/test_consolidate_ftmo_v8_safety.py` commit `cf83c1862b32e53dba8493aaa1246f569935ee39` (5 scenarios: source, descendant, ancestor, existing evidence, missing modules).
 - **5/5 isolated safety scenarios PASS** with a locally reconstructed matching guard: four directory-safety checks plus missing-source fail-closed return code 2 and `ftmo_release=BLOCKED`. Published test file not yet executed in a clean GitHub checkout; no E2E certification.
 - Drive discovery additionally queried agent and STEP registries; no new Trader-specific registry was confirmed from those queries. Do not claim agent activation or step integration.
+
+
+## V6 empty-bar false intrabar breach — 2026-11-22
+- Reopened original Drive V6 `170YBYAeaNHlrG8mmCCP_U5-J-6lSPfs2` and compared with isolated GitHub V6. Reproduced in local `/mnt/data/et_integrated`: previously halted PAPER account, balance/equity 90000, zero positions, `process_bar({})` incorrectly returned `intrabar_breach=True` and appended a new risk event.
+- Fix: `breach = bool(validated) and account.balance+worst <= max(daily_floor,total_floor)` in `app/runtime/ftmo_execution_v6.py`, commit `e6e00aa02e0323b5e900ea1e0f3e0366f3cc445a`. Preserves historical `halted=True` while preventing fabricated new intrabar event.
+- Regression published in `tests/test_ftmo_execution_v6_intrabar.py`, commit `d4ac9338e0d177fdfa125e878bfa9918e8d06c2d`. Local reconstructed matching sources/tests **7/7 PASS** via `PYTHONPATH=. python -m unittest discover -s tests -v` in `/mnt/data/et_integrated`.
+- Test environment is isolated, not a clean GitHub checkout. Original Drive files unmodified. No real orders, production mutation, merge, or E2E certification.
