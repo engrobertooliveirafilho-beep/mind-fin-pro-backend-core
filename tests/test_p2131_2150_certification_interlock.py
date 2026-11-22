@@ -47,3 +47,17 @@ def test_ftmo_declarations_do_not_prove_guards(tmp_path, monkeypatch):
     assert result["status"] == "FAIL"
     assert result["mission_status"]["P2132_DAILY_LOSS_GUARD_DECLARATION"] == "FAIL"
     assert result["mission_status"]["P2138_RUNTIME_RISK_KILL_SWITCH_AUDIT"] == "FAIL"
+
+@pytest.mark.parametrize("payload,code", [
+    ('{"status":"PASS","status":"FAIL"}', "P2131_DUPLICATE_JSON_KEY"),
+    ('{"status":"PASS","x":NaN}', "P2131_NONFINITE_JSON_NUMBER"),
+    ('{"status":"PASS","x":Infinity}', "P2131_NONFINITE_JSON_NUMBER"),
+    ('{"status":"PASS","x":1e999}', "P2131_NONFINITE_JSON_NUMBER"),
+    ('["PASS"]', "P2131_INVALID_CERTIFICATION_OBJECT"),
+])
+def test_ftmo_rejects_ambiguous_evidence(tmp_path, payload, code):
+    from app.runtime.p2131_2150_ftmo_paper_compliance_assurance import load_json
+    path = tmp_path / "evidence.json"
+    path.write_text(payload, encoding="utf-8")
+    with pytest.raises(ValueError, match=code):
+        load_json(str(path))
