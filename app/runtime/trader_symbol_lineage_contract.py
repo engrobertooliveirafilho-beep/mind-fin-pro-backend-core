@@ -40,3 +40,31 @@ def validate_writer_symbol(dispatch: Mapping[str, Any], decision: Mapping[str, A
     if decision.get("symbol") != symbol:
         raise SymbolLineageError("S21_WRITER_SYMBOL_CONFLICT")
     return symbol
+
+
+def build_symbolized_decision_row(
+    replay: Mapping[str, Any],
+    dispatch: Mapping[str, Any],
+    decision: Mapping[str, Any],
+) -> dict[str, Any]:
+    """Build a new writer-ready row; never rewrite the historical S20 ledger.
+
+    Fail closed on ambiguous identity and conflicting keys. This does not
+    persist anything or certify the canonical writer integration.
+    """
+    if not isinstance(decision, Mapping):
+        raise SymbolLineageError("S21_INVALID_LINEAGE_PAYLOAD")
+    routed = propagate_dispatch_symbol(replay, dispatch)
+    symbol = validate_writer_symbol(routed, decision)
+    row = dict(decision)
+    if row.get("symbol") != symbol:
+        raise SymbolLineageError("S21_WRITER_SYMBOL_CONFLICT")
+    for key in ("day", "tick"):
+        upstream = replay.get(key)
+        if upstream is None or isinstance(upstream, bool) or not isinstance(upstream, int) or upstream < 0:
+            raise SymbolLineageError("S21_REPLAY_IDENTITY_INVALID")
+        if dispatch.get(key) != upstream or decision.get(key) != upstream:
+            raise SymbolLineageError("S21_LINEAGE_IDENTITY_CONFLICT")
+        row[key] = upstream
+    row["symbol"] = symbol
+    return row
