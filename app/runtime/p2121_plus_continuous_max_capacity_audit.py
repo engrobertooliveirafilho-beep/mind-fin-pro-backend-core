@@ -349,12 +349,14 @@ def certify(decisions: List[AuditDecision]) -> AuditDecision:
 def run_p2121_plus(repo: str, dependencies: Dict[str, str], output_dir: str) -> Dict[str, Any]:
     assert_no_financial_execution()
 
+    # Fail closed before creating evidence directories for missing or malformed dependencies.
+    first_decision = CertifiedBlockAudit().evaluate(dependencies)
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
 
     decisions: List[AuditDecision] = []
 
-    decisions.append(CertifiedBlockAudit().evaluate(dependencies))
+    decisions.append(first_decision)
     decisions.append(PackageIntegrityAudit().evaluate(repo))
     decisions.append(LockRegressionAudit().evaluate())
     decisions.append(RuntimeModuleAudit().evaluate(repo))
