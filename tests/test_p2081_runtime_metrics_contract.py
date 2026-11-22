@@ -96,5 +96,9 @@ def test_p2087_roundtrip_requires_entire_state(monkeypatch):
            "runtime":{"cycles":1500,"drawdown_pct":-0.00953053},
            "specialists":3,"locks":dict(ABSOLUTE_LOCKS)}
     decision=PortfolioRecovery().evaluate(state)
-    assert decision.status == "PASS"
+    assert decision.status == "FAIL"
+    assert decision.reason == "DURABLE_RECOVERY_NOT_EXECUTED"
+    assert decision.payload["in_memory_roundtrip_valid"] is True
+    assert decision.payload["durable_checkpoint_verified"] is False
+    assert decision.payload["runtime_rehydration_verified"] is False
     assert decision.payload["restored_program"] == state["program"]
