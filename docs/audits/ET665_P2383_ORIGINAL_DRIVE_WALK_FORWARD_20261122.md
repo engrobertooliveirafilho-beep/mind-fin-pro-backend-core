@@ -95,3 +95,13 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Re-read STEP520 source Drive file `1ijSuxuIXJFlX8M5KrfMgVgoUQiACQ90-`: original `ComplianceEngine.check` explicitly returns `allowed=True` for any action not listed in `blocked_actions`. Original test `1obWpiLt-x4U6puExfxPQu-ENWos-nBBL` expects an arbitrary `qualquer_coisa` action to pass. This is fail-open and cannot be treated as a secure compliance gate.
 - Do not wire STEP520 original to PAPER gateway or agent execution. A separate default-deny remediation and independent approval-verifier contract are required before runtime certification.
 - P2381 original executable code remains unrecovered; no claim that catalog flags or historical log `CERTIFIED` imply working engines.
+
+
+## STEP520 original recovery and functional hardening (2026-11-21)
+- Recovered original STEP520 `app/compliance.py` from Drive `1ijSuxuIXJFlX8M5KrfMgVgoUQiACQ90-` and original tests from `1obWpiLt-x4U6puExfxPQu-ENWos-nBBL`.
+- Original behavior was fail-open: arbitrary `qualquer_coisa` passed; the original test asserted this. It is intentionally NOT preserved for the PAPER gateway.
+- Published `app/compliance.py` (source commit `5c573b941aa139b1a71c9995a5e4a3e9a5b9c69c`) and `tests/test_step520_paper_compliance.py` (test commit `7399ec2f99295a65cc989134004b38c3c1fd8a0d`) on existing isolated PR branch.
+- Default deny, explicit PAPER action allowlist, invariant real-order prohibition and required PAPER safety flags. No production route or order broker wired.
+- **27/27 PASS, 0.05 s** in local isolated Python harness `/mnt/data/step520_validation`, with reconstructed source matching functional logic. Direct GitHub raw checkout unavailable due DNS/network error. This does NOT certify clean checkout or E2E.
+- GitHub readback verified source and tests exist on branch; MAIN/production unchanged; originals read-only; no paid services.
+- Further action: integrate only with proven PAPER gateway once its canonical source and tests are recovered; never treat STEP520 as a live-trading authorization layer.
