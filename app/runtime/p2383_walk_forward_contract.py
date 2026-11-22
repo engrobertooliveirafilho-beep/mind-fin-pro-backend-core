@@ -31,15 +31,14 @@ def chronological_folds(rows, *, source_mission, test_windows=5, initial_train_f
                 or not row["signal_id"].strip() or row["signal_id"] in seen):
             raise ValueError("P2383_DUPLICATE_OR_MISSING_SIGNAL_ID")
         seen.add(row["signal_id"])
-        # Fail closed for the canonical Drive feedback schema. Legacy synthetic
-        # unit fixtures without safety metadata remain supported, but any
-        # partial metadata must be rejected rather than silently accepted.
+        # Canonical P2380 source must carry explicit PAPER-only metadata.
+        # Missing metadata is not evidence of a safe execution mode.
         safety = ("mode", "real_orders", "ftmo_real", "warning")
         present = [name for name in safety if name in row]
         safety_presence.add(bool(present))
-        if present and len(present) != len(safety):
+        if len(present) != len(safety):
             raise ValueError("P2383_INCOMPLETE_PAPER_SAFETY_METADATA")
-        if present and (row["mode"] != REQUIRED_MODE
+        if (row["mode"] != REQUIRED_MODE
                         or row["real_orders"] != REQUIRED_FORBIDDEN
                         or row["ftmo_real"] != REQUIRED_FORBIDDEN
                         or row["warning"] != REQUIRED_WARNING):
