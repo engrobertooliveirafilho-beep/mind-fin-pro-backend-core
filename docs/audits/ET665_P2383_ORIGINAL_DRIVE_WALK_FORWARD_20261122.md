@@ -234,3 +234,10 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Corrected `app/runtime/ftmo_paper_guard.py` `PaperAccount.new_day` to reject `datetime` before any day mutation; commit `0797f5a70e9253469ec76725dd565fb102058167`. Added three direct-account date tests `tests/test_ftmo_account_day_contract.py` commit `47df0e13b3ae8f799689795ad2ac5fed808e9e82`.
 - Executed locally in reconstructed `/mnt/data/et_integrated`: **31/31 historical + 21/21 integration = 52/52 PASS**, no clean checkout, no E2E.
 - FTMO timezone-specific day reset remains a known explicit V2 limitation; no claim of official FTMO compliance or real-order readiness. PAPER_ONLY, Drive originals immutable, main and production untouched.
+
+
+## V2 PAPER timezone-local rollover — 2026-11-22
+- Drive V2 audit ID `15QBj75OOMIL7xNqXINrMA5OBTQQBa5oe` explicitly documents missing account timezone-specific day reset. Implemented optional `PaperAccount.rollover_at(instant,account_timezone)` in existing `app/runtime/ftmo_paper_guard.py`, commit `8440c79e859c4f7a1a48700a153e49ee4fcc2ce8`.
+- Caller must supply timezone-aware datetime and explicit valid IANA timezone. Convert instant to local calendar day; no-op on same day, reject backward day, call existing validated `new_day` on forward day. No implicit broker or FTMO timezone assumption.
+- Added four boundary/invalid-input tests `tests/test_ftmo_timezone_rollover.py`, commit `8104a44c2cba9c9b8a88ea16a1aeb7f5261f6113`. Executed in reconstructed local `/mnt/data/et_integrated`: **31/31 historical and 25/25 integrated PASS**, **56/56 total**. No clean GitHub checkout or E2E certification.
+- Not integrated into a canonical timestamp ingestion or broker feed; official FTMO rule equivalence, actual account timezone and daylight-saving-specific cases remain unverified. Main, production and Drive originals untouched; PAPER_ONLY.
