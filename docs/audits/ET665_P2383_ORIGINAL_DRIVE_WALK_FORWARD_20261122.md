@@ -44,3 +44,11 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Main intact; PAPER_ONLY; REAL_ORDERS and FTMO_REAL forbidden; Drive originals read-only; cost R$0.
 
 `P2383_ORIGINAL_POPULATION=500 | SHA256_VERIFIED | WALK_FORWARD=5_FOLDS | TESTS=9/9_PASS | P2381_TRAIN_ONLY_REPLAY=BLOCKED | PERFORMANCE_CERTIFIED=FALSE | MAIN=INTACTA | PRODUCTION=INTACTA | COST=R$0`
+
+
+## Historical P2383 run invalidated by source reconciliation
+- Original Drive folder: `1zyXXpoQyDj10MbwIJOprF1L46HMPnVMQ`; original summary `1ZqZcg-pr_PFEcCjyljopMsY_3w80NcQn`; windows CSV `1jb7poNcZ4_n-xVo5whhsY1BsWabvf06P`.
+- The historical P2383 run consumed the P2382 output (227 selected rows), not the complete P2380 population. Its own summary flags `P2382 may contain survivorship bias`.
+- Its five recorded windows are not a valid monotonic chronological partition: window 1 start 2025-05-12 > end 2025-04-22; window 3 start 2025-09-30 > end 2022-10-12; window 5 start 2026-04-07 > end 2025-03-06. Window 2 begins 2022-08-18 after the purported first window, and window 4 begins 2022-11-10 before window 2 ends 2025-10-31. Therefore the old `chronological_5_window_walk_forward` label is unsupported by its window ledger.
+- Historical run recorded 227 groups, 227 rejected, 0 promoted, 0 observed. It must not be used as proof of walk-forward validation.
+- The new P2383 execution in this audit supersedes that run's population/split methodology only: complete P2380 CSV, SHA-256 verified, 250-row initial train, five strict future windows. It still does not certify edge performance or permit promotion.
