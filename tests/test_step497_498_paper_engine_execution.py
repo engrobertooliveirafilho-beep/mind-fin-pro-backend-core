@@ -27,6 +27,15 @@ class PaperEngineExecution(unittest.TestCase):
     def test_498_mock_contamination_blocked(self):
         with self.assertRaisesRegex(MockDataBlocked,'MOCK_CONTAMINATED_BRIEFING'):
             execute_paper_briefing(lambda: {'version':'step498-v1','pipeline':get_business_pipeline_snapshot()})
+    def test_original_498_denied_before_invocation(self):
+        calls=[]
+        def build_ceo_briefing():
+            calls.append('executed')
+            return {'version':'step498-v1','pipeline':{'version':'step497-v1'}}
+        build_ceo_briefing.__module__='recovered.finance_steps.step498_ceo_engine_original'
+        with self.assertRaisesRegex(MockDataBlocked,'HISTORICAL_MOCK_DEPENDENCIES'):
+            execute_paper_briefing(build_ceo_briefing)
+        self.assertEqual(calls,[])
     def test_498_missing_dependency_blocked(self):
         with self.assertRaisesRegex(MockDataBlocked,'INCOMPLETE_DEPENDENCIES'):
             execute_paper_briefing(lambda: {'version':'step498-v1'})
