@@ -50,3 +50,20 @@ def test_invalid_policy_fails_closed():
 def test_decision_to_dict():
     result = ComplianceEngine().check({**SAFE, "action": "paper_feedback"})
     assert result.to_dict()["allowed"] is True
+
+
+@pytest.mark.parametrize("action", ["send_trade", "submit_order", "broker_send", "paper_execute_order", "paper_feedback "])
+def test_custom_policy_cannot_authorize_noncanonical_action(action):
+    engine = ComplianceEngine({"override": {"allowed_actions": [action], "blocked_actions": []}})
+    assert not engine.check({**SAFE, "action": action}).allowed
+
+
+@pytest.mark.parametrize("policy", [
+    {"allowed_actions": [123], "blocked_actions": []},
+    {"allowed_actions": ["paper_feedback"], "blocked_actions": [None]},
+    {"allowed_actions": "paper_feedback", "blocked_actions": []},
+    {"allowed_actions": ["paper_feedback"], "blocked_actions": {}},
+])
+def test_malformed_policy_entry_denied(policy):
+    engine = ComplianceEngine({"override": policy})
+    assert not engine.check({**SAFE, "action": "paper_feedback"}).allowed
