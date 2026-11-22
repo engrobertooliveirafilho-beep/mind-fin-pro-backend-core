@@ -18,6 +18,9 @@ def run_paper_pipeline(cycles=3, *, broker=None):
         raise TypeError("P2223_P2229_INVALID_BROKER")
     if broker.killed or broker.risk.killed:
         raise RuntimeError("P2223_P2229_RISK_KILLED")
+    if broker.trades:
+        raise RuntimeError("P2223_P2229_DIRTY_BROKER")
+    initial_risk = (broker.risk.equity, broker.risk.peak, broker.risk.day_start_equity)
     book = OrderBookSimulator()
     market = MarketDigitalTwin()
     strategy = StrategyEvolutionEngine()
@@ -37,6 +40,10 @@ def run_paper_pipeline(cycles=3, *, broker=None):
         ecosystem_state = ecosystem.evolve(macro_state)
         if not math.isfinite(price) or price <= 0 or not all(math.isfinite(x) and x > 0 for x in assets.values()):
             raise RuntimeError("P2223_P2229_INVALID_SIMULATION_STATE")
+        if broker.killed or broker.risk.killed:
+            raise RuntimeError("P2223_P2229_RISK_KILLED")
+        if broker.trades or initial_risk != (broker.risk.equity, broker.risk.peak, broker.risk.day_start_equity):
+            raise RuntimeError("P2223_P2229_BROKER_MUTATED")
         if cycle < 3:
             samples.append({
                 "book": quote,
