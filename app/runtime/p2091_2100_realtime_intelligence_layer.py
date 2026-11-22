@@ -370,6 +370,12 @@ def run_p2091_2100(
     if p2081.get("input_dependencies", {}).get("p2071_2080_certification") != p2071_certification_path:
         raise RuntimeError("P2081_2090_UPSTREAM_PROVENANCE_MISMATCH")
 
+    # Reuse the upstream P2081 metric contract: never let coercion of
+    # untrusted P2071 counters or NaN/Infinity bypass risk governance.
+    from app.runtime.p2081_2090_realtime_portfolio_governance import extract_runtime_metrics
+    validated_metrics = extract_runtime_metrics(p2071)
+    p2071 = dict(p2071)
+    p2071["metrics"] = {**p2071["metrics"], **validated_metrics}
     specialists = extract_specialists(portfolio)
 
     decisions: List[IntelligenceDecision] = []
