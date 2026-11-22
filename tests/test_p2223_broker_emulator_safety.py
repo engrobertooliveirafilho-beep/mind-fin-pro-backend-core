@@ -102,3 +102,17 @@ def test_invalid_execution_pnl_never_records_trade(bad_pnl, monkeypatch):
     assert broker.trades == []
     assert broker.risk.equity == 100000
     assert broker.killed and broker.risk.killed
+
+def test_risk_equity_overflow_is_atomic_and_latched():
+    from app.runtime.p2223_broker_emulator import RiskEngine
+    risk = RiskEngine()
+    initial_equity = risk.equity
+    assert risk.check(1e308) == "OK"
+    previous_equity = risk.equity
+    assert math.isfinite(previous_equity)
+    assert risk.check(1e308) == "KILLED"
+    assert risk.killed is True
+    assert risk.equity == previous_equity
+    assert math.isfinite(risk.equity)
+    assert risk.check(-100) == "KILLED"
+    assert risk.equity == previous_equity
