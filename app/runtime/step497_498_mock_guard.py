@@ -25,29 +25,16 @@ def classify_ceo_briefing(payload):
 
 
 class MockDataBlocked(RuntimeError):
-    """A recovered mock engine cannot serve certified PAPER decision data."""
+    """Unverified engines cannot execute on the PAPER decision boundary."""
 
 def execute_paper_pipeline(engine):
-    """Execute an explicit source engine and reject historical mock output."""
+    """Fail closed before executing any engine until trusted evidence is integrated."""
     if not callable(engine):
         raise ValueError('explicit engine callable required')
-    # The recovered original STEP497 implementation is known to return mock metrics.\n    # Reject before invocation so a future side-effectful replacement cannot run.\n    if (getattr(engine, '__module__', None) ==\n            'recovered.finance_steps.step497_pipeline_engine_original' and\n            getattr(engine, '__name__', None) == 'get_business_pipeline_snapshot'):\n        raise MockDataBlocked('HISTORICAL_MOCK_DATA')\n    payload=engine()\n    state=classify_pipeline(payload)
-    if not state['certified']:
-        raise MockDataBlocked(state['state'])
-    return payload
+    raise MockDataBlocked('PAPER_PIPELINE_NOT_CERTIFIED')
 
 def execute_paper_briefing(engine):
-    """Execute an explicit CEO engine and reject unverified or mock dependencies."""
+    """Fail closed before running mock or unverified executive dependencies."""
     if not callable(engine):
         raise ValueError('explicit engine callable required')
-    # Original STEP498 imports STEP493/495/496/497; all recovered source versions
-    # use mock inputs. Deny before executing the known original CEO engine.
-    if (getattr(engine, '__module__', None) ==
-            'recovered.finance_steps.step498_ceo_engine_original' and
-            getattr(engine, '__name__', None) == 'build_ceo_briefing'):
-        raise MockDataBlocked('HISTORICAL_MOCK_DEPENDENCIES')
-    payload=engine()
-    state=classify_ceo_briefing(payload)
-    if not state['certified']:
-        raise MockDataBlocked(state['state'])
-    return payload
+    raise MockDataBlocked('PAPER_CEO_DEPENDENCIES_NOT_CERTIFIED')
