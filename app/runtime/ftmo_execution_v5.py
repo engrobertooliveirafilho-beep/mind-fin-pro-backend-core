@@ -24,7 +24,7 @@ class ExecutionV5(ExecutionV4):
                 raise ValueError("invalid OHLC")
             validated[pid] = bar
         if day is not None:
-            if not isinstance(day, date):
+            if type(day) is not date:
                 raise ValueError("invalid day")
             if day < self.portfolio.account.day:
                 raise ValueError("time reversal")
