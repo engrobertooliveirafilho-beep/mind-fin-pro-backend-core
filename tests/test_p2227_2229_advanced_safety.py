@@ -57,5 +57,12 @@ def test_crisis_rejects_price_that_rounds_to_zero(monkeypatch):
 def test_crisis_rejects_nan_shock(monkeypatch):
     monkeypatch.setattr("app.runtime.p2227_2229_advanced_layer.random.choice", lambda choices: "CRASH")
     monkeypatch.setattr("app.runtime.p2227_2229_advanced_layer.random.uniform", lambda a, b: math.nan)
-    with pytest.raises(RuntimeError, match="P2227_INVALID_CRISIS_PRICE"):
+    with pytest.raises(RuntimeError, match="P2227_INVALID_CRISIS_SHOCK"):
+        CrisisEngine().simulate_crisis(100.0)
+
+@pytest.mark.parametrize("event,bad", [("CRASH", -0.1), ("CRASH", 0.9), ("SPIKE", -0.1), ("SPIKE", 0.9), ("LIQUIDITY_DRAIN", 0.9), ("CRASH", True), ("SPIKE", "0.1"), ("LIQUIDITY_DRAIN", float("inf"))])
+def test_crisis_shock_bounds_fail_closed(monkeypatch, event, bad):
+    monkeypatch.setattr("app.runtime.p2227_2229_advanced_layer.random.choice", lambda choices: event)
+    monkeypatch.setattr("app.runtime.p2227_2229_advanced_layer.random.uniform", lambda a, b: bad)
+    with pytest.raises(RuntimeError, match="P2227_INVALID_CRISIS_SHOCK"):
         CrisisEngine().simulate_crisis(100.0)
