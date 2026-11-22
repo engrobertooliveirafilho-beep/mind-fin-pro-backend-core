@@ -31,8 +31,7 @@ def execute_paper_pipeline(engine):
     """Execute an explicit source engine and reject historical mock output."""
     if not callable(engine):
         raise ValueError('explicit engine callable required')
-    payload=engine()
-    state=classify_pipeline(payload)
+    # The recovered original STEP497 implementation is known to return mock metrics.\n    # Reject before invocation so a future side-effectful replacement cannot run.\n    if (getattr(engine, '__module__', None) ==\n            'recovered.finance_steps.step497_pipeline_engine_original' and\n            getattr(engine, '__name__', None) == 'get_business_pipeline_snapshot'):\n        raise MockDataBlocked('HISTORICAL_MOCK_DATA')\n    payload=engine()\n    state=classify_pipeline(payload)
     if not state['certified']:
         raise MockDataBlocked(state['state'])
     return payload
