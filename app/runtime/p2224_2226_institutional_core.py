@@ -1,5 +1,5 @@
 from __future__ import annotations
-import json, random
+import json, random, math
 from pathlib import Path
 
 # ============================================================
@@ -63,13 +63,15 @@ class StrategyEvolutionEngine:
         # prune worst
         self.strategies = self.strategies[:3]
 
-        return self.strategies
+        return [dict(s) for s in self.strategies]
 
 # ============================================================
 # INTEGRATED RUNTIME
 # ============================================================
 
 def run(cycles=30):
+    if type(cycles) is not int or cycles < 1:
+        raise ValueError("P2224_INVALID_CYCLES")
     book = OrderBookSimulator()
     twin = MarketDigitalTwin()
     evo = StrategyEvolutionEngine()
@@ -84,7 +86,7 @@ def run(cycles=30):
         })
 
     return {
-        "status":"PASS",
+        "status":"SIMULATION_ONLY_NOT_CERTIFIED",
         "mode":"INSTITUTIONAL_SIMULATION_CORE",
         "cycles": cycles,
         "log_sample": logs[:3],
