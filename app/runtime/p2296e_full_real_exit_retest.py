@@ -86,6 +86,10 @@ def simulate(rows,q):
     exit_model=q["exit_model"]
     if exit_model not in ("TIME_EXIT", "ATR_TARGET", "RR_2_TO_1"):
         raise ValueError("P2296E_INVALID_EXIT_MODEL")
+    if q.get("confirmation") not in ("SESSION_REQUIRED", "VOLATILITY_REQUIRED", "MTF_REQUIRED"):
+        raise ValueError("P2296E_INVALID_CONFIRMATION")
+    if q.get("family") not in ("BOLLINGER_MEAN_REVERSION", "ATR_VOLATILITY_BREAKOUT", "DONCHIAN_BREAKOUT", "PREVIOUS_HIGH_LOW_BREAKOUT", "OPENING_RANGE_BREAKOUT", "MTF_ALIGNED_PULLBACK", "VWAP_TREND_CONTINUATION", "TIME_EXIT_TREND_FOLLOW", "VWAP_REVERSION", "LIQUIDITY_SWEEP_REVERSAL"):
+        raise ValueError("P2296E_INVALID_FAMILY")
     if exit_model not in ("TIME_EXIT", "ATR_TARGET", "RR_2_TO_1"):
         raise ValueError("P2296E_INVALID_EXIT_MODEL")
 
