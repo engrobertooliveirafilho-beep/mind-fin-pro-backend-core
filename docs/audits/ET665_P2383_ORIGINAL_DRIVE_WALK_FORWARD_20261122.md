@@ -412,3 +412,10 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Updated existing `app/runtime/finance_step_reconciliation.py` commit `d76390419eb70ff3fe056b90aee5a14ddc618488` to parse Python AST, require exact integer literal STEP_ID, reject duplicate assignments and nonliteral metadata, and only classify original stub when its module-level docstring states future implementation. Existing 13-step registry remains intact and all `certified` remain false.
 - Updated existing `tests/test_finance_step_reconciliation.py` commit `ad011eacb8d81d0a72a8334b38e4a02b769e1422` with 5 adversarial cases (prefix collision, spoofed comment, duplicate STEP_ID, comment-only stub marker, dynamic metadata). **Not yet executed against published source**; no PASS claimed.
 - No changes to original Drive or production; branch isolated, PAPER_ONLY, REAL_ORDERS=FORBIDDEN, FTMO_REAL=FORBIDDEN, E2E_CERTIFIED=FALSE, COST=R$0.
+
+
+## Finance STEP AST regression executed — 2026-11-22
+- Fixed Python fixture escaping in existing `tests/test_finance_step_reconciliation.py`, final correction commit `1cc82e67e67a2fbc1dea4c9570d4872f847c6028`; previous publication included incorrectly escaped source strings.
+- Executed `python -m unittest discover -s tests -v` in isolated `/mnt/data/finance_verify`: **15/15 PASS, 0 FAIL, 0.001s**. Evidence `/mnt/data/finance_step_ast_regression_20261122.log`. Test workspace reconstructed from latest published AST implementation and 15-test suite, not downloaded from a clean authenticated GitHub checkout; do not equate with CI or full E2E certification.
+- Tests cover STEP139 original approved-stub semantics, exact AST STEP_ID, rejection of 1399 spoof, comment spoof, duplicate metadata, dynamic assignment, and all 13 registry slots. This is read-only reconciliation, not finance motor execution.
+- PAPER_ONLY, MAIN=INTACTA, PRODUCTION=INTACTA, REAL_ORDERS=FORBIDDEN, FTMO_REAL=FORBIDDEN, E2E_CERTIFIED=FALSE, COST=R$0.
