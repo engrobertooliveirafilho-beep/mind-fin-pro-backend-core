@@ -374,7 +374,6 @@ def run_p2081_2090(
     assert_no_financial_execution()
 
     output = Path(output_dir)
-    output.mkdir(parents=True, exist_ok=True)
 
     portfolio_raw = load_json(portfolio_path)
     p2071_raw = load_json(p2071_certification_path)
@@ -440,6 +439,8 @@ def run_p2081_2090(
         "next_block": "P2091_2100_REALTIME_INTELLIGENCE_LAYER",
     }
 
+    # Never create certification artifacts before input and risk checks complete.
+    output.mkdir(parents=True, exist_ok=True)
     final_path = output / "P2081_2090_FINAL_CERTIFICATION.json"
     audit_path = output / "P2081_2090_AUDIT.md"
     state_path = output / "P2081_2090_GOVERNANCE_STATE.json"
