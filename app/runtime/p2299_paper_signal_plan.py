@@ -50,8 +50,14 @@ def validate_plan(rows):
 def paper_signal(row, candle, action, *, seen_keys, daily_count, edge_daily_count):
     """Return a non-executable observation record only; never a broker order."""
     validate_plan_row = dict(row)
-    if validate_plan_row.get("mode") != "PAPER_ONLY" or validate_plan_row.get("real_orders") != "FORBIDDEN" or validate_plan_row.get("ftmo_real") != "FORBIDDEN":
+    if any(validate_plan_row.get(k) != v for k, v in {"mode": "PAPER_ONLY", "real_orders": "FORBIDDEN", "ftmo_real": "FORBIDDEN", "symbol": "GER40", "timeframe": "H1", "exit_model": "TIME_EXIT", "candle_lock": "CLOSED_H1", "max_signal_candle": 1, "max_trades_day": 6, "max_trades_edge_day": 2}.items()) or validate_plan_row.get("family") not in ALLOWED_FAMILIES or validate_plan_row.get("confirmation") not in ALLOWED_CONFIRMATIONS:
         raise ValueError("P2299_UNSAFE_PLAN")
+    try:
+        lot = Decimal(str(validate_plan_row.get("lot")))
+    except (InvalidOperation, TypeError, ValueError):
+        raise ValueError("P2299_INVALID_LOT") from None
+    if not lot.is_finite() or lot != Decimal("0.01"):
+        raise ValueError("P2299_INVALID_LOT")
     if not isinstance(candle, dict) or candle.get("closed") is not True or candle.get("timeframe") != "H1" or candle.get("symbol") != "GER40":
         raise ValueError("P2299_OPEN_OR_WRONG_CANDLE")
     if action not in ("BUY", "SELL"):
@@ -72,7 +78,7 @@ def paper_signal(row, candle, action, *, seen_keys, daily_count, edge_daily_coun
     if not isinstance(seen_keys, (set, frozenset)):
         raise ValueError("P2299_INVALID_SEEN_KEYS")
     key = (row.get("dedup_key"), parsed.isoformat())
-    if key in seen_keys:
+    if key in seen_keys or ("CANDLE", parsed.isoformat()) in seen_keys:
         raise ValueError("P2299_DUPLICATE_CANDLE")
     return {"status": "PAPER_OBSERVATION_ONLY", "symbol": "GER40", "action": action,
             "candle": parsed.isoformat(), "dedup_key": key, "lot_reference": "0.01",
