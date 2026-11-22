@@ -168,41 +168,46 @@ def metrics(trades):
         "netprofit":round(sum(pnls),6)
     }
 
-rows=load(dataset)
-all_results=[]
-model_metrics=[]
 
-for model in ["TIME_EXIT","ATR_TARGET","RR_2_TO_1"]:
-    trades=simulate(rows,model)
-    m=metrics(trades)
-    model_metrics.append({"exit_model":model,**m})
-    for t in trades:
-        all_results.append(t)
-
-with open(EV/"real_exit_trade_ledger.csv","w",newline="",encoding="utf-8") as f:
-    if all_results:
-        w=csv.DictWriter(f,fieldnames=list(all_results[0].keys()))
+def main():
+    rows=load(dataset)
+    all_results=[]
+    model_metrics=[]
+    
+    for model in ["TIME_EXIT","ATR_TARGET","RR_2_TO_1"]:
+        trades=simulate(rows,model)
+        m=metrics(trades)
+        model_metrics.append({"exit_model":model,**m})
+        for t in trades:
+            all_results.append(t)
+    
+    with open(EV/"real_exit_trade_ledger.csv","w",newline="",encoding="utf-8") as f:
+        if all_results:
+            w=csv.DictWriter(f,fieldnames=list(all_results[0].keys()))
+            w.writeheader()
+            w.writerows(all_results)
+    
+    with open(EV/"real_exit_model_metrics.csv","w",newline="",encoding="utf-8") as f:
+        w=csv.DictWriter(f,fieldnames=list(model_metrics[0].keys()))
         w.writeheader()
-        w.writerows(all_results)
+        w.writerows(model_metrics)
+    
+    unique_metric_sets=len(set((x["trades"],x["pf"],x["winrate"],x["payoff"],x["netprofit"]) for x in model_metrics))
+    
+    summary={
+        "program":"P2296C_BUILD_REAL_EXIT_BACKTEST_ENGINE",
+        "mode":"PAPER_ONLY",
+        "real_orders":"FORBIDDEN",
+        "dataset":str(dataset),
+        "exit_models_tested":len(model_metrics),
+        "unique_metric_sets":unique_metric_sets,
+        "engine_status":"REAL_EXITS_WORKING" if unique_metric_sets>1 else "ENGINE_STILL_SUSPECT",
+        "metrics":model_metrics,
+        "next":"P2296D_RETEST_STRUCTURAL_QUEUE_WITH_REAL_EXITS"
+    }
+    
+    (EV/"summary.json").write_text(json.dumps(summary,indent=2),encoding="utf-8")
+    print(json.dumps(summary,indent=2))
 
-with open(EV/"real_exit_model_metrics.csv","w",newline="",encoding="utf-8") as f:
-    w=csv.DictWriter(f,fieldnames=list(model_metrics[0].keys()))
-    w.writeheader()
-    w.writerows(model_metrics)
-
-unique_metric_sets=len(set((x["trades"],x["pf"],x["winrate"],x["payoff"],x["netprofit"]) for x in model_metrics))
-
-summary={
-    "program":"P2296C_BUILD_REAL_EXIT_BACKTEST_ENGINE",
-    "mode":"PAPER_ONLY",
-    "real_orders":"FORBIDDEN",
-    "dataset":str(dataset),
-    "exit_models_tested":len(model_metrics),
-    "unique_metric_sets":unique_metric_sets,
-    "engine_status":"REAL_EXITS_WORKING" if unique_metric_sets>1 else "ENGINE_STILL_SUSPECT",
-    "metrics":model_metrics,
-    "next":"P2296D_RETEST_STRUCTURAL_QUEUE_WITH_REAL_EXITS"
-}
-
-(EV/"summary.json").write_text(json.dumps(summary,indent=2),encoding="utf-8")
-print(json.dumps(summary,indent=2))
+if __name__ == "__main__":
+    main()
