@@ -40,6 +40,12 @@ def execute_paper_briefing(engine):
     """Execute an explicit CEO engine and reject unverified or mock dependencies."""
     if not callable(engine):
         raise ValueError('explicit engine callable required')
+    # Original STEP498 imports STEP493/495/496/497; all recovered source versions
+    # use mock inputs. Deny before executing the known original CEO engine.
+    if (getattr(engine, '__module__', None) ==
+            'recovered.finance_steps.step498_ceo_engine_original' and
+            getattr(engine, '__name__', None) == 'build_ceo_briefing'):
+        raise MockDataBlocked('HISTORICAL_MOCK_DEPENDENCIES')
     payload=engine()
     state=classify_ceo_briefing(payload)
     if not state['certified']:
