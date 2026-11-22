@@ -5,6 +5,8 @@ import os
 import time
 import statistics
 import math
+import hashlib
+import tempfile
 from pathlib import Path
 from dataclasses import dataclass, asdict
 from typing import Dict, List, Any
@@ -262,25 +264,34 @@ class CapitalAllocation:
 class PortfolioRecovery:
     def evaluate(self, governance_state: Dict[str, Any]) -> GovernanceDecision:
         assert_no_financial_execution()
-
-        serialized = json.dumps(governance_state, ensure_ascii=False)
-        restored = json.loads(serialized)
-
-        # A matching program label does not prove recovery of runtime,
-        # specialists, locks or other governance state.
-        roundtrip_valid = restored == governance_state
-        # JSON in-memory roundtrip is not durable checkpoint recovery.
-        # Never certify a process restart or recovered state without an
-        # independently verified checkpoint read and runtime rehydration.
+        # Prove a real disk write, fsync, independent disk read and SHA-256.
+        # This does NOT prove that a terminated process was restarted.
+        serialized = json.dumps(governance_state, sort_keys=True, ensure_ascii=False, allow_nan=False)
+        encoded = serialized.encode("utf-8")
+        expected_sha256 = hashlib.sha256(encoded).hexdigest()
+        checkpoint_verified = False
+        restored = None
+        with tempfile.TemporaryDirectory(prefix="p2087_paper_checkpoint_") as directory:
+            checkpoint = Path(directory) / "governance_state.json"
+            with checkpoint.open("wb") as stream:
+                stream.write(encoded)
+                stream.flush()
+                os.fsync(stream.fileno())
+            disk_bytes = checkpoint.read_bytes()
+            restored = json.loads(disk_bytes.decode("utf-8"))
+            checkpoint_verified = (
+                hashlib.sha256(disk_bytes).hexdigest() == expected_sha256
+                and restored == governance_state
+            )
         return GovernanceDecision(
             component="P2087_PORTFOLIO_RECOVERY",
             status="FAIL",
-            reason="DURABLE_RECOVERY_NOT_EXECUTED",
+            reason="RUNTIME_REHYDRATION_NOT_VERIFIED" if checkpoint_verified else "CHECKPOINT_INTEGRITY_FAILED",
             payload={
-                "serialized_bytes": len(serialized.encode("utf-8")),
-                "restored_program": restored.get("program"),
-                "in_memory_roundtrip_valid": roundtrip_valid,
-                "durable_checkpoint_verified": False,
+                "serialized_bytes": len(encoded),
+                "restored_program": restored.get("program") if isinstance(restored, dict) else None,
+                "checkpoint_sha256": expected_sha256,
+                "durable_checkpoint_verified": checkpoint_verified,
                 "runtime_rehydration_verified": False,
             },
         )
