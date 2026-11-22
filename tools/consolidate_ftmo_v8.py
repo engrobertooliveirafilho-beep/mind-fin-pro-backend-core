@@ -42,9 +42,13 @@ def run(source, out, *, package_root=None):
         if package_root is not None:
             paths.append(str(Path(package_root).resolve()))
         env={**os.environ,'PYTHONPATH':os.pathsep.join(paths)}
-        result=subprocess.run([sys.executable,'-m','unittest','discover','-s',str(source),
-                               '-p','test_*.py','-v'],capture_output=True,text=True,
-                              timeout=90,cwd=str(source),env=env)
+        try:
+            result=subprocess.run([sys.executable,'-m','unittest','discover','-s',str(source),
+                                   '-p','test_*.py','-v'],capture_output=True,text=True,
+                                  timeout=90,cwd=str(source),env=env)
+        except subprocess.TimeoutExpired as exc:
+            timeout_note = 'BLOCKED: regression exceeded 90 seconds; no certification\\n'
+            result = subprocess.CompletedProcess(exc.cmd, 124, '', timeout_note)
     (out/'REGRESSION_V8.txt').write_text(
         result.stdout+'\n'+result.stderr if result else
         'BLOCKED: missing source modules or test files\n',encoding='utf-8')
