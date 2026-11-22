@@ -462,3 +462,10 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Published isolated `app/runtime/ftmo_paper_mode_gate.py` commit `2832b6a8b19600d58c59a0b017a9da88657e5f01`. It allows only exact `PAPER`/`DEMO`, requires explicit false live/real_orders flags and matching intent mode, and rejects unsafe cases before calling an injected offline engine. **Not wired into original DualModeEngine or production**.
 - Published eight offline regression cases `tests/test_ftmo_paper_mode_gate.py` commit `b98316a4ddc2ad6c06f573e9f45fe885ba47f4b9`. Executed equivalent local reconstructed module and tests: **8/8 PASS**, log `/mnt/data/ftmo_mode_gate_20261122.log`. No claim of exact GitHub source CI or E2E.
 - Main and production untouched. PAPER_ONLY, REAL_ORDERS=FORBIDDEN, FTMO_REAL=FORBIDDEN, E2E_CERTIFIED=FALSE, COST=R$0.
+
+
+## FTMO V8 historical regression report reconciled — 2026-11-22
+- Reopened exact Drive `REGRESSION_V8.txt` ID `1O2DUlb8Yf6_49aXGn7wN-QTR_lXR6EJo`. It reports 37/37 historical PASS in 0.003s, distributed as certification V7=6, execution V4=8, V5=8, V6=5, portfolio=10. These are historical textual records, not tests rerun against current GitHub source.
+- Attempt to fetch Drive folder `EXECUTION_V4` ID `18aSIqv7x1QDeJ5bOYMysfRp7vS10KNKX` failed because it is a folder/non-text item, not a directly retrievable Python source. No claim of original V4 source recovery.
+- Published read-only `app/runtime/ftmo_v8_historical_evidence.py` commit `d2018b9be562e88e86f3358d12b3cb6a6d94664f`, and six adversarial test cases `tests/test_ftmo_v8_historical_evidence.py` commit `75e57915c490294336846cfa76d66ad400c989cf`. These require original source and tests execution for any future E2E claim; this evidence module explicitly marks `source_code_verified=False`, `runtime_e2e_certified=False`.
+- Source retrieval remains open for V4/V5/V6/V7/V8 original engines. MAIN intact, PAPER_ONLY, REAL_ORDERS=FORBIDDEN, E2E_CERTIFIED=FALSE, COST=R$0.
