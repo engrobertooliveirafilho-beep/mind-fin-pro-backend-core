@@ -166,7 +166,9 @@ def test_p2085_p2086_preserve_certified_non_equal_weights(monkeypatch):
     ]
     rebalance=PortfolioRebalancing().evaluate(specialists)
     capital=CapitalAllocation().evaluate(specialists,100000.)
-    assert rebalance.status=="PASS"
+    assert rebalance.status=="FAIL"
+    assert rebalance.reason=="REBALANCING_NOT_EXECUTED"
+    assert rebalance.payload["rebalancing_executed"] is False
     assert rebalance.payload["allocation"]=={"s1":0.5,"s2":0.3,"s3":0.2}
     assert capital.status=="PASS"
     assert capital.payload["allocation"]=={"s1":50000.,"s2":30000.,"s3":20000.}
