@@ -36,3 +36,40 @@ def test_nonfinite_outcome_rejected():
     x=rows();x[0]["realized_r"]="NaN"
     with pytest.raises(ValueError,match="REALIZED_R"):
         chronological_folds(x,source_mission="P2380_DE40_FORWARD_PAPER_FEEDBACK_LOOP_AND_PNL_TRACKING")
+
+
+def test_partial_safety_metadata_rejected():
+    x = rows()
+    x[0]["mode"] = "PAPER_ONLY"
+    with pytest.raises(ValueError, match="INCOMPLETE_PAPER_SAFETY"):
+        chronological_folds(x, source_mission="P2380_DE40_FORWARD_PAPER_FEEDBACK_LOOP_AND_PNL_TRACKING")
+
+
+@pytest.mark.parametrize("field,value", [
+    ("mode", "LIVE"),
+    ("real_orders", "ALLOWED"),
+    ("ftmo_real", "ALLOWED"),
+    ("warning", "REAL_PNL"),
+])
+def test_unsafe_canonical_metadata_rejected(field, value):
+    x = rows()
+    for row in x:
+        row.update(mode="PAPER_ONLY", real_orders="FORBIDDEN",
+                   ftmo_real="FORBIDDEN", warning="PAPER_FEEDBACK_PROXY_NOT_REAL_PNL")
+    x[0][field] = value
+    with pytest.raises(ValueError, match="UNSAFE_OR_NONPROXY"):
+        chronological_folds(x, source_mission="P2380_DE40_FORWARD_PAPER_FEEDBACK_LOOP_AND_PNL_TRACKING")
+
+
+def test_equal_timestamp_at_train_test_boundary_rejected():
+    x = rows()
+    x[250]["entry_time"] = x[249]["entry_time"]
+    with pytest.raises(ValueError, match="TEMPORAL_TIE"):
+        chronological_folds(x, source_mission="P2380_DE40_FORWARD_PAPER_FEEDBACK_LOOP_AND_PNL_TRACKING")
+
+
+def test_equal_timestamp_inside_one_fold_allowed():
+    x = rows()
+    x[251]["entry_time"] = x[250]["entry_time"]
+    result = chronological_folds(x, source_mission="P2380_DE40_FORWARD_PAPER_FEEDBACK_LOOP_AND_PNL_TRACKING")
+    assert len(result["folds"]) == 5
