@@ -216,8 +216,9 @@ class PortfolioRebalancing:
             evidence = reconcile_p2067_weights(specialists)
             allocation = {str(spec.get("id") or spec.get("specialist_id")):
                           float(spec["normalized_weight"]) for spec in specialists}
-            ok = len(specialists) >= 3
-            reason = "CANONICAL_ALLOCATION_RECONCILED" if ok else "INSUFFICIENT_SPECIALISTS"
+            # Valid weights alone do not prove that a rebalance ran.
+            ok = False
+            reason = "REBALANCING_NOT_EXECUTED" if len(specialists) >= 3 else "INSUFFICIENT_SPECIALISTS"
         except (ValueError, KeyError, TypeError) as exc:
             evidence = {"error": str(exc)}
             ok = False
