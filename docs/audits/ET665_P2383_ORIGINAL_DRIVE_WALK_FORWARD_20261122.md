@@ -292,3 +292,10 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Generated local isolated full patched MQL5 `TRADER_1_007_R5_R2_CANONICAL_EXPORTER_PAPER_HARDENED.mq5` with strict OnInit input validation; six local source assertions PASS. **Full patched MQL5 not published to GitHub or compiled**, and no MT5 runtime tests. Original Drive source preserved.
 - Reopened MIND agents registry Drive ID `1IGBrD8FL3CLfVMngnG0rA765KlaZKfoD`: 81 registered agents. Finance strategist `domain.economics_finance_markets` has STEP references `124,136,139,154,170,177,190,210,211,239,281,497,498`; `auto_evo.risk_alignment_guard` is a registry entry. Registry `active=true` is metadata, **not** proof of runtime or trading authority. No agent activated.
 - PAPER_ONLY, REAL_ORDERS=FORBIDDEN, main and production untouched, E2E_CERTIFIED=FALSE.
+
+
+## MIND finance agent evidence gate — 2026-11-22
+- Reopened original Drive agent registry ID `1IGBrD8FL3CLfVMngnG0rA765KlaZKfoD` and parsed 81 agents. `domain.economics_finance_markets` has 13 STEP references `[124,136,139,154,170,177,190,210,211,239,281,497,498]`, registry `active=true`, `auto_run=true`, but `agent_health.status=unknown`. `auto_evo.risk_alignment_guard` is present as a separate registry entry, without proven live integration. No STEP implementation certified.
+- Implemented PAPER-only fail-closed `app/runtime/trader_agent_evidence_gate.py` commit `94d5c210fcb087aba16998d5a4898a5e5eebeaba`: registry metadata alone never certifies an agent. Requires positive runtime health, implemented STEPs, offline tests, PAPER integration and human approval. Rejects strings used as boolean flags.
+- Added `tests/test_trader_agent_evidence_gate.py` commit `4e939420b030e8d9ee16692f4583403d5d310eb9`; executed 8/8 PASS in isolated Python offline environment. **Not integrated into live agent loader**; this is a standalone certification guard, not proof of agent runtime or E2E.
+- No original Drive changes, no real orders, no main/production mutation. PAPER_ONLY; E2E_CERTIFIED=FALSE; COST=R$0.
