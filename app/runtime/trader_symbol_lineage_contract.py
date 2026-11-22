@@ -33,6 +33,10 @@ def validate_writer_symbol(dispatch: Mapping[str, Any], decision: Mapping[str, A
     symbol = dispatch.get("symbol")
     if not isinstance(symbol, str) or not symbol:
         raise SymbolLineageError("S21_DISPATCH_SYMBOL_MISSING")
+    if symbol != symbol.strip() or any(
+        not (ch.isascii() and (ch.isalnum() or ch in "._-")) for ch in symbol
+    ):
+        raise SymbolLineageError("S21_DISPATCH_SYMBOL_INVALID")
     if decision.get("symbol") != symbol:
         raise SymbolLineageError("S21_WRITER_SYMBOL_CONFLICT")
     return symbol
