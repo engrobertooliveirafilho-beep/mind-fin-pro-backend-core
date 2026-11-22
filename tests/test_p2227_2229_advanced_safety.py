@@ -34,7 +34,7 @@ def test_strategy_snapshots_and_atomic_mutations(monkeypatch):
     eco.evolve({"VOLATILITY": 20})
     assert old == snapshot
 
-@pytest.mark.parametrize("bad", [{}, {"VOLATILITY": math.nan}, {"VOLATILITY": True}, None])
+@pytest.mark.parametrize("bad", [{}, {"VOLATILITY": math.nan}, {"VOLATILITY": True}, {"VOLATILITY": -0.1}, {"VOLATILITY": -math.inf}, None])
 def test_strategy_reject_invalid_macro(bad):
     with pytest.raises(ValueError, match="P2229_INVALID_MACRO_SIGNAL"):
         StrategyEcoSystem().evolve(bad)
