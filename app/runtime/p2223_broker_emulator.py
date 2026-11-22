@@ -1,5 +1,6 @@
 from __future__ import annotations
 import json
+import math
 import random
 import time
 from pathlib import Path
@@ -41,8 +42,15 @@ class BrokerEmulator:
         self.market = MarketDataEngine()
         self.risk = RiskEngine()
         self.trades = []
+        self.killed = False
 
     def execute_order(self, side, volume):
+        if self.killed:
+            raise RuntimeError("P2223_RISK_KILL_LATCHED")
+        if side not in ("BUY", "SELL"):
+            raise ValueError("P2223_INVALID_SIDE")
+        if isinstance(volume, bool) or not isinstance(volume, (int, float)) or not math.isfinite(volume) or volume <= 0:
+            raise ValueError("P2223_INVALID_VOLUME")
         price = self.market.tick()
 
         # Slippage simulation
@@ -56,6 +64,9 @@ class BrokerEmulator:
             pnl = random.uniform(-60, 140)
 
         risk_status = self.risk.check(pnl)
+
+        if risk_status == "KILLED":
+            self.killed = True
 
         trade = {
             "side": side,
@@ -73,6 +84,8 @@ class BrokerEmulator:
 
 
 def run_simulation(cycles=50):
+    if type(cycles) is not int or cycles < 1:
+        raise ValueError("P2223_INVALID_CYCLES")
     broker = BrokerEmulator()
 
     for i in range(cycles):
@@ -85,7 +98,7 @@ def run_simulation(cycles=50):
             break
 
     return {
-        "status": "PASS",
+        "status": "SIMULATION_ONLY_NOT_CERTIFIED",
         "trades": broker.trades,
         "final_equity": broker.risk.equity,
         "total_trades": len(broker.trades),
