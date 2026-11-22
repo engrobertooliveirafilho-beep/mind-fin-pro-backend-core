@@ -175,3 +175,11 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Original V8 was hard-coded to an old isolated `eldora_ftmo_v7` directory, with outputs written beside the script. Published adapted `tools/consolidate_ftmo_v8.py` commit `8bff81e019984c35bce3a2154101812c09d05041`: explicit source/out/package-root, rejects output inside source, rejects missing modules/tests and preserves `ftmo_release=BLOCKED`.
 - Local isolated equivalent `/mnt/data/et_v8_lab/consolidate_v8.py` executed against reconstructed V4–V7 source/tests with package-root `/mnt/data/et_integrated`: **37/37 PASS**, 7 modules, 5 test files; same-tree output attempt rejected (exit 1). This was not a clean checkout of published V8.
 - Original Drive V8 manifest labels its seven modules `isolated_paper_candidate_not_canonical`; no authority to claim runtime certification. No main merge, production change, paid resource or real orders.
+
+
+## V8 evidence immutability fix — 2026-11-22
+- Revisited original Drive V8 consolidation `1f3D5QtQSKFyYQMopRujfzjiT1Sydah6q` and its `READ_ONLY_CONSOLIDATION` mandate; original V8 ledger `1Yxvu-v_zTeUOEjw1UhbxS4-73-Chz5B9` explicitly marks seven motors noncanonical, FTMO release BLOCKED.
+- Identified writable destination risk in the adapted V8: destination could be an ancestor of source or an existing evidence folder. Updated `tools/consolidate_ftmo_v8.py` to reject source/descendant/ancestor and nonempty destinations; commit `6f02c2a45e3a07529cbb65c98f32f643d1bbc487`.
+- Published `tests/test_consolidate_ftmo_v8_safety.py` commit `cf83c1862b32e53dba8493aaa1246f569935ee39` (5 scenarios: source, descendant, ancestor, existing evidence, missing modules).
+- **5/5 isolated safety scenarios PASS** with a locally reconstructed matching guard: four directory-safety checks plus missing-source fail-closed return code 2 and `ftmo_release=BLOCKED`. Published test file not yet executed in a clean GitHub checkout; no E2E certification.
+- Drive discovery additionally queried agent and STEP registries; no new Trader-specific registry was confirmed from those queries. Do not claim agent activation or step integration.
