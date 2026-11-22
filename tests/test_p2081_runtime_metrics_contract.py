@@ -97,8 +97,17 @@ def test_p2087_roundtrip_requires_entire_state(monkeypatch):
            "specialists":3,"locks":dict(ABSOLUTE_LOCKS)}
     decision=PortfolioRecovery().evaluate(state)
     assert decision.status == "FAIL"
-    assert decision.reason == "DURABLE_RECOVERY_NOT_EXECUTED"
-    assert decision.payload["in_memory_roundtrip_valid"] is True
-    assert decision.payload["durable_checkpoint_verified"] is False
+    assert decision.reason == "RUNTIME_REHYDRATION_NOT_VERIFIED"
+    assert len(decision.payload["checkpoint_sha256"]) == 64
+    assert decision.payload["durable_checkpoint_verified"] is True
     assert decision.payload["runtime_rehydration_verified"] is False
     assert decision.payload["restored_program"] == state["program"]
+
+def test_p2087_rejects_nonfinite_checkpoint_state(monkeypatch):
+    from app.runtime.p2081_2090_realtime_portfolio_governance import (
+        PortfolioRecovery, ABSOLUTE_LOCKS,
+    )
+    for k,v in ABSOLUTE_LOCKS.items():
+        monkeypatch.setenv(k,v)
+    with pytest.raises(ValueError):
+        PortfolioRecovery().evaluate({"program":"P2081_2090", "runtime":{"equity":float("nan")}})
