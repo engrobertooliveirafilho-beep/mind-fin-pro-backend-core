@@ -1,6 +1,7 @@
 """Recovered PAPER-only risk guard; Drive 1ugE_FFCfZPeSNJZmcxCxRJcNpFsd2QLk."""
 from dataclasses import dataclass
-from datetime import date
+from datetime import date, datetime
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 from decimal import Decimal
 D = lambda x: Decimal(str(x))
 @dataclass(frozen=True)
@@ -24,6 +25,23 @@ class PaperAccount:
         if rules.initial_balance <= 0 or not all(D(0)<x<D(1) for x in (rules.daily_loss_fraction,rules.max_loss_fraction,rules.profit_target_fraction)):
             raise ValueError('invalid rules')
         return cls(rules,rules.initial_balance,rules.initial_balance,day,rules.initial_balance,rules.initial_balance)
+    def rollover_at(self, instant, account_timezone):
+        """PAPER-only account-local calendar rollover; caller must specify IANA zone."""
+        if not isinstance(instant, datetime) or instant.tzinfo is None or instant.utcoffset() is None:
+            raise ValueError('timezone-aware instant required')
+        if not isinstance(account_timezone, str) or not account_timezone:
+            raise ValueError('IANA account timezone required')
+        try:
+            local_day = instant.astimezone(ZoneInfo(account_timezone)).date()
+        except (ZoneInfoNotFoundError, ValueError, TypeError) as exc:
+            raise ValueError('invalid IANA account timezone') from exc
+        if local_day < self.day:
+            raise ValueError('time reversal')
+        if local_day == self.day:
+            return False
+        self.new_day(local_day)
+        return True
+
     def new_day(self, day):
         if type(day) is not date: raise ValueError('day must be a calendar date')
         if day <= self.day: raise ValueError('day must advance')
