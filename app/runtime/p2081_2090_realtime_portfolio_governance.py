@@ -283,6 +283,10 @@ class PortfolioRecovery:
             # must not silently overwrite it and erase recovery provenance.
             if checkpoint.is_symlink() or temporary.is_symlink():
                 raise RuntimeError("P2087_UNSAFE_CHECKPOINT_SYMLINK")
+            # Never reuse an orphaned temporary file or follow a directory
+            # entry masquerading as a regular checkpoint.
+            if temporary.exists() or (checkpoint.exists() and not checkpoint.is_file()):
+                raise RuntimeError("P2087_UNSAFE_CHECKPOINT_ENTRY")
             if checkpoint.exists():
                 existing = checkpoint.read_bytes()
                 if hashlib.sha256(existing).hexdigest() != expected_sha256:
