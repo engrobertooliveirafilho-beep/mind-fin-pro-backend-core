@@ -52,7 +52,7 @@ class MacroMarketTwin:
             if isinstance(move, bool) or not isinstance(move, (int, float)) or not math.isfinite(move) or not bounds[0] <= move <= bounds[1]:
                 raise RuntimeError("P2228_INVALID_MACRO_SHOCK")
             value = self.world[name] + move
-            if not math.isfinite(value):
+            if not math.isfinite(value) or (name == "USD_INDEX" and value <= 0) or (name == "RISK_SENTIMENT" and not 0 <= value <= 100) or (name == "VOLATILITY" and value < 0):
                 raise RuntimeError("P2228_INVALID_MACRO_STATE")
             updated[name] = value
         self.world = updated
