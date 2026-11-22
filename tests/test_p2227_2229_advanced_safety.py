@@ -43,3 +43,19 @@ def test_run_is_simulation_only():
     result = run(2)
     assert result["status"] == "SIMULATION_ONLY_NOT_CERTIFIED"
     assert result["mode"] == "ADVANCED_SIMULATION_LAYER"
+
+def test_crisis_rejects_unknown_event(monkeypatch):
+    monkeypatch.setattr("app.runtime.p2227_2229_advanced_layer.random.choice", lambda choices: "UNSUPPORTED")
+    with pytest.raises(RuntimeError, match="P2227_INVALID_CRISIS_EVENT"):
+        CrisisEngine().simulate_crisis(100.0)
+
+def test_crisis_rejects_price_that_rounds_to_zero(monkeypatch):
+    monkeypatch.setattr("app.runtime.p2227_2229_advanced_layer.random.choice", lambda choices: "NONE")
+    with pytest.raises(RuntimeError, match="P2227_INVALID_CRISIS_PRICE"):
+        CrisisEngine().simulate_crisis(0.001)
+
+def test_crisis_rejects_nan_shock(monkeypatch):
+    monkeypatch.setattr("app.runtime.p2227_2229_advanced_layer.random.choice", lambda choices: "CRASH")
+    monkeypatch.setattr("app.runtime.p2227_2229_advanced_layer.random.uniform", lambda a, b: math.nan)
+    with pytest.raises(RuntimeError, match="P2227_INVALID_CRISIS_PRICE"):
+        CrisisEngine().simulate_crisis(100.0)
