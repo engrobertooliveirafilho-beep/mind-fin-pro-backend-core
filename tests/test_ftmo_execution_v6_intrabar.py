@@ -45,3 +45,10 @@ class V6RiskTests(unittest.TestCase):
         self.assertFalse(result['intrabar_breach'])
         self.assertEqual(len(self.p.audit),before)
         self.assertEqual(result['real_orders'],0)
+
+    def test_datetime_day_rejected_before_mutation(self):
+        from datetime import datetime
+        before=(self.p.account.day,len(self.p.audit))
+        with self.assertRaises(ValueError):
+            self.e.process_bar({},day=datetime(2026,10,30))
+        self.assertEqual((self.p.account.day,len(self.p.audit)),before)
