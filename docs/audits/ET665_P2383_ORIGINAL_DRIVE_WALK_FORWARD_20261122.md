@@ -160,3 +160,11 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - V6 remains conservative OHLC worst-case proxy, not a tick-level reconstruction or FTMO E2E certification. PAPER only; main and production unchanged.
 
 - Follow-up execution: new V6 regressions also executed locally with matching reconstructed source and tests: **6/6 PASS** (3 V6 + 3 integration), `PYTHONPATH=. python -m unittest discover -s tests -v`, 0.001s. Combined original 31 + integrated 6 = **37/37 PASS** across two offline invocations. This is not a clean GitHub checkout or E2E.
+
+
+## FTMO Certification Gate V7 — recovered and fail-open bug fixed
+- Drive folder `CERTIFICATION_GATE_V7` ID `1tnpQ9Q9JPoIfcDAJVPT9v-KXSu6YjBj4`, original source ID `1vyprf9epfAQ-w8oyfyPU0t04U3jV1qK7`, original tests ID `11QrsSuIkdbxDY5e-W23wHs94ratRw8yk`.
+- Reproduced original critical bug: `assess(dict.fromkeys(REQUIRED,True), paper_tests_pass='FAIL')` returned `release_authorized=True` because of `bool('FAIL')`. Original **6/6 PASS** despite vulnerability.
+- Corrected source rejects non-boolean `paper_tests_pass` and non-mapping evidence, preserving required keys and explicit boolean semantics; `app/runtime/certification_gate_v7.py` commit `3557bdb176b1a7261d23373cffa56c435db98459`.
+- Published original 6 tests plus 3 adversarial cases `tests/test_certification_gate_v7.py` commit `0ed74ff36a7e409253fd7a9fe2e2ba77c06ddc73`. Local original-plus-patched **9/9 PASS** `python -m unittest -q test_certification_gate_v7` in `/mnt/data/et_v7_lab`; source is adapted for package path in GitHub, not clean-checkout CI.
+- `release_authorized` is an evidence-gate boolean only; does not authorize real broker orders. Required evidence is not complete; E2E_CERTIFIED=FALSE. No main merge or production mutation.
