@@ -6,8 +6,6 @@ FEATURES=ROOT/"mind_trader/data/features_mt5"
 EV=Path(r"C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\_evidence\\P2296C_BUILD_REAL_EXIT_BACKTEST_ENGINE_20260621_232932")
 
 dataset=FEATURES/"MT5_GER40_H1_features.csv"
-if not dataset.exists():
-    raise SystemExit("DATASET_NOT_FOUND")
 
 def load(path):
     rows=[]
@@ -170,6 +168,8 @@ def metrics(trades):
 
 
 def main():
+    if not dataset.exists():
+        raise SystemExit("DATASET_NOT_FOUND")
     rows=load(dataset)
     all_results=[]
     model_metrics=[]
