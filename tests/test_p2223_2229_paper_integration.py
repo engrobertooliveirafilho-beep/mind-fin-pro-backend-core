@@ -34,3 +34,31 @@ def test_broker_remains_unmodified():
     before = (broker.risk.equity, broker.risk.peak, broker.risk.day_start_equity)
     run_paper_pipeline(2, broker=broker)
     assert before == (broker.risk.equity, broker.risk.peak, broker.risk.day_start_equity)
+
+def test_preexisting_trades_rejected():
+    broker = BrokerEmulator()
+    broker.trades.append({"side": "BUY"})
+    with pytest.raises(RuntimeError, match="P2223_P2229_DIRTY_BROKER"):
+        run_paper_pipeline(1, broker=broker)
+
+def test_broker_mutation_during_simulation_rejected(monkeypatch):
+    broker = BrokerEmulator()
+    from app.runtime.p2223_2229_paper_integration import OrderBookSimulator
+    original = OrderBookSimulator.update_book
+    def injected(self):
+        broker.risk.equity -= 1
+        return original(self)
+    monkeypatch.setattr(OrderBookSimulator, "update_book", injected)
+    with pytest.raises(RuntimeError, match="P2223_P2229_BROKER_MUTATED"):
+        run_paper_pipeline(1, broker=broker)
+
+def test_kill_switch_during_simulation_rejected(monkeypatch):
+    broker = BrokerEmulator()
+    from app.runtime.p2223_2229_paper_integration import OrderBookSimulator
+    original = OrderBookSimulator.update_book
+    def injected(self):
+        broker.risk.killed = True
+        return original(self)
+    monkeypatch.setattr(OrderBookSimulator, "update_book", injected)
+    with pytest.raises(RuntimeError, match="P2223_P2229_RISK_KILLED"):
+        run_paper_pipeline(1, broker=broker)
