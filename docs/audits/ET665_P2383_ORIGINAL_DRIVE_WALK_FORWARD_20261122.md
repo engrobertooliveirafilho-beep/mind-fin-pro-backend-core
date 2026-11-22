@@ -241,3 +241,10 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Caller must supply timezone-aware datetime and explicit valid IANA timezone. Convert instant to local calendar day; no-op on same day, reject backward day, call existing validated `new_day` on forward day. No implicit broker or FTMO timezone assumption.
 - Added four boundary/invalid-input tests `tests/test_ftmo_timezone_rollover.py`, commit `8104a44c2cba9c9b8a88ea16a1aeb7f5261f6113`. Executed in reconstructed local `/mnt/data/et_integrated`: **31/31 historical and 25/25 integrated PASS**, **56/56 total**. No clean GitHub checkout or E2E certification.
 - Not integrated into a canonical timestamp ingestion or broker feed; official FTMO rule equivalence, actual account timezone and daylight-saving-specific cases remain unverified. Main, production and Drive originals untouched; PAPER_ONLY.
+
+
+## V2 account creation chronology and MT5 profile provenance — 2026-11-22
+- Reproduced locally: `PaperAccount.create(rules, datetime(2026,10,29))` accepted a datetime as the initial calendar day. Corrected `app/runtime/ftmo_paper_guard.py` with exact date validation, commit `dcd4871269fe7f4783854b6b7362aa43691a65cc`.
+- Two regression cases (datetime and string rejected at creation) added to `tests/test_ftmo_account_day_contract.py`, commit `d63fe1b1e1342f3adcbbf17bfa4a2b037c6dbb92`. Executed local reconstructed package: **31/31 historical + 27/27 integrated = 58/58 PASS**, no clean checkout.
+- New Drive provenance: `MT5_FTMO_PROFILE` folder `15VVqyAPHtgSHGK260gf0yeiadHKabY3Y` contains profile hash folder `1EpyyNkS7codhYoF9J5KWFiE2UKx9z88Z`, with `MQL5`, `llm-agent`, `bases`, `config`, `logs`, `temp`, `origin.txt`. Agent subfolder `162sQ0H4XdNOIv6M1Wch1NsyQuxV9PVRc` contains `state` and `data`. These are new **historical inventory leads**, not verified runnable Trader agent/motor/STEP or authorized MT5 integration. Do not fetch or publish credentials/config secrets. No live MT5 access.
+- FTMO timezone rule equivalence and E2E remain blocked; main, production, original Drive immutable.
