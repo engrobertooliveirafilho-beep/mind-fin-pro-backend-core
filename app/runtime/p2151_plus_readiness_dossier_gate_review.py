@@ -33,9 +33,13 @@ def load(path):
     return json.loads(p.read_text(encoding="utf-8"))
 
 def run_p2151_plus(output_dir="data/runtime/P2151_PLUS/evidence"):
+    # Fail closed on unsafe caller settings; never overwrite evidence of drift.
+    for k,v in LOCKS.items():
+        observed=os.environ.get(k)
+        if observed is not None and observed!=v:
+            raise RuntimeError(f"{k}_LOCK_BREACH")
     enforce()
     out=Path(output_dir)
-    out.mkdir(parents=True,exist_ok=True)
 
     deps = {
         "P2071_2080": "data/runtime/P2071_2080/evidence/P2071_2080_FINAL_CERTIFICATION.json",
@@ -59,7 +63,16 @@ def run_p2151_plus(output_dir="data/runtime/P2151_PLUS/evidence"):
         data=load(p)
         blocks[k]={"status":data.get("status"),"readiness":data.get("readiness"),"path":p}
         hashes[k]=sha(p)
-        if data.get("status")!="PASS":
+        expected={
+            "P2071_2080":"REALTIME_PAPER_RUNTIME_CERTIFIED",
+            "P2081_2090":"REALTIME_PORTFOLIO_GOVERNANCE_CERTIFIED",
+            "P2091_2100":"REALTIME_INTELLIGENCE_LAYER_CERTIFIED",
+            "P2101_2110":"AUTONOMOUS_PAPER_OPERATIONS_CERTIFIED",
+            "P2111_2120":"MAXIMUM_TECHNICAL_CAPACITY_CERTIFIED",
+            "P2121_PLUS":"CONTINUOUS_MAX_CAPACITY_CERTIFIED",
+            "P2131_2150":"FTMO_PAPER_COMPLIANCE_AND_OPERATIONAL_ASSURANCE_CERTIFIED",
+        }[k]
+        if data.get("status")!="PASS" or data.get("readiness")!=expected:
             failed.append(k)
 
     gate_review = {
@@ -77,7 +90,7 @@ def run_p2151_plus(output_dir="data/runtime/P2151_PLUS/evidence"):
             "FINANCIAL_ROUTING",
             "FTMO_REAL"
         ],
-        "deployment_decision": "APPROVED_FOR_PAPER_ONLY_SIMULATION_REVIEW" if not missing and not failed else "BLOCKED",
+        "deployment_decision": "BLOCKED",
         "real_execution_decision": "FORBIDDEN",
         "broker_connection_decision": "FORBIDDEN",
         "financial_execution_decision": "FORBIDDEN"
@@ -114,10 +127,10 @@ def run_p2151_plus(output_dir="data/runtime/P2151_PLUS/evidence"):
         "mission_status":mission_status,
         "gate_review":gate_review,
         "executive_conclusion":{
-            "technical_capacity":"CERTIFIED",
-            "continuous_audit":"CERTIFIED",
-            "ftmo_paper_compliance":"CERTIFIED",
-            "operational_assurance":"CERTIFIED",
+            "technical_capacity":"NOT_CERTIFIED",
+            "continuous_audit":"NOT_CERTIFIED",
+            "ftmo_paper_compliance":"NOT_CERTIFIED",
+            "operational_assurance":"NOT_CERTIFIED",
             "paper_only_simulation_review":"READY" if all_pass else "NOT_READY",
             "real_orders":"FORBIDDEN",
             "broker_execution":"DISABLED",
@@ -127,6 +140,7 @@ def run_p2151_plus(output_dir="data/runtime/P2151_PLUS/evidence"):
         "next_block":"P2161_PLUS_DRY_RUN_OBSERVABILITY_AND_HUMAN_REVIEW_GATE"
     }
 
+    out.mkdir(parents=True,exist_ok=True)
     (out/"P2151_PLUS_FINAL_CERTIFICATION.json").write_text(json.dumps(result,indent=2,ensure_ascii=False),encoding="utf-8")
     (out/"P2151_PLUS_GATE_REVIEW.json").write_text(json.dumps(gate_review,indent=2,ensure_ascii=False),encoding="utf-8")
     (out/"P2151_PLUS_DOSSIER_STATE.json").write_text(json.dumps(result["executive_conclusion"],indent=2,ensure_ascii=False),encoding="utf-8")
@@ -152,7 +166,7 @@ def run_p2151_plus(output_dir="data/runtime/P2151_PLUS/evidence"):
 {json.dumps(result["absolute_restrictions"], indent=2, ensure_ascii=False)}
 
 ## FINAL DECISION
-Approved only for PAPER_ONLY simulation review.
+PAPER_ONLY simulation review blocked pending independently verified behavioral certification.
 Real orders remain forbidden.
 Broker execution remains disabled.
 Financial execution remains disabled.
