@@ -338,3 +338,10 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Published standalone read-only AST audit `app/runtime/step177_source_audit.py` commit `c3c08d2ebfd5dff7fc45009358b85927f8a23f5d` and portable regressions `tests/test_step177_source_audit.py` commit `269ebd2581eb133a5710ee6c9ec6dd8b743d9fb0`. Eight tests executed locally **8/8 PASS**; not clean GitHub checkout or FastAPI integration.
 - Finance STEP inventory: 8 confirmed approved stubs (124/136/139/154/170/190/211/281), 177 static metadata endpoint, 210 creative DNA source candidate, 497/498 historical endpoint tests; 239 unresolved. **0/13 certified**. Registry and route metadata do not authorize agent execution.
 - Drive read-only, main and production unchanged; PAPER_ONLY, REAL_ORDERS=FORBIDDEN, E2E_CERTIFIED=FALSE, COST=R$0.
+
+
+## STEP239 documentary provenance reconciled — 2026-11-22
+- Reopened Drive `MIND_STEPS.json` ID `13XKa0uDyLBWJpg-CTRPnYBZUcllS7b4t`, 300 records: STEP239 `status=unknown`, empty notes; STEP177 also `unknown` despite independent recovered static endpoint. This demonstrates historical registry status is not sufficient for functional conclusions.
+- Reopened Drive `STEP4046_MISSING_PLANNED_STEPS.txt` ID `1mOVJ_DvAE9Pg4XmB_U6CwJ34RSKr5-cK`: exact line `STEP239` occurs in historical missing/planned inventory. This is evidence of historical missing classification, **not** proof that no implementation exists anywhere.
+- Published `app/runtime/step239_provenance_gate.py` commit `ecff3b69b8090dc9a4375552b73a44c7db8a0ddb` and `tests/test_step239_provenance_gate.py` commit `9da67d73abc63fab0439992aeb13b40c3e60c285`. Executed 8/8 isolated offline Python tests locally. Guard marks STEP239 HISTORICAL_UNKNOWN_AND_MISSING or CONFLICT_OR_UNVERIFIED, never certified.
+- STEP239 implementation still unverified. Other STEP 497/498 historical tests exist but endpoints not executed. No agent activated; original Drive and main unchanged, PAPER_ONLY, E2E_CERTIFIED=FALSE, COST=R$0.
