@@ -51,3 +51,21 @@ def test_import_has_no_dataset_or_evidence_side_effects(monkeypatch, tmp_path):
     spec.loader.exec_module(module)
     assert callable(module.simulate)
     assert callable(module.main)
+
+@pytest.mark.parametrize("field,value,code", [
+    ("open", float("nan"), "P2296C_INVALID_MARKET_ROW"),
+    ("close", float("inf"), "P2296C_INVALID_MARKET_ROW"),
+    ("atr_14", -1, "P2296C_INVALID_ATR"),
+    ("low", 102, "P2296C_INVALID_OHLC"),
+    ("high", 98, "P2296C_INVALID_OHLC"),
+    ("body_pct", True, "P2296C_INVALID_MARKET_ROW"),
+])
+def test_malformed_market_rows_fail_closed(field, value, code):
+    rows = _rows()
+    rows[25][field] = value
+    with pytest.raises(ValueError, match=code):
+        _functions()["simulate"](rows, "TIME_EXIT")
+
+def test_invalid_row_collection_rejected():
+    with pytest.raises(ValueError, match="P2296C_INVALID_ROWS"):
+        _functions()["simulate"](None, "TIME_EXIT")
