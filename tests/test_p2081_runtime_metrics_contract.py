@@ -111,3 +111,24 @@ def test_p2087_rejects_nonfinite_checkpoint_state(monkeypatch):
         monkeypatch.setenv(k,v)
     with pytest.raises(ValueError):
         PortfolioRecovery().evaluate({"program":"P2081_2090", "runtime":{"equity":float("nan")}})
+
+def test_p2087_persists_atomic_checkpoint_in_paper_directory(tmp_path, monkeypatch):
+    import json
+    import hashlib
+    from app.runtime.p2081_2090_realtime_portfolio_governance import (
+        PortfolioRecovery, ABSOLUTE_LOCKS,
+    )
+    for k,v in ABSOLUTE_LOCKS.items():
+        monkeypatch.setenv(k,v)
+    state={"program":"P2081_2090_REALTIME_PORTFOLIO_GOVERNANCE",
+           "runtime":{"cycles":1500},"locks":dict(ABSOLUTE_LOCKS)}
+    directory=tmp_path/"checkpoints"
+    decision=PortfolioRecovery().evaluate(state,str(directory))
+    checkpoint=directory/"governance_state.json"
+    assert checkpoint.is_file()
+    assert not (directory/"governance_state.json.tmp").exists()
+    raw=checkpoint.read_bytes()
+    assert hashlib.sha256(raw).hexdigest()==decision.payload["checkpoint_sha256"]
+    assert json.loads(raw.decode("utf-8"))==state
+    assert decision.payload["durable_checkpoint_verified"] is True
+    assert decision.status=="FAIL"  # process rehydration is not verified
