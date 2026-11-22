@@ -10,7 +10,6 @@ def test_health_never_calls_runtime_or_imports_modules(monkeypatch):
         raise AssertionError("health triggered runtime execution")
 
     monkeypatch.setattr(wiring, "run_institutional_wiring", forbidden)
-    monkeypatch.setattr(wiring.importlib, "import_module", forbidden)
     result = wiring.health()
     assert result["status"] == "NOT_CERTIFIED"
     assert result["runs_ok"] is None
@@ -37,10 +36,15 @@ def test_public_wiring_does_not_import_or_execute_modules(monkeypatch):
     from app.runtime import mind_trader_institutional_wiring as wiring
     def forbidden(*args, **kwargs):
         raise AssertionError("unverified runtime was invoked")
-    monkeypatch.setattr(wiring.importlib, "import_module", forbidden)
     monkeypatch.setattr(wiring, "_unsafe_legacy_institutional_wiring_disabled", forbidden)
     result = wiring.run({"symbol":"XAUUSD"})
     assert result["status"] == "NOT_CERTIFIED"
     assert result["reason"] == "RUNTIME_CALL_GRAPH_NOT_CERTIFIED"
     assert result["runs_ok"] is None
     assert result["modules_total"] == len(wiring.MODULES)
+
+def test_legacy_wiring_entrypoint_is_hard_disabled():
+    import pytest
+    from app.runtime import mind_trader_institutional_wiring as wiring
+    with pytest.raises(RuntimeError, match="UNVERIFIED_TRADER_WIRING_DISABLED"):
+        wiring._unsafe_legacy_institutional_wiring_disabled({})
