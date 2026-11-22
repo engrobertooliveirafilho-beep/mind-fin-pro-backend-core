@@ -294,6 +294,14 @@ class PortfolioRecovery:
                     stream.flush()
                     os.fsync(stream.fileno())
                 os.replace(temporary, checkpoint)
+                # fsync the containing directory so the rename itself is
+                # durable after an unexpected host interruption (POSIX).
+                if os.name == "posix":
+                    directory_fd = os.open(directory, os.O_RDONLY | getattr(os, "O_DIRECTORY", 0))
+                    try:
+                        os.fsync(directory_fd)
+                    finally:
+                        os.close(directory_fd)
             disk_bytes = checkpoint.read_bytes()
             restored = json.loads(disk_bytes.decode("utf-8"))
             checkpoint_verified = (
