@@ -455,3 +455,10 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Published read-only evidence object `app/runtime/step239_provenance.py` commit `c94e352e9fcaf2d73521ed6793efce39466c91bd`, plus 3 tests `tests/test_step239_provenance.py` commit `33b81656f7001c109f0d1c00d222906aa49a4d82`.
 - Tests executed locally in isolated Python: **3/3 PASS** for provenance classification and fail-closed certification fields; log `/mnt/data/step239_provenance_20261122.log`. This does not establish source code absence across every Drive inventory, nor certify STEP239 runtime.
 - Finance agent registry contains STEP239 but the historical source is missing and its documented purpose is cognitive metrics. No operational finance certification. MAIN intact, PAPER_ONLY, REAL_ORDERS=FORBIDDEN, E2E_CERTIFIED=FALSE, COST=R$0.
+
+
+## FTMO execution mode boundary — 2026-11-22
+- Reopened authoritative `ELDORA_TRADER_MASTER_REMEDIATION_LEDGER` Drive ID `1WYqMJ-wzqmDWTaRzwJGFk4Hj4b7MuBNR7m0F9ct99mI`. ET-016 reports historical V2 21/21, V3 10/10, V4 18/18, V5 26/26, V6 31/31, V7 37/37 and V8 inventory, but expressly warns that isolated tests do not certify canonical integration. ET-017 requires source→wiring→tests→runtime; ET-018 requires risk-rule validation; ET-019 identifies a hypothesis, not reproduced V4 bug.
+- Published isolated `app/runtime/ftmo_paper_mode_gate.py` commit `2832b6a8b19600d58c59a0b017a9da88657e5f01`. It allows only exact `PAPER`/`DEMO`, requires explicit false live/real_orders flags and matching intent mode, and rejects unsafe cases before calling an injected offline engine. **Not wired into original DualModeEngine or production**.
+- Published eight offline regression cases `tests/test_ftmo_paper_mode_gate.py` commit `b98316a4ddc2ad6c06f573e9f45fe885ba47f4b9`. Executed equivalent local reconstructed module and tests: **8/8 PASS**, log `/mnt/data/ftmo_mode_gate_20261122.log`. No claim of exact GitHub source CI or E2E.
+- Main and production untouched. PAPER_ONLY, REAL_ORDERS=FORBIDDEN, FTMO_REAL=FORBIDDEN, E2E_CERTIFIED=FALSE, COST=R$0.
