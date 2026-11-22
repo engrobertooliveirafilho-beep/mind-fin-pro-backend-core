@@ -426,3 +426,10 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Updated `app/runtime/finance_step_reconciliation.py` in isolated branch, commit `3a94f5c9ed1529f904fe30aecf38d5340018ee5f`: walks AST for metadata mutations, rejects non-top-level and non-simple assignments, and checks actual module docstring via `ast.get_docstring`.
 - Added four adversarial regressions, commit `246b4d297d3c29df0e52330fd71b9760ed7ea9df`. Local Python isolated run `python -m unittest discover -s tests -v` **19/19 PASS, 0 FAIL**. Log `/mnt/data/finance_step_ast_hardening_20261122.log`. Local source reconstructed from published implementation and modified, not an authenticated clean GitHub checkout; do not claim branch CI or E2E.
 - All 13 finance agent STEP slots remain uncertified; this validates read-only classification only. Original Drive remains read-only; MAIN=INTACTA, PAPER_ONLY, REAL_ORDERS=FORBIDDEN, FTMO_REAL=FORBIDDEN, E2E_CERTIFIED=FALSE, COST=R$0.
+
+
+## Finance STEP approved-stub impersonation hardened — 2026-11-22
+- Found that previous AST reconciler could classify an executable Python module as `APPROVED_STUB` merely because its module docstring and STEP metadata matched an approved stub. Also tuple-target metadata assignment escaped the direct-name metadata checker.
+- Fixed `app/runtime/finance_step_reconciliation.py` commit `2d81846fdf1261fb4212c6ea7ce6728273365523`: stub classification now requires a module composed only of string expressions and direct STEP_ID/STEP_STATUS assignments; tuple targets touching STEP metadata rejected.
+- Added 3 tests to `tests/test_finance_step_reconciliation.py` commit `7dc8585720cfb211b582deebdbba951d627cc136`. Ran local isolated Python `python -m unittest discover -s tests -v` in `/mnt/data/finance_verify`: **22/22 PASS**, evidence `/mnt/data/finance_step_ast_v2_20261122.log`. Local source reconstructed from the GitHub text, not a clean checkout; no CI or E2E certification.
+- Original Drive sources unchanged; 13 finance STEPs remain unverified for functional operation. MAIN intact; PAPER_ONLY; REAL_ORDERS forbidden; COST=R$0.
