@@ -56,3 +56,13 @@ class FinanceStepReconciliationTests(unittest.TestCase):
     def test_augmented_metadata_rejected(self):
         with self.assertRaises(ValueError):
             reconcile_finance_steps({139:'STEP_ID = 139\nSTEP_ID += 1'})
+
+    def test_stub_with_executable_call_not_approved(self):
+        source='"""A lógica REAL deste STEP deve ser implementada"""\\nSTEP_ID = 139\\nSTEP_STATUS = "approved_stub"\\nrun_live()'
+        self.assertEqual(reconcile_finance_steps({139:source})[2]['state'], 'REQUIRES_CODE_REVIEW')
+    def test_tuple_target_spoof_rejected(self):
+        with self.assertRaises(ValueError):
+            reconcile_finance_steps({139:'STEP_ID, ignored = (139, 0)'})
+    def test_stub_with_import_not_approved(self):
+        source='"""A lógica REAL deste STEP deve ser implementada"""\\nSTEP_ID = 139\\nSTEP_STATUS = "approved_stub"\\nimport os'
+        self.assertEqual(reconcile_finance_steps({139:source})[2]['state'], 'REQUIRES_CODE_REVIEW')
