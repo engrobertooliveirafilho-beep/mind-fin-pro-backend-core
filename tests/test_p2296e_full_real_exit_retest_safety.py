@@ -25,3 +25,9 @@ def test_known_models_return_no_trades_for_empty_rows(model):
 
 def test_metrics_insufficient_trades():
     assert _functions()["metrics"]([1.0, -1.0]) is None
+
+@pytest.mark.parametrize("model", ["UNKNOWN", "", None, "FTMO_REAL"])
+def test_unknown_exit_models_rejected(model):
+    q = {"exit_model": model, "family": "VWAP_REVERSION", "confirmation": "SESSION_REQUIRED"}
+    with pytest.raises(ValueError, match="P2296E_INVALID_EXIT_MODEL"):
+        _functions()["simulate"]([], q)
