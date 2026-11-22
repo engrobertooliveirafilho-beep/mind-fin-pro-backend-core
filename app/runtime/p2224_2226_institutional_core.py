@@ -51,8 +51,11 @@ class MarketDigitalTwin:
             if not math.isfinite(next_price) or next_price <= 0:
                 raise RuntimeError("P2225_INVALID_MARKET_PRICE")
             updated[k] = next_price
+        display = {k: round(v, 5 if k == "EURUSD" else 2) for k, v in updated.items()}
+        if any(v <= 0 for v in display.values()):
+            raise RuntimeError("P2225_INVALID_DISPLAY_PRICE")
         self.assets = updated
-        return {k: round(v, 2) for k, v in self.assets.items()}
+        return display
 
 # ============================================================
 # P2226 — STRATEGY EVOLUTION ENGINE
