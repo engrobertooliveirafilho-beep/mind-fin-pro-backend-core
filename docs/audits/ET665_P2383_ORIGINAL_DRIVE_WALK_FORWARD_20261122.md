@@ -227,3 +227,10 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Corrected existing `app/runtime/portfolio_runtime.py` to reject `type(day) is not date` and `day <= account.day` before marking. Commit `be0491cc29f27885ffc8dd91bf34bc2d0956e9a8`.
 - Added three tests in `tests/test_ftmo_portfolio_direct_rollover.py` commit `e80904145ed933981132c2b17373526d1f1e9306`: datetime rejection without equity/audit mutation, earlier date rejection without mutation, valid rollover re-marks open position.
 - Executed in reconstructed local `/mnt/data/et_integrated`: `PYTHONPATH=. python -m unittest discover -s original_tests -q` **31/31 PASS** and `PYTHONPATH=. python -m unittest discover -s tests -q` **18/18 PASS**, total **49/49 PASS**. Not a clean checkout or E2E certification. PAPER_ONLY; main/production/Drive unchanged.
+
+
+## Direct V2 account date safety and authoritative V2 audit — 2026-11-22
+- Recovered original Drive PAPER guard V2 folder `1YJKPzft3z-niELyNP78wkVbFmV-cekOq` and `V2_AUDIT.json` ID `15QBj75OOMIL7xNqXINrMA5OBTQQBa5oe`: historical **21 tests PASS, 0 FAIL**, but explicitly `integration_with_canonical_runtime=NOT_EXECUTED`, `ftmo_readiness=NOT_CERTIFIED`, missing account timezone-specific day reset, independent market campaign, broker integration, automatic open-position marking, worst-case slippage and official FTMO rule equivalence. These are documentary limits, not newly verified behavior.
+- Corrected `app/runtime/ftmo_paper_guard.py` `PaperAccount.new_day` to reject `datetime` before any day mutation; commit `0797f5a70e9253469ec76725dd565fb102058167`. Added three direct-account date tests `tests/test_ftmo_account_day_contract.py` commit `47df0e13b3ae8f799689795ad2ac5fed808e9e82`.
+- Executed locally in reconstructed `/mnt/data/et_integrated`: **31/31 historical + 21/21 integration = 52/52 PASS**, no clean checkout, no E2E.
+- FTMO timezone-specific day reset remains a known explicit V2 limitation; no claim of official FTMO compliance or real-order readiness. PAPER_ONLY, Drive originals immutable, main and production untouched.
