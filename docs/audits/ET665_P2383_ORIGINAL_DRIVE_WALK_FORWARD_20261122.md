@@ -72,3 +72,8 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - **Verification boundary:** changes published, but the 6 new regression cases have NOT been executed in this pass. The previous 15/15 isolated tests do not certify the new changes. Raw GitHub checkout from this execution environment was unavailable (DNS failure), so a clean-checkout test is still pending.
 - P2381 original source still not recovered: Drive search located P2381 output folder, run log and historical test-output folders, but no executable source. Do not infer engine implementation from folder names or historical `CERTIFIED` labels.
 - No performance certification, strategy promotion, merge, real orders, production changes or cost.
+
+
+### Additional isolated logic verification
+- Executed the six new negative cases in an independent Python harness reproducing the new validation logic: **6/6 PASS**.
+- This verifies only the extracted guard logic, NOT the published module in an authenticated checkout and NOT the entire P2383 test suite. Historical original-CSV integration is not reexecuted in this pass.
