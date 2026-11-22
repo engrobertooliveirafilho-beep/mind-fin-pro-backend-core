@@ -29,7 +29,7 @@ def test_book_rejects_nonpositive_bid_without_mutation(monkeypatch):
     from app.runtime.p2224_2226_institutional_core import OrderBookSimulator
     book = OrderBookSimulator()
     monkeypatch.setattr("app.runtime.p2224_2226_institutional_core.random.uniform", lambda a, b: -200.0)
-    with pytest.raises(RuntimeError, match="P2224_INVALID_BOOK"):
+    with pytest.raises(RuntimeError, match="P2224_INVALID_BOOK_SHOCK"):
         book.update_book()
     assert (book.bid, book.ask) == (100.0, 100.2)
 
@@ -38,7 +38,7 @@ def test_market_rejects_negative_eurusd_atomically(monkeypatch):
     twin = MarketDigitalTwin()
     before = dict(twin.assets)
     monkeypatch.setattr("app.runtime.p2224_2226_institutional_core.random.uniform", lambda a, b: -10.0)
-    with pytest.raises(RuntimeError, match="P2225_INVALID_MARKET_PRICE"):
+    with pytest.raises(RuntimeError, match="P2225_INVALID_MARKET_SHOCK"):
         twin.step()
     assert twin.assets == before
 
@@ -48,7 +48,7 @@ def test_strategy_nan_mutation_is_atomic(monkeypatch):
     original = [dict(s) for s in engine.strategies]
     values = iter([1.0, math.nan, 1.0])
     monkeypatch.setattr("app.runtime.p2224_2226_institutional_core.random.uniform", lambda a, b: next(values))
-    with pytest.raises(RuntimeError, match="P2226_INVALID_STRATEGY_SCORE"):
+    with pytest.raises(RuntimeError, match="P2226_INVALID_STRATEGY_MUTATION"):
         engine.evolve()
     assert engine.strategies == original
 
@@ -67,3 +67,32 @@ def test_default_run_is_stable_with_maximum_negative_shocks(monkeypatch):
     result = run()
     assert result["cycles"] == 30
     assert result["status"] == "SIMULATION_ONLY_NOT_CERTIFIED"
+
+
+@pytest.mark.parametrize("bad", [float("nan"), float("inf"), True, "0", 999])
+def test_book_rejects_malformed_shocks(monkeypatch, bad):
+    from app.runtime.p2224_2226_institutional_core import OrderBookSimulator
+    book = OrderBookSimulator()
+    monkeypatch.setattr("app.runtime.p2224_2226_institutional_core.random.uniform", lambda a, b: bad)
+    with pytest.raises(RuntimeError, match="P2224_INVALID_BOOK_SHOCK"):
+        book.update_book()
+    assert (book.bid, book.ask) == (100.0, 100.2)
+
+@pytest.mark.parametrize("bad", [float("nan"), float("inf"), True, "0", 999])
+def test_market_rejects_malformed_shocks(monkeypatch, bad):
+    from app.runtime.p2224_2226_institutional_core import MarketDigitalTwin
+    twin = MarketDigitalTwin()
+    initial = dict(twin.assets)
+    monkeypatch.setattr("app.runtime.p2224_2226_institutional_core.random.uniform", lambda a, b: bad)
+    with pytest.raises(RuntimeError, match="P2225_INVALID_MARKET_SHOCK"):
+        twin.step()
+    assert twin.assets == initial
+
+@pytest.mark.parametrize("bad", [float("nan"), float("inf"), True, "0", 999])
+def test_strategy_rejects_malformed_mutations(monkeypatch, bad):
+    engine = StrategyEvolutionEngine()
+    initial = [dict(s) for s in engine.strategies]
+    monkeypatch.setattr("app.runtime.p2224_2226_institutional_core.random.uniform", lambda a, b: bad)
+    with pytest.raises(RuntimeError, match="P2226_INVALID_STRATEGY_MUTATION"):
+        engine.evolve()
+    assert engine.strategies == initial
