@@ -6,6 +6,10 @@ it does not claim performance or promote strategies.
 """
 from datetime import datetime
 
+REQUIRED_MODE = "PAPER_ONLY"
+REQUIRED_FORBIDDEN = "FORBIDDEN"
+REQUIRED_WARNING = "PAPER_FEEDBACK_PROXY_NOT_REAL_PNL"
+
 REQUIRED=500
 
 def _parse_time(value):
@@ -26,6 +30,18 @@ def chronological_folds(rows, *, source_mission, test_windows=5, initial_train_f
         if not isinstance(row,dict) or not row.get("signal_id") or row["signal_id"] in seen:
             raise ValueError("P2383_DUPLICATE_OR_MISSING_SIGNAL_ID")
         seen.add(row["signal_id"])
+        # Fail closed for the canonical Drive feedback schema. Legacy synthetic
+        # unit fixtures without safety metadata remain supported, but any
+        # partial metadata must be rejected rather than silently accepted.
+        safety = ("mode", "real_orders", "ftmo_real", "warning")
+        present = [name for name in safety if name in row]
+        if present and len(present) != len(safety):
+            raise ValueError("P2383_INCOMPLETE_PAPER_SAFETY_METADATA")
+        if present and (row["mode"] != REQUIRED_MODE
+                        or row["real_orders"] != REQUIRED_FORBIDDEN
+                        or row["ftmo_real"] != REQUIRED_FORBIDDEN
+                        or row["warning"] != REQUIRED_WARNING):
+            raise ValueError("P2383_UNSAFE_OR_NONPROXY_FEEDBACK")
         if "realized_r" not in row or not row.get("entry_time"):
             raise ValueError("P2383_MISSING_OUTCOME_OR_TIME")
         try: realized=float(row["realized_r"])
@@ -40,6 +56,13 @@ def chronological_folds(rows, *, source_mission, test_windows=5, initial_train_f
     remaining=n-train_end
     if remaining<test_windows:
         raise ValueError("P2383_INSUFFICIENT_TEST_ROWS")
+    # Never split rows sharing a timestamp across train/test or test/test.
+    # Equal-time records have no defensible ordering for causal learning.
+    boundaries = [train_end + (remaining * k) // test_windows
+                  for k in range(test_windows)] + [n]
+    for pos in boundaries[:-1]:
+        if normalized[pos - 1][0] >= normalized[pos][0]:
+            raise ValueError("P2383_TEMPORAL_TIE_AT_FOLD_BOUNDARY")
     folds=[]
     for k in range(test_windows):
         start=train_end+(remaining*k)//test_windows
