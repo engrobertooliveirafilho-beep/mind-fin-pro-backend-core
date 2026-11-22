@@ -20,3 +20,11 @@ class AccountDayContract(unittest.TestCase):
     def test_valid_day(self):
         self.a.new_day(date(2026,10,30))
         self.assertEqual(self.a.day,date(2026,10,30))
+
+    def test_create_rejects_datetime_initial_day(self):
+        with self.assertRaises(ValueError):
+            PaperAccount.create(self.a.rules,datetime(2026,10,29))
+
+    def test_create_rejects_string_initial_day(self):
+        with self.assertRaises(ValueError):
+            PaperAccount.create(self.a.rules,'2026-10-29')
