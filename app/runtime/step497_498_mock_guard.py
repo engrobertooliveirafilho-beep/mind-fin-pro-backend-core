@@ -22,3 +22,27 @@ def classify_ceo_briefing(payload):
     if inner['state']=='HISTORICAL_MOCK_DATA':
         return {'state':'MOCK_CONTAMINATED_BRIEFING','certified':False}
     return {'state':'UNVERIFIED_DEPENDENCIES','certified':False}
+
+
+class MockDataBlocked(RuntimeError):
+    """A recovered mock engine cannot serve certified PAPER decision data."""
+
+def execute_paper_pipeline(engine):
+    """Execute an explicit source engine and reject historical mock output."""
+    if not callable(engine):
+        raise ValueError('explicit engine callable required')
+    payload=engine()
+    state=classify_pipeline(payload)
+    if not state['certified']:
+        raise MockDataBlocked(state['state'])
+    return payload
+
+def execute_paper_briefing(engine):
+    """Execute an explicit CEO engine and reject unverified or mock dependencies."""
+    if not callable(engine):
+        raise ValueError('explicit engine callable required')
+    payload=engine()
+    state=classify_ceo_briefing(payload)
+    if not state['certified']:
+        raise MockDataBlocked(state['state'])
+    return payload
