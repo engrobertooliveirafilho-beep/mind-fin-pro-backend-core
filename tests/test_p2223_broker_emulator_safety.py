@@ -90,3 +90,15 @@ def test_independent_risk_engine_kill_prevents_market_tick(monkeypatch):
         broker.execute_order("BUY", 1)
     assert broker.killed
     assert broker.trades == []
+
+@pytest.mark.parametrize("bad_pnl", [math.nan, math.inf, -math.inf, True, "bad"])
+def test_invalid_execution_pnl_never_records_trade(bad_pnl, monkeypatch):
+    broker = BrokerEmulator()
+    monkeypatch.setattr(broker.market, "tick", lambda: 100.0)
+    calls = iter([0.0, bad_pnl])
+    monkeypatch.setattr("app.runtime.p2223_broker_emulator.random.uniform", lambda a, b: next(calls))
+    with pytest.raises(RuntimeError, match="P2223_INVALID_EXECUTION_PNL"):
+        broker.execute_order("BUY", 1)
+    assert broker.trades == []
+    assert broker.risk.equity == 100000
+    assert broker.killed and broker.risk.killed
