@@ -210,54 +210,50 @@ class RiskEngine:
 class PortfolioRebalancing:
     def evaluate(self, specialists: List[Dict[str, Any]]) -> GovernanceDecision:
         assert_no_financial_execution()
-
-        n = len(specialists)
-        target_weight = round(1 / max(n, 1), 8)
+        from app.runtime.p2067_allocation_contract import reconcile_p2067_weights
         allocation = {}
-
-        for idx, spec in enumerate(specialists):
-            sid = str(spec.get("id") or spec.get("specialist_id") or f"REALDNA_{idx+1}")
-            allocation[sid] = target_weight
-
-        ok = n >= 3 and abs(sum(allocation.values()) - 1.0) <= 0.0001
-
+        try:
+            evidence = reconcile_p2067_weights(specialists)
+            allocation = {str(spec.get("id") or spec.get("specialist_id")):
+                          float(spec["normalized_weight"]) for spec in specialists}
+            ok = len(specialists) >= 3
+            reason = "CANONICAL_ALLOCATION_RECONCILED" if ok else "INSUFFICIENT_SPECIALISTS"
+        except (ValueError, KeyError, TypeError) as exc:
+            evidence = {"error": str(exc)}
+            ok = False
+            reason = "CANONICAL_ALLOCATION_NOT_CERTIFIED"
         return GovernanceDecision(
             component="P2085_PORTFOLIO_REBALANCING",
-            status="PASS" if ok else "FAIL",
-            reason="REBALANCING_MODEL_OK" if ok else "REBALANCING_MODEL_FAIL",
-            payload={
-                "specialists": n,
-                "allocation": allocation,
-                "allocation_sum": round(sum(allocation.values()), 8),
-            },
+            status="PASS" if ok else "FAIL", reason=reason,
+            payload={"specialists": len(specialists), "allocation": allocation,
+                     "reconciliation": evidence, "rebalancing_executed": False},
         )
 
 
 class CapitalAllocation:
     def evaluate(self, specialists: List[Dict[str, Any]], equity: float) -> GovernanceDecision:
         assert_no_financial_execution()
-
-        n = len(specialists)
-        per_specialist = equity / max(n, 1)
-
+        from app.runtime.p2067_allocation_contract import reconcile_p2067_weights
         allocation = {}
-
-        for idx, spec in enumerate(specialists):
-            sid = str(spec.get("id") or spec.get("specialist_id") or f"REALDNA_{idx+1}")
-            allocation[sid] = round(per_specialist, 2)
-
-        ok = n >= 3 and equity > 0
-
+        try:
+            evidence = reconcile_p2067_weights(specialists)
+            if isinstance(equity, bool) or not isinstance(equity, (int, float)) or not math.isfinite(equity) or equity <= 0:
+                raise ValueError("P2086_EQUITY_INVALID")
+            allocation = {str(spec.get("id") or spec.get("specialist_id")):
+                          round(equity * float(spec["normalized_weight"]), 2)
+                          for spec in specialists}
+            ok = len(specialists) >= 3
+            reason = "CANONICAL_CAPITAL_ALLOCATION_RECONCILED" if ok else "INSUFFICIENT_SPECIALISTS"
+        except (ValueError, KeyError, TypeError) as exc:
+            evidence = {"error": str(exc)}
+            ok = False
+            reason = "CANONICAL_CAPITAL_ALLOCATION_NOT_CERTIFIED"
         return GovernanceDecision(
             component="P2086_CAPITAL_ALLOCATION",
-            status="PASS" if ok else "FAIL",
-            reason="CAPITAL_ALLOCATION_OK" if ok else "CAPITAL_ALLOCATION_FAIL",
-            payload={
-                "equity": round(equity, 2),
-                "specialists": n,
-                "capital_per_specialist": round(per_specialist, 2),
-                "allocation": allocation,
-            },
+            status="PASS" if ok else "FAIL", reason=reason,
+            payload={"equity": equity, "specialists": len(specialists),
+                     "allocation": allocation, "reconciliation": evidence,
+                     "financial_execution": "DISABLED"},
         )
 
 
