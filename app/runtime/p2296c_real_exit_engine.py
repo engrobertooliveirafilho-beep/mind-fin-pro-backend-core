@@ -39,6 +39,20 @@ def signal(row):
 def simulate(rows,exit_model):
     if exit_model not in ("TIME_EXIT", "ATR_TARGET", "RR_2_TO_1"):
         raise ValueError("P2296C_INVALID_EXIT_MODEL")
+    import math
+    if not isinstance(rows, (list, tuple)):
+        raise ValueError("P2296C_INVALID_ROWS")
+    for row in rows:
+        if not isinstance(row, dict):
+            raise ValueError("P2296C_INVALID_ROWS")
+        for field in ("open", "high", "low", "close", "atr_14", "body_pct"):
+            value = row.get(field)
+            if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
+                raise ValueError("P2296C_INVALID_MARKET_ROW")
+        if not (0 < row["low"] <= min(row["open"], row["close"]) <= max(row["open"], row["close"]) <= row["high"]):
+            raise ValueError("P2296C_INVALID_OHLC")
+        if row["atr_14"] < 0:
+            raise ValueError("P2296C_INVALID_ATR")
     trades=[]
     max_hold=8
 
