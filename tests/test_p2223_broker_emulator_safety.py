@@ -80,3 +80,13 @@ def test_invalid_market_execution_latches_without_trade(price, slippage, monkeyp
     assert broker.killed and broker.risk.killed
     assert broker.trades == []
     assert broker.risk.equity == 100000
+
+
+def test_independent_risk_engine_kill_prevents_market_tick(monkeypatch):
+    broker = BrokerEmulator()
+    broker.risk.killed = True
+    monkeypatch.setattr(broker.market, "tick", lambda: pytest.fail("tick after risk kill"))
+    with pytest.raises(RuntimeError, match="P2223_RISK_KILL_LATCHED"):
+        broker.execute_order("BUY", 1)
+    assert broker.killed
+    assert broker.trades == []
