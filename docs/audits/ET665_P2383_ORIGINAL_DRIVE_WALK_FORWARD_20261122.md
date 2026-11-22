@@ -405,3 +405,10 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Added HTTP regression to existing `tests/test_paper_finance_routes_http.py` to assert original mock-engine import is absent, commit `45dbcbd840b99e163b2567b64e90821f42631c06`.
 - Executed local `python -m unittest discover -s tests -p 'test_*.py' -v` in `/mnt/data/et_step_runtime`: **18/18 PASS, 0 FAIL, 0.029s**, log `/mnt/data/ET665_20261122_paper_http_regression.log`. Local test workspace uses simplified recovered STEP497 file, not clean exact GitHub checkout; HTTP router no longer imports it. No E2E claim.
 - Original Drive STEP493/495/496/497/498 are mock data; no real metrics or certified live decisioning introduced. Main and production untouched, PAPER_ONLY, REAL_ORDERS=FORBIDDEN, FTMO_REAL=FORBIDDEN, COST=R$0.
+
+
+## Finance STEP identity spoofing corrected — 2026-11-22
+- Reopened original Drive STEP139 source ID `178we-IFCNAwy_vWNTRXBaC-rcbzAFgR0`, 296 characters: Python module docstring explicitly says approved stub and future real logic; literal `STEP_ID = 139`, `STEP_STATUS = "approved_stub"`. The old `finance_step_reconciliation.py` used substring matching and was vulnerable to `1399` identity collision and comment spoofing.
+- Updated existing `app/runtime/finance_step_reconciliation.py` commit `d76390419eb70ff3fe056b90aee5a14ddc618488` to parse Python AST, require exact integer literal STEP_ID, reject duplicate assignments and nonliteral metadata, and only classify original stub when its module-level docstring states future implementation. Existing 13-step registry remains intact and all `certified` remain false.
+- Updated existing `tests/test_finance_step_reconciliation.py` commit `ad011eacb8d81d0a72a8334b38e4a02b769e1422` with 5 adversarial cases (prefix collision, spoofed comment, duplicate STEP_ID, comment-only stub marker, dynamic metadata). **Not yet executed against published source**; no PASS claimed.
+- No changes to original Drive or production; branch isolated, PAPER_ONLY, REAL_ORDERS=FORBIDDEN, FTMO_REAL=FORBIDDEN, E2E_CERTIFIED=FALSE, COST=R$0.
