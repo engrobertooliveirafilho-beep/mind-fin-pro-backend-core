@@ -14,6 +14,8 @@ class CrisisEngine:
         if isinstance(price, bool) or not isinstance(price, (int, float)) or not math.isfinite(price) or price <= 0:
             raise ValueError("P2227_INVALID_PRICE")
         event = random.choice(["NONE","CRASH","SPIKE","LIQUIDITY_DRAIN"])
+        if event not in ("NONE", "CRASH", "SPIKE", "LIQUIDITY_DRAIN"):
+            raise RuntimeError("P2227_INVALID_CRISIS_EVENT")
 
         if event == "CRASH":
             price *= (1 - random.uniform(0.05, 0.2))
@@ -22,9 +24,12 @@ class CrisisEngine:
         elif event == "LIQUIDITY_DRAIN":
             price *= (1 + random.uniform(-0.02, 0.02))
 
-        if not math.isfinite(price) or price <= 0:
+        if not math.isfinite(price) or price < 0.005:
             raise RuntimeError("P2227_INVALID_CRISIS_PRICE")
-        return round(price, 2), event
+        rounded_price = round(price, 2)
+        if rounded_price <= 0:
+            raise RuntimeError("P2227_INVALID_CRISIS_PRICE")
+        return rounded_price, event
 
 
 # ============================================================
