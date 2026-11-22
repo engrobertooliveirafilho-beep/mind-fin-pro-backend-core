@@ -158,3 +158,5 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Published `app/runtime/ftmo_execution_v6.py` commit `27e4a3330cfa1167fc34679d31b7443f7ef3895e` and `tests/test_ftmo_execution_v6_intrabar.py` commit `ed3e3431215d9048c5c861ab0b40af87a24c8dcf`.
 - Local isolated reconstruction `/mnt/data/et_integrated`: **31/31 PASS** original historical V4/V5/V6/Portfolio tests (8+8+5+10) and **3/3 PASS** existing integrated tests, via `PYTHONPATH=. python -m unittest discover -s original_tests -q` and `PYTHONPATH=. python -m unittest discover -s tests -q`. The three new V6 regression cases were published but were not yet executed against a clean GitHub checkout.
 - V6 remains conservative OHLC worst-case proxy, not a tick-level reconstruction or FTMO E2E certification. PAPER only; main and production unchanged.
+
+- Follow-up execution: new V6 regressions also executed locally with matching reconstructed source and tests: **6/6 PASS** (3 V6 + 3 integration), `PYTHONPATH=. python -m unittest discover -s tests -v`, 0.001s. Combined original 31 + integrated 6 = **37/37 PASS** across two offline invocations. This is not a clean GitHub checkout or E2E.
