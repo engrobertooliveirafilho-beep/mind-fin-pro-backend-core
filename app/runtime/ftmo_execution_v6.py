@@ -23,7 +23,7 @@ class ExecutionV6(ExecutionV5):
             if not all(x.is_finite() and x>0 for x in v.values()) or v['low']>min(v['open'],v['close']) or v['high']<max(v['open'],v['close']) or v['low']>v['high']:
                 raise ValueError('invalid OHLC')
             validated[pid]=v
-        if day is not None and not isinstance(day, date):
+        if day is not None and type(day) is not date:
             raise ValueError('invalid day')
         if day is not None and day < self.portfolio.account.day:
             raise ValueError('time reversal')
