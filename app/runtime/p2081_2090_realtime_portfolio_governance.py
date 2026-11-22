@@ -243,8 +243,9 @@ class CapitalAllocation:
             allocation = {str(spec.get("id") or spec.get("specialist_id")):
                           round(equity * float(spec["normalized_weight"]), 2)
                           for spec in specialists}
-            ok = len(specialists) >= 3
-            reason = "CANONICAL_CAPITAL_ALLOCATION_RECONCILED" if ok else "INSUFFICIENT_SPECIALISTS"
+            # A computed allocation is a proposal, not proof of applied capital.
+            ok = False
+            reason = "CAPITAL_ALLOCATION_NOT_EXECUTED" if len(specialists) >= 3 else "INSUFFICIENT_SPECIALISTS"
         except (ValueError, KeyError, TypeError) as exc:
             evidence = {"error": str(exc)}
             ok = False
@@ -254,7 +255,7 @@ class CapitalAllocation:
             status="PASS" if ok else "FAIL", reason=reason,
             payload={"equity": equity, "specialists": len(specialists),
                      "allocation": allocation, "reconciliation": evidence,
-                     "financial_execution": "DISABLED"},
+                     "financial_execution": "DISABLED", "allocation_executed": False},
         )
 
 
