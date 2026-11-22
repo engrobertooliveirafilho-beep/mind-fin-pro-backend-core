@@ -61,3 +61,15 @@ def test_historical_drawdown_must_be_valid(value):
     payload["metrics"]["max_drawdown_pct"]=value
     with pytest.raises(ValueError, match="P2071_MAX_DRAWDOWN"):
         extract_runtime_metrics(payload)
+
+def test_p2089_runs_behavioral_failure_scenarios(monkeypatch):
+    from app.runtime.p2081_2090_realtime_portfolio_governance import (
+        FailureSimulation, ABSOLUTE_LOCKS,
+    )
+    for k,v in ABSOLUTE_LOCKS.items():
+        monkeypatch.setenv(k,v)
+    result=FailureSimulation().evaluate(extract_runtime_metrics(baseline()))
+    assert result.status == "PASS"
+    assert len(result.payload) == 4
+    assert all(result.payload.values())
+    assert result.reason == "BEHAVIORAL_FAILURE_SIMULATION_OK"
