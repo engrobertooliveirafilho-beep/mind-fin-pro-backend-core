@@ -61,3 +61,14 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Original Drive integration test `tests/test_p2383_original_drive_population.py` remains unexecuted in this follow-up; no P2381 source code recovered, no train-only replay, no performance certification.
 - GitHub published source commit `92cd5f8f7024bb8037b029cc6d62afd6b65bac8d`; regression commit `508d0c25dfcfb150a89a973a322ba4d8d20bab3a`.
 - Scope: PAPER_ONLY; no merge, production, real orders, FTMO real, or paid infrastructure.
+
+
+## Additional fail-closed audit (2026-11-21)
+- Found a remaining bypass: the prior safety check accepted a mixed population where one row declared the canonical PAPER safety fields and the other 499 omitted them. Such a population could be accepted despite unverifiable source mode.
+- Found an exception-handling defect: unhashable `signal_id` values such as lists or dictionaries could raise `TypeError` rather than the intended deterministic `ValueError`.
+- Fixed `chronological_folds` to require consistent safety-field presence across all 500 rows and nonblank string signal IDs.
+- Added 6 regression cases: one mixed-schema case and five malformed-ID cases.
+- GitHub commits: source `3bb317580c755321cb21dd80f7b7ebba20b93b08`; tests `33dfe4325a5f8b0c2a2180649aaeb84a2f6c6fa1`.
+- **Verification boundary:** changes published, but the 6 new regression cases have NOT been executed in this pass. The previous 15/15 isolated tests do not certify the new changes. Raw GitHub checkout from this execution environment was unavailable (DNS failure), so a clean-checkout test is still pending.
+- P2381 original source still not recovered: Drive search located P2381 output folder, run log and historical test-output folders, but no executable source. Do not infer engine implementation from folder names or historical `CERTIFIED` labels.
+- No performance certification, strategy promotion, merge, real orders, production changes or cost.
