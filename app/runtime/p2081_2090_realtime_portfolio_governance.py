@@ -317,28 +317,28 @@ class FailureSimulation:
     def evaluate(self, runtime: Dict[str, Any]) -> GovernanceDecision:
         assert_no_financial_execution()
 
+        # Exercise real governance engines instead of trusting hard-coded PASS flags.
+        exposure_breach = dict(runtime, open_positions=4)
+        drawdown_breach = dict(runtime, drawdown_pct=-0.06,
+                               max_drawdown_pct=max(runtime["max_drawdown_pct"], 0.06))
+        historical_breach = dict(runtime, drawdown_pct=0.0,
+                                max_drawdown_pct=0.08)
         simulations = {
-            "missing_runtime_metrics": False,
-            "exposure_limit_breach_detected": True,
-            "drawdown_limit_breach_detected": True,
-            "paper_only_locks_enforced": True,
-            "state_serialization_recovery": True,
+            "exposure_limit_breach_detected":
+                ExposureMonitor().evaluate(exposure_breach).status == "FAIL",
+            "drawdown_limit_breach_detected":
+                RiskEngine().evaluate(drawdown_breach).status == "FAIL",
+            "historical_drawdown_breach_detected":
+                RiskEngine().evaluate(historical_breach).status == "FAIL",
+            "historical_anomaly_detected":
+                "DRAWDOWN_OVER_LIMIT" in AnomalyDetection().evaluate(historical_breach).payload["anomalies"],
         }
-
-        ok = all(v is True for v in simulations.values() if isinstance(v, bool) and v is not False)
-
-        # missing_runtime_metrics intentionally false means fallback path was not needed.
-        ok = (
-            simulations["exposure_limit_breach_detected"]
-            and simulations["drawdown_limit_breach_detected"]
-            and simulations["paper_only_locks_enforced"]
-            and simulations["state_serialization_recovery"]
-        )
+        ok = all(simulations.values())
 
         return GovernanceDecision(
             component="P2089_FAILURE_SIMULATION",
             status="PASS" if ok else "FAIL",
-            reason="FAILURE_SIMULATION_OK" if ok else "FAILURE_SIMULATION_FAIL",
+            reason="BEHAVIORAL_FAILURE_SIMULATION_OK" if ok else "FAILURE_SIMULATION_FAIL",
             payload=simulations,
         )
 
