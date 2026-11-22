@@ -368,3 +368,10 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Actual local execution: first run 9 tests / **1 FAIL** because the local guard was still an older one-line version; corrected the local copy to match published guard, reran **9/9 PASS**, 0 FAIL, Python unittest. Source content in local test was manually reconstructed from Drive logic, not byte-identical; HTTP and E2E not executed.
 - Caveat: preflight matching by Python `__module__` and `__name__` is not cryptographic source provenance. A renamed engine could still run before output rejection; the trusted invocation boundary is not integrated into original FastAPI routers. No claims of production certification.
 - PAPER_ONLY, MAIN=INTACTA, PRODUCTION=INTACTA, REAL_ORDERS=FORBIDDEN, E2E_CERTIFIED=FALSE, COST=R$0.
+
+
+## Isolated PAPER HTTP integration — 2026-11-22
+- Published `app/runtime/paper_finance_routes.py` commit `ef3f10cf885dee9a5ebda701ec68a3a3a4fd4da7`. Defines isolated FastAPI `GET /paper/finance/pipeline` using the existing STEP497 mock guard; rejects known recovered mock engine before invocation with HTTP 503. Defines `GET /paper/finance/ceo-briefing` as fail-closed 503 because original STEP498 imports unverified dependencies and STEP497 is mock. No production router mount, no real order endpoints.
+- Published `tests/test_paper_finance_routes_http.py` commit `2fab1d337df360d650df7fddb434062151462bde`. Executed the same published HTTP router and test text in local reconstructed `/mnt/data/et_step_runtime` using Python unittest, FastAPI TestClient: **8/8 PASS**, 0 failures, 0.042s. Verified both 503 responses, no mock metrics in responses, and absence of real order and original unguarded routes.
+- Scope: isolated app integration, not the existing production `app.main`; local STEP497 original file is a simplified reconstruction, though known-source provenance preflight prevents its execution in this path. Not historical E2E certification.
+- PAPER_ONLY=TRUE, REAL_ORDERS=FORBIDDEN, FTMO_REAL=FORBIDDEN, MAIN=INTACTA, PRODUCTION=INTACTA, DRIVE_ORIGINALS=READ_ONLY, E2E_CERTIFIED=FALSE, COST=R$0.
