@@ -170,7 +170,9 @@ def test_p2085_p2086_preserve_certified_non_equal_weights(monkeypatch):
     assert rebalance.reason=="REBALANCING_NOT_EXECUTED"
     assert rebalance.payload["rebalancing_executed"] is False
     assert rebalance.payload["allocation"]=={"s1":0.5,"s2":0.3,"s3":0.2}
-    assert capital.status=="PASS"
+    assert capital.status=="FAIL"
+    assert capital.reason=="CAPITAL_ALLOCATION_NOT_EXECUTED"
+    assert capital.payload["allocation_executed"] is False
     assert capital.payload["allocation"]=={"s1":50000.,"s2":30000.,"s3":20000.}
 
 def test_p2087_never_overwrites_conflicting_checkpoint(tmp_path, monkeypatch):
