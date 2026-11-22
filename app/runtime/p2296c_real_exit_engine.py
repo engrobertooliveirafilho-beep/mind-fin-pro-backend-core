@@ -25,8 +25,8 @@ def load(path):
                     "spread_state":r["spread_state"],
                     "trend_21_55":r["trend_21_55"]
                 })
-            except:
-                pass
+            except (KeyError, ValueError, TypeError) as exc:
+                raise ValueError(f"P2296C_INVALID_FEATURE_ROW_{len(rows)+2}") from exc
     return rows
 
 def signal(row):
