@@ -4,7 +4,7 @@ Recovered from Drive EXECUTION_V4 (file 1PUorE7pvNKMNKNNoqUJ07l73jPgB-vgD).
 Original SHA256: 32ec8af253054f0d44c1daac6579e4d55b247c6de9f565c54009f596f3ace365.
 ET-019 remediation: mark all positions at one bar snapshot before sequential exits.
 """
-from ftmo_paper_guard import D
+from .ftmo_paper_guard import D
 
 class ExecutionV4:
     def __init__(self, portfolio):
