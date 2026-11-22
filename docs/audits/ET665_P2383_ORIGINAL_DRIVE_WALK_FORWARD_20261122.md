@@ -190,3 +190,11 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - Fix: `breach = bool(validated) and account.balance+worst <= max(daily_floor,total_floor)` in `app/runtime/ftmo_execution_v6.py`, commit `e6e00aa02e0323b5e900ea1e0f3e0366f3cc445a`. Preserves historical `halted=True` while preventing fabricated new intrabar event.
 - Regression published in `tests/test_ftmo_execution_v6_intrabar.py`, commit `d4ac9338e0d177fdfa125e878bfa9918e8d06c2d`. Local reconstructed matching sources/tests **7/7 PASS** via `PYTHONPATH=. python -m unittest discover -s tests -v` in `/mnt/data/et_integrated`.
 - Test environment is isolated, not a clean GitHub checkout. Original Drive files unmodified. No real orders, production mutation, merge, or E2E certification.
+
+
+## V6 datetime/day fail-closed regression — 2026-11-22
+- Reproduced locally using reconstructed package `/mnt/data/et_integrated`: `ExecutionV6.process_bar({}, day=datetime(2026,10,30))` raised Python `TypeError` during comparison against `date(2026,10,29)`; `isinstance(datetime,date)` was too permissive.
+- Changed V6 day gate to `type(day) is date`, rejecting datetime before any account mutation. Source commit `2e67839a7871707eb52571ece738c00d43d3a0c3`.
+- Added `test_datetime_day_rejected_before_mutation` to V6 regressions, test commit `9725b9a9d232b320655b3cea1ac6bcba39d8b81a`.
+- Ran `PYTHONPATH=. python -m unittest discover -s tests -v` in `/mnt/data/et_integrated`: **8/8 PASS**, 0 failures. This is reconstructed isolated code, not a clean GitHub checkout.
+- Drive search for FTMO_PAPER, DUAL_MODE_ENGINE, EXECUTION_V9 and RISK_ENGINE found noisy historic evidence but no newly certified Trader agent/STEP. Original Drive files untouched, no real orders, no merge, E2E false.
