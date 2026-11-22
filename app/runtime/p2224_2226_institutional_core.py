@@ -62,14 +62,18 @@ class StrategyEvolutionEngine:
         ]
 
     def evolve(self):
+        updated = []
         for s in self.strategies:
             mutation = random.uniform(-5, 5)
-            s["score"] += mutation
+            score = s["score"] + mutation
+            if not math.isfinite(score):
+                raise RuntimeError("P2226_INVALID_STRATEGY_SCORE")
+            updated.append({**s, "score": score})
 
-        self.strategies.sort(key=lambda x: x["score"], reverse=True)
+        updated.sort(key=lambda x: x["score"], reverse=True)
 
         # prune worst
-        self.strategies = self.strategies[:3]
+        self.strategies = updated[:3]
 
         return [dict(s) for s in self.strategies]
 
