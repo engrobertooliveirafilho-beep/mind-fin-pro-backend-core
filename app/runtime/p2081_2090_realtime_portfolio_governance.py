@@ -274,6 +274,12 @@ class PortfolioRecovery:
             directory.mkdir(parents=True, exist_ok=True)
             checkpoint = directory / "governance_state.json"
             temporary = directory / "governance_state.json.tmp"
+            # A prior checkpoint is immutable evidence. A different state
+            # must not silently overwrite it and erase recovery provenance.
+            if checkpoint.exists():
+                existing = checkpoint.read_bytes()
+                if hashlib.sha256(existing).hexdigest() != expected_sha256:
+                    raise RuntimeError("P2087_EXISTING_CHECKPOINT_CONFLICT")
             with temporary.open("wb") as stream:
                 stream.write(encoded)
                 stream.flush()
