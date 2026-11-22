@@ -29,6 +29,19 @@ class TestSimBrokerStatic(unittest.TestCase):
         self.assertIn("ACCEPTED,SIM_BROKER", self.source)
         self.assertIn("REAL_ORDERS=FORBIDDEN", self.source)
 
+    def test_ledger_header_failure_blocks_startup(self):
+        self.assertIn("if(!EnsureLedgerHeader()) return INIT_FAILED;", self.source)
+        self.assertIn("return n==StringLen(header);", self.source)
+
+    def test_csv_quotes_raw_signal(self):
+        self.assertIn("CsvField(raw)", self.source)
+        self.assertIn("CsvField(tag)", self.source)
+        self.assertIn('StringReplace(value,"\\\"","\\\"\\\"")', self.source)
+
+    def test_strict_lot_grammar(self):
+        self.assertIn("StringGetCharacter(lot_raw,i)", self.source)
+        self.assertIn("NormalizeDouble(lot,2)<=0.0", self.source)
+
     def test_validate_lot_and_symbol(self):
         self.assertIn("MathIsValidNumber(lot)", self.source)
         self.assertIn("SymbolSelect(symbol,true)", self.source)
