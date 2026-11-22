@@ -115,3 +115,13 @@ PR base HEAD: `10b778d64f479698a866774328e306ad704cc77b`
 - **Execution evidence:** 12/12 independent adversarial policy logic checks PASS in Python. The published module's full pytest suite was **not executed in this turn**. Do not conflate independent checks with checked-out source regression certification.
 - Google Drive searches for `gateway_paper.py`, `paper_execution_gateway`, `test_paper_gateway` returned no direct file matches; this does not prove nonexistence across all Drive/GitHub histories. No gateway integration performed.
 - MAIN/production intact; PAPER_ONLY; REAL_ORDERS and FTMO_REAL forbidden; no promotion, merge or paid service.
+
+
+## ET-019: original FTMO ExecutionV4 recovered and stale-mark remediation
+- Read Drive canonical remediation ledger `1WYqMJ-wzqmDWTaRzwJGFk4Hj4b7MuBNR7m0F9ct99mI`: ET-019 identified potential sequential-close stale mark.
+- Recovered actual `ftmo_execution_v4.py` Drive file `1PUorE7pvNKMNKNNoqUJ07l73jPgB-vgD`, original `test_execution_v4.py` `1ZUiegiL4HKf72wp9OuOC0cnK2vlTT3K7`, and original V5 dependency copies `portfolio_runtime.py` `1Oy1Si3--NtCJPpo2FYqCckYrN0b2Fbqd`, `ftmo_pretrade_v2.py` `1qqfIh-m-SciCThEyk2p5bSLmL75vpTLR`, `ftmo_paper_guard.py` `1ugE_FFCfZPeSNJZmcxCxRJcNpFsd2QLk`.
+- Original V4 SHA256 verified locally: `32ec8af253054f0d44c1daac6579e4d55b247c6de9f565c54009f596f3ace365`. Portfolio SHA256 verified `dce707f6727560fa3b89181276e977109b69831b32ad11ae587b9643008ed4fa`.
+- Baseline 8/8 PASS offline using actual original Drive files. Remediated V4 marks all current bar prices (exit prices for exiting positions, close for survivors) in one full portfolio snapshot before calling sequential `close()`.
+- After patch, **10/10 PASS** (8 original V4 tests + 2 adversarial tests), `python -m unittest -v test_execution_v4 test_execution_v4_atomic`, local `/mnt/data/et_v4_lab`, 0.002 s. No real orders.
+- Published recovered/patched source `app/runtime/ftmo_execution_v4.py` commit `bc81023e95f68245b5abc3076ca7611334b27471`; new tests `tests/test_ftmo_execution_v4_atomic.py` commit `a2652bd6bfac7a0372a8ffc73717b21f22defd4a`.
+- **Scope limit:** Tests executed with original Drive module at top-level in isolated staging; GitHub module is under `app.runtime` and its external original dependencies have not yet been published or integrated into canonical package. No clean-checkout CI or E2E certification. Source recovered and behavioral fix PASS offline; integration pending.
