@@ -41,3 +41,13 @@ def test_market_rejects_negative_eurusd_atomically(monkeypatch):
     with pytest.raises(RuntimeError, match="P2225_INVALID_MARKET_PRICE"):
         twin.step()
     assert twin.assets == before
+
+def test_strategy_nan_mutation_is_atomic(monkeypatch):
+    import math
+    engine = StrategyEvolutionEngine()
+    original = [dict(s) for s in engine.strategies]
+    values = iter([1.0, math.nan, 1.0])
+    monkeypatch.setattr("app.runtime.p2224_2226_institutional_core.random.uniform", lambda a, b: next(values))
+    with pytest.raises(RuntimeError, match="P2226_INVALID_STRATEGY_SCORE"):
+        engine.evolve()
+    assert engine.strategies == original
