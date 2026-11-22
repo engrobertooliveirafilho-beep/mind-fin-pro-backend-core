@@ -8,7 +8,7 @@ def baseline():
         "cycles": 1000, "frames_built": 1000, "signals_generated": 30,
         "closed_trades": 12, "open_positions": 0, "initial_equity": 100000.,
         "final_mark_to_market_equity": 100500., "paper_mark_to_market_pnl": 500.,
-        "drawdown_pct": -0.01, "drawdown_abs": -1000., "peak_equity": 101000.,
+        "drawdown_pct": -0.01, "drawdown_abs": -1000., "max_drawdown_pct": 0.02, "peak_equity": 101000.,
         "trough_equity": 99000.,
     }}
 
@@ -39,3 +39,25 @@ def test_signed_drawdown_from_original_p2071_is_preserved():
     actual = extract_runtime_metrics(payload)
     assert actual["drawdown_abs"] == -953.05314
     assert actual["drawdown_pct"] == -0.00953053
+
+def test_historical_drawdown_breach_survives_equity_recovery(monkeypatch):
+    from app.runtime.p2081_2090_realtime_portfolio_governance import (
+        RiskEngine, AnomalyDetection, ABSOLUTE_LOCKS,
+    )
+    for k,v in ABSOLUTE_LOCKS.items():
+        monkeypatch.setenv(k,v)
+    payload=baseline()
+    payload["metrics"]["drawdown_pct"]=-0.001
+    payload["metrics"]["drawdown_abs"]=-100.
+    payload["metrics"]["max_drawdown_pct"]=0.08
+    runtime=extract_runtime_metrics(payload)
+    assert RiskEngine().evaluate(runtime).status == "FAIL"
+    assert "DRAWDOWN_OVER_LIMIT" in AnomalyDetection().evaluate(runtime).payload["anomalies"]
+
+
+@pytest.mark.parametrize("value", [None, float("nan"), -0.01, 1.1])
+def test_historical_drawdown_must_be_valid(value):
+    payload=baseline()
+    payload["metrics"]["max_drawdown_pct"]=value
+    with pytest.raises(ValueError, match="P2071_MAX_DRAWDOWN"):
+        extract_runtime_metrics(payload)
