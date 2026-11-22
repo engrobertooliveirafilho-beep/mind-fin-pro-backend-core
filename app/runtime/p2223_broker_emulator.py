@@ -91,6 +91,12 @@ class BrokerEmulator:
         else:
             pnl = random.uniform(-60, 140)
 
+        # Reject invalid simulated PnL before updating risk state or recording a trade.
+        if isinstance(pnl, bool) or not isinstance(pnl, (int, float)) or not math.isfinite(pnl):
+            self.killed = True
+            self.risk.killed = True
+            raise RuntimeError("P2223_INVALID_EXECUTION_PNL")
+
         risk_status = self.risk.check(pnl)
 
         if risk_status == "KILLED":
