@@ -132,3 +132,41 @@ def test_p2087_persists_atomic_checkpoint_in_paper_directory(tmp_path, monkeypat
     assert json.loads(raw.decode("utf-8"))==state
     assert decision.payload["durable_checkpoint_verified"] is True
     assert decision.status=="FAIL"  # process rehydration is not verified
+
+def test_p2085_p2086_refuse_undeclared_canonical_residual(monkeypatch):
+    from app.runtime.p2081_2090_realtime_portfolio_governance import (
+        PortfolioRebalancing, CapitalAllocation, ABSOLUTE_LOCKS,
+    )
+    for k,v in ABSOLUTE_LOCKS.items():
+        monkeypatch.setenv(k,v)
+    specialists=[
+        {"id":"s1","normalized_weight":0.5},
+        {"id":"s2","normalized_weight":0.249856},
+        {"id":"s3","normalized_weight":0.164287},
+    ]
+    rebalance=PortfolioRebalancing().evaluate(specialists)
+    capital=CapitalAllocation().evaluate(specialists,99046.94686)
+    assert rebalance.status=="FAIL"
+    assert capital.status=="FAIL"
+    assert "P2067_UNDECLARED_RESIDUAL" in rebalance.payload["reconciliation"]["error"]
+    assert not rebalance.payload["allocation"]
+    assert not capital.payload["allocation"]
+
+
+def test_p2085_p2086_preserve_certified_non_equal_weights(monkeypatch):
+    from app.runtime.p2081_2090_realtime_portfolio_governance import (
+        PortfolioRebalancing, CapitalAllocation, ABSOLUTE_LOCKS,
+    )
+    for k,v in ABSOLUTE_LOCKS.items():
+        monkeypatch.setenv(k,v)
+    specialists=[
+        {"id":"s1","normalized_weight":0.5},
+        {"id":"s2","normalized_weight":0.3},
+        {"id":"s3","normalized_weight":0.2},
+    ]
+    rebalance=PortfolioRebalancing().evaluate(specialists)
+    capital=CapitalAllocation().evaluate(specialists,100000.)
+    assert rebalance.status=="PASS"
+    assert rebalance.payload["allocation"]=={"s1":0.5,"s2":0.3,"s3":0.2}
+    assert capital.status=="PASS"
+    assert capital.payload["allocation"]=={"s1":50000.,"s2":30000.,"s3":20000.}
