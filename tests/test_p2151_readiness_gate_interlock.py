@@ -62,3 +62,11 @@ def test_p2151_rejects_ambiguous_certification(tmp_path, payload, code):
     path.write_text(payload,encoding="utf-8")
     with pytest.raises(ValueError,match=code):
         load(str(path))
+
+def test_p2157_self_computed_hashes_cannot_certify(tmp_path, monkeypatch):
+    for k, v in LOCKS.items():
+        monkeypatch.setenv(k, v)
+    monkeypatch.chdir(tmp_path)
+    result = run_p2151_plus(str(tmp_path / "evidence"))
+    assert result["mission_status"]["P2157_EVIDENCE_HASH_REGISTRY"] == "FAIL"
+    assert result["mission_status"]["P2160_READINESS_DOSSIER_CERTIFICATION"] == "FAIL"
