@@ -22,6 +22,7 @@ class PaperAccount:
     trades: int = 0
     @classmethod
     def create(cls, rules, day):
+        if type(day) is not date: raise ValueError('initial day must be a calendar date')
         if rules.initial_balance <= 0 or not all(D(0)<x<D(1) for x in (rules.daily_loss_fraction,rules.max_loss_fraction,rules.profit_target_fraction)):
             raise ValueError('invalid rules')
         return cls(rules,rules.initial_balance,rules.initial_balance,day,rules.initial_balance,rules.initial_balance)
