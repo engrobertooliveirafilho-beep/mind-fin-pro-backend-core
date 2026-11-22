@@ -20,10 +20,10 @@ def test_strategy_snapshots_are_not_live_aliases(monkeypatch):
     assert first is not engine.strategies
 
 def test_integrated_log_preserves_first_cycle(monkeypatch):
-    monkeypatch.setattr("app.runtime.p2224_2226_institutional_core.random.uniform", lambda a, b: 1.0)
+    monkeypatch.setattr("app.runtime.p2224_2226_institutional_core.random.uniform", lambda a, b: 0.25)
     result = run(3)
-    assert result["log_sample"][0]["strategies"][0]["score"] == 51.0
-    assert result["final_strategies"][0]["score"] == 53.0
+    assert result["log_sample"][0]["strategies"][0]["score"] == 50.25
+    assert result["final_strategies"][0]["score"] == 50.75
 
 def test_book_rejects_nonpositive_bid_without_mutation(monkeypatch):
     from app.runtime.p2224_2226_institutional_core import OrderBookSimulator
