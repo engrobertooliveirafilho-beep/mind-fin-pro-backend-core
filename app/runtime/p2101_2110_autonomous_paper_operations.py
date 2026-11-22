@@ -248,12 +248,27 @@ def run_p2101_2110(
     assert_no_financial_execution()
 
     output = Path(output_dir)
-    output.mkdir(parents=True, exist_ok=True)
 
     portfolio = load_json(portfolio_path)
     p2071 = load_json(p2071_certification_path)
     p2081 = load_json(p2081_certification_path)
     p2091 = load_json(p2091_certification_path)
+
+    # Preflight must reject fabricated or unrelated upstream certifications.
+    required = (
+        (p2071, "REALTIME_PAPER_RUNTIME_CERTIFIED", "P2071"),
+        (p2081, "REALTIME_PORTFOLIO_GOVERNANCE_CERTIFIED", "P2081"),
+        (p2091, "REALTIME_INTELLIGENCE_LAYER_CERTIFIED", "P2091"),
+    )
+    for document, readiness, label in required:
+        if not isinstance(document, dict) or document.get("status") != "PASS" or document.get("readiness") != readiness:
+            raise RuntimeError(label + "_UPSTREAM_NOT_CERTIFIED")
+    if p2081.get("input_dependencies", {}).get("p2071_2080_certification") != p2071_certification_path:
+        raise RuntimeError("P2081_UPSTREAM_PROVENANCE_MISMATCH")
+    p2091_deps = p2091.get("input_dependencies", {})
+    if (p2091_deps.get("p2071_2080") != p2071_certification_path or
+            p2091_deps.get("p2081_2090") != p2081_certification_path):
+        raise RuntimeError("P2091_UPSTREAM_PROVENANCE_MISMATCH")
 
     deps = {
         "p2071": p2071,
@@ -328,6 +343,7 @@ def run_p2101_2110(
         "next_block": "P2111_2120_MAXIMUM_TECHNICAL_CAPACITY_PROGRAM",
     }
 
+    output.mkdir(parents=True, exist_ok=True)
     final_path = output / "P2101_2110_FINAL_CERTIFICATION.json"
     audit_path = output / "P2101_2110_AUDIT.md"
     state_path = output / "P2101_2110_AUTONOMOUS_STATE.json"
