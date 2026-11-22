@@ -86,6 +86,8 @@ def simulate(rows,q):
     exit_model=q["exit_model"]
     if exit_model not in ("TIME_EXIT", "ATR_TARGET", "RR_2_TO_1"):
         raise ValueError("P2296E_INVALID_EXIT_MODEL")
+    if exit_model not in ("TIME_EXIT", "ATR_TARGET", "RR_2_TO_1"):
+        raise ValueError("P2296E_INVALID_EXIT_MODEL")
 
     for i in range(20,len(rows)-max_hold-2):
         row=rows[i]
