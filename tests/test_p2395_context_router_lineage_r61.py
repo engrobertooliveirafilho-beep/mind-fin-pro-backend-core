@@ -19,3 +19,8 @@ def test_exact_paper_context():
 def test_invalid_score():
     r=build_router({"decision":"PROMOTE_SCORE","final_score":"not-a-number","key":"A","direction":"BUY_PAPER"}).route({"key":"A","direction":"BUY_PAPER"})
     assert not r.allowed and r.reason=="INVALID_EDGE_SCORE"
+
+def test_nonfinite_scores_blocked():
+    for value in ('nan', 'inf', '-inf'):
+        result=build_router({'decision':'PROMOTE_SCORE','final_score':value,'key':'A','direction':'BUY_PAPER'}).route({'key':'A','direction':'BUY_PAPER'})
+        assert result.allowed is False and result.reason == 'NONFINITE_EDGE_SCORE'
