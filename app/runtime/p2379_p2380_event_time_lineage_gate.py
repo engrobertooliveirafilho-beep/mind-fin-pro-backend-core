@@ -159,4 +159,22 @@ def resolve_next_bar_entry(signal: Dict[str, Any], candles: List[Dict[str, Any]]
     return entry_index
 
 
-__all__ = ["validate_event_bound_signal", "verify_source_hashes", "resolve_next_bar_entry", "resolve_verified_next_bar_entry", "validate_replay_promotion"]
+
+def verify_paper_bus_coverage(ready_signals: List[Dict[str, Any]], bus_signals: List[Dict[str, Any]]) -> Tuple[bool, str]:
+    """Fail closed when a PAPER bus silently drops ready signal identities."""
+    if not isinstance(ready_signals, list) or not isinstance(bus_signals, list):
+        return False, "PAPER_BUS_ROWS_REQUIRED"
+    for collection in (ready_signals, bus_signals):
+        if any(not isinstance(row, dict) or not isinstance(row.get("signal_id"), str) or not row["signal_id"].strip() for row in collection):
+            return False, "PAPER_BUS_SIGNAL_ID_INVALID"
+        if any(row.get("mode") != "PAPER_ONLY" or row.get("real_orders") != "FORBIDDEN" or row.get("ftmo_real") != "FORBIDDEN" for row in collection):
+            return False, "PAPER_BUS_EXECUTION_MODE_FORBIDDEN"
+    ready_ids = [row["signal_id"] for row in ready_signals]
+    bus_ids = [row["signal_id"] for row in bus_signals]
+    if len(set(ready_ids)) != len(ready_ids) or len(set(bus_ids)) != len(bus_ids):
+        return False, "PAPER_BUS_DUPLICATE_SIGNAL_ID"
+    if set(ready_ids) != set(bus_ids):
+        return False, "PAPER_BUS_COVERAGE_MISMATCH"
+    return True, "PAPER_BUS_COVERAGE_VERIFIED"
+
+__all__ = ["validate_event_bound_signal", "verify_source_hashes", "resolve_next_bar_entry", "resolve_verified_next_bar_entry", "validate_replay_promotion", "verify_paper_bus_coverage"]
