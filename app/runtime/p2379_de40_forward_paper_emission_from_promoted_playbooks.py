@@ -143,7 +143,7 @@ def run(playbooks_path: Path, contexts_path: Path, sequences_path: Path, outdir:
     write_csv(files["priority_signals"], priority)
     write_csv(files["standard_signals"], standard)
     write_csv(files["observe_signals"], observe)
-    write_csv(files["paper_signal_bus"], ready[:500])
+    write_csv(files["paper_signal_bus"], ready)
 
     payload = {
         "mission": MISSION,
@@ -158,7 +158,7 @@ def run(playbooks_path: Path, contexts_path: Path, sequences_path: Path, outdir:
         "priority_paper_signals": len(priority),
         "standard_paper_signals": len(standard),
         "observe_only": len(observe),
-        "paper_signal_bus_rows": len(ready[:500]),
+        "paper_signal_bus_rows": len(ready),
         "permission_model": {
             "paper_signal": "ALLOWED",
             "mt5_real_order": "FORBIDDEN",
