@@ -31,7 +31,7 @@ class WiringIsolationTests(TestCase):
                         self.wiring.run_institutional_wiring({"mode": "PAPER_ONLY", key: value})
 
     def test_failed_or_ambiguous_motor_results(self):
-        for result in ({}, {"status": "PENDING"}, {"status": "PASS", "error": "failed"},
+        for result in ({}, {"status": "PENDING"}, {"ok": True, "status": "UNVERIFIED"}, {"status": "PASS", "error": "failed"},
                        {"ok": False}, False, None):
             with self.subTest(result=result):
                 motor = SimpleNamespace(run=lambda payload: result)
