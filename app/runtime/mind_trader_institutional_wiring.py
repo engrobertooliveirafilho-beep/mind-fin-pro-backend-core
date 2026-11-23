@@ -65,7 +65,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
                     fn_name, expected_mode = simulation_entrypoints[name]
                     fn = getattr(m, fn_name)
                     r = fn(cycles=1)
-                    row["run_ok"] = (isinstance(r, dict) and r.get("status") == "PASS" and r.get("mode") == expected_mode and not r.get("error"))
+                    row["run_ok"] = (isinstance(r, dict) and r.get("status") == "PASS" and r.get("mode") == expected_mode and r.get("ok") is not False and not r.get("error"))
                     row["run_result_type"] = type(r).__name__
                     row["run_result"] = r
                 except Exception as e:
