@@ -1,3 +1,4 @@
+import hashlib
 import importlib.util
 from pathlib import Path
 import pytest
@@ -48,3 +49,13 @@ def test_no_real_orders():
     s = signal()
     s["real_orders"] = "ALLOWED"
     assert not gate.validate_event_bound_signal(s)[0]
+
+def test_hash_verification_from_source_bytes():
+    s = signal()
+    dataset, row = b"original-dataset", b"original-row"
+    s["source_dataset_sha256"] = hashlib.sha256(dataset).hexdigest()
+    s["source_row_sha256"] = hashlib.sha256(row).hexdigest()
+    assert gate.verify_source_hashes(s, dataset, row)[0]
+    assert gate.verify_source_hashes(s, dataset + b"tamper", row) == (False, "DATASET_HASH_MISMATCH")
+    assert gate.verify_source_hashes(s, dataset, row + b"tamper") == (False, "ROW_HASH_MISMATCH")
+    assert gate.verify_source_hashes(s, None, row) == (False, "SOURCE_BYTES_REQUIRED")
