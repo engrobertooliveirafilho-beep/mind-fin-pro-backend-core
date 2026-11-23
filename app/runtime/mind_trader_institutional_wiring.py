@@ -66,7 +66,15 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
                         continue
                     signature.bind(payload)
                     r = m.run(payload)
-                    row["run_ok"] = (isinstance(r, dict) and r.get("ok") is True and not r.get("error") and str(r.get("status", "")).upper() not in ("FAIL", "FAILED", "ERROR", "BLOCKED", "DEGRADED", "NOT_CERTIFIED", "PENDING", "NOT_READY") or isinstance(r, dict) and str(r.get("status", "")).upper() in ("PASS", "OK", "SUCCESS", "OPERATIONAL", "PAPER_RUN_COMPLETED_UNCERTIFIED") and r.get("ok") is not False and not r.get("error"))
+                    row["run_ok"] = (
+                        isinstance(r, dict)
+                        and not r.get("error")
+                        and r.get("ok") is not False
+                        and (
+                            str(r.get("status", "")).upper() in ("PASS", "OK", "SUCCESS", "OPERATIONAL", "PAPER_RUN_COMPLETED_UNCERTIFIED")
+                            or (r.get("ok") is True and not r.get("status"))
+                        )
+                    )
                     row["run_result_type"] = type(r).__name__
                     row["run_result"] = r if isinstance(r, (dict, list, str, int, float, bool)) else str(r)
                 except Exception as e:
