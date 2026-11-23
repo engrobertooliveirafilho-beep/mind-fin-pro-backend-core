@@ -147,3 +147,19 @@ def test_paper_bus_coverage_rejects_missing_historical_signal():
     assert verify_paper_bus_coverage(ready, [{**ready[0], "real_orders": "ALLOWED"}, ready[1]]) == (False, "PAPER_BUS_EXECUTION_MODE_FORBIDDEN")
     assert verify_paper_bus_coverage([], []) == (False, "PAPER_BUS_EMPTY")
     assert verify_paper_bus_coverage(ready, [{**ready[0], "timeframe": "H1"}, ready[1]]) == (False, "PAPER_BUS_PAYLOAD_MISMATCH")
+
+
+def test_paper_bus_csv_validates_original_payload_and_rejects_truncation():
+    import csv
+    import io
+    from app.runtime.p2379_p2380_event_time_lineage_gate import validate_paper_bus_csv
+    header = b"signal_id,mode,real_orders,ftmo_real,timeframe\\n"
+    a = b"A,PAPER_ONLY,FORBIDDEN,FORBIDDEN,M1\\n"
+    b = b"B,PAPER_ONLY,FORBIDDEN,FORBIDDEN,M5\\n"
+    assert validate_paper_bus_csv(header + a + b, header + a + b) == (True, "PAPER_BUS_COVERAGE_VERIFIED")
+    assert validate_paper_bus_csv(header + a + b, header + a) == (False, "PAPER_BUS_COVERAGE_MISMATCH")
+    assert validate_paper_bus_csv(header + a + b, header + b + a) == (False, "PAPER_BUS_ORDER_MISMATCH")
+    assert validate_paper_bus_csv(header + a + b, header + a + b.replace(b"M5", b"H1")) == (False, "PAPER_BUS_PAYLOAD_MISMATCH")
+    assert validate_paper_bus_csv(header + a + b, b"signal_id,signal_id,mode,real_orders,ftmo_real\\n") == (False, "PAPER_BUS_CSV_HEADER_INVALID")
+    assert validate_paper_bus_csv(header + a + b, header + a + b"B,PAPER_ONLY,FORBIDDEN\\n") == (False, "PAPER_BUS_CSV_ROW_INVALID")
+    assert validate_paper_bus_csv(header + a + b, b"\\xff") == (False, "PAPER_BUS_CSV_INVALID")
