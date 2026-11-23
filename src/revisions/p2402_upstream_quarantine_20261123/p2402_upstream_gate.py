@@ -3,7 +3,7 @@ import ast
 from pathlib import Path
 def audit_source(path):
  t=ast.parse(Path(path).read_text(encoding="utf-8"))
- names={n.id for n in ast.walk(t) if isinstance(n,ast.Name)}
+ names={n.id for n in ast.walk(t) if isinstance(n,ast.Name)} | {n.name for n in ast.walk(t) if isinstance(n,(ast.FunctionDef,ast.AsyncFunctionDef))}
  attrs={n.attr for n in ast.walk(t) if isinstance(n,ast.Attribute)}
  strings={n.value for n in ast.walk(t) if isinstance(n,ast.Constant) and isinstance(n.value,str)}
  reads_p2401=any(isinstance(n,ast.Constant) and isinstance(n.value,str) and "P2401_MULTI_EDGE_WALK_FORWARD_DD_FILTER" in n.value for n in ast.walk(t))
