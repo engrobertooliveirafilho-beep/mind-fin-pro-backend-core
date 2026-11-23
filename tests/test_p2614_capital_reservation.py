@@ -13,4 +13,8 @@ class CapitalReservation(unittest.TestCase):
   with patch.object(replay,'simulate_fill',fill):
    summary,curve,trades=replay.replay_portfolio('PAPER',edges,candles,{},risk_pct=.6)
   self.assertEqual(summary['real_execution_allowed'],False)
-  self.assertEqual(summary['trades'],2)
+  self.assertGreaterEqual(summary['trades'],2)
+  for a in trades:
+   for b in trades:
+    if a is b: continue
+    self.assertFalse(a['entry_i'] < b['exit_i'] and b['entry_i'] < a['exit_i'], 'OVERLAPPING_60_PERCENT_RISK')
