@@ -11,6 +11,7 @@ Safety:
 """
 
 from dataclasses import dataclass
+import math
 from typing import Dict, Any
 
 
@@ -53,6 +54,9 @@ class P2395ContextRouterV2:
             score = float(self.scored_edge.get("final_score", 0) or 0)
         except (ValueError, TypeError):
             return ContextRouteDecision(False, "BLOCK", "INVALID_EDGE_SCORE", decision)
+
+        if not math.isfinite(score):
+            return ContextRouteDecision(False, "BLOCK", "NONFINITE_EDGE_SCORE", decision)
 
         if decision != "PROMOTE_SCORE":
             return ContextRouteDecision(
