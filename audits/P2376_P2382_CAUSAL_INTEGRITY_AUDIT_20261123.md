@@ -112,3 +112,29 @@ O histórico de continuidade contém referência a uma correção/gate P2377 ant
 - P2377_RUNTIME_INTEGRATION: PENDING.
 - P2380_P2382_CAUSAL_REPLAY: PENDING.
 - MAIN_INTACT=TRUE; PAPER_ONLY=TRUE; REAL_ORDERS=FORBIDDEN; FTMO_REAL=FORBIDDEN; COST=R$0.
+
+
+## CORREÇÃO DE RECONCILIAÇÃO — P2377 CAUSAL FIX RECUPERADO (2026-11-23)
+
+A declaração anterior de que o commit P2377 não havia sido localizado fica SUPERADA por recuperação posterior nesta sessão.
+
+- Commit histórico recuperado: `2939136a`.
+- Arquivo corrigido: `app/runtime/p2377_de40_regime_first_signal_router_with_xray_lifecycle.py`.
+- Blob SHA: `32a359501563caafed8c48790dfebbad45d1d5f5`.
+- Branch nova de recuperação: `audit/p2377-causal-recovery-20261123`, criada diretamente a partir do commit `2939136a`.
+- Leitura posterior da branch confirmou o mesmo blob SHA.
+- O código corrigido faz `classify_lifecycle()` ignorar totalmente o context futuro, retornar lifecycle `*_DETECTED_UNCONFIRMED` com score 0; remove `post_efficiency` do `context_score()`; define `BLOCK_UNCERTIFIED_CAUSAL_LIFECYCLE` para todos os eventos; e não exporta labels pós-evento para router/library.
+- A referência histórica `5870b173`, quando resolvida para este caminho de arquivo nesta sessão, retornou o blob antigo `fdc826403a84f76d07b894b634ed3641f4942896`, igual ao arquivo contaminado de `main`; portanto, não deve ser confundida com o patch efetivo. O patch de fonte recuperado é `2939136a`.
+
+### Regressão nova
+- Publicado `tests/test_p2377_causal_recovery_20261123.py` na branch de recuperação.
+- Commit: `df3a88ad61bc214ffa006aca638cbfc2c104faea`.
+- Read-back do teste: blob `e868f89692c24c484e4ce79f54aba70605fbd8f3`.
+- 3 testes: lifecycle invariável a contextos futuros; score invariável a post_efficiency; router fail-closed e exportações sem labels futuros.
+- Execução local no espelho funcional reconstruído a partir da fonte recuperada: 3/3 PASS. Limite: não foi executado GitHub Actions/CI, e o arquivo local de teste não foi verificado byte-a-byte contra o blob remoto da fonte. Histórico anterior também registra 3/3 PASS e gate 5/5, mas os artefatos de teste históricos não foram localizados neste read-back.
+
+### Estado correto após recuperação
+- P2377_CAUSAL_SOURCE_FIX: RECOVERED.
+- P2377_CAUSAL_REGRESSION: 3/3 PASS LOCAL MIRROR; CI PENDING.
+- P2377_MAIN_INTEGRATION: NOT DONE; main permanece com o blob contaminado `fdc826403a84f76d07b894b634ed3641f4942896`.
+- Não reaplicar o patch: reutilizar a branch/commit recuperados e fazer apenas integração controlada após regressão do código exato.
