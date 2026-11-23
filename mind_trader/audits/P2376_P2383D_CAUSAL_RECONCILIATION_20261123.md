@@ -19,7 +19,7 @@ P2377 file: app/runtime/p2377_de40_regime_first_signal_router_with_xray_lifecycl
 Blob SHA: fdc826403a84f76d07b894b634ed3641f4942896
 Observed: classify_lifecycle() reads post_mfe_atr, post_mae_atr, post_efficiency and post_followthrough from the context row and uses them to assign lifecycle and score. These are future-window outcomes in the P2376 context contract. The router therefore cannot be used to make a decision at event time without a causal replacement.
 P2376 blob SHA: de50c447cd77df673a9fe42bde5cae0a69abc573.
-P2378 blob SHA: eb c491833cfe29d18666710cbb757b96c9895253 (source retrieved; future-outcome fields also present; exact call graph still requires line-level review).
+P2378 blob SHA: ebc491833cfe29d18666710cbb757b96c9895253 (source retrieved; future-outcome fields also present; exact call graph still requires line-level review).
 P2379 blob SHA: 23cfcb188d684350112acdc733e2d761e0e9e444.
 P2380 blob SHA: c8971714e0543e74c66424f8879960d8dea98dc8.
 P2381 blob SHA: 94792b12a2baad20742ef39111ca5228738861e4.
