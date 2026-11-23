@@ -120,3 +120,17 @@ def test_zero_argument_motor_cannot_bypass_paper_lock(monkeypatch):
     assert result["status"] == "DEGRADED"
     assert result["runs_ok"] == 0
     assert "PAPER_ONLY_CONTRACT_NOT_PROPAGATED" in result["results"][0]["error"]
+
+
+def test_simulation_cycles_signature_never_receives_paper_payload(monkeypatch):
+    monkeypatch.setattr(wiring, "MODULES", ["fake.simulation"])
+    called = []
+    def run(cycles=30):
+        called.append(cycles)
+        return {"status": "PASS", "mode": "PAPER_ONLY"}
+    monkeypatch.setattr(wiring.importlib, "import_module", lambda _name: SimpleNamespace(run=run))
+    result = wiring.run_institutional_wiring({"mode": "PAPER_ONLY"})
+    assert called == []
+    assert result["status"] == "DEGRADED"
+    assert result["runs_ok"] == 0
+    assert "PAPER_ONLY_PAYLOAD_SIGNATURE_UNSUPPORTED:cycles" in result["results"][0]["error"]
