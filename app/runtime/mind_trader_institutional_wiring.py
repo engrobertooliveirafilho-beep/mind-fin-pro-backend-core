@@ -78,6 +78,9 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
                         else:
                             r = runner(payload)
                     row["run_ok"] = isinstance(r, dict) and str(r.get("status", "")).upper() in {"PASS", "OK", "OPERATIONAL", "HEALTHY"}
+                    if isinstance(r, dict) and (r.get("real_order_count", 0) != 0 or r.get("real_orders", 0) not in (0, False, "FORBIDDEN", "DISABLED", None)):
+                        row["run_ok"] = False
+                        row["error"] += "real_order_evidence_blocked;"
                     row["run_result_type"] = type(r).__name__
                     row["run_result"] = r if isinstance(r, (dict, list, str, int, float, bool)) else str(r)
                 except Exception as e:
