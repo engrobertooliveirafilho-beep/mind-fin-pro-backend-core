@@ -25,6 +25,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
             "module": name,
             "import_ok": False,
             "run_ok": False,
+            "run_available": False,
             "health_ok": False,
             "health_checked": False,
             "classes": [],
@@ -50,6 +51,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
                     row["error"] += f"health_error={e};"
 
             if hasattr(m, "run") or (name == "app.runtime.p2223_broker_emulator" and hasattr(m, "run_simulation")):
+                row["run_available"] = True
                 try:
                     import inspect
                     runner = m.run if hasattr(m, "run") else m.run_simulation
@@ -77,7 +79,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
 
     return {
         "program": "MIND_TRADER_INSTITUTIONAL_WIRING",
-        "status": "operational" if results and all(row["import_ok"] and row["run_ok"] and (not row["health_checked"] or row["health_ok"]) and not row["error"] for row in results) else "DEGRADED",
+        "status": ("DEGRADED" if not results or any(not row["import_ok"] or row["error"] or (row["run_available"] and not row["run_ok"]) or (row["health_checked"] and not row["health_ok"]) for row in results) else ("PARTIAL" if any(not row["run_available"] for row in results) else "operational")),
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "mode": "PAPER_ONLY",
         "real_orders": "FORBIDDEN",
@@ -85,6 +87,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
         "modules_total": len(results),
         "imports_ok": sum(1 for r in results if r["import_ok"]),
         "runs_ok": sum(1 for r in results if r["run_ok"]),
+        "modules_without_run": sum(1 for r in results if not r["run_available"]),
         "health_ok": sum(1 for r in results if r["health_ok"]),
         "results": results,
     }
@@ -96,6 +99,7 @@ def health() -> dict:
         "modules_total": r["modules_total"],
         "imports_ok": r["imports_ok"],
         "runs_ok": r["runs_ok"],
+        "modules_without_run": r["modules_without_run"],
         "health_ok": r["health_ok"],
     }
 
