@@ -23,4 +23,12 @@ def evaluate_historical_research():
     expected=['P2397_HYP_'+hashlib.sha256(x.encode()).hexdigest()[:10].upper() for x in seeds]
     if [row.get('hypothesis_id') for row in rows] != expected:
         return evaluate_research({},policy,rows)
+    expected_targets=['reduce_max_dd_r_below_3_5',
+                      'prioritize '+session+' + '+footprint,transition]
+    expected_reasons=['edge has positive expectancy but drawdown penalty blocked promotion',
+                      'only surviving WF edge came from this session/footprint zone',
+                      'cycle transition survived WF but score remained observed']
+    if ([row.get('target') for row in rows] != expected_targets or
+            [row.get('reason') for row in rows] != expected_reasons):
+        return evaluate_research({},policy,rows)
     return evaluate_research(edge,policy,rows)
