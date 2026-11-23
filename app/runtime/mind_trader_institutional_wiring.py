@@ -17,7 +17,12 @@ MODULES = [
 ]
 
 def run_institutional_wiring(payload: dict | None = None) -> dict:
-    payload = payload or {}
+    if not isinstance(payload, dict) or payload.get("mode") != "PAPER_ONLY":
+        raise ValueError("PAPER_ONLY mode must be explicitly authorized before module import")
+    if payload.get("real_orders") not in (None, "FORBIDDEN", False):
+        raise ValueError("real orders forbidden")
+    if payload.get("ftmo_real") not in (None, "FORBIDDEN", False):
+        raise ValueError("FTMO real forbidden")
     results = []
 
     for name in MODULES:
@@ -65,7 +70,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
 
     return {
         "program": "MIND_TRADER_INSTITUTIONAL_WIRING",
-        "status": "operational",
+        "status": "DEGRADED" if any(r["error"] or not r["run_ok"] for r in results) else "operational",
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "mode": "PAPER_ONLY",
         "real_orders": "FORBIDDEN",
