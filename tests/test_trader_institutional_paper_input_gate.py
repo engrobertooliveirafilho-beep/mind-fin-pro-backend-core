@@ -50,6 +50,24 @@ class PaperInputGate(unittest.TestCase):
                 self.assertFalse(result["results"][0]["run_ok"])
                 self.assertIn("real_order_evidence_blocked", result["results"][0]["error"])
 
+    def test_stage_discovery_never_runs_file_writer(self):
+        for name, entry in (
+            ("app.runtime.p2071_2080_realtime_paper_runtime", "run_p2071_2080"),
+            ("app.runtime.p2081_2090_realtime_portfolio_governance", "run_p2081_2090"),
+            ("app.runtime.p2091_2100_realtime_intelligence_layer", "run_p2091_2100"),
+            ("app.runtime.p2131_2150_ftmo_paper_compliance_assurance", "run_p2131_2150"),
+        ):
+            with self.subTest(name=name):
+                calls = []
+                module = SimpleNamespace(**{entry: lambda *args, **kwargs: calls.append("WRITTEN")})
+                with patch.object(wiring, "MODULES", [name]):
+                    with patch.object(wiring.importlib, "import_module", return_value=module):
+                        result = wiring.run({"mode": "PAPER_ONLY"})
+                self.assertEqual(calls, [])
+                self.assertEqual(result["status"], "PARTIAL")
+                self.assertEqual(result["results"][0]["integration_status"], "INPUT_DEPENDENCIES_REQUIRED")
+                self.assertTrue(result["results"][0]["entrypoint_found"])
+
     def test_paper_allowed(self):
         with patch.object(wiring, "MODULES", ["m"]):
             with patch.object(wiring.importlib, "import_module",
