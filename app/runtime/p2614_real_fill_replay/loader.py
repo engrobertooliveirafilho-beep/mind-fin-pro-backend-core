@@ -1,4 +1,4 @@
-import csv, pathlib
+import csv, pathlib, math
 from datetime import datetime
 
 def nf(k):
@@ -39,9 +39,12 @@ def load_ohlc(path):
                 c=to_float(low.get("close") or low.get("fechamento") or low.get("last"))
             except Exception:
                 continue
-            if h>=max(o,c) and l<=min(o,c) and h>=l and c>0:
+            if all(math.isfinite(x) and x>0 for x in (o,h,l,c)) and h>=max(o,c) and l<=min(o,c) and h>=l:
                 candles.append({"time":dt,"open":o,"high":h,"low":l,"close":c})
-    return sorted(candles,key=lambda x:x["time"])
+    candles=sorted(candles,key=lambda x:x["time"])
+    if any(candles[i]["time"] == candles[i-1]["time"] for i in range(1,len(candles))):
+        raise ValueError("DUPLICATE_OHLC_TIMESTAMP")
+    return candles
 
 def find_best_ger40_ohlc(root, evid):
     root=pathlib.Path(root)
