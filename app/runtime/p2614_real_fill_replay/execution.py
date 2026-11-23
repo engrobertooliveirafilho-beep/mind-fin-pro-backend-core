@@ -67,6 +67,9 @@ def simulate_fill(edge, candles, features, i, spread_r=0.03, slippage_r=0.02, co
 
     entry=candles[entry_i]
     exitc=candles[exit_i]
+    if not isinstance(entry,dict) or not isinstance(exitc,dict): return None
+    prices=(entry.get("open"),exitc.get("close"))
+    if any(isinstance(v,bool) or not isinstance(v,(int,float)) or not math.isfinite(v) or v<=0 for v in prices): return None
     raw=(exitc["close"]-entry["open"])/entry["open"]
     if edge["direction"]=="SELL_PAPER":
         raw=-raw
