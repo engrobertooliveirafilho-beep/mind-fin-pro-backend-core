@@ -67,6 +67,13 @@ class PaperInputGate(unittest.TestCase):
                 self.assertEqual(result["status"], "PARTIAL")
                 self.assertEqual(result["results"][0]["integration_status"], "INPUT_DEPENDENCIES_REQUIRED")
                 self.assertTrue(result["results"][0]["entrypoint_found"])
+                expected = {
+                    "run_p2071_2080": ["portfolio_path", "output_dir"],
+                    "run_p2081_2090": ["portfolio_path", "p2071_certification_path", "output_dir"],
+                    "run_p2091_2100": ["portfolio_path", "p2071_certification_path", "p2081_certification_path", "output_dir"],
+                    "run_p2131_2150": ["output_dir"],
+                }
+                self.assertEqual(result["results"][0]["required_inputs"], expected[entry])
 
     def test_paper_allowed(self):
         with patch.object(wiring, "MODULES", ["m"]):
