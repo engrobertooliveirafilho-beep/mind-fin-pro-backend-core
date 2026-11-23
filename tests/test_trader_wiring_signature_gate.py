@@ -28,6 +28,16 @@ class SignatureGateTests(unittest.TestCase):
         self.assertEqual(result["status"], "DEGRADED")
         self.assertIn("UNSUPPORTED_RUN_SIGNATURE", result["results"][0]["error"])
 
+    def test_failed_status_never_counts_as_run_success(self):
+        for status in ("FAIL", "FAILED", "ERROR", "BLOCKED", "DEGRADED", "NOT_CERTIFIED"):
+            with self.subTest(status=status):
+                def run(payload):
+                    return {"status": status}
+                with patch.object(self.ns["importlib"], "import_module", return_value=types.SimpleNamespace(run=run)):
+                    result = self.ns["run_institutional_wiring"]({"mode":"PAPER_ONLY"})
+                self.assertEqual(result["runs_ok"], 0)
+                self.assertEqual(result["status"], "DEGRADED")
+
     def test_payload_signature_accepted(self):
         calls = []
         def run(payload):
