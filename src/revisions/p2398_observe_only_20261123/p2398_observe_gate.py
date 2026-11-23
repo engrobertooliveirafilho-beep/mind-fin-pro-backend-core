@@ -10,6 +10,10 @@ def evaluate(context: Mapping) -> dict:
     required = {"mode": "PAPER_ONLY", "real_orders": "FORBIDDEN",
                 "ftmo_real": "FORBIDDEN", "p2394_decision": "OBSERVE_SCORE",
                 "p2395_decision": "OBSERVE_ONLY", "p2396_vote": "OBSERVE_ONLY"}
+    allowed = set(required) | {"real_execution_allowed", "runtime_modification_allowed",
+                               "operational_members", "quorum_required"}
+    if set(context) != allowed:
+        raise GateRejected("unexpected or missing context fields")
     for key, expected in required.items():
         if context.get(key) != expected:
             raise GateRejected(f"unsafe or missing {key}")
