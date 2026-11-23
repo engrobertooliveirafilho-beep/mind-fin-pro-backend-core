@@ -1,0 +1,33 @@
+import unittest,hashlib
+from r847_source_gate import attest_batch
+B=b'actual recovered source'; H=hashlib.sha256(B).hexdigest()
+S={'id':10,'title':'STEP10','approved':True,'source_sha256':H}
+def go(steps=None, sources=None, trusted=None):
+ return attest_batch([S] if steps is None else steps,{10:B} if sources is None else sources,{10:H} if trusted is None else trusted)
+class GateTests(unittest.TestCase):
+ def test_valid(self):self.assertEqual(go()['status'],'attested')
+ def test_ids(self):self.assertEqual(go()['step_ids'],[10])
+ def test_no_runtime(self):self.assertFalse(go()['runtime_certified'])
+ def test_no_integration(self):self.assertFalse(go()['integration_authorized'])
+ def test_empty(self):self.assertEqual(go([])['status'],'blocked')
+ def test_many(self):self.assertEqual(go([S]*101)['status'],'blocked')
+ def test_bad_step(self):self.assertEqual(go(['bad'])['status'],'blocked')
+ def test_bad_id_list(self):self.assertEqual(go([dict(S,id=[] )])['status'],'blocked')
+ def test_bad_id_dict(self):self.assertEqual(go([dict(S,id={} )])['status'],'blocked')
+ def test_bool_id(self):self.assertEqual(go([dict(S,id=True)])['status'],'blocked')
+ def test_zero_id(self):self.assertEqual(go([dict(S,id=0)])['status'],'blocked')
+ def test_duplicate(self):self.assertEqual(go([S,S])['status'],'blocked')
+ def test_unapproved(self):self.assertEqual(go([dict(S,approved=False)])['status'],'blocked')
+ def test_missing_title(self):self.assertEqual(go([dict(S,title=' ')])['status'],'blocked')
+ def test_extra_field(self):self.assertEqual(go([dict(S,foo=1)])['status'],'blocked')
+ def test_wrong_hash(self):self.assertEqual(go([dict(S,source_sha256='0'*64)])['reason'],'digest_mismatch')
+ def test_bad_hash(self):self.assertEqual(go([dict(S,source_sha256=None)])['reason'],'invalid_digest')
+ def test_bad_source(self):self.assertEqual(go(sources={10:None})['reason'],'invalid_evidence')
+ def test_changed_source(self):self.assertEqual(go(sources={10:b'changed'})['reason'],'digest_mismatch')
+ def test_missing_source(self):self.assertEqual(go(sources={})['reason'],'source_set_mismatch')
+ def test_extra_source(self):self.assertEqual(go(sources={10:B,11:B})['reason'],'source_set_mismatch')
+ def test_missing_trust(self):self.assertEqual(go(trusted={})['reason'],'source_set_mismatch')
+ def test_bad_trust(self):self.assertEqual(go(trusted={10:None})['reason'],'invalid_evidence')
+ def test_mismatch_trust(self):self.assertEqual(go(trusted={10:'f'*64})['reason'],'digest_mismatch')
+ def test_bad_inputs(self):self.assertEqual(attest_batch(None,None,None)['status'],'blocked')
+if __name__=='__main__':unittest.main()
