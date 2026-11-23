@@ -22,6 +22,10 @@ class GateTests(unittest.TestCase):
                     ("quorum_required",1)]:
             with self.subTest(k=k), self.assertRaises(GateRejected):
                 evaluate({**BASE,k:v})
+    def test_conflicting_extra_flags(self):
+        for key in ("order_dispatch", "runtime_promotion", "broker_execution_allowed", "unknown"):
+            with self.subTest(key=key), self.assertRaises(GateRejected):
+                evaluate({**BASE, key: True})
     def test_bad_types(self):
         for k,v in [("operational_members",False),("quorum_required",True),("operational_members",0.0)]:
             with self.subTest(k=k), self.assertRaises(GateRejected):
