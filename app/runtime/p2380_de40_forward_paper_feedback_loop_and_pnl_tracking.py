@@ -270,6 +270,16 @@ def run(signal_bus: Path, dataset_root: Path, outdir: Path) -> Dict:
     outdir.mkdir(parents=True, exist_ok=True)
 
     signals = load_csv(signal_bus)
+    # Historical P2379 rows are context templates, not event-bound market entries.
+    # Do not assign fabricated entry indices or certify proxy PnL as temporal replay.
+    from app.runtime.p2379_p2380_event_time_lineage_gate import validate_event_bound_signal
+    if not signals:
+        raise ValueError("P2380_SIGNAL_BUS_EMPTY")
+    for sig in signals:
+        valid, reason = validate_event_bound_signal(sig)
+        if not valid:
+            raise ValueError("P2380_UNVERIFIED_EVENT_LINEAGE:" + reason)
+    raise ValueError("P2380_VERIFIED_REPLAY_EXECUTOR_NOT_INTEGRATED")
     dataset_cache = {}
     feedback_rows = []
 
