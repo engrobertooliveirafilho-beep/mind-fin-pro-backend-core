@@ -49,10 +49,14 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
 
             if hasattr(m, "run"):
                 try:
-                    try:
-                        r = m.run(payload)
-                    except TypeError:
+                    # A TypeError inside run(payload) is a runtime failure, not
+                    # evidence that run() should be invoked a second time.
+                    import inspect
+                    signature = inspect.signature(m.run)
+                    if not signature.parameters:
                         r = m.run()
+                    else:
+                        r = m.run(payload)
                     row["run_ok"] = r is not None
                     row["run_result_type"] = type(r).__name__
                     row["run_result"] = r if isinstance(r, (dict, list, str, int, float, bool)) else str(r)
