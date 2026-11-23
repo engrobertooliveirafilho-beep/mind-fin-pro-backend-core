@@ -1,5 +1,6 @@
 import unittest
 import csv
+import json
 from unittest.mock import patch
 from p2397_historical_bridge import evaluate_historical_research
 class HistoricalResearchTests(unittest.TestCase):
