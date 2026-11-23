@@ -24,3 +24,12 @@ def test_forged_positive_gates_still_require_risk_guard():
     i={'status':'PAPER_DISPATCH_CERTIFIED','canonical_runtime_verified':True,'s20_s21_join_verified':True,'long_run_certified':True}
     assert not evaluate_paper_intent({**ORDER,'mode':'LIVE'},STATE,preflight=p,integration=i)['approved']
     assert not evaluate_paper_intent(ORDER,{**STATE,'kill_switch':True},preflight=p,integration=i)['approved']
+
+
+def test_forged_all_green_reports_cannot_authorize():
+    forged = {'status': 'PAPER_DISPATCH_CERTIFIED', 'canonical_runtime_verified': True,
+              's20_s21_join_verified': True, 'long_run_certified': True,
+              'missing_phases': [], 'findings': []}
+    decision = evaluate_paper_intent(ORDER, STATE, preflight=forged, integration=forged)
+    assert decision['approved'] is False
+    assert decision['real_orders_authorized'] is False
