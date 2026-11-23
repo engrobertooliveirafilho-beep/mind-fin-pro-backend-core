@@ -5,7 +5,7 @@ from p2398_evidence_adapter import evaluate_evidence
 from p2398_observe_gate import GateRejected
 
 def evaluate_historical_chain(p2394, router_contract, ensemble_result):
-    if not isinstance(p2394, Mapping):
+    if not all(isinstance(x, Mapping) for x in (p2394, router_contract, ensemble_result)):\n        raise GateRejected("historical evidence must be mappings")\n    if not isinstance(p2394, Mapping):
         raise GateRejected("P2394 evidence must be mapping")
     if p2394.get("mission") != "P2394_EDGE_SCORING":
         raise GateRejected("invalid P2394 mission")
