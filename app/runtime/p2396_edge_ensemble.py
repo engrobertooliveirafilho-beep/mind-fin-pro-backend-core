@@ -30,7 +30,7 @@ class EnsembleVote:
 class P2396EdgeEnsemble:
     def __init__(self, router_decisions: List[Dict[str, Any]], quorum: int = 2):
         self.router_decisions = list(router_decisions or [])
-        self.quorum = int(quorum)
+        self.quorum = quorum
         self.mode = MODE
         self.real_orders = REAL_ORDERS
         self.ftmo_real = FTMO_REAL
@@ -46,10 +46,23 @@ class P2396EdgeEnsemble:
         if not self.safety_check():
             return EnsembleVote(False, "BLOCK", "SAFETY_LOCK_FAILED", len(self.router_decisions), 0)
 
-        operational = [
-            r for r in self.router_decisions
-            if r.get("allowed") is True and r.get("route") == "PAPER_SIGNAL_CANDIDATE"
-        ]
+        if type(self.quorum) is not int or self.quorum < 2:
+            return EnsembleVote(False, "BLOCK", "INVALID_QUORUM", len(self.router_decisions), 0)
+        seen = set()
+        operational = []
+        for r in self.router_decisions:
+            if not isinstance(r, dict):
+                return EnsembleVote(False, "BLOCK", "INVALID_ROUTER_DECISION", len(self.router_decisions), 0)
+            member_id = r.get("member_id")
+            if not isinstance(member_id, str) or not member_id.strip():
+                return EnsembleVote(False, "BLOCK", "MEMBER_ID_REQUIRED", len(self.router_decisions), 0)
+            if member_id in seen:
+                return EnsembleVote(False, "BLOCK", "DUPLICATE_MEMBER", len(self.router_decisions), 0)
+            seen.add(member_id)
+            if r.get("mode") != MODE or r.get("real_orders") != REAL_ORDERS or r.get("ftmo_real") != FTMO_REAL:
+                return EnsembleVote(False, "BLOCK", "UNSAFE_ROUTER_DECISION", len(self.router_decisions), 0)
+            if r.get("allowed") is True and r.get("route") == "PAPER_SIGNAL_CANDIDATE":
+                operational.append(r)
 
         if len(operational) < self.quorum:
             return EnsembleVote(
@@ -61,9 +74,9 @@ class P2396EdgeEnsemble:
             )
 
         return EnsembleVote(
-            allowed=True,
-            vote="PAPER_CONSENSUS_CANDIDATE",
-            reason="QUORUM_REACHED_PAPER_ONLY",
+            allowed=False,
+            vote="BLOCK",
+            reason="INDEPENDENT_ENSEMBLE_EVIDENCE_REQUIRED",
             members=len(self.router_decisions),
             operational_members=len(operational),
         )
