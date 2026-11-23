@@ -1,0 +1,40 @@
+{
+  "mission": "P2391_P2397_SOURCE_LINEAGE_RECONCILIATION",
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "source_edge": "P2391_8149352397",
+  "p2391_folder_drive_id": "1HLchuJlS3AMU63PMTNUUg5Ubi9_EXcVL",
+  "p2391_candidates_drive_id": "1WyC2rfI4EuNwnVM9a5Flxd5YbrLUnbRu",
+  "p2391_events_drive_id": "1vTByPz0N8avas_xTwbCaMDyfOGL6U1gK",
+  "p2397_folder_drive_id": "1E47Y6efVLTO_HoN-C-cwnI6erbGSa5hD",
+  "p2397_hypotheses_drive_id": "1Psu7b_xGOyJes2f1goWBtdPBI1JPjW0l",
+  "p2397_audit_drive_id": "1M_hwASNjIkI1l0p6mcmG-BE3KcqwbjEA",
+  "observed": {
+    "p2391_total_candidates": 4288,
+    "p2391_promoted": 40,
+    "p2391_detailed_event_rows": 2535,
+    "p2391_unique_event_candidates": 40,
+    "source_edge_event_rows": 152,
+    "source_edge_samples_aggregate": 152,
+    "source_edge_direction": "BUY_PAPER",
+    "source_edge_key": "US_AFTERNOON|LIQUIDITY_SWEEP_REVERSAL_DOWN|LIQUIDITY_REVERSAL_ENTRY|DISTRIBUTION->BALANCE",
+    "source_edge_pf_aggregate": 1.715719,
+    "source_edge_expectancy_aggregate": 0.139817,
+    "source_edge_max_dd_r_aggregate": 4.158651,
+    "p2397_source_cluster": "P2393_CLUSTER_AB78986FAD66",
+    "p2397_score": 68.391266,
+    "p2397_decision": "OBSERVE_SCORE",
+    "p2397_hypotheses": 3
+  },
+  "limits": {
+    "event_rows_are_fills": false,
+    "entry_exit_prices_available": false,
+    "pnl_per_event_available": false,
+    "p2400_candidate_ancestry_proven": false,
+    "strategy_performance_certified": false,
+    "portfolio_correlation_certified": false,
+    "runtime_promotion_allowed": false
+  },
+  "next_required": "RECONSTRUCT_STRATEGY_SIGNALS_AND_JOIN_CANONICAL_OHLC_WITHOUT_SYNTHETIC_ENTRIES"
+}
