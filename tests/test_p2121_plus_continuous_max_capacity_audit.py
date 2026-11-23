@@ -69,3 +69,31 @@ def test_p2121_rejects_pass_with_uncertified_readiness(tmp_path, monkeypatch):
     decision = CertifiedBlockAudit().evaluate(deps)
     assert decision.status == "FAIL"
     assert "p2111" in decision.payload["failures"]
+
+
+def test_p2122_rejects_non_zip_and_corrupt_zip(tmp_path, monkeypatch):
+    import zipfile
+    from app.runtime.p2121_plus_continuous_max_capacity_audit import (
+        ABSOLUTE_LOCKS, PackageIntegrityAudit,
+    )
+    for key in ABSOLUTE_LOCKS:
+        monkeypatch.delenv(key, raising=False)
+
+    package = tmp_path / "data/runtime/P2071_2080/P2071_2080_PACKAGE_FINAL.zip"
+    package.parent.mkdir(parents=True)
+    package.write_bytes(b"not-a-zip")
+    decision = PackageIntegrityAudit().evaluate(str(tmp_path))
+    assert decision.status == "FAIL"
+    assert str(package.relative_to(tmp_path)) in decision.payload["missing"]
+
+    with zipfile.ZipFile(package, "w", compression=zipfile.ZIP_STORED) as archive:
+        archive.writestr("evidence.txt", b"verified")
+    assert zipfile.ZipFile(package).testzip() is None
+    decision = PackageIntegrityAudit().evaluate(str(tmp_path))
+    assert str(package.relative_to(tmp_path)) in decision.payload["packages"]
+
+    content = package.read_bytes()
+    package.write_bytes(content.replace(b"verified", b"tampered"))
+    decision = PackageIntegrityAudit().evaluate(str(tmp_path))
+    assert decision.status == "FAIL"
+    assert str(package.relative_to(tmp_path)) in decision.payload["missing"]
