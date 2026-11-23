@@ -138,6 +138,9 @@ def run(playbooks_path: Path, contexts_path: Path, sequences_path: Path, outdir:
         "summary_json": outdir / "summary.json",
     }
 
+    if not ready:
+        raise ValueError("P2379_NO_READY_PAPER_SIGNALS")
+
     write_csv(files["all_signals"], signals)
     write_csv(files["ready_signals"], ready)
     write_csv(files["priority_signals"], priority)
@@ -145,8 +148,6 @@ def run(playbooks_path: Path, contexts_path: Path, sequences_path: Path, outdir:
     write_csv(files["observe_signals"], observe)
     write_csv(files["paper_signal_bus"], ready)
     from app.runtime.p2379_p2380_event_time_lineage_gate import validate_paper_bus_csv
-    if not ready:
-        raise ValueError("P2379_NO_READY_PAPER_SIGNALS")
     verified, reason = validate_paper_bus_csv(files["ready_signals"].read_bytes(), files["paper_signal_bus"].read_bytes())
     if not verified:
         raise ValueError("P2379_PAPER_BUS_VALIDATION_FAILED:" + reason)
