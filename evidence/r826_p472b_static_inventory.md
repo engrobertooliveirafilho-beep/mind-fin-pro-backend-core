@@ -10,3 +10,10 @@ Local results: 8 tests PASS in 0.007s, 0 failures; source used locally was a fun
 Certification: local isolated behavioral tests PASS; byte-identical GitHub source execution NOT PROVEN. No repository-native integration or E2E certification. Existing R817 protections preserved; main and production untouched.
 Next gate: execute published source and test together byte-identically; audit real consumer invocation and module path authority.
 PAPER_ONLY=TRUE; REAL_ORDERS=FORBIDDEN; FTMO_REAL=FORBIDDEN; COST=R$0.
+
+## R827 — byte-identical execution reconciliation (2026-11-23)
+Reconstructed both published GitHub files byte-identically in isolated local directory /mnt/data/r827:
+- app/runtime/capability_recovery_bridge.py: Git blob b04fc26cc66940231d16bc4b425efedce5bd699a, local blob matches.
+- tests/test_r826_p472b_static_inventory.py: Git blob afb95d5cfc80a127519eb422a6d0ee1a784db186, local blob matches.
+Command: python -B -m unittest discover -s tests -p test_r826_p472b_static_inventory.py -v
+Result: 8/8 PASS, 0 errors, 0 failures, 0.007s. Earlier R826 provenance caveat is now closed for this isolated regression only. No whole-repository E2E, no production execution, no real orders.
