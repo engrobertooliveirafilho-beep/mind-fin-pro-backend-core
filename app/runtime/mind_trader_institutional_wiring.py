@@ -58,7 +58,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
                         r = runner(cycles=1)
                     else:
                         try:
-                        signature.bind(payload)
+                            signature.bind(payload)
                         except TypeError:
                             signature.bind()
                             r = runner()
