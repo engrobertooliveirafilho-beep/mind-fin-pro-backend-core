@@ -34,7 +34,7 @@ def evaluate_evidence(router: Mapping, ensemble: Mapping) -> dict:
     if type(candidates) is not int or candidates != 32:
         raise GateRejected("untrusted runtime inventory")
     source = router.get("router_file")
-    if not isinstance(source, str) or not source.replace("\\\\", "/").endswith("/app/runtime/p2395_context_router_v2.py"):
+    if not isinstance(source, str) or not source.replace("\\", "/").endswith("/app/runtime/p2395_context_router_v2.py"):
         raise GateRejected("untrusted router source")
     if router.get("real_execution_allowed") is not False:
         raise GateRejected("router execution permission unsafe")
