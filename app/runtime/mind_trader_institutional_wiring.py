@@ -51,7 +51,15 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
             if hasattr(m, "run"):
                 try:
                     import inspect
-                    inspect.signature(m.run).bind(payload)
+                    # Never reinterpret an arbitrary PAPER payload as positional
+                    # parameters such as cycles, output_dir or broker settings.
+                    signature = inspect.signature(m.run)
+                    params = list(signature.parameters.values())
+                    if not params or params[0].name not in ("payload", "request"):
+                        row["error"] += "run_error=UNSUPPORTED_RUN_SIGNATURE;"
+                        results.append(row)
+                        continue
+                    signature.bind(payload)
                     r = m.run(payload)
                     row["run_ok"] = r is not None
                     row["run_result_type"] = type(r).__name__
