@@ -335,7 +335,7 @@ def run_p2121_plus(repo: str, dependencies: Dict[str, str], output_dir: str) -> 
         "mission_status": mission_status,
         "decisions": [asdict(d) for d in decisions],
         "final_state": {
-            "p2071_to_p2120": "CERTIFIED",
+            "p2071_to_p2120": "CERTIFIED" if decisions[0].status == "PASS" else "NOT_CERTIFIED",
             "continuous_audit": "CERTIFIED" if all_pass else "NOT_CERTIFIED",
             "known_critical_gaps": final_cert.payload["known_critical_gaps"],
             "paper_only": True,
@@ -372,7 +372,7 @@ def run_p2121_plus(repo: str, dependencies: Dict[str, str], output_dir: str) -> 
 
 ## CONCLUSION
 P2121+ continuous max capacity audit completed.
-P2071→P2120 remains certified.
+P2071→P2120 status: {result["final_state"]["p2071_to_p2120"]}.
 No real orders.
 No broker execution.
 No financial execution.
