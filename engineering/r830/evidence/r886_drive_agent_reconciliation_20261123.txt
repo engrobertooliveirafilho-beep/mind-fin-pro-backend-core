@@ -1,0 +1,30 @@
+R886 — DRIVE AGENT INVENTORY RECONCILIATION
+Date: 2026-11-23
+Prior completed work preserved:
+- R828 static dangerous-call detector: 4/4 tests, published.
+- R829 consumer regression: 6/6 local tests, published.
+- R830 isolated dispatch contract: 10/10 local tests, published; not yet integrated.
+- R885 81-agent metadata audit: 10/10 local tests, published.
+- HP19 source recovery: 19/19 source bytes historically recovered, 0/19 functionally certified (historical ledger).
+New Drive reconciliation:
+- Runtime source ID 1l6pRGOHJj2ZqnUDjlcFktDrfxafWBnQm contains 52 imports of run_dry/describe_capabilities.
+- Route source ID 1_dmV9gl2R2w4qSIAJUOdCIVGE34rfVcQ contains 52 POST endpoints.
+- Static reconciliation: 52 imports, 52 route endpoints, 52 unique module names, 52 unique route agent IDs, 0 unmatched route IDs.
+- The three runtime copies previously recovered are byte-text identical (4,587 characters); no duplicate rebuild performed.
+- The runtime's same-name imports overwrite earlier globals; run_agent() ignores computed module name and calls the last global run_dry.
+- The final imported cog.autonomous_maturity_meter source returns status=not_implemented, mode=stub.
+- Five additional Drive agent source samples were inspected and all five return not_implemented/stub: meta.mind_archives_agent_mapper (STEP_IDS include 532,533); meta.global_agent_mapper (539,540,541,543); sec.sentinel (empty STEP_IDS); sec.vaultmind (empty STEP_IDS); world.metaverse_orchestrator (136,147,161,162,168,180,186,204,230,248).
+R886 implementation:
+- Added explicit 52-agent expected inventory derived from Drive runtime imports.
+- Added fail-closed handler registry builder. It rejects missing handlers, unexpected IDs, non-callable handlers and invalid container shape. It does not import, activate, or claim functional status for any agent.
+- Unit tests executed locally: python -m unittest -v test_r886_agent_registry => 10 tests PASS, 0 failures/errors.
+GitHub:
+- Code commit 93888261a4533b6dd755da24ce45fa739d780175; blob SHA 18726130f76c3c78a14b19e506c77a7511f77f85.
+- Tests commit 73196b9cb009d3e1efa858d69c2bbe3458d1f738; blob SHA 61df75771705c2e8f183d256e086d95027711196.
+- Both files read back from GitHub after publication; hashes match the published blobs.
+Limitations:
+- Handler registry currently receives injected callables; it is not wired into the canonical FastAPI route.
+- Drive sample proves five inspected agents are stubs; it does not prove all 52 are stubs.
+- Agent runtime functional certification remains 0/81. The 52-route inventory and 81-agent metadata registry are different scopes.
+- Original Drive sources unchanged. No merge, production modification, paid service, or real-world side effect.
+STATUS: R886=10/10 PASS; INVENTORY=52/52 RECONCILED; ROUTE_INTEGRATION=PENDING; AGENT_FUNCTIONAL_CERTIFICATION=0/81; E2E_CERTIFIED=FALSE; MAIN=INTACT; COST=R$0.
