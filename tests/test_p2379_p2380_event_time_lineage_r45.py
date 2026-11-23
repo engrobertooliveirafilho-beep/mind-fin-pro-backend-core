@@ -170,10 +170,10 @@ def test_p2379_writer_preserves_all_ready_signals(tmp_path):
     from app.runtime.p2379_de40_forward_paper_emission_from_promoted_playbooks import run
     def write(path, rows):
         with path.open("w", newline="", encoding="utf-8") as f:
-            writer = csv.DictWriter(f, fieldnames=["footprint", "regime", "samples", "profit_factor_proxy", "expectancy_r_proxy", "max_drawdown_r_proxy"])
+            writer = csv.DictWriter(f, fieldnames=["footprint", "regime", "timeframe", "samples", "profit_factor_proxy", "expectancy_r_proxy", "max_drawdown_r_proxy"])
             writer.writeheader()
             writer.writerows(rows)
-    ready = [{"footprint": "TREND_UP", "regime": "TREND_UP", "samples": "100", "profit_factor_proxy": "2", "expectancy_r_proxy": "0.5", "max_drawdown_r_proxy": "1"}] * 505
+    ready = [{"footprint": "TREND_UP", "regime": "TREND_UP", "timeframe": "M5", "samples": "100", "profit_factor_proxy": "2", "expectancy_r_proxy": "0.5", "max_drawdown_r_proxy": "1"}] * 505
     p = tmp_path / "playbooks.csv"
     c = tmp_path / "contexts.csv"
     s = tmp_path / "sequences.csv"
@@ -228,3 +228,12 @@ def test_p2380_direct_simulator_cannot_bypass_event_lineage_gate():
         index_for_signal(template, candles)
     with pytest.raises(ValueError, match="P2380_EVENT_BOUND_ENTRY_REQUIRED"):
         simulate_feedback(template, candles)
+
+
+def test_p2379_invalid_timeframes_never_become_ready():
+    from app.runtime.p2379_de40_forward_paper_emission_from_promoted_playbooks import create_signal
+    base = {"footprint": "TREND_UP", "regime": "TREND_UP", "samples": "100", "profit_factor_proxy": "2", "expectancy_r_proxy": "0.5", "max_drawdown_r_proxy": "1"}
+    for timeframe in ("", "M2", "INVALID", None):
+        signal = create_signal({**base, "timeframe": timeframe}, "PLAYBOOK", 1)
+        assert signal["signal_status"] == "PAPER_OBSERVE_ONLY"
+    assert create_signal({**base, "timeframe": "M5"}, "PLAYBOOK", 1)["signal_status"] == "PAPER_SIGNAL_READY"
