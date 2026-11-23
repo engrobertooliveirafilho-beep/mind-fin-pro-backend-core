@@ -21,18 +21,18 @@ LOCKS = {
 
 
 def enforce():
+    # Validate every existing lock before any mutation. Direct callers must
+    # never be able to erase a conflicting execution-mode setting.
+    invalid = {k: os.environ[k] for k, v in LOCKS.items()
+               if k in os.environ and os.environ[k] != v}
+    if invalid:
+        raise RuntimeError(f"LOCK_BREACH: {invalid}")
     for k, v in LOCKS.items():
         os.environ[k] = v
     return dict(LOCKS)
 
 
 def assert_locks():
-    # Fail closed on conflicting pre-existing environment values; do not
-    # silently overwrite a live-trading setting before checking it.
-    invalid = {k: os.environ[k] for k, v in LOCKS.items()
-               if k in os.environ and os.environ[k] != v}
-    if invalid:
-        raise RuntimeError(f"LOCK_BREACH: {invalid}")
     enforce()
 
 
