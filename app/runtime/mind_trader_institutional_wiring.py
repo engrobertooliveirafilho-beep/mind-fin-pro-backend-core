@@ -53,6 +53,26 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
             # Do not invoke them during orchestration; inspection is not certification.
             row["health_inspection"] = "SKIPPED_SIDE_EFFECT_SAFETY"
 
+            # Explicit adapter for recovered simulation-only legacy entrypoints.
+            # Never pass the caller payload to a cycles argument.
+            simulation_entrypoints = {
+                "app.runtime.p2223_broker_emulator": ("run_simulation", "BROKER_EMULATOR_SIMULATION_ONLY"),
+                "app.runtime.p2224_2226_institutional_core": ("run", "INSTITUTIONAL_SIMULATION_CORE"),
+                "app.runtime.p2227_2229_advanced_layer": ("run", "ADVANCED_SIMULATION_LAYER"),
+            }
+            if name in simulation_entrypoints:
+                try:
+                    fn_name, expected_mode = simulation_entrypoints[name]
+                    fn = getattr(m, fn_name)
+                    r = fn(cycles=1)
+                    row["run_ok"] = (isinstance(r, dict) and r.get("status") == "PASS" and r.get("mode") == expected_mode and not r.get("error"))
+                    row["run_result_type"] = type(r).__name__
+                    row["run_result"] = r
+                except Exception as e:
+                    row["error"] += f"simulation_error={e};"
+                results.append(row)
+                continue
+
             if hasattr(m, "run"):
                 try:
                     import inspect
