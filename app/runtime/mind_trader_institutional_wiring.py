@@ -56,6 +56,11 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
                 except Exception as e:
                     row["error"] += f"health_error={e};"
 
+            if row["health_checked"] and not row["health_ok"]:
+                row["error"] += "health_gate_blocked_execution;"
+                results.append(row)
+                continue
+
             if hasattr(m, "run") or (name == "app.runtime.p2223_broker_emulator" and hasattr(m, "run_simulation")):
                 row["run_available"] = True
                 try:
