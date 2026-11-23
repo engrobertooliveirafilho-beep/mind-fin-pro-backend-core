@@ -1,0 +1,23 @@
+{
+  "phase": "P2908_LONG_RUN_CERTIFICATION",
+  "status": "CERTIFICATION_PLAN_READY",
+  "created_at": "2026-07-05T17:51:01.543424Z",
+  "required_tests": [
+    "walk_forward",
+    "out_of_sample",
+    "multi_year",
+    "multi_asset",
+    "monte_carlo",
+    "stress_test",
+    "regime_shift",
+    "drawdown_certification",
+    "portfolio_certification"
+  ],
+  "minimum_gate": {
+    "mode": "PAPER_ONLY",
+    "min_specialists": 45,
+    "max_drawdown_required": "TO_BE_MEASURED",
+    "stability_required": "TO_BE_MEASURED",
+    "approval_for_real": "FORBIDDEN"
+  }
+}
