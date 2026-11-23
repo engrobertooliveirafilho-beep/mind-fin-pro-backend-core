@@ -56,6 +56,27 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
                 except Exception as e:
                     row["error"] += f"health_error={e};"
 
+            # Recover canonical stage entrypoints without executing file-writing stages.
+            stage_entrypoints = {
+                "app.runtime.p2071_2080_realtime_paper_runtime": "run_p2071_2080",
+                "app.runtime.p2081_2090_realtime_portfolio_governance": "run_p2081_2090",
+                "app.runtime.p2091_2100_realtime_intelligence_layer": "run_p2091_2100",
+                "app.runtime.p2131_2150_ftmo_paper_compliance_assurance": "run_p2131_2150",
+            }
+            stage_name = stage_entrypoints.get(name)
+            if stage_name:
+                row["canonical_entrypoint"] = stage_name
+                row["entrypoint_found"] = callable(getattr(m, stage_name, None))
+                row["integration_status"] = (
+                    "INPUT_DEPENDENCIES_REQUIRED" if row["entrypoint_found"]
+                    else "ENTRYPOINT_MISSING"
+                )
+                row["error"] += (
+                    "" if row["entrypoint_found"] else "canonical_entrypoint_missing;"
+                )
+                results.append(row)
+                continue
+
             if row["health_checked"] and not row["health_ok"]:
                 row["error"] += "health_gate_blocked_execution;"
                 results.append(row)
