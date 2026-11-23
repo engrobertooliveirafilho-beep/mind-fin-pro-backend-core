@@ -1,0 +1,35 @@
+{
+  "mission": "P2397_META_LEARNING_OFFLINE",
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "inputs": {
+    "p2391": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core_evidence\\P2391_RETURN_TO_EDGE_RESEARCH_20260624_220417",
+    "p2392": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core_evidence\\P2392_EDGE_WALK_FORWARD_VALIDATION_20260624_221342",
+    "p2394": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core_evidence\\P2394_EDGE_SCORING_20260624_222430",
+    "p2396": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core_evidence\\P2396_EDGE_ENSEMBLE_20260624_222857",
+    "governance_lock": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core_evidence\\P2389_DE40_PAPER_FORWARD_GOVERNANCE_LOCK_20260624_215039"
+  },
+  "output": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core_evidence\\P2397_META_LEARNING_OFFLINE_20260624_223219",
+  "module": "C:\\Users\\MindFin\\Desktop\\mind-fin-pro-backend-core\\app\\runtime\\p2397_meta_learning_offline.py",
+  "source_edge": "P2391_8149352397",
+  "source_cluster": "P2393_CLUSTER_AB78986FAD66",
+  "edge_score": 68.391266,
+  "edge_decision": "OBSERVE_SCORE",
+  "quality": {
+    "pf_quality": "GOOD",
+    "wr_quality": "GOOD",
+    "expectancy_quality": "POSITIVE",
+    "dd_quality": "HIGH_RISK",
+    "sample_quality": "ENOUGH",
+    "window_quality": "NEAR_CERTIFIED",
+    "score_quality": "NEAR_PROMOTION"
+  },
+  "hypotheses_created": 3,
+  "runtime_promotion_allowed": false,
+  "research_allowed": true,
+  "paper_stack_modified": true,
+  "real_execution_allowed": false,
+  "certification": "P2397_META_LEARNING_OFFLINE_RESEARCH_CERTIFIED",
+  "next_required": "P2398_RUNTIME_EDGE_INTEGRATION_PAPER_GATED"
+}
