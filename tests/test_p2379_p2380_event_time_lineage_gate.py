@@ -66,7 +66,7 @@ def test_rejects_skipped_bars():
 
 def test_rejects_event_bar_timestamp_mismatch():
     candles = [{"time": "2026-11-23T09:45:00+00:00"}, {"time": "2026-11-23T10:15:00+00:00"},
-               {"time": "2026-11-23T10:00:00+00:00"}, {"time": "2026-11-23T10:15:00+00:00"},
+               {"time": "2026-11-23T09:59:00+00:00"}, {"time": "2026-11-23T10:15:00+00:00"},
                {"time": "2026-11-23T10:00:00+00:00"}, {"time": "2026-11-23T10:15:00+00:00"}]
     with pytest.raises(ValueError, match="EVENT_BAR_TIMESTAMP_MISMATCH"):
         resolve_next_bar_entry(valid_signal(), candles)
