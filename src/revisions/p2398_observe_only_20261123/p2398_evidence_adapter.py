@@ -1,5 +1,6 @@
 """Read-only adapter for historical P2395/P2396 JSON evidence. Never dispatches orders."""
 from collections.abc import Mapping
+import math
 from p2398_observe_gate import evaluate, GateRejected
 
 def evaluate_evidence(router: Mapping, ensemble: Mapping) -> dict:
@@ -26,6 +27,15 @@ def evaluate_evidence(router: Mapping, ensemble: Mapping) -> dict:
                            ("ftmo_real", "FORBIDDEN")):
             if obj.get(key) != value:
                 raise GateRejected(f"invalid evidence {key}")
+    score = router.get("input_edge_score")
+    if type(score) not in (int, float) or not math.isfinite(score) or score != 68.391266:
+        raise GateRejected("untrusted edge score")
+    candidates = router.get("runtime_candidates_found")
+    if type(candidates) is not int or candidates != 32:
+        raise GateRejected("untrusted runtime inventory")
+    source = router.get("router_file")
+    if not isinstance(source, str) or not source.replace("\\\\", "/").endswith("/app/runtime/p2395_context_router_v2.py"):
+        raise GateRejected("untrusted router source")
     if router.get("real_execution_allowed") is not False:
         raise GateRejected("router execution permission unsafe")
     if ensemble.get("allowed") is not False:
