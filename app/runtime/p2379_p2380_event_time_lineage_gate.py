@@ -85,6 +85,8 @@ def verify_source_hashes(signal: Dict[str, Any], dataset_bytes: bytes, row_bytes
         return False, "DATASET_HASH_MISMATCH"
     if not hmac.compare_digest(row_digest, signal["source_row_sha256"].lower()):
         return False, "ROW_HASH_MISMATCH"
+    if row_bytes.rstrip(b"\r\n") not in dataset_bytes.splitlines():
+        return False, "ROW_NOT_IN_DATASET"
     return True, "SOURCE_HASHES_VERIFIED"
 
 
