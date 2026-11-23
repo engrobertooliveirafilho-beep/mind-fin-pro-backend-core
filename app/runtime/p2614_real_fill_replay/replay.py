@@ -22,9 +22,11 @@ def replay_portfolio(name, edges, candles, features, risk_pct=0.01, initial_capi
     cooldown={e["edge_id"]:0 for e in edges}
     pending=[]
     occupied=set()
+    reserved_risk=0.0
 
     for i in range(60,len(candles)):
         for fill in sorted((f for f in pending if f["exit_i"]==i),key=lambda f:f["edge_id"]):
+            reserved_risk-=fill["reserved_risk"]
             before=capital
             pnl=fill["reserved_risk"]*fill["r"]
             capital=max(0.01,capital+pnl)
@@ -65,8 +67,12 @@ def replay_portfolio(name, edges, candles, features, risk_pct=0.01, initial_capi
             fill["family"]=e.get("family")
             fill["direction"]=e.get("direction")
             fill["risk_model"]=e.get("risk_model")
-            fill["reserved_risk"]=capital*risk_pct
+            risk_amount=capital*risk_pct
+            if risk_amount<=0 or reserved_risk+risk_amount>capital:
+                continue
+            fill["reserved_risk"]=risk_amount
             pending.append(fill)
+            reserved_risk+=risk_amount
             occupied.add(eid)
             daily_count[day]+=1
             if fill["r"]<0 and e.get("risk_model") in ["LOSS_GUARD","COOLDOWN"]:
