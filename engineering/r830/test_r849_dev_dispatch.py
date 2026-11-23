@@ -1,0 +1,25 @@
+import unittest
+from r849_dev_dispatch import dispatch, KNOWN
+S={'id':10,'title':'memory','approved':True,'source_sha256':'a'*64}
+class Tests(unittest.TestCase):
+ def test_known_count(self):self.assertEqual(len(KNOWN),5)
+ def test_unknown(self):self.assertEqual(dispatch('x')['reason'],'unknown_agent')
+ def test_none_id(self):self.assertEqual(dispatch(None)['status'],'blocked')
+ def test_empty(self):self.assertEqual(dispatch('')['status'],'blocked')
+ def test_bad_type(self):self.assertEqual(dispatch([])['status'],'blocked')
+ def test_stub_blueprint(self):self.assertEqual(dispatch('dev.code_blueprint_agent')['reason'],'historical_stub_not_activated')
+ def test_stub_guardian(self):self.assertEqual(dispatch('dev.test_guardian_agent')['status'],'blocked')
+ def test_stub_refactor(self):self.assertEqual(dispatch('dev.refactor_assistant_agent')['status'],'blocked')
+ def test_stub_coordinator(self):self.assertEqual(dispatch('dev.impl_squad_coordinator')['status'],'blocked')
+ def test_stub_no_plan(self):self.assertNotIn('plans',dispatch('dev.impl_squad_coordinator',{'approved_steps':[S]}))
+ def test_planner(self):self.assertEqual(dispatch('dev.step_planner_agent',{'approved_steps':[S]})['status'],'planned')
+ def test_planner_id(self):self.assertEqual(dispatch('dev.step_planner_agent',{'approved_steps':[S]})['agent_id'],'dev.step_planner_agent')
+ def test_planner_mode(self):self.assertEqual(dispatch('dev.step_planner_agent',{'approved_steps':[S]})['mode'],'offline_only')
+ def test_planner_not_integrated(self):self.assertFalse(dispatch('dev.step_planner_agent',{'approved_steps':[S]})['integration_authorized'])
+ def test_planner_not_certified(self):self.assertFalse(dispatch('dev.step_planner_agent',{'approved_steps':[S]})['runtime_certified'])
+ def test_empty_payload(self):self.assertEqual(dispatch('dev.step_planner_agent')['status'],'blocked')
+ def test_bad_payload(self):self.assertEqual(dispatch('dev.step_planner_agent',[])['status'],'blocked')
+ def test_bad_step(self):self.assertEqual(dispatch('dev.step_planner_agent',{'approved_steps':[{'id':1}]})['status'],'blocked')
+ def test_duplicate(self):self.assertEqual(dispatch('dev.step_planner_agent',{'approved_steps':[S,S]})['status'],'blocked')
+ def test_unapproved(self):self.assertEqual(dispatch('dev.step_planner_agent',{'approved_steps':[dict(S,approved=False)]})['status'],'blocked')
+if __name__=='__main__':unittest.main()
