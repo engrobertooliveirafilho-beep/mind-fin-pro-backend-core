@@ -5,6 +5,13 @@ from p2398_observe_gate import evaluate, GateRejected
 def evaluate_evidence(router: Mapping, ensemble: Mapping) -> dict:
     if not isinstance(router, Mapping) or not isinstance(ensemble, Mapping):
         raise GateRejected("evidence must be mappings")
+    router_keys = {"mission", "router_file", "input_edge_decision", "input_edge_score",
+                   "route_result", "runtime_candidates_found", "integration_mode",
+                   "real_execution_allowed", "mode", "real_orders", "ftmo_real"}
+    ensemble_keys = {"allowed", "vote", "reason", "members", "operational_members",
+                     "quorum", "mode", "real_orders", "ftmo_real"}
+    if set(router) != router_keys or set(ensemble) != ensemble_keys:
+        raise GateRejected("unexpected or missing evidence fields")
     expected_router = {"mission": "P2395_CONTEXT_ROUTER_V2",
                        "input_edge_decision": "OBSERVE_SCORE",
                        "route_result": "OBSERVE_ONLY",
