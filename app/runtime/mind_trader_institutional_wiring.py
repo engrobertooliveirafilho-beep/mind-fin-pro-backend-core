@@ -66,7 +66,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
 
     return {
         "program": "MIND_TRADER_INSTITUTIONAL_WIRING",
-        "status": "operational",
+        "status": "operational" if results and all(row["import_ok"] and row["run_ok"] for row in results) else "DEGRADED",
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "mode": "PAPER_ONLY",
         "real_orders": "FORBIDDEN",
