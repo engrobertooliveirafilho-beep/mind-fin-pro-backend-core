@@ -1,0 +1,83 @@
+from __future__ import annotations
+
+import re
+from datetime import datetime
+from typing import Any, Dict, List, Tuple
+
+TIMEFRAMES = {"M1", "M5", "M15", "M30", "H1", "H4", "D1"}
+SHA256_RE = re.compile(r"^[0-9a-fA-F]{64}$")
+
+
+def _timestamp(value: Any) -> datetime:
+    if not isinstance(value, str) or not value.strip():
+        raise ValueError("TIMESTAMP_MISSING")
+    try:
+        parsed = datetime.fromisoformat(value.strip().replace("Z", "+00:00"))
+    except ValueError as exc:
+        raise ValueError("TIMESTAMP_INVALID") from exc
+    return parsed
+
+
+def validate_event_bound_signal(signal: Dict[str, Any]) -> Tuple[bool, str]:
+    """Fail closed unless a PAPER signal has verifiable event and raw-source lineage."""
+    required = (
+        "symbol", "timeframe", "event_time", "event_index", "event_id",
+        "source_dataset_sha256", "source_row_sha256", "direction",
+        "entry_time", "entry_index", "mode", "real_orders", "ftmo_real",
+    )
+    if not isinstance(signal, dict):
+        return False, "SIGNAL_NOT_OBJECT"
+    missing = [key for key in required if key not in signal or signal[key] in (None, "")]
+    if missing:
+        return False, "MISSING_LINEAGE:" + ",".join(missing)
+    if str(signal["timeframe"]).upper() not in TIMEFRAMES:
+        return False, "TIMEFRAME_INVALID"
+    if not str(signal["symbol"]).strip() or not str(signal["event_id"]).strip():
+        return False, "IDENTITY_INVALID"
+    if not SHA256_RE.fullmatch(str(signal["source_dataset_sha256"])):
+        return False, "DATASET_HASH_INVALID"
+    if not SHA256_RE.fullmatch(str(signal["source_row_sha256"])):
+        return False, "SOURCE_ROW_HASH_INVALID"
+    if str(signal["direction"]).upper() not in {"BUY", "SELL", "BUY_INFERRED", "SELL_INFERRED"}:
+        return False, "DIRECTION_INVALID"
+    if signal["mode"] != "PAPER_ONLY" or signal["real_orders"] != "FORBIDDEN" or signal["ftmo_real"] != "FORBIDDEN":
+        return False, "EXECUTION_MODE_FORBIDDEN"
+    try:
+        event_index = int(signal["event_index"])
+        entry_index = int(signal["entry_index"])
+        event_time = _timestamp(signal["event_time"])
+        entry_time = _timestamp(signal["entry_time"])
+    except (TypeError, ValueError) as exc:
+        return False, str(exc) if str(exc) else "INDEX_OR_TIME_INVALID"
+    if event_index < 0 or entry_index <= event_index:
+        return False, "ENTRY_NOT_AFTER_EVENT_INDEX"
+    if (event_time.tzinfo is None) != (entry_time.tzinfo is None):
+        return False, "TIMESTAMP_TIMEZONE_MISMATCH"
+    if entry_time <= event_time:
+        return False, "ENTRY_NOT_AFTER_EVENT_TIME"
+    return True, "EVENT_LINEAGE_VALID_PAPER_ONLY"
+
+
+def resolve_next_bar_entry(signal: Dict[str, Any], candles: List[Dict[str, Any]]) -> int:
+    """Resolve only the immediate next candle after the source event; never hash-select an entry."""
+    ok, reason = validate_event_bound_signal(signal)
+    if not ok:
+        raise ValueError(reason)
+    event_index = int(signal["event_index"])
+    entry_index = int(signal["entry_index"])
+    if entry_index != event_index + 1:
+        raise ValueError("ENTRY_MUST_BE_IMMEDIATE_NEXT_BAR")
+    if not isinstance(candles, list) or entry_index >= len(candles):
+        raise ValueError("NEXT_BAR_UNAVAILABLE")
+    event_bar_time = _timestamp(str(candles[event_index].get("time", ""))) if event_index < len(candles) else None
+    entry_bar_time = _timestamp(str(candles[entry_index].get("time", "")))
+    signal_event_time = _timestamp(signal["event_time"])
+    signal_entry_time = _timestamp(signal["entry_time"])
+    if event_bar_time != signal_event_time:
+        raise ValueError("EVENT_BAR_TIMESTAMP_MISMATCH")
+    if entry_bar_time != signal_entry_time or entry_bar_time <= event_bar_time:
+        raise ValueError("ENTRY_BAR_TIMESTAMP_MISMATCH")
+    return entry_index
+
+
+__all__ = ["validate_event_bound_signal", "resolve_next_bar_entry"]
