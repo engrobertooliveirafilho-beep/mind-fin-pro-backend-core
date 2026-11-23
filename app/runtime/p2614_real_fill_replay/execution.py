@@ -53,7 +53,16 @@ def simulate_fill(edge, candles, features, i, spread_r=0.03, slippage_r=0.02, co
     if exit_i>=len(candles):
         return None
     ft=features.get(i)
-    if not ft or not edge_signal(edge,ft):
+    if not isinstance(ft,dict):
+        return None
+    required=("session","trend","regime","wick_ratio","body_ratio","atr","atr_med")
+    if any(key not in ft for key in required):
+        return None
+    if any(isinstance(ft[k],bool) or not isinstance(ft[k],(int,float)) or not math.isfinite(ft[k]) for k in ("wick_ratio","body_ratio","atr","atr_med")):
+        return None
+    if ft["atr"]<=0 or ft["atr_med"]<=0:
+        return None
+    if not edge_signal(edge,ft):
         return None
 
     entry=candles[entry_i]
