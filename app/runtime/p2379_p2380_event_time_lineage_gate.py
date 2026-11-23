@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import re
+import hashlib
+import hmac
 from datetime import datetime
 from typing import Any, Dict, List, Tuple
 
@@ -68,6 +70,24 @@ def validate_event_bound_signal(signal: Dict[str, Any]) -> Tuple[bool, str]:
     return True, "EVENT_LINEAGE_VALID_PAPER_ONLY"
 
 
+def verify_source_hashes(signal: Dict[str, Any], dataset_bytes: bytes, row_bytes: bytes) -> Tuple[bool, str]:
+    """Verify lineage against independently supplied original bytes; never trust declared hashes alone."""
+    ok, reason = validate_event_bound_signal(signal)
+    if not ok:
+        return False, reason
+    if not isinstance(dataset_bytes, bytes) or not isinstance(row_bytes, bytes):
+        return False, "SOURCE_BYTES_REQUIRED"
+    if not dataset_bytes or not row_bytes:
+        return False, "SOURCE_BYTES_EMPTY"
+    dataset_digest = hashlib.sha256(dataset_bytes).hexdigest()
+    row_digest = hashlib.sha256(row_bytes).hexdigest()
+    if not hmac.compare_digest(dataset_digest, signal["source_dataset_sha256"].lower()):
+        return False, "DATASET_HASH_MISMATCH"
+    if not hmac.compare_digest(row_digest, signal["source_row_sha256"].lower()):
+        return False, "ROW_HASH_MISMATCH"
+    return True, "SOURCE_HASHES_VERIFIED"
+
+
 def resolve_next_bar_entry(signal: Dict[str, Any], candles: List[Dict[str, Any]]) -> int:
     """Resolve only the immediate next candle after the source event; never hash-select an entry."""
     ok, reason = validate_event_bound_signal(signal)
@@ -94,4 +114,4 @@ def resolve_next_bar_entry(signal: Dict[str, Any], candles: List[Dict[str, Any]]
     return entry_index
 
 
-__all__ = ["validate_event_bound_signal", "resolve_next_bar_entry"]
+__all__ = ["validate_event_bound_signal", "verify_source_hashes", "resolve_next_bar_entry"]
