@@ -163,3 +163,40 @@ def test_paper_bus_csv_validates_original_payload_and_rejects_truncation():
     assert validate_paper_bus_csv(header + a + b, b"signal_id,signal_id,mode,real_orders,ftmo_real\\n") == (False, "PAPER_BUS_CSV_HEADER_INVALID")
     assert validate_paper_bus_csv(header + a + b, header + a + b"B,PAPER_ONLY,FORBIDDEN\\n") == (False, "PAPER_BUS_CSV_ROW_INVALID")
     assert validate_paper_bus_csv(header + a + b, b"\\xff") == (False, "PAPER_BUS_CSV_INVALID")
+
+
+def test_p2379_writer_preserves_all_ready_signals(tmp_path):
+    import csv
+    from app.runtime.p2379_de40_forward_paper_emission_from_promoted_playbooks import run
+    def write(path, rows):
+        with path.open("w", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=["footprint", "regime", "samples", "profit_factor_proxy", "expectancy_r_proxy", "max_drawdown_r_proxy"])
+            writer.writeheader()
+            writer.writerows(rows)
+    ready = [{"footprint": "TREND_UP", "regime": "TREND_UP", "samples": "100", "profit_factor_proxy": "2", "expectancy_r_proxy": "0.5", "max_drawdown_r_proxy": "1"}] * 505
+    p = tmp_path / "playbooks.csv"
+    c = tmp_path / "contexts.csv"
+    s = tmp_path / "sequences.csv"
+    write(p, ready)
+    write(c, [])
+    write(s, [])
+    out = tmp_path / "out"
+    result = run(p, c, s, out)
+    with (out / "mind_de40_paper_signal_bus_p2379.csv").open(newline="", encoding="utf-8") as f:
+        bus = list(csv.DictReader(f))
+    assert result["paper_signals_ready"] == 505
+    assert result["paper_signal_bus_rows"] == 505
+    assert len(bus) == 505
+    assert bus[-1]["signal_id"] == "P2379_PLAYBOOK_000505"
+
+
+def test_p2380_blocks_unbound_context_templates(tmp_path):
+    import csv
+    from app.runtime.p2380_de40_forward_paper_feedback_loop_and_pnl_tracking import run
+    bus = tmp_path / "bus.csv"
+    with bus.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=["signal_id", "symbol", "timeframe", "mode", "real_orders", "ftmo_real"])
+        writer.writeheader()
+        writer.writerow({"signal_id": "P2379_PLAYBOOK_000001", "symbol": "DE40", "timeframe": "M5", "mode": "PAPER_ONLY", "real_orders": "FORBIDDEN", "ftmo_real": "FORBIDDEN"})
+    with pytest.raises(ValueError, match="P2380_UNVERIFIED_EVENT_LINEAGE"):
+        run(bus, tmp_path, tmp_path / "out")
