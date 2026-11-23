@@ -1,0 +1,23 @@
+ELDORA TRADER — OFFLINE REGRESSION EVIDENCE
+DATE_UTC=2026-11-22
+BRANCH=engineering/trader-wiring-health-pure-20261122
+SOURCE=app/runtime/mind_trader_institutional_wiring.py
+SOURCE_GIT_BLOB_SHA=cae56dbac2f8f3a6cdffaa58c250f0f75f2500bf
+SOURCE_BYTES=3551
+SOURCE_MATCH=EXACT_GIT_BLOB_HASH_VERIFIED
+RUNNER=python -m unittest discover -s /mnt/data/trader_wiring_validation/tests -v
+ENVIRONMENT=ISOLATED_LOCAL_PYTHON; NO_NETWORK; MOCK_CHILD_MODULES
+TESTS_RUN=8
+TESTS_PASS=8
+TESTS_FAIL=0
+TESTS_ERROR=0
+DURATION=0.002s
+TEST_CASES=test_child_health_not_called;test_health_metadata_only;test_import_error_degraded;test_missing_run_degraded;test_paper_success_uncertified;test_parameterless_run_not_called;test_reject_modes_before_import;test_typeerror_not_retried
+SCOPE=UNIT_BEHAVIOR_OF_EXACT_PUBLISHED_SOURCE_WITH_MOCKED_MODULES
+E2E_CERTIFIED=FALSE
+S21_SYMBOL_CERTIFIED=FALSE
+FTMO_REAL=FORBIDDEN
+REAL_ORDERS=FORBIDDEN
+PAPER_ONLY=TRUE
+MAIN=INTACT
+NOTE=Local test harness was created separately; existing GitHub regression suites were not executed in this run.
