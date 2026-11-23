@@ -84,13 +84,38 @@ def inspect_capability_module(module_name: str) -> dict:
         return item
 
 
-def capability_recovery_report(user_id: str = "default", message: str = "") -> dict:
+def capability_recovery_report(user_id: str = "default", message: str = "", *, execute_probes: bool = False) -> dict:
     report = {
         "bridge": "P4.72D_ASYNC_SAFE_CAPABILITY_BRIDGE",
         "user_id": user_id,
         "message": message,
         "modules": [],
     }
+
+    # Fail-closed: an inspection must not import or invoke arbitrary modules.
+    # Legacy active probes require explicit opt-in and are never used by default.
+    if execute_probes is not True:
+        report["modules"] = [
+            {
+                "module": module_name,
+                "import_ok": False,
+                "functions": [],
+                "classes": [],
+                "call_results": {},
+                "skipped": True,
+                "reason": "active_probe_requires_explicit_opt_in",
+            }
+            for module_name in TOP5_MODULES
+        ]
+        report["summary"] = {
+            "total": len(TOP5_MODULES),
+            "import_ok": 0,
+            "with_successful_calls": 0,
+            "skipped_async": 0,
+            "skipped_active_probes": len(TOP5_MODULES),
+        }
+        report["mode"] = "static_safe"
+        return report
 
     for module_name in TOP5_MODULES:
         item = inspect_capability_module(module_name)
