@@ -7,7 +7,9 @@ class PaperInputGate(unittest.TestCase):
     def test_invalid_inputs_never_import(self):
         for payload in ("invalid", {"mode": "LIVE"}, {"mode": "DEMO"},
                         {"real_orders": True}, {"ftmo_real": "ENABLED"},
-                        {"live_trading": True}):
+                        {"live_trading": True}, {"broker_execution": True},
+                        {"financial_execution": True}, {"send_order": True},
+                        {"mt5_order_send": True}, {"broker_api_call": True}):
             with self.subTest(payload=payload), patch.object(wiring.importlib, "import_module") as importer:
                 with self.assertRaises(ValueError):
                     wiring.run(payload)
