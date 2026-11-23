@@ -1,4 +1,6 @@
 import unittest
+import csv
+from unittest.mock import patch
 from p2397_historical_bridge import evaluate_historical_research
 class HistoricalResearchTests(unittest.TestCase):
     def test_original_three_hypotheses_research_only(self):
