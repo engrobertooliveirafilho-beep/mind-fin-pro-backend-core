@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import Mock
-from originals import KnowledgeLifecycleManager,CanonBuilder,CognitiveTreatyProtocol,EthicalReviewBoard
+from fixtures.originals import KnowledgeLifecycleManager,CanonBuilder,CognitiveTreatyProtocol,EthicalReviewBoard
 from r884_guarded_engines import *
 E={'sha256':'a'*64,'source':'signed-ledger'}
 def verifier(e,s):return e is E and s.get('operation') in {'promote_to_canon','ethical_approve','ethical_reject','deprecate'}
