@@ -12,7 +12,7 @@ spec.loader.exec_module(module)
 def test_default_never_imports_or_executes():
     with patch.object(module.importlib, "import_module", side_effect=AssertionError("unexpected import")):
         report = module.capability_recovery_report()
-    assert report["mode"] == "static_safe"
+    assert report["mode"] == "declared_only"
     assert report["summary"]["total"] == len(module.TOP5_MODULES)
     assert report["summary"]["with_successful_calls"] == 0
     assert report["summary"]["skipped_active_probes"] == len(module.TOP5_MODULES)
@@ -22,13 +22,13 @@ def test_default_never_imports_or_executes():
 def test_false_opt_in_stays_safe():
     with patch.object(module.importlib, "import_module", side_effect=AssertionError("unexpected import")):
         report = module.capability_recovery_report(execute_probes=False)
-    assert report["mode"] == "static_safe"
+    assert report["mode"] == "declared_only"
 
 
 def test_truthy_nonboolean_opt_in_stays_safe():
     with patch.object(module.importlib, "import_module", side_effect=AssertionError("unexpected import")):
         report = module.capability_recovery_report(execute_probes=1)
-    assert report["mode"] == "static_safe"
+    assert report["mode"] == "declared_only"
 
 
 def test_user_message_preserved_without_import():
@@ -38,14 +38,11 @@ def test_user_message_preserved_without_import():
     assert report["message"] == "m"
 
 
-def test_explicit_opt_in_uses_legacy_path_with_mocked_modules():
-    class FakeModule:
-        pass
-    with patch.object(module, "inspect_capability_module", return_value={
-        "module": "fake", "import_ok": False, "functions": [], "classes": [],
-        "call_results": {}, "error": "blocked_mock",
-    }) as inspect_mock:
-        report = module.capability_recovery_report(execute_probes=True)
-    assert "mode" not in report
-    assert inspect_mock.call_count == len(module.TOP5_MODULES)
+def test_explicit_opt_in_is_now_disabled():
+    with patch.object(module, "inspect_capability_module", side_effect=AssertionError("unexpected probe")):
+        with patch.object(module.importlib, "import_module", side_effect=AssertionError("unexpected import")):
+            report = module.capability_recovery_report(execute_probes=True)
+    assert report["mode"] == "declared_only"
+    assert report["active_probe_requested"] is True
+    assert report["active_probe_allowed"] is False
     assert report["summary"]["with_successful_calls"] == 0
