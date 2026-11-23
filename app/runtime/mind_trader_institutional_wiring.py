@@ -79,13 +79,14 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
     }
 
 def health() -> dict:
-    r = run_institutional_wiring({})
+    """Side-effect-free metadata only; never import or run trading modules."""
     return {
-        "status": "operational" if r["imports_ok"] == r["modules_total"] else "DEGRADED",
-        "modules_total": r["modules_total"],
-        "imports_ok": r["imports_ok"],
-        "runs_ok": r["runs_ok"],
-        "health_ok": r["health_ok"],
+        "status": "UNVERIFIED",
+        "modules_total": len(MODULES),
+        "imports_ok": None,
+        "runs_ok": None,
+        "health_ok": None,
+        "inspection_only": True,
     }
 
 def run(payload: dict | None = None) -> dict:
