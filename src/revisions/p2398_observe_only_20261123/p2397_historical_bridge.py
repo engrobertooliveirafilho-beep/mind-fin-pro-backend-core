@@ -8,7 +8,8 @@ from p2397_research_gate import evaluate_research
 HERE=Path(__file__).resolve().parent
 
 def evaluate_historical_research():
-    edge=json.loads((HERE/'p2394_original_summary.json').read_text(encoding='utf-8'))['best_scored_edge']
+    p2394=json.loads((HERE/'p2394_original_summary.json').read_text(encoding='utf-8'))
+    edge=p2394['best_scored_edge']
     policy=json.loads((HERE/'p2397_original_policy.json').read_text(encoding='utf-8'))
     summary=json.loads((HERE/'p2397_original_summary.json').read_text(encoding='utf-8'))
     expected_summary={'mission':'P2397_META_LEARNING_OFFLINE','mode':'PAPER_ONLY',
@@ -16,10 +17,15 @@ def evaluate_historical_research():
                       'edge_decision':'OBSERVE_SCORE','hypotheses_created':3,
                       'runtime_promotion_allowed':False,'research_allowed':True,
                       'real_execution_allowed':False,'paper_stack_modified':True,
-                      'certification':'P2397_META_LEARNING_OFFLINE_RESEARCH_CERTIFIED'}
+                      'certification':'P2397_META_LEARNING_OFFLINE_RESEARCH_CERTIFIED',
+                      'next_required':'P2398_RUNTIME_EDGE_INTEGRATION_PAPER_GATED'}
     if (not isinstance(summary,dict) or
             any(summary.get(k) != v or type(summary.get(k)) is not type(v)
                 for k,v in expected_summary.items()) or
+            summary.get('source_cluster') != edge.get('cluster_id') or
+            p2394.get('promoted_scores') != 0 or
+            p2394.get('score_threshold') != 70 or
+            edge.get('final_score', 999) >= p2394.get('score_threshold', 0) or
             summary.get('source_edge') != edge.get('source_candidate_id') or
             summary.get('edge_score') != edge.get('final_score')):
         return evaluate_research({},policy,[])
