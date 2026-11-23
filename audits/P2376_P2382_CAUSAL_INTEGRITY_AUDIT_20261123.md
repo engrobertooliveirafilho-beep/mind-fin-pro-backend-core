@@ -68,3 +68,47 @@ GitHub source blob SHAs:
 - P2382: 669df7d3dd9905ea542295aa6c7b08c7cf030d45
 
 Observação: os logs históricos registram certificações operacionais, mas não substituem a validação causal do código-fonte. A branch causal informada anteriormente (5870b173) não foi localizada/read-back confirmada neste repositório durante esta auditoria; o arquivo P2377 em main continua contendo os campos pós-evento.
+
+
+## ADENDO DE RECONCILIAÇÃO DRIVE/GITHUB — 2026-11-23
+
+### Correção de escopo e etapas já concluídas
+A auditoria inicial desta branch deve ser lida com este adendo. A inspeção do MASTER REMEDIATION LEDGER e dos dossiês posteriores revelou que a cadeia não parou em P2382:
+- P2383B/C/C2/D, P2384/A e P2385–P2391 foram executados historicamente; não reiniciar.
+- P2385: 920 candidatos, 230 PAPER e 690 bloqueados; PF 1.543464, WR 56.521739%, expectancy 0.104782R (números documentais).
+- P2386B reparou schema entry_time→time; P2387 validou a ponte MT5 PAPER; P2388 monitorou 230 eventos forward PAPER com NetR 24.099759; P2389 Governance Lock; P2390 suíte PAPER; P2391 99.998 eventos, 4.288 candidatos, 40 promovidos, 352 observados e 3.896 rejeitados. Esses resultados são históricos e não equivalem a edge OOS independente.
+- P2384 teve um corte anterior com 0/3 ciclos promovidos e P2385_ALLOWED=False; a documentação posterior registra P2384/A transições aprovadas e P2385 executado. O estado posterior prevalece no escopo histórico, mas a certificação de rentabilidade continua não demonstrada.
+- P2392 foi recuperado e reproduzido em ET-499 (2026-11-03): executor original SHA256 dffc5e1a1f2b8e6e0bfc639fd4c6f3533d77668d20fa67468a4f8edf9fb83037; 40 candidatos, 1 promovido, 1 observado, 38 rejeitados; seis CSVs de saída 6/6 byte-idênticos ao Drive. Melhor edge reportado: 152 eventos, 4/5 janelas, PF 1.715719, WR 59.210526%, DD 4.158651R, expectancy 0.139817R. ET-501 validou o Governance Guard isolado e controles de adulteração.
+- Limite de P2392: reprodução histórica determinística comprovada; proveniência independente da série M15/broker, custos, causalidade operacional, integração CI e FTMO não certificados. Não repetir a recuperação/reprodução P2392.
+- Dossiês P2405–P2614 registram Edge Pool/Risk/Factory/Walk Forward/Ensemble/Router/Paper, P2409–P2415 Paper Stack, P2500–P2510 5.393 capabilities/switchboard/runtime lock, P2601–P2610 Edge Research Platform, P2611 GER40, P2612 replay USD 100 e P2613 hardening; P2614 define replay modular. São autoridade histórica documental, exigindo reconciliação por código/hash antes de qualquer reutilização.
+- O repositório `engrobertooliveirafilho-beep/eldora-trader` identifica-se no README como futuro repositório de código consolidado; lista R27 PAPER OOS com 148 testes em fixtures, mas não declara importação completa do código R1–R27. Branch histórica localizada: `audit/p2405f-causal-walk-forward-gate-20261116`. Não substituir autoridade nem copiar implementação sem recuperar e comparar fontes.
+
+### Reconciliação do P2377 anterior
+O histórico de continuidade contém referência a uma correção/gate P2377 anterior (`2939136a`, testes causais 3/3 e gate `5870b173`, 5/5) em branch isolada. A busca desta sessão não conseguiu localizar/read-back esses commits no repositório `mind-fin-pro-backend-core`; isso NÃO prova que nunca existiram ou que estejam ausentes de outro repositório/branch. Portanto:
+- Não refazer a correção antes de recuperar o branch/commit original.
+- O arquivo P2377 em `main` deste repositório, blob `fdc826403a84f76d07b894b634ed3641f4942896`, continua usando `post_mfe_atr`, `post_mae_atr`, `post_followthrough` em `classify_lifecycle` e `post_efficiency` em `context_score`; a correção histórica ainda não foi demonstrada integrada a esse arquivo.
+- P2376 pode continuar calculando métricas futuras para rótulos retrospectivos; o bloqueio é seu consumo como feature de decisão no P2377.
+
+### Gate reutilizável publicado nesta branch
+- `app/runtime/p2376_p2382_causal_integrity_gate.py`
+- `tests/test_p2376_p2382_causal_integrity_gate.py`
+- Testes locais executados: 14/14 PASS; `compileall` PASS.
+- Read-back GitHub: blob do módulo `6fbec9cb6bf4248eb4f12ce3a09046aacd3c2b44`; blob dos testes `bfe6644e10596eb2ef9ca87a85a7541ed44fadab`.
+- O gate cobre rejeição de features pós-evento, timestamps UTC, primeiro candle estritamente posterior, símbolo consistente, identidade determinística por SHA-256, filtros treinados sem excluir perdas e PF indefinido quando não há perdas.
+- LIMITAÇÃO: módulo auxiliar ainda NÃO está conectado a P2377/P2380/P2381/P2382; os 14 testes certificam somente o contrato isolado, não os motores legados nem replay financeiro.
+
+### Próxima sequência correta — sem retrabalho
+1. Recuperar e comparar o branch/commit P2377 anterior (`2939136a`/`5870b173`) em todos os repositórios e reconciliar com o blob atual.
+2. Se a correção não estiver integrada, aplicar patch mínimo em branch isolada ao P2377 original; separar features contemporâneas de outcomes pós-evento.
+3. Integrar os gates do módulo auxiliar somente após testes de contrato e regressão do motor original.
+4. Reconciliar P2380/P2381/P2382 com os artefatos ET-499/501 e P2405F/R27; não repetir P2392 nem walk-forward já reproduzido.
+5. Só então executar teste causal em dados de mercado cuja proveniência, custos e contrato GER40 estejam autenticados. Nenhuma promoção por resultado histórico.
+
+### Status atualizado
+- DRIVE_HISTORY_P2383_P2391: RECUPERADO.
+- P2392: REPRODUÇÃO HISTÓRICA 6/6 OUTPUTS IDÊNTICOS; NÃO EDGE CERTIFICATION.
+- P2405_P2614: DOCUMENTADOS; AUTORIDADE DE CÓDIGO/HASH A RECONCILIAR.
+- CAUSAL_GATE_HELPER: PUBLICADO; 14/14 TESTS LOCAIS PASS; READ-BACK PASS.
+- P2377_RUNTIME_INTEGRATION: PENDING.
+- P2380_P2382_CAUSAL_REPLAY: PENDING.
+- MAIN_INTACT=TRUE; PAPER_ONLY=TRUE; REAL_ORDERS=FORBIDDEN; FTMO_REAL=FORBIDDEN; COST=R$0.
