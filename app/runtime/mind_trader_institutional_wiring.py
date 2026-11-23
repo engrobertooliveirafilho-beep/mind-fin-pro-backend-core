@@ -44,13 +44,9 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
                 if callable(v) and not isinstance(v, type) and not k.startswith("_")
             ]
 
-            if hasattr(m, "health"):
-                try:
-                    h = m.health()
-                    row["health_ok"] = isinstance(h, dict)
-                    row["health"] = h
-                except Exception as e:
-                    row["error"] += f"health_error={e};"
+            # Child health hooks are untrusted: they may run trading code.
+            # Do not invoke them during orchestration; inspection is not certification.
+            row["health_inspection"] = "SKIPPED_SIDE_EFFECT_SAFETY"
 
             if hasattr(m, "run"):
                 try:
