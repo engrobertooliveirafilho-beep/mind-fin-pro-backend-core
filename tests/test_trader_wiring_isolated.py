@@ -46,3 +46,29 @@ class WiringIsolationTests(TestCase):
             output = self.wiring.run_institutional_wiring({"mode": "PAPER_ONLY"})
         self.assertEqual(output["status"], "PAPER_RUN_COMPLETED_UNCERTIFIED")
         self.assertEqual(output["runs_ok"], 1)
+
+    def test_legacy_simulation_adapters_bounded(self):
+        engines = [
+            ("app.runtime.p2223_broker_emulator", "run_simulation", "BROKER_EMULATOR_SIMULATION_ONLY"),
+            ("app.runtime.p2224_2226_institutional_core", "run", "INSTITUTIONAL_SIMULATION_CORE"),
+            ("app.runtime.p2227_2229_advanced_layer", "run", "ADVANCED_SIMULATION_LAYER"),
+        ]
+        for name, fn_name, mode in engines:
+            with self.subTest(name=name):
+                calls = []
+                def simulation(*, cycles):
+                    calls.append(cycles)
+                    return {"status": "PASS", "mode": mode}
+                motor = SimpleNamespace(**{fn_name: simulation})
+                with patch.object(self.wiring, "MODULES", [name]), patch.object(self.wiring.importlib, "import_module", return_value=motor):
+                    output = self.wiring.run_institutional_wiring({"mode": "PAPER_ONLY"})
+                self.assertEqual(calls, [1])
+                self.assertEqual(output["runs_ok"], 1)
+                self.assertEqual(output["status"], "PAPER_RUN_COMPLETED_UNCERTIFIED")
+
+    def test_legacy_adapter_rejects_wrong_mode(self):
+        motor = SimpleNamespace(run=lambda *, cycles: {"status": "PASS", "mode": "LIVE"})
+        with patch.object(self.wiring, "MODULES", ["app.runtime.p2224_2226_institutional_core"]), patch.object(self.wiring.importlib, "import_module", return_value=motor):
+            output = self.wiring.run_institutional_wiring({"mode": "PAPER_ONLY"})
+        self.assertEqual(output["status"], "DEGRADED")
+        self.assertEqual(output["runs_ok"], 0)
