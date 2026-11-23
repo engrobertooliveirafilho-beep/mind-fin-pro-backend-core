@@ -22,7 +22,7 @@ class WiringIsolationTests(TestCase):
 
     def test_unsafe_payload_rejected_before_import(self):
         cases = [("mode", "LIVE"), ("execution_mode", "LIVE"), ("account_mode", "REAL"),
-                 ("real_orders", True), ("ftmo_real", True), ("real_orders_allowed", True),
+                 ("real_orders", True), ("real_orders", 0), ("ftmo_real", True), ("ftmo_real", 0), ("real_orders_allowed", True),
                  ("live", True), ("live_trading", True), ("broker_execution", True)]
         for key, value in cases:
             with self.subTest(key=key):
