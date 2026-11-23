@@ -49,7 +49,11 @@ def _static_module_declarations(module_name: str, source_root) -> dict:
         if not root.is_dir():
             raise ValueError("invalid root")
         target = root.joinpath(*module_name.split('.')).with_suffix('.py')
-        if target.is_symlink() or not target.is_file() or not target.resolve().is_relative_to(root):
+        relative = target.relative_to(root)
+        if any((root / Path(*relative.parts[:i])).is_symlink() for i in range(1, len(relative.parts) + 1)):
+            result["static_inspection"] = "unavailable"
+            return result
+        if not target.is_file() or not target.resolve().is_relative_to(root):
             result["static_inspection"] = "unavailable"
             return result
         tree = ast.parse(target.read_text(encoding="utf-8"))
