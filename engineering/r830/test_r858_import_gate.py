@@ -1,0 +1,20 @@
+import unittest
+from r858_import_gate import audit
+class Gate(unittest.TestCase):
+ def test_autostart(self):self.assertEqual(audit(b'from x import start_scheduler as s\ns()')['status'],'blocked')
+ def test_mkdir(self):self.assertEqual(audit(b'from pathlib import Path\nPath("x").mkdir()')['status'],'blocked')
+ def test_subprocess_alias(self):self.assertEqual(audit(b'import subprocess as s\ns.run([])')['status'],'blocked')
+ def test_class_body(self):self.assertEqual(audit(b'class X:\n x=open("x")')['status'],'blocked')
+ def test_class_method_not_imported(self):self.assertEqual(audit(b'class X:\n def f(self):open("x")')['status'],'candidate_only')
+ def test_kw_default(self):self.assertEqual(audit(b'def f(*, x=open("x")):pass')['status'],'blocked')
+ def test_decorator(self):self.assertEqual(audit(b'@open("x")\ndef f():pass')['status'],'blocked')
+ def test_lambda_call(self):self.assertEqual(audit(b'(lambda:1)()')['status'],'blocked')
+ def test_safe_def(self):self.assertEqual(audit(b'def f():\n open("x")')['status'],'candidate_only')
+ def test_bad(self):self.assertEqual(audit(b'def :')['status'],'blocked')
+ def test_empty(self):self.assertEqual(audit(b'')['status'],'blocked')
+ def test_not_certified(self):self.assertFalse(audit(b'pass')['runtime_certified'])
+ def test_not_authorized(self):self.assertFalse(audit(b'pass')['execution_authorized'])
+ def test_dynamic(self):self.assertEqual(audit(b'getattr(x,"start")()')['status'],'blocked')
+ def test_thread(self):self.assertEqual(audit(b'threading.Thread().start()')['status'],'blocked')
+ def test_eval(self):self.assertEqual(audit(b'eval("1")')['status'],'blocked')
+if __name__=='__main__':unittest.main()
