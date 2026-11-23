@@ -63,7 +63,7 @@ class EthicalReviewItem:
  item_id:str;payload:Dict[str,Any];status:Literal["pending","approved","rejected"];created_at:datetime
  reviewed_at:Optional[datetime]=None;reviewer:Optional[str]=None;notes:Optional[str]=None
 class EthicalReviewBoard:
- def __init__(self)->None:self._items:Dict[str,EethicalReviewItem]={};self._counter=0
+ def __init__(self)->None:self._items:Dict[str,EthicalReviewItem]={};self._counter=0
  def _now(self):return datetime.now(timezone.utc)
  def _next_id(self):self._counter+=1;return f"ERB-{self._counter}"
  def submit(self,payload):
