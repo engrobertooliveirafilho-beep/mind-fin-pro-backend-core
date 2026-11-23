@@ -17,7 +17,10 @@ MODULES = [
 ]
 
 def run_institutional_wiring(payload: dict | None = None) -> dict:
-    payload = payload or {}
+    if payload is None:
+        payload = {}
+    if not isinstance(payload, dict) or payload.get("mode", "PAPER_ONLY") != "PAPER_ONLY" or payload.get("real_orders", "FORBIDDEN") != "FORBIDDEN" or payload.get("ftmo_real", "FORBIDDEN") != "FORBIDDEN":
+        return {"program": "MIND_TRADER_INSTITUTIONAL_WIRING", "status": "BLOCKED", "reason": "PAPER_ONLY_EXECUTION_GATE", "mode": "PAPER_ONLY", "real_orders": "FORBIDDEN", "ftmo_real": "FORBIDDEN", "modules_total": 0, "imports_ok": 0, "runs_ok": 0, "health_ok": 0, "results": []}
     results = []
 
     for name in MODULES:
