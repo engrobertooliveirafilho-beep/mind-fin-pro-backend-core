@@ -141,6 +141,7 @@ def test_paper_bus_coverage_rejects_missing_historical_signal():
     ready = [item("P2379_CONTEXT_000157"), item("P2379_CONTEXT_000158")]
     assert verify_paper_bus_coverage(ready, ready[:1]) == (False, "PAPER_BUS_COVERAGE_MISMATCH")
     assert verify_paper_bus_coverage(ready, ready) == (True, "PAPER_BUS_COVERAGE_VERIFIED")
+    assert verify_paper_bus_coverage(ready, ready[::-1]) == (False, "PAPER_BUS_ORDER_MISMATCH")
     assert verify_paper_bus_coverage(ready, [ready[0], ready[0]]) == (False, "PAPER_BUS_DUPLICATE_SIGNAL_ID")
     assert verify_paper_bus_coverage(ready, [item("UNEXPECTED"), ready[1]]) == (False, "PAPER_BUS_COVERAGE_MISMATCH")
     assert verify_paper_bus_coverage(ready, [{**ready[0], "real_orders": "ALLOWED"}, ready[1]]) == (False, "PAPER_BUS_EXECUTION_MODE_FORBIDDEN")
