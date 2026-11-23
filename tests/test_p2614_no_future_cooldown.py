@@ -14,6 +14,9 @@ class NoFutureCooldown(unittest.TestCase):
    return {'signal_i':i,'entry_i':i+1,'exit_i':i+5,'r':-1.,'real_execution_allowed':False}
   with patch.object(replay,'simulate_fill',fill):
    summary,curve,trades=replay.replay_portfolio('PAPER',edges,candles,{})
-  self.assertIn(65,calls, 'loss cooldown must be imposed at settlement, not signal')
-  self.assertNotIn(66,calls, 'cooldown must apply after settled loss')
+  self.assertIn(60,calls, 'first signal must be evaluated')
+  self.assertNotIn(65,calls, 'cooldown must begin at settlement')
+  self.assertNotIn(66,calls)
+  self.assertNotIn(67,calls)
+  self.assertIn(68,calls, 'cooldown must expire after three settled bars')
   self.assertFalse(summary['real_execution_allowed'])
