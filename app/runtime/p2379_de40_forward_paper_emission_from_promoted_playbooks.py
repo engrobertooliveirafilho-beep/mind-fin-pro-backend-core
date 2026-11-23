@@ -69,7 +69,9 @@ def create_signal(row: Dict, source_type: str, idx: int) -> Dict:
     rr = fnum(row.get("avg_rr_possible_proxy"), 2.0)
     rr_policy = "RR_5_INSTITUTIONAL" if rr >= 5 else "RR_3_PRIORITY" if rr >= 3 else "RR_2_STANDARD"
 
-    signal_status = "PAPER_SIGNAL_READY" if direction != "NO_DIRECTION" and tier != "OBSERVATION_PAPER" else "PAPER_OBSERVE_ONLY"
+    # P2380 cannot consume signals with missing or unsupported timeframe.
+    valid_timeframe = str(row.get("timeframe", "")).upper() in {"M1", "M5", "M15", "M30", "H1", "H4", "D1"}
+    signal_status = "PAPER_SIGNAL_READY" if valid_timeframe and direction != "NO_DIRECTION" and tier != "OBSERVATION_PAPER" else "PAPER_OBSERVE_ONLY"
 
     return {
         "signal_id": f"P2379_{source_type}_{idx:06d}",
