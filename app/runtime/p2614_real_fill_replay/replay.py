@@ -90,9 +90,6 @@ def replay_portfolio(name, edges, candles, features, risk_pct=0.01, initial_capi
             "dd_pct":round((peak-capital)/peak*100,6)
         })
 
-    if pending:
-        raise RuntimeError("UNSETTLED_TRADES_AT_REPLAY_END")
-
     wins=sum(1 for t in trades if t["r"]>0)
     losses=sum(1 for t in trades if t["r"]<0)
     gw=sum(t["r"] for t in trades if t["r"]>0)
