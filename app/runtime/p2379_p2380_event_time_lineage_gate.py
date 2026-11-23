@@ -133,9 +133,11 @@ def resolve_next_bar_entry(signal: Dict[str, Any], candles: List[Dict[str, Any]]
         bar = candles[i]
         if not isinstance(bar, dict):
             raise ValueError("CANDLE_NOT_OBJECT")
-        if "symbol" in bar and bar["symbol"] != signal["symbol"]:
+        if "symbol" not in bar or "timeframe" not in bar:
+            raise ValueError("CANDLE_IDENTITY_MISSING")
+        if bar["symbol"] != signal["symbol"]:
             raise ValueError("CANDLE_SYMBOL_MISMATCH")
-        if "timeframe" in bar and str(bar["timeframe"]).upper() != str(signal["timeframe"]).upper():
+        if str(bar["timeframe"]).upper() != str(signal["timeframe"]).upper():
             raise ValueError("CANDLE_TIMEFRAME_MISMATCH")
         if i > 0:
             previous = _timestamp(str(candles[i-1].get("time", "")))
