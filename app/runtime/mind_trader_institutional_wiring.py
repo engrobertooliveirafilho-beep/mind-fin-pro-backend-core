@@ -57,7 +57,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
                         r = m.run()
                     else:
                         r = m.run(payload)
-                    row["run_ok"] = r is not None
+                    row["run_ok"] = r is not None and (not isinstance(r, dict) or str(r.get("status", "")).upper() not in {"BLOCKED", "FAILED", "ERROR", "DEGRADED", "NOT_IMPLEMENTED", "FORBIDDEN"})
                     row["run_result_type"] = type(r).__name__
                     row["run_result"] = r if isinstance(r, (dict, list, str, int, float, bool)) else str(r)
                 except Exception as e:
