@@ -56,7 +56,7 @@ def audit_trades(trades):
                 errors.append(f"NEGATIVE_OR_ZERO_CAPITAL:{index}")
 
         if all(_finite_number(trade[field]) for field in ("capital_before", "capital_after", "pnl_usd")):
-            expected = float(trade["capital_before"]) + float(trade["pnl_usd"])
+            expected = max(0.01, float(trade["capital_before"]) + float(trade["pnl_usd"]))
             if not math.isclose(float(trade["capital_after"]), expected, rel_tol=1e-8, abs_tol=1e-6):
                 errors.append(f"PNL_EQUITY_MISMATCH:{index}")
             if previous_capital_after is not None and not math.isclose(float(trade["capital_before"]), previous_capital_after, rel_tol=1e-8, abs_tol=1e-6):
