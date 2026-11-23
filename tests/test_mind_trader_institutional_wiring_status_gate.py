@@ -22,6 +22,7 @@ def test_institutional_wiring_degraded_when_run_fails(monkeypatch):
     assert result["status"] == "DEGRADED"
     assert result["imports_ok"] == 1
     assert result["runs_ok"] == 0
+    assert wiring.health()["status"] == "DEGRADED"
 
 
 def test_institutional_wiring_operational_only_when_runtime_executes(monkeypatch):
