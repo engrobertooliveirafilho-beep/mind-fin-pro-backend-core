@@ -85,17 +85,15 @@ def inspect_capability_module(module_name: str) -> dict:
 
 
 def capability_recovery_report(user_id: str = "default", message: str = "", *, execute_probes: bool = False) -> dict:
-    report = {
+    """Declared-only inventory; legacy active probing is disabled even on opt-in."""
+    return {
         "bridge": "P4.72D_ASYNC_SAFE_CAPABILITY_BRIDGE",
         "user_id": user_id,
         "message": message,
-        "modules": [],
-    }
-
-    # Fail-closed: an inspection must not import or invoke arbitrary modules.
-    # Legacy active probes require explicit opt-in and are never used by default.
-    if execute_probes is not True:
-        report["modules"] = [
+        "mode": "declared_only",
+        "active_probe_requested": execute_probes is True,
+        "active_probe_allowed": False,
+        "modules": [
             {
                 "module": module_name,
                 "import_ok": False,
@@ -103,93 +101,17 @@ def capability_recovery_report(user_id: str = "default", message: str = "", *, e
                 "classes": [],
                 "call_results": {},
                 "skipped": True,
-                "reason": "active_probe_requires_explicit_opt_in",
+                "reason": "active_probe_disabled",
+                "certification": "not_tested",
             }
             for module_name in TOP5_MODULES
-        ]
-        report["summary"] = {
+        ],
+        "summary": {
             "total": len(TOP5_MODULES),
             "import_ok": 0,
             "with_successful_calls": 0,
             "skipped_async": 0,
             "skipped_active_probes": len(TOP5_MODULES),
-        }
-        report["mode"] = "static_safe"
-        return report
-
-    for module_name in TOP5_MODULES:
-        item = inspect_capability_module(module_name)
-
-        if item["import_ok"]:
-            try:
-                mod = importlib.import_module(module_name)
-
-                for fname in item.get("functions", []):
-                    fn = getattr(mod, fname, None)
-
-                    if not callable(fn):
-                        continue
-
-                    # Não chamar rotas async FastAPI em probe síncrono.
-                    if inspect.iscoroutinefunction(fn):
-                        item["call_results"][fname] = {
-                            "ok": False,
-                            "skipped": True,
-                            "reason": "async_function_not_called_by_sync_probe",
-                        }
-                        continue
-
-                    # Evita rotas HTTP complexas.
-                    if module_name.startswith("app.api.") and fname not in [
-                        "social_memory_report",
-                        "store_social_memory",
-                    ]:
-                        item["call_results"][fname] = {
-                            "ok": False,
-                            "skipped": True,
-                            "reason": "api_route_not_called_by_bridge",
-                        }
-                        continue
-
-                    item["call_results"][fname] = _call_by_signature(fn, user_id, message)
-
-                for cname in item.get("classes", []):
-                    cls = getattr(mod, cname, None)
-
-                    if not cls:
-                        continue
-
-                    try:
-                        inst = cls()
-                        item["call_results"][cname + "_init"] = {
-                            "ok": True,
-                            "value": type(inst).__name__,
-                        }
-                    except Exception as e:
-                        item["call_results"][cname + "_init"] = {
-                            "ok": False,
-                            "error": type(e).__name__ + ": " + str(e)[:500],
-                        }
-
-            except Exception as e:
-                item["probe_error"] = type(e).__name__ + ": " + str(e)[:500]
-
-        report["modules"].append(item)
-
-    report["summary"] = {
-        "total": len(report["modules"]),
-        "import_ok": len([x for x in report["modules"] if x.get("import_ok")]),
-        "with_successful_calls": len([
-            x for x in report["modules"]
-            if any(v.get("ok") for v in x.get("call_results", {}).values() if isinstance(v, dict))
-        ]),
-        "skipped_async": sum([
-            len([
-                v for v in x.get("call_results", {}).values()
-                if isinstance(v, dict) and v.get("skipped") and v.get("reason") == "async_function_not_called_by_sync_probe"
-            ])
-            for x in report["modules"]
-        ]),
+            "functionally_certified": 0,
+        },
     }
-
-    return report
