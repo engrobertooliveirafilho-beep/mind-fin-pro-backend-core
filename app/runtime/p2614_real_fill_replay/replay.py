@@ -40,12 +40,7 @@ def replay_portfolio(name, edges, candles, features, risk_pct=0.01, initial_capi
             if fill["r"]<0 and fill.get("risk_model") in ("LOSS_GUARD","COOLDOWN"):
                 cooldown[fill["edge_id"]]=3
         pending=[f for f in pending if f["exit_i"]>i]
-        day=candles[i]["time"].date().isoformat()
-        daily_count.setdefault(day,0)
-        active=[]
         for e in edges:
-            if daily_count[day]>=max_trades_per_day:
-                break
             eid=e["edge_id"]
             if eid in occupied: continue
             if cooldown[eid]>0:
@@ -63,6 +58,9 @@ def replay_portfolio(name, edges, candles, features, risk_pct=0.01, initial_capi
                 or not isinstance(fill.get("exit_i"),int)
                 or not (i < fill["entry_i"] < fill["exit_i"] < len(candles))):
                 raise ValueError("INVALID_EVENT_CHRONOLOGY")
+            entry_day=candles[fill["entry_i"]]["time"].date().isoformat()
+            if daily_count.get(entry_day,0)>=max_trades_per_day:
+                continue
             fill["edge_id"]=eid
             fill["family"]=e.get("family")
             fill["direction"]=e.get("direction")
@@ -74,7 +72,7 @@ def replay_portfolio(name, edges, candles, features, risk_pct=0.01, initial_capi
             pending.append(fill)
             reserved_risk+=risk_amount
             occupied.add(eid)
-            daily_count[day]+=1
+            daily_count[entry_day]=daily_count.get(entry_day,0)+1
 
         curve.append({
             "bar":i,
