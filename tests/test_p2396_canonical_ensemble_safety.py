@@ -36,3 +36,15 @@ def test_historical_p2395_to_p2396_observe_only():
     result = build_ensemble([decision],quorum=2).vote()
     assert (result.allowed,result.vote,result.reason,result.members,result.operational_members) == (False,"OBSERVE_ONLY","INSUFFICIENT_OPERATIONAL_QUORUM",1,0)
     assert result.real_orders == "FORBIDDEN" and result.ftmo_real == "FORBIDDEN"
+
+
+def test_historical_p2396_to_p2397_offline_only():
+    from app.runtime.p2397_meta_learning_offline import build_meta_learning
+    ensemble = build_ensemble([v("P2391_8149352397",False)],quorum=2).vote()
+    assert not ensemble.allowed and ensemble.vote == "OBSERVE_ONLY"
+    hypotheses = [{"type":"DD_REDUCTION","paper_only":True}]
+    decision = build_meta_learning({"decision":"OBSERVE_SCORE"},hypotheses).evaluate()
+    assert decision.allowed_for_runtime is False
+    assert decision.allowed_for_research is True
+    assert decision.decision == "RESEARCH_ONLY" and decision.hypotheses == 1
+    assert decision.real_orders == "FORBIDDEN" and decision.ftmo_real == "FORBIDDEN"
