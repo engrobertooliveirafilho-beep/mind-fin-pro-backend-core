@@ -1,0 +1,11 @@
+R829 — Real TOP5 integration gate (2026-11-23)
+Recovered from GitHub isolated branch five real modules with blob SHA:
+persistent_social_memory.py 65715f5375486d8b192c6e298cd146d57f3dd5e9
+adaptive_social_dialogue.py eea1c31a3e8c97a2751da8314e12709aa89c681d
+eldora_social.py d40fa6c25b076561cc3df005755446c0e7225f3d
+retrieval/provider.py 833324a97fee39b8d9bc14d0cd2bd660b34d8917
+long_term_memory.py a2bda81534bacd94cf64ac194c3594915f03fa20
+Drive: social.runtime.txt, social.current_code.txt, social.files.txt confirmed original persona module path; capability_discovery.txt confirms AdaptiveSocialDialogue; real_signatures.txt confirms zero-argument constructor. These do NOT establish live consumer callsites.
+Added repository-native integration test tests/test_r829_p472b_real_top5_integration.py (4 cases) checking actual source AST, class and async declarations and active-probe prohibition. Published but NOT EXECUTED in this interaction: no complete local repository checkout was obtained. PASS count=0; certification=BLOCKED.
+No changes to production, main, Drive originals or active runtime. Existing R827 8/8 and R828 8/8 historical results retained; no redundant tests run.
+PAPER_ONLY=TRUE; REAL_ORDERS=FORBIDDEN; FTMO_REAL=FORBIDDEN; E2E=FALSE; COST=R$0.
