@@ -10,6 +10,11 @@ class EvidenceTests(unittest.TestCase):
         self.ensemble = json.loads((HERE / "ensemble_result.json").read_text())
     def test_original_evidence_observe_only(self):
         self.assertEqual(evaluate_evidence(self.router, self.ensemble)["decision"], "OBSERVE_ONLY")
+    def test_unexpected_evidence_fields_rejected(self):
+        with self.assertRaises(GateRejected):
+            evaluate_evidence({**self.router, "order_dispatch": True}, self.ensemble)
+        with self.assertRaises(GateRejected):
+            evaluate_evidence(self.router, {**self.ensemble, "runtime_promotion": True})
     def test_router_mutations_rejected(self):
         for key, value in [("input_edge_decision", "PROMOTE_SCORE"),
                            ("route_result", "OPERATE"), ("real_execution_allowed", True),
