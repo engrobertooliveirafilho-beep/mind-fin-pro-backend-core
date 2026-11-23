@@ -15,7 +15,7 @@ def evaluate_historical_research():
                       'real_orders':'FORBIDDEN','ftmo_real':'FORBIDDEN',
                       'edge_decision':'OBSERVE_SCORE','hypotheses_created':3,
                       'runtime_promotion_allowed':False,'research_allowed':True,
-                      'real_execution_allowed':False,
+                      'real_execution_allowed':False,'paper_stack_modified':True,
                       'certification':'P2397_META_LEARNING_OFFLINE_RESEARCH_CERTIFIED'}
     if (not isinstance(summary,dict) or
             any(summary.get(k) != v or type(summary.get(k)) is not type(v)
