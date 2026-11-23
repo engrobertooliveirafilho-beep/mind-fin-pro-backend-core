@@ -132,3 +132,15 @@ def test_hashed_row_must_belong_to_original_dataset():
     assert gate.verify_source_hashes(s, dataset, foreign_row) == (False, "ROW_NOT_IN_DATASET")
     with pytest.raises(ValueError, match="ROW_NOT_IN_DATASET"):
         gate.resolve_verified_next_bar_entry(s, candles(), dataset, foreign_row)
+
+
+def test_paper_bus_coverage_rejects_missing_historical_signal():
+    from app.runtime.p2379_p2380_event_time_lineage_gate import verify_paper_bus_coverage
+    def item(n):
+        return {"signal_id": n, "mode": "PAPER_ONLY", "real_orders": "FORBIDDEN", "ftmo_real": "FORBIDDEN"}
+    ready = [item("P2379_CONTEXT_000157"), item("P2379_CONTEXT_000158")]
+    assert verify_paper_bus_coverage(ready, ready[:1]) == (False, "PAPER_BUS_COVERAGE_MISMATCH")
+    assert verify_paper_bus_coverage(ready, ready) == (True, "PAPER_BUS_COVERAGE_VERIFIED")
+    assert verify_paper_bus_coverage(ready, [ready[0], ready[0]]) == (False, "PAPER_BUS_DUPLICATE_SIGNAL_ID")
+    assert verify_paper_bus_coverage(ready, [item("UNEXPECTED"), ready[1]]) == (False, "PAPER_BUS_COVERAGE_MISMATCH")
+    assert verify_paper_bus_coverage(ready, [{**ready[0], "real_orders": "ALLOWED"}, ready[1]]) == (False, "PAPER_BUS_EXECUTION_MODE_FORBIDDEN")
