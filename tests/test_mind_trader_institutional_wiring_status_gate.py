@@ -27,7 +27,7 @@ def test_institutional_wiring_degraded_when_run_fails(monkeypatch):
 
 def test_institutional_wiring_operational_only_when_runtime_executes(monkeypatch):
     monkeypatch.setattr(wiring, "MODULES", ["fake.module"])
-    monkeypatch.setattr(wiring.importlib, "import_module", lambda _name: SimpleNamespace(run=lambda _payload: {"mode": "PAPER_ONLY"}))
+    monkeypatch.setattr(wiring.importlib, "import_module", lambda _name: SimpleNamespace(run=lambda _payload: {"status": "OPERATIONAL", "mode": "PAPER_ONLY"}))
     result = wiring.run_institutional_wiring({})
     assert result["status"] == "operational"
     assert result["imports_ok"] == 1
@@ -83,4 +83,13 @@ def test_forbidden_execution_payload_blocked_before_motor_import(monkeypatch):
         assert result["status"] == "BLOCKED"
         assert result["reason"] == "PAPER_ONLY_EXECUTION_GATE"
         assert result["imports_ok"] == 0
+        assert result["runs_ok"] == 0
+
+
+def test_ambiguous_motor_results_never_certify_operation(monkeypatch):
+    monkeypatch.setattr(wiring, "MODULES", ["fake.module"])
+    for value in (None, True, "OK", [], {}, {"mode": "PAPER_ONLY"}, {"status": "NOT_IMPLEMENTED"}):
+        monkeypatch.setattr(wiring.importlib, "import_module", lambda _name: SimpleNamespace(run=lambda _payload: value))
+        result = wiring.run_institutional_wiring({"mode": "PAPER_ONLY"})
+        assert result["status"] == "DEGRADED"
         assert result["runs_ok"] == 0
