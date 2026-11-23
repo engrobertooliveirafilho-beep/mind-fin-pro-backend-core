@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import re
 from datetime import datetime
+import math
 from typing import Any, Dict, List, Tuple
 
 TIMEFRAMES = {"M1", "M5", "M15", "M30", "H1", "H4", "D1"}
@@ -16,6 +17,16 @@ def _timestamp(value: Any) -> datetime:
     except ValueError as exc:
         raise ValueError("TIMESTAMP_INVALID") from exc
     return parsed
+
+
+def _strict_index(value: Any) -> int:
+    if isinstance(value, bool):
+        raise ValueError("INDEX_NOT_INTEGER")
+    if isinstance(value, int):
+        return value
+    if isinstance(value, str) and re.fullmatch(r"(0|[1-9][0-9]*)", value):
+        return int(value)
+    raise ValueError("INDEX_NOT_INTEGER")
 
 
 def validate_event_bound_signal(signal: Dict[str, Any]) -> Tuple[bool, str]:
@@ -43,16 +54,16 @@ def validate_event_bound_signal(signal: Dict[str, Any]) -> Tuple[bool, str]:
     if signal["mode"] != "PAPER_ONLY" or signal["real_orders"] != "FORBIDDEN" or signal["ftmo_real"] != "FORBIDDEN":
         return False, "EXECUTION_MODE_FORBIDDEN"
     try:
-        event_index = int(signal["event_index"])
-        entry_index = int(signal["entry_index"])
+        event_index = _strict_index(signal["event_index"])
+        entry_index = _strict_index(signal["entry_index"])
         event_time = _timestamp(signal["event_time"])
         entry_time = _timestamp(signal["entry_time"])
     except (TypeError, ValueError) as exc:
         return False, str(exc) if str(exc) else "INDEX_OR_TIME_INVALID"
-    if event_index < 0 or entry_index <= event_index:
-        return False, "ENTRY_NOT_AFTER_EVENT_INDEX"
-    if (event_time.tzinfo is None) != (entry_time.tzinfo is None):
-        return False, "TIMESTAMP_TIMEZONE_MISMATCH"
+    if event_index < 0 or entry_index != event_index + 1:
+        return False, "ENTRY_MUST_BE_IMMEDIATE_NEXT_BAR"
+    if event_time.tzinfo is None or entry_time.tzinfo is None:
+        return False, "TIMESTAMP_TIMEZONE_REQUIRED"
     if entry_time <= event_time:
         return False, "ENTRY_NOT_AFTER_EVENT_TIME"
     return True, "EVENT_LINEAGE_VALID_PAPER_ONLY"
@@ -67,12 +78,14 @@ def resolve_next_bar_entry(signal: Dict[str, Any], candles: List[Dict[str, Any]]
     entry_index = int(signal["entry_index"])
     if entry_index != event_index + 1:
         raise ValueError("ENTRY_MUST_BE_IMMEDIATE_NEXT_BAR")
-    if not isinstance(candles, list) or entry_index >= len(candles):
+    if not isinstance(candles, list) or event_index >= len(candles) or entry_index >= len(candles):
         raise ValueError("NEXT_BAR_UNAVAILABLE")
-    event_bar_time = _timestamp(str(candles[event_index].get("time", ""))) if event_index < len(candles) else None
+    event_bar_time = _timestamp(str(candles[event_index].get("time", "")))
     entry_bar_time = _timestamp(str(candles[entry_index].get("time", "")))
     signal_event_time = _timestamp(signal["event_time"])
     signal_entry_time = _timestamp(signal["entry_time"])
+    if event_bar_time.tzinfo is None or entry_bar_time.tzinfo is None:
+        raise ValueError("CANDLE_TIMEZONE_REQUIRED")
     if event_bar_time != signal_event_time:
         raise ValueError("EVENT_BAR_TIMESTAMP_MISMATCH")
     if entry_bar_time != signal_entry_time or entry_bar_time <= event_bar_time:
