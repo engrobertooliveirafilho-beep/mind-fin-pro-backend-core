@@ -69,3 +69,18 @@ def test_blocked_motor_result_is_not_operational(monkeypatch):
     assert result["status"] == "DEGRADED"
     assert result["runs_ok"] == 0
     assert result["results"][0]["run_result"]["reason"] == "NO_SYMBOL_LINEAGE"
+
+
+def test_forbidden_execution_payload_blocked_before_motor_import(monkeypatch):
+    def forbidden_import(_name):
+        raise AssertionError("motor import must never occur")
+    monkeypatch.setattr(wiring.importlib, "import_module", forbidden_import)
+    for payload in (
+        {"mode": "LIVE"}, {"real_orders": "ALLOWED"},
+        {"ftmo_real": "ALLOWED"}, [], "PAPER_ONLY",
+    ):
+        result = wiring.run_institutional_wiring(payload)
+        assert result["status"] == "BLOCKED"
+        assert result["reason"] == "PAPER_ONLY_EXECUTION_GATE"
+        assert result["imports_ok"] == 0
+        assert result["runs_ok"] == 0
