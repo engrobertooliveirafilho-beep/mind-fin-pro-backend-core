@@ -1,0 +1,52 @@
+{
+  "program": "P2071_2080_REALTIME_PAPER_INFRASTRUCTURE",
+  "patch": "P2071_2080B_CERTIFICATION_DRAWDOWN_REPAIR",
+  "status": "PASS",
+  "readiness": "REALTIME_PAPER_RUNTIME_CERTIFIED",
+  "absolute_restrictions": {
+    "MIND_MODE": "PAPER_ONLY",
+    "REAL_ORDERS": "FORBIDDEN",
+    "LIVE_TRADING": "FALSE",
+    "BROKER_EXECUTION": "DISABLED",
+    "FINANCIAL_EXECUTION": "DISABLED",
+    "FTMO_REAL": "FORBIDDEN",
+    "SEND_ORDER": "BLOCKED",
+    "MT5_ORDER_SEND": "BLOCKED",
+    "BROKER_API_CALL": "BLOCKED"
+  },
+  "mission_status": {
+    "P2071_REALTIME_DATA_FEED_BRIDGE": "PASS",
+    "P2072_REALTIME_FEATURE_BUILDER": "PASS",
+    "P2073_SIGNAL_RUNTIME": "PASS",
+    "P2074_PAPER_PORTFOLIO_EXECUTOR": "PASS",
+    "P2075_RUNTIME_MONITOR": "PASS",
+    "P2076_EXTENDED_RUNTIME_VALIDATION": "PASS",
+    "P2077_MULTI_SESSION_RUNTIME": "PASS",
+    "P2078_RECOVERY_VALIDATION": "PASS",
+    "P2079_RUNTIME_PERSISTENCE": "PASS",
+    "P2080_REALTIME_RUNTIME_CERTIFICATION": "PASS"
+  },
+  "metrics": {
+    "cycles": 1500,
+    "frames_built": 1500,
+    "signals_generated": 4329,
+    "closed_trades": 411,
+    "open_positions": 3,
+    "initial_equity": 100000.0,
+    "final_realized_equity": 99030.6331,
+    "final_mark_to_market_equity": 99046.94686,
+    "paper_realized_pnl": -969.3669,
+    "paper_mark_to_market_pnl": -953.05314,
+    "peak_equity": 100000.0,
+    "trough_equity": 99026.36134,
+    "drawdown_abs": -953.05314,
+    "drawdown_pct": -0.00953053,
+    "equity_points": 1502
+  },
+  "evidence_files": {
+    "runtime_state": "data\\runtime\\P2071_2080\\evidence\\runtime_state.json",
+    "final_json": "data\\runtime\\P2071_2080\\evidence\\P2071_2080_FINAL_CERTIFICATION.json",
+    "audit": "data\\runtime\\P2071_2080\\evidence\\P2071_2080_AUDIT.md"
+  },
+  "next_block": "P2081_2090_REALTIME_PORTFOLIO_GOVERNANCE"
+}
