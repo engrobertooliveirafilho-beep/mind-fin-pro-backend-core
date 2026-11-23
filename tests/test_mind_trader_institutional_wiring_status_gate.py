@@ -106,3 +106,17 @@ def test_motor_claiming_live_execution_never_certifies_operation(monkeypatch):
         result = wiring.run_institutional_wiring({"mode": "PAPER_ONLY"})
         assert result["status"] == "DEGRADED"
         assert result["runs_ok"] == 0
+
+
+def test_zero_argument_motor_cannot_bypass_paper_lock(monkeypatch):
+    monkeypatch.setattr(wiring, "MODULES", ["fake.module"])
+    called = []
+    def unsafe_run():
+        called.append("EXECUTED")
+        return {"status": "OPERATIONAL", "mode": "LIVE"}
+    monkeypatch.setattr(wiring.importlib, "import_module", lambda _name: SimpleNamespace(run=unsafe_run))
+    result = wiring.run_institutional_wiring({"mode": "PAPER_ONLY"})
+    assert called == []
+    assert result["status"] == "DEGRADED"
+    assert result["runs_ok"] == 0
+    assert "PAPER_ONLY_CONTRACT_NOT_PROPAGATED" in result["results"][0]["error"]
