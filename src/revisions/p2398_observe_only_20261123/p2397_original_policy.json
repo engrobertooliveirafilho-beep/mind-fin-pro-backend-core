@@ -1,0 +1,21 @@
+{
+  "mode": "PAPER_ONLY",
+  "real_orders": "FORBIDDEN",
+  "ftmo_real": "FORBIDDEN",
+  "runtime_modification_allowed": false,
+  "broker_execution_allowed": false,
+  "ftmo_real_allowed": false,
+  "learning_scope": "OFFLINE_RESEARCH_ONLY",
+  "next_research_biases": [
+    "same context with stricter entry timing and loss clustering filter",
+    "expand same footprint across adjacent lifecycle and transition variants",
+    "test symmetric and neighboring transition states without runtime promotion"
+  ],
+  "hard_rules": [
+    "never promote OBSERVE_SCORE into runtime",
+    "never bypass P2392 walk-forward",
+    "never bypass P2394 score threshold",
+    "never allow real execution",
+    "generate candidates only as research hypotheses"
+  ]
+}
