@@ -25,6 +25,16 @@ class ChainTests(unittest.TestCase):
     def test_ensemble_quorum_mismatch_rejected(self):
         with self.assertRaises(GateRejected):
             evaluate_historical_chain(self.p,self.r,{**self.e,"operational_members":1})
+    def test_missing_quorum_fails_closed(self):
+        bad = dict(self.e)
+        del bad['quorum']
+        with self.assertRaises(GateRejected):
+            evaluate_historical_chain(self.p,self.r,bad)
+    def test_missing_members_fails_closed(self):
+        bad = dict(self.e)
+        del bad['members']
+        with self.assertRaises(GateRejected):
+            evaluate_historical_chain(self.p,self.r,bad)
     def test_promoted_edge_rejected(self):
         with self.assertRaises(GateRejected):
             evaluate_historical_chain({**self.p,"best_scored_edge":{**self.p["best_scored_edge"],"decision":"PROMOTE_SCORE"}},self.r,self.e)
