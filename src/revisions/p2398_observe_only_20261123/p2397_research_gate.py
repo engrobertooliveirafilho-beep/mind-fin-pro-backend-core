@@ -25,6 +25,13 @@ def evaluate_research(scored_edge, policy, hypotheses):
                 'ftmo_real_allowed':False,'learning_scope':'OFFLINE_RESEARCH_ONLY'}
     if any(policy.get(k) != v or type(policy.get(k)) is not type(v) for k,v in required.items()):
         return blocked
+    hard_rules = ['never promote OBSERVE_SCORE into runtime',
+                  'never bypass P2392 walk-forward',
+                  'never bypass P2394 score threshold',
+                  'never allow real execution',
+                  'generate candidates only as research hypotheses']
+    if policy.get('hard_rules') != hard_rules:
+        return blocked
     if not isinstance(policy.get('next_research_biases'), list) or len(policy['next_research_biases']) != 3:
         return blocked
     types = {'DD_REDUCTION','SESSION_FOOTPRINT_PRIORITY','CYCLE_TRANSITION_EXPANSION'}
