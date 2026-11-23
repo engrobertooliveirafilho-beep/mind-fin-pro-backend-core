@@ -28,6 +28,8 @@ def evaluate_historical_chain(p2394, router_contract, ensemble_result):
     result = build_router(edge).route(context)
     if result.allowed or result.route != "OBSERVE_ONLY":
         raise GateRejected("P2395 router failed closed")
+    # Validate the complete evidence schema before indexing quorum or members.
+    final = evaluate_evidence(router_contract, ensemble_result)
     vote = build_ensemble([{
         'allowed': result.allowed, 'route': result.route,
         'source_edge': edge.get('source_candidate_id'),
@@ -40,7 +42,6 @@ def evaluate_historical_chain(p2394, router_contract, ensemble_result):
             vote.operational_members != ensemble_result['operational_members'] or
             vote.reason != ensemble_result['reason']):
         raise GateRejected('P2396 runtime/evidence mismatch')
-    final = evaluate_evidence(router_contract, ensemble_result)
     if final.get("order_dispatch") is not False or final.get("runtime_promotion") is not False:
         raise GateRejected("P2398 promotion violation")
     return final
