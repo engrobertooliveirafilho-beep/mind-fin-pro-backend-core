@@ -1,0 +1,32 @@
+{
+  "phase": "P2906_EXTERNAL_SENSORS_LAYER",
+  "status": "DESIGN_ONLY_NOT_CERTIFIED",
+  "created_at": "2026-07-05T17:51:01.543424Z",
+  "sensors": [
+    {
+      "name": "economic_calendar",
+      "status": "PLANNED"
+    },
+    {
+      "name": "news",
+      "status": "PLANNED"
+    },
+    {
+      "name": "sentiment",
+      "status": "PLANNED"
+    },
+    {
+      "name": "correlation",
+      "status": "PLANNED"
+    },
+    {
+      "name": "volatility_external",
+      "status": "PLANNED"
+    },
+    {
+      "name": "liquidity_volume",
+      "status": "PLANNED"
+    }
+  ],
+  "execution_permission": "NO_LIVE_EXECUTION"
+}
