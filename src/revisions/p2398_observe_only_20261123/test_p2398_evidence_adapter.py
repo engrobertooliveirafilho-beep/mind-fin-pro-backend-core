@@ -15,6 +15,16 @@ class EvidenceTests(unittest.TestCase):
             evaluate_evidence({**self.router, "order_dispatch": True}, self.ensemble)
         with self.assertRaises(GateRejected):
             evaluate_evidence(self.router, {**self.ensemble, "runtime_promotion": True})
+    def test_untrusted_numeric_and_source_fields(self):
+        for key, value in [("input_edge_score", float("nan")),
+                           ("input_edge_score", float("inf")),
+                           ("input_edge_score", 100.0),
+                           ("input_edge_score", True),
+                           ("runtime_candidates_found", 31),
+                           ("runtime_candidates_found", True),
+                           ("router_file", "/tmp/untrusted.py")]:
+            with self.subTest(key=key, value=str(value)), self.assertRaises(GateRejected):
+                evaluate_evidence({**self.router, key: value}, self.ensemble)
     def test_router_mutations_rejected(self):
         for key, value in [("input_edge_decision", "PROMOTE_SCORE"),
                            ("route_result", "OPERATE"), ("real_execution_allowed", True),
