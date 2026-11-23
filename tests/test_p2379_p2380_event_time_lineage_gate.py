@@ -59,7 +59,7 @@ def test_resolves_exact_next_bar_only():
 def test_rejects_skipped_bars():
     signal = valid_signal(); signal["entry_index"] = 6
     signal["entry_time"] = "2026-11-23T10:30:00+00:00"
-    candles = [{"time": "2026-11-23T10:00:00+00:00"}, {"time": "2026-11-23T10:15:00+00:00"}]
+    candles = [{"time": "2026-11-23T09:59:00+00:00"}, {"time": "2026-11-23T10:15:00+00:00"}]
     with pytest.raises(ValueError, match="ENTRY_MUST_BE_IMMEDIATE_NEXT_BAR"):
         resolve_next_bar_entry(signal, candles)
 
