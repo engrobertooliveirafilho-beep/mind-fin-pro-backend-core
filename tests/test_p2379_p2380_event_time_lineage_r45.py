@@ -59,3 +59,22 @@ def test_hash_verification_from_source_bytes():
     assert gate.verify_source_hashes(s, dataset + b"tamper", row) == (False, "DATASET_HASH_MISMATCH")
     assert gate.verify_source_hashes(s, dataset, row + b"tamper") == (False, "ROW_HASH_MISMATCH")
     assert gate.verify_source_hashes(s, None, row) == (False, "SOURCE_BYTES_REQUIRED")
+
+def test_verified_boundary_accepts_original_bytes():
+    s = signal()
+    dataset, row = b"original-dataset", b"original-row"
+    s["source_dataset_sha256"] = hashlib.sha256(dataset).hexdigest()
+    s["source_row_sha256"] = hashlib.sha256(row).hexdigest()
+    assert gate.resolve_verified_next_bar_entry(s, candles(), dataset, row) == 1
+
+@pytest.mark.parametrize("dataset,row,reason", [
+    (b"tampered-dataset", b"original-row", "DATASET_HASH_MISMATCH"),
+    (b"original-dataset", b"tampered-row", "ROW_HASH_MISMATCH"),
+    (None, b"original-row", "SOURCE_BYTES_REQUIRED"),
+])
+def test_verified_boundary_fails_closed(dataset, row, reason):
+    s = signal()
+    s["source_dataset_sha256"] = hashlib.sha256(b"original-dataset").hexdigest()
+    s["source_row_sha256"] = hashlib.sha256(b"original-row").hexdigest()
+    with pytest.raises(ValueError, match=reason):
+        gate.resolve_verified_next_bar_entry(s, candles(), dataset, row)
