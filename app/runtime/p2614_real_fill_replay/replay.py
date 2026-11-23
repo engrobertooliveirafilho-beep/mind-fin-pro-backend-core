@@ -75,8 +75,6 @@ def replay_portfolio(name, edges, candles, features, risk_pct=0.01, initial_capi
             reserved_risk+=risk_amount
             occupied.add(eid)
             daily_count[day]+=1
-            if fill["r"]<0 and e.get("risk_model") in ["LOSS_GUARD","COOLDOWN"]:
-                cooldown[eid]=3
 
         curve.append({
             "bar":i,
