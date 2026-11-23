@@ -186,6 +186,8 @@ def test_p2379_writer_preserves_all_ready_signals(tmp_path):
         bus = list(csv.DictReader(f))
     assert result["paper_signals_ready"] == 505
     assert result["paper_signal_bus_rows"] == 505
+    assert result["status"] == "PAPER_BUS_VALIDATED_LINEAGE_PENDING"
+    assert result["certification"] == "P2379_PAPER_BUS_COVERAGE_ONLY"
     assert len(bus) == 505
     assert bus[-1]["signal_id"] == "P2379_PLAYBOOK_000505"
 
