@@ -67,6 +67,13 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
             if stage_name:
                 row["canonical_entrypoint"] = stage_name
                 row["entrypoint_found"] = callable(getattr(m, stage_name, None))
+                stage_dependencies = {
+                    "run_p2071_2080": ("portfolio_path", "output_dir"),
+                    "run_p2081_2090": ("portfolio_path", "p2071_certification_path", "output_dir"),
+                    "run_p2091_2100": ("portfolio_path", "p2071_certification_path", "p2081_certification_path", "output_dir"),
+                    "run_p2131_2150": ("output_dir",),
+                }
+                row["required_inputs"] = list(stage_dependencies[stage_name])
                 row["integration_status"] = (
                     "INPUT_DEPENDENCIES_REQUIRED" if row["entrypoint_found"]
                     else "ENTRYPOINT_MISSING"
