@@ -177,6 +177,8 @@ def verify_paper_bus_coverage(ready_signals: List[Dict[str, Any]], bus_signals: 
         return False, "PAPER_BUS_DUPLICATE_SIGNAL_ID"
     if set(ready_ids) != set(bus_ids):
         return False, "PAPER_BUS_COVERAGE_MISMATCH"
+    if ready_ids != bus_ids:
+        return False, "PAPER_BUS_ORDER_MISMATCH"
     ready_by_id = {row["signal_id"]: row for row in ready_signals}
     for row in bus_signals:
         if row != ready_by_id[row["signal_id"]]:
