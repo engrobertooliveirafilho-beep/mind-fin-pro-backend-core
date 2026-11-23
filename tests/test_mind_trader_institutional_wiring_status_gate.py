@@ -32,3 +32,18 @@ def test_institutional_wiring_operational_only_when_runtime_executes(monkeypatch
     assert result["status"] == "operational"
     assert result["imports_ok"] == 1
     assert result["runs_ok"] == 1
+
+
+def test_health_never_executes_trading_motor(monkeypatch):
+    monkeypatch.setattr(wiring, "MODULES", ["fake.module"])
+    called = []
+    def dangerous_run(_payload=None):
+        called.append("RUN")
+        raise RuntimeError("run must not execute")
+    monkeypatch.setattr(wiring.importlib, "import_module", lambda _name: SimpleNamespace(run=dangerous_run, health=lambda: {"status": "OK"}))
+    status = wiring.health()
+    assert called == []
+    assert status["status"] == "DEGRADED"
+    assert status["imports_ok"] == 1
+    assert status["runs_ok"] == 0
+    assert status["health_ok"] == 1
