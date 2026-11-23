@@ -99,3 +99,19 @@ def test_p2382_real_orders_forbidden():
          "independent_oos_certified": True, "temporal_leakage_audit_pass": True,
          "source_lineage_verified": True}
     assert gate.validate_replay_promotion(e) == (False, "REAL_EXECUTION_FORBIDDEN")
+
+@pytest.mark.parametrize("field,value,reason", [
+    ("symbol", "GBPUSD", "CANDLE_SYMBOL_MISMATCH"),
+    ("timeframe", "H1", "CANDLE_TIMEFRAME_MISMATCH"),
+])
+def test_candle_identity_mismatch_rejected(field, value, reason):
+    c = candles()
+    c[0][field] = value
+    with pytest.raises(ValueError, match=reason):
+        gate.resolve_next_bar_entry(signal(), c)
+
+def test_duplicate_candle_time_rejected():
+    c = candles()
+    c[1]["time"] = c[0]["time"]
+    with pytest.raises(ValueError, match="CANDLE_SERIES_NOT_STRICTLY_CHRONOLOGICAL"):
+        gate.resolve_next_bar_entry(signal(), c)
