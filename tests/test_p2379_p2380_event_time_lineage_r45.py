@@ -144,3 +144,5 @@ def test_paper_bus_coverage_rejects_missing_historical_signal():
     assert verify_paper_bus_coverage(ready, [ready[0], ready[0]]) == (False, "PAPER_BUS_DUPLICATE_SIGNAL_ID")
     assert verify_paper_bus_coverage(ready, [item("UNEXPECTED"), ready[1]]) == (False, "PAPER_BUS_COVERAGE_MISMATCH")
     assert verify_paper_bus_coverage(ready, [{**ready[0], "real_orders": "ALLOWED"}, ready[1]]) == (False, "PAPER_BUS_EXECUTION_MODE_FORBIDDEN")
+    assert verify_paper_bus_coverage([], []) == (False, "PAPER_BUS_EMPTY")
+    assert verify_paper_bus_coverage(ready, [{**ready[0], "timeframe": "H1"}, ready[1]]) == (False, "PAPER_BUS_PAYLOAD_MISMATCH")
