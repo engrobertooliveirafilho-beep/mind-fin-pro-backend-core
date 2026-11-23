@@ -265,8 +265,7 @@ def aggregate(rows: List[Dict], keys: List[str]) -> List[Dict]:
 
 
 def run(signal_bus: Path, dataset_root: Path, outdir: Path) -> Dict:
-    outdir.mkdir(parents=True, exist_ok=True)
-
+    # Validate input before creating any output directory.
     signals = load_csv(signal_bus)
     # Historical P2379 rows are context templates, not event-bound market entries.
     # Do not assign fabricated entry indices or certify proxy PnL as temporal replay.
