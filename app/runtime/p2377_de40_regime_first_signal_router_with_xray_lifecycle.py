@@ -200,60 +200,24 @@ def classify_regime(candles: List[Dict], i: int) -> Dict:
     }
 
 
-def classify_lifecycle(event: Dict, context: Optional[Dict]) -> Dict:
-    event_type = event.get("event_type", "")
-    direction = event.get("direction", "")
-    post_mfe = fnum(context.get("post_mfe_atr")) if context else 0
-    post_mae = fnum(context.get("post_mae_atr")) if context else 0
-    efficiency = fnum(context.get("post_efficiency")) if context else 0
-    follow = context.get("post_followthrough", "") if context else ""
-
-    lifecycle = "UNCLASSIFIED"
-    score = 0
-
+def classify_lifecycle(event: Dict, context: Optional[Dict] = None) -> Dict:
+    """Use event-time evidence only; context is ignored for API compatibility."""
+    event_type = str(event.get("event_type", "")).upper()
+    body_atr = fnum(event.get("body_atr"))
+    range_atr = fnum(event.get("range_atr"))
+    volume_ratio = fnum(event.get("tick_volume_ratio_50"))
     if "SWEEP" in event_type:
-        if post_mfe >= 1.0 and efficiency >= 1.2:
-            lifecycle = "LIQUIDITY_REVERSAL_ENTRY"
-            score = 80
-        elif post_mae > post_mfe:
-            lifecycle = "FAILED_SWEEP"
-            score = 35
-        else:
-            lifecycle = "LIQUIDITY_TEST"
-            score = 55
-
+        lifecycle, score = "LIQUIDITY_SWEEP_OBSERVED", 60
     elif "DISPLACEMENT" in event_type:
-        if follow == "CONTINUATION" and post_mfe >= 1.0:
-            lifecycle = "INSTITUTIONAL_ENTRY_CONTINUATION"
-            score = 85
-        elif post_mae >= post_mfe:
-            lifecycle = "EXHAUSTION_OR_FAKE_DISPLACEMENT"
-            score = 40
-        else:
-            lifecycle = "DISPLACEMENT_RETEST_PENDING"
-            score = 65
-
+        lifecycle, score = (("DISPLACEMENT_OBSERVED", 65) if body_atr >= 0.8 else ("DISPLACEMENT_WEAK", 45))
     elif "RANGE_EXPANSION" in event_type:
-        if post_mfe >= 1.5:
-            lifecycle = "VOLATILITY_EXPANSION_CONTINUATION"
-            score = 75
-        else:
-            lifecycle = "VOLATILITY_SPIKE_UNRESOLVED"
-            score = 45
-
-    if direction == "BUY_INFERRED" and "DOWN" in event_type:
-        score -= 5
-    if direction == "SELL_INFERRED" and "UP" in event_type:
-        score -= 5
-
-    return {
-        "lifecycle": lifecycle,
-        "lifecycle_score": max(0, min(score, 100)),
-        "post_mfe_atr": post_mfe,
-        "post_mae_atr": post_mae,
-        "post_efficiency": efficiency,
-    }
-
+        lifecycle, score = (("VOLATILITY_EXPANSION_OBSERVED", 60) if range_atr >= 1.8 and volume_ratio >= 1.5 else ("VOLATILITY_EXPANSION_WEAK", 45))
+    else:
+        lifecycle, score = "UNCLASSIFIED", 0
+    direction = str(event.get("direction", "")).upper()
+    if direction == "BUY_INFERRED" and "DOWN" in event_type: score -= 5
+    if direction == "SELL_INFERRED" and "UP" in event_type: score -= 5
+    return {"lifecycle": lifecycle, "lifecycle_score": max(0, min(score, 100)), "lifecycle_evidence": "EVENT_TIME_ONLY"}
 
 def recommended_families(regime: str, lifecycle: str, footprint: str, volatility: str) -> Dict:
     recommended = []
@@ -300,22 +264,16 @@ def recommended_families(regime: str, lifecycle: str, footprint: str, volatility
     }
 
 
-def context_score(regime_score: float, lifecycle_score: float, event: Dict, context: Optional[Dict]) -> float:
+def context_score(regime_score: float, lifecycle_score: float, event: Dict, context: Optional[Dict] = None) -> float:
+    """Score only fields observable at event time; future context is ignored."""
     volume_ratio = fnum(event.get("tick_volume_ratio_50"))
     body_atr = fnum(event.get("body_atr"))
     range_atr = fnum(event.get("range_atr"))
-    efficiency = fnum(context.get("post_efficiency")) if context else 0
-
-    score = 0
-    score += regime_score * 0.30
-    score += lifecycle_score * 0.35
+    score = regime_score * 0.35 + lifecycle_score * 0.40
     score += min(volume_ratio * 10, 15)
     score += min(body_atr * 8, 10)
     score += min(range_atr * 5, 10)
-    score += min(efficiency * 2, 10)
-
     return round(min(score, 100), 6)
-
 
 def context_key(event: Dict) -> str:
     return "|".join([
@@ -372,14 +330,14 @@ def build_xray_router(events_path: Path, context_path: Path, dataset_root: Path,
 
         regime = classify_regime(candles, idx)
         ctx = ctx_lookup.get(context_key(ev))
-        lifecycle = classify_lifecycle(ev, ctx)
+        lifecycle = classify_lifecycle(ev)
         router = recommended_families(
             regime["regime"],
             lifecycle["lifecycle"],
             ev.get("event_type", ""),
             regime["volatility"],
         )
-        score = context_score(regime["score"], lifecycle["lifecycle_score"], ev, ctx)
+        score = context_score(regime["score"], lifecycle["lifecycle_score"], ev)
 
         permission = "PAPER_CANDIDATE_ALLOWED" if score >= 70 else "OBSERVE_ONLY"
         if score < 55:
@@ -414,8 +372,10 @@ def build_xray_router(events_path: Path, context_path: Path, dataset_root: Path,
         for k in ["sma20", "sma50", "sma100", "atr14", "rsi14", "distance_to_sma20_atr", "spread_sma20_sma50_atr"]:
             row[k] = regime.get(k, "")
 
-        for k in ["post_mfe_atr", "post_mae_atr", "post_efficiency"]:
-            row[k] = lifecycle.get(k, "")
+        # Retrospective outcomes remain labels only; never feed lifecycle or routing.
+        for k in ["post_mfe_atr", "post_mae_atr", "post_efficiency", "post_followthrough"]:
+            row[k] = ctx.get(k, "") if ctx else ""
+        row["decision_feature_scope"] = "EVENT_TIME_ONLY"
 
         routed_rows.append(row)
 
