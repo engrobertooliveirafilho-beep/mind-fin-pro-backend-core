@@ -6,3 +6,8 @@ Source published blob: c620459c4d2b6f1b9c69f0c81b7773d7a6b130dc.
 Tests: 4/4 PASS in 0.004s on locally reconstructed functionally equivalent module, not byte-identical published source. Tests include symlink ancestor rejection, ordinary AST declaration, active probe forbidden, non-allowlisted module.
 Tests published at tests/test_r830_symlink_ancestors.py.
 Certification limit: local behavior PASS, GitHub exact-source regression and R829 real five-module integration still NOT executed. E2E FALSE. Main intact, production untouched, Drive originals read-only, paper only, cost R$0.
+
+R831 — combined isolated regression (2026-11-23)
+Executed locally: python -B -m unittest discover -s tests -p 'test_*.py' -v
+Result: 12/12 PASS, 0 FAIL, 0 ERROR, 0.011s. Combined existing R826 eight tests and R830 four tests against locally reconstructed R830 module, not exact GitHub blob. Local log: /mnt/data/r831/regressions.log. No new source patch and no repeated GitHub test modules. GitHub source exact-byte verification still pending; R829 real TOP5 integration still not run.
+Drive master Trader ledger ID 1WYqMJ-wzqmDWTaRzwJGFk4Hj4b7MuBNR7m0F9ct99mI read: ET-218 notes original R27 15 root Python modules with only 2/15 imported into private GitHub at that historical checkpoint, and S20 symbol/serializer unresolved. This historical statement requires current GitHub reconciliation before any import; not evidence that 13 remain absent today. Next priority: Trader original R27 module reconciliation, not another bridge auditor.
