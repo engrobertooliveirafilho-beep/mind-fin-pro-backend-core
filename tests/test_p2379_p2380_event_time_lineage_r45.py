@@ -239,3 +239,19 @@ def test_p2379_invalid_timeframes_never_become_ready():
         signal = create_signal({**base, "timeframe": timeframe}, "PLAYBOOK", 1)
         assert signal["signal_status"] == "PAPER_OBSERVE_ONLY"
     assert create_signal({**base, "timeframe": "M5"}, "PLAYBOOK", 1)["signal_status"] == "PAPER_SIGNAL_READY"
+
+
+def test_p2380_unverified_bus_does_not_create_output_directory(tmp_path):
+    import csv
+    import pytest
+    from app.runtime.p2380_de40_forward_paper_feedback_loop_and_pnl_tracking import run
+
+    bus = tmp_path / "unverified.csv"
+    with bus.open("w", newline="", encoding="utf-8") as stream:
+        writer = csv.DictWriter(stream, fieldnames=["signal_id", "mode", "real_orders", "ftmo_real"])
+        writer.writeheader()
+        writer.writerow({"signal_id": "context-only", "mode": "PAPER_ONLY", "real_orders": "FORBIDDEN", "ftmo_real": "FORBIDDEN"})
+    output = tmp_path / "must_not_exist"
+    with pytest.raises(ValueError, match="P2380_UNVERIFIED_EVENT_LINEAGE"):
+        run(bus, tmp_path, output)
+    assert not output.exists()
