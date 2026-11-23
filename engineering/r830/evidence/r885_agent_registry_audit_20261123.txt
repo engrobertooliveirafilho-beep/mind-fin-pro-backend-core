@@ -1,0 +1,18 @@
+R885 — AGENT REGISTRY STATIC AUDIT
+Drive source: 030000_0770_00__..._app_meta_agents_registry.json.txt
+Drive file ID: 1r_CUAAzaqF2-FSARGiHVN5CFHlAlAfmw
+Registry parsed directly from Drive text: 81 agents.
+Relevant source records:
+- core.high_governance_council: STEPs 529,542; can_change_code=false; can_create_steps_directly=false; can_only_emit_blueprints=true; human_approval_required=true; health=unknown.
+- core.safety_compliance_hub: STEPs 520,521,522,523,525,526,536,542; can_block_actions=false; can_only_recommend=true; human_final_say=true; health=unknown.
+- meta.autonomous_evolution_agent: STEPs 520-525,532-536,541,543 among others; can_change_code=false; can_create_steps_directly=false; can_only_emit_blueprints=true; human_approval_required=true; health=unknown.
+- meta.global_agent_mapper: STEPs 539,540,541,543; can_change_code=false; can_create_steps_directly=false; can_only_emit_blueprints=true; human_approval_required=true; health=unknown.
+- meta.mind_archives_agent_mapper: STEPs 532,533; founder_must_sign_off=true; can_only_emit_blueprints=true; health=unknown.
+Finding: registry marks these agents active/auto_run while health remains unknown. These are metadata flags, not runtime health proof or authorization. Safety hub explicitly cannot block actions; it recommends and leaves final say to human.
+R885 code: static JSON metadata validator. Does not activate agents, dispatch work, mutate registry or certify runtime.
+Execution: python -m unittest -v test_r885_agent_registry_audit; 10 tests PASS, 0 failures/errors.
+Git blob SHA verification against exact local files:
+r885_agent_registry_audit.py: e7e07661b1fc6216fc1ea425786130082fc99c23 MATCH.
+test_r885_agent_registry_audit.py: 5e2f85a887e389782735a987c36e2e7637c95e2b MATCH.
+Commits: code 8cbea254fe02402558b2be548c58ef10bbd58d86; tests 8ba85e18515ec77b75d8229c0edc674f675252c5.
+Runtime integration=NOT EXECUTED; all 81 agent health statuses not individually runtime-tested; E2E_CERTIFIED=FALSE; MAIN=INTACT; COST=R$0.
