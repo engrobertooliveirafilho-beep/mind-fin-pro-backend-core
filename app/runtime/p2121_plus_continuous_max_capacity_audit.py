@@ -4,6 +4,7 @@ import json
 import os
 import time
 import hashlib
+import zipfile
 from pathlib import Path
 from dataclasses import dataclass, asdict
 from typing import Dict, List, Any
@@ -111,9 +112,17 @@ class PackageIntegrityAudit:
 
         for package in packages:
             p = Path(repo) / package
-            if p.exists() and p.stat().st_size > 0:
+            if not p.is_file() or p.stat().st_size == 0:
+                missing.append(package)
+                continue
+            try:
+                with zipfile.ZipFile(p, "r") as archive:
+                    members = archive.infolist()
+                    if not members or archive.testzip() is not None:
+                        missing.append(package)
+                        continue
                 found[package] = {"bytes": p.stat().st_size, "sha256": sha256_file(str(p))}
-            else:
+            except (zipfile.BadZipFile, OSError, RuntimeError):
                 missing.append(package)
 
         return AuditDecision(
