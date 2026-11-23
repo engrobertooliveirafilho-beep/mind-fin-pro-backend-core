@@ -5,7 +5,7 @@ from app.runtime.p2614_real_fill_replay import replay
 
 class EntryDayCap(unittest.TestCase):
  def test_signal_before_midnight_counts_on_entry_day(self):
-  t=datetime(2026,1,1,23,0)
+  t=datetime(2026,1,1,22,59)
   candles=[{'time':t+timedelta(minutes=i)} for i in range(100)]
   edges=[{'edge_id':'A'},{'edge_id':'B'}]
   def fill(edge,candles,features,i,*cost):
