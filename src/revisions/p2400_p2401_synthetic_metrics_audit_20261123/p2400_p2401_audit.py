@@ -13,7 +13,7 @@ def inspect(path):
     literals=[n.value for n in ast.walk(tree) if isinstance(n,ast.Constant) and isinstance(n.value,str)]
     writes_runtime=any(x in literals for x in ("runtime","app")) and "write_text" in calls
     hash_derived=bool({"sha256","stable_float"} & calls) or "hashlib" in imports
-    price_input=bool({"open","high","low","close","bid","ask","ohlc"} & identifiers)
+    price_input=any(isinstance(n,ast.Subscript) and isinstance(n.slice,ast.Constant) and n.slice.value in {"open","high","low","close","bid","ask","ohlc"} for n in ast.walk(tree))
     metrics_generated=bool({"pf","wr","exp","dd","samples","passed_windows"} & identifiers)
     return {"hash_derived_metrics":hash_derived,"price_or_trade_data_inputs_referenced":price_input,
       "performance_metrics_generated":metrics_generated,"runtime_write_pattern":writes_runtime,
