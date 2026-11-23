@@ -81,7 +81,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
 def health() -> dict:
     r = run_institutional_wiring({})
     return {
-        "status": "operational" if r["imports_ok"] == r["modules_total"] else "DEGRADED",
+        "status": r["status"],
         "modules_total": r["modules_total"],
         "imports_ok": r["imports_ok"],
         "runs_ok": r["runs_ok"],
