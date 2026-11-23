@@ -164,6 +164,8 @@ def verify_paper_bus_coverage(ready_signals: List[Dict[str, Any]], bus_signals: 
     """Fail closed when a PAPER bus silently drops ready signal identities."""
     if not isinstance(ready_signals, list) or not isinstance(bus_signals, list):
         return False, "PAPER_BUS_ROWS_REQUIRED"
+    if not ready_signals or not bus_signals:
+        return False, "PAPER_BUS_EMPTY"
     for collection in (ready_signals, bus_signals):
         if any(not isinstance(row, dict) or not isinstance(row.get("signal_id"), str) or not row["signal_id"].strip() for row in collection):
             return False, "PAPER_BUS_SIGNAL_ID_INVALID"
@@ -175,6 +177,10 @@ def verify_paper_bus_coverage(ready_signals: List[Dict[str, Any]], bus_signals: 
         return False, "PAPER_BUS_DUPLICATE_SIGNAL_ID"
     if set(ready_ids) != set(bus_ids):
         return False, "PAPER_BUS_COVERAGE_MISMATCH"
+    ready_by_id = {row["signal_id"]: row for row in ready_signals}
+    for row in bus_signals:
+        if row != ready_by_id[row["signal_id"]]:
+            return False, "PAPER_BUS_PAYLOAD_MISMATCH"
     return True, "PAPER_BUS_COVERAGE_VERIFIED"
 
 __all__ = ["validate_event_bound_signal", "verify_source_hashes", "resolve_next_bar_entry", "resolve_verified_next_bar_entry", "validate_replay_promotion", "verify_paper_bus_coverage"]
