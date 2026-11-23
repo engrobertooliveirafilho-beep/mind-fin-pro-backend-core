@@ -27,10 +27,13 @@ def enforce():
 
 
 def assert_locks():
-    current = enforce()
-    invalid = {k: current.get(k) for k, v in LOCKS.items() if current.get(k) != v}
+    # Fail closed on conflicting pre-existing environment values; do not
+    # silently overwrite a live-trading setting before checking it.
+    invalid = {k: os.environ[k] for k, v in LOCKS.items()
+               if k in os.environ and os.environ[k] != v}
     if invalid:
         raise RuntimeError(f"LOCK_BREACH: {invalid}")
+    enforce()
 
 
 def load_json(path: str):
