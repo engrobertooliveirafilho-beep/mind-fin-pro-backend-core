@@ -76,7 +76,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
 
     return {
         "program": "MIND_TRADER_INSTITUTIONAL_WIRING",
-        "status": "DEGRADED" if any(r["error"] or not r["run_ok"] for r in results) else "PAPER_RUN_COMPLETED_UNCERTIFIED",
+        "status": "DEGRADED" if not results or any(r["error"] or not r["run_ok"] for r in results) else "PAPER_RUN_COMPLETED_UNCERTIFIED",
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "mode": "PAPER_ONLY",
         "real_orders": "FORBIDDEN",
