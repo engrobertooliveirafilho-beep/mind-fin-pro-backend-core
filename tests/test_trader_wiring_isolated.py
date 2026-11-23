@@ -66,6 +66,13 @@ class WiringIsolationTests(TestCase):
                 self.assertEqual(output["runs_ok"], 1)
                 self.assertEqual(output["status"], "PAPER_RUN_COMPLETED_UNCERTIFIED")
 
+    def test_legacy_adapter_rejects_contradictory_failure(self):
+        motor = SimpleNamespace(run=lambda *, cycles: {"status": "PASS", "mode": "INSTITUTIONAL_SIMULATION_CORE", "ok": False})
+        with patch.object(self.wiring, "MODULES", ["app.runtime.p2224_2226_institutional_core"]), patch.object(self.wiring.importlib, "import_module", return_value=motor):
+            output = self.wiring.run_institutional_wiring({"mode": "PAPER_ONLY"})
+        self.assertEqual(output["status"], "DEGRADED")
+        self.assertEqual(output["runs_ok"], 0)
+
     def test_legacy_adapter_rejects_wrong_mode(self):
         motor = SimpleNamespace(run=lambda *, cycles: {"status": "PASS", "mode": "LIVE"})
         with patch.object(self.wiring, "MODULES", ["app.runtime.p2224_2226_institutional_core"]), patch.object(self.wiring.importlib, "import_module", return_value=motor):
