@@ -38,3 +38,34 @@ def test_p2121_plus_continuous_certification(tmp_path):
     assert result["absolute_restrictions"]["REAL_ORDERS"] == "FORBIDDEN"
     assert result["absolute_restrictions"]["BROKER_EXECUTION"] == "DISABLED"
     assert result["absolute_restrictions"]["FINANCIAL_EXECUTION"] == "DISABLED"
+
+
+def test_p2121_rejects_pass_with_uncertified_readiness(tmp_path, monkeypatch):
+    import json
+    from app.runtime.p2121_plus_continuous_max_capacity_audit import (
+        ABSOLUTE_LOCKS, CertifiedBlockAudit,
+    )
+
+    for key in ABSOLUTE_LOCKS:
+        monkeypatch.delenv(key, raising=False)
+
+    readiness = {
+        "p2071": "REALTIME_PAPER_RUNTIME_CERTIFIED",
+        "p2081": "REALTIME_PORTFOLIO_GOVERNANCE_CERTIFIED",
+        "p2091": "REALTIME_INTELLIGENCE_LAYER_CERTIFIED",
+        "p2101": "AUTONOMOUS_PAPER_OPERATIONS_CERTIFIED",
+        "p2111": "MAXIMUM_TECHNICAL_CAPACITY_CERTIFIED",
+    }
+    deps = {}
+    for key, value in readiness.items():
+        path = tmp_path / (key + ".json")
+        path.write_text(json.dumps({"status": "PASS", "readiness": value}), encoding="utf-8")
+        deps[key] = str(path)
+
+    assert CertifiedBlockAudit().evaluate(deps).status == "PASS"
+
+    p = tmp_path / "p2111.json"
+    p.write_text(json.dumps({"status": "PASS", "readiness": "NOT_CERTIFIED"}), encoding="utf-8")
+    decision = CertifiedBlockAudit().evaluate(deps)
+    assert decision.status == "FAIL"
+    assert "p2111" in decision.payload["failures"]
