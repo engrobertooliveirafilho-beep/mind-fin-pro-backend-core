@@ -60,7 +60,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
                         r = m.run()
                     else:
                         r = m.run(payload)
-                    row["run_ok"] = isinstance(r, dict) and str(r.get("status", "")).upper() in {"OK", "PASS", "HEALTHY", "OPERATIONAL", "SUCCESS", "COMPLETED"}
+                    row["run_ok"] = isinstance(r, dict) and str(r.get("status", "")).upper() in {"OK", "PASS", "HEALTHY", "OPERATIONAL", "SUCCESS", "COMPLETED"} and r.get("mode", "PAPER_ONLY") == "PAPER_ONLY" and r.get("real_orders", "FORBIDDEN") == "FORBIDDEN" and r.get("ftmo_real", "FORBIDDEN") == "FORBIDDEN"
                     row["run_result_type"] = type(r).__name__
                     row["run_result"] = r if isinstance(r, (dict, list, str, int, float, bool)) else str(r)
                 except Exception as e:
