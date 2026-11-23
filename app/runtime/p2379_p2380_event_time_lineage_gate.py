@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import re
 from datetime import datetime
-import math
 from typing import Any, Dict, List, Tuple
 
 TIMEFRAMES = {"M1", "M5", "M15", "M30", "H1", "H4", "D1"}
@@ -74,12 +73,14 @@ def resolve_next_bar_entry(signal: Dict[str, Any], candles: List[Dict[str, Any]]
     ok, reason = validate_event_bound_signal(signal)
     if not ok:
         raise ValueError(reason)
-    event_index = int(signal["event_index"])
-    entry_index = int(signal["entry_index"])
+    event_index = _strict_index(signal["event_index"])
+    entry_index = _strict_index(signal["entry_index"])
     if entry_index != event_index + 1:
         raise ValueError("ENTRY_MUST_BE_IMMEDIATE_NEXT_BAR")
     if not isinstance(candles, list) or event_index >= len(candles) or entry_index >= len(candles):
         raise ValueError("NEXT_BAR_UNAVAILABLE")
+    if not isinstance(candles[event_index], dict) or not isinstance(candles[entry_index], dict):
+        raise ValueError("CANDLE_NOT_OBJECT")
     event_bar_time = _timestamp(str(candles[event_index].get("time", "")))
     entry_bar_time = _timestamp(str(candles[entry_index].get("time", "")))
     signal_event_time = _timestamp(signal["event_time"])
