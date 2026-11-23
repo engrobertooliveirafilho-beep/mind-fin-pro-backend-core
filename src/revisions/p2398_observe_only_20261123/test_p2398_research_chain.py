@@ -21,6 +21,11 @@ class ResearchChainTests(unittest.TestCase):
         self.assertFalse(result.order_dispatch)
         self.assertEqual(result.hypotheses, 3)
 
+    def test_p2394_source_mismatch_rejected(self):
+        bad = {**self.p, 'score_threshold': 69}
+        with self.assertRaises(GateRejected):
+            evaluate_research_chain(bad, self.r, self.e)
+
     def test_p2397_rejected_blocks_chain(self):
         with patch('p2398_research_chain.evaluate_historical_research',
                    return_value=ResearchDecision(False, False, 'BLOCK', 'INVALID_RESEARCH_EVIDENCE', 0)):
