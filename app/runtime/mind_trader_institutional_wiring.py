@@ -49,17 +49,18 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
                 except Exception as e:
                     row["error"] += f"health_error={e};"
 
-            if hasattr(m, "run"):
+            if hasattr(m, "run") or (name == "app.runtime.p2223_broker_emulator" and hasattr(m, "run_simulation")):
                 try:
                     import inspect
-                    signature = inspect.signature(m.run)
+                    runner = m.run if hasattr(m, "run") else m.run_simulation
+                    signature = inspect.signature(runner)
                     try:
                         signature.bind(payload)
                     except TypeError:
                         signature.bind()
-                        r = m.run()
+                        r = runner()
                     else:
-                        r = m.run(payload)
+                        r = runner(payload)
                     row["run_ok"] = r is not None and not (isinstance(r, dict) and str(r.get("status", "")).upper() in {"ERROR", "FAILED", "FAIL", "DEGRADED", "BLOCKED", "NOT_IMPLEMENTED"})
                     row["run_result_type"] = type(r).__name__
                     row["run_result"] = r if isinstance(r, (dict, list, str, int, float, bool)) else str(r)
