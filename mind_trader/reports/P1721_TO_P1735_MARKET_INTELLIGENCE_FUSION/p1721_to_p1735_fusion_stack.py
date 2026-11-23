@@ -207,6 +207,8 @@ master = {
     "generated_at": datetime.now(UTC).isoformat()
 }
 
+BASE.mkdir(parents=True, exist_ok=True)
+
 (BASE/"market_intelligence_fusion.json").write_text(json.dumps(fusion, indent=2, ensure_ascii=False), encoding="utf-8")
 (BASE/"specialist_coalitions.json").write_text(json.dumps(coalitions, indent=2, ensure_ascii=False), encoding="utf-8")
 (BASE/"asset_memory_engine.json").write_text(json.dumps(asset_memory_rows, indent=2, ensure_ascii=False), encoding="utf-8")
