@@ -16,7 +16,7 @@ def signal():
                 mode="PAPER_ONLY", real_orders="FORBIDDEN", ftmo_real="FORBIDDEN")
 
 def candles():
-    return [{"time": "2026-01-01T00:00:00+00:00"}, {"time": "2026-01-01T00:05:00+00:00"}]
+    return [{"time": "2026-01-01T00:00:00+00:00", "symbol": "EURUSD", "timeframe": "M5"}, {"time": "2026-01-01T00:05:00+00:00", "symbol": "EURUSD", "timeframe": "M5"}]
 
 def test_valid_next_bar():
     assert gate.validate_event_bound_signal(signal())[0]
@@ -114,4 +114,11 @@ def test_duplicate_candle_time_rejected():
     c = candles()
     c[1]["time"] = c[0]["time"]
     with pytest.raises(ValueError, match="CANDLE_SERIES_NOT_STRICTLY_CHRONOLOGICAL"):
+        gate.resolve_next_bar_entry(signal(), c)
+
+@pytest.mark.parametrize("missing", ["symbol", "timeframe"])
+def test_candle_identity_required(missing):
+    c = candles()
+    del c[0][missing]
+    with pytest.raises(ValueError, match="CANDLE_IDENTITY_MISSING"):
         gate.resolve_next_bar_entry(signal(), c)
