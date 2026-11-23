@@ -1,0 +1,13 @@
+R828 — AdaptiveSocialDialogue unreachable marketing branch fixed
+Date: 2026-11-23
+Previous: R827 P4.72B bridge exact-source 8/8 PASS; R817 active probing remains disabled.
+Recovered real module: app/persona/adaptive_social_dialogue.py, original Git blob a28ba16f7fcf1f7b761929c90732192e9a1c2bd5.
+Defect: return text after product branch made marketing/branding branch unreachable.
+Fix: remove early return; retain product priority and final fallback.
+Published source Git blob eea1c31a3e8c97a2751da8314e12709aa89c681d.
+Published test Git blob 84ac73c9fd8c8b600fcfc0b8af3f36eda15e5cda.
+Both Git blobs recalculated from locally executed files and MATCH.
+Command: cd /mnt/data/r828 && python -B -m unittest discover -s tests -v
+RESULT: 8/8 PASS, 0 FAIL, 0 ERROR. Covers marketing, branding, product, brand, neura, precedence, unrelated text, None message.
+Scope: isolated actual persona behavior; no app startup, no broker, no network, no production change; E2E not certified.
+PAPER_ONLY=TRUE; REAL_ORDERS=FORBIDDEN; FTMO_REAL=FORBIDDEN; MAIN=INTACT; COST=R$0.
