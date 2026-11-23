@@ -93,3 +93,16 @@ def test_ambiguous_motor_results_never_certify_operation(monkeypatch):
         result = wiring.run_institutional_wiring({"mode": "PAPER_ONLY"})
         assert result["status"] == "DEGRADED"
         assert result["runs_ok"] == 0
+
+
+def test_motor_claiming_live_execution_never_certifies_operation(monkeypatch):
+    monkeypatch.setattr(wiring, "MODULES", ["fake.module"])
+    for response in (
+        {"status": "OPERATIONAL", "mode": "LIVE"},
+        {"status": "PASS", "real_orders": "ALLOWED"},
+        {"status": "SUCCESS", "ftmo_real": "ALLOWED"},
+    ):
+        monkeypatch.setattr(wiring.importlib, "import_module", lambda _name: SimpleNamespace(run=lambda _payload: response))
+        result = wiring.run_institutional_wiring({"mode": "PAPER_ONLY"})
+        assert result["status"] == "DEGRADED"
+        assert result["runs_ok"] == 0
