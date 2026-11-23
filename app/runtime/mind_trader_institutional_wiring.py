@@ -26,6 +26,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
             "import_ok": False,
             "run_ok": False,
             "health_ok": False,
+            "health_checked": False,
             "classes": [],
             "functions": [],
             "error": "",
@@ -40,6 +41,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
             ]
 
             if hasattr(m, "health"):
+                row["health_checked"] = True
                 try:
                     h = m.health()
                     row["health_ok"] = isinstance(h, dict) and str(h.get("status", "")).upper() not in {"ERROR", "FAILED", "FAIL", "DEGRADED", "BLOCKED", "NOT_IMPLEMENTED"}
@@ -71,7 +73,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
 
     return {
         "program": "MIND_TRADER_INSTITUTIONAL_WIRING",
-        "status": "operational" if results and all(row["import_ok"] and row["run_ok"] and not row["error"] for row in results) else "DEGRADED",
+        "status": "operational" if results and all(row["import_ok"] and row["run_ok"] and (not row["health_checked"] or row["health_ok"]) and not row["error"] for row in results) else "DEGRADED",
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "mode": "PAPER_ONLY",
         "real_orders": "FORBIDDEN",
