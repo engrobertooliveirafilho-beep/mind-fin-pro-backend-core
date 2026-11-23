@@ -92,7 +92,7 @@ def test_p2382_requires_temporal_audit_and_lineage():
     e["temporal_leakage_audit_pass"] = True
     assert gate.validate_replay_promotion(e)[0] is False
     e["source_lineage_verified"] = True
-    assert gate.validate_replay_promotion(e)[0] is True
+    assert gate.validate_replay_promotion(e) == (False, "EXTERNAL_OOS_EVIDENCE_VERIFIER_REQUIRED")
 
 def test_p2382_real_orders_forbidden():
     e = {"mode": "PAPER_ONLY", "real_orders": "ALLOWED", "ftmo_real": "FORBIDDEN",
