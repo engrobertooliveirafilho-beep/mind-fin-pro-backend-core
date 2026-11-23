@@ -214,3 +214,15 @@ def test_p2379_rejects_empty_ready_signal_set(tmp_path):
         inputs.append(path)
     with pytest.raises(ValueError, match="P2379_NO_READY_PAPER_SIGNALS"):
         run(*inputs, tmp_path / "out")
+
+
+def test_p2380_direct_simulator_cannot_bypass_event_lineage_gate():
+    from app.runtime.p2380_de40_forward_paper_feedback_loop_and_pnl_tracking import (
+        index_for_signal, simulate_feedback,
+    )
+    template = {"signal_id": "P2379_CONTEXT_000157", "timeframe": "M5", "direction": "BUY_PAPER"}
+    candles = [{"time": "2025-05-12 19:50:00", "close": 100.0}] * 400
+    with pytest.raises(ValueError, match="P2380_EVENT_BOUND_ENTRY_REQUIRED"):
+        index_for_signal(template, candles)
+    with pytest.raises(ValueError, match="P2380_EVENT_BOUND_ENTRY_REQUIRED"):
+        simulate_feedback(template, candles)
