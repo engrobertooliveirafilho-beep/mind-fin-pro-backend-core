@@ -1,0 +1,27 @@
+R830 — FORENSIC DISPATCH RECOVERY
+Date: 2026-11-23
+Historical Drive sources:
+- Runtime original: 1l6pRGOHJj2ZqnUDjlcFktDrfxafWBnQm
+- Runtime duplicate: 1IsM5-lotyUzmYQg8Ibvsy7VFz1xkr2E-
+- Runtime duplicate: 1yJ5zEY0kekQSS8NjzetlGH6nKyq3HwPk
+- Unified route: 1_dmV9gl2R2w4qSIAJUOdCIVGE34rfVcQ
+- Last imported agent source: 179eB2-8MiPKo5poEbkBWdFIlDmos6kF0
+
+Newly confirmed findings:
+1. The three recovered runtime copies are text-identical (4,587 chars each); do not rebuild or patch each duplicate.
+2. Runtime contains 52 repeated imports using the same symbol names run_dry and describe_capabilities; each import overwrites the prior global binding.
+3. run_agent() computes a module-like string but never uses it; it calls the final global run_dry for every requested agent.
+4. The final imported agent, cog.autonomous_maturity_meter, explicitly returns status=not_implemented and mode=stub.
+5. The recovered route exposes 52 POST endpoints and delegates all 52 to this runtime.
+6. Concrete root cause: all 52 endpoints can reach the same last imported handler rather than their named agent. The last handler is a stub.
+7. Registry has 81 agents (R885); 52 route/runtime entries do not prove 81-agent coverage. HP19 historical record still says 19/19 sources recovered, 0/19 functional certified.
+
+Correction artifact: engineering/r830/r830_dispatch_contract.py. Dependency-injected explicit registry; rejects missing/unknown IDs, non-callable handlers, non-dict outputs, stub/noop/not_implemented/error results and identity mismatch. No dynamic imports. No agent auto-activation.
+Tests: engineering/r830/test_r830_dispatch_contract.py.
+Local execution: python -m unittest -v test_r830_dispatch_contract => 10 tests PASS, 0 failures/errors.
+GitHub code commit: 4db7322a0e9f930f417e88c0dd87424447b5241f.
+GitHub test commit: 9f88cc2e94ca57864e95438d867ad61406ba6591.
+Post-publication readback succeeded. Code blob SHA: 6dd6dde95d2a6beea554a098ed5496d65465f9d2. Test blob SHA: c600b4e3ee68ce87dfbee313bde15456c00a8b08.
+
+Limits: corrected isolated dispatch contract, not yet wired into canonical FastAPI route/runtime. Real per-agent handlers and the 81-agent registry still require one-to-one reconciliation and behavioral tests. No original Drive source changed; no merge, production change or paid service.
+STATUS: R830_DISPATCH_CONTRACT_PUBLISHED; LOCAL_TESTS=10/10; ROUTE_INTEGRATION=NOT_DONE; AGENTS_FUNCTIONAL_CERTIFICATION=0/81; E2E_CERTIFIED=FALSE; MAIN=INTACT; COST=R$0.
