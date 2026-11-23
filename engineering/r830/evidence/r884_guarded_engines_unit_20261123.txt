@@ -1,0 +1,16 @@
+R884 OFFLINE EXECUTION EVIDENCE
+Date: 2026-11-23 UTC
+Command: python -m unittest -v test_r884_guarded_engines
+Result: 20 tests, 20 PASS, 0 failures, 0 errors.
+Scope: STEP 532/533/540/542 guarded adapter unit tests against behavior-reconstructed Drive source fixtures.
+Exact local SHA-256:
+r884_guarded_engines.py = ea629742dd24d707c3aa20a79828fa28bfe99abe6d6f1a5fe2b6d41a1efd30f1
+test_r884_guarded_engines.py = e7e4221771d3882790735db145d18b1ee66e477cced1093e1e8d7eb6aa5a12da
+fixtures/originals.py = c60631778646ee0d25f8913f535aa167111116db43158996358f20dd6e648778
+Git blob SHA verified against exact local files:
+r884_guarded_engines.py = 6bec0e37774914b3131d176d4e409ab3d4423fda (MATCH)
+test_r884_guarded_engines.py = b969c420e727135ea1fcb20989a593dfbb7b54f0 (MATCH)
+Fixture note: committed fixture is a behavior reconstruction transcribed from Drive text, not byte-identical source; its Git blob was not claimed to match the local fixture file.
+Security behavior tested: missing/invalid approval blocks canon promotion; invalid treaty sensitivity and duplicate parties block; empty reviewer, absent evidence, repeated review decision block; verifier exceptions fail closed.
+No production engine called; no real approval, canon promotion, treaty acceptance, or irreversible action authorized beyond the test fake's explicit verifier.
+Original Drive sources untouched. main untouched. E2E_CERTIFIED=FALSE; PAPER_ONLY=TRUE; REAL_ORDERS=FORBIDDEN; COST=R$0.
