@@ -17,7 +17,13 @@ MODULES = [
 ]
 
 def run_institutional_wiring(payload: dict | None = None) -> dict:
+    if payload is not None and not isinstance(payload, dict):
+        raise ValueError("INVALID_PAPER_PAYLOAD")
     payload = payload or {}
+    if str(payload.get("mode", "PAPER_ONLY")).upper() != "PAPER_ONLY":
+        raise ValueError("PAPER_ONLY_MODE_REQUIRED")
+    if any(payload.get(key) not in (None, False, "FORBIDDEN", "DISABLED") for key in ("real_orders", "ftmo_real", "live_trading")):
+        raise ValueError("REAL_EXECUTION_FORBIDDEN")
     results = []
 
     for name in MODULES:
