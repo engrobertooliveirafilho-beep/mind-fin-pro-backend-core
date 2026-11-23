@@ -5,8 +5,8 @@
   "rules": {
     "mode": "PAPER_ONLY",
     "live_real_forbidden": true,
-    "max_daily_loss_pct": 4,
-    "max_total_loss_pct": 8,
+    "max_daily_loss_pct": 4.0,
+    "max_total_loss_pct": 8.0,
     "max_risk_per_trade_pct": 0.75,
     "max_open_positions": 3,
     "max_correlated_positions": 2,
