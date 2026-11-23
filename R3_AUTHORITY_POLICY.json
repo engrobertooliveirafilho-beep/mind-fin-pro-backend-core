@@ -1,0 +1,34 @@
+{
+  "version": "R3",
+  "target": "ELDORA_TRADER_EXCLUSIVE_REPOSITORY",
+  "authority": {
+    "freeze_id": "20260805_074205",
+    "manifest_sha256": "209006089DFAFEB2AD61932E570A52A1B40A48BADF61EB2FA2BBF738C0C00134",
+    "state": "RUNTIME_FROZEN",
+    "runtime_started": false
+  },
+  "module_states": {
+    "P2900": "EVIDENCE_STAGED",
+    "P2901": "EVIDENCE_STAGED",
+    "P2902": "EVIDENCE_STAGED",
+    "P2903": "EVIDENCE_STAGED",
+    "P2904": "EVIDENCE_STAGED",
+    "P2905": "MISSING_EVIDENCE",
+    "P2906": "EVIDENCE_STAGED",
+    "P2907": "EVIDENCE_STAGED",
+    "P2908": "EVIDENCE_STAGED"
+  },
+  "required_gates": [
+    "DOSSIER_GROUNDING_GATE",
+    "FINALIZATION_LINE_GATE",
+    "CHAT_DRIFT_INTERLOCK",
+    "S20_S21_JOIN_GATE",
+    "CANONICAL_RUNTIME_GATE",
+    "LONG_RUN_CERTIFICATION_GATE"
+  ],
+  "execution_mode": "BACKTEST_PAPER_ONLY",
+  "broker_connection": false,
+  "real_order_execution": false,
+  "merge_authorized": false,
+  "next": "CANONICAL_RUNTIME_READ_ONLY_COMPARISON"
+}
