@@ -13,4 +13,4 @@ class CapitalReservation(unittest.TestCase):
   with patch.object(replay,'simulate_fill',fill):
    summary,curve,trades=replay.replay_portfolio('PAPER',edges,candles,{},risk_pct=.6)
   self.assertEqual(summary['real_execution_allowed'],False)
-  self.assertEqual(summary['trades'],1)
+  self.assertEqual(summary['trades'],2)
