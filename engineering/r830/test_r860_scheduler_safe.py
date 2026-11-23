@@ -1,0 +1,26 @@
+import unittest
+from r860_scheduler_safe import plan_tick, start_scheduler
+A={'id':'dev.step_planner_agent','governance':{'auto_run':True}}
+def run(agents=None,**kw): return plan_tick({'agents':[A] if agents is None else agents},**kw)
+class Tests(unittest.TestCase):
+ def test_plan(self): self.assertEqual(run()['status'],'planned')
+ def test_selected(self): self.assertEqual(run()['agent_ids'],['dev.step_planner_agent'])
+ def test_executed_zero(self): self.assertEqual(run()['executed'],0)
+ def test_no_runtime(self): self.assertFalse(run()['runtime_certified'])
+ def test_no_integration(self): self.assertFalse(run()['integration_authorized'])
+ def test_no_auto(self): self.assertEqual(run([dict(A,governance={'auto_run':False})])['agent_ids'],[])
+ def test_offline(self): self.assertEqual(run(dry_run=False)['status'],'blocked')
+ def test_missing_registry(self): self.assertEqual(plan_tick(None)['status'],'blocked')
+ def test_bad_registry(self): self.assertEqual(plan_tick([])['status'],'blocked')
+ def test_extra_registry(self): self.assertEqual(plan_tick({'agents':[],'extra':1})['status'],'blocked')
+ def test_duplicate(self): self.assertEqual(run([A,A])['status'],'blocked')
+ def test_invalid_id(self): self.assertEqual(run([dict(A,id='../x')])['status'],'blocked')
+ def test_unknown_type(self): self.assertEqual(run([dict(A,id=[])])['status'],'blocked')
+ def test_invalid_bool(self): self.assertEqual(run([dict(A,governance={'auto_run':1})])['status'],'blocked')
+ def test_extra_agent(self): self.assertEqual(run([dict(A,extra=True)])['status'],'blocked')
+ def test_limit(self): self.assertEqual(run([dict(A,id=f'dev.agent_{i}') for i in range(101)])['reason'],'batch_limit')
+ def test_atomic(self): self.assertEqual(run([A,dict(A,id='../x')])['status'],'blocked')
+ def test_no_threads(self): self.assertEqual(start_scheduler()['status'],'blocked')
+ def test_no_args_effect(self): self.assertEqual(start_scheduler(object(),force=True)['executed'],0)
+ def test_empty(self): self.assertEqual(run([])['agent_ids'],[])
+if __name__=='__main__': unittest.main()
