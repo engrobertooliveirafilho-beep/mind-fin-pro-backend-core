@@ -52,7 +52,7 @@ def test_no_real_orders():
 
 def test_hash_verification_from_source_bytes():
     s = signal()
-    dataset, row = b"original-dataset", b"original-row"
+    dataset, row = b"header\noriginal-row\n", b"original-row"
     s["source_dataset_sha256"] = hashlib.sha256(dataset).hexdigest()
     s["source_row_sha256"] = hashlib.sha256(row).hexdigest()
     assert gate.verify_source_hashes(s, dataset, row)[0]
@@ -62,19 +62,19 @@ def test_hash_verification_from_source_bytes():
 
 def test_verified_boundary_accepts_original_bytes():
     s = signal()
-    dataset, row = b"original-dataset", b"original-row"
+    dataset, row = b"header\noriginal-row\n", b"original-row"
     s["source_dataset_sha256"] = hashlib.sha256(dataset).hexdigest()
     s["source_row_sha256"] = hashlib.sha256(row).hexdigest()
     assert gate.resolve_verified_next_bar_entry(s, candles(), dataset, row) == 1
 
 @pytest.mark.parametrize("dataset,row,reason", [
     (b"tampered-dataset", b"original-row", "DATASET_HASH_MISMATCH"),
-    (b"original-dataset", b"tampered-row", "ROW_HASH_MISMATCH"),
+    (b"header\noriginal-row\n", b"tampered-row", "ROW_HASH_MISMATCH"),
     (None, b"original-row", "SOURCE_BYTES_REQUIRED"),
 ])
 def test_verified_boundary_fails_closed(dataset, row, reason):
     s = signal()
-    s["source_dataset_sha256"] = hashlib.sha256(b"original-dataset").hexdigest()
+    s["source_dataset_sha256"] = hashlib.sha256(b"header\noriginal-row\n").hexdigest()
     s["source_row_sha256"] = hashlib.sha256(b"original-row").hexdigest()
     with pytest.raises(ValueError, match=reason):
         gate.resolve_verified_next_bar_entry(s, candles(), dataset, row)
@@ -122,3 +122,11 @@ def test_candle_identity_required(missing):
     del c[0][missing]
     with pytest.raises(ValueError, match="CANDLE_IDENTITY_MISSING"):
         gate.resolve_next_bar_entry(signal(), c)
+
+def test_hashed_row_must_belong_to_original_dataset():
+    s = signal()
+    dataset = b"header\\noriginal-row\\n"
+    foreign_row = b"foreign-row"
+    s["source_dataset_sha256"] = hashlib.sha256(dataset).hexdigest()
+    s["source_row_sha256"] = hashlib.sha256(foreign_row).hexdigest()
+    assert gate.verify_source_hashes(s, dataset, foreign_row) == (False, "ROW_NOT_IN_DATASET")
