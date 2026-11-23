@@ -68,6 +68,9 @@ class P2395ContextRouterV2:
         if not key or not direction:
             return ContextRouteDecision(False, "BLOCK", "MISSING_CONTEXT_KEY_OR_DIRECTION", decision)
 
+        if not isinstance(context, dict) or context.get("key") != key or context.get("direction") != direction:
+            return ContextRouteDecision(False, "BLOCK", "CONTEXT_MISMATCH", decision)
+
         return ContextRouteDecision(
             allowed=True,
             route="PAPER_SIGNAL_CANDIDATE",
