@@ -49,7 +49,10 @@ class P2395ContextRouterV2:
             return ContextRouteDecision(False, "BLOCK", "SAFETY_LOCK_FAILED", "BLOCKED")
 
         decision = self.scored_edge.get("decision", "UNKNOWN")
-        score = float(self.scored_edge.get("final_score", 0) or 0)
+        try:
+            score = float(self.scored_edge.get("final_score", 0) or 0)
+        except (ValueError, TypeError):
+            return ContextRouteDecision(False, "BLOCK", "INVALID_EDGE_SCORE", decision)
 
         if decision != "PROMOTE_SCORE":
             return ContextRouteDecision(
