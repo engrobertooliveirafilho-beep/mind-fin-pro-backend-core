@@ -36,7 +36,7 @@ class PaperModeGateTests(unittest.TestCase):
     def test_paper_only_success(self):
         with patch.object(self.ns["importlib"], "import_module", return_value=types.SimpleNamespace(run=lambda payload: {"mode":payload["mode"]})):
             result = self.ns["run_institutional_wiring"]({"mode":"PAPER_ONLY"})
-        self.assertEqual(result["status"], "operational")
+        self.assertEqual(result["status"], "PAPER_RUN_COMPLETED_UNCERTIFIED")
         self.assertEqual(result["runs_ok"], 1)
 
 if __name__ == "__main__":
