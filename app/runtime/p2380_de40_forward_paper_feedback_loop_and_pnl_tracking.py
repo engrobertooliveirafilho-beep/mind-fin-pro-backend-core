@@ -86,11 +86,9 @@ def atr(candles: List[Dict], i: int, p: int = 14):
 
 
 def index_for_signal(signal: Dict, candles: List[Dict]) -> int:
-    # P2379 emits template signals, not live timestamp-bound orders.
-    # Use deterministic replay anchor from profile/timeframe to evaluate PAPER-only behavior.
-    base = abs(hash(signal.get("signal_id", ""))) % max(1, len(candles) - 300)
-    return max(120, min(base, len(candles) - 100))
-
+    # Context templates have no independently verified event-time provenance.
+    # Never select a replay entry using Python hash randomization.
+    raise ValueError("P2380_EVENT_BOUND_ENTRY_REQUIRED")
 
 def hold_for_timeframe(tf: str) -> int:
     return {
