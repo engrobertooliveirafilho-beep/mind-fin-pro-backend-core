@@ -20,3 +20,12 @@ class CandleTimeGate(unittest.TestCase):
   c=[{'time':t+timedelta(minutes=i)} for i in range(100)]
   summary,_,_=replay_portfolio('PAPER',[],c,{})
   self.assertFalse(summary['real_execution_allowed'])
+
+class MixedTimezoneGate(unittest.TestCase):
+ def test_mixed_aware_naive_rejected(self):
+  from datetime import timezone
+  t=datetime(2026,1,1)
+  c=[{'time':t+timedelta(minutes=i)} for i in range(100)]
+  c[50]['time']=c[50]['time'].replace(tzinfo=timezone.utc)
+  with self.assertRaisesRegex(ValueError,'INVALID_CANDLE_TIME'):
+   replay_portfolio('PAPER',[],c,{})
