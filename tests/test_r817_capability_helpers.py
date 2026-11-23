@@ -1,6 +1,12 @@
 import unittest
 from unittest.mock import patch
-from app.runtime import capability_recovery_bridge as m
+import importlib.util
+from pathlib import Path
+
+SOURCE = Path(__file__).resolve().parents[1] / "app" / "runtime" / "capability_recovery_bridge.py"
+spec = importlib.util.spec_from_file_location("r818_capability_bridge", SOURCE)
+m = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(m)
 
 
 class TestR817(unittest.TestCase):
