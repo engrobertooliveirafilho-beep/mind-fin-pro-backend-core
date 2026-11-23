@@ -214,6 +214,8 @@ def test_p2379_rejects_empty_ready_signal_set(tmp_path):
         inputs.append(path)
     with pytest.raises(ValueError, match="P2379_NO_READY_PAPER_SIGNALS"):
         run(*inputs, tmp_path / "out")
+    assert not (tmp_path / "out" / "summary.json").exists()
+    assert not (tmp_path / "out" / "mind_de40_paper_signal_bus_p2379.csv").exists()
 
 
 def test_p2380_direct_simulator_cannot_bypass_event_lineage_gate():
