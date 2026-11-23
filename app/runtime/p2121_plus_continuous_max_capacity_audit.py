@@ -68,11 +68,11 @@ class CertifiedBlockAudit:
         assert_no_financial_execution()
 
         required_status = {
-            "p2071": "PASS",
-            "p2081": "PASS",
-            "p2091": "PASS",
-            "p2101": "PASS",
-            "p2111": "PASS",
+            "p2071": ("PASS", "REALTIME_PAPER_RUNTIME_CERTIFIED"),
+            "p2081": ("PASS", "REALTIME_PORTFOLIO_GOVERNANCE_CERTIFIED"),
+            "p2091": ("PASS", "REALTIME_INTELLIGENCE_LAYER_CERTIFIED"),
+            "p2101": ("PASS", "AUTONOMOUS_PAPER_OPERATIONS_CERTIFIED"),
+            "p2111": ("PASS", "MAXIMUM_TECHNICAL_CAPACITY_CERTIFIED"),
         }
 
         results = {}
@@ -83,7 +83,7 @@ class CertifiedBlockAudit:
             status = data.get("status")
             readiness = data.get("readiness")
             results[key] = {"status": status, "readiness": readiness, "path": deps[key]}
-            if status != expected:
+            if (status, readiness) != expected:
                 failures.append(key)
 
         return AuditDecision(
