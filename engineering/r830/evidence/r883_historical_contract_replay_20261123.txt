@@ -1,0 +1,22 @@
+R883 — HISTORICAL CONTRACT REPLAY
+Date: 2026-11-23
+Drive originals re-opened:
+STEP532 implementation: 1gYni953MkKm6Wa8d8R7ndVbi8gme93Ev
+STEP533 implementation: 1BLbCWSpet8MpTHCwpKNtFiGpvOUQamKe
+STEP540 implementation: 13KfyIpIlN7Ul__j2ln26wqJsB1zExFrD
+STEP542 implementation: 1musgM25jneEdEbLOQIj-Q1O1BMSS-4Vx
+Original historical tests:
+STEP532: 1RJgF6KxHhUM-bbP1d3FAF-j9-n5nICXh
+STEP533: 1nU57bwX-dwpMfCEldhMRm7oGljZCVksA
+STEP540: 1zXDUbAUSckh48N3LgVPogoOEW0mU4Ab_
+STEP542: 1HzQ0FXmcHG39WccaCeqttzupV4rYNUy4
+Execution: Python isolated temporary package; replayed the 8 assertions from the four historical test files against behavior-reconstructed modules.
+Result: 8/8 assertions PASS; 0 failures; 0 errors.
+Important limitation: source modules were reconstructed from the full Drive text in this session and are behavior-equivalent transcriptions, not byte-identical downloaded source artifacts. The original pytest files were translated into direct assertions, not executed in their original project environment.
+Security findings reconfirmed:
+- STEP533 promote_to_canon has no authorization parameter or check.
+- STEP540 accepts omitted max_data_sensitivity and defaults it to 5; coerces topics and mode via str().
+- STEP542 approve accepts reviewer without non-empty validation.
+- STEP532 create/revise/deprecate have no key/payload validation or authorization.
+R882 facade has not yet been run against byte-identical original modules; no original engine method was invoked in this replay.
+UNIT_REPLAY_PASS=8/8; ORIGINAL_BYTE_EXECUTION=FALSE; INTEGRATION_E2E=FALSE; MAIN=INTACT; PAPER_ONLY=TRUE; REAL_ORDERS=FORBIDDEN; COST=R$0.
