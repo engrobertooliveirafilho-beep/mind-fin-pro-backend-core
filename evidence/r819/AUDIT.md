@@ -21,3 +21,10 @@ Fetched from the same isolated branch, without importing or executing the module
 | app.eldora.core.long_term_memory | a2bda81534bacd94cf64ac194c3594915f03fa20 | 0 | 0 |
 
 Direct references searched: capability_recovery_bridge, capability_recovery_report, inspect_capability_module. Zero references in these five declared targets is **not** proof of zero callers elsewhere in the repository. R817's active probe remains disabled. R825 AST auditor 10/10 local offline tests re-executed (0.006s), but whole-repository scan and E2E are not certified. No runtime mutation, broker access, or historical Drive mutation.
+
+## Drive original code-map cross-check (2026-11-23)
+- Drive primary source capability_code_map.txt, ID 1uOzlFbkFOBizIgECN2sXyvINJZENNh5B, successfully read, 146328 characters.
+- Search of complete retrieved inventory for capability_recovery_bridge / inspect_capability_module / P472B found references only within original app/runtime/capability_recovery_bridge.py (lines 6, 9, 10, 56, 87, 89, 96, 119, 120, 125). No independent consumer path appears in those matching inventory lines.
+- This is a bounded historical index, not a full current repository call-graph. It does not prove that no consumers exist now.
+- Current protected bridge SHA1=966d5d2c2b9827d96cb03d33526c30a39726cabb, identical on R817 and R819. Main legacy bridge SHA1=75086cfbd78064001f9bd6cd83245d14ceb65dd0 remains active; main deliberately not changed.
+- SKIP: R817 fail-closed implementation and R825 AST auditor already implemented/tested. No redundant patch to the bridge. E2E remains FALSE.
