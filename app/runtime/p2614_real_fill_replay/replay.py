@@ -13,7 +13,11 @@ def replay_portfolio(name, edges, candles, features, risk_pct=0.01, initial_capi
         raise ValueError("INVALID_EDGE")
     if any(not isinstance(c,dict) or not hasattr(c.get("time"),"date") for c in candles):
         raise ValueError("INVALID_CANDLE_TIME")
-    if any(candles[j]["time"] <= candles[j-1]["time"] for j in range(1,len(candles))):
+    try:
+        monotonic=all(candles[j]["time"] > candles[j-1]["time"] for j in range(1,len(candles)))
+    except (TypeError, ValueError):
+        raise ValueError("INVALID_CANDLE_TIME") from None
+    if not monotonic:
         raise ValueError("NONMONOTONIC_CANDLE_TIME")
     ids=[e["edge_id"] for e in edges]
     if len(set(ids))!=len(ids): raise ValueError("DUPLICATE_EDGE_ID")
