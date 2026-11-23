@@ -45,7 +45,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
                 row["health_checked"] = True
                 try:
                     h = m.health()
-                    row["health_ok"] = isinstance(h, dict) and str(h.get("status", "")).upper() not in {"ERROR", "FAILED", "FAIL", "DEGRADED", "BLOCKED", "NOT_IMPLEMENTED"}
+                    row["health_ok"] = isinstance(h, dict) and str(h.get("status", "")).upper() in {"PASS", "OK", "OPERATIONAL", "HEALTHY"}
                     row["health"] = h
                 except Exception as e:
                     row["error"] += f"health_error={e};"
@@ -66,7 +66,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
                             r = runner()
                         else:
                             r = runner(payload)
-                    row["run_ok"] = r is not None and not (isinstance(r, dict) and str(r.get("status", "")).upper() in {"ERROR", "FAILED", "FAIL", "DEGRADED", "BLOCKED", "NOT_IMPLEMENTED"})
+                    row["run_ok"] = isinstance(r, dict) and str(r.get("status", "")).upper() in {"PASS", "OK", "OPERATIONAL", "HEALTHY"}
                     row["run_result_type"] = type(r).__name__
                     row["run_result"] = r if isinstance(r, (dict, list, str, int, float, bool)) else str(r)
                 except Exception as e:
