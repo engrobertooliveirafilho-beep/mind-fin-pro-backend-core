@@ -200,3 +200,17 @@ def test_p2380_blocks_unbound_context_templates(tmp_path):
         writer.writerow({"signal_id": "P2379_PLAYBOOK_000001", "symbol": "DE40", "timeframe": "M5", "mode": "PAPER_ONLY", "real_orders": "FORBIDDEN", "ftmo_real": "FORBIDDEN"})
     with pytest.raises(ValueError, match="P2380_UNVERIFIED_EVENT_LINEAGE"):
         run(bus, tmp_path, tmp_path / "out")
+
+
+def test_p2379_rejects_empty_ready_signal_set(tmp_path):
+    import csv
+    from app.runtime.p2379_de40_forward_paper_emission_from_promoted_playbooks import run
+    inputs = []
+    for name in ("playbooks", "contexts", "sequences"):
+        path = tmp_path / (name + ".csv")
+        with path.open("w", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=["footprint", "regime", "samples"])
+            writer.writeheader()
+        inputs.append(path)
+    with pytest.raises(ValueError, match="P2379_NO_READY_PAPER_SIGNALS"):
+        run(*inputs, tmp_path / "out")
