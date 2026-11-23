@@ -125,8 +125,10 @@ def test_candle_identity_required(missing):
 
 def test_hashed_row_must_belong_to_original_dataset():
     s = signal()
-    dataset = b"header\\noriginal-row\\n"
+    dataset = b"header\noriginal-row\n"
     foreign_row = b"foreign-row"
     s["source_dataset_sha256"] = hashlib.sha256(dataset).hexdigest()
     s["source_row_sha256"] = hashlib.sha256(foreign_row).hexdigest()
     assert gate.verify_source_hashes(s, dataset, foreign_row) == (False, "ROW_NOT_IN_DATASET")
+    with pytest.raises(ValueError, match="ROW_NOT_IN_DATASET"):
+        gate.resolve_verified_next_bar_entry(s, candles(), dataset, foreign_row)
