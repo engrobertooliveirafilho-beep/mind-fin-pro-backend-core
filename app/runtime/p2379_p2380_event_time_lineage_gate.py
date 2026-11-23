@@ -88,6 +88,17 @@ def verify_source_hashes(signal: Dict[str, Any], dataset_bytes: bytes, row_bytes
     return True, "SOURCE_HASHES_VERIFIED"
 
 
+def resolve_verified_next_bar_entry(
+    signal: Dict[str, Any], candles: List[Dict[str, Any]],
+    dataset_bytes: bytes, row_bytes: bytes,
+) -> int:
+    """Fail closed at the integration boundary unless both original hashes match."""
+    ok, reason = verify_source_hashes(signal, dataset_bytes, row_bytes)
+    if not ok:
+        raise ValueError(reason)
+    return resolve_next_bar_entry(signal, candles)
+
+
 def resolve_next_bar_entry(signal: Dict[str, Any], candles: List[Dict[str, Any]]) -> int:
     """Resolve only the immediate next candle after the source event; never hash-select an entry."""
     ok, reason = validate_event_bound_signal(signal)
@@ -114,4 +125,4 @@ def resolve_next_bar_entry(signal: Dict[str, Any], candles: List[Dict[str, Any]]
     return entry_index
 
 
-__all__ = ["validate_event_bound_signal", "verify_source_hashes", "resolve_next_bar_entry"]
+__all__ = ["validate_event_bound_signal", "verify_source_hashes", "resolve_next_bar_entry", "resolve_verified_next_bar_entry"]
