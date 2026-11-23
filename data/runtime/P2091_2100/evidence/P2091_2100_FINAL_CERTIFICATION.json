@@ -1,0 +1,199 @@
+{
+  "program": "P2091_2100_REALTIME_INTELLIGENCE_LAYER",
+  "status": "PASS",
+  "readiness": "REALTIME_INTELLIGENCE_LAYER_CERTIFIED",
+  "absolute_restrictions": {
+    "MIND_MODE": "PAPER_ONLY",
+    "REAL_ORDERS": "FORBIDDEN",
+    "LIVE_TRADING": "FALSE",
+    "BROKER_EXECUTION": "DISABLED",
+    "FINANCIAL_EXECUTION": "DISABLED",
+    "FTMO_REAL": "FORBIDDEN",
+    "SEND_ORDER": "BLOCKED",
+    "MT5_ORDER_SEND": "BLOCKED",
+    "BROKER_API_CALL": "BLOCKED"
+  },
+  "input_dependencies": {
+    "portfolio": "data/specialists/P2066_2070/PORTFOLIO_FINAL_LOCKED_REALDNA.json",
+    "p2071_2080": "data/runtime/P2071_2080/evidence/P2071_2080_FINAL_CERTIFICATION.json",
+    "p2081_2090": "data/runtime/P2081_2090/evidence/P2081_2090_FINAL_CERTIFICATION.json"
+  },
+  "mission_status": {
+    "P2091_RUNTIME_ANALYTICS": "PASS",
+    "P2092_PORTFOLIO_INTELLIGENCE": "PASS",
+    "P2093_REGIME_ANALYTICS": "PASS",
+    "P2094_PERFORMANCE_ATTRIBUTION": "PASS",
+    "P2095_BEHAVIOR_ANALYSIS": "PASS",
+    "P2096_SPECIALIST_RANKING_EVOLUTION": "PASS",
+    "P2097_AUTO_RETIREMENT": "PASS",
+    "P2098_AUTO_PROMOTION": "PASS",
+    "P2099_PORTFOLIO_EVOLUTION": "PASS",
+    "P2100_INTELLIGENCE_CERTIFICATION": "PASS"
+  },
+  "decisions": [
+    {
+      "component": "P2091_RUNTIME_ANALYTICS",
+      "status": "PASS",
+      "reason": "RUNTIME_ANALYTICS_OK",
+      "payload": {
+        "frames": 1500,
+        "signals": 4329,
+        "closed_trades": 411,
+        "signal_density": 2.886,
+        "trade_density": 0.274
+      }
+    },
+    {
+      "component": "P2092_PORTFOLIO_INTELLIGENCE",
+      "status": "PASS",
+      "reason": "PORTFOLIO_INTELLIGENCE_OK",
+      "payload": {
+        "specialists": 3,
+        "intelligence_score": 100,
+        "governance_equity": 99046.94686,
+        "governance_drawdown_pct": -0.00953053
+      }
+    },
+    {
+      "component": "P2093_REGIME_ANALYTICS",
+      "status": "PASS",
+      "reason": "REGIME_ANALYTICS_OK",
+      "payload": {
+        "regime": "ACTIVE_LOW_DRAWDOWN",
+        "drawdown_abs_pct": 0.00953053,
+        "signal_density": 2.886
+      }
+    },
+    {
+      "component": "P2094_PERFORMANCE_ATTRIBUTION",
+      "status": "PASS",
+      "reason": "ATTRIBUTION_OK",
+      "payload": {
+        "portfolio_pnl": -953.05314,
+        "attribution": {
+          "XAUUSD_M1_REALDNA_0004": -317.68438,
+          "XAUUSD_M1_REALDNA_0003": -317.68438,
+          "XAUUSD_M1_REALDNA_0001": -317.68438
+        },
+        "attribution_sum": -953.05314
+      }
+    },
+    {
+      "component": "P2095_BEHAVIOR_ANALYSIS",
+      "status": "PASS",
+      "reason": "BEHAVIOR_ACCEPTABLE",
+      "payload": {
+        "behavior": "NORMAL",
+        "frames": 1500,
+        "signals": 4329,
+        "closed_trades": 411,
+        "open_positions": 3
+      }
+    },
+    {
+      "component": "P2096_SPECIALIST_RANKING_EVOLUTION",
+      "status": "PASS",
+      "reason": "RANKING_EVOLUTION_OK",
+      "payload": {
+        "ranking": [
+          {
+            "specialist_id": "XAUUSD_M1_REALDNA_0004",
+            "rank": 1,
+            "score": 130.0
+          },
+          {
+            "specialist_id": "XAUUSD_M1_REALDNA_0003",
+            "rank": 2,
+            "score": 119.0
+          },
+          {
+            "specialist_id": "XAUUSD_M1_REALDNA_0001",
+            "rank": 3,
+            "score": 108.0
+          }
+        ]
+      }
+    },
+    {
+      "component": "P2097_AUTO_RETIREMENT",
+      "status": "PASS",
+      "reason": "AUTO_RETIREMENT_POLICY_READY",
+      "payload": {
+        "retired": [],
+        "watchlist": [],
+        "policy": "PAPER_ONLY_NO_DESTRUCTIVE_REMOVAL"
+      }
+    },
+    {
+      "component": "P2098_AUTO_PROMOTION",
+      "status": "PASS",
+      "reason": "AUTO_PROMOTION_READY",
+      "payload": {
+        "promoted_candidates": [
+          "XAUUSD_M1_REALDNA_0004"
+        ],
+        "promotion_scope": "PAPER_ONLY_RANKING_METADATA"
+      }
+    },
+    {
+      "component": "P2099_PORTFOLIO_EVOLUTION",
+      "status": "PASS",
+      "reason": "PORTFOLIO_EVOLUTION_OK",
+      "payload": {
+        "evolution_state": "STABLE",
+        "top_specialist": "XAUUSD_M1_REALDNA_0004",
+        "equity": 99046.94686,
+        "drawdown_pct": -0.00953053
+      }
+    },
+    {
+      "component": "P2100_INTELLIGENCE_CERTIFICATION",
+      "status": "PASS",
+      "reason": "REALTIME_INTELLIGENCE_LAYER_CERTIFIED",
+      "payload": {
+        "failed_components": [],
+        "passed_components": [
+          "P2091_RUNTIME_ANALYTICS",
+          "P2092_PORTFOLIO_INTELLIGENCE",
+          "P2093_REGIME_ANALYTICS",
+          "P2094_PERFORMANCE_ATTRIBUTION",
+          "P2095_BEHAVIOR_ANALYSIS",
+          "P2096_SPECIALIST_RANKING_EVOLUTION",
+          "P2097_AUTO_RETIREMENT",
+          "P2098_AUTO_PROMOTION",
+          "P2099_PORTFOLIO_EVOLUTION"
+        ],
+        "total_components": 9
+      }
+    }
+  ],
+  "intelligence_outputs": {
+    "ranking": [
+      {
+        "specialist_id": "XAUUSD_M1_REALDNA_0004",
+        "rank": 1,
+        "score": 130.0
+      },
+      {
+        "specialist_id": "XAUUSD_M1_REALDNA_0003",
+        "rank": 2,
+        "score": 119.0
+      },
+      {
+        "specialist_id": "XAUUSD_M1_REALDNA_0001",
+        "rank": 3,
+        "score": 108.0
+      }
+    ],
+    "top_specialist": "XAUUSD_M1_REALDNA_0004",
+    "retirement_policy": "PAPER_ONLY_NO_DESTRUCTIVE_REMOVAL",
+    "promotion_policy": "PAPER_ONLY_METADATA_PROMOTION",
+    "portfolio_evolution": {
+      "evolution_state": "STABLE",
+      "top_specialist": "XAUUSD_M1_REALDNA_0004",
+      "equity": 99046.94686,
+      "drawdown_pct": -0.00953053
+    }
+  },
+  "next_block": "P2101_2110_AUTONOMOUS_PAPER_OPERATIONS"
+}
