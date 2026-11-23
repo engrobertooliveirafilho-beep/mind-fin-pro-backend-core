@@ -23,3 +23,16 @@ def test_unsafe_router_flags():
 def test_invalid_quorum():
     r=build_ensemble([v("a")],quorum=0).vote()
     assert not r.allowed and r.reason=="INVALID_QUORUM"
+
+
+def test_historical_p2395_to_p2396_observe_only():
+    from dataclasses import asdict
+    from app.runtime.p2395_context_router_v2 import build_router
+    scored = {"decision":"OBSERVE_SCORE","final_score":68.391266,"key":"US_AFTERNOON|LIQUIDITY_SWEEP_REVERSAL_DOWN|LIQUIDITY_REVERSAL_ENTRY|DISTRIBUTION->BALANCE","direction":"BUY_PAPER"}
+    routed = build_router(scored).route({"key":scored["key"],"direction":"BUY_PAPER"})
+    assert routed.allowed is False and routed.route == "OBSERVE_ONLY"
+    decision = asdict(routed)
+    decision["member_id"] = "P2391_8149352397"
+    result = build_ensemble([decision],quorum=2).vote()
+    assert (result.allowed,result.vote,result.reason,result.members,result.operational_members) == (False,"OBSERVE_ONLY","INSUFFICIENT_OPERATIONAL_QUORUM",1,0)
+    assert result.real_orders == "FORBIDDEN" and result.ftmo_real == "FORBIDDEN"
