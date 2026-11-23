@@ -23,6 +23,11 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
         raise ValueError("real orders forbidden")
     if payload.get("ftmo_real") not in (None, "FORBIDDEN", False):
         raise ValueError("FTMO real forbidden")
+    # Reject alternate execution-mode and order-permission fields before imports.
+    if any(payload.get(key) not in (None, "PAPER_ONLY") for key in ("execution_mode", "account_mode")):
+        raise ValueError("PAPER_ONLY execution/account mode required")
+    if any(payload.get(key) is not False for key in ("real_orders_allowed", "live", "live_trading", "broker_execution") if key in payload):
+        raise ValueError("live/broker execution forbidden")
     results = []
 
     for name in MODULES:
