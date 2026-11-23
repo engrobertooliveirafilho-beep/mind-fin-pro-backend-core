@@ -445,14 +445,29 @@ def run(observed_path: Path, dataset_root: Path, outdir: Path, max_rows_per_tf: 
             "observed": str(observed_csv),
             "summary_json": str(summary_json),
         },
-        "status": "CERTIFIED",
-        "certification": "P2374_DE40_OBSERVED_CANDIDATE_DEEP_WALK_FORWARD_CERTIFIED",
+        **certification_outcome(len(promoted)),
         "next": "P2375_DE40_ANTI_OVERFIT_STRESS_TEST",
         "warning": "WALK_FORWARD_PROMOTION_IS_STILL_PAPER_ONLY",
     }
 
     summary_json.write_text(json.dumps(payload, indent=2), encoding="utf-8")
     return payload
+
+
+def certification_outcome(promoted_count: int) -> Dict[str, str]:
+    """Separate successful pipeline execution from strategy certification."""
+    if promoted_count < 0:
+        raise ValueError("promoted_count cannot be negative")
+    return {
+        "status": "EXECUTION_COMPLETE",
+        "certification": "EXECUTION_ARTIFACT_ONLY_NOT_STRATEGY_CERTIFICATION",
+        "strategy_certification": "NOT_GRANTED",
+        "promotion_outcome": (
+            "NO_CANDIDATE_PROMOTED"
+            if promoted_count == 0
+            else "PAPER_CANDIDATES_AVAILABLE"
+        ),
+    }
 
 
 def main():
