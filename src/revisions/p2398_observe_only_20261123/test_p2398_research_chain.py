@@ -26,6 +26,18 @@ class ResearchChainTests(unittest.TestCase):
         with self.assertRaises(GateRejected):
             evaluate_research_chain(bad, self.r, self.e)
 
+    def test_p2394_original_artifact_tamper_rejected(self):
+        from unittest.mock import patch
+        from pathlib import Path
+        original = Path.read_bytes
+        def forged_bytes(path):
+            if path.name == 'p2394_original_summary.json':
+                return original(path) + b' '
+            return original(path)
+        with patch('pathlib.Path.read_bytes', autospec=True, side_effect=forged_bytes):
+            with self.assertRaises(GateRejected):
+                evaluate_research_chain(self.p, self.r, self.e)
+
     def test_p2397_rejected_blocks_chain(self):
         with patch('p2398_research_chain.evaluate_historical_research',
                    return_value=ResearchDecision(False, False, 'BLOCK', 'INVALID_RESEARCH_EVIDENCE', 0)):
