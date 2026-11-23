@@ -66,6 +66,8 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
                     row["run_result"] = r if isinstance(r, (dict, list, str, int, float, bool)) else str(r)
                 except Exception as e:
                     row["error"] += f"run_error={e};"
+            else:
+                row["error"] += "run_error=NO_SUPPORTED_ENTRYPOINT;"
 
         except Exception as e:
             row["error"] = str(e)
