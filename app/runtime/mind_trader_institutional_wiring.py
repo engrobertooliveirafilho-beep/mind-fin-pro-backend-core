@@ -19,9 +19,9 @@ MODULES = [
 def run_institutional_wiring(payload: dict | None = None) -> dict:
     if not isinstance(payload, dict) or payload.get("mode") != "PAPER_ONLY":
         raise ValueError("PAPER_ONLY mode must be explicitly authorized before module import")
-    if payload.get("real_orders") not in (None, "FORBIDDEN", False):
+    if not (payload.get("real_orders") is None or payload.get("real_orders") is False or payload.get("real_orders") == "FORBIDDEN"):
         raise ValueError("real orders forbidden")
-    if payload.get("ftmo_real") not in (None, "FORBIDDEN", False):
+    if not (payload.get("ftmo_real") is None or payload.get("ftmo_real") is False or payload.get("ftmo_real") == "FORBIDDEN"):
         raise ValueError("FTMO real forbidden")
     # Reject alternate execution-mode and order-permission fields before imports.
     if any(payload.get(key) not in (None, "PAPER_ONLY") for key in ("execution_mode", "account_mode")):
