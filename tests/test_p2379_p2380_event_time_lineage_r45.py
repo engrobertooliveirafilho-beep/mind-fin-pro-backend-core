@@ -78,3 +78,24 @@ def test_verified_boundary_fails_closed(dataset, row, reason):
     s["source_row_sha256"] = hashlib.sha256(b"original-row").hexdigest()
     with pytest.raises(ValueError, match=reason):
         gate.resolve_verified_next_bar_entry(s, candles(), dataset, row)
+
+def test_p2382_replay_without_oos_is_not_promoted():
+    evidence = {"mode": "PAPER_ONLY", "real_orders": "FORBIDDEN",
+                "ftmo_real": "FORBIDDEN", "signals_replayed": 227,
+                "wins": 224, "losses": 0, "profit_factor": 999.0}
+    assert gate.validate_replay_promotion(evidence) == (False, "INDEPENDENT_OOS_NOT_CERTIFIED")
+
+def test_p2382_requires_temporal_audit_and_lineage():
+    e = {"mode": "PAPER_ONLY", "real_orders": "FORBIDDEN",
+         "ftmo_real": "FORBIDDEN", "independent_oos_certified": True}
+    assert gate.validate_replay_promotion(e)[0] is False
+    e["temporal_leakage_audit_pass"] = True
+    assert gate.validate_replay_promotion(e)[0] is False
+    e["source_lineage_verified"] = True
+    assert gate.validate_replay_promotion(e)[0] is True
+
+def test_p2382_real_orders_forbidden():
+    e = {"mode": "PAPER_ONLY", "real_orders": "ALLOWED", "ftmo_real": "FORBIDDEN",
+         "independent_oos_certified": True, "temporal_leakage_audit_pass": True,
+         "source_lineage_verified": True}
+    assert gate.validate_replay_promotion(e) == (False, "REAL_EXECUTION_FORBIDDEN")
