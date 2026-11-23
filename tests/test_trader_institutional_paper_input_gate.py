@@ -38,6 +38,18 @@ class PaperInputGate(unittest.TestCase):
         self.assertEqual(result["status"], "DEGRADED")
         self.assertIn("health_gate_blocked_execution", result["results"][0]["error"])
 
+    def test_engine_real_order_claim_cannot_pass(self):
+        for evidence in ({"real_order_count": 1}, {"real_orders": True},
+                         {"real_orders": "SENT"}):
+            with self.subTest(evidence=evidence):
+                module = SimpleNamespace(run=lambda: {"status": "PASS", **evidence})
+                with patch.object(wiring, "MODULES", ["m"]):
+                    with patch.object(wiring.importlib, "import_module", return_value=module):
+                        result = wiring.run({"mode": "PAPER_ONLY"})
+                self.assertEqual(result["status"], "DEGRADED")
+                self.assertFalse(result["results"][0]["run_ok"])
+                self.assertIn("real_order_evidence_blocked", result["results"][0]["error"])
+
     def test_paper_allowed(self):
         with patch.object(wiring, "MODULES", ["m"]):
             with patch.object(wiring.importlib, "import_module",
