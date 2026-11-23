@@ -208,7 +208,7 @@ def validate_paper_bus_csv(ready_csv: bytes, bus_csv: bytes) -> Tuple[bool, str]
         ready = parse(ready_csv)
         bus = parse(bus_csv)
     except (UnicodeError, csv.Error, ValueError) as exc:
-        return False, str(exc) if isinstance(exc, ValueError) else "PAPER_BUS_CSV_INVALID"
+        return False, str(exc) if type(exc) is ValueError else "PAPER_BUS_CSV_INVALID"
     return verify_paper_bus_coverage(ready, bus)
 
 __all__ = ["validate_event_bound_signal", "verify_source_hashes", "resolve_next_bar_entry", "resolve_verified_next_bar_entry", "validate_replay_promotion", "verify_paper_bus_coverage", "validate_paper_bus_csv"]
