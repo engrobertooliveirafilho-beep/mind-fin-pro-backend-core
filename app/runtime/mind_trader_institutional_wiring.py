@@ -42,7 +42,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
             if hasattr(m, "health"):
                 try:
                     h = m.health()
-                    row["health_ok"] = isinstance(h, dict)
+                    row["health_ok"] = isinstance(h, dict) and str(h.get("status", "")).upper() not in {"ERROR", "FAILED", "FAIL", "DEGRADED", "BLOCKED", "NOT_IMPLEMENTED"}
                     row["health"] = h
                 except Exception as e:
                     row["error"] += f"health_error={e};"
