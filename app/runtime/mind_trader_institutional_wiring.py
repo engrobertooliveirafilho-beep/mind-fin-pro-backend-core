@@ -49,10 +49,9 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
 
             if hasattr(m, "run"):
                 try:
-                    try:
-                        r = m.run(payload)
-                    except TypeError:
-                        r = m.run()
+                    import inspect
+                    inspect.signature(m.run).bind(payload)
+                    r = m.run(payload)
                     row["run_ok"] = r is not None
                     row["run_result_type"] = type(r).__name__
                     row["run_result"] = r if isinstance(r, (dict, list, str, int, float, bool)) else str(r)
