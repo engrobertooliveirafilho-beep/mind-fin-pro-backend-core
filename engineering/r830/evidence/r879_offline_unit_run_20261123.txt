@@ -1,0 +1,14 @@
+R879 OFFLINE TEST EXECUTION EVIDENCE
+UTC: 2026-11-23T02:23:49Z
+Command: python -m unittest -v test_r879_knowledge_treaty_ethics
+Result: Ran 20 tests in 0.001s; OK; failures=0; errors=0
+Scope: unit tests of isolated R879 validators only; no historical engine execution; no E2E certification.
+Source path: engineering/r830/r879_knowledge_treaty_ethics.py
+Source git blob SHA1: 43a7695f32e7fd151cdea9178f876d2aab45f1fb
+Source SHA256: 5a06f8288e4ea120e4d8b46467c121ed345bd9375d7bef680b0d8147fec6ef23
+Tests path: engineering/r830/test_r879_knowledge_treaty_ethics.py
+Tests git blob SHA1: d3c0fbdf5d0a7ab4f2ea68852f746c95784bc4a0
+Tests SHA256: 6a0de616efcf9b37fb18426c016be782dfde07bd13675f1785826a08b1e8f173
+Test stdout/stderr SHA256: 88684d98c8b363a83e7f9ad4caa7bca97c8e35a81b4291f93bb147df0eaf7999
+Environment: isolated Python unittest; no network access from test runtime; no production modifications.
+State: UNIT_PASS=TRUE; E2E_CERTIFIED=FALSE; PAPER_ONLY=TRUE; REAL_ORDERS=FORBIDDEN; COST=R$0
