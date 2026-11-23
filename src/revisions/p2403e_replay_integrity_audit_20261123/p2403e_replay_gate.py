@@ -6,7 +6,7 @@ def audit_source(path):
  calls={n.func.id if isinstance(n.func,ast.Name) else n.func.attr for n in ast.walk(t) if isinstance(n,ast.Call)}
  names={n.id for n in ast.walk(t) if isinstance(n,ast.Name)}
  strings={n.value for n in ast.walk(t) if isinstance(n,ast.Constant) and isinstance(n.value,str)}
- subs={n.slice.value for n in ast.walk(t) if isinstance(n,ast.Subscript) and isinstance(n.slice,ast.Constant) and isinstance(n.slice.value,str)}
+ subs={n.slice.value for n in ast.walk(t) if isinstance(n,ast.Subscript) and isinstance(n.slice,ast.Constant) and isinstance(n.slice.value,str)}\n subs |= {n.args[0].value for n in ast.walk(t) if isinstance(n,ast.Call) and isinstance(n.func,ast.Attribute) and n.func.attr=="get" and n.args and isinstance(n.args[0],ast.Constant) and isinstance(n.args[0].value,str)}
  uses_hash="sha256" in calls or "hashlib" in names
  synthetic_schedule=bool({"stride","offset","hold"} & names) and "sha256" in calls
  has_signal_rules=bool({"footprint","lifecycle","cycle_transition","session","regime"} & subs)
