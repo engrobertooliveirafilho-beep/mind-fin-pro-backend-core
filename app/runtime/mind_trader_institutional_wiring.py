@@ -60,6 +60,9 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
                         # A zero-argument motor cannot receive the mandatory PAPER_ONLY lock.
                         raise ValueError("PAPER_ONLY_CONTRACT_NOT_PROPAGATED")
                     else:
+                        first_parameter = next(iter(signature.parameters.values()))
+                        if first_parameter.name not in {"payload", "_payload", "context", "ctx", "request", "input_data"}:
+                            raise ValueError("PAPER_ONLY_PAYLOAD_SIGNATURE_UNSUPPORTED:" + first_parameter.name)
                         r = m.run(payload)
                     row["run_ok"] = isinstance(r, dict) and str(r.get("status", "")).upper() in {"OK", "PASS", "HEALTHY", "OPERATIONAL", "SUCCESS", "COMPLETED"} and r.get("mode", "PAPER_ONLY") == "PAPER_ONLY" and r.get("real_orders", "FORBIDDEN") == "FORBIDDEN" and r.get("ftmo_real", "FORBIDDEN") == "FORBIDDEN"
                     row["run_result_type"] = type(r).__name__
