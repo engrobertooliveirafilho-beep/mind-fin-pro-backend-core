@@ -23,7 +23,12 @@ def evaluate_research_chain(p2394, router_contract, ensemble_result):
     import json
     if not isinstance(p2394, Mapping):
         raise GateRejected('P2394 evidence must be mapping')
-    canonical = json.loads((Path(__file__).resolve().parent / 'p2394_original_summary.json').read_text(encoding='utf-8'))
+    import hashlib
+    artifact = Path(__file__).resolve().parent / 'p2394_original_summary.json'
+    raw = artifact.read_bytes()
+    if hashlib.sha256(raw).hexdigest() != '31f486bae718bcaf41b3767760ab94d3929b89a6de2316703e1c3d22f48c254b':
+        raise GateRejected('historical P2394 source integrity mismatch')
+    canonical = json.loads(raw.decode('utf-8'))
     if p2394 != canonical:
         raise GateRejected('P2394 evidence differs from historical research source')
     # Fail closed before considering P2398 evidence if research is uncertified.
