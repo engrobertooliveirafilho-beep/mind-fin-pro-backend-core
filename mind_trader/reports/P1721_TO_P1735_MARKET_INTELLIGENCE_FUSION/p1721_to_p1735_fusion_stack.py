@@ -12,11 +12,12 @@ CANDLES = Path("reports/P1619_CANDLE_TRIGGER_ENGINE/candle_trigger_snapshot.json
 STRUCTURE = Path("reports/P1618_MARKET_STRUCTURE_ENGINE/market_structure_snapshot.json")
 SESSIONS = Path("reports/P1637_SESSION_AND_THRESHOLD_REFINEMENT/refined_session_library.json")
 
-def load(p, default=[]):
-    try:
-        return json.loads(p.read_text(encoding="utf-8"))
-    except Exception:
-        return default
+def load(p):
+    # Missing, corrupt or malformed upstream evidence must never yield COMPLETED.
+    data = json.loads(p.read_text(encoding="utf-8"))
+    if not isinstance(data, list):
+        raise ValueError(f"INVALID_FUSION_INPUT_SCHEMA:{p}")
+    return data
 
 specialists = load(SPECIALISTS)
 conf = load(CONF)
