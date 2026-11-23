@@ -12,8 +12,10 @@ def audit_source_text(text):
             val=ast.unparse(n.value) if hasattr(ast,"unparse") else ""
             if "app" in val and "runtime" in val:
                 runtime_path=True
-            if any(isinstance(t,ast.Name) and t.id=="paper_stack_modified" for t in n.targets) and isinstance(n.value,ast.Constant) and n.value.value is True:
-                stack_modified_true=True
+            if isinstance(n.value,ast.Dict):
+                for key,value in zip(n.value.keys,n.value.values):
+                    if isinstance(key,ast.Constant) and key.value=="paper_stack_modified" and isinstance(value,ast.Constant) and value.value is True:
+                        stack_modified_true=True
         if isinstance(n,ast.Call) and isinstance(n.func,ast.Attribute) and n.func.attr=="write_text":
             write_text=True
     return {"runtime_path_declared":runtime_path,"write_text_present":write_text,
