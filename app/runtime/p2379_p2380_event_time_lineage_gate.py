@@ -88,6 +88,23 @@ def verify_source_hashes(signal: Dict[str, Any], dataset_bytes: bytes, row_bytes
     return True, "SOURCE_HASHES_VERIFIED"
 
 
+def validate_replay_promotion(evidence: Dict[str, Any]) -> Tuple[bool, str]:
+    """Reject promotion of in-sample patch replay without independently verified OOS lineage."""
+    if not isinstance(evidence, dict):
+        return False, "EVIDENCE_NOT_OBJECT"
+    if evidence.get("mode") != "PAPER_ONLY":
+        return False, "PAPER_ONLY_REQUIRED"
+    if evidence.get("real_orders") != "FORBIDDEN" or evidence.get("ftmo_real") != "FORBIDDEN":
+        return False, "REAL_EXECUTION_FORBIDDEN"
+    if evidence.get("independent_oos_certified") is not True:
+        return False, "INDEPENDENT_OOS_NOT_CERTIFIED"
+    if evidence.get("temporal_leakage_audit_pass") is not True:
+        return False, "TEMPORAL_LEAKAGE_NOT_CLEARED"
+    if evidence.get("source_lineage_verified") is not True:
+        return False, "SOURCE_LINEAGE_NOT_VERIFIED"
+    return True, "PAPER_OOS_PROMOTION_EVIDENCE_ACCEPTED"
+
+
 def resolve_verified_next_bar_entry(
     signal: Dict[str, Any], candles: List[Dict[str, Any]],
     dataset_bytes: bytes, row_bytes: bytes,
@@ -125,4 +142,4 @@ def resolve_next_bar_entry(signal: Dict[str, Any], candles: List[Dict[str, Any]]
     return entry_index
 
 
-__all__ = ["validate_event_bound_signal", "verify_source_hashes", "resolve_next_bar_entry", "resolve_verified_next_bar_entry"]
+__all__ = ["validate_event_bound_signal", "verify_source_hashes", "resolve_next_bar_entry", "resolve_verified_next_bar_entry", "validate_replay_promotion"]
