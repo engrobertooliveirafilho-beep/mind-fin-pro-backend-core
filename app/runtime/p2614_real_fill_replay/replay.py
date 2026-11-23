@@ -11,6 +11,10 @@ def replay_portfolio(name, edges, candles, features, risk_pct=0.01, initial_capi
         raise ValueError("INVALID_INPUT")
     if any(not isinstance(e,dict) or not isinstance(e.get("edge_id"),str) or not e["edge_id"] for e in edges):
         raise ValueError("INVALID_EDGE")
+    if any(not isinstance(c,dict) or not hasattr(c.get("time"),"date") for c in candles):
+        raise ValueError("INVALID_CANDLE_TIME")
+    if any(candles[j]["time"] <= candles[j-1]["time"] for j in range(1,len(candles))):
+        raise ValueError("NONMONOTONIC_CANDLE_TIME")
     ids=[e["edge_id"] for e in edges]
     if len(set(ids))!=len(ids): raise ValueError("DUPLICATE_EDGE_ID")
     capital=initial_capital
