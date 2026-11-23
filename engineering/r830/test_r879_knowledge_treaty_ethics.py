@@ -1,0 +1,25 @@
+import unittest
+from r879_knowledge_treaty_ethics import validate_knowledge, validate_treaty, validate_ethics
+
+class R879Tests(unittest.TestCase):
+    def test_knowledge_candidate(self): self.assertEqual(validate_knowledge('canon:mind',1,{'text':'a'})['status'],'review_candidate_only')
+    def test_knowledge_invalid_key(self): self.assertEqual(validate_knowledge('x',1,{'text':'a'})['reason'],'invalid_key')
+    def test_knowledge_bool_version(self): self.assertEqual(validate_knowledge('canon:mind',True,{'text':'a'})['status'],'blocked')
+    def test_knowledge_empty_payload(self): self.assertEqual(validate_knowledge('canon:mind',1,{})['status'],'blocked')
+    def test_knowledge_unattested(self): self.assertEqual(validate_knowledge('canon:mind',1,{'text':'a'},promotion=True)['reason'],'unattested_promotion')
+    def test_knowledge_never_promotes(self): self.assertFalse(validate_knowledge('canon:mind',1,{'text':'a'},promotion=True,attested=True)['promotion_authorized'])
+    def test_treaty_candidate(self): self.assertFalse(validate_treaty(['a','b'],{'mode':'cooperation','topics':['metrics'],'max_data_sensitivity':2})['accepted'])
+    def test_treaty_no_parties(self): self.assertEqual(validate_treaty([], {})['reason'],'invalid_parties')
+    def test_treaty_duplicate_parties(self): self.assertEqual(validate_treaty(['a','a'], {})['reason'],'invalid_parties')
+    def test_treaty_aggression(self): self.assertEqual(validate_treaty(['a','b'],{'mode':'cooperation','topics':['aggression'],'max_data_sensitivity':2})['reason'],'prohibited_topic')
+    def test_treaty_unbounded(self): self.assertEqual(validate_treaty(['a','b'],{'mode':'cooperation','topics':['unbounded_access'],'max_data_sensitivity':2})['reason'],'prohibited_topic')
+    def test_treaty_missing_sensitivity(self): self.assertEqual(validate_treaty(['a','b'],{'mode':'cooperation','topics':['metrics']})['status'],'blocked')
+    def test_treaty_high_sensitivity(self): self.assertEqual(validate_treaty(['a','b'],{'mode':'cooperation','topics':['metrics'],'max_data_sensitivity':5})['reason'],'invalid_sensitivity')
+    def test_ethics_missing_evidence(self): self.assertEqual(validate_ethics('ERB-1','reviewer','approve',{})['reason'],'unverified_evidence')
+    def test_ethics_bad_item(self): self.assertEqual(validate_ethics('bad','reviewer','approve',{})['reason'],'invalid_item')
+    def test_ethics_bad_reviewer(self): self.assertEqual(validate_ethics('ERB-1','','approve',{})['reason'],'invalid_reviewer_or_decision')
+    def test_ethics_bad_decision(self): self.assertEqual(validate_ethics('ERB-1','reviewer','maybe',{})['reason'],'invalid_reviewer_or_decision')
+    def test_ethics_no_auto_approval(self): self.assertFalse(validate_ethics('ERB-1','reviewer','approve',{'verified':True,'source':'ledger'})['approval_authorized'])
+    def test_ethics_no_execution(self): self.assertFalse(validate_ethics('ERB-1','reviewer','approve',{'verified':True,'source':'ledger'})['executed'])
+    def test_ethics_no_e2e(self): self.assertFalse(validate_ethics('ERB-1','reviewer','approve',{'verified':True,'source':'ledger'})['e2e_certified'])
+if __name__=='__main__': unittest.main()
