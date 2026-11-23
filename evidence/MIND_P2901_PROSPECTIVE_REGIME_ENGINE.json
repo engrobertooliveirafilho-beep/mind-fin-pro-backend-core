@@ -1,0 +1,86 @@
+{
+  "phase": "P2901_PROSPECTIVE_REGIME_ENGINE",
+  "status": "COMPLETE_OBSERVE_ONLY",
+  "mode": "BACKTEST_PAPER_ONLY",
+  "created_at": "2026-07-05T17:51:01.543424Z",
+  "regime_projection": [
+    {
+      "symbol": "EURUSD",
+      "dominant_current_regime": "BULLISH_DRIFT",
+      "candidate_next_regimes": [
+        "BULLISH_DRIFT"
+      ],
+      "transition_confidence_proxy": 0.5167,
+      "action": "OBSERVE_ONLY"
+    },
+    {
+      "symbol": "GBPUSD",
+      "dominant_current_regime": "BULLISH_DRIFT",
+      "candidate_next_regimes": [
+        "BULLISH_DRIFT",
+        "TRANSITION"
+      ],
+      "transition_confidence_proxy": 0.5833,
+      "action": "OBSERVE_ONLY"
+    },
+    {
+      "symbol": "GER40",
+      "dominant_current_regime": "BULLISH_DRIFT",
+      "candidate_next_regimes": [
+        "BULLISH_DRIFT",
+        "TRANSITION"
+      ],
+      "transition_confidence_proxy": 0.5833,
+      "action": "OBSERVE_ONLY"
+    },
+    {
+      "symbol": "USDCHF",
+      "dominant_current_regime": "BULLISH_DRIFT",
+      "candidate_next_regimes": [
+        "BULLISH_DRIFT",
+        "HIGH_VOLATILITY",
+        "LOW_VOLATILITY"
+      ],
+      "transition_confidence_proxy": 0.7167,
+      "action": "OBSERVE_ONLY"
+    },
+    {
+      "symbol": "USDJPY",
+      "dominant_current_regime": "BULLISH_DRIFT",
+      "candidate_next_regimes": [
+        "BULLISH_DRIFT",
+        "HIGH_VOLATILITY",
+        "LOW_VOLATILITY"
+      ],
+      "transition_confidence_proxy": 0.65,
+      "action": "OBSERVE_ONLY"
+    },
+    {
+      "symbol": "WDO",
+      "dominant_current_regime": "BULLISH_DRIFT",
+      "candidate_next_regimes": [
+        "BULLISH_DRIFT"
+      ],
+      "transition_confidence_proxy": 0.5167,
+      "action": "OBSERVE_ONLY"
+    },
+    {
+      "symbol": "WIN",
+      "dominant_current_regime": "BULLISH_DRIFT",
+      "candidate_next_regimes": [
+        "BULLISH_DRIFT"
+      ],
+      "transition_confidence_proxy": 0.5167,
+      "action": "OBSERVE_ONLY"
+    },
+    {
+      "symbol": "XAUUSD",
+      "dominant_current_regime": "BULLISH_DRIFT",
+      "candidate_next_regimes": [
+        "BULLISH_DRIFT"
+      ],
+      "transition_confidence_proxy": 0.5167,
+      "action": "OBSERVE_ONLY"
+    }
+  ]
+}
