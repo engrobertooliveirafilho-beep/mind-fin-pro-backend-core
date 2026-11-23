@@ -51,8 +51,16 @@ def replay_portfolio(name, edges, candles, features, risk_pct=0.01, initial_capi
                 continue
             if i>=len(candles)-20: continue
             fill=simulate_fill(e,candles,features,i,spread_r,slippage_r,commission_r)
-            if not fill or not isinstance(fill.get("r"),(int,float)) or not math.isfinite(fill["r"]) or fill.get("real_execution_allowed") is not False:
+            if fill is None:
                 continue
+            if (not isinstance(fill,dict) or not isinstance(fill.get("r"),(int,float))
+                or isinstance(fill.get("r"),bool) or not math.isfinite(fill["r"])
+                or fill.get("real_execution_allowed") is not False):
+                raise ValueError("INVALID_PAPER_FILL")
+            if (fill.get("signal_i") != i or not isinstance(fill.get("entry_i"),int)
+                or not isinstance(fill.get("exit_i"),int)
+                or not (i < fill["entry_i"] < fill["exit_i"] < len(candles))):
+                raise ValueError("INVALID_EVENT_CHRONOLOGY")
             fill["edge_id"]=eid
             fill["family"]=e.get("family")
             fill["direction"]=e.get("direction")
