@@ -60,3 +60,12 @@ def test_internal_typeerror_does_not_retry_motor_without_payload(monkeypatch):
     assert result["status"] == "DEGRADED"
     assert result["runs_ok"] == 0
     assert calls == [{"mode": "PAPER_ONLY"}]
+
+
+def test_blocked_motor_result_is_not_operational(monkeypatch):
+    monkeypatch.setattr(wiring, "MODULES", ["fake.module"])
+    monkeypatch.setattr(wiring.importlib, "import_module", lambda _name: SimpleNamespace(run=lambda _payload: {"status": "BLOCKED", "reason": "NO_SYMBOL_LINEAGE"}))
+    result = wiring.run_institutional_wiring({"mode": "PAPER_ONLY"})
+    assert result["status"] == "DEGRADED"
+    assert result["runs_ok"] == 0
+    assert result["results"][0]["run_result"]["reason"] == "NO_SYMBOL_LINEAGE"
