@@ -1,0 +1,21 @@
+R880 — HISTORICAL STEP 532/533 RECONSTRUCTION AUDIT
+Date: 2026-11-23 (UTC)
+Drive sources:
+STEP 532 implementation: 1gYni953MkKm6Wa8d8R7ndVbi8gme93Ev
+STEP 533 implementation: 1BLbCWSpet8MpTHCwpKNtFiGpvOUQamKe
+STEP 532 historical tests: 1RJgF6KxHhUM-bbP1d3FAF-j9-n5nICXh
+STEP 533 historical tests: 1nU57bwX-dwpMfCEldhMRm7oGljZCVksA
+Additional originals reviewed:
+STEP 540: 13KfyIpIlN7Ul__j2ln26wqJsB1zExFrD
+STEP 542: 1musgM25jneEdEbLOQIj-Q1O1BMSS-4Vx
+
+Scope: recreated behavior of historical STEP 532/533 source and historical assertions in isolated Python 3; reconstructed files are NOT byte-identical copies of Drive originals.
+Command: cd /mnt/data/r880 && python -m unittest discover -s tests -v
+Result: 4 tests run, 4 PASS, 0 failures, 0 errors.
+SHA256 of reconstructed manager.py: 323d7ef8e77437fc4e0938ae9ad1c4450c5467a02eeb0ba2e56dfb12b865f725
+SHA256 of reconstructed canon builder core.py: 9fdff4b9829e2096a6f7a52d656439706a485e0ddb9b5e5c74e2392101e4ddc7
+SHA256 of run log: b4c28fb1ce6cfce587fe07d6b000449b63fd0b3baa370937a03b85de025c427e
+
+Finding: STEP 533 promote_to_canon changes status to canon without any authorization or attestation. STEP 532 deprecate mutates in-memory status without independent approval. R879 guard blocks unattended promotion but is not integrated into original runtime.
+Certification: isolated reconstructed behavior PASS; original byte-identical execution NOT VERIFIED; E2E NOT CERTIFIED.
+Main untouched; original Drive sources untouched; no real orders; cost R$0.
