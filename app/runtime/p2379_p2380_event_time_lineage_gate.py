@@ -129,6 +129,19 @@ def resolve_next_bar_entry(signal: Dict[str, Any], candles: List[Dict[str, Any]]
         raise ValueError("NEXT_BAR_UNAVAILABLE")
     if not isinstance(candles[event_index], dict) or not isinstance(candles[entry_index], dict):
         raise ValueError("CANDLE_NOT_OBJECT")
+    for i in range(entry_index + 1):
+        bar = candles[i]
+        if not isinstance(bar, dict):
+            raise ValueError("CANDLE_NOT_OBJECT")
+        if "symbol" in bar and bar["symbol"] != signal["symbol"]:
+            raise ValueError("CANDLE_SYMBOL_MISMATCH")
+        if "timeframe" in bar and str(bar["timeframe"]).upper() != str(signal["timeframe"]).upper():
+            raise ValueError("CANDLE_TIMEFRAME_MISMATCH")
+        if i > 0:
+            previous = _timestamp(str(candles[i-1].get("time", "")))
+            current = _timestamp(str(bar.get("time", "")))
+            if previous.tzinfo is None or current.tzinfo is None or current <= previous:
+                raise ValueError("CANDLE_SERIES_NOT_STRICTLY_CHRONOLOGICAL")
     event_bar_time = _timestamp(str(candles[event_index].get("time", "")))
     entry_bar_time = _timestamp(str(candles[entry_index].get("time", "")))
     signal_event_time = _timestamp(signal["event_time"])
