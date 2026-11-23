@@ -102,7 +102,7 @@ def validate_replay_promotion(evidence: Dict[str, Any]) -> Tuple[bool, str]:
         return False, "TEMPORAL_LEAKAGE_NOT_CLEARED"
     if evidence.get("source_lineage_verified") is not True:
         return False, "SOURCE_LINEAGE_NOT_VERIFIED"
-    return True, "PAPER_OOS_PROMOTION_EVIDENCE_ACCEPTED"
+    return False, "EXTERNAL_OOS_EVIDENCE_VERIFIER_REQUIRED"
 
 
 def resolve_verified_next_bar_entry(
