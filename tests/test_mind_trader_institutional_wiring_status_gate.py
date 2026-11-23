@@ -47,3 +47,16 @@ def test_health_never_executes_trading_motor(monkeypatch):
     assert status["imports_ok"] == 1
     assert status["runs_ok"] == 0
     assert status["health_ok"] == 1
+
+
+def test_internal_typeerror_does_not_retry_motor_without_payload(monkeypatch):
+    monkeypatch.setattr(wiring, "MODULES", ["fake.module"])
+    calls = []
+    def run(payload=None):
+        calls.append(payload)
+        raise TypeError("failure inside trading motor")
+    monkeypatch.setattr(wiring.importlib, "import_module", lambda _name: SimpleNamespace(run=run))
+    result = wiring.run_institutional_wiring({"mode": "PAPER_ONLY"})
+    assert result["status"] == "DEGRADED"
+    assert result["runs_ok"] == 0
+    assert calls == [{"mode": "PAPER_ONLY"}]
