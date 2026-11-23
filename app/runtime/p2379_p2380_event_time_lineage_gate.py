@@ -185,4 +185,30 @@ def verify_paper_bus_coverage(ready_signals: List[Dict[str, Any]], bus_signals: 
             return False, "PAPER_BUS_PAYLOAD_MISMATCH"
     return True, "PAPER_BUS_COVERAGE_VERIFIED"
 
-__all__ = ["validate_event_bound_signal", "verify_source_hashes", "resolve_next_bar_entry", "resolve_verified_next_bar_entry", "validate_replay_promotion", "verify_paper_bus_coverage"]
+
+def validate_paper_bus_csv(ready_csv: bytes, bus_csv: bytes) -> Tuple[bool, str]:
+    """Validate complete original CSV payload before any P2380 PAPER feedback consumption."""
+    import csv
+    import io
+    if not isinstance(ready_csv, bytes) or not isinstance(bus_csv, bytes):
+        return False, "PAPER_BUS_CSV_BYTES_REQUIRED"
+    def parse(payload: bytes) -> List[Dict[str, str]]:
+        text = payload.decode("utf-8-sig", errors="strict")
+        reader = csv.DictReader(io.StringIO(text, newline=""), strict=True)
+        fields = reader.fieldnames
+        if not fields or len(set(fields)) != len(fields) or any(not f for f in fields):
+            raise ValueError("PAPER_BUS_CSV_HEADER_INVALID")
+        if not {"signal_id", "mode", "real_orders", "ftmo_real"}.issubset(fields):
+            raise ValueError("PAPER_BUS_CSV_HEADER_INVALID")
+        rows = list(reader)
+        if any(None in row or any(value is None for value in row.values()) for row in rows):
+            raise ValueError("PAPER_BUS_CSV_ROW_INVALID")
+        return rows
+    try:
+        ready = parse(ready_csv)
+        bus = parse(bus_csv)
+    except (UnicodeError, csv.Error, ValueError) as exc:
+        return False, str(exc) if isinstance(exc, ValueError) else "PAPER_BUS_CSV_INVALID"
+    return verify_paper_bus_coverage(ready, bus)
+
+__all__ = ["validate_event_bound_signal", "verify_source_hashes", "resolve_next_bar_entry", "resolve_verified_next_bar_entry", "validate_replay_promotion", "verify_paper_bus_coverage", "validate_paper_bus_csv"]
