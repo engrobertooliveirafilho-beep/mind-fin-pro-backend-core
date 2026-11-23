@@ -1,0 +1,25 @@
+test_ethics_bad_decision (test_r879_knowledge_treaty_ethics.R879Tests.test_ethics_bad_decision) ... ok
+test_ethics_bad_item (test_r879_knowledge_treaty_ethics.R879Tests.test_ethics_bad_item) ... ok
+test_ethics_bad_reviewer (test_r879_knowledge_treaty_ethics.R879Tests.test_ethics_bad_reviewer) ... ok
+test_ethics_missing_evidence (test_r879_knowledge_treaty_ethics.R879Tests.test_ethics_missing_evidence) ... ok
+test_ethics_no_auto_approval (test_r879_knowledge_treaty_ethics.R879Tests.test_ethics_no_auto_approval) ... ok
+test_ethics_no_e2e (test_r879_knowledge_treaty_ethics.R879Tests.test_ethics_no_e2e) ... ok
+test_ethics_no_execution (test_r879_knowledge_treaty_ethics.R879Tests.test_ethics_no_execution) ... ok
+test_knowledge_bool_version (test_r879_knowledge_treaty_ethics.R879Tests.test_knowledge_bool_version) ... ok
+test_knowledge_candidate (test_r879_knowledge_treaty_ethics.R879Tests.test_knowledge_candidate) ... ok
+test_knowledge_empty_payload (test_r879_knowledge_treaty_ethics.R879Tests.test_knowledge_empty_payload) ... ok
+test_knowledge_invalid_key (test_r879_knowledge_treaty_ethics.R879Tests.test_knowledge_invalid_key) ... ok
+test_knowledge_never_promotes (test_r879_knowledge_treaty_ethics.R879Tests.test_knowledge_never_promotes) ... ok
+test_knowledge_unattested (test_r879_knowledge_treaty_ethics.R879Tests.test_knowledge_unattested) ... ok
+test_treaty_aggression (test_r879_knowledge_treaty_ethics.R879Tests.test_treaty_aggression) ... ok
+test_treaty_candidate (test_r879_knowledge_treaty_ethics.R879Tests.test_treaty_candidate) ... ok
+test_treaty_duplicate_parties (test_r879_knowledge_treaty_ethics.R879Tests.test_treaty_duplicate_parties) ... ok
+test_treaty_high_sensitivity (test_r879_knowledge_treaty_ethics.R879Tests.test_treaty_high_sensitivity) ... ok
+test_treaty_missing_sensitivity (test_r879_knowledge_treaty_ethics.R879Tests.test_treaty_missing_sensitivity) ... ok
+test_treaty_no_parties (test_r879_knowledge_treaty_ethics.R879Tests.test_treaty_no_parties) ... ok
+test_treaty_unbounded (test_r879_knowledge_treaty_ethics.R879Tests.test_treaty_unbounded) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.001s
+
+OK
