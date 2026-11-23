@@ -1,6 +1,7 @@
 """Read-only historical chain: original P2394 -> safe P2395 -> P2398."""
 from collections.abc import Mapping
 from p2395_context_router_safe import build_router
+from p2396_ensemble_safe import build_ensemble
 from p2398_evidence_adapter import evaluate_evidence
 from p2398_observe_gate import GateRejected
 
@@ -27,6 +28,18 @@ def evaluate_historical_chain(p2394, router_contract, ensemble_result):
     result = build_router(edge).route(context)
     if result.allowed or result.route != "OBSERVE_ONLY":
         raise GateRejected("P2395 router failed closed")
+    vote = build_ensemble([{
+        'allowed': result.allowed, 'route': result.route,
+        'source_edge': edge.get('source_candidate_id'),
+        'mode': result.mode, 'real_orders': result.real_orders,
+        'ftmo_real': result.ftmo_real,
+    }], quorum=ensemble_result['quorum']).vote()
+    if vote.allowed or vote.vote != 'OBSERVE_ONLY':
+        raise GateRejected('P2396 runtime ensemble failed closed')
+    if (vote.members != ensemble_result['members'] or
+            vote.operational_members != ensemble_result['operational_members'] or
+            vote.reason != ensemble_result['reason']):
+        raise GateRejected('P2396 runtime/evidence mismatch')
     final = evaluate_evidence(router_contract, ensemble_result)
     if final.get("order_dispatch") is not False or final.get("runtime_promotion") is not False:
         raise GateRejected("P2398 promotion violation")
