@@ -22,7 +22,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
     payload = payload or {}
     if str(payload.get("mode", "PAPER_ONLY")).upper() != "PAPER_ONLY":
         raise ValueError("PAPER_ONLY_MODE_REQUIRED")
-    if any(payload.get(key) not in (None, False, "FORBIDDEN", "DISABLED") for key in ("real_orders", "ftmo_real", "live_trading")):
+    if any(payload.get(key) not in (None, False, "FORBIDDEN", "DISABLED") for key in ("real_orders", "ftmo_real", "live_trading", "broker_execution", "financial_execution", "send_order", "mt5_order_send", "broker_api_call")):
         raise ValueError("REAL_EXECUTION_FORBIDDEN")
     results = []
 
