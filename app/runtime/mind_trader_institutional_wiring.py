@@ -56,7 +56,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
                     import inspect
                     runner = m.run if hasattr(m, "run") else m.run_simulation
                     signature = inspect.signature(runner)
-                    if name == "app.runtime.p2223_broker_emulator":
+                    if name in {"app.runtime.p2223_broker_emulator", "app.runtime.p2224_2226_institutional_core", "app.runtime.p2227_2229_advanced_layer"}:
                         r = runner(cycles=1)
                     else:
                         try:
