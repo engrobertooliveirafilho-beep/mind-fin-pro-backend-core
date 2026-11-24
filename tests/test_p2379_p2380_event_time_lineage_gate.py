@@ -40,7 +40,7 @@ def test_entry_at_event_timestamp_is_rejected():
 
 def test_entry_index_must_follow_event_index():
     signal = valid_signal(); signal["entry_index"] = signal["event_index"]
-    assert validate_event_bound_signal(signal) == (False, "ENTRY_NOT_AFTER_EVENT_INDEX")
+    assert validate_event_bound_signal(signal) == (False, "ENTRY_MUST_BE_IMMEDIATE_NEXT_BAR")
 
 
 def test_non_paper_mode_is_rejected():
@@ -50,7 +50,7 @@ def test_non_paper_mode_is_rejected():
 
 def test_resolves_exact_next_bar_only():
     candles = [
-        {"time": f"2026-11-23T{hour:02d}:{minute:02d}:00+00:00"}
+        {"symbol": "GER40", "timeframe": "M15", "time": f"2026-11-23T{hour:02d}:{minute:02d}:00+00:00"}
         for hour, minute in [(9, 0), (9, 15), (9, 30), (9, 45), (10, 0), (10, 15)]
     ]
     assert resolve_next_bar_entry(valid_signal(), candles) == 5
@@ -65,9 +65,11 @@ def test_rejects_skipped_bars():
 
 
 def test_rejects_event_bar_timestamp_mismatch():
-    candles = [{"time": "2026-11-23T09:45:00+00:00"}, {"time": "2026-11-23T10:15:00+00:00"},
-               {"time": "2026-11-23T09:59:00+00:00"}, {"time": "2026-11-23T10:15:00+00:00"},
-               {"time": "2026-11-23T10:00:00+00:00"}, {"time": "2026-11-23T10:15:00+00:00"}]
+    candles = [
+        {"symbol": "GER40", "timeframe": "M15",
+         "time": f"2026-11-23T{hour:02d}:{minute:02d}:00+00:00"}
+        for hour, minute in [(9, 0), (9, 15), (9, 30), (9, 45), (10, 1), (10, 15)]
+    ]
     with pytest.raises(ValueError, match="EVENT_BAR_TIMESTAMP_MISMATCH"):
         resolve_next_bar_entry(valid_signal(), candles)
 
