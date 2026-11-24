@@ -41,7 +41,7 @@ def decide_signal(signal: dict, context: dict) -> dict:
         "rebuild_after_profit": context.get("rebuild_after_profit"),
     })
 
-    final_emit = (precheck.get("emit_allowed") is True) and float(sizing["recommended_paper_lot"]) > 0
+    final_emit = (context_edge.get("edge_type") in {"TRENDING_BREAKOUT", "RANGING_MEAN_REVERSION", "HIGH_VOLATILITY_EXPANSION", "LOW_VOLATILITY_FAKEOUT", "SESSION_OPEN_IMPULSE", "PULLBACK_CONTINUATION", "REVERSAL_EXHAUSTION"}) and (precheck.get("emit_allowed") is True) and float(sizing["recommended_paper_lot"]) > 0
 
     return {
         "symbol": signal.get("symbol"),
