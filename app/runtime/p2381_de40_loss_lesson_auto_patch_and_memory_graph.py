@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import hashlib
 from collections import defaultdict
 from pathlib import Path
 from typing import Dict, List
@@ -128,7 +129,7 @@ def build_memory_graph(rows: List[Dict]) -> List[Dict]:
             continue
 
         graph.append({
-            "node_id": "LOSS_" + str(abs(hash((
+            "node_id": "LOSS_" + hashlib.sha256(json.dumps([
                 r.get("family", ""),
                 r.get("timeframe", ""),
                 r.get("session", ""),
@@ -136,7 +137,7 @@ def build_memory_graph(rows: List[Dict]) -> List[Dict]:
                 r.get("lifecycle", ""),
                 r.get("footprint", ""),
                 loss_type,
-            ))))[:12],
+            ], ensure_ascii=False).encode("utf-8")).hexdigest()[:24],
             "symbol": "DE40",
             "family": r.get("family", ""),
             "timeframe": r.get("timeframe", ""),
@@ -307,8 +308,9 @@ def run(feedback_path: Path, outdir: Path) -> Dict:
             "PLAYBOOK_DECAY_ENGINE",
             "PATCHED_REPLAY_CANDIDATES",
         ],
-        "status": "CERTIFIED",
-        "certification": "P2381_LOSS_LESSON_AUTO_PATCH_AND_MEMORY_GRAPH_CERTIFIED",
+        "status": "BLOCKED_UNTIL_CAUSAL_FEEDBACK_INPUTS_VALIDATED",
+        "certification": "NOT_CERTIFIED",
+        "certification_reason": "P2380 feedback is not certified; automatic patch output remains advisory PAPER-only.",
         "next": "P2382_DE40_REPLAY_AFTER_LOSS_PATCH",
         "outputs": {k: str(v) for k, v in files.items()},
         "warning": "PATCH_ONLY_AFFECTS_PAPER_SELECTION_NO_REAL_ORDER_PERMISSION",
