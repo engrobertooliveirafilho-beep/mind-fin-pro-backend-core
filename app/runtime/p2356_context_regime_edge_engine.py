@@ -1,4 +1,5 @@
 from __future__ import annotations
+from math import isfinite
 
 def context_signature(ctx: dict) -> str:
     regime = str(ctx.get("regime", "UNKNOWN")).upper()
@@ -44,7 +45,19 @@ def classify_context_edge(ctx: dict) -> dict:
     }
 
 def score_context_edge(stats: dict) -> dict:
-    trades = int(stats.get("trades", 0))
+    keys = ("win_rate", "payoff", "profit_factor", "expectancy", "max_drawdown")
+    def valid_number(v):
+        try:
+            return type(v) in (int, float) and isfinite(v)
+        except OverflowError:
+            return False
+    if (type(stats.get("trades")) is not int or stats["trades"] < 0
+            or not all(valid_number(stats.get(k)) for k in keys)
+            or not 0 <= stats["win_rate"] <= 100
+            or not 0 <= stats["max_drawdown"] <= 100
+            or min(stats["payoff"], stats["profit_factor"]) < 0):
+        return {"context_edge_score":0,"passed":False,"decision":"OBSERVE_OR_REJECT_CONTEXT_EDGE","minimum_payoff":3.0,"minimum_trades":30,"mode":"PAPER_ONLY","reason":"INVALID_METRICS"}
+    trades = stats["trades"]
     win_rate = float(stats.get("win_rate", 0))
     payoff = float(stats.get("payoff", 0))
     profit_factor = float(stats.get("profit_factor", 0))
