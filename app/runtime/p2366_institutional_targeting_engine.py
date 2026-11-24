@@ -63,7 +63,7 @@ def institutional_targets(ctx: dict) -> dict:
         partial_1=entry-risk
         partial_2=entry-risk*2
 
-    if not isfinite(rr):
+    if not all(isfinite(x) for x in (risk, rr, partial_1, partial_2)) or min(partial_1, partial_2) <= 0:
         return blocked
 
     if rr < 2:
@@ -79,11 +79,11 @@ def institutional_targets(ctx: dict) -> dict:
         "side":side,
         "entry":entry,
         "stop":stop,
-        "risk":round(risk,4),
-        "target":round(target,4),
+        "risk":risk,
+        "target":target,
         "rr":rr,
-        "partial_1R":round(partial_1,4),
-        "partial_2R":round(partial_2,4),
+        "partial_1R":partial_1,
+        "partial_2R":partial_2,
         "approved":rr>=2,
         "decision":decision,
         "target_sources":"FIBO|LIQUIDITY|SESSION_HIGH_LOW|VWAP|ATR|ROUND_NUMBER",
