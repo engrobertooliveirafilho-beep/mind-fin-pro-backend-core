@@ -237,3 +237,35 @@ def test_p2380_verified_executor(fault):
         assert result["costs_applied"] is True
         assert result["realized_r"] == pytest.approx(result["gross_r"]-result["cost_r"], abs=1e-6)
         assert result["mode"] == "PAPER_ONLY"
+
+
+@pytest.mark.parametrize("fault", ["none", "missing_timezone", "wrong_offset"])
+def test_p2380_mt5_source_timezone(fault):
+    import hashlib
+    from datetime import datetime, timedelta, timezone
+    from app.runtime import p2380_de40_forward_paper_feedback_loop_and_pnl_tracking as motor
+    tz = timezone(timedelta(hours=2))
+    start = datetime(2026, 1, 1, tzinfo=tz)
+    rows = []
+    for i in range(15 + motor.hold_for_timeframe("M15")):
+        stamp = (start + timedelta(minutes=15*i)).strftime("%Y.%m.%d %H:%M:%S")
+        rows.append(f"{stamp};100;101;99;100;10;120;0;DE40;M15".encode())
+    payload = b"time;open;high;low;close;tick_volume;spread;real_volume;symbol;timeframe\r\n" + b"\r\n".join(rows) + b"\r\n"
+    digest = hashlib.sha256(payload).hexdigest()
+    signal = dict(symbol="DE40", timeframe="M15", event_id="mt5-fixture",
+                  event_index=14, entry_index=15,
+                  event_time=(start+timedelta(minutes=210)).isoformat(),
+                  entry_time=(start+timedelta(minutes=225)).isoformat(),
+                  direction="BUY", rr_policy="RR_3", source_dataset_sha256=digest,
+                  source_row_sha256=hashlib.sha256(rows[14]).hexdigest(),
+                  mode="PAPER_ONLY", real_orders="FORBIDDEN", ftmo_real="FORBIDDEN")
+    costs = dict(spread_points=0.2, slippage_points_per_side=0.1, commission_points_round_trip=0.2)
+    supplied = None if fault == "missing_timezone" else timezone.utc if fault == "wrong_offset" else tz
+    kwargs = dict(trusted_dataset_sha256=digest, execution_costs=costs, source_timezone=supplied)
+    if fault == "none":
+        result = motor.simulate_verified_feedback(signal, payload, **kwargs)
+        assert result["entry_index"] == 15
+        assert result["costs_applied"] is True
+    else:
+        with pytest.raises(ValueError):
+            motor.simulate_verified_feedback(signal, payload, **kwargs)
