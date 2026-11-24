@@ -37,7 +37,7 @@ def replay_portfolio(name, edges, candles, features, risk_pct=0.01, initial_capi
             reserved_risk-=fill["reserved_risk"]
             before=capital
             pnl=fill["reserved_risk"]*fill["r"]
-            capital=max(0.01,capital+pnl)
+            capital=capital+pnl
             peak=max(peak,capital)
             dd=(peak-capital)/peak*100
             max_dd=max(max_dd,dd)
@@ -49,6 +49,7 @@ def replay_portfolio(name, edges, candles, features, risk_pct=0.01, initial_capi
                 cooldown[fill["edge_id"]]=3
         pending=[f for f in pending if f["exit_i"]>i]
         for e in edges:
+            if capital<=0: break
             eid=e["edge_id"]
             if eid in occupied: continue
             if cooldown[eid]>0:
