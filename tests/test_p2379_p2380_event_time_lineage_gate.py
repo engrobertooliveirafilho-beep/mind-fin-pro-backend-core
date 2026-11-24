@@ -203,3 +203,37 @@ def test_p2380_authenticated_csv(fault):
                   "chronology": "REPLAY_CHRONOLOGY_INVALID", "identity": "REPLAY_CANDLE_IDENTITY_MISMATCH"}
         with pytest.raises(ValueError, match=errors[fault]):
             parse_verified_replay_source(signal, payload, trusted_dataset_sha256=trusted)
+
+@pytest.mark.parametrize("fault", ["none", "short_window", "missing_costs"])
+def test_p2380_verified_executor(fault):
+    import hashlib
+    from datetime import datetime, timedelta, timezone
+    from app.runtime import p2380_de40_forward_paper_feedback_loop_and_pnl_tracking as motor
+    start = datetime(2026, 1, 1, tzinfo=timezone.utc)
+    count = 16 if fault == "short_window" else 15 + motor.hold_for_timeframe("M15")
+    rows = []
+    for i in range(count):
+        stamp = (start + timedelta(minutes=15*i)).isoformat()
+        rows.append(f"DE40,M15,{stamp},100,101,99,100".encode())
+    payload = b"symbol,timeframe,time,open,high,low,close\n" + b"\n".join(rows) + b"\n"
+    digest = hashlib.sha256(payload).hexdigest()
+    signal = dict(symbol="DE40", timeframe="M15", event_id="fixture-14",
+                  event_index=14, entry_index=15,
+                  event_time=(start+timedelta(minutes=210)).isoformat(),
+                  entry_time=(start+timedelta(minutes=225)).isoformat(),
+                  direction="BUY", rr_policy="RR_3", source_dataset_sha256=digest,
+                  source_row_sha256=hashlib.sha256(rows[14]).hexdigest(),
+                  mode="PAPER_ONLY", real_orders="FORBIDDEN", ftmo_real="FORBIDDEN")
+    costs = None if fault == "missing_costs" else dict(spread_points=0.2,
+        slippage_points_per_side=0.1, commission_points_round_trip=0.2)
+    if fault != "none":
+        reason = "P2380_REPLAY_WINDOW_INCOMPLETE" if fault == "short_window" else "P2380_EXECUTION_COSTS_REQUIRED"
+        with pytest.raises(ValueError, match=reason):
+            motor.simulate_verified_feedback(signal, payload, trusted_dataset_sha256=digest, execution_costs=costs)
+    else:
+        result = motor.simulate_verified_feedback(signal, payload, trusted_dataset_sha256=digest, execution_costs=costs)
+        assert result["entry_index"] == 15
+        assert result["source_dataset_sha256"] == digest
+        assert result["costs_applied"] is True
+        assert result["realized_r"] == pytest.approx(result["gross_r"]-result["cost_r"], abs=1e-6)
+        assert result["mode"] == "PAPER_ONLY"
