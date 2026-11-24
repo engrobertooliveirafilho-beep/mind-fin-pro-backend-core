@@ -1,0 +1,6 @@
+Base: 5b11469efe6f2eb76ef8f452b82dacad162edc6b
+Engine blob: 6c81532774682cc27cb19de2aba3833e7889484c
+Planner blob: 5ace22a1a00c0d8007b8c2131de6099d9207f9d4
+Local FastAPI TestClient: depths 1,2,3; stable key; invalid depth.
+5 passed in 0.59s
+Scope: isolated HTTP integration; production E2E not certified.
