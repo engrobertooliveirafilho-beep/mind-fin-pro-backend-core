@@ -258,7 +258,7 @@ def run(dataset_root: Path, outdir: Path, max_rows_per_tf: int = 100000) -> Dict
 
         tf_events = []
 
-        for i in range(120, len(candles)-25):
+        for i in range(120, len(candles)):
             ev = classify_event(candles, closes, i)
             if not ev:
                 continue
@@ -267,6 +267,9 @@ def run(dataset_root: Path, outdir: Path, max_rows_per_tf: int = 100000) -> Dict
             tf_events.append(ev)
             events.append(ev)
 
+            # Outcome labels require a complete future window; detection does not.
+            if i + 20 >= len(candles):
+                continue
             cw = context_window(candles, ev, before=20, after=20)
             cw["symbol"] = "DE40"
             cw["timeframe"] = tf
@@ -279,7 +282,7 @@ def run(dataset_root: Path, outdir: Path, max_rows_per_tf: int = 100000) -> Dict
             "candles_scanned": len(candles),
             "footprint_events": len(tf_events),
             "continuation_after_event": len(follow),
-            "continuation_rate": round(len(follow) / len(tf_events), 6) if tf_events else 0,
+            "continuation_rate": round(len(follow) / sum(x["timeframe"] == tf for x in contexts), 6) if any(x["timeframe"] == tf for x in contexts) else None,
             "avg_post_mfe_atr": round(avg([x["post_mfe_atr"] for x in contexts if x["timeframe"] == tf]), 6),
             "avg_post_mae_atr": round(avg([x["post_mae_atr"] for x in contexts if x["timeframe"] == tf]), 6),
         })
@@ -325,9 +328,9 @@ def run(dataset_root: Path, outdir: Path, max_rows_per_tf: int = 100000) -> Dict
             "BEFORE_AFTER_MFE_MAE",
             "PULLBACK_REVERSAL_CONTINUATION_CONTEXT",
         ],
-        "status": "CERTIFIED",
-        "certification": "P2376_BIG_PLAYER_CONTEXT_XRAY_ENGINE_CERTIFIED",
-        "next": "P2377_DE40_REGIME_FIRST_SIGNAL_ROUTER_WITH_XRAY",
+        "status": "PENDING_CAUSAL_VALIDATION",
+        "certification": "NOT_CERTIFIED",
+        "next": "VALIDATE_CAUSAL_DETECTION_AND_OUTCOME_SEPARATION",
         "outputs": {k: str(v) for k, v in files.items()},
     }
 
