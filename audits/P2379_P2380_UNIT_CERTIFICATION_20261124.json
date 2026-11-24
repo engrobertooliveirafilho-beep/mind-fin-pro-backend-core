@@ -271,5 +271,39 @@
     "cumulative_matches": 46131,
     "scope": "Historical identity; M15 prior evidence preserved; timezone, independent market provenance and causality pending",
     "e2e_certified": false
+  },
+  "p2377_router_output_audit": {
+    "date": "2026-11-24",
+    "drive_id": "18E5ke-ZiLqOOHAelmSaUN3limyP-ef0i",
+    "sha256": "743051474935944cddb4e388c2eb76943cb1c82b02f0e004cedfb35d532403e3",
+    "rows": 46131,
+    "duplicate_keys": 0,
+    "context_matches": 46131,
+    "join_keys": [
+      "symbol",
+      "timeframe",
+      "event_index",
+      "time",
+      "event_type",
+      "session"
+    ],
+    "post_metric_mismatches": {
+      "post_efficiency": 0,
+      "post_mae_atr": 0,
+      "post_mfe_atr": 0
+    },
+    "permissions": {
+      "PAPER_CANDIDATE_ALLOWED": 22641,
+      "OBSERVE_ONLY": 12224,
+      "BLOCK_LOW_CONTEXT_SCORE": 11266
+    },
+    "post_efficiency_gt_1000": 690,
+    "post_efficiency_max": 329650000,
+    "mode": "PAPER_ONLY",
+    "real_orders": "FORBIDDEN",
+    "ftmo_real": "FORBIDDEN",
+    "causal_certified": false,
+    "reason": "Retrospective metrics present in output; actual decision dependency and extreme ratio formula require original executable source. No causal claim.",
+    "tests_rerun": 0
   }
 }
