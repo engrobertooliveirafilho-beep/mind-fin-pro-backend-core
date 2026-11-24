@@ -1,4 +1,5 @@
 from __future__ import annotations
+from math import isfinite
 
 from app.runtime.p2351_regime_detection_engine import approve_strategy_for_regime
 from app.runtime.p2352_early_move_trade_management import detect_early_move
@@ -8,7 +9,9 @@ def institutional_signal_score(signal: dict, context: dict) -> dict:
     symbol = signal.get("symbol", "")
     side = signal.get("side", "")
     strategy = signal.get("strategy", "SCALP")
-    expected_payoff = float(signal.get("expected_payoff", 0))
+    expected_payoff = signal.get("expected_payoff")
+    if type(expected_payoff) not in (int, float) or not isfinite(expected_payoff):
+        expected_payoff = 0
 
     score = 0
     reasons = []
@@ -30,21 +33,21 @@ def institutional_signal_score(signal: dict, context: dict) -> dict:
     else:
         reasons.append("EARLY_MOVE_BLOCK")
 
-    post_loss = post_loss_gate(symbol, side, bool(context.get("last_loss", False)), context)
+    post_loss = post_loss_gate(symbol, side, context.get("last_loss") is not False, context)
     if post_loss["status"] == "APPROVED":
         score += 20
         reasons.append("POST_LOSS_GATE_OK")
     else:
         reasons.append("POST_LOSS_GATE_BLOCK")
 
-    correlation_ok = bool(context.get("correlation_ok", True))
+    correlation_ok = context.get("correlation_ok") is True
     if correlation_ok:
         score += 10
         reasons.append("CORRELATION_OK")
     else:
         reasons.append("CORRELATION_RISK")
 
-    governance_ok = bool(context.get("governance_ok", True))
+    governance_ok = context.get("governance_ok") is True
     if governance_ok:
         score += 10
         reasons.append("GOVERNANCE_OK")
@@ -59,7 +62,14 @@ def institutional_signal_score(signal: dict, context: dict) -> dict:
 
     score = max(0, min(100, score))
 
-    if score < 40:
+    if (regime.get("approved") is not True or early.get("decision") != "EARLY_ENTRY_APPROVED"
+            or post_loss.get("status") != "APPROVED" or not correlation_ok or not governance_ok
+            or expected_payoff < 3 or type(context.get("last_loss")) is not bool
+            or side not in ("BUY", "SELL") or not isinstance(symbol, str) or not symbol.strip()):
+        decision = "BLOCK"
+        lot_multiplier = 0.0
+        reasons.append("MANDATORY_GATE_FAILED")
+    elif score < 40:
         decision = "BLOCK"
         lot_multiplier = 0.0
     elif score < 60:
