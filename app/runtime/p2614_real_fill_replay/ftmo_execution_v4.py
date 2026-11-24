@@ -1,6 +1,6 @@
 """PAPER-only stop/target execution adapter. No broker connection."""
 from decimal import Decimal
-from ftmo_paper_guard import D
+from .ftmo_paper_guard import D
 
 class ExecutionV4:
     def __init__(self, portfolio):
