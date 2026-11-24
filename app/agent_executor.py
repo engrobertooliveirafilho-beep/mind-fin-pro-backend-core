@@ -6,7 +6,7 @@ from app.p7_adapters.oversight_contracts import OversightInput
 from app.cognitive_agent_kernel.dispatcher.offline_dispatch import dispatch_offline
 
 
-def execute_plan(user, session_id, plan: AgentPlan, goal, *, oversight: OversightInput):
+def execute_plan(user, session_id, plan: AgentPlan, goal, *, oversight: OversightInput, execution_approved=False):
     """Execute restricted arithmetic only; no database or LLM calls."""
     if not isinstance(user, dict) or not isinstance(user.get('id'), str) or not user['id'].strip():
         raise ValueError('Explicit identity required')
@@ -16,6 +16,8 @@ def execute_plan(user, session_id, plan: AgentPlan, goal, *, oversight: Oversigh
         raise ValueError('Invalid plan')
     if dispatch_offline({'status': 'PLANNED'}, oversight) != 'AUTHORIZED_OFFLINE_PLANNING':
         raise PermissionError('Planning denied')
+    if execution_approved is not True:
+        raise PermissionError('Explicit arithmetic execution approval required')
     validated = AgentPlan.model_validate(plan.model_dump())
     if not validated.steps or any(step.tool != 'calc' for step in validated.steps):
         raise PermissionError('Only nonempty arithmetic plans allowed')
