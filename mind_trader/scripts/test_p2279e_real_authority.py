@@ -4,7 +4,9 @@ from p2279e_robustness_walkforward import read_rows, freeze_development, evaluat
 from mind_trader.app.validation.walk_forward_authority import walk_forward_authority
 
 def test_real_authority():
-    rows=read_rows(Path(__file__).with_name('AUDUSD_D1.csv'))
+    dataset=Path(__file__).with_name('AUDUSD_D1.csv')
+    assert hashlib.sha256(dataset.read_bytes()).hexdigest() == '5275a6986eec9cc7ae0104fbce73e3870281fac018142ddb63cfcf20b34196e7'
+    rows=read_rows(dataset)
     assert len(rows)==717
     commitment=freeze_development(rows[:len(rows)//2],'SMA','2,5',round_trip_cost=.0002)
     result=evaluate_frozen_holdout(rows,commitment,expected_sha256=hashlib.sha256(commitment.encode()).hexdigest())
