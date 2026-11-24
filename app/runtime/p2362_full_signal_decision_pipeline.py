@@ -7,20 +7,9 @@ from app.runtime.p2366_institutional_targeting_engine import institutional_targe
 
 def decide_signal(signal: dict, context: dict) -> dict:
     context_edge = classify_context_edge(context)
-    target = institutional_targets({
-        "side": signal.get("side"),
-        "entry": signal.get("entry", context.get("entry")),
-        "stop": signal.get("stop", context.get("stop")),
-        "swing_high": context.get("swing_high") or context.get("entry") or signal.get("entry"),
-        "swing_low": context.get("swing_low") or context.get("entry") or signal.get("entry"),
-        "atr": context.get("atr") or 0,
-        "session_high": context.get("session_high") or context.get("swing_high") or context.get("entry") or signal.get("entry"),
-        "session_low": context.get("session_low") or context.get("swing_low") or context.get("entry") or signal.get("entry"),
-        "liquidity_high": context.get("liquidity_high") or context.get("session_high") or context.get("swing_high") or context.get("entry") or signal.get("entry"),
-        "liquidity_low": context.get("liquidity_low") or context.get("session_low") or context.get("swing_low") or context.get("entry") or signal.get("entry"),
-        "vwap": context.get("vwap") or context.get("entry") or signal.get("entry"),
-        "round_number": context.get("round_number") or context.get("entry") or signal.get("entry"),
-    })
+    target_input = {k: context[k] for k in ("swing_high","swing_low","atr","session_high","session_low","liquidity_high","liquidity_low","vwap","round_number") if k in context}
+    target_input.update(side=signal.get("side"), entry=signal.get("entry", context.get("entry")), stop=signal.get("stop", context.get("stop")))
+    target = institutional_targets(target_input)
 
     if not target.get("approved", False):
         return {
