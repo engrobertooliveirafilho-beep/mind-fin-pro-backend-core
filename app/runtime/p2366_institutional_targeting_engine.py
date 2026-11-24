@@ -1,6 +1,18 @@
 from __future__ import annotations
+from math import isfinite
 
 def institutional_targets(ctx: dict) -> dict:
+    blocked = {"approved":False,"decision":"BLOCK_INVALID_RISK","mode":"PAPER_ONLY","real_orders":"FORBIDDEN","ftmo_real":"FORBIDDEN"}
+    if ctx.get("side") not in ("BUY", "SELL"):
+        return blocked
+    for key in ("entry","stop","swing_high","swing_low","atr","session_high","session_low","liquidity_high","liquidity_low","vwap","round_number"):
+        if key not in ctx and key not in ("entry","stop"):
+            continue
+        v = ctx.get(key)
+        if type(v) not in (int,float) or not isfinite(v) or v < 0 or (key != "atr" and v == 0):
+            return blocked
+    if (ctx["side"] == "BUY" and ctx["stop"] >= ctx["entry"]) or (ctx["side"] == "SELL" and ctx["stop"] <= ctx["entry"]):
+        return blocked
     entry=float(ctx["entry"])
     stop=float(ctx["stop"])
     side=str(ctx["side"]).upper()
@@ -30,7 +42,7 @@ def institutional_targets(ctx: dict) -> dict:
             entry + atr*2,
             round_number
         ]
-        candidates=[x for x in candidates if x>entry]
+        candidates=[x for x in candidates if x>entry and isfinite(x)]
         target=max(candidates) if candidates else entry
         rr=(target-entry)/risk
         partial_1=entry+risk
@@ -45,13 +57,14 @@ def institutional_targets(ctx: dict) -> dict:
             entry - atr*2,
             round_number
         ]
-        candidates=[x for x in candidates if x<entry]
+        candidates=[x for x in candidates if 0<x<entry and isfinite(x)]
         target=min(candidates) if candidates else entry
         rr=(entry-target)/risk
         partial_1=entry-risk
         partial_2=entry-risk*2
 
-    rr=round(rr,2)
+    if not isfinite(rr):
+        return blocked
 
     if rr < 2:
         decision="BLOCK_TARGET_BELOW_2R"
