@@ -1,0 +1,17 @@
+{
+  "dataset": "AUDUSD_D1.csv",
+  "rows": 717,
+  "sha256": "5275a6986eec9cc7ae0104fbce73e3870281fac018142ddb63cfcf20b34196e7",
+  "first_timestamp": "2023.10.19 00:00:00",
+  "last_timestamp": "2026.07.27 00:00:00",
+  "declared_server": "FTMO-Server3",
+  "historical_certified_dataset": {
+    "rows": 500,
+    "sha256": "5d59eca50cdc77b42b375b719512a1bad453029770865749c0f9cafb0f40c36e"
+  },
+  "historical_hash_match": false,
+  "local_bundle_hashes_verified": 5,
+  "independent_origin_verified": false,
+  "production": "BLOCKED",
+  "live": "FORBIDDEN"
+}
