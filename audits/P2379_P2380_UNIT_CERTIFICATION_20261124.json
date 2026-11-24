@@ -169,5 +169,51 @@
     "m15_events": 12514,
     "m15_index_time_ohlc_matches": 12514,
     "scope": "historical identity only; timezone and causality pending"
+  },
+  "p2376_seven_timeframe_internal_audit": {
+    "date": "2026-11-24",
+    "source": "Drive P2376 original CSV events/context, summary by timeframe and run log",
+    "event_drive_id": "1qPnkQrwgiXtCXR5SSKxXZg17MW1ZWEfb",
+    "event_sha256": "019d6192232bc537c39b0da28d7677bad7c83ac705d63fcce6eee1760f0adfbd",
+    "context_drive_id": "1MhnPqra8YNQg-Sr_HP2x2-Qv88sKO2xh",
+    "context_sha256": "3d374b7f26815fa914806bd2077a82270639ef311cf59f3ad29351f6d98ae009",
+    "events": 46131,
+    "context_rows": 46131,
+    "timeframes": {
+      "M1": 11246,
+      "M5": 10254,
+      "M15": 12514,
+      "M30": 7131,
+      "H1": 3932,
+      "H4": 938,
+      "D1": 116
+    },
+    "event_context_same_key_sequence": true,
+    "key_fields": [
+      "symbol",
+      "timeframe",
+      "event_index",
+      "time",
+      "event_type",
+      "direction",
+      "session"
+    ],
+    "duplicate_keys_events": 0,
+    "duplicate_keys_contexts": 0,
+    "duplicate_timeframe_timestamps": 0,
+    "duplicate_timeframe_event_indices": 0,
+    "unparseable_timestamps": 0,
+    "invalid_event_ohlc": 0,
+    "missing_numeric_values": 0,
+    "nonfinite_numeric_values": 0,
+    "per_timeframe_monotonic_timestamps_and_indices": true,
+    "institutional_footprint_all": "INFERRED_NOT_CONFIRMED",
+    "historical_run_log_claim": "P2376_BIG_PLAYER_CONTEXT_XRAY_ENGINE_CERTIFIED",
+    "scope": "Internal event/context integrity only. Existing M15 event/candle match preserved. Six other timeframe candle sources not directly authenticated here.",
+    "six_remaining_original_candle_reconciliation": "PENDING",
+    "timezone_and_causality": "PENDING",
+    "e2e_certified": false,
+    "paper_only": true,
+    "real_orders": "FORBIDDEN"
   }
 }
