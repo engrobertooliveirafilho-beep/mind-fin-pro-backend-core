@@ -6,7 +6,7 @@ from app.agent_executor import execute_plan
 from app.p7_adapters.oversight_planner import guarded_plan
 
 
-def calculate_plan(user, session_id, goal, expressions, *, oversight):
+def calculate_plan(user, session_id, goal, expressions, *, oversight, execution_approved=False):
     if not isinstance(expressions, (list, tuple)) or not 1 <= len(expressions) <= 64:
         raise ValueError('Expected 1 to 64 explicit expressions')
     if any(not isinstance(x, str) for x in expressions):
@@ -22,7 +22,7 @@ def calculate_plan(user, session_id, goal, expressions, *, oversight):
     if len(leaves) != len(expressions):
         raise ValueError('Plan cardinality mismatch')
     plan = AgentPlan(summary=goal, steps=[AgentStep(tool='calc', input=x) for x in expressions])
-    result = execute_plan(user, session_id, plan, goal, oversight=oversight)
+    result = execute_plan(user, session_id, plan, goal, oversight=oversight, execution_approved=execution_approved)
     result['leaf_ids'] = [leaf.id for leaf in leaves]
     result['context'] = context.build()
     return result
