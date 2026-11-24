@@ -1,4 +1,5 @@
 from __future__ import annotations
+import re
 
 def _norm(text: str) -> str:
     return str(text or "").strip().lower()
@@ -17,7 +18,7 @@ def detect_universal_domain(text: str, previous_domain: str = "") -> str:
     }
 
     for domain, words in rules.items():
-        if any(w in t for w in words):
+        if any(re.search(r'\b' + re.escape(w) + r'\b', t) for w in words):
             return domain
 
     if any(x in t for x in ["prossiga", "continue", "continua", "aprofunde", "quanto", "quais", "como faço", "como faco", "monta", "monte"]):
@@ -38,7 +39,7 @@ def detect_universal_intent(text: str) -> str:
         return "question"
     if any(x in t for x in ["prossiga", "continue", "continua", "aprofunde", "detalhe"]):
         return "followup"
-    if any(x in t for x in ["oi", "olá", "ola", "tudo bem"]):
+    if re.search(r"\b(?:oi|olá|ola|tudo bem)\b", t):
         return "social"
 
     return "general"
@@ -95,6 +96,9 @@ def universal_provider_answer(domain: str, intent: str, text: str, state: dict) 
 
 def goal_manager_response(domain: str, intent: str, text: str, state: dict) -> str | None:
     t = _norm(text)
+
+    if intent == "correction":
+        return None
 
     slot_answer = fitness_slot_filling_response(domain, text, state)
     if slot_answer:
@@ -249,7 +253,7 @@ def reasoning_provider_answer(domain: str, intent: str, text: str, state: dict) 
     last_goal = state.get("goal", "")
     last_answer = state.get("last_answer", "")
 
-    if any(x in t for x in ["oi", "olá", "ola"]):
+    if re.search(r"\b(?:oi|olá|ola)\b", t):
         return "Oi, Roberto 🙂 Tô aqui. Me fala o que vamos ajustar agora."
 
     if any(x in t for x in ["quem é vc", "quem é você", "quem e vc", "quem e voce"]):
