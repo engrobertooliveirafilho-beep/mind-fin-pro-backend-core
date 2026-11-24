@@ -18,6 +18,16 @@ class SovereignIntegration(unittest.TestCase):
                 self.assertEqual(state["a"]["goal"], result.goal)
                 self.assertFalse(state["b"]["fitness_slots"])
 
+    def test_missing_identity(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            target = Path(tmp)/"state.json"
+            with patch.object(motor, "_STATE_FILE", target), patch.object(motor, "_trace_state"):
+                for sender in (None, "", "   ", 0):
+                    with self.subTest(sender=sender):
+                        with self.assertRaises(ValueError):
+                            motor.decide(sender, "olá")
+                self.assertFalse(target.exists())
+
     def test_universal_routing(self):
         with tempfile.TemporaryDirectory() as tmp:
             with patch.object(motor, "_STATE_FILE", Path(tmp)/"state.json"), patch.object(motor, "_trace_state"):
