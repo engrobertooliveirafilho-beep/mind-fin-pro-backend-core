@@ -1,10 +1,18 @@
 from __future__ import annotations
+from math import isfinite
 
 def validate_walk_forward(samples: list[dict]) -> dict:
     passed = []
     rejected = []
 
     for s in samples:
+        keys = ("train_profit_factor", "test_profit_factor", "train_payoff", "test_payoff", "test_max_drawdown")
+        if (any(type(s.get(k)) not in (int, float) or not isfinite(s[k]) for k in keys)
+                or type(s.get("test_trades")) is not int
+                or s["test_trades"] < 0 or s["train_profit_factor"] <= 0
+                or s["test_profit_factor"] < 0 or not 0 <= s["test_max_drawdown"] <= 100):
+            rejected.append({**s, "walk_forward_passed": False, "decision": "REJECT_INVALID_METRICS", "mode": "PAPER_ONLY", "real_orders": "FORBIDDEN"})
+            continue
         train_pf = float(s.get("train_profit_factor", 0))
         test_pf = float(s.get("test_profit_factor", 0))
         train_payoff = float(s.get("train_payoff", 0))
