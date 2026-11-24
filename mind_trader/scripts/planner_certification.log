@@ -1,0 +1,7 @@
+Commit tested: a89025453c912373f2afea43ad710a69d5fe80a9
+Planner Git blob: 5ace22a1a00c0d8007b8c2131de6099d9207f9d4
+Tests Git blob: 528ecea6b0632b690f1006e2ebf8a039c49d0541
+Command: python -m pytest -q tests/test_hierarchical_planner.py
+...........                                                              [100%]
+11 passed in 0.08s
+Scope: isolated planner; Step449 and E2E not certified.
