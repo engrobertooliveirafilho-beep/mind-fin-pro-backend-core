@@ -205,8 +205,12 @@ def _decide_locked(sender_id, inbound_text):
     st = _state(sender_id)
     before_state = dict(st)
     frame = classify_cognitive_frame(inbound_text, st)
-    domain = frame.get("domain") or detect_universal_domain(inbound_text, st.get("domain", ""))
-    intent = frame.get("intent") or detect_universal_intent(inbound_text)
+    domain = frame.get("domain") or "general"
+    intent = frame.get("intent") or "general"
+    if intent == "general":
+        domain = detect_universal_domain(inbound_text, st.get("domain", ""))
+        intent = detect_universal_intent(inbound_text)
+        frame.update(domain=domain, intent=intent)
     goal = frame.get("goal") or update_goal(domain, intent, st)
 
     st['goal'] = goal
@@ -217,7 +221,7 @@ def _decide_locked(sender_id, inbound_text):
         answer = universal_provider_answer(domain, intent, inbound_text, st)
 
     score = quality_score(answer, inbound_text)
-    action = "answer" if score >= 0.55 else "ask_clarification"
+    action = "answer" if isinstance(answer, str) and answer.strip() and score >= 0.55 else "ask_clarification"
 
     if action == "ask_clarification":
         answer = "Quero te responder melhor. Me diz o objetivo principal: você quer plano, explicação ou próximo passo?"
