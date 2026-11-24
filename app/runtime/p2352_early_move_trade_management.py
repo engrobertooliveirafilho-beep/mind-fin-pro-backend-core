@@ -1,14 +1,15 @@
 from __future__ import annotations
+from math import isfinite
 
 def detect_early_move(context: dict) -> dict:
     adx = float(context.get("adx", 0))
-    atr_expansion = bool(context.get("atr_expansion", False))
-    breakout = bool(context.get("breakout", False))
-    volume_impulse = bool(context.get("volume_impulse", False))
-    m1_confirm = bool(context.get("m1_confirm", False))
-    m5_confirm = bool(context.get("m5_confirm", False))
-    h1_bias = bool(context.get("h1_bias", False))
-    spread_ok = bool(context.get("spread_ok", True))
+    atr_expansion = (context.get("atr_expansion") is True)
+    breakout = (context.get("breakout") is True)
+    volume_impulse = (context.get("volume_impulse") is True)
+    m1_confirm = (context.get("m1_confirm") is True)
+    m5_confirm = (context.get("m5_confirm") is True)
+    h1_bias = (context.get("h1_bias") is True)
+    spread_ok = (context.get("spread_ok") is True)
 
     score = 0
     score += 20 if breakout else 0
@@ -21,9 +22,9 @@ def detect_early_move(context: dict) -> dict:
     score -= 30 if not spread_ok else 0
 
     decision = "BLOCK"
-    if score >= 80:
+    if spread_ok and score >= 80:
         decision = "EARLY_ENTRY_APPROVED"
-    elif score >= 60:
+    elif spread_ok and score >= 60:
         decision = "WAIT_PULLBACK_OR_CONFIRMATION"
 
     return {
@@ -38,8 +39,8 @@ def detect_early_move(context: dict) -> dict:
 def manage_trade(position: dict) -> dict:
     r_multiple = float(position.get("r_multiple", 0))
     open_parts = float(position.get("open_parts", 1.0))
-    trend_continues = bool(position.get("trend_continues", False))
-    pullback_valid = bool(position.get("pullback_valid", False))
+    trend_continues = (position.get("trend_continues") is True)
+    pullback_valid = (position.get("pullback_valid") is True)
 
     actions = []
 
@@ -53,7 +54,7 @@ def manage_trade(position: dict) -> dict:
     if r_multiple >= 3.0:
         actions.append("LOCK_PROFIT_AND_LET_RUNNER")
 
-    if trend_continues and pullback_valid:
+    if isfinite(r_multiple) and r_multiple > 0 and trend_continues and pullback_valid:
         actions.append("REBUILD_POSITION_SMALL_SIZE")
 
     if not actions:
