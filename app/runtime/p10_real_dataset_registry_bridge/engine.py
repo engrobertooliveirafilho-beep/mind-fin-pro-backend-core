@@ -22,6 +22,24 @@ def bridge_dataset(dataset_record):
         "registered_at":datetime.now(timezone.utc).isoformat()
     }
 
+def bridge_file(path, source, asset, timeframe):
+    from ..p10_dataset_certification_runtime.engine import audit_file
+    cert = audit_file(path, source, asset, timeframe)
+    return {
+        "dataset_id": cert["dataset_id"],
+        "asset": asset,
+        "timeframe": timeframe,
+        "source": source,
+        "file_sha256": cert["file_sha256"],
+        "registry_status": "QUALITY_VERIFIED_PROVENANCE_PENDING" if cert["quality_verified"] else "QUALITY_REJECTED",
+        "certification": cert,
+        "backtest_allowed": False,
+        "live": "FORBIDDEN",
+        "real_broker": "DISABLED",
+        "promotion_allowed": False,
+        "registered_at": datetime.now(timezone.utc).isoformat()
+    }
+
 def bridge_many(records):
     return [bridge_dataset(r) for r in records]
 
