@@ -305,5 +305,29 @@
     "causal_certified": false,
     "reason": "Retrospective metrics present in output; actual decision dependency and extreme ratio formula require original executable source. No causal claim.",
     "tests_rerun": 0
+  },
+  "p2376_past_window_indicator_reconstruction": {
+    "date": "2026-11-24",
+    "method": "Independent pandas rolling arithmetic on original P2363C candles, inclusive event candle; absolute tolerance 0.0000011, relative tolerance zero",
+    "timeframe_rows": {
+      "D1": 116,
+      "H1": 3932,
+      "H4": 938,
+      "M1": 11246,
+      "M15": 12514,
+      "M30": 7131,
+      "M5": 10254
+    },
+    "matches": {
+      "sma20": 46131,
+      "sma50": 46131,
+      "sma100": 46131,
+      "atr14": 46131,
+      "rsi14": 46131
+    },
+    "checks": 230655,
+    "mismatches": 0,
+    "scope": "Indicator reproducibility at candle close only; does not certify event selection, execution time, timezone, lifecycle or router regressions",
+    "router_regressions_executed": false
   }
 }
