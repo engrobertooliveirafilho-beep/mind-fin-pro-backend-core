@@ -28,7 +28,7 @@
     ],
     "independent_log_file_verified": false
   },
-  "accumulated_passed": 43,
+  "accumulated_passed": 44,
   "promotion_regression": {
     "tested_commit": "b1d5859fc6d8ca5397144d8a41ea12197a542a18",
     "source": "operator-supplied terminal transcript",
@@ -144,6 +144,16 @@
     "failed": 0,
     "deselected": 40,
     "seconds": 0.29,
+    "exit_code": 0,
+    "independent_log_file_verified": false
+  },
+  "p2376_lineage_regression": {
+    "tested_commit": "145c180f3a9879079f4cd041813ad74d984f1383",
+    "source": "operator-supplied terminal transcript",
+    "passed": 1,
+    "failed": 0,
+    "deselected": 43,
+    "seconds": 1.21,
     "exit_code": 0,
     "independent_log_file_verified": false
   }
