@@ -269,3 +269,24 @@ def test_p2380_mt5_source_timezone(fault):
     else:
         with pytest.raises(ValueError):
             motor.simulate_verified_feedback(signal, payload, **kwargs)
+
+
+@pytest.mark.parametrize("direction,scenario,expected", [
+    ("BUY", "gap", -0.5), ("SELL", "gap", -0.5),
+    ("BUY", "time", 0.75), ("SELL", "time", 0.75),
+])
+def test_p2380_partial_position_accounting(monkeypatch, direction, scenario, expected):
+    from app.runtime import p2380_de40_forward_paper_feedback_loop_and_pnl_tracking as motor
+    candles = [{"time": str(i), "open": 100.0, "close": 100.0,
+                "high": 100.1, "low": 99.9} for i in range(17)]
+    sign = 1 if direction == "BUY" else -1
+    candles.append(dict(time="17", open=100.0, high=100.1, low=99.9, close=100.0))
+    candles[16].update(open=100+sign*0.5, close=100+sign*1.1,
+                       high=101.2 if sign==1 else 99.8,
+                       low=100.2 if sign==1 else 98.8)
+    price = 100 + sign * (-2 if scenario == "gap" else 0.5)
+    candles[17].update(open=price, close=price, high=price+0.1, low=price-0.1)
+    monkeypatch.setattr(motor, "atr", lambda *args: 1.0)
+    monkeypatch.setattr(motor, "hold_for_timeframe", lambda *args: 3)
+    result = motor._simulate_at_entry({"direction":direction,"timeframe":"M15","rr_policy":"RR_3"}, candles, 15)
+    assert result["gross_r"] == pytest.approx(expected)
