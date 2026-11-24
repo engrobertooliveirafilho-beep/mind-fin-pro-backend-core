@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import hashlib
 from collections import defaultdict, deque
 from pathlib import Path
 from typing import Dict, List
@@ -50,6 +51,9 @@ def infer_rr_possible(row: Dict) -> float:
 def infer_context_result(row: Dict) -> Dict:
     mfe = fnum(row.get("post_mfe_atr"))
     mae = fnum(row.get("post_mae_atr"))
+    # Explicitly reject the new bounded metric in this legacy proxy.
+    if row.get("post_efficiency_definition") == "MFE_SHARE_OF_TOTAL_EXCURSION_V1":
+        raise ValueError("Incompatible efficiency definition for legacy proxy")
     efficiency = fnum(row.get("post_efficiency"))
     rr_possible = infer_rr_possible(row)
 
@@ -110,7 +114,7 @@ def aggregate_group(rows: List[Dict], keys: List[str], min_samples: int = 30) ->
 
         decision = "REJECT_CONTEXT"
         if len(arr) >= min_samples and expectancy > 0 and pf >= 1.5 and dd <= max(8, len(arr) * 0.35):
-            decision = "PROMOTE_CONTEXT"
+            decision = "OBSERVE_CONTEXT"
         elif len(arr) >= max(10, min_samples // 2) and expectancy > -0.05 and pf >= 1.1:
             decision = "OBSERVE_CONTEXT"
 
@@ -213,14 +217,14 @@ def build_playbooks(rows: List[Dict]) -> List[Dict]:
         mae = [fnum(x.get("post_mae_atr")) for x in arr]
 
         if len(arr) >= 30 and expectancy > 0 and pf >= 1.5 and max_dd(results) <= max(8, len(arr) * 0.35):
-            decision = "PROMOTE_PLAYBOOK"
+            decision = "OBSERVE_PLAYBOOK"
         elif len(arr) >= 15 and expectancy > -0.05 and pf >= 1.1:
             decision = "OBSERVE_PLAYBOOK"
         else:
             decision = "REJECT_PLAYBOOK"
 
         out.append({
-            "playbook_id": "PB_" + str(abs(hash(key)))[:10],
+            "playbook_id": "PB_" + hashlib.sha256(json.dumps(key, ensure_ascii=False).encode("utf-8")).hexdigest()[:24],
             "timeframe": key[0],
             "session": key[1],
             "regime": key[2],
@@ -357,9 +361,9 @@ def run(router_candidates: Path, context_library: Path, outdir: Path) -> Dict:
             "PROMOTION_GATE",
             "PAPER_ONLY_PERMISSION",
         ],
-        "status": "CERTIFIED",
-        "certification": "P2378_ROUTER_BACKTEST_SEQUENCE_PLAYBOOK_PROMOTION_GATE_CERTIFIED",
-        "next": "P2379_DE40_FORWARD_PAPER_EMISSION_FROM_PROMOTED_PLAYBOOKS",
+        "status": "BLOCKED_UNCERTIFIED_CAUSAL_BACKTEST",
+        "certification": "NOT_CERTIFIED",
+        "next": "VALIDATE_CAUSAL_INPUTS_AND_EXECUTION_BACKTEST",
         "outputs": {k: str(v) for k, v in files.items()},
         "warning": "NO_REAL_ORDER_PERMISSION_CREATED",
     }
