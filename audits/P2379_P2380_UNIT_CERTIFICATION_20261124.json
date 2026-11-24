@@ -156,5 +156,18 @@
     "seconds": 1.21,
     "exit_code": 0,
     "independent_log_file_verified": false
+  },
+  "p2376_original_event_reconciliation": {
+    "source": "Drive raw bytes, local Python CSV and SHA256",
+    "events_drive_id": "1qPnkQrwgiXtCXR5SSKxXZg17MW1ZWEfb",
+    "events_sha256": "019d6192232bc537c39b0da28d7677bad7c83ac705d63fcce6eee1760f0adfbd",
+    "events": 46131,
+    "duplicate_keys": 0,
+    "empty_timestamps": 0,
+    "m15_dataset_sha256": "e17ba75cfd508ecddd8b3f01dd313d5b65b51498462aa6faec43cee0eba2cec0",
+    "m15_candles": 100000,
+    "m15_events": 12514,
+    "m15_index_time_ohlc_matches": 12514,
+    "scope": "historical identity only; timezone and causality pending"
   }
 }
