@@ -122,3 +122,20 @@ def test_p2380_atr_precedes_entry(monkeypatch):
     result = motor.simulate_feedback({"direction": "BUY", "timeframe": "M15"}, candles)
     assert calls == [14]
     assert result["entry_price"] == 100.0
+
+@pytest.mark.parametrize("direction,opening,high,low,policy,expected", [
+    ("BUY", 100, 104, 98, "RR_3", -1.0),
+    ("SELL", 100, 102, 96, "RR_3", -1.0),
+    ("BUY", 97, 98, 96, "RR_3", -3.0),
+    ("BUY", 102, 104, 101, "RR_3", 2.0),
+])
+def test_p2380_intrabar_conservative(monkeypatch, direction, opening, high, low, policy, expected):
+    from app.runtime import p2380_de40_forward_paper_feedback_loop_and_pnl_tracking as motor
+    candles = [{"time": str(i), "open": 100.0, "close": 100.0,
+                "high": 100.1, "low": 99.9} for i in range(17)]
+    candles[16].update(open=opening, high=high, low=low, close=opening)
+    monkeypatch.setattr(motor, "index_for_signal", lambda *args: 15)
+    monkeypatch.setattr(motor, "atr", lambda *args: 1.0)
+    result = motor.simulate_feedback({"direction": direction, "timeframe": "M15",
+                                      "rr_policy": policy}, candles)
+    assert result["realized_r"] == expected
