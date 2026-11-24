@@ -12,24 +12,7 @@ def file_hash(path):
             h.update(b)
     return h.hexdigest()
 
-def inspect_csv(path):
-    path=Path(path)
-    with open(path,newline="",encoding="utf-8-sig") as f:
-        reader=csv.DictReader(f)
-        cols={c.strip().lower() for c in (reader.fieldnames or [])}
-        rows=list(reader)
-    missing=sorted(REQUIRED_COLUMNS-cols)
-    return {
-        "path":str(path),
-        "sha256":file_hash(path),
-        "rows":len(rows),
-        "columns":sorted(cols),
-        "missing_required_columns":missing,
-        "schema_ok":not missing,
-        "certified":False,
-        "preliminary_schema_pass":len(rows)>=200 and not missing,
-        "validation_executed":False
-    }
+from .validation import inspect_csv
 
 def register_file(path, source, asset, timeframe):
     if source not in SUPPORTED_SOURCES:
@@ -56,7 +39,7 @@ def run_demo():
         "STATUS":"P10_REAL_DATA_INGESTION_ENGINE_IMPLEMENTED",
         "SUPPORTED_SOURCES":SUPPORTED_SOURCES,
         "REQUIRED_COLUMNS":sorted(REQUIRED_COLUMNS),
-        "CERTIFICATION_RULE":"BLOCKED_PENDING_FULL_VALIDATION",
+        "CERTIFICATION_RULE":"QUALITY_AUDIT_REQUIRED_PROVENANCE_PENDING",
         "LIVE":"FORBIDDEN",
         "REAL_BROKER":"DISABLED",
         "EDGE":"NOT_PROVEN",
