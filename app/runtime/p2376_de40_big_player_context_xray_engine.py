@@ -1,6 +1,7 @@
 from __future__ import annotations
 
-import argparse, csv, json
+import argparse
+import hashlib, csv, json
 from pathlib import Path
 from typing import Dict, List, Optional
 
@@ -253,7 +254,14 @@ def run(dataset_root: Path, outdir: Path, max_rows_per_tf: int = 100000) -> Dict
         if not path:
             continue
 
+        source_bytes = path.read_bytes()
+        source_lines = source_bytes.splitlines()
+        source_digest = hashlib.sha256(source_bytes).hexdigest()
         candles = load_candles(path, max_rows_per_tf)
+        if path.read_bytes() != source_bytes:
+            raise ValueError("P2376_SOURCE_CHANGED")
+        if len(source_lines) - 1 < len(candles):
+            raise ValueError("P2376_SOURCE_ROW_COUNT_MISMATCH")
         closes = [x["close"] for x in candles]
 
         tf_events = []
@@ -264,6 +272,10 @@ def run(dataset_root: Path, outdir: Path, max_rows_per_tf: int = 100000) -> Dict
                 continue
             ev["symbol"] = "DE40"
             ev["timeframe"] = tf
+            ev["source_dataset_sha256"] = source_digest
+            ev["source_row_sha256"] = hashlib.sha256(source_lines[i + 1]).hexdigest()
+            ev["event_id"] = hashlib.sha256(f"{source_digest}:{i}".encode("ascii")).hexdigest()
+            ev["lineage_status"] = "SOURCE_HASH_RECORDED_AUTHORITY_PENDING"
             tf_events.append(ev)
             events.append(ev)
 
@@ -325,8 +337,8 @@ def run(dataset_root: Path, outdir: Path, max_rows_per_tf: int = 100000) -> Dict
             "BEFORE_AFTER_MFE_MAE",
             "PULLBACK_REVERSAL_CONTINUATION_CONTEXT",
         ],
-        "status": "CERTIFIED",
-        "certification": "P2376_BIG_PLAYER_CONTEXT_XRAY_ENGINE_CERTIFIED",
+        "status": "SOURCE_LINEAGE_RECORDED",
+        "certification": "P2376_HISTORICAL_CONTEXT_ONLY",
         "next": "P2377_DE40_REGIME_FIRST_SIGNAL_ROUTER_WITH_XRAY",
         "outputs": {k: str(v) for k, v in files.items()},
     }
