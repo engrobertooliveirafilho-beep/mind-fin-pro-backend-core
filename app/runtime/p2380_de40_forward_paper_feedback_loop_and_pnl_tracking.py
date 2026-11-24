@@ -230,7 +230,7 @@ def aggregate(rows: List[Dict], keys: List[str]) -> List[Dict]:
         dd = max_dd(results)
 
         if len(arr) >= 30 and expectancy > 0 and pf >= 1.5 and dd <= max(8, len(arr) * 0.35):
-            decision = "PROMOTE_AFTER_FEEDBACK"
+            decision = "OBSERVE_AFTER_FEEDBACK"  # Independent OOS certification required.
         elif len(arr) >= 15 and expectancy > -0.05 and pf >= 1.1:
             decision = "OBSERVE_AFTER_FEEDBACK"
         else:
