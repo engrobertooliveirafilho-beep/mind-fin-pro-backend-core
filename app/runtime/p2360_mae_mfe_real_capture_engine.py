@@ -1,6 +1,14 @@
 from __future__ import annotations
+from math import isfinite
 
 def calculate_mae_mfe(trade: dict, price_path: list[float]) -> dict:
+    values = [trade["entry_price"], *price_path]
+    if "exit_price" in trade:
+        values.append(trade["exit_price"])
+    if any(type(v) not in (int, float) or not isfinite(v) or v <= 0 for v in values):
+        raise ValueError("Invalid price")
+    if trade["side"].upper() not in ("BUY", "SELL"):
+        raise ValueError("Invalid side")
     entry = float(trade["entry_price"])
     side = trade["side"].upper()
     exit_price = float(trade.get("exit_price", price_path[-1] if price_path else entry))
@@ -22,8 +30,8 @@ def calculate_mae_mfe(trade: dict, price_path: list[float]) -> dict:
         excursions = [entry - p for p in price_path]
         final_move = entry - exit_price
 
-    mae = min(excursions)
-    mfe = max(excursions)
+    mae = min(0.0, final_move, *excursions)
+    mfe = max(0.0, final_move, *excursions)
 
     exit_efficiency = 0.0
     if mfe > 0:
