@@ -1,6 +1,6 @@
 """PAPER V5: atomic OHLC validation, pessimistic exits and account-level day rollover."""
-from ftmo_paper_guard import D
-from ftmo_execution_v4 import ExecutionV4
+from .ftmo_paper_guard import D
+from .ftmo_execution_v4 import ExecutionV4
 
 class ExecutionV5(ExecutionV4):
     def process_bar(self, bars, *, day=None):
