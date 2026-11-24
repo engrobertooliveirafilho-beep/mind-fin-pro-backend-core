@@ -1,4 +1,5 @@
 from __future__ import annotations
+from math import isfinite
 
 USD_PAIRS = {
     "EURUSD": {"USD": -1, "EUR": 1},
@@ -13,7 +14,11 @@ USD_PAIRS = {
 def normalized_currency_exposure(symbol: str, side: str, lot: float = 0.01) -> dict:
     symbol = symbol.upper()
     side = side.upper()
-    base = USD_PAIRS.get(symbol, {})
+    if symbol not in USD_PAIRS or side not in ("BUY", "SELL"):
+        raise ValueError("Unsupported symbol or side")
+    if type(lot) not in (int, float) or not isfinite(lot) or lot <= 0:
+        raise ValueError("Invalid lot")
+    base = USD_PAIRS[symbol]
     multiplier = 1 if side == "BUY" else -1
     return {k: v * multiplier * lot for k, v in base.items()}
 
@@ -24,7 +29,7 @@ def portfolio_exposure(trades: list[dict]) -> dict:
     for t in trades:
         symbol = t.get("symbol", "").upper()
         side = t.get("side", "").upper()
-        lot = float(t.get("lot", 0.01))
+        lot = t.get("lot")
         exp = normalized_currency_exposure(symbol, side, lot)
         rows.append({"symbol": symbol, "side": side, "lot": lot, "currency_exposure": exp})
 
