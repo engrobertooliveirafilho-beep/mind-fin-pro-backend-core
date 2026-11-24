@@ -14,7 +14,7 @@ class RevalidationResult:
     support_resistance_filter:bool
 
     def approved(self):
-        score=sum([
+        checks=[
             self.m1,
             self.m5,
             self.m15,
@@ -23,8 +23,9 @@ class RevalidationResult:
             self.volatility_filter,
             self.session_filter,
             self.support_resistance_filter
-        ])
-        return score >= 7
+        ]
+        return (isinstance(self.symbol, str) and bool(self.symbol.strip())
+                and self.side in ('BUY', 'SELL') and all(v is True for v in checks))
 
 def evaluate(symbol,side,context):
     return RevalidationResult(
