@@ -420,7 +420,7 @@ def build_xray_router(events_path: Path, context_path: Path, dataset_root: Path,
             "paper_allowed_events": len(allowed),
             "paper_allowed_rate": round(len(allowed) / len(arr), 6) if arr else 0,
             "top_recommended_family": top_family,
-            "matrix_use": "MULTI_TIMEFRAME_CONTEXT_ROUTING_PRIOR",
+            "matrix_use": "RETROSPECTIVE_AGGREGATE_NOT_DECISION_INPUT",
         })
 
     routed_rows = sorted(routed_rows, key=lambda x: fnum(x["context_score"]), reverse=True)
@@ -465,9 +465,10 @@ def build_xray_router(events_path: Path, context_path: Path, dataset_root: Path,
             "CONTEXT_LIBRARY",
             "PAPER_ONLY_PERMISSION_GATE",
         ],
-        "status": "CERTIFIED",
-        "certification": "P2377_REGIME_FIRST_XRAY_LIFECYCLE_ROUTER_CERTIFIED",
-        "next": "P2378_DE40_ROUTER_PAPER_BACKTEST_AND_PROMOTION_GATE",
+        "status": "BLOCKED_UNCERTIFIED_CAUSAL_LIFECYCLE",
+        "certification": "NOT_CERTIFIED",
+        "causal_certified": False,
+        "next": "CERTIFY_CAUSAL_LIFECYCLE_BEFORE_P2378",
         "outputs": {k: str(v) for k, v in files.items()},
         "warning": "NO_REAL_ORDER_PERMISSION_CREATED",
     }
