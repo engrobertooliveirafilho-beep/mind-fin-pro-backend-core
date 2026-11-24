@@ -3,8 +3,8 @@ from dataclasses import dataclass
 from decimal import Decimal
 from datetime import date
 from typing import Dict
-from ftmo_paper_guard import D, PaperAccount, Rules
-from ftmo_pretrade_v2 import OrderIntent, pretrade
+from .ftmo_paper_guard import D, PaperAccount, Rules
+from .ftmo_pretrade_v2 import OrderIntent, pretrade
 
 @dataclass
 class Position:
