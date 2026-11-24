@@ -209,6 +209,7 @@ def _decide_locked(sender_id, inbound_text):
     intent = frame.get("intent") or detect_universal_intent(inbound_text)
     goal = frame.get("goal") or update_goal(domain, intent, st)
 
+    st['goal'] = goal
     answer = cognitive_provider_answer(frame, inbound_text, st)
     if not answer:
         answer = goal_manager_response(domain, intent, inbound_text, st)
@@ -223,6 +224,7 @@ def _decide_locked(sender_id, inbound_text):
 
     st["last_frame"] = frame
     st["domain"] = domain
+    goal = st.get("goal", goal)
     st["goal"] = goal
     st["phase"] = frame.get("phase", st.get("phase", "open"))
     st["target"] = frame.get("target", st.get("target", "user"))
