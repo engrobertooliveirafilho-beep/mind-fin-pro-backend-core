@@ -22,6 +22,27 @@ def route_to_backtest(dataset_record, genome_batch):
         "created_at":datetime.now(timezone.utc).isoformat()
     }
 
+def route_file(path, source, asset, timeframe, genome_batch):
+    if not isinstance(genome_batch,dict) or type(genome_batch.get("batch_start")) is not int or type(genome_batch.get("batch_size")) is not int or genome_batch["batch_start"]<0 or genome_batch["batch_size"]<=0:
+        raise ValueError("invalid genome batch")
+    from ..p10_real_dataset_registry_bridge.engine import bridge_file
+    reg=bridge_file(path, source, asset, timeframe)
+    return {
+        "route_status":"BLOCKED_PROVENANCE_PENDING" if reg["certification"]["quality_verified"] else "BLOCKED_QUALITY_REJECTED",
+        "dataset_id":reg["dataset_id"],
+        "file_sha256":reg["file_sha256"],
+        "genome_batch":dict(genome_batch),
+        "registry":reg,
+        "backtest_allowed":False,
+        "queue_submitted":False,
+        "live":"FORBIDDEN",
+        "real_broker":"DISABLED",
+        "promotion_allowed":False,
+        "edge":"NOT_PROVEN",
+        "causality":"NOT_PROVEN",
+        "created_at":datetime.now(timezone.utc).isoformat()
+    }
+
 def run():
     out=Path("reports/P10.4_CERTIFIED_DATASET_BACKTEST_ROUTER")
     out.mkdir(parents=True,exist_ok=True)
