@@ -1,7 +1,18 @@
 from __future__ import annotations
+from math import isfinite
 
 def dynamic_paper_lot(ctx: dict) -> dict:
-    base_lot = float(ctx.get("base_lot", 0.01))
+    metrics = ("base_lot", "institutional_score", "expected_payoff", "current_drawdown")
+    flags = ("correlation_ok", "last_trade_loss", "rebuild_after_profit")
+    if (any(type(ctx.get(k)) not in (int, float) or not isfinite(ctx[k]) for k in metrics)
+            or any(type(ctx.get(k)) is not bool for k in flags)
+            or not 0 < ctx["base_lot"] <= 0.01
+            or not 0 <= ctx["institutional_score"] <= 100
+            or not 0 <= ctx["current_drawdown"] <= 100):
+        return {"base_lot": 0.0, "lot_multiplier": 0.0, "recommended_paper_lot": 0.0,
+                "reason": "BLOCKED_INVALID_RISK_INPUT", "mode": "PAPER_ONLY",
+                "real_orders": "FORBIDDEN", "ftmo_real": "FORBIDDEN"}
+    base_lot = float(ctx["base_lot"])
     score = float(ctx.get("institutional_score", 0))
     payoff = float(ctx.get("expected_payoff", 0))
     drawdown = float(ctx.get("current_drawdown", 0))
@@ -33,7 +44,7 @@ def dynamic_paper_lot(ctx: dict) -> dict:
         multiplier = min(0.5, multiplier)
         reason = "REBUILD_SMALL_SIZE_AFTER_PROFIT"
 
-    lot = round(base_lot * multiplier, 4)
+    lot = min(0.01, round(base_lot * multiplier, 4))
 
     return {
         "base_lot": base_lot,
