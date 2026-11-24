@@ -42,43 +42,19 @@ def _build_level_descriptions(goal: str, context: Optional[str]) -> Dict[int, st
 
 
 def _build_nodes(goal: str, depth: int, context: Optional[str]) -> List[HierarchyNode]:
-    descriptions = _build_level_descriptions(goal, context)
-    nodes: List[HierarchyNode] = []
-    node_counter = 0
+    from app.planning.hierarchical_planner import HierarchicalPlanner
 
-    def add_node(level: int, parent_id: Optional[str], suffix: str, order: int) -> str:
-        nonlocal node_counter
-        node_counter += 1
-        node_id = f"n{node_counter}"
-        desc = f"{descriptions[level]} [{suffix}]"
-        nodes.append(
-            HierarchyNode(
-                node_id=node_id,
-                parent_id=parent_id,
-                level=level,
-                description=desc,
-                order=order,
-            )
-        )
-        return node_id
-
-    # Nível 1: um nó raiz
-    root_id = add_node(level=1, parent_id=None, suffix="visao_geral", order=1)
-
-    if depth >= 2:
-        # Nível 2: 3 blocos principais
-        fronts = ["produto", "go_to_market", "risco_governanca"]
-        front_ids: List[str] = []
-        for idx, f in enumerate(fronts, start=1):
-            fid = add_node(level=2, parent_id=root_id, suffix=f, order=idx)
-            front_ids.append(fid)
-
-        if depth >= 3:
-            # Nível 3: 2 tarefas por frente
-            for fid in front_ids:
-                add_node(level=3, parent_id=fid, suffix="design_execucao", order=1)
-                add_node(level=3, parent_id=fid, suffix="monitorar_kpis", order=2)
-
+    plan = HierarchicalPlanner().build_plan(
+        goal=goal, horizon_steps=6, memory_summary=context
+    )
+    nodes = []
+    for step in plan.steps:
+        if step.level + 1 <= depth:
+            nodes.append(HierarchyNode(
+                node_id=step.id, parent_id=step.parent_id,
+                level=step.level + 1, description=step.description,
+                order=len(nodes) + 1,
+            ))
     return nodes
 
 
