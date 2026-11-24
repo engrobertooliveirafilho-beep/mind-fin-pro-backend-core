@@ -13,5 +13,20 @@
   "e2e_certified": false,
   "mode": "PAPER_ONLY",
   "real_orders": "FORBIDDEN",
-  "ftmo_real": "FORBIDDEN"
+  "ftmo_real": "FORBIDDEN",
+  "incremental": {
+    "tested_commit": "39b5e41dbdfcc6b2e25256b477a39faaf8a3069d",
+    "source": "operator-supplied terminal transcript",
+    "passed": 2,
+    "failed": 0,
+    "deselected": 10,
+    "seconds": 0.24,
+    "exit_code": 0,
+    "cases": [
+      "test_authenticated_row_position[4]",
+      "test_authenticated_row_position[3]"
+    ],
+    "independent_log_file_verified": false
+  },
+  "accumulated_passed": 12
 }
