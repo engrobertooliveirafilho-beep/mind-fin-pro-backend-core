@@ -218,3 +218,51 @@ def validate_paper_bus_csv(ready_csv: bytes, bus_csv: bytes) -> Tuple[bool, str]
     return verify_paper_bus_coverage(ready, bus)
 
 __all__ = ["validate_event_bound_signal", "verify_source_hashes", "resolve_next_bar_entry", "resolve_verified_next_bar_entry", "validate_replay_promotion", "verify_paper_bus_coverage", "validate_paper_bus_csv"]
+
+def parse_verified_replay_source(signal: Dict[str, Any], dataset_bytes: bytes,
+                                 *, trusted_dataset_sha256: str) -> Tuple[List[Dict[str, Any]], int]:
+    """Derive replay candles exclusively from a separately trusted CSV digest."""
+    import csv
+    import math
+    if not isinstance(dataset_bytes, bytes) or not isinstance(trusted_dataset_sha256, str):
+        raise ValueError("TRUSTED_DATASET_REQUIRED")
+    if not hmac.compare_digest(hashlib.sha256(dataset_bytes).hexdigest(), trusted_dataset_sha256.lower()):
+        raise ValueError("TRUSTED_DATASET_HASH_MISMATCH")
+    ok, reason = validate_event_bound_signal(signal)
+    if not ok:
+        raise ValueError(reason)
+    lines = dataset_bytes.splitlines()
+    required = {"symbol", "timeframe", "time", "open", "high", "low", "close"}
+    try:
+        fields = next(csv.reader([lines[0].decode("utf-8-sig")], strict=True))
+        if not required.issubset(fields) or len(set(fields)) != len(fields):
+            raise ValueError("REPLAY_CSV_HEADER_INVALID")
+        candles = []
+        previous = None
+        for line in lines[1:]:
+            values = next(csv.reader([line.decode("utf-8")], strict=True))
+            if len(values) != len(fields):
+                raise ValueError("REPLAY_CSV_ROW_INVALID")
+            bar = dict(zip(fields, values))
+            if bar["symbol"] != signal["symbol"] or bar["timeframe"].upper() != signal["timeframe"].upper():
+                raise ValueError("REPLAY_CANDLE_IDENTITY_MISMATCH")
+            stamp = _timestamp(bar["time"])
+            if stamp.tzinfo is None or (previous is not None and stamp <= previous):
+                raise ValueError("REPLAY_CHRONOLOGY_INVALID")
+            previous = stamp
+            for field in ("open", "high", "low", "close"):
+                bar[field] = float(bar[field])
+                if not math.isfinite(bar[field]) or bar[field] <= 0:
+                    raise ValueError("REPLAY_OHLC_INVALID")
+            if bar["low"] > min(bar["open"], bar["close"]) or bar["high"] < max(bar["open"], bar["close"]):
+                raise ValueError("REPLAY_OHLC_INVALID")
+            candles.append(bar)
+    except (IndexError, StopIteration, UnicodeError, csv.Error) as exc:
+        raise ValueError("REPLAY_CSV_INVALID") from exc
+    event_index = _strict_index(signal["event_index"])
+    if event_index >= len(candles):
+        raise ValueError("NEXT_BAR_UNAVAILABLE")
+    idx = resolve_verified_next_bar_entry(signal, candles, dataset_bytes, lines[event_index + 1])
+    return candles, idx
+
+__all__.append("parse_verified_replay_source")
