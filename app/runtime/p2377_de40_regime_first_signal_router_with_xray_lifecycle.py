@@ -385,7 +385,13 @@ def build_xray_router(events_path: Path, context_path: Path, dataset_root: Path,
         if score < 55:
             permission = "BLOCK_LOW_CONTEXT_SCORE"
 
+        # Retrospective lifecycle metrics are not causal execution evidence.
+        permission = "OBSERVE_ONLY"
         row = {
+            "event_id": ev.get("event_id", ""),
+            "source_dataset_sha256": ev.get("source_dataset_sha256", ""),
+            "source_row_sha256": ev.get("source_row_sha256", ""),
+            "lineage_status": "UNVERIFIED_RETROSPECTIVE",
             "symbol": ev.get("symbol", "DE40"),
             "timeframe": tf,
             "time": ev.get("time", ""),
@@ -508,8 +514,8 @@ def build_xray_router(events_path: Path, context_path: Path, dataset_root: Path,
             "CONTEXT_LIBRARY",
             "PAPER_ONLY_PERMISSION_GATE",
         ],
-        "status": "CERTIFIED",
-        "certification": "P2377_REGIME_FIRST_XRAY_LIFECYCLE_ROUTER_CERTIFIED",
+        "status": "RETROSPECTIVE_ROUTING_ONLY",
+        "certification": "P2377_EXECUTION_AUTHORITY_PENDING",
         "next": "P2378_DE40_ROUTER_PAPER_BACKTEST_AND_PROMOTION_GATE",
         "outputs": {k: str(v) for k, v in files.items()},
         "warning": "NO_REAL_ORDER_PERMISSION_CREATED",
