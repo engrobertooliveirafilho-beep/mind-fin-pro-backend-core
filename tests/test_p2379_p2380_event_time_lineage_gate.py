@@ -290,3 +290,16 @@ def test_p2380_partial_position_accounting(monkeypatch, direction, scenario, exp
     monkeypatch.setattr(motor, "hold_for_timeframe", lambda *args: 3)
     result = motor._simulate_at_entry({"direction":direction,"timeframe":"M15","rr_policy":"RR_3"}, candles, 15)
     assert result["gross_r"] == pytest.approx(expected)
+
+
+@pytest.mark.parametrize("source_type", ["PLAYBOOK", "CONTEXT", "SEQUENCE"])
+def test_p2379_aggregate_cannot_emit_ready(source_type):
+    from app.runtime.p2379_de40_forward_paper_emission_from_promoted_playbooks import create_signal
+    row = dict(timeframe="M15", footprint="UP", regime="TREND_UP",
+               samples=200, profit_factor_proxy=3, expectancy_r_proxy=0.5,
+               max_drawdown_r_proxy=5)
+    signal = create_signal(row, source_type, 1)
+    assert signal["signal_status"] == "PAPER_OBSERVE_ONLY"
+    assert signal["reason"] == "EVENT_LINEAGE_REQUIRED"
+    assert signal["real_orders"] == "FORBIDDEN"
+    assert signal["ftmo_real"] == "FORBIDDEN"
