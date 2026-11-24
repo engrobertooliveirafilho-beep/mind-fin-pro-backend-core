@@ -37,21 +37,22 @@ def decide_signal(signal: dict, context: dict) -> dict:
         }
 
     signal = dict(signal)
-    signal["expected_payoff"] = max(float(signal.get("expected_payoff", 0)), float(target.get("rr", 0)))
+    # Target reward/risk is not empirical expected payoff.
+    signal["target_rr"] = target.get("rr")
 
     precheck = precheck_before_mt5_emit(signal, context)
 
     sizing = dynamic_paper_lot({
-        "base_lot": signal.get("base_lot", 0.01),
+        "base_lot": signal.get("base_lot"),
         "institutional_score": precheck.get("institutional_score", 0),
         "expected_payoff": signal.get("expected_payoff", 0),
-        "current_drawdown": context.get("current_drawdown", 0),
-        "correlation_ok": context.get("correlation_ok", True),
-        "last_trade_loss": context.get("last_loss", False),
-        "rebuild_after_profit": context.get("rebuild_after_profit", False),
+        "current_drawdown": context.get("current_drawdown"),
+        "correlation_ok": context.get("correlation_ok"),
+        "last_trade_loss": context.get("last_loss"),
+        "rebuild_after_profit": context.get("rebuild_after_profit"),
     })
 
-    final_emit = bool(precheck["emit_allowed"]) and float(sizing["recommended_paper_lot"]) > 0
+    final_emit = (precheck.get("emit_allowed") is True) and float(sizing["recommended_paper_lot"]) > 0
 
     return {
         "symbol": signal.get("symbol"),
