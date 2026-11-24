@@ -128,11 +128,11 @@ def simulate_feedback(signal: Dict, candles: List[Dict]) -> Dict:
             "entry_time": candles[idx]["time"] if candles else "",
         }
 
-    a = atr(candles, idx, 14)
+    a = atr(candles, idx - 1, 14)
     if not a or a <= 0:
-        a = max(candles[idx]["close"] * 0.0007, 1)
+        a = max(candles[idx - 1]["close"] * 0.0007, 1)
 
-    entry = candles[idx]["close"]
+    entry = candles[idx]["open"]
     risk = max(a, entry * 0.0007)
     target_rr = 3.0 if "RR_3" in signal.get("rr_policy", "") else 5.0 if "RR_5" in signal.get("rr_policy", "") else 2.0
 
@@ -146,7 +146,7 @@ def simulate_feedback(signal: Dict, candles: List[Dict]) -> Dict:
     result_r = 0.0
     result = "TIME_EXIT"
 
-    for j in range(idx + 1, min(len(candles), idx + hold + 1)):
+    for j in range(idx, min(len(candles), idx + hold)):
         c = candles[j]
         favorable = c["high"] - entry if direction > 0 else entry - c["low"]
         adverse = entry - c["low"] if direction > 0 else c["high"] - entry
@@ -178,7 +178,7 @@ def simulate_feedback(signal: Dict, candles: List[Dict]) -> Dict:
             result = "TARGET_HIT"
             break
     else:
-        final = candles[min(len(candles) - 1, idx + hold)]["close"]
+        final = candles[min(len(candles) - 1, idx + hold - 1)]["close"]
         move = ((final - entry) * direction) / risk
         if partial_hit:
             move = max(0.5, move)
