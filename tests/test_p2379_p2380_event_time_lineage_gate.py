@@ -77,3 +77,24 @@ def test_rejects_event_bar_timestamp_mismatch():
 def test_rejects_missing_next_bar():
     with pytest.raises(ValueError, match="NEXT_BAR_UNAVAILABLE"):
         resolve_next_bar_entry(valid_signal(), [{"time": "2026-11-23T10:00:00+00:00"}])
+
+@pytest.mark.parametrize("row_index", [4, 3])
+def test_authenticated_row_position(row_index):
+    import hashlib
+    from app.runtime.p2379_p2380_event_time_lineage_gate import resolve_verified_next_bar_entry
+    signal = valid_signal()
+    candles = [
+        {"symbol": "GER40", "timeframe": "M15",
+         "time": f"2026-11-23T{hour:02d}:{minute:02d}:00+00:00"}
+        for hour, minute in [(9, 0), (9, 15), (9, 30), (9, 45), (10, 0), (10, 15)]
+    ]
+    rows = [c["time"].encode() for c in candles]
+    dataset = b"time\n" + b"\n".join(rows) + b"\n"
+    row = rows[row_index]
+    signal["source_dataset_sha256"] = hashlib.sha256(dataset).hexdigest()
+    signal["source_row_sha256"] = hashlib.sha256(row).hexdigest()
+    if row_index == 4:
+        assert resolve_verified_next_bar_entry(signal, candles, dataset, row) == 5
+    else:
+        with pytest.raises(ValueError, match="SOURCE_ROW_EVENT_INDEX_MISMATCH"):
+            resolve_verified_next_bar_entry(signal, candles, dataset, row)
