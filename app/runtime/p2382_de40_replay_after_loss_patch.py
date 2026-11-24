@@ -56,9 +56,9 @@ def classify(row: Dict) -> str:
     exp_proxy = fnum(row.get("expectancy_r_proxy"))
 
     if r > 0 and pf_proxy >= 1.5 and exp_proxy > 0:
-        return "PROMOTE_AFTER_PATCH_REPLAY"
+        return "OBSERVE_REQUIRES_INDEPENDENT_OOS"
     if r >= 0 and pf_proxy >= 1.1:
-        return "OBSERVE_AFTER_PATCH_REPLAY"
+        return "OBSERVE_REQUIRES_INDEPENDENT_OOS"
     return "REJECT_AFTER_PATCH_REPLAY"
 
 
@@ -81,9 +81,9 @@ def aggregate(rows: List[Dict], keys: List[str]) -> List[Dict]:
         dd = max_dd(results)
 
         if len(arr) >= 20 and expectancy > 0 and pf >= 1.5 and dd <= max(8, len(arr) * 0.35):
-            decision = "PROMOTE_GROUP_AFTER_PATCH"
+            decision = "OBSERVE_GROUP_REQUIRES_INDEPENDENT_OOS"
         elif len(arr) >= 10 and expectancy > -0.03 and pf >= 1.1:
-            decision = "OBSERVE_GROUP_AFTER_PATCH"
+            decision = "OBSERVE_GROUP_REQUIRES_INDEPENDENT_OOS"
         else:
             decision = "REJECT_GROUP_AFTER_PATCH"
 
@@ -147,8 +147,8 @@ def run(patched_path: Path, outdir: Path, baseline_expectancy: float, baseline_p
     by_lifecycle = aggregate(evaluated, ["lifecycle"])
     by_family_tf = aggregate(evaluated, ["family", "timeframe"])
 
-    promoted = [x for x in evaluated if x["patch_replay_decision"] == "PROMOTE_AFTER_PATCH_REPLAY"]
-    observed = [x for x in evaluated if x["patch_replay_decision"] == "OBSERVE_AFTER_PATCH_REPLAY"]
+    promoted = []
+    observed = [x for x in evaluated if x["patch_replay_decision"] == "OBSERVE_REQUIRES_INDEPENDENT_OOS"]
     rejected = [x for x in evaluated if x["patch_replay_decision"] == "REJECT_AFTER_PATCH_REPLAY"]
 
     promoted_groups = [x for x in by_family_tf if x["decision"] == "PROMOTE_GROUP_AFTER_PATCH"]
@@ -230,10 +230,13 @@ def run(patched_path: Path, outdir: Path, baseline_expectancy: float, baseline_p
         "rejected_after_patch": len(rejected),
         "promoted_groups_after_patch": len(promoted_groups),
         "observed_groups_after_patch": len(observed_groups),
-        "success": success,
-        "status": "CERTIFIED",
-        "certification": "P2382_REPLAY_AFTER_LOSS_PATCH_CERTIFIED",
-        "next": "P2383_WALK_FORWARD_AFTER_PATCH" if success else "P2382A_SECOND_LOSS_PATCH_HARDENING",
+        "success": False,
+        "historical_metrics_only": True,
+        "promotion_authorized": False,
+        "status": "BLOCKED_PENDING_INDEPENDENT_RAW_CANDLE_VALIDATION",
+        "certification": "NOT_CERTIFIED",
+        "certification_reason": "P2381 selects candidates using feedback outcomes from the same sample. Replay statistics are not independent out-of-sample evidence and cannot promote playbooks.",
+        "next": "P2383D_EXACT_PLAYBOOK_TO_RAW_CANDLE_VALIDATION",
         "outputs": {k: str(v) for k, v in files.items()},
         "warning": "PATCH_REPLAY_IS_PAPER_ONLY_NO_REAL_ORDER_PERMISSION",
     }
