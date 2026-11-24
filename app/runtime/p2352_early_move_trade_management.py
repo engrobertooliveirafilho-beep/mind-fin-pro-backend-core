@@ -2,7 +2,9 @@ from __future__ import annotations
 from math import isfinite
 
 def detect_early_move(context: dict) -> dict:
-    adx = float(context.get("adx", 0))
+    adx = context.get("adx")
+    if type(adx) not in (int, float) or not isfinite(adx) or not 0 <= adx <= 100:
+        return {"early_move_score":0,"decision":"BLOCK","mode":"PAPER_ONLY","real_orders":"FORBIDDEN","ftmo_real":"FORBIDDEN"}
     atr_expansion = (context.get("atr_expansion") is True)
     breakout = (context.get("breakout") is True)
     volume_impulse = (context.get("volume_impulse") is True)
@@ -37,8 +39,10 @@ def detect_early_move(context: dict) -> dict:
     }
 
 def manage_trade(position: dict) -> dict:
-    r_multiple = float(position.get("r_multiple", 0))
-    open_parts = float(position.get("open_parts", 1.0))
+    r_multiple = position.get("r_multiple")
+    open_parts = position.get("open_parts")
+    if any(type(v) not in (int,float) or not isfinite(v) for v in (r_multiple,open_parts)) or open_parts <= 0:
+        return {"actions":["HOLD_OR_WAIT"],"risk_policy":"INVALID_POSITION","mode":"PAPER_ONLY","real_orders":"FORBIDDEN","ftmo_real":"FORBIDDEN"}
     trend_continues = (position.get("trend_continues") is True)
     pullback_valid = (position.get("pullback_valid") is True)
 
