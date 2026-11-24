@@ -73,6 +73,8 @@ def create_signal(row: Dict, source_type: str, idx: int) -> Dict:
     valid_timeframe = str(row.get("timeframe", "")).upper() in {"M1", "M5", "M15", "M30", "H1", "H4", "D1"}
     signal_status = "PAPER_SIGNAL_READY" if valid_timeframe and direction != "NO_DIRECTION" and tier != "OBSERVATION_PAPER" else "PAPER_OBSERVE_ONLY"
 
+    # Aggregate playbooks are not authenticated market events.
+    signal_status = "PAPER_OBSERVE_ONLY"
     return {
         "signal_id": f"P2379_{source_type}_{idx:06d}",
         "symbol": "DE40",
@@ -101,7 +103,7 @@ def create_signal(row: Dict, source_type: str, idx: int) -> Dict:
         "execution_permission": "PAPER_ONLY_FILE_SIGNAL",
         "mt5_real_permission": "DENIED",
         "ftmo_real_permission": "DENIED",
-        "reason": "PROMOTED_CONTEXTUAL_PLAYBOOK_FORWARD_PAPER_CANDIDATE",
+        "reason": "EVENT_LINEAGE_REQUIRED",
         "warning": "THIS_IS_NOT_A_REAL_ORDER",
     }
 
@@ -141,7 +143,7 @@ def run(playbooks_path: Path, contexts_path: Path, sequences_path: Path, outdir:
     }
 
     if not ready:
-        raise ValueError("P2379_NO_READY_PAPER_SIGNALS")
+        raise ValueError("P2379_NO_AUTHENTICATED_EVENT_SIGNALS")
 
     write_csv(files["all_signals"], signals)
     write_csv(files["ready_signals"], ready)
