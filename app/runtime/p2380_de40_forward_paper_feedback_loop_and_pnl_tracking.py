@@ -111,7 +111,7 @@ def direction_mult(direction: str) -> int:
     return 0
 
 
-def simulate_feedback(signal: Dict, candles: List[Dict]) -> Dict:
+def simulate_feedback(signal: Dict, candles: List[Dict], *, execution_costs=None) -> Dict:
     tf = signal.get("timeframe", "")
     direction = direction_mult(signal.get("direction", ""))
     idx = index_for_signal(signal, candles)
@@ -192,9 +192,14 @@ def simulate_feedback(signal: Dict, candles: List[Dict]) -> Dict:
         result_r = max(-1.0, min(target_rr, move))
         result = "TIME_EXIT_WIN" if result_r > 0 else "TIME_EXIT_LOSS" if result_r < 0 else "TIME_EXIT_FLAT"
 
+    net = (apply_execution_costs(result_r, risk, **execution_costs)
+           if execution_costs is not None else None)
     return {
         "paper_result": result,
-        "realized_r": round(result_r, 6),
+        "gross_r": round(result_r, 6),
+        "cost_r": round(net["cost_r"], 6) if net is not None else None,
+        "costs_applied": net is not None,
+        "realized_r": round(net["realized_r"] if net is not None else result_r, 6),
         "mae_r": round(mae / risk, 6),
         "mfe_r": round(mfe / risk, 6),
         "rr_realized": round((mfe / max(mae, 0.00001)), 6),
