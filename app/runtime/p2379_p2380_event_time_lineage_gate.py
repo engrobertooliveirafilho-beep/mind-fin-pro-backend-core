@@ -115,6 +115,12 @@ def resolve_verified_next_bar_entry(
     ok, reason = verify_source_hashes(signal, dataset_bytes, row_bytes)
     if not ok:
         raise ValueError(reason)
+    # The original CSV header occupies line zero. Reject ambiguous multiline
+    # records and require the authenticated row at the declared event position.
+    lines = dataset_bytes.splitlines()
+    event_index = _strict_index(signal["event_index"])
+    if event_index + 1 >= len(lines) or lines[event_index + 1] != row_bytes.rstrip(b"\r\n"):
+        raise ValueError("SOURCE_ROW_EVENT_INDEX_MISMATCH")
     return resolve_next_bar_entry(signal, candles)
 
 
