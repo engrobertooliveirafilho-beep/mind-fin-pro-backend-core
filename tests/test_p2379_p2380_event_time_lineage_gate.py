@@ -158,3 +158,19 @@ def test_p2380_execution_costs(gross,risk,spread,slippage,commission,expected):
     else:
         result = apply_execution_costs(gross,risk,**kwargs)
         assert result["realized_r"] == pytest.approx(expected)
+
+def test_p2380_integrated_costs(monkeypatch):
+    from app.runtime import p2380_de40_forward_paper_feedback_loop_and_pnl_tracking as motor
+    candles = [{"time": str(i), "open": 100.0, "close": 100.0,
+                "high": 100.1, "low": 99.9} for i in range(17)]
+    candles[15].update(high=104, low=98)
+    monkeypatch.setattr(motor, "index_for_signal", lambda *args: 15)
+    monkeypatch.setattr(motor, "atr", lambda *args: 1.0)
+    signal = {"direction": "BUY", "timeframe": "M15", "rr_policy": "RR_3"}
+    result = motor.simulate_feedback(signal, candles, execution_costs={
+        "spread_points": 0.1, "slippage_points_per_side": 0.05,
+        "commission_points_round_trip": 0.1})
+    assert result["gross_r"] == -1.0
+    assert result["cost_r"] == pytest.approx(0.3)
+    assert result["realized_r"] == pytest.approx(-1.3)
+    assert result["costs_applied"] is True
