@@ -170,16 +170,14 @@ def _fitness_slots_enough(slots: dict) -> bool:
     return all(k in slots for k in required)
 
 def _build_initial_diet(slots: dict) -> str:
-    peso = slots.get("peso_kg", 94)
-    proteina_min = int(round(peso * 1.8))
-    proteina_max = int(round(peso * 2.2))
-
+    if not _fitness_slots_enough(slots):
+        raise ValueError("Incomplete fitness profile")
     return (
-        f"Fechado. Com {peso} kg e objetivo de secar, eu começaria com proteína entre "
-        f"{proteina_min} e {proteina_max} g/dia. Como você treina à noite e faz 5 refeições: "
-        "1) café: ovos + fruta; 2) almoço: frango/carne + arroz + feijão + salada; "
-        "3) lanche: iogurte ou whey + fruta; 4) pré-treino: carbo leve + proteína; "
-        "5) jantar: proteína + legumes. Ajustamos quantidades pela evolução semanal."
+        f"Perfil registrado: {slots['peso_kg']} kg, {slots['altura_m']} m, "
+        f"{slots['idade']} anos, objetivo: {slots['objetivo']}, "
+        f"treino: {slots['treino']}, refeições: {slots['refeicoes']}. "
+        "Antes de definir quantidades e cardápio, confirme restrições alimentares "
+        "e necessidades individuais."
     )
 
 def fitness_slot_filling_response(domain: str, text: str, state: dict) -> str | None:
@@ -193,7 +191,7 @@ def fitness_slot_filling_response(domain: str, text: str, state: dict) -> str | 
         state["fitness_slots"] = slots
 
     if state.get("goal") == "coletar dados para dieta personalizada" and _fitness_slots_enough(slots):
-        state["goal"] = "dieta inicial gerada"
+        state["goal"] = "perfil alimentar coletado"
         return _build_initial_diet(slots)
 
     return None
