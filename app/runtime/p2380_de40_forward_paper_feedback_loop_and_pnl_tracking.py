@@ -206,6 +206,21 @@ def simulate_feedback(signal: Dict, candles: List[Dict]) -> Dict:
     }
 
 
+def apply_execution_costs(gross_r: float, risk_points: float, *,
+                          spread_points: float, slippage_points_per_side: float,
+                          commission_points_round_trip: float) -> Dict:
+    """Convert explicit round-trip PAPER execution costs into risk units."""
+    import math
+    values = (gross_r, risk_points, spread_points, slippage_points_per_side,
+              commission_points_round_trip)
+    if any(isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v) for v in values):
+        raise ValueError("P2380_COST_INPUT_INVALID")
+    if risk_points <= 0 or min(values[2:]) < 0:
+        raise ValueError("P2380_COST_INPUT_INVALID")
+    cost_r = (spread_points + 2 * slippage_points_per_side + commission_points_round_trip) / risk_points
+    return {"gross_r": gross_r, "cost_r": cost_r, "realized_r": gross_r - cost_r}
+
+
 def max_dd(results: List[float]) -> float:
     eq = 0.0
     peak = 0.0
