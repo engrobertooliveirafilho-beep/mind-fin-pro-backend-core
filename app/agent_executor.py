@@ -1,3 +1,5 @@
+import json
+from app.mind.session_persist import add_message, get_history
 from app.tools.calc import tool_calc
 from app.agent.schemas import AgentPlan
 from app.p7_adapters.oversight_contracts import OversightInput
@@ -23,4 +25,5 @@ def execute_plan(user, session_id, plan: AgentPlan, goal, *, oversight: Oversigh
         if not out['ok']:
             raise ValueError('Arithmetic step failed')
         results.append({'tool': step.tool, 'input': step.input, 'output': out})
-    return {'goal': goal, 'plan': validated.model_dump(), 'results': results, 'history': [], 'status': 'COMPLETED_OFFLINE'}
+    add_message(user['id'], session_id, 'tool', json.dumps({'goal': goal, 'results': results}, ensure_ascii=False, allow_nan=False))
+    return {'goal': goal, 'plan': validated.model_dump(), 'results': results, 'history': get_history(user['id'], session_id), 'status': 'COMPLETED_OFFLINE'}
