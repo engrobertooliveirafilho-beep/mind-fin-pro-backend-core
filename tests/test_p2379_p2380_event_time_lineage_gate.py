@@ -139,3 +139,22 @@ def test_p2380_intrabar_conservative(monkeypatch, direction, opening, high, low,
     result = motor.simulate_feedback({"direction": direction, "timeframe": "M15",
                                       "rr_policy": policy}, candles)
     assert result["realized_r"] == expected
+
+@pytest.mark.parametrize("gross,risk,spread,slippage,commission,expected", [
+    (2, 10, 1, 0.5, 1, 1.7),
+    (-1, 10, 1, 0.5, 1, -1.3),
+    (0, 10, 0, 0, 0, 0),
+    (1, 0, 1, 0, 0, None),
+    (1, 10, -1, 0, 0, None),
+    (1, 10, float("nan"), 0, 0, None),
+])
+def test_p2380_execution_costs(gross,risk,spread,slippage,commission,expected):
+    from app.runtime.p2380_de40_forward_paper_feedback_loop_and_pnl_tracking import apply_execution_costs
+    kwargs = dict(spread_points=spread, slippage_points_per_side=slippage,
+                  commission_points_round_trip=commission)
+    if expected is None:
+        with pytest.raises(ValueError, match="P2380_COST_INPUT_INVALID"):
+            apply_execution_costs(gross,risk,**kwargs)
+    else:
+        result = apply_execution_costs(gross,risk,**kwargs)
+        assert result["realized_r"] == pytest.approx(expected)
