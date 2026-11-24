@@ -66,7 +66,9 @@ def _norm(text):
     return str(text or "").strip().lower()
 
 def _sid(sender_id):
-    return str(sender_id or "default")
+    if not isinstance(sender_id, str) or not sender_id.strip():
+        raise ValueError("Explicit sender identity required")
+    return sender_id.strip()
 
 def _state(sender_id):
     sid = _sid(sender_id)
