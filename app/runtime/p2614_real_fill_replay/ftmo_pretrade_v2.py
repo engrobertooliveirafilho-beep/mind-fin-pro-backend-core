@@ -1,7 +1,7 @@
 """PAPER-only pre-trade guard. No broker connectivity. Conservative configurable rules."""
 from dataclasses import dataclass
 from decimal import Decimal
-from ftmo_paper_guard import D, PaperAccount
+from .ftmo_paper_guard import D, PaperAccount
 
 @dataclass(frozen=True)
 class OrderIntent:
