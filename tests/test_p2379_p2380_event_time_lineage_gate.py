@@ -303,3 +303,25 @@ def test_p2379_aggregate_cannot_emit_ready(source_type):
     assert signal["reason"] == "EVENT_LINEAGE_REQUIRED"
     assert signal["real_orders"] == "FORBIDDEN"
     assert signal["ftmo_real"] == "FORBIDDEN"
+
+
+def test_p2376_source_lineage(tmp_path, monkeypatch):
+    import hashlib
+    import csv
+    from app.runtime import p2376_de40_big_player_context_xray_engine as motor
+    source = tmp_path / "DE40_M15_original.csv"
+    raw = b"time,open,high,low,close\n" + b"2026-01-01,100,101,99,100\n" * 146
+    source.write_bytes(raw)
+    monkeypatch.setattr(motor, "dataset_for_tf", lambda root, tf: source if tf == "M15" else None)
+    monkeypatch.setattr(motor, "classify_event", lambda candles, closes, i: {"event_index": i, "time": candles[i]["time"]})
+    monkeypatch.setattr(motor, "context_window", lambda *a, **k: {"post_followthrough":"CONTINUATION","post_mfe_atr":1,"post_mae_atr":1})
+    out = tmp_path / "output"
+    result = motor.run(tmp_path, out)
+    with (out / "de40_big_player_footprint_events.csv").open(newline="") as f:
+        events = list(csv.DictReader(f))
+    digest = hashlib.sha256(raw).hexdigest()
+    assert len(events) == 1
+    assert events[0]["source_dataset_sha256"] == digest
+    assert events[0]["source_row_sha256"] == hashlib.sha256(raw.splitlines()[121]).hexdigest()
+    assert events[0]["event_id"] == hashlib.sha256(f"{digest}:120".encode("ascii")).hexdigest()
+    assert result["status"] == "SOURCE_LINEAGE_RECORDED"
