@@ -105,5 +105,16 @@
     "exit_code": 0,
     "case": "test_p2380_verified_executor",
     "independent_log_file_verified": false
+  },
+  "original_m15_recovery": {
+    "drive_id": "1Umi9zgMhQ_EZKuvpS_Y3oNObs63wSVZo",
+    "bytes": 7551385,
+    "sha256": "e17ba75cfd508ecddd8b3f01dd313d5b65b51498462aa6faec43cee0eba2cec0",
+    "matches_R499_ledger": true,
+    "rows": 100000,
+    "non_increasing_timestamps": 0,
+    "delimiter": ";",
+    "timezone_verified": false,
+    "market_provenance_independently_verified": false
   }
 }
