@@ -86,10 +86,20 @@ def atr(candles: List[Dict], i: int, p: int = 14):
 
 
 def index_for_signal(signal: Dict, candles: List[Dict]) -> int:
-    # P2379 emits template signals, not live timestamp-bound orders.
-    # Use deterministic replay anchor from profile/timeframe to evaluate PAPER-only behavior.
-    base = abs(hash(signal.get("signal_id", ""))) % max(1, len(candles) - 300)
-    return max(120, min(base, len(candles) - 100))
+    """Require a timestamp-bound event; never synthesize a replay anchor."""
+    event_time = str(signal.get("event_time", signal.get("time", ""))).strip()
+    event_index = signal.get("event_index")
+    if not event_time or event_index is None or str(event_index).strip() == "":
+        raise ValueError("UNBOUND_SIGNAL: event_time and event_index are required")
+    try:
+        idx = int(event_index)
+    except (TypeError, ValueError) as exc:
+        raise ValueError("INVALID_EVENT_INDEX") from exc
+    if idx < 0 or idx >= len(candles):
+        raise ValueError("EVENT_INDEX_OUT_OF_RANGE")
+    if candles[idx].get("time") != event_time:
+        raise ValueError("EVENT_TIME_INDEX_MISMATCH")
+    return idx
 
 
 def hold_for_timeframe(tf: str) -> int:
@@ -132,7 +142,7 @@ def simulate_feedback(signal: Dict, candles: List[Dict]) -> Dict:
 
     a = atr(candles, idx, 14)
     if not a or a <= 0:
-        a = max(candles[idx]["close"] * 0.0007, 1)
+        raise ValueError("INVALID_ATR_NO_SIMULATION")
 
     entry = candles[idx]["close"]
     risk = max(a, entry * 0.0007)
@@ -290,8 +300,21 @@ def run(signal_bus: Path, dataset_root: Path, outdir: Path) -> Dict:
             feedback_rows.append(row)
             continue
 
-        result = simulate_feedback(sig, candles)
         row = dict(sig)
+        try:
+            result = simulate_feedback(sig, candles)
+        except ValueError as exc:
+            row.update({
+                "paper_result": "NOT_EVALUATED",
+                "realized_r": "",
+                "mae_r": "",
+                "mfe_r": "",
+                "rr_realized": "",
+                "feedback_status": "BLOCKED_UNBOUND_OR_INVALID_SIGNAL",
+                "block_reason": str(exc),
+            })
+            feedback_rows.append(row)
+            continue
         row.update(result)
         row.update({
             "feedback_status": "EVALUATED",
@@ -369,9 +392,10 @@ def run(signal_bus: Path, dataset_root: Path, outdir: Path) -> Dict:
             "live_execution": "FORBIDDEN",
             "mt5_real_order": "FORBIDDEN",
         },
-        "status": "CERTIFIED",
-        "certification": "P2380_FORWARD_PAPER_FEEDBACK_LOOP_CERTIFIED",
-        "next": "P2381_DE40_LOSS_LESSON_AUTO_PATCH_AND_MEMORY_GRAPH",
+        "status": "BLOCKED_UNTIL_TIMESTAMP_BOUND_SIGNALS",
+        "certification": "NOT_CERTIFIED",
+        "certification_reason": "Synthetic hash-based replay anchor removed; P2379 must emit event_time and event_index before feedback can be evaluated.",
+        "next": "FIX_P2379_EVENT_BOUND_SIGNAL_CONTRACT_THEN_RUN_FORWARD_PAPER",
         "outputs": {k: str(v) for k, v in files.items()},
         "warning": "PAPER_FEEDBACK_ONLY_NO_REAL_ORDER_PERMISSION",
     }
