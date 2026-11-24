@@ -1,9 +1,13 @@
 from __future__ import annotations
+from math import isfinite
 
 def detect_regime(context: dict) -> dict:
-    atr = float(context.get("atr", 0))
+    if (any(type(context.get(k)) not in (int,float) or not isfinite(context[k]) for k in ("atr","adx","spread"))
+            or context["atr"] <= 0 or not 0 <= context["adx"] <= 100 or context["spread"] < 0
+            or context.get("timeframe") not in ("M1","M5","M15","M30","H1","H4","D1")):
+        return {"regime":"UNKNOWN","volatility":"UNKNOWN","spread_status":"INVALID","approved_styles":[],"mode":"PAPER_ONLY","real_orders":"FORBIDDEN","ftmo_real":"FORBIDDEN"}
+    atr = float(context["atr"])
     adx = float(context.get("adx", 0))
-    rsi = float(context.get("rsi", 50))
     spread = float(context.get("spread", 0))
     session = str(context.get("session", "UNKNOWN")).upper()
     timeframe = str(context.get("timeframe", "M1")).upper()
@@ -47,7 +51,9 @@ def approve_strategy_for_regime(strategy: str, context: dict) -> dict:
     allowed = False
     reason = "REGIME_NOT_MATCHED"
 
-    if "TREND" in strategy and r["regime"] == "TRENDING":
+    if r["spread_status"] != "SPREAD_OK":
+        reason = "SPREAD_BLOCK"
+    elif "TREND" in strategy and r["regime"] == "TRENDING":
         allowed = True
         reason = "TREND_STRATEGY_MATCHED_TRENDING_REGIME"
     elif "MEAN_REVERSION" in strategy and r["regime"] == "RANGING":
