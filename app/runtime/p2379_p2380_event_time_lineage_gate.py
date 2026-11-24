@@ -220,7 +220,7 @@ def validate_paper_bus_csv(ready_csv: bytes, bus_csv: bytes) -> Tuple[bool, str]
 __all__ = ["validate_event_bound_signal", "verify_source_hashes", "resolve_next_bar_entry", "resolve_verified_next_bar_entry", "validate_replay_promotion", "verify_paper_bus_coverage", "validate_paper_bus_csv"]
 
 def parse_verified_replay_source(signal: Dict[str, Any], dataset_bytes: bytes,
-                                 *, trusted_dataset_sha256: str) -> Tuple[List[Dict[str, Any]], int]:
+                                 *, trusted_dataset_sha256: str, source_timezone=None) -> Tuple[List[Dict[str, Any]], int]:
     """Derive replay candles exclusively from a separately trusted CSV digest."""
     import csv
     import math
@@ -234,19 +234,28 @@ def parse_verified_replay_source(signal: Dict[str, Any], dataset_bytes: bytes,
     lines = dataset_bytes.splitlines()
     required = {"symbol", "timeframe", "time", "open", "high", "low", "close"}
     try:
-        fields = next(csv.reader([lines[0].decode("utf-8-sig")], strict=True))
+        header = lines[0].decode("utf-8-sig")
+        delimiter = ";" if ";" in header else ","
+        fields = next(csv.reader([header], delimiter=delimiter, strict=True))
         if not required.issubset(fields) or len(set(fields)) != len(fields):
             raise ValueError("REPLAY_CSV_HEADER_INVALID")
         candles = []
         previous = None
         for line in lines[1:]:
-            values = next(csv.reader([line.decode("utf-8")], strict=True))
+            values = next(csv.reader([line.decode("utf-8")], delimiter=delimiter, strict=True))
             if len(values) != len(fields):
                 raise ValueError("REPLAY_CSV_ROW_INVALID")
             bar = dict(zip(fields, values))
             if bar["symbol"] != signal["symbol"] or bar["timeframe"].upper() != signal["timeframe"].upper():
                 raise ValueError("REPLAY_CANDLE_IDENTITY_MISMATCH")
-            stamp = _timestamp(bar["time"])
+            if delimiter == ";":
+                from datetime import datetime, timezone
+                if not isinstance(source_timezone, timezone):
+                    raise ValueError("REPLAY_SOURCE_FIXED_OFFSET_REQUIRED")
+                stamp = datetime.strptime(bar["time"], "%Y.%m.%d %H:%M:%S").replace(tzinfo=source_timezone)
+                bar["time"] = stamp.isoformat()
+            else:
+                stamp = _timestamp(bar["time"])
             if stamp.tzinfo is None or (previous is not None and stamp <= previous):
                 raise ValueError("REPLAY_CHRONOLOGY_INVALID")
             previous = stamp
