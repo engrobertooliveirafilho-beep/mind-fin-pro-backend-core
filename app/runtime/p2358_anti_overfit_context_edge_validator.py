@@ -1,6 +1,17 @@
 from __future__ import annotations
+from math import isfinite
 
 def anti_overfit_validate(edge: dict) -> dict:
+    counts = ("symbols_tested", "years_tested", "regimes_tested")
+    metrics = ("out_of_sample_profit_factor", "out_of_sample_payoff", "out_of_sample_expectancy", "max_drawdown", "parameter_sensitivity")
+    if (any(type(edge.get(k)) is not int or edge[k] < 0 for k in counts)
+            or any(type(edge.get(k)) not in (int, float) or not isfinite(edge[k]) for k in metrics)
+            or edge["out_of_sample_profit_factor"] < 0
+            or not 0 <= edge["max_drawdown"] <= 100
+            or not 0 <= edge["parameter_sensitivity"] <= 100):
+        return {"edge_id": edge.get("edge_id", "UNKNOWN"), "context_edge": edge.get("context_edge", "UNKNOWN"),
+                "anti_overfit_passed": False, "decision": "REJECT_OR_KEEP_IN_OBSERVATION",
+                "failures": ["INVALID_METRICS"], "mode": "PAPER_ONLY", "real_orders": "FORBIDDEN", "ftmo_real": "FORBIDDEN"}
     symbols_tested = int(edge.get("symbols_tested", 0))
     years_tested = int(edge.get("years_tested", 0))
     regimes_tested = int(edge.get("regimes_tested", 0))
