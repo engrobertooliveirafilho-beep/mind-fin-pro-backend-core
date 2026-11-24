@@ -107,3 +107,18 @@ def test_p2380_positive_feedback_cannot_promote():
     assert len(result) == 1
     assert result[0]["profit_factor"] == 14.0
     assert result[0]["feedback_decision"] == "OBSERVE_AFTER_FEEDBACK"
+
+def test_p2380_atr_precedes_entry(monkeypatch):
+    from app.runtime import p2380_de40_forward_paper_feedback_loop_and_pnl_tracking as motor
+    candles = [{"time": str(i), "open": 100.0, "close": 100.0,
+                "high": 100.1, "low": 99.9} for i in range(20)]
+    candles[15]["close"] = 100.2
+    monkeypatch.setattr(motor, "index_for_signal", lambda *args: 15)
+    calls = []
+    def prior_atr(bars, index, period):
+        calls.append(index)
+        return 1.0
+    monkeypatch.setattr(motor, "atr", prior_atr)
+    result = motor.simulate_feedback({"direction": "BUY", "timeframe": "M15"}, candles)
+    assert calls == [14]
+    assert result["entry_price"] == 100.0
