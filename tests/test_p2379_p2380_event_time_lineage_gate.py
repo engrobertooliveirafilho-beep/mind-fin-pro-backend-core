@@ -98,3 +98,12 @@ def test_authenticated_row_position(row_index):
     else:
         with pytest.raises(ValueError, match="SOURCE_ROW_EVENT_INDEX_MISMATCH"):
             resolve_verified_next_bar_entry(signal, candles, dataset, row)
+
+def test_p2380_positive_feedback_cannot_promote():
+    from app.runtime.p2380_de40_forward_paper_feedback_loop_and_pnl_tracking import aggregate
+    rows = [{"family": "fixture", "realized_r": 2.0 if i < 35 else -1.0}
+            for i in range(40)]
+    result = aggregate(rows, ["family"])
+    assert len(result) == 1
+    assert result[0]["profit_factor"] == 14.0
+    assert result[0]["feedback_decision"] == "OBSERVE_AFTER_FEEDBACK"
