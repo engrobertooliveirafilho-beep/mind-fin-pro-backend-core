@@ -5,7 +5,7 @@ from app.p7_adapters.oversight_contracts import OversightInput
 
 def run(expressions, **changes):
     payload = OversightInput(**({'candidate_action':'plan','reasoning_summary':'audit','execution_mode':'offline_analysis','confidence':.95} | changes))
-    return calculate_plan({'id':'audit'}, 'session', 'audit', expressions, oversight=payload)
+    return calculate_plan({'id':'audit'}, 'session', 'audit', expressions, oversight=payload, execution_approved=True)
 
 
 def test_chain():
@@ -25,3 +25,9 @@ def test_block(changes):
 def test_invalid(expressions):
     with pytest.raises(ValueError):
         run(expressions)
+
+
+def test_missing_execution_approval():
+    payload = OversightInput(candidate_action='plan', reasoning_summary='audit', execution_mode='offline_analysis', confidence=.95)
+    with pytest.raises(PermissionError):
+        calculate_plan({'id':'audit'}, 'session', 'audit', ['2+3'], oversight=payload)
