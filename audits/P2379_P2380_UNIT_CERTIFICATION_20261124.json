@@ -329,5 +329,18 @@
     "mismatches": 0,
     "scope": "Indicator reproducibility at candle close only; does not certify event selection, execution time, timezone, lifecycle or router regressions",
     "router_regressions_executed": false
+  },
+  "p2376_prior_window_extrema_volume": {
+    "date": "2026-11-24",
+    "method": "pandas rolling 30 high/low shifted one candle; current volume divided by shifted rolling 50 volume mean; atol 0.0000011 rtol 0",
+    "matches": {
+      "recent_high": 46131,
+      "recent_low": 46131,
+      "tick_volume_ratio_50": 46131
+    },
+    "checks": 138393,
+    "mismatches": 0,
+    "scope": "Seven original P2363C timeframes; feature reproducibility at event close, not event selection or router certification",
+    "router_regressions_executed": false
   }
 }
