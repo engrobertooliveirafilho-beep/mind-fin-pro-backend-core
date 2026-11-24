@@ -39,6 +39,25 @@ def certify_dataset(audit):
         "certified_at":datetime.now(timezone.utc).isoformat()
     }
 
+def audit_file(path, source, asset, timeframe):
+    from ..p10_real_data_ingestion.engine import register_file
+    record = register_file(path, source, asset, timeframe)
+    audit = record["audit"]
+    result = register_certification(record["dataset_id"], audit)
+    result["file_sha256"] = audit["sha256"]
+    result["file_audit_executed"] = audit.get("validation_executed") is True
+    result["quality_verified"] = (
+        result["file_audit_executed"]
+        and audit.get("quality_pass") is True
+        and result["certification"]["reported_checks_pass"] is True
+    )
+    result["provenance_verified"] = False
+    result["certification"]["status"] = (
+        "QUALITY_VERIFIED_PROVENANCE_PENDING" if result["quality_verified"]
+        else "QUALITY_REJECTED"
+    )
+    return result
+
 def register_certification(dataset_id,audit):
     cert=certify_dataset(audit)
     return {
