@@ -3,6 +3,15 @@ import numpy as np
 import argparse, json, hashlib
 from pathlib import Path
 
+def nonoverlap(frame, horizon):
+    selected=[]
+    end=-1
+    for i in frame.index:
+        if i>=end:
+            selected.append(i)
+            end=i+horizon
+    return frame.loc[selected]
+
 def rank_contexts(df):
     df = df.copy().reset_index(drop=True)
     df['time'] = pd.to_datetime(df.time, errors='raise')
@@ -26,13 +35,15 @@ def rank_contexts(df):
     valid=ma200.notna() & vol.notna() & ((df.time.shift(-horizon)-df.time)==pd.Timedelta(minutes=60))
     train=df.loc[valid & (df.index<cut-horizon)]
     test=df.loc[valid & (df.index>=cut) & (df.index<len(df)-horizon-1)]
+    train=nonoverlap(train,horizon)
+    test=nonoverlap(test,horizon)
     rows=[]
     for ctx,g in train.groupby('context'):
         if len(g)<100: continue
         side=1 if g.move.mean()>=0 else -1
         t=test.loc[test.context==ctx,'move']*side
         rows.append(dict(context=ctx,side='BUY' if side==1 else 'SELL',train_samples=len(g),train_gross_expectancy=float((g.move*side).mean()),test_samples=len(t),test_gross_expectancy=float(t.mean()) if len(t) else None,decision='RESEARCH_ONLY'))
-    return rows,dict(train_end=str(df.time.iloc[cut-1]),test_start=str(df.time.iloc[cut]),train_samples=len(train),test_samples=len(test),contexts=len(rows),promoted=0,mode='PAPER_ONLY',costs_verified=False,timezone_verified=False,overlapping_labels=True)
+    return rows,dict(train_end=str(df.time.iloc[cut-1]),test_start=str(df.time.iloc[cut]),train_samples=len(train),test_samples=len(test),contexts=len(rows),promoted=0,mode='PAPER_ONLY',costs_verified=False,timezone_verified=False,overlapping_labels=False)
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('dataset',type=Path);p.add_argument('output',type=Path);a=p.parse_args()
