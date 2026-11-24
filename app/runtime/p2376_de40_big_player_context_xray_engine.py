@@ -224,7 +224,13 @@ def context_window(candles, event, before=20, after=20) -> Dict:
         mae = 0
         follow = "UNKNOWN"
 
-    a = float(event["atr14"]) if event["atr14"] else 1.0
+    # Excursions are nonnegative relative to the event close.
+    mfe = max(0.0, mfe)
+    mae = max(0.0, mae)
+    a = float(event["atr14"])
+    if not a > 0:
+        raise ValueError("Invalid event ATR")
+    efficiency = mfe / (mfe + mae) if mfe + mae > 0 else None
 
     return {
         "event_index": i,
@@ -236,7 +242,9 @@ def context_window(candles, event, before=20, after=20) -> Dict:
         "post_mfe_atr": round(mfe / a, 6),
         "post_mae_atr": round(mae / a, 6),
         "post_followthrough": follow,
-        "post_efficiency": round((mfe / max(mae, 0.00001)), 6),
+        "post_efficiency": round(efficiency, 6) if efficiency is not None else None,
+        "post_efficiency_definition": "MFE_SHARE_OF_TOTAL_EXCURSION_V1",
+        "outcome_use": "RETROSPECTIVE_ONLY",
         "reverse_engineering_label": "WHAT_HAPPENED_BEFORE_AND_AFTER_INSTITUTIONAL_FOOTPRINT",
     }
 
