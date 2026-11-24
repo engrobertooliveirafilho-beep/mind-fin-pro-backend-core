@@ -21,6 +21,7 @@ def replay_portfolio(name, edges, candles, features, risk_pct=0.01, initial_capi
         raise ValueError("NONMONOTONIC_CANDLE_TIME")
     ids=[e["edge_id"] for e in edges]
     if len(set(ids))!=len(ids): raise ValueError("DUPLICATE_EDGE_ID")
+    insolvent=False
     capital=initial_capital
     peak=capital
     max_dd=0.0
@@ -38,6 +39,7 @@ def replay_portfolio(name, edges, candles, features, risk_pct=0.01, initial_capi
             before=capital
             pnl=fill["reserved_risk"]*fill["r"]
             capital=capital+pnl
+            insolvent=insolvent or capital<=0
             peak=max(peak,capital)
             dd=(peak-capital)/peak*100
             max_dd=max(max_dd,dd)
@@ -49,7 +51,7 @@ def replay_portfolio(name, edges, candles, features, risk_pct=0.01, initial_capi
                 cooldown[fill["edge_id"]]=3
         pending=[f for f in pending if f["exit_i"]>i]
         for e in edges:
-            if capital<=0: break
+            if insolvent: break
             eid=e["edge_id"]
             if eid in occupied: continue
             if cooldown[eid]>0:
