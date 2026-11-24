@@ -46,17 +46,17 @@ def detect_regime(context: dict) -> dict:
 
 def approve_strategy_for_regime(strategy: str, context: dict) -> dict:
     r = detect_regime(context)
-    strategy = strategy.upper()
+    strategy = strategy.strip().upper() if isinstance(strategy, str) else ""
 
     allowed = False
     reason = "REGIME_NOT_MATCHED"
 
     if r["spread_status"] != "SPREAD_OK":
         reason = "SPREAD_BLOCK"
-    elif "TREND" in strategy and r["regime"] == "TRENDING":
+    elif strategy in {"TREND", "TREND_FOLLOWING"} and r["regime"] == "TRENDING":
         allowed = True
         reason = "TREND_STRATEGY_MATCHED_TRENDING_REGIME"
-    elif "MEAN_REVERSION" in strategy and r["regime"] == "RANGING":
+    elif strategy == "MEAN_REVERSION" and r["regime"] == "RANGING":
         allowed = True
         reason = "MEAN_REVERSION_MATCHED_RANGING_REGIME"
     elif strategy in {"SCALP", "DAY_TRADE", "SWING_TRADE"} and strategy in r["approved_styles"]:
