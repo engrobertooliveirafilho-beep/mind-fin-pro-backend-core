@@ -1,5 +1,8 @@
 class ExecutionDispatcher:
     def dispatch(self, plan):
-        if plan["status"] == "PLANNED":
-            return "EXECUTING_NOW"
-        return "QUEUED"
+        """Classify plans without claiming execution or authorizing side effects."""
+        if not isinstance(plan, dict):
+            raise ValueError('Invalid plan')
+        if plan.get('status') == 'PLANNED':
+            return 'AWAITING_AUTHORIZATION'
+        return 'QUEUED'
