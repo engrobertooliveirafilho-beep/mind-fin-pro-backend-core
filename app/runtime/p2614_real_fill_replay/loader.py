@@ -21,14 +21,24 @@ def to_float(v):
 
 def load_ohlc(path):
     path=pathlib.Path(path)
-    sample=path.read_text(encoding="utf-8-sig",errors="strict")[:8192]
-    delim=";" if sample.count(";") > sample.count(",") else ","
+    with path.open(encoding="utf-8-sig",errors="strict",newline="") as header_file:
+        header=header_file.readline()
+    if not header.strip():
+        raise ValueError("EMPTY_OHLC_FILE")
+    delim=max((",", ";", "\t"), key=lambda d: len(next(csv.reader([header], delimiter=d))))
     candles=[]
     with open(path,encoding="utf-8-sig",errors="strict") as f:
-        reader=csv.DictReader(f,delimiter=delim)
+        reader=csv.DictReader(f,delimiter=delim,strict=True)
+        headers=[nf(k) for k in (reader.fieldnames or [])]
+        if len(headers)!=len(set(headers)):
+            raise ValueError("DUPLICATE_OHLC_HEADER")
         for r in reader:
-            low={nf(k):v for k,v in r.items() if k is not None}
+            if None in r or any(v is None for v in r.values()):
+                raise ValueError(f"INVALID_OHLC_ROW:{reader.line_num}")
+            low={nf(k):v for k,v in r.items()}
             t=low.get("time") or low.get("datetime") or low.get("date") or low.get("timestamp") or low.get("data")
+            if low.get("date") and low.get("time") and ":" in low["time"] and len(low["time"].strip())==8:
+                t=low["date"].strip()+" "+low["time"].strip()
             dt=parse_dt(t)
             if not dt:
                 raise ValueError(f"INVALID_OHLC_TIMESTAMP:{reader.line_num}")
@@ -45,6 +55,8 @@ def load_ohlc(path):
                 candles.append({"time":dt,"open":o,"high":h,"low":l,"close":c})
             else:
                 raise ValueError(f"INVALID_OHLC_RANGE:{reader.line_num}")
+    if not candles:
+        raise ValueError("EMPTY_OHLC_FILE")
     return candles
 
 def find_best_ger40_ohlc(root, evid):
