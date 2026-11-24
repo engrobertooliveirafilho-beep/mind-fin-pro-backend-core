@@ -12,9 +12,16 @@ def inspect_csv(path):
     required={'time','open','high','low','close'}
     missing=sorted(required-set(cols))
     schema=not missing and len(cols)==len(set(cols))
-    count=bad=duplicates=0; ordered=True; previous=None; seen=set(); closes=set()
+    count=bad=duplicates=missing_rows=invalid_volume=0; ordered=True; previous=None; seen=set(); closes=set()
+    volume_cols=[k for k in ('volume','tickvol','tick_volume','real_volume','vol') if k in cols]
     for row in reader:
         count+=1
+        if len(row)!=len(cols) or any(not v.strip() for v in row): missing_rows+=1
+        try:
+            if not volume_cols or len(row)!=len(cols): raise ValueError('volume missing')
+            values=[float(row[cols.index(k)]) for k in volume_cols]
+            if not all(math.isfinite(v) and v>=0 for v in values): raise ValueError('volume invalid')
+        except (ValueError,TypeError,OverflowError): invalid_volume+=1
         try:
             if not schema or len(row)!=len(cols): raise ValueError('schema')
             d=dict(zip(cols,row)); stamp=(d.get('date','')+' '+d['time']).strip().replace('.','-',2) if 'date' in d else d['time']
@@ -26,4 +33,4 @@ def inspect_csv(path):
             if not all(math.isfinite(v) and v>0 for v in (o,h,l,c)) or not l<=min(o,c)<=max(o,c)<=h: raise ValueError('OHLC')
             closes.add(c)
         except (ValueError,TypeError,OverflowError): bad+=1
-    return dict(path=str(path),sha256=hashlib.sha256(raw).hexdigest(),rows=count,columns=sorted(cols),missing_required_columns=missing,schema_ok=schema,duplicate_rows=duplicates,timestamp_order=ordered,invalid_rows=bad,unique_closes=len(closes),quality_pass=schema and count>=200 and bad==duplicates==0 and ordered and len(closes)>1,certified=False,validation_executed=True)
+    return dict(path=str(path),sha256=hashlib.sha256(raw).hexdigest(),rows=count,columns=sorted(cols),missing_required_columns=missing,schema_ok=schema,duplicate_rows=duplicates,timestamp_order=ordered,invalid_rows=bad,unique_closes=len(closes),duplicate_ratio=duplicates/count if count else 1.0,missing_ratio=missing_rows/count if count else 1.0,ohlcv_consistency=schema and count>0 and bad==0 and invalid_volume==0,volume_validity=count>0 and invalid_volume==0,quality_pass=schema and count>=200 and bad==duplicates==0 and ordered and missing_rows==invalid_volume==0 and len(closes)>=20,certified=False,validation_executed=True)
