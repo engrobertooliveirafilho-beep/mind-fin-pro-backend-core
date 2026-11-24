@@ -3,6 +3,9 @@ from __future__ import annotations
 from app.runtime.p2342_multi_timeframe_revalidation import evaluate
 
 def post_loss_gate(symbol: str, side: str, last_loss: bool, context: dict | None = None) -> dict:
+    if (type(last_loss) is not bool or not isinstance(symbol, str) or not symbol.strip()
+            or side not in ('BUY', 'SELL') or (context is not None and not isinstance(context, dict))):
+        return {'status': 'BLOCKED', 'reason': 'INVALID_GOVERNANCE_INPUT', 'mode': 'PAPER_ONLY', 'real_orders': 'FORBIDDEN', 'ftmo_real': 'FORBIDDEN'}
     context = context or {}
 
     if not last_loss:
