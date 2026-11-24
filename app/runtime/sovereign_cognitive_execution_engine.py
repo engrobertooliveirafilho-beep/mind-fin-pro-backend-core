@@ -1,4 +1,5 @@
 from __future__ import annotations
+import re
 
 def _norm(text: str) -> str:
     return str(text or "").strip().lower()
@@ -30,6 +31,14 @@ def classify_cognitive_frame(text: str, state: dict | None = None) -> dict:
         frame["reason"].append("system_capability_question")
         return frame
 
+    # correction/meta
+    if any(x in t for x in ["errou", "não entendi", "nao entendi", "frase pronta", "repete", "não é isso", "nao e isso"]):
+        frame["intent"] = "correction"
+        frame["target"] = "eldora_system"
+        frame["phase"] = "repair"
+        frame["reason"].append("user_correction")
+        return frame
+
     # factual realtime
     if any(x in t for x in ["hoje", "agora", "último", "ultimo", "placar", "jogo", "escalação", "escalacao", "notícia", "noticia"]):
         frame["needs_realtime"] = True
@@ -40,14 +49,6 @@ def classify_cognitive_frame(text: str, state: dict | None = None) -> dict:
             frame["target"] = "world"
             frame["reason"].append("realtime_sports")
             return frame
-
-    # correction/meta
-    if any(x in t for x in ["errou", "não entendi", "nao entendi", "frase pronta", "repete", "não é isso", "nao e isso"]):
-        frame["intent"] = "correction"
-        frame["target"] = "eldora_system"
-        frame["phase"] = "repair"
-        frame["reason"].append("user_correction")
-        return frame
 
     # fitness goal
     if any(x in t for x in ["emagrecer", "secar", "dieta", "proteína", "proteina", "suplemento", "fisiculturista", "treino"]):
@@ -89,7 +90,7 @@ def classify_cognitive_frame(text: str, state: dict | None = None) -> dict:
         frame["reason"].append("followup_from_state")
         return frame
 
-    if any(x in t for x in ["oi", "olá", "ola", "tudo bem"]):
+    if re.search(r"\b(?:oi|olá|ola|tudo bem)\b", t):
         frame["intent"] = "social"
         frame["target"] = "user"
         frame["phase"] = "social"
