@@ -97,11 +97,18 @@ class HierarchicalPlanner:
         completed: Set[str] = set(completed_ids)
         by_id = plan.by_id()
 
-        # marca como done os steps concluídos
+        # Validate the entire batch before mutating state.
         for cid in completed:
             step = by_id.get(cid)
-            if step:
-                step.done = True
+            if step is None or step.level == 0:
+                raise ValueError("Unknown or non-executable completion")
+            parent = by_id.get(step.parent_id)
+            if parent is None:
+                raise ValueError("Missing dependency")
+            if parent.level != 0 and not parent.done and parent.id not in completed:
+                raise ValueError("Uncompleted dependency")
+        for cid in completed:
+            by_id[cid].done = True
 
         candidates: List[SubTaskPlan] = []
 
