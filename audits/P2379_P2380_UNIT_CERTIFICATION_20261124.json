@@ -215,5 +215,61 @@
     "e2e_certified": false,
     "paper_only": true,
     "real_orders": "FORBIDDEN"
+  },
+  "p2376_remaining_candle_reconciliation": {
+    "date": "2026-11-24",
+    "source_folder": "1OfjaefbJQpun8E8R7Mphav4YayizvjWY",
+    "event_sha256": "019d6192232bc537c39b0da28d7677bad7c83ac705d63fcce6eee1760f0adfbd",
+    "method": "Python CSV zero-based event_index, exact timestamp, symbol, timeframe, numeric OHLC and tick_volume equality; strict candle timestamp order",
+    "datasets": {
+      "M1": [
+        "1oMdQiTPkQCET09KE2vCv6SDShA0cqWEM",
+        "8bcbc7422ddfa3f089d1e6d6ad775de77e988552216c430ceb8f0da11efc1a40",
+        100000,
+        11246
+      ],
+      "M5": [
+        "1QFmuD_eqy-jiXZY4WXBriGWTlZPhoc7r",
+        "9418e7754dde016629ac66c8a3a69a3d32dbcd293301aced46a94fc980654274",
+        100000,
+        10254
+      ],
+      "M30": [
+        "1QPknvU5rYkB1TAV0ZUgx-QBPiSQ-fxQY",
+        "484617f2410672d019dc159fe280058bdc9a4a34d610f6a2e29729ff759a9942",
+        54170,
+        7131
+      ],
+      "H1": [
+        "1ck8wHpEDBwruWNqVBrWYTkcxVmlxAWeE",
+        "1b0cbb08c5c335f3adc56739795016656f999e8c02d11bc432c6e8008d47b651",
+        27117,
+        3932
+      ],
+      "H4": [
+        "1iDeQa9ZuhdS5OGCRiWNBaTYovfyrNhCl",
+        "2a2f1203752aba2e5cdc6d7b5d6b5eae2cd733c496642d46fc3038b61223815f",
+        7395,
+        938
+      ],
+      "D1": [
+        "1tQlRKeKcsjqOnk_u76ZdMAtwLJxqv9yh",
+        "2998ff88f04a045c3d677d631b7957d3abae25370c4b56770250e0a5c25d704f",
+        1239,
+        116
+      ]
+    },
+    "dataset_fields": [
+      "drive_id",
+      "sha256",
+      "candles",
+      "matched_events"
+    ],
+    "new_matches": 33617,
+    "mismatches": 0,
+    "non_increasing_timestamps": 0,
+    "cumulative_matches": 46131,
+    "scope": "Historical identity; M15 prior evidence preserved; timezone, independent market provenance and causality pending",
+    "e2e_certified": false
   }
 }
