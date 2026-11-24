@@ -325,3 +325,26 @@ def test_p2376_source_lineage(tmp_path, monkeypatch):
     assert events[0]["source_row_sha256"] == hashlib.sha256(raw.splitlines()[121]).hexdigest()
     assert events[0]["event_id"] == hashlib.sha256(f"{digest}:120".encode("ascii")).hexdigest()
     assert result["status"] == "SOURCE_LINEAGE_RECORDED"
+
+
+def test_p2377_retrospective_lineage(tmp_path, monkeypatch):
+    import csv
+    from app.runtime import p2377_de40_regime_first_signal_router_with_xray_lifecycle as motor
+    event = dict(symbol="DE40", timeframe="M15", event_index="120", time="2026-01-01",
+                 event_id="a"*64, source_dataset_sha256="b"*64, source_row_sha256="c"*64)
+    monkeypatch.setattr(motor, "load_csv", lambda p: [event] if p.name=="events.csv" else [])
+    monkeypatch.setattr(motor, "dataset_for_tf", lambda *a: tmp_path/"source.csv")
+    monkeypatch.setattr(motor, "load_candles", lambda *a: [{}]*121)
+    monkeypatch.setattr(motor, "classify_regime", lambda *a: dict(regime="UP",trend="UP",volatility="NORMAL",score=100))
+    monkeypatch.setattr(motor, "classify_lifecycle", lambda *a: dict(lifecycle="CONTINUATION",lifecycle_score=100))
+    monkeypatch.setattr(motor, "recommended_families", lambda *a: dict(recommended_families="TEST",rejected_families="",router_reason="TEST"))
+    monkeypatch.setattr(motor, "context_score", lambda *a: 100)
+    out = tmp_path/"out"
+    result = motor.build_xray_router(tmp_path/"events.csv",tmp_path/"context.csv",tmp_path,out)
+    with (out/"de40_regime_first_xray_router_events.csv").open(newline="") as f:
+        row = next(csv.DictReader(f))
+    for key in ("event_id","source_dataset_sha256","source_row_sha256"):
+        assert row[key] == event[key]
+    assert row["paper_permission"] == "OBSERVE_ONLY"
+    assert result["paper_candidate_contexts"] == 0
+    assert result["status"] == "RETROSPECTIVE_ROUTING_ONLY"
