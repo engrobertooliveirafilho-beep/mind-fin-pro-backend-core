@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import hashlib
 from pathlib import Path
 from typing import Dict, List
 
@@ -69,10 +70,16 @@ def create_signal(row: Dict, source_type: str, idx: int) -> Dict:
     rr = fnum(row.get("avg_rr_possible_proxy"), 2.0)
     rr_policy = "RR_5_INSTITUTIONAL" if rr >= 5 else "RR_3_PRIORITY" if rr >= 3 else "RR_2_STANDARD"
 
-    signal_status = "PAPER_SIGNAL_READY" if direction != "NO_DIRECTION" and tier != "OBSERVATION_PAPER" else "PAPER_OBSERVE_ONLY"
+    event_time = str(row.get("event_time", row.get("time", ""))).strip()
+    event_index = str(row.get("event_index", "")).strip()
+    event_bound = bool(event_time) and event_index.isdigit()
+    signal_status = "PAPER_SIGNAL_READY" if event_bound and direction != "NO_DIRECTION" and tier != "OBSERVATION_PAPER" else "PAPER_OBSERVE_ONLY"
 
     return {
-        "signal_id": f"P2379_{source_type}_{idx:06d}",
+        "signal_id": "P2379_" + hashlib.sha256(json.dumps([source_type, row.get("symbol", "DE40"), row.get("timeframe", ""), event_time, event_index, row.get("family", row.get("recommended_families", ""))], ensure_ascii=False).encode("utf-8")).hexdigest()[:24],
+        "event_time": event_time,
+        "event_index": event_index,
+        "event_bound": event_bound,
         "symbol": "DE40",
         "mode": MODE,
         "real_orders": REAL_ORDERS,
@@ -165,9 +172,10 @@ def run(playbooks_path: Path, contexts_path: Path, sequences_path: Path, outdir:
             "ftmo_real_order": "FORBIDDEN",
             "live_execution": "FORBIDDEN",
         },
-        "status": "CERTIFIED",
-        "certification": "P2379_FORWARD_PAPER_EMISSION_CERTIFIED",
-        "next": "P2380_DE40_FORWARD_PAPER_FEEDBACK_LOOP_AND_PNL_TRACKING",
+        "status": "BLOCKED_UNTIL_EVENT_BOUND_SIGNAL_VALIDATION",
+        "certification": "NOT_CERTIFIED",
+        "certification_reason": "Aggregate playbook rows without event_time and event_index are observation-only; no live signal or order is emitted.",
+        "next": "VALIDATE_EVENT_BOUND_PAPER_SIGNALS_THEN_P2380",
         "outputs": {k: str(v) for k, v in files.items()},
         "warning": "NO_REAL_ORDER_PERMISSION_CREATED",
     }
