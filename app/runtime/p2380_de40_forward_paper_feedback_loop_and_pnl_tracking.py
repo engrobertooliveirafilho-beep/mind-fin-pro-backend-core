@@ -117,12 +117,13 @@ def simulate_feedback(signal: Dict, candles: List[Dict], *, execution_costs=None
 
 
 def simulate_verified_feedback(signal: Dict, dataset_bytes: bytes, *,
-                               trusted_dataset_sha256: str, execution_costs: Dict) -> Dict:
+                               trusted_dataset_sha256: str, execution_costs: Dict, source_timezone=None) -> Dict:
     from app.runtime.p2379_p2380_event_time_lineage_gate import parse_verified_replay_source
     if not isinstance(execution_costs, dict):
         raise ValueError("P2380_EXECUTION_COSTS_REQUIRED")
     candles, idx = parse_verified_replay_source(
-        signal, dataset_bytes, trusted_dataset_sha256=trusted_dataset_sha256)
+        signal, dataset_bytes, trusted_dataset_sha256=trusted_dataset_sha256,
+        source_timezone=source_timezone)
     if idx < 15 or len(candles) < idx + hold_for_timeframe(signal["timeframe"]):
         raise ValueError("P2380_REPLAY_WINDOW_INCOMPLETE")
     result = _simulate_at_entry(signal, candles, idx, execution_costs=execution_costs)
