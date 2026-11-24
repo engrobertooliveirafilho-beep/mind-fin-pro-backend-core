@@ -174,3 +174,32 @@ def test_p2380_integrated_costs(monkeypatch):
     assert result["cost_r"] == pytest.approx(0.3)
     assert result["realized_r"] == pytest.approx(-1.3)
     assert result["costs_applied"] is True
+
+@pytest.mark.parametrize("fault", ["none", "digest", "ohlc", "chronology", "identity"])
+def test_p2380_authenticated_csv(fault):
+    import hashlib
+    from app.runtime.p2379_p2380_event_time_lineage_gate import parse_verified_replay_source
+    row = b"DE40,M15,2026-01-01T10:00:00+00:00,100,102,99,101"
+    following = b"DE40,M15,2026-01-01T10:15:00+00:00,101,103,100,102"
+    if fault == "ohlc":
+        following = following.replace(b",103,", b",98,")
+    if fault == "chronology":
+        following = following.replace(b"10:15", b"10:00")
+    if fault == "identity":
+        following = following.replace(b"DE40", b"EURUSD")
+    payload = b"symbol,timeframe,time,open,high,low,close\n" + row + b"\n" + following + b"\n"
+    digest = hashlib.sha256(payload).hexdigest()
+    signal = dict(symbol="DE40", timeframe="M15", event_id="fixture",
+                  event_index=0, entry_index=1, event_time="2026-01-01T10:00:00+00:00",
+                  entry_time="2026-01-01T10:15:00+00:00", direction="BUY",
+                  source_dataset_sha256=digest, source_row_sha256=hashlib.sha256(row).hexdigest(),
+                  mode="PAPER_ONLY", real_orders="FORBIDDEN", ftmo_real="FORBIDDEN")
+    trusted = "0" * 64 if fault == "digest" else digest
+    if fault == "none":
+        candles, idx = parse_verified_replay_source(signal, payload, trusted_dataset_sha256=trusted)
+        assert idx == 1 and candles[idx]["open"] == 101.0
+    else:
+        errors = {"digest": "TRUSTED_DATASET_HASH_MISMATCH", "ohlc": "REPLAY_OHLC_INVALID",
+                  "chronology": "REPLAY_CHRONOLOGY_INVALID", "identity": "REPLAY_CANDLE_IDENTITY_MISMATCH"}
+        with pytest.raises(ValueError, match=errors[fault]):
+            parse_verified_replay_source(signal, payload, trusted_dataset_sha256=trusted)
