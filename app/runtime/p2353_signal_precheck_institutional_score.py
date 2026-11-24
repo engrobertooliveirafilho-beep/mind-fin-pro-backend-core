@@ -8,7 +8,9 @@ from app.runtime.p2343_post_loss_governance_gate import post_loss_gate
 def institutional_signal_score(signal: dict, context: dict) -> dict:
     symbol = signal.get("symbol", "")
     side = signal.get("side", "")
-    strategy = signal.get("strategy", "SCALP")
+    strategy = signal.get("strategy")
+    if not isinstance(strategy, str) or not strategy.strip():
+        return {"symbol":symbol,"side":side,"strategy":strategy,"institutional_score":0,"decision":"BLOCK","lot_multiplier":0.0,"reasons":["EXPLICIT_STRATEGY_REQUIRED"],"mode":"PAPER_ONLY","real_orders":"FORBIDDEN","ftmo_real":"FORBIDDEN"}
     expected_payoff = signal.get("expected_payoff")
     if type(expected_payoff) not in (int, float) or not isfinite(expected_payoff):
         expected_payoff = 0
@@ -33,7 +35,7 @@ def institutional_signal_score(signal: dict, context: dict) -> dict:
     else:
         reasons.append("EARLY_MOVE_BLOCK")
 
-    post_loss = post_loss_gate(symbol, side, context.get("last_loss") is not False, context)
+    post_loss = post_loss_gate(symbol, side, context.get("last_loss"), context)
     if post_loss["status"] == "APPROVED":
         score += 20
         reasons.append("POST_LOSS_GATE_OK")
