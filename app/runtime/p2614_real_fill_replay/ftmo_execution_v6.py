@@ -1,6 +1,6 @@
 """PAPER-only conservative intrabar equity breach detection atop V5."""
-from ftmo_execution_v5 import ExecutionV5
-from ftmo_paper_guard import D
+from .ftmo_execution_v5 import ExecutionV5
+from .ftmo_paper_guard import D
 
 class ExecutionV6(ExecutionV5):
     def process_bar(self, bars, *, day=None):
