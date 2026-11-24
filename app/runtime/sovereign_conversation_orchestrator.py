@@ -25,20 +25,32 @@ from pathlib import Path
 _STATE_FILE = Path("_runtime_state/sovereign_state.json")
 _STATE_FILE.parent.mkdir(exist_ok=True)
 
+import tempfile
+from threading import RLock
+
+_STATE_LOCK = RLock()
+
 def _load_all_state():
     try:
-        if _STATE_FILE.exists():
-            return json.loads(_STATE_FILE.read_text(encoding="utf-8"))
-    except Exception:
-        pass
-    return {}
+        data = json.loads(_STATE_FILE.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        return {}
+    if not isinstance(data, dict):
+        raise ValueError("Invalid conversation state")
+    return data
 
 def _save_all_state(data):
+    _STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    fd, name = tempfile.mkstemp(dir=_STATE_FILE.parent)
     try:
-        _STATE_FILE.parent.mkdir(exist_ok=True)
-        _STATE_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-    except Exception:
-        pass
+        with os.fdopen(fd, "w", encoding="utf-8") as stream:
+            json.dump(data, stream, ensure_ascii=False, indent=2)
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(name, _STATE_FILE)
+    finally:
+        if os.path.exists(name):
+            os.unlink(name)
 
 @dataclass
 class ConversationDecision:
@@ -186,6 +198,10 @@ def quality_score(answer, text):
     return max(0.0, min(1.0, score))
 
 def decide(sender_id, inbound_text):
+    with _STATE_LOCK:
+        return _decide_locked(sender_id, inbound_text)
+
+def _decide_locked(sender_id, inbound_text):
     st = _state(sender_id)
     before_state = dict(st)
     frame = classify_cognitive_frame(inbound_text, st)
