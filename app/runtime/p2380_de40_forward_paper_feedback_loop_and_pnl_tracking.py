@@ -177,6 +177,7 @@ def _simulate_at_entry(signal: Dict, candles: List[Dict], idx: int, *, execution
 
         # Existing stop takes precedence over a newly reached partial target.
         # OHLC alone cannot establish the intrabar order of these events.
+        partial_preexisting = partial_hit
         if not partial_hit:
             initial_stop_hit = c["low"] <= stop if direction > 0 else c["high"] >= stop
             if initial_stop_hit:
@@ -193,12 +194,12 @@ def _simulate_at_entry(signal: Dict, candles: List[Dict], idx: int, *, execution
         target_hit = c["high"] >= target if direction > 0 else c["low"] <= target
 
         if stop_hit and target_hit:
-            result_r = 0.5 if partial_hit else -1.0
+            result_r = (0.5 + 0.5 * min(0.0, direction * (c["open"] - entry) / risk) if partial_preexisting else 0.5) if partial_hit else -1.0
             result = "AMBIGUOUS_STOP_FIRST"
             break
 
         if stop_hit:
-            result_r = 0.5 if partial_hit else -1.0
+            result_r = (0.5 + 0.5 * min(0.0, direction * (c["open"] - entry) / risk) if partial_preexisting else 0.5) if partial_hit else -1.0
             result = "BREAKEVEN_AFTER_PARTIAL" if partial_hit else "STOP_LOSS"
             break
 
@@ -210,7 +211,7 @@ def _simulate_at_entry(signal: Dict, candles: List[Dict], idx: int, *, execution
         final = candles[min(len(candles) - 1, idx + hold - 1)]["close"]
         move = ((final - entry) * direction) / risk
         if partial_hit:
-            move = max(0.5, move)
+            move = 0.5 + 0.5 * move
         result_r = max(-1.0, min(target_rr, move))
         result = "TIME_EXIT_WIN" if result_r > 0 else "TIME_EXIT_LOSS" if result_r < 0 else "TIME_EXIT_FLAT"
 
