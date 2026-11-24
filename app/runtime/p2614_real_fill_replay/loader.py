@@ -8,7 +8,7 @@ def parse_dt(v):
     v=str(v or "").strip().replace("/", "-")
     for fmt in ["%Y.%m.%d %H:%M:%S","%Y-%m-%d %H:%M:%S","%Y-%m-%dT%H:%M:%S","%d-%m-%Y %H:%M:%S","%Y.%m.%d","%Y-%m-%d"]:
         try:
-            return datetime.strptime(v[:19],fmt)
+            return datetime.strptime(v,fmt)
         except Exception:
             pass
     return None
@@ -21,29 +21,30 @@ def to_float(v):
 
 def load_ohlc(path):
     path=pathlib.Path(path)
-    sample=path.read_text(encoding="utf-8",errors="ignore")[:8192]
+    sample=path.read_text(encoding="utf-8-sig",errors="strict")[:8192]
     delim=";" if sample.count(";") > sample.count(",") else ","
     candles=[]
-    with open(path,encoding="utf-8",errors="ignore") as f:
+    with open(path,encoding="utf-8-sig",errors="strict") as f:
         reader=csv.DictReader(f,delimiter=delim)
         for r in reader:
             low={nf(k):v for k,v in r.items() if k is not None}
             t=low.get("time") or low.get("datetime") or low.get("date") or low.get("timestamp") or low.get("data")
             dt=parse_dt(t)
             if not dt:
-                continue
+                raise ValueError(f"INVALID_OHLC_TIMESTAMP:{reader.line_num}")
             try:
                 o=to_float(low.get("open") or low.get("abertura"))
                 h=to_float(low.get("high") or low.get("max") or low.get("maxima") or low.get("máxima"))
                 l=to_float(low.get("low") or low.get("min") or low.get("minima") or low.get("mínima"))
                 c=to_float(low.get("close") or low.get("fechamento") or low.get("last"))
-            except Exception:
-                continue
+            except (ValueError, TypeError, OverflowError) as exc:
+                raise ValueError(f"INVALID_OHLC_PRICE:{reader.line_num}") from exc
             if all(math.isfinite(x) and x>0 for x in (o,h,l,c)) and h>=max(o,c) and l<=min(o,c) and h>=l:
+                if candles and dt <= candles[-1]["time"]:
+                    raise ValueError("DUPLICATE_OHLC_TIMESTAMP" if dt == candles[-1]["time"] else "NONMONOTONIC_OHLC_TIMESTAMP")
                 candles.append({"time":dt,"open":o,"high":h,"low":l,"close":c})
-    candles=sorted(candles,key=lambda x:x["time"])
-    if any(candles[i]["time"] == candles[i-1]["time"] for i in range(1,len(candles))):
-        raise ValueError("DUPLICATE_OHLC_TIMESTAMP")
+            else:
+                raise ValueError(f"INVALID_OHLC_RANGE:{reader.line_num}")
     return candles
 
 def find_best_ger40_ohlc(root, evid):
