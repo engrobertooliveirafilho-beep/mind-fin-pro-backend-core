@@ -153,7 +153,14 @@ def simulate_feedback(signal: Dict, candles: List[Dict]) -> Dict:
         mfe = max(mfe, favorable)
         mae = max(mae, adverse)
 
+        # Existing stop takes precedence over a newly reached partial target.
+        # OHLC alone cannot establish the intrabar order of these events.
         if not partial_hit:
+            initial_stop_hit = c["low"] <= stop if direction > 0 else c["high"] >= stop
+            if initial_stop_hit:
+                result_r = min(-1.0, direction * (c["open"] - entry) / risk)
+                result = "STOP_LOSS"
+                break
             if direction > 0 and c["high"] >= partial:
                 partial_hit = True
             if direction < 0 and c["low"] <= partial:
@@ -174,7 +181,7 @@ def simulate_feedback(signal: Dict, candles: List[Dict]) -> Dict:
             break
 
         if target_hit:
-            result_r = 1.5 if partial_hit else target_rr
+            result_r = (1.0 + target_rr) / 2.0 if partial_hit else target_rr
             result = "TARGET_HIT"
             break
     else:
