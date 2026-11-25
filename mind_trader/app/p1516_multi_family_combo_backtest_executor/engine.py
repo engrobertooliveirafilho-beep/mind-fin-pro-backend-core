@@ -174,6 +174,15 @@ def run():
     results=[]
 
     for asset,tf,dataset,patterns,kind in jobs:
+        if patterns != ["sma_cross"]:
+            results.append({
+                "asset":asset,"timeframe":tf,"dataset":dataset,
+                "kind":kind,"patterns":patterns,
+                "status":"BLOCKED_UNSUPPORTED_EXIT_CONTRACT",
+                "reason":"Strategy exit contract is not implemented",
+                "promoted":False,"live":"FORBIDDEN","real_orders":"FORBIDDEN"
+            })
+            continue
         candidate=Path(dataset)
         if candidate.is_absolute() or ".." in candidate.parts or candidate.suffix.lower() != ".csv":
             raise ValueError("INVALID_DATASET_PATH")
@@ -214,6 +223,7 @@ def run():
         "COMBO_2_TESTS":sum(r["kind"]=="combo_2" for r in results),
         "COMBO_3_TESTS":sum(r["kind"]=="combo_3" for r in results),
         "PROMOTED":len(promoted),
+        "BLOCKED_UNSUPPORTED_EXIT_CONTRACT":sum(r.get("status")=="BLOCKED_UNSUPPORTED_EXIT_CONTRACT" for r in results),
         "EDGE":"COMBO_CANDIDATE_FOUND" if promoted else "NOT_PROVEN",
         "LIVE":"FORBIDDEN","REAL_BROKER":"DISABLED","REAL_ORDERS":"FORBIDDEN",
         "CAUSALITY":"NOT_PROVEN",
