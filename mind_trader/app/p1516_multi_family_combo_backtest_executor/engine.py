@@ -24,7 +24,16 @@ def load_json(p):
 
 def load_csv(p):
     with open(p,newline="",encoding="utf-8") as fh:
-        return [{**r,"open":f(r.get("open",0)),"high":f(r.get("high",0)),"low":f(r.get("low",0)),"close":f(r.get("close",0)),"volume":f(r.get("volume",0))} for r in csv.DictReader(fh) if f(r.get("close",0))>0]
+        rows=[{**r,"open":f(r.get("open",0)),"high":f(r.get("high",0)),"low":f(r.get("low",0)),"close":f(r.get("close",0)),"volume":f(r.get("volume",0))} for r in csv.DictReader(fh) if f(r.get("close",0))>0]
+    stamps=[]
+    for row in rows:
+        dt=datetime.fromisoformat(row.get("timestamp") or "")
+        if dt.tzinfo is None or dt.utcoffset() is None:
+            raise ValueError("Candle timestamp must include timezone")
+        stamps.append(dt)
+    if any(b<=a for a,b in zip(stamps,stamps[1:])):
+        raise ValueError("Candles must be strictly chronological")
+    return rows
 
 def sma(vals,n,i):
     if i<n: return None
