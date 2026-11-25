@@ -25,12 +25,15 @@ ABSOLUTE_LOCKS = {
 
 def enforce_paper_only() -> Dict[str, str]:
     for key, value in ABSOLUTE_LOCKS.items():
+        if key in os.environ and os.environ[key] != value:
+            raise RuntimeError(f"{key}_LOCK_BREACH")
+    for key, value in ABSOLUTE_LOCKS.items():
         os.environ[key] = value
     return dict(ABSOLUTE_LOCKS)
 
 
 def assert_no_financial_execution() -> None:
-    locks = enforce_paper_only()
+    locks = {key: os.environ.get(key) for key in ABSOLUTE_LOCKS}
     if locks["MIND_MODE"] != "PAPER_ONLY":
         raise RuntimeError("MIND_MODE_LOCK_BREACH")
     if locks["REAL_ORDERS"] != "FORBIDDEN":
@@ -401,7 +404,7 @@ def load_portfolio(path: str) -> List[Dict[str, Any]]:
         if isinstance(raw.get(key), list):
             return raw[key]
 
-    return [{"id": "XAUUSD_M1_REALDNA_0004", "type": "RANGE_REVERSION"}]
+    raise ValueError("SPECIALISTS_MISSING")
 
 
 def promote_p2080_if_ready(mission_status: Dict[str, str]) -> Dict[str, str]:
@@ -430,7 +433,10 @@ def run_p2071_2080(
     output_dir: str,
     cycles: int = 1500,
 ) -> Dict[str, Any]:
+    enforce_paper_only()
     assert_no_financial_execution()
+    if type(cycles) is not int or cycles <= 0:
+        raise ValueError("INVALID_CYCLES")
 
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
@@ -521,14 +527,18 @@ def run_p2071_2080(
         mission_status["P2076_EXTENDED_RUNTIME_VALIDATION"] = "PASS"
 
     mission_status = promote_p2080_if_ready(mission_status)
+    mission_status["P2080_REALTIME_RUNTIME_CERTIFICATION"] = "UNVERIFIED"
 
     all_pass = all(v == "PASS" for v in mission_status.values())
 
     final = {
         "program": "P2071_2080_REALTIME_PAPER_INFRASTRUCTURE",
         "patch": "P2071_2080B_CERTIFICATION_DRAWDOWN_REPAIR",
-        "status": "PASS" if all_pass else "FAIL",
-        "readiness": "REALTIME_PAPER_RUNTIME_CERTIFIED" if all_pass else "NOT_CERTIFIED",
+        "status": "UNVERIFIED",
+        "readiness": "SYNTHETIC_RUNTIME_ONLY",
+        "data_origin": "SYNTHETIC",
+        "metrics_net_of_costs": False,
+        "edge_claim": "NONE",
         "absolute_restrictions": enforce_paper_only(),
         "mission_status": mission_status,
         "metrics": {
@@ -588,7 +598,7 @@ P2071_2080B_CERTIFICATION_DRAWDOWN_REPAIR
 {json.dumps(final["absolute_restrictions"], indent=2, ensure_ascii=False)}
 
 ## CONCLUSION
-P2071→P2080 certified as consolidated PAPER_ONLY realtime infrastructure runtime.
+P2071→P2080 synthetic PAPER_ONLY runtime; financial certification not established.
 No real orders.
 No broker execution.
 No financial execution.
