@@ -40,8 +40,8 @@ def replay_sma_execution(rows, fast=9, slow=21, initial_capital=100000, spread=0
             write_replay_event(ledger_path,{"type":"ENTRY","ts":rows[i]["ts"],"entry":entry,"fast":fast,"slow":slow,"synthetic_event":rows[i].get("synthetic_event")})
         elif sell and pos==1:
             exitp=price - spread/2 - slippage
-            pnl=exitp-entry-commission
-            cash+=pnl
+            pnl=exitp-entry-2*commission
+            cash+=pnl+commission
             t={"entry":entry,"exit":exitp,"pnl":pnl,"ts":rows[i]["ts"],"synthetic_event":rows[i].get("synthetic_event")}
             trades.append(t)
             pos=0
