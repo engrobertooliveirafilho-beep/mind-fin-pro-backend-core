@@ -7,11 +7,22 @@ def walk_forward_authority(windows):
     if not isinstance(windows, (list, tuple)) or len(windows) < 4:
         return {"decision":"WALK_FORWARD_INSUFFICIENT_WINDOWS","passed":False,"production":"BLOCKED","edge_claim":"NONE"}
 
+    previous_end = None
     expectancies = []
     pfs = []
     for window in windows:
         if not isinstance(window, dict) or "expectancy" not in window or "profit_factor" not in window:
             return {"decision":"WALK_FORWARD_INVALID_WINDOW_DATA","passed":False,"production":"BLOCKED","live":"FORBIDDEN","edge_claim":"NONE"}
+        try:
+            start, end = (datetime.fromisoformat(window[k]) for k in ("test_start", "test_end"))
+            if start.tzinfo is None or end.tzinfo is None or start >= end or (previous_end is not None and start < previous_end):
+                raise ValueError("invalid chronology")
+            previous_end = end
+            costs = [window[k] for k in ("spread", "slippage", "commission")]
+            if not all(type(v) in (int, float) and math.isfinite(v) and v >= 0 for v in costs) or not any(v > 0 for v in costs) or window.get("metrics_net_of_costs") is not True:
+                raise ValueError("invalid costs")
+        except (KeyError, TypeError, ValueError, OverflowError):
+            return {"decision":"WALK_FORWARD_EVIDENCE_INVALID","passed":False,"production":"BLOCKED","live":"FORBIDDEN","edge_claim":"NONE"}
         try:
             expectancy = float(window["expectancy"])
             profit_factor = float(window["profit_factor"])
