@@ -24,6 +24,8 @@ def walk_forward_authority(windows):
         except (KeyError, TypeError, ValueError, OverflowError):
             return {"decision":"WALK_FORWARD_EVIDENCE_INVALID","passed":False,"production":"BLOCKED","live":"FORBIDDEN","edge_claim":"NONE"}
         try:
+            if any(type(window[k]) not in (int, float) for k in ("expectancy", "profit_factor")):
+                raise ValueError("metrics must be numeric, not boolean or text")
             expectancy = float(window["expectancy"])
             profit_factor = float(window["profit_factor"])
         except (TypeError, ValueError, OverflowError):
