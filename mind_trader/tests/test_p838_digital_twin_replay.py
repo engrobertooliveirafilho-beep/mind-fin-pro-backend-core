@@ -51,3 +51,18 @@ def test_insufficient_data_replay_blocked():
 def test_save_digital_twin_report(tmp_path):
     out=save_digital_twin_report({"ok":True},str(tmp_path/"dt.json"))
     assert Path(out).exists()
+
+
+def test_closed_trade_commissions_reconcile(tmp_path, monkeypatch):
+    import json
+    from mind_trader.app.backtest import digital_twin_replay as replay
+    rows = [{"ts": str(i), "close": price} for i, price in enumerate([100, 100, 100, 110, 110, 110, 110, 110])]
+    monkeypatch.setattr(replay, "sma", lambda closes, period: [0, 2, 2, 0, 0, 0, 0, 0] if period == 2 else [1]*8)
+    ledger = tmp_path / "commission.jsonl"
+    result = replay.replay_sma_execution(rows, fast=2, slow=3, initial_capital=1000, commission=2, ledger_path=str(ledger))
+    assert len(result["trades"]) == 1
+    assert result["trades"][0]["pnl"] == 6
+    assert result["final_equity"] == 1006
+    events = [json.loads(line) for line in ledger.read_text().splitlines()]
+    assert [event["type"] for event in events] == ["ENTRY", "EXIT"]
+    assert events[1]["pnl"] == result["final_equity"] - 1000
