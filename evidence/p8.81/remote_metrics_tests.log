@@ -1,0 +1,14 @@
+valid numeric PASS
+expectancy True PASS
+expectancy False PASS
+expectancy '2' PASS
+expectancy None PASS
+expectancy nan PASS
+expectancy inf PASS
+profit_factor True PASS
+profit_factor False PASS
+profit_factor '2' PASS
+profit_factor None PASS
+profit_factor nan PASS
+profit_factor inf PASS
+13/13 PASS
