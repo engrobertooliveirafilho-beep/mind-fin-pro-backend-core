@@ -1,3 +1,4 @@
+from copy import deepcopy
 from dataclasses import dataclass
 from typing import Any, Dict, List, Optional
 
@@ -30,10 +31,10 @@ class FederationPolicyEngine:
     def register_contract(self, contract: FederationContract) -> None:
         if type(contract.max_sensitivity) is not int or not 0 <= contract.max_sensitivity <= 10:
             raise ValueError("Invalid contract sensitivity")
-        self._contracts[contract.remote_mind_id] = contract
+        self._contracts[contract.remote_mind_id] = deepcopy(contract)
 
     def get_contract(self, remote_mind_id: str) -> Optional[FederationContract]:
-        return self._contracts.get(remote_mind_id)
+        return deepcopy(self._contracts.get(remote_mind_id))
 
     def can_share(self, remote_mind_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
         """
