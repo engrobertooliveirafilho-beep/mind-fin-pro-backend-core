@@ -1,0 +1,17 @@
+f657a12c3134f5880ec9dbdc758fa64487920bcf
+test_cases (__main__.Gate.test_cases) ... ok
+test_invalid_requirements (__main__.Gate.test_invalid_requirements) ... ok
+test_partial (__main__.Gate.test_partial) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+OK
+valid PASS
+tampered PASS
+empty PASS
+boolean PASS
+missing PASS
+no_hash PASS
+malformed PASS
+uppercase PASS
