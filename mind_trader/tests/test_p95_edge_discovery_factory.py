@@ -1,24 +1,30 @@
 from app.p9_edge_discovery_factory.engine import evaluate_candidate, run
 
-def test_p95_evaluation_never_promotes_real():
-    c={
-        "genome_id":"x",
-        "metrics":{"profit_factor":2,"sharpe":2,"sortino":2,"max_drawdown":0.05,"risk_of_ruin":0.05,"stability":1,"regime_robustness":1,"cross_asset_robustness":1,"cross_period_robustness":1},
-        "validation":{"walk_forward_passed":True,"monte_carlo_passed":True,"robustness_committee_passed":True,"anti_overfitting_passed":True}
+def test_p95_rejects_unverified_caller_supplied_metrics():
+    candidate = {
+        "genome_id": "synthetic-fixture",
+        "metrics": {
+            "profit_factor": 9, "sharpe": 9, "sortino": 9,
+            "max_drawdown": 0.01, "risk_of_ruin": 0.01,
+            "stability": 1, "regime_robustness": 1,
+            "cross_asset_robustness": 1, "cross_period_robustness": 1
+        },
+        "validation": {
+            "walk_forward_passed": True, "monte_carlo_passed": True,
+            "robustness_committee_passed": True, "anti_overfitting_passed": True
+        }
     }
-    e=evaluate_candidate(c)
-    assert e["paper_candidate"] is True
-    assert e["edge_proven"] is False
-    assert e["promotion_allowed"] is False
+    result = evaluate_candidate(candidate)
+    assert result["paper_candidate"] is False
+    assert result["promotion_allowed"] is False
+    assert result["reason"] == "VERIFIABLE_BACKTEST_PROVENANCE_GATE_NOT_IMPLEMENTED"
 
-def test_p95_run_manifest():
-    m=run()
-    assert m["STATUS"]=="P9.5_EDGE_DISCOVERY_FACTORY_IMPLEMENTED"
-    assert m["EDGE"]=="NOT_PROVEN"
-    assert m["PROMOTION_ALLOWED"] is False
-    assert m["EXPORT_READY"] is True
-
-def test_p95_reports_exist():
+def test_p95_run_keeps_paper_queue_empty():
+    import json
     from pathlib import Path
-    run()
-    assert Path("reports/P9.5_EDGE_DISCOVERY_FACTORY/P9.5_manifest.json").exists()
+    manifest = run()
+    assert manifest["STATUS"] == "P9.5_BLOCKED_VERIFIABLE_BACKTEST_PROVENANCE_MISSING"
+    assert manifest["PAPER_CANDIDATES"] == 0
+    assert manifest["PROMOTION_ALLOWED"] is False
+    path = Path("reports/P9.5_EDGE_DISCOVERY_FACTORY/P9.5_paper_candidates.json")
+    assert json.loads(path.read_text(encoding="utf-8")) == []
