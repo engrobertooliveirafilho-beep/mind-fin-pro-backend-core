@@ -28,3 +28,33 @@ def test_walk_forward_rejects_instability():
 def test_save_walk_forward_authority(tmp_path):
     p=save_walk_forward_authority({"ok":True},str(tmp_path/"wf.json"))
     assert Path(p).exists()
+
+def test_walk_forward_rejects_undefined_profit_factor_999():
+    r=walk_forward_authority([
+        {"expectancy":1.0,"profit_factor":999},
+        {"expectancy":0.8,"profit_factor":1.2},
+        {"expectancy":0.5,"profit_factor":1.1}
+    ])
+    assert r["passed"] is False
+    assert r["decision"]=="WALK_FORWARD_INVALID_WINDOW_DATA"
+    assert r["production"]=="BLOCKED"
+    assert r["live"]=="FORBIDDEN"
+    assert r["edge_claim"]=="NONE"
+
+def test_walk_forward_rejects_non_finite_profit_factor():
+    r=walk_forward_authority([
+        {"expectancy":1.0,"profit_factor":float("inf")},
+        {"expectancy":0.8,"profit_factor":1.2},
+        {"expectancy":0.5,"profit_factor":1.1}
+    ])
+    assert r["passed"] is False
+    assert r["decision"]=="WALK_FORWARD_INVALID_WINDOW_DATA"
+
+def test_walk_forward_rejects_missing_profit_factor():
+    r=walk_forward_authority([
+        {"expectancy":1.0,"profit_factor":1.3},
+        {"expectancy":0.8},
+        {"expectancy":0.5,"profit_factor":1.1}
+    ])
+    assert r["passed"] is False
+    assert r["decision"]=="WALK_FORWARD_INVALID_WINDOW_DATA"
