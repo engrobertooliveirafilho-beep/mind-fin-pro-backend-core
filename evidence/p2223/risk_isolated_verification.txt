@@ -1,0 +1,13 @@
+Source checkpoint e256071c9413749bec3dccd2418d473f16a5da7b
+Local historical log and script SHA256 manifest verified; isolated transcription only, not canonical runtime certification.
+PASS below daily limit
+PASS exact daily limit
+PASS persistent lock
+PASS rollover
+PASS peak drawdown
+PASS invalid input True 2026-11-25T00:00:00+00:00
+PASS invalid input nan 2026-11-25T00:00:00+00:00
+PASS invalid input inf 2026-11-25T00:00:00+00:00
+PASS invalid input 0 2026-11-24T00:00:00+00:00
+PASS invalid input 0 2026-11-25T00:00:00
+No new test execution; FTMO certification false.
