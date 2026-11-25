@@ -1,6 +1,7 @@
 from __future__ import annotations
 import json
 import random
+import math
 import time
 from pathlib import Path
 
@@ -25,13 +26,20 @@ class RiskEngine:
         self.daily_loss_limit = 0.03
         self.equity = 100000
         self.peak = self.equity
+        self.session_start = self.equity
+        self.killed = False
 
     def check(self, pnl):
+        if self.killed:
+            return "KILLED"
+        if type(pnl) not in (int,float) or not math.isfinite(pnl):
+            raise ValueError("INVALID_PNL")
         self.equity += pnl
         self.peak = max(self.peak, self.equity)
         drawdown = (self.peak - self.equity) / self.peak
 
-        if drawdown > self.max_drawdown:
+        if drawdown >= self.max_drawdown or (self.session_start-self.equity)/self.session_start >= self.daily_loss_limit:
+            self.killed = True
             return "KILLED"
         return "OK"
 
@@ -43,6 +51,10 @@ class BrokerEmulator:
         self.trades = []
 
     def execute_order(self, side, volume):
+        if self.risk.killed:
+            raise RuntimeError("RISK_LOCKED")
+        if side not in ("BUY", "SELL") or type(volume) not in (int,float) or not math.isfinite(volume) or volume <= 0:
+            raise ValueError("INVALID_ORDER")
         price = self.market.tick()
 
         # Slippage simulation
@@ -85,7 +97,9 @@ def run_simulation(cycles=50):
             break
 
     return {
-        "status": "PASS",
+        "status": "RISK_KILLED" if broker.risk.killed else "SYNTHETIC_ONLY",
+        "edge_claim": "NONE",
+        "real_orders": "FORBIDDEN",
         "trades": broker.trades,
         "final_equity": broker.risk.equity,
         "total_trades": len(broker.trades),
