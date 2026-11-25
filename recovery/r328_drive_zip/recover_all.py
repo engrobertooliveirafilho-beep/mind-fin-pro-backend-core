@@ -43,4 +43,6 @@ def recover(queue,output,remote="gdrive:",limit=0):
  return report
 if __name__=="__main__":
  p=argparse.ArgumentParser();p.add_argument("--queue",required=True);p.add_argument("--output",required=True);p.add_argument("--remote",default="gdrive:");p.add_argument("--limit",type=int,default=0)
- a=p.parse_args();print(json.dumps(recover(a.queue,a.output,a.remote,a.limit),indent=2))
+ a=p.parse_args();report=recover(a.queue,a.output,a.remote,a.limit)
+ print(json.dumps(report,indent=2))
+ raise SystemExit(1 if report['failed'] else 0)
