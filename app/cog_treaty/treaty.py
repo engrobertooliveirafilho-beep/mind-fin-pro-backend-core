@@ -51,10 +51,14 @@ class CognitiveTreatyProtocol:
                 agreed_terms={},
             )
 
+        sensitivity = proposal.get("max_data_sensitivity", 5)
+        if type(sensitivity) is not int or not 0 <= sensitivity <= 10:
+            return TreatyResult("rejected", "Sensibilidade invalida.", {})
+
         if mode == "cooperation":
             agreed_terms = {
                 "mode": "cooperation",
-                "max_data_sensitivity": proposal.get("max_data_sensitivity", 5),
+                "max_data_sensitivity": sensitivity,
                 "shared_topics": topics,
                 "parties": list(parties),
             }
