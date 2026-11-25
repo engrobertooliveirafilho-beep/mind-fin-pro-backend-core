@@ -47,7 +47,13 @@ def absorb_knowledge_texts(texts, source_name="manual_batch", registered_source_
     if not src["allowed"]:
         return {"decision":"BLOCK_ABSORPTION_SOURCE_NOT_REGISTERED","source_check":src,"production":"BLOCKED","edge_claim":"NONE"}
 
-    atoms=[extract_candidate_atom(t,source_name,registered_source_id) for t in texts if str(t).strip()]
+    if not isinstance(texts, (list, tuple)) or not texts or any(not isinstance(t, str) or not t.strip() for t in texts):
+        return {"decision":"BLOCK_INVALID_ABSORPTION_TEXTS","production":"BLOCKED","edge_claim":"NONE"}
+    # Historical batches register the space-joined original text.
+    content_hash=hashlib.sha256(" ".join(texts).encode("utf-8")).hexdigest()
+    if content_hash != src["source"].get("content_hash"):
+        return {"decision":"BLOCK_ABSORPTION_CONTENT_HASH_MISMATCH","production":"BLOCKED","edge_claim":"NONE"}
+    atoms=[extract_candidate_atom(t,source_name,registered_source_id) for t in texts]
     report={
         "authority":"P8.89_KNOWLEDGE_ABSORPTION_WITH_SOURCE_REGISTRY",
         "created_at":datetime.now(UTC).isoformat(),
