@@ -23,3 +23,24 @@ def test_require_source_registered_ok(tmp_path):
 def test_require_source_missing_blocks(tmp_path):
     r=require_source_registered("missing",str(tmp_path/"sources.json"))
     assert r["allowed"] is False
+
+
+def test_corrupt_registry_preserved(tmp_path):
+    p = tmp_path / "sources.json"
+    for raw in (b"{", b"{}", b"[null]", b"[{}]"):
+        p.write_bytes(raw)
+        r = register_knowledge_source("note", "MANUAL_RESEARCH", "text", str(p))
+        assert r["decision"] == "BLOCK_INVALID_SOURCE_REGISTRY"
+        assert p.read_bytes() == raw
+        r = require_source_registered("missing", str(p))
+        assert r["allowed"] is False
+        assert r["decision"] == "BLOCK_INVALID_SOURCE_REGISTRY"
+        assert p.read_bytes() == raw
+
+
+def test_invalid_source_inputs(tmp_path):
+    p = tmp_path / "sources.json"
+    for name, kind, content in ((None,"MANUAL_RESEARCH","text"), (" ","MANUAL_RESEARCH","text"), ("note","MANUAL_RESEARCH",None), ("note",[],"text")):
+        r = register_knowledge_source(name, kind, content, str(p))
+        assert r["decision"] in ("BLOCK_INVALID_SOURCE", "BLOCK_SOURCE_TYPE")
+        assert not p.exists()
