@@ -90,12 +90,12 @@ def signal(pattern,rows,i):
 
     return False
 
-def backtest(rows,patterns):
+def backtest(rows,patterns,start_index=60):
     if not patterns or any(p not in SUPPORTED_PATTERNS for p in patterns):
         raise ValueError("UNIMPLEMENTED_OR_EMPTY_PATTERN_SET")
     closes=[r["close"] for r in rows]
     pos=0; entry=0; trades=[]
-    for i in range(60,len(rows)):
+    for i in range(max(60,start_index),len(rows)):
         ok=all(signal(p,rows,i) for p in patterns)
         exit_sig=False
         f0=sma(closes,9,i); s0=sma(closes,34,i)
@@ -122,9 +122,12 @@ def backtest(rows,patterns):
 def walk_forward(rows,patterns):
     n=len(rows)
     if n<MIN_BARS: return {"approved":False}
-    train=backtest(rows[:int(n*.7)],patterns)
-    test=backtest(rows[int(n*.7):],patterns)
-    return {"approved":train["profit_factor"]>=1.10 and test["profit_factor"]>=1.05 and train["trades"]>=3 and test["trades"]>=1,"train":train,"test":test}
+    split=int(n*.7)
+    train=backtest(rows[:split],patterns)
+    warmup_start=max(0,split-60)
+    test_rows=rows[warmup_start:]
+    test=backtest(test_rows,patterns,start_index=split-warmup_start)
+    return {"approved":train["profit_factor"]>=1.10 and test["profit_factor"]>=1.05 and train["trades"]>=3 and test["trades"]>=1,"train":train,"test":test,"split_index":split,"warmup_bars":split-warmup_start,"test_starts_at_split":True}
 
 def monte_carlo(trades):
     if len(trades)<8 or any(type(t) not in (int,float) or not math.isfinite(t) or t<=-1 for t in trades):
@@ -170,7 +173,8 @@ def run():
         bt=backtest(rows,patterns)
         wf=walk_forward(rows,patterns)
         mc=monte_carlo(bt["trades_raw"])
-        promoted=bt["profit_factor"]>=1.35 and bt["trades"]>=8 and wf["approved"] and mc["approved"]
+        promotion_contract=patterns==["sma_cross"]
+        promoted=promotion_contract and bt["profit_factor"]>=1.35 and bt["trades"]>=8 and wf["approved"] and mc["approved"]
         results.append({
             "asset":asset,"timeframe":tf,"dataset":dataset,
             "kind":kind,"patterns":patterns,
