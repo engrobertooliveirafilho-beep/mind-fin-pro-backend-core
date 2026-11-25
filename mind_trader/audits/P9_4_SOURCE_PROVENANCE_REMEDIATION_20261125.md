@@ -26,3 +26,16 @@ Isolated Python 3.13.5 test run: **8 passed, 0 failed**. JUnit and SHA-256 evide
 This validates source-required behavior, provenance identity, and fail-closed candidate handling. It does not establish semantic extraction quality, backtest validity, edge, FTMO readiness, or production integration.
 
 `PAPER_ONLY=TRUE | REAL_ORDERS=FORBIDDEN | FTMO_REAL=FORBIDDEN | MAIN=INTACTA`
+
+## Additional remediation — P9.1 dataset registry
+
+The original P9.1 code generated a catalog of dataset slots, but its manifest marked `EXPORT_READY=true`. It did not ingest or validate any market-data file. The catalog contains 47 assets × 8 timeframes × 4 source types = **1,504 placeholders**, each marked `REGISTERED_PENDING_DATA`.
+
+Correction:
+- Status is now `P9.1_CATALOG_ONLY_AWAITING_REAL_DATA`.
+- Explicit fields: `DATASET_SLOTS_ONLY=true`, `INGESTION_EXECUTED=0`, `REAL_DATA_FILES=0`, `EXPORT_READY=false`.
+- No data ingestion or certification is claimed.
+
+Verification: isolated Python 3.13.5 tests **4 passed, 0 failed**. JUnit and SHA-256 evidence published in `mind_trader/evidence/p9/`.
+
+Drive ledger update was attempted against the existing master ledger but rejected with Google Docs 403 permission denied; the Drive original remains unchanged. GitHub branch and PR contain the authoritative code/evidence for this increment.
