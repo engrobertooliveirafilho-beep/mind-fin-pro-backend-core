@@ -70,6 +70,13 @@ class PaperTradingSessionManager:
         s=self._read_session()
         if not s: return {"allowed":False,"decision":"BLOCK_NO_SESSION","production":"BLOCKED"}
         if s.get("status")!="OPEN": return {"allowed":False,"decision":"BLOCK_SESSION_CLOSED","production":"BLOCKED"}
+        try:
+            valid_risk = type(risk_amount) in (int, float) and math.isfinite(risk_amount) and risk_amount >= 0
+            valid_state = type(s["daily_pnl"]) in (int, float) and math.isfinite(s["daily_pnl"])
+        except (TypeError, ValueError, OverflowError, KeyError):
+            valid_risk = valid_state = False
+        if not valid_risk or not valid_state:
+            return {"allowed":False,"decision":"BLOCK_INVALID_RISK","production":"BLOCKED"}
         if s["trades"] >= s["max_daily_trades"]: return {"allowed":False,"decision":"BLOCK_MAX_DAILY_TRADES","production":"BLOCKED"}
         if abs(s["daily_pnl"]) + risk_amount > s["max_daily_loss"]: return {"allowed":False,"decision":"BLOCK_DAILY_LOSS_LIMIT","production":"BLOCKED"}
         return {"allowed":True,"decision":"ALLOW_PAPER_TRADE","session_id":s["session_id"],"production":"BLOCKED"}
