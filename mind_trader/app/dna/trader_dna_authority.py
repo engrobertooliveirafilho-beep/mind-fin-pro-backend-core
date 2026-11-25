@@ -4,12 +4,26 @@ from datetime import datetime, UTC
 
 REQUIRED_ATOM_FIELDS=["context","trigger","invalidation","target","risk","success_conditions"]
 
+def _missing_fields(fields):
+    if not isinstance(fields, dict):
+        return list(REQUIRED_ATOM_FIELDS)
+    missing=[]
+    for k in REQUIRED_ATOM_FIELDS:
+        v=fields.get(k)
+        if k=="success_conditions":
+            ok=isinstance(v,list) and bool(v) and all(isinstance(x,str) and x.strip() for x in v)
+        else:
+            ok=isinstance(v,str) and bool(v.strip())
+        if not ok:
+            missing.append(k)
+    return missing
+
 def dna_atom_id(atom):
     raw=json.dumps(atom,sort_keys=True,ensure_ascii=False,separators=(",",":"))
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()[:24]
 
 def create_dna_atom(name, category, **fields):
-    missing=[k for k in REQUIRED_ATOM_FIELDS if k not in fields or fields[k] in [None,""]]
+    missing=_missing_fields(fields)
     atom={
         "name":name,
         "category":category,
@@ -24,7 +38,7 @@ def create_dna_atom(name, category, **fields):
     return atom
 
 def validate_dna_atom(atom):
-    missing=[k for k in REQUIRED_ATOM_FIELDS if k not in atom or atom[k] in [None,""]]
+    missing=_missing_fields(atom)
     return {
         "valid":not missing,
         "missing":missing,
