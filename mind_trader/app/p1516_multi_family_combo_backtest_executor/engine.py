@@ -93,20 +93,22 @@ def signal(pattern,rows,i):
 def backtest(rows,patterns,start_index=60):
     if not patterns or any(p not in SUPPORTED_PATTERNS for p in patterns):
         raise ValueError("UNIMPLEMENTED_OR_EMPTY_PATTERN_SET")
-    closes=[r["close"] for r in rows]
-    pos=0; entry=0; trades=[]
-    for i in range(max(60,start_index),len(rows)):
+    if len(rows)<2 or any(not math.isfinite(float(r.get("open",0))) or float(r.get("open",0))<=0 or not math.isfinite(float(r.get("close",0))) or float(r.get("close",0))<=0 for r in rows):
+        raise ValueError("INVALID_EXECUTION_PRICE")
+    closes=[float(r["close"]) for r in rows]
+    pos=0; entry=0.0; trades=[]
+    for i in range(max(60,start_index),len(rows)-1):
+        # Signals are evaluated after candle i closes; execution occurs at next candle open.
         ok=all(signal(p,rows,i) for p in patterns)
-        exit_sig=False
         f0=sma(closes,9,i); s0=sma(closes,34,i)
-        if f0 and s0 and f0<s0:
-            exit_sig=True
+        exit_sig=bool(f0 is not None and s0 is not None and f0<s0)
+        next_open=float(rows[i+1]["open"])
         if pos==0 and ok:
-            pos=1; entry=closes[i]
+            pos=1; entry=next_open
         elif pos==1 and exit_sig:
-            trades.append((closes[i]/entry)-1); pos=0
+            trades.append((next_open/entry)-1); pos=0; entry=0.0
     if pos==1:
-        trades.append((closes[-1]/entry)-1)
+        trades.append((float(rows[-1]["close"])/entry)-1)
     wins=[x for x in trades if x>0]; losses=[x for x in trades if x<=0]
     gross_win=sum(wins); gross_loss=abs(sum(losses))
     pf=(gross_win/gross_loss) if gross_loss>0 else (99 if gross_win>0 else 0)
@@ -116,7 +118,9 @@ def backtest(rows,patterns,start_index=60):
         "total_return":round(sum(trades),6),
         "winrate":round((len(wins)/len(trades))*100,2) if trades else 0,
         "avg_trade":round(statistics.mean(trades),6) if trades else 0,
-        "trades_raw":trades
+        "trades_raw":trades,
+        "execution_model":"NEXT_BAR_OPEN",
+        "signal_timing":"AFTER_SIGNAL_BAR_CLOSE"
     }
 
 def walk_forward(rows,patterns):
