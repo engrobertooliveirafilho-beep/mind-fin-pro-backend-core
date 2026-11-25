@@ -28,6 +28,8 @@ class FederationPolicyEngine:
         self._contracts: Dict[str, FederationContract] = {}
 
     def register_contract(self, contract: FederationContract) -> None:
+        if type(contract.max_sensitivity) is not int or not 0 <= contract.max_sensitivity <= 10:
+            raise ValueError("Invalid contract sensitivity")
         self._contracts[contract.remote_mind_id] = contract
 
     def get_contract(self, remote_mind_id: str) -> Optional[FederationContract]:
@@ -40,7 +42,9 @@ class FederationPolicyEngine:
           - sensitivity: int (0–10)
         """
         topic = str(payload.get("topic", "")).lower()
-        sensitivity = int(payload.get("sensitivity", 0))
+        sensitivity = payload.get("sensitivity")
+        if type(sensitivity) is not int or not 0 <= sensitivity <= 10:
+            return {"allowed": False, "reason": "Sensibilidade invalida ou ausente."}
 
         contract = self._contracts.get(remote_mind_id)
         if contract is None:
