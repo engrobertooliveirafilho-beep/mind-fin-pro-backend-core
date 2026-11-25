@@ -1,5 +1,6 @@
 from __future__ import annotations
 import json, random
+from copy import deepcopy
 from pathlib import Path
 
 # ============================================================
@@ -38,8 +39,8 @@ class MarketDigitalTwin:
     def step(self):
         for k in self.assets:
             shock = random.uniform(-1, 1) * 0.5
-            self.assets[k] += shock
-        return {k: round(v, 2) for k, v in self.assets.items()}
+            self.assets[k] = max(0.0001, self.assets[k] * (1 + shock / 100))
+        return {k: round(v, 4) for k, v in self.assets.items()}
 
 # ============================================================
 # P2226 — STRATEGY EVOLUTION ENGINE
@@ -63,13 +64,15 @@ class StrategyEvolutionEngine:
         # prune worst
         self.strategies = self.strategies[:3]
 
-        return self.strategies
+        return deepcopy(self.strategies)
 
 # ============================================================
 # INTEGRATED RUNTIME
 # ============================================================
 
 def run(cycles=30):
+    if type(cycles) is not int or cycles <= 0:
+        raise ValueError("INVALID_CYCLES")
     book = OrderBookSimulator()
     twin = MarketDigitalTwin()
     evo = StrategyEvolutionEngine()
@@ -84,7 +87,11 @@ def run(cycles=30):
         })
 
     return {
-        "status":"PASS",
+        "status":"SYNTHETIC_ONLY",
+        "edge_claim":"NONE",
+        "strategy_score_origin":"RANDOM_MUTATION",
+        "real_orders":"FORBIDDEN",
+        "ftmo_certified":False,
         "mode":"INSTITUTIONAL_SIMULATION_CORE",
         "cycles": cycles,
         "log_sample": logs[:3],
