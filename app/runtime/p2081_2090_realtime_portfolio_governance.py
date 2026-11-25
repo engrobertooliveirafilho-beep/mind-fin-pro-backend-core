@@ -295,28 +295,23 @@ class FailureSimulation:
     def evaluate(self, runtime: Dict[str, Any]) -> GovernanceDecision:
         assert_no_financial_execution()
 
+        try:
+            extract_runtime_metrics({})
+        except ValueError:
+            missing_rejected = True
+        else:
+            missing_rejected = False
         simulations = {
-            "missing_runtime_metrics": False,
-            "exposure_limit_breach_detected": True,
-            "drawdown_limit_breach_detected": True,
-            "paper_only_locks_enforced": True,
-            "state_serialization_recovery": True,
+            "missing_runtime_metrics_rejected": missing_rejected,
+            "exposure_limit_breach_detected": ExposureMonitor().evaluate({**runtime, "open_positions": 4}).status == "FAIL",
+            "drawdown_limit_breach_detected": RiskEngine().evaluate({**runtime, "drawdown_pct": -0.051}).status == "FAIL",
+            "state_roundtrip": json.loads(json.dumps(runtime, allow_nan=False)) == runtime,
         }
-
-        ok = all(v is True for v in simulations.values() if isinstance(v, bool) and v is not False)
-
-        # missing_runtime_metrics intentionally false means fallback path was not needed.
-        ok = (
-            simulations["exposure_limit_breach_detected"]
-            and simulations["drawdown_limit_breach_detected"]
-            and simulations["paper_only_locks_enforced"]
-            and simulations["state_serialization_recovery"]
-        )
-
+        ok = all(simulations.values())
         return GovernanceDecision(
             component="P2089_FAILURE_SIMULATION",
-            status="UNVERIFIED",
-            reason="STATIC_SIMULATION_FLAGS_NOT_EXECUTION_EVIDENCE",
+            status="UNVERIFIED" if ok else "FAIL",
+            reason="PARTIAL_PROBES_LOCK_AND_RECOVERY_CERTIFICATION_PENDING" if ok else "FAILURE_SIMULATION_FAIL",
             payload=simulations,
         )
 
