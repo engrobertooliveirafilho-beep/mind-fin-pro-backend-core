@@ -41,8 +41,20 @@ class CognitiveTreatyProtocol:
     """
 
     def negotiate(self, parties: List[str], proposal: Dict[str, Any]) -> TreatyResult:
-        topics = [str(t).lower() for t in proposal.get("topics", [])]
-        mode = str(proposal.get("mode", "cooperation")).lower()
+        if not isinstance(proposal, dict):
+            return TreatyResult("rejected", "Proposta invalida.", {})
+        if not isinstance(parties, list) or not parties or any(not isinstance(p, str) or not p.strip() for p in parties):
+            return TreatyResult("rejected", "Partes invalidas.", {})
+        if len(set(parties)) != len(parties):
+            return TreatyResult("rejected", "Partes duplicadas.", {})
+        raw_topics = proposal.get("topics", [])
+        if not isinstance(raw_topics, list) or any(not isinstance(t, str) or not t.strip() for t in raw_topics):
+            return TreatyResult("rejected", "Topicos invalidos.", {})
+        topics = [t.strip().lower() for t in raw_topics]
+        raw_mode = proposal.get("mode", "cooperation")
+        if not isinstance(raw_mode, str) or not raw_mode.strip():
+            return TreatyResult("rejected", "Modo invalido.", {})
+        mode = raw_mode.strip().lower()
 
         if any(t in ("aggression", "unbounded_access") for t in topics):
             return TreatyResult(
