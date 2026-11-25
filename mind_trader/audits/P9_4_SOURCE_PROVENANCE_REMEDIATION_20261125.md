@@ -57,3 +57,18 @@ Verification: isolated Python 3.13.5 tests **5 passed, 0 failed**, including 10,
 A focused isolated harness reconstructed from the published branch readback executed the P9.3, P9.5, P9.6, P9.7, and P9.100 contracts: **13 passed, 0 failed** under Python 3.13.5. The log explicitly records that this was not a full repository checkout or GitHub CI run. JUnit and log are published under `mind_trader/evidence/p9/`.
 
 These tests prove the blocked-state behavior only. They do not prove a real backtest, actual execution of the ten research steps, statistical validity, or FTMO readiness.
+
+## New Drive discovery — canonical GER40.cash M1 dataset
+
+Recovered a separate read-only source manifest from the TRADER.1.004 industrial data-lake evidence:
+- Source run: `20260719_074124`.
+- Relative path: `lake/raw/mt5/m1/symbol=GER40_cash/timeframe=M1/GER40_cash_M1.csv`.
+- Broker/canonical mapping: `GER40.cash` → `GER40_CASH`; timeframe `M1`.
+- Declared size: 126,671,713 bytes.
+- Declared SHA-256: `D8BAFFAFA857E69615E39DB391F6AA14C9855B04023484EED4730DA7669E6097`.
+- Declared MD5: `58af269806c0ae22b16256e4bc913504`.
+- Source policy: `READ_ONLY`.
+
+This is manifest evidence only. The raw CSV bytes were not retrieved in this operation, so the declared SHA-256 was not recomputed, OHLC/spread units were not revalidated, and no backtest was executed. P9.1 now includes GER40.cash in its index universe and preserves this exact source record with `MANIFEST_ONLY_HASH_NOT_RECOMPUTED` and `NOT_INGESTED` states. The catalog now has 1,536 slots (48 assets × 8 timeframes × 4 source classes), still placeholders rather than ingested datasets.
+
+Regression after this code change: **5/5 PASS** under Python 3.13.5; JUnit and SHA-256 evidence published under `mind_trader/evidence/p9/`.
