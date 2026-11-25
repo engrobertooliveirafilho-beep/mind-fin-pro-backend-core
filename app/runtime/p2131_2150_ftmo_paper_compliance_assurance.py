@@ -144,7 +144,7 @@ def run_p2131_2150(output_dir="data/runtime/P2131_2150/evidence"):
     evidence_missing = [p for p in evidence_files if not Path(p).exists()]
 
     mission_status = {
-        "P2131_FTMO_RULE_FRAMEWORK_AUDIT": decision(not missing and not invalid),
+        "P2131_FTMO_RULE_FRAMEWORK_AUDIT": "UNVERIFIED" if not missing and not invalid else "FAIL",
         "P2132_DAILY_LOSS_GUARD_DECLARATION": "UNVERIFIED",
         "P2133_TOTAL_LOSS_GUARD_DECLARATION": "UNVERIFIED",
         "P2134_PROFIT_TARGET_TRACKER_DECLARATION": "UNVERIFIED",
@@ -207,11 +207,12 @@ def run_p2131_2150(output_dir="data/runtime/P2131_2150/evidence"):
 
     all_pass = all(v == "PASS" for v in mission_status.values())
 
+    assert_locks()
     result = {
         "program": "P2131_2150_FTMO_PAPER_COMPLIANCE_AND_OPERATIONAL_ASSURANCE",
         "status": "PASS" if all_pass else "FAIL",
         "readiness": "FTMO_PAPER_COMPLIANCE_AND_OPERATIONAL_ASSURANCE_CERTIFIED" if all_pass else "NOT_CERTIFIED",
-        "absolute_restrictions": enforce(),
+        "absolute_restrictions": {k: os.environ[k] for k in LOCKS},
         "mission_status": mission_status,
         "dependencies": loaded,
         "dependency_hashes": hashes,
@@ -268,7 +269,7 @@ P2131_2150_FTMO_PAPER_COMPLIANCE_AND_OPERATIONAL_ASSURANCE
 {json.dumps(result["absolute_restrictions"], indent=2, ensure_ascii=False)}
 
 ## CONCLUSION
-P2131→P2150 completed as FTMO PAPER compliance audit and operational assurance program.
+P2131→P2150 audit result: {result["readiness"]}.
 No real orders.
 No broker execution.
 No financial execution.
