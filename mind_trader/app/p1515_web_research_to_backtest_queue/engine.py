@@ -16,7 +16,7 @@ def certified_datasets():
     out=[]
     for r in rows:
         ds=r.get("dataset",{})
-        if ds.get("certified"):
+        if ds.get("certified") is True:
             name=r.get("normalized","")
             parts=name.replace("_normalized.csv","").split("_")
             symbol=parts[0] if parts else ""
@@ -28,6 +28,7 @@ def build_queue():
     arsenal=load_json(ARSENAL)
     datasets=certified_datasets()
     queue=[]
+    seen=set()
     for a in arsenal:
         asset=a.get("asset")
         for d in datasets:
@@ -39,8 +40,12 @@ def build_queue():
             if asset in ["WINFUT","WDOFUT"]: priority+=50
             if d["timeframe"] in ["M15","M30","H1"]: priority+=20
             if a.get("family") in ["trend_following","breakout","mean_reversion"]: priority+=10
+            queue_id=f'{asset}_{d["timeframe"]}_{a.get("family")}_{a.get("pattern")}'
+            if queue_id in seen:
+                continue
+            seen.add(queue_id)
             queue.append({
-                "queue_id":f'{asset}_{d["timeframe"]}_{a.get("family")}_{a.get("pattern")}',
+                "queue_id":queue_id,
                 "asset":asset,
                 "timeframe":d["timeframe"],
                 "dataset":d["dataset"],
