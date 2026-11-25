@@ -57,15 +57,12 @@ class BrokerEmulator:
             raise ValueError("INVALID_ORDER")
         price = self.market.tick()
 
-        # Slippage simulation
-        slippage = random.uniform(-0.1, 0.1)
-        exec_price = price + slippage
-
-        pnl = 0
-        if side == "BUY":
-            pnl = random.uniform(-50, 120)
-        else:
-            pnl = random.uniform(-60, 140)
+        # Synthetic round trip, unit multiplier; not instrument-calibrated.
+        slippage = 0.1
+        direction = 1 if side == "BUY" else -1
+        exec_price = price + direction * slippage
+        exit_price = self.market.tick() - direction * slippage
+        pnl = direction * (exit_price - exec_price) * volume
 
         risk_status = self.risk.check(pnl)
 
@@ -74,6 +71,9 @@ class BrokerEmulator:
             "volume": volume,
             "market_price": price,
             "exec_price": exec_price,
+            "exit_price": exit_price,
+            "contract_multiplier": 1,
+            "data_origin": "SYNTHETIC",
             "slippage": slippage,
             "pnl": pnl,
             "risk": risk_status,
