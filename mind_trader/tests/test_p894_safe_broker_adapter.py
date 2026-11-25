@@ -26,3 +26,11 @@ def test_blocked_send_order():
 def test_broker_adapter_report_written():
     blocked_send_order("PROFIT",order())
     assert Path("mind_trader/reports/P8.94_safe_broker_adapter.json").exists()
+
+def test_order_validation_adversarial():
+    assert validate_order_payload(dict(order(),side="SELL",stop=104,target=98))["valid"]
+    for payload in (None, {}, dict(order(),side="HOLD"), dict(order(),stop=101)):
+        assert not validate_order_payload(payload)["valid"]
+    for field in ("entry","stop","target","risk_amount"):
+        for value in (True,float("nan"),float("inf"),-1,0,"100"):
+            assert not validate_order_payload(dict(order(),**{field:value}))["valid"]
