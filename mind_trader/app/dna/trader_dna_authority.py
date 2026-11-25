@@ -48,6 +48,9 @@ def validate_dna_atom(atom):
     }
 
 def save_dna_atoms(atoms,path="mind_trader/reports/P8.86_trader_dna_atoms.json"):
+    if not isinstance(atoms, list) or any(not validate_dna_atom(a)["valid"] for a in atoms):
+        raise ValueError("INVALID_DNA_ATOMS")
+    payload=json.dumps(atoms,ensure_ascii=False,indent=2,allow_nan=False)
     Path(path).parent.mkdir(parents=True,exist_ok=True)
-    Path(path).write_text(json.dumps(atoms,ensure_ascii=False,indent=2),encoding="utf-8")
+    Path(path).write_text(payload,encoding="utf-8")
     return path
