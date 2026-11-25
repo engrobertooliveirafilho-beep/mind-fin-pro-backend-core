@@ -23,7 +23,7 @@ def walk_forward_dispatcher(edges):
         trades=int(e.get("trades",0))
         windows=max(1,min(5,trades//10))
         score=round(min(1.0,(pf/2.0)*(windows/5)),6)
-        status="WALK_FORWARD_APPROVED" if pf>=1.25 and trades>=20 and score>=0.35 else "WALK_FORWARD_REJECTED"
+        status="WALK_FORWARD_PROXY_ONLY"
         results.append({**e,"walk_forward_windows":windows,"walk_forward_score":score,"walk_forward_status":status,**BLOCKS})
     return results
 
@@ -36,7 +36,7 @@ def monte_carlo_dispatcher(edges, seed=1600):
         sims=[max(0, pf*(1-random.uniform(0.05,0.35))-dd) for _ in range(100)]
         p05=round(sorted(sims)[4],6)
         stability=round(statistics.mean(sims),6)
-        status="MONTE_CARLO_APPROVED" if p05>=0.75 and stability>=1.0 else "MONTE_CARLO_REJECTED"
+        status="MONTE_CARLO_PROXY_ONLY"
         results.append({**e,"monte_carlo_runs":100,"monte_carlo_p05":p05,"monte_carlo_stability":stability,"monte_carlo_status":status,**BLOCKS})
     return results
 
@@ -47,18 +47,15 @@ def edge_decay_detector(edges):
         wf=float(e.get("walk_forward_score",0))
         mc=float(e.get("monte_carlo_stability",0))
         decay=round(max(0,1-((pf/2.5)+(wf)+(mc/2.5))/3),6)
-        status="DECAY_WARNING" if decay>=0.45 else "DECAY_OK"
+        status="DECAY_PROXY_WARNING" if decay>=0.45 else "DECAY_PROXY_ONLY"
         results.append({**e,"decay_score":decay,"decay_status":status,**BLOCKS})
     return results
 
 def edge_revalidation_engine(edges):
     results=[]
     for e in edges:
-        approved=(
-            e.get("walk_forward_status")=="WALK_FORWARD_APPROVED" and
-            e.get("monte_carlo_status")=="MONTE_CARLO_APPROVED" and
-            e.get("decay_status")!="DECAY_WARNING"
-        )
+        # Aggregate metrics cannot establish chronological or trade-level validation.
+        approved=False
         results.append({
             **e,
             "revalidation_status":"PAPER_RESEARCH_CERTIFIED" if approved else "RESEARCH_ONLY",
@@ -83,6 +80,7 @@ def run():
         "ENTRY_STATUS":cert.get("STATUS"),
         "P16_REUSED_PHASES":16,
         "P16_IMPLEMENTED_GAPS":4,
+        "VALIDATION_METHOD":"AGGREGATE_PROXY_ONLY",
         "P16_TOTAL_PHASES":20,
         "HYPOTHESES":594,
         "STRATEGIES":154,
