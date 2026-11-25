@@ -1,24 +1,43 @@
-1: PASS
-2: PASS
-3: PASS
-4: PASS
-5: PASS
-6: PASS
-7: PASS
-8: PASS
-9: PASS
-10: PASS
-11: PASS
-12: PASS
-13: PASS
-14: PASS
-15: PASS
-16: PASS
-17: PASS
-18: PASS
-19: PASS
-20: PASS
-21: PASS
-22: PASS
-23: PASS
-23/23 PASS; blob bb81491667892ebbd71fa6b2594f38ef167ff17d
+SOURCE_BLOB=bb81491667892ebbd71fa6b2594f38ef167ff17d
+SOURCE_SHA256=a6e30ea62559a44dbe5ad1616f8bf9ef8f952753a470667820bff9bac053cb7b
+PASS buy
+PASS sell
+PASS wrong side
+PASS buy crossing target
+PASS sell crossing target
+PASS invalid geometry
+PASS not dict
+PASS entry=True
+PASS entry=None
+PASS entry=nan
+PASS entry=inf
+PASS entry=-1
+PASS entry='100'
+PASS stop=True
+PASS stop=None
+PASS stop=nan
+PASS stop=inf
+PASS stop=-1
+PASS stop='100'
+PASS target=True
+PASS target=None
+PASS target=nan
+PASS target=inf
+PASS target=-1
+PASS target='100'
+PASS cost[0]=-1
+PASS cost[0]=True
+PASS cost[0]=nan
+PASS cost[0]=inf
+PASS cost[0]='1'
+PASS cost[1]=-1
+PASS cost[1]=True
+PASS cost[1]=nan
+PASS cost[1]=inf
+PASS cost[1]='1'
+PASS cost[2]=-1
+PASS cost[2]=True
+PASS cost[2]=nan
+PASS cost[2]=inf
+PASS cost[2]='1'
+40/40 PASS; isolated fill model only
