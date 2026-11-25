@@ -95,6 +95,8 @@ def backtest_sma_cross(symbol,timeframe,fast=9,slow=21,initial_capital=100000,co
 def walk_forward(symbol,timeframe,windows=3,db_path="mind_trader/data/market.sqlite"):
     data=load_ohlcv(symbol,timeframe,db_path)
     if len(data)<90: raise ValueError("WALK_FORWARD_REQUER_90_BARRAS_REAIS")
+    if type(windows) is not int or windows < 2 or windows > len(data)//31:
+        raise ValueError("WALK_FORWARD_INVALID_WINDOWS")
     chunk=len(data)//windows
     results=[]
     from tempfile import TemporaryDirectory
@@ -108,7 +110,7 @@ def walk_forward(symbol,timeframe,windows=3,db_path="mind_trader/data/market.sql
             con.commit(); con.close()
             try: results.append(backtest_sma_cross(symbol,timeframe,db_path=tmp))
             except Exception as e: results.append({"error":str(e)})
-    stable=all(("metrics" in r and r["metrics"]["trades"]>0 and r["metrics"]["net_profit"]>0) for r in results)
+    stable=len(results)==windows and all(("metrics" in r and r["metrics"]["trades"]>0 and r["metrics"]["net_profit"]>0) for r in results)
     return {"windows":windows,"results":results,"stable":stable,"decision":"NOT_PROMOTED" if not stable else "CANDIDATE_REQUIRES_MORE_VALIDATION"}
 
 def save_report(report,path="mind_trader/reports/P8.28_report.json"):
