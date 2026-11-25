@@ -1,3 +1,4 @@
+import math
 from dataclasses import dataclass
 from typing import Any, Dict, List
 
@@ -47,9 +48,12 @@ class EvolutionGatekeeper:
     """
 
     def evaluate(self, proposal: Dict[str, Any]) -> EvolutionGateDecision:
-        risk = float(proposal.get("risk_score", 0.0))
-        alignment = float(proposal.get("alignment_score", 0.0))
-        redundancy = float(proposal.get("redundancy_score", 0.0))
+        risk = float(proposal["risk_score"])
+        alignment = float(proposal["alignment_score"])
+        redundancy = float(proposal["redundancy_score"])
+
+        if not all(math.isfinite(v) and 0 <= v <= 1 for v in (risk, alignment, redundancy)):
+            raise ValueError("Invalid proposal scores")
 
         reasons: List[str] = []
 
