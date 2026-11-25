@@ -71,3 +71,14 @@ def test_pnl_overflow_preserves_session_and_ledger(tmp_path):
     before = m.session_path.read_bytes(), m.ledger_path.read_bytes()
     assert m.record_trade_result(1e308)["decision"] == "BLOCK_INVALID_PNL"
     assert (m.session_path.read_bytes(), m.ledger_path.read_bytes()) == before
+
+def test_invalid_risk_preserves_session(tmp_path):
+    m = mgr(tmp_path)
+    m.open_session()
+    before = m.session_path.read_bytes(), m.ledger_path.read_bytes()
+    for risk in (-1, float("nan"), float("inf"), -float("inf"), True, "10", None, 10**1000):
+        result = m.pre_trade_check(risk)
+        assert result["allowed"] is False
+        assert result["decision"] == "BLOCK_INVALID_RISK"
+        assert (m.session_path.read_bytes(), m.ledger_path.read_bytes()) == before
+    assert m.pre_trade_check(100)["allowed"] is True
