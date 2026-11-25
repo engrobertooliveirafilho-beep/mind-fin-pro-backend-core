@@ -55,3 +55,19 @@ def test_ledger_written(tmp_path):
     m=mgr(tmp_path)
     m.open_session()
     assert Path(tmp_path/"ledger.jsonl").exists()
+
+def test_invalid_pnl_preserves_session_and_ledger(tmp_path):
+    m = mgr(tmp_path)
+    assert m.open_session()["decision"] == "SESSION_OPENED"
+    before = m.session_path.read_bytes(), m.ledger_path.read_bytes()
+    for pnl in (float("nan"), float("inf"), -float("inf"), True, "10", None, 10**1000):
+        assert m.record_trade_result(pnl)["decision"] == "BLOCK_INVALID_PNL"
+        assert (m.session_path.read_bytes(), m.ledger_path.read_bytes()) == before
+
+def test_pnl_overflow_preserves_session_and_ledger(tmp_path):
+    m = mgr(tmp_path)
+    m.open_session()
+    assert m.record_trade_result(1e308)["decision"] == "TRADE_RECORDED"
+    before = m.session_path.read_bytes(), m.ledger_path.read_bytes()
+    assert m.record_trade_result(1e308)["decision"] == "BLOCK_INVALID_PNL"
+    assert (m.session_path.read_bytes(), m.ledger_path.read_bytes()) == before
