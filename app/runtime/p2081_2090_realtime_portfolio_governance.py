@@ -24,12 +24,15 @@ ABSOLUTE_LOCKS = {
 
 def enforce_paper_only() -> Dict[str, str]:
     for key, value in ABSOLUTE_LOCKS.items():
+        if key in os.environ and os.environ[key] != value:
+            raise RuntimeError(f"{key}_LOCK_BREACH")
+    for key, value in ABSOLUTE_LOCKS.items():
         os.environ[key] = value
     return dict(ABSOLUTE_LOCKS)
 
 
 def assert_no_financial_execution() -> None:
-    locks = enforce_paper_only()
+    locks = {key: os.environ.get(key) for key in ABSOLUTE_LOCKS}
 
     if locks["MIND_MODE"] != "PAPER_ONLY":
         raise RuntimeError("MIND_MODE_LOCK_BREACH")
@@ -75,7 +78,7 @@ def extract_specialists(raw: Any) -> List[Dict[str, Any]]:
             if isinstance(raw.get(key), list):
                 return raw[key]
 
-    return [{"id": "XAUUSD_M1_REALDNA_0004", "type": "RANGE_REVERSION"}]
+    raise ValueError("SPECIALISTS_MISSING")
 
 
 def extract_runtime_metrics(raw: Dict[str, Any]) -> Dict[str, Any]:
@@ -310,8 +313,8 @@ class FailureSimulation:
 
         return GovernanceDecision(
             component="P2089_FAILURE_SIMULATION",
-            status="PASS" if ok else "FAIL",
-            reason="FAILURE_SIMULATION_OK" if ok else "FAILURE_SIMULATION_FAIL",
+            status="UNVERIFIED",
+            reason="STATIC_SIMULATION_FLAGS_NOT_EXECUTION_EVIDENCE",
             payload=simulations,
         )
 
@@ -319,7 +322,10 @@ class FailureSimulation:
 def certify_governance(decisions: List[GovernanceDecision]) -> GovernanceDecision:
     assert_no_financial_execution()
 
+    expected = {"P2081_PORTFOLIO_HEALTH", "P2082_RUNTIME_METRICS", "P2083_EXPOSURE_MONITOR", "P2084_RISK_ENGINE", "P2085_PORTFOLIO_REBALANCING", "P2086_CAPITAL_ALLOCATION", "P2087_PORTFOLIO_RECOVERY", "P2088_ANOMALY_DETECTION", "P2089_FAILURE_SIMULATION"}
     failed = [x.component for x in decisions if x.status != "PASS"]
+    if len(decisions) != len(expected) or {x.component for x in decisions} != expected:
+        failed.append("INCOMPLETE_OR_DUPLICATE_COMPONENTS")
 
     return GovernanceDecision(
         component="P2090_GOVERNANCE_CERTIFICATION",
@@ -338,6 +344,7 @@ def run_p2081_2090(
     p2071_certification_path: str,
     output_dir: str,
 ) -> Dict[str, Any]:
+    enforce_paper_only()
     assert_no_financial_execution()
 
     output = Path(output_dir)
