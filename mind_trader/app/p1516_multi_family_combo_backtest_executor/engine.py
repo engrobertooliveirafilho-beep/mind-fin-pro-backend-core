@@ -93,6 +93,8 @@ def signal(pattern,rows,i):
 def backtest(rows,patterns,start_index=60):
     if not patterns or any(p not in SUPPORTED_PATTERNS for p in patterns):
         raise ValueError("UNIMPLEMENTED_OR_EMPTY_PATTERN_SET")
+    if any(p != "sma_cross" for p in patterns):
+        raise ValueError("UNSUPPORTED_EXIT_CONTRACT: research-only pattern; executable exits not defined")
     if len(rows)<2 or any(not math.isfinite(float(r.get("open",0))) or float(r.get("open",0))<=0 or not math.isfinite(float(r.get("close",0))) or float(r.get("close",0))<=0 for r in rows):
         raise ValueError("INVALID_EXECUTION_PRICE")
     closes=[float(r["close"]) for r in rows]
