@@ -20,6 +20,19 @@ def classify_text(text):
     best=max(scores,key=scores.get)
     return best if scores[best]>0 else "unknown"
 
+def candidate_provenance_hash(atom):
+    payload={k:v for k,v in atom.items() if k not in ("created_at","provenance_hash")}
+    raw=json.dumps(payload,sort_keys=True,ensure_ascii=False,separators=(",",":"),allow_nan=False)
+    return hashlib.sha256(raw.encode("utf-8")).hexdigest()
+
+def verify_candidate_provenance(atom):
+    if not isinstance(atom,dict) or not isinstance(atom.get("provenance_hash"),str):
+        return False
+    try:
+        return atom["provenance_hash"]==candidate_provenance_hash(atom)
+    except (TypeError,ValueError):
+        return False
+
 def extract_candidate_atom(text, source_name="manual_source", registered_source_id=None):
     category=classify_text(text)
     sid=source_id(text)
@@ -38,6 +51,7 @@ def extract_candidate_atom(text, source_name="manual_source", registered_source_
     atom["registered_source_id"]=registered_source_id
     atom["knowledge_status"]="CANDIDATE_NOT_VALIDATED"
     atom["edge_claim"]="NONE"
+    atom["provenance_hash"]=candidate_provenance_hash(atom)
     return atom
 
 def absorb_knowledge_texts(texts, source_name="manual_batch", registered_source_id=None, registry_path="mind_trader/reports/P8.88_knowledge_source_registry.json"):
