@@ -239,7 +239,7 @@ class SignalRuntime:
                         specialist_id=sid,
                         side=side,
                         confidence=confidence,
-                        reason=f"{typ}:{reason}",
+                        reason=f"SYNTHETIC_HEURISTIC:{reason}",
                     )
                 )
 
@@ -469,7 +469,7 @@ def run_p2071_2080(
     mission_status = {
         "P2071_REALTIME_DATA_FEED_BRIDGE": "PASS",
         "P2072_REALTIME_FEATURE_BUILDER": "PASS",
-        "P2073_SIGNAL_RUNTIME": "PASS",
+        "P2073_SIGNAL_RUNTIME": "UNVERIFIED",
         "P2074_PAPER_PORTFOLIO_EXECUTOR": "PASS",
         "P2075_RUNTIME_MONITOR": "PASS",
         "P2076_EXTENDED_RUNTIME_VALIDATION": "PENDING",
@@ -554,6 +554,8 @@ def run_p2071_2080(
         "readiness": "SYNTHETIC_RUNTIME_ONLY",
         "data_origin": "SYNTHETIC",
         "metrics_net_of_costs": False,
+        "strategy_logic_origin": "SHARED_SYNTHETIC_HEURISTIC",
+        "specialist_dna_executed": False,
         "edge_claim": "NONE",
         "absolute_restrictions": enforce_paper_only(),
         "mission_status": mission_status,
