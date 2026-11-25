@@ -99,6 +99,8 @@ class BrokerEmulator:
 
 
 def run_simulation(cycles=50):
+    if type(cycles) is not int or cycles <= 0:
+        raise ValueError("INVALID_CYCLES")
     broker = BrokerEmulator()
 
     for i in range(cycles):
