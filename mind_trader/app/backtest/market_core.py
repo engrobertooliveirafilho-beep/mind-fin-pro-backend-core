@@ -85,8 +85,8 @@ def backtest_sma_cross(symbol,timeframe,fast=9,slow=21,initial_capital=100000,co
         if buy and pos==0:
             pos=1; entry=price+slippage_points; cash-=cost_per_trade
         elif sell and pos==1:
-            exitp=price-slippage_points; pnl=exitp-entry-cost_per_trade
-            cash+=pnl; trades.append({"entry":entry,"exit":exitp,"pnl":pnl,"ts":data[i]["ts"]}); pos=0
+            exitp=price-slippage_points; pnl=exitp-entry-2*cost_per_trade
+            cash+=pnl+cost_per_trade; trades.append({"entry":entry,"exit":exitp,"pnl":pnl,"ts":data[i]["ts"]}); pos=0
         equity.append(cash + ((price-entry) if pos else 0))
     m=metrics(equity,trades)
     report={"symbol":symbol,"timeframe":timeframe,"strategy":"SMA_CROSS","params":{"fast":fast,"slow":slow,"cost_per_trade":cost_per_trade,"slippage_points":slippage_points},"metrics":m,"edge_claim":"NONE","decision":"RESEARCH_ONLY_NOT_PROMOTED"}
@@ -97,16 +97,18 @@ def walk_forward(symbol,timeframe,windows=3,db_path="mind_trader/data/market.sql
     if len(data)<90: raise ValueError("WALK_FORWARD_REQUER_90_BARRAS_REAIS")
     chunk=len(data)//windows
     results=[]
-    for w in range(windows):
-        start=w*chunk; end=(w+1)*chunk if w<windows-1 else len(data)
-        tmp=f"mind_trader/data/wf_{w}.sqlite"
-        con=db(tmp)
-        for x in data[start:end]:
-            con.execute("INSERT OR IGNORE INTO ohlcv(symbol,timeframe,ts,open,high,low,close,volume,source_file,ingested_at) VALUES(?,?,?,?,?,?,?,?,?,?)",(symbol,timeframe,x["ts"],x["open"],x["high"],x["low"],x["close"],x["volume"],"walk_forward_slice",datetime.now(UTC).isoformat()))
-        con.commit(); con.close()
-        try: results.append(backtest_sma_cross(symbol,timeframe,db_path=tmp))
-        except Exception as e: results.append({"error":str(e)})
-    stable=all(("metrics" in r and r["metrics"]["trades"]>0) for r in results)
+    from tempfile import TemporaryDirectory
+    with TemporaryDirectory(prefix='eldora_wf_') as workdir:
+        for w in range(windows):
+            start=w*chunk; end=(w+1)*chunk if w<windows-1 else len(data)
+            tmp=str(Path(workdir)/f"wf_{w}.sqlite")
+            con=db(tmp)
+            for x in data[start:end]:
+                con.execute("INSERT OR IGNORE INTO ohlcv(symbol,timeframe,ts,open,high,low,close,volume,source_file,ingested_at) VALUES(?,?,?,?,?,?,?,?,?,?)",(symbol,timeframe,x["ts"],x["open"],x["high"],x["low"],x["close"],x["volume"],"walk_forward_slice",datetime.now(UTC).isoformat()))
+            con.commit(); con.close()
+            try: results.append(backtest_sma_cross(symbol,timeframe,db_path=tmp))
+            except Exception as e: results.append({"error":str(e)})
+    stable=all(("metrics" in r and r["metrics"]["trades"]>0 and r["metrics"]["net_profit"]>0) for r in results)
     return {"windows":windows,"results":results,"stable":stable,"decision":"NOT_PROMOTED" if not stable else "CANDIDATE_REQUIRES_MORE_VALIDATION"}
 
 def save_report(report,path="mind_trader/reports/P8.28_report.json"):
