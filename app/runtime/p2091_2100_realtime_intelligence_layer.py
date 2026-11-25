@@ -24,12 +24,15 @@ ABSOLUTE_LOCKS = {
 
 def enforce_paper_only() -> Dict[str, str]:
     for k, v in ABSOLUTE_LOCKS.items():
+        if k in os.environ and os.environ[k] != v:
+            raise RuntimeError(f"{k}_LOCK_BREACH")
+    for k, v in ABSOLUTE_LOCKS.items():
         os.environ[k] = v
     return dict(ABSOLUTE_LOCKS)
 
 
 def assert_no_financial_execution() -> None:
-    locks = enforce_paper_only()
+    locks = {k: os.environ.get(k) for k in ABSOLUTE_LOCKS}
     for k, v in ABSOLUTE_LOCKS.items():
         if locks.get(k) != v:
             raise RuntimeError(f"{k}_LOCK_BREACH")
@@ -49,11 +52,14 @@ def extract_specialists(raw: Any) -> List[Dict[str, Any]]:
         for key in ["specialists", "final_specialists", "portfolio", "locked_specialists"]:
             if isinstance(raw.get(key), list):
                 return raw[key]
-    return [{"id": "XAUUSD_M1_REALDNA_0004", "type": "RANGE_REVERSION"}]
+    raise ValueError("SPECIALISTS_MISSING")
 
 
 def spec_id(spec: Dict[str, Any], idx: int) -> str:
-    return str(spec.get("id") or spec.get("specialist_id") or f"REALDNA_{idx+1}")
+    sid = spec.get("id") or spec.get("specialist_id")
+    if not isinstance(sid, str) or not sid.strip():
+        raise ValueError("SPECIALIST_ID_MISSING")
+    return sid
 
 
 @dataclass
@@ -146,28 +152,7 @@ class RegimeAnalytics:
 class PerformanceAttribution:
     def evaluate(self, specialists: List[Dict[str, Any]], p2071: Dict[str, Any]) -> IntelligenceDecision:
         assert_no_financial_execution()
-        m = p2071.get("metrics", {})
-        pnl = float(m.get("paper_mark_to_market_pnl", m.get("paper_realized_pnl", 0.0)))
-        n = max(len(specialists), 1)
-        per_spec = pnl / n
-
-        attribution = {}
-        for idx, spec in enumerate(specialists):
-            sid = spec_id(spec, idx)
-            attribution[sid] = round(per_spec, 6)
-
-        ok = len(attribution) >= 3
-
-        return IntelligenceDecision(
-            "P2094_PERFORMANCE_ATTRIBUTION",
-            "PASS" if ok else "FAIL",
-            "ATTRIBUTION_OK" if ok else "ATTRIBUTION_FAIL",
-            {
-                "portfolio_pnl": round(pnl, 6),
-                "attribution": attribution,
-                "attribution_sum": round(sum(attribution.values()), 6),
-            },
-        )
+        return IntelligenceDecision("P2094_PERFORMANCE_ATTRIBUTION", "UNVERIFIED", "SPECIALIST_LEDGER_REQUIRED", {"attribution": {}, "portfolio_pnl": p2071.get("metrics", {}).get("paper_mark_to_market_pnl")})
 
 
 class BehaviorAnalysis:
@@ -206,26 +191,7 @@ class BehaviorAnalysis:
 class SpecialistRankingEvolution:
     def evaluate(self, specialists: List[Dict[str, Any]]) -> IntelligenceDecision:
         assert_no_financial_execution()
-        ranking = []
-
-        for idx, spec in enumerate(specialists):
-            sid = spec_id(spec, idx)
-            base_score = float(spec.get("score", 100 - idx))
-            rank_score = base_score + max(0, 3 - idx) * 10
-            ranking.append({"specialist_id": sid, "rank": idx + 1, "score": round(rank_score, 6)})
-
-        ranking = sorted(ranking, key=lambda x: x["score"], reverse=True)
-        for i, item in enumerate(ranking):
-            item["rank"] = i + 1
-
-        ok = len(ranking) >= 3 and ranking[0]["score"] >= ranking[-1]["score"]
-
-        return IntelligenceDecision(
-            "P2096_SPECIALIST_RANKING_EVOLUTION",
-            "PASS" if ok else "FAIL",
-            "RANKING_EVOLUTION_OK" if ok else "RANKING_EVOLUTION_FAIL",
-            {"ranking": ranking},
-        )
+        return IntelligenceDecision("P2096_SPECIALIST_RANKING_EVOLUTION", "UNVERIFIED", "VALIDATED_SPECIALIST_PERFORMANCE_REQUIRED", {"ranking": []})
 
 
 class AutoRetirement:
@@ -255,19 +221,7 @@ class AutoRetirement:
 class AutoPromotion:
     def evaluate(self, ranking: List[Dict[str, Any]]) -> IntelligenceDecision:
         assert_no_financial_execution()
-        promoted = [x["specialist_id"] for x in ranking[:1]] if ranking else []
-
-        ok = len(promoted) >= 1
-
-        return IntelligenceDecision(
-            "P2098_AUTO_PROMOTION",
-            "PASS" if ok else "FAIL",
-            "AUTO_PROMOTION_READY" if ok else "AUTO_PROMOTION_EMPTY",
-            {
-                "promoted_candidates": promoted,
-                "promotion_scope": "PAPER_ONLY_RANKING_METADATA",
-            },
-        )
+        return IntelligenceDecision("P2098_AUTO_PROMOTION", "UNVERIFIED", "PROMOTION_EVIDENCE_REQUIRED", {"promoted_candidates": [], "promotion_scope": "BLOCKED"})
 
 
 class PortfolioEvolution:
@@ -299,7 +253,11 @@ class PortfolioEvolution:
 
 
 def certify(decisions: List[IntelligenceDecision]) -> IntelligenceDecision:
+    assert_no_financial_execution()
+    expected = {"P2091_RUNTIME_ANALYTICS", "P2092_PORTFOLIO_INTELLIGENCE", "P2093_REGIME_ANALYTICS", "P2094_PERFORMANCE_ATTRIBUTION", "P2095_BEHAVIOR_ANALYSIS", "P2096_SPECIALIST_RANKING_EVOLUTION", "P2097_AUTO_RETIREMENT", "P2098_AUTO_PROMOTION", "P2099_PORTFOLIO_EVOLUTION"}
     failed = [d.component for d in decisions if d.status != "PASS"]
+    if len(decisions) != len(expected) or {d.component for d in decisions} != expected:
+        failed.append("INCOMPLETE_OR_DUPLICATE_COMPONENTS")
     return IntelligenceDecision(
         "P2100_INTELLIGENCE_CERTIFICATION",
         "PASS" if not failed else "FAIL",
@@ -318,6 +276,7 @@ def run_p2091_2100(
     p2081_certification_path: str,
     output_dir: str,
 ) -> Dict[str, Any]:
+    enforce_paper_only()
     assert_no_financial_execution()
 
     output = Path(output_dir)
