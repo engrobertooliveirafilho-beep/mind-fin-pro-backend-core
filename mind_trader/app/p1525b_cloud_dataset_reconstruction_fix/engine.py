@@ -23,13 +23,21 @@ def load_dataset(name):
     if not p.exists():
         return []
     with open(p,newline="",encoding="utf-8") as fh:
-        return [{**r,"close":f(r.get("close",0))} for r in csv.DictReader(fh) if f(r.get("close",0))>0]
+        rows=[{**r,"close":f(r.get("close",0))} for r in csv.DictReader(fh) if f(r.get("close",0))>0]
+    stamps=[datetime.fromisoformat(r.get("timestamp") or "") for r in rows]
+    if any(t.tzinfo is None or t.utcoffset() is None for t in stamps):
+        raise ValueError("Candle timestamp must include timezone")
+    if any(b<=a for a,b in zip(stamps,stamps[1:])):
+        raise ValueError("Candles must be strictly chronological")
+    return rows
 
 def sma(vals,n,i):
     if i<n: return None
     return sum(vals[i-n:i])/n
 
 def reconstruct(edge):
+    if edge.get("strategy") != "sma_cross":
+        raise ValueError("Unsupported reconstruction strategy")
     rows=load_dataset(edge["dataset"])
     closes=[r["close"] for r in rows]
     fast=int(edge["fast"]); slow=int(edge["slow"])
@@ -103,7 +111,7 @@ def run():
         trades,curve=reconstruct(e)
         eid=f'{e["symbol"]}_{e["timeframe"]}_{e["strategy"]}_{e["fast"]}_{e["slow"]}'
         m=metrics(trades,curve)
-        status="PAPER_RESEARCH_CERTIFIED" if m["trades"]>=20 and m["profit_factor"]>=1.25 and m["recovery_factor"]>=1 else "RESEARCH_ONLY"
+        status="RESEARCH_ONLY"
         reconstructed.append({
             "edge_id":eid,
             "dataset":e["dataset"],
@@ -120,7 +128,7 @@ def run():
 
     correlations=[]
     for a,b in itertools.combinations(return_series.keys(),2):
-        correlations.append({"a":a,"b":b,"pearson_trade_return_corr":corr(return_series[a],return_series[b])})
+        correlations.append({"a":a,"b":b,"pearson_trade_return_corr":None,"status":"TEMPORAL_ALIGNMENT_REQUIRED"})
 
     approved=[x for x in reconstructed if x["status"]=="PAPER_RESEARCH_CERTIFIED"]
 
@@ -132,7 +140,8 @@ def run():
         "CLOUD_DATA_SOURCE":REMOTE_NORM,
         "EDGES_RECONSTRUCTED":len(reconstructed),
         "APPROVED_EDGES":len(approved),
-        "CORRELATIONS":len(correlations),
+        "CORRELATIONS":0,
+        "CORRELATION_BLOCKED_PAIRS":len(correlations),
         "CERTIFICATION":"PAPER_RESEARCH_CERTIFIED" if approved else "RESEARCH_ONLY",
         "EDGE":"PAPER_RESEARCH_CERTIFIED" if approved else "NOT_PROVEN",
         "CAUSALITY":"NOT_PROVEN",
