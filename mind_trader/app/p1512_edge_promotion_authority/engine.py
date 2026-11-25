@@ -1,4 +1,4 @@
-import json
+import json, math
 from pathlib import Path
 from datetime import datetime,UTC
 
@@ -7,8 +7,22 @@ INPUT=Path("reports/P15.11_PROMOTED_EDGE_FORENSIC_AUDIT/approved_edges.json")
 def load():
     return json.loads(INPUT.read_text(encoding="utf-8")) if INPUT.exists() else []
 
+def eligible_row(r):
+    if not isinstance(r,dict):
+        return False
+    try:
+        numeric=all(type(r.get(k)) in (int,float) and math.isfinite(r[k]) for k in ("profit_factor","total_return"))
+    except (OverflowError,ValueError,TypeError):
+        return False
+    return (numeric and type(r.get("trades")) is int and r["trades"]>=30
+            and r["profit_factor"]>=1.50
+            and all(isinstance(r.get(k),str) and r[k].strip() for k in ("symbol","timeframe"))
+            and r.get("walk_forward_approved") is True
+            and r.get("monte_carlo_approved") is True)
+
 def authority():
     rows=load()
+    rows=[r for r in rows if eligible_row(r)] if isinstance(rows,list) else []
     filtered=[]
     seen=set()
 
