@@ -1,21 +1,26 @@
 from app.p9_massive_backtest_grid.engine import run, evaluate_genome
 from app.p9_genome_explosion_engine.engine import generate_genomes
 
-def test_p93_evaluate_genome_blocks_promotion():
-    g=generate_genomes(1)[0]
-    r=evaluate_genome(g)
-    assert r["validation"]["promotion_allowed"] is False
-    assert r["edge_proven"] is False
-    assert r["causality_proven"] is False
+def test_p93_does_not_fabricate_performance_metrics():
+    result = evaluate_genome(generate_genomes(1)[0])
+    assert result["metrics"] is None
+    assert result["research_score"] is None
+    assert result["status"] == "BLOCKED_REAL_BACKTEST_ENGINE_NOT_CONNECTED"
+    assert result["validation"]["walk_forward"] == "NOT_RUN"
+    assert result["validation"]["monte_carlo"] == "NOT_RUN"
+    assert result["promotion_allowed"] is False
 
-def test_p93_run_grid_manifest():
-    m=run(1000,50)
-    assert m["STATUS"]=="P9.3_MASSIVE_BACKTEST_GRID_IMPLEMENTED"
-    assert m["GENOMES_EVALUATED"]==1000
-    assert m["PROMOTION_ALLOWED"] is False
-    assert m["EXPORT_READY"] is True
+def test_p93_run_is_blocked_without_real_backtest_engine():
+    manifest = run(10, 5)
+    assert manifest["STATUS"] == "P9.3_BLOCKED_REAL_BACKTEST_ENGINE_NOT_CONNECTED"
+    assert manifest["BACKTESTS_EXECUTED"] == 0
+    assert manifest["TOP_EXPORTED"] == 0
+    assert manifest["PROMOTION_ALLOWED"] is False
+    assert manifest["EXPORT_READY"] is False
 
-def test_p93_top_report_exists():
+def test_p93_ranked_output_is_empty_until_backtests_exist():
+    import json
     from pathlib import Path
-    run(100,10)
-    assert Path("reports/P9.3_MASSIVE_BACKTEST_GRID/P9.3_top_ranked_candidates.json").exists()
+    run(10, 5)
+    path = Path("reports/P9.3_MASSIVE_BACKTEST_GRID/P9.3_top_ranked_candidates.json")
+    assert json.loads(path.read_text(encoding="utf-8")) == []
