@@ -11,3 +11,5 @@ PASS invalid input inf 2026-11-25T00:00:00+00:00
 PASS invalid input 0 2026-11-24T00:00:00+00:00
 PASS invalid input 0 2026-11-25T00:00:00
 No new test execution; FTMO certification false.
+
+AUDIT 2026-11-25: Local check.py and tests.log SHA256 manifest verified. This establishes artifact integrity only, not independent execution provenance or equivalence to canonical runtime. Certification remains UNVERIFIED; do not promote.
