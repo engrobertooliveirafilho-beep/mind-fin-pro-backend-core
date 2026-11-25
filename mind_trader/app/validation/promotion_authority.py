@@ -5,11 +5,15 @@ from datetime import datetime, UTC
 FORBIDDEN_TARGETS={"LIVE","PRODUCTION","REAL_MONEY","FTMO_REAL"}
 
 def promotion_authority(genome_id, validation_result, requested_target="PAPER"):
-    if requested_target in FORBIDDEN_TARGETS:
+    if isinstance(requested_target,str) and requested_target in FORBIDDEN_TARGETS:
         decision="FORCE_BLOCK_PROMOTION"
         allowed=False
         reason="REAL_OR_LIVE_PROMOTION_FORBIDDEN"
-    elif validation_result.get("decision")=="PAPER_TRADING_APPROVED":
+    elif not isinstance(requested_target,str) or requested_target!="PAPER":
+        decision="FORCE_BLOCK_PROMOTION"
+        allowed=False
+        reason="UNSUPPORTED_PROMOTION_TARGET"
+    elif isinstance(validation_result,dict) and validation_result.get("decision")=="PAPER_TRADING_APPROVED":
         decision="PROMOTE_TO_PAPER_RESEARCH_ONLY"
         allowed=True
         reason="VALIDATED_FOR_PAPER_SCOPE_ONLY"
