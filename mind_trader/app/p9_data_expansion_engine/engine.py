@@ -5,13 +5,29 @@ ASSET_UNIVERSE = {
     "brazil_futures": ["WIN","WDO","IND","DOL"],
     "forex": ["EURUSD","GBPUSD","USDJPY"],
     "commodities": ["XAUUSD"],
-    "indices": ["SP500","NASDAQ"],
+    "indices": ["SP500","NASDAQ","GER40.cash"],
     "crypto": ["BTCUSD","ETHUSD"],
     "brazil_stocks": ["PETR4","VALE3","ITUB4","BBDC4","BBAS3","ABEV3","WEGE3","B3SA3","RENT3","PRIO3","SUZB3","ELET3","JBSS3","RAIL3","MGLU3"],
     "international_stocks": ["AAPL","MSFT","NVDA","AMZN","GOOGL","META","TSLA","NFLX","AMD","INTC","JPM","BAC","KO","PEP","WMT","COST","DIS","NKE","XOM","CVX"]
 }
 TIMEFRAMES = ["TICK","M1","M5","M15","M30","H1","H4","D1"]
 SOURCES = ["MT5_CSV","PROFIT_CSV","GENERIC_OHLCV_CSV","TICK_DATA"]
+
+KNOWN_SOURCE_EVIDENCE = [
+    {
+        "asset": "GER40.cash",
+        "canonical_symbol": "GER40_CASH",
+        "timeframe": "M1",
+        "source_run_id": "20260719_074124",
+        "relative_path": "lake/raw/mt5/m1/symbol=GER40_cash/timeframe=M1/GER40_cash_M1.csv",
+        "size_bytes": 126671713,
+        "declared_sha256": "D8BAFFAFA857E69615E39DB391F6AA14C9855B04023484EED4730DA7669E6097",
+        "declared_md5": "58af269806c0ae22b16256e4bc913504",
+        "source_policy": "READ_ONLY",
+        "evidence_status": "MANIFEST_ONLY_HASH_NOT_RECOMPUTED",
+        "ingestion_status": "NOT_INGESTED"
+    }
+]
 
 def dataset_id(asset, timeframe, source):
     raw=f"{asset}:{timeframe}:{source}"
@@ -31,7 +47,7 @@ def run():
     catalog=build_catalog()
     lineage=[{"dataset_id":r["dataset_id"],"source":r["source"],"asset":r["asset"],"timeframe":r["timeframe"],"origin":"EXTERNAL_FILE_REQUIRED","hash_required":True,"audit_required":True} for r in catalog]
     quality=[{"dataset_id":r["dataset_id"],"required_checks":["schema","timestamp_order","duplicates","missing_values","ohlcv_consistency","volume_validity","spread_costs_when_available"],"status":"PENDING_REAL_FILE"} for r in catalog]
-    snapshot={"P9.1_STATE_SNAPSHOT":{"STATUS":"P9.1_CATALOG_ONLY_AWAITING_REAL_DATA","TOTAL_DATASET_SLOTS":len(catalog),"DATASET_SLOTS_ONLY":True,"INGESTION_EXECUTED":0,"REAL_DATA_FILES":0,"ASSET_UNIVERSE":ASSET_UNIVERSE,"TIMEFRAMES":TIMEFRAMES,"SOURCES":SOURCES,"LIVE":"FORBIDDEN","PRODUCTION":"BLOCKED","REAL_BROKER":"DISABLED","EDGE":"NONE","CAUSALITY":"NOT_PROVEN","NEXT":"INGEST_AND_VERIFY_REAL_MT5_PROFIT_CSV_FILES","EXPORT_READY":False}}
+    snapshot={"P9.1_STATE_SNAPSHOT":{"STATUS":"P9.1_CATALOG_ONLY_AWAITING_REAL_DATA","TOTAL_DATASET_SLOTS":len(catalog),"DATASET_SLOTS_ONLY":True,"INGESTION_EXECUTED":0,"REAL_DATA_FILES":0,"ASSET_UNIVERSE":ASSET_UNIVERSE,"TIMEFRAMES":TIMEFRAMES,"SOURCES":SOURCES,"KNOWN_SOURCE_EVIDENCE":KNOWN_SOURCE_EVIDENCE,"LIVE":"FORBIDDEN","PRODUCTION":"BLOCKED","REAL_BROKER":"DISABLED","EDGE":"NONE","CAUSALITY":"NOT_PROVEN","NEXT":"INGEST_AND_VERIFY_REAL_MT5_PROFIT_CSV_FILES","EXPORT_READY":False}}
     (out/"dataset_catalog.json").write_text(json.dumps(catalog,indent=2,ensure_ascii=False),encoding="utf-8")
     (out/"dataset_lineage.json").write_text(json.dumps(lineage,indent=2,ensure_ascii=False),encoding="utf-8")
     (out/"dataset_quality_gate.json").write_text(json.dumps(quality,indent=2,ensure_ascii=False),encoding="utf-8")
