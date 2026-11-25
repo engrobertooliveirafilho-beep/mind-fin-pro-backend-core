@@ -1,4 +1,5 @@
 from pathlib import Path
+import json
 from mind_trader.app.execution.gateway import ExecutionGateway
 from mind_trader.app.risk.ftmo_ruleset import save_default_ftmo_config
 
@@ -14,6 +15,9 @@ def genome():
 def gateway(tmp_path):
     cfg=tmp_path/"ftmo.json"
     save_default_ftmo_config(str(cfg))
+    config=json.loads(cfg.read_text(encoding="utf-8"))
+    config.update(spread=0.2, slippage=0.1, commission=1.0)
+    cfg.write_text(json.dumps(config),encoding="utf-8")
     g=ExecutionGateway(str(tmp_path/"exec.jsonl"),str(cfg),str(tmp_path/"session.json"),str(tmp_path/"day.jsonl"),str(tmp_path/"paper_broker.jsonl"))
     g.paper.open_session()
     return g
