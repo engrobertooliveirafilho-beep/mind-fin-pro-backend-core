@@ -41,3 +41,30 @@ def test_gateway_live_still_force_block(tmp_path):
     g=gateway(tmp_path)
     r=g.submit_order("LIVE",trade(),regime(),genome())
     assert r["decision"]=="FORCE_BLOCK_LIVE_OR_PRODUCTION"
+
+
+def test_gateway_propagates_real_broker_cost_rejection(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    g = gateway(tmp_path)
+    cfg = tmp_path / "ftmo.json"
+    config = json.loads(cfg.read_text(encoding="utf-8"))
+    config.update(spread=0, slippage=0, commission=0)
+    cfg.write_text(json.dumps(config), encoding="utf-8")
+    result = g.submit_order("PAPER", trade(), regime(), genome())
+    assert result["decision"] == "REJECT_ORDER"
+    assert result["order_status"] == "SIMULATED_REJECTED"
+    assert result["paper_broker"]["decision"] == "PAPER_ORDER_REJECTED_INVALID_COST_CONFIG"
+    assert result["real_broker_routing"] == "DISABLED"
+    broker = json.loads((tmp_path / "paper_broker.jsonl").read_text().splitlines()[-1])
+    execution = json.loads((tmp_path / "exec.jsonl").read_text().splitlines()[-1])
+    assert execution["paper_broker"]["paper_order_id"] == broker["paper_order_id"]
+    assert execution["decision"] == "REJECT_ORDER"
+
+def test_gateway_rejects_missing_broker_response(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    g = gateway(tmp_path)
+    monkeypatch.setattr("mind_trader.app.execution.gateway.paper_route_order", lambda *args, **kwargs: None)
+    result = g.submit_order("PAPER", trade(), regime(), genome())
+    assert result["decision"] == "REJECT_ORDER"
+    assert result["order_status"] == "SIMULATED_REJECTED"
+    assert any(c["layer"] == "PAPER_BROKER" and not c["ok"] for c in result["checks"])
