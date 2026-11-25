@@ -191,6 +191,14 @@ class RealtimeFeatureBuilder:
 
 class SignalRuntime:
     def __init__(self, specialists: List[Dict[str, Any]]):
+        ids = set()
+        for spec in specialists:
+            if not isinstance(spec, dict):
+                raise ValueError("INVALID_SPECIALIST")
+            sid = spec.get("id") or spec.get("specialist_id")
+            if not isinstance(sid, str) or not sid.strip() or sid in ids:
+                raise ValueError("INVALID_OR_DUPLICATE_SPECIALIST_ID")
+            ids.add(sid)
         self.specialists = specialists[:3]
 
     def generate(self, frame: FeatureFrame) -> List[PaperSignal]:
@@ -199,7 +207,9 @@ class SignalRuntime:
         signals: List[PaperSignal] = []
 
         for idx, spec in enumerate(self.specialists):
-            sid = str(spec.get("id") or spec.get("specialist_id") or f"REALDNA_{idx+1}")
+            sid = spec.get("id") or spec.get("specialist_id")
+            if spec.get("symbol") != frame.symbol:
+                continue
             typ = str(spec.get("type") or spec.get("strategy_type") or "RANGE_REVERSION")
 
             side = "HOLD"
@@ -259,6 +269,10 @@ class PaperPortfolioExecutor:
     def on_signal(self, signal: PaperSignal, price: float) -> Optional[PaperPosition]:
         assert_no_financial_execution()
 
+        if signal.side not in ("BUY", "SELL") or not math.isfinite(price) or price <= 6:
+            raise ValueError("INVALID_PAPER_ORDER")
+        if not math.isfinite(signal.confidence) or not 0 <= signal.confidence <= 1:
+            raise ValueError("INVALID_CONFIDENCE")
         if signal.confidence < 0.55:
             return None
 
@@ -298,6 +312,8 @@ class PaperPortfolioExecutor:
         to_close = []
 
         for pid, pos in self.positions.items():
+            if pos.symbol != frame.symbol:
+                continue
             price = frame.mid
 
             if pos.side == "BUY":
