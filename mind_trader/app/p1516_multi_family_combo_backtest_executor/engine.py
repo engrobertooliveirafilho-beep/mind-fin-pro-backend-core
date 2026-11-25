@@ -113,11 +113,15 @@ def walk_forward(rows,patterns):
     return {"approved":train["profit_factor"]>=1.10 and test["profit_factor"]>=1.05 and train["trades"]>=3 and test["trades"]>=1,"train":train,"test":test}
 
 def monte_carlo(trades):
-    if len(trades)<8: return {"approved":False}
+    if len(trades)<8 or any(type(t) not in (int,float) or not math.isfinite(t) or t<=-1 for t in trades):
+        return {"approved":False}
+    rng=random.Random(1516)
     sims=[]
-    for _ in range(100):
-        t=trades[:]; random.shuffle(t); sims.append(sum(t))
-    return {"approved":sorted(sims)[10]>0,"q10_return":round(sorted(sims)[10],6)}
+    for _ in range(1000):
+        sample=rng.choices(trades,k=len(trades))
+        sims.append(math.prod(1+t for t in sample)-1)
+    q10=sorted(sims)[99]
+    return {"approved":q10>0,"q10_return":round(q10,6),"method":"IID_TRADE_BOOTSTRAP","simulations":1000}
 
 def build_combos(queue):
     grouped={}
