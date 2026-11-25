@@ -29,6 +29,12 @@ class FederationPolicyEngine:
         self._contracts: Dict[str, FederationContract] = {}
 
     def register_contract(self, contract: FederationContract) -> None:
+        if not isinstance(contract.remote_mind_id, str) or not contract.remote_mind_id.strip():
+            raise ValueError("Invalid remote_mind_id")
+        if not isinstance(contract.allowed_topics, list) or not contract.allowed_topics:
+            raise ValueError("allowed_topics must be a non-empty list")
+        if any(not isinstance(topic, str) or not topic.strip() for topic in contract.allowed_topics):
+            raise ValueError("allowed_topics must contain non-empty strings")
         if type(contract.max_sensitivity) is not int or not 0 <= contract.max_sensitivity <= 10:
             raise ValueError("Invalid contract sensitivity")
         self._contracts[contract.remote_mind_id] = deepcopy(contract)
@@ -42,7 +48,12 @@ class FederationPolicyEngine:
           - topic: str
           - sensitivity: int (0–10)
         """
-        topic = str(payload.get("topic", "")).lower()
+        if not isinstance(payload, dict):
+            return {"allowed": False, "reason": "Payload invalido."}
+        raw_topic = payload.get("topic")
+        if not isinstance(raw_topic, str) or not raw_topic.strip():
+            return {"allowed": False, "reason": "Topico invalido ou ausente."}
+        topic = raw_topic.strip().lower()
         sensitivity = payload.get("sensitivity")
         if type(sensitivity) is not int or not 0 <= sensitivity <= 10:
             return {"allowed": False, "reason": "Sensibilidade invalida ou ausente."}
@@ -54,7 +65,7 @@ class FederationPolicyEngine:
                 "reason": "Nenhum contrato de federacao encontrado.",
             }
 
-        allowed_topics = [t.lower() for t in contract.allowed_topics]
+        allowed_topics = [t.strip().lower() for t in contract.allowed_topics]
         if topic not in allowed_topics:
             return {
                 "allowed": False,
