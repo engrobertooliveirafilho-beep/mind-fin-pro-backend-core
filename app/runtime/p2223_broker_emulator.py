@@ -3,6 +3,7 @@ import json
 import random
 import math
 import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 # =========================
@@ -28,13 +29,26 @@ class RiskEngine:
         self.peak = self.equity
         self.session_start = self.equity
         self.killed = False
+        self.session_day = None
 
-    def check(self, pnl):
+    def check(self, pnl, timestamp=None):
         if self.killed:
             return "KILLED"
         if type(pnl) not in (int,float) or not math.isfinite(pnl):
             raise ValueError("INVALID_PNL")
-        self.equity += pnl
+        timestamp = datetime.now(timezone.utc) if timestamp is None else timestamp
+        if not isinstance(timestamp, datetime) or timestamp.utcoffset() is None:
+            raise ValueError("INVALID_TIMESTAMP")
+        day = timestamp.astimezone(timezone.utc).date()
+        if self.session_day is not None and day < self.session_day:
+            raise ValueError("OUT_OF_ORDER_DAY")
+        next_equity = self.equity + pnl
+        if not math.isfinite(next_equity):
+            raise ValueError("INVALID_EQUITY")
+        if day != self.session_day:
+            self.session_start = self.equity
+            self.session_day = day
+        self.equity = next_equity
         self.peak = max(self.peak, self.equity)
         drawdown = (self.peak - self.equity) / self.peak
 
@@ -99,6 +113,8 @@ def run_simulation(cycles=50):
     return {
         "status": "RISK_KILLED" if broker.risk.killed else "SYNTHETIC_ONLY",
         "edge_claim": "NONE",
+        "risk_day_timezone": "UTC",
+        "ftmo_certified": False,
         "real_orders": "FORBIDDEN",
         "trades": broker.trades,
         "final_equity": broker.risk.equity,
