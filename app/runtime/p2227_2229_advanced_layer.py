@@ -1,5 +1,6 @@
 from __future__ import annotations
-import json, random
+import json, random, math
+from copy import deepcopy
 from pathlib import Path
 
 # ============================================================
@@ -11,6 +12,8 @@ class CrisisEngine:
         self.shock = 0.02
 
     def simulate_crisis(self, price):
+        if type(price) not in (int, float) or not math.isfinite(price) or price <= 0:
+            raise ValueError("INVALID_PRICE")
         event = random.choice(["NONE","CRASH","SPIKE","LIQUIDITY_DRAIN"])
 
         if event == "CRASH":
@@ -20,7 +23,7 @@ class CrisisEngine:
         elif event == "LIQUIDITY_DRAIN":
             price *= (1 + random.uniform(-0.02, 0.02))
 
-        return round(price, 2), event
+        return max(0.01, round(price, 2)), event
 
 
 # ============================================================
@@ -40,6 +43,9 @@ class MacroMarketTwin:
         self.world["RISK_SENTIMENT"] += random.uniform(-2, 2)
         self.world["VOLATILITY"] += random.uniform(-1, 1)
 
+        self.world["USD_INDEX"] = max(0.01, self.world["USD_INDEX"])
+        self.world["VOLATILITY"] = max(0.0, self.world["VOLATILITY"])
+        self.world["RISK_SENTIMENT"] = min(100.0, max(0.0, self.world["RISK_SENTIMENT"]))
         return {k: round(v, 2) for k, v in self.world.items()}
 
 
@@ -69,7 +75,7 @@ class StrategyEcoSystem:
         # prune weak
         self.strategies = self.strategies[:3]
 
-        return self.strategies
+        return deepcopy(self.strategies)
 
 
 # ============================================================
@@ -77,6 +83,8 @@ class StrategyEcoSystem:
 # ============================================================
 
 def run(cycles=40):
+    if type(cycles) is not int or cycles <= 0:
+        raise ValueError("INVALID_CYCLES")
     price = 100.0
 
     crisis = CrisisEngine()
@@ -99,7 +107,11 @@ def run(cycles=40):
         })
 
     return {
-        "status":"PASS",
+        "status":"SYNTHETIC_ONLY",
+        "edge_claim":"NONE",
+        "strategy_score_origin":"RANDOM_MUTATION",
+        "real_orders":"FORBIDDEN",
+        "ftmo_certified":False,
         "mode":"ADVANCED_SIMULATION_LAYER",
         "cycles": cycles,
         "sample": log[:3],
