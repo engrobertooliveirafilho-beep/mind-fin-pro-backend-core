@@ -475,6 +475,7 @@ def _p19p9_universal_whatsapp_output_guard(inbound_text: str, answer: str, conte
     try:
         if "_p19p3_apply_automotive_guards" in globals():
             out = _p19p3_apply_automotive_guards(inbound_text, out, context)
+            return out
     except Exception:
         import logging
         logging.getLogger(__name__).warning("P19 guard failure: automotive_chain")
