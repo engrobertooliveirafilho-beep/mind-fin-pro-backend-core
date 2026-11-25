@@ -27,7 +27,7 @@ def enforce():
 
 
 def assert_locks():
-    current = enforce()
+    current = {k: os.environ.get(k) for k in LOCKS}
     invalid = {k: current.get(k) for k, v in LOCKS.items() if current.get(k) != v}
     if invalid:
         raise RuntimeError(f"LOCK_BREACH: {invalid}")
@@ -53,6 +53,10 @@ def decision(status: bool) -> str:
 
 
 def run_p2131_2150(output_dir="data/runtime/P2131_2150/evidence"):
+    conflicts = {k: os.environ[k] for k, v in LOCKS.items() if k in os.environ and os.environ[k] != v}
+    if conflicts:
+        raise RuntimeError(f"LOCK_BREACH: {conflicts}")
+    enforce()
     assert_locks()
 
     out = Path(output_dir)
@@ -141,25 +145,25 @@ def run_p2131_2150(output_dir="data/runtime/P2131_2150/evidence"):
 
     mission_status = {
         "P2131_FTMO_RULE_FRAMEWORK_AUDIT": decision(not missing and not invalid),
-        "P2132_DAILY_LOSS_GUARD_DECLARATION": "PASS",
-        "P2133_TOTAL_LOSS_GUARD_DECLARATION": "PASS",
-        "P2134_PROFIT_TARGET_TRACKER_DECLARATION": "PASS",
-        "P2135_TRADING_DAYS_VALIDATOR_DECLARATION": "PASS",
-        "P2136_POSITION_SIZING_COMPLIANCE_AUDIT": "PASS",
-        "P2137_SESSION_MARKET_HOURS_COMPLIANCE_AUDIT": "PASS",
-        "P2138_RUNTIME_RISK_KILL_SWITCH_AUDIT": "PASS",
-        "P2139_COMPLIANCE_REPLAY_VALIDATION_AUDIT_ONLY": "PASS",
+        "P2132_DAILY_LOSS_GUARD_DECLARATION": "UNVERIFIED",
+        "P2133_TOTAL_LOSS_GUARD_DECLARATION": "UNVERIFIED",
+        "P2134_PROFIT_TARGET_TRACKER_DECLARATION": "UNVERIFIED",
+        "P2135_TRADING_DAYS_VALIDATOR_DECLARATION": "UNVERIFIED",
+        "P2136_POSITION_SIZING_COMPLIANCE_AUDIT": "UNVERIFIED",
+        "P2137_SESSION_MARKET_HOURS_COMPLIANCE_AUDIT": "UNVERIFIED",
+        "P2138_RUNTIME_RISK_KILL_SWITCH_AUDIT": "UNVERIFIED",
+        "P2139_COMPLIANCE_REPLAY_VALIDATION_AUDIT_ONLY": "UNVERIFIED",
         "P2140_FTMO_PAPER_COMPLIANCE_CERTIFICATION": "PENDING",
 
         "P2141_DATA_INTEGRITY_AUDIT": decision(not missing),
         "P2142_METRICS_CONSISTENCY_AUDIT": decision(not invalid),
-        "P2143_STATE_RECOVERY_STRESS_AUDIT": "PASS",
-        "P2144_LONG_RUN_STABILITY_AUDIT": "PASS",
+        "P2143_STATE_RECOVERY_STRESS_AUDIT": "UNVERIFIED",
+        "P2144_LONG_RUN_STABILITY_AUDIT": "UNVERIFIED",
         "P2145_CONFIGURATION_DRIFT_DETECTION": decision(not lock_drift),
-        "P2146_LOGGING_TRACEABILITY_AUDIT": "PASS",
+        "P2146_LOGGING_TRACEABILITY_AUDIT": "UNVERIFIED",
         "P2147_EVIDENCE_CHAIN_VERIFICATION": decision(not evidence_missing),
         "P2148_COMPLIANCE_REGRESSION_SUITE": "PENDING",
-        "P2149_CONTINUOUS_MONITORING_VALIDATION": "PASS",
+        "P2149_CONTINUOUS_MONITORING_VALIDATION": "UNVERIFIED",
         "P2150_OPERATIONAL_READINESS_CERTIFICATION": "PENDING",
     }
 
@@ -198,7 +202,7 @@ def run_p2131_2150(output_dir="data/runtime/P2131_2150/evidence"):
     )
 
     mission_status["P2150_OPERATIONAL_READINESS_CERTIFICATION"] = decision(
-        all(v == "PASS" for v in mission_status.values() if v != "PENDING")
+        all(v == "PASS" for k, v in mission_status.items() if k != "P2150_OPERATIONAL_READINESS_CERTIFICATION")
     )
 
     all_pass = all(v == "PASS" for v in mission_status.values())
