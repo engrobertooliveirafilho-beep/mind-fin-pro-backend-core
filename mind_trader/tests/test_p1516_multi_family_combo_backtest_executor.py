@@ -11,3 +11,10 @@ def test_p1516_combo_builder():
 
 def test_p1516_monte_carlo():
     assert "approved" in monte_carlo([.01,-.002,.004,.003,.005,-.001,.006,.002])
+
+def test_p1516_blocks_patterns_without_exit_contract():
+    import pytest
+    from app.p1516_multi_family_combo_backtest_executor.engine import backtest
+    rows=[{"open":float(i),"high":float(i),"low":float(i),"close":float(i),"volume":1000.0} for i in range(1,220)]
+    with pytest.raises(ValueError,match="UNSUPPORTED_EXIT_CONTRACT"):
+        backtest(rows,["rsi_reversion"])
