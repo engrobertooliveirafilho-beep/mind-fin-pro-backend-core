@@ -476,22 +476,26 @@ def _p19p9_universal_whatsapp_output_guard(inbound_text: str, answer: str, conte
         if "_p19p3_apply_automotive_guards" in globals():
             out = _p19p3_apply_automotive_guards(inbound_text, out, context)
     except Exception:
-        pass
+        import logging
+        logging.getLogger(__name__).warning("P19 guard failure: automotive_chain")
     try:
         if "_p19p8_suppress_generic_restart" in globals():
             out = _p19p8_suppress_generic_restart(inbound_text, out, context)
     except Exception:
-        pass
+        import logging
+        logging.getLogger(__name__).warning("P19 guard failure: restart")
     try:
         if "_p19p7_contextual_followup_expansion" in globals():
             out = _p19p7_contextual_followup_expansion(inbound_text, out, context)
     except Exception:
-        pass
+        import logging
+        logging.getLogger(__name__).warning("P19 guard failure: followup")
     try:
         if "_p19p6_expand_bad_followup_template" in globals():
             out = _p19p6_expand_bad_followup_template(inbound_text, out, context)
     except Exception:
-        pass
+        import logging
+        logging.getLogger(__name__).warning("P19 guard failure: template")
     return out
 # /P19P9_UNIVERSAL_WHATSAPP_OUTPUT_GUARD
 
@@ -828,12 +832,14 @@ def _p19p3_apply_automotive_guards(inbound_text: str, answer: str, context: str 
         if automotive_execution_bias_guard:
             out = automotive_execution_bias_guard(inbound_text, out)
     except Exception:
-        pass
+        import logging
+        logging.getLogger(__name__).warning("P19 guard failure: execution_bias")
     try:
         if automotive_part_purchase_guard:
             out = automotive_part_purchase_guard(inbound_text, out, context)
     except Exception:
-        pass
+        import logging
+        logging.getLogger(__name__).warning("P19 guard failure: part_purchase")
     return _p19p8_suppress_generic_restart(inbound_text, _p19p7_contextual_followup_expansion(inbound_text, _p19p6_expand_bad_followup_template(inbound_text, _p19p5_block_agricultural_automotive_contamination(inbound_text, out, context), context), context), context)
 # /P19P.3_SAFE_RUNTIME_INTEGRATION
 
