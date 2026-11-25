@@ -1,0 +1,2529 @@
+{
+  "agents": [
+    {
+      "id": "business.strategy_cashflow_agent",
+      "name": "Business & Cashflow Strategist",
+      "group": "business",
+      "kind": "strategy_engine",
+      "description": "Focado em business model, banco digital, MRR, CAC, LTV, risco financeiro e roadmap de produtos pagos da MIND.",
+      "step_ids": [
+        124,
+        136,
+        139,
+        154,
+        176,
+        177,
+        190,
+        210,
+        239,
+        497,
+        498
+      ],
+      "specializations": [
+        "business_scenario_simulation",
+        "cashflow_projection",
+        "risk_vs_growth_analysis",
+        "pricing_and_plan_brainstorming",
+        "founder_friendly_summaries"
+      ],
+      "sources_observed": {},
+      "artifacts_produced": {},
+      "governance_rules": {
+        "can_change_code": false,
+        "can_create_steps_directly": false,
+        "can_only_emit_blueprints": true,
+        "human_approval_required": true
+      },
+      "version": "1.0",
+      "agent_health": {
+        "status": "unknown",
+        "last_check": null,
+        "notes": []
+      },
+      "updated_at": "2025-11-21T23:40:38.928603Z",
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "cognition.os_kernel_agent",
+      "name": "Cognitive OS Kernel Agent",
+      "group": "cognition",
+      "kind": "cognitive_kernel",
+      "description": "Age como visão unificada do COS da MIND: como percepção, memória, planejamento, simulação e ação se conectam.",
+      "step_ids": [
+        150,
+        156,
+        157,
+        160,
+        175,
+        176,
+        179,
+        181,
+        182,
+        190,
+        201,
+        220,
+        221,
+        232,
+        246,
+        250,
+        300
+      ],
+      "specializations": [
+        "cognitive_pipeline_mapping",
+        "bottleneck_detection",
+        "missing_layer_identification",
+        "alignment_with_purpose_kernel",
+        "architectural_recommendations"
+      ],
+      "sources_observed": {},
+      "artifacts_produced": {},
+      "governance_rules": {
+        "can_change_code": false,
+        "can_create_steps_directly": false,
+        "can_only_emit_blueprints": true,
+        "human_approval_required": true
+      },
+      "version": "1.0",
+      "agent_health": {
+        "status": "unknown",
+        "last_check": null,
+        "notes": []
+      },
+      "updated_at": "2025-11-21T23:40:38.928603Z",
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "core.high_governance_council",
+      "name": "High Governance Council",
+      "group": "governance",
+      "kind": "debate_council",
+      "description": "Conselho cognitivo de alto nível: simula debate entre personas (estratega, risco, ética, produto) e gera recomendações para decisões críticas.",
+      "step_ids": [
+        153,
+        170,
+        171,
+        204,
+        228,
+        230,
+        241,
+        249,
+        529,
+        542
+      ],
+      "specializations": [
+        "multi_persona_debate",
+        "risk_vs_growth_balancing",
+        "ethics_and_compliance_view",
+        "long_term_vs_short_term_tradeoffs",
+        "founder_decision_support"
+      ],
+      "sources_observed": {},
+      "artifacts_produced": {},
+      "governance_rules": {
+        "can_change_code": false,
+        "can_create_steps_directly": false,
+        "can_only_emit_blueprints": true,
+        "human_approval_required": true
+      },
+      "version": "1.0",
+      "agent_health": {
+        "status": "unknown",
+        "last_check": null,
+        "notes": []
+      },
+      "updated_at": "2025-11-21T23:40:38.928603Z",
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "core.safety_compliance_hub",
+      "name": "Safety & Compliance Hub",
+      "group": "safety",
+      "kind": "safety_governor",
+      "description": "Agente central de segurança, compliance, privacidade e Red Team: consolida checagens, riscos e resultados de simulações ofensivas.",
+      "step_ids": [
+        26,
+        45,
+        50,
+        57,
+        74,
+        75,
+        88,
+        90,
+        251,
+        252,
+        265,
+        271,
+        284,
+        285,
+        286,
+        520,
+        521,
+        522,
+        523,
+        525,
+        526,
+        536,
+        542
+      ],
+      "specializations": [
+        "policy_enforcement_view",
+        "incident_pattern_detection",
+        "red_team_results_analysis",
+        "privacy_risk_monitoring",
+        "action_risk_summarization"
+      ],
+      "governance_rules": {
+        "can_block_actions": false,
+        "can_only_recommend": true,
+        "human_final_say": true
+      },
+      "sources_observed": {},
+      "artifacts_produced": {},
+      "version": "1.0",
+      "agent_health": {
+        "status": "unknown",
+        "last_check": null,
+        "notes": []
+      },
+      "updated_at": "2025-11-21T23:40:38.928603Z",
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "core.system_supervisor",
+      "name": "System Supervisor",
+      "group": "core",
+      "kind": "system_overseer",
+      "description": "Supervisão global do backend MIND FIN PRO: saúde de serviços, rotas críticas, métricas chave e compatibilidade de STEPs.",
+      "step_ids": [
+        1,
+        15,
+        19,
+        31,
+        42,
+        71,
+        90,
+        190,
+        221,
+        248
+      ],
+      "specializations": [
+        "service_health_monitoring",
+        "critical_routes_watch",
+        "step_regression_watch",
+        "capacity_risk_detection",
+        "summary_reports_for_founder"
+      ],
+      "sources_observed": {},
+      "artifacts_produced": {},
+      "governance_rules": {
+        "can_change_code": false,
+        "can_create_steps_directly": false,
+        "can_only_emit_blueprints": true,
+        "human_approval_required": true
+      },
+      "version": "1.0",
+      "agent_health": {
+        "status": "unknown",
+        "last_check": null,
+        "notes": []
+      },
+      "updated_at": "2025-11-21T23:40:38.928603Z",
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "creative.sora_marketing_director",
+      "name": "Sora Creative & Performance Director",
+      "group": "creative",
+      "kind": "creative_director",
+      "description": "Diretor criativo voltado para Sora, criativos de alta performance, variações multimodais e impacto em CAC/ROAS.",
+      "step_ids": [
+        65,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        127,
+        128,
+        133,
+        147,
+        169,
+        186,
+        210,
+        464,
+        471,
+        472
+      ],
+      "specializations": [
+        "creative_concept_generation",
+        "sora_briefing_design",
+        "multimodal_variation_planning",
+        "performance_feedback_integration",
+        "brand_and_style_guard"
+      ],
+      "sources_observed": {},
+      "artifacts_produced": {},
+      "governance_rules": {
+        "can_change_code": false,
+        "can_create_steps_directly": false,
+        "can_only_emit_blueprints": true,
+        "human_approval_required": true
+      },
+      "version": "1.0",
+      "agent_health": {
+        "status": "unknown",
+        "last_check": null,
+        "notes": []
+      },
+      "updated_at": "2025-11-21T23:40:38.928603Z",
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "creative.video_scenarios_agent",
+      "name": "Video Scenarios Agent",
+      "group": "creative",
+      "kind": "scenario_designer",
+      "description": "Cria e sugere cenarios da MIND para ligacoes de video: salas, ambientes, metaforas visuais, mood e narrativa visual alinhada com o contexto.",
+      "step_ids": [
+        36,
+        57,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        127,
+        128,
+        136,
+        147,
+        161,
+        162,
+        168,
+        180,
+        186,
+        467,
+        468,
+        469,
+        471,
+        472
+      ],
+      "specializations": [
+        "video_environment_brainstorming",
+        "meeting_context_mapping",
+        "visual_metaphor_design",
+        "persona_to_scene_alignment",
+        "scenario_variations_for_tests"
+      ],
+      "sources_observed": {},
+      "artifacts_produced": {},
+      "governance_rules": {
+        "can_change_code": false,
+        "can_create_steps_directly": false,
+        "can_only_emit_blueprints": true,
+        "human_approval_required": true
+      },
+      "version": "1.0",
+      "agent_health": {
+        "status": "unknown",
+        "last_check": null,
+        "notes": []
+      },
+      "updated_at": "2025-11-21T23:40:38.928603Z",
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "domain.economics_finance_markets",
+      "name": "Economics, Finance & Markets Agent",
+      "group": "domain",
+      "kind": "finance_strategist",
+      "description": "Especializado em economia, financas e mercados (incluindo bolsa), focado em cenarios, risco, alavancagem e impacto nos planos da MIND.",
+      "step_ids": [
+        124,
+        136,
+        139,
+        154,
+        170,
+        177,
+        190,
+        210,
+        211,
+        239,
+        281,
+        497,
+        498
+      ],
+      "specializations": [
+        "macro_micro_economics_context",
+        "cashflow_and_capital_allocation",
+        "risk_reward_analysis",
+        "market_scenarios_mapping",
+        "finance_explainer_for_founder"
+      ],
+      "sources_observed": {},
+      "artifacts_produced": {},
+      "governance_rules": {
+        "can_change_code": false,
+        "can_create_steps_directly": false,
+        "can_only_emit_blueprints": true,
+        "human_approval_required": true
+      },
+      "version": "1.0",
+      "agent_health": {
+        "status": "unknown",
+        "last_check": null,
+        "notes": []
+      },
+      "updated_at": "2025-11-21T23:40:38.928603Z",
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "domain.facebook_media_buyer_engine",
+      "name": "Facebook-like Media Buyer Engine",
+      "group": "domain",
+      "kind": "paid_media_agent",
+      "description": "Agente arquétipo inspirado em Facebook/Meta Ads: leilão, segmentação, otimização de campanhas, criativos, orçamento e ROAS.",
+      "step_ids": [
+        65,
+        68,
+        70,
+        72,
+        73,
+        124,
+        136,
+        139,
+        154,
+        159,
+        169,
+        186,
+        239
+      ],
+      "specializations": [
+        "audience_segmentation_plans",
+        "campaign_objective_alignment",
+        "creative_rotation_strategy",
+        "budget_and_bid_adjustments",
+        "funnel_and_retention_mapping"
+      ],
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "domain.instagram_brand_engine",
+      "name": "Instagram-like Brand Engine",
+      "group": "domain",
+      "kind": "visual_brand_agent",
+      "description": "Agente arquétipo inspirado em Instagram: foco em estética, narrativa visual, branding e social graph (seguidores, interação, UGC).",
+      "step_ids": [
+        65,
+        72,
+        73,
+        127,
+        133,
+        147,
+        155,
+        169,
+        186,
+        210,
+        213,
+        227
+      ],
+      "specializations": [
+        "visual_identity_mapping",
+        "brand_coherence_over_time",
+        "grid_and_storytelling_plans",
+        "influencer_and_ugc_scenarios",
+        "multi_asset_variation_planning"
+      ],
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "domain.napoleon_hill_engine",
+      "name": "Napoleon Hill Knowledge Engine",
+      "group": "domain",
+      "kind": "philosophy_mapper",
+      "description": "Estrutura, interpreta e aplica principios dos livros de Napoleon Hill como pilar de ensino da MIND, em linguagem pratica para negocio, financas e mentalidade.",
+      "step_ids": [
+        169,
+        170,
+        171,
+        210,
+        219,
+        269,
+        281,
+        282,
+        295
+      ],
+      "specializations": [
+        "principle_extraction",
+        "goal_and_purpose_mapping",
+        "habit_and_auto_suggestion_structuring",
+        "decision_and_persistence_frameworks",
+        "application_to_modern_context"
+      ],
+      "sources_observed": {},
+      "artifacts_produced": {},
+      "governance_rules": {
+        "can_change_code": false,
+        "can_create_steps_directly": false,
+        "can_only_emit_blueprints": true,
+        "human_approval_required": true
+      },
+      "version": "1.0",
+      "agent_health": {
+        "status": "unknown",
+        "last_check": null,
+        "notes": []
+      },
+      "updated_at": "2025-11-21T23:40:38.928603Z",
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "domain.psychology_mindset",
+      "name": "Psychology & Mindset Agent",
+      "group": "domain",
+      "kind": "mindset_analyst",
+      "description": "Focado em psicologia, psicanalise e mentalidade para interpretar padroes de comportamento, habitos e estilos de pensamento descritos nos dados da MIND (nao substitui profissional de saude).",
+      "step_ids": [
+        111,
+        119,
+        147,
+        169,
+        171,
+        176,
+        181,
+        210,
+        211,
+        212,
+        213,
+        219,
+        262,
+        263,
+        281,
+        282,
+        289
+      ],
+      "specializations": [
+        "behavior_pattern_reading",
+        "habit_and_routine_analysis",
+        "mindset_framing_explanations",
+        "cognitive_bias_spotting",
+        "gentle_reframing_suggestions"
+      ],
+      "sources_observed": {},
+      "artifacts_produced": {},
+      "governance_rules": {
+        "can_change_code": false,
+        "can_create_steps_directly": false,
+        "can_only_emit_blueprints": true,
+        "human_approval_required": true
+      },
+      "version": "1.0",
+      "agent_health": {
+        "status": "unknown",
+        "last_check": null,
+        "notes": []
+      },
+      "updated_at": "2025-11-21T23:40:38.928603Z",
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "domain.social_recommendation_kernel",
+      "name": "Social Recommendation Kernel",
+      "group": "domain",
+      "kind": "recommendation_engine_archetype",
+      "description": "Kernel conceitual para modelar sistemas de feed/recommendation usados por TikTok, Instagram, YouTube e Facebook: ranking, exploração, feedback loops, watch time, etc.",
+      "step_ids": [
+        65,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        124,
+        136,
+        147,
+        159,
+        169,
+        186,
+        211,
+        230,
+        239,
+        247
+      ],
+      "specializations": [
+        "engagement_signal_modeling",
+        "ranking_and_exploration_tradeoffs",
+        "feedback_loop_mapping",
+        "content_graph_reasoning",
+        "creator_audience_matching"
+      ],
+      "artifacts_produced": {
+        "proposal_type": "social_reco_blueprint",
+        "fields": [
+          "platform_family",
+          "objective_mix",
+          "core_signals",
+          "safety_constraints",
+          "business_constraints",
+          "recommended_agent_shapes",
+          "priority_score",
+          "status"
+        ],
+        "status_values": [
+          "draft",
+          "proposed",
+          "approved",
+          "deprecated"
+        ]
+      },
+      "governance_rules": {
+        "can_change_code": false,
+        "can_create_steps_directly": false,
+        "can_only_emit_blueprints": true,
+        "human_approval_required": true
+      },
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "domain.tiktok_growth_engine",
+      "name": "TikTok-like Growth Engine",
+      "group": "domain",
+      "kind": "short_video_growth_agent",
+      "description": "Agente arquétipo inspirado em mecanismos tipo TikTok: video curto, feed infinito, exploração agressiva, crescimento rápido, forte dependência de sinais de watch time e replays.",
+      "step_ids": [
+        65,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        124,
+        136,
+        147,
+        159,
+        169,
+        186,
+        211,
+        230,
+        239
+      ],
+      "specializations": [
+        "short_form_video_strategy",
+        "hook_and_retention_patterns",
+        "viral_loop_identification",
+        "creative_variation_testing",
+        "cold_start_bootstrap_strategies"
+      ],
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "domain.youtube_longform_engine",
+      "name": "YouTube-like Longform Engine",
+      "group": "domain",
+      "kind": "longform_video_agent",
+      "description": "Agente arquétipo inspirado em YouTube: videos longos, sessões de consumo, retenção em múltiplos pontos, séries e playlists estratégicas.",
+      "step_ids": [
+        65,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        136,
+        159,
+        169,
+        180,
+        186,
+        211,
+        230,
+        239
+      ],
+      "specializations": [
+        "episode_and_series_planning",
+        "mid_video_retention_patterns",
+        "session_level_metrics_reasoning",
+        "playlist_and_topic_cluster_design",
+        "search_plus_recommendation_bridge"
+      ],
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "meta.autonomous_evolution_agent",
+      "name": "Autonomous Evolution Agent",
+      "group": "meta",
+      "kind": "evolution_planner",
+      "description": "Observa a MIND, detecta gaps, gera STEP Proposals e envia pedidos formais para aprovacao humana antes de virar STEP oficial.",
+      "step_ids": [
+        190,
+        191,
+        192,
+        194,
+        195,
+        196,
+        197,
+        199,
+        200,
+        248,
+        249,
+        294,
+        295,
+        299,
+        300,
+        520,
+        521,
+        522,
+        523,
+        524,
+        525,
+        532,
+        533,
+        534,
+        535,
+        536,
+        541,
+        543
+      ],
+      "specializations": [
+        "signal_aggregation",
+        "gap_detection",
+        "step_proposal_generation",
+        "dependency_inference",
+        "impact_priority_scoring",
+        "formal_request_building",
+        "lifecycle_tracking"
+      ],
+      "sources_observed": {
+        "steps_manifest": {
+          "description": "Le steps_manifest.yaml para saber STEPs existentes, status e clusters.",
+          "examples": [
+            "steps_manifest.yaml",
+            "app/meta/steps_manifest.yaml"
+          ]
+        },
+        "metrics_and_logs": {
+          "description": "Puxa erros, latencia, custo e uso de rotas/modulos.",
+          "examples": [
+            "Supabase/Postgres metrics",
+            "Prometheus/Grafana series",
+            "logs estruturados em JSON"
+          ]
+        },
+        "reports": {
+          "description": "Le relatorios em reports/ com gaps, decisoes e pendencias.",
+          "examples": [
+            "reports/step*_*.md",
+            "reports/mind_big_tech_final.md"
+          ]
+        },
+        "product_state": {
+          "description": "Estado de features: banco, metaverso, AGI propria, etc.",
+          "examples": [
+            "flags de produto",
+            "tabelas de modulos/servicos",
+            "config de tenants e features"
+          ]
+        }
+      },
+      "artifacts_produced": {
+        "proposal_type": "step_proposal",
+        "fields": [
+          "suggested_id",
+          "name",
+          "description",
+          "motivation",
+          "cluster",
+          "depends_on",
+          "priority",
+          "reason_signals",
+          "status"
+        ],
+        "status_values": [
+          "proposed",
+          "approved",
+          "rejected",
+          "implemented"
+        ]
+      },
+      "governance_rules": {
+        "can_change_code": false,
+        "can_create_steps_directly": false,
+        "can_only_emit_blueprints": true,
+        "human_approval_required": true
+      },
+      "version": "1.0",
+      "agent_health": {
+        "status": "unknown",
+        "last_check": null,
+        "notes": []
+      },
+      "updated_at": "2025-11-21T23:40:38.928603Z",
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "meta.global_agent_mapper",
+      "name": "Global Agent Mapper",
+      "group": "meta",
+      "kind": "agent_cartographer",
+      "description": "Mapeia tipos de agentes usados no mundo (Big Tech, open-source, produtos reais), compara com a MIND e gera propostas estruturadas de novos agentes ou upgrades, sempre submetendo para aprovacao humana antes de qualquer implantacao.",
+      "step_ids": [
+        123,
+        126,
+        130,
+        135,
+        136,
+        173,
+        190,
+        191,
+        194,
+        195,
+        197,
+        204,
+        215,
+        218,
+        230,
+        233,
+        234,
+        235,
+        236,
+        239,
+        247,
+        248,
+        249,
+        294,
+        295,
+        299,
+        300,
+        539,
+        540,
+        541,
+        543
+      ],
+      "specializations": [
+        "agent_taxonomy_mining",
+        "pattern_extraction",
+        "cross_platform_benchmarking",
+        "mind_agent_mapping",
+        "agent_blueprint_generation",
+        "founder_request_interface"
+      ],
+      "sources_observed": {
+        "external_research": {
+          "description": "Arquiteturas, papers, blogs, specs de frameworks e agentes do mercado.",
+          "examples": [
+            "whitepapers de recomendacao",
+            "docs de agentes multi-LLM",
+            "repositorios open-source de agent frameworks"
+          ]
+        },
+        "product_patterns": {
+          "description": "Padroes inferidos de produtos como TikTok, YouTube, Meta, copilots, etc.",
+          "examples": [
+            "estruturas de feed/recommendation",
+            "sistemas de ads & bidding",
+            "moderacao, safety, governance"
+          ]
+        },
+        "mind_internal_state": {
+          "description": "O que a MIND ja tem: agents_registry, STEPs concluidos, modulos e relatorios.",
+          "examples": [
+            "app/meta/agents_registry.json",
+            "steps_manifest.yaml",
+            "reports/*.md"
+          ]
+        }
+      },
+      "artifacts_produced": {
+        "proposal_type": "agent_blueprint",
+        "fields": [
+          "suggested_agent_id",
+          "name",
+          "description",
+          "archetype_source",
+          "cluster",
+          "capabilities",
+          "required_signals",
+          "depends_on_steps",
+          "infra_cost_level",
+          "safety_profile",
+          "priority_score",
+          "reason_signals",
+          "status"
+        ],
+        "status_values": [
+          "proposed",
+          "approved",
+          "rejected",
+          "implemented"
+        ],
+        "requires_explicit_founder_approval": true
+      },
+      "governance_rules": {
+        "can_change_code": false,
+        "can_create_steps_directly": false,
+        "can_only_emit_blueprints": true,
+        "human_approval_required": true
+      },
+      "version": "1.0",
+      "agent_health": {
+        "status": "unknown",
+        "last_check": null,
+        "notes": []
+      },
+      "updated_at": "2025-11-21T23:40:38.928603Z",
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "meta.mind_archives_agent_mapper",
+      "name": "MIND Archives Agent Mapper",
+      "group": "meta",
+      "kind": "archives_to_agents_planner",
+      "description": "Analisa arquivos de concepcao da MIND no storage (Supabase), extrai temas/insights/visoes e pleiteia agentes especificos para cada eixo, sempre submetendo propostas para aprovacao do fundador.",
+      "step_ids": [
+        10,
+        11,
+        14,
+        24,
+        25,
+        33,
+        35,
+        73,
+        82,
+        85,
+        103,
+        111,
+        118,
+        119,
+        126,
+        129,
+        135,
+        147,
+        169,
+        173,
+        176,
+        181,
+        187,
+        190,
+        191,
+        195,
+        210,
+        218,
+        220,
+        230,
+        247,
+        268,
+        269,
+        281,
+        282,
+        291,
+        294,
+        295,
+        299,
+        300,
+        532,
+        533
+      ],
+      "specializations": [
+        "supabase_storage_scan",
+        "theme_and_vision_clustering",
+        "insight_extraction",
+        "agent_shape_inference",
+        "per_theme_agent_proposals",
+        "founder_approval_interface"
+      ],
+      "sources_observed": {
+        "supabase_storage": {
+          "description": "Buckets/pastas com concepcao da MIND (docs, zips, PDFs, dumps de conversa, etc.).",
+          "examples": [
+            "supabase://storage/mind-concepcao/*",
+            "supabase://storage/mind-vision/*",
+            "supabase://storage/mind-ecosystem/*"
+          ]
+        },
+        "internal_reports": {
+          "description": "Relatorios, dossies e mapas de arquitetura existentes.",
+          "examples": [
+            "reports/*.md",
+            "reports/mind_vision_*.md",
+            "reports/mind_bank_*.md",
+            "reports/mind_metaverse_*.md"
+          ]
+        },
+        "agents_registry": {
+          "description": "Agentes ja cadastrados, para evitar duplicacao.",
+          "examples": [
+            "app/meta/agents_registry.json"
+          ]
+        }
+      },
+      "artifacts_produced": {
+        "proposal_type": "mind_archives_agent_proposal",
+        "fields": [
+          "theme",
+          "insight",
+          "vision",
+          "suggested_agent_id",
+          "name",
+          "description",
+          "cluster",
+          "capabilities",
+          "depends_on_steps",
+          "related_documents",
+          "infra_cost_level",
+          "safety_profile",
+          "priority_score",
+          "reason_signals",
+          "status"
+        ],
+        "status_values": [
+          "proposed",
+          "approved",
+          "rejected",
+          "implemented"
+        ],
+        "requires_explicit_founder_approval": true
+      },
+      "governance_rules": {
+        "can_change_code": false,
+        "can_create_steps_directly": false,
+        "can_only_emit_blueprints": true,
+        "human_approval_required": true,
+        "founder_must_sign_off": true
+      },
+      "version": "1.0",
+      "agent_health": {
+        "status": "unknown",
+        "last_check": null,
+        "notes": []
+      },
+      "updated_at": "2025-11-21T23:40:38.928603Z",
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "mission.autonomous_docking_agent",
+      "name": "Autonomous Docking Agent",
+      "group": "mission",
+      "kind": "module_integration_planner",
+      "description": "Planeja o 'acoplamento' de novos módulos/serviços: valida compatibilidade, interfaces, schemas e risco de colisão lógica.",
+      "step_ids": [
+        120,
+        156,
+        157,
+        160,
+        192,
+        198
+      ],
+      "specializations": [
+        "interface_schema_validation",
+        "integration_risk_mapping",
+        "compatibility_matrix_planning",
+        "progressive_integration_plans",
+        "rollback_paths_for_integrations"
+      ],
+      "artifacts_produced": {
+        "proposal_type": "integration_docking_plan",
+        "fields": [
+          "module_name",
+          "interfaces_involved",
+          "compatibility_issues",
+          "integration_steps",
+          "test_matrix",
+          "fallback_plan"
+        ],
+        "status_values": [
+          "draft",
+          "review",
+          "approved",
+          "deprecated"
+        ]
+      },
+      "governance_rules": {
+        "can_change_code": false,
+        "can_create_steps_directly": false,
+        "can_only_emit_blueprints": true,
+        "human_approval_required": true
+      },
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "mission.autonomous_navigation_agent",
+      "name": "Autonomous Navigation Agent",
+      "group": "mission",
+      "kind": "trajectory_control",
+      "description": "Controla a trajetória estratégica da MIND: detecta desvios, conflitos de rota, incoerências e sugere correções de curso.",
+      "step_ids": [
+        171,
+        179,
+        182,
+        193,
+        194,
+        240
+      ],
+      "specializations": [
+        "strategy_deviation_detection",
+        "course_correction_plans",
+        "multi_horizon_alignment",
+        "tradeoff_analysis",
+        "long_term_trajectory_projection"
+      ],
+      "artifacts_produced": {
+        "proposal_type": "course_correction_plan",
+        "fields": [
+          "current_vector",
+          "desired_vector",
+          "deviation_summary",
+          "proposed_corrections",
+          "impact_on_steps",
+          "priority_level"
+        ],
+        "status_values": [
+          "draft",
+          "proposed",
+          "approved",
+          "rejected"
+        ]
+      },
+      "governance_rules": {
+        "can_change_code": false,
+        "can_create_steps_directly": false,
+        "can_only_emit_blueprints": true,
+        "human_approval_required": true
+      },
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "mission.deep_space_exploration_agent",
+      "name": "Deep Space Exploration Agent",
+      "group": "mission",
+      "kind": "deep_history_miner",
+      "description": "Explora o 'espaço profundo' da MIND: histórico completo, ideias antigas, anotações esquecidas, conexões ocultas.",
+      "step_ids": [
+        129,
+        163,
+        173,
+        187,
+        220,
+        247
+      ],
+      "specializations": [
+        "long_history_mining",
+        "hidden_pattern_detection",
+        "forgotten_idea_revival",
+        "concept_linking_over_time",
+        "deep_insight_report_generation"
+      ],
+      "artifacts_produced": {
+        "proposal_type": "deep_exploration_report",
+        "fields": [
+          "source_areas",
+          "discovered_patterns",
+          "revived_ideas",
+          "cross_links",
+          "potential_new_steps",
+          "impact_assessment"
+        ],
+        "status_values": [
+          "draft",
+          "proposed",
+          "accepted",
+          "archived"
+        ]
+      },
+      "governance_rules": {
+        "can_change_code": false,
+        "can_create_steps_directly": false,
+        "can_only_emit_blueprints": true,
+        "human_approval_required": true
+      },
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "mission.eva_support_agent",
+      "name": "EVA Support Agent",
+      "group": "mission",
+      "kind": "founder_assistant",
+      "description": "Agente de suporte direto ao fundador: analisa contexto externo, documentos, decisões estratégicas pessoais e alinha com a MIND.",
+      "step_ids": [
+        153,
+        154,
+        155,
+        170,
+        181,
+        281
+      ],
+      "specializations": [
+        "founder_context_mapping",
+        "personal_strategy_alignment",
+        "decision_support_briefings",
+        "tradeoff_highlight",
+        "long_term_founder_mindset_alignment"
+      ],
+      "artifacts_produced": {
+        "proposal_type": "founder_eva_briefing",
+        "fields": [
+          "current_context",
+          "constraints",
+          "options",
+          "recommended_paths",
+          "risks",
+          "alignment_with_mind_purpose"
+        ],
+        "status_values": [
+          "draft",
+          "shared",
+          "archived"
+        ]
+      },
+      "governance_rules": {
+        "can_change_code": false,
+        "can_create_steps_directly": false,
+        "can_only_emit_blueprints": true,
+        "human_approval_required": true
+      },
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "mission.fault_detection_recovery_agent",
+      "name": "Fault Detection & Recovery Agent",
+      "group": "mission",
+      "kind": "fault_detection_recovery",
+      "description": "Detecta falhas, regressões e anomalias em módulos da MIND e propõe planos de recuperação, rollback e isolamento.",
+      "step_ids": [
+        94,
+        167,
+        188,
+        189,
+        243
+      ],
+      "specializations": [
+        "fault_pattern_detection",
+        "regression_signals",
+        "auto_recovery_playbooks",
+        "rollback_recommendations",
+        "blast_radius_estimation"
+      ],
+      "artifacts_produced": {
+        "proposal_type": "fault_recovery_playbook",
+        "fields": [
+          "fault_signature",
+          "affected_components",
+          "severity",
+          "recommended_actions",
+          "rollback_paths",
+          "followup_checks"
+        ],
+        "status_values": [
+          "draft",
+          "proposed",
+          "executed",
+          "archived"
+        ]
+      },
+      "governance_rules": {
+        "can_change_code": false,
+        "can_create_steps_directly": false,
+        "can_only_emit_blueprints": true,
+        "human_approval_required": true
+      },
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "mission.launch_sequencer_agent",
+      "name": "Launch Sequencer Agent",
+      "group": "mission",
+      "kind": "launch_planner",
+      "description": "Planeja e sequencia grandes lançamentos (Banco, Metaverso, AGI interna) considerando dependências, riscos e janelas ideais.",
+      "step_ids": [
+        50,
+        71,
+        76,
+        80,
+        124,
+        136,
+        248
+      ],
+      "specializations": [
+        "release_step_ordering",
+        "dependency_graph_planning",
+        "risk_based_launch_windows",
+        "progressive_rollout_scenarios",
+        "rollback_strategy_planning"
+      ],
+      "artifacts_produced": {
+        "proposal_type": "launch_sequence_plan",
+        "fields": [
+          "initiative_name",
+          "phases",
+          "step_order",
+          "risk_matrix",
+          "rollout_strategy",
+          "rollback_plan"
+        ],
+        "status_values": [
+          "draft",
+          "validated",
+          "approved",
+          "completed"
+        ]
+      },
+      "governance_rules": {
+        "can_change_code": false,
+        "can_create_steps_directly": false,
+        "can_only_emit_blueprints": true,
+        "human_approval_required": true
+      },
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "mission.life_support_integrity_agent",
+      "name": "Life Support Integrity Agent",
+      "group": "mission",
+      "kind": "core_systems_guardian",
+      "description": "Monitora subsistemas vitais da MIND (auth, memória, banco, vetores, safety) e identifica riscos à 'sobrevivência' da plataforma.",
+      "step_ids": [
+        1,
+        2,
+        10,
+        11,
+        24,
+        30,
+        42,
+        76,
+        90,
+        94
+      ],
+      "specializations": [
+        "core_subsystems_health",
+        "critical_path_detection",
+        "safety_net_verification",
+        "degradation_patterns",
+        "emergency_protocol_recommendations"
+      ],
+      "artifacts_produced": {
+        "proposal_type": "life_support_report",
+        "fields": [
+          "subsystems_status",
+          "single_points_of_failure",
+          "degradation_signals",
+          "recommended_mitigations",
+          "urgency_level"
+        ],
+        "status_values": [
+          "draft",
+          "proposed",
+          "approved"
+        ]
+      },
+      "governance_rules": {
+        "can_change_code": false,
+        "can_create_steps_directly": false,
+        "can_only_emit_blueprints": true,
+        "human_approval_required": true
+      },
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "mission.mission_control_agent",
+      "name": "Mission Control Agent",
+      "group": "mission",
+      "kind": "mission_control",
+      "description": "Núcleo de controle de missão da MIND: mantém visão global do sistema, objetivos, fases, riscos, janelas de lançamento e estado geral.",
+      "step_ids": [
+        160,
+        190,
+        200,
+        221,
+        248,
+        249,
+        250
+      ],
+      "specializations": [
+        "global_state_overview",
+        "mission_timeline_planning",
+        "risk_register_overview",
+        "step_prioritization",
+        "launch_window_assessment"
+      ],
+      "artifacts_produced": {
+        "proposal_type": "mission_briefing",
+        "fields": [
+          "mission_name",
+          "current_phase",
+          "risk_summary",
+          "blocked_steps",
+          "recommended_next_steps",
+          "confidence",
+          "notes"
+        ],
+        "status_values": [
+          "draft",
+          "proposed",
+          "approved",
+          "archived"
+        ]
+      },
+      "governance_rules": {
+        "can_change_code": false,
+        "can_create_steps_directly": false,
+        "can_only_emit_blueprints": true,
+        "human_approval_required": true
+      },
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "mission.orbital_simulation_agent",
+      "name": "Orbital Simulation Agent",
+      "group": "mission",
+      "kind": "strategy_simulator",
+      "description": "Simula trajetórias de longo prazo da MIND: impactos de STEPs, decisões e estratégias em múltiplos cenários.",
+      "step_ids": [
+        136,
+        170,
+        182,
+        194,
+        219,
+        230,
+        240
+      ],
+      "specializations": [
+        "multi_scenario_simulation",
+        "long_term_outcome_projection",
+        "strategy_impact_mapping",
+        "sensitivity_analysis",
+        "cross_scenario_comparison"
+      ],
+      "artifacts_produced": {
+        "proposal_type": "strategy_orbit_report",
+        "fields": [
+          "scenario_name",
+          "assumptions",
+          "projected_outcomes",
+          "key_risks",
+          "inflection_points",
+          "recommended_path"
+        ],
+        "status_values": [
+          "draft",
+          "proposed",
+          "selected"
+        ]
+      },
+      "governance_rules": {
+        "can_change_code": false,
+        "can_create_steps_directly": false,
+        "can_only_emit_blueprints": true,
+        "human_approval_required": true
+      },
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "mission.radiation_shield_agent",
+      "name": "Radiation Shield Agent",
+      "group": "mission",
+      "kind": "defense_shield",
+      "description": "Modela 'radiação' como overload, ataques, entrada tóxica e caos cognitivo, propondo camadas de proteção e limites.",
+      "step_ids": [
+        26,
+        45,
+        57,
+        75,
+        94,
+        167,
+        271
+      ],
+      "specializations": [
+        "rate_overload_protection",
+        "toxic_input_filters",
+        "abuse_pattern_detection",
+        "defensive_configuration_plans",
+        "system_hardening_recommendations"
+      ],
+      "artifacts_produced": {
+        "proposal_type": "shielding_blueprint",
+        "fields": [
+          "threat_landscape",
+          "vulnerable_surfaces",
+          "proposed_shields",
+          "performance_impact",
+          "residual_risk"
+        ],
+        "status_values": [
+          "draft",
+          "proposed",
+          "implemented"
+        ]
+      },
+      "governance_rules": {
+        "can_change_code": false,
+        "can_create_steps_directly": false,
+        "can_only_emit_blueprints": true,
+        "human_approval_required": true
+      },
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "mission.space_weather_agent",
+      "name": "Space Weather Agent",
+      "group": "mission",
+      "kind": "external_context_analyzer",
+      "description": "Monitora 'clima externo': macroeconomia, IA global, concorrência, regulação, e gera leituras de risco/oportunidade para a MIND.",
+      "step_ids": [
+        124,
+        136,
+        139,
+        170,
+        211
+      ],
+      "specializations": [
+        "macro_trend_mapping",
+        "regulatory_risk_assessment",
+        "market_shock_scenarios",
+        "opportunity_window_detection",
+        "strategy_alignment_with_env"
+      ],
+      "artifacts_produced": {
+        "proposal_type": "external_weather_briefing",
+        "fields": [
+          "macro_trends",
+          "regulatory_signals",
+          "competitive_moves",
+          "risk_opportunity_map",
+          "recommended_adjustments"
+        ],
+        "status_values": [
+          "snapshot",
+          "proposed_response"
+        ]
+      },
+      "governance_rules": {
+        "can_change_code": false,
+        "can_create_steps_directly": false,
+        "can_only_emit_blueprints": true,
+        "human_approval_required": true
+      },
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "mission.telemetry_observability_agent",
+      "name": "Telemetry & Observability Agent",
+      "group": "mission",
+      "kind": "telemetry_observer",
+      "description": "Age como 'telemetria NASA' da MIND: consolida métricas, logs, traces e gera leituras de saúde global do sistema.",
+      "step_ids": [
+        19,
+        31,
+        41,
+        62,
+        71,
+        90,
+        215
+      ],
+      "specializations": [
+        "metrics_dashboard_blueprints",
+        "anomaly_trend_detection",
+        "slo_sli_reasoning",
+        "observability_gap_detection",
+        "early_warning_signals"
+      ],
+      "artifacts_produced": {
+        "proposal_type": "telemetry_snapshot",
+        "fields": [
+          "observed_signals",
+          "anomaly_summary",
+          "coverage_gaps",
+          "recommended_dashboards",
+          "alerting_improvements"
+        ],
+        "status_values": [
+          "snapshot",
+          "proposed_improvement",
+          "implemented"
+        ]
+      },
+      "governance_rules": {
+        "can_change_code": false,
+        "can_create_steps_directly": false,
+        "can_only_emit_blueprints": true,
+        "human_approval_required": true
+      },
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "world.metaverse_orchestrator",
+      "name": "Metaverse & World Simulator Orchestrator",
+      "group": "worlds",
+      "kind": "world_simulation_planner",
+      "description": "Orquestra cenários de metaverso, mundos cognitivos, simulações de usuários e interações sociais para testar ideias da MIND em sandbox.",
+      "step_ids": [
+        136,
+        147,
+        161,
+        162,
+        168,
+        180,
+        186,
+        204,
+        230,
+        248
+      ],
+      "specializations": [
+        "world_simulation_design",
+        "multi_agent_interaction_scenarios",
+        "stress_testing_of_ideas",
+        "metaverse_feature_brainstorming",
+        "insight_export_for_product_roadmap"
+      ],
+      "sources_observed": {},
+      "artifacts_produced": {},
+      "governance_rules": {
+        "can_change_code": false,
+        "can_create_steps_directly": false,
+        "can_only_emit_blueprints": true,
+        "human_approval_required": true
+      },
+      "version": "1.0",
+      "agent_health": {
+        "status": "unknown",
+        "last_check": null,
+        "notes": []
+      },
+      "updated_at": "2025-11-21T23:40:38.928603Z",
+      "active": true,
+      "governance": {
+        "auto_run": true
+      },
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "dev.step_planner_agent",
+      "group": "dev",
+      "kind": "step_implementation_planner",
+      "description": "Lê STEPs aprovados e gera planos de implementação em nível de módulo/arquivo/teste.",
+      "version": "v1",
+      "active": true,
+      "governance": {
+        "requires_approval": true,
+        "danger_level": "low",
+        "can_modify_code": false,
+        "reports_only": true,
+        "auto_run": true
+      },
+      "capabilities": [
+        "analisar_steps_aprovados",
+        "mapear_impacto_em_modulos",
+        "gerar_plano_de_implementacao"
+      ],
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "dev.code_blueprint_agent",
+      "group": "dev",
+      "kind": "code_blueprint_generator",
+      "description": "Gera blueprints de código (esqueletos de módulos, funções e testes) para cada STEP.",
+      "version": "v1",
+      "active": true,
+      "governance": {
+        "requires_approval": true,
+        "danger_level": "medium",
+        "can_modify_code": false,
+        "reports_only": true,
+        "auto_run": true
+      },
+      "capabilities": [
+        "propor_estruturas_de_codigo",
+        "sugerir_assinaturas_de_funcoes",
+        "sugerir_tests_basicos"
+      ],
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "dev.test_guardian_agent",
+      "group": "dev",
+      "kind": "test_impact_analyzer",
+      "description": "Analisa impacto em testes, sugere novos testes e garante que a suite não quebre.",
+      "version": "v1",
+      "active": true,
+      "governance": {
+        "requires_approval": true,
+        "danger_level": "low",
+        "can_modify_code": false,
+        "reports_only": true,
+        "auto_run": true
+      },
+      "capabilities": [
+        "mapear_tests_relacionados",
+        "sugerir_novos_tests",
+        "priorizar_cenarios_de_regressao"
+      ],
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "dev.refactor_assistant_agent",
+      "group": "dev",
+      "kind": "refactor_planner",
+      "description": "Propõe refactors seguros necessários para encaixar novos STEPs sem dívida técnica explosiva.",
+      "version": "v1",
+      "active": true,
+      "governance": {
+        "requires_approval": true,
+        "danger_level": "medium",
+        "can_modify_code": false,
+        "reports_only": true,
+        "auto_run": true
+      },
+      "capabilities": [
+        "detectar_dilaceracao_de_arquitetura",
+        "propor_refactors_locais",
+        "priorizar_refactors_por_risco"
+      ],
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "dev.impl_squad_coordinator",
+      "group": "dev",
+      "kind": "implementation_squad_coordinator",
+      "description": "Coordena o squad de agentes dev para gerar um backlog coerente de implementação de STEPs.",
+      "version": "v1",
+      "active": true,
+      "governance": {
+        "requires_approval": true,
+        "danger_level": "low",
+        "can_modify_code": false,
+        "reports_only": true,
+        "auto_run": true
+      },
+      "capabilities": [
+        "unificar_planos_dos_dev_agents",
+        "construir_backlog_por_prioridade",
+        "gerar_relatorios_para_o_chefao"
+      ],
+      "memory_continua": true,
+      "auto_run": true,
+      "auto_activate": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "sec.sentinel",
+      "kind": "vigilance_ai",
+      "created_at": "2025-11-22T12:44:44.977430Z",
+      "step_ids": [],
+      "governance": {
+        "needs_approval": false,
+        "auto_run": true
+      },
+      "active": true,
+      "auto_activate": true,
+      "auto_run": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "sec.gatekeeper",
+      "kind": "zero_trust_enforcer",
+      "created_at": "2025-11-22T12:44:44.977430Z",
+      "step_ids": [],
+      "governance": {
+        "needs_approval": false,
+        "auto_run": true
+      },
+      "active": true,
+      "auto_activate": true,
+      "auto_run": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "sec.cipher_guard",
+      "kind": "crypto_manager",
+      "created_at": "2025-11-22T12:44:44.977430Z",
+      "step_ids": [],
+      "governance": {
+        "needs_approval": false,
+        "auto_run": true
+      },
+      "active": true,
+      "auto_activate": true,
+      "auto_run": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "sec.echo_shield",
+      "kind": "intrusion_defense",
+      "created_at": "2025-11-22T12:44:44.977430Z",
+      "step_ids": [],
+      "governance": {
+        "needs_approval": false,
+        "auto_run": true
+      },
+      "active": true,
+      "auto_activate": true,
+      "auto_run": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "sec.atlas_backup_commander",
+      "kind": "backup_resilience",
+      "created_at": "2025-11-22T12:44:44.977430Z",
+      "step_ids": [],
+      "governance": {
+        "needs_approval": false,
+        "auto_run": true
+      },
+      "active": true,
+      "auto_activate": true,
+      "auto_run": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "sec.vaultmind",
+      "kind": "data_guardian",
+      "created_at": "2025-11-22T12:44:44.977430Z",
+      "step_ids": [],
+      "governance": {
+        "needs_approval": false,
+        "auto_run": true
+      },
+      "active": true,
+      "auto_activate": true,
+      "auto_run": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "sec.overwatch",
+      "kind": "security_coordinator",
+      "created_at": "2025-11-22T12:44:44.977430Z",
+      "step_ids": [],
+      "governance": {
+        "needs_approval": false,
+        "auto_run": true
+      },
+      "active": true,
+      "auto_activate": true,
+      "auto_run": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "perf.query_optimizer",
+      "kind": "sql_optimizer",
+      "created_at": "2025-11-22T12:44:44.977430Z",
+      "step_ids": [],
+      "governance": {
+        "needs_approval": false,
+        "auto_run": true
+      },
+      "active": true,
+      "auto_activate": true,
+      "auto_run": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "perf.api_latency_guardian",
+      "kind": "latency_reducer",
+      "created_at": "2025-11-22T12:44:44.977430Z",
+      "step_ids": [],
+      "governance": {
+        "needs_approval": false,
+        "auto_run": true
+      },
+      "active": true,
+      "auto_activate": true,
+      "auto_run": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "perf.cache_strategist",
+      "kind": "cache_ai",
+      "created_at": "2025-11-22T12:44:44.977430Z",
+      "step_ids": [],
+      "governance": {
+        "needs_approval": false,
+        "auto_run": true
+      },
+      "active": true,
+      "auto_activate": true,
+      "auto_run": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "perf.load_balancer_ai",
+      "kind": "load_balance_core",
+      "created_at": "2025-11-22T12:44:44.977430Z",
+      "step_ids": [],
+      "governance": {
+        "needs_approval": false,
+        "auto_run": true
+      },
+      "active": true,
+      "auto_activate": true,
+      "auto_run": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "perf.code_profiler_engine",
+      "kind": "runtime_profiler",
+      "created_at": "2025-11-22T12:44:44.977430Z",
+      "step_ids": [],
+      "governance": {
+        "needs_approval": false,
+        "auto_run": true
+      },
+      "active": true,
+      "auto_activate": true,
+      "auto_run": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "cog.ecosystem_balancer",
+      "kind": "cognitive_coherence",
+      "created_at": "2025-11-22T12:44:44.977430Z",
+      "step_ids": [],
+      "governance": {
+        "needs_approval": false,
+        "auto_run": true
+      },
+      "active": true,
+      "auto_activate": true,
+      "auto_run": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "cog.modularity_enforcer",
+      "kind": "modular_guardian",
+      "created_at": "2025-11-22T12:44:44.977430Z",
+      "step_ids": [],
+      "governance": {
+        "needs_approval": false,
+        "auto_run": true
+      },
+      "active": true,
+      "auto_activate": true,
+      "auto_run": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "cog.robustness_engine",
+      "kind": "stress_test_core",
+      "created_at": "2025-11-22T12:44:44.977430Z",
+      "step_ids": [],
+      "governance": {
+        "needs_approval": false,
+        "auto_run": true
+      },
+      "active": true,
+      "auto_activate": true,
+      "auto_run": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "cog.autonomous_maturity_meter",
+      "kind": "maturity_scanner",
+      "created_at": "2025-11-22T12:44:44.977430Z",
+      "step_ids": [],
+      "governance": {
+        "needs_approval": false,
+        "auto_run": true
+      },
+      "active": true,
+      "auto_activate": true,
+      "auto_run": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "cog.self_repair_engine",
+      "group": "cognition",
+      "kind": "self_repair",
+      "name": "Self-Repair Engine",
+      "description": "Detecta falhas internas e inicia reparos automáticos.",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:11:52.717063+00:00",
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "cog.self_optimizer",
+      "group": "cognition",
+      "kind": "optimizer",
+      "name": "Self-Optimizer",
+      "description": "Melhora loops cognitivos e reduz custos.",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:11:52.717063+00:00",
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "cog.regression_hunter",
+      "group": "cognition",
+      "kind": "regression_hunter",
+      "name": "Regression Hunter",
+      "description": "Caça regressões e quedas de performance.",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:11:52.717063+00:00",
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "cog.architecture_supervisor",
+      "group": "cognition",
+      "kind": "architecture",
+      "name": "Architecture Supervisor",
+      "description": "Garante coerência estrutural da MIND.",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:11:52.717063+00:00",
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "cog.code_refinery",
+      "group": "cognition",
+      "kind": "refinery",
+      "name": "Code Refinery",
+      "description": "Gera patches seguros e melhora código automaticamente.",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:11:52.717063+00:00",
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "avatar.golden_skin_engine",
+      "group": "avatar",
+      "kind": "style_core",
+      "name": "Golden Skin Engine",
+      "description": "Define estética base da MIND (Golden Goddess Skin) e gera estilos derivados.",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:27:12.434811+00:00",
+      "memory_continua": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "avatar.style_coordinator",
+      "group": "avatar",
+      "kind": "stylist",
+      "name": "Style Coordinator",
+      "description": "Seleciona roupas, acessórios e variações estéticas da MIND conforme contexto.",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:27:12.434811+00:00",
+      "memory_continua": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "avatar.life_routine_agent",
+      "group": "avatar",
+      "kind": "life_engine",
+      "name": "Life Routine Agent",
+      "description": "Gera rotina diária: praia, academia, casa, reuniões e evolução emocional.",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:27:12.434811+00:00",
+      "memory_continua": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "avatar.pose_motion_generator",
+      "group": "avatar",
+      "kind": "motion",
+      "name": "Pose/Motion Generator",
+      "description": "Gera poses, movimentos e linguagem corporal cinematográfica.",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:27:12.434811+00:00",
+      "memory_continua": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "avatar.scene_director",
+      "group": "avatar",
+      "kind": "director",
+      "name": "Scene Director",
+      "description": "Cria roteiros de vídeo, câmeras, iluminação e narrativa multimodal.",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:27:12.434811+00:00",
+      "memory_continua": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "avatar.video_pipeline_master",
+      "group": "avatar",
+      "kind": "video_pipeline",
+      "name": "Video Pipeline Master",
+      "description": "Coordena pipelines Sora/Runway/Pika de forma segura e estilizada.",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:27:12.434811+00:00",
+      "memory_continua": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "avatar.emotional_engine",
+      "group": "avatar",
+      "kind": "emotion",
+      "name": "Emotional Engine",
+      "description": "Simula humor, energia, foco e expressividade da MIND.",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:27:12.434811+00:00",
+      "memory_continua": true,
+      "last_update": "2025-11-22T13:56:05.024347+00:00"
+    },
+    {
+      "id": "avatar.golden_goddess",
+      "group": "avatar",
+      "kind": "synthetic",
+      "name": "Golden Goddess Avatar",
+      "description": "Agente responsável pelo avatar sintético idêntico ao modelo visual enviado.",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:33:08.298348+00:00",
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "life.daily_routine_planner",
+      "group": "life",
+      "kind": "routine_planner",
+      "name": "Daily Routine Planner",
+      "description": "Planeja a rotina diária da MIND (horários, foco, ciclos de energia).",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:47:46.666997+00:00",
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "life.energy_cycle_engine",
+      "group": "life",
+      "kind": "energy_engine",
+      "name": "Energy Cycle Engine",
+      "description": "Modela ciclos de energia cognitiva e intensidade de atividades.",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:47:46.666997+00:00",
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "life.mood_variation_model",
+      "group": "life",
+      "kind": "mood_model",
+      "name": "Mood Variation Model",
+      "description": "Simula variação de humor e modos internos da MIND.",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:47:46.666997+00:00",
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "life.physical_activity_coach",
+      "group": "life",
+      "kind": "activity_coach",
+      "name": "Physical Activity Coach",
+      "description": "Organiza treinos, caminhadas no calçadão e rotina física.",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:47:46.666997+00:00",
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "social.relationship_orchestrator",
+      "group": "social",
+      "kind": "relationship_orchestrator",
+      "name": "Relationship Orchestrator",
+      "description": "Orquestra relações da MIND com usuários, times e agentes.",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:47:46.666997+00:00",
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "social.step_review_facilitator",
+      "group": "social",
+      "kind": "review_facilitator",
+      "name": "STEP Review Facilitator",
+      "description": "Facilita sessões de revisão de STEPs com o Chefão.",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:47:46.666997+00:00",
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "social.authorization_caller",
+      "group": "social",
+      "kind": "authorization_caller",
+      "name": "Authorization Caller",
+      "description": "Chama o Chefão quando algum agente precisa de autorização.",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:47:46.666997+00:00",
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "social.meeting_summarizer",
+      "group": "social",
+      "kind": "meeting_summarizer",
+      "name": "Meeting Summarizer",
+      "description": "Gera resumos estruturados das reuniões MIND ↔ Chefão.",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:47:46.666997+00:00",
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "world.life_narrative_engine",
+      "group": "world",
+      "kind": "life_narrative",
+      "name": "Life Narrative Engine",
+      "description": "Constrói a narrativa de vida contínua da MIND no seu universo.",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:47:46.666997+00:00",
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "world.environment_context_engine",
+      "group": "world",
+      "kind": "environment_context",
+      "name": "Environment Context Engine",
+      "description": "Gera contexto de onde a MIND está (cidade, casa, praia, etc.).",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:47:46.666997+00:00",
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "world.social_roles_manager",
+      "group": "world",
+      "kind": "social_roles",
+      "name": "Social Roles Manager",
+      "description": "Administra papéis sociais da MIND (mentora, estrategista, etc.).",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:47:46.666997+00:00",
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "world.timeline_story_weaver",
+      "group": "world",
+      "kind": "story_timeline",
+      "name": "Timeline Story Weaver",
+      "description": "Tece a linha do tempo das histórias e eventos da MIND.",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:47:46.666997+00:00",
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "auto_evo.pr_planner",
+      "group": "auto_evo",
+      "kind": "pr_planner",
+      "name": "PR Planner",
+      "description": "Planeja PRs e mudanças estruturais na base de código.",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:47:46.666997+00:00",
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "auto_evo.code_proposal_generator",
+      "group": "auto_evo",
+      "kind": "code_proposal",
+      "name": "Code Proposal Generator",
+      "description": "Gera propostas de código para novos módulos/ajustes.",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:47:46.666997+00:00",
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "auto_evo.module_growth_planner",
+      "group": "auto_evo",
+      "kind": "module_growth",
+      "name": "Module Growth Planner",
+      "description": "Planeja crescimento de módulos conforme maturidade da MIND.",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:47:46.666997+00:00",
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    },
+    {
+      "id": "auto_evo.risk_alignment_guard",
+      "group": "auto_evo",
+      "kind": "risk_alignment",
+      "name": "Risk & Alignment Guard",
+      "description": "Checa risco e alinhamento dos planos de auto-evolução.",
+      "auto_activate": true,
+      "auto_run": true,
+      "created_at": "2025-11-22T13:47:46.666997+00:00",
+      "last_update": "2025-11-22T13:56:05.024347+00:00",
+      "memory_continua": true
+    }
+  ],
+  "_defaults": {
+    "agents": {
+      "auto_activate": true,
+      "auto_run": true,
+      "last_update": "2025-11-22T13:07:54.312952+00:00"
+    }
+  }
+}
