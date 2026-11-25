@@ -11,7 +11,10 @@ FAST=[5,9,13]
 SLOW=[21,34,55]
 MIN_BARS=120
 
-def cmd(c): return subprocess.run(c,shell=True,capture_output=True,text=True)
+def cmd(args):
+    if not isinstance(args,(list,tuple)) or not args or any(not isinstance(x,str) or not x for x in args):
+        raise ValueError("INVALID_EXTERNAL_COMMAND_ARGUMENTS")
+    return subprocess.run(list(args),shell=False,capture_output=True,text=True,check=True,timeout=900)
 
 def f(v):
     try: return float(v)
@@ -91,7 +94,7 @@ def monte_carlo(trades):
 def run():
     if TMP.exists(): shutil.rmtree(TMP,ignore_errors=True)
     DATA.mkdir(parents=True,exist_ok=True)
-    cmd(f'rclone copy "{REMOTE_NORM}" "{DATA}" --progress')
+    cmd(["rclone","copy",REMOTE_NORM,str(DATA),"--progress"])
 
     results=[]
     for p in DATA.glob("*.csv"):
@@ -141,7 +144,7 @@ def run():
     (out/"all_edge_research_results.json").write_text(json.dumps(results,indent=2,ensure_ascii=False),encoding="utf-8")
     (out/"promoted_edges.json").write_text(json.dumps(promoted,indent=2,ensure_ascii=False),encoding="utf-8")
     (out/"P15.6_P15.10_manifest.json").write_text(json.dumps(manifest,indent=2,ensure_ascii=False),encoding="utf-8")
-    cmd(f'rclone copy "{out}" "{REMOTE_REPORTS}" --progress')
+    cmd(["rclone","copy",str(out),REMOTE_REPORTS,"--progress"])
     shutil.rmtree(TMP,ignore_errors=True)
     return manifest
 
