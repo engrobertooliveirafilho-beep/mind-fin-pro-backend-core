@@ -48,9 +48,12 @@ class EvolutionGatekeeper:
     """
 
     def evaluate(self, proposal: Dict[str, Any]) -> EvolutionGateDecision:
-        risk = float(proposal["risk_score"])
-        alignment = float(proposal["alignment_score"])
-        redundancy = float(proposal["redundancy_score"])
+        if not isinstance(proposal, dict):
+            raise ValueError("Invalid proposal")
+        raw_scores = (proposal["risk_score"], proposal["alignment_score"], proposal["redundancy_score"])
+        if any(isinstance(value, bool) or not isinstance(value, (int, float)) for value in raw_scores):
+            raise ValueError("Proposal scores must be numeric values")
+        risk, alignment, redundancy = (float(value) for value in raw_scores)
 
         if not all(math.isfinite(v) and 0 <= v <= 1 for v in (risk, alignment, redundancy)):
             raise ValueError("Invalid proposal scores")
