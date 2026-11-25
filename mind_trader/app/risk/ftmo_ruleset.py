@@ -100,6 +100,21 @@ def load_ftmo_config(path="mind_trader/config/ftmo_ruleset.json"):
 
 def audit_rule_application(trade, config, path="mind_trader/reports/P8.46_ftmo_rule_audit.json"):
     validation=validate_ftmo_config(config)
+    numeric_keys = ("daily_pnl", "total_pnl", "risk_amount", "stop")
+    try:
+        valid_trade = isinstance(trade, dict) and all(
+            type(trade.get(k)) in (int, float) and math.isfinite(trade[k])
+            for k in numeric_keys
+        ) and trade["risk_amount"] > 0 and trade["stop"] > 0 and type(trade.get("daily_trades")) is int and trade["daily_trades"] >= 0 and isinstance(trade.get("symbol"), str)
+    except (TypeError, ValueError, OverflowError):
+        valid_trade = False
+    if not validation["valid"] or not valid_trade:
+        report = {"audit_ts": datetime.now(UTC).isoformat(), "config_validation": validation,
+                  "checks": {"valid_trade": valid_trade}, "decision": "BLOCK_FTMO_SIMULATION",
+                  "production": "BLOCKED", "edge_claim": "NONE"}
+        Path(path).parent.mkdir(parents=True, exist_ok=True)
+        Path(path).write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+        return report
     report={
         "audit_ts":datetime.now(UTC).isoformat(),
         "config_validation":validation,
