@@ -1,3 +1,6 @@
+import re
+
+
 def automotive_part_purchase_guard(user_message: str, answer: str, context: str = "") -> str:
     msg = (user_message or "").lower()
     ctx = (context or "").lower()
@@ -13,6 +16,8 @@ def automotive_part_purchase_guard(user_message: str, answer: str, context: str 
     ])
 
     if wants_link and aks_context:
+        if not wrong_vehicle_purchase and re.search(r"https?://[^\s<>]+", answer or "", re.IGNORECASE):
+            return answer
         return (
             "Você quer comprar o atuador AKS do Mercedes Classe A 2000, não o carro. "
             "Procure por: 'atuador AKS Mercedes Classe A W168 semi automático'. "
