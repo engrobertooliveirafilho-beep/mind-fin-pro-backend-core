@@ -1,4 +1,4 @@
-import json, uuid
+import json, uuid, math
 from pathlib import Path
 from datetime import datetime, UTC
 from mind_trader.app.risk.ftmo_ruleset import load_ftmo_config
@@ -78,8 +78,16 @@ class PaperTradingSessionManager:
         s=self._read_session()
         if not s or s.get("status")!="OPEN":
             return {"decision":"BLOCK_RECORD_NO_OPEN_SESSION","production":"BLOCKED"}
+        try:
+            valid = type(pnl) in (int, float) and math.isfinite(pnl)
+            new_pnl = s["daily_pnl"] + pnl if valid else None
+            valid = valid and math.isfinite(new_pnl)
+        except (TypeError, ValueError, OverflowError):
+            valid = False
+        if not valid:
+            return {"decision":"BLOCK_INVALID_PNL","production":"BLOCKED"}
         s["trades"] += 1
-        s["daily_pnl"] += float(pnl)
+        s["daily_pnl"] = new_pnl
         s["loss_streak"] = s["loss_streak"] + 1 if pnl < 0 else 0
         self._write_session(s)
         self._ledger({"type":"TRADE_RESULT","session_id":s["session_id"],"pnl":pnl,"daily_pnl":s["daily_pnl"],"trades":s["trades"]})
