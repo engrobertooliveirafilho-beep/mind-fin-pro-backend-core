@@ -20,7 +20,7 @@ def _validate_source(text, source_type, title):
 def source_id(text, source_type):
     if not isinstance(text, str) or not isinstance(source_type, str):
         raise ValueError("INVALID_SOURCE_ID_INPUT")
-    return hashlib.sha256((source_type + "\\0" + text).encode("utf-8")).hexdigest()
+    return hashlib.sha256((source_type + "\0" + text).encode("utf-8")).hexdigest()
 
 
 def extract_dna(text, source_type="note", title="untitled"):
@@ -30,14 +30,14 @@ def extract_dna(text, source_type="note", title="untitled"):
     tags = []
     for tag in DNA_TAGS:
         phrase = tag.replace("_", " ")
-        if re.search(r"(?<!\\w)" + re.escape(phrase) + r"(?!\\w)", normalized):
+        if re.search(r"(?<!\w)" + re.escape(phrase) + r"(?!\w)", normalized):
             tags.append(tag)
     if not tags:
         tags = ["unclassified_research"]
 
     candidates = []
     for tag in tags:
-        dna_id = hashlib.sha256((full_source_hash + "\\0" + title + "\\0" + tag).encode("utf-8")).hexdigest()[:24]
+        dna_id = hashlib.sha256((full_source_hash + "\0" + title + "\0" + tag).encode("utf-8")).hexdigest()[:24]
         candidates.append({
             "dna_id": dna_id,
             "source_id": full_source_hash,
