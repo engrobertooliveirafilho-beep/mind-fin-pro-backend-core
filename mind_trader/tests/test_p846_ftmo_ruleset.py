@@ -44,3 +44,34 @@ def test_audit_rule_application_blocks_invalid_trade(tmp_path):
     r=audit_rule_application(trade,default_ftmo_config(),str(tmp_path/"audit.json"))
     assert r["decision"]=="BLOCK_FTMO_SIMULATION"
     assert r["edge_claim"]=="NONE"
+
+
+def test_malformed_trade_fails_closed(tmp_path):
+    import json
+    valid = {"symbol":"WIN","daily_trades":1,"daily_pnl":0,"total_pnl":0,"risk_amount":500,"stop":98}
+    cases = [None, [], {}]
+    for key, values in {
+        "risk_amount": [-1, 0, True, float("nan"), float("inf"), "500"],
+        "daily_pnl": [None, float("nan")],
+        "total_pnl": [float("inf"), "0"],
+        "daily_trades": [-1, True, 1.5],
+        "stop": [None, 0, -1, float("inf")],
+        "symbol": [None, []],
+    }.items():
+        cases.extend(dict(valid, **{key: value}) for value in values)
+    for key in valid:
+        cases.append({k:v for k,v in valid.items() if k != key})
+    for trade in cases:
+        path = tmp_path / "audit.json"
+        result = audit_rule_application(trade, default_ftmo_config(), str(path))
+        assert result["decision"] == "BLOCK_FTMO_SIMULATION"
+        assert result["production"] == "BLOCKED"
+        assert json.loads(path.read_text()) == result
+
+
+def test_invalid_config_fails_closed(tmp_path):
+    trade = {"symbol":"WIN","daily_trades":1,"daily_pnl":0,"total_pnl":0,"risk_amount":500,"stop":98}
+    for config in (None, [], {}, dict(default_ftmo_config(), max_daily_loss="invalid")):
+        result = audit_rule_application(trade, config, str(tmp_path / "audit.json"))
+        assert result["decision"] == "BLOCK_FTMO_SIMULATION"
+        assert result["production"] == "BLOCKED"
