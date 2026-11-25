@@ -33,3 +33,24 @@ def test_invalid_atom_blocks():
 def test_save_dna_atoms(tmp_path):
     p=save_dna_atoms([atom()],str(tmp_path/"atoms.json"))
     assert Path(p).exists()
+
+
+def test_invalid_atom_field_types():
+    for key, value in (("context", " "), ("trigger", 42), ("risk", []), ("success_conditions", []), ("success_conditions", [" "]), ("success_conditions", [None])):
+        a = atom()
+        a[key] = value
+        assert validate_dna_atom(a)["valid"] is False
+    assert validate_dna_atom(None)["valid"] is False
+
+
+def test_invalid_batch_preserves_dna(tmp_path):
+    import pytest
+    p = tmp_path / "atoms.json"
+    save_dna_atoms([atom()], str(p))
+    before = p.read_bytes()
+    invalid = dict(atom(), success_conditions=[])
+    nonfinite = dict(atom(), extra=float("nan"))
+    for batch in ([atom(), invalid], [nonfinite], None):
+        with pytest.raises(ValueError):
+            save_dna_atoms(batch, str(p))
+        assert p.read_bytes() == before
