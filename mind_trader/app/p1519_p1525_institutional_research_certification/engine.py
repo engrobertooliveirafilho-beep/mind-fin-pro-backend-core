@@ -22,7 +22,13 @@ def load_dataset(name):
     for p in candidates:
         if p.exists():
             with open(p,newline="",encoding="utf-8") as fh:
-                return [{**r,"close":f(r.get("close",0))} for r in csv.DictReader(fh) if f(r.get("close",0))>0]
+                rows=[{**r,"close":f(r.get("close",0))} for r in csv.DictReader(fh) if f(r.get("close",0))>0]
+            stamps=[datetime.fromisoformat(r.get("timestamp") or "") for r in rows]
+            if any(t.tzinfo is None or t.utcoffset() is None for t in stamps):
+                raise ValueError("Candle timestamp must include timezone")
+            if any(b<=a for a,b in zip(stamps,stamps[1:])):
+                raise ValueError("Candles must be strictly chronological")
+            return rows
     return []
 
 def sma(vals,n,i):
@@ -30,6 +36,8 @@ def sma(vals,n,i):
     return sum(vals[i-n:i])/n
 
 def reconstruct(edge):
+    if edge.get("strategy") != "sma_cross":
+        raise ValueError("Unsupported reconstruction strategy")
     rows=load_dataset(edge["dataset"])
     closes=[r["close"] for r in rows]
     fast=int(edge["fast"]); slow=int(edge["slow"])
