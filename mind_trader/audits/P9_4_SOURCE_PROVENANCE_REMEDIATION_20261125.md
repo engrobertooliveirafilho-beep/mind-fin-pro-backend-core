@@ -39,3 +39,15 @@ Correction:
 Verification: isolated Python 3.13.5 tests **4 passed, 0 failed**. JUnit and SHA-256 evidence published in `mind_trader/evidence/p9/`.
 
 Drive ledger update was attempted against the existing master ledger but rejected with Google Docs 403 permission denied; the Drive original remains unchanged. GitHub branch and PR contain the authoritative code/evidence for this increment.
+
+## Additional remediation — P9.2 genome identity
+
+The original `gid()` hashed the complete generated record, including `index`. Consequently, two identical strategy phenotypes generated at different positions received different IDs. This made the uniqueness counter describe generation positions rather than distinct strategy configurations.
+
+Correction:
+- Genome identity now hashes only phenotype/configuration fields, excluding `index` and `genome_id`.
+- Generation index remains metadata and no longer changes strategy identity.
+- Manifest now distinguishes generated count, unique phenotypes, and duplicate phenotypes.
+- Candidate status is explicit: backtest required, promotion forbidden, edge/causality unproven.
+
+Verification: isolated Python 3.13.5 tests **5 passed, 0 failed**, including 10,000 generated records, stable identity under index changes, and identity changes under phenotype changes. JUnit and SHA-256 evidence published in `mind_trader/evidence/p9/`.
