@@ -19,7 +19,17 @@ def f(v):
 
 def load_csv(p):
     with open(p,newline="",encoding="utf-8") as fh:
-        rows=[{**r,"close":f(r.get("close",0))} for r in csv.DictReader(fh) if f(r.get("close",0))>0]
+        rows=[]
+        for r in csv.DictReader(fh):
+            prices={k:float(r[k]) for k in ("open","high","low","close")}
+            if any(not math.isfinite(v) or v<=0 for v in prices.values()):
+                raise ValueError("Invalid OHLC price")
+            if not prices["low"]<=min(prices["open"],prices["close"])<=max(prices["open"],prices["close"])<=prices["high"]:
+                raise ValueError("Inconsistent OHLC bounds")
+            volume=float(r["volume"])
+            if not math.isfinite(volume) or volume<0:
+                raise ValueError("Invalid candle volume")
+            rows.append({**r,**prices,"volume":volume})
     stamps=[]
     for row in rows:
         stamp=row.get("timestamp")
