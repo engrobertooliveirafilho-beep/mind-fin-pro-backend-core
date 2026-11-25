@@ -51,3 +51,9 @@ Correction:
 - Candidate status is explicit: backtest required, promotion forbidden, edge/causality unproven.
 
 Verification: isolated Python 3.13.5 tests **5 passed, 0 failed**, including 10,000 generated records, stable identity under index changes, and identity changes under phenotype changes. JUnit and SHA-256 evidence published in `mind_trader/evidence/p9/`.
+
+## Downstream fail-closed regressions
+
+A focused isolated harness reconstructed from the published branch readback executed the P9.3, P9.5, P9.6, P9.7, and P9.100 contracts: **13 passed, 0 failed** under Python 3.13.5. The log explicitly records that this was not a full repository checkout or GitHub CI run. JUnit and log are published under `mind_trader/evidence/p9/`.
+
+These tests prove the blocked-state behavior only. They do not prove a real backtest, actual execution of the ten research steps, statistical validity, or FTMO readiness.
