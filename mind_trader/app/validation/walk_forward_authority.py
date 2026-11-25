@@ -4,7 +4,7 @@ from datetime import datetime, UTC
 
 
 def walk_forward_authority(windows):
-    if not isinstance(windows, (list, tuple)) or len(windows) < 3:
+    if not isinstance(windows, (list, tuple)) or len(windows) < 4:
         return {"decision":"WALK_FORWARD_INSUFFICIENT_WINDOWS","passed":False,"production":"BLOCKED","edge_claim":"NONE"}
 
     expectancies = []
@@ -28,7 +28,7 @@ def walk_forward_authority(windows):
     avg_exp = statistics.mean(expectancies)
     min_pf = min(pfs)
     consistency = positive / len(windows)
-    passed = avg_exp > 0 and min_pf > 1.05 and consistency >= 0.67
+    passed = avg_exp > 0 and min_pf > 1.05 and consistency == 1.0
     return {
         "authority":"P8.81_WALK_FORWARD_AUTHORITY",
         "windows":len(windows),
