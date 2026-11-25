@@ -4,6 +4,7 @@ import json
 import os
 import time
 import statistics
+import math
 from pathlib import Path
 from dataclasses import dataclass, asdict
 from typing import Dict, List, Any
@@ -82,24 +83,25 @@ def extract_specialists(raw: Any) -> List[Dict[str, Any]]:
 
 
 def extract_runtime_metrics(raw: Dict[str, Any]) -> Dict[str, Any]:
-    metrics = raw.get("metrics", {}) if isinstance(raw, dict) else {}
-
-    return {
-        "cycles": int(metrics.get("cycles", 0)),
-        "frames_built": int(metrics.get("frames_built", 0)),
-        "signals_generated": int(metrics.get("signals_generated", 0)),
-        "closed_trades": int(metrics.get("closed_trades", 0)),
-        "open_positions": int(metrics.get("open_positions", 0)),
-        "initial_equity": float(metrics.get("initial_equity", 100000.0)),
-        "final_mark_to_market_equity": float(
-            metrics.get("final_mark_to_market_equity", metrics.get("final_realized_equity", 100000.0))
-        ),
-        "paper_mark_to_market_pnl": float(metrics.get("paper_mark_to_market_pnl", 0.0)),
-        "drawdown_pct": float(metrics.get("drawdown_pct", 0.0)),
-        "drawdown_abs": float(metrics.get("drawdown_abs", 0.0)),
-        "peak_equity": float(metrics.get("peak_equity", 100000.0)),
-        "trough_equity": float(metrics.get("trough_equity", 100000.0)),
-    }
+    metrics = raw.get("metrics") if isinstance(raw, dict) else None
+    if not isinstance(metrics, dict):
+        raise ValueError("RUNTIME_METRICS_MISSING")
+    counts = ("cycles", "frames_built", "signals_generated", "closed_trades", "open_positions")
+    amounts = ("initial_equity", "final_mark_to_market_equity", "paper_mark_to_market_pnl", "drawdown_pct", "drawdown_abs", "peak_equity", "trough_equity")
+    result = {}
+    for key in counts:
+        value = metrics.get(key)
+        if type(value) is not int or value < 0:
+            raise ValueError(f"INVALID_METRIC:{key}")
+        result[key] = value
+    for key in amounts:
+        value = metrics.get(key)
+        if type(value) not in (int, float) or not math.isfinite(value):
+            raise ValueError(f"INVALID_METRIC:{key}")
+        result[key] = value
+    if result["initial_equity"] <= 0 or result["peak_equity"] <= 0 or result["drawdown_pct"] > 0 or result["drawdown_abs"] > 0:
+        raise ValueError("INVALID_FINANCIAL_METRICS")
+    return result
 
 
 class PortfolioHealth:
