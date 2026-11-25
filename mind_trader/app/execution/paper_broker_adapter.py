@@ -1,4 +1,4 @@
-import json, uuid
+import json, uuid, math
 from pathlib import Path
 from datetime import datetime, UTC
 from mind_trader.app.execution.safe_broker_adapter import validate_order_payload
@@ -13,9 +13,18 @@ def write_paper_broker_ledger(event,path="mind_trader/logs/P8.95_PAPER_BROKER_LE
         f.write(json.dumps(event,ensure_ascii=False)+"\n")
     return event
 
+def validate_execution_costs(config):
+    if not isinstance(config, dict):
+        return False
+    values = [config.get(k) for k in ("spread", "slippage", "commission")]
+    try:
+        return all(type(v) in (int, float) and math.isfinite(v) and v >= 0 for v in values) and any(v > 0 for v in values)
+    except (OverflowError, TypeError, ValueError):
+        return False
+
 def costs_from_ftmo_config(config_path):
     cfg,val=load_ftmo_config(config_path)
-    if not cfg or not val["valid"]:
+    if not cfg or not val["valid"] or not validate_execution_costs(cfg):
         return {"valid":False,"decision":"BLOCK_INVALID_FTMO_COST_CONFIG","spread":0,"slippage":0,"commission":0}
     return {
         "valid":True,
@@ -39,6 +48,9 @@ def paper_route_order(order, broker="PAPER_INTERNAL", ledger_path="mind_trader/l
         if not cost_source["valid"]:
             return write_paper_broker_ledger({"broker":broker,"decision":"PAPER_ORDER_REJECTED_INVALID_COST_CONFIG","cost_source":cost_source,"production":"BLOCKED","live":"FORBIDDEN","edge_claim":"NONE"},ledger_path)
         spread=cost_source["spread"]; slippage=cost_source["slippage"]; commission=cost_source["commission"]
+
+    if not validate_execution_costs(cost_source):
+        return write_paper_broker_ledger({"broker":broker,"decision":"PAPER_ORDER_REJECTED_INVALID_COST_CONFIG","production":"BLOCKED","live":"FORBIDDEN","edge_claim":"NONE"},ledger_path)
 
     fill=simulate_fill(order,spread,slippage,commission)
     if not fill["filled"]:
