@@ -1,4 +1,4 @@
-import json, hashlib
+import json, hashlib, math
 from pathlib import Path
 from datetime import datetime, UTC
 
@@ -52,12 +52,26 @@ def config_hash(config):
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
 def validate_ftmo_config(config):
+    if not isinstance(config, dict):
+        return {"valid":False,"reason":"INVALID_CONFIG_OBJECT"}
     missing=[k for k in REQUIRED_FIELDS if k not in config]
     if missing:
         return {"valid":False,"reason":"MISSING_FIELDS","missing":missing}
     type_errors=[k for k,t in REQUIRED_FIELDS.items() if not isinstance(config[k],t)]
     if type_errors:
         return {"valid":False,"reason":"TYPE_ERRORS","fields":type_errors}
+    numeric_fields=[k for k,t in REQUIRED_FIELDS.items() if t in (int,(int,float))]
+    invalid_numeric=[]
+    for k in numeric_fields:
+        try:
+            if type(config[k]) not in (int,float) or not math.isfinite(config[k]):
+                invalid_numeric.append(k)
+        except (OverflowError,TypeError,ValueError):
+            invalid_numeric.append(k)
+    if invalid_numeric:
+        return {"valid":False,"reason":"INVALID_NUMERIC_VALUES","fields":invalid_numeric}
+    if config["max_position_size"] <= 0 or any(config[k] < 0 for k in ("commission","spread","slippage")):
+        return {"valid":False,"reason":"INVALID_POSITION_OR_COST_LIMITS"}
     numeric_positive=["account_size","profit_target","max_daily_loss","max_total_loss","minimum_trading_days","max_daily_trades","leverage"]
     invalid=[k for k in numeric_positive if config[k] <= 0]
     if invalid:
@@ -78,7 +92,10 @@ def load_ftmo_config(path="mind_trader/config/ftmo_ruleset.json"):
     p=Path(path)
     if not p.exists():
         return None, {"valid":False,"reason":"CONFIG_FILE_NOT_FOUND"}
-    cfg=json.loads(p.read_text(encoding="utf-8"))
+    try:
+        cfg=json.loads(p.read_text(encoding="utf-8"))
+    except (OSError,ValueError):
+        return None, {"valid":False,"reason":"CONFIG_READ_ERROR"}
     return cfg, validate_ftmo_config(cfg)
 
 def audit_rule_application(trade, config, path="mind_trader/reports/P8.46_ftmo_rule_audit.json"):
