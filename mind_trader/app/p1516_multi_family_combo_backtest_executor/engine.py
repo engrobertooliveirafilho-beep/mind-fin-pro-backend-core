@@ -10,6 +10,7 @@ DATA=TMP/"normalized"
 
 MAX_QUEUE=120
 MIN_BARS=120
+SUPPORTED_PATTERNS={"sma_cross","rsi_reversion","range_breakout","donchian_trend","volume_spike"}
 
 def cmd(c):
     return subprocess.run(c,shell=True,capture_output=True,text=True)
@@ -48,6 +49,8 @@ def boll_mid(vals,n,i):
     return sma(vals,n,i)
 
 def signal(pattern,rows,i):
+    if pattern not in SUPPORTED_PATTERNS:
+        raise ValueError("UNIMPLEMENTED_PATTERN: "+str(pattern))
     closes=[r["close"] for r in rows]
     highs=[r["high"] for r in rows]
     vols=[r["volume"] for r in rows]
@@ -79,6 +82,8 @@ def signal(pattern,rows,i):
     return False
 
 def backtest(rows,patterns):
+    if not patterns or any(p not in SUPPORTED_PATTERNS for p in patterns):
+        raise ValueError("UNIMPLEMENTED_OR_EMPTY_PATTERN_SET")
     closes=[r["close"] for r in rows]
     pos=0; entry=0; trades=[]
     for i in range(60,len(rows)):
@@ -125,7 +130,7 @@ def monte_carlo(trades):
 
 def build_combos(queue):
     grouped={}
-    for q in queue[:MAX_QUEUE]:
+    for q in [q for q in queue if q.get("pattern") in SUPPORTED_PATTERNS][:MAX_QUEUE]:
         key=(q["asset"],q["timeframe"],q["dataset"])
         grouped.setdefault(key,[]).append(q["pattern"])
     jobs=[]
@@ -175,7 +180,8 @@ def run():
     out.mkdir(parents=True,exist_ok=True)
     manifest={
         "STATUS":"P15.16_MULTI_FAMILY_COMBO_BACKTEST_EXECUTOR_IMPLEMENTED",
-        "QUEUE_ITEMS_USED":min(len(queue),MAX_QUEUE),
+        "QUEUE_ITEMS_USED":min(sum(q.get("pattern") in SUPPORTED_PATTERNS for q in queue),MAX_QUEUE),
+        "UNIMPLEMENTED_QUEUE_ITEMS":sum(q.get("pattern") not in SUPPORTED_PATTERNS for q in queue),
         "JOBS_BUILT":len(jobs),
         "BACKTESTS_RUN":len(results),
         "SINGLE_TESTS":sum(r["kind"]=="single" for r in results),
