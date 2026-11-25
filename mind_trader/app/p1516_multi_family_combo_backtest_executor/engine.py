@@ -12,8 +12,10 @@ MAX_QUEUE=120
 MIN_BARS=120
 SUPPORTED_PATTERNS={"sma_cross","rsi_reversion","range_breakout","donchian_trend","volume_spike"}
 
-def cmd(c):
-    return subprocess.run(c,shell=True,capture_output=True,text=True)
+def cmd(args):
+    if not isinstance(args,(list,tuple)) or not args or any(not isinstance(x,str) or not x for x in args):
+        raise ValueError("INVALID_EXTERNAL_COMMAND_ARGUMENTS")
+    return subprocess.run(list(args),shell=False,capture_output=True,text=True,check=True,timeout=900)
 
 def f(v):
     try: return float(v)
@@ -165,14 +167,19 @@ def build_combos(queue):
 def run():
     if TMP.exists(): shutil.rmtree(TMP,ignore_errors=True)
     DATA.mkdir(parents=True,exist_ok=True)
-    cmd(f'rclone copy "{REMOTE_NORM}" "{DATA}" --progress')
+    cmd(["rclone","copy",REMOTE_NORM,str(DATA),"--progress"])
 
     queue=load_json(QUEUE)
     jobs=build_combos(queue)
     results=[]
 
     for asset,tf,dataset,patterns,kind in jobs:
-        p=DATA/dataset
+        candidate=Path(dataset)
+        if candidate.is_absolute() or ".." in candidate.parts or candidate.suffix.lower() != ".csv":
+            raise ValueError("INVALID_DATASET_PATH")
+        p=(DATA/candidate).resolve()
+        if not p.is_relative_to(DATA.resolve()):
+            raise ValueError("DATASET_PATH_ESCAPE")
         if not p.exists(): continue
         rows=load_csv(p)
         if len(rows)<MIN_BARS: continue
@@ -217,7 +224,7 @@ def run():
     (out/"combo_backtest_results.json").write_text(json.dumps(results,indent=2,ensure_ascii=False),encoding="utf-8")
     (out/"combo_promoted_edges.json").write_text(json.dumps(promoted,indent=2,ensure_ascii=False),encoding="utf-8")
     (out/"P15.16_manifest.json").write_text(json.dumps(manifest,indent=2,ensure_ascii=False),encoding="utf-8")
-    cmd(f'rclone copy "{out}" "{REMOTE_REPORTS}" --progress')
+    cmd(["rclone","copy",str(out),REMOTE_REPORTS,"--progress"])
     shutil.rmtree(TMP,ignore_errors=True)
     return manifest
 
