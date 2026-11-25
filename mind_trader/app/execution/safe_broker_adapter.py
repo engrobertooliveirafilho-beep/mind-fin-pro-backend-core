@@ -1,4 +1,4 @@
-import json
+import json, math
 from pathlib import Path
 from datetime import datetime, UTC
 from mind_trader.app.security.institutional_live_lock import institutional_live_lock
@@ -20,8 +20,30 @@ def broker_adapter_contract(broker):
 
 def validate_order_payload(order):
     required=["symbol","side","entry","stop","target","risk_amount","strategy_id"]
-    missing=[k for k in required if k not in order or order[k] in [None,""]]
-    return {"valid":not missing,"missing":missing,"decision":"ORDER_PAYLOAD_OK" if not missing else "ORDER_PAYLOAD_INVALID"}
+    if not isinstance(order, dict):
+        return {"valid":False,"missing":required,"decision":"ORDER_PAYLOAD_INVALID"}
+    missing=[k for k in required if k not in order or order[k] is None or order[k]==""]
+    invalid=[]
+    for k in ("symbol","strategy_id"):
+        if not isinstance(order.get(k),str) or not order[k].strip():
+            invalid.append(k)
+    side=order.get("side")
+    if side not in ("BUY","SELL"):
+        invalid.append("side")
+    for k in ("entry","stop","target","risk_amount"):
+        v=order.get(k)
+        try:
+            valid=type(v) in (int,float) and math.isfinite(v) and v>0
+        except (OverflowError,TypeError,ValueError):
+            valid=False
+        if not valid:
+            invalid.append(k)
+    if not missing and not invalid:
+        e,s,t=order["entry"],order["stop"],order["target"]
+        if not (s<e<t if side=="BUY" else t<e<s):
+            invalid.append("price_geometry")
+    valid=not missing and not invalid
+    return {"valid":valid,"missing":missing,"invalid":invalid,"decision":"ORDER_PAYLOAD_OK" if valid else "ORDER_PAYLOAD_INVALID"}
 
 def blocked_send_order(broker, order):
     contract=broker_adapter_contract(broker)
