@@ -8,8 +8,10 @@ REMOTE_REPORTS="gdrive:mind-workspace/MIND_TRADER/P15_REAL_MARKET_DATA/reports/P
 TMP=Path(os.environ.get("TEMP",".")).joinpath("mind_p1525b_reconstruction")
 DATA=TMP/"normalized"
 
-def cmd(c):
-    return subprocess.run(c,shell=True,capture_output=True,text=True)
+def cmd(args):
+    if not isinstance(args,(list,tuple)) or not args or any(not isinstance(x,str) or not x for x in args):
+        raise ValueError("INVALID_EXTERNAL_COMMAND_ARGUMENTS")
+    return subprocess.run(list(args),shell=False,capture_output=True,text=True,check=True,timeout=900)
 
 def load_json(p):
     return json.loads(p.read_text(encoding="utf-8")) if p.exists() else []
@@ -19,7 +21,12 @@ def f(v):
     except: return 0.0
 
 def load_dataset(name):
-    p=DATA/name
+    candidate=Path(name)
+    if candidate.is_absolute() or ".." in candidate.parts or candidate.suffix.lower() != ".csv":
+        raise ValueError("INVALID_DATASET_PATH")
+    p=(DATA/candidate).resolve()
+    if not p.is_relative_to(DATA.resolve()):
+        raise ValueError("DATASET_PATH_ESCAPE")
     if not p.exists():
         return []
     with open(p,newline="",encoding="utf-8") as fh:
@@ -100,7 +107,7 @@ def corr(a,b):
 def run():
     if TMP.exists(): shutil.rmtree(TMP,ignore_errors=True)
     DATA.mkdir(parents=True,exist_ok=True)
-    cmd(f'rclone copy "{REMOTE_NORM}" "{DATA}" --progress')
+    cmd(["rclone","copy",REMOTE_NORM,str(DATA),"--progress"])
 
     edges=load_json(EDGES)
     reconstructed=[]
@@ -158,7 +165,7 @@ def run():
     (out/"correlations_cloud.json").write_text(json.dumps(correlations,indent=2,ensure_ascii=False),encoding="utf-8")
     (out/"institutional_certification_cloud_fix.json").write_text(json.dumps(report,indent=2,ensure_ascii=False),encoding="utf-8")
 
-    cmd(f'rclone copy "{out}" "{REMOTE_REPORTS}" --progress')
+    cmd(["rclone","copy",str(out),REMOTE_REPORTS,"--progress"])
     shutil.rmtree(TMP,ignore_errors=True)
     return report
 
