@@ -1,17 +1,34 @@
-import json, statistics
+import json, math, statistics
 from pathlib import Path
 from datetime import datetime, UTC
 
+
 def walk_forward_authority(windows):
-    if len(windows)<3:
+    if not isinstance(windows, (list, tuple)) or len(windows) < 3:
         return {"decision":"WALK_FORWARD_INSUFFICIENT_WINDOWS","passed":False,"production":"BLOCKED","edge_claim":"NONE"}
-    expectancies=[float(w.get("expectancy",0)) for w in windows]
-    pfs=[float(w.get("profit_factor",0)) for w in windows]
-    positive=sum(1 for x in expectancies if x>0)
-    avg_exp=statistics.mean(expectancies)
-    min_pf=min(pfs)
-    consistency=positive/len(windows)
-    passed=avg_exp>0 and min_pf>1.05 and consistency>=0.67
+
+    expectancies = []
+    pfs = []
+    for window in windows:
+        if not isinstance(window, dict) or "expectancy" not in window or "profit_factor" not in window:
+            return {"decision":"WALK_FORWARD_INVALID_WINDOW_DATA","passed":False,"production":"BLOCKED","live":"FORBIDDEN","edge_claim":"NONE"}
+        try:
+            expectancy = float(window["expectancy"])
+            profit_factor = float(window["profit_factor"])
+        except (TypeError, ValueError, OverflowError):
+            return {"decision":"WALK_FORWARD_INVALID_WINDOW_DATA","passed":False,"production":"BLOCKED","live":"FORBIDDEN","edge_claim":"NONE"}
+        # P2279E/P8 backtests encode an undefined PF (no gross losses) as 999.
+        # It is not a finite robustness result and must never count as a pass.
+        if not math.isfinite(expectancy) or not math.isfinite(profit_factor) or profit_factor <= 0 or profit_factor >= 999:
+            return {"decision":"WALK_FORWARD_INVALID_WINDOW_DATA","passed":False,"production":"BLOCKED","live":"FORBIDDEN","edge_claim":"NONE"}
+        expectancies.append(expectancy)
+        pfs.append(profit_factor)
+
+    positive = sum(1 for value in expectancies if value > 0)
+    avg_exp = statistics.mean(expectancies)
+    min_pf = min(pfs)
+    consistency = positive / len(windows)
+    passed = avg_exp > 0 and min_pf > 1.05 and consistency >= 0.67
     return {
         "authority":"P8.81_WALK_FORWARD_AUTHORITY",
         "windows":len(windows),
@@ -24,6 +41,7 @@ def walk_forward_authority(windows):
         "live":"FORBIDDEN",
         "edge_claim":"NONE"
     }
+
 
 def save_walk_forward_authority(report,path="mind_trader/reports/P8.81_walk_forward_authority.json"):
     Path(path).parent.mkdir(parents=True,exist_ok=True)
