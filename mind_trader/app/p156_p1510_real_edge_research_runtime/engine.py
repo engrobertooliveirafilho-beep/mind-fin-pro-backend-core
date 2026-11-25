@@ -1,4 +1,4 @@
-import csv,json,statistics,random,subprocess,os,shutil
+import csv,json,statistics,random,subprocess,os,shutil,math
 from pathlib import Path
 from datetime import datetime,UTC
 
@@ -59,11 +59,12 @@ def walk_forward(rows,fast,slow):
 
 def monte_carlo(trades):
     if len(trades)<10: return {"approved":False,"reason":"INSUFFICIENT_TRADES"}
-    sims=[]
-    for _ in range(100):
-        t=trades[:]; random.shuffle(t); sims.append(sum(t))
-    q10=sorted(sims)[10]
-    return {"approved":q10>0,"q10_return":round(q10,6),"sims":100}
+    if any(type(t) not in (int,float) or not math.isfinite(t) or t<=-1 for t in trades):
+        return {"approved":False,"reason":"INVALID_RETURNS"}
+    rng=random.Random(1516)
+    sims=[math.prod(1+t for t in rng.choices(trades,k=len(trades)))-1 for _ in range(1000)]
+    q10=sorted(sims)[99]
+    return {"approved":q10>0,"q10_return":round(q10,6),"sims":1000,"method":"IID_TRADE_BOOTSTRAP"}
 
 def run():
     if TMP.exists(): shutil.rmtree(TMP,ignore_errors=True)
