@@ -19,7 +19,19 @@ def f(v):
 
 def load_csv(p):
     with open(p,newline="",encoding="utf-8") as fh:
-        return [{**r,"close":f(r.get("close",0))} for r in csv.DictReader(fh) if f(r.get("close",0))>0]
+        rows=[{**r,"close":f(r.get("close",0))} for r in csv.DictReader(fh) if f(r.get("close",0))>0]
+    stamps=[]
+    for row in rows:
+        stamp=row.get("timestamp")
+        if not stamp:
+            raise ValueError("Missing explicit candle timestamp")
+        dt=datetime.fromisoformat(stamp)
+        if dt.tzinfo is None or dt.utcoffset() is None:
+            raise ValueError("Candle timestamp must include timezone")
+        stamps.append(dt)
+    if any(b<=a for a,b in zip(stamps,stamps[1:])):
+        raise ValueError("Candles must be strictly chronological")
+    return rows
 
 def sma(vals,n,i):
     if i<n: return None
