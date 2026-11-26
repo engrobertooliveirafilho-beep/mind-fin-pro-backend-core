@@ -91,7 +91,6 @@ def health() -> dict:
 def run(payload: dict | None = None) -> dict:
     return run_institutional_wiring(payload)
 
-
 # >>> TRADER_CANONICAL_MINIMAL_PAPER_FACTORY_R3_I_R3_R3 >>>
 from dataclasses import dataclass as _trader_canonical_dataclass
 from datetime import datetime as _trader_canonical_datetime
