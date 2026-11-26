@@ -64,8 +64,13 @@ def run_institutional_wiring(payload: dict | None = None, *, execute: bool = Tru
                     signature = inspect.signature(m.run)
                     try:
                         signature.bind(payload)
-                    except TypeError:
-                        signature.bind()
+                    except TypeError as payload_bind_error:
+                        try:
+                            signature.bind()
+                        except TypeError as noarg_bind_error:
+                            raise TypeError(
+                                "UNSUPPORTED_RUN_CONTRACT: explicit adapter required"
+                            ) from noarg_bind_error
                         r = m.run()
                     else:
                         r = m.run(payload)
