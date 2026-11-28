@@ -1,4 +1,4 @@
-import json, uuid
+import json, uuid, math
 from app.runtime.p2343_post_loss_governance_gate import post_loss_gate
 from pathlib import Path
 from datetime import datetime, UTC
@@ -47,6 +47,27 @@ class ExecutionGateway:
                 or state["session_id"] != session_check["session_id"]
                 or type(streak) is not int or streak < 0):
                 raise ValueError("INVALID_SESSION_STATE")
+            rows = [json.loads(line) for line in self.paper.ledger_path.read_text(encoding="utf-8").splitlines()]
+            events = [row for row in rows if row.get("session_id") == state["session_id"]]
+            if not events or events[0].get("type") != "SESSION_OPENED":
+                raise ValueError("MISSING_SESSION_OPEN")
+            if any(row.get("type") != "TRADE_RESULT" for row in events[1:]):
+                raise ValueError("INVALID_SESSION_SEQUENCE")
+            ids = [row["event_id"] for row in events]
+            if any(not isinstance(i, str) or not i for i in ids) or len(set(ids)) != len(ids):
+                raise ValueError("INVALID_EVENT_ID")
+            pnl, ledger_streak = 0.0, 0
+            for index, row in enumerate(events[1:], 1):
+                value = row["pnl"]
+                if type(value) not in (int, float) or not math.isfinite(value):
+                    raise ValueError("INVALID_LEDGER_PNL")
+                pnl += value
+                ledger_streak = ledger_streak + 1 if value < 0 else 0
+                if row["trades"] != index or row["daily_pnl"] != pnl:
+                    raise ValueError("LEDGER_SEQUENCE_MISMATCH")
+            if (state["trades"] != len(events)-1 or state["daily_pnl"] != pnl
+                or streak != ledger_streak or self.paper.daily_summary() != state):
+                raise ValueError("SESSION_LEDGER_MISMATCH")
             symbol, side = trade_dict["symbol"], trade_dict["side"]
             if not isinstance(symbol, str) or not symbol or side not in {"BUY", "SELL"}:
                 raise ValueError("INVALID_ORDER_IDENTITY")
@@ -72,7 +93,7 @@ class ExecutionGateway:
             result = post_loss_gate(symbol, side, streak > 0, context)
             return {"layer":"POST_LOSS","ok":result["status"] == "APPROVED",
                     "reason":result["reason"],"session_id":state["session_id"],
-                    "loss_streak":streak,"context_evidence_id":evidence}
+                    "loss_streak":streak,"ledger_event_id":ids[-1],"context_evidence_id":evidence}
         except Exception as exc:
             return {"layer":"POST_LOSS","ok":False,"reason":"POST_LOSS_PROVENANCE_BLOCK",
                     "error_type":type(exc).__name__}
