@@ -42,7 +42,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
             if hasattr(m, "health"):
                 try:
                     h = m.health()
-                    row["health_ok"] = isinstance(h, dict)
+                    row["health_ok"] = (isinstance(h, dict) and h.get("ok") is True and h.get("status") in {"OK", "ok", "healthy", "operational"} and not h.get("error"))
                     row["health"] = h
                 except Exception as e:
                     row["error"] += f"health_error={e};"
@@ -53,7 +53,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
                         r = m.run(payload)
                     except TypeError:
                         r = m.run()
-                    row["run_ok"] = r is not None
+                    row["run_ok"] = (isinstance(r, dict) and r.get("ok") is True and r.get("status") in {"OK", "ok", "completed", "success"} and not r.get("error"))
                     row["run_result_type"] = type(r).__name__
                     row["run_result"] = r if isinstance(r, (dict, list, str, int, float, bool)) else str(r)
                 except Exception as e:
@@ -66,7 +66,7 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
 
     return {
         "program": "MIND_TRADER_INSTITUTIONAL_WIRING",
-        "status": "operational",
+        "status": "UNVERIFIED" if all(r["import_ok"] and r["run_ok"] and r["health_ok"] and not r["error"] for r in results) else "DEGRADED",
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "mode": "PAPER_ONLY",
         "real_orders": "FORBIDDEN",
@@ -79,14 +79,9 @@ def run_institutional_wiring(payload: dict | None = None) -> dict:
     }
 
 def health() -> dict:
-    r = run_institutional_wiring({})
-    return {
-        "status": "operational" if r["imports_ok"] == r["modules_total"] else "DEGRADED",
-        "modules_total": r["modules_total"],
-        "imports_ok": r["imports_ok"],
-        "runs_ok": r["runs_ok"],
-        "health_ok": r["health_ok"],
-    }
+    # Health must not execute runtime modules.
+    return {"status": "UNVERIFIED", "ok": False, "modules_total": len(MODULES)}
+
 
 def run(payload: dict | None = None) -> dict:
     return run_institutional_wiring(payload)
