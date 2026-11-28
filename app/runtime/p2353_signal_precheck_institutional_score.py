@@ -10,7 +10,20 @@ def institutional_signal_score(signal: dict, context: dict) -> dict:
     symbol = signal.get("symbol", "")
     side = signal.get("side", "")
     strategy = signal.get("strategy", "SCALP")
-    expected_payoff = float(signal.get("expected_payoff", 0))
+    raw_payoff = signal.get("expected_payoff")
+    try:
+        expected_payoff = float(raw_payoff) if not isinstance(raw_payoff, bool) else math.nan
+    except (TypeError, ValueError, OverflowError):
+        expected_payoff = math.nan
+    if not math.isfinite(expected_payoff) or expected_payoff <= 0:
+        return {
+            "symbol": symbol, "side": side, "strategy": strategy,
+            "institutional_score": 0, "decision": "BLOCK",
+            "lot_multiplier": 0.0,
+            "reasons": ["PAYOFF_INVALID", "PAYOFF_BELOW_3X"],
+            "target_payoff_min": 3.0, "mode": "PAPER_ONLY",
+            "real_orders": "FORBIDDEN", "ftmo_real": "FORBIDDEN",
+        }
 
     score = 0
     reasons = []
