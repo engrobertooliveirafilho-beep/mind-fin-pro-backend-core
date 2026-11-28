@@ -7,8 +7,8 @@ def _conflicting_directions(signal: dict, context: dict) -> bool:
     """Fail closed when same-symbol/candle candidate directions disagree."""
     candidates = context.get("candidate_signals")
     if candidates is None:
-        return False  # Legacy single-signal callers have no batch to arbitrate.
-    if not isinstance(candidates, (list, tuple)):
+        return True  # Missing batch evidence must block.
+    if not isinstance(candidates, (list, tuple)) or not candidates:
         return True
     symbol = signal.get("symbol")
     timeframe = signal.get("timeframe") or context.get("timeframe")
@@ -29,7 +29,8 @@ def _conflicting_directions(signal: dict, context: dict) -> bool:
     current_side = str(signal.get("side") or signal.get("action") or "").upper()
     if current_side not in {"BUY", "SELL"}:
         return True
-    directions.add(current_side)
+    if current_side not in directions:
+        return True
     return len(directions) > 1
 
 
@@ -46,11 +47,18 @@ def precheck_before_mt5_emit(signal: dict, context: dict) -> dict:
             "ftmo_real": "FORBIDDEN",
         }
     score = institutional_signal_score(signal, context)
-    allowed = score["decision"] in {"APPROVE_SMALL", "APPROVE", "PRIORITY"}
+    vetoes = {"REGIME_BLOCK", "EARLY_MOVE_BLOCK", "WAIT_CONFIRMATION",
+              "POST_LOSS_GATE_BLOCK", "CORRELATION_RISK", "GOVERNANCE_BLOCK",
+              "PAYOFF_BELOW_3X"}
+    allowed = (score["decision"] in {"APPROVE_SMALL", "APPROVE", "PRIORITY"}
+               and not vetoes.intersection(score["reasons"])
+               and context.get("mode") == "PAPER_ONLY"
+               and context.get("real_orders") == "FORBIDDEN"
+               and context.get("ftmo_real") == "FORBIDDEN")
 
     return {
         "emit_allowed": allowed,
-        "decision": score["decision"],
+        "decision": score["decision"] if allowed else "BLOCK",
         "institutional_score": score["institutional_score"],
         "lot_multiplier": score["lot_multiplier"] if allowed else 0.0,
         "reasons": score["reasons"],
