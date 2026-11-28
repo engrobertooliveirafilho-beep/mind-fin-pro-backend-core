@@ -14,7 +14,7 @@ class RevalidationResult:
     support_resistance_filter:bool
 
     def approved(self):
-        score=sum([
+        criteria=[
             self.m1,
             self.m5,
             self.m15,
@@ -23,8 +23,10 @@ class RevalidationResult:
             self.volatility_filter,
             self.session_filter,
             self.support_resistance_filter
-        ])
-        return score >= 7
+        ]
+        if any(type(value) is not bool for value in criteria):
+            return False
+        return sum(criteria) >= 7
 
 def evaluate(symbol,side,context):
     return RevalidationResult(
