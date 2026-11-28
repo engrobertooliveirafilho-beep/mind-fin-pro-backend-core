@@ -1,4 +1,5 @@
 import json, uuid
+from app.runtime.p2343_post_loss_governance_gate import post_loss_gate
 from pathlib import Path
 from datetime import datetime, UTC
 from mind_trader.app.engines.core import RiskGuardian, FTMOGuardian, FTMOConfig, TradeIntent
@@ -24,7 +25,8 @@ def ftmo_config_from_ruleset(config):
     return FTMOConfig(account_size=config["account_size"],profit_target=config["profit_target"],max_daily_loss=config["max_daily_loss"],max_total_loss=config["max_total_loss"],max_daily_trades=config["max_daily_trades"],allowed_symbols=tuple(config["allowed_symbols"]),restricted_symbols=tuple(config["restricted_symbols"]),restricted_news_events=config["restricted_news_events"])
 
 class ExecutionGateway:
-    def __init__(self, ledger_path="mind_trader/logs/P8.41_EXECUTION_LEDGER.jsonl", ftmo_config_path="mind_trader/config/ftmo_ruleset.json", paper_session_path="mind_trader/logs/P8.48_PAPER_SESSION.json", paper_day_ledger_path="mind_trader/logs/P8.48_PAPER_DAY_LEDGER.jsonl", paper_broker_ledger_path="mind_trader/logs/P8.95_PAPER_BROKER_LEDGER.jsonl"):
+    def __init__(self, ledger_path="mind_trader/logs/P8.41_EXECUTION_LEDGER.jsonl", ftmo_config_path="mind_trader/config/ftmo_ruleset.json", paper_session_path="mind_trader/logs/P8.48_PAPER_SESSION.json", paper_day_ledger_path="mind_trader/logs/P8.48_PAPER_DAY_LEDGER.jsonl", paper_broker_ledger_path="mind_trader/logs/P8.95_PAPER_BROKER_LEDGER.jsonl", trusted_context_provider=None):
+        self.trusted_context_provider=trusted_context_provider
         self.risk=RiskGuardian()
         cfg,val=load_ftmo_config(ftmo_config_path)
         self.ftmo_config_valid=val
@@ -34,6 +36,46 @@ class ExecutionGateway:
         self.ledger_path=ledger_path
         self.paper=PaperTradingSessionManager(paper_session_path,paper_day_ledger_path,ftmo_config_path)
         self.paper_broker_ledger_path=paper_broker_ledger_path
+
+    def _post_loss_check(self, mode, trade_dict, session_check):
+        try:
+            if mode != "PAPER":
+                raise ValueError("MODE_HISTORY_NOT_BOUND")
+            state = self.paper.daily_summary()
+            streak = state["loss_streak"]
+            if (state["status"] != "OPEN" or not session_check["allowed"]
+                or state["session_id"] != session_check["session_id"]
+                or type(streak) is not int or streak < 0):
+                raise ValueError("INVALID_SESSION_STATE")
+            symbol, side = trade_dict["symbol"], trade_dict["side"]
+            if not isinstance(symbol, str) or not symbol or side not in {"BUY", "SELL"}:
+                raise ValueError("INVALID_ORDER_IDENTITY")
+            context = {}
+            evidence = None
+            if streak:
+                if self.trusted_context_provider is None:
+                    raise ValueError("NO_TRUSTED_CONTEXT_PROVIDER")
+                snapshot = self.trusted_context_provider(symbol, side, state["session_id"])
+                if (snapshot["symbol"], snapshot["side"], snapshot["session_id"]) != (symbol, side, state["session_id"]):
+                    raise ValueError("CONTEXT_IDENTITY_MISMATCH")
+                evidence = snapshot["evidence_id"]
+                if not isinstance(evidence, str) or not evidence.strip():
+                    raise ValueError("MISSING_CONTEXT_EVIDENCE")
+                observed = datetime.fromisoformat(snapshot["observed_at"])
+                age = (datetime.now(UTC) - observed).total_seconds()
+                if not 0 <= age <= 60:
+                    raise ValueError("STALE_CONTEXT")
+                keys = ("m1","m5","m15","h1","trend_filter","volatility_filter","session_filter","support_resistance_filter")
+                context = {k: snapshot["context"][k] for k in keys}
+                if any(type(v) is not bool for v in context.values()):
+                    raise ValueError("INVALID_CONTEXT_FLAGS")
+            result = post_loss_gate(symbol, side, streak > 0, context)
+            return {"layer":"POST_LOSS","ok":result["status"] == "APPROVED",
+                    "reason":result["reason"],"session_id":state["session_id"],
+                    "loss_streak":streak,"context_evidence_id":evidence}
+        except Exception as exc:
+            return {"layer":"POST_LOSS","ok":False,"reason":"POST_LOSS_PROVENANCE_BLOCK",
+                    "error_type":type(exc).__name__}
 
     def submit_order(self, mode, trade_dict, regime_report, genome):
         if mode in LIVE_MODE_TO_ACTION:
@@ -50,10 +92,14 @@ class ExecutionGateway:
         if mode=="PAPER" and not session_check["allowed"]:
             return write_execution_ledger({"mode":mode,"decision":"BLOCKED_PAPER_SESSION","session_check":session_check,"production":"BLOCKED","edge_claim":"NONE"},self.ledger_path)
 
+        post_loss=self._post_loss_check(mode, trade_dict, session_check)
+        if not post_loss["ok"]:
+            return write_execution_ledger({"mode":mode,"decision":"REJECT_ORDER","checks":[post_loss],"production":"BLOCKED","real_broker_routing":"DISABLED","edge_claim":"NONE"},self.ledger_path)
+        trade_dict=dict(trade_dict, loss_streak=post_loss["loss_streak"])
         trade=TradeIntent(mode="FTMO_EVALUATION_SIMULATION_MODE",symbol=trade_dict["symbol"],strategy_id=trade_dict["strategy_id"],regime=regime_report.get("regime","UNDEFINED"),entry=trade_dict["entry"],stop=trade_dict.get("stop"),target=trade_dict["target"],risk_amount=trade_dict["risk_amount"],open_risk=trade_dict.get("open_risk",0),daily_pnl=trade_dict.get("daily_pnl",0),total_pnl=trade_dict.get("total_pnl",0),daily_trades=trade_dict.get("daily_trades",0),loss_streak=trade_dict.get("loss_streak",0),session_allowed=trade_dict.get("session_allowed",True),news_blocked=trade_dict.get("news_blocked",False))
 
         rule_audit=audit_rule_application(trade_dict,self.ftmo_ruleset)
-        checks=[]
+        checks=[post_loss]
         ok,reason=self.risk.validate(trade); checks.append({"layer":"RISK","ok":ok,"reason":reason})
         fok,freason=self.ftmo.validate(trade); checks.append({"layer":"FTMO_RULESET","ok":fok and rule_audit["decision"]=="ALLOW_FTMO_SIMULATION","reason":freason,"config_hash":self.ftmo_config_valid.get("hash")})
         rok,rreason=require_defined_regime(regime_report); checks.append({"layer":"REGIME","ok":rok,"reason":rreason})
